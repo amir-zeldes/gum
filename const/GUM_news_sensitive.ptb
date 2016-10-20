@@ -144,16 +144,16 @@
           (NP (NNP Emergency) (NNP Management) (NNP Information) (NNP System)
             (CC and)
             (NNP Intelligence) (NNP System))))
-      (PRN (, ,)
-        (S
-          (VP (VBG adding)
-            (NP (DT the) (NNS words)))))
-      (`` ")
-      (FRAG (CC and)
-        (NP (NN Emergency)))
-      ('' ")
-      (PP (TO to)
-        (NP (DT the) (NN name))))
+      (, ,)
+      (S
+        (VP (VBG adding)
+          (S
+            (NP (DT the) (NNS words))
+            (`` ")
+            (NP (CC and)
+              (NP (NN Emergency) (" "))
+              (TO to)
+              (NP (DT the) (NN name)))))))
     (. .)))
 
 (ROOT
@@ -237,7 +237,7 @@
                             (VP (VBN stored)
                               (PP (IN in) (`` ")
                                 (NP (JJ approved) (NN security) (NNS cabinets))
-                                ('' ")))))))))))
+                                (" ")))))))))))
             (VP (VBD wound)
               (PRT (RP up))
               (PP (IN on)
@@ -277,7 +277,7 @@
                                 (NP (NN access))))
                             (PP (TO to)
                               (NP (NN information)))))))))))))))
-    (, ,) ('' ")
+    (, ,) (" ")
     (NP (NNP Baird))
     (VP (VBD said))
     (. .)))
@@ -304,7 +304,7 @@
       (VP (VBP take)
         (NP (NN document) (NN security))
         (ADVP (RB seriously))))
-    (, ,) ('' ")
+    (, ,) (" ")
     (NP (PRP she))
     (VP
       (VP (VBD said))
@@ -314,18 +314,19 @@
         (S
           (VP (TO to)
             (VP (VB give)
-              (NP (DT any) (JJR more) (NNS details))
-              (ADVP (RB about))
-              (SBAR
-                (WHADVP (WRB how))
-                (S
-                  (NP (DT the) (NNS papers))
-                  (VP (VBD came)
+              (NP
+                (NP (DT any) (JJR more) (NNS details))
+                (PP (IN about)
+                  (SBAR
+                    (WHADVP (WRB how))
                     (S
-                      (VP (TO to)
-                        (VP (VB be)
-                          (PP (IN on)
-                            (NP (DT a) (NN road))))))))))))))
+                      (NP (DT the) (NNS papers))
+                      (VP (VBD came)
+                        (S
+                          (VP (TO to)
+                            (VP (VB be)
+                              (PP (IN on)
+                                (NP (DT a) (NN road))))))))))))))))
     (. .)))
 
 (ROOT
@@ -432,7 +433,7 @@
                             (VP (TO to)
                               (VP (VB get)
                                 (NP (DT the) (NNS fundamentals) (NN right))))))))))))))))
-    (, ,) ('' ")
+    (, ,) (" ")
     (NP (NNP Dewar))
     (VP (VBD said))
     (. .)))
@@ -518,15 +519,17 @@
   (NP (NNS Sources)))
 
 (ROOT
-  (FRAG
-    (NP
-      (NP (`` ") (JJ Sensitive) (NN government) (NN document))
+  (SBARQ (`` ")
+    (WHNP
+      (WHNP (JJ Sensitive))
+      (NN government) (NN document))
+    (SQ
       (VP (VBN found)
         (PP (IN on)
           (FRAG
             (NP-TMP
               (NP (JJ rainy) (NNP Ottawa))
-              (NP (NN street) ('' ")))
+              (NP (NN street) (" ")))
             (: —)
             (NP
               (NP (NNP CBC.ca))
@@ -536,51 +539,47 @@
               (NP (CD 2008)))))))))
 
 (ROOT
-  (FRAG
-    (NP
-      (NP (`` ") (NN Document))
+  (S
+    (NP (`` ")
+      (NP (NN Document))
       (VP (VBN found)
-        (NP
-          (SBAR
-            (FRAG
-              (ADVP (IN on) (NN street))
-              (ADJP (RB not)
-                (SBAR
-                  (S
-                    (S
-                      (ADJP (JJ secret)))
-                    (, ,)
-                    (VP (VBP say)
-                      (NP (NNS feds) ('' "))))))
-              (: —)
-              (NP
-                (NP (DT The) (NNP Canadian) (NNP Press))
-                (, ,)
-                (NP (NNP August) (CD 15))
-                (, ,)
-                (NP (CD 2008))))))))))
+        (PP (IN on)
+          (NP
+            (NP (NN street))
+            (ADJP (RB not) (JJ secret)))))
+      (, ,))
+    (VP (VBP say)
+      (NP
+        (NP (NNS feds))
+        (PP (" ")
+          (FRAG (: —)
+            (ADVP (DT The))
+            (NP
+              (NP (NNP Canadian) (NNP Press))
+              (, ,)
+              (NP (NNP August) (CD 15))
+              (, ,)
+              (NP (CD 2008)))))))))
 
 (ROOT
-  (FRAG
-    (NP
-      (NP (`` ") (NNP Environment))
-      (SBAR
-        (FRAG
-          (ADVP (NNP Canada))
-          (ADJP
-            (ADJP
-              (NP (NN security))
-              (NP-ADV (NN report)))
-            (PP (VBN found)
-              (PP (IN on)
-                (NP (NN street) ('' ")))))
-          (: —)
-          (NP
-            (NP (NNP Toronto) (NNP Star))
-            (, ,)
-            (NP (NNP August) (CD 15))
-            (, ,)
-            (NP (CD 2008))))))))
+  (SBAR (`` ")
+    (S
+      (NP
+        (NP (NNP Environment) (NNP Canada))
+        (NP (NN security) (NN report)))
+      (VP (VBN found)
+        (PP (IN on)
+          (FRAG
+            (NP-TMP
+              (NP (NN street))
+              (NP (" ")))
+            (: —)
+            (NP
+              (NP (NNP Toronto) (NNP Star))
+              (, ,)
+              (NP (NNP August) (CD 15))
+              (, ,)
+              (NP (CD 2008)))))))))
 
 (ROOT
   (NP (NNP Peter) (NNP Zimonjic) (. .)))
@@ -590,23 +589,20 @@
     (S (`` ")
       (NP (NN MP))
       (VP (VBZ calls)
-        (NP
-          (SBAR
-            (FRAG
-              (ADVP (IN for))
-              (ADJP
-                (ADJP (NN probe))
-                (PP (IN into)
-                  (FRAG
-                    (VP (VBN misplaced)
-                      (NP (NNS documents) ('' "))))))
-              (: —)
-              (NP
-                (NP (NNP Edmonton) (NNP Sun))
-                (, ,)
-                (NP (NNP August) (CD 16))
-                (, ,)
-                (NP (CD 2008))))))))))
+        (PP (IN for)
+          (NP (NN probe)))
+        (PP (IN into)
+          (NP
+            (NP (VBN misplaced) (NNS documents))
+            (PP (" ")
+              (FRAG (: —)
+                (ADVP (NNP Edmonton))
+                (NP
+                  (NP (NNP Sun))
+                  (, ,)
+                  (NP (NNP August) (CD 16))
+                  (, ,)
+                  (NP (CD 2008)))))))))))
 
 (ROOT
   (NP (NNS Categories) (: :)))
@@ -637,3 +633,4 @@
 
 (ROOT
   (NP (NNP Archived)))
+

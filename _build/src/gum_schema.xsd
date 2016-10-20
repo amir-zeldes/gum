@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="text">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="figure"/>
+        <xs:element ref="list"/>
+        <xs:element ref="p"/>
+        <xs:element ref="quote"/>
+        <xs:element ref="s"/>
+        <xs:element ref="head"/>
+        <xs:element ref="sp"/>
+        <xs:element ref="incident"/>
+      </xs:choice>
+      <xs:attribute name="id" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="GUM_(interview|news|voyage|whow)_[a-z0-9]+"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="type" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="interview"/>
+            <xs:enumeration value="news"/>
+            <xs:enumeration value="voyage"/>
+            <xs:enumeration value="whow"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="head">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="s"/>
+      </xs:sequence>
+      <xs:attribute name="rend" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lg">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="s"/>
+      </xs:sequence>
+      <xs:attribute name="type" type="xs:string"/>
+      <xs:attribute name="n" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sp">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="s"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="list"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="p"/>
+      </xs:choice>
+      <xs:attribute name="who" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="#([A-Z][a-z]*)+"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="s">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="add"/>
+        <xs:element ref="figure"/>
+        <xs:element ref="hi"/>
+        <xs:element ref="q"/>
+        <xs:element ref="quote"/>
+        <xs:element ref="ref"/>
+        <xs:element ref="date"/>
+        <xs:element ref="gap"/>
+        <xs:element ref="incident"/>
+        <xs:element ref="l"/>
+        <xs:element ref="list"/>
+        <xs:element ref="measure"/>
+        <xs:element ref="sic"/>
+        <xs:element ref="time"/>
+      </xs:choice>
+      <xs:attribute name="type" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="decl"/>
+            <xs:enumeration value="sub"/>
+            <xs:enumeration value="imp"/>
+            <xs:enumeration value="q"/>
+            <xs:enumeration value="wh"/>
+            <xs:enumeration value="inf"/>
+            <xs:enumeration value="ger"/>
+            <xs:enumeration value="intj"/>
+            <xs:enumeration value="frag"/>
+            <xs:enumeration value="other"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="incident">
+    <xs:complexType mixed="true">
+      <xs:attribute name="type" type="xs:string" use="required"/>
+      <xs:attribute name="who" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="#([A-Z][a-z]*)+"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="date">
+    <xs:complexType mixed="true">
+      <xs:attribute name="from" type="xs:string"/>
+      <xs:attribute name="notAfter" type="xs:string"/>
+      <xs:attribute name="notBefore" type="xs:string"/>
+      <xs:attribute name="rend" type="xs:string"/>
+      <xs:attribute name="to" type="xs:string"/>
+      <xs:attribute name="when" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gap">
+    <xs:complexType mixed="true">
+      <xs:attribute name="reason" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="measure">
+    <xs:complexType mixed="true">
+      <xs:attribute name="type" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sic">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ref"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="time">
+    <xs:complexType mixed="true">
+      <xs:attribute name="from" use="required" type="xs:time"/>
+      <xs:attribute name="to" use="required" type="xs:time"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="quote">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="add"/>
+        <xs:element ref="q"/>
+        <xs:element ref="ref"/>
+        <xs:element ref="s"/>
+        <xs:element ref="sic"/>
+      </xs:choice>
+      <xs:attribute name="rend" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="figure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="caption"/>
+      </xs:sequence>
+      <xs:attribute name="rend" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="caption">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="quote"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="s"/>
+      </xs:sequence>
+      <xs:attribute name="rend"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="p">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element minOccurs="0" ref="add"/>
+        <xs:element minOccurs="0" ref="figure"/>
+        <xs:element minOccurs="0" ref="hi"/>
+        <xs:element minOccurs="0" ref="lg"/>
+        <xs:element minOccurs="0" ref="quote"/>
+        <xs:element minOccurs="0" ref="list"/>
+        <xs:element maxOccurs="unbounded" ref="s"/>
+      </xs:choice>
+      <xs:attribute name="rend"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="list">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="figure"/>
+        <xs:element ref="item"/>
+      </xs:choice>
+      <xs:attribute name="type" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="ordered"/>
+            <xs:enumeration value="unordered"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="item">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="head"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="figure"/>
+          <xs:element ref="ref"/>
+          <xs:element ref="hi"/>
+          <xs:element ref="list"/>
+          <xs:element ref="p"/>
+          <xs:element ref="s"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="n" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="add">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element maxOccurs="unbounded" ref="s"/>
+        <xs:element maxOccurs="unbounded" ref="ref"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="l">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element maxOccurs="unbounded" ref="s"/>
+        <xs:element maxOccurs="unbounded" ref="date"/>
+      </xs:choice>
+      <xs:attribute name="n" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hi">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ref"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="incident"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="lg"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="s"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="caption"/>
+      </xs:sequence>
+      <xs:attribute name="rend" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="q">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="figure"/>
+          <xs:element ref="sic"/>
+          <xs:element ref="ref"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ref">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="add"/>
+        <xs:element ref="hi"/>
+        <xs:element ref="sic"/>
+        <xs:element ref="date"/>
+      </xs:choice>
+      <xs:attribute name="target" type="xs:anyURI"/>
+      <xs:attribute name="rend" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
