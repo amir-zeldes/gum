@@ -62,6 +62,9 @@ from utils.repair_tsv import fix_tsv
 from utils.repair_rst import fix_rst
 
 
+# Check and potentially correct POS tags and lemmas based on pooled annotations
+#proof(gum_source)
+
 # Add annotations to dep/:
 #   * fresh token strings, POS tags and lemmas from xml/
 #   * generates vanilla tags in CPOS column from POS

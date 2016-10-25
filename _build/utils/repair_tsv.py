@@ -43,8 +43,10 @@ def fix_file(filename,tt_file,outdir):
 	tsv_file_name = ntpath.basename(filename)
 	tokens = []
 
+	outdir = os.path.abspath(outdir) + os.sep
 	last_good_token = ""
 	outfile = open(outdir + tsv_file_name,'wb')
+	tt_file = os.path.abspath(tt_file).replace("tsv" + os.sep,"xml"+os.sep)
 
 	with open(tt_file) as tt:
 		lines = tt.read().replace("\r","").split("\n")
