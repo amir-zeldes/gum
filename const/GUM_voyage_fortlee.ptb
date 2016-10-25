@@ -98,7 +98,7 @@
     (CC and)
     (S
       (PP (IN in)
-        (NP (JJ particular)))
+        (ADJP (JJ particular)))
       (, ,)
       (NP (EX there))
       (VP (VBZ is)
@@ -275,9 +275,10 @@
         (NP (DT the)
           (ADJP (RBR more) (JJ interesting)))
         (PP (IN of)
-          (NP (DT the) (JJ many) (JJ highrise) (JJ residential) (NNS buildings)))))
-    (PP (IN in)
-      (NP (NNP Fort) (NNP Lee)))))
+          (NP
+            (NP (DT the) (JJ many) (JJ highrise) (JJ residential) (NNS buildings))
+            (PP (IN in)
+              (NP (NNP Fort) (NNP Lee)))))))))
 
 (ROOT
   (S
@@ -346,7 +347,7 @@
                 (NP (CD 177) (NN St.)))))
           (SBAR (IN whether)
             (S
-              (NP (PRP s))
+              (NP (PRP s/he))
               (VP (MD can)
                 (VP (VB let)
                   (NP (PRP you))
@@ -397,11 +398,11 @@
         (, ,)
         (NP
           (NP (NNP Teterboro))
-          (PRN (-LRB- -LRB-)
+          (PRN (-LRB- ()
             (NAC
               (NP (JJ general) (NN aviation))
               (ADVP (RB only)))
-            (-RRB- -RRB-)))
+            (-RRB- ))))
         (, ,)
         (NP (NNP JFK))
         (CC and)
@@ -615,7 +616,7 @@
     (PP (IN For)
       (NP (JJ local) (NN transportation)
         (CC or)
-        (NN air-port) (NN station) (NNS services)))
+        (NN air-port/train) (NN station) (NNS services)))
     (, ,)
     (NP (EX there))
     (VP (VBP are)
@@ -668,9 +669,14 @@
 
 (ROOT
   (S
-    (VP (VB See)
+    (VP (VB See))))
+
+(ROOT
+  (NP
+    (NP (NNP Fort) (NNP Lee))
+    (NP
       (NP
-        (NP (NNP Fort) (NNP Lee) (NNP Historic) (NNP Park))
+        (NP (NNP Historic) (NNP Park))
         (, ,)
         (NP
           (NP (DT a) (NN reconstruction))
@@ -809,14 +815,13 @@
       (VP (VB be)
         (VP (VBN crossed)
           (PP
-            (PP (IN by)
-              (NP (NN bicycle)))
-            (CC or)
-            (PP (IN on)
-              (NP (NN foot))))
-          (PP
-            (PP (IN as))
-            (CONJP (RB well) (RB as))
+            (PP
+              (PP (IN by)
+                (NP (NN bicycle)))
+              (CC or)
+              (PP (IN on)
+                (NP (NN foot))))
+            (CONJP (RB as) (RB well) (IN as))
             (PP (IN in)
               (NP (DT a) (VBN motorized) (NN vehicle)))))))
     (. .)))
@@ -991,18 +996,19 @@
 (ROOT
   (NP
     (NP
-      (NP
-        (NP (NNP Cafasso) (POS 's))
-        (NNP Fairway) (NNP Market))
-      (NP (CD 1214)))
+      (NP (NNP Cafasso) (POS 's))
+      (NNP Fairway) (NNP Market))
     (NP
-      (NP
-        (NP (NNP Anderson) (NNP Ave))
-        (, ,)
-        (NP (CD 1) (CD 201-224-7900))
-        (, ,)
-        (NP (NN Store) (NN hours)))
-      (: :)
+      (NP (CD 1214) (NNP Anderson) (NNP Ave))
+      (, ,)
+      (NP (CD 1) (CD 201-224-7900)))
+    (. .)))
+
+(ROOT
+  (NP
+    (NP (NN Store) (NN hours))
+    (: :)
+    (NP
       (NP
         (NP (NNP Mon-Fri) (CD 08:30))
         (NP (NNP am)))
@@ -1148,3 +1154,4 @@
       (VP (VBP taste)
         (ADJP (JJ great))))
     (. .)))
+

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pepper>
+	<importer name="TreetaggerImporter" path="file:/**gum_tmp**/xml/GUM/">
+		<customization>
+			<property key="pepper.before.readMeta">meta</property>
+			<property key="treetagger.fileExtension">xml</property>
+			<property key="treetagger.input.column1">pos</property>
+			<property key="treetagger.input.column2">lemma</property>
+			<property key="treetagger.input.column3">claws5</property>
+			<property key="treetagger.input.column4">tok_func</property>
+			<property key="pepper.after.addSLayer">tei</property>
+			<property key="treetagger.input.metaTag">text</property>
+			<property key="treetagger.input.annotateAllSpansWithSpanName">true</property>
+			<property key="treetagger.input.annotateUnannotatedSpans">true</property>
+			<property key="treetagger.input.prefixElementToAttributes">true</property>
+			<property key="treetagger.input.replaceTokens">"&amp;amp;":"&amp;"</property>
+			<!-- remove annotations that always have an attribute and no content of their own -->
+			<property key="pepper.after.removeAnnos">figure;hi;s;sp</property>
+			<property key="pepper.after.addSLayer">tei</property>
+		</customization>
+	</importer>
+	<importer name="RSTImporter" path="file:/**gum_tmp**/rst/GUM/">
+		<customization>
+			<property key="rstImporter.tokenize">yes</property>
+			<property key="simpleTokenize">' '</property>
+			<property key="pepper.after.addSLayer">rst</property>
+		</customization>
+	</importer>
+	<importer name="WebannoTSVImporter" path="file:/**gum_tmp**/tsv/GUM/">
+		<customization>
+			<property key="WebannoTSV.lowerTypes">TRUE</property>
+			<property key="WebannoTSV.namespace">ref</property>
+		</customization>
+	</importer>
+	<importer name="CoNLLImporter" path="file:/**gum_tmp**/dep/GUM/">
+		<customization>
+			<property key="conll.SPOS">NONE</property> <!--POSTAG comes from XML -->
+			<property key="conll.SENTENCE">FALSE</property>
+			<property key="conll.SLEMMA">NONE</property> <!-- lemma should come from XML -->
+			<property key="pepper.after.addSLayer">dep</property>
+			<property key="pepper.after.removeAnnos">cat</property>
+			<property key="pepper.after.renameAnnos">deprel:=func</property>
+		</customization>
+	</importer>
+	<importer name="PTBImporter" path="file:/**gum_tmp**/const/GUM/">
+		<customization>
+			<property key="ptb.importer.posName">penn_pos</property>
+			<property key="ptb.importer.relationType">edge</property>
+			<property key="ptb.importer.nodeNamespace">const</property>
+			<property key="ptb.importer.edgeAnnoNamespace">const</property>
+		</customization>
+	</importer>
+	<manipulator name="Merger">
+		<property key="copyNodes">true</property>
+		<property key="firstAsBase">true</property>
+		<property key="escapeMapping">"(":"-LRB-",")":"-RRB-","[":"-LSB-","]":"-RSB-"</property> <!-- map escaped PTB tokens -->
+	</manipulator>
+	<exporter name="CoNLLCorefExporter" path="file:/**gum_target**coref/conll">
+		<customization>
+			<property key="ConllCoref.Exporter.NodeLayer">ref</property>
+			<property key="ConllCoref.Exporter.EdgeType">coref</property>
+			<property key="ConllCoref.Exporter.EdgeAnno">type=ana|coref|appos|cata</property>
+			<property key="ConllCoref.Exporter.RemoveSingletons">FALSE</property>
+		</customization>
+	</exporter>
+	<exporter name="PAULAExporter" path="file:/**gum_target**paula">
+	</exporter>
+	<exporter name="ANNISExporter" path="file:/**gum_target**annis">
+		<customization>
+			<property key="clobber.visualisation">false</property>
+		</customization>
+	</exporter>
+</pepper>
+
