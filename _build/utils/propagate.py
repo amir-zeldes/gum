@@ -222,7 +222,7 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False):
 				elif "/" in token and warn_slash_tokens:
 					print "WARN: slash found in token on line " + str(line_num) + ": " + token + "; retained as '/'"
 
-				token = token.replace("&amp;","&").replace("&gt;",">").replace("&lt;","<").replace("&apos;","'").replace("&quot;",'"')
+				token = token.replace("&amp;","&").replace("&gt;",">").replace("&lt;","<").replace("&apos;","'").replace("&quot;",'"').replace("(","-LRB-").replace(")","-RRB-")
 				item = token + "/" + tag + " "
 				out_line += item
 
