@@ -111,7 +111,7 @@ def adjudicate_claws(claws,tt,form,func):
 		else:
 			return "TO0"
 
-	if claws != "DT0":
+	if claws != "DT0" and claws != "ORD":
 		if tt == "JJ":
 			return "AJ0"
 		elif tt == "JJR":

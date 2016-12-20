@@ -87,7 +87,7 @@ def proof(gum_source, gum_target, edit=False):
 			outfile.write(output)
 			outfile.close()
 
-	print "o Proofed tags in " + str(len(xmlfiles)) + " documents" + " " *20
+	print "\no Proofed tags in " + str(len(xmlfiles)) + " documents" + " " *20
 
 
 if __name__=="__main__":
@@ -102,5 +102,9 @@ if __name__=="__main__":
 
 	gum_source = os.path.abspath(options.source.replace("/",os.sep)) + os.sep
 	gum_target = os.path.abspath(options.target.replace("/",os.sep)) + os.sep
+
+	print "="*20
+	print "Proofing POS tags"
+	print "="*20
 
 	proof(gum_source,gum_source,options.edit)
