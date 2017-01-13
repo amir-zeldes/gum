@@ -27,6 +27,7 @@ parser.add_argument("-s",dest="source",action="store",help="GUM build source dir
 parser.add_argument("-p",dest="parse",action="store_true",help="Whether to reparse constituents")
 parser.add_argument("-c",dest="claws",action="store_true",help="Whether to reassign claws5 tags")
 parser.add_argument("-v",dest="verbose_pepper",action="store_true",help="Whether to print verbose pepper output")
+parser.add_argument("-n",dest="no_pepper",action="store_true",help="No pepper conversion, just validation and file fixing")
 parser.add_argument("-i",dest="increment_version",action="store",help="A new version number to assign",default="DEVELOP")
 
 options = parser.parse_args()
@@ -105,44 +106,46 @@ else:
 		sys.exit()
 
 ## Step 3: merge and convert source formats to target formats
+if options.no_pepper:
+	print "\ni Skipping Pepper conversion"
+else:
+	print "\nStarting pepper conversion:\n" + "="*30
 
-print "\nStarting pepper conversion:\n" + "="*30
+	# Create Pepper staging erea in utils/pepper/tmp/
+	pepper_home = "utils" + os.sep + "pepper" + os.sep
+	dirs = [('xml','xml',''),('dep','conll10',''),('rst','rs3',''),('tsv','tsv','coref' + os.sep),('const','ptb','')]
+	for dir in dirs:
+		dir_name, extension, prefix = dir
+		files = glob(gum_target + prefix + dir_name + os.sep + "*" + extension)
+		pepper_tmp = pepper_home + "tmp" + os.sep
+		if not os.path.exists(pepper_tmp + dir_name + os.sep + "GUM" + os.sep):
+			os.makedirs(pepper_tmp + dir_name + os.sep + "GUM" + os.sep)
+		for file_ in files:
+			shutil.copy(file_, pepper_tmp + dir_name + os.sep + "GUM" + os.sep)
+	if not os.path.exists(gum_target + "coref" + os.sep + "conll" + os.sep):
+		os.makedirs(gum_target + "coref" + os.sep + "conll" + os.sep)
 
-# Create Pepper staging erea in utils/pepper/tmp/
-pepper_home = "utils" + os.sep + "pepper" + os.sep
-dirs = [('xml','xml',''),('dep','conll10',''),('rst','rs3',''),('tsv','tsv','coref' + os.sep),('const','ptb','')]
-for dir in dirs:
-	dir_name, extension, prefix = dir
-	files = glob(gum_target + prefix + dir_name + os.sep + "*" + extension)
 	pepper_tmp = pepper_home + "tmp" + os.sep
-	if not os.path.exists(pepper_tmp + dir_name + os.sep + "GUM" + os.sep):
-		os.makedirs(pepper_tmp + dir_name + os.sep + "GUM" + os.sep)
-	for file_ in files:
-		shutil.copy(file_, pepper_tmp + dir_name + os.sep + "GUM" + os.sep)
-if not os.path.exists(gum_target + "coref" + os.sep + "conll" + os.sep):
-	os.makedirs(gum_target + "coref" + os.sep + "conll" + os.sep)
 
-pepper_tmp = pepper_home + "tmp" + os.sep
+	try:
+		pepper_params = open("utils" + os.sep + "pepper" + os.sep + "merge_gum.pepperparams").read().replace("\r","")
+	except:
+		print "x Can't find pepper template at: "+"utils" + os.sep + "pepper" + os.sep + "merge_gum.pepperparams"+"\n  Aborting..."
+		sys.exit()
 
-try:
-	pepper_params = open("utils" + os.sep + "pepper" + os.sep + "merge_gum.pepperparams").read().replace("\r","")
-except:
-	print "x Can't find pepper template at: "+"utils" + os.sep + "pepper" + os.sep + "merge_gum.pepperparams"+"\n  Aborting..."
-	sys.exit()
-
-# Inject gum_target in pepper_params and replace os.sep with URI slash
-pepper_params = pepper_params.replace("**gum_tmp**",os.path.abspath(pepper_tmp).replace(os.sep,"/"))
-pepper_params = pepper_params.replace("**gum_target**",gum_target.replace(os.sep,"/"))
+	# Inject gum_target in pepper_params and replace os.sep with URI slash
+	pepper_params = pepper_params.replace("**gum_tmp**",os.path.abspath(pepper_tmp).replace(os.sep,"/"))
+	pepper_params = pepper_params.replace("**gum_target**",gum_target.replace(os.sep,"/"))
 
 
-# Setup metadata file
-build_date = datetime.datetime.now().date().isoformat()
-meta = open(pepper_home + "meta_template.meta").read().replace("\r","")
-meta = meta.replace("**gum_version**",options.increment_version)
-meta = meta.replace("**build_date**",build_date)
-meta_out = open(pepper_tmp + "xml" + os.sep + "GUM" + os.sep + "GUM.meta",'w')
-meta_out.write(meta)
-meta_out.close()
+	# Setup metadata file
+	build_date = datetime.datetime.now().date().isoformat()
+	meta = open(pepper_home + "meta_template.meta").read().replace("\r","")
+	meta = meta.replace("**gum_version**",options.increment_version)
+	meta = meta.replace("**build_date**",build_date)
+	meta_out = open(pepper_tmp + "xml" + os.sep + "GUM" + os.sep + "GUM.meta",'w')
+	meta_out.write(meta)
+	meta_out.close()
 
-out = run_pepper(pepper_params,options.verbose_pepper)
-print out
+	out = run_pepper(pepper_params,options.verbose_pepper)
+	print out
