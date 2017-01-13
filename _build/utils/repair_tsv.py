@@ -106,9 +106,9 @@ def fix_file(filename,tt_file,outdir):
 				out_fields = first_tsv_line[current_token]
 
 				# calculate correct char range
-				char_range = str(current_char_start) + "-" + str(current_char_start+len(current_token_text))
+				char_range = str(current_char_start) + "-" + str(current_char_start+len(current_token_text.decode("utf-8")))
 				out_fields[1] = char_range
-				current_char_start += len(current_token_text) + 1
+				current_char_start += len(current_token_text.decode("utf-8")) + 1
 
 				# rebuild token
 				out_fields[2] = unescape_xml(tokens[current_token])
