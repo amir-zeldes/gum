@@ -1,0 +1,27 @@
+<!ENTITY % paula_header SYSTEM "paula_header.dtd">
+%paula_header;
+
+<!ELEMENT multiFeatList (multiFeat*)>
+<!ATTLIST multiFeatList xmlns:xlink CDATA #IMPLIED
+		        xml:base    CDATA #IMPLIED
+		        type        (multiFeat) #REQUIRED
+>
+
+<!-- alternatively: list specific features:
+<!ATTLIST featList xmlns:xlink CDATA #IMPLIED
+		   xml:base    CDATA #IMPLIED
+		   type        (pos|lemma|morph|animacy|breaks|class|contrast|focus|given|const|cat|function|func) #REQUIRED
+> -->
+
+
+<!ELEMENT multiFeat (feat*)>
+<!ATTLIST multiFeat id     ID    #IMPLIED
+               xlink:href  CDATA #REQUIRED
+               xmlns:xlink CDATA #IMPLIED
+>
+
+<!ELEMENT feat EMPTY>
+<!ATTLIST feat id          ID    #IMPLIED
+               name        CDATA #REQUIRED
+               value       CDATA #REQUIRED
+>
