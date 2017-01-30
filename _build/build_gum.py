@@ -47,13 +47,19 @@ setup_directories(gum_source,gum_target)
 ## Step 1:
 ######################################
 # validate input for further steps
-from utils.validate import validate_src
+from utils.validate import validate_src, validate_annos
 
 print "="*20
 print "Validating files..."
 print "="*20 + "\n"
 
 validate_src(gum_source)
+
+print "="*25
+print "Validating annotations..."
+print "="*25 + "\n"
+
+validate_annos(gum_source)
 
 ######################################
 ## Step 2: propagate annotations

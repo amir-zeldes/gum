@@ -1,6 +1,6 @@
 import os, ntpath, sys
 import shutil
-import glob
+from glob import glob
 import re
 import xml.etree.ElementTree as ET
 
@@ -62,7 +62,7 @@ def validate_src(gum_source):
 		dir_name = gum_source + dir[0]
 		dir_ext = dir[1]
 		filenames = []
-		for filename in glob.glob(dir_name + os.sep + '*.' + dir_ext):
+		for filename in glob(dir_name + os.sep + '*.' + dir_ext):
 			basename = ntpath.basename(filename)
 			filename_validate = re.match(r'(\w+)\.' + dir_ext, basename)
 			if filename_validate is None:
@@ -198,3 +198,68 @@ def validate_src(gum_source):
 		print "i WARN: module lxml is not installed"
 		print "i Skipping XSD validation of XML files"
 		print "i (to fix this warning: pip install lxml)"
+
+def validate_annos(gum_source):
+	xml_source = gum_source + "xml" + os.sep
+
+	xmlfiles = glob(xml_source + "*.xml")
+
+	for docnum, xmlfile in enumerate(xmlfiles):
+		if "_all" in xmlfile:
+			continue
+		docname = ntpath.basename(xmlfile)
+		output = ""
+		print "\t+ " + " " * 40 + "\r",
+		print " " + str(docnum + 1) + "/" + str(len(xmlfiles)) + ":\t+ " + docname + "\r",
+
+		# Dictionaries to hold token annotations from conll10 data
+		funcs = {}
+		tokens = {}
+		parent_ids = {}
+		parents = {}
+		tok_num = 0
+
+		depfile = xmlfile.replace("xml" + os.sep, "dep" + os.sep).replace("xml", "conll10")
+		dep_lines = open(depfile).read().replace("\r", "").split("\n")
+		line_num = 0
+		sent_start = 1
+		for line in dep_lines:
+			line_num += 1
+			if "\t" in line:  # token line
+				if line.count("\t") != 9:
+					# Shouldn't be possible, since file validation is already complete
+					pass
+				else:
+					tok_num += 1
+					fields = line.split("\t")
+					funcs[tok_num] = fields[7]
+					parent_ids[tok_num] = int(fields[6]) + sent_start if fields[6] != "0" else 0
+					tokens[tok_num] = fields[1]
+			elif len(line) == 0:
+				sent_start = tok_num
+
+		for i in xrange(1,len(tokens)+1,1):
+			if parent_ids[i] == 0:
+				parents[i] = "ROOT"
+			else:
+				parents[i] = tokens[parent_ids[i]]
+
+		xml_lines = open(xmlfile).read().replace("\r", "").split("\n")
+		tok_num = 0
+
+		for line in xml_lines:
+			if "\t" in line:  # Token
+				tok_num += 1
+				func = funcs[tok_num]
+				fields = line.split("\t")
+				tok, pos, lemma = fields[0:3]
+				parent_string = parents[tok_num]
+				parent_id = parent_ids[tok_num]
+				flag_dep_warnings(tok_num, tok, pos, lemma, func, parent_string, parent_id, docname)
+
+
+def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_id, docname):
+	if func == "mwe" and id < parent_id:
+		print "WARN: back-pointing func mwe in " + docname + " token " + str(id) + " (" + tok + " <- " + parent + ")"
+
+
