@@ -2,8 +2,8 @@ import os, ntpath, sys
 import shutil
 from glob import glob
 import re
+from collections import defaultdict
 import xml.etree.ElementTree as ET
-
 
 # Function to validate list of XML files against XSD schema
 def validate_xsd(file_list, gum_source):
@@ -216,7 +216,9 @@ def validate_annos(gum_source):
 		funcs = {}
 		tokens = {}
 		parent_ids = {}
+		lemmas = {}
 		parents = {}
+		children = defaultdict(list)
 		tok_num = 0
 
 		depfile = xmlfile.replace("xml" + os.sep, "dep" + os.sep).replace("xml", "conll10")
@@ -233,7 +235,11 @@ def validate_annos(gum_source):
 					tok_num += 1
 					fields = line.split("\t")
 					funcs[tok_num] = fields[7]
-					parent_ids[tok_num] = int(fields[6]) + sent_start if fields[6] != "0" else 0
+					if fields[6] != "0":  # Root token
+						parent_ids[tok_num] = int(fields[6]) + sent_start
+						children[int(fields[6]) + sent_start].append(fields[1])
+					else:
+						parent_ids[tok_num] = 0
 					tokens[tok_num] = fields[1]
 			elif len(line) == 0:
 				sent_start = tok_num
@@ -250,16 +256,26 @@ def validate_annos(gum_source):
 		for line in xml_lines:
 			if "\t" in line:  # Token
 				tok_num += 1
+				lemmas[tok_num] = line.split("\t")[2]
+
+		tok_num = 0
+
+		for line in xml_lines:
+			if "\t" in line:  # Token
+				tok_num += 1
 				func = funcs[tok_num]
 				fields = line.split("\t")
 				tok, pos, lemma = fields[0:3]
 				parent_string = parents[tok_num]
 				parent_id = parent_ids[tok_num]
-				flag_dep_warnings(tok_num, tok, pos, lemma, func, parent_string, parent_id, docname)
+				parent_lemma = lemmas[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
+				flag_dep_warnings(tok_num, tok, pos, lemma, func, parent_string, parent_lemma, parent_id, children[tok_num], docname)
 
 
-def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_id, docname):
+def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id, children, docname):
+
 	if func == "mwe" and id < parent_id:
 		print "WARN: back-pointing func mwe in " + docname + " token " + str(id) + " (" + tok + " <- " + parent + ")"
+
 
 
