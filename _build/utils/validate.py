@@ -4,6 +4,7 @@ from glob import glob
 import re
 import xml.etree.ElementTree as ET
 
+#coding: utf-8
 
 # Function to validate list of XML files against XSD schema
 def validate_xsd(file_list, gum_source):
@@ -252,14 +253,68 @@ def validate_annos(gum_source):
 				tok_num += 1
 				func = funcs[tok_num]
 				fields = line.split("\t")
+				if len(fields) < 3:
+					print docname
 				tok, pos, lemma = fields[0:3]
 				parent_string = parents[tok_num]
 				parent_id = parent_ids[tok_num]
 				flag_dep_warnings(tok_num, tok, pos, lemma, func, parent_string, parent_id, docname)
 
-
 def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_id, docname):
-	if func == "mwe" and id < parent_id:
-		print "WARN: back-pointing func mwe in " + docname + " token " + str(id) + " (" + tok + " <- " + parent + ")"
+	# Shorthand for printing errors
+	inname = " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")"
+
+	# Uses an array to look through VB/VH verb tenses
+	temp_pos = ["", "D", "G", "N", "P", "Z"]
+	for pos_letter in temp_pos:
+		#if pos == "VB" + pos_letter and lemma != "be":		I turned these off in favor of the regex versions.
+		#	print "WARN: VB.* must be 'be'" + inname		They are otherwise identical.
+		#if pos == "VH" + pos_letter and lemma != "have":
+		#	print "WARN: VH.* must be 'have'" + inname
+
+		#I couldn't figure out how to make this one w/o an array
+		if re.search(r"have|^be$", lemma, re.IGNORECASE) is not None and pos == "VV" + pos_letter:
+			print "WARN: VV.* may not be 'be' or 'have' & not " + lemma + inname
+
+	# This is an alternate of the array version, using regex instead of arrays
+	if re.search(r"VH.*", pos, re.IGNORECASE) is not None and lemma != "have":
+		print "WARN: VH.* must be 'have' & not lemma " + lemma + inname
+	if re.search(r"VB.*", pos, re.IGNORECASE) is not None and lemma != "be":
+		print "WARN: VB.* must be 'be' & not lemma " + lemma + inname
+
+	# Finds mwe expressions that are pointing backwards.
+	if func == 'mwe' and id < parent_id:
+		print "WARN: back-pointing func mwe" + inname
+
+	# Finds incorrect auxpasses
+	if func == "auxpass" and lemma!= "be" and lemma != "get":
+		print "WARN: auxpass must be 'be' or 'get'" + inname
+
+	# Finds mistagged negs, but does not take non-ASCII apostrophes.
+	if re.search(r"never|not|no|n't", tok, re.IGNORECASE) is None and func == "neg":
+		print "WARN: mistagged neg " + tok + inname
+
+		# None of what follows works.
+		# bad_apostrophe = u"\u2019"
+		# if bad_apostrophe not in tok:
+		#	print "WARN: mistagged neg" + inname
+		# else:
+		#	print "This is a " + u"\u2019" + inname
+
+	# Finds tokens with the lemma "be" in which the function is not listed in temp_func
+	temp_func = ["cop", "aux", "root", "csubj", "auxpass"]		# I'm certain this can be done more efficiently.
+	temp_var = 0												# Also, this returns a loooooooot of results.
+	if temp_var < 5 :											# Should it?
+		for temp_dep in temp_func:
+			if lemma == "be" and func == temp_dep:	# If the dep is correct , then the loop ends.
+				temp_var = temp_var + 6
+			if lemma == "be" and func != temp_dep:
+				temp_var = temp_var + 1				# The statement increases one time for each possible dep.
+	if temp_var == 5:								# If the dep is ultimately incorrect, the print statement triggers.
+		print "WARN: invalid dependency of lemma 'be' > " + func + inname
+
+	# Finds mistagged aux functions
+	if func == "aux" and lemma != "be" and lemma != "have" and lemma !="do" and pos!="MD" and pos!="TO":
+		print "WARN: aux must be modal, 'be,' 'have,' or 'do'" + inname
 
 
