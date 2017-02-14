@@ -217,8 +217,10 @@ def validate_annos(gum_source):
 		tokens = {}
 		parent_ids = {}
 		lemmas = {}
+		sent_types = {}
 		parents = {}
 		children = defaultdict(list)
+		child_funcs = defaultdict(list)
 		tok_num = 0
 
 		depfile = xmlfile.replace("xml" + os.sep, "dep" + os.sep).replace("xml", "conll10")
@@ -238,6 +240,7 @@ def validate_annos(gum_source):
 					if fields[6] != "0":  # Root token
 						parent_ids[tok_num] = int(fields[6]) + sent_start
 						children[int(fields[6]) + sent_start].append(fields[1])
+						child_funcs[int(fields[6]) + sent_start].append(fields[7])
 					else:
 						parent_ids[tok_num] = 0
 					tokens[tok_num] = fields[1]
@@ -257,6 +260,10 @@ def validate_annos(gum_source):
 			if "\t" in line:  # Token
 				tok_num += 1
 				lemmas[tok_num] = line.split("\t")[2]
+			else:
+				m = re.search(r's type="([^"]+)"',line)
+				if m is not None:
+					sent_types[tok_num] = m.group(1)
 
 		tok_num = 0
 
@@ -269,10 +276,11 @@ def validate_annos(gum_source):
 				parent_string = parents[tok_num]
 				parent_id = parent_ids[tok_num]
 				parent_lemma = lemmas[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
-				flag_dep_warnings(tok_num, tok, pos, lemma, func, parent_string, parent_lemma, parent_id, children[tok_num], docname)
+				flag_dep_warnings(tok_num, tok, pos, lemma, func, parent_string, parent_lemma, parent_id,
+								  children[tok_num], child_funcs[tok_num], sent_types[tok_num], docname)
 
 
-def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id, children, docname):
+def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id, children, child_funcs, s_type, docname):
 
 	if func == "mwe" and id < parent_id:
 		print "WARN: back-pointing func mwe in " + docname + " token " + str(id) + " (" + tok + " <- " + parent + ")"
