@@ -229,7 +229,7 @@ def validate_annos(gum_source):
 		depfile = xmlfile.replace("xml" + os.sep, "dep" + os.sep).replace("xml", "conll10")
 		dep_lines = open(depfile).read().replace("\r", "").split("\n")
 		line_num = 0
-		sent_start = 1
+		sent_start = 0
 		for line in dep_lines:
 			line_num += 1
 			if "\t" in line:  # token line
@@ -274,6 +274,8 @@ def validate_annos(gum_source):
 
 		for line in xml_lines:
 			if "\t" in line:  # Token
+				if "vavau" in docname and tok == "more":
+					pass
 				tok_num += 1
 				func = funcs[tok_num]
 				fields = line.split("\t")
@@ -289,6 +291,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 					  docname):
 	# Shorthand for printing errors
 	inname = " in " + docname + " @ token " + str(id) + " (" + parent + " -> " + tok + ")"
+
 
 	if re.search(r"VH.*", pos) is not None and lemma != "have":
 		print "WARN: VH.* must be 'have' & not lemma " + lemma + inname
@@ -345,14 +348,14 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	temp_wh = ["when", "how", "where", "why", "whenever", "while", "who", "whom", "which", "whoever", "whatever",
 			   "what", "whomever", "however"]
 
-	#if s_type == "wh" and func == "root":
-	#	tok_count = 0							#This is meant to keep it from printing an error for every token.
-	#	if tok.lower() not in temp_wh:
-	#		for wh in children:
-	#			if re.search(r"when|how|where|why|whenever|while|who.*|which|what.*", wh, re.IGNORECASE) is None:
-	#				tok_count += 1
-	#		if tok_count == len(children):
-	#			print "WARN: wh root must have wh child" + inname
+	if s_type == "wh" and func == "root":
+		tok_count = 0							#This is meant to keep it from printing an error for every token.
+		if tok.lower() not in temp_wh:
+			for wh in children:
+				if re.search(r"when|how|where|why|whenever|while|who.*|which|what.*", wh, re.IGNORECASE) is None:
+					tok_count += 1
+			if tok_count == len(children):
+				print "WARN: wh root must have wh child" + inname
 
 	if s_type == "q" and func == "root":
 		for wh in children:
