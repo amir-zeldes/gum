@@ -229,7 +229,7 @@ def validate_annos(gum_source):
 		depfile = xmlfile.replace("xml" + os.sep, "dep" + os.sep).replace("xml", "conll10")
 		dep_lines = open(depfile).read().replace("\r", "").split("\n")
 		line_num = 0
-		sent_start = 1
+		sent_start = 0
 		for line in dep_lines:
 			line_num += 1
 			if "\t" in line:  # token line
@@ -274,6 +274,8 @@ def validate_annos(gum_source):
 
 		for line in xml_lines:
 			if "\t" in line:  # Token
+				if "vavau" in docname and tok == "more":
+					pass
 				tok_num += 1
 				func = funcs[tok_num]
 				fields = line.split("\t")
@@ -288,9 +290,9 @@ def validate_annos(gum_source):
 def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id, children, child_funcs, s_type,
 					  docname):
 	# Shorthand for printing errors
-	inname = " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")"
+	inname = " in " + docname + " @ token " + str(id) + " (" + parent + " -> " + tok + ")"
 
-	# This is an alternate of the array version, using regex instead of arrays
+
 	if re.search(r"VH.*", pos) is not None and lemma != "have":
 		print "WARN: VH.* must be 'have' & not lemma " + lemma + inname
 	if re.search(r"VB.*", pos) is not None and lemma != "be":
@@ -300,33 +302,62 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if re.search(r"VV.*", pos) is not None and lemma == "have":
 		print "WARN: VV.* must not be 'have'" + inname
 
-	# Finds mwe expressions that are pointing backwards.
 	if func == 'mwe' and id < parent_id:
-		print "WARN: back-pointing func mwe" + inname
+		print "WARN: back-pointing func mwe" + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")"
 
-	# Finds incorrect auxpasses
 	if func == "auxpass" and lemma!= "be" and lemma != "get":
 		print "WARN: auxpass must be 'be' or 'get'" + inname
 
-	# Finds mistagged negs, but does not take non-ASCII apostrophes.
-	if re.search(r"never|not|no|n't|n’t", tok, re.IGNORECASE) is None and func == "neg":
-		print "WARN: mistagged neg " + tok + inname
+	if re.search(r"never|not|no|n't|n’t|’t|'t", tok, re.IGNORECASE) is None and func == "neg":
+		print "WARN: mistagged negative" + inname
 
-		# None of what follows works.
-		# bad_apostrophe = u"\u2019"
-		# if bad_apostrophe not in tok:
-		#	print "WARN: mistagged neg" + inname
-		# else:
-		#	print "This is a " + u"\u2019" + inname
-
-	# Finds tokens with the lemma "be" in which the function is not listed in be_func
 	be_funcs = ["cop", "aux", "root", "csubj", "auxpass", "rcmod", "ccomp", "advcl", "conj","xcomp","parataxis","vmod","pcomp"]
 	if lemma == "be" and func not in be_funcs:
 		print "WARN: invalid dependency of lemma 'be' > " + func + inname
 
-	# Finds mistagged aux functions
 	if func == "aux" and lemma != "be" and lemma != "have" and lemma !="do" and pos!="MD" and pos!="TO":
 		print "WARN: aux must be modal, 'be,' 'have,' or 'do'" + inname
 
-	if re.search(r"n’t|n`t|[’`](s|ve|d|ll|m|re|t)", lemma, re.IGNORECASE) is not None:
-		print "WARN: non-ASCII apostrophe in lemma" + inname
+	if re.search(r"“|”|…|n’t|n`t|[’`](s|ve|d|ll|m|re|t)", lemma, re.IGNORECASE) is not None:
+		print "WARN: non-ASCII character in lemma" + inname
+
+	mwe_pairs = [("accord", "to"), ("all","but"), ("as","if"), ("as", "well"), ("as", "as"), ("as","oppose"),("as","to"),
+				 ("at","least"),("because","of"),("due","to"),("had","better"),("'d","better"),("in","between"),
+				 ("in","case"),("in","of"), ("in","order"),("instead","of"), ("kind","of"),("less","than"),("let","alone"),
+				 ("more","than"),("not","to"),("not","mention"),("of","course"),("prior","to"),("rather","than"),("so","as"),
+				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("that","is"), ("up","to"),("whether","or"),
+				 ("whether","not")]
+	if func == "mwe":
+		if (parent_lemma, lemma) not in mwe_pairs:
+			print "WARN: mistagged mwe" + inname
+
+	#if pos != "CD" and "quantmod" in child_funcs:
+	#	print "WARN: quantmod must be cardinal number" + inname
+
+	if tok == "sort" or tok == "kind":
+		if "det" in child_funcs and "mwe" in child_funcs:
+			print "WARN: mistagged mwe" + inname
+
+	if tok == "rather" and "mwe" in child_funcs and func != "cc":
+		print "WARN: 'rather than' mwe must be cc" + inname
+
+	if s_type == "imp" or s_type == "frag" or s_type == "ger" or s_type == "inf":
+		if func == "root" and "nsubj" in child_funcs:
+			print "WARN: " + s_type + " root may not have nsubj" + inname
+
+	temp_wh = ["when", "how", "where", "why", "whenever", "while", "who", "whom", "which", "whoever", "whatever",
+			   "what", "whomever", "however"]
+
+	if s_type == "wh" and func == "root":
+		tok_count = 0							#This is meant to keep it from printing an error for every token.
+		if tok.lower() not in temp_wh:
+			for wh in children:
+				if re.search(r"when|how|where|why|whenever|while|who.*|which|what.*", wh, re.IGNORECASE) is None:
+					tok_count += 1
+			if tok_count == len(children):
+				print "WARN: wh root must have wh child" + inname
+
+	if s_type == "q" and func == "root":
+		for wh in children:
+			if wh in temp_wh:
+				print "WARN: q root may not have wh child " + wh + inname
