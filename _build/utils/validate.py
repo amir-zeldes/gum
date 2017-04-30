@@ -7,6 +7,28 @@ import re
 from collections import defaultdict
 import xml.etree.ElementTree as ET
 
+class Markable:
+	def __init__(self):
+		self.start = 0
+		self.end = 0
+		self.text = ""
+		self.entity = ""
+		self.infstat = ""
+		self.antecedent = ""
+		self.coref_type = ""
+		self.anaphor = ""
+		self.anaphor_type =""
+
+class rstNode:
+	def __init__(self):
+		self.id = 0
+		self.text = ""
+		self.rel = ""
+		self.parent = 0
+		self.start = 0
+		self.end = 0
+		self.type = ""
+
 
 # Function to validate list of XML files against XSD schema
 def validate_xsd(file_list, gum_source):
@@ -287,6 +309,173 @@ def validate_annos(gum_source):
 								  children[tok_num], child_funcs[tok_num], sent_types[tok_num], docname)
 
 
+		# Validate WebAnno TSV data
+		coref_file = xmlfile.replace("xml" + os.sep, "tsv" + os.sep).replace("xml", "tsv")
+		coref_lines = open(coref_file).read().replace("\r", "").split("\n")
+
+		markables = {}
+		antecedents = {}
+
+		for line in coref_lines:
+			if "\t" in line:  # Token
+				fields = line.strip().split("\t")
+				entity_str, infstat_str, coref_str, src_str = fields[-4:]
+				if entity_str != "":  # Entity annotation found
+					entities = entity_str.split("|")
+					infstats = infstat_str.split("|")
+					corefs = coref_str.split("|")
+					srcs = src_str.split("|")
+					tok_id = fields[0]
+					text = fields[2]
+					for i, entity in enumerate(entities):
+						infstat = infstats[i]
+						if isinstance(corefs,list):
+							coref = corefs[i] if i < len(corefs) else corefs[-1]
+							src = srcs[i] if i < len(srcs) else srcs[-1]
+						else:
+							coref = corefs
+							src = srcs
+						if not entity.endswith("]"):
+							# Single token entity
+							id = tok_id
+						else:
+							id = re.search(r'\[([0-9]+)\]',entity).group(1)
+							entity = re.sub(r'\[[^\]]+\]',"",entity)
+							infstat = re.sub(r'\[[^\]]+\]',"",infstat)
+							coref = re.sub(r'\[[^\]]+\]', "", coref)
+						if id not in markables:
+							markables[id] = Markable()
+							markables[id].start = tok_id
+						markables[id].text += " " + text
+						markables[id].end = tok_id
+						markables[id].entity = entity
+						markables[id].anaphor = src
+						markables[id].infstat = infstat
+						markables[id].anaphor_type = coref
+
+		for mark_id in markables:
+			mark = markables[mark_id]
+			mark.text = mark.text.strip()
+			src = mark.anaphor
+			src_tok = re.sub(r'\[.*', '', src)
+			if "[" in src:
+				target = re.search(r'_([0-9]+)\]', src).group(1)
+				if target == mark_id:
+					if "[0_" in src:  # source is single token markable
+						antecedents[src_tok] = mark_id
+					else:  # source is a multi-token markable
+						src_id = re.search(r'\[([0-9]+)_', src).group(1)
+						antecedents[src_id] = mark_id
+			else:  # source and target are single tokens
+				antecedents[src_tok] = mark_id
+
+		for anaphor in antecedents:
+			if anaphor != "_":
+				markables[anaphor].antecedent = markables[antecedents[anaphor]]
+				markables[anaphor].coref_type = markables[antecedents[anaphor]].anaphor_type
+
+		for mark_id in markables:
+			flag_mark_warnings(markables[mark_id], docname)
+
+		# Validate RST data
+		rst_file = xmlfile.replace("xml" + os.sep, "rst" + os.sep).replace("xml", "rs3")
+		rst_lines = open(rst_file).read().replace("\r", "").split("\n")
+
+		nodes = {}
+		children = defaultdict(list)
+
+		for line in rst_lines:
+			m = re.search(r'<segment id="([0-9]+)" parent="([0-9]+)" relname="([^"]+)">([^<]+)',line)  # EDU segment
+			if m is not None:
+				node = rstNode()
+				node.id = int(m.group(1))
+				node.parent = int(m.group(2))
+				node.rel = m.group(3)
+				node.type = "edu"
+				node.text = m.group(4)
+				node.left = node.id
+				node.right = node.id
+				nodes[node.id] = node
+			m = re.search(r'<group id="([0-9]+)" type="([^"]+)" parent="([0-9]+)" relname="([^"]+)"',line)  # group
+			if m is not None:
+				node = rstNode()
+				node.id = int(m.group(1))
+				node.parent = int(m.group(3))
+				node.rel = m.group(4)
+				node.type = m.group(2)
+				nodes[node.id] = node
+			m = re.search(r'<group id="([0-9]+)" type="([^"]+)"', line)
+			if m is not None and "parent" not in line:  # ROOT
+				node = rstNode()
+				node.id = int(m.group(1))
+				node.parent = 0
+				node.type = m.group(2)
+				nodes[node.id] = node
+
+
+		for node in nodes:
+			children[nodes[node].parent].append(node)
+
+		flag_rst_warnings(nodes,children,docname)
+
+
+def flag_rst_warnings(nodes,children,docname):
+	for node in children:
+		if node > 0:
+			if nodes[node].type=="span":
+				if len(children[node]) == 1:
+					if nodes[children[node][0]].type == "span" and len(children[children[node][0]])==1:
+						print "WARN: RST span with single span child in " + docname + " (node "+ str(nodes[node].id) +")"
+
+	for node in children:
+		if node > 0:
+			if nodes[node].type != "multinuc":
+				if len(children[node])>1:
+					found_children = 0
+					for child in children[node]:
+						if nodes[child].rel != "span":
+							found_children += 1
+					if found_children > 1:
+						print "WARN: RST non-multinuc with multiple non-span children in " + docname + " (node "+ str(nodes[node].id) +")"
+
+
+
+def flag_mark_warnings(mark, docname):
+	inname = " in " + docname
+
+	# General checks for all markables
+	if isinstance(mark.antecedent,Markable):
+		if mark.infstat == "new" and mark.coref_type != "bridge":
+			print "WARN: new markable has an antecedent"+inname + ", " + mark.start + "=" + mark.entity + " -> " + \
+				  mark.antecedent.start + "=" + mark.antecedent.entity + \
+				  " (" + truncate(mark.text) + "->" + truncate(mark.antecedent.text) +")"
+
+	# Inspect markables that have antecedents
+	# if isinstance(mark.antecedent,Markable): // We don't need a second statement for this, do we?
+		if mark.antecedent.entity != mark.entity and mark.coref_type != "bridge":
+			print "WARN: coref clash" +inname + ", " + mark.start + "=" + mark.entity + " -> " + \
+				  mark.antecedent.start + "=" + mark.antecedent.entity + \
+				  " (" + truncate(mark.text) + "->" + truncate(mark.antecedent.text) +")"
+
+	#if mark.coref_type == "ana" and mark.head.pos not in ["PRP","PRP$","DT","WP"]:
+	#	print "WARN: ana with non pronoun anaphor" +inname + ", " + mark.start + "=" + mark.entity + " " + \
+	#			  " (" + truncate(mark.text) + ")"
+
+	#if not isinstance(mark.antecedent,Markable):
+	#	if mark.infstat == "giv":
+	#		print "WARN: incorrect information status giv for markable without antecedent" +inname + ", " + mark.start + "=" + mark.entity + " " + \
+	#			  " (" + truncate(mark.text) + ")"
+
+
+
+def truncate(text):
+	words = text.split()
+	if len(words) > 5:
+		words = words[0:5]
+		words.append("...")
+	return " ".join(words)
+
+
 def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id, children, child_funcs, s_type,
 					  docname):
 	# Shorthand for printing errors
@@ -348,14 +537,14 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	temp_wh = ["when", "how", "where", "why", "whenever", "while", "who", "whom", "which", "whoever", "whatever",
 			   "what", "whomever", "however"]
 
-	if s_type == "wh" and func == "root":
-		tok_count = 0							#This is meant to keep it from printing an error for every token.
-		if tok.lower() not in temp_wh:
-			for wh in children:
-				if re.search(r"when|how|where|why|whenever|while|who.*|which|what.*", wh, re.IGNORECASE) is None:
-					tok_count += 1
-			if tok_count == len(children):
-				print "WARN: wh root must have wh child" + inname
+	#if s_type == "wh" and func == "root":
+	#	tok_count = 0							#This is meant to keep it from printing an error for every token.
+	#	if tok.lower() not in temp_wh:
+	#		for wh in children:
+	#			if re.search(r"when|how|where|why|whenever|while|who.*|which|what.*", wh, re.IGNORECASE) is None:
+	#				tok_count += 1
+	#		if tok_count == len(children):
+	#			print "WARN: wh root must have wh child" + inname
 
 	if s_type == "q" and func == "root":
 		for wh in children:
