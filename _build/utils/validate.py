@@ -1,10 +1,7 @@
-# -*- coding: utf-8 -*-
-
 import os, ntpath, sys
 import shutil
-from glob import glob
+import glob
 import re
-from collections import defaultdict
 import xml.etree.ElementTree as ET
 
 class Markable:
@@ -41,8 +38,8 @@ def validate_xsd(file_list, gum_source):
 	schema = etree.XMLSchema(schema_root)
 
 	for docnum, xml_file in enumerate(file_list):
-		print "\t+ " + " " * 40 + "\r",
-		print " " + str(docnum + 1) + "/" + str(len(file_list)) + ":\t+ Validating " + xml_file + "\r",
+		print "\t+ " + " "*40 + "\r",
+		print " " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Validating " + xml_file + "\r",
 
 		try:
 			with open(gum_source + "xml" + os.sep + xml_file, 'r') as f:
@@ -54,12 +51,12 @@ def validate_xsd(file_list, gum_source):
 			else:
 				errors += "\n" + xml_file + " has errors:\n"
 				for err in schema.error_log.filter_from_errors():
-					err_match = re.search(r'\.xml:([0-9]+).*?: (.*)', str(err))
+					err_match = re.search(r'\.xml:([0-9]+).*?: (.*)',str(err))
 					if err_match is not None:
 						errors += "  Line " + err_match.group(1) + ": " + err_match.group(2) + "\n"
 					else:
-						errors += "\n  " + err + "\n"
-	print "o " + str(valid_files) + " documents pass XSD validation" + " " * 30
+						errors += "\n  "+err + "\n"
+	print "o " + str(valid_files) + " documents pass XSD validation" + " "*30
 	if len(errors) > 0:
 		print errors
 		print "Aborting due to validation errors"
@@ -71,14 +68,14 @@ def count_tokens(e):
 	tok_count = 0
 	lines = e.text.split('\n') + e.tail.split('\n')
 	for line in lines:
-		if line.count('\t') > 0:
+		if line.count('\t') > 0	:
 			tok_count += 1
 	for child in e:
 		tok_count += count_tokens(child)
 	return tok_count
 
-
 def validate_src(gum_source):
+
 	dirs = [('xml', 'xml'), ('dep', 'conll10'), ('rst', 'rs3'), ('tsv', 'tsv')]
 
 	# check that each dir has same # and names of files (except extensions)
@@ -87,7 +84,7 @@ def validate_src(gum_source):
 		dir_name = gum_source + dir[0]
 		dir_ext = dir[1]
 		filenames = []
-		for filename in glob(dir_name + os.sep + '*.' + dir_ext):
+		for filename in glob.glob(dir_name + os.sep + '*.' + dir_ext):
 			basename = ntpath.basename(filename)
 			filename_validate = re.match(r'(\w+)\.' + dir_ext, basename)
 			if filename_validate is None:
@@ -95,25 +92,25 @@ def validate_src(gum_source):
 			else:
 				filenames.append(filename_validate.group(1))
 
-		print "Found " + str(len(filenames)) + " in " + dir_ext + "\r",
+		print "Found "+ str(len(filenames)) +" in "+ dir_ext + "\r",
 		file_lists.append(filenames)
-
+	
 	# check that filenames are the same across dirs
-	if all(len(x) == len(file_lists[0]) for x in file_lists) is False:
+	if all(len(x)==len(file_lists[0]) for x in file_lists) is False:
 		print 'x Different numbers of files in directories:'
 		for d in xrange(len(dirs)):
 			print str(dirs[d][0]) + ": " + str(len(file_lists[d]))
 		exit()
 	else:
 		for i in xrange(len(file_lists[0])):
-			same_names = all(x[i] == file_lists[0][i] for x in file_lists)
+			same_names = all(x[i]==file_lists[0][i] for x in file_lists)
 			if same_names is False:
 				print 'Different filenames:'
 				for d in xrange(len(dirs)):
 					print str(dirs[d][0]) + ": " + file_lists[d][i]
 	print "o Found " + str(len(file_lists[0])) + " documents"
 	print "o File names match"
-
+	
 	# check # of tokens
 	print "Checking identical token counts...\r",
 	all_tok_counts = []
@@ -122,24 +119,24 @@ def validate_src(gum_source):
 		filenames = file_lists[d]
 		for filename in filenames:
 			filepath = gum_source + str(dirs[d][0]) + os.sep + filename + "." + dirs[d][1]
-			# filename = os.path.abspath(filepath)
+			#filename = os.path.abspath(filepath)
 			with open(filepath) as this_file:
 				file_lines = this_file.readlines()
-
+	
 				if dirs[d][0] == 'xml':
 					tok_count = 0
 					for line in file_lines:
 						if line.count('\t') > 0:
 							tok_count += 1
 					dir_tok_counts.append(tok_count)
-
+	
 				elif dirs[d][0] == 'dep':
 					tok_count = 0
 					for line in file_lines:
 						if line.count('\t') == 9:
 							tok_count += 1
 					dir_tok_counts.append(tok_count)
-
+	
 				# rst -- use xml reader, add up space-split counts of segment.text
 				elif dirs[d][0] == 'rst':
 					tok_count = 0
@@ -151,19 +148,20 @@ def validate_src(gum_source):
 						seg_tok_count = len(segment.text.strip().split(" "))
 						tok_count += seg_tok_count
 					dir_tok_counts.append(tok_count)
-
+	
 				elif dirs[d][0] == 'tsv':
 					tok_count = 0
 					for line in file_lines:
 						if line.count('\t') > 0:
 							tok_count += 1
 					dir_tok_counts.append(tok_count)
-
+	
+	
 		all_tok_counts.append(dir_tok_counts)
 
 	token_counts_match = True
 	for i in xrange(len(all_tok_counts[0])):
-		same_count = all(x[i] == all_tok_counts[0][i] for x in all_tok_counts)
+		same_count = all(x[i]==all_tok_counts[0][i] for x in all_tok_counts)
 		if same_count is False:
 			print "x Different token counts in " + file_lists[0][i] + ":"
 			for d in xrange(len(all_tok_counts)):
@@ -171,11 +169,11 @@ def validate_src(gum_source):
 				token_counts_match = False
 	if token_counts_match:
 		print "o Token counts match across directories"
-
+	
 	# check sentences (based on tok count)
 	all_sent_lengths = []
-	sentence_dirs = [('xml', 'xml'), ('dep', 'conll10')]  # just the dirs where we check sentences
-
+	sentence_dirs = [('xml', 'xml'), ('dep', 'conll10')] # just the dirs where we check sentences
+	
 	for d in xrange(len(sentence_dirs)):
 		dir_sent_lengths = []
 		filenames = file_lists[d]
@@ -183,15 +181,15 @@ def validate_src(gum_source):
 			filepath = str(sentence_dirs[d][0]) + os.sep + filename + "." + sentence_dirs[d][1]
 			file_sent_lengths = []
 			with open(gum_source + filepath) as this_file:
-
+	
 				if sentence_dirs[d][0] == 'xml':
 					tree = ET.parse(gum_source + filepath)
 					root = tree.getroot()
 					for s in root.iter('s'):
 						sent_length = count_tokens(s)
-
+	
 						file_sent_lengths.append(sent_length)
-
+	
 				elif sentence_dirs[d][0] == 'dep':
 					file_text = this_file.read().strip() + "\n\n"
 					sentences = file_text.split('\n\n')
@@ -202,10 +200,10 @@ def validate_src(gum_source):
 							if line.count('\t') == 9:
 								sent_length += 1
 						file_sent_lengths.append(sent_length)
-
+	
 			dir_sent_lengths.append(file_sent_lengths)
 		all_sent_lengths.append(dir_sent_lengths)
-
+	
 	for i in xrange(len(all_sent_lengths[0])):
 		same_lengths = all(x[i] == all_sent_lengths[0][i] for x in all_sent_lengths)
 		if not same_lengths:
@@ -223,7 +221,7 @@ def validate_src(gum_source):
 		print "i Skipping XSD validation of XML files"
 		print "i (to fix this warning: pip install lxml)"
 
-
+    
 def validate_annos(gum_source):
 	xml_source = gum_source + "xml" + os.sep
 
@@ -296,8 +294,6 @@ def validate_annos(gum_source):
 
 		for line in xml_lines:
 			if "\t" in line:  # Token
-				if "vavau" in docname and tok == "more":
-					pass
 				tok_num += 1
 				func = funcs[tok_num]
 				fields = line.split("\t")
@@ -438,8 +434,7 @@ def flag_rst_warnings(nodes,children,docname):
 					if found_children > 1:
 						print "WARN: RST non-multinuc with multiple non-span children in " + docname + " (node "+ str(nodes[node].id) +")"
 
-
-
+            
 def flag_mark_warnings(mark, docname):
 	inname = " in " + docname
 
@@ -456,17 +451,6 @@ def flag_mark_warnings(mark, docname):
 			print "WARN: coref clash" +inname + ", " + mark.start + "=" + mark.entity + " -> " + \
 				  mark.antecedent.start + "=" + mark.antecedent.entity + \
 				  " (" + truncate(mark.text) + "->" + truncate(mark.antecedent.text) +")"
-
-	#if mark.coref_type == "ana" and mark.head.pos not in ["PRP","PRP$","DT","WP"]:
-	#	print "WARN: ana with non pronoun anaphor" +inname + ", " + mark.start + "=" + mark.entity + " " + \
-	#			  " (" + truncate(mark.text) + ")"
-
-	#if not isinstance(mark.antecedent,Markable):
-	#	if mark.infstat == "giv":
-	#		print "WARN: incorrect information status giv for markable without antecedent" +inname + ", " + mark.start + "=" + mark.entity + " " + \
-	#			  " (" + truncate(mark.text) + ")"
-
-
 
 def truncate(text):
 	words = text.split()
@@ -550,3 +534,4 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		for wh in children:
 			if wh in temp_wh:
 				print "WARN: q root may not have wh child " + wh + inname
+
