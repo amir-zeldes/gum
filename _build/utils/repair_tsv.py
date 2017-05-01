@@ -8,7 +8,7 @@ from glob import glob
 
 def equiv_tok(token):
 	replacements = {"&amp;": "&", "&gt;": ">", "&lt;": "<", "’": "'", "—": "-", "&quot;": '"', "&apos;": "'", "(":"-LRB-", ")":"-RRB-", "…":"...",
-					"“":'"',"”":'"','–':"-", "é":"e","á":"a","ó":"o","í":"i"}
+					"“":'"',"”":'"','–':"-", "é":"e","É":"E","á":"a","ó":"o","í":"i","č":"c"}
 
 	for find, replace in replacements.iteritems():
 		token = token.replace(find, replace)
