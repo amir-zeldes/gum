@@ -71,6 +71,7 @@
         <xs:element ref="figure"/>
         <xs:element ref="hi"/>
         <xs:element ref="q"/>
+        <xs:element ref="w"/>
         <xs:element ref="quote"/>
         <xs:element ref="ref"/>
         <xs:element ref="date"/>
@@ -138,6 +139,11 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="ref"/>
       </xs:sequence>
     </xs:complexType>
+  </xs:element>
+  <xs:element name="w">
+    <xs:simpleType>
+      <xs:restriction base="xs:string"/>
+    </xs:simpleType>
   </xs:element>
   <xs:element name="time">
     <xs:complexType mixed="true">
@@ -242,6 +248,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="ref"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="incident"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="w"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="lg"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="s"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="caption"/>
@@ -254,6 +261,7 @@
       <xs:sequence>
         <xs:choice minOccurs="0" maxOccurs="unbounded">
           <xs:element ref="figure"/>
+          <xs:element ref="hi"/>
           <xs:element ref="sic"/>
           <xs:element ref="ref"/>
         </xs:choice>
