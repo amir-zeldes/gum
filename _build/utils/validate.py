@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import os, ntpath, sys
-import shutil
 import glob
 import re
 import xml.etree.ElementTree as ET
+import io
+from collections import defaultdict
 
 class Markable:
 	def __init__(self):
@@ -33,21 +34,28 @@ class rstNode:
 # Function to validate list of XML files against XSD schema
 def validate_xsd(file_list, gum_source):
 	from lxml import etree
-	with open(gum_source + "gum_schema.xsd", 'r') as f:
-		schema_root = etree.XML(f.read())
+	if sys.version_info[0] < 3:
+		with open(gum_source + "gum_schema.xsd") as f:
+			schema_root = etree.XML(f.read())
+	else:
+		with io.open(gum_source + "gum_schema.xsd", encoding="utf8") as f:
+			xml = f.read()
+			schema_root = etree.XML(bytes(bytearray(xml, encoding='utf-8')))
 
 	valid_files = 0
 	errors = ""
 	schema = etree.XMLSchema(schema_root)
 
 	for docnum, xml_file in enumerate(file_list):
-		print "\t+ " + " "*40 + "\r",
-		print " " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Validating " + xml_file + "\r",
+		sys.stdout.write("\t+ " + " "*40 + "\r")
+		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Validating " + xml_file + "\r")
 
 		try:
-			with open(gum_source + "xml" + os.sep + xml_file, 'r') as f:
+			with io.open(gum_source + "xml" + os.sep + xml_file,encoding="utf8") as f:
 				root = etree.parse(f)
 				schema.validate(root)
+		except Exception as e:
+			print(e)
 		finally:
 			if len(schema.error_log.filter_from_errors()) == 0:
 				valid_files += 1
@@ -59,10 +67,10 @@ def validate_xsd(file_list, gum_source):
 						errors += "  Line " + err_match.group(1) + ": " + err_match.group(2) + "\n"
 					else:
 						errors += "\n  "+err + "\n"
-	print "o " + str(valid_files) + " documents pass XSD validation" + " "*30
+	print("o " + str(valid_files) + " documents pass XSD validation" + " "*30)
 	if len(errors) > 0:
-		print errors
-		print "Aborting due to validation errors"
+		print(errors)
+		print("Aborting due to validation errors")
 		sys.exit()
 
 
@@ -91,39 +99,39 @@ def validate_src(gum_source):
 			basename = ntpath.basename(filename)
 			filename_validate = re.match(r'(\w+)\.' + dir_ext, basename)
 			if filename_validate is None:
-				print 'x Unexpected filename: ' + filename
+				print('x Unexpected filename: ' + filename)
 			else:
 				filenames.append(filename_validate.group(1))
 
-		print "Found "+ str(len(filenames)) +" in "+ dir_ext + "\r",
+		sys.stdout.write("Found "+ str(len(filenames)) +" in "+ dir_ext + "\r")
 		file_lists.append(filenames)
 	
 	# check that filenames are the same across dirs
 	if all(len(x)==len(file_lists[0]) for x in file_lists) is False:
-		print 'x Different numbers of files in directories:'
-		for d in xrange(len(dirs)):
-			print str(dirs[d][0]) + ": " + str(len(file_lists[d]))
+		print('x Different numbers of files in directories:')
+		for d in range(len(dirs)):
+			print(str(dirs[d][0]) + ": " + str(len(file_lists[d])))
 		exit()
 	else:
-		for i in xrange(len(file_lists[0])):
+		for i in range(len(file_lists[0])):
 			same_names = all(x[i]==file_lists[0][i] for x in file_lists)
 			if same_names is False:
-				print 'Different filenames:'
-				for d in xrange(len(dirs)):
-					print str(dirs[d][0]) + ": " + file_lists[d][i]
-	print "o Found " + str(len(file_lists[0])) + " documents"
-	print "o File names match"
+				print('Different filenames:')
+				for d in range(len(dirs)):
+					print(str(dirs[d][0]) + ": " + file_lists[d][i])
+	print("o Found " + str(len(file_lists[0])) + " documents")
+	print("o File names match")
 	
 	# check # of tokens
-	print "Checking identical token counts...\r",
+	sys.stdout.write("Checking identical token counts...\r")
 	all_tok_counts = []
-	for d in xrange(len(dirs)):
+	for d in range(len(dirs)):
 		dir_tok_counts = []
 		filenames = file_lists[d]
 		for filename in filenames:
 			filepath = gum_source + str(dirs[d][0]) + os.sep + filename + "." + dirs[d][1]
 			#filename = os.path.abspath(filepath)
-			with open(filepath) as this_file:
+			with io.open(filepath,encoding="utf-8") as this_file:
 				file_lines = this_file.readlines()
 	
 				if dirs[d][0] == 'xml':
@@ -163,27 +171,27 @@ def validate_src(gum_source):
 		all_tok_counts.append(dir_tok_counts)
 
 	token_counts_match = True
-	for i in xrange(len(all_tok_counts[0])):
+	for i in range(len(all_tok_counts[0])):
 		same_count = all(x[i]==all_tok_counts[0][i] for x in all_tok_counts)
 		if same_count is False:
-			print "x Different token counts in " + file_lists[0][i] + ":"
-			for d in xrange(len(all_tok_counts)):
-				print str(dirs[d][0]) + ": " + str(all_tok_counts[d][i])
+			print("x Different token counts in " + file_lists[0][i] + ":")
+			for d in range(len(all_tok_counts)):
+				print(str(dirs[d][0]) + ": " + str(all_tok_counts[d][i]))
 				token_counts_match = False
 	if token_counts_match:
-		print "o Token counts match across directories"
+		print("o Token counts match across directories")
 	
 	# check sentences (based on tok count)
 	all_sent_lengths = []
 	sentence_dirs = [('xml', 'xml'), ('dep', 'conll10')] # just the dirs where we check sentences
 	
-	for d in xrange(len(sentence_dirs)):
+	for d in range(len(sentence_dirs)):
 		dir_sent_lengths = []
 		filenames = file_lists[d]
 		for filename in filenames:
 			filepath = str(sentence_dirs[d][0]) + os.sep + filename + "." + sentence_dirs[d][1]
 			file_sent_lengths = []
-			with open(gum_source + filepath) as this_file:
+			with io.open(gum_source + filepath,encoding="utf8") as this_file:
 	
 				if sentence_dirs[d][0] == 'xml':
 					tree = ET.parse(gum_source + filepath)
@@ -207,36 +215,36 @@ def validate_src(gum_source):
 			dir_sent_lengths.append(file_sent_lengths)
 		all_sent_lengths.append(dir_sent_lengths)
 	
-	for i in xrange(len(all_sent_lengths[0])):
+	for i in range(len(all_sent_lengths[0])):
 		same_lengths = all(x[i] == all_sent_lengths[0][i] for x in all_sent_lengths)
 		if not same_lengths:
-			print "Different sentence lengths in " + file_lists[0][i] + ":"
-			for d in xrange(len(all_sent_lengths)):
-				print str(dirs[d][0]) + ": " + str(all_sent_lengths[d][i])
+			print("Different sentence lengths in " + file_lists[0][i] + ":")
+			for d in range(len(all_sent_lengths)):
+				print(str(dirs[d][0]) + ": " + str(all_sent_lengths[d][i]))
 
 	try:
 		import lxml
-		print "Perfoming XSD validation of XML files:\r",
+		sys.stdout.write("Perfoming XSD validation of XML files:\r")
 		filenames = list(file_ + ".xml" for file_ in file_lists[0])
 		validate_xsd(filenames, gum_source)
 	except ImportError:
-		print "i WARN: module lxml is not installed"
-		print "i Skipping XSD validation of XML files"
-		print "i (to fix this warning: pip install lxml)"
+		print("i WARN: module lxml is not installed")
+		print("i Skipping XSD validation of XML files")
+		print("i (to fix this warning: pip install lxml)")
 
     
 def validate_annos(gum_source):
 	xml_source = gum_source + "xml" + os.sep
 
-	xmlfiles = glob(xml_source + "*.xml")
+	xmlfiles = glob.glob(xml_source + "*.xml")
 
 	for docnum, xmlfile in enumerate(xmlfiles):
 		if "_all" in xmlfile:
 			continue
 		docname = ntpath.basename(xmlfile)
 		output = ""
-		print "\t+ " + " " * 40 + "\r",
-		print " " + str(docnum + 1) + "/" + str(len(xmlfiles)) + ":\t+ " + docname + "\r",
+		sys.stdout.write("\t+ " + " " * 40 + "\r")
+		sys.stdout.write(" " + str(docnum + 1) + "/" + str(len(xmlfiles)) + ":\t+ " + docname + "\r")
 
 		# Dictionaries to hold token annotations from conll10 data
 		funcs = {}
@@ -273,7 +281,7 @@ def validate_annos(gum_source):
 			elif len(line) == 0:
 				sent_start = tok_num
 
-		for i in xrange(1, len(tokens) + 1, 1):
+		for i in range(1, len(tokens) + 1, 1):
 			if parent_ids[i] == 0:
 				parents[i] = "ROOT"
 			else:
@@ -424,7 +432,7 @@ def flag_rst_warnings(nodes,children,docname):
 			if nodes[node].type=="span":
 				if len(children[node]) == 1:
 					if nodes[children[node][0]].type == "span" and len(children[children[node][0]])==1:
-						print "WARN: RST span with single span child in " + docname + " (node "+ str(nodes[node].id) +")"
+						print("WARN: RST span with single span child in " + docname + " (node "+ str(nodes[node].id) +")")
 
 	for node in children:
 		if node > 0:
@@ -435,7 +443,7 @@ def flag_rst_warnings(nodes,children,docname):
 						if nodes[child].rel != "span":
 							found_children += 1
 					if found_children > 1:
-						print "WARN: RST non-multinuc with multiple non-span children in " + docname + " (node "+ str(nodes[node].id) +")"
+						print("WARN: RST non-multinuc with multiple non-span children in " + docname + " (node "+ str(nodes[node].id) +")")
 
             
 def flag_mark_warnings(mark, docname):
@@ -444,16 +452,16 @@ def flag_mark_warnings(mark, docname):
 	# General checks for all markables
 	if isinstance(mark.antecedent,Markable):
 		if mark.infstat == "new" and mark.coref_type != "bridge":
-			print "WARN: new markable has an antecedent"+inname + ", " + mark.start + "=" + mark.entity + " -> " + \
-				  mark.antecedent.start + "=" + mark.antecedent.entity + \
-				  " (" + truncate(mark.text) + "->" + truncate(mark.antecedent.text) +")"
+			print("WARN: new markable has an antecedent"+inname + ", " + mark.start + "=" + mark.entity + " -> " + \
+				  str(mark.antecedent.start) + "=" + mark.antecedent.entity + \
+				  " (" + truncate(mark.text) + "->" + truncate(mark.antecedent.text) +")")
 
 	# Inspect markables that have antecedents
 	# if isinstance(mark.antecedent,Markable): // We don't need a second statement for this, do we?
 		if mark.antecedent.entity != mark.entity and mark.coref_type != "bridge":
-			print "WARN: coref clash" +inname + ", " + mark.start + "=" + mark.entity + " -> " + \
-				  mark.antecedent.start + "=" + mark.antecedent.entity + \
-				  " (" + truncate(mark.text) + "->" + truncate(mark.antecedent.text) +")"
+			print("WARN: coref clash" +inname + ", " + mark.start + "=" + mark.entity + " -> " + \
+				  str(mark.antecedent.start) + "=" + mark.antecedent.entity + \
+				  " (" + truncate(mark.text) + "->" + truncate(mark.antecedent.text) +")")
 
 def truncate(text):
 	words = text.split()
@@ -470,32 +478,42 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 
 	if re.search(r"VH.*", pos) is not None and lemma != "have":
-		print "WARN: VH.* must be 'have' & not lemma " + lemma + inname
+		print("WARN: VH.* must be 'have' & not lemma " + lemma + inname)
 	if re.search(r"VB.*", pos) is not None and lemma != "be":
-		print "WARN: VB.* must be 'be' & not lemma " + lemma + inname
+		print("WARN: VB.* must be 'be' & not lemma " + lemma + inname)
 	if re.search(r"VV.*", pos) is not None and lemma == "be":
-		print "WARN: VV.* must not be 'be'" + inname
+		print("WARN: VV.* must not be 'be'" + inname)
 	if re.search(r"VV.*", pos) is not None and lemma == "have":
-		print "WARN: VV.* must not be 'have'" + inname
+		print("WARN: VV.* must not be 'have'" + inname)
 
 	if func == 'mwe' and id < parent_id:
-		print "WARN: back-pointing func mwe" + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")"
+		print("WARN: back-pointing func mwe" + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
 	if func == "auxpass" and lemma!= "be" and lemma != "get":
-		print "WARN: auxpass must be 'be' or 'get'" + inname
+		print("WARN: auxpass must be 'be' or 'get'" + inname)
+
+	if func == "possessive" and pos!= "POS":
+		print("WARN: possessive function must be tagged POS" + inname)
+
+	if func != "possessive" and pos== "POS":
+		print("WARN: tag POS must have function possessive" + inname)
 
 	if re.search(r"never|not|no|n't|n’t|’t|'t", tok, re.IGNORECASE) is None and func == "neg":
-		print "WARN: mistagged negative" + inname
+		print("WARN: mistagged negative" + inname)
 
 	be_funcs = ["cop", "aux", "root", "csubj", "auxpass", "rcmod", "ccomp", "advcl", "conj","xcomp","parataxis","vmod","pcomp"]
 	if lemma == "be" and func not in be_funcs:
-		print "WARN: invalid dependency of lemma 'be' > " + func + inname
+		print("WARN: invalid dependency of lemma 'be' > " + func + inname)
 
 	if func == "aux" and lemma != "be" and lemma != "have" and lemma !="do" and pos!="MD" and pos!="TO":
-		print "WARN: aux must be modal, 'be,' 'have,' or 'do'" + inname
+		print("WARN: aux must be modal, 'be,' 'have,' or 'do'" + inname)
 
 	if re.search(r"“|”|…|n’t|n`t|[’`](s|ve|d|ll|m|re|t)", lemma, re.IGNORECASE) is not None:
-		print "WARN: non-ASCII character in lemma" + inname
+		print("WARN: non-ASCII character in lemma" + inname)
+
+	if pos == "POS" and lemma != "'s":
+		print("WARN: tag POS must have lemma " +'"'+ "'s" + '"' + inname)
+
 
 	mwe_pairs = [("accord", "to"), ("all","but"), ("as","if"), ("as", "well"), ("as", "as"), ("as","oppose"),("as","to"),
 				 ("at","least"),("because","of"),("due","to"),("had","better"),("'d","better"),("in","between"),
@@ -505,21 +523,21 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 				 ("whether","not")]
 	if func == "mwe":
 		if (parent_lemma, lemma) not in mwe_pairs:
-			print "WARN: mistagged mwe" + inname
+			print("WARN: mistagged mwe" + inname)
 
 	#if pos != "CD" and "quantmod" in child_funcs:
-	#	print "WARN: quantmod must be cardinal number" + inname
+	#	print("WARN: quantmod must be cardinal number" + inname)
 
 	if tok == "sort" or tok == "kind":
 		if "det" in child_funcs and "mwe" in child_funcs:
-			print "WARN: mistagged mwe" + inname
+			print("WARN: mistagged mwe" + inname)
 
 	if tok == "rather" and "mwe" in child_funcs and func != "cc":
-		print "WARN: 'rather than' mwe must be cc" + inname
+		print("WARN: 'rather than' mwe must be cc" + inname)
 
 	if s_type == "imp" or s_type == "frag" or s_type == "ger" or s_type == "inf":
 		if func == "root" and "nsubj" in child_funcs:
-			print "WARN: " + s_type + " root may not have nsubj" + inname
+			print("WARN: " + s_type + " root may not have nsubj" + inname)
 
 	temp_wh = ["when", "how", "where", "why", "whenever", "while", "who", "whom", "which", "whoever", "whatever",
 			   "what", "whomever", "however"]
@@ -531,10 +549,10 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	#			if re.search(r"when|how|where|why|whenever|while|who.*|which|what.*", wh, re.IGNORECASE) is None:
 	#				tok_count += 1
 	#		if tok_count == len(children):
-	#			print "WARN: wh root must have wh child" + inname
+	#			print("WARN: wh root must have wh child" + inname)
 
 	if s_type == "q" and func == "root":
 		for wh in children:
 			if wh in temp_wh:
-				print "WARN: q root may not have wh child " + wh + inname
+				print("WARN: q root may not have wh child " + wh + inname)
 

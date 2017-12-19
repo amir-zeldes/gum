@@ -1,9 +1,15 @@
-import threading,os,re
-from nlp_helper import exec_via_temp
+import threading,os,re,sys
+from .nlp_helper import exec_via_temp
 import platform
+
+PY2 = sys.version_info[0] < 3
 
 def compress_pepper_out(pepper_msg,full_log=False):
 	empty_spans = 0
+
+	if not PY2:
+		pepper_msg = pepper_msg.decode("utf8")
+
 	pepper_out = pepper_msg.replace("\r", "")
 	lines = pepper_out.split("\n")
 	for line in lines:
@@ -80,15 +86,15 @@ def cycle_spinner(spinner):
 def run_pepper(pepper_params,full_log=False):
 	# Open new thread for pepper so we don't lose control of the cli
 	threads = []
-	output = [""] # Place-holder variable to get output via modification by ref
+	output = [""] # Placeholder variable to get output via modification by ref
 	t = threading.Thread(target=runner,args=(pepper_params,output))
 	threads.append(t)
 	t.start()
 	spinner = "/"
 	while t.isAlive():
 		spinner = cycle_spinner(spinner)
-		print "Pepper is working... " + spinner + "\r",
+		sys.__stdout__.write("Pepper is working... " + spinner + "\r")
 		t.join(1)
-	print " " *30
+	sys.__stdout__.write(" " *30 + "\n")
 	return compress_pepper_out(output[0],full_log)
 

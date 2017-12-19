@@ -1,23 +1,27 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import sys,platform,os
+import sys,platform,os,io
 from collections import OrderedDict
 import ntpath
 from glob import glob
+from six import iteritems
+
+PY2 = sys.version_info[0] < 3
+
 
 def equiv_tok(token):
 	replacements = {"&amp;": "&", "&gt;": ">", "&lt;": "<", "’": "'", "—": "-", "&quot;": '"', "&apos;": "'", "(":"-LRB-", ")":"-RRB-", "…":"...",
 					"“":'"',"”":'"','–':"-", "é":"e","É":"E","á":"a","ó":"o","í":"i","č":"c"}
 
-	for find, replace in replacements.iteritems():
+	for find, replace in iteritems(replacements):
 		token = token.replace(find, replace)
 	return token
 
 def unescape_xml(token):
 	replacements = {"&amp;": "&", "&gt;": ">", "&lt;": "<", "&quot;": '"', "&apos;": "'"}
 
-	for find, replace in replacements.iteritems():
+	for find, replace in iteritems(replacements):
 		token = token.replace(find, replace)
 	return token
 
@@ -30,11 +34,11 @@ def fix_tsv(gum_source, gum_target):
 
 	for docnum, filename in enumerate(file_list):
 		tt_file = filename.replace(".tsv", ".xml").replace("tsv","xml")
-		print "\t+ " + " "*60 + "\r",
-		print " " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Adjusting borders for " + ntpath.basename(filename) + "\r",
+		sys.stdout.write("\t+ " + " "*60 + "\r")
+		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Adjusting borders for " + ntpath.basename(filename) + "\r")
 		fix_file(filename,tt_file,outdir)
 
-	print "o Adjusted " + str(len(file_list)) + " WebAnno TSV files" + " " * 40
+	print("o Adjusted " + str(len(file_list)) + " WebAnno TSV files" + " " * 40)
 
 
 def fix_file(filename,tt_file,outdir):
@@ -45,11 +49,17 @@ def fix_file(filename,tt_file,outdir):
 
 	outdir = os.path.abspath(outdir) + os.sep
 	last_good_token = ""
-	outfile = open(outdir + tsv_file_name,'wb')
+	if sys.version_info[0] < 3:
+		outfile = open(outdir + tsv_file_name,'wb')
+	else:
+		outfile = open(outdir + tsv_file_name, 'w', encoding="utf8")
 	tt_file = os.path.abspath(tt_file).replace("tsv" + os.sep,"xml"+os.sep)
 
-	with open(tt_file) as tt:
-		lines = tt.read().replace("\r","").split("\n")
+	if PY2:
+		tt = open(tt_file)
+	else:
+		tt = open(tt_file,encoding="utf8")
+	lines = tt.read().replace("\r","").split("\n")
 
 	current_token = 0
 	current_sent = 1
@@ -72,8 +82,11 @@ def fix_file(filename,tt_file,outdir):
 	total_out_tokens = 0
 
 
-	with open(filename) as tsv:
-		lines = tsv.read().replace("\r","").split("\n")
+	if PY2:
+		tsv = open(filename)
+	else:
+		tsv = io.open(filename,encoding="utf8")
+	lines = tsv.read().replace("\r","").split("\n")
 
 	out_lines = OrderedDict()
 	id_mapping = {}
@@ -106,9 +119,13 @@ def fix_file(filename,tt_file,outdir):
 				out_fields = first_tsv_line[current_token]
 
 				# calculate correct char range
-				char_range = str(current_char_start) + "-" + str(current_char_start+len(current_token_text.decode("utf-8")))
+				if PY2:
+					char_range = str(current_char_start) + "-" + str(current_char_start+len(current_token_text.decode("utf-8")))
+					current_char_start += len(current_token_text.decode("utf-8")) + 1
+				else:
+					char_range = str(current_char_start) + "-" + str(current_char_start + len(current_token_text))
+				current_char_start += len(current_token_text) + 1
 				out_fields[1] = char_range
-				current_char_start += len(current_token_text.decode("utf-8")) + 1
 
 				# rebuild token
 				out_fields[2] = unescape_xml(tokens[current_token])
@@ -133,7 +150,7 @@ def fix_file(filename,tt_file,outdir):
 
 
 	edited_lines = []
-	for line_num, line in out_lines.iteritems():
+	for line_num, line in iteritems(out_lines):
 		if "\t" in line:
 			fields = line.split("\t")
 			links = fields[-2]

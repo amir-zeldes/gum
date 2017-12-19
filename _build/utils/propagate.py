@@ -3,14 +3,18 @@
 # v1.0
 
 from glob import glob
-from nlp_helper import get_claws, adjudicate_claws, parse
-import os, re
+from .nlp_helper import get_claws, adjudicate_claws, parse
+from .depedit import DepEdit
+import os, re, sys, io
 import ntpath
+from collections import defaultdict
+
+PY2 = sys.version_info[0] < 3
 
 
 def clean_tag(tag):
 	if tag == "0":
-		raise
+		raise IOError("unknown tag 0")
 	elif tag == '"':
 		return "''"
 	elif tag == "'":
@@ -42,17 +46,15 @@ def tt2vanilla(tag,token):
 
 def enrich_dep(gum_source, gum_target):
 	dep_source = gum_source + "dep" + os.sep
-	dep_target = gum_target + "dep" + os.sep
+	dep_target = gum_target + "dep" + os.sep + "stanford" + os.sep
 
 	depfiles = glob(dep_source + "*.conll10")
 
 
 	for docnum, depfile in enumerate(depfiles):
-		if "_all" in depfile:
-			continue
 		docname = ntpath.basename(depfile)
-		print "\t+ " + " "*40 + "\r",
-		print " " + str(docnum+1) + "/" + str(len(depfiles)) + ":\t+ " + docname + "\r",
+		sys.stdout.write("\t+ " + " "*40 + "\r")
+		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(depfiles)) + ":\t+ " + docname + "\r")
 		current_stype = ""
 		current_speaker = ""
 		output = ""
@@ -67,7 +69,7 @@ def enrich_dep(gum_source, gum_target):
 		tok_num = 0
 
 		xmlfile = depfile.replace("dep" + os.sep,"xml" + os.sep).replace("conll10","xml")
-		xml_lines = open(xmlfile).read().replace("\r","").split("\n")
+		xml_lines = io.open(xmlfile,encoding="utf8").read().replace("\r","").split("\n")
 		for line in xml_lines:
 			if line.startswith("<"):  # XML tag
 				if line.startswith("<s type="):
@@ -83,7 +85,7 @@ def enrich_dep(gum_source, gum_target):
 				fields = line.split("\t")
 				wordforms[tok_num], pos[tok_num], lemmas[tok_num] = fields[:3]
 
-		conll_lines = open(depfile).read().replace("\r","").split("\n")
+		conll_lines = io.open(depfile,encoding="utf8").read().replace("\r","").split("\n")
 		tok_num = 0
 		for line in conll_lines:
 			if "# speaker" in line or "# s_type" in line:
@@ -114,10 +116,19 @@ def enrich_dep(gum_source, gum_target):
 			output += line + "\n"
 
 		output = output.strip() + "\n" + "\n"
-		outfile = open(dep_target + docname,'wb')
+
+		# Attach all punctuation to the root (could also be a vocative root)
+		depedit = DepEdit()
+		depedit.add_transformation("func=/root/;func=/punct/\t#1.*#2\t#1>#2")
+		depedit.add_transformation("func=/root/;func=/punct/\t#2.*#1\t#1>#2")
+		depedit.add_transformation("func=/vocative/&head=/0/;func=/punct/\t#1.*#2\t#1>#2")
+		depedit.add_transformation("func=/vocative/&head=/0/;func=/punct/\t#2.*#1\t#1>#2")
+		output = depedit.run_depedit(output)
+
+		outfile = io.open(dep_target + docname, 'w', encoding="utf8")
 		outfile.write(output)
 		outfile.close()
-	print "o Enriched dependencies in " + str(len(depfiles)) + " documents" + " " *20
+	print("o Enriched dependencies in " + str(len(depfiles)) + " documents" + " " *20)
 
 
 def enrich_xml(gum_source, gum_target, add_claws=False):
@@ -131,8 +142,8 @@ def enrich_xml(gum_source, gum_target, add_claws=False):
 			continue
 		docname = ntpath.basename(xmlfile)
 		output = ""
-		print "\t+ " + " "*40 + "\r",
-		print " " + str(docnum+1) + "/" + str(len(xmlfiles)) + ":\t+ " + docname + "\r",
+		sys.stdout.write("\t+ " + " "*40 + "\r")
+		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(xmlfiles)) + ":\t+ " + docname + "\r")
 
 		# Dictionaries to hold token annotations from conll10 data
 		funcs = {}
@@ -140,19 +151,25 @@ def enrich_xml(gum_source, gum_target, add_claws=False):
 		tok_num = 0
 
 		depfile = xmlfile.replace("xml" + os.sep,"dep" + os.sep).replace("xml","conll10")
-		dep_lines = open(depfile).read().replace("\r","").split("\n")
+		if PY2:
+			dep_lines = open(depfile).read().replace("\r", "").split("\n")
+		else:
+			dep_lines = io.open(depfile,encoding="utf8").read().replace("\r","").split("\n")
 		line_num = 0
 		for line in dep_lines:
 			line_num += 1
 			if "\t" in line:  # token line
 				if line.count("\t") != 9:
-					print "WARN: Found line with less than 9 tabs in " + docname + " line: " + str(line_num)
+					print("WARN: Found line with less than 9 tabs in " + docname + " line: " + str(line_num))
 				else:
 					tok_num += 1
 					fields = line.split("\t")
 					funcs[tok_num] = fields[7]
 
-		xml_lines = open(xmlfile).read().replace("\r","").split("\n")
+		if PY2:
+			xml_lines = open(xmlfile).read().replace("\r", "").split("\n")
+		else:
+			xml_lines = io.open(xmlfile,encoding="utf8").read().replace("\r","").split("\n")
 		tok_num = 0
 
 		if add_claws:
@@ -177,11 +194,14 @@ def enrich_xml(gum_source, gum_target, add_claws=False):
 
 		output = output.strip() + "\n"
 
-		outfile = open(xml_target + docname,'wb')
+		if PY2:
+			outfile = open(xml_target + docname, 'wb')
+		else:
+			outfile = io.open(xml_target + docname,'w',encoding="utf8")
 		outfile.write(output)
 		outfile.close()
 
-	print "o Enriched xml in " + str(len(xmlfiles)) + " documents" + " " *20
+	print("o Enriched xml in " + str(len(xmlfiles)) + " documents" + " " *20)
 
 
 def const_parse(gum_source, gum_target, warn_slash_tokens=False):
@@ -195,8 +215,8 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False):
 			continue
 		docname = ntpath.basename(xmlfile)
 		output = ""
-		print "\t+ " + " "*40 + "\r",
-		print " " + str(docnum+1) + "/" + str(len(xmlfiles)) + ":\t+ Parsing " + docname + "\r",
+		sys.stdout.write("\t+ " + " "*40 + "\r")
+		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(xmlfiles)) + ":\t+ Parsing " + docname + "\r")
 
 		# Name for parser output file
 		constfile = const_target + docname.replace("xml", "ptb")
@@ -217,10 +237,10 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False):
 				token, tag = fields[0], fields[1]
 				tag = tt2vanilla(tag,token)
 				if " " in token:
-					print "WARN: space found in token on line " + str(line_num) + ": " + token + "; replaced by '_'"
+					print("WARN: space found in token on line " + str(line_num) + ": " + token + "; replaced by '_'")
 					token = token.replace(" ","_")
 				elif "/" in token and warn_slash_tokens:
-					print "WARN: slash found in token on line " + str(line_num) + ": " + token + "; retained as '/'"
+					print("WARN: slash found in token on line " + str(line_num) + ": " + token + "; retained as '/'")
 
 				token = token.replace("&amp;","&").replace("&gt;",">").replace("&lt;","<").replace("&apos;","'").replace("&quot;",'"').replace("(","-LRB-").replace(")","-RRB-")
 				item = token + "/" + tag + " "
@@ -234,4 +254,4 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False):
 		outfile.write(parsed)
 		outfile.close()
 
-	print "o Reparsed " + str(len(xmlfiles)) + " documents" + " " * 20
+	print("o Reparsed " + str(len(xmlfiles)) + " documents" + " " * 20)
