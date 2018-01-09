@@ -10,7 +10,8 @@ except ImportError:
 	from io import StringIO
 
 try:
-	from udapi.core.run import Run
+	from udapi.core.document import Document
+	from udapi.block.ud.fixpunct import FixPunct
 except:
 	if not PY2:
 		print("      - Unable to import module udapi.core.run -")
@@ -48,27 +49,12 @@ class Entity:
 
 
 def fix_punct(conllu_string):
-
-	# Disable redirect stdin and stdout so udapi doesn't print
-	oldstdout = os.fdopen(os.dup(sys.__stdout__.buffer.fileno()), sys.__stdout__.mode)
-	oldstdin = sys.stdin
-	io_ref = StringIO()
-	sys.__stdout__ = io_ref
-	sys.stdin = StringIO(conllu_string)
-
-	# Emulate argparser for udapi
-	args = Args()
-
-	# Run ud.FixPunct
-	runner = Run(args)
-
-	runner.execute()
-
-	fixed = sys.__stdout__.getvalue()
-	sys.__stdout__ = oldstdout
-	del io_ref
-	sys.stdin = oldstdin
-	return fixed
+	doc = Document()
+	doc.from_conllu_string(conllu_string)
+	fixpunct_block = FixPunct()
+	fixpunct_block.process_document(doc)
+	output_string = doc.to_conllu_string()
+	return output_string
 
 
 def create_ud(gum_target):
