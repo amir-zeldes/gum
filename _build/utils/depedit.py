@@ -14,12 +14,12 @@ import argparse
 import re
 from io import open as io_open
 from copy import copy, deepcopy
-import sys
+import sys, os
 from collections import defaultdict
 from glob import glob
 from six import iteritems
 
-__version__ = "DEVELOP"
+__version__ = "2.1.1"
 
 
 def escape(string,symbol_to_mask,border_marker):
@@ -138,8 +138,8 @@ class Transformation:
 			criteria = node.split("&")
 			criteria = (_crit.replace("%%%%%","&") for _crit in criteria)
 			for criterion in criteria:
-				if not re.match("(text|pos|cpos|lemma|morph|func|head|func2|head2|num|form|upostag|xpostag|feats|deprel|deps|misc)!?=/[^/=]*/",criterion):
-					if not re.match(r"position!?=/first|last|mid/",criterion):
+				if re.match("(text|pos|cpos|lemma|morph|func|head|func2|head2|num|form|upostag|xpostag|feats|deprel|deps|misc)!?=/[^/=]*/",criterion) is None:
+					if re.match(r"position!?=/(first|last|mid)/",criterion) is None:
 						report+= "Invalid node definition in column 1: " + criterion
 		for relation in self.relations:
 			if relation == "none" and len(self.relations) == 1:
@@ -437,12 +437,12 @@ class DepEdit():
 	@staticmethod
 	def test_relation(node1,node2,operator):
 		if operator == ".":
-			if int(node2.id) == int(node1.id)+1:
+			if int(float(node2.id)) == int(float(node1.id))+1:
 				return True
 			else:
 				return False
 		elif operator == ">":
-			if int(node2.head) == int(node1.id):
+			if int(float(node2.head)) == int(float(node1.id)):
 				return True
 			else:
 				return False
@@ -454,13 +454,13 @@ class DepEdit():
 					max_dist = int(m.group(2).replace(",",""))
 				else:
 					max_dist = min_dist
-				if max_dist >= int(node2.id) - int(node1.id) >= min_dist:
+				if max_dist >= int(float(node2.id)) - int(float(node1.id)) >= min_dist:
 					return True
 				else:
 					return False
 			else:
 				dist = int(m.group(1))
-				if int(node2.id) - int(node1.id) == dist:
+				if int(float(node2.id)) - int(float(node1.id)) == dist:
 					return True
 				else:
 					return False
@@ -715,10 +715,15 @@ class DepEdit():
 				tok_id = tok.id
 			elif tok.head == "0":
 				tok_head_string = "0"
-				tok_id = str(int(tok.id) - tokoffset)
+				tok_id = str(float(tok.id) - tokoffset)
 			else:
-				tok_head_string = str(int(tok.head)-tokoffset)
-				tok_id = str(int(tok.id)-tokoffset)
+				tok_head_string = str(float(tok.head)-tokoffset)
+				tok_id = str(float(tok.id)-tokoffset)
+			# Only keep decimal ID component for non-0 ellipsis IDs, e.g. 10.1 - those tokens have normal head '_'
+			tok_id = tok_id.replace(".0","")
+			tok_head_string = tok_head_string.replace(".0","")
+			if "." in tok_id:
+				tok_head_string = "_"
 			if self.input_mode == "8col":
 				output_tree += tok_id+"\t"+tok.text+"\t"+tok.lemma+"\t"+tok.pos+"\t"+tok.cpos+"\t"+tok.morph+\
 								"\t"+tok_head_string+"\t"+tok.func+"\n"
@@ -781,12 +786,12 @@ class DepEdit():
 					head_id = cols[6]
 				else:
 					super_tok = False
-					tok_id = str(int(cols[0]) + tokoffset)
+					tok_id = str(float(cols[0]) + tokoffset)
 					if cols[6] == "_":
 						sys.stderr.write("DepEdit WARN: head not set for token " + tok_id + " in " + filename + "\n")
 						head_id = str(0 + tokoffset)
 					else:
-						head_id = str(int(cols[6]) + tokoffset)
+						head_id = str(float(cols[6]) + tokoffset)
 				if len(cols) > 8:
 					# Collect token from line; note that head2 is parsed as a string, which is often "_" for monoplanar trees
 					this_tok = ParsedToken(tok_id, cols[1], cols[2], cols[3], cols[4], cols[5],head_id, cols[7].strip(), cols[8], cols[9].strip(), cols[0], [], "mid",super_tok)
@@ -799,8 +804,8 @@ class DepEdit():
 				conll_tokens.append(this_tok)
 				if not super_tok:
 					sentlength += 1
-					children[str(int(head_id) + tokoffset)].append(tok_id)
-					child_funcs[(int(head_id) + tokoffset)].append(cols[7])
+					children[str(float(head_id) + tokoffset)].append(tok_id)
+					child_funcs[(float(head_id) + tokoffset)].append(cols[7])
 				else:
 					supertok_length += 1
 
