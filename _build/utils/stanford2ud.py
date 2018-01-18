@@ -1,6 +1,7 @@
 import sys, os, ntpath, io
 from glob import glob
 from collections import defaultdict
+from .nlp_helper import ud_morph
 
 PY2 = sys.version_info[0] < 3
 
@@ -110,9 +111,13 @@ def create_ud(gum_target):
 		conll_lines = io.open(depfile,encoding="utf8").read().replace("\r","").split("\n")
 		tok_num = 0
 		processed_lines = []
+		negative = []
 		for line in conll_lines:
 			if "\t" in line:  # Token
+				tok_num += 1
 				fields = line.split("\t")
+				if fields[7] == "neg":
+					negative.append(tok_num)
 				absolute_head_id = tok_num - int(fields[0]) + int(fields[6]) if fields[6] != "0" else 0
 				if str(tok_num) in toks_to_ents:
 					for ent in sorted(toks_to_ents[str(tok_num)],key=lambda x:x.get_length(),reverse=True):
@@ -130,7 +135,29 @@ def create_ud(gum_target):
 		else:
 			punct_fixed = fix_punct(converted)
 
-		with io.open(dep_target + docname + ".conllu",'w',encoding="utf8") as f:
-			f.write(punct_fixed)
+		# Add UD morphology using CoreNLP script - we assume target/const/ already has .ptb tree files
+		utils_abs_path = os.path.dirname(os.path.realpath(__file__))
+		morphed = ud_morph(punct_fixed, docname, utils_abs_path + os.sep + ".." + os.sep + "target" + os.sep + "const" + os.sep)
+
+		if not PY2:
+			morphed = morphed.decode("ISO-8859-1").replace("\r","")  # CoreNLP returns bytes in ISO-8859-1
+
+		# Add negative polarity
+		negatived = []
+		tok_num = 0
+		for line in morphed.split("\n"):
+			if "\t" in line:
+				tok_num += 1
+				fields = line.split("\t")
+				if tok_num in negative:
+					if fields[5] == "_":
+						fields[5] = "Polarity=Neg"
+				negatived.append("\t".join(fields))
+			else:
+				negatived.append(line)
+		negatived = "\n".join(negatived)
+
+		with io.open(dep_target + docname + ".conllu",'w',encoding="utf8", newline="\n") as f:
+			f.write(negatived)
 
 	sys.__stdout__.write("o Converted " + str(len(depfiles)) + " documents to Universal Dependencies" + " " *20 + "\n")

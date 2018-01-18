@@ -1,9 +1,11 @@
 import platform, os
 
-if platform.system() == 'Linux':
+if platform.system() != 'Windows':
 	tt_path = os.path.abspath('utils/treetagger/') # Path to TreeTagger
-	tt_path = os.path.abspath('utils/stanford_parser/') # Path to Stanford Parser
+	parser_path = os.path.abspath('utils/stanford_parser/') # Path to Stanford Parser
+	core_nlp_path = "utils/core_nlp/"
 else:
-	# Alternate paths for running under Windows or Mac
-	tt_path = 'C:\\TreeTagger\\'
-	parser_path = "C:\\stanford-parser\\"
+	# Alternate paths for running under Windows
+	tt_path = 'utils\\treetagger\\'
+	parser_path = "utils\\stanford_parser"
+	core_nlp_path = "utils\\core_nlp"

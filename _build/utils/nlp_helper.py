@@ -4,7 +4,7 @@
 import tempfile
 import subprocess
 import os, re, sys
-from .paths import tt_path, parser_path
+from .paths import tt_path, parser_path, core_nlp_path
 
 PY2 = sys.version_info[0] < 3
 
@@ -156,3 +156,11 @@ def parse(sent_per_line):
 	parsed = parsed .replace("\r","")
 
 	return parsed
+
+def ud_morph(conllu_string, doc_name, const_path):
+
+	ptb_file = const_path + doc_name + ".ptb"
+
+	morph_command = ["java", "-cp", '*;', "edu.stanford.nlp.trees.ud.UniversalDependenciesFeatureAnnotator", "tempfilename", ptb_file]
+	morphed = exec_via_temp(conllu_string, morph_command, core_nlp_path)
+	return morphed
