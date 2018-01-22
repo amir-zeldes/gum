@@ -153,7 +153,10 @@ def parse(sent_per_line):
 
 	parse_command = [parser_path + os.sep + 'lexparser_eng_const_plus.bat', 'tempfilename']
 	parsed = exec_via_temp(sent_per_line, parse_command, parser_path)
-	parsed = parsed .replace("\r","")
+	if PY2:
+		parsed = parsed.replace("\r","")
+	else:
+		parsed = parsed.decode("utf8").replace("\r","")
 
 	return parsed
 

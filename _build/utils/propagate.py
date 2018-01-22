@@ -222,7 +222,7 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False):
 		constfile = const_target + docname.replace("xml", "ptb")
 
 
-		xml_lines = open(xmlfile).read().replace("\r", "").split("\n")
+		xml_lines = io.open(xmlfile, encoding="utf8").read().replace("\r", "").split("\n")
 		line_num = 0
 		out_line = ""
 
@@ -250,7 +250,7 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False):
 
 		parsed = parsed.strip() + "\n" + "\n"
 
-		outfile = open(constfile, 'wb')
+		outfile = io.open(constfile, 'w', encoding="utf8")
 		outfile.write(parsed)
 		outfile.close()
 
