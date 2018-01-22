@@ -142,7 +142,7 @@ def create_ud(gum_target):
 		if not PY2:
 			# CoreNLP returns bytes in ISO-8859-1
 			# ISO-8859-1 mangles ellipsis glyph, so replace manually
-			morphed = morphed.decode("ISO-8859-1").replace("\r","").replace("","…").replace("","“").replace("","’").replace("",'—')
+			morphed = morphed.decode("ISO-8859-1").replace("\r","").replace("","…").replace("","“").replace("","’").replace("",'—').replace("","–")
 
 		# Add negative polarity
 		negatived = []
