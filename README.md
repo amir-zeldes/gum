@@ -3,6 +3,11 @@ Repository for the Georgetown University Multilayer Corpus (GUM)
 
 This repository contains release versions of the Georgetown University Multilayer Corpus (GUM), a corpus of English texts from four text types (interviews, news, travel guides, instructional texts). The corpus is created as part of the course LING-367 (Computational Corpus Linguistics) at Georgetown University. For more details see: http://corpling.uis.georgetown.edu/gum.
 
+## Citing
+To cite this corpus, please refer to the following article:
+
+Zeldes, Amir (2017) "The GUM Corpus: Creating Multilayer Resources in the Classroom". Language Resources and Evaluation 51(3), 581–612. 
+
 ## Directories
 The corpus is downloadable in multiple formats. Not all formats contain all annotations. The most complete XML representation is in PAULA XML, and the easiest way to search in the corpus is using ANNIS. Other formats may be useful for other purposes. See website for more details.
 
