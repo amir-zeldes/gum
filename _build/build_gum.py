@@ -98,17 +98,6 @@ fix_tsv(gum_source,gum_target)
 #   * note that segment borders are not automatically adjusted around xml/ <s> elements
 fix_rst(gum_source,gum_target)
 
-# Create Universal Dependencies version
-#   * UD files will be created in <target>/dep/ud/
-#   * UD punctuation guidelines are enforced using udapi, which must be installed to work
-#   * udapi does not support Python 2, meaning punctuation will be attached to the root if using Python 2
-print("\nCreating Universal Dependencies version:\n" + "="*40)
-if PY2:
-	print("WARN: Running on Python 2 - consider upgrading to Python 3. ")
-	print("      Punctuation behavior in the UD conversion relies on udapi ")
-	print("      which does not support Python 2. All punctuation will be attached to sentence roots.\n")
-create_ud(gum_target)
-
 # Create fresh constituent parses in const/ if desired
 # (either reparse or use dep2const conversion, e.g. https://github.com/ikekonglp/PAD)
 if options.parse:
@@ -122,6 +111,18 @@ else:
 	elif len(glob(gum_target + "const" + os.sep + "*.ptb")) != len(glob(gum_target + "xml" + os.sep + "*.xml")):
 		sys.stdout.write("x parsing was set to false but xml/ and const/ contain different amounts of files! Aborting...\n")
 		sys.exit()
+
+# Create Universal Dependencies version
+#   * UD files will be created in <target>/dep/ud/
+#   * UD punctuation guidelines are enforced using udapi, which must be installed to work
+#   * udapi does not support Python 2, meaning punctuation will be attached to the root if using Python 2
+#   * UD morphology generation relies on parses already existing in <target>/const/
+print("\nCreating Universal Dependencies version:\n" + "=" * 40)
+if PY2:
+	print("WARN: Running on Python 2 - consider upgrading to Python 3. ")
+	print("      Punctuation behavior in the UD conversion relies on udapi ")
+	print("      which does not support Python 2. All punctuation will be attached to sentence roots.\n")
+create_ud(gum_target)
 
 ## Step 3: merge and convert source formats to target formats
 if options.no_pepper:
