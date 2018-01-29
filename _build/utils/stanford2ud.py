@@ -134,7 +134,7 @@ def create_ud(gum_target):
 			punct_fixed = converted
 		else:
 			punct_fixed = fix_punct(converted)
-		"""
+
 		# Add UD morphology using CoreNLP script - we assume target/const/ already has .ptb tree files
 		utils_abs_path = os.path.dirname(os.path.realpath(__file__))
 		morphed = ud_morph(punct_fixed, docname, utils_abs_path + os.sep + ".." + os.sep + "target" + os.sep + "const" + os.sep)
@@ -161,10 +161,6 @@ def create_ud(gum_target):
 
 		with io.open(dep_target + docname + ".conllu",'w',encoding="utf8", newline="\n") as f:
 			f.write(negatived)
-		"""
-		# only writes punct_fixed to ud (skipping ud_morph and negatived)
-		with io.open(dep_target + docname + ".conllu", 'w', encoding="utf8", newline="\n") as f:
-			f.write(punct_fixed)
 
 	sys.__stdout__.write("o Converted " + str(len(depfiles)) + " documents to Universal Dependencies" + " " *20 + "\n")
 
