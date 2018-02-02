@@ -505,7 +505,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	be_funcs = ["cop", "aux", "root", "csubj", "auxpass", "rcmod", "ccomp", "advcl", "conj","xcomp","parataxis","vmod","pcomp"]
 	if lemma == "be" and func not in be_funcs:
-		print("WARN: invalid dependency of lemma 'be' > " + func + inname)
+		if not parent_lemma == "that" and func=="mwe":  # Exception for 'that is' as mwe
+			print("WARN: invalid dependency of lemma 'be' > " + func + inname)
 
 	if func == "aux" and lemma != "be" and lemma != "have" and lemma !="do" and pos!="MD" and pos!="TO":
 		print("WARN: aux must be modal, 'be,' 'have,' or 'do'" + inname)
@@ -522,10 +523,11 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 				 ("in","case"),("in","of"), ("in","order"),("instead","of"), ("kind","of"),("less","than"),("let","alone"),
 				 ("more","than"),("not","to"),("not","mention"),("of","course"),("prior","to"),("rather","than"),("so","as"),
 				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("that","is"), ("up","to"),("whether","or"),
-				 ("whether","not"),("depending","on"),("out","of"),("more","than"),("on","board"),("as","of"),("depending","upon")}
+				 ("whether","not"),("depend","on"),("out","of"),("more","than"),("on","board"),("as","of"),("depend","upon"),
+				 ("that","be"),("just","about"),("vice","versa"),("as","such")}
 
 	# Ad hoc listing of triple mwe parts - All in all
-	mwe_pairs.update({("All","in"),("All","all")})
+	mwe_pairs.update({("all","in"),("all","all")})
 
 	if func == "mwe":
 		if (parent_lemma.lower(), lemma.lower()) not in mwe_pairs:
