@@ -232,6 +232,8 @@ def validate_src(gum_source):
 		print("i Skipping XSD validation of XML files")
 		print("i (to fix this warning: pip install lxml)")
 
+	validate_annos(gum_source)
+
     
 def validate_annos(gum_source):
 	xml_source = gum_source + "xml" + os.sep
@@ -258,7 +260,7 @@ def validate_annos(gum_source):
 		tok_num = 0
 
 		depfile = xmlfile.replace("xml" + os.sep, "dep" + os.sep).replace("xml", "conll10")
-		dep_lines = open(depfile).read().replace("\r", "").split("\n")
+		dep_lines = io.open(depfile,encoding="utf8").read().replace("\r", "").split("\n")
 		line_num = 0
 		sent_start = 0
 		for line in dep_lines:
@@ -287,7 +289,7 @@ def validate_annos(gum_source):
 			else:
 				parents[i] = tokens[parent_ids[i]]
 
-		xml_lines = open(xmlfile).read().replace("\r", "").split("\n")
+		xml_lines = io.open(xmlfile, encoding="utf8").read().replace("\r", "").split("\n")
 		tok_num = 0
 
 		s_type = ""
@@ -318,7 +320,7 @@ def validate_annos(gum_source):
 
 		# Validate WebAnno TSV data
 		coref_file = xmlfile.replace("xml" + os.sep, "tsv" + os.sep).replace("xml", "tsv")
-		coref_lines = open(coref_file).read().replace("\r", "").split("\n")
+		coref_lines = io.open(coref_file,encoding="utf8").read().replace("\r", "").split("\n")
 
 		markables = {}
 		antecedents = {}
@@ -386,7 +388,7 @@ def validate_annos(gum_source):
 
 		# Validate RST data
 		rst_file = xmlfile.replace("xml" + os.sep, "rst" + os.sep).replace("xml", "rs3")
-		rst_lines = open(rst_file).read().replace("\r", "").split("\n")
+		rst_lines = io.open(rst_file,encoding="utf8").read().replace("\r", "").split("\n")
 
 		nodes = {}
 		children = defaultdict(list)
@@ -515,15 +517,19 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print("WARN: tag POS must have lemma " +'"'+ "'s" + '"' + inname)
 
 
-	mwe_pairs = [("accord", "to"), ("all","but"), ("as","if"), ("as", "well"), ("as", "as"), ("as","oppose"),("as","to"),
+	mwe_pairs = {("accord", "to"), ("all","but"), ("as","if"), ("as", "well"), ("as", "as"), ("as","in"), ("as","oppose"),("as","to"),
 				 ("at","least"),("because","of"),("due","to"),("had","better"),("'d","better"),("in","between"),
 				 ("in","case"),("in","of"), ("in","order"),("instead","of"), ("kind","of"),("less","than"),("let","alone"),
 				 ("more","than"),("not","to"),("not","mention"),("of","course"),("prior","to"),("rather","than"),("so","as"),
 				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("that","is"), ("up","to"),("whether","or"),
-				 ("whether","not")]
+				 ("whether","not"),("depending","on"),("out","of"),("more","than"),("on","board"),("as","of"),("depending","upon")}
+
+	# Ad hoc listing of triple mwe parts - All in all
+	mwe_pairs.update({("All","in"),("All","all")})
+
 	if func == "mwe":
-		if (parent_lemma, lemma) not in mwe_pairs:
-			print("WARN: mistagged mwe" + inname)
+		if (parent_lemma.lower(), lemma.lower()) not in mwe_pairs:
+			print("WARN: unlisted mwe" + inname)
 
 	#if pos != "CD" and "quantmod" in child_funcs:
 	#	print("WARN: quantmod must be cardinal number" + inname)
