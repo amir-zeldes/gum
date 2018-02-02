@@ -61,10 +61,24 @@ def fix_punct(conllu_string):
 def create_ud(gum_target):
 	# Use generated enriched targets in dep/stanford/ as source
 	dep_source = gum_target + "dep" + os.sep + "stanford" + os.sep
-	dep_target = gum_target + "dep" + os.sep + "ud" + os.sep
+	dep_target = gum_target + "dep" + os.sep + "ud" + os.sep + "not-to-release" + os.sep
+	train_split_target = gum_target + "dep" + os.sep + "ud" + os.sep
 
+	if not os.path.exists(train_split_target):
+		os.makedirs(train_split_target)
 	if not os.path.exists(dep_target):
 		os.makedirs(dep_target)
+
+	ud_dev = ["GUM_interview_peres","GUM_interview_cyclone","GUM_interview_gaming",
+			   "GUM_news_iodine","GUM_news_defector","GUM_news_homeopathic",
+			   "GUM_voyage_athens","GUM_voyage_isfahan","GUM_voyage_coron",
+			   "GUM_whow_joke","GUM_whow_skittles","GUM_whow_overalls"]
+	ud_test = ["GUM_interview_mcguire","GUM_interview_libertarian","GUM_interview_hill",
+			   "GUM_news_nasa","GUM_news_expo","GUM_news_sensitive",
+			   "GUM_voyage_oakland","GUM_voyage_thailand","GUM_voyage_vavau",
+			   "GUM_whow_mice","GUM_whow_cupcakes","GUM_whow_cactus"]
+
+	train_string, dev_string, test_string = "", "", ""
 
 	depfiles = glob(dep_source + "*.conll10")
 
@@ -161,6 +175,20 @@ def create_ud(gum_target):
 
 		with io.open(dep_target + docname + ".conllu",'w',encoding="utf8", newline="\n") as f:
 			f.write(negatived)
+
+		if docname in ud_dev:
+			dev_string += negatived
+		elif docname in ud_test:
+			test_string += negatived
+		else:
+			train_string += negatived
+
+	with io.open(train_split_target + "en_gum-ud-train.conllu",'w',encoding="utf8", newline="\n") as f:
+		f.write(train_string)
+	with io.open(train_split_target + "en_gum-ud-dev.conllu",'w',encoding="utf8", newline="\n") as f:
+		f.write(dev_string)
+	with io.open(train_split_target + "en_gum-ud-test.conllu",'w',encoding="utf8", newline="\n") as f:
+		f.write(test_string)
 
 	sys.__stdout__.write("o Converted " + str(len(depfiles)) + " documents to Universal Dependencies" + " " *20 + "\n")
 

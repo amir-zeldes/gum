@@ -233,6 +233,7 @@ def validate_src(gum_source):
 		print("i (to fix this warning: pip install lxml)")
 
 	validate_annos(gum_source)
+	print("\r")
 
     
 def validate_annos(gum_source):
