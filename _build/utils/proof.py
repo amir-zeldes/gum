@@ -1,4 +1,4 @@
-import os, ntpath
+import os, ntpath, sys
 from glob import glob
 
 def proof_pos(tok, pos, lemma, func, docname, line, warn=True):
@@ -26,7 +26,7 @@ def proof_pos(tok, pos, lemma, func, docname, line, warn=True):
 		warnings += "PP$ not poss in " + docname + " on line " + str(line)
 
 	if warn and warnings != "":
-		print warnings
+		print(warnings)
 
 	return pos
 
@@ -57,7 +57,7 @@ def proof(gum_source, gum_target, edit=False):
 			line_num += 1
 			if "\t" in line:  # token line
 				if line.count("\t") != 9:
-					print "WARN: Found line with less than 9 tabs in " + docname + " line: " + str(line_num)
+					print("WARN: Found line with less than 9 tabs in " + docname + " line: " + str(line_num))
 				else:
 					tok_num += 1
 					fields = line.split("\t")
@@ -83,11 +83,14 @@ def proof(gum_source, gum_target, edit=False):
 		output = output.strip() + "\n"
 
 		if edit:
-			outfile = open(xml_target + docname,'wb')
+			if sys.version_info[0] < 3:
+				outfile = open(xml_target + docname,'wb')
+			else:
+				outfile = open(xml_target + docname, 'w', encoding="utf8")
 			outfile.write(output)
 			outfile.close()
 
-	print "\no Proofed tags in " + str(len(xmlfiles)) + " documents" + " " *20
+	print("\no Proofed tags in " + str(len(xmlfiles)) + " documents" + " " *20)
 
 
 if __name__=="__main__":
@@ -103,8 +106,8 @@ if __name__=="__main__":
 	gum_source = os.path.abspath(options.source.replace("/",os.sep)) + os.sep
 	gum_target = os.path.abspath(options.target.replace("/",os.sep)) + os.sep
 
-	print "="*20
-	print "Proofing POS tags"
-	print "="*20
+	print("="*20)
+	print("Proofing POS tags")
+	print("="*20)
 
 	proof(gum_source,gum_source,options.edit)

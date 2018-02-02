@@ -3,11 +3,17 @@
 
 import tempfile
 import subprocess
-import os, re
-from paths import tt_path, parser_path
+import os, re, sys
+from .paths import tt_path, parser_path, core_nlp_path
+
+PY2 = sys.version_info[0] < 3
+
 
 def exec_via_temp(input_text, command_params, workdir="", cat_out=False):
-	temp = tempfile.NamedTemporaryFile(delete=False)
+	if PY2:
+		temp = tempfile.NamedTemporaryFile('w',delete=False)
+	else:
+		temp = tempfile.NamedTemporaryFile('w',delete=False,encoding="utf8")
 	exec_out = ""
 	try:
 		temp.write(input_text)
@@ -31,7 +37,7 @@ def exec_via_temp(input_text, command_params, workdir="", cat_out=False):
 
 		exec_out = stdout
 	except Exception as e:
-		print e
+		print(e)
 	finally:
 		os.remove(temp.name)
 		return exec_out
@@ -41,7 +47,10 @@ def get_claws(tokens):
 
 	tag = [tt_path + 'bin' + os.sep + 'tree-tagger', tt_path + 'lib' + os.sep + 'claws5.par', '-sgml', 'tempfilename']
 	tagged = exec_via_temp(tokens, tag)
-	tagged = tagged.replace("\r","")
+	if PY2:
+		tagged = tagged.replace("\r","")
+	else:
+		tagged = tagged.decode("utf8").replace("\r", "")
 	tags = tagged.split("\n")
 	return tags
 
@@ -144,6 +153,17 @@ def parse(sent_per_line):
 
 	parse_command = [parser_path + os.sep + 'lexparser_eng_const_plus.bat', 'tempfilename']
 	parsed = exec_via_temp(sent_per_line, parse_command, parser_path)
-	parsed = parsed .replace("\r","")
+	if PY2:
+		parsed = parsed.replace("\r","")
+	else:
+		parsed = parsed.decode("utf8").replace("\r","")
 
 	return parsed
+
+def ud_morph(conllu_string, doc_name, const_path):
+
+	ptb_file = const_path + doc_name + ".ptb"
+
+	morph_command = ["java", "-cp", '*;', "edu.stanford.nlp.trees.ud.UniversalDependenciesFeatureAnnotator", "tempfilename", ptb_file]
+	morphed = exec_via_temp(conllu_string, morph_command, core_nlp_path)
+	return morphed

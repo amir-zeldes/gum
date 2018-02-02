@@ -8,10 +8,10 @@
 
 1	Tuesday	_	NP	NNP	_	0	root	_	_
 2	,	_	,	,	_	0	punct	_	_
-3	September	_	NP	NNP	_	4	nn	_	_
+3	September	_	NP	NNP	_	4	tmod	_	_
 4	22	_	CD	CD	_	1	appos	_	_
 5	,	_	,	,	_	0	punct	_	_
-6	2015	_	CD	CD	_	3	tmod	_	_
+6	2015	_	CD	CD	_	4	tmod	_	_
 
 1	News	_	NN	NN	_	16	nsubj	_	_
 2	of	_	IN	IN	_	1	prep	_	_
@@ -66,7 +66,7 @@
 24	clock	_	NN	NN	_	21	dobj	_	_
 25	he	_	PP	PRP	_	27	nsubj	_	_
 26	had	_	VHD	VBD	_	27	aux	_	_
-27	made	_	VVN	VBN	_	0	_	_	_
+27	made	_	VVN	VBN	_	13	advcl	_	_
 28	to	_	TO	TO	_	27	prep	_	_
 29	school	_	NN	NN	_	28	pobj	_	_
 30	.	_	SENT	.	_	0	punct	_	_
@@ -113,10 +113,10 @@
 14	Science	_	NP	NNP	_	15	nn	_	_
 15	Fair	_	NP	NNP	_	11	pobj	_	_
 16	—	_	:	:	_	0	punct	_	_
-17	and	_	CC	CC	_	18	cc	_	_
-18	tomorrow	_	NN	NN	_	0	_	_	_
+17	and	_	CC	CC	_	3	cc	_	_
+18	tomorrow	_	NN	NN	_	20	advmod	_	_
 19	he	_	PP	PRP	_	20	nsubj	_	_
-20	plans	_	VVZ	VBZ	_	18	rcmod	_	_
+20	plans	_	VVZ	VBZ	_	3	conj	_	_
 21	to	_	TO	TO	_	22	aux	_	_
 22	meet	_	VV	VB	_	20	xcomp	_	_
 23	international	_	JJ	JJ	_	24	amod	_	_
@@ -144,9 +144,9 @@
 1	Image	_	NN	NN	_	0	root	_	_
 2	:	_	:	:	_	0	punct	_	_
 3	Twitter	_	NP	NNP	_	1	dep	_	_
-4	/	_	SYM	SYM	_	0	_	_	_
+4	/	_	SYM	SYM	_	3	cc	_	_
 5	Barack	_	NP	NNP	_	6	nn	_	_
-6	Obama	_	NP	NNP	_	1	dep	_	_
+6	Obama	_	NP	NNP	_	1	conj	_	_
 7	.	_	SENT	.	_	0	punct	_	_
 
 1	Mohamed	_	NP	NNP	_	2	nsubj	_	_
@@ -494,8 +494,8 @@
 1	Image	_	NN	NN	_	0	root	_	_
 2	:	_	:	:	_	0	punct	_	_
 3	Twitter	_	NP	NNP	_	1	dep	_	_
-4	/	_	SYM	SYM	_	0	_	_	_
-5	NASA	_	NP	NNP	_	1	dep	_	_
+4	/	_	SYM	SYM	_	1	cc	_	_
+5	NASA	_	NP	NNP	_	1	conj	_	_
 6	.	_	SENT	.	_	0	punct	_	_
 
 1	US	_	JJ	JJ	_	4	amod	_	_
@@ -513,36 +513,39 @@
 2	Cool	_	JJ	_	_	3	amod	_	_
 3	clock	_	NN	_	_	0	root	_	_
 4	,	_	,	_	_	0	punct	_	_
-5	Ahmed	_	NP	_	_	3	appos	_	_
+5	Ahmed	_	NP	_	_	3	vocative	_	_
 6	.	_	SENT	_	_	0	punct	_	_
-7	Want	_	VV	_	_	5	rcmod	_	_
+
+1	Want	_	VV	_	_	0	root	_	_
+2	to	_	TO	_	_	3	aux	_	_
+3	bring	_	VV	_	_	1	xcomp	_	_
+4	it	_	PP	_	_	3	dobj	_	_
+5	to	_	TO	_	_	3	prep	_	_
+6	the	_	DT	_	_	8	det	_	_
+7	White	_	NP	_	_	8	amod	_	_
+8	House	_	NP	_	_	5	pobj	_	_
+9	?	_	SENT	_	_	0	punct	_	_
+
+1	We	_	PP	_	_	3	nsubj	_	_
+2	should	_	MD	_	_	3	aux	_	_
+3	inspire	_	VV	_	_	0	root	_	_
+4	more	_	JJR	_	_	5	amod	_	_
+5	kids	_	NNS	_	_	9	nsubj	_	_
+6	like	_	IN	_	_	5	prep	_	_
+7	you	_	PP	_	_	6	pobj	_	_
 8	to	_	TO	_	_	9	aux	_	_
-9	bring	_	VV	_	_	7	xcomp	_	_
-10	it	_	PP	_	_	9	dobj	_	_
-11	to	_	TO	_	_	9	prep	_	_
-12	the	_	DT	_	_	14	det	_	_
-13	White	_	NP	_	_	14	nn	_	_
-14	House	_	NP	_	_	11	pobj	_	_
-15	?	_	SENT	_	_	0	punct	_	_
-16	We	_	PP	_	_	18	nsubj	_	_
-17	should	_	MD	_	_	18	aux	_	_
-18	inspire	_	VV	_	_	30	parataxis	_	_
-19	more	_	JJR	_	_	20	amod	_	_
-20	kids	_	NNS	_	_	18	dobj	_	_
-21	like	_	IN	_	_	24	mark	_	_
-22	you	_	PP	_	_	24	nsubj	_	_
-23	to	_	TO	_	_	24	aux	_	_
-24	like	_	VV	_	_	18	advcl	_	_
-25	science	_	NN	_	_	24	dobj	_	_
-26	.	_	SENT	_	_	0	punct	_	_
-27	It	_	PP	_	_	30	nsubj	_	_
-28	's	_	VBZ	_	_	30	cop	_	_
-29	what	_	WP	_	_	30	nsubj	_	_
-30	makes	_	VVZ	_	_	0	root	_	_
-31	America	_	NP	_	_	32	nsubj	_	_
-32	great	_	JJ	_	_	30	xcomp	_	_
-33	.	_	SENT	_	_	0	punct	_	_
-34	"	_	''	_	_	0	punct	_	_
+9	like	_	VV	_	_	3	xcomp	_	_
+10	science	_	NN	_	_	9	dobj	_	_
+11	.	_	SENT	_	_	0	punct	_	_
+
+1	It	_	PP	_	_	4	nsubj	_	_
+2	's	_	VBZ	_	_	4	cop	_	_
+3	what	_	WP	_	_	4	nsubj	_	_
+4	makes	_	VVZ	_	_	0	root	_	_
+5	America	_	NP	_	_	6	nsubj	_	_
+6	great	_	JJ	_	_	4	xcomp	_	_
+7	.	_	SENT	_	_	0	punct	_	_
+8	"	_	''	_	_	0	punct	_	_
 
 1	Twitter	_	NP	NNP	_	2	nsubj	_	_
 2	gave	_	VVD	VBD	_	0	root	_	_

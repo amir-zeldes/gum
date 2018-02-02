@@ -2,8 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import re,sys,platform
-import ntpath, os
+import ntpath, os, io
 from glob import glob
+
+PY2 = sys.version_info[0] < 3
+
 
 def fix_rst(gum_source, gum_target):
 	outdir = gum_target + "rst" + os.sep
@@ -13,11 +16,11 @@ def fix_rst(gum_source, gum_target):
 	file_list = glob(gum_source + "rst" + os.sep + "*.rs3")
 	for docnum, filename in enumerate(file_list):
 		tt_file = filename.replace(".rs3", ".xml").replace("rst","xml")
-		print "\t+ " + " "*60 + "\r",
-		print " " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Adjusting borders for " + ntpath.basename(filename) + "\r",
+		sys.stdout.write("\t+ " + " "*60 + "\r")
+		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Adjusting borders for " + ntpath.basename(filename) + "\r")
 		fix_file(filename,tt_file,gum_target + "rst" + os.sep)
 
-	print "o Adjusted " + str(len(file_list)) + " RST files" + " " * 40
+	print("o Adjusted " + str(len(file_list)) + " RST files" + " " * 40)
 
 
 def fix_file(filename,tt_file,outdir):
@@ -27,10 +30,16 @@ def fix_file(filename,tt_file,outdir):
 	tokens = []
 
 	last_good_token = ""
-	outfile = open(outdir + rst_file_name,'wb')
+	if PY2:
+		outfile = open(outdir + rst_file_name,'w')
+	else:
+		outfile = io.open(outdir + rst_file_name,'w',encoding="utf8")
 
-	with open(tt_file) as tt:
-		lines = tt.read().replace("\r","").split("\n")
+	if PY2:
+		tt = open(tt_file)
+	else:
+		tt = open(tt_file,'r',encoding="utf8")
+	lines = tt.read().replace("\r","").split("\n")
 
 	current_token = 0
 
@@ -40,11 +49,11 @@ def fix_file(filename,tt_file,outdir):
 			current_token += 1
 			tokens.append(token)
 
-	total_out_tokens = 0
-
-
-	with open(filename) as rst:
-		lines = rst.read().replace("\r","").split("\n")
+	if PY2:
+		rst = open(filename)
+	else:
+		rst = open(filename,encoding="utf8")
+	lines = rst.read().replace("\r","").split("\n")
 
 
 	line_num = 0

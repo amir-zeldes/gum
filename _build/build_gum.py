@@ -1,11 +1,17 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import os, shutil, sys
+import os, shutil, sys, io
 from glob import glob
 from argparse import ArgumentParser
 from utils.pepper_runner import run_pepper
 import datetime
+
+if sys.platform == "win32":  # Print \n new lines in Windows
+	import os, msvcrt
+	msvcrt.setmode(sys.stdout.fileno(), os.O_BINARY)
+
+PY2 = sys.version_info[0] < 3
 
 def setup_directories(gum_source, gum_target):
 	if not os.path.exists(gum_source):
@@ -49,9 +55,9 @@ setup_directories(gum_source,gum_target)
 # validate input for further steps
 from utils.validate import validate_src
 
-print "="*20
-print "Validating files..."
-print "="*20 + "\n"
+print("="*20)
+print("Validating files...")
+print("="*20 + "\n")
 
 validate_src(gum_source)
 
@@ -59,6 +65,7 @@ validate_src(gum_source)
 ## Step 2: propagate annotations
 ######################################
 from utils.propagate import enrich_dep, enrich_xml, const_parse
+from utils.stanford2ud import create_ud
 from utils.repair_tsv import fix_tsv
 from utils.repair_rst import fix_rst
 
@@ -70,17 +77,17 @@ from utils.repair_rst import fix_rst
 #   * fresh token strings, POS tags and lemmas from xml/
 #   * generates vanilla tags in CPOS column from POS
 #   * creates speaker and s_type comments from xml/
-print "\nEnriching Dependencies:\n" + "="*23
+print("\nEnriching Dependencies:\n" + "="*23)
 enrich_dep(gum_source, gum_target)
 
 # Add annotations to xml/:
 #   * add CLAWS tags in fourth column
 #   * add fifth column after lemma containing tok_func from dep/
-print "\nEnriching XML files:\n" + "="*23
+print("\nEnriching XML files:\n" + "="*23)
 enrich_xml(gum_source, gum_target, options.claws)
 
 # Token and sentence border adjustments
-print "\nAdjusting token and sentence borders:\n" + "="*40
+print("\nAdjusting token and sentence borders:\n" + "="*37)
 # Adjust tsv/ files:
 #   * refresh and re-merge token strings in case they were mangled by WebAnno
 #   * adjust sentence borders to match xml/ <s>-tags
@@ -94,22 +101,34 @@ fix_rst(gum_source,gum_target)
 # Create fresh constituent parses in const/ if desired
 # (either reparse or use dep2const conversion, e.g. https://github.com/ikekonglp/PAD)
 if options.parse:
-	print "\nRegenerating constituent trees:\n" + "="*30
+	print("\nRegenerating constituent trees:\n" + "="*30)
 	const_parse(gum_source,gum_target)
 else:
-	print "\ni Skipping fresh parse for const/"
+	sys.stdout.write("\ni Skipping fresh parse for const/\n")
 	if not os.path.exists(gum_target + "const"):
-		print "x const/ directory missing in target but parsing was set to false! Aborting..."
+		sys.stdout.write("x const/ directory missing in target but parsing was set to false! Aborting...\n")
 		sys.exit()
 	elif len(glob(gum_target + "const" + os.sep + "*.ptb")) != len(glob(gum_target + "xml" + os.sep + "*.xml")):
-		print "x parsing was set to false but xml/ and const/ contain different amounts of files! Aborting..."
+		sys.stdout.write("x parsing was set to false but xml/ and const/ contain different amounts of files! Aborting...\n")
 		sys.exit()
+
+# Create Universal Dependencies version
+#   * UD files will be created in <target>/dep/ud/
+#   * UD punctuation guidelines are enforced using udapi, which must be installed to work
+#   * udapi does not support Python 2, meaning punctuation will be attached to the root if using Python 2
+#   * UD morphology generation relies on parses already existing in <target>/const/
+print("\nCreating Universal Dependencies version:\n" + "=" * 40)
+if PY2:
+	print("WARN: Running on Python 2 - consider upgrading to Python 3. ")
+	print("      Punctuation behavior in the UD conversion relies on udapi ")
+	print("      which does not support Python 2. All punctuation will be attached to sentence roots.\n")
+create_ud(gum_target)
 
 ## Step 3: merge and convert source formats to target formats
 if options.no_pepper:
-	print "\ni Skipping Pepper conversion"
+	sys.__stdout__.write("\ni Skipping Pepper conversion\n")
 else:
-	print "\nStarting pepper conversion:\n" + "="*30
+	sys.__stdout__.write("\nStarting pepper conversion:\n" + "="*30 + "\n")
 
 	# Create Pepper staging erea in utils/pepper/tmp/
 	pepper_home = "utils" + os.sep + "pepper" + os.sep
@@ -128,9 +147,9 @@ else:
 	pepper_tmp = pepper_home + "tmp" + os.sep
 
 	try:
-		pepper_params = open("utils" + os.sep + "pepper" + os.sep + "merge_gum.pepperparams").read().replace("\r","")
+		pepper_params = io.open("utils" + os.sep + "pepper" + os.sep + "merge_gum.pepperparams", encoding="utf8").read().replace("\r","")
 	except:
-		print "x Can't find pepper template at: "+"utils" + os.sep + "pepper" + os.sep + "merge_gum.pepperparams"+"\n  Aborting..."
+		sys.__stdout__.write("x Can't find pepper template at: "+"utils" + os.sep + "pepper" + os.sep + "merge_gum.pepperparams"+"\n  Aborting...")
 		sys.exit()
 
 	# Inject gum_target in pepper_params and replace os.sep with URI slash
@@ -140,12 +159,12 @@ else:
 
 	# Setup metadata file
 	build_date = datetime.datetime.now().date().isoformat()
-	meta = open(pepper_home + "meta_template.meta").read().replace("\r","")
+	meta = io.open(pepper_home + "meta_template.meta", encoding="utf8").read().replace("\r","")
 	meta = meta.replace("**gum_version**",options.increment_version)
 	meta = meta.replace("**build_date**",build_date)
-	meta_out = open(pepper_tmp + "xml" + os.sep + "GUM" + os.sep + "GUM.meta",'w')
+	meta_out = io.open(pepper_tmp + "xml" + os.sep + "GUM" + os.sep + "GUM.meta",'w')
 	meta_out.write(meta)
 	meta_out.close()
 
 	out = run_pepper(pepper_params,options.verbose_pepper)
-	print out
+	sys.__stdout__.write(out + "\n")
