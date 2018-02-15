@@ -47,6 +47,8 @@ def tt2vanilla(tag,token):
 def enrich_dep(gum_source, gum_target):
 	dep_source = gum_source + "dep" + os.sep
 	dep_target = gum_target + "dep" + os.sep + "stanford" + os.sep
+	if not os.path.isdir(dep_target):
+		os.makedirs(dep_target)
 
 	depfiles = glob(dep_source + "*.conll10")
 
@@ -201,6 +203,8 @@ def enrich_xml(gum_source, gum_target, add_claws=False):
 		outfile.write(output)
 		outfile.close()
 
+	if add_claws:
+		print("o Retrieved fresh CLAWS5 tags" + " " * 20 + "\r")
 	print("o Enriched xml in " + str(len(xmlfiles)) + " documents" + " " *20)
 
 
