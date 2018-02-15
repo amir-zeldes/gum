@@ -264,7 +264,7 @@ def validate_annos(gum_source):
 		dep_lines = io.open(depfile,encoding="utf8").read().replace("\r", "").split("\n")
 		line_num = 0
 		sent_start = 0
-		for line in dep_lines:
+		for r, line in enumerate(dep_lines):
 			line_num += 1
 			if "\t" in line:  # token line
 				if line.count("\t") != 9:
@@ -275,6 +275,9 @@ def validate_annos(gum_source):
 					fields = line.split("\t")
 					funcs[tok_num] = fields[7]
 					if fields[6] != "0":  # Root token
+						if fields[6] == "_":
+							print("Invalid head '_' at line " + str(r) + " in " + depfile)
+							sys.exit()
 						parent_ids[tok_num] = int(fields[6]) + sent_start
 						children[int(fields[6]) + sent_start].append(fields[1])
 						child_funcs[int(fields[6]) + sent_start].append(fields[7])
@@ -481,16 +484,23 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 
 	if re.search(r"VH.*", pos) is not None and lemma != "have":
+		print(str(id) + docname)
 		print("WARN: VH.* must be 'have' & not lemma " + lemma + inname)
 	if re.search(r"VB.*", pos) is not None and lemma != "be":
+		print(str(id) + docname)
 		print("WARN: VB.* must be 'be' & not lemma " + lemma + inname)
 	if re.search(r"VV.*", pos) is not None and lemma == "be":
+		print(str(id) + docname)
 		print("WARN: VV.* must not be 'be'" + inname)
 	if re.search(r"VV.*", pos) is not None and lemma == "have":
+		print(str(id) + docname)
 		print("WARN: VV.* must not be 'have'" + inname)
 
 	if func == 'mwe' and id < parent_id:
 		print("WARN: back-pointing func mwe" + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
+
+	if func == 'conj' and id < parent_id:
+		print("WARN: back-pointing func conj" + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
 	if func == "auxpass" and lemma!= "be" and lemma != "get":
 		print("WARN: auxpass must be 'be' or 'get'" + inname)
@@ -512,10 +522,12 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func == "aux" and lemma != "be" and lemma != "have" and lemma !="do" and pos!="MD" and pos!="TO":
 		print("WARN: aux must be modal, 'be,' 'have,' or 'do'" + inname)
 
-	if re.search(r"“|”|…|n’t|n`t|[’`](s|ve|d|ll|m|re|t)", lemma, re.IGNORECASE) is not None:
+	if re.search(r"“|”|n’t|n`t|[’`](s|ve|d|ll|m|re|t)", lemma, re.IGNORECASE) is not None:
+		print(str(id) + docname)
 		print("WARN: non-ASCII character in lemma" + inname)
 
 	if pos == "POS" and lemma != "'s":
+		print(str(id) + docname)
 		print("WARN: tag POS must have lemma " +'"'+ "'s" + '"' + inname)
 
 
