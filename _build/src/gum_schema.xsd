@@ -15,70 +15,64 @@
       <xs:attribute name="id" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="GUM_(interview|news|voyage|whow)_[a-z0-9]+"/>
+            <xs:pattern value="GUM_(bio|academic|reddit|fiction|news|whow|voyage|interview)_[a-z]+[0-9]?"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="sourceURL" use="required">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:pattern value=".*"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
-      <xs:attribute name="dateCollected" use="required">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:pattern value=".*"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
-      <xs:attribute name="dateModified" use="required">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:pattern value=".*"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
-      <xs:attribute name="dateCreated" use="required">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:pattern value=".*"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
+
       <xs:attribute name="author" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value=".*"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
-      <xs:attribute name="title" use="required">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:pattern value=".*"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="shortTitle" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value=".*"/>
+            <xs:pattern value="[a-z]+[0-9]*"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+	  
+      <xs:attribute name="dateCollected" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="(xxxx|(19|20)[0-9][0-9])-(1[0-2]|0[1-9])-(3[01]|[12][0-9]|0[1-9])"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="dateCreated" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="(xxxx|(19|20)[0-9][0-9])-(1[0-2]|0[1-9])-(3[01]|[12][0-9]|0[1-9])"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="dateModified" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="(xxxx|(19|20)[0-9][0-9])-(1[0-2]|0[1-9])-(3[01]|[12][0-9]|0[1-9])"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="sourceURL" use="required" type="xs:anyURI"/>
+      <xs:attribute name="speakerCount" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="([0-9]+)"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="speakerList" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value=".*"/>
+            <xs:pattern value="(none|((#([A-Za-z0-9]|_|-)*), )*(#([A-Za-z0-9]|_|-)*))"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="speakerCount" use="required">
+      <xs:attribute name="title" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value=".*"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -89,6 +83,10 @@
             <xs:enumeration value="news"/>
             <xs:enumeration value="voyage"/>
             <xs:enumeration value="whow"/>
+            <xs:enumeration value="academic"/>
+            <xs:enumeration value="bio"/>
+            <xs:enumeration value="reddit"/>
+            <xs:enumeration value="fiction"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -96,9 +94,10 @@
   </xs:element>
   <xs:element name="head">
     <xs:complexType>
-      <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
         <xs:element maxOccurs="unbounded" ref="s"/>
-      </xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="hi"/>
+      </xs:choice>
       <xs:attribute name="rend" type="xs:string"/>
     </xs:complexType>
   </xs:element>
@@ -112,16 +111,32 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="sp">
-    <xs:complexType>
+    <xs:complexType mixed="true">
       <xs:choice maxOccurs="unbounded">
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="s"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="head"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="list"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="p"/>
+ <xs:element minOccurs="0" maxOccurs="unbounded" ref="hi"/>
       </xs:choice>
       <xs:attribute name="who" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="#([A-Z][a-z]*)+"/>
+            <xs:pattern value="#[A-Za-z0-9_-]+"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="target">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="#[A-Za-z0-9_-]+"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+     <xs:attribute name="when">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="(xxxx|(19|20)[0-9][0-9])-(1[0-2]|0[1-9])-(3[01]|[12][0-9]|0[1-9])"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -133,6 +148,7 @@
         <xs:element ref="add"/>
         <xs:element ref="figure"/>
         <xs:element ref="hi"/>
+     <xs:element ref="sp"/>
         <xs:element ref="q"/>
         <xs:element ref="w"/>
         <xs:element ref="quote"/>
@@ -146,7 +162,7 @@
         <xs:element ref="sic"/>
         <xs:element ref="time"/>
       </xs:choice>
-      <xs:attribute name="type" use="required">
+      <xs:attribute name="type"> <!--use="required"-->
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:enumeration value="decl"/>
@@ -200,18 +216,27 @@
     <xs:complexType mixed="true">
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="ref"/>
+ <xs:element minOccurs="0" maxOccurs="unbounded" ref="w"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="w">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="sic"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+ <!-- <xs:element name="w">
     <xs:simpleType>
       <xs:restriction base="xs:string"/>
     </xs:simpleType>
-  </xs:element>
+  </xs:element>-->
   <xs:element name="time">
     <xs:complexType mixed="true">
-      <xs:attribute name="from" use="required" type="xs:time"/>
-      <xs:attribute name="to" use="required" type="xs:time"/>
+      <xs:attribute name="when" type="xs:string"/>
+      <xs:attribute name="from" type="xs:time"/>
+      <xs:attribute name="to" type="xs:time"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="quote">
@@ -219,6 +244,8 @@
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element ref="add"/>
         <xs:element ref="q"/>
+        <xs:element ref="date"/>
+        <xs:element ref="p"/>
         <xs:element ref="ref"/>
         <xs:element ref="s"/>
         <xs:element ref="sic"/>
@@ -227,7 +254,7 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="figure">
-    <xs:complexType>
+    <xs:complexType mixed="true">
       <xs:sequence>
         <xs:element minOccurs="0" ref="caption"/>
       </xs:sequence>
@@ -253,6 +280,7 @@
         <xs:element minOccurs="0" ref="quote"/>
         <xs:element minOccurs="0" ref="list"/>
         <xs:element maxOccurs="unbounded" ref="s"/>
+ <xs:element maxOccurs="unbounded" ref="sp"/>
       </xs:choice>
       <xs:attribute name="rend"/>
     </xs:complexType>
@@ -310,11 +338,15 @@
     <xs:complexType mixed="true">
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="ref"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="figure"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="sp"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="incident"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="w"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="lg"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="s"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="caption"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="q"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="sic"/>
       </xs:sequence>
       <xs:attribute name="rend" use="required" type="xs:string"/>
     </xs:complexType>
