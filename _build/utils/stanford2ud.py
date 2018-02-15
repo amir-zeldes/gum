@@ -62,6 +62,9 @@ def create_ud(gum_target):
 	# Use generated enriched targets in dep/stanford/ as source
 	dep_source = gum_target + "dep" + os.sep + "stanford" + os.sep
 	dep_target = gum_target + "dep" + os.sep + "ud" + os.sep + "not-to-release" + os.sep
+	pepper_temp = gum_target + ".." + os.sep + "utils" + os.sep + "pepper" + os.sep + "tmp" + os.sep + "entidep" + os.sep
+	if not os.path.isdir(pepper_temp):
+		os.makedirs(pepper_temp)
 	train_split_target = gum_target + "dep" + os.sep + "ud" + os.sep
 
 	if not os.path.exists(train_split_target):
@@ -136,7 +139,7 @@ def create_ud(gum_target):
 				if str(tok_num) in toks_to_ents:
 					for ent in sorted(toks_to_ents[str(tok_num)],key=lambda x:x.get_length(),reverse=True):
 						# Check if this is the head of that entity
-						if absolute_head_id > ent.end or absolute_head_id < ent.start and absolute_head_id > 0:
+						if absolute_head_id > ent.end or (absolute_head_id < ent.start and absolute_head_id > 0) or absolute_head_id == 0:
 							# This is the head
 							fields[5] = "ent_head=" + ent.type + "|" + "infstat=" + ent.infstat
 				line = "\t".join(fields)
