@@ -32,6 +32,7 @@ parser.add_argument("-t",dest="target",action="store",help="GUM build target dir
 parser.add_argument("-s",dest="source",action="store",help="GUM build source directory", default="src")
 parser.add_argument("-p",dest="parse",action="store_true",help="Whether to reparse constituents")
 parser.add_argument("-c",dest="claws",action="store_true",help="Whether to reassign claws5 tags")
+parser.add_argument("-u",dest="unidep",action="store_true",help="Whether to create a Universal Dependencies version")
 parser.add_argument("-v",dest="verbose_pepper",action="store_true",help="Whether to print verbose pepper output")
 parser.add_argument("-n",dest="no_pepper",action="store_true",help="No pepper conversion, just validation and file fixing")
 parser.add_argument("-i",dest="increment_version",action="store",help="A new version number to assign",default="DEVELOP")
@@ -117,12 +118,13 @@ else:
 #   * UD punctuation guidelines are enforced using udapi, which must be installed to work
 #   * udapi does not support Python 2, meaning punctuation will be attached to the root if using Python 2
 #   * UD morphology generation relies on parses already existing in <target>/const/
-print("\nCreating Universal Dependencies version:\n" + "=" * 40)
-if PY2:
-	print("WARN: Running on Python 2 - consider upgrading to Python 3. ")
-	print("      Punctuation behavior in the UD conversion relies on udapi ")
-	print("      which does not support Python 2. All punctuation will be attached to sentence roots.\n")
-create_ud(gum_target)
+if options.unidep:
+	print("\nCreating Universal Dependencies version:\n" + "=" * 40)
+	if PY2:
+		print("WARN: Running on Python 2 - consider upgrading to Python 3. ")
+		print("      Punctuation behavior in the UD conversion relies on udapi ")
+		print("      which does not support Python 2. All punctuation will be attached to sentence roots.\n")
+	create_ud(gum_target)
 
 ## Step 3: merge and convert source formats to target formats
 if options.no_pepper:
@@ -132,10 +134,10 @@ else:
 
 	# Create Pepper staging erea in utils/pepper/tmp/
 	pepper_home = "utils" + os.sep + "pepper" + os.sep
-	dirs = [('xml','xml',''),('dep','conll10',''),('rst','rs3',''),('tsv','tsv','coref' + os.sep),('const','ptb','')]
+	dirs = [('xml','xml','', ''),('dep','conll10','', os.sep + "stanford"),('rst','rs3','',''),('tsv','tsv','coref' + os.sep,''),('const','ptb','','')]
 	for dir in dirs:
-		dir_name, extension, prefix = dir
-		files = glob(gum_target + prefix + dir_name + os.sep + "*" + extension)
+		dir_name, extension, prefix, suffix = dir
+		files = glob(gum_target + prefix + dir_name + suffix + os.sep + "*" + extension)
 		pepper_tmp = pepper_home + "tmp" + os.sep
 		if not os.path.exists(pepper_tmp + dir_name + os.sep + "GUM" + os.sep):
 			os.makedirs(pepper_tmp + dir_name + os.sep + "GUM" + os.sep)
