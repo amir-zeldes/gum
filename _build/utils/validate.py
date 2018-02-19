@@ -85,7 +85,22 @@ def count_tokens(e):
 		tok_count += count_tokens(child)
 	return tok_count
 
-def validate_src(gum_source):
+
+def check_reddit(gum_source):
+
+	reddit_docs = glob.glob(gum_source + "xml" + os.sep + "GUM_reddit*.xml")
+	if len(reddit_docs) == 0:
+		return False
+	else:
+		first_reddit = io.open(reddit_docs[0],encoding="utf8").read()
+		num_underscores = first_reddit.count("_")
+		if num_underscores > 2000:
+			return False
+		else:
+			return True
+
+
+def validate_src(gum_source, reddit=False):
 
 	dirs = [('xml', 'xml'), ('dep', 'conll10'), ('rst', 'rs3'), ('tsv', 'tsv')]
 
@@ -96,6 +111,8 @@ def validate_src(gum_source):
 		dir_ext = dir[1]
 		filenames = []
 		for filename in glob.glob(dir_name + os.sep + '*.' + dir_ext):
+			if not reddit and "reddit_" in filename:
+				continue
 			basename = ntpath.basename(filename)
 			filename_validate = re.match(r'(\w+)\.' + dir_ext, basename)
 			if filename_validate is None:
@@ -119,7 +136,8 @@ def validate_src(gum_source):
 				print('Different filenames:')
 				for d in range(len(dirs)):
 					print(str(dirs[d][0]) + ": " + file_lists[d][i])
-	print("o Found " + str(len(file_lists[0])) + " documents")
+	reddit_string = " (excluding reddit)" if not reddit else ""
+	print("o Found " + str(len(file_lists[0])) + " documents" + reddit_string)
 	print("o File names match")
 	
 	# check # of tokens
@@ -130,7 +148,6 @@ def validate_src(gum_source):
 		filenames = file_lists[d]
 		for filename in filenames:
 			filepath = gum_source + str(dirs[d][0]) + os.sep + filename + "." + dirs[d][1]
-			#filename = os.path.abspath(filepath)
 			with io.open(filepath,encoding="utf-8") as this_file:
 				file_lines = this_file.readlines()
 	
@@ -232,14 +249,19 @@ def validate_src(gum_source):
 		print("i Skipping XSD validation of XML files")
 		print("i (to fix this warning: pip install lxml)")
 
-	validate_annos(gum_source)
+	validate_annos(gum_source, reddit)
 	print("\r")
 
     
-def validate_annos(gum_source):
+def validate_annos(gum_source, reddit=False):
 	xml_source = gum_source + "xml" + os.sep
 
-	xmlfiles = glob.glob(xml_source + "*.xml")
+	xmlfiles = []
+	files_ = glob.glob(xml_source + "*.xml")
+	for file_ in files_:
+		if not reddit and "reddit_" in file_:
+			continue
+		xmlfiles.append(file_)
 
 	for docnum, xmlfile in enumerate(xmlfiles):
 		if "_all" in xmlfile:
@@ -397,6 +419,7 @@ def validate_annos(gum_source):
 		nodes = {}
 		children = defaultdict(list)
 
+		# TODO: implement with XML parser instead of less robust regex
 		for line in rst_lines:
 			m = re.search(r'<segment id="([0-9]+)" parent="([0-9]+)" relname="([^"]+)">([^<]+)',line)  # EDU segment
 			if m is not None:
@@ -451,7 +474,7 @@ def flag_rst_warnings(nodes,children,docname):
 					if found_children > 1:
 						print("WARN: RST non-multinuc with multiple non-span children in " + docname + " (node "+ str(nodes[node].id) +")")
 
-            
+
 def flag_mark_warnings(mark, docname):
 	inname = " in " + docname
 
@@ -469,6 +492,7 @@ def flag_mark_warnings(mark, docname):
 				  str(mark.antecedent.start) + "=" + mark.antecedent.entity + \
 				  " (" + truncate(mark.text) + "->" + truncate(mark.antecedent.text) +")")
 
+
 def truncate(text):
 	words = text.split()
 	if len(words) > 5:
@@ -481,7 +505,6 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 					  docname):
 	# Shorthand for printing errors
 	inname = " in " + docname + " @ token " + str(id) + " (" + parent + " -> " + tok + ")"
-
 
 	if re.search(r"VH.*", pos) is not None and lemma != "have":
 		print(str(id) + docname)

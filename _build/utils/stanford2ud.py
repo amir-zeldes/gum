@@ -58,7 +58,7 @@ def fix_punct(conllu_string):
 	return output_string
 
 
-def create_ud(gum_target):
+def create_ud(gum_target, reddit=False):
 	# Use generated enriched targets in dep/stanford/ as source
 	dep_source = gum_target + "dep" + os.sep + "stanford" + os.sep
 	dep_target = gum_target + "dep" + os.sep + "ud" + os.sep + "not-to-release" + os.sep
@@ -75,15 +75,22 @@ def create_ud(gum_target):
 	ud_dev = ["GUM_interview_peres","GUM_interview_cyclone","GUM_interview_gaming",
 			   "GUM_news_iodine","GUM_news_defector","GUM_news_homeopathic",
 			   "GUM_voyage_athens","GUM_voyage_isfahan","GUM_voyage_coron",
-			   "GUM_whow_joke","GUM_whow_skittles","GUM_whow_overalls"]
+			   "GUM_whow_joke","GUM_whow_skittles","GUM_whow_overalls",
+			   "GUM_fiction_beast","GUM_bio_emperor","GUM_academic_librarians"]
 	ud_test = ["GUM_interview_mcguire","GUM_interview_libertarian","GUM_interview_hill",
 			   "GUM_news_nasa","GUM_news_expo","GUM_news_sensitive",
 			   "GUM_voyage_oakland","GUM_voyage_thailand","GUM_voyage_vavau",
-			   "GUM_whow_mice","GUM_whow_cupcakes","GUM_whow_cactus"]
+			   "GUM_whow_mice","GUM_whow_cupcakes","GUM_whow_cactus",
+			   "GUM_fiction_falling","GUM_bio_jespersen","GUM_academic_discrimination"]
 
 	train_string, dev_string, test_string = "", "", ""
 
-	depfiles = glob(dep_source + "*.conll10")
+	depfiles = []
+	files_ = glob(dep_source + "*.conll10")
+	for file_ in files_:
+		if not reddit and "reddit_" in file_:
+			continue
+		depfiles.append(file_)
 
 	depedit = DepEdit(config_file="utils" + os.sep + "stan2uni.ini")
 
@@ -144,6 +151,10 @@ def create_ud(gum_target):
 							fields[5] = "ent_head=" + ent.type + "|" + "infstat=" + ent.infstat
 				line = "\t".join(fields)
 			processed_lines.append(line)
+
+		# Serialize entity tagged dependencies for debugging
+		with io.open(pepper_temp + docname + ".conll10",'w',encoding="utf8", newline="\n") as f:
+			f.write("\n".join(processed_lines) + "\n")
 
 		converted = depedit.run_depedit(processed_lines,filename=docname,sent_id=True,docname=True)
 
