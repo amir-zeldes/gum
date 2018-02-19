@@ -13,6 +13,7 @@ if sys.platform == "win32":  # Print \n new lines in Windows
 
 PY2 = sys.version_info[0] < 3
 
+
 def setup_directories(gum_source, gum_target):
 	if not os.path.exists(gum_source):
 		raise IOError("Source file directory " + gum_source + " not found.")
@@ -42,25 +43,40 @@ options = parser.parse_args()
 gum_source = os.path.abspath(options.source)
 gum_target = os.path.abspath(options.target)
 
-
 if gum_source[-1] != os.sep:
 	gum_source += os.sep
 if gum_target[-1] != os.sep:
 	gum_target += os.sep
 setup_directories(gum_source,gum_target)
 
-
 ######################################
 ## Step 1:
 ######################################
 # validate input for further steps
-from utils.validate import validate_src
+from utils.validate import validate_src, check_reddit
 
 print("="*20)
 print("Validating files...")
 print("="*20 + "\n")
 
-validate_src(gum_source)
+reddit = check_reddit(gum_source)
+if not reddit:
+	print("Could not find restored tokens in reddit documents.")
+	print("Abort conversion? (You can restore reddit tokens using process_reddit.py)")
+	try:
+		# for python 2
+		response = raw_input("[Y]es/[N]o> ")
+	except NameError:
+		# for python 3
+		response = input("[Y]es/[N]o> ")
+	if response.upper() != "N":
+		print("Aborting build.")
+		sys.exit()
+else:
+	print("Found reddit source data")
+	print("Including reddit data in build")
+
+validate_src(gum_source, reddit=reddit)
 
 ######################################
 ## Step 2: propagate annotations
@@ -79,31 +95,31 @@ from utils.repair_rst import fix_rst
 #   * generates vanilla tags in CPOS column from POS
 #   * creates speaker and s_type comments from xml/
 print("\nEnriching Dependencies:\n" + "="*23)
-enrich_dep(gum_source, gum_target)
+enrich_dep(gum_source, gum_target, reddit)
 
 # Add annotations to xml/:
 #   * add CLAWS tags in fourth column
 #   * add fifth column after lemma containing tok_func from dep/
 print("\nEnriching XML files:\n" + "="*23)
-enrich_xml(gum_source, gum_target, options.claws)
+enrich_xml(gum_source, gum_target, add_claws=options.claws, reddit=reddit)
 
 # Token and sentence border adjustments
 print("\nAdjusting token and sentence borders:\n" + "="*37)
 # Adjust tsv/ files:
 #   * refresh and re-merge token strings in case they were mangled by WebAnno
 #   * adjust sentence borders to match xml/ <s>-tags
-fix_tsv(gum_source,gum_target)
+fix_tsv(gum_source, gum_target, reddit=reddit)
 
 # Adjust rst/ files:
 #   * refresh token strings in case of inconsistency
 #   * note that segment borders are not automatically adjusted around xml/ <s> elements
-fix_rst(gum_source,gum_target)
+fix_rst(gum_source, gum_target, reddit=reddit)
 
 # Create fresh constituent parses in const/ if desired
 # (either reparse or use dep2const conversion, e.g. https://github.com/ikekonglp/PAD)
 if options.parse:
 	print("\nRegenerating constituent trees:\n" + "="*30)
-	const_parse(gum_source,gum_target)
+	const_parse(gum_source, gum_target, reddit=reddit)
 else:
 	sys.stdout.write("\ni Skipping fresh parse for const/\n")
 	if not os.path.exists(gum_target + "const"):
@@ -124,7 +140,7 @@ if options.unidep:
 		print("WARN: Running on Python 2 - consider upgrading to Python 3. ")
 		print("      Punctuation behavior in the UD conversion relies on udapi ")
 		print("      which does not support Python 2. All punctuation will be attached to sentence roots.\n")
-	create_ud(gum_target)
+	create_ud(gum_target, reddit=reddit)
 
 ## Step 3: merge and convert source formats to target formats
 if options.no_pepper:
@@ -137,7 +153,11 @@ else:
 	dirs = [('xml','xml','', ''),('dep','conll10','', os.sep + "stanford"),('rst','rs3','',''),('tsv','tsv','coref' + os.sep,''),('const','ptb','','')]
 	for dir in dirs:
 		dir_name, extension, prefix, suffix = dir
-		files = glob(gum_target + prefix + dir_name + suffix + os.sep + "*" + extension)
+		files_ = glob(gum_target + prefix + dir_name + suffix + os.sep + "*" + extension)
+		for file_ in files_:
+			if not reddit and "reddit_" in file_:
+				continue
+			files.append(file_)
 		pepper_tmp = pepper_home + "tmp" + os.sep
 		if not os.path.exists(pepper_tmp + dir_name + os.sep + "GUM" + os.sep):
 			os.makedirs(pepper_tmp + dir_name + os.sep + "GUM" + os.sep)
