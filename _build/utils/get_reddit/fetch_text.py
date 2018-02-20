@@ -168,6 +168,9 @@ def run_fetch():
 			post_id, text = line.split("\t")
 			cache_dict[post_id] = text
 
+	if not os.path.isfile(script_dir + os.sep + "praw.txt"):
+		io.open(script_dir + os.sep + "praw.txt", "a").close()  # Make sure praw file existss
+
 	praw_cred = io.open(script_dir + os.sep + "praw.txt",encoding="utf8")
 	praw_dict = {}
 
