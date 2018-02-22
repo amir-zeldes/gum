@@ -250,9 +250,9 @@ def validate_src(gum_source, reddit=False):
 		print("i (to fix this warning: pip install lxml)")
 
 	validate_annos(gum_source, reddit)
-	print("\r")
+	sys.stdout.write("\r" + " "*40)
 
-    
+
 def validate_annos(gum_source, reddit=False):
 	xml_source = gum_source + "xml" + os.sep
 
@@ -480,7 +480,7 @@ def flag_mark_warnings(mark, docname):
 
 	# General checks for all markables
 	if isinstance(mark.antecedent,Markable):
-		if mark.infstat == "new" and mark.coref_type != "bridge":
+		if mark.infstat == "new" and mark.coref_type != "bridge" and mark.coref_type != "cata":
 			print("WARN: new markable has an antecedent"+inname + ", " + mark.start + "=" + mark.entity + " -> " + \
 				  str(mark.antecedent.start) + "=" + mark.antecedent.entity + \
 				  " (" + truncate(mark.text) + "->" + truncate(mark.antecedent.text) +")")
@@ -534,7 +534,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func != "possessive" and pos== "POS":
 		print("WARN: tag POS must have function possessive" + inname)
 
-	if re.search(r"never|not|no|n't|n’t|’t|'t", tok, re.IGNORECASE) is None and func == "neg":
+	if re.search(r"never|not|no|n't|n’t|’t|'t|nt", tok, re.IGNORECASE) is None and func == "neg":
+		print(str(id) + docname)
 		print("WARN: mistagged negative" + inname)
 
 	be_funcs = ["cop", "aux", "root", "csubj", "auxpass", "rcmod", "ccomp", "advcl", "conj","xcomp","parataxis","vmod","pcomp"]
@@ -562,8 +563,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 				 ("whether","not"),("depend","on"),("out","of"),("more","than"),("on","board"),("as","of"),("depend","upon"),
 				 ("that","be"),("just","about"),("vice","versa"),("as","such")}
 
-	# Ad hoc listing of triple mwe parts - All in all
-	mwe_pairs.update({("all","in"),("all","all")})
+	# Ad hoc listing of triple mwe parts - All in all, in order for
+	mwe_pairs.update({("all","in"),("all","all"),("in","for")})
 
 	if func == "mwe":
 		if (parent_lemma.lower(), lemma.lower()) not in mwe_pairs:
