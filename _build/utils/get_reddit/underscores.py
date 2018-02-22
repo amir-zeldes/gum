@@ -89,7 +89,7 @@ def make_underscores_rst(folder):
 	for f_path in files_to_process:
 
 		with io.open(f_path, 'r', encoding='utf-8') as fin:
-			in_lines = fin.read().replace("\r","").split("\n")
+			in_lines = fin.read().replace("\r","").strip().split("\n")
 
 		with io.open(f_path, 'w', encoding='utf-8', newline="\n") as fout:
 			for i, line in enumerate(in_lines):
@@ -101,7 +101,9 @@ def make_underscores_rst(folder):
 					seg = m.group(2)
 					post = m.group(3)
 					seg = re.sub(r'[^ ]','_',seg)
-					fout.write(pre + seg + post + "\n")
+					fout.write(pre + seg + post)
+					if i < len(in_lines) - 1:  # Trailing newline
+						fout.write("\n")
 
 
 def make_underscores(folder, tok_col, lemma_col=None):
