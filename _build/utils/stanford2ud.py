@@ -194,7 +194,7 @@ def create_ud(gum_target, reddit=False):
 			dev_string += negatived
 		elif docname in ud_test:
 			test_string += negatived
-		else:
+		elif "reddit_" not in docname:  # Exclude reddit data from UD release
 			train_string += negatived
 
 	with io.open(train_split_target + "en_gum-ud-train.conllu",'w',encoding="utf8", newline="\n") as f:
