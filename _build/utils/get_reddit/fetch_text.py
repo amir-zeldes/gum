@@ -166,7 +166,7 @@ def run_fetch():
 	for line in cache.read().split("\n"):
 		if "\t" in line:
 			post_id, text = line.split("\t")
-			cache_dict[post_id] = text
+			cache_dict[post_id] = text if PY3 else text.decode("utf8")
 
 	if not os.path.isfile(script_dir + os.sep + "praw.txt"):
 		io.open(script_dir + os.sep + "praw.txt", "a").close()  # Make sure praw file existss

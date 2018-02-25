@@ -1,11 +1,13 @@
-import os, glob, re, io
+import os, glob, re, io, sys
 
+PY3 = sys.version_info[0] == 3
 
 def deunderscoring(src_folder, textdic):
 	make_text(src_folder + "xml" + os.sep, textdic, 0, lemma_col=2)
 	make_text(src_folder + "tsv" + os.sep, textdic, 2, unescape_xml=True)
 	make_text(src_folder + "dep" + os.sep, textdic, 1, unescape_xml=True)
 	make_text_rst(src_folder + "rst" + os.sep, textdic)
+	make_text_const(src_folder + ".." + os.sep + "target" + os.sep + "const" + os.sep, textdic)
 
 
 def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False):
@@ -20,6 +22,8 @@ def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False):
 		tokens = textdic[os.path.basename(f_path)[:os.path.basename(f_path).find(".")]]
 		if unescape_xml:
 			tokens = tokens.replace("&gt;",">").replace("&lt;","<").replace("&amp;","&")
+		if not PY3:
+			tokens = tokens.decode("utf8")
 
 		with io.open(f_path, 'w', encoding='utf-8', newline="\n") as fout:
 			for i, line in enumerate(in_lines):
@@ -33,12 +37,18 @@ def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False):
 							elements[lemma_col] = elements[tok_col]
 						elif elements[lemma_col] == "*LOWER*":
 							elements[lemma_col] = elements[tok_col].lower()
-					fout.write('\t'.join(elements)+"\n")
+					try:
+						fout.write('\t'.join(elements)+"\n")
+					except Exception as e:
+						a=4
 					tokens = tokens[len(elements[tok_col]):]
 				else:
 					fout.write(line)
 					if i < len(in_lines) - 1:
-						fout.write("\n")
+						if PY3:
+							fout.write("\n")
+						else:
+							fout.write(unicode("\n"))
 
 
 def make_text_rst(folder, textdic):
@@ -49,6 +59,8 @@ def make_text_rst(folder, textdic):
 	for f_path in files_to_process:
 
 		tokens = textdic[os.path.basename(f_path)[:os.path.basename(f_path).find(".")]]
+		if not PY3:
+			tokens = tokens.decode("utf8")
 
 		with io.open(f_path, 'r', encoding='utf-8') as fin:
 			in_lines = fin.read().replace("\r","").split("\n")
@@ -66,7 +78,10 @@ def make_text_rst(folder, textdic):
 					out_seg = ""
 					for c in seg:
 						if c == "_":
-							out_seg += tokens[cursor]
+							try:
+								out_seg += tokens[cursor]
+							except Exception as e:
+								a=5
 							cursor += 1
 						else:
 							out_seg += c
@@ -79,6 +94,7 @@ def underscoring(src_folder):
 	make_underscores(src_folder + "tsv" + os.sep,2)
 	make_underscores(src_folder + "dep" + os.sep,1)
 	make_underscores_rst(src_folder + "rst" + os.sep)
+	make_underscores_const(src_folder + ".." + os.sep + "target" + os.sep + "const" + os.sep)
 
 
 def make_underscores_rst(folder):
@@ -103,7 +119,10 @@ def make_underscores_rst(folder):
 					seg = re.sub(r'[^ ]','_',seg)
 					fout.write(pre + seg + post)
 					if i < len(in_lines) - 1:  # Trailing newline
-						fout.write("\n")
+						if PY3:
+							fout.write("\n")
+						else:
+							fout.write(unicode("\n"))
 
 
 def make_underscores(folder, tok_col, lemma_col=None):
@@ -122,7 +141,10 @@ def make_underscores(folder, tok_col, lemma_col=None):
 				if line.startswith('<'):
 					fout.write(line + "\n")
 				elif line.startswith("#Text="):
-					fout.write("#Text=_" + "\n")
+					if PY3:
+						fout.write("#Text=_" + "\n")
+					else:
+						fout.write(unicode("#Text=_" + "\n"))
 				elif "\t" in line:
 					elements = line.split('\t')
 					if lemma_col is not None:
@@ -131,8 +153,90 @@ def make_underscores(folder, tok_col, lemma_col=None):
 						elif elements[tok_col].lower() == elements[lemma_col]:
 							elements[lemma_col] = "*LOWER*"
 					elements[tok_col] = len(elements[tok_col])*'_'
-					fout.write('\t'.join(elements) + "\n")
+					if PY3:
+						fout.write('\t'.join(elements) + "\n")
+					else:
+						fout.write(unicode('\t'.join(elements) + "\n"))
 				else:
 					fout.write(line)
 					if i < len(in_lines) - 1:
-						fout.write("\n")
+						if PY3:
+							fout.write("\n")
+						else:
+							fout.write(unicode("\n"))
+
+
+def make_underscores_const(const_path):
+
+	files_to_process = glob.glob(const_path + "GUM_reddit_*.ptb")
+	print("o Processing " + str(len(files_to_process)) + " files in "+const_path+"...")
+
+	for f_path in files_to_process:
+
+		with io.open(f_path, 'r', encoding='utf-8') as fin:
+			in_lines = fin.read().replace("\r","").strip().split("\n")
+
+		with io.open(f_path, 'w', encoding='utf-8', newline="\n") as fout:
+
+			out_lines = []
+			for line in in_lines:
+				out_units = []
+				units = line.split(" ")
+				for i, unit in enumerate(units):
+					buffer = ""
+					if unit.endswith(")"):
+						for c in unit:
+							if c != ")":
+								buffer += "_"
+							else:
+								buffer += c
+					else:
+						buffer = unit
+					out_units.append(buffer)
+				out_lines.append(" ".join(out_units))
+
+			fout.write("\n".join(out_lines) + "\n")
+
+
+def make_text_const(const_path, textdic):
+
+	files_to_process = glob.glob(const_path + "GUM_reddit_*.ptb")
+	print("o Processing " + str(len(files_to_process)) + " files in "+const_path+"...")
+
+	for f_path in files_to_process:
+
+		tokens = textdic[os.path.basename(f_path)[:os.path.basename(f_path).find(".")]]
+		tokens = tokens.replace("&gt;", ">").replace("&lt;", "<").replace("&amp;", "&").replace("(","-LRB-").replace(")","-RRB-")
+		if not PY3:
+			tokens = tokens.decode("utf8")
+		cursor = 0
+
+		with io.open(f_path, 'r', encoding='utf-8') as fin:
+			in_lines = fin.read().replace("\r","").strip().split("\n")
+
+		with io.open(f_path, 'w', encoding='utf-8', newline="\n") as fout:
+
+			out_lines = []
+			for line in in_lines:
+				out_units = []
+				units = line.split(" ")
+				for i, unit in enumerate(units):
+					if unit.endswith(")"):
+						for c in unit:
+							if c != ")":
+								buffer += tokens[cursor]
+								cursor += 1
+							else:
+								try:
+									buffer += c
+								except Exception as e:
+									a=4
+					else:
+						buffer = unit
+					out_units.append(buffer)
+					buffer = ""
+				out_lines.append(" ".join(out_units))
+
+			fout.write("\n".join(out_lines) + "\n")
+
+
