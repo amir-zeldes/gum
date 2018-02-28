@@ -222,6 +222,7 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
 	const_target = gum_target + "const" + os.sep
 
 	files_ = glob(xml_source + "*.xml")
+	xmlfiles = []
 	for file_ in files_:
 		if not reddit and "reddit_" in file_:
 			continue
