@@ -136,10 +136,14 @@ def create_ud(gum_target, reddit=False):
 		tok_num = 0
 		processed_lines = []
 		negative = []
+		doc_toks = []
+		doc_lemmas = []
 		for line in conll_lines:
 			if "\t" in line:  # Token
 				tok_num += 1
 				fields = line.split("\t")
+				doc_toks.append(fields[1])
+				doc_lemmas.append(fields[2])
 				if fields[7] == "neg":
 					negative.append(tok_num)
 				absolute_head_id = tok_num - int(fields[0]) + int(fields[6]) if fields[6] != "0" else 0
@@ -170,20 +174,29 @@ def create_ud(gum_target, reddit=False):
 		if not PY2:
 			# CoreNLP returns bytes in ISO-8859-1
 			# ISO-8859-1 mangles ellipsis glyph, so replace manually
-			morphed = morphed.decode("ISO-8859-1").replace("\r","").replace("","…").replace("","“").replace("","’").replace("",'—').replace("","–")
+			morphed = morphed.decode("ISO-8859-1").replace("\r","").replace("","…").replace("","“").replace("","’").replace("",'—').replace("","–").replace("","”")
 
 		# Add negative polarity
 		negatived = []
 		tok_num = 0
 		for line in morphed.split("\n"):
 			if "\t" in line:
+				tok = doc_toks[tok_num]
+				lemma = doc_lemmas[tok_num]
 				tok_num += 1
 				fields = line.split("\t")
 				if tok_num in negative:
 					if fields[5] == "_":
 						fields[5] = "Polarity=Neg"
+				fields[1] = tok  # Restore correct utf8 token and lemma
+				fields[2] = lemma
 				negatived.append("\t".join(fields))
 			else:
+				if line.startswith("# text = "):  # Regenerate correct utf8 plain text
+					line = line[9:]
+					sent_tok_count = len(line.split(" ")) + 1
+					sent_text = " ".join(doc_toks[tok_num:tok_num+sent_tok_count - 1])
+					line = "# text = " + sent_text
 				negatived.append(line)
 		negatived = "\n".join(negatived)
 
