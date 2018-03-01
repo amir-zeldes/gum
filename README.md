@@ -14,6 +14,8 @@ Zeldes, Amir (2017) "The GUM Corpus: Creating Multilayer Resources in the Classr
 ## Directories
 The corpus is downloadable in multiple formats. Not all formats contain all annotations. The most complete XML representation is in PAULA XML, and the easiest way to search in the corpus is using ANNIS. Other formats may be useful for other purposes. See website for more details.
 
+**NB: reddit data is not included in top folders - consult README_reddit.md to add it**
+
   * _build/ - The [GUM build bot](https://corpling.uis.georgetown.edu/gum/build.html) and utilities for data merging and validation
   * annis/ - The entire merged corpus, with all annotations, as a relANNIS 3.3 corpus dump, importable into [ANNIS](http://corpus-tools.org/annis)
   * const/ - Constituent trees and PTB POS tags in the PTB bracketing format (automatic parser output)
