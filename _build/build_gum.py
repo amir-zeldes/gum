@@ -62,14 +62,14 @@ print("="*20 + "\n")
 reddit = check_reddit(gum_source)
 if not reddit:
 	print("Could not find restored tokens in reddit documents.")
-	print("Abort conversion? (You can restore reddit tokens using process_reddit.py)")
+	print("Abort conversion or continue without reddit? (You can restore reddit tokens using process_reddit.py)")
 	try:
 		# for python 2
-		response = raw_input("[Y]es/[N]o> ")
+		response = raw_input("[A]bort/[C]ontinue> ")
 	except NameError:
 		# for python 3
-		response = input("[Y]es/[N]o> ")
-	if response.upper() != "N":
+		response = input("[A]bort/[C]ontinue> ")
+	if response.upper() != "C":
 		print("Aborting build.")
 		sys.exit()
 else:
@@ -152,6 +152,7 @@ else:
 	pepper_home = "utils" + os.sep + "pepper" + os.sep
 	dirs = [('xml','xml','', ''),('dep','conll10','', os.sep + "stanford"),('rst','rs3','',''),('tsv','tsv','coref' + os.sep,''),('const','ptb','','')]
 	for dir in dirs:
+		files = []
 		dir_name, extension, prefix, suffix = dir
 		files_ = glob(gum_target + prefix + dir_name + suffix + os.sep + "*" + extension)
 		for file_ in files_:
