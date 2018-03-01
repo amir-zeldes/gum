@@ -5,6 +5,10 @@ from utils.get_reddit.underscores import underscoring, deunderscoring
 
 PY3 = sys.version_info[0] == 3
 
+if not PY3:
+	reload(sys)
+	sys.setdefaultencoding('utf8')
+
 if __name__ == "__main__":
 
 	parser = ArgumentParser()
