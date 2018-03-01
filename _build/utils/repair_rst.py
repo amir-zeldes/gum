@@ -8,12 +8,18 @@ from glob import glob
 PY2 = sys.version_info[0] < 3
 
 
-def fix_rst(gum_source, gum_target):
+def fix_rst(gum_source, gum_target, reddit=False):
 	outdir = gum_target + "rst" + os.sep
 	if not os.path.exists(outdir):
 		os.makedirs(outdir)
 
-	file_list = glob(gum_source + "rst" + os.sep + "*.rs3")
+	file_list = []
+	files_ = glob(gum_source + "rst" + os.sep + "*.rs3")
+	for file_ in files_:
+		if not reddit and "reddit_" in file_:
+			continue
+		file_list.append(file_)
+
 	for docnum, filename in enumerate(file_list):
 		tt_file = filename.replace(".rs3", ".xml").replace("rst","xml")
 		sys.stdout.write("\t+ " + " "*60 + "\r")

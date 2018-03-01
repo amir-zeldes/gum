@@ -18,6 +18,7 @@ def equiv_tok(token):
 		token = token.replace(find, replace)
 	return token
 
+
 def unescape_xml(token):
 	replacements = {"&amp;": "&", "&gt;": ">", "&lt;": "<", "&quot;": '"', "&apos;": "'"}
 
@@ -26,8 +27,14 @@ def unescape_xml(token):
 	return token
 
 
-def fix_tsv(gum_source, gum_target):
-	file_list = glob(gum_source + "tsv" + os.sep + "*.tsv")
+def fix_tsv(gum_source, gum_target, reddit=False):
+	file_list = []
+	files_ = glob(gum_source + "tsv" + os.sep + "*.tsv")
+	for file_ in files_:
+		if not reddit and "reddit_" in file_:
+			continue
+		file_list.append(file_)
+
 	outdir = gum_target + "coref" + os.sep + "tsv" + os.sep
 	if not os.path.exists(outdir):
 		os.makedirs(outdir)

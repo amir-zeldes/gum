@@ -44,16 +44,22 @@ def tt2vanilla(tag,token):
 	return tag
 
 
-def enrich_dep(gum_source, gum_target):
+def enrich_dep(gum_source, gum_target, reddit=False):
 	dep_source = gum_source + "dep" + os.sep
 	dep_target = gum_target + "dep" + os.sep + "stanford" + os.sep
+	if not os.path.isdir(dep_target):
+		os.makedirs(dep_target)
 
-	depfiles = glob(dep_source + "*.conll10")
-
+	depfiles = []
+	files_ = glob(dep_source + "*.conll10")
+	for file_ in files_:
+		if not reddit and "reddit_" in file_:
+			continue
+		depfiles.append(file_)
 
 	for docnum, depfile in enumerate(depfiles):
 		docname = ntpath.basename(depfile)
-		sys.stdout.write("\t+ " + " "*40 + "\r")
+		sys.stdout.write("\t+ " + " "*50 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(depfiles)) + ":\t+ " + docname + "\r")
 		current_stype = ""
 		current_speaker = ""
@@ -131,11 +137,16 @@ def enrich_dep(gum_source, gum_target):
 	print("o Enriched dependencies in " + str(len(depfiles)) + " documents" + " " *20)
 
 
-def enrich_xml(gum_source, gum_target, add_claws=False):
+def enrich_xml(gum_source, gum_target, add_claws=False, reddit=False):
 	xml_source = gum_source + "xml" + os.sep
 	xml_target = gum_target + "xml" + os.sep
 
-	xmlfiles = glob(xml_source + "*.xml")
+	xmlfiles = []
+	files_ = glob(xml_source + "*.xml")
+	for file_ in files_:
+		if not reddit and "reddit_" in file_:
+			continue
+		xmlfiles.append(file_)
 
 	for docnum, xmlfile in enumerate(xmlfiles):
 		if "_all" in xmlfile:
@@ -201,14 +212,21 @@ def enrich_xml(gum_source, gum_target, add_claws=False):
 		outfile.write(output)
 		outfile.close()
 
+	if add_claws:
+		print("o Retrieved fresh CLAWS5 tags" + " " * 20 + "\r")
 	print("o Enriched xml in " + str(len(xmlfiles)) + " documents" + " " *20)
 
 
-def const_parse(gum_source, gum_target, warn_slash_tokens=False):
+def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
 	xml_source = gum_source + "xml" + os.sep
 	const_target = gum_target + "const" + os.sep
 
-	xmlfiles = glob(xml_source + "*.xml")
+	files_ = glob(xml_source + "*.xml")
+	xmlfiles = []
+	for file_ in files_:
+		if not reddit and "reddit_" in file_:
+			continue
+		xmlfiles.append(file_)
 
 	for docnum, xmlfile in enumerate(xmlfiles):
 		if "_all" in xmlfile:

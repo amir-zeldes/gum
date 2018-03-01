@@ -58,10 +58,13 @@ def fix_punct(conllu_string):
 	return output_string
 
 
-def create_ud(gum_target):
+def create_ud(gum_target, reddit=False):
 	# Use generated enriched targets in dep/stanford/ as source
 	dep_source = gum_target + "dep" + os.sep + "stanford" + os.sep
 	dep_target = gum_target + "dep" + os.sep + "ud" + os.sep + "not-to-release" + os.sep
+	pepper_temp = gum_target + ".." + os.sep + "utils" + os.sep + "pepper" + os.sep + "tmp" + os.sep + "entidep" + os.sep
+	if not os.path.isdir(pepper_temp):
+		os.makedirs(pepper_temp)
 	train_split_target = gum_target + "dep" + os.sep + "ud" + os.sep
 
 	if not os.path.exists(train_split_target):
@@ -72,15 +75,22 @@ def create_ud(gum_target):
 	ud_dev = ["GUM_interview_peres","GUM_interview_cyclone","GUM_interview_gaming",
 			   "GUM_news_iodine","GUM_news_defector","GUM_news_homeopathic",
 			   "GUM_voyage_athens","GUM_voyage_isfahan","GUM_voyage_coron",
-			   "GUM_whow_joke","GUM_whow_skittles","GUM_whow_overalls"]
+			   "GUM_whow_joke","GUM_whow_skittles","GUM_whow_overalls",
+			   "GUM_fiction_beast","GUM_bio_emperor","GUM_academic_librarians"]
 	ud_test = ["GUM_interview_mcguire","GUM_interview_libertarian","GUM_interview_hill",
 			   "GUM_news_nasa","GUM_news_expo","GUM_news_sensitive",
 			   "GUM_voyage_oakland","GUM_voyage_thailand","GUM_voyage_vavau",
-			   "GUM_whow_mice","GUM_whow_cupcakes","GUM_whow_cactus"]
+			   "GUM_whow_mice","GUM_whow_cupcakes","GUM_whow_cactus",
+			   "GUM_fiction_falling","GUM_bio_jespersen","GUM_academic_discrimination"]
 
 	train_string, dev_string, test_string = "", "", ""
 
-	depfiles = glob(dep_source + "*.conll10")
+	depfiles = []
+	files_ = glob(dep_source + "*.conll10")
+	for file_ in files_:
+		if not reddit and "reddit_" in file_:
+			continue
+		depfiles.append(file_)
 
 	depedit = DepEdit(config_file="utils" + os.sep + "stan2uni.ini")
 
@@ -126,21 +136,29 @@ def create_ud(gum_target):
 		tok_num = 0
 		processed_lines = []
 		negative = []
+		doc_toks = []
+		doc_lemmas = []
 		for line in conll_lines:
 			if "\t" in line:  # Token
 				tok_num += 1
 				fields = line.split("\t")
+				doc_toks.append(fields[1])
+				doc_lemmas.append(fields[2])
 				if fields[7] == "neg":
 					negative.append(tok_num)
 				absolute_head_id = tok_num - int(fields[0]) + int(fields[6]) if fields[6] != "0" else 0
 				if str(tok_num) in toks_to_ents:
 					for ent in sorted(toks_to_ents[str(tok_num)],key=lambda x:x.get_length(),reverse=True):
 						# Check if this is the head of that entity
-						if absolute_head_id > ent.end or absolute_head_id < ent.start and absolute_head_id > 0:
+						if absolute_head_id > ent.end or (absolute_head_id < ent.start and absolute_head_id > 0) or absolute_head_id == 0:
 							# This is the head
 							fields[5] = "ent_head=" + ent.type + "|" + "infstat=" + ent.infstat
 				line = "\t".join(fields)
 			processed_lines.append(line)
+
+		# Serialize entity tagged dependencies for debugging
+		with io.open(pepper_temp + docname + ".conll10",'w',encoding="utf8", newline="\n") as f:
+			f.write("\n".join(processed_lines) + "\n")
 
 		converted = depedit.run_depedit(processed_lines,filename=docname,sent_id=True,docname=True)
 
@@ -156,20 +174,29 @@ def create_ud(gum_target):
 		if not PY2:
 			# CoreNLP returns bytes in ISO-8859-1
 			# ISO-8859-1 mangles ellipsis glyph, so replace manually
-			morphed = morphed.decode("ISO-8859-1").replace("\r","").replace("","…").replace("","“").replace("","’").replace("",'—').replace("","–")
+			morphed = morphed.decode("ISO-8859-1").replace("\r","").replace("","…").replace("","“").replace("","’").replace("",'—').replace("","–").replace("","”")
 
 		# Add negative polarity
 		negatived = []
 		tok_num = 0
 		for line in morphed.split("\n"):
 			if "\t" in line:
+				tok = doc_toks[tok_num]
+				lemma = doc_lemmas[tok_num]
 				tok_num += 1
 				fields = line.split("\t")
 				if tok_num in negative:
 					if fields[5] == "_":
 						fields[5] = "Polarity=Neg"
+				fields[1] = tok  # Restore correct utf8 token and lemma
+				fields[2] = lemma
 				negatived.append("\t".join(fields))
 			else:
+				if line.startswith("# text = "):  # Regenerate correct utf8 plain text
+					line = line[9:]
+					sent_tok_count = len(line.split(" ")) + 1
+					sent_text = " ".join(doc_toks[tok_num:tok_num+sent_tok_count - 1])
+					line = "# text = " + sent_text
 				negatived.append(line)
 		negatived = "\n".join(negatived)
 
@@ -180,7 +207,7 @@ def create_ud(gum_target):
 			dev_string += negatived
 		elif docname in ud_test:
 			test_string += negatived
-		else:
+		elif "reddit_" not in docname:  # Exclude reddit data from UD release
 			train_string += negatived
 
 	with io.open(train_split_target + "en_gum-ud-train.conllu",'w',encoding="utf8", newline="\n") as f:

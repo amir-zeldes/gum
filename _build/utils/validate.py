@@ -85,7 +85,22 @@ def count_tokens(e):
 		tok_count += count_tokens(child)
 	return tok_count
 
-def validate_src(gum_source):
+
+def check_reddit(gum_source):
+
+	reddit_docs = glob.glob(gum_source + "xml" + os.sep + "GUM_reddit*.xml")
+	if len(reddit_docs) == 0:
+		return False
+	else:
+		first_reddit = io.open(reddit_docs[0],encoding="utf8").read()
+		num_underscores = first_reddit.count("_")
+		if num_underscores > 2000:
+			return False
+		else:
+			return True
+
+
+def validate_src(gum_source, reddit=False):
 
 	dirs = [('xml', 'xml'), ('dep', 'conll10'), ('rst', 'rs3'), ('tsv', 'tsv')]
 
@@ -96,6 +111,8 @@ def validate_src(gum_source):
 		dir_ext = dir[1]
 		filenames = []
 		for filename in glob.glob(dir_name + os.sep + '*.' + dir_ext):
+			if not reddit and "reddit_" in filename:
+				continue
 			basename = ntpath.basename(filename)
 			filename_validate = re.match(r'(\w+)\.' + dir_ext, basename)
 			if filename_validate is None:
@@ -119,7 +136,8 @@ def validate_src(gum_source):
 				print('Different filenames:')
 				for d in range(len(dirs)):
 					print(str(dirs[d][0]) + ": " + file_lists[d][i])
-	print("o Found " + str(len(file_lists[0])) + " documents")
+	reddit_string = " (excluding reddit)" if not reddit else ""
+	print("o Found " + str(len(file_lists[0])) + " documents" + reddit_string)
 	print("o File names match")
 	
 	# check # of tokens
@@ -130,7 +148,6 @@ def validate_src(gum_source):
 		filenames = file_lists[d]
 		for filename in filenames:
 			filepath = gum_source + str(dirs[d][0]) + os.sep + filename + "." + dirs[d][1]
-			#filename = os.path.abspath(filepath)
 			with io.open(filepath,encoding="utf-8") as this_file:
 				file_lines = this_file.readlines()
 	
@@ -232,14 +249,19 @@ def validate_src(gum_source):
 		print("i Skipping XSD validation of XML files")
 		print("i (to fix this warning: pip install lxml)")
 
-	validate_annos(gum_source)
-	print("\r")
+	validate_annos(gum_source, reddit)
+	sys.stdout.write("\r" + " "*40)
 
-    
-def validate_annos(gum_source):
+
+def validate_annos(gum_source, reddit=False):
 	xml_source = gum_source + "xml" + os.sep
 
-	xmlfiles = glob.glob(xml_source + "*.xml")
+	xmlfiles = []
+	files_ = glob.glob(xml_source + "*.xml")
+	for file_ in files_:
+		if not reddit and "reddit_" in file_:
+			continue
+		xmlfiles.append(file_)
 
 	for docnum, xmlfile in enumerate(xmlfiles):
 		if "_all" in xmlfile:
@@ -264,7 +286,7 @@ def validate_annos(gum_source):
 		dep_lines = io.open(depfile,encoding="utf8").read().replace("\r", "").split("\n")
 		line_num = 0
 		sent_start = 0
-		for line in dep_lines:
+		for r, line in enumerate(dep_lines):
 			line_num += 1
 			if "\t" in line:  # token line
 				if line.count("\t") != 9:
@@ -275,6 +297,9 @@ def validate_annos(gum_source):
 					fields = line.split("\t")
 					funcs[tok_num] = fields[7]
 					if fields[6] != "0":  # Root token
+						if fields[6] == "_":
+							print("Invalid head '_' at line " + str(r) + " in " + depfile)
+							sys.exit()
 						parent_ids[tok_num] = int(fields[6]) + sent_start
 						children[int(fields[6]) + sent_start].append(fields[1])
 						child_funcs[int(fields[6]) + sent_start].append(fields[7])
@@ -394,6 +419,7 @@ def validate_annos(gum_source):
 		nodes = {}
 		children = defaultdict(list)
 
+		# TODO: implement with XML parser instead of less robust regex
 		for line in rst_lines:
 			m = re.search(r'<segment id="([0-9]+)" parent="([0-9]+)" relname="([^"]+)">([^<]+)',line)  # EDU segment
 			if m is not None:
@@ -448,13 +474,13 @@ def flag_rst_warnings(nodes,children,docname):
 					if found_children > 1:
 						print("WARN: RST non-multinuc with multiple non-span children in " + docname + " (node "+ str(nodes[node].id) +")")
 
-            
+
 def flag_mark_warnings(mark, docname):
 	inname = " in " + docname
 
 	# General checks for all markables
 	if isinstance(mark.antecedent,Markable):
-		if mark.infstat == "new" and mark.coref_type != "bridge":
+		if mark.infstat == "new" and mark.coref_type != "bridge" and mark.coref_type != "cata":
 			print("WARN: new markable has an antecedent"+inname + ", " + mark.start + "=" + mark.entity + " -> " + \
 				  str(mark.antecedent.start) + "=" + mark.antecedent.entity + \
 				  " (" + truncate(mark.text) + "->" + truncate(mark.antecedent.text) +")")
@@ -465,6 +491,7 @@ def flag_mark_warnings(mark, docname):
 			print("WARN: coref clash" +inname + ", " + mark.start + "=" + mark.entity + " -> " + \
 				  str(mark.antecedent.start) + "=" + mark.antecedent.entity + \
 				  " (" + truncate(mark.text) + "->" + truncate(mark.antecedent.text) +")")
+
 
 def truncate(text):
 	words = text.split()
@@ -479,18 +506,24 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	# Shorthand for printing errors
 	inname = " in " + docname + " @ token " + str(id) + " (" + parent + " -> " + tok + ")"
 
-
 	if re.search(r"VH.*", pos) is not None and lemma != "have":
+		print(str(id) + docname)
 		print("WARN: VH.* must be 'have' & not lemma " + lemma + inname)
 	if re.search(r"VB.*", pos) is not None and lemma != "be":
+		print(str(id) + docname)
 		print("WARN: VB.* must be 'be' & not lemma " + lemma + inname)
 	if re.search(r"VV.*", pos) is not None and lemma == "be":
+		print(str(id) + docname)
 		print("WARN: VV.* must not be 'be'" + inname)
 	if re.search(r"VV.*", pos) is not None and lemma == "have":
+		print(str(id) + docname)
 		print("WARN: VV.* must not be 'have'" + inname)
 
 	if func == 'mwe' and id < parent_id:
 		print("WARN: back-pointing func mwe" + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
+
+	if func == 'conj' and id < parent_id:
+		print("WARN: back-pointing func conj" + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
 	if func == "auxpass" and lemma!= "be" and lemma != "get":
 		print("WARN: auxpass must be 'be' or 'get'" + inname)
@@ -501,7 +534,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func != "possessive" and pos== "POS":
 		print("WARN: tag POS must have function possessive" + inname)
 
-	if re.search(r"never|not|no|n't|n’t|’t|'t", tok, re.IGNORECASE) is None and func == "neg":
+	if re.search(r"never|not|no|n't|n’t|’t|'t|nt", tok, re.IGNORECASE) is None and func == "neg":
+		print(str(id) + docname)
 		print("WARN: mistagged negative" + inname)
 
 	be_funcs = ["cop", "aux", "root", "csubj", "auxpass", "rcmod", "ccomp", "advcl", "conj","xcomp","parataxis","vmod","pcomp"]
@@ -512,10 +546,12 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func == "aux" and lemma != "be" and lemma != "have" and lemma !="do" and pos!="MD" and pos!="TO":
 		print("WARN: aux must be modal, 'be,' 'have,' or 'do'" + inname)
 
-	if re.search(r"“|”|…|n’t|n`t|[’`](s|ve|d|ll|m|re|t)", lemma, re.IGNORECASE) is not None:
+	if re.search(r"“|”|n’t|n`t|[’`](s|ve|d|ll|m|re|t)", lemma, re.IGNORECASE) is not None:
+		print(str(id) + docname)
 		print("WARN: non-ASCII character in lemma" + inname)
 
 	if pos == "POS" and lemma != "'s":
+		print(str(id) + docname)
 		print("WARN: tag POS must have lemma " +'"'+ "'s" + '"' + inname)
 
 
@@ -527,8 +563,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 				 ("whether","not"),("depend","on"),("out","of"),("more","than"),("on","board"),("as","of"),("depend","upon"),
 				 ("that","be"),("just","about"),("vice","versa"),("as","such")}
 
-	# Ad hoc listing of triple mwe parts - All in all
-	mwe_pairs.update({("all","in"),("all","all")})
+	# Ad hoc listing of triple mwe parts - All in all, in order for
+	mwe_pairs.update({("all","in"),("all","all"),("in","for")})
 
 	if func == "mwe":
 		if (parent_lemma.lower(), lemma.lower()) not in mwe_pairs:
