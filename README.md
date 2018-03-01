@@ -1,7 +1,18 @@
 # GUM
 Repository for the Georgetown University Multilayer Corpus (GUM)
 
-This repository contains release versions of the Georgetown University Multilayer Corpus (GUM), a corpus of English texts from eight text types (interviews, news, travel guides, how-to guides, academic writing, biographies, fiction and forum discussions). The corpus is created as part of the course LING-367 (Computational Corpus Linguistics) at Georgetown University. For more details see: http://corpling.uis.georgetown.edu/gum.
+This repository contains release versions of the Georgetown University Multilayer Corpus (GUM), a corpus of English texts from eight text types:
+
+  * interviews
+  * news
+  * travel guides
+  * how-to guides
+  * academic writing
+  * biographies
+  * fiction
+  * online forum discussions
+
+The corpus is created as part of the course LING-367 (Computational Corpus Linguistics) at Georgetown University. For more details see: http://corpling.uis.georgetown.edu/gum.
 
 ## A note about reddit data
 For one of the eight text types in this corpus, reddit forum discussions, plain text data is not supplied. To obtain this data, please run _build/process_reddit.py, then run _build/build_gum.py. This, and all data, is provided with absolutely no warranty; users agree to use the data under the license with which it is provided, and reddit data is subject to reddit's terms and conditions. See README_reddit.md for more details.
@@ -12,7 +23,7 @@ To cite this corpus, please refer to the following article:
 Zeldes, Amir (2017) "The GUM Corpus: Creating Multilayer Resources in the Classroom". Language Resources and Evaluation 51(3), 581–612. 
 
 ## Directories
-The corpus is downloadable in multiple formats. Not all formats contain all annotations. The most complete XML representation is in PAULA XML, and the easiest way to search in the corpus is using ANNIS. Other formats may be useful for other purposes. See website for more details.
+The corpus is downloadable in multiple formats. Not all formats contain all annotations. The most complete XML representation is in [PAULA XML](https://www.sfb632.uni-potsdam.de/en/paula.html), and the easiest way to search in the corpus is using [ANNIS](http://corpus-tools.org/annis). Other formats may be useful for other purposes. See website for more details.
 
 **NB: reddit data is not included in top folders - consult README_reddit.md to add it**
 
