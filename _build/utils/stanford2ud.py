@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 import sys, os, ntpath, io
 from glob import glob
 from collections import defaultdict
