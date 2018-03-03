@@ -29,8 +29,8 @@ def setup_directories(gum_source, gum_target):
 
 
 parser = ArgumentParser()
-parser.add_argument("-t",dest="target",action="store",help="GUM build target directory", default="target")
-parser.add_argument("-s",dest="source",action="store",help="GUM build source directory", default="src")
+parser.add_argument("-t",dest="target",action="store",help="GUM build target directory", default=None)
+parser.add_argument("-s",dest="source",action="store",help="GUM build source directory", default=None)
 parser.add_argument("-p",dest="parse",action="store_true",help="Whether to reparse constituents")
 parser.add_argument("-c",dest="claws",action="store_true",help="Whether to reassign claws5 tags")
 parser.add_argument("-u",dest="unidep",action="store_true",help="Whether to create a Universal Dependencies version")
@@ -40,8 +40,15 @@ parser.add_argument("-i",dest="increment_version",action="store",help="A new ver
 
 options = parser.parse_args()
 
-gum_source = os.path.abspath(options.source)
-gum_target = os.path.abspath(options.target)
+build_dir = os.path.dirname(os.path.realpath(__file__))
+if options.source is None:
+	gum_source = build_dir + os.sep + "src"
+else:
+	gum_source = os.path.abspath(options.source)
+if options.target is None:
+	gum_target = build_dir + os.sep + "target"
+else:
+	gum_target = os.path.abspath(options.target)
 
 if gum_source[-1] != os.sep:
 	gum_source += os.sep
