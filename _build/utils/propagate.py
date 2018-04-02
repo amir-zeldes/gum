@@ -45,6 +45,12 @@ def tt2vanilla(tag,token):
 
 
 def enrich_dep(gum_source, gum_target, reddit=False):
+
+	no_space_after_strings = {"(","[","{"}
+	no_space_before_strings = {".",",",";","?","!","'s","n't","'ve","'d","'m","'ll","]",")","}",":","%"}
+	no_space_after_combos = {("'","``"),('"',"``")}
+	no_space_before_combos = {("ll","MD"),("d","MD"),("m","VBP"),("ve","VHP"),("s","POS"),("s","VBZ"),("s","VHZ"),("'","POS"),("nt","RB"),("'","''"),('"',"''")}
+
 	dep_source = gum_source + "dep" + os.sep
 	dep_target = gum_target + "dep" + os.sep + "stanford" + os.sep
 	if not os.path.isdir(dep_target):
@@ -63,9 +69,13 @@ def enrich_dep(gum_source, gum_target, reddit=False):
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(depfiles)) + ":\t+ " + docname + "\r")
 		current_stype = ""
 		current_speaker = ""
+		current_sic = False
+		current_w = False
 		output = ""
 		stype_by_token = {}
 		speaker_by_token = {}
+		space_after_by_token = defaultdict(lambda: True)
+		sic_by_token = defaultdict(lambda: False)
 
 		# Dictionaries to hold token annotations from XML
 		wordforms = {}
@@ -84,11 +94,33 @@ def enrich_dep(gum_source, gum_target, reddit=False):
 					current_speaker = re.search(r' who="([^"]+)"', line).group(1).replace("#","")
 				elif line.startswith("</sp>"):
 					current_speaker = ""
+				elif line.startswith("<w>"):
+					space_after_by_token[tok_num+1] = True
+				elif line.startswith("</w>"):
+					space_after_by_token[tok_num] = False
+				elif line.startswith("<sic>"):
+					current_sic = True
+				elif line.startswith("</sic>"):
+					current_sic = False
 			elif len(line)>0:  # Token
+				fields = line.split("\t")
+				word = fields[0].replace("`","'").replace("‘","'").replace("’","'")
+				word = word.replace('“','"').replace("”",'"')
+				word_pos = fields[1].replace('"',"''")
 				tok_num += 1
+				if word == "(":
+					a=5
+				if word in no_space_after_strings:
+					space_after_by_token[tok_num] = False
+				if word in no_space_before_strings:
+					space_after_by_token[tok_num-1] = False
+				if (word,word_pos) in no_space_after_combos:
+					space_after_by_token[tok_num] = False
+				if (word,word_pos) in no_space_before_combos:
+					space_after_by_token[tok_num-1] = False
 				stype_by_token[tok_num] = current_stype
 				speaker_by_token[tok_num] = current_speaker
-				fields = line.split("\t")
+				sic_by_token[tok_num] = current_sic
 				wordforms[tok_num], pos[tok_num], lemmas[tok_num] = fields[:3]
 
 		conll_lines = io.open(depfile,encoding="utf8").read().replace("\r","").split("\n")
@@ -112,6 +144,12 @@ def enrich_dep(gum_source, gum_target, reddit=False):
 				fields[2] = lemma
 				fields[3] = tt_pos
 				fields[4] = vanilla_pos
+				misc = []
+				if not space_after_by_token[tok_num]:
+					misc.append("SpaceAfter=No")
+				if sic_by_token[tok_num]:
+					misc.append("Typo=Yes")
+				fields[-1] = "|".join(misc) if len(misc) > 0 else "_"
 				line = "\t".join(fields)
 			if line.startswith("1\t"):  # First token in sentence
 				# Check for annotations
