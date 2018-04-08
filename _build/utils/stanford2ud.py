@@ -213,7 +213,7 @@ def create_ud(gum_target, reddit=False):
 						sent_text += doc_toks[i+tok_num]
 						if "SpaceAfter=No" not in field_cache[i+tok_num][-1]:
 							sent_text += " "
-					line = "# text = " + sent_text
+					line = "# text = " + sent_text.strip()  # Strip since UD validation does not tolerate trailing whitespace
 					sent_num += 1
 				negatived.append(line)
 		negatived = "\n".join(negatived)
