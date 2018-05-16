@@ -141,10 +141,16 @@ def create_ud(gum_target, reddit=False):
 		negative = []
 		doc_toks = []
 		doc_lemmas = []
+		field_cache = {}
+		sent_lens = []
+		sent_len = 0
+
 		for line in conll_lines:
 			if "\t" in line:  # Token
-				tok_num += 1
+				sent_len += 1
 				fields = line.split("\t")
+				field_cache[tok_num] = fields
+				tok_num += 1
 				doc_toks.append(fields[1])
 				doc_lemmas.append(fields[2])
 				if fields[7] == "neg":
@@ -157,6 +163,10 @@ def create_ud(gum_target, reddit=False):
 							# This is the head
 							fields[5] = "ent_head=" + ent.type + "|" + "infstat=" + ent.infstat
 				line = "\t".join(fields)
+			else:
+				if sent_len > 0:
+					sent_lens.append(sent_len)
+					sent_len = 0
 			processed_lines.append(line)
 
 		# Serialize entity tagged dependencies for debugging
@@ -182,6 +192,7 @@ def create_ud(gum_target, reddit=False):
 		# Add negative polarity
 		negatived = []
 		tok_num = 0
+		sent_num = 0
 		for line in morphed.split("\n"):
 			if "\t" in line:
 				tok = doc_toks[tok_num]
@@ -196,10 +207,14 @@ def create_ud(gum_target, reddit=False):
 				negatived.append("\t".join(fields))
 			else:
 				if line.startswith("# text = "):  # Regenerate correct utf8 plain text
-					line = line[9:]
-					sent_tok_count = len(line.split(" ")) + 1
-					sent_text = " ".join(doc_toks[tok_num:tok_num+sent_tok_count - 1])
-					line = "# text = " + sent_text
+					sent_tok_count = sent_lens[sent_num]
+					sent_text = ""
+					for i in range(sent_tok_count):
+						sent_text += doc_toks[i+tok_num]
+						if "SpaceAfter=No" not in field_cache[i+tok_num][-1]:
+							sent_text += " "
+					line = "# text = " + sent_text.strip()  # Strip since UD validation does not tolerate trailing whitespace
+					sent_num += 1
 				negatived.append(line)
 		negatived = "\n".join(negatived)
 
@@ -221,4 +236,3 @@ def create_ud(gum_target, reddit=False):
 		f.write(test_string)
 
 	sys.__stdout__.write("o Converted " + str(len(depfiles)) + " documents to Universal Dependencies" + " " *20 + "\n")
-

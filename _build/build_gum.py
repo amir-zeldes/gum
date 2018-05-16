@@ -128,9 +128,9 @@ if options.parse:
 	print("\nRegenerating constituent trees:\n" + "="*30)
 	const_parse(gum_source, gum_target, reddit=reddit)
 else:
-	sys.stdout.write("\ni Skipping fresh parse for const/\n")
+	sys.stdout.write("\ni Skipping fresh parses for const/\n")
 	if not os.path.exists(gum_target + "const"):
-		sys.stdout.write("x const/ directory missing in target but parsing was set to false! Aborting...\n")
+		sys.stdout.write("x const/ directory missing in target but parsing was set to false! Aborting merge...\n")
 		sys.exit()
 	elif len(glob(gum_target + "const" + os.sep + "*.ptb")) != len(glob(gum_target + "xml" + os.sep + "*.xml")):
 		sys.stdout.write("x parsing was set to false but xml/ and const/ contain different amounts of files! Aborting...\n")
@@ -148,6 +148,8 @@ if options.unidep:
 		print("      Punctuation behavior in the UD conversion relies on udapi ")
 		print("      which does not support Python 2. All punctuation will be attached to sentence roots.\n")
 	create_ud(gum_target, reddit=reddit)
+else:
+	sys.stdout.write("\ni Skipping generation of UD parses in dep/ud/\n")
 
 ## Step 3: merge and convert source formats to target formats
 if options.no_pepper:
