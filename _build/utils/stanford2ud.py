@@ -37,6 +37,9 @@ class Entity:
 		self.type = type
 		self.infstat = infstat
 		self.tokens = []
+		self.line_tokens = []
+		self.coref_type = ""
+		self.coref_link = ""
 
 	def __repr__(self):
 		tok_nums = [int(x) for x in self.tokens]
@@ -63,9 +66,9 @@ def fix_punct(conllu_string):
 
 def create_ud(gum_target, reddit=False):
 	# Use generated enriched targets in dep/stanford/ as source
-	dep_source = gum_target + "dep" + os.sep + "stanford" + os.sep
-	dep_target = gum_target + "dep" + os.sep + "ud" + os.sep + "not-to-release" + os.sep
-	pepper_temp = gum_target + ".." + os.sep + "utils" + os.sep + "pepper" + os.sep + "tmp" + os.sep + "entidep" + os.sep
+	dep_source = gum_target + os.sep + "dep" + os.sep + "stanford" + os.sep
+	dep_target = gum_target + os.sep + "dep" + os.sep + "ud" + os.sep + "not-to-release" + os.sep
+	pepper_temp = gum_target + os.sep + ".." + os.sep + "utils" + os.sep + "pepper" + os.sep + "tmp" + os.sep + "entidep" + os.sep
 	if not os.path.isdir(pepper_temp):
 		os.makedirs(pepper_temp)
 	train_split_target = gum_target + "dep" + os.sep + "ud" + os.sep
@@ -93,9 +96,12 @@ def create_ud(gum_target, reddit=False):
 	for file_ in files_:
 		if not reddit and "reddit_" in file_:
 			continue
+		# if not "peres" in file_:
+		# 	continue
 		depfiles.append(file_)
 
 	depedit = DepEdit(config_file="utils" + os.sep + "stan2uni.ini")
+	#depedit = DepEdit(config_file="stan2uni.ini")
 
 	for docnum, depfile in enumerate(depfiles):
 		docname = ntpath.basename(depfile).replace('.conll10',"")
@@ -107,14 +113,21 @@ def create_ud(gum_target, reddit=False):
 		int_max_entity = 10000
 		tok_id = 0
 		entity_dict = {}
+		tok_num_to_tsv_id = {}
+
 		for line in tsv_lines:
 			if "\t" in line:  # Token line
 				tok_id += 1
 				fields = line.split("\t")
-				entity_string, infstat_string = fields[3:5]
+				line_tok_id = fields[0]
+				tok_num_to_tsv_id[tok_id] = line_tok_id
+				entity_string, infstat_string,coref_type_string, coref_link_string  = fields[3:7]
 				if entity_string != "_":
 					entities = entity_string.split("|")
 					infstats = infstat_string.split("|")
+					if coref_type_string != "_":
+						coref_types = coref_type_string.split("|")
+						coref_links = coref_link_string.split("|")
 					for i, entity in enumerate(entities):
 						infstat = infstats[i]
 						# Make sure all entities are numbered
@@ -128,6 +141,20 @@ def create_ud(gum_target, reddit=False):
 						if entity_id not in entity_dict:
 							entity_dict[entity_id] = Entity(entity_id,entity,infstat)
 						entity_dict[entity_id].tokens.append(str(tok_id))
+						entity_dict[entity_id].line_tokens.append(line_tok_id)
+
+						# loop through coref relations
+						if coref_type_string != "_":
+							for j, coref_link in enumerate(coref_links):
+								if "[" not in coref_link:
+									entity_dict[entity_id].coref_type = coref_types[j]
+									entity_dict[entity_id].coref_link = coref_link
+								else:
+									with_ids = coref_link[coref_link.find("[")+1:-1].split("_")
+									if entity_id in with_ids:
+										entity_dict[entity_id].coref_type = coref_types[j]
+										entity_dict[entity_id].coref_link = coref_link[:coref_link.find("[")]
+
 
 		toks_to_ents = defaultdict(list)
 		for ent in entity_dict:
@@ -144,8 +171,14 @@ def create_ud(gum_target, reddit=False):
 		field_cache = {}
 		sent_lens = []
 		sent_len = 0
+		line_id = -1
+		coref_line_and_ent = []
+		coref_line_and_ent_last_in_sent = {}
 
+
+		counter = 0
 		for line in conll_lines:
+			line_id += 1
 			if "\t" in line:  # Token
 				sent_len += 1
 				fields = line.split("\t")
@@ -162,12 +195,74 @@ def create_ud(gum_target, reddit=False):
 						if absolute_head_id > ent.end or (absolute_head_id < ent.start and absolute_head_id > 0) or absolute_head_id == 0:
 							# This is the head
 							fields[5] = "ent_head=" + ent.type + "|" + "infstat=" + ent.infstat
+
+							# store all head lines
+							tsv_sent = tok_num_to_tsv_id[tok_num].split("-")[0]
+							coref_line_and_ent.append((line_id, ent, tsv_sent))
+
+							# # store all corefed heads
+							# if ent.coref_type in ["coref", "ana", "cata"]:
+							# 	tsv_sent = tok_num_to_tsv_id[tok_num].split("-")[0]
+							# 	link_sent = ent.coref_link.split("-")[0]
+							# 	if link_sent == tsv_sent:
+							# 		coref_line_and_ent.append((line_id, ent, tsv_sent))
+							# 		coref_line_and_ent_last_in_sent[tsv_sent] = counter
+							# 		counter += 1
+
+
 				line = "\t".join(fields)
 			else:
 				if sent_len > 0:
 					sent_lens.append(sent_len)
 					sent_len = 0
 			processed_lines.append(line)
+
+		# looping through all ent_head lines having coref to convert 'dep' into 'dislocated' (after all ent_heads have been detected)
+		for line_ent_triple1 in coref_line_and_ent:
+			ent1 = line_ent_triple1[1]
+			if ent1.coref_type in ["coref", "ana", "cata"]:
+				for line_ent_triple2 in coref_line_and_ent:
+					if line_ent_triple1[2] == line_ent_triple2[2]:
+						ent2 = line_ent_triple2[1]
+						if (ent1.coref_link in ent2.line_tokens) or (ent2.coref_link in ent1.line_tokens):
+							fields1 = processed_lines[line_ent_triple1[0]].split("\t")
+							fields2 = processed_lines[line_ent_triple2[0]].split("\t")
+							if fields1[6] == fields2[6]:
+								if fields1[7] == "dep":
+									fields1[7] = "dislocated"
+									line = "\t".join(fields1)
+									processed_lines[line_ent_triple1[0]] = line
+								elif fields2[7] == "dep":
+									fields2[7] = "dislocated"
+									line = "\t".join(fields2)
+									processed_lines[line_ent_triple2[0]] = line
+
+
+
+
+
+
+		# for id, line_ent_triple1 in enumerate(coref_line_and_ent):
+		# 	tsv_sent = line_ent_triple1[2]
+		# 	last_in_sent = coref_line_and_ent_last_in_sent[tsv_sent]
+		# 	for line_ent_triple2 in coref_line_and_ent[id+1:last_in_sent]:
+		# 		if (line_ent_triple1[1].coref_link in line_ent_triple2[1].line_tokens) or (line_ent_triple2[1].coref_link in line_ent_triple1[1].line_tokens):
+		# 			fields1 = processed_lines[line_ent_triple1[0]].split("\t")
+		# 			fields2 = processed_lines[line_ent_triple2[0]].split("\t")
+		# 			if line_ent_triple1[1].id == "30":
+		# 				a=4
+		# 			if fields1[6] == fields2[6]:
+		# 				if fields1[7] == "dep":
+		# 					fields1[7] = "dislocated"
+		# 					line = "\t".join(fields1)
+		# 					processed_lines[line_ent_triple1[0]] = line
+		# 				elif fields2[7] == "dep":
+		# 					fields2[7] = "dislocated"
+		# 					line = "\t".join(fields2)
+		# 					processed_lines[line_ent_triple2[0]] = line
+        #
+
+
 
 		# Serialize entity tagged dependencies for debugging
 		with io.open(pepper_temp + docname + ".conll10",'w',encoding="utf8", newline="\n") as f:
@@ -182,12 +277,14 @@ def create_ud(gum_target, reddit=False):
 
 		# Add UD morphology using CoreNLP script - we assume target/const/ already has .ptb tree files
 		utils_abs_path = os.path.dirname(os.path.realpath(__file__))
-		morphed = ud_morph(punct_fixed, docname, utils_abs_path + os.sep + ".." + os.sep + "target" + os.sep + "const" + os.sep)
+		morphed = punct_fixed
+		# morphed = ud_morph(punct_fixed, docname, utils_abs_path + os.sep + ".." + os.sep + "target" + os.sep + "const" + os.sep)
 
-		if not PY2:
-			# CoreNLP returns bytes in ISO-8859-1
-			# ISO-8859-1 mangles ellipsis glyph, so replace manually
-			morphed = morphed.decode("ISO-8859-1").replace("\r","").replace("","…").replace("","“").replace("","’").replace("",'—').replace("","–").replace("","”")
+		# if not PY2:
+		# 	# CoreNLP returns bytes in ISO-8859-1
+		# 	# ISO-8859-1 mangles ellipsis glyph, so replace manually
+		# 	morphed = morphed.decode("ISO-8859-1")replace("","…").replace("","“").replace("","’").replace("",'—').replace("","–").replace("","”")
+		# morphed = morphed.decode("ISO-8859-1").replace("\r","")
 
 		# Add negative polarity
 		negatived = []
@@ -236,3 +333,4 @@ def create_ud(gum_target, reddit=False):
 		f.write(test_string)
 
 	sys.__stdout__.write("o Converted " + str(len(depfiles)) + " documents to Universal Dependencies" + " " *20 + "\n")
+
