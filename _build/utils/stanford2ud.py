@@ -96,7 +96,7 @@ def create_ud(gum_target, reddit=False):
 	for file_ in files_:
 		if not reddit and "reddit_" in file_:
 			continue
-		# if not "peres" in file_:
+		# if not "oversite" in file_:
 		# 	continue
 		depfiles.append(file_)
 
@@ -151,9 +151,10 @@ def create_ud(gum_target, reddit=False):
 									entity_dict[entity_id].coref_link = coref_link
 								else:
 									with_ids = coref_link[coref_link.find("[")+1:-1].split("_")
-									if entity_id in with_ids:
+									if (entity_id in with_ids) or ("0" in with_ids):
 										entity_dict[entity_id].coref_type = coref_types[j]
 										entity_dict[entity_id].coref_link = coref_link[:coref_link.find("[")]
+
 
 
 		toks_to_ents = defaultdict(list)
@@ -236,32 +237,6 @@ def create_ud(gum_target, reddit=False):
 									fields2[7] = "dislocated"
 									line = "\t".join(fields2)
 									processed_lines[line_ent_triple2[0]] = line
-
-
-
-
-
-
-		# for id, line_ent_triple1 in enumerate(coref_line_and_ent):
-		# 	tsv_sent = line_ent_triple1[2]
-		# 	last_in_sent = coref_line_and_ent_last_in_sent[tsv_sent]
-		# 	for line_ent_triple2 in coref_line_and_ent[id+1:last_in_sent]:
-		# 		if (line_ent_triple1[1].coref_link in line_ent_triple2[1].line_tokens) or (line_ent_triple2[1].coref_link in line_ent_triple1[1].line_tokens):
-		# 			fields1 = processed_lines[line_ent_triple1[0]].split("\t")
-		# 			fields2 = processed_lines[line_ent_triple2[0]].split("\t")
-		# 			if line_ent_triple1[1].id == "30":
-		# 				a=4
-		# 			if fields1[6] == fields2[6]:
-		# 				if fields1[7] == "dep":
-		# 					fields1[7] = "dislocated"
-		# 					line = "\t".join(fields1)
-		# 					processed_lines[line_ent_triple1[0]] = line
-		# 				elif fields2[7] == "dep":
-		# 					fields2[7] = "dislocated"
-		# 					line = "\t".join(fields2)
-		# 					processed_lines[line_ent_triple2[0]] = line
-        #
-
 
 
 		# Serialize entity tagged dependencies for debugging
