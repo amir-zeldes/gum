@@ -96,12 +96,9 @@ def create_ud(gum_target, reddit=False):
 	for file_ in files_:
 		if not reddit and "reddit_" in file_:
 			continue
-		# if not "oversite" in file_:
-		# 	continue
 		depfiles.append(file_)
 
 	depedit = DepEdit(config_file="utils" + os.sep + "stan2uni.ini")
-	#depedit = DepEdit(config_file="stan2uni.ini")
 
 	for docnum, depfile in enumerate(depfiles):
 		docname = ntpath.basename(depfile).replace('.conll10',"")
@@ -252,20 +249,26 @@ def create_ud(gum_target, reddit=False):
 
 		# Add UD morphology using CoreNLP script - we assume target/const/ already has .ptb tree files
 		utils_abs_path = os.path.dirname(os.path.realpath(__file__))
-		morphed = punct_fixed
-		# morphed = ud_morph(punct_fixed, docname, utils_abs_path + os.sep + ".." + os.sep + "target" + os.sep + "const" + os.sep)
+		#morphed = punct_fixed
+		morphed = ud_morph(punct_fixed, docname, utils_abs_path + os.sep + ".." + os.sep + "target" + os.sep + "const" + os.sep)
 
-		# if not PY2:
-		# 	# CoreNLP returns bytes in ISO-8859-1
-		# 	# ISO-8859-1 mangles ellipsis glyph, so replace manually
-		# 	morphed = morphed.decode("ISO-8859-1")replace("","…").replace("","“").replace("","’").replace("",'—').replace("","–").replace("","”")
-		# morphed = morphed.decode("ISO-8859-1").replace("\r","")
+		if not PY2:
+			# CoreNLP returns bytes in ISO-8859-1
+		 	# ISO-8859-1 mangles ellipsis glyph, so replace manually
+		 	morphed = morphed.decode("ISO-8859-1").replace("","…").replace("","“").replace("","’").replace("",'—').replace("","–").replace("","”").replace("\r","")
+		#morphed = morphed.decode("ISO-8859-1").replace("\r","")
 
-		# Add negative polarity
+		# Add negative polarity and imperative mood
 		negatived = []
 		tok_num = 0
 		sent_num = 0
+		imp = False
 		for line in morphed.split("\n"):
+			if "s_type" in line:
+				if "s_type=imp" in line:
+					imp = True
+				else:
+					imp = False
 			if "\t" in line:
 				tok = doc_toks[tok_num]
 				lemma = doc_lemmas[tok_num]
@@ -276,6 +279,8 @@ def create_ud(gum_target, reddit=False):
 						fields[5] = "Polarity=Neg"
 				fields[1] = tok  # Restore correct utf8 token and lemma
 				fields[2] = lemma
+				if imp and fields[5] == "VerbForm=Inf" and fields[7] == "root":  # Inf root in s_type=imp should be Imp
+					fields[5] = "Mood=Imp|VerbForm=Fin"
 				negatived.append("\t".join(fields))
 			else:
 				if line.startswith("# text = "):  # Regenerate correct utf8 plain text
