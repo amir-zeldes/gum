@@ -2,7 +2,7 @@
 
 # GUM Build Bot
 # propagate module
-# v1.0.1
+# v1.0.2
 
 from glob import glob
 from .nlp_helper import get_claws, adjudicate_claws, parse
@@ -311,12 +311,7 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
 				item = token + "/" + tag + " "
 				out_line += item
 
-		# dump sentence wise plain text for parser
-		#with open("C:\\temp\\" + os.path.basename(xmlfile).replace("xml","txt"),"w",encoding="utf8") as f:
-		#	f.write(output)
-
 		parsed = parse(output)
-		#parsed = "x"
 
 		parsed = parsed.strip() + "\n" + "\n"
 
