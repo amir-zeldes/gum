@@ -108,7 +108,10 @@
     (NP (NNS Servings))
     (: :)
     (NP
-      (NP (CD 18) (: -) (CD 24))
+      (NP
+        (NP (CD 18))
+        (PP (TO -)
+          (NP (CD 24))))
       (PRN (-LRB- -LRB-)
         (NP
           (NP (JJR fewer))
@@ -214,8 +217,8 @@
       (: :)
       (NP
         (NP (CD 20))
-        (: -)
-        (NP (CD 24) (NNS cupcakes))))
+        (PP (TO -)
+          (NP (CD 24) (NNS cupcakes)))))
     (: :)))
 
 (ROOT
@@ -273,7 +276,7 @@
         (PRN (-LRB- -LRB-)
           (NP
             (NP (CD 1))
-            (: -)
+            (CC -)
             (NP (CD 3/4) (NN cup)))
           (-RRB- -RRB-)))
       (VP (VBN unsweetened)
@@ -294,7 +297,7 @@
       (PRN (-LRB- -LRB-)
         (NP
           (NP (CD 1))
-          (: -)
+          (CC -)
           (NP (CD 2/3) (NNS cups)))
         (-RRB- -RRB-)))
     (NP
@@ -311,7 +314,7 @@
       (PRN (-LRB- -LRB-)
         (NP
           (NP (CD 1))
-          (: -)
+          (CC -)
           (NP (CD 1/4) (NNS cups)))
         (-RRB- -RRB-)))
     (NP
@@ -568,9 +571,8 @@
     (VP (VB Bake)
       (PP (IN for)
         (NP
-          (NP (CD 18))
-          (: -)
-          (NP (CD 20) (NNS minutes)))))
+          (NP (CD 18) (TO -))
+          (NP-TMP (CD 20) (NNS minutes)))))
     (. .)))
 
 (ROOT
@@ -687,12 +689,12 @@
                   (PP (IN of)
                     (NP (PRP$ your) (JJ favorite) (NN juice))))
                 (PP (TO to)
-                  (NP
-                    (NP (PRP it))
-                    (PP (RB instead) (IN of)
-                      (NP (NN soy) (NN milk)
-                        (CC or)
-                        (NN water)))))))))))
+                  (NP (PRP it)))
+                (PP (IN instead)
+                  (PP (IN of)
+                    (NP (NN soy) (NN milk)
+                      (CC or)
+                      (NN water))))))))))
     (. .)))
 
 (ROOT
@@ -877,11 +879,11 @@
     (VP (VB Transfer)
       (NP (DT the) (NNS cupcakes))
       (PP (TO to)
-        (NP
-          (NP (DT a) (NN wire) (VBG cooling) (NN rack))
-          (ADVP (RB as) (RB quickly)
-            (PP (IN as)
-              (ADJP (JJ possible))))))
+        (NP (DT a) (NN wire) (NN cooling) (NN rack)))
+      (ADVP
+        (ADVP (RB as) (RB quickly))
+        (PP (IN as)
+          (ADJP (JJ possible))))
       (SBAR
         (WHADVP (WRB when)
           (ADJP (JJ cool) (RB enough)))
@@ -997,10 +999,11 @@
 
 (ROOT
   (S
-    (PP (RB Instead) (IN of)
-      (S
-        (VP (VBG using)
-          (NP (JJ vegan) (NN sugar)))))
+    (PP (IN Instead)
+      (PP (IN of)
+        (S
+          (VP (VBG using)
+            (NP (JJ vegan) (NN sugar))))))
     (, ,)
     (NP (PRP you))
     (VP (MD can)
@@ -1013,10 +1016,11 @@
 
 (ROOT
   (S
-    (PP (RB Instead) (IN of)
-      (S
-        (VP (VBG using)
-          (NP (NN vegetable) (NN oil)))))
+    (PP (IN Instead)
+      (PP (IN of)
+        (S
+          (VP (VBG using)
+            (NP (NN vegetable) (NN oil))))))
     (, ,)
     (VP (VB try)
       (S

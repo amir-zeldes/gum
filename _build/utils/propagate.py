@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
+
 # GUM Build Bot
 # propagate module
-# v1.0
+# v1.0.2
 
 from glob import glob
 from .nlp_helper import get_claws, adjudicate_claws, parse
@@ -104,8 +106,8 @@ def enrich_dep(gum_source, gum_target, reddit=False):
 					current_sic = False
 			elif len(line)>0:  # Token
 				fields = line.split("\t")
-				word = fields[0].replace("`","'").replace("ë","'").replace("í","'")
-				word = word.replace('ì','"').replace("î",'"')
+				word = fields[0].replace("`","'").replace("‚Äò","'").replace("‚Äô","'")
+				word = word.replace('‚Äú','"').replace("‚Äù",'"')
 				word_pos = fields[1].replace('"',"''")
 				tok_num += 1
 				if word == "(":
@@ -175,7 +177,7 @@ def enrich_dep(gum_source, gum_target, reddit=False):
 	print("o Enriched dependencies in " + str(len(depfiles)) + " documents" + " " *20)
 
 
-def enrich_xml(gum_source, gum_target, add_claws=False, reddit=False):
+def enrich_xml(gum_source, gum_target, add_claws=False, reddit=False, warn=False):
 	xml_source = gum_source + "xml" + os.sep
 	xml_target = gum_target + "xml" + os.sep
 
@@ -203,7 +205,14 @@ def enrich_xml(gum_source, gum_target, add_claws=False, reddit=False):
 		if PY2:
 			dep_lines = open(depfile).read().replace("\r", "").split("\n")
 		else:
-			dep_lines = io.open(depfile,encoding="utf8").read().replace("\r","").split("\n")
+			try:
+				dep_lines = io.open(depfile,encoding="utf8").read().replace("\r","").split("\n")
+			except FileNotFoundError:
+				sys.stderr.write("! File not found: " + depfile)
+				if warn:
+					continue
+				else:
+					exit()
 		line_num = 0
 		for line in dep_lines:
 			line_num += 1

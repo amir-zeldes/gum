@@ -9,12 +9,12 @@
               (NP (JJ cosmic) (NN debris)))))
         (: :)
         (NP
-          (NP
-            (NP (NNP Andrew) (NNP Westphal))
-            (PP (IN about)
-              (NP (NNP Stardust)))
-            (X (SYM @)))
-          (NP (NNP home)))))))
+          (NP (NNP Andrew) (NNP Westphal))
+          (PP (IN about)
+            (NP
+              (NP (NNP Stardust))
+              (PP (IN @)
+                (NP (NNP home))))))))))
 
 (ROOT
   (NP-TMP (NNP Sunday) (, ,) (NNP May) (CD 28) (, ,) (CD 2006)))
@@ -85,27 +85,26 @@
     (NP (DT The) (NN project))
     (VP (VBZ is)
       (VP (VBN called)
-        (S
+        (NP
           (NP (NNP Stardust))
-          (VP (SYM @)
+          (PP (IN @)
             (NP (NNP home))))))
     (. .)))
 
 (ROOT
   (S
     (PP (IN Unlike)
-      (S
-        (VP (VBN distributed)
+      (NP
+        (NP (VBN distributed) (NN computing) (NNS projects))
+        (PP (IN like)
           (NP
-            (NP
-              (NP
-                (NP (NN computing) (NNS projects))
-                (PP (IN like)
-                  (NP (NNP SETI)))
-                (X (SYM @)))
-              (NP (NNP home) (, ,) (NNP Stardust)))
-            (X (SYM @))))))
-    (NP (NNP home))
+            (NP (NNP SETI))
+            (PP (IN @)
+              (NP (NNP home)))))))
+    (, ,)
+    (NP (NNP Stardust))
+    (PP (IN @)
+      (NP (NNP home)))
     (VP (VBZ relies)
       (ADVP (RB entirely))
       (PP (IN on)
@@ -117,13 +116,12 @@
     (NP (NNP Andrew) (NNP Westphal))
     (VP (VBZ is)
       (NP
-        (NP
-          (NP (DT the) (NN director))
-          (PP (IN of)
-            (NP (NNP Stardust))))
-        (X
-          (X (SYM @))
-          (NP (NNP home)))))
+        (NP (DT the) (NN director))
+        (PP (IN of)
+          (NP
+            (NP (NNP Stardust))
+            (PP (IN @)
+              (NP (NNP home)))))))
     (. .)))
 
 (ROOT
@@ -166,21 +164,18 @@
 
 (ROOT
   (S
-    (S
-      (NP (DT Some))
-      (VP (MD may) (RB not)
-        (VP (VB know)
-          (ADVP (RB exactly)))))
-    (S
-      (X
-        (X (WP what))
-        (NP
-          (NP (NNP Stardust))
-          (CC or)
-          (NP (NNP Stardust))))
-      (X (SYM @))
-      (NP (NNP home))
-      (VP (VBZ is)))
+    (NP (DT Some))
+    (VP (MD may) (RB not)
+      (VP (VB know)
+        (SBAR
+          (WHADJP (RB exactly) (WP what))
+          (S
+            (NP (NNP Stardust)
+              (CC or)
+              (NNP Stardust))
+            (PP (IN @)
+              (NP (NNP home)))
+            (VP (VBZ is))))))
     (. .)))
 
 (ROOT
@@ -407,7 +402,7 @@
           (VP (VBN taken)
             (PP (IN from)
               (NP
-                (NP (DT the) (NNP POV))
+                (NP (DT the) (NN POV))
                 (PP (IN of)
                   (FRAG
                     (PP
@@ -661,45 +656,43 @@
                 (PP (IN for)
                   (NP
                     (NP (NNP Stardust))
-                    (X
-                      (X (SYM @))
+                    (PP (IN @)
                       (NP (NNP home)))))))))))
     (. .)))
 
 (ROOT
   (FRAG
-    (NP (NNP Stardust))
-    (SBAR
-      (X (SYM @))
-      (S
-        (NP (NNP home))
-        (VP (VBZ is)
-          (NP
-            (NP (DT a) (RB highly) (VBN distributed) (NN project))
-            (VP (VBG using)
-              (NP
-                (NP (DT a) (`` ") (JJ Virtual) (NN Microscope) ('' "))
-                (SBAR
-                  (WHNP (WDT that))
-                  (S
-                    (VP
-                      (VP (VBZ is)
-                        (VP (VBN written)
-                          (PP (IN in)
-                            (NP (NN html)
-                              (CC and)
-                              (NN javascript)))))
-                      (CC and)
-                      (VP (VBZ runs))))))
-              (FRAG
-                (PP (IN on)
-                  (NP (JJS most) (NNS browsers)))
-                (: —)
-                (S
-                  (NP (DT no) (NNS downloads))
-                  (VP (VBP are)
-                    (VP (VBN required))))
-                (. .)))))))))
+    (NP
+      (NP (NNP Stardust))
+      (SBAR (IN @)
+        (S
+          (NP (NNP home))
+          (VP (VBZ is)
+            (NP
+              (NP (DT a) (RB highly) (VBN distributed) (NN project))
+              (VP (VBG using)
+                (NP
+                  (NP (DT a) (`` ") (JJ Virtual) (NN Microscope) ('' "))
+                  (SBAR
+                    (WHNP (WDT that))
+                    (S
+                      (VP
+                        (VP (VBZ is)
+                          (VP (VBN written)
+                            (PP (IN in)
+                              (NP (NN html)
+                                (CC and)
+                                (NN javascript)))))
+                        (CC and)
+                        (VP (VBZ runs)
+                          (PP (IN on)
+                            (NP (JJS most) (NNS browsers))))))))))))))
+    (: —)
+    (S
+      (NP (DT no) (NNS downloads))
+      (VP (VBP are)
+        (VP (VBN required))))
+    (. .)))
 
 (ROOT
   (S
@@ -1152,25 +1145,17 @@
     (. .)))
 
 (ROOT
-  (SQ (CC And)
-    (FRAG
-      (NP
-        (NP (DT that))
-        (SBAR
-          (S
-            (VP (VBZ 's)
-              (PP (IN on)
-                (NP (DT the) (JJ main) (NNP Stardust)))))))
-      (X
-        (X (SYM @))
-        (NP
-          (NP (NNP home))
-          (SBAR
-            (S
-              (NP (NN website) (-LSB- [))
-              (VP (VBP see)
-                (ADVP (RB below))
-                (ADVP (-RSB- ]))))))))
+  (S (CC And)
+    (NP (DT that))
+    (VP (VBZ 's)
+      (PP (IN on)
+        (NP (DT the) (JJ main) (NNP Stardust)))
+      (SBAR (IN @)
+        (S
+          (NP (NNP home) (NN website) (-LSB- [))
+          (VP (VBP see)
+            (ADVP (RB below))
+            (ADVP (-RSB- ]))))))
     (. ?)))
 
 (ROOT
