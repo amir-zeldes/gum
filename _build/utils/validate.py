@@ -110,7 +110,7 @@ def validate_src(gum_source, reddit=False):
 		dir_name = gum_source + dir[0]
 		dir_ext = dir[1]
 		filenames = []
-		for filename in glob.glob(dir_name + os.sep + '*.' + dir_ext):
+		for filename in sorted(glob.glob(dir_name + os.sep + '*.' + dir_ext)):
 			if not reddit and "reddit_" in filename:
 				continue
 			basename = ntpath.basename(filename)
