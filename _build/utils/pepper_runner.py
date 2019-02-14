@@ -63,10 +63,10 @@ def compress_pepper_out(pepper_msg,full_log=False):
 
 def runner(pepper_params,output):
 	"""thread worker function"""
-	if platform.system() == 'Linux':
-		pepper_cmd = [os.path.abspath("utils" + os.sep + "pepper") + os.sep + "pepperStart.sh", "-p", "tempfilename"]
-	else:
+	if platform.system() == 'Windows':
 		pepper_cmd = [os.path.abspath("utils" + os.sep + "pepper") + os.sep + "pepperStart.bat", "-p", "tempfilename"]
+	else:
+		pepper_cmd = [os.path.abspath("utils" + os.sep + "pepper") + os.sep + "pepperStart.sh", "-p", "tempfilename"]
 
 	output[0] = exec_via_temp(pepper_params,pepper_cmd,os.path.abspath("utils" + os.sep + "pepper")+os.sep,False)
 	return
