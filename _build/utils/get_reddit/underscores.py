@@ -81,6 +81,9 @@ def make_text_rst(folder, textdic):
 							try:
 								out_seg += tokens[cursor]
 							except Exception as e:
+								print("WARNING: tried to access tokens at position " + str(cursor) + ", but "
+									  + "an exception occurred. Are you sure '" + f_path + "' was downloaded "
+									  + "properly? (len(tokens) = " + str(len(tokens)) + ".)")
 								a=5
 							cursor += 1
 						else:
