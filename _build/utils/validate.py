@@ -173,9 +173,8 @@ def validate_src(gum_source, reddit=False):
 					for segment in root.iter('segment'):
 						# seg_text = re.sub(r'^\s*', r'', segment.text)
 						# seg_text = re.sub(r'\s*$', r'', seg_text)
-						if segment.text:
-							seg_tok_count = len(segment.text.strip().split(" "))
-							tok_count += seg_tok_count
+						seg_tok_count = len(segment.text.strip().split(" "))
+						tok_count += seg_tok_count
 					dir_tok_counts.append(tok_count)
 	
 				elif dirs[d][0] == 'tsv':
