@@ -269,32 +269,27 @@ def collapse_single_length_entities(parsed_lines, created_ids):
 			relation['dest'] = None if relation['dest'] in deleted_ids else old_id_index[relation['dest']]
 
 
-def longest_entity(parsed_lines, index):
-	entities = parsed_lines[index]['entities']
-	if len(entities) == 0:
-		return None
-
-	for j in range(index, -1, -1):
-		new_entities = [e for e in parsed_lines[j]['entities'] if e in entities]
-		if not new_entities:
-			break
-		else:
-			entities = new_entities
-
-	return entities[0]
+def is_genitive_s(line, parsed_lines, i):
+	return (line['token'].lower() == "'s"
+			and i > 0
+			and parsed_lines[i - 1]['token'].lower() != 'it')
 
 
 def merge_genitive_s(parsed_lines, tsv_path, dry):
-	for i, line in enumerate(parsed_lines[1:]):
-		if line['token'].lower() == "'s" and parsed_lines[i]['token'].lower() != 'it' and line['entities'] == []:
-			longest_previous_entity = longest_entity(parsed_lines, i)
-			if not longest_previous_entity:
+	for i, line in enumerate(parsed_lines):
+		if is_genitive_s(line, parsed_lines, i):
+			entity_difference = [e for e in parsed_lines[i - 1]['entities'] if e not in line['entities']]
+			if not entity_difference:
 				continue
+
 			if not dry:
-				line['entities'].append(longest_previous_entity.copy())
+				for e in entity_difference:
+					line['entities'].append(e.copy())
+					print("token " + line['token_id'] + " in doc '" + tsv_path + "' identified as genitive \"'s\" "
+						  + "and merged with immediately preceding markable " + e['type'] + '[' + e['id'] + '].')
 			else:
 				print("WARN: token " + line['token_id'] + " in doc '" + tsv_path + "' "
-					  + "is \"'s\" but is not contained in any immediately preceding markable. \n      Per "
+					  + "is \"'s\" but is not contained in any immediately preceding markable.\n      Per "
 					  + "GUM guidelines, the \"'s\" should be included if it is genitive marking.")
 
 
@@ -304,7 +299,6 @@ def fix_genitive_s(tsv_path, dry=True):
 
 	created_ids = expand_single_length_entities(parsed_lines)
 	merge_genitive_s(parsed_lines, tsv_path, dry)
-
 
 	if not dry:
 		collapse_single_length_entities(parsed_lines, created_ids)
