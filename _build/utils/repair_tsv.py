@@ -43,8 +43,7 @@ def fix_tsv(gum_source, gum_target, reddit=False, genitive_s=False):
 		tt_file = filename.replace(".tsv", ".xml").replace("tsv","xml")
 		sys.stdout.write("\t+ " + " "*60 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Adjusting borders for " + ntpath.basename(filename) + "\r")
-		fix_file(filename,tt_file,outdir)
-		fix_genitive_s(filename, dry=genitive_s)
+		fix_file(filename,tt_file,outdir,genitive_s=genitive_s)
 
 	print("o Adjusted " + str(len(file_list)) + " WebAnno TSV files" + " " * 40)
 
@@ -306,7 +305,7 @@ def fix_genitive_s(tsv_path, dry=True):
 ### end genitive s fix
 
 
-def fix_file(filename,tt_file,outdir):
+def fix_file(filename,tt_file,outdir,genitive_s=False):
 
 	# Get reference tokens
 	tsv_file_name = ntpath.basename(filename)
@@ -515,6 +514,9 @@ def fix_file(filename,tt_file,outdir):
 
 	outfile.write("\n\n" + sent_text.strip() + "\n")
 	outfile.write("\n".join(out_lines) + "\n")
+	outfile.close()
+
+	fix_genitive_s(filename, dry=genitive_s)
 
 if __name__ == "__main__":
 	if platform.system() == "Windows":
