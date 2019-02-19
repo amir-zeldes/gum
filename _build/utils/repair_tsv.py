@@ -291,7 +291,7 @@ def merge_genitive_s(parsed_lines, tsv_path, dry):
 			if not longest_previous_entity:
 				continue
 			if not dry:
-				line['entities'].append(longest_previous_entity)
+				line['entities'].append(longest_previous_entity.copy())
 			else:
 				print("WARN: token " + line['token_id'] + " in doc '" + tsv_path + "' "
 					  + "is \"'s\" but is not contained in any immediately preceding markable. \n      Per "
@@ -304,6 +304,7 @@ def fix_genitive_s(tsv_path, dry=True):
 
 	created_ids = expand_single_length_entities(parsed_lines)
 	merge_genitive_s(parsed_lines, tsv_path, dry)
+
 
 	if not dry:
 		collapse_single_length_entities(parsed_lines, created_ids)
