@@ -280,7 +280,7 @@ def longest_entity(parsed_lines, index):
 
 def merge_genitive_s(parsed_lines, tsv_path, dry):
 	for i, line in enumerate(parsed_lines[1:]):
-		if line['token'] == "'s" and line['entities'] == []:
+		if line['token'].lower() == "'s" and parsed_lines[i]['token'].lower() != 'it' and line['entities'] == []:
 			longest_previous_entity = longest_entity(parsed_lines, i)
 			if not longest_previous_entity:
 				continue
@@ -516,7 +516,7 @@ def fix_file(filename,tt_file,outdir,genitive_s=False):
 	outfile.write("\n".join(out_lines) + "\n")
 	outfile.close()
 
-	fix_genitive_s(filename, dry=genitive_s)
+	fix_genitive_s(filename, dry=(not genitive_s))
 
 if __name__ == "__main__":
 	if platform.system() == "Windows":
