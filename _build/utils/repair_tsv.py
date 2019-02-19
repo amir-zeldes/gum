@@ -286,7 +286,7 @@ def merge_genitive_s(parsed_lines, tsv_path, dry):
 				for e in entity_difference:
 					line['entities'].append(e.copy())
 					print("token " + line['token_id'] + " in doc '" + tsv_path + "' identified as genitive \"'s\" "
-						  + "and merged with immediately preceding markable " + e['type'] + '[' + e['id'] + '].')
+						  + "and merged with immediately preceding markable " + e['type'] + '[' + str(e['id']) + '].')
 			else:
 				print("WARN: token " + line['token_id'] + " in doc '" + tsv_path + "' "
 					  + "is \"'s\" but is not contained in any immediately preceding markable.\n      Per "
@@ -296,6 +296,8 @@ def merge_genitive_s(parsed_lines, tsv_path, dry):
 def fix_genitive_s(tsv_path, dry=True):
 	lines = read_tsv_lines(tsv_path)
 	parsed_lines = parse_tsv_lines(lines)
+
+	dry = False
 
 	created_ids = expand_single_length_entities(parsed_lines)
 	merge_genitive_s(parsed_lines, tsv_path, dry)
