@@ -247,12 +247,6 @@ def collapse_single_length_entities(parsed_lines, created_ids):
 			# non-first line of a multi-tok span
 			if entity['id'] in old_id_index:
 				entity['id'] = old_id_index[entity['id']]
-			# first line of a multi-tok span--update ID by adding the number of new ID's we've created so far
-			elif (i != len(parsed_lines) - 1 and entity in parsed_lines[i + 1]['entities']
-				  or len(line['entities']) != 1):
-				old_id = entity['id']
-				entity['id'] -= deleted_id_count
-				old_id_index[old_id] = entity['id']
 			# single-tok span, remove ID
 			# not an 'else' because there were some cases where, for reasons I couldn't determine, a single-tok span
 			# entity that looked like it shouldn't have had an ID nevertheless had an ID. Simplest to just do
@@ -261,6 +255,13 @@ def collapse_single_length_entities(parsed_lines, created_ids):
 				deleted_id_count += 1
 				deleted_ids.append(entity['id'])
 				entity['id'] = None
+			# first line of a multi-tok span, or a single-tok span that for some reason has an ID.
+			# update ID by adding the number of new ID's we've created so far
+			else:
+				old_id = entity['id']
+				entity['id'] -= deleted_id_count
+				old_id_index[old_id] = entity['id']
+
 
 	for line in parsed_lines:
 		for relation in line['relations']:
@@ -293,8 +294,8 @@ def merge_genitive_s(parsed_lines, tsv_path, dry):
 				line['entities'].append(longest_previous_entity)
 			else:
 				print("WARN: token " + line['token_id'] + " in doc '" + tsv_path + "' "
-					  + "is \"'s\" but is not contained in any immediately preceding markable. Per "
-					  + "GUM guidelines, the \"'s\" should be included.")
+					  + "is \"'s\" but is not contained in any immediately preceding markable. \n      Per "
+					  + "GUM guidelines, the \"'s\" should be included if it is genitive marking.")
 
 
 def fix_genitive_s(tsv_path, dry=True):
