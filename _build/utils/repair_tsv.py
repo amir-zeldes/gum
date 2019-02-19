@@ -232,8 +232,10 @@ def expand_single_length_entities(parsed_lines):
 			else:
 				relation['dest'] = old_id_index[relation['dest']]
 
+	return new_id_index.values()
 
-def collapse_single_length_entities(parsed_lines):
+
+def collapse_single_length_entities(parsed_lines, created_ids):
 	deleted_id_count = 0
 	# old id -> shifted id
 	old_id_index = {}
@@ -252,7 +254,10 @@ def collapse_single_length_entities(parsed_lines):
 				entity['id'] -= deleted_id_count
 				old_id_index[old_id] = entity['id']
 			# single-tok span, remove ID
-			else:
+			# not an 'else' because there were some cases where, for reasons I couldn't determine, a single-tok span
+			# entity that looked like it shouldn't have had an ID nevertheless had an ID. Simplest to just do
+			# whatever was done in the original doc.
+			elif entity['id'] in created_ids:
 				deleted_id_count += 1
 				deleted_ids.append(entity['id'])
 				entity['id'] = None
@@ -296,11 +301,11 @@ def fix_genitive_s(tsv_path, dry=True):
 	lines = read_tsv_lines(tsv_path)
 	parsed_lines = parse_tsv_lines(lines)
 
-	expand_single_length_entities(parsed_lines)
+	created_ids = expand_single_length_entities(parsed_lines)
 	merge_genitive_s(parsed_lines, tsv_path, dry)
 
 	if not dry:
-		collapse_single_length_entities(parsed_lines)
+		collapse_single_length_entities(parsed_lines, created_ids)
 		serialize_tsv_lines(lines, parsed_lines, tsv_path)
 ### end genitive s fix
 
