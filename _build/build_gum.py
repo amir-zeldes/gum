@@ -37,6 +37,8 @@ parser.add_argument("-u",dest="unidep",action="store_true",help="Whether to crea
 parser.add_argument("-v",dest="verbose_pepper",action="store_true",help="Whether to print verbose pepper output")
 parser.add_argument("-n",dest="no_pepper",action="store_true",help="No pepper conversion, just validation and file fixing")
 parser.add_argument("-i",dest="increment_version",action="store",help="A new version number to assign",default="DEVELOP")
+parser.add_argument("-g",dest="genitive_s",action="store_true",
+					help="Whether to automatically fix unmarked \"'s\" in TSV files",default=False)
 
 options = parser.parse_args()
 
@@ -115,7 +117,9 @@ print("\nAdjusting token and sentence borders:\n" + "="*37)
 # Adjust tsv/ files:
 #   * refresh and re-merge token strings in case they were mangled by WebAnno
 #   * adjust sentence borders to match xml/ <s>-tags
-fix_tsv(gum_source, gum_target, reddit=reddit)
+#   * find instances of "'s" that are not included in any immediately preceding
+#     markables and merge them into those markables if genitive_s is True
+fix_tsv(gum_source, gum_target, reddit=reddit, genitive_s=options.genitive_s)
 
 # Adjust rst/ files:
 #   * refresh token strings in case of inconsistency

@@ -27,7 +27,7 @@ def unescape_xml(token):
 	return token
 
 
-def fix_tsv(gum_source, gum_target, reddit=False):
+def fix_tsv(gum_source, gum_target, reddit=False, genitive_s=False):
 	file_list = []
 	files_ = glob(gum_source + "tsv" + os.sep + "*.tsv")
 	for file_ in files_:
@@ -44,8 +44,266 @@ def fix_tsv(gum_source, gum_target, reddit=False):
 		sys.stdout.write("\t+ " + " "*60 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Adjusting borders for " + ntpath.basename(filename) + "\r")
 		fix_file(filename,tt_file,outdir)
+		fix_genitive_s(filename, dry=genitive_s)
 
 	print("o Adjusted " + str(len(file_list)) + " WebAnno TSV files" + " " * 40)
+
+
+### begin functions for genitive s fix
+# file i/o layer
+def read_tsv_lines(tsv_path):
+	if sys.version_info[0] < 3:
+		infile = open(tsv_path, 'rb')
+	else:
+		infile = open(tsv_path, 'r', encoding="utf8")
+
+	lines = infile.readlines()
+	infile.close()
+	return lines
+
+
+def format_entities(entities):
+	strs = []
+	for entity in entities:
+		if entity['id']:
+			strs.append(entity['type'] + '[' + str(entity['id']) + ']')
+		else:
+			strs.append(entity['type'])
+
+	if strs:
+		return "|".join(strs)
+	else:
+		return "_"
+
+
+def format_relations(relations):
+	strs = []
+	for relation in relations:
+		rstr = relation['src_token']
+
+		if not (relation['src'] is None and relation['dest'] is None):
+			rstr += '['
+			rstr += str(relation['src']) if relation['src'] is not None else '0'
+			rstr += '_'
+			rstr += str(relation['dest']) if relation['dest'] is not None else '0'
+			rstr += ']'
+
+		strs.append(rstr)
+
+	if strs:
+		return "|".join(strs)
+	else:
+		return "_"
+
+
+def format_infstat(entities):
+	strs = []
+	for entity in entities:
+		if entity['id']:
+			strs.append(entity['infstat'] + '[' + str(entity['id']) + ']')
+		else:
+			strs.append(entity['infstat'])
+
+	if strs:
+		return "|".join(strs)
+	else:
+		return "_"
+
+
+def serialize_tsv_lines(lines, parsed_lines, tsv_path):
+	if sys.version_info[0] < 3:
+		outfile = open(tsv_path, 'wb')
+	else:
+		outfile = open(tsv_path, 'w', encoding="utf8")
+
+	i = 0
+	for line in lines:
+		if "\t" not in line:
+			outfile.write(line)
+		else:
+			cols = line.split("\t")
+			cols[3] = format_entities(parsed_lines[i]['entities'])
+			cols[4] = format_infstat(parsed_lines[i]['entities'])
+			cols[6] = format_relations(parsed_lines[i]['relations'])
+			outfile.write("\t".join(cols))
+			i += 1
+
+	outfile.close()
+
+
+# string layer
+def extract_from_bracket(s):
+	"""Given something like "xyz[3]", returns 2-tuple ("xyz", "3"), or ("xyz", None) if input is 'xyz"."""
+	bracket_index = s.rfind("[")
+	if bracket_index < 0:
+		return s, None
+	else:
+		return s[:bracket_index], s[bracket_index+1:-1]
+
+
+def parse_tsv_line(line):
+	line = [None if x == "_" else x for x in line]
+
+	already_seen_single_tok_entity = False
+	entities = []
+	if line[3]:
+		# parse something like "person[3]" or "person"
+		information_statuses = line[4].split("|")
+		for i, entity in enumerate(line[3].split("|")):
+			entity_type, entity_id = extract_from_bracket(entity)
+			entity_id = int(entity_id) if entity_id else None
+
+			entity_infstat, _ = extract_from_bracket(information_statuses[i])
+			entities.append({'id': entity_id, 'type': entity_type, 'infstat': entity_infstat})
+
+			# assumption: there should be at most one single-token entity on any given line
+			assert not (entity_id is None and already_seen_single_tok_entity)
+			if entity_id is None:
+				already_seen_single_tok_entity = True
+
+	relations = []
+	if line[6]:
+		# parse something like "5-1[20_10]",
+		# i.e. "this line is where entity 10 begins, and it is related to entity 20 beginning at token 5-1
+		for relation in line[6].split("|"):
+			src_token, src_dest = extract_from_bracket(relation)
+			if src_dest:
+				src, dest = src_dest.split("_")
+				src = int(src) if src != "0" else None
+				dest = int(dest) if dest != "0" else None
+			else:
+				src = None
+				dest = None
+			relations.append({'src': src,
+							  'dest': dest,
+							  'src_token': src_token})
+
+	return {'token_id': line[0],
+			'token': line[2],
+			'entities': entities,
+			'relations': relations}
+
+
+def parse_tsv_lines(lines):
+	return [parse_tsv_line(raw_line.rstrip().split("\t"))
+			for raw_line in lines
+			if "\t" in raw_line]
+
+
+# parsed representation layer
+def expand_single_length_entities(parsed_lines):
+	new_id_count = 0
+	last_seen_entity_id = 0
+	# old id -> shifted id
+	old_id_index = {}
+	# token id -> new id
+	new_id_index = {}
+
+	# first step--create id's for single-token spans and adjust subsequent id's
+	for line in parsed_lines:
+		for entity in line['entities']:
+			# single-tok span, has no ID--create one
+			if not entity['id']:
+				new_id_count += 1
+				last_seen_entity_id += 1
+				entity['id'] = last_seen_entity_id
+				new_id_index[line['token_id']] = entity['id']
+			# non-first line of a multi-tok span
+			elif entity['id'] in old_id_index:
+				entity['id'] = old_id_index[entity['id']]
+			# first line of a multi-tok span--update ID by adding the number of new ID's we've created so far
+			else:
+				old_id = entity['id']
+				entity['id'] += new_id_count
+				old_id_index[old_id] = entity['id']
+				last_seen_entity_id = entity['id']
+
+	for line in parsed_lines:
+		for relation in line['relations']:
+			# we have a single token span src--need to set it to the id we created
+			if not relation['src']:
+				assert relation['src_token'] in new_id_index
+				relation['src'] = new_id_index[relation['src_token']]
+			else:
+				relation['src'] = old_id_index[relation['src']]
+
+			if not relation['dest']:
+				assert line['token_id'] in new_id_index
+				relation['dest'] = new_id_index[line['token_id']]
+			else:
+				relation['dest'] = old_id_index[relation['dest']]
+
+
+def collapse_single_length_entities(parsed_lines):
+	deleted_id_count = 0
+	# old id -> shifted id
+	old_id_index = {}
+	deleted_ids = []
+
+	# first step--create id's for single-token spans and adjust subsequent id's
+	for i, line in enumerate(parsed_lines):
+		for entity in line['entities']:
+			# non-first line of a multi-tok span
+			if entity['id'] in old_id_index:
+				entity['id'] = old_id_index[entity['id']]
+			# first line of a multi-tok span--update ID by adding the number of new ID's we've created so far
+			elif (i != len(parsed_lines) - 1 and entity in parsed_lines[i + 1]['entities']
+				  or len(line['entities']) != 1):
+				old_id = entity['id']
+				entity['id'] -= deleted_id_count
+				old_id_index[old_id] = entity['id']
+			# single-tok span, remove ID
+			else:
+				deleted_id_count += 1
+				deleted_ids.append(entity['id'])
+				entity['id'] = None
+
+	for line in parsed_lines:
+		for relation in line['relations']:
+			relation['src'] = None if relation['src'] in deleted_ids else old_id_index[relation['src']]
+			relation['dest'] = None if relation['dest'] in deleted_ids else old_id_index[relation['dest']]
+
+
+def longest_entity(parsed_lines, index):
+	entities = parsed_lines[index]['entities']
+	if len(entities) == 0:
+		return None
+
+	for j in range(index, -1, -1):
+		new_entities = [e for e in parsed_lines[j]['entities'] if e in entities]
+		if not new_entities:
+			break
+		else:
+			entities = new_entities
+
+	return entities[0]
+
+
+def merge_genitive_s(parsed_lines, tsv_path, dry):
+	for i, line in enumerate(parsed_lines[1:]):
+		if line['token'] == "'s" and line['entities'] == []:
+			longest_previous_entity = longest_entity(parsed_lines, i)
+			if not longest_previous_entity:
+				continue
+			if not dry:
+				line['entities'].append(longest_previous_entity)
+			else:
+				print("WARN: token " + line['token_id'] + " in doc '" + tsv_path + "' "
+					  + "is \"'s\" but is not contained in any immediately preceding markable. Per "
+					  + "GUM guidelines, the \"'s\" should be included.")
+
+
+def fix_genitive_s(tsv_path, dry=True):
+	lines = read_tsv_lines(tsv_path)
+	parsed_lines = parse_tsv_lines(lines)
+
+	expand_single_length_entities(parsed_lines)
+	merge_genitive_s(parsed_lines, tsv_path, dry)
+
+	if not dry:
+		collapse_single_length_entities(parsed_lines)
+		serialize_tsv_lines(lines, parsed_lines, tsv_path)
+### end genitive s fix
 
 
 def fix_file(filename,tt_file,outdir):
@@ -257,7 +515,6 @@ def fix_file(filename,tt_file,outdir):
 
 	outfile.write("\n\n" + sent_text.strip() + "\n")
 	outfile.write("\n".join(out_lines) + "\n")
-
 
 if __name__ == "__main__":
 	if platform.system() == "Windows":
