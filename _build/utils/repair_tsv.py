@@ -61,6 +61,17 @@ def read_tsv_lines(tsv_path):
 	return lines
 
 
+def read_tt_lines(tt_path):
+	if PY2:
+		infile = open(tt_path, 'rb')
+	else:
+		infile = open(tt_path, 'r', encoding="utf8")
+
+	lines = infile.readlines()
+	infile.close()
+	return lines
+
+
 def format_entities(entities):
 	strs = []
 	for entity in entities:
@@ -189,6 +200,21 @@ def parse_tsv_lines(lines):
 			if "\t" in raw_line]
 
 
+def enrich_tsv_representation_with_pos(parsed_lines, tt_path):
+	lines = read_tt_lines(tt_path)
+
+	i = 0
+	for line in lines:
+		if not line.startswith("<") and len(line) > 0 and "\t" in line: # token
+			cols = line.split("\t")
+			token = cols[0]
+			pos = cols[1]
+
+			tsv_line = parsed_lines[i]
+			tsv_line['pos'] = pos
+			i += 1
+
+
 # parsed representation layer
 def expand_single_length_entities(parsed_lines):
 	new_id_count = 0
@@ -251,7 +277,8 @@ def collapse_single_length_entities(parsed_lines, created_ids):
 			# not an 'else' because there were some cases where, for reasons I couldn't determine, a single-tok span
 			# entity that looked like it shouldn't have had an ID nevertheless had an ID. Simplest to just do
 			# whatever was done in the original doc.
-			elif entity['id'] in created_ids:
+			elif entity['id'] in created_ids and not \
+				 (i < len(parsed_lines) - 1 and entity['id'] in [e['id'] for e in parsed_lines[i + 1]['entities']]):
 				deleted_id_count += 1
 				deleted_ids.append(entity['id'])
 				entity['id'] = None
@@ -269,15 +296,13 @@ def collapse_single_length_entities(parsed_lines, created_ids):
 			relation['dest'] = None if relation['dest'] in deleted_ids else old_id_index[relation['dest']]
 
 
-def is_genitive_s(line, parsed_lines, i):
-	return (line['token'].lower() == "'s"
-			and i > 0
-			and parsed_lines[i - 1]['token'].lower() != 'it')
+def is_genitive_s(line):
+	return line['pos'] == "POS"
 
 
 def merge_genitive_s(parsed_lines, tsv_path, dry):
 	for i, line in enumerate(parsed_lines):
-		if is_genitive_s(line, parsed_lines, i):
+		if is_genitive_s(line):
 			entity_difference = [e for e in parsed_lines[i - 1]['entities'] if e not in line['entities']]
 			if not entity_difference:
 				continue
@@ -293,11 +318,10 @@ def merge_genitive_s(parsed_lines, tsv_path, dry):
 					  + "GUM guidelines, the \"'s\" should be included if it is genitive marking.")
 
 
-def fix_genitive_s(tsv_path, dry=True):
+def fix_genitive_s(tsv_path, tt_path, dry=True):
 	lines = read_tsv_lines(tsv_path)
 	parsed_lines = parse_tsv_lines(lines)
-
-	dry = False
+	enrich_tsv_representation_with_pos(parsed_lines, tt_path)
 
 	created_ids = expand_single_length_entities(parsed_lines)
 	merge_genitive_s(parsed_lines, tsv_path, dry)
@@ -519,7 +543,7 @@ def fix_file(filename,tt_file,outdir,genitive_s=False):
 	outfile.write("\n".join(out_lines) + "\n")
 	outfile.close()
 
-	fix_genitive_s(filename, dry=(not genitive_s))
+	fix_genitive_s(filename, tt_file, dry=(not genitive_s))
 
 if __name__ == "__main__":
 	if platform.system() == "Windows":
