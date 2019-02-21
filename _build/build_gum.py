@@ -37,8 +37,6 @@ parser.add_argument("-u",dest="unidep",action="store_true",help="Whether to crea
 parser.add_argument("-v",dest="verbose_pepper",action="store_true",help="Whether to print verbose pepper output")
 parser.add_argument("-n",dest="no_pepper",action="store_true",help="No pepper conversion, just validation and file fixing")
 parser.add_argument("-i",dest="increment_version",action="store",help="A new version number to assign",default="DEVELOP")
-parser.add_argument("-g",dest="genitive_s",action="store_true",
-					help="Whether to automatically fix unmarked \"'s\" in TSV files",default=False)
 
 options = parser.parse_args()
 
