@@ -119,7 +119,7 @@ print("\nAdjusting token and sentence borders:\n" + "="*37)
 #   * adjust sentence borders to match xml/ <s>-tags
 #   * find instances of "'s" that are not included in any immediately preceding
 #     markables and merge them into those markables if genitive_s is True
-fix_tsv(gum_source, gum_target, reddit=reddit, genitive_s=options.genitive_s)
+fix_tsv(gum_source, gum_target, reddit=reddit)
 
 # Adjust rst/ files:
 #   * refresh token strings in case of inconsistency

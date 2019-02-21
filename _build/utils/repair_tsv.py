@@ -120,11 +120,13 @@ def format_infstat(entities):
 		return "_"
 
 
-def serialize_tsv_lines(lines, parsed_lines, tsv_path):
+def serialize_tsv_lines(lines, parsed_lines, tsv_path,outdir):
+
+	tsv_path = outdir + os.sep + os.path.basename(tsv_path)
 	if sys.version_info[0] < 3:
 		outfile = open(tsv_path, 'wb')
 	else:
-		outfile = open(tsv_path, 'w', encoding="utf8")
+		outfile = io.open(tsv_path, 'w', encoding="utf8",newline="\n")
 
 	i = 0
 	for line in lines:
@@ -300,14 +302,21 @@ def is_genitive_s(line):
 	return line['pos'] == "POS"
 
 
-def merge_genitive_s(parsed_lines, tsv_path, dry):
+def merge_genitive_s(parsed_lines, tsv_path, warn_only=True):
+	"""
+	Merges trailing genitive 's into immediately preceding entity span ([John] 's -> [John 's])
+	:param parsed_lines: list of dictionaries
+	:param tsv_path: target path to write to
+	:param warn_only: if True, warn but do not modify cases
+	:return:
+	"""
 	for i, line in enumerate(parsed_lines):
 		if is_genitive_s(line):
 			entity_difference = [e for e in parsed_lines[i - 1]['entities'] if e not in line['entities']]
 			if not entity_difference:
 				continue
 
-			if not dry:
+			if not warn_only:
 				for e in entity_difference:
 					line['entities'].append(e.copy())
 					print("token " + line['token_id'] + " in doc '" + tsv_path + "' identified as genitive \"'s\" "
@@ -318,17 +327,17 @@ def merge_genitive_s(parsed_lines, tsv_path, dry):
 					  + "GUM guidelines, the \"'s\" should be included if it is genitive marking.")
 
 
-def fix_genitive_s(tsv_path, tt_path, dry=True):
+def fix_genitive_s(tsv_path, tt_path, warn_only=True, outdir=None):
 	lines = read_tsv_lines(tsv_path)
 	parsed_lines = parse_tsv_lines(lines)
 	enrich_tsv_representation_with_pos(parsed_lines, tt_path)
 
 	created_ids = expand_single_length_entities(parsed_lines)
-	merge_genitive_s(parsed_lines, tsv_path, dry)
+	merge_genitive_s(parsed_lines, tsv_path, warn_only)
 
-	if not dry:
+	if not warn_only:
 		collapse_single_length_entities(parsed_lines, created_ids)
-		serialize_tsv_lines(lines, parsed_lines, tsv_path)
+		serialize_tsv_lines(lines, parsed_lines, tsv_path, outdir)
 ### end genitive s fix
 
 
@@ -343,7 +352,7 @@ def fix_file(filename,tt_file,outdir,genitive_s=False):
 	if sys.version_info[0] < 3:
 		outfile = open(outdir + tsv_file_name,'wb')
 	else:
-		outfile = open(outdir + tsv_file_name, 'w', encoding="utf8")
+		outfile = io.open(outdir + tsv_file_name, 'w', encoding="utf8",newline="\n")
 	tt_file = os.path.abspath(tt_file).replace("tsv" + os.sep,"xml"+os.sep)
 
 	if PY2:
@@ -543,14 +552,14 @@ def fix_file(filename,tt_file,outdir,genitive_s=False):
 	outfile.write("\n".join(out_lines) + "\n")
 	outfile.close()
 
-	fix_genitive_s(filename, tt_file, dry=(not genitive_s))
+	fix_genitive_s(filename, tt_file, warn_only=True)
 
 if __name__ == "__main__":
 	if platform.system() == "Windows":
 		import os, msvcrt
 		msvcrt.setmode(sys.stdout.fileno(), os.O_BINARY)
 
-	filename = sys.argv[1]
+	filename = sys.argv[1]  # e.g. ../src/tsv/*.tsv
 	if "*" in filename:
 		file_list = glob(sys.argv[1])
 	else:
@@ -561,5 +570,6 @@ if __name__ == "__main__":
 		os.makedirs(outdir)
 
 	for filename in file_list:
-		tt_file = filename.replace(".tsv", ".xml")
+		tt_file = filename.replace("tsv", "xml")
 		fix_file(filename,tt_file,outdir)
+		fix_genitive_s(filename, tt_file, warn_only=False,outdir=outdir)
