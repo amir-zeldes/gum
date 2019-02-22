@@ -51,6 +51,11 @@ def fix_tsv(gum_source, gum_target, reddit=False, genitive_s=False):
 ### begin functions for genitive s fix
 # file i/o layer
 def read_tsv_lines(tsv_path):
+	"""
+	Reads all lines from a WebAnno TSV file
+	:param tsv_path: Path to a single WebAnno TSV file
+	:return: A list of lines from the file, newline characters included
+	"""
 	if sys.version_info[0] < 3:
 		infile = open(tsv_path, 'rb')
 	else:
@@ -61,11 +66,16 @@ def read_tsv_lines(tsv_path):
 	return lines
 
 
-def read_tt_lines(tt_path):
+def read_xml_lines(xml_path):
+	"""
+	Reads all lines from a TreeTagger XML file
+	:param xml_path: Path to a single XML file
+	:return: A list of lines from the file, newline characters included
+	"""
 	if PY2:
-		infile = open(tt_path, 'rb')
+		infile = open(xml_path, 'rb')
 	else:
-		infile = open(tt_path, 'r', encoding="utf8")
+		infile = open(xml_path, 'r', encoding="utf8")
 
 	lines = infile.readlines()
 	infile.close()
@@ -73,6 +83,11 @@ def read_tt_lines(tt_path):
 
 
 def format_entities(entities):
+	"""
+	Turn a list of parsed WebAnno entities into a string.
+	:param entities: A list of (parsed) entities from a single WebAnno line
+	:return: A string representing the entities
+	"""
 	strs = []
 	for entity in entities:
 		if entity['id']:
@@ -87,6 +102,11 @@ def format_entities(entities):
 
 
 def format_relations(relations):
+	"""
+	Turn a list of parsed WebAnno relations into a string.
+	:param relations: A list of (parsed) relations from a single WebAnno line
+	:return: A string representing the relations
+	"""
 	strs = []
 	for relation in relations:
 		rstr = relation['src_token']
@@ -107,6 +127,11 @@ def format_relations(relations):
 
 
 def format_infstat(entities):
+	"""
+	Turn a list of parsed WebAnno entities into a string representing their information status.
+	:param entities: A list of (parsed) entities from a single WebAnno line
+	:return: A string representing the information status of those entities.
+	"""
 	strs = []
 	for entity in entities:
 		if entity['id']:
@@ -120,7 +145,14 @@ def format_infstat(entities):
 		return "_"
 
 
-def serialize_tsv_lines(lines, parsed_lines, tsv_path,outdir):
+def serialize_tsv_lines(lines, parsed_lines, tsv_path, outdir):
+	"""
+	Writes the in-memory representation of the WebAnno TSV file to disk.
+	:param lines: The original lines of the TSV file
+	:param parsed_lines: The in-memory representation of the TSV file that was manipulated
+	:param tsv_path: The path of the input file
+	:param outdir: The directory to write the output file in. The basename of tsv_path is appended to this.
+	"""
 
 	tsv_path = outdir + os.sep + os.path.basename(tsv_path)
 	if sys.version_info[0] < 3:
@@ -145,7 +177,11 @@ def serialize_tsv_lines(lines, parsed_lines, tsv_path,outdir):
 
 # string layer
 def extract_from_bracket(s):
-	"""Given something like "xyz[3]", returns 2-tuple ("xyz", "3"), or ("xyz", None) if input is 'xyz"."""
+	"""
+	Extracts the label and bracketed content from an entity representation
+	:param s: something like "xyz[3]"
+	:return: 2-tuple like ("xyz", "3"), or ("xyz", None) if input is 'xyz"
+	"""
 	bracket_index = s.rfind("[")
 	if bracket_index < 0:
 		return s, None
@@ -154,6 +190,11 @@ def extract_from_bracket(s):
 
 
 def parse_tsv_line(line):
+	"""
+	Parse a line from a WebAnno TSV file into a dictionary representing a subset of its contents.
+	:param line: A WebAnno TSV file line
+	:return: A dictionary with keys 'token_id', 'entities', 'token', and 'relations'.
+	"""
 	line = [None if x == "_" else x for x in line]
 
 	already_seen_single_tok_entity = False
@@ -197,13 +238,23 @@ def parse_tsv_line(line):
 
 
 def parse_tsv_lines(lines):
+	"""
+	Parse all WebAnno TSV lines
+	:param lines: A list of unprocessed TSV lines
+	:return: a list of dictionaries representing a subset of their contents.
+	"""
 	return [parse_tsv_line(raw_line.rstrip().split("\t"))
 			for raw_line in lines
 			if "\t" in raw_line]
 
 
-def enrich_tsv_representation_with_pos(parsed_lines, tt_path):
-	lines = read_tt_lines(tt_path)
+def enrich_tsv_representation_with_pos(parsed_lines, xml_path):
+	"""
+	Add POS tags to the in-memory TSV representation
+	:param parsed_lines: Parsed list of TSV lines, from parse_tsv_lines
+	:param xml_path: The path to the TSV file's corresponding TreeTagger XML file
+	"""
+	lines = read_xml_lines(xml_path)
 
 	i = 0
 	for line in lines:
@@ -219,6 +270,24 @@ def enrich_tsv_representation_with_pos(parsed_lines, tt_path):
 
 # parsed representation layer
 def expand_single_length_entities(parsed_lines):
+	"""
+	A quirk of the WebAnno TSV format: if an entity only spans a single token, it is almost always
+	NOT given an ID in the TSV format. This function gives all entities, even single-length entities,
+	IDs and adjusts all ID's so that they are consecutive, counting from 1 and increasing by 1 each time.
+
+	Unfortunately, there are some quirks (at least from my perspective--perhaps there are explanations)
+	in the TSV files I've observed:
+	- Sometimes single-token entities *do* have IDs
+	- Sometimes IDs are not strictly consecutive (in one instance, IDs 58 and 60 were present, but not 59)
+
+	The latter is not handled by this tool: if 58 and 60 occur in the original file but 59 doesn't,
+	then 58 and 59 will be the corresponding ID's in the output format.
+
+	To handle the former, this function returns a list of all the single-span entities that did not
+	have an ID in the original file. Then, their IDs are only deleted later if they appear in this list.
+	:param parsed_lines: Parsed TSV lines from parse_tsv_lines
+	:return: A list of IDs that were created for single-span entities.
+	"""
 	new_id_count = 0
 	last_seen_entity_id = 0
 	# old id -> shifted id
@@ -245,6 +314,7 @@ def expand_single_length_entities(parsed_lines):
 				old_id_index[old_id] = entity['id']
 				last_seen_entity_id = entity['id']
 
+	# step 2--adjut relations so they use the new IDs
 	for line in parsed_lines:
 		for relation in line['relations']:
 			# we have a single token span src--need to set it to the id we created
@@ -264,6 +334,12 @@ def expand_single_length_entities(parsed_lines):
 
 
 def collapse_single_length_entities(parsed_lines, created_ids):
+	"""
+	Reverse the work of expand_single_length_entities, as much as possible. Cf. that function's documentation
+	for quirks.
+	:param parsed_lines: Parsed TSV lines from parse_tsv_lines
+	:param created_ids: A list of entities whose ID's should be deleted as long as they are still single-span
+	"""
 	deleted_id_count = 0
 	# old id -> shifted id
 	old_id_index = {}
@@ -291,7 +367,6 @@ def collapse_single_length_entities(parsed_lines, created_ids):
 				entity['id'] -= deleted_id_count
 				old_id_index[old_id] = entity['id']
 
-
 	for line in parsed_lines:
 		for relation in line['relations']:
 			relation['src'] = None if relation['src'] in deleted_ids else old_id_index[relation['src']]
@@ -299,16 +374,20 @@ def collapse_single_length_entities(parsed_lines, created_ids):
 
 
 def is_genitive_s(line):
+	"""
+	Test a parsed line to see whether it is an instance of a genitive s.
+	:param line:
+	:return: True if the line is a genitive s, false otherwise
+	"""
 	return line['pos'] == "POS"
 
 
-def merge_genitive_s(parsed_lines, tsv_path, warn_only=True):
+def merge_genitive_s(parsed_lines, tsv_path, warn_only):
 	"""
 	Merges trailing genitive 's into immediately preceding entity span ([John] 's -> [John 's])
 	:param parsed_lines: list of dictionaries
 	:param tsv_path: target path to write to
 	:param warn_only: if True, warn but do not modify cases
-	:return:
 	"""
 	for i, line in enumerate(parsed_lines):
 		if is_genitive_s(line):
@@ -322,15 +401,26 @@ def merge_genitive_s(parsed_lines, tsv_path, warn_only=True):
 					print("token " + line['token_id'] + " in doc '" + tsv_path + "' identified as genitive \"'s\" "
 						  + "and merged with immediately preceding markable " + e['type'] + '[' + str(e['id']) + '].')
 			else:
-				print("WARN: token " + line['token_id'] + " in doc '" + tsv_path + "' "
-					  + "is \"'s\" but is not contained in any immediately preceding markable.\n      Per "
-					  + "GUM guidelines, the \"'s\" should be included if it is genitive marking.")
+				for e in entity_difference:
+					print("WARN: token " + line['token_id'] + " in doc '" + tsv_path + "' "
+						  + "looks like a genitive s but is not contained in the immediately preceding markable "
+						  + e['type'] + '[' + str(e['id']) +"].\n      Per GUM guidelines, it should be included."
+						  + " Run _build/utils/repair_tsv.py to correct this issue.")
 
 
-def fix_genitive_s(tsv_path, tt_path, warn_only=True, outdir=None):
+def fix_genitive_s(tsv_path, xml_path, warn_only=True, outdir=None):
+	"""
+	Finds occurrences of "genitive s" tokens (e.g. "Joseph 's Coat", "James ' Jacket", but not "John 's gone")
+	the genitive s is not included in any markable(s) that include the immediately preceding token. Only
+	prints a warning unless warn_only is set to false.
+	:param tsv_path: The path to the WebAnno TSV file
+	:param xml_path: The path to the TSV file's correspding XML file
+	:param warn_only: If False, actually writes the corrected TSV files to outdir. If True, only prints warnings.
+	:param outdir: The directory corrected TSV files will be placed in
+	"""
 	lines = read_tsv_lines(tsv_path)
 	parsed_lines = parse_tsv_lines(lines)
-	enrich_tsv_representation_with_pos(parsed_lines, tt_path)
+	enrich_tsv_representation_with_pos(parsed_lines, xml_path)
 
 	created_ids = expand_single_length_entities(parsed_lines)
 	merge_genitive_s(parsed_lines, tsv_path, warn_only)
@@ -341,7 +431,7 @@ def fix_genitive_s(tsv_path, tt_path, warn_only=True, outdir=None):
 ### end genitive s fix
 
 
-def fix_file(filename,tt_file,outdir,genitive_s=False):
+def fix_file(filename, tt_file, outdir, genitive_s=False):
 
 	# Get reference tokens
 	tsv_file_name = ntpath.basename(filename)
@@ -571,5 +661,5 @@ if __name__ == "__main__":
 
 	for filename in file_list:
 		tt_file = filename.replace("tsv", "xml")
-		fix_file(filename,tt_file,outdir)
-		fix_genitive_s(filename, tt_file, warn_only=False,outdir=outdir)
+		fix_file(filename, tt_file, outdir)
+		fix_genitive_s(filename, tt_file, warn_only=False, outdir=outdir)
