@@ -22,6 +22,8 @@ def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False):
 		tokens = textdic[os.path.basename(f_path)[:os.path.basename(f_path).find(".")]]
 		if unescape_xml:
 			tokens = tokens.replace("&gt;",">").replace("&lt;","<").replace("&amp;","&")
+		else:
+			tokens = tokens.replace(">","&gt;").replace("<","&lt;")
 		if not PY3:
 			tokens = tokens.decode("utf8")
 
