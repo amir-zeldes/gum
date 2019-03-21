@@ -34,12 +34,33 @@
 	</importer>
 	<importer name="CoNLLImporter" path="file:/**gum_tmp**/dep/GUM/">
 		<customization>
+			<property key="pepper.before.addSLayer">dep</property>
 			<property key="conll.SPOS">NONE</property> <!--POSTAG comes from XML -->
+			<property key="conll.EDGE.TYPE">dep</property>
+			<property key="conll.EDGE.LAYER">dep</property>
+			<property key="conll.EDGE.ANNO.NS">dep</property>
+			<property key="conll.EDGE.ANNO.NAME">func</property>
 			<property key="conll.SENTENCE">FALSE</property>
 			<property key="conll.SLEMMA">NONE</property> <!-- lemma should come from XML -->
-			<property key="pepper.after.addSLayer">dep</property>
 			<property key="pepper.after.removeAnnos">cat</property>
-			<property key="pepper.after.renameAnnos">deprel:=func</property>
+			<property key="pepper.after.addSLayer">dep</property>
+			<!--<property key="pepper.after.renameAnnos">deprel:=func</property>-->
+		</customization>
+	</importer>
+	<importer name="CoNLLImporter" path="file:/**gum_tmp**/ud/GUM/">
+		<customization>
+			<property key="pepper.before.addSLayer">ud</property>
+			<property key="conll.SENTENCE">FALSE</property>
+			<property key="conll.EDGE.LAYER">ud</property>
+			<property key="conll.EDGE.TYPE">ud</property>
+			<property key="conll.EDGE.ANNO.NS">ud</property>
+			<property key="conll.EDGE.ANNO.NAME">deprel</property>
+			<property key="conll.KeyValFeatures">TRUE</property>
+			<property key="conll.FEATURES.NAMESPACE">morph</property>
+			<property key="conll.SPOS">NONE</property> 
+			<property key="conll.SLEMMA">NONE</property> 
+			<property key="pepper.after.addSLayer">ud</property>
+			<property key="pepper.after.removeAnnos">cat</property>
 		</customization>
 	</importer>
 	<importer name="PTBImporter" path="file:/**gum_tmp**/const/GUM/">
@@ -54,6 +75,23 @@
 		<property key="copyNodes">true</property>
 		<property key="firstAsBase">true</property>
 		<property key="escapeMapping">"(":"-LRB-",")":"-RRB-","[":"-LSB-","]":"-RSB-"</property> <!-- map escaped PTB tokens -->
+	</manipulator>
+	<manipulator name="Mover">
+		<property key="Mover.sourceType">tok2node</property>
+		<property key="Mover.sourceAnnoNamespace">morph</property>
+		<property key="Mover.targetObject">span</property> <!-- can also use 'struct' -->
+		<property key="Mover.targetLayer">morph</property>
+		<property key="Mover.removeOrig">TRUE</property>
+	</manipulator>
+	<manipulator name="Mover">
+		<property key="Mover.sourceType">edge2edge</property>
+		<property key="Mover.sourceLayer">ref</property>
+		<property key="Mover.sourceAnno">type</property>
+		<property key="Mover.sourceAnnoVal">bridg.*</property>
+		<property key="Mover.targetName">bridge</property> <!-- can also use 'struct' -->
+		<property key="Mover.targetLayer">bridge</property> <!-- can also use 'struct' -->
+		<property key="Mover.targetAnno">type</property>
+		<property key="Mover.removeOrig">TRUE</property>
 	</manipulator>
 	<exporter name="CoNLLCorefExporter" path="file:/**gum_target**coref/conll">
 		<customization>
