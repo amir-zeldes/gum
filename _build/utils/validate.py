@@ -110,7 +110,7 @@ def validate_src(gum_source, reddit=False):
 		dir_name = gum_source + dir[0]
 		dir_ext = dir[1]
 		filenames = []
-		for filename in glob.glob(dir_name + os.sep + '*.' + dir_ext):
+		for filename in sorted(glob.glob(dir_name + os.sep + '*.' + dir_ext)):
 			if not reddit and "reddit_" in filename:
 				continue
 			basename = ntpath.basename(filename)
@@ -168,7 +168,13 @@ def validate_src(gum_source, reddit=False):
 				# rst -- use xml reader, add up space-split counts of segment.text
 				elif dirs[d][0] == 'rst':
 					tok_count = 0
-					tree = ET.parse(filepath)
+					try:
+						tree = ET.parse(filepath)
+					except Exception as e:
+						sys.stderr.write("Can't parse XML file: " + filepath+"\n")
+						sys.stderr.write(str(e))
+						sys.exit(0)
+
 					root = tree.getroot()
 					for segment in root.iter('segment'):
 						# seg_text = re.sub(r'^\s*', r'', segment.text)
@@ -211,7 +217,12 @@ def validate_src(gum_source, reddit=False):
 			with io.open(gum_source + filepath,encoding="utf8") as this_file:
 	
 				if sentence_dirs[d][0] == 'xml':
-					tree = ET.parse(gum_source + filepath)
+					try:
+						tree = ET.parse(gum_source + filepath)
+					except Exception as e:
+						sys.stderr.write("Can't parse XML file: " + filepath+"\n")
+						sys.stderr.write(str(e))
+						sys.exit(0)
 					root = tree.getroot()
 					for s in root.iter('s'):
 						sent_length = count_tokens(s)
@@ -331,12 +342,20 @@ def validate_annos(gum_source, reddit=False):
 
 		tok_num = 0
 
-		for line in xml_lines:
+		# Extended PTB (TT/AMALGAM) tagset
+		tagset = ["CC","CD","DT","EX","FW","IN","IN/that","JJ","JJR","JJS","LS","MD","NN","NNS","NP","NPS","PDT","POS",
+				  "PP","PP$","RB","RBR","RBS","RP","SENT","SYM","TO","UH","VB","VBD","VBG","VBN","VBP","VBZ","VH","VHD",
+				  "VHG","VHN","VHP","VHZ","VV","VVD","VVG","VVN","VVP","VVZ","WDT","WP","WP$","WRB","``","''","(",")",",",":"]
+
+		for i, line in enumerate(xml_lines):
 			if "\t" in line:  # Token
 				tok_num += 1
 				func = funcs[tok_num]
 				fields = line.split("\t")
 				tok, pos, lemma = fields[0:3]
+				if pos not in tagset:
+					print("WARN: invalid POS tag " + pos + " in " + docname + " @ line " + str(i) + " (token: " + tok + ")"
+)
 				parent_string = parents[tok_num]
 				parent_id = parent_ids[tok_num]
 				parent_lemma = lemmas[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
@@ -534,7 +553,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func != "possessive" and pos== "POS":
 		print("WARN: tag POS must have function possessive" + inname)
 
-	if re.search(r"never|not|no|n't|n’t|’t|'t|nt", tok, re.IGNORECASE) is None and func == "neg":
+	if re.search(r"never|not|no|n't|n’t|’t|'t|nt|ne|pas|nit", tok, re.IGNORECASE) is None and func == "neg":
 		print(str(id) + docname)
 		print("WARN: mistagged negative" + inname)
 
@@ -561,7 +580,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 				 ("more","than"),("not","to"),("not","mention"),("of","course"),("prior","to"),("rather","than"),("so","as"),
 				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("that","is"), ("up","to"),("whether","or"),
 				 ("whether","not"),("depend","on"),("out","of"),("more","than"),("on","board"),("as","of"),("depend","upon"),
-				 ("that","be"),("just","about"),("vice","versa"),("as","such"),("next","to"),("close","to")}
+				 ("that","be"),("just","about"),("vice","versa"),("as","such"),("next","to"),("close","to"),("one","another"),("de","facto")}
 
 	# Ad hoc listing of triple mwe parts - All in all, in order for
 	mwe_pairs.update({("all","in"),("all","all"),("in","for")})

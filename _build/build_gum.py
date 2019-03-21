@@ -115,6 +115,8 @@ print("\nAdjusting token and sentence borders:\n" + "="*37)
 # Adjust tsv/ files:
 #   * refresh and re-merge token strings in case they were mangled by WebAnno
 #   * adjust sentence borders to match xml/ <s>-tags
+#   * find instances of "'s" that are not included in any immediately preceding
+#     markables and merge them into those markables if genitive_s is True
 fix_tsv(gum_source, gum_target, reddit=reddit)
 
 # Adjust rst/ files:

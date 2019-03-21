@@ -22,6 +22,8 @@ def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False):
 		tokens = textdic[os.path.basename(f_path)[:os.path.basename(f_path).find(".")]]
 		if unescape_xml:
 			tokens = tokens.replace("&gt;",">").replace("&lt;","<").replace("&amp;","&")
+		else:
+			tokens = tokens.replace(">","&gt;").replace("<","&lt;")
 		if not PY3:
 			tokens = tokens.decode("utf8")
 
@@ -32,6 +34,9 @@ def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False):
 				elif "\t" in line:
 					elements = line.split('\t')
 					elements[tok_col] = tokens[:len(elements[tok_col])]
+					tokens = tokens[len(elements[tok_col]):]
+					#if not unescape_xml:
+					#	elements[tok_col] = elements[tok_col].replace("&amp;","&").replace("&","&amp;")
 					if lemma_col is not None:
 						if elements[lemma_col] == '_':
 							elements[lemma_col] = elements[tok_col]
@@ -41,7 +46,6 @@ def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False):
 						fout.write('\t'.join(elements)+"\n")
 					except Exception as e:
 						a=4
-					tokens = tokens[len(elements[tok_col]):]
 				else:
 					fout.write(line)
 					if i < len(in_lines) - 1:
@@ -61,6 +65,7 @@ def make_text_rst(folder, textdic):
 		tokens = textdic[os.path.basename(f_path)[:os.path.basename(f_path).find(".")]]
 		if not PY3:
 			tokens = tokens.decode("utf8")
+		tokens = tokens.replace(">","&gt;").replace("<","&lt;")  # Reddit API does not escape lt/gt, but does escape &amp;
 
 		with io.open(f_path, 'r', encoding='utf-8') as fin:
 			in_lines = fin.read().replace("\r","").split("\n")
@@ -81,11 +86,14 @@ def make_text_rst(folder, textdic):
 							try:
 								out_seg += tokens[cursor]
 							except Exception as e:
-								a=5
+								print("WARNING: tried to access tokens at position " + str(cursor) + ", but "
+									  + "an exception occurred. Are you sure '" + f_path + "' was downloaded "
+									  + "properly? (len(tokens) = " + str(len(tokens)) + ".)")
 							cursor += 1
 						else:
 							out_seg += c
 
+					#out_seg = out_seg.replace("&","&amp;")
 					fout.write(pre + out_seg + post + "\n")
 
 
@@ -146,6 +154,7 @@ def make_underscores(folder, tok_col, lemma_col=None):
 					else:
 						fout.write(unicode("#Text=_" + "\n"))
 				elif "\t" in line:
+					#line = line.replace("&amp;","&")
 					elements = line.split('\t')
 					if lemma_col is not None:
 						if elements[lemma_col] == elements[tok_col]:  # Delete lemma if identical to token

@@ -6,6 +6,7 @@
         <xs:element ref="figure"/>
         <xs:element ref="list"/>
         <xs:element ref="p"/>
+        <xs:element ref="table"/>
         <xs:element ref="quote"/>
         <xs:element ref="s"/>
         <xs:element ref="head"/>
@@ -19,8 +20,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
-
-      <xs:attribute name="author" use="required">
+    <xs:attribute name="author" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
           </xs:restriction>
@@ -95,8 +95,8 @@
   <xs:element name="head">
     <xs:complexType>
       <xs:choice maxOccurs="unbounded">
-        <xs:element maxOccurs="unbounded" ref="s"/>
-        <xs:element maxOccurs="unbounded" ref="hi"/>
+        <xs:element  minOccurs="0" maxOccurs="unbounded" ref="s"/>
+        <xs:element  minOccurs="0" maxOccurs="unbounded" ref="hi"/>
       </xs:choice>
       <xs:attribute name="rend" type="xs:string"/>
     </xs:complexType>
@@ -110,6 +110,15 @@
       <xs:attribute name="n" type="xs:integer"/>
     </xs:complexType>
   </xs:element>
+  <xs:element name="note">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="s"/>
+      </xs:sequence>
+      <xs:attribute name="place" type="xs:string"/>
+      <xs:attribute name="n" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="sp">
     <xs:complexType mixed="true">
       <xs:choice maxOccurs="unbounded">
@@ -117,12 +126,20 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="head"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="list"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="p"/>
- <xs:element minOccurs="0" maxOccurs="unbounded" ref="hi"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="w"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="hi"/>
       </xs:choice>
       <xs:attribute name="who" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="#[A-Za-z0-9_-]+"/>
+            <xs:pattern value="#([A-Za-z0-9_][A-Za-z0-9_-]*)+(,#([A-Za-z0-9_][A-Za-z0-9_-]*)+)*"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    <xs:attribute name="whom">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="#([A-Za-z0-9_][A-Za-z0-9_-]*)+(,#([A-Za-z0-9_][A-Za-z0-9_-]*)+)*"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -148,8 +165,9 @@
         <xs:element ref="add"/>
         <xs:element ref="figure"/>
         <xs:element ref="hi"/>
-     <xs:element ref="sp"/>
+        <xs:element ref="sp"/>
         <xs:element ref="q"/>
+        <xs:element ref="cell"/>
         <xs:element ref="w"/>
         <xs:element ref="quote"/>
         <xs:element ref="ref"/>
@@ -175,6 +193,7 @@
             <xs:enumeration value="intj"/>
             <xs:enumeration value="frag"/>
             <xs:enumeration value="other"/>
+            <xs:enumeration value="multiple"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -186,7 +205,7 @@
       <xs:attribute name="who" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="#([A-Z][a-z]*)+"/>
+            <xs:pattern value="#([A-Z][a-z]*)+(,#([A-Z][a-z]*)+)*"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -194,6 +213,9 @@
   </xs:element>
   <xs:element name="date">
     <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="w"/>
+      </xs:choice>
       <xs:attribute name="from" type="xs:string"/>
       <xs:attribute name="notAfter" type="xs:string"/>
       <xs:attribute name="notBefore" type="xs:string"/>
@@ -248,13 +270,14 @@
         <xs:element ref="p"/>
         <xs:element ref="ref"/>
         <xs:element ref="s"/>
+        <xs:element ref="gap"/>
         <xs:element ref="sic"/>
       </xs:choice>
       <xs:attribute name="rend" type="xs:string"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="figure">
-    <xs:complexType mixed="true">
+    <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" ref="caption"/>
       </xs:sequence>
@@ -277,12 +300,46 @@
         <xs:element minOccurs="0" ref="figure"/>
         <xs:element minOccurs="0" ref="hi"/>
         <xs:element minOccurs="0" ref="lg"/>
+        <xs:element minOccurs="0" ref="note"/>
         <xs:element minOccurs="0" ref="quote"/>
         <xs:element minOccurs="0" ref="list"/>
         <xs:element maxOccurs="unbounded" ref="s"/>
  <xs:element maxOccurs="unbounded" ref="sp"/>
       </xs:choice>
       <xs:attribute name="rend"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="table">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element minOccurs="0" maxOccurs="1" ref="head"/>
+        <xs:element minOccurs="1" ref="row"/>
+      </xs:choice>
+      <xs:attribute name="rend"/>
+      <xs:attribute name="rows" type="xs:integer"/>
+      <xs:attribute name="cols" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="row">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0"  maxOccurs="unbounded" ref="cell"/>
+        <xs:element minOccurs="0"  maxOccurs="unbounded" ref="s"/>
+      </xs:sequence>
+      <xs:attribute name="n" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="cell">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:element minOccurs="0" ref="figure"/>
+        <xs:element minOccurs="0" ref="list"/>
+        <xs:element minOccurs="0" ref="ref"/>
+        <xs:element minOccurs="0" ref="s"/>
+      </xs:choice>
+      <xs:attribute name="n" type="xs:integer"/>
+      <xs:attribute name="rend" type="xs:string"/>
+      <xs:attribute name="role" type="xs:string"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="list">
@@ -339,7 +396,6 @@
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="ref"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="figure"/>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="sp"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="incident"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="w"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="lg"/>
@@ -357,6 +413,7 @@
         <xs:choice minOccurs="0" maxOccurs="unbounded">
           <xs:element ref="figure"/>
           <xs:element ref="hi"/>
+          <xs:element ref="w"/>
           <xs:element ref="sic"/>
           <xs:element ref="ref"/>
         </xs:choice>

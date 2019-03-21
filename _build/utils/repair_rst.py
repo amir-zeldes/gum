@@ -39,7 +39,7 @@ def fix_file(filename,tt_file,outdir):
 	if PY2:
 		outfile = open(outdir + rst_file_name,'w')
 	else:
-		outfile = io.open(outdir + rst_file_name,'w',encoding="utf8")
+		outfile = io.open(outdir + rst_file_name,'w',encoding="utf8",newline="\n")
 
 	if PY2:
 		tt = open(tt_file)
