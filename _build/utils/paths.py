@@ -8,4 +8,4 @@ else:
 	# Alternate paths for running under Windows
 	tt_path = 'utils\\treetagger\\'
 	parser_path = "utils\\stanford_parser"
-	core_nlp_path = "C:\\Users\\logan\\Dropbox\\GUM\\SD-UD_converter_test\\stanford-corenlp-full-2017-06-09\\stanford-corenlp-full-2017-06-09"
+	core_nlp_path = "utils\\core_nlp"
