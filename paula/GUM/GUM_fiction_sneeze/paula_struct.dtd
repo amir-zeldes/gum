@@ -1,0 +1,18 @@
+<!ENTITY % paula_header SYSTEM "paula_header.dtd">
+%paula_header;
+
+<!ELEMENT structList (struct*)>
+<!ATTLIST structList xmlns:xlink CDATA #IMPLIED
+		     xml:base    CDATA #IMPLIED
+		     type        CDATA #REQUIRED
+>
+                     
+<!ELEMENT struct (rel*)>
+<!ATTLIST struct id ID #REQUIRED>
+
+<!ELEMENT rel EMPTY>
+<!ATTLIST rel id          ID    #IMPLIED
+              xlink:href  CDATA #REQUIRED
+	      xmlns:xlink CDATA #IMPLIED
+              type        (edge|secedge) #IMPLIED
+>
