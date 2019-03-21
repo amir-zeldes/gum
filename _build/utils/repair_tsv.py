@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import sys,platform,os,io
-from collections import OrderedDict
+import sys,platform,os,io,re
+from collections import OrderedDict, defaultdict
 import ntpath
 from glob import glob
 from six import iteritems
@@ -538,16 +538,22 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 			else:  # multipart token is growing
 				id_offset += 1
 
+	bridging_count = defaultdict(int)
+	bridge_words = defaultdict(lambda:"_")  # Track tokens to find bridging type
 
 	edited_lines = []
 	for line_num, line in iteritems(out_lines):
 		if "\t" in line:
+			tok_id = fields[0]
+			bridge_words[tok_id] = fields[2]
 			fields = line.split("\t")
 			links = fields[-2]
+			link_annos = fields[-3]
 			split_links = links.split("|")
+			split_link_annos = link_annos.split("|")
 			out_link = ""
 			pipe = ""
-			for link in split_links:
+			for i, link in enumerate(split_links):
 				if "[" in link:
 					tok, spans = link.split("[")
 					spans = "[" + spans
@@ -557,6 +563,10 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 
 				if tok in id_mapping:
 					tok = id_mapping[tok]
+
+				link_anno = split_link_annos[i]
+				if link_anno == "bridge":
+					bridging_count[tok] += 1
 
 				if spans != "":
 					tok += spans
@@ -569,6 +579,34 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 			line = "\t".join(fields)
 		edited_lines.append(line)
 
+	# Now split bridging sub-types
+	bridge_fixed = []
+	for line in edited_lines:
+		if "\t" in line:
+			fields = line.split("\t")
+			links = fields[-2]
+			link_annos = fields[-3]
+			split_links = links.split("|")
+			split_link_annos = link_annos.split("|")
+			edited_annos = []
+			for i, anno in enumerate(split_link_annos):
+				link = split_links[i]
+				if "[" in link:
+					link = link.split("[")[0]
+				source_word = bridge_words[link]
+				if anno == "bridge":
+					if bridging_count[link] > 1:
+						anno = "bridge:aggr"
+					elif re.match(r'(the|this|that|these|those)$',source_word,re.IGNORECASE) is not None:
+						anno = "bridge:def"
+					else:
+						anno = "bridge:other"
+				edited_annos.append(anno)
+			fields[-3] = "|".join(edited_annos)
+			bridge_fixed.append("\t".join(fields))
+		else:
+			bridge_fixed.append(line)
+	edited_lines = bridge_fixed
 	if not total_out_tokens == len(tokens):
 		raise IOError("Token length conflict: " + str(len(tokens)) + " TT tokens but " + str(total_out_tokens) + " TSV tokens in " + tsv_file_name +". Last good token: " + last_good_token)
 
