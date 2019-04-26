@@ -22,6 +22,19 @@ To cite this corpus, please refer to the following article:
 
 Zeldes, Amir (2017) "The GUM Corpus: Creating Multilayer Resources in the Classroom". Language Resources and Evaluation 51(3), 581–612. 
 
+```
+@Article{Zeldes2017,
+  author    = {Amir Zeldes},
+  title     = {The {GUM} Corpus: Creating Multilayer Resources in the Classroom},
+  journal   = {Language Resources and Evaluation},
+  year      = {2017},
+  volume    = {51},
+  number    = {3},
+  pages     = {581--612},
+  doi       = {http://dx.doi.org/10.1007/s10579-016-9343-x}
+}
+```
+
 ## Directories
 The corpus is downloadable in multiple formats. Not all formats contain all annotations. The most complete XML representation is in [PAULA XML](https://www.sfb632.uni-potsdam.de/en/paula.html), and the easiest way to search in the corpus is using [ANNIS](http://corpus-tools.org/annis). Other formats may be useful for other purposes. See website for more details.
 
