@@ -64,6 +64,52 @@ def fix_punct(conllu_string):
 	return output_string
 
 
+def is_neg_lemma(lemma,pos):
+	negstems = set(["imposs","improb","immort","inevit","incomp","indirec","inadeq","insuff","ineff","incong","incoh","inacc","invol","infreq","inapp","indist","infin","intol",
+					"dislik","dys","dismount","disadvant","disinteg","disresp","disagr","disjoin","disprov","disinterest","discomfort","dishonest","disband","disentangl"])
+	neglemmas = set(["nowhere","never","nothing","none","undo","uncover","unclench"])
+	if lemma == 'unconscious':
+		a=4
+	lemma = lemma.lower()
+	if lemma in negstems or lemma in neglemmas:
+		return True
+	elif lemma.startswith("non-"):
+		return True
+	elif lemma.startswith("not-"):
+		return True
+	elif lemma.startswith("un") and (pos.startswith("JJ") or pos.startswith("RB")):
+		if not lemma.startswith("unique") and not lemma.startswith("under"):
+			return True
+	for stem in negstems:
+		if lemma.startswith(stem):
+			return True
+	return False
+
+
+def add_feat(field,feat):
+	if field == "_":
+		return feat
+	else:
+		attrs = field.split("|")
+		attrs.append(feat)
+		return "|".join(sorted(attrs))
+
+
+def do_hard_replaces(text):
+	"""Replace unresolvable conversion problems with hardwired replacements
+	"""
+
+	reps = [("""15	ashes	ash	NOUN	NNS	Number=Plur	12	obl	_	SpaceAfter=No
+16	"	"	PUNCT	''	_	12	punct	_	_""","""15	ashes	ash	NOUN	NNS	Number=Plur	12	obl	_	SpaceAfter=No
+16	"	"	PUNCT	''	_	15	punct	_	_"""),("""32	)	)	PUNCT	-RRB-	_	24	punct	_	_
+33	that	that	PRON	WDT	PronType=Rel	34	nsubj	_	_""","""32	)	)	PUNCT	-RRB-	_	27	punct	_	_
+33	that	that	PRON	WDT	PronType=Rel	34	nsubj	_	_""")]
+
+	#reps = [] ########
+	for f, r in reps:
+		text = text.replace(f,r)
+	return text
+
 def create_ud(gum_target, reddit=False):
 	# Use generated enriched targets in dep/stanford/ as source
 	dep_source = gum_target + os.sep + "dep" + os.sep + "stanford" + os.sep
@@ -82,12 +128,14 @@ def create_ud(gum_target, reddit=False):
 			   "GUM_news_iodine","GUM_news_defector","GUM_news_homeopathic",
 			   "GUM_voyage_athens","GUM_voyage_isfahan","GUM_voyage_coron",
 			   "GUM_whow_joke","GUM_whow_skittles","GUM_whow_overalls",
-			   "GUM_fiction_beast","GUM_bio_emperor","GUM_academic_librarians"]
+			   "GUM_fiction_beast","GUM_bio_emperor","GUM_academic_librarians",
+			   "GUM_fiction_lunre","GUM_bio_byron","GUM_academic_exposure"]
 	ud_test = ["GUM_interview_mcguire","GUM_interview_libertarian","GUM_interview_hill",
 			   "GUM_news_nasa","GUM_news_expo","GUM_news_sensitive",
 			   "GUM_voyage_oakland","GUM_voyage_thailand","GUM_voyage_vavau",
 			   "GUM_whow_mice","GUM_whow_cupcakes","GUM_whow_cactus",
-			   "GUM_fiction_falling","GUM_bio_jespersen","GUM_academic_discrimination"]
+			   "GUM_fiction_falling","GUM_bio_jespersen","GUM_academic_discrimination",
+			   "GUM_academic_eegimaa","GUM_bio_dvorak","GUM_fiction_teeth"]
 
 	train_string, dev_string, test_string = "", "", ""
 
@@ -184,7 +232,7 @@ def create_ud(gum_target, reddit=False):
 				tok_num += 1
 				doc_toks.append(fields[1])
 				doc_lemmas.append(fields[2])
-				if fields[7] == "neg":
+				if fields[7] == "neg" or is_neg_lemma(fields[2],fields[3]):
 					negative.append(tok_num)
 				absolute_head_id = tok_num - int(fields[0]) + int(fields[6]) if fields[6] != "0" else 0
 				if str(tok_num) in toks_to_ents:
@@ -252,11 +300,11 @@ def create_ud(gum_target, reddit=False):
 		#morphed = punct_fixed
 		morphed = ud_morph(punct_fixed, docname, utils_abs_path + os.sep + ".." + os.sep + "target" + os.sep + "const" + os.sep)
 
-		if not PY2:
+		if not PY2 and False:
 			# CoreNLP returns bytes in ISO-8859-1
-		 	# ISO-8859-1 mangles ellipsis glyph, so replace manually
-		 	morphed = morphed.decode("ISO-8859-1").replace("","…").replace("","“").replace("","’").replace("",'—').replace("","–").replace("","”").replace("\r","")
-		#morphed = morphed.decode("ISO-8859-1").replace("\r","")
+			# ISO-8859-1 mangles ellipsis glyph, so replace manually
+			morphed = morphed.decode("ISO-8859-1").replace("","…").replace("","“").replace("","’").replace("",'—').replace("","–").replace("","”").replace("\r","")
+		morphed = morphed.decode("ISO-8859-1").replace("\r","")
 
 		# Add negative polarity and imperative mood
 		negatived = []
@@ -275,12 +323,12 @@ def create_ud(gum_target, reddit=False):
 				tok_num += 1
 				fields = line.split("\t")
 				if tok_num in negative:
-					if fields[5] == "_":
-						fields[5] = "Polarity=Neg"
+					fields[5] = add_feat(fields[5],"Polarity=Neg")
 				fields[1] = tok  # Restore correct utf8 token and lemma
 				fields[2] = lemma
 				if imp and fields[5] == "VerbForm=Inf" and fields[7] == "root":  # Inf root in s_type=imp should be Imp
 					fields[5] = "Mood=Imp|VerbForm=Fin"
+				fields[8] = "_"
 				negatived.append("\t".join(fields))
 			else:
 				if line.startswith("# text = "):  # Regenerate correct utf8 plain text
@@ -294,6 +342,13 @@ def create_ud(gum_target, reddit=False):
 					sent_num += 1
 				negatived.append(line)
 		negatived = "\n".join(negatived)
+
+		# Projectivize punctuation
+		#depedit = DepEdit(config_file="utils" + os.sep + "projectivize_punct.ini")
+		#projectivized = depedit.run_depedit(negatived,filename=docname,sent_id=True,docname=True)
+		#negatived = projectivized
+
+		negatived = do_hard_replaces(negatived)
 
 		with io.open(dep_target + docname + ".conllu",'w',encoding="utf8", newline="\n") as f:
 			f.write(negatived)
