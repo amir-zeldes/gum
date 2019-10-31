@@ -10,29 +10,29 @@ Author: Amir Zeldes
 """
 
 from __future__ import print_function
+
 import argparse
 import re
-from io import open as io_open
-from copy import copy, deepcopy
-import sys, os
+import sys
 from collections import defaultdict
+from copy import copy, deepcopy
 from glob import glob
+from io import open as io_open
+
 from six import iteritems
 
-__version__ = "2.1.1"
+__version__ = "2.1.4"
 
+ALIASES = {"form":"text", "upostag":"pos","xpostag":"cpos","feats":"morph","deprel":"func","deps":"head2","misc":"func2"}
 
-def escape(string,symbol_to_mask,border_marker):
+def escape(string, symbol_to_mask, border_marker):
 	inside = False
 	output = ""
 	# Scan the string looking for border or symbol to mask
 	for char in string:
 		if char == border_marker:
 			inside = not inside
-		if char == symbol_to_mask and inside:
-			output += "%%%%%"
-		else:
-			output += char
+		output += "%%%%%" if char == symbol_to_mask and inside else char
 	return output
 
 
@@ -59,54 +59,44 @@ class ParsedToken:
 
 class Sentence:
 
-	def __init__(self,sentence_string=""):
+	def __init__(self, sentence_string="", sent_num=0):
 		self.sentence_string = sentence_string
 		self.length = 0
 		self.annotations = {}
+		self.sent_num = sent_num
 
 	def print_annos(self):
-		out_string = ""
-		for (key,val) in iteritems(self.annotations):
-			out_string += "# " + key + "=" + val + "\n"
-		return out_string
+		return ["# " + key + "=" + val for (key, val) in iteritems(self.annotations)]
 
 
 class Transformation:
 
 	def parse_transformation(self, transformation_text):
-		if transformation_text.count("\t") < 2:
+		split_trans = transformation_text.split("\t")
+		if len(split_trans) < 3:
 			return None
-		else:
-			split_trans = transformation_text.split("\t")
-			definition_string = split_trans[0]
-			relation_string = split_trans[1]
-			action_string = split_trans[2]
-			relation_string = self.normalize_shorthand(relation_string)
-			action_string = self.normalize_shorthand(action_string)
-			definition_string = escape(definition_string,";","/")
-			definitions_list = definition_string.split(";")
-			escaped_definitions = []
-			for _def in definitions_list:
-				escaped_definitions.append(_def.replace("%%%%%",";"))
-			definitions = []
-			for def_index, esc_string in enumerate(escaped_definitions):
-				definitions.append(DefinitionMatcher(esc_string,def_index + 1))
-			relations = relation_string.split(";")
-			actions = action_string.strip().split(";")
-			aliased_actions = []
-			for action in actions:
-				aliased_actions.append(self.handle_aliases(action))
-			return [definitions, relations, aliased_actions]
+		definition_string, relation_string, action_string = split_trans
+		relation_string = self.normalize_shorthand(relation_string)
+		action_string = self.normalize_shorthand(action_string)
+		definition_string = escape(definition_string, ";", "/")
+		definitions_list = definition_string.split(";")
+		escaped_definitions = []
+		for _def in definitions_list:
+			escaped_definitions.append(_def.replace("%%%%%", ";"))
+		definitions = []
+		for def_index, esc_string in enumerate(escaped_definitions):
+			definitions.append(DefinitionMatcher(esc_string, def_index + 1))
+		relations = relation_string.split(";")
+		actions = action_string.strip().split(";")
+		aliased_actions = []
+		for action in actions:
+			aliased_actions.append(self.handle_aliases(action))
+		return [definitions, relations, aliased_actions]
 
 	@staticmethod
 	def handle_aliases(orig_action):
-		orig_action = orig_action.replace(":form=",":text=")
-		orig_action = orig_action.replace(":upostag=", ":pos=")
-		orig_action = orig_action.replace(":xpostag=",":cpos=")
-		orig_action = orig_action.replace(":feats=",":morph=")
-		orig_action = orig_action.replace(":deprel=",":func=")
-		orig_action = orig_action.replace(":deps=",":head2=")
-		orig_action = orig_action.replace(":misc=",":func2=")
+		for source, target in iteritems(ALIASES):
+			orig_action = orig_action.replace(":" + source + "=", ":" + target + "=")
 		return orig_action
 
 	@staticmethod
@@ -115,32 +105,31 @@ class Transformation:
 		temp = ""
 		while temp != criterion_string:
 			temp = criterion_string
-			criterion_string = re.sub(r'(#[0-9]+)(>|\.(?:[0-9]+(?:,[0-9]+)?)?)(#[0-9]+)(>|\.(?:[0-9]+(?:,[0-9]+)?)?)', r'\1\2\3;\3\4', criterion_string)
+			criterion_string = re.sub(r'(#[0-9]+)(>|\.(?:[0-9]+(?:,[0-9]+)?)?)(#[0-9]+)(>|\.(?:[0-9]+(?:,[0-9]+)?)?)',
+									  r'\1\2\3;\3\4', criterion_string)
 		return criterion_string
 
 	def __init__(self, transformation_text, line):
 		instructions = self.parse_transformation(transformation_text)
 		if instructions is None:
-			message = "Depedit says: error in configuration file\n"
-			message += "Malformed instruction on line " + str(line) + " (instruction lines must contain exactly two tabs)\n"
-			sys.stderr.write(message)
+			sys.stderr.write("Depedit says: error in configuration file\n"
+				  "Malformed instruction on line " + str(line) + " (instruction lines must contain exactly two tabs)\n")
 			sys.exit()
-		self.definitions = instructions[0]
-		self.relations = instructions[1]
-		self.actions = instructions[2]
+		self.definitions, self.relations, self.actions = instructions
 		self.line = line
+
+	def __repr__(self):
+		return " | ".join([str(self.definitions), str(self.relations), str(self.actions)])
 
 	def validate(self):
 		report = ""
 		for definition in self.definitions:
-			node = definition.def_text
-			node = escape(node,"&","/")
-			criteria = node.split("&")
-			criteria = (_crit.replace("%%%%%","&") for _crit in criteria)
+			node = escape(definition.def_text, "&", "/")
+			criteria = (_crit.replace("%%%%%", "&") for _crit in node.split("&"))
 			for criterion in criteria:
-				if re.match("(text|pos|cpos|lemma|morph|func|head|func2|head2|num|form|upostag|xpostag|feats|deprel|deps|misc)!?=/[^/=]*/",criterion) is None:
-					if re.match(r"position!?=/(first|last|mid)/",criterion) is None:
-						report+= "Invalid node definition in column 1: " + criterion
+				if re.match(r"(text|pos|cpos|lemma|morph|func|head|func2|head2|num|form|upostag|xpostag|feats|deprel|deps|misc)!?=/[^/=]*/", criterion) is None:
+					if re.match(r"position!?=/(first|last|mid)/", criterion) is None:
+						report += "Invalid node definition in column 1: " + criterion
 		for relation in self.relations:
 			if relation == "none" and len(self.relations) == 1:
 				if len(self.definitions) > 1:
@@ -151,14 +140,16 @@ class Transformation:
 				criteria = relation.split(";")
 				for criterion in criteria:
 					criterion = criterion.strip()
-					#if not re.match(r"#[0-9]+((>|\.([0-9]+(,[0-9]+)?)?)#[0-9]+)+",criterion):
-					if not re.match(r"(#[0-9]+((>|\.([0-9]+(,[0-9]+)?)?)#[0-9]+)+|#[0-9]+:(text|pos|cpos|lemma|morph|func|head|func2|head2|num|form|upostag|xpostag|feats|deprel|deps|misc)==#[0-9]+)", criterion):
+					# if not re.match(r"#[0-9]+((>|\.([0-9]+(,[0-9]+)?)?)#[0-9]+)+",criterion):
+					if not re.match(r"(#[0-9]+((>|\.([0-9]+(,[0-9]+)?)?)#[0-9]+)+|#[0-9]+:(text|pos|cpos|lemma|morph|"
+									r"func|head|func2|head2|num|form|upostag|xpostag|feats|deprel|deps|misc)==#[0-9]+)",
+									criterion):
 						report += "Column 2 relation setting invalid criterion: " + criterion + "."
 		for action in self.actions:
 			commands = action.split(";")
-			for command in commands:
-				if not re.match(r"(#[0-9]+>#[0-9]+|#[0-9]+:(func|lemma|text|pos|cpos|morph|head|head2|func2|num|form|upostag|xpostag|feats|deprel|deps|misc)=[^;]*)$",command):  # Node action
-					if not re.match(r"#S:[A-Za-z_]+=[A-Za-z_]+$|last$", command):  # Sentence annotation action or quit
+			for command in commands:  # Node action
+				if re.match(r"(#[0-9]+>#[0-9]+|#[0-9]+:(func|lemma|text|pos|cpos|morph|head|head2|func2|num|form|upostag|xpostag|feats|deprel|deps|misc)=[^;]*)$", command) is None:
+					if re.match(r"#S:[A-Za-z_]+=[A-Za-z_]+$|last$", command) is None:  # Sentence annotation action or quit
 						report += "Column 3 invalid action definition: " + command + " and the action was " + action
 		return report
 
@@ -166,29 +157,27 @@ class Transformation:
 class DefinitionMatcher:
 
 	def __init__(self, def_text, def_index):
-		self.def_text = escape(def_text,"&","/")
+		self.def_text = escape(def_text, "&", "/")
 		self.def_index = def_index
 		self.groups = []
 		self.defs = []
 
 		def_items = self.def_text.split("&")
 		for def_item in def_items:
-			def_item = def_item.replace("%%%%%","&")
-			criterion = def_item.split("=",1)[0]
-			if criterion[-1] == "!":
-				negative_criterion = True
+			def_item = def_item.replace("%%%%%", "&")
+			criterion = def_item.split("=", 1)[0]
+			negative_criterion = (criterion[-1] == "!")
+			if negative_criterion:
 				criterion = criterion[:-1]
-			else:
-				negative_criterion = False
 
-			def_value = def_item.split("=",1)[1][1:-1]
+			def_value = def_item.split("=", 1)[1][1:-1]
 
 			# Ensure regex is anchored
 			if def_value[0] != "^":
 				def_value = "^" + def_value
 			if def_value[-1] != "$":
 				def_value += "$"
-			self.defs.append(Definition(criterion,def_value,negative_criterion))
+			self.defs.append(Definition(criterion, def_value, negative_criterion))
 
 	def __repr__(self):
 		return "#" + str(self.def_index) + ": " + self.def_text
@@ -196,8 +185,8 @@ class DefinitionMatcher:
 	def match(self, token):
 		potential_groups = []
 		for def_item in self.defs:
-			tok_value = getattr(token,def_item.criterion)
-			match_obj = def_item.match_func(def_item,tok_value)
+			tok_value = getattr(token, def_item.criterion)
+			match_obj = def_item.match_func(def_item, tok_value)
 
 			if match_obj is None:
 				return False
@@ -208,6 +197,7 @@ class DefinitionMatcher:
 			elif match_obj is not None:
 				if len(match_obj.groups()) > 0:
 					potential_groups.append(match_obj.groups())
+		
 		self.groups = potential_groups
 		return True
 
@@ -216,64 +206,43 @@ class Definition:
 
 	def __init__(self, criterion, value, negative=False):
 		# Handle conllu criterion aliases:
-		if criterion == "form":
-			criterion = "text"
-		elif criterion == "upostag":
-			criterion = "pos"
-		elif criterion == "xpostag":
-			criterion = "cpos"
-		elif criterion == "feats":
-			criterion = "morph"
-		elif criterion == "deprel":
-			criterion = "func"
-		elif criterion == "deps":
-			criterion = "head2"
-		elif criterion == "misc":
-			criterion = "func2"
-
-		self.criterion = criterion
+		self.criterion = ALIASES.get(criterion, criterion)
 		self.value = value
 		self.match_type = ""
 		self.compiled_re = None
+		self.match_func = None
 		self.negative = negative
 		self.set_match_type()
 
 	def set_match_type(self):
 		value = self.value[1:-1]
-
 		if self.value == "^.*$" and not self.negative:
 			self.match_func = self.return_true
-		elif re.escape(value) == value: # No regex operators within  expression
-			if self.negative:
-				self.match_func = self.return_exact_negative
-			else:
-				self.match_func = self.return_exact
+		elif re.escape(value) == value:  # No regex operators within  expression
+			self.match_func = self.return_exact_negative if self.negative else self.return_exact
 			self.value = value
 		else:  # regex
 			self.compiled_re = re.compile(self.value)
-			if self.negative:
-				self.match_func = self.return_regex_negative
-			else:
-				self.match_func = self.return_regex
+			self.match_func = self.return_regex_negative if self.negative else self.return_regex
 
 	@staticmethod
-	def return_exact(definition,test_val):
+	def return_exact(definition, test_val):
 		return test_val == definition.value
 
 	@staticmethod
-	def return_exact_negative(definition,test_val):
+	def return_exact_negative(definition, test_val):
 		return test_val != definition.value
 
 	@staticmethod
-	def return_regex(definition,test_val):
+	def return_regex(definition, test_val):
 		return definition.compiled_re.search(test_val)
 
 	@staticmethod
-	def return_regex_negative(definition,test_val):
+	def return_regex_negative(definition, test_val):
 		return definition.compiled_re.search(test_val) is None
 
 	@staticmethod
-	def return_true(definition,test_val):
+	def return_true(definition, test_val):
 		return True
 
 
@@ -288,15 +257,24 @@ class Match:
 		return "#" + str(self.def_index) + ": " + self.token.__repr__
 
 
-class DepEdit():
+class DepEdit:
 
-	def __init__(self, config_file=""):
+	def __init__(self, config_file="", options=None):
 		self.transformations = []
 		self.user_transformation_counter = 0
-		if not config_file == "":
+		self.quiet = False
+		self.kill = None
+		if options is not None:
+			if "quiet" in options.__dict__ or options.quiet is not None:
+				self.quiet = options.quiet
+			if "kill" in options.__dict__ or options.kill is not None:
+				if options.kill in ["supertoks", "comments", "both"]:
+					self.kill = options.kill
+		if config_file != "":
 			self.read_config_file(config_file)
+		self.docname = self.input_mode = None
 
-	def read_config_file(self, config_file, clear_transformations = False):
+	def read_config_file(self, config_file, clear_transformations=False):
 		"""
 		Function to read configuration file. Can be invoked after initialization.
 
@@ -308,12 +286,13 @@ class DepEdit():
 		if clear_transformations:
 			self.transformations = []
 			self.user_transformation_counter = 0
-		line_num = 0
 		if isinstance(config_file, str):
 			if sys.version_info[0] < 3:
 				config_file = open(config_file).readlines()
 			else:
-				config_file = open(config_file,encoding="utf8").readlines()
+				config_file = open(config_file, encoding="utf8").readlines()
+
+		line_num = 0
 		for instruction in config_file:
 			line_num += 1
 			if len(instruction)>0 and not instruction.startswith(";") and not instruction.startswith("#") and not instruction.strip() =="":
@@ -323,38 +302,44 @@ class DepEdit():
 		for transformation in self.transformations:
 			temp_report = transformation.validate()
 			if temp_report != "":
-				trans_report += "On line " + str(transformation.line) + ": " + temp_report +"\n"
+				trans_report += "On line " + str(transformation.line) + ": " + temp_report + "\n"
 		if len(trans_report) > 0:
 			trans_report = "Depedit says: error in configuration file\n\n" + trans_report
 			sys.stderr.write(trans_report)
 			sys.exit()
 
-	def process_sentence(self, conll_tokens, tokoffset, supertok_offset, transformations):
-		for transformation in transformations:
+	def process_sentence(self, conll_tokens, stepwise=False):
+		for i, transformation in enumerate(self.transformations):
+			if stepwise:
+				if sys.version_info[0] < 3:
+					print(("# Rule " + str(i+1) + ": " + str(transformation)+"\n").encode("utf-8"),end="")
+				else:
+					print("# Rule " + str(i+1) + ": " + str(transformation)+'\n',end="")
+
 			node_matches = defaultdict(list)
 			for def_matcher in transformation.definitions:
-				for token in conll_tokens[tokoffset+supertok_offset+1:]:
-					if not token.is_super_tok:
-						if def_matcher.match(token):
-							node_matches[def_matcher.def_index].append(Match(def_matcher.def_index, token, def_matcher.groups))
+				for token in conll_tokens:
+					if not token.is_super_tok and def_matcher.match(token):
+						node_matches[def_matcher.def_index].append(Match(def_matcher.def_index, token, def_matcher.groups))
 			result_sets = []
 			for relation in transformation.relations:
-				found = self.matches_relation(node_matches, relation, result_sets)
-				if not found:
+				if not self.matches_relation(node_matches, relation, result_sets):
 					result_sets = []
-			result_sets = self.merge_sets(result_sets,len(transformation.definitions),len(transformation.relations))
+			result_sets = self.merge_sets(result_sets, len(transformation.definitions), len(transformation.relations))
 			self.add_groups(result_sets)
 			if len(result_sets) > 0:
 				for action in transformation.actions:
 					retval = self.execute_action(result_sets, action)
-					if retval == "last": # Explicit instruction to cease processing
-						return self.serialize_output_tree(conll_tokens[tokoffset + supertok_offset + 1:], tokoffset)
-		return self.serialize_output_tree(conll_tokens[tokoffset + supertok_offset + 1:], tokoffset)
+					if retval == "last":  # Explicit instruction to cease processing
+						return
+			if stepwise:
+				print("\n".join(self.serialize_output_tree(conll_tokens, 0))+"\n")
 
 	def matches_relation(self, node_matches, relation, result_sets):
 		if len(relation) == 0:
-			return
-		elif "==" in relation:
+			return False
+		operator = field = None
+		if "==" in relation:
 			m = re.search(r':(.+)==', relation)
 			operator = m.group()
 			field = m.group(1)
@@ -370,8 +355,8 @@ class DepEdit():
 
 		matches = defaultdict(list)
 
-		hits=0
-		if relation == "none": # Unary operation on one node
+		hits = 0
+		if relation == "none":  # Unary operation on one node
 			node1 = 1
 			for matcher1 in node_matches[node1]:
 				tok1 = matcher1.token
@@ -385,20 +370,20 @@ class DepEdit():
 		elif "==" in relation:
 			node1 = relation.split(operator)[0]
 			node2 = relation.split(operator)[1]
-			node1=int(node1.replace("#", ""))
-			node2=int(node2.replace("#", ""))
+			node1 = int(node1.replace("#", ""))
+			node2 = int(node2.replace("#", ""))
 
 			for matcher1 in node_matches[node1]:
 				tok1 = matcher1.token
 				for matcher2 in node_matches[node2]:
 					tok2 = matcher2.token
 					if self.test_relation(tok1, tok2, field):
-						result_sets.append({node1: tok1, node2: tok2, "rel": relation, "matchers": [matcher1, matcher2] })
+						result_sets.append({node1: tok1, node2: tok2, "rel": relation, "matchers": [matcher1, matcher2]})
 						matches[node1].append(tok1)
 						matches[node2].append(tok2)
 						hits += 1
 
-			for option in [node1,node2]:
+			for option in [node1, node2]:
 				matchers_to_remove = []
 				for matcher in node_matches[option]:
 					if matcher.token not in matches[option]:
@@ -416,12 +401,12 @@ class DepEdit():
 				for matcher2 in node_matches[node2]:
 					tok2 = matcher2.token
 					if self.test_relation(tok1, tok2, operator):
-						result_sets.append({node1: tok1, node2: tok2, "rel": relation, "matchers": [matcher1, matcher2] })
+						result_sets.append({node1: tok1, node2: tok2, "rel": relation, "matchers": [matcher1, matcher2]})
 						matches[node1].append(tok1)
 						matches[node2].append(tok2)
 						hits += 1
 
-			for option in [node1,node2]:
+			for option in node1, node2:
 				matchers_to_remove = []
 				for matcher in node_matches[option]:
 					if matcher.token not in matches[option]:
@@ -435,7 +420,7 @@ class DepEdit():
 			return True
 
 	@staticmethod
-	def test_relation(node1,node2,operator):
+	def test_relation(node1, node2, operator):
 		if operator == ".":
 			if int(float(node2.id)) == int(float(node1.id))+1:
 				return True
@@ -469,15 +454,12 @@ class DepEdit():
 			val2 = getattr(node2,operator)
 			return val1 == val2
 
-
 	def merge_sets(self, sets, node_count, rel_count):
 
 		solutions = []
 		bins = []
 		for set_to_merge in sets:
-			new_set = {}
-			new_set["rels"] = []
-			new_set["matchers"] = []
+			new_set = {"rels": [], "matchers": []}
 			for key in set_to_merge:
 				if key == "rel":
 					new_set["rels"].append(set_to_merge[key])
@@ -498,8 +480,8 @@ class DepEdit():
 					solutions.append(my_bin)
 				else:  # Some node pair has multiple relations, check that all are fulfilled
 					for set_to_merge in sets:
-						if set_to_merge["rel"] not in my_bin["rels"]: # This relation was missing
-							node_ids = list((key) for key in set_to_merge if isinstance(key,int))
+						if set_to_merge["rel"] not in my_bin["rels"]:  # This relation was missing
+							node_ids = list((key) for key in set_to_merge if isinstance(key, int))
 							# Check that the missing rel connects nodes that are already in my_bin
 							ids_are_in_bin = list((nid in my_bin) for nid in node_ids)
 							if all(ids_are_in_bin):
@@ -511,30 +493,27 @@ class DepEdit():
 
 		merged_bins = []
 		for solution in solutions:
-			self.merge_solutions(solution,merged_bins,rel_count)
-		self.prune_merged_bins(merged_bins,rel_count)
+			self.merge_solutions(solution, merged_bins, rel_count)
+		self.prune_merged_bins(merged_bins, rel_count)
 		return merged_bins
-
 
 	@staticmethod
 	def merge_solutions(solution, merged, rel_count):
 		merges_to_add = []
 		if solution not in merged:
 			merged.append(solution)
-		if len(solution["rels"]) == rel_count:
-			# This solution is completed
-			pass
-		else:
+		if len(solution["rels"]) != rel_count:  # Otherwise this solution is completed
 			# This is an incomplete solution, try to merge it into the merged solutions list
 			for candidate in merged:
 				if candidate != solution:
 					for key in solution:
-						if key != "rels" and key !="matchers":
+						if key != "rels" and key != "matchers":
 							if key in candidate:  # This is a position, e.g. #1, that is also in the candidate in merged
-								if solution[key] == candidate[key]:  # Check that they are compatible, e.g. #1 is the same token
+								# Check that they are compatible, e.g. #1 is the same token
+								if solution[key] == candidate[key]:
 									rels_in_candidate = (rel in candidate["rels"] for rel in solution["rels"])
 									if not all(rels_in_candidate):
-										rels = solution["rels"]+candidate["rels"]
+										rels = solution["rels"] + candidate["rels"]
 										matchers = []
 										for matcher in solution["matchers"]:
 											matchers.append(matcher)
@@ -546,11 +525,8 @@ class DepEdit():
 										merged_solution["rels"] = rels
 										merged_solution["matchers"] = matchers
 										merges_to_add.append(merged_solution)
-		if len(merges_to_add)>0:
-			for merge_to_add in merges_to_add:
-				merged.append(merge_to_add)
+		merged.extend(merges_to_add)
 		solution["rels"].sort()
-
 
 	@staticmethod
 	def bins_compatible(bin1, bin2):
@@ -587,15 +563,14 @@ class DepEdit():
 			if key != "rels":
 				if key not in bin2:
 					out_bin = copy(bin2)
-					out_bin[key]= bin1[key]
+					out_bin[key] = bin1[key]
 					for rel in bin1["rels"]:
 						new_rel = deepcopy(rel)
-						out_bin["rels"] = bin2["rels"]+[new_rel]
+						out_bin["rels"] = bin2["rels"] + [new_rel]
 					return out_bin
 
-
 	@staticmethod
-	def prune_merged_bins(merged_bins,rel_count):
+	def prune_merged_bins(merged_bins, rel_count):
 		"""
 		Deletes bins with too few relationships matched after merging is complete
 
@@ -616,9 +591,9 @@ class DepEdit():
 			groups = []
 			sorted_matchers = sorted(result["matchers"], key=lambda x: x.def_index)
 			for matcher in sorted_matchers:
-				if len(matcher.groups) > 0:
-					for group in matcher.groups:
-						groups.append(group[0])
+				for group in matcher.groups:
+					for g in group:
+						groups.append(g)
 			result["groups"] = groups[:]
 
 	@staticmethod
@@ -632,43 +607,49 @@ class DepEdit():
 					elif ":" in action:  # Unary instruction
 						if action.startswith("#S:"):  # Sentence annotation instruction
 							key_val = action.split(":")[1]
-							key, val = key_val.split("=",1)
+							key, val = key_val.split("=", 1)
 							result[1].sentence.annotations[key] = val
-						else: # node instruction
+						else:  # node instruction
 							node_position = int(action[1:action.find(":")])
-							property = action[action.find(":")+1:action.find("=")]
-							value = action[action.find("=")+1:].strip()
-							group_num_match = re.search(r"(\$[0-9]+[LU]?)",value)
-							if group_num_match is not None:
-								no_dollar = group_num_match.groups(0)[0][1:]
-								case = ""
-								if no_dollar[-1] == "U":
-									case = "upper"
-									no_dollar = no_dollar[0:-1]
-								elif no_dollar[-1] == "L":
-									case = "lower"
-									no_dollar = no_dollar[0:-1]
-								group_num = int(no_dollar)
-								try:
-									group_value = result["groups"][group_num - 1]
+							prop = action[action.find(":") + 1:action.find("=")]
+							value = action[action.find("=") + 1:].strip()
+							group_num_matches = re.findall(r"(\$[0-9]+[LU]?)", value)
+							if group_num_matches is not None:
+								for g in group_num_matches:
+									no_dollar = g[1:]
+									case = ""
+									if no_dollar[-1] == "U":
+										case = "upper"
+										no_dollar = no_dollar[0:-1]
+									elif no_dollar[-1] == "L":
+										case = "lower"
+										no_dollar = no_dollar[0:-1]
+									group_num = int(no_dollar)
+									try:
+										group_value = result["groups"][group_num - 1]
+										if case == "lower":
+											group_value = group_value.lower()
+										elif case == "upper":
+											group_value = group_value.upper()
+									except IndexError:
+										sys.stderr.write("The action '" + action + "' refers to a missing regex bracket group '$" +
+											  str(group_num) + "'\n")
+										sys.exit()
+									group_str = str(group_num)
 									if case == "lower":
-										group_value = group_value.lower()
+										group_str += "L"
 									elif case == "upper":
-										group_value = group_value.upper()
-								except IndexError:
-									sys.stderr.write("The action '" + action + "' refers to a missing regex bracket group '$" + str(group_num) + "'\n")
-									sys.exit()
-								value = re.sub(r"\$[0-9]+[LR]?",group_value,value)
-							setattr(result[node_position],property,value)
-					else:  # Binary instruction
-						if ">" in action:  # Head relation
-							operator = ">"
-							node1 = int(action.split(operator)[0].replace("#", ""))
-							node2 = int(action.split(operator)[1].replace("#", ""))
-							tok1 = result[node1]
-							tok2 = result[node2]
-							if tok1 != tok2:
-								tok2.head = tok1.id
+										group_str += "U"
+									value = re.sub(r"\$" + group_str, group_value, value)
+							setattr(result[node_position], prop, value)
+					elif ">" in action:  # Binary instruction; head relation
+						operator = ">"
+						node1 = int(action.split(operator)[0].replace("#", ""))
+						node2 = int(action.split(operator)[1].replace("#", ""))
+						tok1 = result[node1]
+						tok2 = result[node2]
+						if tok1 != tok2:
+							tok2.head = tok1.id
 
 	def add_transformation(self, *args, **kwargs):
 		"""
@@ -707,80 +688,78 @@ class DepEdit():
 				new_transformation = Transformation(transformation_string, user_line_number)
 				self.transformations.append(new_transformation)
 
-	def serialize_output_tree(self,tokens, tokoffset):
-		output_tree = ""
+	def serialize_output_tree(self, tokens, tokoffset):
+		output_tree_lines = []
 		for tok in tokens:
 			if tok.is_super_tok:
+				if self.kill in ["both", "supertoks"]:
+					continue
 				tok_head_string = tok.head
 				tok_id = tok.id
 			elif tok.head == "0":
 				tok_head_string = "0"
 				tok_id = str(float(tok.id) - tokoffset)
 			else:
-				tok_head_string = str(float(tok.head)-tokoffset)
-				tok_id = str(float(tok.id)-tokoffset)
+				tok_head_string = str(float(tok.head) - tokoffset)
+				tok_id = str(float(tok.id) - tokoffset)
 			# Only keep decimal ID component for non-0 ellipsis IDs, e.g. 10.1 - those tokens have normal head '_'
-			tok_id = tok_id.replace(".0","")
-			tok_head_string = tok_head_string.replace(".0","")
+			tok_id = tok_id.replace(".0", "")
+			tok_head_string = tok_head_string.replace(".0", "")
 			if "." in tok_id:
 				tok_head_string = "_"
-			if self.input_mode == "8col":
-				output_tree += tok_id+"\t"+tok.text+"\t"+tok.lemma+"\t"+tok.pos+"\t"+tok.cpos+"\t"+tok.morph+\
-								"\t"+tok_head_string+"\t"+tok.func+"\n"
-			else:
-				output_tree += tok_id+"\t"+tok.text+"\t"+tok.lemma+"\t"+tok.pos+"\t"+tok.cpos+"\t"+tok.morph+\
-								"\t"+tok_head_string+"\t"+tok.func+"\t"+tok.head2+"\t"+tok.func2+"\n"
-		return output_tree
+			fields = (tok_id, tok.text, tok.lemma, tok.pos, tok.cpos, tok.morph, tok_head_string, tok.func)
+			if self.input_mode != "8col":
+				fields += (tok.head2, tok.func2)
+			output_tree_lines.append("\t".join(fields))
+		return output_tree_lines
 
 	def make_sent_id(self, sent_id):
-		return "# sent_id = " + self.docname + "-" + str(sent_id) + "\n"
+		return "# sent_id = " + self.docname + "-" + str(sent_id)
 
-	def run_depedit(self, infile, filename="file", sent_id=False, docname=False):
+	def run_depedit(self, infile, filename="file", sent_id=False, docname=False, stepwise=False):
+
 		children = defaultdict(list)
 		child_funcs = defaultdict(list)
-		conll_tokens = []
+		conll_tokens = [0]
 		self.input_mode = "10col"
 		self.docname = filename
-		tokoffset = 0
-		sent_num = 0
-		supertok_offset = 0
-		sentlength = 0
-		supertok_length = 0
+		tokoffset = supertok_offset = sentlength = supertok_length = 0
+		output_lines = []
+		sentence_lines = []
+		current_sentence = Sentence(sent_num=1)
 
-		conll_tokens.append(0)
-		my_output = ""
-		sentence_string = ""
-		current_sentence = Sentence()
+		def _process_sentence(stepwise=False):
+			current_sentence.length = sentlength
+			conll_tokens[-1].position = "last"
+			sentence_tokens = conll_tokens[tokoffset + supertok_offset + 1:]
+			self.process_sentence(sentence_tokens,stepwise=stepwise)
+			transformed = current_sentence.print_annos() + self.serialize_output_tree(sentence_tokens, tokoffset)
+			output_lines.extend(transformed)
+			if sent_id:
+				output_lines.append(self.make_sent_id(current_sentence.sent_num))
 
 		# Check if DepEdit has been fed an unsplit string programmatically
-		if isinstance(infile,str):
-			infile = infile.split("\n")
+		if isinstance(infile, str):
+			infile = infile.splitlines()
 
 		for myline in infile:
+			myline = myline.strip()
 			if sentlength > 0 and "\t" not in myline:
-				current_sentence.length = sentlength
-				conll_tokens[-1].position = "last"
-				transformed = self.process_sentence(conll_tokens, tokoffset, supertok_offset, self.transformations)
-				transformed = current_sentence.print_annos() + transformed
-				sent_num += 1
-				if sent_id:
-					my_output += self.make_sent_id(sent_num)
-				my_output += transformed
-				sentence_string = ""
-				current_sentence = Sentence()
-				if sentlength > 0:
-					tokoffset += sentlength
-					supertok_offset += supertok_length
-				sentlength = 0
-				supertok_length = 0
-			if myline.startswith("#"):  # Preserve comment lines
-					my_output += myline.strip() + "\n"
-			elif myline.strip() == "":
-					my_output += "\n"
+				_process_sentence(stepwise=stepwise)
+				sentence_lines = []
+				current_sentence = Sentence(sent_num=current_sentence.sent_num + 1)
+				tokoffset += sentlength
+				supertok_offset += supertok_length
+				sentlength = supertok_length = 0
+			if myline.startswith("#"):  # Preserve comment lines unless kill requested
+				if self.kill not in ["comments", "both"]:
+					output_lines.append(myline.strip())
+			elif not myline:
+				output_lines.append("")
 			elif myline.find("\t") > 0:  # Only process lines that contain tabs (i.e. conll tokens)
-				sentence_string += myline
+				sentence_lines.append(myline.strip())
 				cols = myline.split("\t")
-				if "-" in cols[0]: # potential conllu super-token, just preserve
+				if "-" in cols[0]:  # potential conllu super-token, just preserve
 					super_tok = True
 					tok_id = cols[0]
 					head_id = cols[6]
@@ -788,86 +767,66 @@ class DepEdit():
 					super_tok = False
 					tok_id = str(float(cols[0]) + tokoffset)
 					if cols[6] == "_":
-						sys.stderr.write("DepEdit WARN: head not set for token " + tok_id + " in " + filename + "\n")
+						if not self.quiet:
+							sys.stderr.write("DepEdit WARN: head not set for token " + tok_id + " in " + filename + "\n")
 						head_id = str(0 + tokoffset)
 					else:
 						head_id = str(float(cols[6]) + tokoffset)
+				args = (tok_id,) + tuple(cols[1:6]) + (head_id, cols[7])
 				if len(cols) > 8:
-					# Collect token from line; note that head2 is parsed as a string, which is often "_" for monoplanar trees
-					this_tok = ParsedToken(tok_id, cols[1], cols[2], cols[3], cols[4], cols[5],head_id, cols[7].strip(), cols[8], cols[9].strip(), cols[0], [], "mid",super_tok)
+					# Collect token from line; note that head2 is parsed as a string, often "_" for monoplanar trees
+					args += (cols[8], cols[9])
 				else:  # Attempt to read as 8 column Malt input
-					this_tok = ParsedToken(tok_id,cols[1],cols[2],cols[3],cols[4],cols[5],head_id,cols[7].strip(),cols[6],cols[7].strip(),cols[0],[], "mid",super_tok)
+					args += (cols[6], cols[7])
 					self.input_mode = "8col"
+				args += (cols[0], [], "mid", super_tok)
+				this_tok = ParsedToken(*args)
 				if cols[0] == "1" and not super_tok:
 					this_tok.position = "first"
 				this_tok.sentence = current_sentence
 				conll_tokens.append(this_tok)
-				if not super_tok:
+				if super_tok:
+					supertok_length += 1
+				else:
 					sentlength += 1
 					children[str(float(head_id) + tokoffset)].append(tok_id)
 					child_funcs[(float(head_id) + tokoffset)].append(cols[7])
-				else:
-					supertok_length += 1
 
 		if sentlength > 0:  # Possible final sentence without trailing new line
-			current_sentence.length = sentlength
-			conll_tokens[-1].position = "last"
-			transformed = self.process_sentence(conll_tokens, tokoffset, supertok_offset, self.transformations)
-			transformed = current_sentence.print_annos() + transformed
-			sent_num += 1
-			if sent_id:
-				my_output += self.make_sent_id(sent_num)
-			my_output += transformed
+			_process_sentence(stepwise=stepwise)
 
 		if docname:
-			newdoc = '# newdoc id = ' + self.docname + "\n"
-			my_output = newdoc + my_output
+			newdoc = '# newdoc id = ' + self.docname
+			output_lines.insert(0, newdoc)
 
-		return my_output
+		return "\n".join(output_lines)
 
-if __name__ == "__main__":
-	depedit_version = "DepEdit V" + __version__
-	parser = argparse.ArgumentParser()
-	parser.add_argument('file',action="store",help="Input single file name or glob pattern to process a batch (e.g. *.conll10)")
-	parser.add_argument('-c', '--config', action="store", dest="config", default="config.ini", help="Configuration file defining transformation")
-	parser.add_argument('-d', '--docname', action="store_true", dest="docname", help="Begin output with # newdoc id =...")
-	parser.add_argument('-s', '--sent_id', action="store_true", dest="sent_id", help="Add running sentence ID comments")
-	group = parser.add_argument_group('Batch mode options')
-	group.add_argument('-o', '--outdir', action="store", dest="outdir", default="", help="Output directory in batch mode")
-	group.add_argument('-e', '--extension', action="store", dest="extension", default="", help="Extension for output files in batch mode")
-	group.add_argument('-i', '--infix', action="store", dest="infix", default=".depedit", help="Infix to denote edited files in batch mode (default: .depedit)")
-	parser.add_argument('--version', action='version', version=depedit_version)
-	options = parser.parse_args()
 
+def main(options):
 	if options.extension.startswith("."):  # Ensure user specified extension does not include leading '.'
 		options.extension = options.extension[1:]
-
 	try:
 		config_file = io_open(options.config, encoding="utf8")
 	except IOError:
 		sys.stderr.write("\nConfiguration file not found (specify with -c or use the default 'config.ini')\n")
 		sys.exit()
-	depedit = DepEdit(config_file)
-
+	depedit = DepEdit(config_file=config_file, options=options)
 	if sys.platform == "win32":  # Print \n new lines in Windows
-		import os, msvcrt
+		import os
+		import msvcrt
 		msvcrt.setmode(sys.stdout.fileno(), os.O_BINARY)
-
 	files = glob(options.file)
 	for filename in files:
 		infile = io_open(filename, encoding="utf8")
 		basename = os.path.basename(filename)
-		if options.docname or options.sent_id:
-			docname = basename[:basename.rfind(".")]
-		else:
-			docname = filename
-		output_trees = depedit.run_depedit(infile,docname, sent_id=options.sent_id, docname=options.docname)
+		docname = basename[:basename.rfind(".")] if options.docname or options.sent_id else filename
+		output_trees = depedit.run_depedit(infile, docname, sent_id=options.sent_id, docname=options.docname, stepwise=options.stepwise)
 		if len(files) == 1:
 			# Single file being processed, just print to STDOUT
 			if sys.version_info[0] < 3:
-				print(output_trees.encode("utf-8"))
+				print(output_trees.encode("utf-8"),end="")
 			else:
-				print(output_trees)
+				print(output_trees,end="")
 		else:
 			# Multiple files, add '.depedit' or other infix from options before extension and write to file
 			if options.outdir != "":
@@ -875,20 +834,42 @@ if __name__ == "__main__":
 					options.outdir += os.sep
 			outname = options.outdir + basename
 			if "." in filename:
-				extension = outname[outname.rfind(".")+1:]
+				extension = outname[outname.rfind(".") + 1:]
 				if options.extension != "":
 					extension = options.extension
 				outname = outname[:outname.rfind(".")]
 				outname += options.infix + "." + extension
 			else:
-				if options.extension == "":
-					outname += options.infix
-				else:
-					outname += options.infix + "." + options.extension
+				outname += options.infix + "." + options.extension if options.extension else options.infix
 			if sys.version_info[0] < 3:
-				with open(outname,'wb') as f:
+				with open(outname, 'wb') as f:
 					f.write(output_trees.encode("utf-8"))
 			else:
-				with open(outname,'w',encoding="utf8") as f:
+				with open(outname, 'w', encoding="utf8") as f:
 					f.write(output_trees.encode("utf-8"))
+
+
+if __name__ == "__main__":
+	depedit_version = "DepEdit V" + __version__
+	parser = argparse.ArgumentParser()
+	parser.add_argument('file', action="store",
+						help="Input single file name or glob pattern to process a batch (e.g. *.conll10)")
+	parser.add_argument('-c', '--config', action="store", dest="config", default="config.ini",
+						help="Configuration file defining transformation")
+	parser.add_argument('-d', '--docname', action="store_true", dest="docname",
+						help="Begin output with # newdoc id =...")
+	parser.add_argument('-s', '--sent_id', action="store_true", dest="sent_id", help="Add running sentence ID comments")
+	parser.add_argument('-k', '--kill', action="store", choices=["supertoks", "comments", "both"],
+						help="Remove supertokens or commments from output")
+	parser.add_argument('-q', '--quiet', action="store_true", dest="quiet", help="Do not output warnings and messages")
+	parser.add_argument('--stepwise', action="store_true", help="Output sentence repeatedly after each step (useful for debugging)")
+	group = parser.add_argument_group('Batch mode options')
+	group.add_argument('-o', '--outdir', action="store", dest="outdir", default="",
+					   help="Output directory in batch mode")
+	group.add_argument('-e', '--extension', action="store", dest="extension", default="",
+					   help="Extension for output files in batch mode")
+	group.add_argument('-i', '--infix', action="store", dest="infix", default=".depedit",
+					   help="Infix to denote edited files in batch mode (default: .depedit)")
+	parser.add_argument('--version', action='version', version=depedit_version)
+	main(parser.parse_args())
 
