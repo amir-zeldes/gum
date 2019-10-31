@@ -33,7 +33,6 @@ parser.add_argument("-t",dest="target",action="store",help="GUM build target dir
 parser.add_argument("-s",dest="source",action="store",help="GUM build source directory", default=None)
 parser.add_argument("-p",dest="parse",action="store_true",help="Whether to reparse constituents")
 parser.add_argument("-c",dest="claws",action="store_true",help="Whether to reassign claws5 tags")
-parser.add_argument("-u",dest="unidep",action="store_true",help="Whether to create a Universal Dependencies version")
 parser.add_argument("-v",dest="verbose_pepper",action="store_true",help="Whether to print verbose pepper output")
 parser.add_argument("-n",dest="no_pepper",action="store_true",help="No pepper conversion, just validation and file fixing")
 parser.add_argument("-i",dest="increment_version",action="store",help="A new version number to assign",default="DEVELOP")
@@ -41,6 +40,9 @@ parser.add_argument("-i",dest="increment_version",action="store",help="A new ver
 options = parser.parse_args()
 
 build_dir = os.path.dirname(os.path.realpath(__file__))
+pepper_home = build_dir + os.sep + "utils" + os.sep + "pepper" + os.sep
+pepper_tmp = pepper_home + "tmp" + os.sep
+
 if options.source is None:
 	gum_source = build_dir + os.sep + "src"
 else:
@@ -88,8 +90,7 @@ validate_src(gum_source, reddit=reddit)
 ######################################
 ## Step 2: propagate annotations
 ######################################
-from utils.propagate import enrich_dep, enrich_xml, const_parse
-from utils.stanford2ud import create_ud
+from utils.propagate import enrich_dep, enrich_xml, const_parse, compile_ud
 from utils.repair_tsv import fix_tsv
 from utils.repair_rst import fix_rst
 
@@ -102,12 +103,12 @@ from utils.repair_rst import fix_rst
 #   * generates vanilla tags in CPOS column from POS
 #   * creates speaker and s_type comments from xml/
 print("\nEnriching Dependencies:\n" + "="*23)
-enrich_dep(gum_source, gum_target, reddit)
+enrich_dep(gum_source, pepper_tmp, reddit)
 
 # Add annotations to xml/:
 #   * add CLAWS tags in fourth column
 #   * add fifth column after lemma containing tok_func from dep/
-print("\nEnriching XML files:\n" + "="*23)
+print("\n\nEnriching XML files:\n" + "="*23)
 enrich_xml(gum_source, gum_target, add_claws=options.claws, reddit=reddit)
 
 # Token and sentence border adjustments
@@ -138,20 +139,13 @@ else:
 		sys.stdout.write("x parsing was set to false but xml/ and const/ contain different amounts of files! Aborting...\n")
 		sys.exit()
 
-# Create Universal Dependencies version
-#   * UD files will be created in <target>/dep/ud/
+# Compile Universal Dependencies release version
+#   * UD files will be created in <target>/dep/
 #   * UD punctuation guidelines are enforced using udapi, which must be installed to work
 #   * udapi does not support Python 2, meaning punctuation will be attached to the root if using Python 2
 #   * UD morphology generation relies on parses already existing in <target>/const/
-if options.unidep:
-	print("\nCreating Universal Dependencies version:\n" + "=" * 40)
-	if PY2:
-		print("WARN: Running on Python 2 - consider upgrading to Python 3. ")
-		print("      Punctuation behavior in the UD conversion relies on udapi ")
-		print("      which does not support Python 2. All punctuation will be attached to sentence roots.\n")
-	create_ud(gum_target, reddit=reddit)
-else:
-	sys.stdout.write("\ni Skipping generation of UD parses in dep/ud/\n")
+print("\nCompiling Universal Dependencies version:\n" + "=" * 40)
+compile_ud(pepper_tmp, gum_target, reddit=reddit)
 
 ## Step 3: merge and convert source formats to target formats
 if options.no_pepper:
@@ -160,25 +154,21 @@ else:
 	sys.__stdout__.write("\nStarting pepper conversion:\n" + "="*30 + "\n")
 
 	# Create Pepper staging erea in utils/pepper/tmp/
-	pepper_home = "utils" + os.sep + "pepper" + os.sep
-	dirs = [('xml','xml','', ''),('dep','conll10','', os.sep + "stanford"),('rst','rs3','',''),('tsv','tsv','coref' + os.sep,''),('const','ptb','','')]
+	dirs = [('xml','xml','xml','', ''),('dep','ud','conllu','', os.sep + "ud" + os.sep + "not-to-release"),('rst','rst','rs3','',''),('tsv','tsv','tsv','coref' + os.sep,''),('const','const','ptb','','')]
 	for dir in dirs:
 		files = []
-		dir_name, extension, prefix, suffix = dir
+		dir_name, out_dir_name, extension, prefix, suffix = dir
 		files_ = glob(gum_target + prefix + dir_name + suffix + os.sep + "*" + extension)
 		for file_ in files_:
 			if not reddit and "reddit_" in file_:
 				continue
 			files.append(file_)
-		pepper_tmp = pepper_home + "tmp" + os.sep
-		if not os.path.exists(pepper_tmp + dir_name + os.sep + "GUM" + os.sep):
-			os.makedirs(pepper_tmp + dir_name + os.sep + "GUM" + os.sep)
+		if not os.path.exists(pepper_tmp + out_dir_name + os.sep + "GUM" + os.sep):
+			os.makedirs(pepper_tmp + out_dir_name + os.sep + "GUM" + os.sep)
 		for file_ in files:
-			shutil.copy(file_, pepper_tmp + dir_name + os.sep + "GUM" + os.sep)
+			shutil.copy(file_, pepper_tmp + out_dir_name + os.sep + "GUM" + os.sep)
 	if not os.path.exists(gum_target + "coref" + os.sep + "conll" + os.sep):
 		os.makedirs(gum_target + "coref" + os.sep + "conll" + os.sep)
-
-	pepper_tmp = pepper_home + "tmp" + os.sep
 
 	try:
 		pepper_params = io.open("utils" + os.sep + "pepper" + os.sep + "merge_gum.pepperparams", encoding="utf8").read().replace("\r","")

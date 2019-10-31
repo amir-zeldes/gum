@@ -102,7 +102,7 @@ def check_reddit(gum_source):
 
 def validate_src(gum_source, reddit=False):
 
-	dirs = [('xml', 'xml'), ('dep', 'conll10'), ('rst', 'rs3'), ('tsv', 'tsv')]
+	dirs = [('xml', 'xml'), ('dep', 'conllu'), ('rst', 'rs3'), ('tsv', 'tsv')]
 
 	# check that each dir has same # and names of files (except extensions)
 	file_lists = []
@@ -206,7 +206,7 @@ def validate_src(gum_source, reddit=False):
 	
 	# check sentences (based on tok count)
 	all_sent_lengths = []
-	sentence_dirs = [('xml', 'xml'), ('dep', 'conll10')] # just the dirs where we check sentences
+	sentence_dirs = [('xml', 'xml'), ('dep', 'conllu')] # just the dirs where we check sentences
 	
 	for d in range(len(sentence_dirs)):
 		dir_sent_lengths = []
@@ -282,7 +282,7 @@ def validate_annos(gum_source, reddit=False):
 		sys.stdout.write("\t+ " + " " * 40 + "\r")
 		sys.stdout.write(" " + str(docnum + 1) + "/" + str(len(xmlfiles)) + ":\t+ " + docname + "\r")
 
-		# Dictionaries to hold token annotations from conll10 data
+		# Dictionaries to hold token annotations from conllu data
 		funcs = {}
 		tokens = {}
 		parent_ids = {}
@@ -293,7 +293,7 @@ def validate_annos(gum_source, reddit=False):
 		child_funcs = defaultdict(list)
 		tok_num = 0
 
-		depfile = xmlfile.replace("xml" + os.sep, "dep" + os.sep).replace("xml", "conll10")
+		depfile = xmlfile.replace("xml" + os.sep, "dep" + os.sep).replace("xml", "conllu")
 		dep_lines = io.open(depfile,encoding="utf8").read().replace("\r", "").split("\n")
 		line_num = 0
 		sent_start = 0
@@ -547,11 +547,11 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func == "auxpass" and lemma!= "be" and lemma != "get":
 		print("WARN: auxpass must be 'be' or 'get'" + inname)
 
-	if func == "possessive" and pos!= "POS":
-		print("WARN: possessive function must be tagged POS" + inname)
+	if lemma == "'s" and pos!= "POS":
+		print("WARN: possessive 's must be tagged POS" + inname)
 
-	if func != "possessive" and pos== "POS":
-		print("WARN: tag POS must have function possessive" + inname)
+	if func != "case" and pos== "POS":
+		print("WARN: tag POS must have function case" + inname)
 
 	if re.search(r"never|not|no|n't|n’t|’t|'t|nt|ne|pas|nit", tok, re.IGNORECASE) is None and func == "neg":
 		print(str(id) + docname)
