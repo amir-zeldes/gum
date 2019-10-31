@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import platform
 import tempfile
 import subprocess
 import os, re, sys
@@ -153,10 +154,14 @@ def parse(sent_per_line):
 
 	parse_command = [parser_path + os.sep + 'lexparser_eng_const_plus.bat', 'tempfilename']
 	parsed = exec_via_temp(sent_per_line, parse_command, parser_path)
-	if PY2:
-		parsed = parsed.replace("\r","")
+	if platform.system() == "Windows":
+		if PY2:
+			parsed = parsed.replace("\r","")
+		else:
+			parsed = parsed.decode("utf8").replace("\r","")
 	else:
-		parsed = parsed.decode("utf8").replace("\r","")
+		parsed = parsed.replace("\r", "")
+
 
 	return parsed
 
@@ -164,6 +169,9 @@ def ud_morph(conllu_string, doc_name, const_path):
 
 	ptb_file = const_path + doc_name + ".ptb"
 
-	morph_command = ["java", "-cp", '*;', "edu.stanford.nlp.trees.ud.UniversalDependenciesFeatureAnnotator", "tempfilename", ptb_file]
+	# morph_command = ["java", "-cp", '*;', "edu.stanford.nlp.trees.ud.UniversalDependenciesFeatureAnnotator", "tempfilename", ptb_file]
+
+	morph_command = ["java", "edu.stanford.nlp.trees.ud.UniversalDependenciesFeatureAnnotator", "tempfilename", ptb_file] # Logan
+
 	morphed = exec_via_temp(conllu_string, morph_command, core_nlp_path)
 	return morphed

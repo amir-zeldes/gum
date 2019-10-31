@@ -38,6 +38,7 @@ class Entity:
 		self.infstat = infstat
 		self.tokens = []
 		self.line_tokens = []
+		self.token_texts = []
 		self.coref_type = ""
 		self.coref_link = ""
 
@@ -165,6 +166,7 @@ def create_ud(gum_target, reddit=False):
 				tok_id += 1
 				fields = line.split("\t")
 				line_tok_id = fields[0]
+				tok_txt = fields[2]
 				tok_num_to_tsv_id[tok_id] = line_tok_id
 				entity_string, infstat_string,coref_type_string, coref_link_string  = fields[3:7]
 				if entity_string != "_":
@@ -186,7 +188,9 @@ def create_ud(gum_target, reddit=False):
 						if entity_id not in entity_dict:
 							entity_dict[entity_id] = Entity(entity_id,entity,infstat)
 						entity_dict[entity_id].tokens.append(str(tok_id))
+						entity_dict[entity_id].token_texts.append(tok_txt)
 						entity_dict[entity_id].line_tokens.append(line_tok_id)
+
 
 						# loop through coref relations
 						if coref_type_string != "_":
@@ -239,6 +243,8 @@ def create_ud(gum_target, reddit=False):
 					for ent in sorted(toks_to_ents[str(tok_num)],key=lambda x:x.get_length(),reverse=True):
 						# Check if this is the head of that entity
 						if absolute_head_id > ent.end or (absolute_head_id < ent.start and absolute_head_id > 0) or absolute_head_id == 0:
+							if fields[7] == 'punct':
+								print()
 							# This is the head
 							fields[5] = "ent_head=" + ent.type + "|" + "infstat=" + ent.infstat
 
@@ -297,14 +303,14 @@ def create_ud(gum_target, reddit=False):
 
 		# Add UD morphology using CoreNLP script - we assume target/const/ already has .ptb tree files
 		utils_abs_path = os.path.dirname(os.path.realpath(__file__))
-		#morphed = punct_fixed
+		# morphed = punct_fixed #Logan
 		morphed = ud_morph(punct_fixed, docname, utils_abs_path + os.sep + ".." + os.sep + "target" + os.sep + "const" + os.sep)
 
 		if not PY2 and False:
 			# CoreNLP returns bytes in ISO-8859-1
 			# ISO-8859-1 mangles ellipsis glyph, so replace manually
 			morphed = morphed.decode("ISO-8859-1").replace("","…").replace("","“").replace("","’").replace("",'—').replace("","–").replace("","”").replace("\r","")
-		morphed = morphed.decode("ISO-8859-1").replace("\r","")
+			morphed = morphed.decode("ISO-8859-1").replace("\r","")
 
 		# Add negative polarity and imperative mood
 		negatived = []
