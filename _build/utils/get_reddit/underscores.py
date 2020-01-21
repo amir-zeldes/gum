@@ -23,6 +23,8 @@ def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False):
 		if unescape_xml:
 			tokens = tokens.replace("&gt;",">").replace("&lt;","<").replace("&amp;","&")
 		else:
+			if "&" in tokens and not "&amp;" in tokens and not "_ring" in f_path:
+				tokens = tokens.replace("&","&amp;")
 			tokens = tokens.replace(">","&gt;").replace("<","&lt;")
 		if not PY3:
 			tokens = tokens.decode("utf8")
@@ -65,7 +67,10 @@ def make_text_rst(folder, textdic):
 		tokens = textdic[os.path.basename(f_path)[:os.path.basename(f_path).find(".")]]
 		if not PY3:
 			tokens = tokens.decode("utf8")
+		if "&" in tokens and not "&amp;" in tokens and not "_ring" in f_path:  # Some bigquery entries have no &amp;
+			tokens = tokens.replace("&","&amp;")
 		tokens = tokens.replace(">","&gt;").replace("<","&lt;")  # Reddit API does not escape lt/gt, but does escape &amp;
+
 
 		with io.open(f_path, 'r', encoding='utf-8') as fin:
 			in_lines = fin.read().replace("\r","").split("\n")
