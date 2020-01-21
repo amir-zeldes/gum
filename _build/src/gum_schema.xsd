@@ -163,6 +163,7 @@
     <xs:complexType mixed="true">
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element ref="add"/>
+ <xs:element ref="row"/>
         <xs:element ref="figure"/>
         <xs:element ref="hi"/>
         <xs:element ref="sp"/>
@@ -268,7 +269,9 @@
         <xs:element ref="q"/>
         <xs:element ref="date"/>
         <xs:element ref="p"/>
+        <xs:element ref="w"/>
         <xs:element ref="ref"/>
+        <xs:element ref="hi"/>
         <xs:element ref="s"/>
         <xs:element ref="gap"/>
         <xs:element ref="sic"/>
@@ -314,10 +317,12 @@
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element minOccurs="0" maxOccurs="1" ref="head"/>
         <xs:element minOccurs="1" ref="row"/>
+ <xs:element maxOccurs="unbounded" ref="s"/>
       </xs:choice>
       <xs:attribute name="rend"/>
       <xs:attribute name="rows" type="xs:integer"/>
       <xs:attribute name="cols" type="xs:integer"/>
+     
     </xs:complexType>
   </xs:element>
     <xs:element name="row">
@@ -333,8 +338,10 @@
     <xs:complexType mixed="true">
       <xs:choice minOccurs="1" maxOccurs="unbounded">
         <xs:element minOccurs="0" ref="figure"/>
+ <xs:element minOccurs="0" ref="date"/>
         <xs:element minOccurs="0" ref="list"/>
         <xs:element minOccurs="0" ref="ref"/>
+        <xs:element minOccurs="0" ref="hi"/>
         <xs:element minOccurs="0" ref="s"/>
       </xs:choice>
       <xs:attribute name="n" type="xs:integer"/>
@@ -424,6 +431,7 @@
     <xs:complexType mixed="true">
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element ref="add"/>
+ <xs:element ref="w"/>
         <xs:element ref="hi"/>
         <xs:element ref="sic"/>
         <xs:element ref="date"/>
