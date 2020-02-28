@@ -207,7 +207,7 @@
             (PP (IN of)
               (NP
                 (NP (NN vehicle) (NN traffic))
-                (PP (TO to)
+                (PP (IN to)
                   (CC and)
                   (IN from)
                   (NP (DT the) (NNP George) (NNP Washington) (NNP Bridge)))
@@ -231,35 +231,34 @@
     (VP (VBZ is)
       (NP
         (NP (DT the) (VBG walking) (NN access))
-        (PP
-          (PP (TO to)
-            (NP
-              (NP (JJ many) (NNS restaurants))
-              (, ,)
-              (NP (NN convenience) (NNS stores))
+        (PP (IN to)
+          (NP
+            (NP (JJ many) (NNS restaurants))
+            (, ,)
+            (NP (NN convenience) (NNS stores))
+            (CC and)
+            (NP (NN mass) (NN transit)))))
+      (, ,)
+      (PP (IN in)
+        (NP
+          (NP (DT the) (NN form))
+          (PP (IN of)
+            (NP (NNS buses)
               (CC and)
-              (NP (NN mass) (NN transit))))
-          (, ,)
-          (PP (IN in)
-            (NP
-              (NP (DT the) (NN form))
-              (PP (IN of)
-                (NP (NNS buses)
-                  (CC and)
-                  (NNS vans))))))
-        (SBAR
-          (WHNP (WDT that))
-          (S
-            (ADVP (RB frequently))
-            (VP (VBP run)
-              (PP (IN across)
-                (NP
-                  (NP (DT the) (NN bridge))
-                  (CC and)
-                  (ADVP (RB up)
+              (NNS vans)))
+          (SBAR
+            (WHNP (WDT that))
+            (S
+              (ADVP (RB frequently))
+              (VP (VBP run)
+                (PP (IN across)
+                  (NP
+                    (NP (DT the) (NN bridge))
                     (CC and)
-                    (RB down))
-                  (NP (JJ major) (NNS streets)))))))))
+                    (ADVP (RB up)
+                      (CC and)
+                      (RB down))
+                    (NP (JJ major) (NNS streets))))))))))
     (. .)))
 
 (ROOT
@@ -388,7 +387,7 @@
   (S
     (NP
       (NP (DT The) (JJS nearest) (NNS airports))
-      (PP (TO to)
+      (PP (IN to)
         (NP (NNP Fort) (NNP Lee))))
     (VP (VBP are)
       (NP
@@ -448,7 +447,7 @@
       (SBAR (IN if)
         (S
           (VP (VBN headed)
-            (PP (TO to)
+            (PP (IN to)
               (NP
                 (NP (DT a) (JJ central) (NN area))
                 (, ,)
@@ -563,7 +562,7 @@
                   (NP
                     (NP (DT those))
                     (VP (VBG commuting)
-                      (PP (TO to)
+                      (PP (IN to)
                         (CC and)
                         (IN from)
                         (NP (DT the) (NN city))))))))))))
@@ -883,7 +882,7 @@
       (NP
         (NP (DT a) (JJ great) (NN community) (NN center))
         (ADJP (JJ open)
-          (PP (TO to)
+          (PP (IN to)
             (NP (DT all) (NN borough) (NNS residents))))))
     (. .)))
 
@@ -1008,21 +1007,23 @@
   (NP
     (NP (NN Store) (NN hours))
     (: :)
-    (NP
-      (NP (NNP Mon-Fri))
-      (NP (CD 08:30)))
-    (X
-      (X
-        (NP
-          (NP (NNP am))
-          (PP (TO -)
-            (NP (CD 7) (NNP pm) (, ,) (NNP Sat) (CD 08:30) (NNP am) (TO -))))
-        (NP (CD 06:30))
-        (NP
-          (NP (NNP pm) (, ,) (NNP Sun) (CD 9) (NNP am))
-          (PP (TO -)
-            (NP (CD 03:00)))))
-      (NP (NNP pm)))))
+    (S
+      (NP (NNP Mon-Fri) (CD 08:30))
+      (NP
+        (NAC (NNP am)
+          (PP (IN -)
+            (NP
+              (NP (CD 7))
+              (NP
+                (NP
+                  (NP (NNP pm) (, ,) (NNP Sat) (CD 08:30) (NNP am))
+                  (PP (IN -)
+                    (NP (CD 06:30))))
+                (NP
+                  (NP (NNP pm) (, ,) (NNP Sun) (CD 9) (NNP am))
+                  (PP (IN -)
+                    (NP (CD 03:00))))))))
+        (NNP pm)))))
 
 (ROOT
   (S
@@ -1139,7 +1140,7 @@
             (, ,)
             (PP (IN in)
               (NP (NN addition)))))
-        (PP (TO to)
+        (PP (IN to)
           (NP (PRP$ its) (JJ Korean) (NNS restaurants)))))
     (. .)))
 

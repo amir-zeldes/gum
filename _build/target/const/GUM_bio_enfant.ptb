@@ -16,8 +16,8 @@
             (: ;)
             (NP
               (NP (NNP August) (CD 2) (, ,) (CD 1754))
-              (ADJP (TO –)
-                (NP-TMP (NNP June) (CD 14) (, ,) (CD 1825))))))
+              (PP (IN –)
+                (NP (NNP June) (CD 14) (, ,) (CD 1825))))))
         (-RRB- -RRB-))
       (, ,)
       (VP (VBN self-identified)
@@ -69,25 +69,24 @@
       (VP (VBN born)
         (PP (IN in)
           (NP
-            (NP (NNP Paris))
+            (NP
+              (NP (NNP Paris) (, ,) (NNP France))
+              (PP (IN on)
+                (NP (NNP August) (CD 2) (, ,) (CD 1754))))
             (, ,)
+            (NP (DT the) (JJ third) (NN child))
+            (CC and)
             (NP
               (NP
-                (NP (NNP France))
-                (PP (IN on)
-                  (NP (NNP August) (CD 2) (, ,) (CD 1754)))
-                (, ,)
                 (NP
-                  (NP (DT the) (JJ third) (NN child)
-                    (CC and)
-                    (JJ second) (NN son))
+                  (NP (JJ second) (NN son))
                   (PP (IN of)
                     (NP
                       (NP
                         (NP (NNP Pierre) (NNP L'Enfant))
                         (PRN (-LRB- -LRB-)
                           (NP
-                            (QP (CD 1704) (TO –) (CD 1787)))
+                            (QP (CD 1704) (IN –) (CD 1787)))
                           (-RRB- -RRB-)))
                       (, ,)
                       (NP
@@ -105,15 +104,16 @@
                                       (NP (NNP France))))))))))
                       (, ,))))
                 (PRN (-LRB- -LRB-)
-                  (SBAR
-                    (WHNP
-                      (WHNP (CD 1710))
-                      (TO -)
-                      (NP (CD 1774))
-                      (, ,))
-                    (S
-                      (VP (VBD reigned)
-                        (ADVP (CD 1715) (TO -) (CD 1774)))))
+                  (NP
+                    (NP (CD 1710))
+                    (SBAR
+                      (S
+                        (PP (IN -)
+                          (NP (CD 1774)))
+                        (, ,)
+                        (VP (VBD reigned)
+                          (NP
+                            (QP (CD 1715) (IN -) (CD 1774)))))))
                   (-RRB- -RRB-)))
               (, ,)
               (CC and)
@@ -274,21 +274,21 @@
         (VP (VBG changing)
           (NP (PRP$ his) (JJ first) (NN name))
           (PP (IN from)
-            (NP (NNP Pierre)))
-          (PP (TO to)
             (NP
-              (NP (NNP Peter))
-              (SBAR
-                (WHADVP (WRB when))
-                (S
-                  (NP (PRP he))
-                  (ADVP (RB first))
-                  (VP (VBD came)
-                    (PP (TO to)
-                      (NP
-                        (NP (DT the) (VBG rebelling) (NNS colonies))
-                        (PP (IN in)
-                          (NP (CD 1777)))))))))))))
+              (NP (NNP Pierre))
+              (PP (IN to)
+                (NP (NNP Peter)))))
+          (SBAR
+            (WHADVP (WRB when))
+            (S
+              (NP (PRP he))
+              (ADVP (RB first))
+              (VP (VBD came)
+                (PP (IN to)
+                  (NP
+                    (NP (DT the) (VBG rebelling) (NNS colonies))
+                    (PP (IN in)
+                      (NP (CD 1777)))))))))))
     (. .)))
 
 (ROOT
@@ -386,29 +386,29 @@
     (VP (VBD was)
       (VP (VBN promoted)
         (PP (IN by)
-          (NP (NN brevet)))
-        (PP (TO to)
           (NP
-            (NP (NNP Major))
+            (NP (NN brevet))
+            (PP (IN to)
+              (NP (NNP Major)))))
+        (PP (IN in)
+          (NP
+            (NP (DT the) (NNP Corps))
+            (PP (IN of)
+              (NP (NNPS Engineers)))))
+        (PP (IN on)
+          (NP
+            (NP (NNP May) (CD 2) (, ,) (CD 1783) (, ,))
             (PP (IN in)
               (NP
-                (NP (DT the) (NNP Corps))
+                (NP (NN recognition))
                 (PP (IN of)
                   (NP
-                    (NP (NNPS Engineers))
-                    (PP (IN on)
+                    (NP (PRP$ his) (NN service))
+                    (PP (IN to)
                       (NP
-                        (NP (NNP May) (CD 2) (, ,) (CD 1783) (, ,))
-                        (PP (IN in)
-                          (NP
-                            (NP (NN recognition))
-                            (PP (IN of)
-                              (NP (PRP$ his) (NN service)))))))))))))
-        (PP (TO to)
-          (NP
-            (NP (DT the) (NN cause))
-            (PP (IN of)
-              (NP (JJ American) (NN liberty)))))))
+                        (NP (DT the) (NN cause))
+                        (PP (IN of)
+                          (NP (JJ American) (NN liberty)))))))))))))
     (. .)))
 
 (ROOT
@@ -465,7 +465,7 @@
     (NP (PRP He))
     (VP (VBD was)
       (VP (VBN sent)
-        (PP (TO to)
+        (PP (IN to)
           (NP (NNP France)))
         (S
           (VP (TO to)
@@ -585,10 +585,12 @@
             (NP (PRP$ their) (NNS correspondances))
             (PP (IN from)
               (NP
-                (NP
-                  (QP (CD 1790) (TO to) (CD 1801)))
-                (ADVP (RB now)))))))
-      (VP (VB reside)
+                (NP (CD 1790))
+                (PP (IN to)
+                  (NP (CD 1801))))))))
+      (VP
+        (ADVP (RB now))
+        (VB reside)
         (PP (IN in)
           (NP (DT the) (NNP National) (NNPS Archives)))))
     (. .)))
