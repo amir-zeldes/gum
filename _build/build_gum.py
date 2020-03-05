@@ -154,7 +154,9 @@ else:
 	sys.__stdout__.write("\nStarting pepper conversion:\n" + "="*30 + "\n")
 
 	# Create Pepper staging erea in utils/pepper/tmp/
-	dirs = [('xml','xml','xml','', ''),('dep','ud','conllu','', os.sep + "ud" + os.sep + "not-to-release"),('rst','rst','rs3','',''),('tsv','tsv','tsv','coref' + os.sep,''),('const','const','ptb','','')]
+	dirs = [('xml','xml','xml','', ''),('dep','ud','conllu','', os.sep + "ud" + os.sep + "not-to-release"),
+			('rst'+os.sep+'rstweb','rst','rs3','',''),('rst'+os.sep+'dependencies','rsd','rsd','',''),
+			('tsv','tsv','tsv','coref' + os.sep,''),('const','const','ptb','','')]
 	for dir in dirs:
 		files = []
 		dir_name, out_dir_name, extension, prefix, suffix = dir
@@ -192,3 +194,12 @@ else:
 
 	out = run_pepper(pepper_params,options.verbose_pepper)
 	sys.__stdout__.write(out + "\n")
+
+
+## Step 4: propagate entity types and coref into conllu dep files
+if options.no_pepper:
+	sys.__stdout__.write("\ni Not adding entity information to UD parses since Pepper conversion was skipped\n")
+else:
+	from utils.propagate import add_entities_to_conllu
+	add_entities_to_conllu(gum_target)
+	sys.__stdout__.write("\no Added entity information to UD parses\n")

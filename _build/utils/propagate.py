@@ -65,15 +65,15 @@ def fix_punct(conllu_string):
 	fixpunct_block = FixPunct()
 	fixpunct_block.process_document(doc)
 	output_string = doc.to_conllu_string()
+	output_string = re.sub(r'# sent_id = [0-9]+\n',r'',output_string)  # remove udapi sent_id
 	return output_string
 
 
 def is_neg_lemma(lemma,pos):
 	negstems = set(["imposs","improb","immort","inevit","incomp","indirec","inadeq","insuff","ineff","incong","incoh","inacc","invol","infreq","inapp","indist","infin","intol",
 					"dislik","dys","dismount","disadvant","disinteg","disresp","disagr","disjoin","disprov","disinterest","discomfort","dishonest","disband","disentangl"])
-	neglemmas = set(["nowhere","never","nothing","none","undo","uncover","unclench"])
-	if lemma == 'unconscious':
-		a=4
+	neglemmas = set(["nowhere","never","nothing","none","undo","uncover","unclench","no","not","n't","ne","pas"])
+
 	lemma = lemma.lower()
 	if lemma in negstems or lemma in neglemmas:
 		return True
@@ -145,6 +145,29 @@ def tt2vanilla(tag,token):
 		else:
 			tag = "-RRB-"
 	return tag
+
+def fix_card_lemma(wordform,lemma):
+	if lemma == "@card@" and re.match(r'[0-9,]+$',wordform):
+		lemma = wordform.replace(",","")
+	elif lemma == "@card@" and re.match(r'([0-9]+)/([0-9]+)+$',wordform) and False:  # Fraction (DISABLED due to dates like 9/11)
+		parts = wordform.split("/")
+		div = float(parts[0])/float(parts[1])
+		parts = str(div).split(".")
+		if len(parts[1])>3:
+			parts[1] = parts[1][:3]
+			lemma = ".".join(parts)
+		elif parts[1] == "0":
+			lemma = parts[0]
+		else:
+			lemma = ".".join(parts)
+	elif lemma == "@card@" and re.match(r'([0-9]+)\.([0-9]+)+$',wordform) and False:  # Decimal, round 3 places
+		parts = wordform.split(".")
+		if len(parts[1])>3:
+			parts[1] = parts[1][:3]
+		lemma = ".".join(parts)
+	elif lemma == "@card@":
+		lemma = wordform.replace(",","")
+	return lemma
 
 
 def enrich_dep(gum_source, tmp, reddit=False):
@@ -242,6 +265,12 @@ def enrich_dep(gum_source, tmp, reddit=False):
 				tt_pos = pos[tok_num]
 				tt_pos = clean_tag(tt_pos)
 				vanilla_pos = tt2vanilla(tt_pos, fields[1])
+				# Convert TO to IN for prepositional 'to'
+				if tt_pos == "TO" and fields[7] == "case":
+					tt_pos = "IN"
+				# Pure digits should receive the number as a lemma
+				lemma = fix_card_lemma(wordform,lemma)
+
 				fields[1] = wordform
 				fields[2] = lemma
 				fields[3] = tt_pos
@@ -302,6 +331,9 @@ def compile_ud(tmp, gum_target, reddit=False):
 	dep_target = gum_target + "dep" + os.sep + "not-to-release" + os.sep
 	if not os.path.isdir(dep_target):
 		os.makedirs(dep_target)
+	dep_merge_dir = tmp + "dep" + os.sep + "ud" + os.sep + "GUM" + os.sep
+	if not os.path.isdir(dep_merge_dir):
+		os.makedirs(dep_merge_dir)
 
 	depfiles = []
 	files_ = glob(dep_source + "*.conllu")
@@ -449,11 +481,22 @@ def compile_ud(tmp, gum_target, reddit=False):
 									line = "\t".join(fields2)  # no need to set dislocated in manual UD parse
 									processed_lines[line_ent_triple2[0]] = line
 
-
 		processed_lines = "\n".join(processed_lines) + "\n"
 		# Serialize entity tagged dependencies for debugging
 		with io.open(tmp + "entidep" + os.sep + docname + ".conllu",'w',encoding="utf8", newline="\n") as f:
 			f.write(processed_lines)
+
+		# UPOS
+		depedit = DepEdit(config_file="utils" + os.sep + "upos.ini")
+		uposed = depedit.run_depedit(processed_lines,filename=docname,sent_id=True,docname=True)
+		# Make sure sent_id is first comment except newdox
+		uposed = re.sub(r'((?:# [^n][^\t\n]+\n)+)(# sent_id[^\n]+\n)',r'\2\1',uposed)
+		uposed = re.sub(r'ent_head=[a-z]+\|infstat=[a-z]+\|?','',uposed)
+		processed_lines = uposed
+
+		#depedit = DepEdit(config_file="utils" + os.sep + "fix_flat.ini")
+		#processed_lines = depedit.run_depedit(processed_lines,filename=docname)
+
 
 		if PY2:
 			punct_fixed = processed_lines
@@ -487,7 +530,7 @@ def compile_ud(tmp, gum_target, reddit=False):
 				lemma = doc_lemmas[tok_num]
 				tok_num += 1
 				fields = line.split("\t")
-				if tok_num in negative:
+				if tok_num in negative and "Polarity" not in fields[5]:
 					fields[5] = add_feat(fields[5],"Polarity=Neg")
 				fields[1] = tok  # Restore correct utf8 token and lemma
 				fields[2] = lemma
@@ -508,14 +551,13 @@ def compile_ud(tmp, gum_target, reddit=False):
 				negatived.append(line)
 		negatived = "\n".join(negatived)
 
-		# UPOS
-		depedit = DepEdit(config_file="utils" + os.sep + "upos.ini")
-		uposed = depedit.run_depedit(negatived,filename=docname,sent_id=True,docname=True)
-		negatived = uposed
-
 		negatived = do_hard_replaces(negatived)
 
+		# Directory with dependency output
 		with io.open(dep_target + docname + ".conllu",'w',encoding="utf8", newline="\n") as f:
+			f.write(negatived)
+		# Directory for SaltNPepper merging, must be nested in a directory 'GUM'
+		with io.open(dep_merge_dir + docname + ".conll10",'w',encoding="utf8", newline="\n") as f:
 			f.write(negatived)
 
 		if docname in ud_dev:
@@ -607,6 +649,11 @@ def enrich_xml(gum_source, gum_target, add_claws=False, reddit=False, warn=False
 				else:
 					fields = fields[:-1] # Just delete last column to re-generate func from conllu
 				fields.append(func)
+				# Convert TO to IN for prepositional 'to'
+				if fields[1] == "TO" and fields[-1] == "case":
+					fields[1] = "IN"
+				# Pure digits should receive the number as a lemma
+				fields[2] = fix_card_lemma(fields[0],fields[2])
 				line = "\t".join(fields)
 			output += line + "\n"
 
@@ -680,3 +727,52 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
 		outfile.close()
 
 	print("o Reparsed " + str(len(xmlfiles)) + " documents" + " " * 20)
+
+
+def get_coref_ids(gum_target):
+
+	entity_dict = defaultdict(list)
+	conll_coref = glob(gum_target + "coref" + os.sep + "conll" + os.sep + "GUM" + os.sep + "*.conll")
+	for file_ in conll_coref:
+		doc = os.path.basename(file_).replace(".conll","")
+		lines = io.open(file_,encoding="utf8").read().split("\n")
+		for line in lines:
+			if "\t" in line:
+				entity_dict[doc].append(line.split("\t")[-1])
+
+	return entity_dict
+
+
+def add_entities_to_conllu(gum_target):
+	if not gum_target.endswith(os.sep):
+		gum_target += os.sep
+	entity_doc = get_coref_ids(gum_target)
+
+	files = glob(gum_target + "dep" + os.sep + "*.conllu")
+	files += glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
+
+	for file_ in files:
+		with io.open(file_,encoding="utf8") as f:
+			lines = f.read().split("\n")
+
+		output = []
+		toknum = 0
+		for line in lines:
+			if line.startswith("# newdoc"):
+				doc = line.strip().split()[-1]
+				toknum = 0
+
+			if "\t" in line:
+				fields = line.split("\t")
+				if not "-" in fields[0]:  # Regular token
+					entity_data = entity_doc[doc][toknum]
+					if entity_data != "_":
+						misc = add_feat(fields[-1],"Entity="+entity_data)
+						fields[-1] = misc
+						line = "\t".join(fields)
+					toknum += 1
+			output.append(line)
+
+		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
+			f.write("\n".join(output) + "\n")
+

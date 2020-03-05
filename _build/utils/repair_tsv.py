@@ -322,13 +322,19 @@ def expand_single_length_entities(parsed_lines):
 				assert relation['src_token'] in new_id_index
 				relation['src'] = new_id_index[relation['src_token']]
 			else:
-				relation['src'] = old_id_index[relation['src']]
+				try:
+					relation['src'] = old_id_index[relation['src']]
+				except:
+					relation['src'] = new_id_index[relation['src_token']]
 
 			if not relation['dest']:
 				assert line['token_id'] in new_id_index
 				relation['dest'] = new_id_index[line['token_id']]
 			else:
-				relation['dest'] = old_id_index[relation['dest']]
+				try:
+					relation['dest'] = old_id_index[relation['dest']]
+				except:
+					relation['dest'] = new_id_index[line['token_id']]
 
 	return new_id_index.values()
 
@@ -418,8 +424,14 @@ def fix_genitive_s(tsv_path, xml_path, warn_only=True, outdir=None):
 	:param warn_only: If False, actually writes the corrected TSV files to outdir. If True, only prints warnings.
 	:param outdir: The directory corrected TSV files will be placed in
 	"""
+	if outdir is None:
+		utils_dir = os.path.dirname(os.path.realpath(__file__)) + os.sep
+		outdir = utils_dir + "pepper" + os.sep + "tmp" + os.sep + "tsv" + os.sep + "GUM" + os.sep
+
 	lines = read_tsv_lines(tsv_path)
+	orig_lines = lines
 	parsed_lines = parse_tsv_lines(lines)
+	parsed_orig_lines = parsed_lines
 	enrich_tsv_representation_with_pos(parsed_lines, xml_path)
 
 	created_ids = expand_single_length_entities(parsed_lines)
@@ -428,6 +440,12 @@ def fix_genitive_s(tsv_path, xml_path, warn_only=True, outdir=None):
 	if not warn_only:
 		collapse_single_length_entities(parsed_lines, created_ids)
 		serialize_tsv_lines(lines, parsed_lines, tsv_path, outdir)
+	else:
+		pass
+		#collapse_single_length_entities(parsed_orig_lines, created_ids)
+		#serialize_tsv_lines(orig_lines, parsed_orig_lines, tsv_path, outdir)
+
+
 ### end genitive s fix
 
 
@@ -554,6 +572,7 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 			out_link = ""
 			pipe = ""
 			for i, link in enumerate(split_links):
+				#continue  ##AZ
 				if "[" in link:
 					tok, spans = link.split("[")
 					spans = "[" + spans
@@ -564,7 +583,11 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 				if tok in id_mapping:
 					tok = id_mapping[tok]
 
-				link_anno = split_link_annos[i]
+				try:
+					link_anno = split_link_annos[i]
+				except:
+					print("Error on line " + str(line_num) + " of TSV file: " + filename)
+					quit()
 				if link_anno == "bridge":
 					bridging_count[tok] += 1
 
@@ -589,6 +612,7 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 			split_links = links.split("|")
 			split_link_annos = link_annos.split("|")
 			edited_annos = []
+			#continue ##AZ
 			for i, anno in enumerate(split_link_annos):
 				link = split_links[i]
 				if "[" in link:

@@ -346,6 +346,9 @@ def validate_annos(gum_source, reddit=False):
 		tagset = ["CC","CD","DT","EX","FW","IN","IN/that","JJ","JJR","JJS","LS","MD","NN","NNS","NP","NPS","PDT","POS",
 				  "PP","PP$","RB","RBR","RBS","RP","SENT","SYM","TO","UH","VB","VBD","VBG","VBN","VBP","VBZ","VH","VHD",
 				  "VHG","VHN","VHP","VHZ","VV","VVD","VVG","VVN","VVP","VVZ","WDT","WP","WP$","WRB","``","''","(",")",",",":"]
+		non_lemmas = ["them","me","him","n't"]
+		non_lemma_combos = [("PP","her"),("MD","wo"),("PP","us"),("DT","an")]
+		non_cap_lemmas = ["There","How","Why","Where","When"]
 
 		for i, line in enumerate(xml_lines):
 			if "\t" in line:  # Token
@@ -354,8 +357,14 @@ def validate_annos(gum_source, reddit=False):
 				fields = line.split("\t")
 				tok, pos, lemma = fields[0:3]
 				if pos not in tagset:
-					print("WARN: invalid POS tag " + pos + " in " + docname + " @ line " + str(i) + " (token: " + tok + ")"
-)
+					print("WARN: invalid POS tag " + pos + " in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
+				if lemma.lower() in non_lemmas:
+					print("WARN: invalid lemma " + lemma + " in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
+				elif lemma in non_cap_lemmas:
+					print("WARN: invalid lemma " + lemma + " in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
+				elif (pos,lemma.lower()) in non_lemma_combos:
+					print("WARN: invalid lemma " + lemma + " for POS "+pos+" in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
+
 				parent_string = parents[tok_num]
 				parent_id = parent_ids[tok_num]
 				parent_lemma = lemmas[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
@@ -565,6 +574,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func == "aux" and lemma != "be" and lemma != "have" and lemma !="do" and pos!="MD" and pos!="TO":
 		print("WARN: aux must be modal, 'be,' 'have,' or 'do'" + inname)
 
+	if pos == "DT" and lemma == "an":
+		print("WARN: lemma of 'an' should be 'a'" + inname)
+
 	if re.search(r"“|”|n’t|n`t|[’`](s|ve|d|ll|m|re|t)", lemma, re.IGNORECASE) is not None:
 		print(str(id) + docname)
 		print("WARN: non-ASCII character in lemma" + inname)
@@ -601,7 +613,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if s_type == "imp" or s_type == "frag" or s_type == "ger" or s_type == "inf":
 		if func == "root" and "nsubj" in child_funcs:
-			print("WARN: " + s_type + " root may not have nsubj" + inname)
+			# Exception for frag structures like "Whatever it is that ...", which is actually frag
+			if not ("acl:relcl" in child_funcs and "cop" in child_funcs and s_type=="frag"):
+				print("WARN: " + s_type + " root may not have nsubj" + inname)
 
 	temp_wh = ["when", "how", "where", "why", "whenever", "while", "who", "whom", "which", "whoever", "whatever",
 			   "what", "whomever", "however"]
@@ -618,5 +632,6 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if s_type == "q" and func == "root":
 		for wh in children:
 			if wh in temp_wh:
-				print("WARN: q root may not have wh child " + wh + inname)
+				if not any([c.lower()=="do" or c.lower()=="did" for c in children]):
+					print("WARN: q root may not have wh child " + wh + inname)
 

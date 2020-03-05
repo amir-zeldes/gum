@@ -734,9 +734,9 @@ class DepEdit:
 			sentence_tokens = conll_tokens[tokoffset + supertok_offset + 1:]
 			self.process_sentence(sentence_tokens,stepwise=stepwise)
 			transformed = current_sentence.print_annos() + self.serialize_output_tree(sentence_tokens, tokoffset)
-			output_lines.extend(transformed)
 			if sent_id:
 				output_lines.append(self.make_sent_id(current_sentence.sent_num))
+			output_lines.extend(transformed)
 
 		# Check if DepEdit has been fed an unsplit string programmatically
 		if isinstance(infile, str):
