@@ -1,0 +1,1084 @@
+<text id="GUM_academic_mutation" author="Suilen H. Alvarado" dateCollected="2019-08-06" dateCreated="2019-08-06" dateModified="2019-08-06" shortTitle="mutation" sourceURL="https://www.mdpi.com/2504-3900/21/1/43" speakerCount="0" speakerList="none" title="Design of Mutation Operators for Testing Geographic Information Systems" type="academic">
+<head>
+<s type="frag">
+Design	NN	design
+of	IN	of
+Mutation	NN	mutation
+Operators	NNS	operators
+for	IN	for
+Testing	VVG	test
+Geographic	JJ	geographic
+Information	NN	information
+Systems	NNS	systems
+</s>
+</head>
+<p>
+<s type="other">
+Suilen	NP	Suilen
+H.	NP	H.
+Alvarado	NP	Alvarado
+Laboratorio	NP	Laboratorio
+de	NP	de
+Bases	NP	Bases
+de	NP	de
+Datos	NP	Datos
+Campus	NP	Campus
+de	NP	de
+Elviña	NP	Elviña
+,	,	,
+Centro	NP	Centro
+de	NP	de
+investigación	NP	investigación
+CITIC	NP	CITIC
+,	,	,
+Universidade	NP	Universidade
+da	NP	da
+Coruña	NP	Coruña
+,	,	,
+15071	CD	15071
+A	NP	A
+Coruña	NP	Coruña
+,	,	,
+Spain	NP	Spain
+;	:	;
+<ref>
+s.hernandez@udc.es	NP	s.hernandez@udc.es
+</ref>
+</s>
+</p>
+<s type="other">
+Presented	VVN	present
+at	IN	at
+the	DT	the
+2nd	JJ	2nd
+XoveTIC	NP	XoveTIC
+Congress	NP	Congress
+,	,	,
+A	NP	A
+Coruña	NP	Coruña
+,	,	,
+Spain	NP	Spain
+,	,	,
+<date from="2019-09-05" to="2019-09-06">
+<w>
+5	CD	5
+–	IN	–
+6	CD	6
+</w>
+September	NP	September
+2019	CD	2019
+</date>
+.	SENT	.
+</s>
+<p>
+<s type="frag">
+<hi rend="bold">
+Abstract	NN	abstract
+:	:	:
+</hi>
+</s>
+<s type="decl">
+In	IN	in
+this	DT	this
+article	NN	article
+,	,	,
+we	PP	we
+propose	VVP	propose
+the	DT	the
+definition	NN	definition
+of	IN	of
+specific	JJ	specific
+mutation	NN	mutation
+operators	NNS	operator
+for	IN	for
+testing	VVG	test
+Geographic	JJ	geographic
+Information	NN	information
+Systems	NNS	system
+.	SENT	.
+</s>
+<s type="decl">
+We	PP	we
+describe	VVP	describe
+the	DT	the
+process	NN	process
+for	IN	for
+applying	VVG	apply
+the	DT	the
+operators	NNS	operator
+and	CC	and
+generating	VVG	generate
+mutants	NNS	mutant
+,	,	,
+and	CC	and
+present	VVP	present
+a	DT	a
+case	NN	case
+study	NN	study
+where	WRB	where
+these	DT	these
+mutation	NN	mutation
+operators	NNS	operator
+are	VBP	be
+applied	VVN	apply
+to	IN	to
+two	CD	two
+real-world	JJ	real-world
+applications	NNS	application
+.	SENT	.
+</s>
+</p>
+<p>
+<s type="other">
+<hi rend="bold">
+Keywords	NNS	keyword
+:	:	:
+</hi>
+mutation	NN	mutation
+operators	NNS	operator
+;	:	;
+geographic	JJ	geographic
+information	NN	information
+systems	NNS	system
+;	:	;
+mutation	NN	mutation
+testing	NN	testing
+</s>
+</p>
+<head rend="bold">
+<s type="frag">
+1.	LS	1.
+Introduction	NN	introduction
+</s>
+</head>
+<p>
+<s type="decl">
+Mutation-based	JJ	mutation-based
+testing	NN	testing
+<ref>
+[	(	[
+1	CD	1
+]	)	]
+</ref>
+is	VBZ	be
+a	DT	a
+test	NN	test
+technique	NN	technique
+that	WDT	that
+involves	VVZ	involve
+artificially	RB	artificially
+introducing	VVG	introduce
+errors	NNS	error
+into	IN	into
+a	DT	a
+System	NN	system
+Under	IN	under
+Test	NN	test
+(	(	(
+SUT	NN	SUT
+)	)	)
+.	SENT	.
+</s>
+<s type="decl">
+A	DT	a
+mutant	NN	mutant
+is	VBZ	be
+a	DT	a
+copy	NN	copy
+of	IN	of
+the	DT	the
+system	NN	system
+in	IN	in
+which	WDT	which
+a	DT	a
+change	NN	change
+has	VHZ	have
+been	VBN	be
+done	VVN	do
+that	WDT	that
+,	,	,
+in	IN	in
+most	JJS	most
+cases	NNS	case
+,	,	,
+will	MD	will
+lead	VV	lead
+to	IN	to
+a	DT	a
+behaviour	NN	behaviour
+different	JJ	different
+than	IN	than
+expected	VVN	expect
+.	SENT	.
+</s>
+<s type="decl">
+The	DT	the
+different	JJ	different
+mutants	NNS	mutant
+are	VBP	be
+generated	VVN	generate
+automatically	RB	automatically
+by	IN	by
+the	DT	the
+application	NN	application
+of	IN	of
+mutation	NN	mutation
+operators	NNS	operator
+.	SENT	.
+</s>
+<s type="decl">
+In	IN	in
+the	DT	the
+state	NN	state
+of	IN	of
+the	DT	the
+art	NN	art
+,	,	,
+we	PP	we
+have	VHP	have
+found	VVN	find
+mutation	NN	mutation
+operators	NNS	operator
+,	,	,
+both	DT	both
+general	JJ	general
+purpose	NN	purpose
+and	CC	and
+specific	JJ	specific
+to	IN	to
+different	JJ	different
+technologies	NNS	technology
+,	,	,
+languages	NNS	language
+and	CC	and
+paradigms	NNS	paradigm
+<ref>
+[	(	[
+<w>
+2	CD	2
+–	IN	–
+9	CD	9
+</w>
+]	)	]
+</ref>
+.	SENT	.
+</s>
+<s type="decl">
+However	RB	however
+,	,	,
+these	DT	these
+operators	NNS	operator
+are	VBP	be
+not	RB	not
+adequate	JJ	adequate
+when	WRB	when
+trying	VVG	try
+to	TO	to
+test	VV	test
+software	NN	software
+features	NNS	feature
+associated	VVN	associate
+with	IN	with
+specific	JJ	specific
+domains	NNS	domain
+.	SENT	.
+</s>
+<s type="decl">
+In	IN	in
+this	DT	this
+article	NN	article
+,	,	,
+we	PP	we
+propose	VVP	propose
+mutation	NN	mutation
+operators	NNS	operator
+specific	JJ	specific
+to	IN	to
+the	DT	the
+domain	NN	domain
+of	IN	of
+Geographic	JJ	geographic
+Information	NN	information
+Systems	NN	system
+(	(	(
+GIS	NNS	GIS
+)	)	)
+applications	NNS	application
+.	SENT	.
+</s>
+<s type="decl">
+These	DT	these
+operators	NNS	operator
+reproduce	VVP	reproduce
+programming	NN	programming
+errors	NNS	error
+that	WDT	that
+are	VBP	be
+<sic>
+litely	RB	litely
+</sic>
+to	TO	to
+occur	VV	occur
+during	IN	during
+the	DT	the
+development	NN	development
+of	IN	of
+this	DT	this
+type	NN	type
+of	IN	of
+applications	NNS	application
+.	SENT	.
+</s>
+<s type="decl">
+In	IN	in
+addition	NN	addition
+,	,	,
+we	PP	we
+present	VVP	present
+the	DT	the
+implementation	NN	implementation
+of	IN	of
+these	DT	these
+operators	NNS	operator
+and	CC	and
+as	IN	as
+proof	NN	proof
+of	IN	of
+concept	NN	concept
+we	PP	we
+apply	VVP	apply
+these	DT	these
+operators	NNS	operator
+to	IN	to
+two	CD	two
+real-world	JJ	real-world
+GIS	NN	GIS
+applications	NNS	application
+and	CC	and
+we	PP	we
+generate	VVP	generate
+the	DT	the
+mutants	NNS	mutant
+.	SENT	.
+</s>
+</p>
+<head rend="bold">
+<s type="frag">
+2.	LS	2.
+Mutation	NP	Mutation
+Operators	NPS	Operators
+for	IN	for
+GIS	NP	GIS
+</s>
+</head>
+<p>
+<s type="decl">
+As	IN	as
+a	DT	a
+previous	JJ	previous
+step	NN	step
+to	TO	to
+designing	VVG	design
+the	DT	the
+mutation	NN	mutation
+operators	NNS	operator
+,	,	,
+we	PP	we
+analyzed	VVD	analyze
+the	DT	the
+main	JJ	main
+technologies	NNS	technology
+used	VVN	use
+specifically	RB	specifically
+in	IN	in
+the	DT	the
+development	NN	development
+of	IN	of
+GIS	NNS	GIS
+,	,	,
+and	CC	and
+we	PP	we
+identified	VVD	identify
+typical	JJ	typical
+errors	NNS	error
+a	DT	a
+programmer	NN	programmer
+can	MD	can
+introduce	VV	introduce
+during	IN	during
+the	DT	the
+development	NN	development
+.	SENT	.
+</s>
+<s type="decl">
+These	DT	these
+errors	NNS	error
+were	VBD	be
+formalized	VVN	formalize
+into	IN	into
+mutation	NN	mutation
+operators	NNS	operator
+.	SENT	.
+</s>
+<s type="decl">
+In	IN	in
+order	NN	order
+to	TO	to
+apply	VV	apply
+these	DT	these
+operators	NNS	operator
+to	IN	to
+a	DT	a
+SUT	NN	SUT
+,	,	,
+we	PP	we
+rely	VVP	rely
+on	IN	on
+Java	NP	Java
+reflection	NN	reflection
+and	CC	and
+aspect-oriented	JJ	aspect-oriented
+programming	NN	programming
+.	SENT	.
+</s>
+<s type="decl">
+Reflection	NN	reflection
+allows	VVZ	allow
+us	PP	we
+to	TO	to
+obtain	VV	obtain
+the	DT	the
+list	NN	list
+of	IN	of
+classes	NNS	class
+and	CC	and
+methods	NNS	method
+of	IN	of
+the	DT	the
+SUT	NN	SUT
+,	,	,
+so	IN	so
+the	DT	the
+user	NN	user
+can	MD	can
+decide	VV	decide
+the	DT	the
+methods	NNS	method
+to	TO	to
+<sic>
+wish	VV	wish
+</sic>
+the	DT	the
+operators	NNS	operator
+will	MD	will
+be	VB	be
+applied	VVN	apply
+.	SENT	.
+</s>
+<s type="decl">
+Later	RBR	late
+,	,	,
+we	PP	we
+capture	VVP	capture
+information	NN	information
+about	IN	about
+the	DT	the
+methods	NNS	method
+of	IN	of
+the	DT	the
+SUT	NN	SUT
+to	TO	to
+be	VB	be
+mutated	VVN	mutate
+,	,	,
+together	RB	together
+with	IN	with
+the	DT	the
+information	NN	information
+of	IN	of
+the	DT	the
+mutation	NN	mutation
+operators	NNS	operator
+that	WDT	that
+were	VBD	be
+already	RB	already
+defined	VVN	define
+.	SENT	.
+</s>
+<s type="decl">
+From	IN	from
+these	DT	these
+data	NNS	datum
+,	,	,
+we	PP	we
+generate	VVP	generate
+the	DT	the
+mutation	NN	mutation
+operator	NN	operator
+,	,	,
+in	IN	in
+the	DT	the
+form	NN	form
+of	IN	of
+on	IN	on
+aspect	NN	aspect
+,	,	,
+which	WDT	which
+will	MD	will
+then	RB	then
+be	VB	be
+possible	JJ	possible
+to	TO	to
+interweave	VV	interweave
+with	IN	with
+the	DT	the
+SUT	NN	SUT
+which	WDT	which
+generates	VVZ	generate
+a	DT	a
+mutant	NN	mutant
+of	IN	of
+the	DT	the
+SUT	NN	SUT
+.	SENT	.
+</s>
+<s type="decl">
+Next	RB	next
+,	,	,
+we	PP	we
+describe	VVP	describe
+the	DT	the
+definition	NN	definition
+of	IN	of
+two	CD	two
+operators	NNS	operator
+and	CC	and
+two	CD	two
+cases	NNS	case
+of	IN	of
+application	NN	application
+on	IN	on
+real-world	JJ	real-world
+GIS	NN	GIS
+applications	NNS	application
+.	SENT	.
+</s>
+</p>
+<p>
+<s type="frag">
+<hi rend="bold">
+ChangeCoordSys	NP	ChangeCoordSys
+Operator	NP	Operator
+(	(	(
+Listing	NN	listing
+<ref>
+1	CD	1
+</ref>
+)	)	)
+:	:	:
+</hi>
+</s>
+<s type="decl">
+It	PP	it
+exchanges	VVZ	exchange
+the	DT	the
+coordinate	NN	coordinate
+system	NN	system
+of	IN	of
+a	DT	a
+geometry	NN	geometry
+,	,	,
+so	IN	so
+it	PP	it
+does	VVZ	do
+not	RB	not
+match	VV	match
+the	DT	the
+coordinate	NN	coordinate
+system	NN	system
+that	WDT	that
+is	VBZ	be
+being	VBG	be
+used	VVN	use
+in	IN	in
+the	DT	the
+user	NN	user
+interface	NN	interface
+.	SENT	.
+</s>
+<s type="decl">
+It	PP	it
+simulates	VVZ	simulate
+the	DT	the
+error	NN	error
+of	IN	of
+not	RB	not
+checking	VVG	check
+that	IN/that	that
+the	DT	the
+coordinate	NN	coordinate
+system	NN	system
+is	VBZ	be
+correct	JJ	correct
+.	SENT	.
+</s>
+<s type="decl">
+The	DT	the
+error	NN	error
+is	VBZ	be
+introduced	VVN	introduce
+by	IN	by
+directly	RB	directly
+modifying	VVG	modify
+the	DT	the
+coordinate	NN	coordinate
+system	NN	system
+of	IN	of
+geometry	NN	geometry
+when	WRB	when
+recovering	VVG	recover
+the	DT	the
+wrapping	NN	wrapping
+of	IN	of
+the	DT	the
+figure	NN	figure
+.	SENT	.
+</s>
+</p>
+<figure rend="Simplified code listing for the ChangeCoordSys operator">
+<caption>
+<s type="other">
+Listing	NN	listing
+1	CD	1
+:	:	:
+A	DT	a
+simplified	VVN	simplify
+definition	NN	definition
+of	IN	of
+the	DT	the
+ChangeCoordSys	NP	ChangeCoordSys
+Operator	NP	Operator
+.	SENT	.
+</s>
+</caption>
+</figure>
+<p>
+<s type="decl">
+This	DT	this
+operator	NN	operator
+was	VBD	be
+applied	VVN	apply
+to	IN	to
+a	DT	a
+mobile	JJ	mobile
+technology	NN	technology
+GIS	NN	gis
+application	NN	application
+.	SENT	.
+</s>
+<s type="decl">
+This	DT	this
+application	NN	application
+allows	VVZ	allow
+registering	VVG	register
+places	NNS	place
+of	IN	of
+interest	NN	interest
+for	IN	for
+the	DT	the
+user	NN	user
+.	SENT	.
+</s>
+<s type="decl">
+These	DT	these
+areas	NNS	area
+of	IN	of
+interest	NN	interest
+are	VBP	be
+called	VVN	call
+Geofences	NNS	geofence
+.	SENT	.
+</s>
+<s type="decl">
+A	DT	a
+Geofence	NN	geofence
+is	VBZ	be
+determined	VVN	determine
+by	IN	by
+a	DT	a
+geographical	JJ	geographical
+location	NN	location
+expressed	VVN	express
+in	IN	in
+terms	NNS	term
+of	IN	of
+latitude	NN	latitude
+,	,	,
+longitude	NN	longitude
+,	,	,
+and	CC	and
+a	DT	a
+radius	NN	radius
+around	IN	around
+that	DT	that
+location	NN	location
+.	SENT	.
+</s>
+<s type="decl">
+By	IN	by
+creating	VVG	create
+a	DT	a
+Geofence	NN	geofence
+with	IN	with
+an	DT	a
+erroneous	JJ	erroneous
+location	NN	location
+from	IN	from
+its	PP$	its
+central	JJ	central
+location	NN	location
+,	,	,
+the	DT	the
+device	NN	device
+will	MD	will
+receive	VV	receive
+incorrect	JJ	incorrect
+location	NN	location
+notifications	NNS	notification
+.	SENT	.
+</s>
+<s type="decl">
+As	IN	as
+a	DT	a
+result	NN	result
+,	,	,
+the	DT	the
+user	NN	user
+will	MD	will
+see	VV	see
+in	IN	in
+the	DT	the
+application	NN	application
+’s	POS	's
+map	NN	map
+viewer	NN	viewer
+the	DT	the
+Geofences	NNS	geofence
+drawn	VVN	draw
+in	IN	in
+erroneous	JJ	erroneous
+zones	NNS	zone
+(	(	(
+Figure	NN	figure
+<ref>
+1	CD	1
+</ref>
+)	)	)
+.	SENT	.
+</s>
+</p>
+<figure rend="Mobile phone views of an original and mutant application">
+<caption>
+<s type="other">
+<hi rend="bold">
+Figure	NN	figure
+1	CD	1
+.	SENT	.
+</hi>
+Original	JJ	original
+and	CC	and
+mutant	JJ	mutant
+application	NN	application
+.	SENT	.
+</s>
+</caption>
+</figure>
+<p>
+<s type="frag">
+<hi rend="bold">
+BooleanPolygonConstraint	NP	BooleanPolygonConstraint
+Operator	NP	Operator
+(	(	(
+Listing	NN	listing
+<ref>
+2	CD	2
+</ref>
+)	)	)
+:	:	:
+</hi>
+</s>
+<s type="decl">
+It	PP	it
+introduces	VVZ	introduce
+errors	NNS	error
+in	IN	in
+the	DT	the
+processing	NN	processing
+of	IN	of
+geometries	NNS	geometry
+,	,	,
+manipulating	VVG	manipulate
+the	DT	the
+result	NN	result
+of	IN	of
+the	DT	the
+operations	NNS	operation
+that	WDT	that
+carry	VVP	carry
+out	RP	out
+the	DT	the
+verification	NN	verification
+of	IN	of
+different	JJ	different
+topological	JJ	topological
+restrictions	NNS	restriction
+between	IN	between
+geometries	NNS	geometry
+,	,	,
+such	JJ	such
+as	IN	as
+intersects	NNS	intersect
+,	,	,
+covers	NNS	cover
+or	CC	or
+overlap	NN	overlap
+.	SENT	.
+</s>
+</p>
+<figure rend="Simplified code listing for the BooleanPolygonConstraint operator">
+<caption>
+<s type="other">
+Listing	NN	listing
+2	CD	2
+:	:	:
+A	DT	a
+simplified	VVN	simplify
+definition	NN	definition
+of	IN	of
+the	DT	the
+BooleanPolygonConstraint	NP	BooleanPolygonConstraint
+Operator	NP	Operator
+.	SENT	.
+</s>
+</caption>
+</figure>
+<p>
+<s type="decl">
+To	TO	to
+test	VV	test
+this	DT	this
+operator	NN	operator
+it	PP	it
+was	VBD	be
+applied	VVN	apply
+to	IN	to
+a	DT	a
+land	NN	land
+reparcelling	NN	reparcelling
+system	NN	system
+.	SENT	.
+</s>
+<s type="decl">
+The	DT	the
+objective	NN	objective
+of	IN	of
+the	DT	the
+land	NN	land
+reparcelling	NN	reparcelling
+is	VBZ	be
+to	TO	to
+reunify	VV	reunify
+the	DT	the
+lands	NNS	land
+of	IN	of
+an	DT	a
+owner	NN	owner
+to	TO	to
+facilitate	VV	facilitate
+their	PP$	their
+exploitation	NN	exploitation
+.	SENT	.
+</s>
+<s type="decl">
+In	IN	in
+this	DT	this
+application	NN	application
+,	,	,
+the	DT	the
+result	NN	result
+of	IN	of
+the	DT	the
+operation	NN	operation
+between	IN	between
+two	CD	two
+polygons	NNS	polygon
+has	VHZ	have
+been	VBN	be
+affected	VVN	affect
+.	SENT	.
+</s>
+<s type="decl">
+This	DT	this
+error	NN	error
+causes	VVZ	cause
+the	DT	the
+incorrect	JJ	incorrect
+display	NN	display
+of	IN	of
+the	DT	the
+resulting	VVG	result
+geometry	NN	geometry
+that	WDT	that
+should	MD	should
+be	VB	be
+drawn	VVN	draw
+in	IN	in
+the	DT	the
+user	NN	user
+interface	NN	interface
+after	IN	after
+the	DT	the
+operation	NN	operation
+applied	VVN	apply
+to	IN	to
+the	DT	the
+two	CD	two
+initial	JJ	initial
+geometries	NNS	geometry
+(	(	(
+Figure	NN	figure
+<ref>
+2	CD	2
+</ref>
+)	)	)
+.	SENT	.
+</s>
+</p>
+<figure rend="More mobile phone views of an original and mutant application">
+<caption>
+<s type="other">
+<hi rend="bold">
+Figure	NN	figure
+2	CD	2
+.	SENT	.
+</hi>
+Original	JJ	original
+and	CC	and
+mutant	JJ	mutant
+application	NN	application
+.	SENT	.
+</s>
+</caption>
+</figure>
+<head rend="bold">
+<s type="frag">
+3.	LS	3.
+Conclusions	NNS	conclusion
+</s>
+</head>
+<p>
+<s type="decl">
+In	IN	in
+existing	VVG	exist
+proposals	NNS	proposal
+,	,	,
+we	PP	we
+can	MD	can
+find	VV	find
+both	DT	both
+generic	JJ	generic
+and	CC	and
+specific	JJ	specific
+mutation	NN	mutation
+operators	NNS	operator
+.	SENT	.
+</s>
+<s type="decl">
+However	RB	however
+,	,	,
+these	DT	these
+are	VBP	be
+not	RB	not
+adequate	JJ	adequate
+to	TO	to
+cover	VV	cover
+errors	NNS	error
+in	IN	in
+particular	JJ	particular
+domains	NNS	domain
+.	SENT	.
+</s>
+<s type="decl">
+We	PP	we
+have	VHP	have
+defined	VVN	define
+new	JJ	new
+operators	NNS	operator
+specific	JJ	specific
+to	IN	to
+the	DT	the
+GIS	NN	GIS
+domain	NN	domain
+and	CC	and
+a	DT	a
+way	NN	way
+to	TO	to
+apply	VV	apply
+them	PP	they
+to	IN	to
+a	DT	a
+SUT	NN	SUT
+.	SENT	.
+</s>
+<s type="decl">
+In	IN	in
+addition	NN	addition
+,	,	,
+we	PP	we
+have	VHP	have
+tested	VVN	test
+the	DT	the
+operators	NNS	operator
+defined	VVN	define
+in	IN	in
+two	CD	two
+GIS	NN	GIS
+applications	NNS	application
+.	SENT	.
+</s>
+<s type="decl">
+As	IN	as
+future	JJ	future
+work	NN	work
+,	,	,
+we	PP	we
+intend	VVP	intend
+to	TO	to
+extend	VV	extend
+this	DT	this
+approach	NN	approach
+to	IN	to
+other	JJ	other
+domains	NNS	domain
+,	,	,
+as	RB	as
+well	RB	well
+as	IN	as
+to	TO	to
+use	VV	use
+the	DT	the
+developed	JJ	developed
+operators	NNS	operator
+for	IN	for
+the	DT	the
+automatic	JJ	automatic
+improvement	NN	improvement
+of	IN	of
+sets	NNS	set
+of	IN	of
+test	NN	test
+cases	NNS	case
+.	SENT	.
+</s>
+</p>
+</text>

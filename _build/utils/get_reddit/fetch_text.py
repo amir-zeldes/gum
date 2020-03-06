@@ -134,8 +134,80 @@ docs = {
 	],
 	"GUM_reddit_steak": [
 		{"year":"2015","month":"08","id":"3im341","type":"post","source":"undef"}
-	]
+	],
+	"GUM_reddit_card": [
+		{"year":"2019","month":"08","id":"cmqrwo","type":"post","source":"undef"},
+		{"year":"2019","month":"08","id":"ew3zrqg","type":"comment","source":"undef"},
+		{"year":"2019","month":"08","id":"ew43d2c","type":"comment","source":"undef"},
+		{"year":"2019","month":"08","id":"ew43oks","type":"comment","source":"undef"},
+		{"year":"2019","month":"08","id":"ew43ymc","type":"comment","source":"undef"},
+		{"year":"2019","month":"08","id":"ew46h1p","type":"comment","source":"undef"},
+		{"year":"2019","month":"08","id":"ew46oly","type":"comment","source":"undef"},
+		{"year":"2019","month":"08","id":"ew46wq7","type":"comment","source":"undef"},
+		{"year":"2019","month":"08","id":"ew470zc","type":"comment","source":"undef"}
+	],
+	"GUM_reddit_callout": [
+		{"year":"2019","month":"09","id":"d1eg3u","type":"post","source":"undef"},
+		{"year":"2019","month":"09","id":"ezkucpg","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezkv0cc","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezkwbx9","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezlh2o6","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezlkajf","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezlnco2","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezo20yy","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezkwcvh","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezl07dm","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezmajm7","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezl1wz3","type":"comment","source":"undef"},
+	],
+	"GUM_reddit_conspiracy": [
+		{"year":"2019","month":"02","id":"aumhwo","type":"post","source":"undef"},
+		{"year":"2019","month":"02","id":"eh9rt0n","type":"comment","source":"undef"},
+		{"year":"2019","month":"02","id":"eh9tvyw","type":"comment","source":"undef"},
+		{"year":"2019","month":"02","id":"ehc0l2q","type":"comment","source":"undef"},
+		{"year":"2019","month":"02","id":"ehclwtv","type":"comment","source":"undef"},
+		{"year":"2019","month":"02","id":"eh9jo5x","type":"comment","source":"undef"},
+		{"year":"2019","month":"02","id":"ehr2665","type":"comment","source":"undef"},
+		{"year":"2019","month":"02","id":"eha3c1q","type":"comment","source":"undef"},
+		{"year":"2019","month":"02","id":"eha5jlq","type":"comment","source":"undef"},
+	],
+	"GUM_reddit_introverts": [
+		{"year":"2019","month":"06","id":"by820m","type":"post","source":"undef","title_double": True},  # Possible title was repeated by annotator
+		{"year":"2019","month":"06","id":"eqeik8m","type":"comment","source":"undef"},
+		{"year":"2019","month":"06","id":"eqfgaeu","type":"comment","source":"undef"},
+		{"year":"2019","month":"06","id":"eqfplpg","type":"comment","source":"undef"},
+		{"year":"2019","month":"06","id":"eqg6a5u","type":"comment","source":"undef"},
+		{"year":"2019","month":"06","id":"eqh6j29","type":"comment","source":"undef"},
+		{"year":"2019","month":"06","id":"eqhjtwr","type":"comment","source":"undef"},
+		{"year":"2019","month":"06","id":"eqi2jl3","type":"comment","source":"undef"},
+		{"year":"2019","month":"06","id":"eqii2kf","type":"comment","source":"undef"},
+		{"year":"2019","month":"06","id":"eqhlj8j","type":"comment","source":"undef"},
 
+	],
+	"GUM_reddit_racial": [
+		{"year":"2019","month":"09","id":"d1urjk","type":"post","source":"undef"},
+		{"year":"2019","month":"09","id":"ezq9y6w","type":"comment","source":"bigquery"},
+		{"year":"2019","month":"09","id":"ezqpqmm","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezq8xs7","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezr55wk","type":"comment","source":"undef"},
+	],
+	"GUM_reddit_social": [
+		{"year":"2019","month":"09","id":"d1qy3g","type":"post","source":"undef"},
+		{"year":"2019","month":"09","id":"ezpb3jg","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezpdmy3","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezpjor8","type":"comment","source":"bigquery"},
+		{"year":"2019","month":"09","id":"ezpiozm","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezpc1ps","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezp9fbh","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezqrumb","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezpe0e6","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezpf71f","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezt7qlf","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezpc4jj","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezpa2e4","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezpfzql","type":"comment","source":"undef"},
+		{"year":"2019","month":"09","id":"ezpi39v","type":"comment","source":"undef"},
+	]
 }
 
 
@@ -234,6 +306,8 @@ def get_no_space_strings(cache_dict, praw_cred=None, overwrite_cache=False):
 				if "title_only" in post:
 					if post["title_only"]:
 						plain = ""
+				if "title_double" in post:
+					title = title + " " + title
 			else:
 				plain = parsed["body"]
 				title = ""
@@ -252,6 +326,16 @@ def get_no_space_strings(cache_dict, praw_cred=None, overwrite_cache=False):
 				plain = re.sub(r' [0-9]+\. ',' ',plain)
 			elif "_escape" in doc:
 				plain = plain.replace("*1 year later*","1 year later")
+			elif "_racial" in doc:
+				plain = plain.replace("> ","")
+			elif "_callout" in doc:
+				plain = plain.replace("_it","it").replace("well?_","well?").replace(">certain","certain")
+			elif "_conspiracy" in doc:
+				plain = plain.replace(">","")
+			elif "_introvert" in doc:
+				plain = plain.replace("enjoy working out.","enjoy working out").replace("~~","")
+			elif "_social" in doc:
+				plain = plain.replace("the purpose","those purpose").replace("&#x200B;","")
 			no_space = re.sub(r"\s","",plain).replace("*","")
 			no_space = re.sub(r'\[([^]]+)\]\([^)]+\)',r'\1',no_space)  # Remove Wiki style links: [text](URL)
 			if no_space_docs[doc] == "":

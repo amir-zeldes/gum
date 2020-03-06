@@ -13,9 +13,9 @@
             (NP (-LSB- [) (NNP bɛʁˈnʊli) (-RSB- ]))
             (: ;)
             (NP
-              (NP
-                (NP (CD 8))
-                (NP-TMP (NNP February) (CD 1700) (TO –) (CD 17)))
+              (NP (CD 8) (NNP February) (CD 1700))
+              (PP (IN –)
+                (NP (CD 17)))
               (NP-TMP (NNP March) (CD 1782)))))
         (-RRB- -RRB-)))
     (VP
@@ -46,7 +46,7 @@
             (PP (IN of)
               (NP (NN mathematics)))))
         (PP
-          (PP (TO to)
+          (PP (IN to)
             (NP (NN mechanics) (, ,) (RB especially) (NN fluid) (NN mechanics)))
           (, ,)
           (CC and)
@@ -172,7 +172,7 @@
           (NP (NNP Frankfurt)))))
     (NP (DT the) (NN family))
     (VP (VBD moved)
-      (PP (TO to)
+      (PP (IN to)
         (NP (NNP Basel)))
       (, ,)
       (PP (IN in)
@@ -405,7 +405,7 @@
         (ADVP (RBR later))
         (VBD gave)
         (PP (IN in)
-          (PP (TO to)
+          (PP (IN to)
             (NP
               (NP (PRP$ his) (NN father) (POS 's))
               (NN wish)))))
@@ -491,7 +491,7 @@
       (NP (PRP He))
       (VP
         (VP (VBD went)
-          (PP (TO to)
+          (PP (IN to)
             (NP
               (NP (NNP St.) (NNP Petersburg))
               (PP (IN in)
@@ -527,7 +527,7 @@
   (S
     (NP (PRP He))
     (VP (VBD returned)
-      (PP (TO to)
+      (PP (IN to)
         (NP
           (NP (DT the) (NNP University))
           (PP (IN of)
@@ -669,62 +669,60 @@
     (VP (VBD was)
       (VP (VBN followed)
         (PP (IN by)
+          (NP (DT a) (NN memoir)))
+        (PP (IN on)
           (NP
-            (NP (DT a) (NN memoir))
-            (PP (IN on)
-              (NP
-                (NP (DT the) (NN theory))
-                (PP (IN of)
+            (NP (DT the) (NN theory))
+            (PP (IN of)
+              (NP (DT the) (NNS tides)))))
+        (, ,)
+        (PP (IN to)
+          (SBAR
+            (WHNP (WDT which))
+            (S
+              (PRN (, ,)
+                (ADVP (RB conjointly))
+                (PP (IN with)
                   (NP
-                    (NP (DT the) (NNS tides))
-                    (, ,)
+                    (NP (DT the) (NNS memoirs))
+                    (PP (IN by)
+                      (NP (NNP Euler)
+                        (CC and)
+                        (NNP Colin) (NNP Maclaurin)))))
+                (, ,))
+              (S
+                (NP (DT a) (NN prize))
+                (VP (VBD was)
+                  (VP (VBN awarded)
+                    (PP (IN by)
+                      (NP (DT the) (NNP French) (NNP Academy))))))
+              (: :)
+              (S
+                (NP (DT these) (CD three) (NNS memoirs))
+                (VP (VBP contain)
+                  (NP
+                    (NP (DT all))
                     (SBAR
-                      (WHPP (TO to)
-                        (WHNP (WDT which)))
+                      (WHNP (WDT that))
                       (S
-                        (PRN (, ,)
-                          (ADVP (RB conjointly))
-                          (PP (IN with)
-                            (NP
-                              (NP (DT the) (NNS memoirs))
-                              (PP (IN by)
-                                (NP (NNP Euler)
-                                  (CC and)
-                                  (NNP Colin) (NNP Maclaurin)))))
-                          (, ,))
-                        (S
-                          (NP (DT a) (NN prize))
-                          (VP (VBD was)
-                            (VP (VBN awarded)
-                              (PP (IN by)
-                                (NP (DT the) (NNP French) (NNP Academy))))))
-                        (: :)
-                        (S
-                          (NP (DT these) (CD three) (NNS memoirs))
-                          (VP (VBP contain)
-                            (NP
-                              (NP (DT all))
-                              (SBAR
-                                (WHNP (WDT that))
-                                (S
-                                  (VP (VBD was)
-                                    (VP (VBN done)
-                                      (PP (IN on)
+                        (VP (VBD was)
+                          (VP (VBN done)
+                            (PP (IN on)
+                              (NP
+                                (NP (DT this) (NN subject))
+                                (PP (IN between)
+                                  (NP
+                                    (NP
+                                      (NP (DT the) (NN publication))
+                                      (PP (IN of)
                                         (NP
-                                          (NP (DT this) (NN subject))
-                                          (PP (IN between)
-                                            (NP
-                                              (NP
-                                                (NP (DT the) (NN publication))
-                                                (PP (IN of)
-                                                  (NP
-                                                    (NP (NNP Isaac) (NNP Newton) (POS 's))
-                                                    (NNP Philosophiae) (NNP Naturalis) (NNP Principia) (NNP Mathematica))))
-                                              (CC and)
-                                              (NP
-                                                (NP (DT the) (NNS investigations))
-                                                (PP (IN of)
-                                                  (NP (NNP Pierre-Simon) (NNP Laplace)))))))))))))))))))))))))
+                                          (NP (NNP Isaac) (NNP Newton) (POS 's))
+                                          (NNP Philosophiae) (NNP Naturalis) (NNP Principia) (NNP Mathematica))))
+                                    (CC and)
+                                    (NP
+                                      (NP (DT the) (NNS investigations))
+                                      (PP (IN of)
+                                        (NP (NNP Pierre-Simon) (NNP Laplace))))))))))))))))))))
     (. .)))
 
 (ROOT
@@ -833,22 +831,23 @@
           (S
             (NP
               (NP (DT the) (NN height))
-              (SBAR
-                (WHPP (TO to)
-                  (WHNP (WDT which)))
-                (S
-                  (NP (DT the) (NN fluid))
-                  (VP (VBD rose)
-                    (ADVP (IN up)
-                      (NP (DT the) (NN straw)))))))
+              (PP (IN to)
+                (SBAR
+                  (WHNP (WDT which))
+                  (S
+                    (NP (DT the) (NN fluid))
+                    (VP (VBD rose)
+                      (ADVP (IN up)
+                        (NP (DT the) (NN straw))))))))
             (VP (VBD was)
               (VP (VBN related)
-                (PP (TO to)
+                (PP (IN to)
                   (NP
-                    (NP (NN fluid) (POS 's))
-                    (NN pressure)))
-                (PP (IN in)
-                  (NP (DT the) (NN pipe)))))))))
+                    (NP
+                      (NP (NN fluid) (POS 's))
+                      (NN pressure))
+                    (PP (IN in)
+                      (NP (DT the) (NN pipe)))))))))))
     (. .)))
 
 (ROOT
@@ -947,7 +946,7 @@
     (NP (NNP Daniel) (NNP Bernoulli))
     (ADVP (RB now))
     (VP (VBD returned)
-      (PP (TO to)
+      (PP (IN to)
         (NP (PRP$ his) (JJR earlier) (NN work)))
       (PP (IN on)
         (NP

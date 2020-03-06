@@ -169,9 +169,10 @@ def ud_morph(conllu_string, doc_name, const_path):
 
 	ptb_file = const_path + doc_name + ".ptb"
 
-	# morph_command = ["java", "-cp", '*;', "edu.stanford.nlp.trees.ud.UniversalDependenciesFeatureAnnotator", "tempfilename", ptb_file]
-
-	morph_command = ["java", "edu.stanford.nlp.trees.ud.UniversalDependenciesFeatureAnnotator", "tempfilename", ptb_file] # Logan
+	if platform.system() == "Windows":
+		morph_command = ["java", "-cp", '*;', "edu.stanford.nlp.trees.ud.UniversalDependenciesFeatureAnnotator", "tempfilename", ptb_file]
+	else:
+		morph_command = ["java", "edu.stanford.nlp.trees.ud.UniversalDependenciesFeatureAnnotator", "tempfilename", ptb_file]
 
 	morphed = exec_via_temp(conllu_string, morph_command, core_nlp_path)
 	return morphed

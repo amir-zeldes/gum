@@ -102,7 +102,7 @@ def check_reddit(gum_source):
 
 def validate_src(gum_source, reddit=False):
 
-	dirs = [('xml', 'xml'), ('dep', 'conll10'), ('rst', 'rs3'), ('tsv', 'tsv')]
+	dirs = [('xml', 'xml'), ('dep', 'conllu'), ('rst', 'rs3'), ('tsv', 'tsv')]
 
 	# check that each dir has same # and names of files (except extensions)
 	file_lists = []
@@ -206,7 +206,7 @@ def validate_src(gum_source, reddit=False):
 	
 	# check sentences (based on tok count)
 	all_sent_lengths = []
-	sentence_dirs = [('xml', 'xml'), ('dep', 'conll10')] # just the dirs where we check sentences
+	sentence_dirs = [('xml', 'xml'), ('dep', 'conllu')] # just the dirs where we check sentences
 	
 	for d in range(len(sentence_dirs)):
 		dir_sent_lengths = []
@@ -282,7 +282,7 @@ def validate_annos(gum_source, reddit=False):
 		sys.stdout.write("\t+ " + " " * 40 + "\r")
 		sys.stdout.write(" " + str(docnum + 1) + "/" + str(len(xmlfiles)) + ":\t+ " + docname + "\r")
 
-		# Dictionaries to hold token annotations from conll10 data
+		# Dictionaries to hold token annotations from conllu data
 		funcs = {}
 		tokens = {}
 		parent_ids = {}
@@ -293,7 +293,7 @@ def validate_annos(gum_source, reddit=False):
 		child_funcs = defaultdict(list)
 		tok_num = 0
 
-		depfile = xmlfile.replace("xml" + os.sep, "dep" + os.sep).replace("xml", "conll10")
+		depfile = xmlfile.replace("xml" + os.sep, "dep" + os.sep).replace("xml", "conllu")
 		dep_lines = io.open(depfile,encoding="utf8").read().replace("\r", "").split("\n")
 		line_num = 0
 		sent_start = 0
@@ -346,6 +346,9 @@ def validate_annos(gum_source, reddit=False):
 		tagset = ["CC","CD","DT","EX","FW","IN","IN/that","JJ","JJR","JJS","LS","MD","NN","NNS","NP","NPS","PDT","POS",
 				  "PP","PP$","RB","RBR","RBS","RP","SENT","SYM","TO","UH","VB","VBD","VBG","VBN","VBP","VBZ","VH","VHD",
 				  "VHG","VHN","VHP","VHZ","VV","VVD","VVG","VVN","VVP","VVZ","WDT","WP","WP$","WRB","``","''","(",")",",",":"]
+		non_lemmas = ["them","me","him","n't"]
+		non_lemma_combos = [("PP","her"),("MD","wo"),("PP","us"),("DT","an")]
+		non_cap_lemmas = ["There","How","Why","Where","When"]
 
 		for i, line in enumerate(xml_lines):
 			if "\t" in line:  # Token
@@ -354,8 +357,14 @@ def validate_annos(gum_source, reddit=False):
 				fields = line.split("\t")
 				tok, pos, lemma = fields[0:3]
 				if pos not in tagset:
-					print("WARN: invalid POS tag " + pos + " in " + docname + " @ line " + str(i) + " (token: " + tok + ")"
-)
+					print("WARN: invalid POS tag " + pos + " in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
+				if lemma.lower() in non_lemmas:
+					print("WARN: invalid lemma " + lemma + " in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
+				elif lemma in non_cap_lemmas:
+					print("WARN: invalid lemma " + lemma + " in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
+				elif (pos,lemma.lower()) in non_lemma_combos:
+					print("WARN: invalid lemma " + lemma + " for POS "+pos+" in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
+
 				parent_string = parents[tok_num]
 				parent_id = parent_ids[tok_num]
 				parent_lemma = lemmas[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
@@ -547,11 +556,11 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func == "auxpass" and lemma!= "be" and lemma != "get":
 		print("WARN: auxpass must be 'be' or 'get'" + inname)
 
-	if func == "possessive" and pos!= "POS":
-		print("WARN: possessive function must be tagged POS" + inname)
+	if lemma == "'s" and pos!= "POS":
+		print("WARN: possessive 's must be tagged POS" + inname)
 
-	if func != "possessive" and pos== "POS":
-		print("WARN: tag POS must have function possessive" + inname)
+	if func != "case" and pos== "POS":
+		print("WARN: tag POS must have function case" + inname)
 
 	if re.search(r"never|not|no|n't|n’t|’t|'t|nt|ne|pas|nit", tok, re.IGNORECASE) is None and func == "neg":
 		print(str(id) + docname)
@@ -564,6 +573,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if func == "aux" and lemma != "be" and lemma != "have" and lemma !="do" and pos!="MD" and pos!="TO":
 		print("WARN: aux must be modal, 'be,' 'have,' or 'do'" + inname)
+
+	if pos == "DT" and lemma == "an":
+		print("WARN: lemma of 'an' should be 'a'" + inname)
 
 	if re.search(r"“|”|n’t|n`t|[’`](s|ve|d|ll|m|re|t)", lemma, re.IGNORECASE) is not None:
 		print(str(id) + docname)
@@ -601,7 +613,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if s_type == "imp" or s_type == "frag" or s_type == "ger" or s_type == "inf":
 		if func == "root" and "nsubj" in child_funcs:
-			print("WARN: " + s_type + " root may not have nsubj" + inname)
+			# Exception for frag structures like "Whatever it is that ...", which is actually frag
+			if not ("acl:relcl" in child_funcs and "cop" in child_funcs and s_type=="frag"):
+				print("WARN: " + s_type + " root may not have nsubj" + inname)
 
 	temp_wh = ["when", "how", "where", "why", "whenever", "while", "who", "whom", "which", "whoever", "whatever",
 			   "what", "whomever", "however"]
@@ -618,5 +632,6 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if s_type == "q" and func == "root":
 		for wh in children:
 			if wh in temp_wh:
-				print("WARN: q root may not have wh child " + wh + inname)
+				if not any([c.lower()=="do" or c.lower()=="did" for c in children]):
+					print("WARN: q root may not have wh child " + wh + inname)
 

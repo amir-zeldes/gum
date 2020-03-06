@@ -1,4 +1,4 @@
-import threading,os,re,sys
+import threading,os,re,sys,io
 from .nlp_helper import exec_via_temp
 import platform
 
@@ -96,5 +96,41 @@ def run_pepper(pepper_params,full_log=False):
 		sys.__stdout__.write("Pepper is working... " + spinner + "\r")
 		t.join(1)
 	sys.__stdout__.write(" " *30 + "\n")
+
+	script_dir = os.path.dirname(os.path.realpath(__file__)) + os.sep
+	annis_out_dir = script_dir + ".." + os.sep + "target" + os.sep + "annis" + os.sep
+	# Rename ANNIS namespaces
+	ext = "annis"
+
+	# Node annotation
+	with io.open(annis_out_dir + "node_annotation." + ext,encoding="utf8",newline="\n") as f:
+		node_annotation = f.read().replace("\r","")
+		node_annotation = node_annotation.replace("default_ns\tkind","rst\tkind")
+		node_annotation = node_annotation.replace("default_ns\ttype","rst\ttype")
+		node_annotation = node_annotation.replace("default_ns\tclaws5","gum\tclaws5")
+		node_annotation = node_annotation.replace("default_ns\ttok_func","gum\ttok_func")
+		node_annotation = node_annotation.replace("default_ns","tei")
+	with io.open(annis_out_dir + "node_annotation." + ext,"w",encoding="utf8",newline="\n") as f:
+		f.write(node_annotation)
+
+	# Edge annotation
+	with io.open(annis_out_dir + "edge_annotation." + ext,encoding="utf8") as f:
+		edge_annotation = f.read().replace("\r","")
+		edge_annotation = edge_annotation.replace("default_ns\trelname","rst\trelname")
+		edge_annotation = edge_annotation.replace("dep\tdeprel","dep\tfunc")
+		edge_annotation = edge_annotation.replace("ptb\tfunc","const\tfunc")
+		edge_annotation = edge_annotation.replace("default_ns\tfunc","dep\tfunc")
+	with io.open(annis_out_dir + "edge_annotation." + ext,"w",encoding="utf8",newline="\n") as f:
+		f.write(edge_annotation)
+
+	# Component
+	with io.open(annis_out_dir + "component." + ext,encoding="utf8") as f:
+		component = f.read().replace("\r","")
+		component = component.replace("dep\tud","ud\tud")
+		component = component.replace("default_ns\thead","head\thead")
+		component = component.replace("ud\tdep","dep\tdep")
+	with io.open(annis_out_dir + "component." + ext,"w",encoding="utf8",newline="\n") as f:
+		f.write(component)
+
 	return compress_pepper_out(output[0],full_log)
 

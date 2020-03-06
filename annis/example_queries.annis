@@ -1,7 +1,8 @@
 pos="RB" _=_ claws5="ORD"	Search for adverbs according to the Penn tagset that are ordinals according to the CLAWS5 tagset
-head _l_ pos=/V.*/ ->dep[func="dobj"] tok	Search for headings beginning with a transitive verb
+head _l_ pos=/V.*/ ->dep[func="obj"] tok	Search for headings beginning with a transitive verb
 entity ->bridge[type="bridge:def"] entity	Find cases of definite expressions introduced via bridging
 infstat="giv" ->coref[type="coref"] entity="person"	Search for given persons who are referred to by a coreferent lexical NP
 cat="ADJP" >[func="ADV"] cat="NP"	Find an ADJP modified adverbially by an NP
 s_type="decl" _i_ sic	Search for errors and disfluencies within declarative sentences
 rst:kind >[relname="evidence"] rst:kind & meta::type="interview"	Search for rhetorical evidence relations in interviews
+subord=‎"RIGHT‎" _=_ rsd_rel=‎"concession_r‎" ->rsd head_pos=‎"VERB‎"	Find concessions subordinated by a clause to the right, modifying a verbal nucleus
