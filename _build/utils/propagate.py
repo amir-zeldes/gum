@@ -743,13 +743,16 @@ def get_coref_ids(gum_target):
 	return entity_dict
 
 
-def add_entities_to_conllu(gum_target):
+def add_entities_to_conllu(gum_target,reddit=False):
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
 	entity_doc = get_coref_ids(gum_target)
 
 	files = glob(gum_target + "dep" + os.sep + "*.conllu")
 	files += glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
+
+	if not reddit:
+		files = [f for f in files if not "reddit" in f]
 
 	for file_ in files:
 		with io.open(file_,encoding="utf8") as f:
