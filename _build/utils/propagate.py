@@ -572,11 +572,11 @@ def compile_ud(tmp, gum_target, reddit=False):
 
 	train_split_target = dep_target + ".." + os.sep
 	with io.open(train_split_target + "en_gum-ud-train.conllu",'w',encoding="utf8", newline="\n") as f:
-		f.write(train_string.strip() + "\n\n")
+		f.write(train_string.strip() + "\n")
 	with io.open(train_split_target + "en_gum-ud-dev.conllu",'w',encoding="utf8", newline="\n") as f:
-		f.write(dev_string.strip() + "\n\n")
+		f.write(dev_string.strip() + "\n")
 	with io.open(train_split_target + "en_gum-ud-test.conllu",'w',encoding="utf8", newline="\n") as f:
-		f.write(test_string.strip() + "\n\n")
+		f.write(test_string.strip() + "\n")
 
 	sys.__stdout__.write("o Enriched dependencies in " + str(len(depfiles)) + " documents" + " " *20)
 
