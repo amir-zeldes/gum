@@ -11,16 +11,16 @@ PY2 = sys.version_info[0] < 3
 
 
 def fix_rst(gum_source, gum_target, reddit=False):
-	outdir = gum_target + "rst" + os.sep + "rs3" + os.sep
+	outdir = gum_target + "rst" + os.sep + "rstweb" + os.sep
 	if not os.path.exists(outdir):
 		os.makedirs(outdir)
 	rsddir = gum_target + "rst" + os.sep + "dependencies" + os.sep
 	if not os.path.exists(rsddir):
 		os.makedirs(rsddir)
-	disdir = gum_target + "rst" + os.sep + "dis_binary" + os.sep
+	disdir = gum_target + "rst" + os.sep + "lisp_binary" + os.sep
 	if not os.path.exists(disdir):
 		os.makedirs(disdir)
-	disdir = gum_target + "rst" + os.sep + "dis_nary" + os.sep
+	disdir = gum_target + "rst" + os.sep + "lisp_nary" + os.sep
 	if not os.path.exists(disdir):
 		os.makedirs(disdir)
 
@@ -35,7 +35,7 @@ def fix_rst(gum_source, gum_target, reddit=False):
 		tt_file = filename.replace(".rs3", ".xml").replace("rst","xml")
 		sys.stdout.write("\t+ " + " "*60 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Adjusting borders for " + ntpath.basename(filename) + "\r")
-		fix_file(filename,tt_file,gum_source,gum_target + "rst" + os.sep + "rs3" + os.sep)
+		fix_file(filename,tt_file,gum_source,gum_target + "rst" + os.sep + "rstweb" + os.sep)
 
 	print("o Adjusted " + str(len(file_list)) + " RST files" + " " * 40)
 
@@ -96,17 +96,17 @@ def fix_file(filename,tt_file,gum_source,outdir):
 
 	# Make rsd version
 	rsd = make_rsd(out_data,gum_source,as_text=True,docname=os.path.basename(rst_file_name.replace(".rs3","")))
-	with io.open(outdir.replace("rs3","dependencies") + docname + ".rsd",'w',encoding="utf8",newline="\n") as f:
+	with io.open(outdir.replace("rstweb","dependencies") + docname + ".rsd",'w',encoding="utf8",newline="\n") as f:
 		f.write(rsd)
 
 	# Make binary dis version
 	dis = rst2dis(out_data, binarize=True)
-	with io.open(outdir.replace("rs3","dis_binary") + docname+".dis",'w',encoding="utf8",newline="\n") as f:
+	with io.open(outdir.replace("rstweb","lisp_binary") + docname+".dis",'w',encoding="utf8",newline="\n") as f:
 		f.write(dis)
 
 	# Make nary dis version
 	dis = rst2dis(out_data, binarize=False)
-	with io.open(outdir.replace("rs3","dis_nary") + docname+".dis",'w',encoding="utf8",newline="\n") as f:
+	with io.open(outdir.replace("rstweb","lisp_nary") + docname+".dis",'w',encoding="utf8",newline="\n") as f:
 		f.write(dis)
 
 

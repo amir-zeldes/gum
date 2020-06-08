@@ -492,6 +492,8 @@ def compile_ud(tmp, gum_target, reddit=False):
 		# Make sure sent_id is first comment except newdox
 		uposed = re.sub(r'((?:# [^n][^\t\n]+\n)+)(# sent_id[^\n]+\n)',r'\2\1',uposed)
 		uposed = re.sub(r'ent_head=[a-z]+\|infstat=[a-z]+\|?','',uposed)
+		if "infstat=" in uposed:
+			sys.__stdout__.write("o WARN: invalid entity annotation from tsv for document " + docname)
 		processed_lines = uposed
 
 		#depedit = DepEdit(config_file="utils" + os.sep + "fix_flat.ini")
@@ -570,11 +572,11 @@ def compile_ud(tmp, gum_target, reddit=False):
 
 	train_split_target = dep_target + ".." + os.sep
 	with io.open(train_split_target + "en_gum-ud-train.conllu",'w',encoding="utf8", newline="\n") as f:
-		f.write(train_string)
+		f.write(train_string.strip() + "\n")
 	with io.open(train_split_target + "en_gum-ud-dev.conllu",'w',encoding="utf8", newline="\n") as f:
-		f.write(dev_string)
+		f.write(dev_string.strip() + "\n")
 	with io.open(train_split_target + "en_gum-ud-test.conllu",'w',encoding="utf8", newline="\n") as f:
-		f.write(test_string)
+		f.write(test_string.strip() + "\n")
 
 	sys.__stdout__.write("o Enriched dependencies in " + str(len(depfiles)) + " documents" + " " *20)
 
@@ -743,13 +745,16 @@ def get_coref_ids(gum_target):
 	return entity_dict
 
 
-def add_entities_to_conllu(gum_target):
+def add_entities_to_conllu(gum_target,reddit=False):
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
 	entity_doc = get_coref_ids(gum_target)
 
 	files = glob(gum_target + "dep" + os.sep + "*.conllu")
 	files += glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
+
+	if not reddit:
+		files = [f for f in files if not "reddit" in f]
 
 	for file_ in files:
 		with io.open(file_,encoding="utf8") as f:

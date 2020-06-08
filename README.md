@@ -46,9 +46,7 @@ The corpus is downloadable in multiple formats. Not all formats contain all anno
   * coref/ - Entity and coreference annotation in two formats: 
     * conll/ - CoNLL shared task tabular format (with no bridging annotations)
     * tsv/ - WebAnno .tsv format, including entity and information status annotations, bridging and singleton entities
-  * dep/ - Dependency trees of two kinds:
-    * stanford/ - Original Stanford Typed Dependencies (manually corrected) in the CoNLLX 10 column format with extended PTB POS tags (following TreeTagger/Amalgam, e.g. tags like VVZ), as well as speaker and sentence type annotations
-    * ud/ - Universal Dependencies data, automatically converted from the gold Stanford Typed Dependency data, enriched with automatic morphological tags and Universal POS tags according to the UD standard
+  * dep/ - Dependency trees using Universal Dependencies, enriched with sentence types, entities, automatic morphological tags and Universal POS tags according to the UD standard
   * paula/ - The entire merged corpus in standoff [PAULA XML](https://www.sfb632.uni-potsdam.de/en/paula.html), with all annotations
   * rst/ - Rhetorical Structure Theory analyses in .rs3 format as used by RSTTool and rstWeb, as well as binary and nary lisp trees (.dis) and an RST dependency representation (.rsd)
   * xml/ - vertical XML representations with 1 token or tag per line and tab delimited lemmas and POS tags (extended, VVZ style, vanilla and CLAWS5, as well as dependency functions), compatible with the IMS Corpus Workbench (a.k.a. TreeTagger format).

@@ -8,7 +8,10 @@ from glob import glob
 from six import iteritems
 
 PY2 = sys.version_info[0] < 3
-
+script_dir = os.path.dirname(os.path.realpath(__file__)) + os.sep
+tsv_temp_dir = script_dir + "pepper" + os.sep + "tmp" + os.sep + "tsv" + os.sep + "GUM" + os.sep
+if not os.path.exists(tsv_temp_dir):
+	os.mkdir(tsv_temp_dir)
 
 def equiv_tok(token):
 	replacements = {"&amp;": "&", "&gt;": ">", "&lt;": "<", "’": "'", "—": "-", "&quot;": '"', "&apos;": "'", "(":"-LRB-", ")":"-RRB-", "…":"...",
@@ -459,8 +462,10 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 	last_good_token = ""
 	if sys.version_info[0] < 3:
 		outfile = open(outdir + tsv_file_name,'wb')
+		outtemp = open(tsv_temp_dir + tsv_file_name,'wb')
 	else:
 		outfile = io.open(outdir + tsv_file_name, 'w', encoding="utf8",newline="\n")
+		outtemp = io.open(tsv_temp_dir + tsv_file_name,'w', encoding="utf8", newline="\n")
 	tt_file = os.path.abspath(tt_file).replace("tsv" + os.sep,"xml"+os.sep)
 
 	if PY2:
@@ -651,6 +656,7 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 				header_mode = False
 			else:
 				outfile.write(line + "\n")
+				outtemp.write(line + "\n")
 		else:
 			# Now we only deal with token lines
 			fields = line.split("\t")
@@ -662,10 +668,13 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 				else:
 					if not first:
 						outfile.write("\n\n")
+						outtemp.write("\n\n")
 					else:
 						first = False
 					outfile.write(sent_text.strip() + "\n")
 					outfile.write("\n".join(out_lines))
+					outtemp.write(sent_text.strip() + "\n")
+					outtemp.write("\n".join(out_lines))
 					out_lines = []
 					sent_text = "#Text=" + fields[2] + " "
 					current_sent += 1
@@ -703,6 +712,9 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 	outfile.write("\n\n" + sent_text.strip() + "\n")
 	outfile.write("\n".join(out_lines) + "\n")
 	outfile.close()
+	outtemp.write("\n\n" + sent_text.strip() + "\n")
+	outtemp.write("\n".join(out_lines) + "\n")
+	outtemp.close()
 
 	fix_genitive_s(filename, tt_file, warn_only=True)
 
