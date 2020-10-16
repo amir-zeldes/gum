@@ -96,7 +96,7 @@ def add_feat(field,feat):
 	else:
 		attrs = field.split("|")
 		attrs.append(feat)
-		return "|".join(sorted(attrs))
+		return "|".join(sorted(list(set(attrs))))
 
 
 def do_hard_replaces(text):
@@ -276,11 +276,13 @@ def enrich_dep(gum_source, tmp, reddit=False):
 				fields[3] = tt_pos
 				fields[4] = vanilla_pos
 				misc = []
+				feats = fields[5].split() if fields[5] != "_" else []
 				if not space_after_by_token[tok_num]:
 					misc.append("SpaceAfter=No")
 				if sic_by_token[tok_num]:
-					misc.append("Typo=Yes")
+					feats.append("Typo=Yes")
 				fields[-1] = "|".join(misc) if len(misc) > 0 else "_"
+				fields[5] = "|".join(sorted(feats)) if len(feats) > 0 else "_"
 				line = "\t".join(fields)
 			if line.startswith("1\t"):  # First token in sentence
 				# Check for annotations
