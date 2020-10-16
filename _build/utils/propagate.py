@@ -747,6 +747,66 @@ def get_coref_ids(gum_target):
 	return entity_dict
 
 
+def get_rsd_spans(gum_target):
+
+	rsd_spans = defaultdict(dict)
+	rsd_files = glob(gum_target + "rst" + os.sep + "dependencies" + os.sep + "*.rsd")
+	for file_ in rsd_files:
+		doc = os.path.basename(file_).replace(".rsd","")
+		lines = io.open(file_,encoding="utf8").read().split("\n")
+		tok_num = 0
+		for line in lines:
+			if "\t" in line:
+				fields = line.split("\t")
+				edu_id, toks = fields[0:2]
+				head, rsd_rel = fields[6:8]
+				rsd_rel = rsd_rel.replace("_m","").replace("_r","")
+				rsd_spans[doc][tok_num] = (edu_id, rsd_rel, head)
+				tok_num += toks.strip().count(" ") + 1
+
+	return rsd_spans
+
+
+def add_rsd_to_conllu(gum_target,reddit=False):
+	if not gum_target.endswith(os.sep):
+		gum_target += os.sep
+	rsd_spans = get_rsd_spans(gum_target)
+
+	files = glob(gum_target + "dep" + os.sep + "*.conllu")
+	files += glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
+
+	if not reddit:
+		files = [f for f in files if not "reddit" in f]
+
+	for file_ in files:
+		with io.open(file_,encoding="utf8") as f:
+			lines = f.read().split("\n")
+
+		output = []
+		toknum = 0
+		for line in lines:
+			if line.startswith("# newdoc"):
+				doc = line.strip().split()[-1]
+				toknum = 0
+
+			if "\t" in line:
+				fields = line.split("\t")
+				if not "-" in fields[0]:  # Regular token
+					if toknum in rsd_spans[doc]:
+						rsd_data = rsd_spans[doc][toknum]
+						if rsd_data[2] == "0":  # ROOT
+							misc = add_feat(fields[-1],"Discourse=" + rsd_data[1] + ":" + rsd_data[0])
+						else:
+							misc = add_feat(fields[-1],"Discourse="+rsd_data[1]+":"+rsd_data[0]+"->"+rsd_data[2])
+						fields[-1] = misc
+						line = "\t".join(fields)
+					toknum += 1
+			output.append(line)
+
+		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
+			f.write("\n".join(output) + "\n")
+
+
 def add_entities_to_conllu(gum_target,reddit=False):
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
