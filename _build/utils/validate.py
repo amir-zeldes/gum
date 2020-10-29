@@ -416,6 +416,14 @@ def validate_annos(gum_source, reddit=False):
 						markables[id].infstat = infstat
 						markables[id].anaphor_type = coref
 
+		# Ensure single token markables are given a tok_id-style identifier
+		mark_ids = list(markables.keys())
+		for mark_id in mark_ids:
+			mark = markables[mark_id]
+			if mark.start == mark.end:
+				markables[mark.start] = mark
+				del markables[mark_id]
+
 		for mark_id in markables:
 			mark = markables[mark_id]
 			mark.text = mark.text.strip()
