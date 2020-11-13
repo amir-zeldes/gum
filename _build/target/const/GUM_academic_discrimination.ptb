@@ -40,9 +40,11 @@
               (ADVP (JJ much))
               (NP (JJ social) (NN science) (NN research))
               (. .))))
-        (PP (-LSB- [)
-          (NP
-            (QP (CD 1) (IN -) (CD 3))))))
+        (-LSB- [)
+        (S
+          (NP (CD 1))
+          (VP (SYM -)
+            (NP (CD 3))))))
     (-RSB- ])))
 
 (ROOT
@@ -53,11 +55,13 @@
         (NP
           (NP (DT the) (JJ adverse) (NNS consequences))
           (PP (IN of)
-            (NP (NN discrimination))))
-        (PP (-LSB- [)
-          (NP
-            (QP (CD 3) (IN –) (CD 5))
-            (-RSB- ])))))
+            (NP
+              (NP (NN discrimination))
+              (PP (-LSB- [)
+                (NP (CD 3))))))
+        (S
+          (VP (SYM –)
+            (NP (CD 5) (-RSB- ]))))))
     (: ;)))
 
 (ROOT
@@ -89,11 +93,13 @@
         (NP
           (NP (DT the) (JJ neurobiological) (NNS underpinnings))
           (PP (IN of)
-            (NP (NN discrimination))))
-        (PP (-LSB- [)
-          (NP
-            (QP (CD 7) (IN –) (CD 9))
-            (-RSB- ])))))
+            (NP
+              (NP (NN discrimination))
+              (PP (-LSB- [)
+                (NP (CD 7))))))
+        (S
+          (VP (SYM –)
+            (NP (CD 9) (-RSB- ]))))))
     (: ;)))
 
 (ROOT
@@ -266,9 +272,11 @@
       (PRN (-LRB- -LRB-)
         (S
           (VP (VB see)
-            (NP (-LSB- [) (CD 13))
-            (PP (IN –)
-              (NP (CD 14) (-RSB- ])))))
+            (S
+              (NP
+                (QP (-LSB- [) (CD 13)))
+              (VP (SYM –)
+                (NP (CD 14) (-RSB- ]))))))
         (-RRB- -RRB-)))
     (. .)))
 
@@ -399,15 +407,18 @@
                             (S
                               (VP (VBD responded)
                                 (PP (IN with)
-                                  (NP (RB sometimes)
-                                    (CC or)
-                                    (RB often)))
-                                (PP (IN to)
                                   (NP
-                                    (NP (DT the) (VBN perceived) (NN discrimination) (NN measure))
-                                    (VP (VBN described)
-                                      (PP (IN above)
-                                        (NP (: —))))))))))
+                                    (UCP
+                                      (ADVP (RB sometimes))
+                                      (CC or)
+                                      (PP
+                                        (ADVP (RB often))
+                                        (IN to)
+                                        (NP
+                                          (NP (DT the) (VBN perceived) (NN discrimination) (NN measure))
+                                          (VP (VBN described)
+                                            (ADVP (RB above))))))
+                                    (: —)))))))
                         (VP (VBD were)
                           (VP (VBN asked)
                             (NP (DT the) (VBG following) (NN question))))))))))))))
@@ -942,58 +953,59 @@
       (WHADVP (WRB when))
       (S
         (VP (VBG analyzing)
-          (NP (JJ weighted) (NN sample) (NNS data))
-          (S
-            (VP (VBG employing)
-              (NP
-                (NP (DT the) (NNP svy) (NN suite))
-                (PP (IN of)
-                  (NP
-                    (NP (NNS commands))
-                    (PP (IN in)
-                      (NP (NNP Stata))))))
-              (NP-TMP
-                (NP (DT the) (JJ conventional) (NNP Pearson))
-                (SBAR
-                  (FRAG
-                    (X
-                      (X (SYM χ2))
-                      (NP
-                        (NP (NN statistic) (NN test))
-                        (PP (IN of)
-                          (NP (NN independence)))))
-                    (VP (VBZ is)
-                      (VP (VBN converted)
-                        (PP (IN into)
-                          (NP (`` “)
-                            (NP (DT an) (NN F) (NN statistic))
-                            (PP (IN with)
-                              (NP
-                                (NP (NN noninteger) (NNS degrees))
-                                (PP (IN of)
-                                  (NP (NN freedom)))))))
-                        (PP (IN by)
-                          (S
-                            (VP (VBG using)
-                              (S
-                                (NP (DT a) (NN second-order))
+          (VP (VBN weighted)
+            (NP (NN sample) (NNS data))
+            (S
+              (VP (VBG employing)
+                (NP
+                  (NP (DT the) (NNP svy) (NN suite))
+                  (PP (IN of)
+                    (NP
+                      (NP (NNS commands))
+                      (PP (IN in)
+                        (NP (NNP Stata))))))
+                (NP-TMP
+                  (NP (DT the) (JJ conventional) (NNP Pearson))
+                  (SBAR
+                    (FRAG
+                      (X
+                        (X (SYM χ2))
+                        (NP
+                          (NP (NN statistic) (NN test))
+                          (PP (IN of)
+                            (NP (NN independence)))))
+                      (VP (VBZ is)
+                        (VP (VBN converted)
+                          (PP (IN into)
+                            (NP (`` “)
+                              (NP (DT an) (NN F) (NN statistic))
+                              (PP (IN with)
                                 (NP
-                                  (NP (NNP Rao)
-                                    (CC and)
-                                    (NNP Scott))
-                                  (PRN (-LRB- -LRB-)
-                                    (NP
-                                      (NP (CD 1981))
-                                      (-LSB- [)
-                                      (NP (CD 22) (-RSB- ]))
-                                      (, ,)
-                                      (NP (CD 1984))
-                                      (-LSB- [)
-                                      (NP (CD 23) (-RSB- ])))
-                                    (-RRB- -RRB-))
-                                  (NP (NN correction))
-                                  ('' ”))))))))
-                    (. .)))))))))
+                                  (NP (NN noninteger) (NNS degrees))
+                                  (PP (IN of)
+                                    (NP (NN freedom)))))))
+                          (PP (IN by)
+                            (S
+                              (VP (VBG using)
+                                (S
+                                  (NP (DT a) (NN second-order))
+                                  (NP
+                                    (NP (NNP Rao)
+                                      (CC and)
+                                      (NNP Scott))
+                                    (PRN (-LRB- -LRB-)
+                                      (NP
+                                        (NP (CD 1981))
+                                        (-LSB- [)
+                                        (NP (CD 22) (-RSB- ]))
+                                        (, ,)
+                                        (NP (CD 1984))
+                                        (-LSB- [)
+                                        (NP (CD 23) (-RSB- ])))
+                                      (-RRB- -RRB-))
+                                    (NP (NN correction))
+                                    ('' ”))))))))
+                      (. .))))))))))
     (VP (-LSB- [)
       (NP (CD 24)))
     (-RSB- ])))

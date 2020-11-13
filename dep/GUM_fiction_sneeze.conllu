@@ -1,8 +1,8 @@
 # newdoc id = GUM_fiction_sneeze
 # sent_id = GUM_fiction_sneeze-1
 # text = Doesn’t it make you just want to sneeze?
-# s_type=q
-1	Does	do	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	aux	_	SpaceAfter=No
+# s_type = q
+1	Does	do	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	aux	_	Discourse=preparation:1->4|SpaceAfter=No
 2	n’t	not	PART	RB	Polarity=Neg	4	advmod	_	_
 3	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	4	nsubj	_	Entity=(abstract-1)
 4	make	make	VERB	VB	VerbForm=Inf	0	root	_	_
@@ -15,15 +15,15 @@
 
 # sent_id = GUM_fiction_sneeze-2
 # text = Pete was leaning against the wall, watching the street go by.
-# s_type=decl
-1	Pete	Pete	PROPN	NNP	Number=Sing	3	nsubj	_	Entity=(person-3)
+# s_type = decl
+1	Pete	Pete	PROPN	NNP	Number=Sing	3	nsubj	_	Discourse=background:2->4|Entity=(person-3)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	aux	_	_
 3	leaning	lean	VERB	VBG	VerbForm=Ger	0	root	_	_
 4	against	against	ADP	IN	_	6	case	_	_
 5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	_	Entity=(object-4
 6	wall	wall	NOUN	NN	Number=Sing	3	obl	_	Entity=object-4)|SpaceAfter=No
 7	,	,	PUNCT	,	_	8	punct	_	_
-8	watching	watch	VERB	VBG	VerbForm=Ger	3	advcl	_	_
+8	watching	watch	VERB	VBG	VerbForm=Ger	3	advcl	_	Discourse=elaboration:3->2
 9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	_	Entity=(place-5
 10	street	street	NOUN	NN	Number=Sing	8	obj	_	Entity=place-5)
 11	go	go	VERB	VB	VerbForm=Inf	8	xcomp	_	_
@@ -32,8 +32,8 @@
 
 # sent_id = GUM_fiction_sneeze-3
 # text = I pulled the bike to a halt, the front wheel pointing in his direction.
-# s_type=decl
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	_	Entity=(person-6)
+# s_type = decl
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	_	Discourse=ROOT:4|Entity=(person-6)
 2	pulled	pull	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	_	Entity=(object-7
 4	bike	bike	NOUN	NN	Number=Sing	2	obj	_	Entity=object-7)
@@ -41,7 +41,7 @@
 6	a	a	DET	DT	Definite=Ind|PronType=Art	7	det	_	Entity=(event-8
 7	halt	halt	NOUN	NN	Number=Sing	2	obl	_	Entity=event-8)|SpaceAfter=No
 8	,	,	PUNCT	,	_	12	punct	_	_
-9	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(object-9
+9	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Discourse=manner:5->4|Entity=(object-9
 10	front	front	ADJ	JJ	Degree=Pos	11	amod	_	_
 11	wheel	wheel	NOUN	NN	Number=Sing	12	nsubj	_	Entity=object-9)
 12	pointing	point	VERB	VBG	VerbForm=Ger	4	acl	_	_
@@ -52,12 +52,12 @@
 
 # sent_id = GUM_fiction_sneeze-4
 # text = “I think I’ve got a fairy stuck up my nose.”
-# s_type=decl
-# speaker=Narrator
-1	“	"	PUNCT	``	_	3	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Narrator
+1	“	''	PUNCT	``	_	3	punct	_	Discourse=attribution:6->7|SpaceAfter=No
 2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	_	Entity=(person-6)
 3	think	think	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	0	root	_	_
-4	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	6	nsubj	_	Entity=(event-11(person-6)|SpaceAfter=No
+4	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	6	nsubj	_	Discourse=sequence:7->4|Entity=(event-11(person-6)|SpaceAfter=No
 5	’ve	have	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	6	aux	_	_
 6	got	get	VERB	VBN	Tense=Past|VerbForm=Part	3	ccomp	_	_
 7	a	a	DET	DT	Definite=Ind|PronType=Art	8	det	_	Entity=(person-12
@@ -67,19 +67,19 @@
 11	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	12	nmod:poss	_	Entity=(object-13(person-6)
 12	nose	nose	NOUN	NN	Number=Sing	9	obl	_	Entity=event-11)object-13)|SpaceAfter=No
 13	.	.	PUNCT	.	_	3	punct	_	SpaceAfter=No
-14	”	"	PUNCT	''	_	3	punct	_	_
+14	”	''	PUNCT	''	_	3	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-5
 # text = “S’ not true!” came a voice from inside the nose in question.
-# s_type=decl
-# speaker=Fairy
-1	“	"	PUNCT	``	_	4	punct	_	Entity=(event-14|SpaceAfter=No
+# s_type = decl
+# speaker = Fairy
+1	“	''	PUNCT	``	_	4	punct	_	Discourse=evaluation:8->7|Entity=(event-14|SpaceAfter=No
 2	S’	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	cop	_	_
 3	not	not	PART	RB	Polarity=Neg	4	advmod	_	_
 4	true	true	ADJ	JJ	Degree=Pos	7	ccomp	_	SpaceAfter=No
 5	!	!	PUNCT	.	_	4	punct	_	SpaceAfter=No
-6	”	"	PUNCT	''	_	4	punct	_	_
-7	came	come	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+6	”	''	PUNCT	''	_	4	punct	_	_
+7	came	come	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	Discourse=attribution:9->8
 8	a	a	DET	DT	Definite=Ind|PronType=Art	9	det	_	Entity=(abstract-15
 9	voice	voice	NOUN	NN	Number=Sing	7	nsubj	_	Entity=abstract-15)
 10	from	from	SCONJ	IN	_	13	mark	_	_
@@ -92,25 +92,25 @@
 
 # sent_id = GUM_fiction_sneeze-6
 # text = “Hey! Not bad that!” Pete said.
-# s_type=decl
-# speaker=Pete
-1	“	"	PUNCT	``	_	5	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Pete
+1	“	''	PUNCT	``	_	5	punct	_	Discourse=evaluation:10->7|SpaceAfter=No
 2	Hey	hey	INTJ	UH	_	5	discourse	_	SpaceAfter=No
 3	!	!	PUNCT	.	_	2	punct	_	_
 4	Not	not	PART	RB	Polarity=Neg	5	advmod	_	_
 5	bad	bad	ADJ	JJ	Degree=Pos	10	ccomp	_	_
 6	that	that	PRON	DT	Number=Sing|PronType=Dem	5	nsubj	_	Entity=(event-14)|SpaceAfter=No
 7	!	!	PUNCT	.	_	5	punct	_	SpaceAfter=No
-8	”	"	PUNCT	''	_	5	punct	_	_
-9	Pete	Pete	PROPN	NNP	Number=Sing	10	nsubj	_	Entity=(person-3)
+8	”	''	PUNCT	''	_	5	punct	_	_
+9	Pete	Pete	PROPN	NNP	Number=Sing	10	nsubj	_	Discourse=attribution:11->10|Entity=(person-3)
 10	said	say	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
 11	.	.	PUNCT	.	_	10	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-7
 # text = “I didn’t see your lips move at all.”
-# s_type=decl
-# speaker=Pete
-1	“	"	PUNCT	``	_	5	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Pete
+1	“	''	PUNCT	``	_	5	punct	_	Discourse=justify:12->10|SpaceAfter=No
 2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	5	nsubj	_	Entity=(person-3)
 3	did	do	AUX	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	5	aux	_	SpaceAfter=No
 4	n’t	not	PART	RB	Polarity=Neg	5	advmod	_	_
@@ -121,26 +121,26 @@
 9	at	at	ADP	IN	_	10	case	_	_
 10	all	all	PRON	DT	_	8	obl	_	SpaceAfter=No
 11	.	.	PUNCT	.	_	5	punct	_	SpaceAfter=No
-12	”	"	PUNCT	''	_	5	punct	_	_
+12	”	''	PUNCT	''	_	5	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-8
 # text = “It’s not a joke.”
-# s_type=decl
-# speaker=Narrator
-1	“	"	PUNCT	``	_	6	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Narrator
+1	“	''	PUNCT	``	_	6	punct	_	Discourse=evaluation:13->10|SpaceAfter=No
 2	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	6	nsubj	_	Entity=(event-11)|SpaceAfter=No
 3	’s	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	_	_
 4	not	not	PART	RB	Polarity=Neg	6	advmod	_	_
 5	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	_	Entity=(abstract-17
 6	joke	joke	NOUN	NN	Number=Sing	0	root	_	Entity=abstract-17)|SpaceAfter=No
 7	.	.	PUNCT	.	_	6	punct	_	SpaceAfter=No
-8	”	"	PUNCT	''	_	6	punct	_	_
+8	”	''	PUNCT	''	_	6	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-9
 # text = The itching was getting worse.
-# s_type=decl
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	_	Entity=(abstract-18
-2	itching	itching	NOUN	NN	Number=Sing	4	nsubj	_	Entity=abstract-18)
+# s_type = decl
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	_	Discourse=cause:14->15|Entity=(event-18
+2	itching	itching	NOUN	NN	Number=Sing	4	nsubj	_	Entity=event-18)
 3	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	4	aux	_	_
 4	getting	get	VERB	VBG	Tense=Pres|VerbForm=Part	0	root	_	_
 5	worse	bad	ADJ	JJR	Degree=Cmp	4	xcomp	_	SpaceAfter=No
@@ -148,26 +148,26 @@
 
 # sent_id = GUM_fiction_sneeze-10
 # text = I pulled out a paper tissue.
-# s_type=decl
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	_	Entity=(event-19(person-6)
+# s_type = decl
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	_	Discourse=sequence:15->4|Entity=(event-19(person-6)
 2	pulled	pull	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 3	out	out	ADP	RP	_	2	compound:prt	_	_
 4	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	_	Entity=(object-20
-5	paper	paper	NOUN	NN	Number=Sing	6	compound	_	_
+5	paper	paper	NOUN	NN	Number=Sing	6	compound	_	Entity=(substance-21)
 6	tissue	tissue	NOUN	NN	Number=Sing	2	obj	_	Entity=object-20)|SpaceAfter=No
 7	.	.	PUNCT	.	_	2	punct	_	Entity=event-19)
 
 # sent_id = GUM_fiction_sneeze-11
 # text = “Stop that now!” came the voice again.
-# s_type=decl
-# speaker=Fairy
-1	“	"	PUNCT	``	_	2	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Fairy
+1	“	''	PUNCT	``	_	2	punct	_	Discourse=result:16->15|SpaceAfter=No
 2	Stop	stop	VERB	VB	VerbForm=Inf	7	ccomp	_	_
 3	that	that	PRON	DT	Number=Sing|PronType=Dem	2	obj	_	Entity=(event-19)
 4	now	now	ADV	RB	_	2	obl:tmod	_	SpaceAfter=No
 5	!	!	PUNCT	.	_	2	punct	_	SpaceAfter=No
-6	”	"	PUNCT	''	_	2	punct	_	_
-7	came	come	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+6	”	''	PUNCT	''	_	2	punct	_	_
+7	came	come	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	Discourse=attribution:17->16
 8	the	the	DET	DT	Definite=Def|PronType=Art	9	det	_	Entity=(abstract-15
 9	voice	voice	NOUN	NN	Number=Sing	7	nsubj	_	Entity=abstract-15)
 10	again	again	ADV	RB	_	7	advmod	_	SpaceAfter=No
@@ -175,55 +175,55 @@
 
 # sent_id = GUM_fiction_sneeze-12
 # text = “You know I don’t like it.”
-# s_type=decl
-# speaker=Fairy
-1	“	"	PUNCT	``	_	3	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Fairy
+1	“	''	PUNCT	``	_	3	punct	_	Discourse=attribution:18->19|SpaceAfter=No
 2	You	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	_	Entity=(person-6)
 3	know	know	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	0	root	_	_
-4	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	7	nsubj	_	Entity=(person-12)
+4	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	7	nsubj	_	Discourse=motivation:19->16|Entity=(person-12)
 5	do	do	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	7	aux	_	SpaceAfter=No
 6	n’t	not	PART	RB	Polarity=Neg	7	advmod	_	_
 7	like	like	VERB	VB	VerbForm=Inf	3	ccomp	_	_
 8	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	7	obj	_	Entity=(event-19)|SpaceAfter=No
 9	.	.	PUNCT	.	_	3	punct	_	SpaceAfter=No
-10	”	"	PUNCT	''	_	3	punct	_	_
+10	”	''	PUNCT	''	_	3	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-13
 # text = “S’ not my fault.
-# s_type=other
-# speaker=Narrator
-1	“	"	PUNCT	``	_	5	punct	_	SpaceAfter=No
-2	S’	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	cop	_	_
+# s_type = other
+# speaker = Narrator
+1	“	''	PUNCT	``	_	5	punct	_	Discourse=evaluation:20->16|SpaceAfter=No
+2	S’	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	cop	_	Entity=(event-19)
 3	not	not	PART	RB	Polarity=Neg	5	advmod	_	_
-4	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	5	nmod:poss	_	Entity=(abstract-21(person-6)
-5	fault	fault	NOUN	NN	Number=Sing	0	root	_	Entity=abstract-21)|SpaceAfter=No
+4	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	5	nmod:poss	_	Entity=(abstract-22(person-6)
+5	fault	fault	NOUN	NN	Number=Sing	0	root	_	Entity=abstract-22)|SpaceAfter=No
 6	.	.	PUNCT	.	_	5	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-14
 # text = You make me want to sneeze!”
-# s_type=decl
-# speaker=Narrator
-1	You	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	2	nsubj	_	Entity=(person-12)
+# s_type = decl
+# speaker = Narrator
+1	You	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	2	nsubj	_	Discourse=justify:21->20|Entity=(person-12)
 2	make	make	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	0	root	_	_
 3	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	2	obj	_	Entity=(person-6)
 4	want	want	VERB	VB	VerbForm=Inf	2	xcomp	_	_
 5	to	to	PART	TO	_	6	mark	_	_
 6	sneeze	sneeze	VERB	VB	VerbForm=Inf	4	xcomp	_	SpaceAfter=No
 7	!	!	PUNCT	.	_	2	punct	_	SpaceAfter=No
-8	”	"	PUNCT	''	_	2	punct	_	_
+8	”	''	PUNCT	''	_	2	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-15
 # text = And I did.
-# s_type=decl
-1	And	and	CCONJ	CC	_	3	cc	_	_
+# s_type = decl
+1	And	and	CCONJ	CC	_	3	cc	_	Discourse=sequence:22->4
 2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	_	Entity=(person-6)
 3	did	do	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
 4	.	.	PUNCT	.	_	3	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-16
 # text = I inspected the crumpled paper.
-# s_type=decl
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	_	Entity=(person-6)
+# s_type = decl
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	_	Discourse=preparation:23->24|Entity=(person-6)
 2	inspected	inspect	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Entity=(object-20
 4	crumpled	crumpled	ADJ	JJ	Degree=Pos	5	amod	_	_
@@ -232,28 +232,28 @@
 
 # sent_id = GUM_fiction_sneeze-17
 # text = Lots of yellow goo, but no fairy.
-# s_type=frag
-1	Lots	lot	NOUN	NNS	Number=Plur	0	root	_	Entity=(substance-22
+# s_type = frag
+1	Lots	lot	NOUN	NNS	Number=Plur	0	root	_	Discourse=sequence:24->22|Entity=(substance-23
 2	of	of	ADP	IN	_	4	case	_	_
 3	yellow	yellow	ADJ	JJ	Degree=Pos	4	amod	_	_
-4	goo	goo	NOUN	NN	Number=Sing	1	nmod	_	Entity=substance-22)|SpaceAfter=No
+4	goo	goo	NOUN	NN	Number=Sing	1	nmod	_	Entity=substance-23)|SpaceAfter=No
 5	,	,	PUNCT	,	_	8	punct	_	_
-6	but	but	CCONJ	CC	_	8	cc	_	_
-7	no	no	DET	DT	Polarity=Neg	8	det	_	Entity=(person-23
-8	fairy	fairy	NOUN	NN	Number=Sing	1	conj	_	Entity=person-23)|SpaceAfter=No
+6	but	but	CCONJ	CC	_	8	cc	_	Discourse=contrast:25->24
+7	no	no	DET	DT	Polarity=Neg	8	det	_	Entity=(person-24
+8	fairy	fairy	NOUN	NN	Number=Sing	1	conj	_	Entity=person-24)|SpaceAfter=No
 9	.	.	PUNCT	.	_	1	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-18
 # text = Pete looked at me with mild disgust as I eyed the handkerchief more closely.
-# s_type=decl
-1	Pete	Pete	PROPN	NNP	Number=Sing	2	nsubj	_	Entity=(person-24)
+# s_type = decl
+1	Pete	Pete	PROPN	NNP	Number=Sing	2	nsubj	_	Discourse=result:26->24|Entity=(person-25)
 2	looked	look	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 3	at	at	ADP	IN	_	4	case	_	_
 4	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	2	obl	_	Entity=(person-6)
 5	with	with	ADP	IN	_	7	case	_	_
-6	mild	mild	ADJ	JJ	Degree=Pos	7	amod	_	Entity=(abstract-25
-7	disgust	disgust	NOUN	NN	Number=Sing	2	obl	_	Entity=abstract-25)
-8	as	as	SCONJ	IN	_	10	mark	_	_
+6	mild	mild	ADJ	JJ	Degree=Pos	7	amod	_	Entity=(abstract-26
+7	disgust	disgust	NOUN	NN	Number=Sing	2	obl	_	Entity=abstract-26)
+8	as	as	SCONJ	IN	_	10	mark	_	Discourse=circumstance:27->26
 9	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	10	nsubj	_	Entity=(person-6)
 10	eyed	eye	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	2	advcl	_	_
 11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	_	Entity=(object-20
@@ -264,9 +264,9 @@
 
 # sent_id = GUM_fiction_sneeze-19
 # text = “You know that’s pretty gross …” he said.
-# s_type=decl
-# speaker=Pete
-1	“	"	PUNCT	``	_	3	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Pete
+1	“	''	PUNCT	``	_	3	punct	_	Discourse=evaluation:28->24|SpaceAfter=No
 2	You	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	_	Entity=(person-6)
 3	know	know	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	11	ccomp	_	_
 4	that	that	PRON	DT	Number=Sing|PronType=Dem	7	nsubj	_	Entity=(object-20)|SpaceAfter=No
@@ -274,77 +274,77 @@
 6	pretty	pretty	ADV	RB	_	7	advmod	_	_
 7	gross	gross	ADJ	JJ	Degree=Pos	3	ccomp	_	_
 8	…	…	PUNCT	:	_	3	punct	_	SpaceAfter=No
-9	”	"	PUNCT	''	_	3	punct	_	_
-10	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	11	nsubj	_	Entity=(person-24)
+9	”	''	PUNCT	''	_	3	punct	_	_
+10	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	11	nsubj	_	Discourse=attribution:29->28|Entity=(person-25)
 11	said	say	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
 12	.	.	PUNCT	.	_	11	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-20
 # text = “Got any other brilliant remarks?” I said.
-# s_type=decl
-# speaker=Narrator
-1	“	"	PUNCT	``	_	2	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Narrator
+1	“	''	PUNCT	``	_	2	punct	_	Discourse=evaluation:30->28|SpaceAfter=No
 2	Got	get	VERB	VBN	Tense=Past|VerbForm=Part	10	ccomp	_	_
-3	any	any	DET	DT	_	6	det	_	Entity=(abstract-26
+3	any	any	DET	DT	_	6	det	_	Entity=(abstract-27
 4	other	other	ADJ	JJ	Degree=Pos	6	amod	_	_
 5	brilliant	brilliant	ADJ	JJ	Degree=Pos	6	amod	_	_
-6	remarks	remark	NOUN	NNS	Number=Plur	2	obj	_	Entity=abstract-26)|SpaceAfter=No
+6	remarks	remark	NOUN	NNS	Number=Plur	2	obj	_	Entity=abstract-27)|SpaceAfter=No
 7	?	?	PUNCT	.	_	2	punct	_	SpaceAfter=No
-8	”	"	PUNCT	''	_	2	punct	_	_
-9	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	10	nsubj	_	Entity=(person-6)
+8	”	''	PUNCT	''	_	2	punct	_	_
+9	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	10	nsubj	_	Discourse=attribution:31->30|Entity=(person-6)
 10	said	say	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
 11	.	.	PUNCT	.	_	10	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-21
 # text = I held a finger up to my lips, and waved a hand to silence Pete’s reply.
-# s_type=decl
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	_	Entity=(person-6)
+# s_type = decl
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	_	Discourse=sequence:32->4|Entity=(person-6)
 2	held	hold	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-3	a	a	DET	DT	Definite=Ind|PronType=Art	4	det	_	Entity=(object-27
-4	finger	finger	NOUN	NN	Number=Sing	2	obj	_	Entity=object-27)
+3	a	a	DET	DT	Definite=Ind|PronType=Art	4	det	_	Entity=(object-28
+4	finger	finger	NOUN	NN	Number=Sing	2	obj	_	Entity=object-28)
 5	up	up	ADV	RB	_	2	advmod	_	_
 6	to	to	ADP	IN	_	8	case	_	_
 7	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	8	nmod:poss	_	Entity=(object-16(person-6)
 8	lips	lip	NOUN	NNS	Number=Plur	2	obl	_	Entity=object-16)|SpaceAfter=No
 9	,	,	PUNCT	,	_	11	punct	_	_
-10	and	and	CCONJ	CC	_	11	cc	_	_
+10	and	and	CCONJ	CC	_	11	cc	_	Discourse=joint:33->32
 11	waved	wave	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	2	conj	_	_
-12	a	a	DET	DT	Definite=Ind|PronType=Art	13	det	_	Entity=(object-28
-13	hand	hand	NOUN	NN	Number=Sing	11	obj	_	Entity=object-28)
-14	to	to	PART	TO	_	15	mark	_	_
+12	a	a	DET	DT	Definite=Ind|PronType=Art	13	det	_	Entity=(object-29
+13	hand	hand	NOUN	NN	Number=Sing	11	obj	_	Entity=object-29)
+14	to	to	PART	TO	_	15	mark	_	Discourse=purpose:34->32
 15	silence	silence	VERB	VB	VerbForm=Inf	11	advcl	_	_
-16	Pete	Pete	PROPN	NNP	Number=Sing	18	nmod:poss	_	Entity=(abstract-29(person-24|SpaceAfter=No
-17	’s	's	PART	POS	_	16	case	_	Entity=person-24)
-18	reply	reply	NOUN	NN	Number=Sing	15	obj	_	Entity=abstract-29)|SpaceAfter=No
+16	Pete	Pete	PROPN	NNP	Number=Sing	18	nmod:poss	_	Entity=(event-30(person-25|SpaceAfter=No
+17	’s	's	PART	POS	_	16	case	_	Entity=person-25)
+18	reply	reply	NOUN	NN	Number=Sing	15	obj	_	Entity=event-30)|SpaceAfter=No
 19	.	.	PUNCT	.	_	2	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-22
 # text = “Are you still there?” I called.
-# s_type=decl
-# speaker=Narrator
-1	“	"	PUNCT	``	_	2	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Narrator
+1	“	''	PUNCT	``	_	2	punct	_	Discourse=question:35->37|SpaceAfter=No
 2	Are	be	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	9	ccomp	_	_
 3	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	2	nsubj	_	Entity=(person-12)
 4	still	still	ADV	RB	_	5	advmod	_	_
 5	there	there	ADV	RB	PronType=Dem	2	advmod	_	SpaceAfter=No
 6	?	?	PUNCT	.	_	2	punct	_	SpaceAfter=No
-7	”	"	PUNCT	''	_	2	punct	_	_
-8	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	9	nsubj	_	Entity=(person-6)
+7	”	''	PUNCT	''	_	2	punct	_	_
+8	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	9	nsubj	_	Discourse=attribution:36->35|Entity=(person-6)
 9	called	call	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
 10	.	.	PUNCT	.	_	9	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-23
 # text = “No thanks to you!” came the little voice.
-# s_type=decl
-# speaker=Fairy
-1	“	"	PUNCT	``	_	3	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Fairy
+1	“	''	PUNCT	``	_	3	punct	_	Discourse=sequence:37->32|SpaceAfter=No
 2	No	no	DET	DT	Polarity=Neg	3	det	_	_
 3	thanks	thank	NOUN	NNS	Number=Plur	8	ccomp	_	_
 4	to	to	ADP	IN	_	5	case	_	_
 5	you	you	PRON	PRP	Case=Acc|Person=2|PronType=Prs	3	nmod	_	Entity=(person-6)|SpaceAfter=No
 6	!	!	PUNCT	.	_	3	punct	_	SpaceAfter=No
-7	”	"	PUNCT	''	_	3	punct	_	_
-8	came	come	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+7	”	''	PUNCT	''	_	3	punct	_	_
+8	came	come	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	Discourse=attribution:38->37
 9	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(abstract-15
 10	little	little	ADJ	JJ	Degree=Pos	11	amod	_	_
 11	voice	voice	NOUN	NN	Number=Sing	8	nsubj	_	Entity=abstract-15)|SpaceAfter=No
@@ -352,8 +352,8 @@
 
 # sent_id = GUM_fiction_sneeze-24
 # text = Pete looked at me sort of sideways.
-# s_type=decl
-1	Pete	Pete	PROPN	NNP	Number=Sing	2	nsubj	_	Entity=(person-24)
+# s_type = decl
+1	Pete	Pete	PROPN	NNP	Number=Sing	2	nsubj	_	Discourse=evaluation:39->32|Entity=(person-25)
 2	looked	look	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 3	at	at	ADP	IN	_	4	case	_	_
 4	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	2	obl	_	Entity=(person-6)
@@ -364,9 +364,9 @@
 
 # sent_id = GUM_fiction_sneeze-25
 # text = “Look, the first time was OK, but —”
-# s_type=multiple
-# speaker=Pete
-1	“	"	PUNCT	``	_	8	punct	_	SpaceAfter=No
+# s_type = multiple
+# speaker = Pete
+1	“	''	PUNCT	``	_	8	punct	_	Discourse=joint:40->39|SpaceAfter=No
 2	Look	look	VERB	VB	VerbForm=Inf	8	discourse	_	SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	_	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	6	det	_	Entity=(event-11
@@ -375,15 +375,15 @@
 7	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	8	cop	_	_
 8	OK	OK	ADJ	JJ	Degree=Pos	0	root	_	SpaceAfter=No
 9	,	,	PUNCT	,	_	10	punct	_	_
-10	but	but	CCONJ	CC	_	8	conj	_	_
+10	but	but	CCONJ	CC	_	8	conj	_	Discourse=contrast:41->40
 11	—	—	PUNCT	:	_	8	punct	_	SpaceAfter=No
-12	”	"	PUNCT	''	_	8	punct	_	_
+12	”	''	PUNCT	''	_	8	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-26
 # text = “It’s not a joke.
-# s_type=decl
-# speaker=Narrator
-1	“	"	PUNCT	``	_	6	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Narrator
+1	“	''	PUNCT	``	_	6	punct	_	Discourse=antithesis:42->43|SpaceAfter=No
 2	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	6	nsubj	_	Entity=(event-11)|SpaceAfter=No
 3	’s	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	_	_
 4	not	not	PART	RB	Polarity=Neg	6	advmod	_	_
@@ -393,9 +393,9 @@
 
 # sent_id = GUM_fiction_sneeze-27
 # text = I’ve really got something stuck up there.
-# s_type=decl
-# speaker=Narrator
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	_	Entity=(person-6)|SpaceAfter=No
+# s_type = decl
+# speaker = Narrator
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	_	Discourse=sequence:43->4|Entity=(person-6)|SpaceAfter=No
 2	’ve	have	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	4	aux	_	_
 3	really	really	ADV	RB	_	4	advmod	_	_
 4	got	get	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
@@ -407,157 +407,157 @@
 
 # sent_id = GUM_fiction_sneeze-28
 # text = I was riding on me bike and I thought I’d swallowed an insect or something.
-# s_type=decl
-# speaker=Narrator
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	_	Entity=(person-6)
+# s_type = decl
+# speaker = Narrator
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	_	Discourse=circumstance:44->46|Entity=(person-6)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	3	aux	_	_
 3	riding	ride	VERB	VBG	Tense=Pres|VerbForm=Part	0	root	_	_
 4	on	on	ADP	IN	_	6	case	_	_
-5	me	my	PRON	PRP$	_	6	nmod:poss	_	Entity=(object-7(person-6)|Typo=Yes
+5	me	my	PRON	PRP$	_	6	nmod:poss	_	Entity=(object-7(person-6)
 6	bike	bike	NOUN	NN	Number=Sing	3	obl	_	Entity=object-7)
-7	and	and	CCONJ	CC	_	9	cc	_	_
+7	and	and	CCONJ	CC	_	9	cc	_	Discourse=attribution:45->46
 8	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	9	nsubj	_	Entity=(person-6)
 9	thought	think	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	3	conj	_	_
-10	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	12	nsubj	_	Entity=(person-6)|SpaceAfter=No
+10	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	12	nsubj	_	Discourse=background:46->43|Entity=(person-6)|SpaceAfter=No
 11	’d	have	AUX	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	12	aux	_	_
 12	swallowed	swallow	VERB	VBN	Tense=Past|VerbForm=Part	9	ccomp	_	_
-13	an	a	DET	DT	Definite=Ind|PronType=Art	14	det	_	Entity=(animal-30
-14	insect	insect	NOUN	NN	Number=Sing	12	obj	_	Entity=animal-30)
+13	an	a	DET	DT	Definite=Ind|PronType=Art	14	det	_	Entity=(animal-31
+14	insect	insect	NOUN	NN	Number=Sing	12	obj	_	Entity=animal-31)
 15	or	or	CCONJ	CC	_	16	cc	_	_
-16	something	something	NOUN	NN	Number=Sing	14	conj	_	Entity=(object-31)|SpaceAfter=No
+16	something	something	NOUN	NN	Number=Sing	14	conj	_	Entity=(object-32)|SpaceAfter=No
 17	.	.	PUNCT	.	_	3	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-29
 # text = And then it started insulting me.”
-# s_type=decl
-# speaker=Narrator
-1	And	and	CCONJ	CC	_	4	cc	_	_
+# s_type = decl
+# speaker = Narrator
+1	And	and	CCONJ	CC	_	4	cc	_	Discourse=sequence:47->46
 2	then	then	ADV	RB	PronType=Dem	4	advmod	_	_
 3	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	4	nsubj	_	Entity=(person-12)
 4	started	start	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 5	insulting	insult	VERB	VBG	VerbForm=Ger	4	xcomp	_	_
 6	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	5	obj	_	Entity=(person-6)|SpaceAfter=No
 7	.	.	PUNCT	.	_	4	punct	_	SpaceAfter=No
-8	”	"	PUNCT	''	_	4	punct	_	_
+8	”	''	PUNCT	''	_	4	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-30
 # text = “You ’re having me on, right?”
-# s_type=q
-# speaker=Pete
-1	“	"	PUNCT	``	_	4	punct	_	SpaceAfter=No
+# s_type = q
+# speaker = Pete
+1	“	''	PUNCT	``	_	4	punct	_	Discourse=question:48->52|SpaceAfter=No
 2	You	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	_	Entity=(person-6)
 3	’re	be	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	4	aux	_	_
 4	having	have	VERB	VBG	VerbForm=Ger	0	root	_	_
-5	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	4	obj	_	Entity=(person-24)
+5	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	4	obj	_	Entity=(person-25)
 6	on	on	ADP	IN	_	4	compound:prt	_	SpaceAfter=No
 7	,	,	PUNCT	,	_	8	punct	_	_
 8	right	right	ADV	RB	_	4	discourse	_	SpaceAfter=No
 9	?	?	PUNCT	.	_	4	punct	_	SpaceAfter=No
-10	”	"	PUNCT	''	_	4	punct	_	_
+10	”	''	PUNCT	''	_	4	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-31
 # text = “Pete!
-# s_type=frag
-# speaker=Narrator
-1	“	"	PUNCT	``	_	2	punct	_	SpaceAfter=No
-2	Pete	Pete	PROPN	NNP	Number=Sing	0	root	_	Entity=(person-24)|SpaceAfter=No
+# s_type = frag
+# speaker = Narrator
+1	“	''	PUNCT	``	_	2	punct	_	Discourse=preparation:49->52|SpaceAfter=No
+2	Pete	Pete	PROPN	NNP	Number=Sing	0	root	_	Entity=(person-25)|SpaceAfter=No
 3	!	!	PUNCT	.	_	2	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-32
 # text = Look at me.
-# s_type=imp
-# speaker=Narrator
-1	Look	look	VERB	VB	Mood=Imp|VerbForm=Fin	0	root	_	_
+# s_type = imp
+# speaker = Narrator
+1	Look	look	VERB	VB	Mood=Imp|VerbForm=Fin	0	root	_	Discourse=joint:50->49
 2	at	at	ADP	IN	_	3	case	_	_
 3	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	1	obl	_	Entity=(person-6)|SpaceAfter=No
 4	.	.	PUNCT	.	_	1	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-33
 # text = If it’s a trick, how do I do it then?”
-# s_type=wh
-# speaker=Narrator
-1	If	if	SCONJ	IN	_	5	mark	_	_
+# s_type = wh
+# speaker = Narrator
+1	If	if	SCONJ	IN	_	5	mark	_	Discourse=condition:51->52
 2	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	5	nsubj	_	Entity=(event-11)|SpaceAfter=No
 3	’s	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	cop	_	_
-4	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	_	Entity=(event-11
-5	trick	trick	NOUN	NN	Number=Sing	10	advcl	_	Entity=event-11)|SpaceAfter=No
+4	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	_	Entity=(event-33
+5	trick	trick	NOUN	NN	Number=Sing	10	advcl	_	Entity=event-33)|SpaceAfter=No
 6	,	,	PUNCT	,	_	5	punct	_	_
-7	how	how	ADV	WRB	PronType=Int	10	advmod	_	_
+7	how	how	ADV	WRB	PronType=Int	10	advmod	_	Discourse=sequence:52->4
 8	do	do	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	10	aux	_	_
 9	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	10	nsubj	_	Entity=(person-6)
 10	do	do	VERB	VB	VerbForm=Inf	0	root	_	_
-11	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	10	obj	_	Entity=(event-11)
+11	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	10	obj	_	Entity=(event-33)
 12	then	then	ADV	RB	PronType=Dem	10	advmod	_	SpaceAfter=No
 13	?	?	PUNCT	.	_	10	punct	_	SpaceAfter=No
-14	”	"	PUNCT	''	_	10	punct	_	_
+14	”	''	PUNCT	''	_	10	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-34
 # text = Pete thought for a moment.
-# s_type=decl
-1	Pete	Pete	PROPN	NNP	Number=Sing	2	nsubj	_	Entity=(person-24)
+# s_type = decl
+1	Pete	Pete	PROPN	NNP	Number=Sing	2	nsubj	_	Discourse=sequence:53->4|Entity=(person-25)
 2	thought	think	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 3	for	for	ADP	IN	_	5	case	_	_
-4	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	_	Entity=(time-32
-5	moment	moment	NOUN	NN	Number=Sing	2	obl	_	Entity=time-32)|SpaceAfter=No
+4	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	_	Entity=(time-34
+5	moment	moment	NOUN	NN	Number=Sing	2	obl	_	Entity=time-34)|SpaceAfter=No
 6	.	.	PUNCT	.	_	2	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-35
 # text = “If it’s real … Aren’t they supposed to have a pot of gold or something?
-# s_type=q
-# speaker=Pete
-1	“	"	PUNCT	``	_	10	punct	_	SpaceAfter=No
+# s_type = q
+# speaker = Pete
+1	“	''	PUNCT	``	_	10	punct	_	Discourse=condition:54->55|SpaceAfter=No
 2	If	if	SCONJ	IN	_	5	mark	_	_
 3	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	5	nsubj	_	Entity=(person-12)|SpaceAfter=No
 4	’s	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	cop	_	_
 5	real	real	ADJ	JJ	Degree=Pos	10	advcl	_	_
 6	…	…	PUNCT	:	_	5	punct	_	_
-7	Are	be	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	10	cop	_	SpaceAfter=No
+7	Are	be	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	10	cop	_	Discourse=question:55->58|SpaceAfter=No
 8	n’t	not	PART	RB	Polarity=Neg	10	advmod	_	_
-9	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	10	nsubj	_	Entity=(person-33)
+9	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	10	nsubj	_	Entity=(person-35)
 10	supposed	suppose	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
 11	to	to	PART	TO	_	12	mark	_	_
 12	have	have	VERB	VB	VerbForm=Inf	10	xcomp	_	_
-13	a	a	DET	DT	Definite=Ind|PronType=Art	14	det	_	Entity=(object-34
+13	a	a	DET	DT	Definite=Ind|PronType=Art	14	det	_	Entity=(object-36
 14	pot	pot	NOUN	NN	Number=Sing	12	obj	_	_
 15	of	of	ADP	IN	_	16	case	_	_
-16	gold	gold	NOUN	NN	Number=Sing	14	nmod	_	Entity=(substance-35)object-34)
+16	gold	gold	NOUN	NN	Number=Sing	14	nmod	_	Entity=(substance-37)object-36)
 17	or	or	CCONJ	CC	_	18	cc	_	_
-18	something	something	NOUN	NN	Number=Sing	14	conj	_	Entity=(object-36)|SpaceAfter=No
+18	something	something	NOUN	NN	Number=Sing	14	conj	_	Entity=(object-38)|SpaceAfter=No
 19	?	?	PUNCT	.	_	10	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-36
 # text = And they have to tell you where it is if you catch them?”
-# s_type=q
-# speaker=Pete
-1	And	and	CCONJ	CC	_	3	cc	_	_
-2	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	3	nsubj	_	Entity=(person-33)
+# s_type = q
+# speaker = Pete
+1	And	and	CCONJ	CC	_	3	cc	_	Discourse=joint:56->55
+2	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	3	nsubj	_	Entity=(person-35)
 3	have	have	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	0	root	_	_
 4	to	to	PART	TO	_	5	mark	_	_
 5	tell	tell	VERB	VB	VerbForm=Inf	3	xcomp	_	_
-6	you	you	PRON	PRP	Case=Acc|Person=2|PronType=Prs	5	iobj	_	Entity=(person-37)
+6	you	you	PRON	PRP	Case=Acc|Person=2|PronType=Prs	5	iobj	_	Entity=(person-39)
 7	where	where	ADV	WRB	PronType=Int	9	advmod	_	_
-8	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	9	nsubj	_	Entity=(object-34)
+8	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	9	nsubj	_	Entity=(object-36)
 9	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	ccomp	_	_
-10	if	if	SCONJ	IN	_	12	mark	_	_
-11	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	12	nsubj	_	Entity=(person-37)
+10	if	if	SCONJ	IN	_	12	mark	_	Discourse=condition:57->56
+11	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	12	nsubj	_	Entity=(person-39)
 12	catch	catch	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	3	advcl	_	_
-13	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	12	obj	_	Entity=(person-33)|SpaceAfter=No
+13	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	12	obj	_	Entity=(person-35)|SpaceAfter=No
 14	?	?	PUNCT	.	_	3	punct	_	SpaceAfter=No
-15	”	"	PUNCT	''	_	3	punct	_	_
+15	”	''	PUNCT	''	_	3	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-37
 # text = “That’s leprechauns, idiot!” said the voice from my noise.
-# s_type=decl
-# speaker=Fairy
-1	“	"	PUNCT	``	_	4	punct	_	SpaceAfter=No
-2	That	that	PRON	DT	Number=Sing|PronType=Dem	4	nsubj	_	Entity=(person-33)|SpaceAfter=No
+# s_type = decl
+# speaker = Fairy
+1	“	''	PUNCT	``	_	4	punct	_	Discourse=sequence:58->4|SpaceAfter=No
+2	That	that	PRON	DT	Number=Sing|PronType=Dem	4	nsubj	_	Entity=(person-35)|SpaceAfter=No
 3	’s	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	cop	_	_
-4	leprechauns	leprechaun	NOUN	NNS	Number=Plur	9	ccomp	_	Entity=(person-33)|SpaceAfter=No
+4	leprechauns	leprechaun	NOUN	NNS	Number=Plur	9	ccomp	_	Entity=(person-35)|SpaceAfter=No
 5	,	,	PUNCT	,	_	6	punct	_	_
-6	idiot	idiot	NOUN	NN	Number=Sing	4	vocative	_	Entity=(person-24)|SpaceAfter=No
+6	idiot	idiot	NOUN	NN	Number=Sing	4	vocative	_	Entity=(person-25)|SpaceAfter=No
 7	!	!	PUNCT	.	_	4	punct	_	SpaceAfter=No
-8	”	"	PUNCT	''	_	4	punct	_	_
-9	said	say	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+8	”	''	PUNCT	''	_	4	punct	_	_
+9	said	say	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	Discourse=attribution:59->58
 10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(abstract-15
 11	voice	voice	NOUN	NN	Number=Sing	9	nsubj	_	Entity=abstract-15)
 12	from	from	ADP	IN	_	14	case	_	_
@@ -567,51 +567,51 @@
 
 # sent_id = GUM_fiction_sneeze-38
 # text = “So what’s the difference?
-# s_type=wh
-# speaker=Pete
-1	“	"	PUNCT	``	_	6	punct	_	SpaceAfter=No
+# s_type = wh
+# speaker = Pete
+1	“	''	PUNCT	``	_	6	punct	_	Discourse=concession:60->61|SpaceAfter=No
 2	So	so	ADV	IN	_	6	advmod	_	_
 3	what	what	PRON	WP	PronType=Int	6	nsubj	_	SpaceAfter=No
 4	’s	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	_	_
-5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	_	Entity=(abstract-38
-6	difference	difference	NOUN	NN	Number=Sing	0	root	_	Entity=abstract-38)|SpaceAfter=No
+5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	_	Entity=(abstract-40
+6	difference	difference	NOUN	NN	Number=Sing	0	root	_	Entity=abstract-40)|SpaceAfter=No
 7	?	?	PUNCT	.	_	6	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-39
 # text = Just give us the gold and we’ll let you go …”
-# s_type=multiple
-# speaker=Pete
-1	Just	just	ADV	RB	_	2	advmod	_	_
+# s_type = multiple
+# speaker = Pete
+1	Just	just	ADV	RB	_	2	advmod	_	Discourse=sequence:61->4
 2	give	give	VERB	VB	VerbForm=Inf	0	root	_	_
-3	us	we	PRON	PRP	Case=Acc|Number=Plur|Person=1|PronType=Prs	2	iobj	_	Entity=(person-39)
-4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Entity=(object-34
-5	gold	gold	NOUN	NN	Number=Sing	2	obj	_	Entity=object-34)
-6	and	and	CCONJ	CC	_	9	cc	_	_
-7	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	9	nsubj	_	Entity=(person-39)|SpaceAfter=No
+3	us	we	PRON	PRP	Case=Acc|Number=Plur|Person=1|PronType=Prs	2	iobj	_	Entity=(person-41)
+4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Entity=(object-36
+5	gold	gold	NOUN	NN	Number=Sing	2	obj	_	Entity=object-36)
+6	and	and	CCONJ	CC	_	9	cc	_	Discourse=motivation:62->61
+7	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	9	nsubj	_	Entity=(person-41)|SpaceAfter=No
 8	’ll	will	AUX	MD	VerbForm=Fin	9	aux	_	_
 9	let	let	VERB	VB	VerbForm=Inf	2	conj	_	_
 10	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	11	nsubj	_	Entity=(person-12)
 11	go	go	VERB	VB	VerbForm=Inf	9	ccomp	_	_
 12	…	…	PUNCT	:	_	2	punct	_	SpaceAfter=No
-13	”	"	PUNCT	''	_	2	punct	_	_
+13	”	''	PUNCT	''	_	2	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-40
 # text = “We —?” I started.
-# s_type=decl
-# speaker=Narrator
-1	“	"	PUNCT	``	_	2	punct	_	SpaceAfter=No
-2	We	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	7	ccomp	_	Entity=(person-39)
+# s_type = decl
+# speaker = Narrator
+1	“	''	PUNCT	``	_	2	punct	_	Discourse=question:63->65|SpaceAfter=No
+2	We	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	7	ccomp	_	Entity=(person-41)
 3	—	—	PUNCT	:	_	2	punct	_	SpaceAfter=No
 4	?	?	PUNCT	.	_	2	punct	_	SpaceAfter=No
-5	”	"	PUNCT	''	_	2	punct	_	_
-6	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	7	nsubj	_	Entity=(person-6)
+5	”	''	PUNCT	''	_	2	punct	_	_
+6	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	7	nsubj	_	Discourse=attribution:64->63|Entity=(person-6)
 7	started	start	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
 8	.	.	PUNCT	.	_	7	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-41
 # text = He winked at me.
-# s_type=decl
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	_	Entity=(person-24)
+# s_type = decl
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	_	Discourse=sequence:65->4|Entity=(person-25)
 2	winked	wink	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 3	at	at	ADP	IN	_	4	case	_	_
 4	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	2	obl	_	Entity=(person-6)|SpaceAfter=No
@@ -619,9 +619,9 @@
 
 # sent_id = GUM_fiction_sneeze-42
 # text = “Oh, I’m happy to stick around,” came the voice.
-# s_type=decl
-# speaker=Fairy
-1	“	"	PUNCT	``	_	6	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Fairy
+1	“	''	PUNCT	``	_	6	punct	_	Discourse=sequence:66->4|SpaceAfter=No
 2	Oh	oh	INTJ	UH	_	6	discourse	_	SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	_	_
 4	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	6	nsubj	_	Entity=(person-12)|SpaceAfter=No
@@ -631,17 +631,17 @@
 8	stick	stick	VERB	VB	VerbForm=Inf	6	xcomp	_	_
 9	around	around	ADP	RP	_	8	compound:prt	_	SpaceAfter=No
 10	,	,	PUNCT	,	_	6	punct	_	SpaceAfter=No
-11	”	"	PUNCT	''	_	6	punct	_	_
-12	came	come	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+11	”	''	PUNCT	''	_	6	punct	_	_
+12	came	come	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	Discourse=attribution:67->66
 13	the	the	DET	DT	Definite=Def|PronType=Art	14	det	_	Entity=(abstract-15
 14	voice	voice	NOUN	NN	Number=Sing	12	nsubj	_	Entity=abstract-15)|SpaceAfter=No
 15	.	.	PUNCT	.	_	12	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-43
 # text = “It’s noggins here who wants to get rid of me …”
-# s_type=decl
-# speaker=Fairy
-1	“	"	PUNCT	``	_	4	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Fairy
+1	“	''	PUNCT	``	_	4	punct	_	Discourse=contrast:68->66|SpaceAfter=No
 2	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	4	nsubj	_	Entity=(person-6)|SpaceAfter=No
 3	’s	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	cop	_	_
 4	noggins	noggins	NOUN	NN	Number=Sing	0	root	_	Entity=(person-6)
@@ -654,120 +654,120 @@
 11	of	of	ADP	IN	_	12	case	_	_
 12	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	10	obl	_	Entity=(person-12)
 13	…	…	PUNCT	:	_	4	punct	_	SpaceAfter=No
-14	”	"	PUNCT	''	_	4	punct	_	_
+14	”	''	PUNCT	''	_	4	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-44
 # text = Suddenly I felt a violent pain in my nose, my eyes watered.
-# s_type=decl
-1	Suddenly	suddenly	ADV	RB	_	3	advmod	_	_
+# s_type = decl
+1	Suddenly	suddenly	ADV	RB	_	3	advmod	_	Discourse=sequence:69->4
 2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	_	Entity=(person-6)
 3	felt	feel	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-4	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	_	Entity=(abstract-40
+4	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	_	Entity=(abstract-42
 5	violent	violent	ADJ	JJ	Degree=Pos	6	amod	_	_
 6	pain	pain	NOUN	NN	Number=Sing	3	obj	_	_
 7	in	in	ADP	IN	_	9	case	_	_
 8	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	9	nmod:poss	_	Entity=(object-13(person-6)
-9	nose	nose	NOUN	NN	Number=Sing	6	nmod	_	Entity=abstract-40)object-13)|SpaceAfter=No
+9	nose	nose	NOUN	NN	Number=Sing	6	nmod	_	Entity=abstract-42)object-13)|SpaceAfter=No
 10	,	,	PUNCT	,	_	13	punct	_	_
-11	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	12	nmod:poss	_	Entity=(object-41(person-6)
-12	eyes	eye	NOUN	NNS	Number=Plur	13	nsubj	_	Entity=object-41)
+11	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	12	nmod:poss	_	Discourse=result:70->69|Entity=(object-43(person-6)
+12	eyes	eye	NOUN	NNS	Number=Plur	13	nsubj	_	Entity=object-43)
 13	watered	water	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	3	parataxis	_	SpaceAfter=No
 14	.	.	PUNCT	.	_	3	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-45
 # text = “Owwww!” I howled.
-# s_type=decl
-# speaker=Narrator
-1	“	"	PUNCT	``	_	2	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Narrator
+1	“	''	PUNCT	``	_	2	punct	_	Discourse=joint:71->70|SpaceAfter=No
 2	Owwww	Owwww	INTJ	UH	_	6	ccomp	_	SpaceAfter=No
 3	!	!	PUNCT	.	_	2	punct	_	SpaceAfter=No
-4	”	"	PUNCT	''	_	2	punct	_	_
-5	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	6	nsubj	_	Entity=(person-6)
+4	”	''	PUNCT	''	_	2	punct	_	_
+5	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	6	nsubj	_	Discourse=attribution:72->71|Entity=(person-6)
 6	howled	howl	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
 7	.	.	PUNCT	.	_	6	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-46
 # text = “See what I mean?” the voice shouted over my moans.
-# s_type=decl
-# speaker=Fairy
-1	“	"	PUNCT	``	_	2	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Fairy
+1	“	''	PUNCT	``	_	2	punct	_	Discourse=evaluation:73->71|SpaceAfter=No
 2	See	see	VERB	VB	VerbForm=Inf	10	ccomp	_	_
 3	what	what	PRON	WP	PronType=Int	2	obj	_	_
 4	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	5	nsubj	_	Entity=(person-12)
 5	mean	mean	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	3	acl:relcl	_	SpaceAfter=No
 6	?	?	PUNCT	.	_	2	punct	_	SpaceAfter=No
-7	”	"	PUNCT	''	_	2	punct	_	_
-8	the	the	DET	DT	Definite=Def|PronType=Art	9	det	_	Entity=(abstract-15
+7	”	''	PUNCT	''	_	2	punct	_	_
+8	the	the	DET	DT	Definite=Def|PronType=Art	9	det	_	Discourse=attribution:74->73|Entity=(abstract-15
 9	voice	voice	NOUN	NN	Number=Sing	10	nsubj	_	Entity=abstract-15)
 10	shouted	shout	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 11	over	over	ADP	IN	_	13	case	_	_
-12	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	13	nmod:poss	_	Entity=(abstract-42(person-6)
-13	moans	moan	NOUN	NNS	Number=Plur	10	obl	_	Entity=abstract-42)|SpaceAfter=No
+12	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	13	nmod:poss	_	Entity=(event-44(person-6)
+13	moans	moan	NOUN	NNS	Number=Plur	10	obl	_	Entity=event-44)|SpaceAfter=No
 14	.	.	PUNCT	.	_	10	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-47
 # text = “Perhaps you can use it in exams …” Pete said, scratching his head.
-# s_type=decl
-# speaker=Pete
-1	“	"	PUNCT	``	_	5	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Pete
+1	“	''	PUNCT	``	_	5	punct	_	Discourse=sequence:75->4|SpaceAfter=No
 2	Perhaps	perhaps	ADV	RB	_	5	nsubj	_	_
 3	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	5	nsubj	_	Entity=(person-6)
 4	can	can	AUX	MD	VerbForm=Fin	5	aux	_	_
 5	use	use	VERB	VB	VerbForm=Inf	12	ccomp	_	_
 6	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	5	obj	_	Entity=(person-12)
 7	in	in	ADP	IN	_	8	case	_	_
-8	exams	exam	NOUN	NNS	Number=Plur	5	obl	_	Entity=(event-43)
+8	exams	exam	NOUN	NNS	Number=Plur	5	obl	_	Entity=(event-45)
 9	…	…	PUNCT	:	_	5	punct	_	SpaceAfter=No
-10	”	"	PUNCT	''	_	5	punct	_	_
-11	Pete	Pete	PROPN	NNP	Number=Sing	12	nsubj	_	Entity=(person-24)
+10	”	''	PUNCT	''	_	5	punct	_	_
+11	Pete	Pete	PROPN	NNP	Number=Sing	12	nsubj	_	Discourse=attribution:76->75|Entity=(person-25)
 12	said	say	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
 13	,	,	PUNCT	,	_	14	punct	_	_
-14	scratching	scratch	VERB	VBG	VerbForm=Ger	12	advcl	_	_
-15	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	16	nmod:poss	_	Entity=(object-44(person-24)
-16	head	head	NOUN	NN	Number=Sing	14	obj	_	Entity=object-44)|SpaceAfter=No
+14	scratching	scratch	VERB	VBG	VerbForm=Ger	12	advcl	_	Discourse=manner:77->76
+15	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	16	nmod:poss	_	Entity=(object-46(person-25)
+16	head	head	NOUN	NN	Number=Sing	14	obj	_	Entity=object-46)|SpaceAfter=No
 17	.	.	PUNCT	.	_	12	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-48
 # text = “You know, it could tell us all the answers.”
-# s_type=decl
-# speaker=Pete
-1	“	"	PUNCT	``	_	7	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Pete
+1	“	''	PUNCT	``	_	7	punct	_	Discourse=attribution:78->79|SpaceAfter=No
 2	You	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	_	Entity=(person-6)
 3	know	know	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	7	discourse	_	SpaceAfter=No
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	7	nsubj	_	Entity=(person-12)
+5	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	7	nsubj	_	Discourse=motivation:79->75|Entity=(person-12)
 6	could	could	AUX	MD	VerbForm=Fin	7	aux	_	_
-7	tell	tell	VERB	VB	VerbForm=Inf	0	root	_	Entity=(event-45
-8	us	we	PRON	PRP	Case=Acc|Number=Plur|Person=1|PronType=Prs	7	iobj	_	Entity=(person-39)
-9	all	all	PRON	PDT	_	11	det:predet	_	Entity=(abstract-46
+7	tell	tell	VERB	VB	VerbForm=Inf	0	root	_	Entity=(event-47
+8	us	we	PRON	PRP	Case=Acc|Number=Plur|Person=1|PronType=Prs	7	iobj	_	Entity=(person-41)
+9	all	all	PRON	PDT	_	11	det:predet	_	Entity=(abstract-48
 10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	_
-11	answers	answer	NOUN	NNS	Number=Plur	7	obj	_	Entity=event-45)abstract-46)|SpaceAfter=No
+11	answers	answer	NOUN	NNS	Number=Plur	7	obj	_	Entity=event-47)abstract-48)|SpaceAfter=No
 12	.	.	PUNCT	.	_	7	punct	_	SpaceAfter=No
-13	”	"	PUNCT	''	_	7	punct	_	_
+13	”	''	PUNCT	''	_	7	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-49
 # text = “Idiot!
-# s_type=intj
-# speaker=Narrator
-1	“	"	PUNCT	``	_	2	punct	_	SpaceAfter=No
-2	Idiot	idiot	NOUN	NN	Number=Sing	0	root	_	Entity=(person-24)|SpaceAfter=No
+# s_type = intj
+# speaker = Narrator
+1	“	''	PUNCT	``	_	2	punct	_	Discourse=evaluation:80->75|SpaceAfter=No
+2	Idiot	idiot	NOUN	NN	Number=Sing	0	root	_	Entity=(person-25)|SpaceAfter=No
 3	!	!	PUNCT	.	_	2	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-50
 # text = If it yacks on like that in an exam, I’ll get thrown out.
-# s_type=decl
-# speaker=Narrator
-1	If	if	SCONJ	IN	_	3	mark	_	_
+# s_type = decl
+# speaker = Narrator
+1	If	if	SCONJ	IN	_	3	mark	_	Discourse=condition:81->82
 2	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	3	nsubj	_	Entity=(person-12)
 3	yacks	yack	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	14	advcl	_	_
 4	on	on	ADV	RB	_	3	compound:prt	_	_
 5	like	like	ADV	RB	_	6	case	_	_
-6	that	that	PRON	DT	Number=Sing|PronType=Dem	3	obl	_	Entity=(event-45)
+6	that	that	PRON	DT	Number=Sing|PronType=Dem	3	obl	_	Entity=(event-47)
 7	in	in	ADP	IN	_	9	case	_	_
-8	an	a	DET	DT	Definite=Ind|PronType=Art	9	det	_	Entity=(event-47
-9	exam	exam	NOUN	NN	Number=Sing	3	obl	_	Entity=event-47)|SpaceAfter=No
+8	an	a	DET	DT	Definite=Ind|PronType=Art	9	det	_	Entity=(event-49
+9	exam	exam	NOUN	NN	Number=Sing	3	obl	_	Entity=event-49)|SpaceAfter=No
 10	,	,	PUNCT	,	_	3	punct	_	_
-11	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	14	nsubj:pass	_	Entity=(person-6)|SpaceAfter=No
+11	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	14	nsubj:pass	_	Discourse=justify:82->80|Entity=(person-6)|SpaceAfter=No
 12	’ll	will	AUX	MD	VerbForm=Fin	14	aux	_	_
 13	get	get	AUX	VB	VerbForm=Inf	14	aux:pass	_	_
 14	thrown	throw	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
@@ -776,66 +776,66 @@
 
 # sent_id = GUM_fiction_sneeze-51
 # text = And probably locked up too.”
-# s_type=other
-# speaker=Narrator
-1	And	and	CCONJ	CC	_	3	cc	_	_
+# s_type = other
+# speaker = Narrator
+1	And	and	CCONJ	CC	_	3	cc	_	Discourse=joint:83->82
 2	probably	probably	ADV	RB	_	3	advmod	_	_
 3	locked	lock	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
 4	up	up	ADP	RP	_	3	compound:prt	_	_
 5	too	too	ADV	RB	_	3	advmod	_	SpaceAfter=No
 6	.	.	PUNCT	.	_	3	punct	_	SpaceAfter=No
-7	”	"	PUNCT	''	_	3	punct	_	_
+7	”	''	PUNCT	''	_	3	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-52
 # text = “Can’t it whisper?”
-# s_type=q
-# speaker=Pete
-1	“	"	PUNCT	``	_	5	punct	_	SpaceAfter=No
+# s_type = q
+# speaker = Pete
+1	“	''	PUNCT	``	_	5	punct	_	Discourse=elaboration:84->75|SpaceAfter=No
 2	Ca	can	AUX	MD	VerbForm=Fin	5	aux	_	SpaceAfter=No
 3	n’t	not	PART	RB	Polarity=Neg	5	advmod	_	_
 4	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	5	nsubj	_	Entity=(person-12)
 5	whisper	whisper	VERB	VB	VerbForm=Inf	0	root	_	SpaceAfter=No
 6	?	?	PUNCT	.	_	5	punct	_	SpaceAfter=No
-7	”	"	PUNCT	''	_	5	punct	_	_
+7	”	''	PUNCT	''	_	5	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-53
 # text = “Perhaps I don’t know the answers anyway?” said the voice.
-# s_type=decl
-# speaker=Fairy
-1	“	"	PUNCT	``	_	6	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Fairy
+1	“	''	PUNCT	``	_	6	punct	_	Discourse=sequence:85->4|SpaceAfter=No
 2	Perhaps	perhaps	ADV	RB	_	6	advmod	_	_
-3	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	6	nsubj	_	Entity=(abstract-48(person-12)
+3	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	6	nsubj	_	Entity=(abstract-50(person-12)
 4	do	do	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	6	aux	_	SpaceAfter=No
 5	n’t	not	PART	RB	Polarity=Neg	6	advmod	_	_
 6	know	know	VERB	VB	VerbForm=Inf	12	ccomp	_	_
-7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	_	Entity=(abstract-46
-8	answers	answer	NOUN	NNS	Number=Plur	6	obj	_	Entity=abstract-48)abstract-46)
+7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	_	Entity=(abstract-48
+8	answers	answer	NOUN	NNS	Number=Plur	6	obj	_	Entity=abstract-50)abstract-48)
 9	anyway	anyway	ADV	RB	_	6	advmod	_	SpaceAfter=No
 10	?	?	PUNCT	.	_	6	punct	_	SpaceAfter=No
-11	”	"	PUNCT	''	_	6	punct	_	_
-12	said	say	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+11	”	''	PUNCT	''	_	6	punct	_	_
+12	said	say	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	Discourse=attribution:86->85
 13	the	the	DET	DT	Definite=Def|PronType=Art	14	det	_	Entity=(abstract-15
 14	voice	voice	NOUN	NN	Number=Sing	12	nsubj	_	Entity=abstract-15)|SpaceAfter=No
 15	.	.	PUNCT	.	_	12	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-54
 # text = “Have you thought of that?”
-# s_type=q
-# speaker=Fairy
-1	“	"	PUNCT	``	_	4	punct	_	SpaceAfter=No
+# s_type = q
+# speaker = Fairy
+1	“	''	PUNCT	``	_	4	punct	_	Discourse=justify:87->85|SpaceAfter=No
 2	Have	have	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	4	aux	_	_
-3	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	_	Entity=(person-24)
+3	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	_	Entity=(person-25)
 4	thought	think	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
 5	of	of	ADP	IN	_	6	case	_	_
-6	that	that	PRON	DT	Number=Sing|PronType=Dem	4	obl	_	Entity=(abstract-48)|SpaceAfter=No
+6	that	that	PRON	DT	Number=Sing|PronType=Dem	4	obl	_	Entity=(abstract-50)|SpaceAfter=No
 7	?	?	PUNCT	.	_	4	punct	_	SpaceAfter=No
-8	”	"	PUNCT	''	_	4	punct	_	_
+8	”	''	PUNCT	''	_	4	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-55
 # text = “Anyway, I don’t want it in exams.
-# s_type=decl
-# speaker=Narrator
-1	“	"	PUNCT	``	_	7	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Narrator
+1	“	''	PUNCT	``	_	7	punct	_	Discourse=antithesis:88->89|SpaceAfter=No
 2	Anyway	anyway	ADV	RB	_	7	advmod	_	SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	_	_
 4	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	7	nsubj	_	Entity=(person-6)
@@ -844,14 +844,14 @@
 7	want	want	VERB	VB	VerbForm=Inf	0	root	_	_
 8	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	7	obj	_	Entity=(person-12)
 9	in	in	ADP	IN	_	10	case	_	_
-10	exams	exam	NOUN	NNS	Number=Plur	7	obl	_	Entity=(event-43)|SpaceAfter=No
+10	exams	exam	NOUN	NNS	Number=Plur	7	obl	_	Entity=(event-45)|SpaceAfter=No
 11	.	.	PUNCT	.	_	7	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-56
 # text = I just want it to go.
-# s_type=decl
-# speaker=Narrator
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	_	Entity=(person-6)
+# s_type = decl
+# speaker = Narrator
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	_	Discourse=sequence:89->4|Entity=(person-6)
 2	just	just	ADV	RB	_	3	advmod	_	_
 3	want	want	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	0	root	_	_
 4	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	3	obj	_	Entity=(person-12)
@@ -861,20 +861,20 @@
 
 # sent_id = GUM_fiction_sneeze-57
 # text = Out of my nose.”
-# s_type=other
-# speaker=Narrator
-1	Out	out	ADP	IN	_	4	case	_	_
+# s_type = other
+# speaker = Narrator
+1	Out	out	ADP	IN	_	4	case	_	Discourse=elaboration:90->89
 2	of	of	ADP	IN	_	1	fixed	_	_
 3	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	4	nmod:poss	_	Entity=(object-13(person-6)
 4	nose	nose	NOUN	NN	Number=Sing	0	root	_	Entity=object-13)|SpaceAfter=No
 5	.	.	PUNCT	.	_	4	punct	_	SpaceAfter=No
-6	”	"	PUNCT	''	_	4	punct	_	_
+6	”	''	PUNCT	''	_	4	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-58
 # text = “Can’t you just poke it out?”
-# s_type=q
-# speaker=Pete
-1	“	"	PUNCT	``	_	6	punct	_	SpaceAfter=No
+# s_type = q
+# speaker = Pete
+1	“	''	PUNCT	``	_	6	punct	_	Discourse=question:91->92|SpaceAfter=No
 2	Ca	can	AUX	MD	VerbForm=Fin	6	aux	_	SpaceAfter=No
 3	n’t	not	PART	RB	Polarity=Neg	6	advmod	_	_
 4	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	6	nsubj	_	Entity=(person-6)
@@ -883,71 +883,71 @@
 7	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	6	obj	_	Entity=(person-12)
 8	out	out	ADV	RB	_	6	advmod	_	SpaceAfter=No
 9	?	?	PUNCT	.	_	6	punct	_	SpaceAfter=No
-10	”	"	PUNCT	''	_	6	punct	_	_
+10	”	''	PUNCT	''	_	6	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-59
 # text = “With what?”
-# s_type=wh
-# speaker=Narrator
-1	“	"	PUNCT	``	_	3	punct	_	SpaceAfter=No
+# s_type = wh
+# speaker = Narrator
+1	“	''	PUNCT	``	_	3	punct	_	Discourse=question:92->93|SpaceAfter=No
 2	With	with	ADP	IN	_	3	case	_	_
 3	what	what	PRON	WP	PronType=Int	0	root	_	SpaceAfter=No
 4	?	?	PUNCT	.	_	3	punct	_	SpaceAfter=No
-5	”	"	PUNCT	''	_	3	punct	_	_
+5	”	''	PUNCT	''	_	3	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-60
 # text = “S’pose you’ve already tried your finger …”
-# s_type=other
-# speaker=Pete
-1	“	"	PUNCT	``	_	2	punct	_	SpaceAfter=No
+# s_type = other
+# speaker = Pete
+1	“	''	PUNCT	``	_	2	punct	_	Discourse=sequence:93->4|SpaceAfter=No
 2	S’pose	suppose	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	0	root	_	_
-3	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	6	nsubj	_	Entity=(event-49(person-6)|SpaceAfter=No
+3	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	6	nsubj	_	Entity=(event-51(person-6)|SpaceAfter=No
 4	’ve	have	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	6	aux	_	_
 5	already	already	ADV	RB	_	6	advmod	_	_
 6	tried	try	VERB	VBN	Tense=Past|VerbForm=Part	2	ccomp	_	_
-7	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	8	nmod:poss	_	Entity=(object-50(person-6)
-8	finger	finger	NOUN	NN	Number=Sing	6	obj	_	Entity=event-49)object-50)
+7	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	8	nmod:poss	_	Entity=(object-52(person-6)
+8	finger	finger	NOUN	NN	Number=Sing	6	obj	_	Entity=event-51)object-52)
 9	…	…	PUNCT	:	_	2	punct	_	SpaceAfter=No
-10	”	"	PUNCT	''	_	2	punct	_	_
+10	”	''	PUNCT	''	_	2	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-61
 # text = “Yes he has,” the voice said.
-# s_type=decl
-# speaker=Fairy
-1	“	"	PUNCT	``	_	4	punct	_	SpaceAfter=No
-2	Yes	yes	INTJ	UH	_	4	discourse	_	Entity=(abstract-51
+# s_type = decl
+# speaker = Fairy
+1	“	''	PUNCT	``	_	4	punct	_	Discourse=restatement:94->93|SpaceAfter=No
+2	Yes	yes	INTJ	UH	_	4	discourse	_	Entity=(abstract-53
 3	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	4	nsubj	_	Entity=(person-6)
 4	has	have	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	9	ccomp	_	SpaceAfter=No
-5	,	,	PUNCT	,	_	4	punct	_	Entity=abstract-51)|SpaceAfter=No
-6	”	"	PUNCT	''	_	4	punct	_	_
-7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	_	Entity=(abstract-15
+5	,	,	PUNCT	,	_	4	punct	_	Entity=abstract-53)|SpaceAfter=No
+6	”	''	PUNCT	''	_	4	punct	_	_
+7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	_	Discourse=attribution:95->94|Entity=(abstract-15
 8	voice	voice	NOUN	NN	Number=Sing	9	nsubj	_	Entity=abstract-15)
 9	said	say	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
 10	.	.	PUNCT	.	_	9	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-62
 # text = “And it wasn’t pleasant I can tell you.”
-# s_type=decl
-# speaker=Fairy
-1	“	"	PUNCT	``	_	9	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Fairy
+1	“	''	PUNCT	``	_	9	punct	_	Discourse=evaluation:96->94|SpaceAfter=No
 2	And	and	CCONJ	CC	_	6	cc	_	_
-3	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	6	nsubj	_	Entity=(event-49)
+3	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	6	nsubj	_	Entity=(event-51)
 4	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	6	aux	_	SpaceAfter=No
 5	n’t	not	PART	RB	Polarity=Neg	6	advmod	_	_
 6	pleasant	pleasant	ADJ	JJ	Degree=Pos	9	ccomp	_	_
-7	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	9	nsubj	_	Entity=(person-12)
+7	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	9	nsubj	_	Discourse=attribution:97->96|Entity=(person-12)
 8	can	can	AUX	MD	VerbForm=Fin	9	aux	_	_
 9	tell	tell	VERB	VB	VerbForm=Inf	0	root	_	_
-10	you	you	PRON	PRP	Case=Acc|Person=2|PronType=Prs	9	iobj	_	Entity=(person-24)|SpaceAfter=No
+10	you	you	PRON	PRP	Case=Acc|Person=2|PronType=Prs	9	iobj	_	Entity=(person-25)|SpaceAfter=No
 11	.	.	PUNCT	.	_	9	punct	_	SpaceAfter=No
-12	”	"	PUNCT	''	_	9	punct	_	_
+12	”	''	PUNCT	''	_	9	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-63
 # text = “You see what it’s like.
-# s_type=decl
-# speaker=Narrator
-1	“	"	PUNCT	``	_	3	punct	_	SpaceAfter=No
-2	You	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	_	Entity=(person-24)
+# s_type = decl
+# speaker = Narrator
+1	“	''	PUNCT	``	_	3	punct	_	Discourse=evaluation:98->94|SpaceAfter=No
+2	You	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	_	Entity=(person-25)
 3	see	see	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	0	root	_	_
 4	what	what	PRON	WP	PronType=Int	3	obj	_	_
 5	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	7	nsubj	_	Entity=(event-11)|SpaceAfter=No
@@ -957,63 +957,63 @@
 
 # sent_id = GUM_fiction_sneeze-64
 # text = He’s already making sarcastic remarks like that …”
-# s_type=decl
-# speaker=Narrator
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	4	nsubj	_	Entity=(person-12)|SpaceAfter=No
+# s_type = decl
+# speaker = Narrator
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	4	nsubj	_	Discourse=elaboration:99->98|Entity=(person-12)|SpaceAfter=No
 2	’s	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	aux	_	_
 3	already	already	ADV	RB	_	4	advmod	_	_
 4	making	make	VERB	VBG	VerbForm=Ger	0	root	_	_
-5	sarcastic	sarcastic	ADJ	JJ	Degree=Pos	6	amod	_	Entity=(abstract-52
+5	sarcastic	sarcastic	ADJ	JJ	Degree=Pos	6	amod	_	Entity=(abstract-54
 6	remarks	remark	NOUN	NNS	Number=Plur	4	obj	_	_
 7	like	like	ADP	IN	_	8	case	_	_
-8	that	that	PRON	DT	Number=Sing|PronType=Dem	6	nmod	_	Entity=(abstract-51)abstract-52)
+8	that	that	PRON	DT	Number=Sing|PronType=Dem	6	nmod	_	Entity=(abstract-53)abstract-54)
 9	…	…	PUNCT	:	_	4	punct	_	SpaceAfter=No
-10	”	"	PUNCT	''	_	4	punct	_	_
+10	”	''	PUNCT	''	_	4	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-65
 # text = “What if we put something in your nose to catch it, then?
-# s_type=other
-# speaker=Pete
-1	“	"	PUNCT	``	_	5	punct	_	SpaceAfter=No
+# s_type = other
+# speaker = Pete
+1	“	''	PUNCT	``	_	5	punct	_	Discourse=sequence:100->4|SpaceAfter=No
 2	What	What	PRON	WP	PronType=Int	5	dep	_	_
 3	if	if	SCONJ	IN	_	5	mark	_	_
-4	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	5	nsubj	_	Entity=(person-39)
+4	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	5	nsubj	_	Entity=(person-41)
 5	put	put	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	0	root	_	_
-6	something	something	NOUN	NN	Number=Sing	5	obj	_	Entity=(object-53)
+6	something	something	NOUN	NN	Number=Sing	5	obj	_	Entity=(object-55)
 7	in	in	ADP	IN	_	9	case	_	_
 8	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	9	nmod:poss	_	Entity=(object-13(person-6)
 9	nose	nose	NOUN	NN	Number=Sing	5	obl	_	Entity=object-13)
-10	to	to	PART	TO	_	11	mark	_	_
+10	to	to	PART	TO	_	11	mark	_	Discourse=purpose:101->100
 11	catch	catch	VERB	VB	VerbForm=Inf	5	advcl	_	_
 12	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	11	obj	_	Entity=(person-12)|SpaceAfter=No
 13	,	,	PUNCT	,	_	14	punct	_	_
-14	then	then	ADV	RB	PronType=Dem	5	advmod	_	SpaceAfter=No
+14	then	then	ADV	RB	PronType=Dem	5	advmod	_	Discourse=same-unit:102->100|SpaceAfter=No
 15	?	?	PUNCT	.	_	5	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-66
 # text = I don’t know … A spider?”
-# s_type=multiple
-# speaker=Pete
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	_	Entity=(person-24)
+# s_type = multiple
+# speaker = Pete
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	_	Discourse=preparation:103->104|Entity=(person-25)
 2	do	do	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	4	aux	_	SpaceAfter=No
 3	n’t	not	PART	RB	Polarity=Neg	4	advmod	_	_
 4	know	know	VERB	VB	VerbForm=Inf	0	root	_	_
 5	…	…	PUNCT	:	_	7	punct	_	_
-6	A	a	DET	DT	Definite=Ind|PronType=Art	7	det	_	Entity=(animal-54
-7	spider	spider	NOUN	NN	Number=Sing	4	parataxis	_	Entity=animal-54)|SpaceAfter=No
+6	A	a	DET	DT	Definite=Ind|PronType=Art	7	det	_	Discourse=elaboration:104->100|Entity=(animal-56
+7	spider	spider	NOUN	NN	Number=Sing	4	parataxis	_	Entity=animal-56)|SpaceAfter=No
 8	?	?	PUNCT	.	_	4	punct	_	SpaceAfter=No
-9	”	"	PUNCT	''	_	4	punct	_	_
+9	”	''	PUNCT	''	_	4	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-67
 # text = “No!” we both said at once.
-# s_type=decl
-# speaker=Fairy,Narrator
-1	“	"	PUNCT	``	_	2	punct	_	SpaceAfter=No
-2	No	no	INTJ	UH	Polarity=Neg	7	ccomp	_	Entity=(abstract-55|SpaceAfter=No
-3	!	!	PUNCT	.	_	2	punct	_	Entity=abstract-55)|SpaceAfter=No
-4	”	"	PUNCT	''	_	2	punct	_	_
-5	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	7	nsubj	_	Entity=(person-56
-6	both	both	DET	DT	_	5	det	_	Entity=person-56)
+# s_type = decl
+# speaker = Fairy,Narrator
+1	“	''	PUNCT	``	_	2	punct	_	Discourse=evaluation:105->104|SpaceAfter=No
+2	No	no	INTJ	UH	Polarity=Neg	7	ccomp	_	Entity=(abstract-57|SpaceAfter=No
+3	!	!	PUNCT	.	_	2	punct	_	Entity=abstract-57)|SpaceAfter=No
+4	”	''	PUNCT	''	_	2	punct	_	_
+5	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	7	nsubj	_	Discourse=attribution:106->105|Entity=(person-58
+6	both	both	DET	DT	_	5	det	_	Entity=person-58)
 7	said	say	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 8	at	at	ADP	IN	_	9	case	_	_
 9	once	once	ADV	RB	NumType=Mult	7	obl	_	SpaceAfter=No
@@ -1021,88 +1021,88 @@
 
 # sent_id = GUM_fiction_sneeze-68
 # text = “Snap!” Pete said.
-# s_type=decl
-# speaker=Pete
-1	“	"	PUNCT	``	_	2	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Pete
+1	“	''	PUNCT	``	_	2	punct	_	Discourse=preparation:107->109|SpaceAfter=No
 2	Snap	snap	INTJ	UH	_	6	ccomp	_	SpaceAfter=No
 3	!	!	PUNCT	.	_	2	punct	_	SpaceAfter=No
-4	”	"	PUNCT	''	_	2	punct	_	_
-5	Pete	Pete	PROPN	NNP	Number=Sing	6	nsubj	_	Entity=(person-24)
+4	”	''	PUNCT	''	_	2	punct	_	_
+5	Pete	Pete	PROPN	NNP	Number=Sing	6	nsubj	_	Discourse=attribution:108->107|Entity=(person-25)
 6	said	say	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
 7	.	.	PUNCT	.	_	6	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-69
 # text = “You both said the same thing at the same time, you’ve got to make a —” He hit his forehead with his palm.
-# s_type=decl
-# speaker=Pete
-1	“	"	PUNCT	``	_	4	punct	_	SpaceAfter=No
-2	You	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	_	Entity=(person-56
-3	both	both	PRON	DT	_	4	obl:npmod	_	Entity=person-56)
+# s_type = decl
+# speaker = Pete
+1	“	''	PUNCT	``	_	4	punct	_	Discourse=cause:109->110|SpaceAfter=No
+2	You	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	_	Entity=(person-58
+3	both	both	PRON	DT	_	4	obl:npmod	_	Entity=person-58)
 4	said	say	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-5	the	the	DET	DT	Definite=Def|PronType=Art	7	det	_	Entity=(abstract-55
+5	the	the	DET	DT	Definite=Def|PronType=Art	7	det	_	Entity=(abstract-57
 6	same	same	ADJ	JJ	Degree=Pos	7	amod	_	_
-7	thing	thing	NOUN	NN	Number=Sing	4	obj	_	Entity=abstract-55)
+7	thing	thing	NOUN	NN	Number=Sing	4	obj	_	Entity=abstract-57)
 8	at	at	ADP	IN	_	11	case	_	_
-9	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(time-57
+9	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(time-59
 10	same	same	ADJ	JJ	Degree=Pos	11	amod	_	_
-11	time	time	NOUN	NN	Number=Sing	4	obl	_	Entity=time-57)|SpaceAfter=No
+11	time	time	NOUN	NN	Number=Sing	4	obl	_	Entity=time-59)|SpaceAfter=No
 12	,	,	PUNCT	,	_	15	punct	_	_
-13	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	15	nsubj	_	Entity=(person-56)|SpaceAfter=No
+13	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	15	nsubj	_	Discourse=background:110->113|Entity=(person-58)|SpaceAfter=No
 14	’ve	have	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	15	aux	_	_
 15	got	get	VERB	VBN	Tense=Past|VerbForm=Part	4	parataxis	_	_
 16	to	to	PART	TO	_	17	mark	_	_
 17	make	make	VERB	VB	VerbForm=Inf	15	xcomp	_	_
 18	a	a	PRON	DT	Definite=Ind|PronType=Art	17	obj	_	_
 19	—	—	PUNCT	:	_	4	punct	_	SpaceAfter=No
-20	”	"	PUNCT	''	_	4	punct	_	_
-21	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	22	nsubj	_	Entity=(person-24)
+20	”	''	PUNCT	''	_	4	punct	_	_
+21	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	22	nsubj	_	Discourse=preparation:111->113|Entity=(person-25)
 22	hit	hit	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	4	parataxis	_	_
-23	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	24	nmod:poss	_	Entity=(object-58(person-24)
-24	forehead	forehead	NOUN	NN	Number=Sing	22	obj	_	Entity=object-58)
+23	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	24	nmod:poss	_	Entity=(object-60(person-25)
+24	forehead	forehead	NOUN	NN	Number=Sing	22	obj	_	Entity=object-60)
 25	with	with	ADP	IN	_	27	case	_	_
-26	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	27	nmod:poss	_	Entity=(object-59(person-24)
-27	palm	palm	NOUN	NN	Number=Sing	22	obl	_	Entity=object-59)|SpaceAfter=No
+26	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	27	nmod:poss	_	Entity=(object-61(person-25)
+27	palm	palm	NOUN	NN	Number=Sing	22	obl	_	Entity=object-61)|SpaceAfter=No
 28	.	.	PUNCT	.	_	4	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-70
 # text = “That’s it!
-# s_type=decl
-# speaker=Pete
-1	“	"	PUNCT	``	_	4	punct	_	SpaceAfter=No
-2	That	that	PRON	DT	Number=Sing|PronType=Dem	4	nsubj	_	Entity=(abstract-60)|SpaceAfter=No
+# s_type = decl
+# speaker = Pete
+1	“	''	PUNCT	``	_	4	punct	_	Discourse=joint:112->111|SpaceAfter=No
+2	That	that	PRON	DT	Number=Sing|PronType=Dem	4	nsubj	_	Entity=(abstract-62)|SpaceAfter=No
 3	’s	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	cop	_	_
-4	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	0	root	_	Entity=(abstract-61)|SpaceAfter=No
+4	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	0	root	_	Entity=(abstract-62)|SpaceAfter=No
 5	!	!	PUNCT	.	_	4	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-71
 # text = Three wishes!
-# s_type=frag
-# speaker=Pete
-1	Three	Three	NUM	CD	NumType=Card	2	nummod	_	Entity=(abstract-61
-2	wishes	wish	NOUN	NNS	Number=Plur	0	root	_	Entity=abstract-61)|SpaceAfter=No
+# s_type = frag
+# speaker = Pete
+1	Three	Three	NUM	CD	NumType=Card	2	nummod	_	Discourse=background:113->118|Entity=(abstract-62
+2	wishes	wish	NOUN	NNS	Number=Plur	0	root	_	Entity=abstract-62)|SpaceAfter=No
 3	!	!	PUNCT	.	_	2	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-72
 # text = When you catch a fairy, you get three wishes.
-# s_type=decl
-# speaker=Pete
-1	When	when	SCONJ	WRB	PronType=Int	3	mark	_	Entity=(abstract-62
-2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	_	Entity=(person-37)
+# s_type = decl
+# speaker = Pete
+1	When	when	SCONJ	WRB	PronType=Int	3	mark	_	Discourse=condition:114->115|Entity=(event-63
+2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	_	Entity=(person-39)
 3	catch	catch	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	8	advcl	_	_
-4	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	_	Entity=(person-63
-5	fairy	fairy	NOUN	NN	Number=Sing	3	obj	_	Entity=person-63)|SpaceAfter=No
+4	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	_	Entity=(person-64
+5	fairy	fairy	NOUN	NN	Number=Sing	3	obj	_	Entity=person-64)|SpaceAfter=No
 6	,	,	PUNCT	,	_	3	punct	_	_
-7	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	8	nsubj	_	Entity=(person-37)
+7	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	8	nsubj	_	Discourse=elaboration:115->113|Entity=(person-39)
 8	get	get	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	0	root	_	_
-9	three	three	NUM	CD	NumType=Card	10	nummod	_	Entity=(abstract-61
-10	wishes	wish	NOUN	NNS	Number=Plur	8	obj	_	Entity=abstract-62)abstract-61)|SpaceAfter=No
+9	three	three	NUM	CD	NumType=Card	10	nummod	_	Entity=(abstract-62
+10	wishes	wish	NOUN	NNS	Number=Plur	8	obj	_	Entity=event-63)abstract-62)|SpaceAfter=No
 11	.	.	PUNCT	.	_	8	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-73
 # text = Hey you in there!
-# s_type=intj
-# speaker=Pete
-1	Hey	hey	INTJ	UH	_	2	discourse	_	_
+# s_type = intj
+# speaker = Pete
+1	Hey	hey	INTJ	UH	_	2	discourse	_	Discourse=preparation:116->117
 2	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	0	root	_	Entity=(person-12
 3	in	in	ADP	IN	_	4	case	_	_
 4	there	there	ADV	RB	PronType=Dem	2	nmod	_	Entity=person-12)|SpaceAfter=No
@@ -1110,39 +1110,39 @@
 
 # sent_id = GUM_fiction_sneeze-74
 # text = Is that right?”
-# s_type=q
-# speaker=Pete
-1	Is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	cop	_	_
-2	that	that	PRON	DT	Number=Sing|PronType=Dem	3	nsubj	_	Entity=(abstract-62)
+# s_type = q
+# speaker = Pete
+1	Is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	cop	_	Discourse=question:117->118
+2	that	that	PRON	DT	Number=Sing|PronType=Dem	3	nsubj	_	Entity=(event-63)
 3	right	right	ADJ	JJ	Degree=Pos	0	root	_	SpaceAfter=No
 4	?	?	PUNCT	.	_	3	punct	_	SpaceAfter=No
-5	”	"	PUNCT	''	_	3	punct	_	_
+5	”	''	PUNCT	''	_	3	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-75
 # text = “You could see things like that …” said the voice with resignation.
-# s_type=decl
-# speaker=Fairy
-1	“	"	PUNCT	``	_	4	punct	_	SpaceAfter=No
-2	You	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	_	Entity=(person-24)
+# s_type = decl
+# speaker = Fairy
+1	“	''	PUNCT	``	_	4	punct	_	Discourse=background:118->120|SpaceAfter=No
+2	You	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	4	nsubj	_	Entity=(person-25)
 3	could	could	AUX	MD	VerbForm=Fin	4	aux	_	_
 4	see	see	VERB	VB	VerbForm=Inf	10	ccomp	_	_
-5	things	thing	NOUN	NNS	Number=Plur	4	obj	_	Entity=(abstract-64)
+5	things	thing	NOUN	NNS	Number=Plur	4	obj	_	Entity=(abstract-65)
 6	like	like	ADP	IN	_	7	case	_	_
-7	that	that	PRON	DT	Number=Sing|PronType=Dem	4	obl	_	Entity=(abstract-65)
+7	that	that	PRON	DT	Number=Sing|PronType=Dem	4	obl	_	Entity=(abstract-66)
 8	…	…	PUNCT	:	_	4	punct	_	SpaceAfter=No
-9	”	"	PUNCT	''	_	4	punct	_	_
-10	said	say	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+9	”	''	PUNCT	''	_	4	punct	_	_
+10	said	say	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	Discourse=attribution:119->118
 11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	_	Entity=(abstract-15
 12	voice	voice	NOUN	NN	Number=Sing	10	nsubj	_	Entity=abstract-15)
 13	with	with	ADP	IN	_	14	case	_	_
-14	resignation	resignation	NOUN	NN	Number=Sing	10	obl	_	Entity=(abstract-66)|SpaceAfter=No
+14	resignation	resignation	NOUN	NN	Number=Sing	10	obl	_	Entity=(abstract-67)|SpaceAfter=No
 15	.	.	PUNCT	.	_	10	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-76
 # text = “I wish you’d get out of my nose, then!” I cried.
-# s_type=decl
-# speaker=Narrator
-1	“	"	PUNCT	``	_	3	punct	_	SpaceAfter=No
+# s_type = decl
+# speaker = Narrator
+1	“	''	PUNCT	``	_	3	punct	_	Discourse=sequence:120->4|SpaceAfter=No
 2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	_	Entity=(person-6)
 3	wish	wish	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	16	ccomp	_	_
 4	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	6	nsubj	_	Entity=(person-12)|SpaceAfter=No
@@ -1155,17 +1155,17 @@
 11	,	,	PUNCT	,	_	12	punct	_	_
 12	then	then	ADV	RB	PronType=Dem	3	advmod	_	SpaceAfter=No
 13	!	!	PUNCT	.	_	3	punct	_	SpaceAfter=No
-14	”	"	PUNCT	''	_	3	punct	_	_
-15	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	16	nsubj	_	Entity=(person-6)
+14	”	''	PUNCT	''	_	3	punct	_	_
+15	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	16	nsubj	_	Discourse=attribution:121->120|Entity=(person-6)
 16	cried	cry	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
 17	.	.	PUNCT	.	_	16	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-77
 # text = In a flash the fairy was out of my nose and gone.
-# s_type=decl
-1	In	in	ADP	IN	_	3	case	_	_
-2	a	a	DET	DT	Definite=Ind|PronType=Art	3	det	_	Entity=(time-67
-3	flash	flash	NOUN	NN	Number=Sing	10	nmod	_	Entity=time-67)
+# s_type = decl
+1	In	in	ADP	IN	_	3	case	_	Discourse=result:122->120
+2	a	a	DET	DT	Definite=Ind|PronType=Art	3	det	_	Entity=(time-68
+3	flash	flash	NOUN	NN	Number=Sing	10	nmod	_	Entity=time-68)
 4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Entity=(person-12
 5	fairy	fairy	NOUN	NN	Number=Sing	10	nsubj	_	Entity=person-12)
 6	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	10	cop	_	_
@@ -1179,96 +1179,96 @@
 
 # sent_id = GUM_fiction_sneeze-78
 # text = And I’m still waiting for my two other wishes.
-# s_type=decl
-1	And	and	CCONJ	CC	_	5	cc	_	_
+# s_type = decl
+1	And	and	CCONJ	CC	_	5	cc	_	Discourse=sequence:123->122
 2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	5	nsubj	_	Entity=(person-6)|SpaceAfter=No
 3	’m	be	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	5	aux	_	_
 4	still	still	ADV	RB	_	5	advmod	_	_
 5	waiting	wait	VERB	VBG	VerbForm=Ger	0	root	_	_
 6	for	for	ADP	IN	_	10	case	_	_
-7	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	10	nmod:poss	_	Entity=(abstract-68(person-6)
+7	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	10	nmod:poss	_	Entity=(abstract-69(person-6)
 8	two	two	NUM	CD	NumType=Card	10	nummod	_	_
 9	other	other	ADJ	JJ	Degree=Pos	10	amod	_	_
-10	wishes	wish	NOUN	NNS	Number=Plur	5	obl	_	Entity=abstract-68)|SpaceAfter=No
+10	wishes	wish	NOUN	NNS	Number=Plur	5	obl	_	Entity=abstract-69)|SpaceAfter=No
 11	.	.	PUNCT	.	_	5	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-79
 # text = THE END
-# s_type=frag
-1	THE	the	DET	DT	Definite=Def|PronType=Art	2	det	_	Entity=(event-69
-2	END	end	NOUN	NN	Number=Sing	0	root	_	Entity=event-69)
+# s_type = frag
+1	THE	the	DET	DT	Definite=Def|PronType=Art	2	det	_	Discourse=sequence:124->4|Entity=(event-70
+2	END	end	NOUN	NN	Number=Sing	0	root	_	Entity=event-70)
 
 # sent_id = GUM_fiction_sneeze-80
 # text = Something a little lighter this week, I hope you enjoy it.
-# s_type=multiple
-1	Something	something	NOUN	NN	Number=Sing	0	root	_	Entity=(abstract-70
+# s_type = multiple
+1	Something	something	NOUN	NN	Number=Sing	0	root	_	Discourse=evaluation:125->4|Entity=(abstract-71
 2	a	a	DET	DT	Definite=Ind|PronType=Art	3	det	_	_
 3	little	little	ADV	RB	Degree=Pos	4	obl:npmod	_	_
-4	lighter	light	ADJ	JJR	Degree=Cmp	1	amod	_	Entity=abstract-70)
-5	this	this	DET	DT	Number=Sing|PronType=Dem	6	det	_	Entity=(time-71
-6	week	week	NOUN	NN	Number=Sing	1	nmod:tmod	_	Entity=time-71)|SpaceAfter=No
+4	lighter	light	ADJ	JJR	Degree=Cmp	1	amod	_	Entity=abstract-71)
+5	this	this	DET	DT	Number=Sing|PronType=Dem	6	det	_	Entity=(time-72
+6	week	week	NOUN	NN	Number=Sing	1	nmod:tmod	_	Entity=time-72)|SpaceAfter=No
 7	,	,	PUNCT	,	_	9	punct	_	_
-8	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	9	nsubj	_	Entity=(person-72)
+8	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	9	nsubj	_	Discourse=evaluation:126->125|Entity=(person-73)
 9	hope	hope	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	1	parataxis	_	_
-10	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	11	nsubj	_	Entity=(person-73)
+10	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	11	nsubj	_	Entity=(person-74)
 11	enjoy	enjoy	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	9	ccomp	_	_
-12	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	11	obj	_	Entity=(abstract-70)|SpaceAfter=No
+12	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	11	obj	_	Entity=(abstract-71)|SpaceAfter=No
 13	.	.	PUNCT	.	_	1	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-81
 # text = Once it got started, I realised that the idea must have been inspired by the title of Justine Larbalestier’s How to Ditch Your Fairy, although it has nothing at all to do with that story at all.
-# s_type=decl
-1	Once	once	SCONJ	IN	_	4	mark	_	_
-2	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	4	nsubj:pass	_	Entity=(abstract-70)
+# s_type = decl
+1	Once	once	SCONJ	IN	_	4	mark	_	Discourse=circumstance:127->129
+2	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	4	nsubj:pass	_	Entity=(abstract-71)
 3	got	get	AUX	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	4	aux:pass	_	_
 4	started	start	VERB	VBN	Tense=Past|VerbForm=Part	7	advcl	_	SpaceAfter=No
 5	,	,	PUNCT	,	_	4	punct	_	_
-6	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	7	nsubj	_	Entity=(person-72)
+6	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	7	nsubj	_	Discourse=attribution:128->129|Entity=(person-73)
 7	realised	realise	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-8	that	that	SCONJ	IN	_	14	mark	_	_
-9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	_	Entity=(abstract-74
-10	idea	idea	NOUN	NN	Number=Sing	14	nsubj:pass	_	Entity=abstract-74)
+8	that	that	SCONJ	IN	_	14	mark	_	Discourse=joint:129->125
+9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	_	Entity=(abstract-75
+10	idea	idea	NOUN	NN	Number=Sing	14	nsubj:pass	_	Entity=abstract-75)
 11	must	must	AUX	MD	VerbForm=Fin	14	aux	_	_
 12	have	have	AUX	VB	VerbForm=Inf	14	aux	_	_
 13	been	be	AUX	VBN	Tense=Past|VerbForm=Part	14	aux:pass	_	_
 14	inspired	inspire	VERB	VBN	Tense=Past|VerbForm=Part	7	ccomp	_	_
 15	by	by	ADP	IN	_	17	case	_	_
-16	the	the	DET	DT	Definite=Def|PronType=Art	17	det	_	Entity=(abstract-75
+16	the	the	DET	DT	Definite=Def|PronType=Art	17	det	_	Entity=(abstract-76
 17	title	title	NOUN	NN	Number=Sing	14	obl	_	_
 18	of	of	ADP	IN	_	24	case	_	_
-19	Justine	Justine	PROPN	NNP	Number=Sing	24	nmod:poss	_	Entity=(abstract-76(person-77
+19	Justine	Justine	PROPN	NNP	Number=Sing	24	nmod:poss	_	Entity=(abstract-77(person-78
 20	Larbalestier	Larbalestier	PROPN	NNP	Number=Sing	19	flat	_	SpaceAfter=No
-21	’s	's	PART	POS	_	19	case	_	Entity=person-77)
+21	’s	's	PART	POS	_	19	case	_	Entity=person-78)
 22	How	how	SCONJ	WRB	PronType=Int	24	mark	_	_
 23	to	to	PART	TO	_	24	mark	_	_
 24	Ditch	Ditch	PROPN	NNP	Number=Sing	17	nmod	_	_
-25	Your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	26	nmod:poss	_	Entity=(person-78(person-79)
-26	Fairy	Fairy	PROPN	NNP	Number=Sing	24	obj	_	Entity=abstract-75)abstract-76)person-78)|SpaceAfter=No
+25	Your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	26	nmod:poss	_	Entity=(person-79(person-80)
+26	Fairy	Fairy	PROPN	NNP	Number=Sing	24	obj	_	Entity=abstract-76)abstract-77)person-79)|SpaceAfter=No
 27	,	,	PUNCT	,	_	30	punct	_	_
-28	although	although	SCONJ	IN	_	30	mark	_	_
-29	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	30	nsubj	_	Entity=(abstract-70)
+28	although	although	SCONJ	IN	_	30	mark	_	Discourse=concession:130->129
+29	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	30	nsubj	_	Entity=(abstract-71)
 30	has	have	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	14	advcl	_	_
-31	nothing	nothing	NOUN	NN	Number=Sing|Polarity=Neg	30	obj	_	Entity=(abstract-80
+31	nothing	nothing	NOUN	NN	Number=Sing|Polarity=Neg	30	obj	_	Entity=(abstract-81
 32	at	at	ADP	IN	_	33	case	_	_
-33	all	all	PRON	DT	_	31	nmod	_	Entity=abstract-80)
+33	all	all	PRON	DT	_	31	nmod	_	_
 34	to	to	PART	TO	_	35	mark	_	_
 35	do	do	VERB	VB	VerbForm=Inf	31	acl	_	_
 36	with	with	ADP	IN	_	38	case	_	_
-37	that	that	DET	DT	Number=Sing|PronType=Dem	38	det	_	Entity=(abstract-76
-38	story	story	NOUN	NN	Number=Sing	35	obl	_	Entity=abstract-76)
+37	that	that	DET	DT	Number=Sing|PronType=Dem	38	det	_	Entity=(abstract-77
+38	story	story	NOUN	NN	Number=Sing	35	obl	_	Entity=abstract-77)
 39	at	at	ADP	IN	_	40	case	_	_
-40	all	all	PRON	DT	_	31	nmod	_	SpaceAfter=No
+40	all	all	PRON	DT	_	31	nmod	_	Entity=abstract-81)|SpaceAfter=No
 41	.	.	PUNCT	.	_	7	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-82
 # text = All in all, my story feels very light.
-# s_type=decl
-1	All	all	PRON	DT	_	7	obl:npmod	_	_
+# s_type = decl
+1	All	all	PRON	DT	_	7	obl:npmod	_	Discourse=joint:131->125
 2	in	in	ADP	IN	_	3	case	_	_
 3	all	all	PRON	DT	_	1	nmod	_	SpaceAfter=No
 4	,	,	PUNCT	,	_	1	punct	_	_
-5	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	6	nmod:poss	_	Entity=(abstract-70(person-72)
-6	story	story	NOUN	NN	Number=Sing	7	nsubj	_	Entity=abstract-70)
+5	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	6	nmod:poss	_	Entity=(abstract-71(person-73)
+6	story	story	NOUN	NN	Number=Sing	7	nsubj	_	Entity=abstract-71)
 7	feels	feel	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	_
 8	very	very	ADV	RB	_	9	advmod	_	_
 9	light	light	ADJ	JJ	Degree=Pos	7	xcomp	_	SpaceAfter=No
@@ -1276,39 +1276,44 @@
 
 # sent_id = GUM_fiction_sneeze-83
 # text = But I think I needed something a little less dark, and there are some quite sombre tales coming up in the coming weeks.
-# s_type=decl
-1	But	but	CCONJ	CC	_	14	cc	_	_
-2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	_	Entity=(person-72)
+# s_type = decl
+1	But	but	CCONJ	CC	_	14	cc	_	Discourse=attribution:132->133
+2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	_	Entity=(person-73)
 3	think	think	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	0	root	_	_
-4	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	5	nsubj	_	Entity=(person-72)
+4	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	5	nsubj	_	Discourse=justify:133->131|Entity=(person-73)
 5	needed	need	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	3	ccomp	_	_
-6	something	something	NOUN	NN	Number=Sing	5	obj	_	Entity=(abstract-81
+6	something	something	NOUN	NN	Number=Sing	5	obj	_	Entity=(abstract-82
 7	a	a	DET	DT	Definite=Ind|PronType=Art	8	det	_	_
 8	little	little	ADV	RB	Degree=Pos	9	nmod:npmod	_	_
 9	less	less	ADV	RBR	Degree=Cmp	10	advmod	_	_
-10	dark	dark	ADJ	JJ	Degree=Pos	6	amod	_	Entity=abstract-81)|SpaceAfter=No
+10	dark	dark	ADJ	JJ	Degree=Pos	6	amod	_	Entity=abstract-82)|SpaceAfter=No
 11	,	,	PUNCT	,	_	14	punct	_	_
-12	and	and	CCONJ	CC	_	14	cc	_	_
+12	and	and	CCONJ	CC	_	14	cc	_	Discourse=contrast:134->133
 13	there	there	PRON	EX	_	14	expl	_	_
 14	are	be	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	3	conj	_	_
-15	some	some	DET	DT	_	18	det	_	Entity=(abstract-82
+15	some	some	DET	DT	_	18	det	_	Entity=(abstract-83
 16	quite	quite	ADV	RB	_	17	advmod	_	_
 17	sombre	sombre	ADJ	JJ	Degree=Pos	18	amod	_	_
-18	tales	tale	NOUN	NNS	Number=Plur	14	nsubj	_	Entity=abstract-82)
+18	tales	tale	NOUN	NNS	Number=Plur	14	nsubj	_	Entity=abstract-83)
 19	coming	come	VERB	VBG	VerbForm=Ger	18	acl	_	_
 20	up	up	ADP	RP	_	19	compound:prt	_	_
 21	in	in	ADP	IN	_	24	case	_	_
-22	the	the	DET	DT	Definite=Def|PronType=Art	24	det	_	Entity=(time-83
+22	the	the	DET	DT	Definite=Def|PronType=Art	24	det	_	Entity=(time-84
 23	coming	come	VERB	VBG	VerbForm=Ger	24	amod	_	_
-24	weeks	week	NOUN	NNS	Number=Plur	19	obl	_	Entity=time-83)|SpaceAfter=No
+24	weeks	week	NOUN	NNS	Number=Plur	19	obl	_	Entity=time-84)|SpaceAfter=No
 25	.	.	PUNCT	.	_	3	punct	_	_
 
 # sent_id = GUM_fiction_sneeze-84
 # text = See you then.
-# s_type=other
-1	See	see	VERB	VB	VerbForm=Inf	0	root	_	_
-2	you	you	PRON	PRP	Case=Acc|Person=2|PronType=Prs	1	obj	_	Entity=(person-73)
+# s_type = other
+1	See	see	VERB	VB	VerbForm=Inf	0	root	_	Discourse=elaboration:135->134
+2	you	you	PRON	PRP	Case=Acc|Person=2|PronType=Prs	1	obj	_	Entity=(person-74)
 3	then	then	ADV	RB	PronType=Dem	1	obl:tmod	_	SpaceAfter=No
 4	.	.	PUNCT	.	_	1	punct	_	_
+
+
+
+
+
 
 
