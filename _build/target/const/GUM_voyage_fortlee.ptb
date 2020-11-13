@@ -612,10 +612,14 @@
 
 (ROOT
   (S
-    (PP (IN For)
-      (NP (JJ local) (NN transportation)
-        (CC or)
-        (NN air-port/train) (NN station) (NNS services)))
+    (SBAR (IN For)
+      (S
+        (NP
+          (NP (JJ local) (NN transportation))
+          (CC or)
+          (NP (NN air-port)))
+        (VP (SYM /)
+          (NP (NN train) (NN station) (NNS services)))))
     (, ,)
     (NP (EX there))
     (VP (VBP are)
@@ -769,9 +773,9 @@
               (NP (DT this) (NN town))
               (VP (VBD was)
                 (PP (IN like)
-                  (ADVP
+                  (NP
                     (NP (NNS centuries))
-                    (RB ago)))))))))
+                    (ADVP (IN ago))))))))))
     (. .)))
 
 (ROOT
@@ -1007,23 +1011,26 @@
   (NP
     (NP (NN Store) (NN hours))
     (: :)
-    (S
+    (NP
       (NP (NNP Mon-Fri) (CD 08:30))
+      (NP (NNP am)))
+    (X
+      (X (SYM -))
       (NP
-        (NAC (NNP am)
-          (PP (IN -)
-            (NP
-              (NP (CD 7))
-              (NP
-                (NP
-                  (NP (NNP pm) (, ,) (NNP Sat) (CD 08:30) (NNP am))
-                  (PP (IN -)
-                    (NP (CD 06:30))))
-                (NP
-                  (NP (NNP pm) (, ,) (NNP Sun) (CD 9) (NNP am))
-                  (PP (IN -)
-                    (NP (CD 03:00))))))))
-        (NNP pm)))))
+        (NP (CD 7))
+        (NP
+          (NP
+            (NP (NNP pm) (, ,) (NNP Sat) (CD 08:30) (NNP am))
+            (SBAR
+              (S
+                (VP (SYM -)
+                  (NP (CD 06:30))))))
+          (NP
+            (NP (NNP pm) (, ,) (NNP Sun) (CD 9) (NNP am))
+            (SBAR
+              (S
+                (VP (SYM -)
+                  (NP (CD 03:00) (NNP pm)))))))))))
 
 (ROOT
   (S

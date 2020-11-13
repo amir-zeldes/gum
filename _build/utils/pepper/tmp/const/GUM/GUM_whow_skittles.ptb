@@ -49,7 +49,7 @@
                   (NP (JJ fruity) (NN flavor)
                     (CC and)
                     (NN color))))
-              (PP (TO to)
+              (PP (IN to)
                 (NP (JJ regular) (NN vodka))))))))
     (. .)))
 
@@ -291,7 +291,7 @@
   (S
     (VP (VB Add)
       (NP (CD six) (NNPS Skittles))
-      (PP (TO to)
+      (PP (IN to)
         (NP
           (NP (CD 25) (NNS ml))
           (PP (IN of)
@@ -322,12 +322,12 @@
             (PP (IN of)
               (NP
                 (NP (NNPS Skittles))
-                (PP (TO to)
+                (PP (IN to)
                   (NP (NN vodka))))))
           (VP (VBZ varies)
             (PP (IN from)
               (NP (NN recipe)))
-            (PP (TO to)
+            (PP (IN to)
               (NP (NN recipe)))))))
     (. .)))
 
@@ -348,11 +348,16 @@
 
 (ROOT
   (S
-    (VP (NN Filter)
-      (PP (RP out)
-        (NP
-          (NP (DT the) (VBG remaining) (NNP Skittle))
-          (NP (`` ") (NNS insides) ('' ")))))
+    (VP (VB Filter)
+      (PRT (RP out))
+      (NP
+        (NP (DT the))
+        (VP (VBG remaining)
+          (S
+            (NP (NNP Skittle))
+            (`` ")
+            (NP (NNS insides))
+            ('' ")))))
     (. .)))
 
 (ROOT
@@ -436,15 +441,19 @@
         (NP (DT the) (NNPS Skittles))
         (PRN (-LRB- -LRB-)
           (NP
-            (NP (CD 20) (TO -) (CD 25))
+            (NP
+              (NP (CD 20))
+              (SBAR
+                (S
+                  (VP (SYM -)
+                    (NP (CD 25))))))
             (PP (IN per)
               (NP
                 (NP (CD 350) (NNS ml))
                 (SBAR
                   (S
                     (VP (SYM /)
-                      (NP (CD 11.8)))))))
-            (ADJP (JJ fl) (NN oz)))
+                      (NP (CD 11.8) (JJ fl) (NN oz))))))))
           (-RRB- -RRB-))))
     (. .)))
 
@@ -877,9 +886,10 @@
         (S
           (NP (JJ green) (NNPS Skittles))
           (VP (VBP add)
-            (NP (DT a) (NN sourness))
-            (PP (TO to)
-              (NP (DT the) (NN drink)))
+            (NP
+              (NP (DT a) (NN sourness))
+              (PP (IN to)
+                (NP (DT the) (NN drink))))
             (, ,)
             (SBAR (RB so) (IN if)
               (S
@@ -900,7 +910,7 @@
       (CC and)
       (VP (VB add)
         (NP (PRP them))
-        (PP (TO to)
+        (PP (IN to)
           (NP
             (NP (PRP$ their) (JJ own) (NN bottle))
             (PP (IN for)
@@ -1027,7 +1037,7 @@
     (S
       (VP (VB do) (RB not)
         (VP (VB drink)
-          (PP (TO to)
+          (PP (IN to)
             (NP
               (NP (DT the) (NN extent))
               (PP (IN of)

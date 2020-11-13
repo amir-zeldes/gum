@@ -51,14 +51,18 @@
               (NP
                 (NP (NN ozone) (NN pollution))
                 (PP (IN over)
-                  (NP (CD 2000) (TO -) (CD 2050)))
-                (PP (IN on)
+                  (NP (CD 2000)))
+                (X
+                  (X (SYM -))
                   (NP
-                    (NP (DT the) (JJ worldwide) (NN production))
-                    (PP (IN of)
-                      (NP (NN wheat) (, ,) (NN rice) (, ,) (NN maize)
-                        (CC and)
-                        (NN soybean)))))))))))
+                    (NP (CD 2050))
+                    (PP (IN on)
+                      (NP
+                        (NP (DT the) (JJ worldwide) (NN production))
+                        (PP (IN of)
+                          (NP (NN wheat) (, ,) (NN rice) (, ,) (NN maize)
+                            (CC and)
+                            (NN soybean)))))))))))))
     (. .)))
 
 (ROOT
@@ -166,7 +170,7 @@
               (: [...])))
           (PP
             (NP (VBG leading))
-            (PP (TO to)
+            (PP (IN to)
               (NP (DT either)))))
         (VP (VBG offsetting)
           (CC or)
@@ -256,25 +260,27 @@
     (VP (MD may)
       (VP (VB be)
         (ADJP (RB primarily) (JJ sensitive))
-        (PP (TO to)
-          (NP
-            (NP (NN ozone))
-            (PRN (: -)
+        (PP (IN to)
+          (FRAG
+            (FRAG
+              (NP (NN ozone))
+              (: -)
               (PP (IN in)
                 (NP
                   (NP (DT the) (NN case))
                   (PP (IN of)
                     (NP (NN wheat) (: -)
                       (CC or)
-                      (NN heat))))
-                (: -))
+                      (NN heat))))))
+            (: -)
+            (FRAG
               (PP (IN in)
                 (NP
                   (NP (DT the) (NN case))
                   (PP (IN of)
                     (NP (NN maize)))))
-              (: -))))
-        (ADVP (RB alone))
+              (: -)
+              (ADVP (RB alone)))))
         (, ,)
         (S
           (VP (VBG providing)
@@ -302,7 +308,7 @@
           (NP (NN Ground-level) (NN ozone))
           (VP (VBZ causes)
             (NP (JJR more) (NN damage))
-            (PP (TO to)
+            (PP (IN to)
               (NP
                 (NP (NNS plants))
                 (PP (IN than)
@@ -384,7 +390,7 @@
                 (ADVP (RB previously)))
               (VP (VBN heat-attributed)
                 (NP (NN damage))
-                (PP (TO to)
+                (PP (IN to)
                   (NP (NN soybean) (NNS crops)))))))))
     (. .)))
 
@@ -531,7 +537,7 @@
     (VP (VBZ has)
       (VP (VBN dropped)
         (ADJP (RB partly) (JJ due))
-        (PP (TO to)
+        (PP (IN to)
           (NP (DT the) (NNP Clean) (NNP Air) (NNP Act)))))
     (. .)))
 
@@ -555,11 +561,14 @@
           (NP
             (NP (CD 25) (NN percent))
             (PP (IN on)
-              (NP (NN average)))))
-        (PP (IN across)
-          (NP (DT the) (NNP U.S.)))
+              (NP
+                (NP (NN average))
+                (PP (IN across)
+                  (NP (DT the) (NNP U.S.)))))))
         (PP (IN from)
-          (NP (CD 1980) (TO to) (CD 2012)))))
+          (NP (CD 1980)))
+        (PP (IN to)
+          (NP (CD 2012)))))
     (. [...])))
 
 (ROOT

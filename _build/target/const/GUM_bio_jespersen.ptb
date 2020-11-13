@@ -15,9 +15,12 @@
             (NP (-LSB- [) (NNP ʌtˢo) (NNP ˈjɛsb̥ɐsn̩) (-RSB- ]))
             (: ;)
             (NP
-              (NP (CD 16) (NNP July) (CD 1860))
-              (PP (IN –)
-                (NP (CD 30)))
+              (NP
+                (NP (CD 16) (NNP July) (CD 1860))
+                (SBAR
+                  (S
+                    (VP (SYM –)
+                      (NP (CD 30))))))
               (NP-TMP (NNP April) (CD 1943)))))
         (-RRB- -RRB-)))
     (VP (VBD was)
@@ -167,9 +170,12 @@
 (ROOT
   (S
     (PP (IN In)
-      (NP (CD 1887)))
-    (PP (IN –)
-      (NP (CD 1888)))
+      (NP
+        (NP (CD 1887))
+        (SBAR
+          (S
+            (VP (SYM –)
+              (NP (CD 1888)))))))
     (, ,)
     (NP (PRP he))
     (VP (VBD traveled)
@@ -262,14 +268,17 @@
       (, ,)
       (CC and)
       (VP (VBD served)
-        (PP (IN as)
-          (NP
-            (NP (NN Rector))
-            (PP (IN of)
-              (NP (DT the) (NN university)))))
-        (PP (IN in)
-          (NP
-            (QP (CD 1920) (IN –) (CD 21))))))
+        (SBAR (IN as)
+          (S
+            (NP
+              (NP (NN Rector))
+              (PP (IN of)
+                (NP
+                  (NP (DT the) (NN university))
+                  (PP (IN in)
+                    (NP (CD 1920))))))
+            (VP (SYM –)
+              (NP (CD 21)))))))
     (. .)))
 
 (ROOT
@@ -546,66 +555,68 @@
 
 (ROOT
   (S
-    (S
+    (NP
       (NP
-        (NP (NNP Modern) (NNP English) (NNP Grammar))
-        (PP (IN on)
-          (NP
-            (NP (NNP Historical) (NNPS Principles))
-            (PRN (-LRB- -LRB-)
-              (NP
-                (NP (CD 1909))
-                (PP (IN –)
-                  (NP (CD 1949))))
-              (-RRB- -RRB-)))))
-      (, ,)
-      (VP (VBD concentrated)
-        (PP (IN on)
-          (NP (NN morphology)
-            (CC and)
-            (NN syntax)))))
-    (, ,)
-    (CC and)
-    (S
-      (NP
-        (NP (NNP Growth)
-          (CC and)
-          (NNP Structure))
-        (PP (IN of)
-          (NP
-            (NP (DT the) (NNP English) (NNP Language))
-            (PRN (-LRB- -LRB-)
-              (NP (CD 1905))
-              (-RRB- -RRB-)))))
-      (VP (VBZ is)
         (NP
-          (NP (DT a) (JJ comprehensive) (NN view))
-          (PP (IN of)
-            (NP (NNP English))))
-        (PP
-          (PP (IN by)
+          (NP (NNP Modern) (NNP English) (NNP Grammar))
+          (PP (IN on)
             (NP
-              (NP (NN someone))
-              (PP (IN with)
-                (NP (DT another) (JJ native) (NN language)))))
-          (, ,)
-          (CC and)
-          (ADVP (RB still))
-          (PP (IN in)
-            (NP (NN print))))
+              (NP
+                (NP (NNP Historical) (NNPS Principles))
+                (-LRB- -LRB-)
+                (NP
+                  (NP (CD 1909))
+                  (SBAR
+                    (S
+                      (VP (SYM –)
+                        (NP (CD 1949))))))
+                (-RRB- -RRB-))
+              (, ,)
+              (VP (VBD concentrated)
+                (PP (IN on)
+                  (NP (NN morphology)
+                    (CC and)
+                    (NN syntax)))))))
         (, ,)
-        (PP (IN over)
-          (NP
-            (NP
-              (NP (CD 70) (NNS years))
-              (PP (IN after)
-                (NP (PRP$ his) (NN death))))
+        (CC and)
+        (NP
+          (NP (NNP Growth)
             (CC and)
-            (NP
-              (QP (JJR more) (IN than) (CD 100))
-              (NNS years))))
-        (PP (IN after)
-          (NP (NN publication)))))
+            (NNP Structure))
+          (PP (IN of)
+            (NP (DT the) (NNP English) (NNP Language)))))
+      (PRN (-LRB- -LRB-)
+        (NP (CD 1905))
+        (-RRB- -RRB-)))
+    (VP (VBZ is)
+      (NP
+        (NP (DT a) (JJ comprehensive) (NN view))
+        (PP (IN of)
+          (NP (NNP English))))
+      (PP
+        (PP (IN by)
+          (NP
+            (NP (NN someone))
+            (PP (IN with)
+              (NP (DT another) (JJ native) (NN language)))))
+        (, ,)
+        (CC and)
+        (ADVP (RB still))
+        (PP (IN in)
+          (NP (NN print))))
+      (, ,)
+      (PP (IN over)
+        (NP
+          (NP
+            (NP (CD 70) (NNS years))
+            (PP (IN after)
+              (NP (PRP$ his) (NN death))))
+          (CC and)
+          (NP
+            (QP (JJR more) (IN than) (CD 100))
+            (NNS years))))
+      (PP (IN after)
+        (NP (NN publication))))
     (. .)))
 
 (ROOT
@@ -753,11 +764,11 @@
     (, ,)
     (CC and)
     (S
-      (PP (IN in)
-        (NP
-          (NP (CD 1909))
-          (PP (IN –)
-            (NP (CD 1910)))))
+      (X (IN in)
+        (NP (CD 1909)))
+      (X
+        (X (SYM –))
+        (NP (CD 1910)))
       (NP (PRP he))
       (VP (VBD visited)
         (PP (CC both)

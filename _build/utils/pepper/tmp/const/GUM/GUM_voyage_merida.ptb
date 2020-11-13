@@ -208,7 +208,7 @@
     (PP (IN From)
       (NP
         (NP (DT the) (JJR later) (NNS 1800s))
-        (PP (TO to)
+        (PP (IN to)
           (NP (DT the) (NNS 1920s)))))
     (NP (NNP Mérida))
     (VP (VBD enjoyed)
@@ -228,7 +228,7 @@
                     (NP (NNP Yucatán))
                     (NP
                       (NP (DT the) (NN rope) (NN maker))
-                      (PP (TO to)
+                      (PP (IN to)
                         (NP (DT the) (NN world))))))))))))
     (. .)))
 
@@ -276,7 +276,7 @@
     (S
       (NP (NNP Mérida))
       (VP (VBD slowed)
-        (PP (TO to)
+        (PP (IN to)
           (NP (DT a)
             (ADJP (RBR more) (JJ sleepy))
             (JJ provincial) (NN capital)))
@@ -370,14 +370,15 @@
     (, ,)
     (NP (RB then))
     (VP (VBP go)
-      (ADVP (RB back)
-        (PP (TO to)
-          (NP (NN work))))
-      (PP (IN for)
+      (ADVP (RB back))
+      (PP (IN to)
         (NP
-          (NP (DT a) (JJ few) (NNS hours))
-          (PP (IN in)
-            (NP (DT the) (JJ late) (NN afternoon))))))
+          (NP (NN work))
+          (PP (IN for)
+            (NP
+              (NP (DT a) (JJ few) (NNS hours))
+              (PP (IN in)
+                (NP (DT the) (JJ late) (NN afternoon))))))))
     (. .)))
 
 (ROOT
@@ -450,7 +451,7 @@
           (VP (TO to)
             (VP (VB take)
               (NP (NN day) (NNS trips))
-              (PP (TO to)
+              (PP (IN to)
                 (NP
                   (NP (DT a) (JJ vast) (NN array))
                   (PP (IN of)
@@ -608,10 +609,18 @@
     (. .)))
 
 (ROOT
-  (NP
-    (NP (RB Daily) (CD 08:00) (TO -) (CD 20:00))
-    (, ,)
-    (NP (NNP Su) (CD 08:00) (TO -) (CD 14:00))
+  (S
+    (NP
+      (NP
+        (NP (RB Daily) (CD 08:00))
+        (SBAR
+          (S
+            (VP (SYM -)
+              (NP (CD 20:00))))))
+      (, ,)
+      (NP (NNP Su) (CD 08:00)))
+    (VP (SYM -)
+      (NP (CD 14:00)))
     (. .)))
 
 (ROOT
@@ -647,9 +656,9 @@
     (. .)))
 
 (ROOT
-  (NP
+  (S
     (NP (CD 08:00))
-    (PP (TO -)
+    (VP (SYM -)
       (NP (CD 20:00)))
     (. .)))
 
