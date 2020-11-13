@@ -409,12 +409,12 @@ def validate_annos(gum_source, reddit=False):
 						if id not in markables:
 							markables[id] = Markable()
 							markables[id].start = tok_id
+							markables[id].anaphor = src
+							markables[id].anaphor_type = coref
+						markables[id].entity = entity
+						markables[id].infstat = infstat
 						markables[id].text += " " + text
 						markables[id].end = tok_id
-						markables[id].entity = entity
-						markables[id].anaphor = src
-						markables[id].infstat = infstat
-						markables[id].anaphor_type = coref
 
 		# Ensure single token markables are given a tok_id-style identifier
 		mark_ids = list(markables.keys())
