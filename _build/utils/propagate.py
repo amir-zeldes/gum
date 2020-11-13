@@ -60,11 +60,14 @@ class Entity:
 
 
 def fix_punct(conllu_string):
+	# Protect possessive apostrophe from being treated as punctuation
+	conllu_string = re.sub(r"\t'\t([^\t\n]+\tPART\tPOS)", r'\t&udapi_apos;\t\1', conllu_string, flags=re.MULTILINE)  # remove udapi sent_id
 	doc = Document()
 	doc.from_conllu_string(conllu_string)
 	fixpunct_block = FixPunct()
 	fixpunct_block.process_document(doc)
 	output_string = doc.to_conllu_string()
+	output_string = output_string.replace('&udapi_apos;',"'")
 	output_string = re.sub(r'# sent_id = [0-9]+\n',r'',output_string)  # remove udapi sent_id
 	return output_string
 
@@ -287,9 +290,9 @@ def enrich_dep(gum_source, tmp, reddit=False):
 			if line.startswith("1\t"):  # First token in sentence
 				# Check for annotations
 				if len(stype_by_token[tok_num]) > 0:
-					output += "# s_type=" + stype_by_token[tok_num] + "\n"
+					output += "# s_type = " + stype_by_token[tok_num] + "\n"
 				if len(speaker_by_token[tok_num]) > 0:
-					output += "# speaker=" + speaker_by_token[tok_num] + "\n"
+					output += "# speaker = " + speaker_by_token[tok_num] + "\n"
 			output += line + "\n"
 
 		output = output.strip() + "\n" + "\n"
@@ -299,6 +302,7 @@ def enrich_dep(gum_source, tmp, reddit=False):
 		depedit.add_transformation("func=/root/;func=/punct/\t#1.*#2\t#1>#2")
 		depedit.add_transformation("func=/root/;func=/punct/\t#2.*#1\t#1>#2")
 		output = depedit.run_depedit(output)
+		output = output.strip() + "\n\n"  # Ensure exactly two new lines at end
 
 		# output now contains conll string ready for udapi and morph
 		with io.open(dep_target + docname,'w',encoding="utf8",newline="\n") as f:
@@ -343,6 +347,8 @@ def compile_ud(tmp, gum_target, reddit=False):
 		if not reddit and "reddit_" in file_:
 			continue
 		depfiles.append(file_)
+
+	punct_depedit = DepEdit(config_file="utils" + os.sep + "projectivize_punct.ini")
 
 	for docnum, depfile in enumerate(depfiles):
 
@@ -525,7 +531,7 @@ def compile_ud(tmp, gum_target, reddit=False):
 		imp = False
 		for line in morphed.split("\n"):
 			if "s_type" in line:
-				if "s_type=imp" in line:
+				if "s_type" in line and "imp" in line:
 					imp = True
 				else:
 					imp = False
@@ -557,6 +563,9 @@ def compile_ud(tmp, gum_target, reddit=False):
 
 		negatived = do_hard_replaces(negatived)
 
+		# Broken non-projective punctuation
+		negatived = punct_depedit.run_depedit(negatived).strip() + "\n\n"
+
 		# Directory with dependency output
 		with io.open(dep_target + docname + ".conllu",'w',encoding="utf8", newline="\n") as f:
 			f.write(negatived)
@@ -574,11 +583,11 @@ def compile_ud(tmp, gum_target, reddit=False):
 
 	train_split_target = dep_target + ".." + os.sep
 	with io.open(train_split_target + "en_gum-ud-train.conllu",'w',encoding="utf8", newline="\n") as f:
-		f.write(train_string.strip() + "\n")
+		f.write(train_string.strip())
 	with io.open(train_split_target + "en_gum-ud-dev.conllu",'w',encoding="utf8", newline="\n") as f:
-		f.write(dev_string.strip() + "\n")
+		f.write(dev_string.strip())
 	with io.open(train_split_target + "en_gum-ud-test.conllu",'w',encoding="utf8", newline="\n") as f:
-		f.write(test_string.strip() + "\n")
+		f.write(test_string.strip())
 
 	sys.__stdout__.write("o Enriched dependencies in " + str(len(depfiles)) + " documents" + " " *20)
 
@@ -832,7 +841,10 @@ def add_entities_to_conllu(gum_target,reddit=False):
 			if "\t" in line:
 				fields = line.split("\t")
 				if not "-" in fields[0]:  # Regular token
-					entity_data = entity_doc[doc][toknum]
+					try:
+						entity_data = entity_doc[doc][toknum]
+					except IndexError:
+						raise IndexError("Token number " + str(toknum) + " not found in document " + doc)
 					if entity_data != "_":
 						misc = add_feat(fields[-1],"Entity="+entity_data)
 						fields[-1] = misc
