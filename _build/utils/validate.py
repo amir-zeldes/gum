@@ -446,7 +446,8 @@ def validate_annos(gum_source, reddit=False):
 				markables[anaphor].coref_type = markables[antecedents[anaphor]].anaphor_type
 
 		for mark_id in markables:
-			flag_mark_warnings(markables[mark_id], docname)
+			# Flag entity type clashes but skip giv/new since they are set automatically
+			flag_mark_warnings(markables[mark_id], docname, flag_giv_new=False)
 
 		# Validate RST data
 		rst_file = xmlfile.replace("xml" + os.sep, "rst" + os.sep).replace("xml", "rs3")
@@ -511,12 +512,21 @@ def flag_rst_warnings(nodes,children,docname):
 						print("WARN: RST non-multinuc with multiple non-span children in " + docname + " (node "+ str(nodes[node].id) +")")
 
 
-def flag_mark_warnings(mark, docname):
+def flag_mark_warnings(mark, docname, flag_giv_new=False):
+	"""
+	Check inconsistent entity types and givenness
+
+	:param mark: entity markable
+	:param docname: document name to report errors
+	:param flag_giv_new: whether to warn on new markable with antecedent/given markable without one
+	:return: None
+	"""
+
 	inname = " in " + docname
 
 	# General checks for all markables
 	if isinstance(mark.antecedent,Markable):
-		if mark.infstat == "new" and mark.coref_type != "bridge" and mark.coref_type != "cata":
+		if mark.infstat == "new" and mark.coref_type != "bridge" and mark.coref_type != "cata" and flag_giv_new:
 			print("WARN: new markable has an antecedent"+inname + ", " + mark.start + "=" + mark.entity + " -> " + \
 				  str(mark.antecedent.start) + "=" + mark.antecedent.entity + \
 				  " (" + truncate(mark.text) + "->" + truncate(mark.antecedent.text) +")")
