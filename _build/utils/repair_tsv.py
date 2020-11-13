@@ -243,9 +243,11 @@ def parse_tsv_line(line):
 			else:
 				src = None
 				dest = None
+			dst_token = line[0]
 			relations.append({'src': src,
 							  'dest': dest,
 							  'src_token': src_token,
+							  'dst_token': dst_token,
 							  'rel_type': rel_types[i]})
 
 	return {'token_id': line[0],
@@ -511,6 +513,9 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
 	source2rel = defaultdict(list)
 	dest2rel = defaultdict(list)
 
+	tokens = {l["abs_id"]:l["token"] for l in parsed_lines}
+	lowered_acc_prons = ["i","you","we","us","your","my","mine","yours","ours","me"]  # accessible pronouns, not cataphors
+
 	# Get all entities
 	for tid, dct in enumerate(parsed_lines):
 		if "entities" in dct:
@@ -569,20 +574,34 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
 			if e_id not in source2rel:
 				# This is the first member of a chain
 				ent = entities[e_id]
-				if ent["pos"] in pronouns:  # Cataphora
+				if ent["infstat"] == "giv":
 					ent["infstat"] = "new"
+				if ent["pos"] in pronouns and ent["length"] == 1 and ent["infstat"] != "acc":  # Cataphora
 					rem_rel = None
 					for rel in dest2rel[e_id]:
 						if rel["rel_type"] in ["coref","ana","appos"]:
-							entities[rel["src"]]["infstat"] = "new"
-							rem_rel = rel
+							if rel["src_token"].split("-")[0] == rel["dst_token"].split("-")[0]:  # same sentence
+								if tokens[ent["head_tok_abs_id"]].lower() not in lowered_acc_prons:  # I, you etc. not cataphors
+									entities[rel["src"]]["infstat"] = "new"  # Next mention also considered new
+									entities[rel["dest"]]["infstat"] = "new"
+									rem_rel = rel
 					if rem_rel is not None:
-						new_rel = rem_rel
+						new_rel = {k:v for k,v in iteritems(rem_rel)}
 						new_rel["rel_type"] = "cata"
 						new_rel["dest"] = rem_rel["src"]
 						new_rel["src"] = e_id
-						dest2rel[e_id].remove(rem_rel)
+						new_rel["src_token"] = rem_rel["dst_token"]
+						new_rel["dst_token"] = rem_rel["src_token"]
+						d_rels = [d for d in dest2rel[e_id]]
+						for d_rel in d_rels:
+							if rem_rel["src"] == d_rel["src"] and rem_rel["dest"] == d_rel["dest"]:
+								dest2rel[e_id].remove(d_rel)
+						s_rels = [d for d in source2rel[rem_rel["src"]]]
+						for s_rel in s_rels:
+							if s_rel["src"] == rem_rel["src"] and s_rel["dest"] == rem_rel["dest"]:
+								source2rel[rem_rel["src"]].remove(s_rel)
 						source2rel[e_id].append(new_rel)
+						dest2rel[new_rel["dest"]].append(new_rel)
 
 	lines = webanno_tsv.split("\n")
 	counter = 0
