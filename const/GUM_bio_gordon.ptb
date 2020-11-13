@@ -19,9 +19,12 @@
           (NP (CD 31) (NNP March) (CD 1635))
           (PP (IN in)
             (NP
-              (NP (NNP Auchleuchries) (, ,) (NNP Aberdeenshire) (, ,) (NNP Scotland))
-              (PP (IN –)
-                (NP (CD 29)))
+              (NP
+                (NP (NNP Auchleuchries) (, ,) (NNP Aberdeenshire) (, ,) (NNP Scotland))
+                (SBAR
+                  (S
+                    (VP (SYM –)
+                      (NP (CD 29))))))
               (NP-TMP (NNP November) (CD 1699))))
           (PP (IN in)
             (NP (NNP Moscow) (, ,) (NNP Russia))))
@@ -867,86 +870,88 @@
 (ROOT
   (S
     (NP
-      (NP (DT An)
-        (ADJP (JJ incomplete)
-          (CC and)
-          (JJ faulty))
-        (JJ German) (NN translation))
+      (NP (DT An) (JJ incomplete)
+        (CC and)
+        (JJ faulty) (JJ German) (NN translation))
       (, ,)
       (VP (VBN edited)
         (PP (IN by)
           (NP
-            (NP
-              (NP (NNP Dr) (NNP Moritz) (NNP Posselt))
-              (PRN (-LRB- -LRB-)
-                (NP
-                  (NP (FW Tagebuch) (FW des) (FW Generals))
-                  (NP (NNP Patrick) (NNP Gordon)))
-                (-RRB- -RRB-))
-              (SBAR
-                (S
-                  (VP (VBD was)
-                    (VP (VBN published))))))
-            (, ,)
-            (NP
-              (NP (DT the) (JJ first) (NN volume))
-              (PP (IN at)
-                (NP
-                  (NP (NNP Moscow))
-                  (PP (IN in)
-                    (NP (CD 1849))))))
-            (, ,)
-            (NP
-              (NP (DT the) (JJ second))
-              (PP (IN at)
-                (NP
-                  (NP
-                    (NP (NNP St) (NNP Petersburg))
-                    (PP (IN in)
-                      (NP (CD 1851))))
-                  (, ,)
-                  (CC and)
-                  (NP
-                    (NP (DT the) (JJ third))
-                    (PP (IN at)
-                      (NP
-                        (NP (NNP St) (NNP Petersburg))
-                        (PP (IN in)
-                          (NP (CD 1853))))))
-                  (: ;)
-                  (CC and)
-                  (NP
-                    (NP (NNP Passages))
-                    (PP (IN from)
-                      (NP
-                        (NP (DT the) (NNP Diary))
-                        (PP (IN of)
-                          (NP
-                            (NP (NNP General) (NNP Patrick) (NNP Gordon))
-                            (PP (IN of)
-                              (NP
-                                (NP (NNP Auchleuchries))
-                                (PRN (-LRB- -LRB-)
-                                  (NP
-                                    (QP (CD 1635) (IN –) (CD 1699)))
-                                  (-RRB- -RRB-)))))))))))))))
-      (, ,))
+            (NP (NNP Dr) (NNP Moritz) (NNP Posselt))
+            (PRN (-LRB- -LRB-)
+              (NP
+                (NP (FW Tagebuch) (FW des) (FW Generals))
+                (NP (NNP Patrick) (NNP Gordon)))
+              (-RRB- -RRB-))))))
     (VP (VBD was)
-      (VP (VBN printed) (, ,)
-        (PP (IN under)
+      (VP (VBN published) (, ,)
+        (NP
           (NP
-            (NP (DT the) (NN editorship))
-            (PP (IN of)
-              (NP (NNP Joseph) (NNP Robertson)))
-            (, ,)
-            (PP (IN for)
-              (NP (DT the) (NNP Spalding) (NNP Club)))))
-        (, ,)
-        (PP (IN at)
+            (NP (DT the) (JJ first) (NN volume))
+            (PP (IN at)
+              (NP
+                (NP (NNP Moscow))
+                (PP (IN in)
+                  (NP (CD 1849))))))
+          (, ,)
           (NP
-            (NP (NNP Aberdeen) (, ,) (NNP Scotland))
-            (, ,)
-            (NP (CD 1859))))))
+            (NP (DT the) (JJ second))
+            (PP (IN at)
+              (NP
+                (NP
+                  (NP (NNP St) (NNP Petersburg))
+                  (PP (IN in)
+                    (NP (CD 1851))))
+                (, ,)
+                (CC and)
+                (NP
+                  (NP (DT the) (JJ third))
+                  (PP (IN at)
+                    (NP
+                      (NP (NNP St) (NNP Petersburg))
+                      (PP (IN in)
+                        (NP (CD 1853)))))))))
+          (: ;)
+          (CC and)
+          (NP
+            (NP (NNP Passages))
+            (PP (IN from)
+              (NP
+                (NP (DT the) (NNP Diary))
+                (PP (IN of)
+                  (NP
+                    (NP (NNP General) (NNP Patrick) (NNP Gordon))
+                    (PP (IN of)
+                      (NP
+                        (NP
+                          (NP (NNP Auchleuchries))
+                          (-LRB- -LRB-)
+                          (NP
+                            (NP (CD 1635))
+                            (SBAR
+                              (S
+                                (VP (SYM –)
+                                  (NP (CD 1699))))))
+                          (-RRB- -RRB-))
+                        (, ,)
+                        (SBAR
+                          (S
+                            (VP (VBD was)
+                              (VP (VBN printed) (, ,)
+                                (PP (IN under)
+                                  (NP
+                                    (NP (DT the) (NN editorship))
+                                    (PP (IN of)
+                                      (NP (NNP Joseph) (NNP Robertson)))
+                                    (, ,)
+                                    (PP (IN for)
+                                      (NP (DT the) (NNP Spalding) (NNP Club)))))
+                                (, ,)
+                                (PP (IN at)
+                                  (NP
+                                    (NP (NNP Aberdeen) (, ,) (NNP Scotland))
+                                    (, ,)
+                                    (NP (CD 1859))))))))))))))))))
     (. .)))
 
 (ROOT
@@ -964,24 +969,26 @@
       (VP (VBN published)
         (PP (IN by)
           (NP
+            (NP (DT the) (NNP Centre))
+            (PP (IN for)
+              (NP (NNP Irish)
+                (CC and)
+                (NNP Scottish) (NNP Studies)))))
+        (PP (IN in)
+          (NP
             (NP
-              (NP (DT the) (NNP Centre))
-              (PP
-                (PP (IN for)
+              (NP (NNP Aberdeen))
+              (PRN (-LRB- -LRB-)
+                (NP
+                  (NP (CD 6) (NNS vols))
+                  (, ,)
                   (NP
-                    (NP (NNP Irish)
-                      (CC and)
-                      (NNP Scottish) (NNP Studies))
-                    (PP (IN in)
-                      (NP (NNP Aberdeen)))))
-                (PRN (-LRB- -LRB-)
-                  (NP
-                    (NP (CD 6) (NNS vols))
-                    (, ,)
-                    (NP (CD 2009)))
-                  (PP (IN -)
-                    (NP (CD 2016)))
-                  (-RRB- -RRB-))))
+                    (NP (CD 2009))
+                    (SBAR
+                      (S
+                        (VP (SYM -)
+                          (NP (CD 2016)))))))
+                (-RRB- -RRB-)))
             (, ,)
             (CONJP (RB as) (RB well) (IN as))
             (NP

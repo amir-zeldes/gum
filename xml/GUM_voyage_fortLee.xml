@@ -674,7 +674,7 @@ a	DT	a	AT0	det
 convenient	JJ	convenient	AJ0	amod
 area	NN	area	NN1	obl
 for	IN	for	PRP	case
-those	DT	those	DT0	nmod
+those	DT	this	DT0	nmod
 commuting	VVG	commute	VVG	acl
 to	IN	to	PRP	case
 and	CC	and	CJC	cc
@@ -735,7 +735,9 @@ For	IN	for	PRP	case
 local	JJ	local	AJ0	amod
 transportation	NN	transportation	NN1	obl
 or	CC	or	CJC	cc
-air-port/train	NN	air-port/train	NN1	compound
+air-port	NN	air-port	NN1	compound
+/	SYM	/	UNC	cc
+train	NN	train	NN1	conj
 station	NN	station	NN1	compound
 services	NNS	service	NN2	conj
 ,	,	,	PUN	punct
@@ -881,20 +883,20 @@ through	IN	through	PRP	case
 New	NP	New	NP0	nmod
 Jersey	NP	Jersey	NP0	flat
 during	IN	during	PRP	case
+<date from="1776-12" to="1777-03">
 the	DT	the	AT0	det
 winter	NN	winter	NN1	nmod
 of	IN	of	PRF	case
-<date from="1776" to="1777">
 1776-77	CD	1776-77	CRD	nmod
 </date>
 in	IN	in	PRP	case
 the	DT	the	AT0	det
 protection	NN	protection	NN1	obl
 of	IN	of	PRF	case
-"	``	"	PUQ	punct
+"	``	''	PUQ	punct
 Fort	NP	Fort	NP0	nmod
 Lee	NP	Lee	NP0	flat
-"	''	"	PUQ	punct
+"	''	''	PUQ	punct
 .	SENT	.	PUN	punct
 </s>
 <s type="decl">
@@ -933,7 +935,7 @@ town	NN	town	NN1	nsubj
 was	VBD	be	VBD	acl
 like	IN	like	PRP	case
 centuries	NNS	century	NN2	nmod:npmod
-ago	RB	ago	AV0	advmod
+ago	IN	ago	PRP	advmod
 .	SENT	.	PUN	punct
 </s>
 <list type="unordered">
@@ -1110,7 +1112,9 @@ recreation	NN	recreation	NN1	conj
 <s type="decl">
 During	IN	during	PRP	case
 the	DT	the	AT0	det
+<date from="--06" to="--09">
 summer	NN	summer	NN1	obl
+</date>
 their	PP$	their	DPS	nmod:poss
 outdoor	JJ	outdoor	AJ0	amod
 theatre	NN	theatre	NN1	nsubj:pass
@@ -1119,12 +1123,12 @@ used	VVN	use	VVN	root
 for	IN	for	PRP	case
 performances	NNS	performance	NN2	obl
 and	CC	and	CJC	cc
-"	``	"	PUQ	punct
+"	``	''	PUQ	punct
 movies	NNS	movie	NN2	conj
 in	IN	in	PRP	case
 the	DT	the	AT0	det
 park	NN	park	NN1	nmod
-"	''	"	PUQ	punct
+"	''	''	PUQ	punct
 every	DT	every	AT0	det
 Friday	NP	Friday	NP0	compound
 night	NN	night	NN1	nmod:tmod
@@ -1232,25 +1236,37 @@ Store	NN	Store	NN1	compound
 hours	NN	hour	NN1	nsubj
 :	:	:	PUN	punct
 Mon-Fri	NP	Mon-Fri	NP0	nmod:tmod
+<time when="08:30:00">
 08:30	CD	08:30	CRD	root
 am	NP	am	NP0	nmod:tmod
--	IN	-	PRP	case
+</time>
+-	SYM	-	PUN	case
+<time when="19:00:00">
 7	CD	7	CRD	nmod
 pm	NP	pm	NP0	nmod:tmod
+</time>
 ,	,	,	PUN	punct
 Sat	NP	sit	NP0	nmod:tmod
+<time when="08:30:00">
 08:30	CD	08:30	CRD	conj
 am	NP	am	NP0	nmod:tmod
--	IN	-	PRP	case
+</time>
+-	SYM	-	PUN	case
+<time when="18:30:00">
 06:30	CD	06:30	CRD	nmod
 pm	NP	pm	NP0	nummod
+</time>
 ,	,	,	PUN	punct
 Sun	NP	Sun	NP0	nmod:tmod
+<time when="09:00:00">
 9	CD	9	CRD	conj
 am	NP	am	NP0	nmod:tmod
--	IN	-	PRP	case
+</time>
+-	SYM	-	PUN	case
+<time when="15:00:00">
 03:00	CD	03:00	CRD	nmod
 pm	NP	pm	NP0	nmod:tmod
+</time>
 </s>
 </item>
 </list>
