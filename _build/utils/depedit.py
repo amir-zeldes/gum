@@ -12,18 +12,20 @@ Author: Amir Zeldes
 from __future__ import print_function
 
 import argparse
+import os
 import re
 import sys
+from decimal import Decimal
 from collections import defaultdict
 from copy import copy, deepcopy
 from glob import glob
-from io import open as io_open
-
+import io
 from six import iteritems
 
-__version__ = "2.1.4"
+__version__ = "2.3.0.0"
 
-ALIASES = {"form":"text", "upostag":"pos","xpostag":"cpos","feats":"morph","deprel":"func","deps":"head2","misc":"func2"}
+ALIASES = {"form":"text","upostag":"pos","xpostag":"cpos","feats":"morph","deprel":"func","deps":"head2","misc":"func2",
+		   "xpos": "cpos","upos":"pos"}
 
 def escape(string, symbol_to_mask, border_marker):
 	inside = False
@@ -53,17 +55,29 @@ class ParsedToken:
 		self.position = position
 		self.is_super_tok = is_super_tok
 
+	def __getattr__(self, item):
+		if item.startswith("#S:"):
+			key = item.split(":",1)[1]
+			if key in self.sentence.annotations:
+				return self.sentence.annotations[key]
+			elif key in self.sentence.input_annotations:
+				return self.sentence.input_annotations[key]
+			else:
+				return ""
+
 	def __repr__(self):
 		return str(self.text) + " (" + str(self.pos) + "/" + str(self.lemma) + ") " + "<-" + str(self.func)
 
 
 class Sentence:
 
-	def __init__(self, sentence_string="", sent_num=0):
+	def __init__(self, sentence_string="", sent_num=0,tokoffset=0):
 		self.sentence_string = sentence_string
 		self.length = 0
-		self.annotations = {}
+		self.annotations = {}  # Dictionary to keep sentence annotations added by DepEdit rules
+		self.input_annotations = {}  # Dictionary with original sentence annotations (i.e. comment lines) in input conll
 		self.sent_num = sent_num
+		self.offset = tokoffset
 
 	def print_annos(self):
 		return ["# " + key + "=" + val for (key, val) in iteritems(self.annotations)]
@@ -71,11 +85,18 @@ class Sentence:
 
 class Transformation:
 
-	def parse_transformation(self, transformation_text):
+	def parse_transformation(self, transformation_text, depedit_container):
 		split_trans = transformation_text.split("\t")
 		if len(split_trans) < 3:
 			return None
 		definition_string, relation_string, action_string = split_trans
+		match_variables = re.findall(r'\{([^}]+)\}',definition_string)
+		for m in match_variables:
+			if m in depedit_container.variables:
+				definition_string = definition_string.replace("{"+m+"}",depedit_container.variables[m])
+			else:
+				sys.stderr.write("! Definition contains undefined variable: {" + m + "}")
+				quit()
 		relation_string = self.normalize_shorthand(relation_string)
 		action_string = self.normalize_shorthand(action_string)
 		definition_string = escape(definition_string, ";", "/")
@@ -109,8 +130,9 @@ class Transformation:
 									  r'\1\2\3;\3\4', criterion_string)
 		return criterion_string
 
-	def __init__(self, transformation_text, line):
-		instructions = self.parse_transformation(transformation_text)
+	def __init__(self, transformation_text, line, depedit_container):
+		self.transformation_text = transformation_text
+		instructions = self.parse_transformation(transformation_text, depedit_container)
 		if instructions is None:
 			sys.stderr.write("Depedit says: error in configuration file\n"
 				  "Malformed instruction on line " + str(line) + " (instruction lines must contain exactly two tabs)\n")
@@ -127,9 +149,10 @@ class Transformation:
 			node = escape(definition.def_text, "&", "/")
 			criteria = (_crit.replace("%%%%%", "&") for _crit in node.split("&"))
 			for criterion in criteria:
-				if re.match(r"(text|pos|cpos|lemma|morph|func|head|func2|head2|num|form|upostag|xpostag|feats|deprel|deps|misc)!?=/[^/=]*/", criterion) is None:
+				if re.match(r"(text|pos|cpos|lemma|morph|func|head|func2|head2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc)!?=/[^/=]*/", criterion) is None:
 					if re.match(r"position!?=/(first|last|mid)/", criterion) is None:
-						report += "Invalid node definition in column 1: " + criterion
+						if re.match(r"#S:[A-Za-z_]+!?=/[^/\t]+/",criterion) is None:
+							report += "Invalid node definition in column 1: " + criterion
 		for relation in self.relations:
 			if relation == "none" and len(self.relations) == 1:
 				if len(self.definitions) > 1:
@@ -142,13 +165,13 @@ class Transformation:
 					criterion = criterion.strip()
 					# if not re.match(r"#[0-9]+((>|\.([0-9]+(,[0-9]+)?)?)#[0-9]+)+",criterion):
 					if not re.match(r"(#[0-9]+((>|\.([0-9]+(,[0-9]+)?)?)#[0-9]+)+|#[0-9]+:(text|pos|cpos|lemma|morph|"
-									r"func|head|func2|head2|num|form|upostag|xpostag|feats|deprel|deps|misc)==#[0-9]+)",
+									r"func|head|func2|head2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc)==#[0-9]+)",
 									criterion):
 						report += "Column 2 relation setting invalid criterion: " + criterion + "."
 		for action in self.actions:
 			commands = action.split(";")
 			for command in commands:  # Node action
-				if re.match(r"(#[0-9]+>#[0-9]+|#[0-9]+:(func|lemma|text|pos|cpos|morph|head|head2|func2|num|form|upostag|xpostag|feats|deprel|deps|misc)=[^;]*)$", command) is None:
+				if re.match(r"(#[0-9]+>#[0-9]+|#[0-9]+:(func|lemma|text|pos|cpos|morph|head|head2|func2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc)=[^;]*)$", command) is None:
 					if re.match(r"#S:[A-Za-z_]+=[A-Za-z_]+$|last$", command) is None:  # Sentence annotation action or quit
 						report += "Column 3 invalid action definition: " + command + " and the action was " + action
 		return report
@@ -161,6 +184,9 @@ class DefinitionMatcher:
 		self.def_index = def_index
 		self.groups = []
 		self.defs = []
+		self.sent_def = False
+		if def_text.startswith("#S:"):
+			self.sent_def = True
 
 		def_items = self.def_text.split("&")
 		for def_item in def_items:
@@ -186,6 +212,10 @@ class DefinitionMatcher:
 		potential_groups = []
 		for def_item in self.defs:
 			tok_value = getattr(token, def_item.criterion)
+			if def_item.criterion == "head":
+				tok_value = str(Decimal(tok_value) - token.sentence.offset)
+				if tok_value.endswith('.0'):
+					tok_value = tok_value.replace(".0","")
 			match_obj = def_item.match_func(def_item, tok_value)
 
 			if match_obj is None:
@@ -206,7 +236,10 @@ class Definition:
 
 	def __init__(self, criterion, value, negative=False):
 		# Handle conllu criterion aliases:
-		self.criterion = ALIASES.get(criterion, criterion)
+		if criterion.startswith("#S:"):  # Sentence annotation
+			self.criterion = criterion
+		else:
+			self.criterion = ALIASES.get(criterion, criterion)
 		self.value = value
 		self.match_type = ""
 		self.compiled_re = None
@@ -252,6 +285,7 @@ class Match:
 		self.def_index = def_index
 		self.token = token
 		self.groups = groups
+		self.sent_def = False  # Whether this is a sentence annotation match
 
 	def __repr__(self):
 		return "#" + str(self.def_index) + ": " + self.token.__repr__
@@ -260,6 +294,7 @@ class Match:
 class DepEdit:
 
 	def __init__(self, config_file="", options=None):
+		self.variables = {}
 		self.transformations = []
 		self.user_transformation_counter = 0
 		self.quiet = False
@@ -294,9 +329,16 @@ class DepEdit:
 
 		line_num = 0
 		for instruction in config_file:
+			instruction = instruction.strip()
 			line_num += 1
-			if len(instruction)>0 and not instruction.startswith(";") and not instruction.startswith("#") and not instruction.strip() =="":
-				self.transformations.append(Transformation(instruction, line_num))
+			match_variable = re.match(r'\{([^}]+)\}=/([^\n]+)/',instruction)
+			if match_variable is not None:
+				key = match_variable.group(1)
+				val = match_variable.group(2)
+				self.add_variable(key,val)
+			elif len(instruction)>0 and not instruction.startswith(";") and not instruction.startswith("#") \
+					or instruction.startswith("#S:"):
+					self.transformations.append(Transformation(instruction, line_num, self))
 
 		trans_report = ""
 		for transformation in self.transformations:
@@ -320,7 +362,12 @@ class DepEdit:
 			for def_matcher in transformation.definitions:
 				for token in conll_tokens:
 					if not token.is_super_tok and def_matcher.match(token):
-						node_matches[def_matcher.def_index].append(Match(def_matcher.def_index, token, def_matcher.groups))
+						if def_matcher.sent_def:
+							if len(node_matches[def_matcher.def_index])==0:  # Only add a sentence anno definition once
+								node_matches[def_matcher.def_index] = [Match(def_matcher.def_index, token, def_matcher.groups)]
+								node_matches[def_matcher.def_index][0].sent_def = True
+						else:
+							node_matches[def_matcher.def_index].append(Match(def_matcher.def_index, token, def_matcher.groups))
 			result_sets = []
 			for relation in transformation.relations:
 				if not self.matches_relation(node_matches, relation, result_sets):
@@ -329,7 +376,7 @@ class DepEdit:
 			self.add_groups(result_sets)
 			if len(result_sets) > 0:
 				for action in transformation.actions:
-					retval = self.execute_action(result_sets, action)
+					retval = self.execute_action(result_sets, action, transformation)
 					if retval == "last":  # Explicit instruction to cease processing
 						return
 			if stepwise:
@@ -366,6 +413,7 @@ class DepEdit:
 				result[node1] = tok1
 				result["rel"] = relation
 				result["matchers"] = [matcher1]
+				result["ID2matcher"] = {node1:matcher1}
 				result_sets.append(result)
 		elif "==" in relation:
 			node1 = relation.split(operator)[0]
@@ -378,7 +426,8 @@ class DepEdit:
 				for matcher2 in node_matches[node2]:
 					tok2 = matcher2.token
 					if self.test_relation(tok1, tok2, field):
-						result_sets.append({node1: tok1, node2: tok2, "rel": relation, "matchers": [matcher1, matcher2]})
+						result_sets.append({node1: tok1, node2: tok2, "rel": relation, "matchers": [matcher1, matcher2],
+											"ID2matcher":{node1:matcher1, node2:matcher2}})
 						matches[node1].append(tok1)
 						matches[node2].append(tok2)
 						hits += 1
@@ -400,8 +449,9 @@ class DepEdit:
 				tok1 = matcher1.token
 				for matcher2 in node_matches[node2]:
 					tok2 = matcher2.token
-					if self.test_relation(tok1, tok2, operator):
-						result_sets.append({node1: tok1, node2: tok2, "rel": relation, "matchers": [matcher1, matcher2]})
+					if self.test_relation(tok1, tok2, operator) or matcher1.sent_def:  # Sentence dominance always True
+						result_sets.append({node1: tok1, node2: tok2, "rel": relation, "matchers": [matcher1, matcher2],
+											"ID2matcher":{node1:matcher1, node2:matcher2}})
 						matches[node1].append(tok1)
 						matches[node2].append(tok2)
 						hits += 1
@@ -475,7 +525,7 @@ class DepEdit:
 			bins.append(copy(new_set))
 
 		for my_bin in bins:
-			if len(my_bin) == node_count + 2:
+			if len(my_bin) == node_count + 3:
 				if len(my_bin["rels"]) == rel_count:  # All required relations have been fulfilled
 					solutions.append(my_bin)
 				else:  # Some node pair has multiple relations, check that all are fulfilled
@@ -596,8 +646,7 @@ class DepEdit:
 						groups.append(g)
 			result["groups"] = groups[:]
 
-	@staticmethod
-	def execute_action(result_sets, action_list):
+	def execute_action(self, result_sets, action_list, transformation):
 		actions = action_list.split(";")
 		for result in result_sets:
 			if len(result) > 0:
@@ -611,6 +660,11 @@ class DepEdit:
 							result[1].sentence.annotations[key] = val
 						else:  # node instruction
 							node_position = int(action[1:action.find(":")])
+							if not self.quiet:
+								if result["ID2matcher"][node_position].sent_def:
+									sys.stdout.write("! Warning: Rule is applying a *token* transformation to a *sentence* annotation node:\n")
+									sys.stdout.write("  " + transformation.transformation_text + "\n")
+									sys.stdout.write("  Applying the transformation to first token in sentence.\n")
 							prop = action[action.find(":") + 1:action.find("=")]
 							value = action[action.find("=") + 1:].strip()
 							group_num_matches = re.findall(r"(\$[0-9]+[LU]?)", value)
@@ -651,6 +705,9 @@ class DepEdit:
 						if tok1 != tok2:
 							tok2.head = tok1.id
 
+	def add_variable(self, key, value):
+		self.variables[key] = value
+
 	def add_transformation(self, *args, **kwargs):
 		"""
 		Flexible function for adding transformations to an imported DepEdit object, rather than reading them from a configuration file
@@ -670,7 +727,7 @@ class DepEdit:
 				try:
 					self.user_transformation_counter += 1
 					user_line_number = "u" + str(self.user_transformation_counter)
-					new_transformation = Transformation(transformation_string,user_line_number)
+					new_transformation = Transformation(transformation_string,user_line_number, self)
 					self.transformations.append(new_transformation)
 				except:
 					raise IOError("Invalid transformation - must be a string")
@@ -685,7 +742,7 @@ class DepEdit:
 
 				self.user_transformation_counter += 1
 				user_line_number = "u" + str(self.user_transformation_counter)
-				new_transformation = Transformation(transformation_string, user_line_number)
+				new_transformation = Transformation(transformation_string, user_line_number, self)
 				self.transformations.append(new_transformation)
 
 	def serialize_output_tree(self, tokens, tokoffset):
@@ -698,11 +755,10 @@ class DepEdit:
 				tok_id = tok.id
 			elif tok.head == "0":
 				tok_head_string = "0"
-				tok_id = str(float(tok.id) - tokoffset)
+				tok_id = str(Decimal(tok.id) - tokoffset)
 			else:
-				tok_head_string = str(float(tok.head) - tokoffset)
-				tok_id = str(float(tok.id) - tokoffset)
-			# Only keep decimal ID component for non-0 ellipsis IDs, e.g. 10.1 - those tokens have normal head '_'
+				tok_head_string = str(Decimal(tok.head) - tokoffset)
+				tok_id = str(Decimal(tok.id) - tokoffset)
 			tok_id = tok_id.replace(".0", "")
 			tok_head_string = tok_head_string.replace(".0", "")
 			if "." in tok_id:
@@ -734,26 +790,31 @@ class DepEdit:
 			sentence_tokens = conll_tokens[tokoffset + supertok_offset + 1:]
 			self.process_sentence(sentence_tokens,stepwise=stepwise)
 			transformed = current_sentence.print_annos() + self.serialize_output_tree(sentence_tokens, tokoffset)
+			output_lines.extend(transformed)
 			if sent_id:
 				output_lines.append(self.make_sent_id(current_sentence.sent_num))
-			output_lines.extend(transformed)
 
 		# Check if DepEdit has been fed an unsplit string programmatically
 		if isinstance(infile, str):
 			infile = infile.splitlines()
 
+		in_data = []
 		for myline in infile:
+			in_data.append(myline)
 			myline = myline.strip()
 			if sentlength > 0 and "\t" not in myline:
 				_process_sentence(stepwise=stepwise)
 				sentence_lines = []
-				current_sentence = Sentence(sent_num=current_sentence.sent_num + 1)
 				tokoffset += sentlength
 				supertok_offset += supertok_length
+				current_sentence = Sentence(sent_num=current_sentence.sent_num + 1,tokoffset=tokoffset)
 				sentlength = supertok_length = 0
 			if myline.startswith("#"):  # Preserve comment lines unless kill requested
 				if self.kill not in ["comments", "both"]:
 					output_lines.append(myline.strip())
+				if "=" in myline:
+					key, val = myline[1:].split("=",1)
+					current_sentence.input_annotations[key.strip()] = val.strip()
 			elif not myline:
 				output_lines.append("")
 			elif myline.find("\t") > 0:  # Only process lines that contain tabs (i.e. conll tokens)
@@ -799,34 +860,37 @@ class DepEdit:
 			newdoc = '# newdoc id = ' + self.docname
 			output_lines.insert(0, newdoc)
 
-		return "\n".join(output_lines)
+		# Trailing whitespace
+		rev = "".join(in_data)[::-1]
+		white = re.match(r'\s*',rev).group()
+
+		return "\n".join(output_lines).strip() + white
 
 
 def main(options):
 	if options.extension.startswith("."):  # Ensure user specified extension does not include leading '.'
 		options.extension = options.extension[1:]
 	try:
-		config_file = io_open(options.config, encoding="utf8")
+		config_file = io.open(options.config, encoding="utf8")
 	except IOError:
 		sys.stderr.write("\nConfiguration file not found (specify with -c or use the default 'config.ini')\n")
 		sys.exit()
 	depedit = DepEdit(config_file=config_file, options=options)
 	if sys.platform == "win32":  # Print \n new lines in Windows
-		import os
 		import msvcrt
 		msvcrt.setmode(sys.stdout.fileno(), os.O_BINARY)
 	files = glob(options.file)
 	for filename in files:
-		infile = io_open(filename, encoding="utf8")
+		infile = io.open(filename, encoding="utf8")
 		basename = os.path.basename(filename)
 		docname = basename[:basename.rfind(".")] if options.docname or options.sent_id else filename
 		output_trees = depedit.run_depedit(infile, docname, sent_id=options.sent_id, docname=options.docname, stepwise=options.stepwise)
 		if len(files) == 1:
 			# Single file being processed, just print to STDOUT
 			if sys.version_info[0] < 3:
-				print(output_trees.encode("utf-8"),end="")
+				print(output_trees.encode("utf-8"))
 			else:
-				print(output_trees,end="")
+				sys.stdout.buffer.write(output_trees.encode("utf8"))
 		else:
 			# Multiple files, add '.depedit' or other infix from options before extension and write to file
 			if options.outdir != "":
@@ -842,11 +906,11 @@ def main(options):
 			else:
 				outname += options.infix + "." + options.extension if options.extension else options.infix
 			if sys.version_info[0] < 3:
-				with open(outname, 'wb') as f:
+				with io.open(outname, 'wb') as f:
 					f.write(output_trees.encode("utf-8"))
 			else:
-				with open(outname, 'w', encoding="utf8") as f:
-					f.write(output_trees.encode("utf-8"))
+				with io.open(outname, 'w', encoding="utf8", newline="\n") as f:
+					f.write(output_trees)
 
 
 if __name__ == "__main__":
