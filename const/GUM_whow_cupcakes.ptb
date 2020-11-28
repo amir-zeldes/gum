@@ -108,10 +108,12 @@
     (NP (NNS Servings))
     (: :)
     (NP
-      (NP (CD 18))
-      (PRN
-        (PP (IN -)
-          (NP (CD 24))))
+      (NP
+        (NP (CD 18))
+        (SBAR
+          (S
+            (VP (SYM -)
+              (NP (CD 24))))))
       (PRN (-LRB- -LRB-)
         (NP
           (NP (JJR fewer))
@@ -217,8 +219,10 @@
       (: :)
       (NP
         (NP (CD 20))
-        (PP (IN -)
-          (NP (CD 24) (NNS cupcakes)))))
+        (SBAR
+          (S
+            (VP (SYM -)
+              (NP (CD 24) (NNS cupcakes)))))))
     (: :)))
 
 (ROOT
@@ -351,14 +355,18 @@
 (ROOT
   (S
     (VP (VB Preheat)
-      (NP (DT the) (NN oven))
-      (PP (IN to)
+      (NP
         (NP
-          (NP (CD 180) (NN oC))
-          (SBAR
-            (S
-              (VP (SYM /)
-                (NP (CD 350) (NN oF))))))))
+          (NP
+            (NP (DT the) (NN oven))
+            (PP (IN to)
+              (NP (CD 180) (NNS o))))
+          (NP (NNP C)))
+        (X
+          (X (SYM /))
+          (NP
+            (NP (CD 350) (NNS o))
+            (NP (NNP F))))))
     (. .)))
 
 (ROOT
@@ -571,8 +579,11 @@
     (VP (VB Bake)
       (PP (IN for)
         (NP
-          (QP (CD 18) (IN -) (CD 20))
-          (NNS minutes))))
+          (NP (CD 18))
+          (SBAR
+            (S
+              (VP (SYM -)
+                (NP (CD 20) (NNS minutes))))))))
     (. .)))
 
 (ROOT

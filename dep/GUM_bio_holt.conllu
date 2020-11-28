@@ -1,14 +1,14 @@
 # newdoc id = GUM_bio_holt
 # sent_id = GUM_bio_holt-1
 # text = Brock Holt
-# s_type=frag
-1	Brock	Brock	PROPN	NNP	Number=Sing	0	root	_	Entity=(person-1
+# s_type = frag
+1	Brock	Brock	PROPN	NNP	Number=Sing	0	root	_	Discourse=preparation:1->32|Entity=(person-1
 2	Holt	Holt	PROPN	NNP	Number=Sing	1	flat	_	Entity=person-1)
 
 # sent_id = GUM_bio_holt-2
 # text = Holt with the Boston Red Sox
-# s_type=frag
-1	Holt	Holt	PROPN	NNP	Number=Sing	0	root	_	Entity=(person-1)
+# s_type = frag
+1	Holt	Holt	PROPN	NNP	Number=Sing	0	root	_	Discourse=background:2->3|Entity=(person-1)
 2	with	with	ADP	IN	_	6	case	_	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	6	det	_	Entity=(organization-2
 4	Boston	Boston	PROPN	NNP	Number=Sing	6	compound	_	Entity=(place-3)
@@ -17,18 +17,18 @@
 
 # sent_id = GUM_bio_holt-3
 # text = Boston Red Sox – No. 12
-# s_type=frag
-1	Boston	Boston	PROPN	NNP	Number=Sing	3	compound	_	Entity=(organization-2(place-3)
+# s_type = frag
+1	Boston	Boston	PROPN	NNP	Number=Sing	3	compound	_	Discourse=background:3->32|Entity=(organization-2(place-3)
 2	Red	Red	PROPN	NNP	Number=Sing	3	amod	_	_
 3	Sox	Sox	PROPN	NNPS	Number=Plur	0	root	_	Entity=organization-2)
-4	–	–	PUNCT	:	_	6	punct	_	_
+4	–	-	PUNCT	:	_	6	punct	_	_
 5	No.	No.	NOUN	NN	Number=Sing	6	compound	_	Entity=(person-1
 6	12	12	NUM	CD	NumType=Card	3	dep	_	Entity=person-1)
 
 # sent_id = GUM_bio_holt-4
 # text = Second baseman / Shortstop / Outfielder
-# s_type=frag
-1	Second	second	ADJ	JJ	Degree=Pos|NumType=Ord	2	amod	_	Entity=(person-1
+# s_type = frag
+1	Second	second	ADJ	JJ	Degree=Pos|NumType=Ord	2	amod	_	Discourse=joint:4->3|Entity=(person-1
 2	baseman	baseman	NOUN	NN	Number=Sing	0	root	_	Entity=person-1)
 3	/	/	SYM	SYM	_	4	cc	_	_
 4	Shortstop	dhortstop	NOUN	NN	Number=Sing	2	conj	_	Entity=(person-1)
@@ -37,183 +37,183 @@
 
 # sent_id = GUM_bio_holt-5
 # text = Born: June 11, 1988 (age 30)
-# s_type=other
-1	Born	Born	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	SpaceAfter=No
+# s_type = other
+1	Born	Born	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	Discourse=preparation:5->6|SpaceAfter=No
 2	:	:	PUNCT	:	_	4	punct	_	_
-3	June	June	PROPN	NNP	Number=Sing	4	compound	_	Entity=(time-4(time-5)
+3	June	June	PROPN	NNP	Number=Sing	4	compound	_	Discourse=joint:6->3|Entity=(time-4
 4	11	11	NUM	CD	NumType=Card	1	obl:tmod	_	SpaceAfter=No
 5	,	,	PUNCT	,	_	6	punct	_	_
-6	1988	1988	NUM	CD	NumType=Card	4	nmod:tmod	_	Entity=(time-6)time-4)
-7	(	(	PUNCT	-LRB-	_	9	punct	_	SpaceAfter=No
-8	age	age	NOUN	NN	Number=Sing	9	nsubj	_	Entity=(abstract-7
-9	30	30	NUM	CD	NumType=Card	1	parataxis	_	Entity=abstract-7)|SpaceAfter=No
+6	1988	1988	NUM	CD	NumType=Card	4	nmod:tmod	_	Entity=(time-5)time-4)
+7	(	(	PUNCT	-LRB-	_	9	punct	_	Discourse=elaboration:7->6|SpaceAfter=No
+8	age	age	NOUN	NN	Number=Sing	9	nsubj	_	Entity=(abstract-6
+9	30	30	NUM	CD	NumType=Card	1	parataxis	_	Entity=abstract-6)|SpaceAfter=No
 10	)	)	PUNCT	-RRB-	_	9	punct	_	_
 
 # sent_id = GUM_bio_holt-6
 # text = Fort Worth, Texas
-# s_type=frag
-1	Fort	Fort	PROPN	NNP	Number=Sing	2	compound	_	Entity=(place-8
+# s_type = frag
+1	Fort	Fort	PROPN	NNP	Number=Sing	2	compound	_	Discourse=elaboration:8->6|Entity=(place-7
 2	Worth	Worth	PROPN	NNP	Number=Sing	0	root	_	SpaceAfter=No
 3	,	,	PUNCT	,	_	4	punct	_	_
-4	Texas	Texas	PROPN	NNP	Number=Sing	2	appos	_	Entity=(place-9)place-8)
+4	Texas	Texas	PROPN	NNP	Number=Sing	2	appos	_	Entity=(place-8)place-7)
 
 # sent_id = GUM_bio_holt-7
 # text = Bats: Left
-# s_type=other
-1	Bats	bat	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	SpaceAfter=No
+# s_type = other
+1	Bats	bat	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	Discourse=preparation:9->10|SpaceAfter=No
 2	:	:	PUNCT	:	_	3	punct	_	_
-3	Left	left	ADV	RB	_	1	advmod	_	_
+3	Left	left	ADV	RB	_	1	advmod	_	Discourse=joint:10->3
 
 # sent_id = GUM_bio_holt-8
 # text = Throws: Right
-# s_type=other
-1	Throws	throw	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	SpaceAfter=No
+# s_type = other
+1	Throws	throw	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	Discourse=preparation:11->12|SpaceAfter=No
 2	:	:	PUNCT	:	_	3	punct	_	_
-3	Right	right	ADV	RB	_	1	advmod	_	_
+3	Right	right	ADV	RB	_	1	advmod	_	Discourse=joint:12->10
 
 # sent_id = GUM_bio_holt-9
 # text = MLB debut
-# s_type=frag
-1	MLB	MLB	PROPN	NNP	Number=Sing	0	root	_	Entity=(event-10(organization-11)
-2	debut	debut	NOUN	NN	Number=Sing	1	dep	_	Entity=event-10)
+# s_type = frag
+1	MLB	MLB	PROPN	NNP	Number=Sing	0	root	_	Discourse=preparation:13->14|Entity=(event-9(organization-10)
+2	debut	debut	NOUN	NN	Number=Sing	1	dep	_	Entity=event-9)
 
 # sent_id = GUM_bio_holt-10
 # text = September 1, 2012, for the Pittsburgh Pirates
-# s_type=frag
-1	September	September	PROPN	NNP	Number=Sing	2	compound	_	Entity=(time-12(time-13)
+# s_type = frag
+1	September	September	PROPN	NNP	Number=Sing	2	compound	_	Discourse=joint:14->3|Entity=(time-11
 2	1	1	NUM	CD	NumType=Card	0	root	_	SpaceAfter=No
 3	,	,	PUNCT	,	_	4	punct	_	_
-4	2012	2012	NUM	CD	NumType=Card	2	nmod:tmod	_	Entity=(time-14)time-12)|SpaceAfter=No
+4	2012	2012	NUM	CD	NumType=Card	2	nmod:tmod	_	Entity=(time-12)time-11)|SpaceAfter=No
 5	,	,	PUNCT	,	_	9	punct	_	_
 6	for	for	ADP	IN	_	9	case	_	_
-7	the	the	DET	DT	Definite=Def|PronType=Art	9	det	_	Entity=(organization-15
-8	Pittsburgh	Pittsburgh	PROPN	NNP	Number=Sing	9	compound	_	Entity=(place-16)
-9	Pirates	Pirates	PROPN	NNP	Number=Sing	2	nmod	_	Entity=organization-15)
+7	the	the	DET	DT	Definite=Def|PronType=Art	9	det	_	Entity=(organization-13
+8	Pittsburgh	Pittsburgh	PROPN	NNP	Number=Sing	9	compound	_	Entity=(place-14)
+9	Pirates	Pirates	PROPN	NNP	Number=Sing	2	nmod	_	Entity=organization-13)
 
 # sent_id = GUM_bio_holt-11
 # text = MLB statistics (through September 20, 2018)
-# s_type=frag
-1	MLB	MLB	PROPN	NNP	Number=Sing	2	compound	_	Entity=(abstract-17(organization-11)
+# s_type = frag
+1	MLB	MLB	PROPN	NNP	Number=Sing	2	compound	_	Discourse=preparation:15->17|Entity=(abstract-15(organization-10)
 2	statistics	statistic	NOUN	NNS	Number=Plur	0	root	_	_
-3	(	(	PUNCT	-LRB-	_	6	punct	_	SpaceAfter=No
+3	(	(	PUNCT	-LRB-	_	6	punct	_	Discourse=elaboration:16->15|SpaceAfter=No
 4	through	through	ADP	IN	_	6	case	_	_
-5	September	September	PROPN	NNP	Number=Sing	6	compound	_	Entity=(time-18(time-19)
+5	September	September	PROPN	NNP	Number=Sing	6	compound	_	Entity=(time-16
 6	20	20	NUM	CD	NumType=Card	2	nmod	_	SpaceAfter=No
 7	,	,	PUNCT	,	_	8	punct	_	_
-8	2018	2018	NUM	CD	NumType=Card	6	nmod:tmod	_	Entity=(time-20)time-18)|SpaceAfter=No
-9	)	)	PUNCT	-RRB-	_	6	punct	_	Entity=abstract-17)
+8	2018	2018	NUM	CD	NumType=Card	6	nmod:tmod	_	Entity=(time-17)time-16)|SpaceAfter=No
+9	)	)	PUNCT	-RRB-	_	6	punct	_	Entity=abstract-15)
 
 # sent_id = GUM_bio_holt-12
 # text = Batting average .265
-# s_type=other
-1	Batting	batting	NOUN	NN	Number=Sing	2	compound	_	Entity=(abstract-21
-2	average	average	NOUN	NN	Number=Sing	3	nsubj	_	Entity=abstract-21)
-3	.265	.265	NUM	CD	NumType=Card	0	root	_	Entity=(quantity-22)
+# s_type = other
+1	Batting	batting	NOUN	NN	Number=Sing	2	compound	_	Discourse=joint:17->3|Entity=(abstract-18
+2	average	average	NOUN	NN	Number=Sing	3	nsubj	_	Entity=abstract-18)
+3	.265	.265	NUM	CD	NumType=Card	0	root	_	Entity=(abstract-19)
 
 # sent_id = GUM_bio_holt-13
 # text = Home runs 19
-# s_type=other
-1	Home	home	NOUN	NN	Number=Sing	2	compound	_	Entity=(event-23
-2	runs	run	NOUN	NNS	Number=Plur	3	nsubj	_	Entity=event-23)
-3	19	19	NUM	CD	NumType=Card	0	root	_	Entity=(quantity-24)
+# s_type = other
+1	Home	home	NOUN	NN	Number=Sing	2	compound	_	Discourse=joint:18->17|Entity=(event-20
+2	runs	run	NOUN	NNS	Number=Plur	3	nsubj	_	Entity=event-20)
+3	19	19	NUM	CD	NumType=Card	0	root	_	Entity=(event-21)
 
 # sent_id = GUM_bio_holt-14
 # text = Runs batted in 171
-# s_type=other
-1	Runs	run	NOUN	NNS	Number=Plur	4	nsubj	_	Entity=(event-25)
+# s_type = other
+1	Runs	run	NOUN	NNS	Number=Plur	4	nsubj	_	Discourse=joint:19->17|Entity=(event-22)
 2	batted	bat	VERB	VBN	Tense=Past|VerbForm=Part	1	acl:relcl	_	_
 3	in	in	ADP	IN	_	2	obl	_	_
-4	171	171	NUM	CD	NumType=Card	0	root	_	Entity=(quantity-26)
+4	171	171	NUM	CD	NumType=Card	0	root	_	Entity=(event-23)
 
 # sent_id = GUM_bio_holt-15
 # text = Teams
-# s_type=frag
-1	Teams	team	NOUN	NNS	Number=Plur	0	root	_	Entity=(organization-27)
+# s_type = frag
+1	Teams	team	NOUN	NNS	Number=Plur	0	root	_	Discourse=preparation:20->21|Entity=(organization-24)
 
 # sent_id = GUM_bio_holt-16
 # text = Pittsburgh Pirates (2012)
-# s_type=frag
-1	Pittsburgh	Pittsburgh	PROPN	NNP	Number=Sing	2	compound	_	Entity=(organization-15(place-28)
-2	Pirates	Pirates	PROPN	NNP	Number=Sing	0	root	_	Entity=organization-15)
-3	(	(	PUNCT	-LRB-	_	4	punct	_	SpaceAfter=No
-4	2012	2012	NUM	CD	NumType=Card	2	nmod:tmod	_	Entity=(time-14)|SpaceAfter=No
+# s_type = frag
+1	Pittsburgh	Pittsburgh	PROPN	NNP	Number=Sing	2	compound	_	Discourse=joint:21->3|Entity=(organization-13(place-25)
+2	Pirates	Pirates	PROPN	NNP	Number=Sing	0	root	_	Entity=organization-13)
+3	(	(	PUNCT	-LRB-	_	4	punct	_	Discourse=elaboration:22->21|SpaceAfter=No
+4	2012	2012	NUM	CD	NumType=Card	2	nmod:tmod	_	Entity=(time-12)|SpaceAfter=No
 5	)	)	PUNCT	-RRB-	_	4	punct	_	_
 
 # sent_id = GUM_bio_holt-17
 # text = Boston Red Sox (2013 – present)
-# s_type=frag
-1	Boston	Boston	PROPN	NNP	Number=Sing	3	compound	_	Entity=(organization-2(place-3)
+# s_type = frag
+1	Boston	Boston	PROPN	NNP	Number=Sing	3	compound	_	Discourse=sequence:23->21|Entity=(organization-2(place-3)
 2	Red	Red	PROPN	NNP	Number=Sing	3	amod	_	_
 3	Sox	Sox	PROPN	NNPS	Number=Plur	0	root	_	Entity=organization-2)
-4	(	(	PUNCT	-LRB-	_	5	punct	_	SpaceAfter=No
-5	2013	2013	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-29)
-6	–	–	ADP	IN	_	7	case	_	_
-7	present	present	NOUN	NN	Number=Sing	5	nmod	_	Entity=(time-30)|SpaceAfter=No
+4	(	(	PUNCT	-LRB-	_	5	punct	_	Discourse=elaboration:24->23|SpaceAfter=No
+5	2013	2013	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-26)
+6	–	-	SYM	SYM	_	7	case	_	_
+7	present	present	NOUN	NN	Number=Sing	5	nmod	_	Entity=(time-27)|SpaceAfter=No
 8	)	)	PUNCT	-RRB-	_	5	punct	_	_
 
 # sent_id = GUM_bio_holt-18
 # text = Career highlights and awards
-# s_type=frag
-1	Career	career	NOUN	NN	Number=Sing	2	compound	_	Entity=(abstract-31(abstract-32)
-2	highlights	highlight	NOUN	NNS	Number=Plur	0	root	_	Entity=abstract-31)
+# s_type = frag
+1	Career	career	NOUN	NN	Number=Sing	2	compound	_	Discourse=preparation:25->26|Entity=(abstract-28(abstract-29)
+2	highlights	highlight	NOUN	NNS	Number=Plur	0	root	_	Entity=abstract-28)
 3	and	and	CCONJ	CC	_	4	cc	_	_
-4	awards	award	NOUN	NNS	Number=Plur	2	conj	_	Entity=(abstract-33)
+4	awards	award	NOUN	NNS	Number=Plur	2	conj	_	Entity=(abstract-30)
 
 # sent_id = GUM_bio_holt-19
 # text = All-Star (2015)
-# s_type=frag
-1	All-Star	All-Star	PROPN	NNP	Number=Sing	0	root	_	Entity=(object-34)
-2	(	(	PUNCT	-LRB-	_	3	punct	_	SpaceAfter=No
-3	2015	2015	NUM	CD	NumType=Card	1	nmod:tmod	_	Entity=(time-35)|SpaceAfter=No
+# s_type = frag
+1	All-Star	All-Star	PROPN	NNP	Number=Sing	0	root	_	Discourse=joint:26->3|Entity=(abstract-31)
+2	(	(	PUNCT	-LRB-	_	3	punct	_	Discourse=elaboration:27->26|SpaceAfter=No
+3	2015	2015	NUM	CD	NumType=Card	1	nmod:tmod	_	Entity=(time-32)|SpaceAfter=No
 4	)	)	PUNCT	-RRB-	_	3	punct	_	_
 
 # sent_id = GUM_bio_holt-20
 # text = Hit for the cycle on June 16, 2015
-# s_type=frag
-1	Hit	hit	VERB	VB	VerbForm=Inf	0	root	_	Entity=(event-36
+# s_type = frag
+1	Hit	hit	VERB	VB	VerbForm=Inf	0	root	_	Discourse=joint:28->26|Entity=(abstract-33
 2	for	for	ADP	IN	_	4	case	_	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	_	_
-4	cycle	cycle	NOUN	NN	Number=Sing	1	obl	_	Entity=event-36)
+4	cycle	cycle	NOUN	NN	Number=Sing	1	obl	_	Entity=abstract-33)
 5	on	on	ADP	IN	_	7	case	_	_
-6	June	June	PROPN	NNP	Number=Sing	7	compound	_	Entity=(time-37(time-38)
+6	June	June	PROPN	NNP	Number=Sing	7	compound	_	Entity=(time-34
 7	16	16	NUM	CD	NumType=Card	1	obl	_	SpaceAfter=No
 8	,	,	PUNCT	,	_	9	punct	_	_
-9	2015	2015	NUM	CD	NumType=Card	7	nmod:tmod	_	Entity=(time-35)time-37)
+9	2015	2015	NUM	CD	NumType=Card	7	nmod:tmod	_	Entity=(time-32)time-34)
 
 # sent_id = GUM_bio_holt-21
 # text = World Series champion (2013)
-# s_type=frag
-1	World	World	PROPN	NNP	Number=Sing	2	compound	_	Entity=(abstract-39(event-40
-2	Series	Series	PROPN	NNP	Number=Sing	3	compound	_	Entity=event-40)
-3	champion	champion	NOUN	NN	Number=Sing	0	root	_	Entity=abstract-39)
-4	(	(	PUNCT	-LRB-	_	5	punct	_	SpaceAfter=No
-5	2013	2013	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-29)|SpaceAfter=No
+# s_type = frag
+1	World	World	PROPN	NNP	Number=Sing	2	compound	_	Discourse=joint:29->26|Entity=(person-35(event-36
+2	Series	Series	PROPN	NNP	Number=Sing	3	compound	_	Entity=event-36)
+3	champion	champion	NOUN	NN	Number=Sing	0	root	_	Entity=person-35)
+4	(	(	PUNCT	-LRB-	_	5	punct	_	Discourse=elaboration:30->29|SpaceAfter=No
+5	2013	2013	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-26)|SpaceAfter=No
 6	)	)	PUNCT	-RRB-	_	5	punct	_	_
 
 # sent_id = GUM_bio_holt-22
 # text = Brock Holt
-# s_type=frag
-1	Brock	Brock	PROPN	NNP	Number=Sing	0	root	_	Entity=(person-1
+# s_type = frag
+1	Brock	Brock	PROPN	NNP	Number=Sing	0	root	_	Discourse=preparation:31->32|Entity=(person-1
 2	Holt	Holt	PROPN	NNP	Number=Sing	1	flat	_	Entity=person-1)
 
 # sent_id = GUM_bio_holt-23
 # text = Brock Wyatt Holt (born June 11, 1988) is an American professional baseball second baseman, shortstop and outfielder for the Boston Red Sox of Major League Baseball (MLB).
-# s_type=decl
-1	Brock	Brock	PROPN	NNP	Number=Sing	17	nsubj	_	Entity=(person-1
+# s_type = decl
+1	Brock	Brock	PROPN	NNP	Number=Sing	17	nsubj	_	Discourse=ROOT:32|Entity=(person-1
 2	Wyatt	Wyatt	PROPN	NNP	Number=Sing	1	flat	_	_
-3	Holt	Holt	PROPN	NNP	Number=Sing	1	flat	_	Entity=person-1)
-4	(	(	PUNCT	-LRB-	_	5	punct	_	SpaceAfter=No
+3	Holt	Holt	PROPN	NNP	Number=Sing	1	flat	_	_
+4	(	(	PUNCT	-LRB-	_	5	punct	_	Discourse=elaboration:33->32|SpaceAfter=No
 5	born	bear	VERB	VBN	Tense=Past|VerbForm=Part	1	parataxis	_	_
-6	June	June	PROPN	NNP	Number=Sing	7	compound	_	Entity=(time-4(time-5)
+6	June	June	PROPN	NNP	Number=Sing	7	compound	_	Entity=(time-4
 7	11	11	NUM	CD	NumType=Card	5	appos	_	SpaceAfter=No
 8	,	,	PUNCT	,	_	9	punct	_	_
-9	1988	1988	NUM	CD	NumType=Card	7	nmod:tmod	_	Entity=(time-6)time-4)|SpaceAfter=No
-10	)	)	PUNCT	-RRB-	_	5	punct	_	_
-11	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	17	cop	_	_
+9	1988	1988	NUM	CD	NumType=Card	7	nmod:tmod	_	Entity=(time-5)time-4)|SpaceAfter=No
+10	)	)	PUNCT	-RRB-	_	5	punct	_	Entity=person-1)
+11	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	17	cop	_	Discourse=same-unit:34->32
 12	an	a	DET	DT	Definite=Ind|PronType=Art	17	det	_	Entity=(person-1
 13	American	American	ADJ	JJ	Degree=Pos	17	amod	_	_
-14	professional	professional	ADJ	JJ	Degree=Pos	15	amod	_	Entity=(organization-41
-15	baseball	baseball	NOUN	NN	Number=Sing	17	compound	_	Entity=organization-41)
+14	professional	professional	ADJ	JJ	Degree=Pos	15	amod	_	Entity=(organization-37
+15	baseball	baseball	NOUN	NN	Number=Sing	17	compound	_	Entity=organization-37)
 16	second	second	ADJ	JJ	Degree=Pos|NumType=Ord	17	amod	_	_
 17	baseman	baseman	NOUN	NN	Number=Sing	0	root	_	SpaceAfter=No
 18	,	,	PUNCT	,	_	19	punct	_	_
@@ -226,32 +226,32 @@
 25	Red	Red	PROPN	NNP	Number=Sing	26	amod	_	_
 26	Sox	Sox	PROPN	NNPS	Number=Plur	17	nmod	_	_
 27	of	of	ADP	IN	_	30	case	_	_
-28	Major	Major	PROPN	NNP	Number=Sing	29	amod	_	Entity=(organization-11
+28	Major	Major	PROPN	NNP	Number=Sing	29	amod	_	Entity=(organization-10
 29	League	League	PROPN	NNP	Number=Sing	30	compound	_	_
-30	Baseball	Baseball	PROPN	NNP	Number=Sing	26	nmod	_	Entity=organization-11)
-31	(	(	PUNCT	-LRB-	_	32	punct	_	SpaceAfter=No
-32	MLB	MLB	PROPN	NNP	Number=Sing	30	appos	_	Entity=(organization-11)|SpaceAfter=No
+30	Baseball	Baseball	PROPN	NNP	Number=Sing	26	nmod	_	Entity=organization-10)
+31	(	(	PUNCT	-LRB-	_	32	punct	_	Discourse=restatement:35->34|SpaceAfter=No
+32	MLB	MLB	PROPN	NNP	Number=Sing	30	appos	_	Entity=(organization-10)|SpaceAfter=No
 33	)	)	PUNCT	-RRB-	_	32	punct	_	Entity=person-1)organization-2)|SpaceAfter=No
 34	.	.	PUNCT	.	_	17	punct	_	_
 
 # sent_id = GUM_bio_holt-24
 # text = While primarily used as an infielder, he has started in and played at every position for the Red Sox, except for pitcher and catcher.
-# s_type=decl
-1	While	while	SCONJ	IN	_	3	mark	_	_
+# s_type = decl
+1	While	while	SCONJ	IN	_	3	mark	_	Discourse=concession:36->37
 2	primarily	primarily	ADV	RB	_	3	advmod	_	_
 3	used	use	VERB	VBN	Tense=Past|VerbForm=Part	10	advcl	_	_
 4	as	as	ADP	IN	_	6	case	_	_
 5	an	a	DET	DT	Definite=Ind|PronType=Art	6	det	_	Entity=(person-1
 6	infielder	infielder	NOUN	NN	Number=Sing	3	obl	_	Entity=person-1)|SpaceAfter=No
 7	,	,	PUNCT	,	_	3	punct	_	_
-8	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	10	nsubj	_	Entity=(person-1)
+8	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	10	nsubj	_	Discourse=elaboration:37->32|Entity=(person-1)
 9	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	10	aux	_	_
 10	started	start	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
 11	in	in	ADP	IN	_	10	obl	_	_
 12	and	and	CCONJ	CC	_	13	cc	_	_
 13	played	play	VERB	VBN	Tense=Past|VerbForm=Part	10	conj	_	_
 14	at	at	ADP	IN	_	16	case	_	_
-15	every	every	DET	DT	_	16	det	_	Entity=(abstract-42
+15	every	every	DET	DT	_	16	det	_	Entity=(abstract-38
 16	position	position	NOUN	NN	Number=Sing	13	obl	_	_
 17	for	for	ADP	IN	_	20	case	_	_
 18	the	the	DET	DT	Definite=Def|PronType=Art	20	det	_	Entity=(organization-2
@@ -260,434 +260,434 @@
 21	,	,	PUNCT	,	_	24	punct	_	_
 22	except	except	SCONJ	IN	_	24	mark	_	_
 23	for	for	ADP	IN	_	24	case	_	_
-24	pitcher	pitcher	NOUN	NN	Number=Sing	16	advcl	_	Entity=(abstract-43)
+24	pitcher	pitcher	NOUN	NN	Number=Sing	16	advcl	_	Entity=(abstract-39)
 25	and	and	CCONJ	CC	_	26	cc	_	_
-26	catcher	catcher	NOUN	NN	Number=Sing	24	conj	_	Entity=(abstract-44)abstract-42)|SpaceAfter=No
+26	catcher	catcher	NOUN	NN	Number=Sing	24	conj	_	Entity=(abstract-40)abstract-38)|SpaceAfter=No
 27	.	.	PUNCT	.	_	10	punct	_	_
 
 # sent_id = GUM_bio_holt-25
 # text = Listed at 5 feet 10 inches (1.78 m) and 180 pounds (82 kg), Holt bats left-handed and throws right-handed.
-# s_type=decl
-1	Listed	list	VERB	VBN	Tense=Past|VerbForm=Part	19	acl	_	_
+# s_type = decl
+1	Listed	list	VERB	VBN	Tense=Past|VerbForm=Part	19	acl	_	Discourse=joint:38->37
 2	at	at	ADP	IN	_	4	case	_	_
-3	5	5	NUM	CD	NumType=Card	4	nummod	_	Entity=(quantity-45
+3	5	5	NUM	CD	NumType=Card	4	nummod	_	Entity=(abstract-41
 4	feet	foot	NOUN	NNS	Number=Plur	1	obl	_	_
 5	10	10	NUM	CD	NumType=Card	6	nummod	_	_
-6	inches	inch	NOUN	NNS	Number=Plur	4	conj	_	Entity=quantity-45)
-7	(	(	PUNCT	-LRB-	_	9	punct	_	SpaceAfter=No
-8	1.78	1.78	NUM	CD	NumType=Card	9	nummod	_	Entity=(quantity-45
-9	m	m	NOUN	NNS	Number=Plur	4	appos	_	Entity=quantity-45)|SpaceAfter=No
+6	inches	inch	NOUN	NNS	Number=Plur	4	conj	_	Entity=abstract-41)
+7	(	(	PUNCT	-LRB-	_	9	punct	_	Discourse=restatement:39->38|SpaceAfter=No
+8	1.78	1.78	NUM	CD	NumType=Card	9	nummod	_	Entity=(abstract-41
+9	m	m	NOUN	NNS	Number=Plur	4	appos	_	Entity=abstract-41)|SpaceAfter=No
 10	)	)	PUNCT	-RRB-	_	9	punct	_	_
-11	and	and	CCONJ	CC	_	13	cc	_	_
-12	180	180	NUM	CD	NumType=Card	13	nummod	_	Entity=(quantity-46
-13	pounds	pound	NOUN	NNS	Number=Plur	4	conj	_	Entity=quantity-46)
-14	(	(	PUNCT	-LRB-	_	16	punct	_	SpaceAfter=No
-15	82	82	NUM	CD	NumType=Card	16	nummod	_	Entity=(quantity-46
-16	kg	kg	NOUN	NNS	Number=Plur	13	appos	_	Entity=quantity-46)|SpaceAfter=No
+11	and	and	CCONJ	CC	_	13	cc	_	Discourse=same-unit:40->38
+12	180	180	NUM	CD	NumType=Card	13	nummod	_	Entity=(abstract-42
+13	pounds	pound	NOUN	NNS	Number=Plur	4	conj	_	Entity=abstract-42)
+14	(	(	PUNCT	-LRB-	_	16	punct	_	Discourse=elaboration:41->40|SpaceAfter=No
+15	82	82	NUM	CD	NumType=Card	16	nummod	_	Entity=(abstract-42
+16	kg	kg	NOUN	NNS	Number=Plur	13	appos	_	Entity=abstract-42)|SpaceAfter=No
 17	)	)	PUNCT	-RRB-	_	16	punct	_	SpaceAfter=No
 18	,	,	PUNCT	,	_	1	punct	_	_
-19	Holt	Holt	PROPN	NNP	Number=Sing	20	nsubj	_	Entity=(person-1)
+19	Holt	Holt	PROPN	NNP	Number=Sing	20	nsubj	_	Discourse=joint:42->37|Entity=(person-1)
 20	bats	bat	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	_
 21	left-handed	left-handed	ADV	RB	_	20	advmod	_	_
-22	and	and	CCONJ	CC	_	23	cc	_	_
+22	and	and	CCONJ	CC	_	23	cc	_	Discourse=joint:43->42
 23	throws	throw	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	20	conj	_	_
 24	right-handed	right-handed	ADV	RB	_	23	advmod	_	SpaceAfter=No
 25	.	.	PUNCT	.	_	20	punct	_	_
 
 # sent_id = GUM_bio_holt-26
 # text = He first played in MLB for the Pittsburgh Pirates in 2012, but has played for the Red Sox every season since.
-# s_type=decl
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj	_	Entity=(person-1)
+# s_type = decl
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj	_	Discourse=joint:44->37|Entity=(person-1)
 2	first	first	ADV	RB	_	3	advmod	_	_
 3	played	play	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 4	in	in	ADP	IN	_	5	case	_	_
-5	MLB	MLB	PROPN	NNP	Number=Sing	3	obl	_	Entity=(organization-11)
+5	MLB	MLB	PROPN	NNP	Number=Sing	3	obl	_	Entity=(organization-10)
 6	for	for	ADP	IN	_	9	case	_	_
-7	the	the	DET	DT	Definite=Def|PronType=Art	9	det	_	Entity=(organization-15
-8	Pittsburgh	Pittsburgh	PROPN	NNP	Number=Sing	9	compound	_	Entity=(place-28)
-9	Pirates	Pirates	PROPN	NNP	Number=Sing	3	obl	_	Entity=organization-15)
+7	the	the	DET	DT	Definite=Def|PronType=Art	9	det	_	Entity=(organization-13
+8	Pittsburgh	Pittsburgh	PROPN	NNP	Number=Sing	9	compound	_	Entity=(place-25)
+9	Pirates	Pirates	PROPN	NNP	Number=Sing	3	obl	_	Entity=organization-13)
 10	in	in	ADP	IN	_	11	case	_	_
-11	2012	2012	NUM	CD	NumType=Card	3	obl	_	Entity=(time-14)|SpaceAfter=No
+11	2012	2012	NUM	CD	NumType=Card	3	obl	_	Entity=(time-12)|SpaceAfter=No
 12	,	,	PUNCT	,	_	15	punct	_	_
-13	but	but	CCONJ	CC	_	15	cc	_	_
+13	but	but	CCONJ	CC	_	15	cc	_	Discourse=contrast:45->44
 14	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	15	aux	_	_
 15	played	play	VERB	VBN	Tense=Past|VerbForm=Part	3	conj	_	_
 16	for	for	ADP	IN	_	19	case	_	_
 17	the	the	DET	DT	Definite=Def|PronType=Art	19	det	_	Entity=(organization-2
 18	Red	Red	PROPN	NNP	Number=Sing	19	amod	_	_
 19	Sox	Sox	PROPN	NNPS	Number=Plur	15	obl	_	Entity=organization-2)
-20	every	every	DET	DT	_	21	det	_	Entity=(time-47
+20	every	every	DET	DT	_	21	det	_	Entity=(time-43
 21	season	season	NOUN	NN	Number=Sing	15	obl:tmod	_	_
-22	since	since	ADV	RB	_	21	advmod	_	Entity=time-47)|SpaceAfter=No
+22	since	since	ADV	RB	_	21	advmod	_	Entity=time-43)|SpaceAfter=No
 23	.	.	PUNCT	.	_	3	punct	_	_
 
 # sent_id = GUM_bio_holt-27
 # text = High school career
-# s_type=frag
-1	High	high	ADJ	JJ	Degree=Pos	2	amod	_	Entity=(abstract-48(organization-49
-2	school	school	NOUN	NN	Number=Sing	3	compound	_	Entity=organization-49)
-3	career	career	NOUN	NN	Number=Sing	0	root	_	Entity=abstract-48)
+# s_type = frag
+1	High	high	ADJ	JJ	Degree=Pos	2	amod	_	Discourse=preparation:46->48|Entity=(abstract-44(organization-45
+2	school	school	NOUN	NN	Number=Sing	3	compound	_	Entity=organization-45)
+3	career	career	NOUN	NN	Number=Sing	0	root	_	Entity=abstract-44)
 
 # sent_id = GUM_bio_holt-28
 # text = Holt graduated in 2006 from Stephenville High School in Texas.
-# s_type=decl
-1	Holt	Holt	PROPN	NNP	Number=Sing	2	nsubj	_	Entity=(person-1)
+# s_type = decl
+1	Holt	Holt	PROPN	NNP	Number=Sing	2	nsubj	_	Discourse=background:47->48|Entity=(person-1)
 2	graduated	graduate	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 3	in	in	ADP	IN	_	4	case	_	_
-4	2006	2006	NUM	CD	NumType=Card	2	obl	_	Entity=(time-50)
+4	2006	2006	NUM	CD	NumType=Card	2	obl	_	Entity=(time-46)
 5	from	from	ADP	IN	_	8	case	_	_
-6	Stephenville	Stephenville	PROPN	NNP	Number=Sing	8	compound	_	Entity=(organization-49(place-51)
+6	Stephenville	Stephenville	PROPN	NNP	Number=Sing	8	compound	_	Entity=(organization-45(place-47)
 7	High	High	PROPN	NNP	Number=Sing	8	amod	_	_
 8	School	School	PROPN	NNP	Number=Sing	2	obl	_	_
 9	in	in	ADP	IN	_	10	case	_	_
-10	Texas	Texas	PROPN	NNP	Number=Sing	8	nmod	_	Entity=(place-9)organization-49)|SpaceAfter=No
+10	Texas	Texas	PROPN	NNP	Number=Sing	8	nmod	_	Entity=(place-8)organization-45)|SpaceAfter=No
 11	.	.	PUNCT	.	_	2	punct	_	_
 
 # sent_id = GUM_bio_holt-29
 # text = In 2003, his freshman year, he made the District 8-4A All-District baseball team despite batting just .227, and shared the league's Newcomer of the Year award. [1]
-# s_type=decl
-1	In	in	ADP	IN	_	2	case	_	_
-2	2003	2003	NUM	CD	NumType=Card	9	obl	_	Entity=(time-52)|SpaceAfter=No
+# s_type = decl
+1	In	in	ADP	IN	_	2	case	_	Discourse=elaboration:48->32
+2	2003	2003	NUM	CD	NumType=Card	9	obl	_	Entity=(time-48)|SpaceAfter=No
 3	,	,	PUNCT	,	_	6	punct	_	_
-4	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	_	Entity=(time-52(person-1)
+4	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	_	Entity=(time-48(person-1)
 5	freshman	freshman	NOUN	NN	Number=Sing	6	amod	_	_
-6	year	year	NOUN	NN	Number=Sing	2	appos	_	Entity=time-52)|SpaceAfter=No
+6	year	year	NOUN	NN	Number=Sing	2	appos	_	Entity=time-48)|SpaceAfter=No
 7	,	,	PUNCT	,	_	2	punct	_	_
 8	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	9	nsubj	_	Entity=(person-1)
 9	made	make	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-10	the	the	DET	DT	Definite=Def|PronType=Art	15	det	_	Entity=(organization-53
-11	District	District	PROPN	NNP	Number=Sing	15	compound	_	Entity=(place-54
-12	8-4A	8-4A	PROPN	NNP	Number=Sing	11	compound	_	Entity=place-54)
+10	the	the	DET	DT	Definite=Def|PronType=Art	15	det	_	Entity=(organization-49
+11	District	District	PROPN	NNP	Number=Sing	15	compound	_	Entity=(place-50
+12	8-4A	8-4A	PROPN	NNP	Number=Sing	11	compound	_	Entity=place-50)
 13	All-District	All-District	PROPN	NNP	Number=Sing	15	amod	_	_
-14	baseball	baseball	NOUN	NN	Number=Sing	15	compound	_	Entity=(abstract-55)
-15	team	team	NOUN	NN	Number=Sing	9	obj	_	Entity=organization-53)
-16	despite	despite	SCONJ	IN	_	17	mark	_	_
+14	baseball	baseball	NOUN	NN	Number=Sing	15	compound	_	Entity=(abstract-51)
+15	team	team	NOUN	NN	Number=Sing	9	obj	_	Entity=organization-49)
+16	despite	despite	SCONJ	IN	_	17	mark	_	Discourse=concession:49->48
 17	batting	bat	VERB	VBG	VerbForm=Ger	9	advcl	_	_
-18	just	just	ADV	RB	_	19	advmod	_	Entity=(quantity-56
-19	.227	.227	NUM	CD	NumType=Card	17	obj	_	Entity=quantity-56)|SpaceAfter=No
+18	just	just	ADV	RB	_	19	advmod	_	Entity=(abstract-52
+19	.227	.227	NUM	CD	NumType=Card	17	obj	_	Entity=abstract-52)|SpaceAfter=No
 20	,	,	PUNCT	,	_	22	punct	_	_
-21	and	and	CCONJ	CC	_	22	cc	_	_
+21	and	and	CCONJ	CC	_	22	cc	_	Discourse=joint:50->48
 22	shared	share	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	9	conj	_	_
-23	the	the	DET	DT	Definite=Def|PronType=Art	24	det	_	Entity=(abstract-57(organization-58
+23	the	the	DET	DT	Definite=Def|PronType=Art	24	det	_	Entity=(abstract-53(organization-54
 24	league	league	NOUN	NN	Number=Sing	30	nmod:poss	_	SpaceAfter=No
-25	's	's	PART	POS	_	24	case	_	Entity=organization-58)
-26	Newcomer	Newcomer	PROPN	NNP	Number=Sing	30	compound	_	Entity=(person-59
+25	's	's	PART	POS	_	24	case	_	Entity=organization-54)
+26	Newcomer	Newcomer	PROPN	NNP	Number=Sing	30	compound	_	Entity=(person-55
 27	of	of	ADP	IN	_	29	case	_	_
 28	the	the	DET	DT	Definite=Def|PronType=Art	29	det	_	_
-29	Year	Year	PROPN	NNP	Number=Sing	26	nmod	_	Entity=(time-52)person-59)
-30	award	award	NOUN	NN	Number=Sing	22	obj	_	Entity=abstract-57)|SpaceAfter=No
+29	Year	Year	PROPN	NNP	Number=Sing	26	nmod	_	Entity=(time-48)person-55)
+30	award	award	NOUN	NN	Number=Sing	22	obj	_	Entity=abstract-53)|SpaceAfter=No
 31	.	.	PUNCT	.	_	9	punct	_	_
-32	[	[	PUNCT	-LSB-	_	33	punct	_	SpaceAfter=No
-33	1	1	NUM	CD	NumType=Card	9	dep	_	Entity=(abstract-60)|SpaceAfter=No
+32	[	[	PUNCT	-LSB-	_	33	punct	_	Discourse=evidence:51->48|SpaceAfter=No
+33	1	1	NUM	CD	NumType=Card	9	dep	_	Entity=(abstract-56)|SpaceAfter=No
 34	]	]	PUNCT	-RSB-	_	33	punct	_	_
 
 # sent_id = GUM_bio_holt-30
 # text = Holt was a second-team All-District 8-4A inclusion his sophomore year, batting .324 for the season. [2]
-# s_type=decl
-1	Holt	Holt	PROPN	NNP	Number=Sing	7	nsubj	_	Entity=(person-1)
+# s_type = decl
+1	Holt	Holt	PROPN	NNP	Number=Sing	7	nsubj	_	Discourse=sequence:52->48|Entity=(person-1)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	7	cop	_	_
 3	a	a	DET	DT	Definite=Ind|PronType=Art	7	det	_	Entity=(person-1
 4	second-team	second-team	ADJ	JJ	Degree=Pos	7	amod	_	_
-5	All-District	All-District	ADJ	JJ	Degree=Pos	7	amod	_	Entity=(place-54
-6	8-4A	8-4A	PROPN	NNP	Number=Sing	7	compound	_	Entity=place-54)
+5	All-District	All-District	ADJ	JJ	Degree=Pos	7	amod	_	Entity=(place-50
+6	8-4A	8-4A	PROPN	NNP	Number=Sing	7	compound	_	Entity=place-50)
 7	inclusion	inclusion	NOUN	NN	Number=Sing	0	root	_	Entity=person-1)
-8	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	10	nmod:poss	_	Entity=(time-61(person-1)
+8	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	10	nmod:poss	_	Entity=(time-57(person-1)
 9	sophomore	sophomore	NOUN	NN	Number=Sing	10	amod	_	_
-10	year	year	NOUN	NN	Number=Sing	7	nmod:tmod	_	Entity=time-61)|SpaceAfter=No
+10	year	year	NOUN	NN	Number=Sing	7	nmod:tmod	_	Entity=time-57)|SpaceAfter=No
 11	,	,	PUNCT	,	_	12	punct	_	_
-12	batting	bat	VERB	VBG	VerbForm=Ger	7	acl	_	_
-13	.324	.324	NUM	CD	NumType=Card	12	obj	_	Entity=(quantity-62)
+12	batting	bat	VERB	VBG	VerbForm=Ger	7	acl	_	Discourse=elaboration:53->52
+13	.324	.324	NUM	CD	NumType=Card	12	obj	_	Entity=(abstract-58)
 14	for	for	ADP	IN	_	16	case	_	_
-15	the	the	DET	DT	Definite=Def|PronType=Art	16	det	_	Entity=(time-63
-16	season	season	NOUN	NN	Number=Sing	12	obl	_	Entity=time-63)|SpaceAfter=No
+15	the	the	DET	DT	Definite=Def|PronType=Art	16	det	_	Entity=(time-59
+16	season	season	NOUN	NN	Number=Sing	12	obl	_	Entity=time-59)|SpaceAfter=No
 17	.	.	PUNCT	.	_	7	punct	_	_
-18	[	[	PUNCT	-LSB-	_	19	punct	_	SpaceAfter=No
-19	2	2	NUM	CD	NumType=Card	7	dep	_	Entity=(abstract-64)|SpaceAfter=No
+18	[	[	PUNCT	-LSB-	_	19	punct	_	Discourse=evidence:54->52|SpaceAfter=No
+19	2	2	NUM	CD	NumType=Card	7	dep	_	Entity=(abstract-60)|SpaceAfter=No
 20	]	]	PUNCT	-RSB-	_	19	punct	_	_
 
 # sent_id = GUM_bio_holt-31
 # text = In 2005, Holt was named defensive player of the year in District 6-4A, [3] and he earned all-district honors in 2006, his senior year. [4]
-# s_type=decl
-1	In	in	ADP	IN	_	2	case	_	_
-2	2005	2005	NUM	CD	NumType=Card	6	obl	_	Entity=(time-65)|SpaceAfter=No
+# s_type = decl
+1	In	in	ADP	IN	_	2	case	_	Discourse=sequence:55->48
+2	2005	2005	NUM	CD	NumType=Card	6	obl	_	Entity=(time-61)|SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	_	_
 4	Holt	Holt	PROPN	NNP	Number=Sing	6	nsubj:pass	_	Entity=(person-1)
 5	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	6	aux:pass	_	_
 6	named	name	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
-7	defensive	defensive	ADJ	JJ	Degree=Pos	8	amod	_	Entity=(abstract-66
+7	defensive	defensive	ADJ	JJ	Degree=Pos	8	amod	_	Entity=(person-1
 8	player	player	NOUN	NN	Number=Sing	6	xcomp	_	_
 9	of	of	ADP	IN	_	11	case	_	_
-10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(time-65
-11	year	year	NOUN	NN	Number=Sing	8	nmod	_	Entity=abstract-66)time-65)
+10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(time-61
+11	year	year	NOUN	NN	Number=Sing	8	nmod	_	Entity=person-1)time-61)
 12	in	in	ADP	IN	_	13	case	_	_
-13	District	District	PROPN	NNP	Number=Sing	6	obl	_	Entity=(place-67
-14	6-4A	6-4A	PROPN	NNP	Number=Sing	13	compound	_	Entity=place-67)|SpaceAfter=No
+13	District	District	PROPN	NNP	Number=Sing	6	obl	_	Entity=(place-62
+14	6-4A	6-4A	PROPN	NNP	Number=Sing	13	compound	_	Entity=place-62)|SpaceAfter=No
 15	,	,	PUNCT	,	_	17	punct	_	_
-16	[	[	PUNCT	-LSB-	_	17	punct	_	SpaceAfter=No
-17	3	3	NUM	CD	NumType=Card	6	dep	_	Entity=(abstract-68)|SpaceAfter=No
+16	[	[	PUNCT	-LSB-	_	17	punct	_	Discourse=evidence:56->55|SpaceAfter=No
+17	3	3	NUM	CD	NumType=Card	6	dep	_	Entity=(abstract-63)|SpaceAfter=No
 18	]	]	PUNCT	-RSB-	_	17	punct	_	_
-19	and	and	CCONJ	CC	_	21	cc	_	_
+19	and	and	CCONJ	CC	_	21	cc	_	Discourse=sequence:57->48
 20	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	21	nsubj	_	Entity=(person-1)
 21	earned	earn	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	6	conj	_	_
-22	all-district	all-district	ADJ	JJ	Degree=Pos	23	amod	_	Entity=(abstract-69
-23	honors	honors	NOUN	NNS	Number=Plur	21	obj	_	Entity=abstract-69)
+22	all-district	all-district	ADJ	JJ	Degree=Pos	23	amod	_	Entity=(abstract-64
+23	honors	honors	NOUN	NNS	Number=Plur	21	obj	_	Entity=abstract-64)
 24	in	in	ADP	IN	_	25	case	_	_
-25	2006	2006	NUM	CD	NumType=Card	21	obl	_	Entity=(time-50)|SpaceAfter=No
+25	2006	2006	NUM	CD	NumType=Card	21	obl	_	Entity=(time-46)|SpaceAfter=No
 26	,	,	PUNCT	,	_	29	punct	_	_
-27	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	29	nmod:poss	_	Entity=(time-50(person-1)
+27	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	29	nmod:poss	_	Entity=(time-46(person-1)
 28	senior	senior	ADJ	JJ	Degree=Pos	29	amod	_	_
-29	year	year	NOUN	NN	Number=Sing	25	appos	_	Entity=(time-70)time-50)|SpaceAfter=No
+29	year	year	NOUN	NN	Number=Sing	25	appos	_	Entity=(time-65)time-46)|SpaceAfter=No
 30	.	.	PUNCT	.	_	21	punct	_	_
-31	[	[	PUNCT	-LSB-	_	32	punct	_	SpaceAfter=No
-32	4	4	NUM	CD	NumType=Card	21	dep	_	Entity=(abstract-71)|SpaceAfter=No
+31	[	[	PUNCT	-LSB-	_	32	punct	_	Discourse=evidence:58->57|SpaceAfter=No
+32	4	4	NUM	CD	NumType=Card	21	dep	_	Entity=(abstract-66)|SpaceAfter=No
 33	]	]	PUNCT	-RSB-	_	32	punct	_	_
 
 # sent_id = GUM_bio_holt-32
 # text = College career
-# s_type=frag
-1	College	college	NOUN	NN	Number=Sing	2	compound	_	Entity=(abstract-72(organization-73)
-2	career	career	NOUN	NN	Number=Sing	0	root	_	Entity=abstract-72)
+# s_type = frag
+1	College	college	NOUN	NN	Number=Sing	2	compound	_	Discourse=preparation:59->60|Entity=(abstract-67(organization-68)
+2	career	career	NOUN	NN	Number=Sing	0	root	_	Entity=abstract-67)
 
 # sent_id = GUM_bio_holt-33
 # text = Holt attended Navarro College in 2007 and 2008. [5]
-# s_type=decl
-1	Holt	Holt	PROPN	NNP	Number=Sing	2	nsubj	_	Entity=(person-1)
+# s_type = decl
+1	Holt	Holt	PROPN	NNP	Number=Sing	2	nsubj	_	Discourse=sequence:60->48|Entity=(person-1)
 2	attended	attend	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-3	Navarro	Navarro	PROPN	NNP	Number=Sing	4	compound	_	Entity=(organization-74(place-75)
-4	College	College	PROPN	NNP	Number=Sing	2	obj	_	Entity=organization-74)
+3	Navarro	Navarro	PROPN	NNP	Number=Sing	4	compound	_	Entity=(organization-69(place-70)
+4	College	College	PROPN	NNP	Number=Sing	2	obj	_	Entity=organization-69)
 5	in	in	ADP	IN	_	6	case	_	_
-6	2007	2007	NUM	CD	NumType=Card	2	obl	_	Entity=(time-76)
+6	2007	2007	NUM	CD	NumType=Card	2	obl	_	Entity=(time-71)
 7	and	and	CCONJ	CC	_	8	cc	_	_
-8	2008	2008	NUM	CD	NumType=Card	6	conj	_	Entity=(time-77)|SpaceAfter=No
+8	2008	2008	NUM	CD	NumType=Card	6	conj	_	Entity=(time-72)|SpaceAfter=No
 9	.	.	PUNCT	.	_	2	punct	_	_
-10	[	[	PUNCT	-LSB-	_	11	punct	_	SpaceAfter=No
-11	5	5	NUM	CD	NumType=Card	2	dep	_	Entity=(abstract-78)|SpaceAfter=No
+10	[	[	PUNCT	-LSB-	_	11	punct	_	Discourse=evidence:61->60|SpaceAfter=No
+11	5	5	NUM	CD	NumType=Card	2	dep	_	Entity=(abstract-73)|SpaceAfter=No
 12	]	]	PUNCT	-RSB-	_	11	punct	_	_
 
 # sent_id = GUM_bio_holt-34
 # text = After transferring to Rice University in 2009, he posted a .348 batting average with 12 home runs and 43 RBIs in 59 games for the Rice Owls.
-# s_type=decl
-1	After	after	SCONJ	IN	_	2	mark	_	_
+# s_type = decl
+1	After	after	SCONJ	IN	_	2	mark	_	Discourse=circumstance:62->63
 2	transferring	transfer	VERB	VBG	VerbForm=Ger	10	advcl	_	_
 3	to	to	ADP	IN	_	5	case	_	_
-4	Rice	Rice	PROPN	NNP	Number=Sing	5	compound	_	Entity=(organization-79
-5	University	University	PROPN	NNP	Number=Sing	2	obl	_	Entity=organization-79)
+4	Rice	Rice	PROPN	NNP	Number=Sing	5	compound	_	Entity=(organization-74
+5	University	University	PROPN	NNP	Number=Sing	2	obl	_	Entity=organization-74)
 6	in	in	ADP	IN	_	7	case	_	_
-7	2009	2009	NUM	CD	NumType=Card	2	obl	_	Entity=(time-80)|SpaceAfter=No
+7	2009	2009	NUM	CD	NumType=Card	2	obl	_	Entity=(time-75)|SpaceAfter=No
 8	,	,	PUNCT	,	_	2	punct	_	_
-9	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	10	nsubj	_	Entity=(person-1)
+9	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	10	nsubj	_	Discourse=sequence:63->60|Entity=(person-1)
 10	posted	post	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 11	a	a	DET	DT	Definite=Ind|PronType=Art	14	det	_	_
-12	.348	.348	NUM	CD	NumType=Card	14	nummod	_	Entity=(abstract-81(quantity-82)
+12	.348	.348	NUM	CD	NumType=Card	14	nummod	_	Entity=(abstract-76
 13	batting	batting	NOUN	NN	Number=Sing	14	compound	_	_
-14	average	average	NOUN	NN	Number=Sing	10	obj	_	Entity=abstract-81)
+14	average	average	NOUN	NN	Number=Sing	10	obj	_	Entity=abstract-76)
 15	with	with	ADP	IN	_	18	case	_	_
-16	12	12	NUM	CD	NumType=Card	18	nummod	_	Entity=(event-83
+16	12	12	NUM	CD	NumType=Card	18	nummod	_	Entity=(event-77
 17	home	home	NOUN	NN	Number=Sing	18	compound	_	_
-18	runs	run	NOUN	NNS	Number=Plur	10	obl	_	Entity=event-83)
+18	runs	run	NOUN	NNS	Number=Plur	10	obl	_	Entity=event-77)
 19	and	and	CCONJ	CC	_	21	cc	_	_
-20	43	43	NUM	CD	NumType=Card	21	nummod	_	Entity=(event-84
-21	RBIs	RBI	NOUN	NNS	Number=Plur	18	conj	_	Entity=event-84)
+20	43	43	NUM	CD	NumType=Card	21	nummod	_	Entity=(event-78
+21	RBIs	RBI	NOUN	NNS	Number=Plur	18	conj	_	Entity=event-78)
 22	in	in	ADP	IN	_	24	case	_	_
-23	59	59	NUM	CD	NumType=Card	24	nummod	_	Entity=(event-85
-24	games	game	NOUN	NNS	Number=Plur	10	obl	_	Entity=event-85)
+23	59	59	NUM	CD	NumType=Card	24	nummod	_	Entity=(event-79
+24	games	game	NOUN	NNS	Number=Plur	10	obl	_	Entity=event-79)
 25	for	for	ADP	IN	_	28	case	_	_
-26	the	the	DET	DT	Definite=Def|PronType=Art	28	det	_	Entity=(organization-86
-27	Rice	Rice	PROPN	NNP	Number=Sing	28	compound	_	Entity=(organization-79)
-28	Owls	Owls	PROPN	NNPS	Number=Plur	24	nmod	_	Entity=organization-86)|SpaceAfter=No
+26	the	the	DET	DT	Definite=Def|PronType=Art	28	det	_	Entity=(organization-80
+27	Rice	Rice	PROPN	NNP	Number=Sing	28	compound	_	Entity=(organization-74)
+28	Owls	Owls	PROPN	NNPS	Number=Plur	24	nmod	_	Entity=organization-80)|SpaceAfter=No
 29	.	.	PUNCT	.	_	10	punct	_	_
 
 # sent_id = GUM_bio_holt-35
 # text = He also led the Owls with 67 runs scored and shared the team lead with 11 stolen bases.
-# s_type=decl
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj	_	Entity=(person-1)
+# s_type = decl
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj	_	Discourse=joint:64->63|Entity=(person-1)
 2	also	also	ADV	RB	_	3	advmod	_	_
 3	led	lead	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	_
-5	Owls	Owls	PROPN	NNPS	Number=Plur	3	obj	_	Entity=(organization-86)
+5	Owls	Owls	PROPN	NNPS	Number=Plur	3	obj	_	Entity=(organization-80)
 6	with	with	ADP	IN	_	8	case	_	_
-7	67	67	NUM	CD	NumType=Card	8	nummod	_	Entity=(event-87
-8	runs	run	NOUN	NNS	Number=Plur	3	obl	_	Entity=event-87)
-9	scored	score	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	8	acl	_	_
-10	and	and	CCONJ	CC	_	11	cc	_	_
+7	67	67	NUM	CD	NumType=Card	8	nummod	_	Entity=(event-81
+8	runs	run	NOUN	NNS	Number=Plur	3	obl	_	Entity=event-81)
+9	scored	score	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	8	acl	_	Discourse=elaboration:65->64
+10	and	and	CCONJ	CC	_	11	cc	_	Discourse=joint:66->64
 11	shared	share	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	3	conj	_	_
-12	the	the	DET	DT	Definite=Def|PronType=Art	14	det	_	Entity=(abstract-88
-13	team	team	NOUN	NN	Number=Sing	14	compound	_	Entity=(organization-86)
-14	lead	lead	NOUN	NN	Number=Sing	11	obj	_	Entity=abstract-88)
+12	the	the	DET	DT	Definite=Def|PronType=Art	14	det	_	Entity=(abstract-82
+13	team	team	NOUN	NN	Number=Sing	14	compound	_	Entity=(organization-80)
+14	lead	lead	NOUN	NN	Number=Sing	11	obj	_	Entity=abstract-82)
 15	with	with	ADP	IN	_	18	case	_	_
-16	11	11	NUM	CD	NumType=Card	18	nummod	_	Entity=(event-89
+16	11	11	NUM	CD	NumType=Card	18	nummod	_	Entity=(event-83
 17	stolen	stolen	ADJ	JJ	Degree=Pos	18	amod	_	_
-18	bases	base	NOUN	NNS	Number=Plur	11	obl	_	Entity=event-89)|SpaceAfter=No
+18	bases	base	NOUN	NNS	Number=Plur	11	obl	_	Entity=event-83)|SpaceAfter=No
 19	.	.	PUNCT	.	_	3	punct	_	_
 
 # sent_id = GUM_bio_holt-36
 # text = In the same season, he was named both to the All-NCAA Regional Team and the All-Silver Glove Trophy Series team. [6]
-# s_type=decl
-1	In	in	ADP	IN	_	4	case	_	_
-2	the	the	DET	DT	Definite=Def|PronType=Art	4	det	_	Entity=(time-90
+# s_type = decl
+1	In	in	ADP	IN	_	4	case	_	Discourse=joint:67->63
+2	the	the	DET	DT	Definite=Def|PronType=Art	4	det	_	Entity=(time-84
 3	same	same	ADJ	JJ	Degree=Pos	4	amod	_	_
-4	season	season	NOUN	NN	Number=Sing	8	obl	_	Entity=time-90)|SpaceAfter=No
+4	season	season	NOUN	NN	Number=Sing	8	obl	_	Entity=time-84)|SpaceAfter=No
 5	,	,	PUNCT	,	_	4	punct	_	_
 6	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	8	nsubj:pass	_	Entity=(person-1)
 7	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	8	aux:pass	_	_
 8	named	name	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
 9	both	both	CCONJ	CC	_	14	cc:preconj	_	_
 10	to	to	ADP	IN	_	14	case	_	_
-11	the	the	DET	DT	Definite=Def|PronType=Art	14	det	_	_
-12	All-NCAA	All-NCAA	PROPN	NNP	Number=Sing	14	amod	_	Entity=(organization-91
+11	the	the	DET	DT	Definite=Def|PronType=Art	14	det	_	Entity=(organization-85
+12	All-NCAA	All-NCAA	PROPN	NNP	Number=Sing	14	amod	_	_
 13	Regional	Regional	PROPN	NNP	Number=Sing	14	amod	_	_
-14	Team	Team	PROPN	NNP	Number=Sing	8	obl	_	Entity=organization-91)
+14	Team	Team	PROPN	NNP	Number=Sing	8	obl	_	Entity=organization-85)
 15	and	and	CCONJ	CC	_	21	cc	_	_
-16	the	the	DET	DT	Definite=Def|PronType=Art	21	det	_	Entity=(organization-92
-17	All-Silver	All-Silver	PROPN	NNP	Number=Sing	18	amod	_	Entity=(event-93(object-94
+16	the	the	DET	DT	Definite=Def|PronType=Art	21	det	_	Entity=(organization-86
+17	All-Silver	All-Silver	PROPN	NNP	Number=Sing	18	amod	_	Entity=(event-87(object-88
 18	Glove	Glove	PROPN	NNP	Number=Sing	19	compound	_	_
-19	Trophy	Trophy	PROPN	NNP	Number=Sing	20	compound	_	Entity=object-94)
-20	Series	Series	PROPN	NNP	Number=Sing	21	compound	_	Entity=event-93)
-21	team	team	NOUN	NN	Number=Sing	14	conj	_	Entity=organization-92)|SpaceAfter=No
+19	Trophy	Trophy	PROPN	NNP	Number=Sing	20	compound	_	Entity=object-88)
+20	Series	Series	PROPN	NNP	Number=Sing	21	compound	_	Entity=event-87)
+21	team	team	NOUN	NN	Number=Sing	14	conj	_	Entity=organization-86)|SpaceAfter=No
 22	.	.	PUNCT	.	_	8	punct	_	_
-23	[	[	PUNCT	-LSB-	_	24	punct	_	SpaceAfter=No
-24	6	6	NUM	CD	NumType=Card	8	dep	_	Entity=(abstract-95)|SpaceAfter=No
+23	[	[	PUNCT	-LSB-	_	24	punct	_	Discourse=evidence:68->67|SpaceAfter=No
+24	6	6	NUM	CD	NumType=Card	8	dep	_	Entity=(abstract-89)|SpaceAfter=No
 25	]	]	PUNCT	-RSB-	_	24	punct	_	_
 
 # sent_id = GUM_bio_holt-37
 # text = Holt was drafted by the Pittsburgh Pirates with the club's ninth round selection in the 2009 Major League Baseball Draft, one pick before his Rice teammate Ryan Berry. [7]
-# s_type=decl
-1	Holt	Holt	PROPN	NNP	Number=Sing	3	nsubj:pass	_	Entity=(person-1)
+# s_type = decl
+1	Holt	Holt	PROPN	NNP	Number=Sing	3	nsubj:pass	_	Discourse=sequence:69->60|Entity=(person-1)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	aux:pass	_	_
 3	drafted	draft	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
 4	by	by	ADP	IN	_	7	case	_	_
-5	the	the	DET	DT	Definite=Def|PronType=Art	7	det	_	Entity=(organization-15
-6	Pittsburgh	Pittsburgh	PROPN	NNP	Number=Sing	7	compound	_	_
-7	Pirates	Pirates	PROPN	NNP	Number=Sing	3	obl	_	Entity=organization-15)
+5	the	the	DET	DT	Definite=Def|PronType=Art	7	det	_	Entity=(organization-13
+6	Pittsburgh	Pittsburgh	PROPN	NNP	Number=Sing	7	compound	_	Entity=(place-25)
+7	Pirates	Pirates	PROPN	NNP	Number=Sing	3	obl	_	Entity=organization-13)
 8	with	with	ADP	IN	_	14	case	_	_
-9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	_	Entity=(event-96(organization-15
+9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	_	Entity=(event-90(organization-13
 10	club	club	NOUN	NN	Number=Sing	14	nmod:poss	_	SpaceAfter=No
-11	's	's	PART	POS	_	10	case	_	Entity=organization-15)
+11	's	's	PART	POS	_	10	case	_	Entity=organization-13)
 12	ninth	ninth	ADJ	JJ	Degree=Pos|NumType=Ord	13	amod	_	_
 13	round	round	NOUN	NN	Number=Sing	14	compound	_	_
-14	selection	selection	NOUN	NN	Number=Sing	3	obl	_	Entity=event-96)
+14	selection	selection	NOUN	NN	Number=Sing	3	obl	_	Entity=event-90)
 15	in	in	ADP	IN	_	21	case	_	_
-16	the	the	DET	DT	Definite=Def|PronType=Art	21	det	_	Entity=(event-97
-17	2009	2009	NUM	CD	NumType=Card	21	compound	_	Entity=(time-80)
-18	Major	Major	PROPN	NNP	Number=Sing	19	amod	_	Entity=(organization-11
+16	the	the	DET	DT	Definite=Def|PronType=Art	21	det	_	Entity=(event-91
+17	2009	2009	NUM	CD	NumType=Card	21	compound	_	Entity=(time-75)
+18	Major	Major	PROPN	NNP	Number=Sing	19	amod	_	Entity=(organization-10
 19	League	League	PROPN	NNP	Number=Sing	20	compound	_	_
-20	Baseball	Baseball	PROPN	NNP	Number=Sing	21	compound	_	Entity=organization-11)
-21	Draft	Draft	PROPN	NNP	Number=Sing	14	nmod	_	Entity=event-97)|SpaceAfter=No
+20	Baseball	Baseball	PROPN	NNP	Number=Sing	21	compound	_	Entity=organization-10)
+21	Draft	Draft	PROPN	NNP	Number=Sing	14	nmod	_	Entity=event-91)|SpaceAfter=No
 22	,	,	PUNCT	,	_	24	punct	_	_
-23	one	one	NUM	CD	NumType=Card	24	nummod	_	Entity=(event-98
-24	pick	pick	NOUN	NN	Number=Sing	3	obl:npmod	_	Entity=event-98)
+23	one	one	NUM	CD	NumType=Card	24	nummod	_	Entity=(event-92
+24	pick	pick	NOUN	NN	Number=Sing	3	obl:npmod	_	Entity=event-92)
 25	before	before	ADP	IN	_	28	case	_	_
 26	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	28	nmod:poss	_	Entity=(person-1)
-27	Rice	Rice	PROPN	NNP	Number=Sing	28	compound	_	Entity=(person-99(organization-86)
-28	teammate	teammate	NOUN	NN	Number=Sing	24	nmod	_	Entity=person-99)
-29	Ryan	Ryan	PROPN	NNP	Number=Sing	28	appos	_	Entity=(person-99
-30	Berry	Berry	PROPN	NNP	Number=Sing	29	flat	_	Entity=person-99)|SpaceAfter=No
+27	Rice	Rice	PROPN	NNP	Number=Sing	28	compound	_	Entity=(person-93(organization-80)
+28	teammate	teammate	NOUN	NN	Number=Sing	24	nmod	_	Entity=person-93)
+29	Ryan	Ryan	PROPN	NNP	Number=Sing	28	appos	_	Entity=(person-93
+30	Berry	Berry	PROPN	NNP	Number=Sing	29	flat	_	Entity=person-93)|SpaceAfter=No
 31	.	.	PUNCT	.	_	3	punct	_	_
-32	[	[	PUNCT	-LSB-	_	33	punct	_	SpaceAfter=No
-33	7	7	NUM	CD	NumType=Card	3	dep	_	Entity=(abstract-100)|SpaceAfter=No
+32	[	[	PUNCT	-LSB-	_	33	punct	_	Discourse=evidence:70->69|SpaceAfter=No
+33	7	7	NUM	CD	NumType=Card	3	dep	_	Entity=(abstract-94)|SpaceAfter=No
 34	]	]	PUNCT	-RSB-	_	33	punct	_	_
 
 # sent_id = GUM_bio_holt-38
 # text = Professional career
-# s_type=frag
-1	Professional	professional	ADJ	JJ	Degree=Pos	2	amod	_	Entity=(abstract-101
-2	career	career	NOUN	NN	Number=Sing	0	root	_	Entity=abstract-101)
+# s_type = frag
+1	Professional	professional	ADJ	JJ	Degree=Pos	2	amod	_	Discourse=preparation:71->73|Entity=(abstract-95
+2	career	career	NOUN	NN	Number=Sing	0	root	_	Entity=abstract-95)
 
 # sent_id = GUM_bio_holt-39
 # text = Minor leagues
-# s_type=frag
-1	Minor	minor	ADJ	JJ	Degree=Pos	2	amod	_	Entity=(organization-102
-2	leagues	league	NOUN	NNS	Number=Plur	0	root	_	Entity=organization-102)
+# s_type = frag
+1	Minor	minor	ADJ	JJ	Degree=Pos	2	amod	_	Discourse=preparation:72->73|Entity=(organization-96
+2	leagues	league	NOUN	NNS	Number=Plur	0	root	_	Entity=organization-96)
 
 # sent_id = GUM_bio_holt-40
 # text = Holt began his professional career with the Pittsburgh Pirates' short season, Class-A affiliate, the State College Spikes, before advancing to the High-A Bradenton Marauders in 2010.
-# s_type=decl
-1	Holt	Holt	PROPN	NNP	Number=Sing	2	nsubj	_	Entity=(person-1)
+# s_type = decl
+1	Holt	Holt	PROPN	NNP	Number=Sing	2	nsubj	_	Discourse=sequence:73->48|Entity=(person-1)
 2	began	begin	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-3	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	5	nmod:poss	_	Entity=(abstract-101(person-1)
+3	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	5	nmod:poss	_	Entity=(abstract-95(person-1)
 4	professional	professional	ADJ	JJ	Degree=Pos	5	amod	_	_
-5	career	career	NOUN	NN	Number=Sing	2	obj	_	Entity=abstract-101)
+5	career	career	NOUN	NN	Number=Sing	2	obj	_	Entity=abstract-95)
 6	with	with	ADP	IN	_	12	case	_	_
-7	the	the	DET	DT	Definite=Def|PronType=Art	12	det	_	Entity=(time-103
-8	Pittsburgh	Pittsburgh	PROPN	NNP	Number=Sing	9	compound	_	Entity=(organization-15
+7	the	the	DET	DT	Definite=Def|PronType=Art	12	det	_	Entity=(time-97(organization-13
+8	Pittsburgh	Pittsburgh	PROPN	NNP	Number=Sing	9	compound	_	Entity=(place-25)
 9	Pirates	Pirates	PROPN	NNP	Number=Sing	12	nmod:poss	_	SpaceAfter=No
-10	'	's	PART	POS	_	9	case	_	Entity=organization-15)
+10	'	's	PART	POS	_	9	case	_	Entity=organization-13)
 11	short	short	ADJ	JJ	Degree=Pos	12	amod	_	_
-12	season	season	NOUN	NN	Number=Sing	2	obl	_	Entity=time-103)|SpaceAfter=No
+12	season	season	NOUN	NN	Number=Sing	2	obl	_	Entity=time-97)|SpaceAfter=No
 13	,	,	PUNCT	,	_	15	punct	_	_
-14	Class-A	Class-A	PROPN	NNP	Number=Sing	15	compound	_	Entity=(organization-104(abstract-105)
-15	affiliate	affiliate	NOUN	NN	Number=Sing	12	appos	_	Entity=organization-104)|SpaceAfter=No
+14	Class-A	Class-A	PROPN	NNP	Number=Sing	15	compound	_	Entity=(organization-98(abstract-99)
+15	affiliate	affiliate	NOUN	NN	Number=Sing	12	appos	_	Entity=organization-98)|SpaceAfter=No
 16	,	,	PUNCT	,	_	20	punct	_	_
-17	the	the	DET	DT	Definite=Def|PronType=Art	20	det	_	Entity=(organization-104
+17	the	the	DET	DT	Definite=Def|PronType=Art	20	det	_	Entity=(organization-98
 18	State	State	PROPN	NNP	Number=Sing	19	compound	_	_
 19	College	College	PROPN	NNP	Number=Sing	20	compound	_	_
-20	Spikes	Spikes	PROPN	NNP	Number=Sing	12	appos	_	Entity=organization-104)|SpaceAfter=No
+20	Spikes	Spikes	PROPN	NNP	Number=Sing	12	appos	_	Entity=organization-98)|SpaceAfter=No
 21	,	,	PUNCT	,	_	23	punct	_	_
-22	before	before	SCONJ	IN	_	23	mark	_	_
+22	before	before	SCONJ	IN	_	23	mark	_	Discourse=sequence:74->73
 23	advancing	advance	VERB	VBG	VerbForm=Ger	2	advcl	_	_
 24	to	to	ADP	IN	_	28	case	_	_
 25	the	the	DET	DT	Definite=Def|PronType=Art	28	det	_	_
-26	High-A	High-A	PROPN	NNP	Number=Sing	28	amod	_	Entity=(organization-106(abstract-107)
-27	Bradenton	Bradenton	PROPN	NNP	Number=Sing	28	compound	_	Entity=(place-108)
-28	Marauders	Marauders	PROPN	NNP	Number=Sing	23	obl	_	Entity=organization-106)
+26	High-A	High-A	PROPN	NNP	Number=Sing	28	amod	_	Entity=(organization-100(abstract-101)
+27	Bradenton	Bradenton	PROPN	NNP	Number=Sing	28	compound	_	Entity=(place-102)
+28	Marauders	Marauders	PROPN	NNP	Number=Sing	23	obl	_	Entity=organization-100)
 29	in	in	ADP	IN	_	30	case	_	_
-30	2010	2010	NUM	CD	NumType=Card	23	obl	_	Entity=(time-109)|SpaceAfter=No
+30	2010	2010	NUM	CD	NumType=Card	23	obl	_	Entity=(time-103)|SpaceAfter=No
 31	.	.	PUNCT	.	_	2	punct	_	_
 
 # sent_id = GUM_bio_holt-41
 # text = His 2010 season was cut short due to injury to his medial collateral ligament, which required surgery. [8]
-# s_type=decl
-1	His	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	3	nmod:poss	_	Entity=(time-110(person-1)
-2	2010	2010	NUM	CD	NumType=Card	3	compound	_	Entity=(time-109)
-3	season	season	NOUN	NN	Number=Sing	5	nsubj:pass	_	Entity=time-110)
+# s_type = decl
+1	His	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	3	nmod:poss	_	Discourse=elaboration:75->74|Entity=(time-104(person-1)
+2	2010	2010	NUM	CD	NumType=Card	3	compound	_	Entity=(time-103)
+3	season	season	NOUN	NN	Number=Sing	5	nsubj:pass	_	Entity=time-104)
 4	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	5	aux:pass	_	_
 5	cut	cut	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
 6	short	short	ADJ	JJ	Degree=Pos	5	xcomp	_	_
 7	due	due	ADJ	JJ	Degree=Pos	9	case	_	_
 8	to	to	PART	TO	_	7	fixed	_	_
-9	injury	injury	NOUN	NN	Number=Sing	5	obl	_	Entity=(event-111
+9	injury	injury	NOUN	NN	Number=Sing	5	obl	_	Entity=(event-105
 10	to	to	ADP	IN	_	14	case	_	_
-11	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	14	nmod:poss	_	Entity=(object-112(person-1)
+11	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	14	nmod:poss	_	Entity=(object-106(person-1)
 12	medial	medial	ADJ	JJ	Degree=Pos	14	amod	_	_
 13	collateral	collateral	ADJ	JJ	Degree=Pos	14	amod	_	_
-14	ligament	ligament	NOUN	NN	Number=Sing	9	nmod	_	Entity=event-111)object-112)|SpaceAfter=No
+14	ligament	ligament	NOUN	NN	Number=Sing	9	nmod	_	SpaceAfter=No
 15	,	,	PUNCT	,	_	17	punct	_	_
-16	which	which	PRON	WDT	PronType=Rel	17	nsubj	_	_
+16	which	which	PRON	WDT	PronType=Rel	17	nsubj	_	Discourse=elaboration:76->75
 17	required	require	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	14	acl:relcl	_	_
-18	surgery	surgery	NOUN	NN	Number=Sing	17	obj	_	Entity=(event-113)|SpaceAfter=No
+18	surgery	surgery	NOUN	NN	Number=Sing	17	obj	_	Entity=(event-107)event-105)object-106)|SpaceAfter=No
 19	.	.	PUNCT	.	_	5	punct	_	_
-20	[	[	PUNCT	-LSB-	_	21	punct	_	SpaceAfter=No
-21	8	8	NUM	CD	NumType=Card	5	dep	_	Entity=(abstract-114)|SpaceAfter=No
+20	[	[	PUNCT	-LSB-	_	21	punct	_	Discourse=evidence:77->75|SpaceAfter=No
+21	8	8	NUM	CD	NumType=Card	5	dep	_	Entity=(abstract-108)|SpaceAfter=No
 22	]	]	PUNCT	-RSB-	_	21	punct	_	_
 
 # sent_id = GUM_bio_holt-42
 # text = He began the 2011 season with the Pirates' Double-A affiliate, the Altoona Curve.
-# s_type=decl
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	_	Entity=(person-1)
+# s_type = decl
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	_	Discourse=sequence:78->73|Entity=(person-1)
 2	began	begin	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-3	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Entity=(time-115
-4	2011	2011	NUM	CD	NumType=Card	5	compound	_	Entity=(time-116)
-5	season	season	NOUN	NN	Number=Sing	2	obj	_	Entity=time-115)
+3	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Entity=(time-109
+4	2011	2011	NUM	CD	NumType=Card	5	compound	_	Entity=(time-110)
+5	season	season	NOUN	NN	Number=Sing	2	obj	_	Entity=time-109)
 6	with	with	ADP	IN	_	11	case	_	_
-7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	_	Entity=(organization-117
-8	Pirates	Pirates	PROPN	NNP	Number=Sing	11	nmod:poss	_	Entity=(organization-15|SpaceAfter=No
-9	'	's	PART	POS	_	8	case	_	Entity=organization-15)
+7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	_	Entity=(organization-111
+8	Pirates	Pirates	PROPN	NNP	Number=Sing	11	nmod:poss	_	Entity=(organization-13|SpaceAfter=No
+9	'	's	PART	POS	_	8	case	_	Entity=organization-13)
 10	Double-A	Double-A	PROPN	NNP	Number=Sing	11	amod	_	_
-11	affiliate	affiliate	NOUN	NN	Number=Sing	2	obl	_	Entity=organization-117)|SpaceAfter=No
+11	affiliate	affiliate	NOUN	NN	Number=Sing	2	obl	_	Entity=organization-111)|SpaceAfter=No
 12	,	,	PUNCT	,	_	15	punct	_	_
-13	the	the	DET	DT	Definite=Def|PronType=Art	15	det	_	Entity=(organization-117
+13	the	the	DET	DT	Definite=Def|PronType=Art	15	det	_	Entity=(organization-111
 14	Altoona	Altoona	PROPN	NNP	Number=Sing	15	compound	_	_
-15	Curve	Curve	PROPN	NNP	Number=Sing	11	appos	_	Entity=organization-117)|SpaceAfter=No
+15	Curve	Curve	PROPN	NNP	Number=Sing	11	appos	_	Entity=organization-111)|SpaceAfter=No
 16	.	.	PUNCT	.	_	2	punct	_	_
 
 # sent_id = GUM_bio_holt-43
 # text = On July 13, 2011, Holt was named the MVP of the Eastern League All-Star Game after hitting a two-run homer in the ninth inning. [9]
-# s_type=decl
-1	On	on	ADP	IN	_	3	case	_	_
-2	July	July	PROPN	NNP	Number=Sing	3	compound	_	Entity=(time-118(time-119)
+# s_type = decl
+1	On	on	ADP	IN	_	3	case	_	Discourse=elaboration:79->78
+2	July	July	PROPN	NNP	Number=Sing	3	compound	_	Entity=(time-112
 3	13	13	NUM	CD	NumType=Card	9	obl	_	SpaceAfter=No
 4	,	,	PUNCT	,	_	5	punct	_	_
-5	2011	2011	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-116)time-118)|SpaceAfter=No
+5	2011	2011	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-110)time-112)|SpaceAfter=No
 6	,	,	PUNCT	,	_	3	punct	_	_
 7	Holt	Holt	PROPN	NNP	Number=Sing	9	nsubj:pass	_	Entity=(person-1)
 8	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	9	aux:pass	_	_
@@ -695,244 +695,244 @@
 10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(person-1
 11	MVP	MVP	NOUN	NN	Number=Sing	9	xcomp	_	_
 12	of	of	ADP	IN	_	17	case	_	_
-13	the	the	DET	DT	Definite=Def|PronType=Art	17	det	_	Entity=(event-120
-14	Eastern	Eastern	PROPN	NNP	Number=Sing	15	amod	_	Entity=(organization-121
-15	League	League	PROPN	NNP	Number=Sing	17	compound	_	Entity=organization-121)
+13	the	the	DET	DT	Definite=Def|PronType=Art	17	det	_	Entity=(event-113
+14	Eastern	Eastern	PROPN	NNP	Number=Sing	15	amod	_	Entity=(organization-114
+15	League	League	PROPN	NNP	Number=Sing	17	compound	_	Entity=organization-114)
 16	All-Star	All-Star	PROPN	NNP	Number=Sing	17	compound	_	_
-17	Game	Game	PROPN	NNP	Number=Sing	11	nmod	_	Entity=person-1)event-120)
-18	after	after	SCONJ	IN	_	19	mark	_	_
+17	Game	Game	PROPN	NNP	Number=Sing	11	nmod	_	Entity=person-1)event-113)
+18	after	after	SCONJ	IN	_	19	mark	_	Discourse=circumstance:80->79
 19	hitting	hit	VERB	VBG	VerbForm=Ger	9	advcl	_	_
-20	a	a	DET	DT	Definite=Ind|PronType=Art	22	det	_	Entity=(event-122
+20	a	a	DET	DT	Definite=Ind|PronType=Art	22	det	_	Entity=(event-115
 21	two-run	two-run	ADJ	JJ	Degree=Pos	22	amod	_	_
-22	homer	homer	NOUN	NN	Number=Sing	19	obj	_	Entity=event-122)
+22	homer	homer	NOUN	NN	Number=Sing	19	obj	_	Entity=event-115)
 23	in	in	ADP	IN	_	26	case	_	_
-24	the	the	DET	DT	Definite=Def|PronType=Art	26	det	_	Entity=(time-123
+24	the	the	DET	DT	Definite=Def|PronType=Art	26	det	_	Entity=(time-116
 25	ninth	ninth	ADJ	JJ	Degree=Pos|NumType=Ord	26	amod	_	_
-26	inning	inning	NOUN	NN	Number=Sing	19	obl	_	Entity=time-123)|SpaceAfter=No
+26	inning	inning	NOUN	NN	Number=Sing	19	obl	_	Entity=time-116)|SpaceAfter=No
 27	.	.	PUNCT	.	_	9	punct	_	_
-28	[	[	PUNCT	-LSB-	_	29	punct	_	SpaceAfter=No
-29	9	9	NUM	CD	NumType=Card	9	dep	_	Entity=(abstract-124)|SpaceAfter=No
+28	[	[	PUNCT	-LSB-	_	29	punct	_	Discourse=evidence:81->79|SpaceAfter=No
+29	9	9	NUM	CD	NumType=Card	9	dep	_	Entity=(abstract-117)|SpaceAfter=No
 30	]	]	PUNCT	-RSB-	_	29	punct	_	_
 
 # sent_id = GUM_bio_holt-44
 # text = Holt opened 2012 with Altoona and later joined Triple-A Indianapolis Indians.
-# s_type=decl
-1	Holt	Holt	PROPN	NNP	Number=Sing	2	nsubj	_	Entity=(person-1)
+# s_type = decl
+1	Holt	Holt	PROPN	NNP	Number=Sing	2	nsubj	_	Discourse=sequence:82->73|Entity=(person-1)
 2	opened	open	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-3	2012	2012	NUM	CD	NumType=Card	2	obj	_	Entity=(time-14)
+3	2012	2012	NUM	CD	NumType=Card	2	obj	_	Entity=(time-12)
 4	with	with	ADP	IN	_	5	case	_	_
-5	Altoona	Altoona	PROPN	NNP	Number=Sing	2	obl	_	Entity=(organization-117)
-6	and	and	CCONJ	CC	_	8	cc	_	_
+5	Altoona	Altoona	PROPN	NNP	Number=Sing	2	obl	_	Entity=(organization-111)
+6	and	and	CCONJ	CC	_	8	cc	_	Discourse=sequence:83->82
 7	later	late	ADV	RBR	Degree=Cmp	8	advmod	_	_
 8	joined	join	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	2	conj	_	_
-9	Triple-A	Triple-A	PROPN	NNP	Number=Sing	11	amod	_	Entity=(organization-125(organization-126)
-10	Indianapolis	Indianapolis	PROPN	NNP	Number=Sing	11	compound	_	Entity=(place-127)
-11	Indians	Indians	PROPN	NNPS	Number=Plur	8	obj	_	Entity=organization-125)|SpaceAfter=No
+9	Triple-A	Triple-A	PROPN	NNP	Number=Sing	11	amod	_	Entity=(organization-118(organization-119)
+10	Indianapolis	Indianapolis	PROPN	NNP	Number=Sing	11	compound	_	Entity=(place-120)
+11	Indians	Indians	PROPN	NNPS	Number=Plur	8	obj	_	Entity=organization-118)|SpaceAfter=No
 12	.	.	PUNCT	.	_	2	punct	_	_
 
 # sent_id = GUM_bio_holt-45
 # text = He was promoted to the Pittsburgh Pirates from the minors as the major league rosters expanded on September 1.
-# s_type=decl
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj:pass	_	Entity=(event-128(person-1)
+# s_type = decl
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj:pass	_	Discourse=joint:84->73|Entity=(event-121(person-1)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	aux:pass	_	_
 3	promoted	promote	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
 4	to	to	ADP	IN	_	7	case	_	_
-5	the	the	DET	DT	Definite=Def|PronType=Art	7	det	_	Entity=(organization-15
-6	Pittsburgh	Pittsburgh	PROPN	NNP	Number=Sing	7	compound	_	_
-7	Pirates	Pirates	PROPN	NNP	Number=Sing	3	obl	_	Entity=organization-15)
+5	the	the	DET	DT	Definite=Def|PronType=Art	7	det	_	Entity=(organization-13
+6	Pittsburgh	Pittsburgh	PROPN	NNP	Number=Sing	7	compound	_	Entity=(place-25)
+7	Pirates	Pirates	PROPN	NNP	Number=Sing	3	obl	_	Entity=organization-13)
 8	from	from	ADP	IN	_	10	case	_	_
-9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	_	Entity=(organization-102
-10	minors	minor	NOUN	NNS	Number=Plur	3	obl	_	Entity=event-128)organization-102)
-11	as	as	SCONJ	IN	_	16	mark	_	_
+9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	_	Entity=(organization-96
+10	minors	minor	NOUN	NNS	Number=Plur	3	obl	_	Entity=event-121)organization-96)
+11	as	as	SCONJ	IN	_	16	mark	_	Discourse=circumstance:85->84
 12	the	the	DET	DT	Definite=Def|PronType=Art	15	det	_	_
-13	major	major	ADJ	JJ	Degree=Pos	14	amod	_	Entity=(abstract-129(organization-11
-14	league	league	NOUN	NN	Number=Sing	15	compound	_	Entity=organization-11)
-15	rosters	roster	NOUN	NNS	Number=Plur	16	nsubj	_	Entity=abstract-129)
+13	major	major	ADJ	JJ	Degree=Pos	14	amod	_	Entity=(abstract-122(organization-10
+14	league	league	NOUN	NN	Number=Sing	15	compound	_	Entity=organization-10)
+15	rosters	roster	NOUN	NNS	Number=Plur	16	nsubj	_	Entity=abstract-122)
 16	expanded	expand	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	3	advcl	_	_
 17	on	on	ADP	IN	_	19	case	_	_
-18	September	September	PROPN	NNP	Number=Sing	19	compound	_	Entity=(time-130(time-131)
-19	1	1	NUM	CD	NumType=Card	16	obl	_	Entity=time-130)|SpaceAfter=No
+18	September	September	PROPN	NNP	Number=Sing	19	compound	_	Entity=(time-123(time-124)
+19	1	1	NUM	CD	NumType=Card	16	obl	_	Entity=time-123)|SpaceAfter=No
 20	.	.	PUNCT	.	_	3	punct	_	_
 
 # sent_id = GUM_bio_holt-46
 # text = Pittsburgh Pirates (2012)
-# s_type=frag
-1	Pittsburgh	Pittsburgh	PROPN	NNP	Number=Sing	2	compound	_	Entity=(organization-15(place-132)
-2	Pirates	Pirates	PROPN	NNP	Number=Sing	0	root	_	Entity=organization-15)
-3	(	(	PUNCT	-LRB-	_	4	punct	_	SpaceAfter=No
-4	2012	2012	NUM	CD	NumType=Card	2	nmod:tmod	_	Entity=(time-14)|SpaceAfter=No
+# s_type = frag
+1	Pittsburgh	Pittsburgh	PROPN	NNP	Number=Sing	2	compound	_	Discourse=preparation:86->88|Entity=(organization-13(place-25)
+2	Pirates	Pirates	PROPN	NNP	Number=Sing	0	root	_	Entity=organization-13)
+3	(	(	PUNCT	-LRB-	_	4	punct	_	Discourse=elaboration:87->86|SpaceAfter=No
+4	2012	2012	NUM	CD	NumType=Card	2	nmod:tmod	_	Entity=(time-12)|SpaceAfter=No
 5	)	)	PUNCT	-RRB-	_	4	punct	_	_
 
 # sent_id = GUM_bio_holt-47
 # text = Holt made his Major League debut on September 1, 2012.
-# s_type=decl
-1	Holt	Holt	PROPN	NNP	Number=Sing	2	nsubj	_	Entity=(person-1)
+# s_type = decl
+1	Holt	Holt	PROPN	NNP	Number=Sing	2	nsubj	_	Discourse=elaboration:88->84|Entity=(person-1)
 2	made	make	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-3	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	_	Entity=(event-133(person-1)
-4	Major	Major	PROPN	NNP	Number=Sing	5	amod	_	Entity=(organization-11
-5	League	League	PROPN	NNP	Number=Sing	6	compound	_	Entity=organization-11)
-6	debut	debut	NOUN	NN	Number=Sing	2	obj	_	Entity=event-133)
+3	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	_	Entity=(event-125(person-1)
+4	Major	Major	PROPN	NNP	Number=Sing	5	amod	_	Entity=(organization-10
+5	League	League	PROPN	NNP	Number=Sing	6	compound	_	Entity=organization-10)
+6	debut	debut	NOUN	NN	Number=Sing	2	obj	_	Entity=event-125)
 7	on	on	ADP	IN	_	9	case	_	_
-8	September	September	PROPN	NNP	Number=Sing	9	compound	_	Entity=(time-130(time-19)
+8	September	September	PROPN	NNP	Number=Sing	9	compound	_	Entity=(time-123
 9	1	1	NUM	CD	NumType=Card	2	obl	_	SpaceAfter=No
 10	,	,	PUNCT	,	_	11	punct	_	_
-11	2012	2012	NUM	CD	NumType=Card	9	nmod:tmod	_	Entity=(time-14)time-130)|SpaceAfter=No
+11	2012	2012	NUM	CD	NumType=Card	9	nmod:tmod	_	Entity=(time-12)time-123)|SpaceAfter=No
 12	.	.	PUNCT	.	_	2	punct	_	_
 
 # sent_id = GUM_bio_holt-48
 # text = At the time of his promotion, he had hit a .322 average in 102 games with Altoona and .432 in 24 games for Indianapolis. [10]
-# s_type=decl
-1	At	at	ADP	IN	_	3	case	_	_
+# s_type = decl
+1	At	at	ADP	IN	_	3	case	_	Discourse=background:89->88
 2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	_	_
 3	time	time	NOUN	NN	Number=Sing	10	obl	_	_
 4	of	of	ADP	IN	_	6	case	_	_
-5	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	_	Entity=(event-134(person-1)
-6	promotion	promotion	NOUN	NN	Number=Sing	3	nmod	_	Entity=event-134)|SpaceAfter=No
+5	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	_	Entity=(event-126(person-1)
+6	promotion	promotion	NOUN	NN	Number=Sing	3	nmod	_	Entity=event-126)|SpaceAfter=No
 7	,	,	PUNCT	,	_	3	punct	_	_
 8	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	10	nsubj	_	Entity=(person-1)
 9	had	have	AUX	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	10	aux	_	_
 10	hit	hit	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
 11	a	a	DET	DT	Definite=Ind|PronType=Art	13	det	_	_
-12	.322	.322	NUM	CD	NumType=Card	13	nummod	_	Entity=(quantity-135
-13	average	average	NOUN	NN	Number=Sing	10	obj	_	Entity=quantity-135)
+12	.322	.322	NUM	CD	NumType=Card	13	nummod	_	Entity=(abstract-127
+13	average	average	NOUN	NN	Number=Sing	10	obj	_	Entity=abstract-127)
 14	in	in	ADP	IN	_	16	case	_	_
-15	102	102	NUM	CD	NumType=Card	16	nummod	_	Entity=(event-136
-16	games	game	NOUN	NNS	Number=Plur	13	nmod	_	Entity=event-136)
+15	102	102	NUM	CD	NumType=Card	16	nummod	_	Entity=(event-128
+16	games	game	NOUN	NNS	Number=Plur	13	nmod	_	Entity=event-128)
 17	with	with	ADP	IN	_	18	case	_	_
-18	Altoona	Altoona	PROPN	NNP	Number=Sing	10	obl	_	Entity=(organization-117)
+18	Altoona	Altoona	PROPN	NNP	Number=Sing	10	obl	_	Entity=(organization-111)
 19	and	and	CCONJ	CC	_	20	cc	_	_
-20	.432	.432	NUM	CD	NumType=Card	13	conj	_	Entity=(quantity-137)
+20	.432	.432	NUM	CD	NumType=Card	13	conj	_	Entity=(abstract-129)
 21	in	in	ADP	IN	_	23	case	_	_
-22	24	24	NUM	CD	NumType=Card	23	nummod	_	Entity=(event-138
-23	games	game	NOUN	NNS	Number=Plur	20	nmod	_	Entity=event-138)
+22	24	24	NUM	CD	NumType=Card	23	nummod	_	Entity=(event-130
+23	games	game	NOUN	NNS	Number=Plur	20	nmod	_	Entity=event-130)
 24	for	for	ADP	IN	_	25	case	_	_
-25	Indianapolis	Indianapolis	PROPN	NNP	Number=Sing	20	nmod	_	Entity=(organization-125)|SpaceAfter=No
+25	Indianapolis	Indianapolis	PROPN	NNP	Number=Sing	20	nmod	_	Entity=(organization-118)|SpaceAfter=No
 26	.	.	PUNCT	.	_	10	punct	_	_
-27	[	[	PUNCT	-LSB-	_	28	punct	_	SpaceAfter=No
-28	10	10	NUM	CD	NumType=Card	10	dep	_	Entity=(abstract-139)|SpaceAfter=No
+27	[	[	PUNCT	-LSB-	_	28	punct	_	Discourse=evidence:90->89|SpaceAfter=No
+28	10	10	NUM	CD	NumType=Card	10	dep	_	Entity=(abstract-131)|SpaceAfter=No
 29	]	]	PUNCT	-RSB-	_	28	punct	_	_
 
 # sent_id = GUM_bio_holt-49
 # text = On September 4, against the Houston Astros, Holt became only the second Pirates player since 1900 to have a four-hit game within his first four career games in the majors.
-# s_type=decl
-1	On	on	ADP	IN	_	3	case	_	_
-2	September	September	PROPN	NNP	Number=Sing	3	compound	_	Entity=(time-140(time-19)
-3	4	4	NUM	CD	NumType=Card	11	obl	_	Entity=time-140)|SpaceAfter=No
+# s_type = decl
+1	On	on	ADP	IN	_	3	case	_	Discourse=joint:91->88
+2	September	September	PROPN	NNP	Number=Sing	3	compound	_	Entity=(time-132(time-124)
+3	4	4	NUM	CD	NumType=Card	11	obl	_	Entity=time-132)|SpaceAfter=No
 4	,	,	PUNCT	,	_	3	punct	_	_
 5	against	against	ADP	IN	_	8	case	_	_
-6	the	the	DET	DT	Definite=Def|PronType=Art	8	det	_	Entity=(organization-141
-7	Houston	Houston	PROPN	NNP	Number=Sing	8	compound	_	Entity=(place-142)
-8	Astros	Astros	PROPN	NNP	Number=Sing	11	obl	_	Entity=organization-141)|SpaceAfter=No
+6	the	the	DET	DT	Definite=Def|PronType=Art	8	det	_	Entity=(organization-133
+7	Houston	Houston	PROPN	NNP	Number=Sing	8	compound	_	Entity=(place-134)
+8	Astros	Astros	PROPN	NNP	Number=Sing	11	obl	_	Entity=organization-133)|SpaceAfter=No
 9	,	,	PUNCT	,	_	8	punct	_	_
 10	Holt	Holt	PROPN	NNP	Number=Sing	11	nsubj	_	Entity=(person-1)
 11	became	become	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 12	only	only	ADV	RB	_	16	advmod	_	Entity=(person-1
 13	the	the	DET	DT	Definite=Def|PronType=Art	16	det	_	_
 14	second	second	ADJ	JJ	Degree=Pos|NumType=Ord	16	amod	_	_
-15	Pirates	Pirates	PROPN	NNP	Number=Sing	16	compound	_	Entity=(organization-15)
+15	Pirates	Pirates	PROPN	NNP	Number=Sing	16	compound	_	Entity=(organization-13)
 16	player	player	NOUN	NN	Number=Sing	11	xcomp	_	_
 17	since	since	ADP	IN	_	18	case	_	_
-18	1900	1900	NUM	CD	NumType=Card	16	nmod	_	Entity=(time-143)person-1)
-19	to	to	PART	TO	_	20	mark	_	_
+18	1900	1900	NUM	CD	NumType=Card	16	nmod	_	Entity=(time-135)
+19	to	to	PART	TO	_	20	mark	_	Discourse=elaboration:92->91
 20	have	have	VERB	VB	VerbForm=Inf	16	acl	_	_
-21	a	a	DET	DT	Definite=Ind|PronType=Art	23	det	_	Entity=(event-144
+21	a	a	DET	DT	Definite=Ind|PronType=Art	23	det	_	Entity=(event-136
 22	four-hit	four-hit	ADJ	JJ	Degree=Pos	23	amod	_	_
 23	game	game	NOUN	NN	Number=Sing	20	obj	_	_
 24	within	within	ADP	IN	_	29	case	_	_
-25	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	29	nmod:poss	_	Entity=(event-145(person-146)
+25	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	29	nmod:poss	_	Entity=(event-137(person-138)
 26	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	27	amod	_	_
 27	four	four	NUM	CD	NumType=Card	29	nummod	_	_
-28	career	career	NOUN	NN	Number=Sing	29	compound	_	Entity=(abstract-147)
-29	games	game	NOUN	NNS	Number=Plur	20	obl	_	Entity=event-144)event-145)
+28	career	career	NOUN	NN	Number=Sing	29	compound	_	Entity=(abstract-139)
+29	games	game	NOUN	NNS	Number=Plur	20	obl	_	Entity=event-136)event-137)
 30	in	in	ADP	IN	_	32	case	_	_
-31	the	the	DET	DT	Definite=Def|PronType=Art	32	det	_	Entity=(organization-11
-32	majors	major	NOUN	NNS	Number=Plur	29	nmod	_	Entity=organization-11)|SpaceAfter=No
+31	the	the	DET	DT	Definite=Def|PronType=Art	32	det	_	Entity=(organization-10
+32	majors	major	NOUN	NNS	Number=Plur	29	nmod	_	Entity=person-1)organization-10)|SpaceAfter=No
 33	.	.	PUNCT	.	_	11	punct	_	_
 
 # sent_id = GUM_bio_holt-50
 # text = The only other Pirates player to have a four-hit game so early in his career was Jack Merson, who went 4-for-5 in his second major league game on September 15, 1951. [11]
-# s_type=decl
-1	The	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Entity=(person-148
+# s_type = decl
+1	The	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Discourse=background:93->91|Entity=(person-140
 2	only	only	ADJ	JJ	Degree=Pos	5	amod	_	_
 3	other	other	ADJ	JJ	Degree=Pos	5	amod	_	_
-4	Pirates	Pirates	PROPN	NNP	Number=Sing	5	compound	_	Entity=(organization-15)
-5	player	player	NOUN	NN	Number=Sing	17	nsubj	_	Entity=person-148)
-6	to	to	PART	TO	_	7	mark	_	_
+4	Pirates	Pirates	PROPN	NNP	Number=Sing	5	compound	_	Entity=(organization-13)
+5	player	player	NOUN	NN	Number=Sing	17	nsubj	_	Entity=person-140)
+6	to	to	PART	TO	_	7	mark	_	Discourse=elaboration:94->93
 7	have	have	VERB	VB	VerbForm=Inf	5	acl	_	_
-8	a	a	DET	DT	Definite=Ind|PronType=Art	10	det	_	Entity=(event-144
+8	a	a	DET	DT	Definite=Ind|PronType=Art	10	det	_	Entity=(event-136
 9	four-hit	four-hit	ADJ	JJ	Degree=Pos	10	amod	_	_
-10	game	game	NOUN	NN	Number=Sing	7	obj	_	Entity=event-144)
+10	game	game	NOUN	NN	Number=Sing	7	obj	_	Entity=event-136)
 11	so	so	ADV	RB	_	12	advmod	_	_
 12	early	early	ADV	RB	Degree=Pos	7	advmod	_	_
 13	in	in	ADP	IN	_	15	case	_	_
-14	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	15	nmod:poss	_	Entity=(abstract-149(person-148)
-15	career	career	NOUN	NN	Number=Sing	12	nmod	_	Entity=abstract-149)
-16	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	17	cop	_	_
-17	Jack	Jack	PROPN	NNP	Number=Sing	0	root	_	Entity=(person-148
-18	Merson	Merson	PROPN	NNP	Number=Sing	17	flat	_	Entity=person-148)|SpaceAfter=No
+14	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	15	nmod:poss	_	Entity=(abstract-141(person-140)
+15	career	career	NOUN	NN	Number=Sing	12	nmod	_	Entity=abstract-141)
+16	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	17	cop	_	Discourse=same-unit:95->93
+17	Jack	Jack	PROPN	NNP	Number=Sing	0	root	_	Entity=(person-140
+18	Merson	Merson	PROPN	NNP	Number=Sing	17	flat	_	SpaceAfter=No
 19	,	,	PUNCT	,	_	21	punct	_	_
-20	who	who	PRON	WP	PronType=Rel	21	nsubj	_	_
+20	who	who	PRON	WP	PronType=Rel	21	nsubj	_	Discourse=elaboration:96->95
 21	went	go	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	17	acl:relcl	_	_
 22	4-for-5	4-for-5	ADJ	JJ	Degree=Pos	21	xcomp	_	_
 23	in	in	ADP	IN	_	28	case	_	_
-24	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	28	nmod:poss	_	Entity=(event-150(person-148)
+24	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	28	nmod:poss	_	Entity=(event-142(person-140)
 25	second	second	ADJ	JJ	Degree=Pos|NumType=Ord	28	amod	_	_
-26	major	major	ADJ	JJ	Degree=Pos	27	amod	_	Entity=(organization-11
-27	league	league	NOUN	NN	Number=Sing	28	compound	_	Entity=organization-11)
-28	game	game	NOUN	NN	Number=Sing	22	obl	_	Entity=event-150)
+26	major	major	ADJ	JJ	Degree=Pos	27	amod	_	Entity=(organization-10
+27	league	league	NOUN	NN	Number=Sing	28	compound	_	Entity=organization-10)
+28	game	game	NOUN	NN	Number=Sing	22	obl	_	Entity=event-142)
 29	on	on	ADP	IN	_	31	case	_	_
-30	September	September	PROPN	NNP	Number=Sing	31	compound	_	Entity=(time-151(time-152)
+30	September	September	PROPN	NNP	Number=Sing	31	compound	_	Entity=(time-143
 31	15	15	NUM	CD	NumType=Card	21	obl	_	SpaceAfter=No
 32	,	,	PUNCT	,	_	33	punct	_	_
-33	1951	1951	NUM	CD	NumType=Card	31	nmod:tmod	_	Entity=(time-153)time-151)|SpaceAfter=No
+33	1951	1951	NUM	CD	NumType=Card	31	nmod:tmod	_	Entity=(time-144)person-140)time-143)|SpaceAfter=No
 34	.	.	PUNCT	.	_	17	punct	_	_
-35	[	[	PUNCT	-LSB-	_	36	punct	_	SpaceAfter=No
-36	11	11	NUM	CD	NumType=Card	17	dep	_	Entity=(abstract-154)|SpaceAfter=No
+35	[	[	PUNCT	-LSB-	_	36	punct	_	Discourse=evidence:97->93|SpaceAfter=No
+36	11	11	NUM	CD	NumType=Card	17	dep	_	Entity=(abstract-145)|SpaceAfter=No
 37	]	]	PUNCT	-RSB-	_	36	punct	_	_
 
 # sent_id = GUM_bio_holt-51
 # text = In 24 games, Holt batted .292 with a triple and 3 RBI.
-# s_type=decl
-1	In	in	ADP	IN	_	3	case	_	_
-2	24	24	NUM	CD	NumType=Card	3	nummod	_	Entity=(event-155
-3	games	game	NOUN	NNS	Number=Plur	6	obl	_	Entity=event-155)|SpaceAfter=No
+# s_type = decl
+1	In	in	ADP	IN	_	3	case	_	Discourse=joint:98->88
+2	24	24	NUM	CD	NumType=Card	3	nummod	_	Entity=(event-146
+3	games	game	NOUN	NNS	Number=Plur	6	obl	_	Entity=event-146)|SpaceAfter=No
 4	,	,	PUNCT	,	_	3	punct	_	_
 5	Holt	Holt	PROPN	NNP	Number=Sing	6	nsubj	_	Entity=(person-1)
 6	batted	bat	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-7	.292	.292	NUM	CD	NumType=Card	6	obj	_	Entity=(quantity-156)
+7	.292	.292	NUM	CD	NumType=Card	6	obj	_	Entity=(abstract-147)
 8	with	with	ADP	IN	_	10	case	_	_
-9	a	a	DET	DT	Definite=Ind|PronType=Art	10	det	_	Entity=(event-157
-10	triple	triple	ADJ	JJ	Degree=Pos	6	obl	_	Entity=event-157)
+9	a	a	DET	DT	Definite=Ind|PronType=Art	10	det	_	Entity=(event-148
+10	triple	triple	ADJ	JJ	Degree=Pos	6	obl	_	Entity=event-148)
 11	and	and	CCONJ	CC	_	13	cc	_	_
-12	3	3	NUM	CD	NumType=Card	13	nummod	_	Entity=(event-158
-13	RBI	RBI	NOUN	NNS	Number=Plur	10	conj	_	Entity=event-158)|SpaceAfter=No
+12	3	3	NUM	CD	NumType=Card	13	nummod	_	Entity=(event-149
+13	RBI	RBI	NOUN	NNS	Number=Plur	10	conj	_	Entity=event-149)|SpaceAfter=No
 14	.	.	PUNCT	.	_	6	punct	_	_
 
 # sent_id = GUM_bio_holt-52
 # text = Boston Red Sox (2013 – present)
-# s_type=frag
-1	Boston	Boston	PROPN	NNP	Number=Sing	3	compound	_	Entity=(organization-2(place-3)
+# s_type = frag
+1	Boston	Boston	PROPN	NNP	Number=Sing	3	compound	_	Discourse=preparation:99->109|Entity=(organization-2(place-3)
 2	Red	Red	PROPN	NNP	Number=Sing	3	amod	_	_
 3	Sox	Sox	PROPN	NNPS	Number=Plur	0	root	_	Entity=organization-2)
-4	(	(	PUNCT	-LRB-	_	5	punct	_	SpaceAfter=No
-5	2013	2013	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-29)
-6	–	–	ADP	IN	_	7	case	_	_
-7	present	present	NOUN	NN	Number=Sing	5	nmod	_	Entity=(time-30)|SpaceAfter=No
+4	(	(	PUNCT	-LRB-	_	5	punct	_	Discourse=elaboration:100->99|SpaceAfter=No
+5	2013	2013	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-26)
+6	–	-	SYM	SYM	_	7	case	_	_
+7	present	present	NOUN	NN	Number=Sing	5	nmod	_	Entity=(time-27)|SpaceAfter=No
 8	)	)	PUNCT	-RRB-	_	5	punct	_	_
 
 # sent_id = GUM_bio_holt-53
 # text = 2013
-# s_type=frag
-1	2013	2013	NUM	CD	NumType=Card	0	root	_	Entity=(time-29)
+# s_type = frag
+1	2013	2013	NUM	CD	NumType=Card	0	root	_	Discourse=preparation:101->109|Entity=(time-26)
 
 # sent_id = GUM_bio_holt-54
 # text = On December 26, 2012 he was traded to the Boston Red Sox (along with Joel Hanrahan) for Jerry Sands, Stolmy Pimentel, Mark Melancon, and Iván DeJesús, Jr.. [12]
-# s_type=decl
-1	On	on	ADP	IN	_	3	case	_	_
-2	December	December	PROPN	NNP	Number=Sing	3	compound	_	Entity=(time-159(time-160)
+# s_type = decl
+1	On	on	ADP	IN	_	3	case	_	Discourse=background:102->109
+2	December	December	PROPN	NNP	Number=Sing	3	compound	_	Entity=(time-150
 3	26	26	NUM	CD	NumType=Card	8	obl	_	SpaceAfter=No
 4	,	,	PUNCT	,	_	5	punct	_	_
-5	2012	2012	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-14)time-159)
+5	2012	2012	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-12)time-150)
 6	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	8	nsubj:pass	_	Entity=(person-1)
 7	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	8	aux:pass	_	_
 8	traded	trade	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
@@ -941,350 +941,355 @@
 11	Boston	Boston	PROPN	NNP	Number=Sing	13	compound	_	Entity=(place-3)
 12	Red	Red	PROPN	NNP	Number=Sing	13	amod	_	_
 13	Sox	Sox	PROPN	NNPS	Number=Plur	8	obl	_	Entity=organization-2)
-14	(	(	PUNCT	-LRB-	_	15	punct	_	SpaceAfter=No
+14	(	(	PUNCT	-LRB-	_	15	punct	_	Discourse=elaboration:103->102|SpaceAfter=No
 15	along	along	ADV	IN	_	8	advmod	_	_
 16	with	with	ADP	IN	_	17	case	_	_
-17	Joel	Joel	PROPN	NNP	Number=Sing	15	nmod	_	Entity=(person-161
-18	Hanrahan	Hanrahan	PROPN	NNP	Number=Sing	17	flat	_	Entity=person-161)|SpaceAfter=No
+17	Joel	Joel	PROPN	NNP	Number=Sing	15	nmod	_	Entity=(person-151
+18	Hanrahan	Hanrahan	PROPN	NNP	Number=Sing	17	flat	_	Entity=person-151)|SpaceAfter=No
 19	)	)	PUNCT	-RRB-	_	15	punct	_	_
-20	for	for	ADP	IN	_	21	case	_	_
-21	Jerry	Jerry	PROPN	NNP	Number=Sing	8	obl	_	Entity=(person-162
-22	Sands	Sands	PROPN	NNP	Number=Sing	21	flat	_	Entity=person-162)|SpaceAfter=No
+20	for	for	ADP	IN	_	21	case	_	Discourse=same-unit:104->102
+21	Jerry	Jerry	PROPN	NNP	Number=Sing	8	obl	_	Entity=(person-152
+22	Sands	Sands	PROPN	NNP	Number=Sing	21	flat	_	Entity=person-152)|SpaceAfter=No
 23	,	,	PUNCT	,	_	24	punct	_	_
-24	Stolmy	Stolmy	PROPN	NNP	Number=Sing	21	conj	_	Entity=(person-163
-25	Pimentel	Pimentel	PROPN	NNP	Number=Sing	24	flat	_	Entity=person-163)|SpaceAfter=No
+24	Stolmy	Stolmy	PROPN	NNP	Number=Sing	21	conj	_	Entity=(person-153
+25	Pimentel	Pimentel	PROPN	NNP	Number=Sing	24	flat	_	Entity=person-153)|SpaceAfter=No
 26	,	,	PUNCT	,	_	27	punct	_	_
-27	Mark	Mark	PROPN	NNP	Number=Sing	21	conj	_	Entity=(person-164
-28	Melancon	Melancon	PROPN	NNP	Number=Sing	27	flat	_	Entity=person-164)|SpaceAfter=No
+27	Mark	Mark	PROPN	NNP	Number=Sing	21	conj	_	Entity=(person-154
+28	Melancon	Melancon	PROPN	NNP	Number=Sing	27	flat	_	Entity=person-154)|SpaceAfter=No
 29	,	,	PUNCT	,	_	31	punct	_	_
 30	and	and	CCONJ	CC	_	31	cc	_	_
-31	Iván	Iván	PROPN	NNP	Number=Sing	21	conj	_	Entity=(person-165
+31	Iván	Iván	PROPN	NNP	Number=Sing	21	conj	_	Entity=(person-155
 32	DeJesús	DeJesús	PROPN	NNP	Number=Sing	31	flat	_	SpaceAfter=No
 33	,	,	PUNCT	,	_	34	punct	_	_
-34	Jr.	Jr.	PROPN	NNP	Number=Sing	31	amod	_	Entity=person-165)|SpaceAfter=No
+34	Jr.	Jr.	PROPN	NNP	Number=Sing	31	amod	_	Entity=person-155)|SpaceAfter=No
 35	.	.	PUNCT	.	_	8	punct	_	_
-36	[	[	PUNCT	-LSB-	_	37	punct	_	SpaceAfter=No
-37	12	12	NUM	CD	NumType=Card	8	dep	_	Entity=(abstract-166)|SpaceAfter=No
+36	[	[	PUNCT	-LSB-	_	37	punct	_	Discourse=evidence:105->102|SpaceAfter=No
+37	12	12	NUM	CD	NumType=Card	8	dep	_	Entity=(abstract-156)|SpaceAfter=No
 38	]	]	PUNCT	-RSB-	_	37	punct	_	_
 
 # sent_id = GUM_bio_holt-55
 # text = Holt started the 2013 season with the Triple-A Pawtucket Red Sox.
-# s_type=decl
-1	Holt	Holt	PROPN	NNP	Number=Sing	2	nsubj	_	Entity=(person-1)
+# s_type = decl
+1	Holt	Holt	PROPN	NNP	Number=Sing	2	nsubj	_	Discourse=sequence:106->102|Entity=(person-1)
 2	started	start	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-3	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Entity=(time-167
-4	2013	2013	NUM	CD	NumType=Card	5	compound	_	Entity=(time-29)
-5	season	season	NOUN	NN	Number=Sing	2	obj	_	Entity=time-167)
+3	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Entity=(time-157
+4	2013	2013	NUM	CD	NumType=Card	5	compound	_	Entity=(time-26)
+5	season	season	NOUN	NN	Number=Sing	2	obj	_	Entity=time-157)
 6	with	with	ADP	IN	_	11	case	_	_
-7	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(organization-168
-8	Triple-A	Triple-A	PROPN	NNP	Number=Sing	11	compound	_	Entity=(organization-126)
-9	Pawtucket	Pawtucket	PROPN	NNP	Number=Sing	11	compound	_	Entity=(place-169)
+7	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(organization-158
+8	Triple-A	Triple-A	PROPN	NNP	Number=Sing	11	compound	_	Entity=(organization-119)
+9	Pawtucket	Pawtucket	PROPN	NNP	Number=Sing	11	compound	_	Entity=(place-159)
 10	Red	Red	PROPN	NNP	Number=Sing	11	amod	_	_
-11	Sox	Sox	PROPN	NNPS	Number=Plur	2	obl	_	Entity=organization-168)|SpaceAfter=No
+11	Sox	Sox	PROPN	NNPS	Number=Plur	2	obl	_	Entity=organization-158)|SpaceAfter=No
 12	.	.	PUNCT	.	_	2	punct	_	_
 
 # sent_id = GUM_bio_holt-56
 # text = He debuted for Boston after getting called up on July 6 in Anaheim.
-# s_type=decl
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	_	Entity=(person-1)
+# s_type = decl
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	_	Discourse=sequence:107->102|Entity=(person-1)
 2	debuted	debut	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 3	for	for	ADP	IN	_	4	case	_	_
 4	Boston	Boston	PROPN	NNP	Number=Sing	2	obl	_	Entity=(organization-2)
-5	after	after	SCONJ	IN	_	7	mark	_	_
+5	after	after	SCONJ	IN	_	7	mark	_	Discourse=circumstance:108->107
 6	getting	get	AUX	VBG	VerbForm=Ger	7	aux:pass	_	_
 7	called	call	VERB	VBN	Tense=Past|VerbForm=Part	2	advcl	_	_
 8	up	up	ADP	RP	_	7	compound:prt	_	_
 9	on	on	ADP	IN	_	11	case	_	_
-10	July	July	PROPN	NNP	Number=Sing	11	compound	_	Entity=(time-170(time-171)
-11	6	6	NUM	CD	NumType=Card	7	obl	_	Entity=time-170)
+10	July	July	PROPN	NNP	Number=Sing	11	compound	_	Entity=(time-160(time-161)
+11	6	6	NUM	CD	NumType=Card	7	obl	_	Entity=time-160)
 12	in	in	ADP	IN	_	13	case	_	_
-13	Anaheim	Anaheim	PROPN	NNP	Number=Sing	7	obl	_	Entity=(place-172)|SpaceAfter=No
+13	Anaheim	Anaheim	PROPN	NNP	Number=Sing	7	obl	_	Entity=(place-162)|SpaceAfter=No
 14	.	.	PUNCT	.	_	2	punct	_	_
 
 # sent_id = GUM_bio_holt-57
 # text = In 2013, Holt played in 26 games, hitting .203 with 11 RBI.
-# s_type=decl
-1	In	in	ADP	IN	_	2	case	_	_
-2	2013	2013	NUM	CD	NumType=Card	5	obl	_	Entity=(time-29)|SpaceAfter=No
+# s_type = decl
+1	In	in	ADP	IN	_	2	case	_	Discourse=joint:109->73
+2	2013	2013	NUM	CD	NumType=Card	5	obl	_	Entity=(time-26)|SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	_	_
 4	Holt	Holt	PROPN	NNP	Number=Sing	5	nsubj	_	Entity=(person-1)
 5	played	play	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 6	in	in	ADP	IN	_	8	case	_	_
-7	26	26	NUM	CD	NumType=Card	8	nummod	_	Entity=(event-173
-8	games	game	NOUN	NNS	Number=Plur	5	obl	_	Entity=event-173)|SpaceAfter=No
+7	26	26	NUM	CD	NumType=Card	8	nummod	_	Entity=(event-163
+8	games	game	NOUN	NNS	Number=Plur	5	obl	_	Entity=event-163)|SpaceAfter=No
 9	,	,	PUNCT	,	_	10	punct	_	_
-10	hitting	hit	VERB	VBG	VerbForm=Ger	5	advcl	_	_
-11	.203	.203	NUM	CD	NumType=Card	10	obj	_	Entity=(quantity-174)
+10	hitting	hit	VERB	VBG	VerbForm=Ger	5	advcl	_	Discourse=elaboration:110->109
+11	.203	.203	NUM	CD	NumType=Card	10	obj	_	Entity=(abstract-164)
 12	with	with	ADP	IN	_	14	case	_	_
-13	11	11	NUM	CD	NumType=Card	14	nummod	_	Entity=(event-175
-14	RBI	RBI	NOUN	NNS	Number=Plur	10	obl	_	Entity=event-175)|SpaceAfter=No
+13	11	11	NUM	CD	NumType=Card	14	nummod	_	Entity=(event-165
+14	RBI	RBI	NOUN	NNS	Number=Plur	10	obl	_	Entity=event-165)|SpaceAfter=No
 15	.	.	PUNCT	.	_	5	punct	_	_
 
 # sent_id = GUM_bio_holt-58
 # text = Holt received his first championship ring when the Red Sox won the World Series over the St. Louis Cardinals in six games, despite not playing in the postseason.
-# s_type=decl
-1	Holt	Holt	PROPN	NNP	Number=Sing	2	nsubj	_	Entity=(person-1)
+# s_type = decl
+1	Holt	Holt	PROPN	NNP	Number=Sing	2	nsubj	_	Discourse=joint:111->109|Entity=(person-1)
 2	received	receive	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-3	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	_	Entity=(object-176(person-1)
+3	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	_	Entity=(object-166(person-1)
 4	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	6	amod	_	_
-5	championship	championship	NOUN	NN	Number=Sing	6	compound	_	Entity=(event-177)
-6	ring	ring	NOUN	NN	Number=Sing	2	obj	_	Entity=object-176)
-7	when	when	SCONJ	WRB	PronType=Int	11	mark	_	_
+5	championship	championship	NOUN	NN	Number=Sing	6	compound	_	Entity=(event-167)
+6	ring	ring	NOUN	NN	Number=Sing	2	obj	_	Entity=object-166)
+7	when	when	SCONJ	WRB	PronType=Int	11	mark	_	Discourse=circumstance:112->111
 8	the	the	DET	DT	Definite=Def|PronType=Art	10	det	_	Entity=(organization-2
 9	Red	Red	PROPN	NNP	Number=Sing	10	amod	_	_
 10	Sox	Sox	PROPN	NNP	Number=Sing	11	nsubj	_	Entity=organization-2)
 11	won	win	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	2	advcl	_	_
-12	the	the	DET	DT	Definite=Def|PronType=Art	14	det	_	Entity=(event-40
+12	the	the	DET	DT	Definite=Def|PronType=Art	14	det	_	Entity=(event-36
 13	World	World	PROPN	NNP	Number=Sing	14	compound	_	_
-14	Series	Series	PROPN	NNP	Number=Sing	11	obj	_	Entity=event-40)
+14	Series	Series	PROPN	NNP	Number=Sing	11	obj	_	Entity=event-36)
 15	over	over	ADP	IN	_	19	case	_	_
-16	the	the	DET	DT	Definite=Def|PronType=Art	19	det	_	Entity=(organization-178
-17	St.	St.	PROPN	NNP	Number=Sing	19	compound	_	Entity=(place-179
-18	Louis	Louis	PROPN	NNP	Number=Sing	17	flat	_	Entity=place-179)
-19	Cardinals	Cardinals	PROPN	NNP	Number=Sing	11	obl	_	Entity=organization-178)
+16	the	the	DET	DT	Definite=Def|PronType=Art	19	det	_	Entity=(organization-168
+17	St.	St.	PROPN	NNP	Number=Sing	19	compound	_	Entity=(place-169
+18	Louis	Louis	PROPN	NNP	Number=Sing	17	flat	_	Entity=place-169)
+19	Cardinals	Cardinals	PROPN	NNP	Number=Sing	11	obl	_	Entity=organization-168)
 20	in	in	ADP	IN	_	22	case	_	_
-21	six	six	NUM	CD	NumType=Card	22	nummod	_	Entity=(event-180
-22	games	game	NOUN	NNS	Number=Plur	11	obl	_	SpaceAfter=No
-23	,	,	PUNCT	,	_	26	punct	_	Entity=event-180)
-24	despite	despite	SCONJ	IN	_	26	mark	_	_
+21	six	six	NUM	CD	NumType=Card	22	nummod	_	Entity=(event-170
+22	games	game	NOUN	NNS	Number=Plur	11	obl	_	Entity=event-170)|SpaceAfter=No
+23	,	,	PUNCT	,	_	26	punct	_	_
+24	despite	despite	SCONJ	IN	_	26	mark	_	Discourse=concession:113->111
 25	not	not	PART	RB	Polarity=Neg	26	advmod	_	_
 26	playing	play	VERB	VBG	VerbForm=Ger	2	advcl	_	_
 27	in	in	ADP	IN	_	29	case	_	_
-28	the	the	DET	DT	Definite=Def|PronType=Art	29	det	_	Entity=(time-181
-29	postseason	postseason	NOUN	NN	Number=Sing	26	obl	_	Entity=time-181)|SpaceAfter=No
+28	the	the	DET	DT	Definite=Def|PronType=Art	29	det	_	Entity=(time-171
+29	postseason	postseason	NOUN	NN	Number=Sing	26	obl	_	Entity=time-171)|SpaceAfter=No
 30	.	.	PUNCT	.	_	2	punct	_	_
 
 # sent_id = GUM_bio_holt-59
 # text = 2014
-# s_type=frag
-1	2014	2014	NUM	CD	NumType=Card	0	root	_	Entity=(time-182)
+# s_type = frag
+1	2014	2014	NUM	CD	NumType=Card	0	root	_	Discourse=preparation:114->115|Entity=(time-172)
 
 # sent_id = GUM_bio_holt-60
 # text = Holt again started 2014 in Triple-A, but was called up May 17 after an injury to Will Middlebrooks and hit leadoff for the rest of the season.
-# s_type=decl
-1	Holt	Holt	PROPN	NNP	Number=Sing	3	nsubj	_	Entity=(person-1)
+# s_type = decl
+1	Holt	Holt	PROPN	NNP	Number=Sing	3	nsubj	_	Discourse=sequence:115->109|Entity=(person-1)
 2	again	again	ADV	RB	_	3	advmod	_	_
 3	started	start	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-4	2014	2014	NUM	CD	NumType=Card	3	obj	_	Entity=(time-182)
+4	2014	2014	NUM	CD	NumType=Card	3	obj	_	Entity=(time-172)
 5	in	in	ADP	IN	_	6	case	_	_
-6	Triple-A	Triple-A	PROPN	NNP	Number=Sing	3	obl	_	Entity=(organization-126)|SpaceAfter=No
+6	Triple-A	Triple-A	PROPN	NNP	Number=Sing	3	obl	_	Entity=(organization-119)|SpaceAfter=No
 7	,	,	PUNCT	,	_	10	punct	_	_
-8	but	but	CCONJ	CC	_	10	cc	_	_
+8	but	but	CCONJ	CC	_	10	cc	_	Discourse=contrast:116->115
 9	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	10	aux:pass	_	_
 10	called	call	VERB	VBN	Tense=Past|VerbForm=Part	3	conj	_	_
 11	up	up	ADP	RP	_	10	compound:prt	_	_
-12	May	May	PROPN	NNP	Number=Sing	13	compound	_	Entity=(time-183(time-184)
-13	17	17	NUM	CD	NumType=Card	10	obl:tmod	_	Entity=time-183)
+12	May	May	PROPN	NNP	Number=Sing	13	compound	_	Entity=(time-173(time-174)
+13	17	17	NUM	CD	NumType=Card	10	obl:tmod	_	Entity=time-173)
 14	after	after	ADP	IN	_	16	case	_	_
-15	an	a	DET	DT	Definite=Ind|PronType=Art	16	det	_	Entity=(event-185
+15	an	a	DET	DT	Definite=Ind|PronType=Art	16	det	_	Entity=(event-175
 16	injury	injury	NOUN	NN	Number=Sing	10	obl	_	_
 17	to	to	ADP	IN	_	18	case	_	_
-18	Will	Will	PROPN	NNP	Number=Sing	16	nmod	_	Entity=(person-186
-19	Middlebrooks	Middlebrooks	PROPN	NNP	Number=Sing	18	flat	_	Entity=event-185)person-186)
-20	and	and	CCONJ	CC	_	21	cc	_	_
+18	Will	Will	PROPN	NNP	Number=Sing	16	nmod	_	Entity=(person-176
+19	Middlebrooks	Middlebrooks	PROPN	NNP	Number=Sing	18	flat	_	Entity=event-175)person-176)
+20	and	and	CCONJ	CC	_	21	cc	_	Discourse=sequence:117->116
 21	hit	hit	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	3	conj	_	_
 22	leadoff	leadoff	ADV	RB	_	21	advmod	_	_
 23	for	for	ADP	IN	_	25	case	_	_
-24	the	the	DET	DT	Definite=Def|PronType=Art	25	det	_	Entity=(time-187
+24	the	the	DET	DT	Definite=Def|PronType=Art	25	det	_	Entity=(time-177
 25	rest	rest	NOUN	NN	Number=Sing	21	obl	_	_
 26	of	of	ADP	IN	_	28	case	_	_
-27	the	the	DET	DT	Definite=Def|PronType=Art	28	det	_	Entity=(time-188
-28	season	season	NOUN	NN	Number=Sing	25	nmod	_	Entity=time-187)time-188)|SpaceAfter=No
+27	the	the	DET	DT	Definite=Def|PronType=Art	28	det	_	Entity=(time-178
+28	season	season	NOUN	NN	Number=Sing	25	nmod	_	Entity=time-177)time-178)|SpaceAfter=No
 29	.	.	PUNCT	.	_	3	punct	_	_
 
 # sent_id = GUM_bio_holt-61
 # text = On May 31, 2014, against the Tampa Bay Rays at Fenway Park, Holt hit his first Major League home run.
-# s_type=decl
-1	On	on	ADP	IN	_	3	case	_	_
-2	May	May	PROPN	NNP	Number=Sing	3	compound	_	Entity=(time-189(time-190)
+# s_type = decl
+1	On	on	ADP	IN	_	3	case	_	Discourse=sequence:118->115
+2	May	May	PROPN	NNP	Number=Sing	3	compound	_	Entity=(time-179
 3	31	31	NUM	CD	NumType=Card	17	obl	_	SpaceAfter=No
 4	,	,	PUNCT	,	_	5	punct	_	_
-5	2014	2014	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-182)time-189)|SpaceAfter=No
+5	2014	2014	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-172)time-179)|SpaceAfter=No
 6	,	,	PUNCT	,	_	3	punct	_	_
 7	against	against	ADP	IN	_	11	case	_	_
-8	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(organization-191
-9	Tampa	Tampa	PROPN	NNP	Number=Sing	10	compound	_	Entity=(place-192(place-193)
-10	Bay	Bay	PROPN	NNP	Number=Sing	11	compound	_	Entity=place-192)
-11	Rays	Ray	PROPN	NNPS	Number=Plur	17	obl	_	Entity=organization-191)
+8	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(organization-180
+9	Tampa	Tampa	PROPN	NNP	Number=Sing	10	compound	_	Entity=(place-181(place-182)
+10	Bay	Bay	PROPN	NNP	Number=Sing	11	compound	_	Entity=place-181)
+11	Rays	Ray	PROPN	NNPS	Number=Plur	17	obl	_	Entity=organization-180)
 12	at	at	ADP	IN	_	14	case	_	_
-13	Fenway	Fenway	PROPN	NNP	Number=Sing	14	compound	_	Entity=(place-194
-14	Park	Park	PROPN	NNP	Number=Sing	11	nmod	_	Entity=place-194)|SpaceAfter=No
+13	Fenway	Fenway	PROPN	NNP	Number=Sing	14	compound	_	Entity=(place-183
+14	Park	Park	PROPN	NNP	Number=Sing	11	nmod	_	Entity=place-183)|SpaceAfter=No
 15	,	,	PUNCT	,	_	11	punct	_	_
 16	Holt	Holt	PROPN	NNP	Number=Sing	17	nsubj	_	Entity=(person-1)
 17	hit	hit	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-18	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	23	nmod:poss	_	Entity=(event-195(person-1)
+18	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	23	nmod:poss	_	Entity=(event-184(person-1)
 19	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	23	amod	_	_
-20	Major	Major	PROPN	NNP	Number=Sing	21	amod	_	Entity=(organization-11
-21	League	League	PROPN	NNP	Number=Sing	23	compound	_	Entity=organization-11)
+20	Major	Major	PROPN	NNP	Number=Sing	21	amod	_	Entity=(organization-10
+21	League	League	PROPN	NNP	Number=Sing	23	compound	_	Entity=organization-10)
 22	home	home	NOUN	NN	Number=Sing	23	compound	_	_
-23	run	run	NOUN	NN	Number=Sing	17	obj	_	Entity=event-195)|SpaceAfter=No
+23	run	run	NOUN	NN	Number=Sing	17	obj	_	Entity=event-184)|SpaceAfter=No
 24	.	.	PUNCT	.	_	17	punct	_	_
 
 # sent_id = GUM_bio_holt-62
 # text = On June 8, 2014, in order to allow Xander Bogaerts to play 3rd base, Holt moved to left field.
-# s_type=decl
-1	On	on	ADP	IN	_	3	case	_	_
-2	June	June	PROPN	NNP	Number=Sing	3	compound	_	Entity=(time-196(time-197)
+# s_type = decl
+1	On	on	ADP	IN	_	3	case	_	Discourse=sequence:119->115
+2	June	June	PROPN	NNP	Number=Sing	3	compound	_	Entity=(time-185
 3	8	8	NUM	CD	NumType=Card	19	obl	_	SpaceAfter=No
 4	,	,	PUNCT	,	_	5	punct	_	_
-5	2014	2014	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-182)time-196)|SpaceAfter=No
+5	2014	2014	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-172)time-185)|SpaceAfter=No
 6	,	,	PUNCT	,	_	3	punct	_	_
-7	in	in	SCONJ	IN	_	10	mark	_	_
+7	in	in	SCONJ	IN	_	10	mark	_	Discourse=purpose:120->121
 8	order	order	NOUN	NN	Number=Sing	7	fixed	_	_
 9	to	to	PART	TO	_	10	mark	_	_
 10	allow	allow	VERB	VB	VerbForm=Inf	19	advcl	_	_
-11	Xander	Xander	PROPN	NNP	Number=Sing	10	obj	_	Entity=(person-198
-12	Bogaerts	Bogaerts	PROPN	NNP	Number=Sing	11	flat	_	Entity=person-198)
+11	Xander	Xander	PROPN	NNP	Number=Sing	10	obj	_	Entity=(person-186
+12	Bogaerts	Bogaerts	PROPN	NNP	Number=Sing	11	flat	_	Entity=person-186)
 13	to	to	PART	TO	_	14	mark	_	_
 14	play	play	VERB	VB	VerbForm=Inf	10	xcomp	_	_
-15	3rd	3rd	ADJ	JJ	Degree=Pos|NumType=Ord	16	amod	_	Entity=(place-199
-16	base	base	NOUN	NN	Number=Sing	14	obj	_	Entity=place-199)|SpaceAfter=No
+15	3rd	3rd	ADJ	JJ	Degree=Pos|NumType=Ord	16	amod	_	Entity=(place-187
+16	base	base	NOUN	NN	Number=Sing	14	obj	_	Entity=place-187)|SpaceAfter=No
 17	,	,	PUNCT	,	_	10	punct	_	_
-18	Holt	Holt	PROPN	NNP	Number=Sing	19	nsubj	_	Entity=(person-1)
+18	Holt	Holt	PROPN	NNP	Number=Sing	19	nsubj	_	Discourse=same-unit:121->119|Entity=(person-1)
 19	moved	move	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 20	to	to	ADP	IN	_	22	case	_	_
-21	left	left	ADJ	JJ	Degree=Pos	22	amod	_	Entity=(place-200
-22	field	field	NOUN	NN	Number=Sing	19	obl	_	Entity=place-200)|SpaceAfter=No
+21	left	left	ADJ	JJ	Degree=Pos	22	amod	_	Entity=(place-188
+22	field	field	NOUN	NN	Number=Sing	19	obl	_	Entity=place-188)|SpaceAfter=No
 23	.	.	PUNCT	.	_	19	punct	_	_
 
 # sent_id = GUM_bio_holt-63
 # text = He immediately impressed, making a sensational catch on the warning track to rob Ian Kinsler of a hit.
-# s_type=decl
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj	_	Entity=(person-1)
+# s_type = decl
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj	_	Discourse=evaluation:122->119|Entity=(person-1)
 2	immediately	immediately	ADV	RB	_	3	advmod	_	_
 3	impressed	impress	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
 4	,	,	PUNCT	,	_	5	punct	_	_
-5	making	make	VERB	VBG	VerbForm=Ger	3	advcl	_	_
-6	a	a	DET	DT	Definite=Ind|PronType=Art	8	det	_	Entity=(event-201
+5	making	make	VERB	VBG	VerbForm=Ger	3	advcl	_	Discourse=evidence:123->122
+6	a	a	DET	DT	Definite=Ind|PronType=Art	8	det	_	Entity=(event-189
 7	sensational	sensational	ADJ	JJ	Degree=Pos	8	amod	_	_
-8	catch	catch	NOUN	NN	Number=Sing	5	obj	_	Entity=event-201)
+8	catch	catch	NOUN	NN	Number=Sing	5	obj	_	Entity=event-189)
 9	on	on	ADP	IN	_	12	case	_	_
-10	the	the	DET	DT	Definite=Def|PronType=Art	12	det	_	Entity=(place-202
+10	the	the	DET	DT	Definite=Def|PronType=Art	12	det	_	Entity=(place-190
 11	warning	warning	NOUN	NN	Number=Sing	12	compound	_	_
-12	track	track	NOUN	NN	Number=Sing	5	obl	_	Entity=place-202)
-13	to	to	PART	TO	_	14	mark	_	_
+12	track	track	NOUN	NN	Number=Sing	5	obl	_	Entity=place-190)
+13	to	to	PART	TO	_	14	mark	_	Discourse=purpose:124->123
 14	rob	rob	VERB	VB	VerbForm=Inf	5	advcl	_	_
-15	Ian	Ian	PROPN	NNP	Number=Sing	14	obj	_	Entity=(person-203
-16	Kinsler	Kinsler	PROPN	NNP	Number=Sing	15	flat	_	Entity=person-203)
+15	Ian	Ian	PROPN	NNP	Number=Sing	14	obj	_	Entity=(person-191
+16	Kinsler	Kinsler	PROPN	NNP	Number=Sing	15	flat	_	Entity=person-191)
 17	of	of	ADP	IN	_	19	case	_	_
-18	a	a	DET	DT	Definite=Ind|PronType=Art	19	det	_	Entity=(abstract-204
-19	hit	hit	NOUN	NN	Number=Sing	14	obl	_	Entity=abstract-204)|SpaceAfter=No
+18	a	a	DET	DT	Definite=Ind|PronType=Art	19	det	_	Entity=(event-192
+19	hit	hit	NOUN	NN	Number=Sing	14	obl	_	Entity=event-192)|SpaceAfter=No
 20	.	.	PUNCT	.	_	3	punct	_	_
 
 # sent_id = GUM_bio_holt-64
 # text = On July 9, 2014, against the Chicago White Sox, Holt drove in Daniel Nava in the bottom of the 9th inning for the first walk-off hit of his career. [13]
-# s_type=decl
-1	On	on	ADP	IN	_	3	case	_	_
-2	July	July	PROPN	NNP	Number=Sing	3	compound	_	Entity=(time-205(time-206)
+# s_type = decl
+1	On	on	ADP	IN	_	3	case	_	Discourse=sequence:125->115
+2	July	July	PROPN	NNP	Number=Sing	3	compound	_	Entity=(time-193
 3	9	9	NUM	CD	NumType=Card	14	obl	_	SpaceAfter=No
 4	,	,	PUNCT	,	_	5	punct	_	_
-5	2014	2014	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-182)time-205)|SpaceAfter=No
+5	2014	2014	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-172)time-193)|SpaceAfter=No
 6	,	,	PUNCT	,	_	3	punct	_	_
 7	against	against	ADP	IN	_	11	case	_	_
-8	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(organization-207
-9	Chicago	Chicago	PROPN	NNP	Number=Sing	11	compound	_	Entity=(place-208)
+8	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(organization-194
+9	Chicago	Chicago	PROPN	NNP	Number=Sing	11	compound	_	Entity=(place-195)
 10	White	White	PROPN	NNP	Number=Sing	11	amod	_	_
-11	Sox	Sox	PROPN	NNP	Number=Sing	14	obl	_	Entity=organization-207)|SpaceAfter=No
+11	Sox	Sox	PROPN	NNP	Number=Sing	14	obl	_	Entity=organization-194)|SpaceAfter=No
 12	,	,	PUNCT	,	_	11	punct	_	_
 13	Holt	Holt	PROPN	NNP	Number=Sing	14	nsubj	_	Entity=(person-1)
 14	drove	drive	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 15	in	in	ADP	RP	_	14	compound:prt	_	_
-16	Daniel	Daniel	PROPN	NNP	Number=Sing	14	obj	_	Entity=(person-209
-17	Nava	Nava	PROPN	NNP	Number=Sing	16	flat	_	Entity=person-209)
+16	Daniel	Daniel	PROPN	NNP	Number=Sing	14	obj	_	Entity=(person-196
+17	Nava	Nava	PROPN	NNP	Number=Sing	16	flat	_	Entity=person-196)
 18	in	in	ADP	IN	_	20	case	_	_
 19	the	the	DET	DT	Definite=Def|PronType=Art	20	det	_	_
-20	bottom	bottom	NOUN	NN	Number=Sing	14	obl	_	Entity=(time-210
+20	bottom	bottom	NOUN	NN	Number=Sing	14	obl	_	Entity=(time-197
 21	of	of	ADP	IN	_	24	case	_	_
-22	the	the	DET	DT	Definite=Def|PronType=Art	24	det	_	Entity=(time-211
+22	the	the	DET	DT	Definite=Def|PronType=Art	24	det	_	Entity=(time-198
 23	9th	9th	ADJ	JJ	Degree=Pos|NumType=Ord	24	amod	_	_
-24	inning	inning	NOUN	NN	Number=Sing	20	nmod	_	Entity=time-210)time-211)
+24	inning	inning	NOUN	NN	Number=Sing	20	nmod	_	Entity=time-197)time-198)
 25	for	for	ADP	IN	_	29	case	_	_
-26	the	the	DET	DT	Definite=Def|PronType=Art	29	det	_	Entity=(event-212
+26	the	the	DET	DT	Definite=Def|PronType=Art	29	det	_	Entity=(event-199
 27	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	29	amod	_	_
 28	walk-off	walk-off	ADJ	JJ	Degree=Pos	29	amod	_	_
 29	hit	hit	NOUN	NN	Number=Sing	14	obl	_	_
 30	of	of	ADP	IN	_	32	case	_	_
-31	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	32	nmod:poss	_	Entity=(abstract-32(person-1)
-32	career	career	NOUN	NN	Number=Sing	29	nmod	_	Entity=event-212)abstract-32)|SpaceAfter=No
+31	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	32	nmod:poss	_	Entity=(abstract-29(person-1)
+32	career	career	NOUN	NN	Number=Sing	29	nmod	_	Entity=event-199)abstract-29)|SpaceAfter=No
 33	.	.	PUNCT	.	_	14	punct	_	_
-34	[	[	PUNCT	-LSB-	_	35	punct	_	SpaceAfter=No
-35	13	13	NUM	CD	NumType=Card	14	dep	_	Entity=(abstract-213)|SpaceAfter=No
+34	[	[	PUNCT	-LSB-	_	35	punct	_	Discourse=evidence:126->125|SpaceAfter=No
+35	13	13	NUM	CD	NumType=Card	14	dep	_	Entity=(abstract-200)|SpaceAfter=No
 36	]	]	PUNCT	-RSB-	_	35	punct	_	_
 
 # sent_id = GUM_bio_holt-65
 # text = On June 1, 2015, while starting at first base for the first time in his career, Holt went 4-for-4 with four doubles, a walk, and two RBI against the Tampa Bay Rays to win 4 to 0. [14]
-# s_type=decl
-1	On	on	ADP	IN	_	3	case	_	_
-2	June	June	PROPN	NNP	Number=Sing	3	compound	_	Entity=(time-214(time-215)
+# s_type = decl
+1	On	on	ADP	IN	_	3	case	_	Discourse=sequence:127->115
+2	June	June	PROPN	NNP	Number=Sing	3	compound	_	Entity=(time-201
 3	1	1	NUM	CD	NumType=Card	21	obl	_	SpaceAfter=No
 4	,	,	PUNCT	,	_	5	punct	_	_
-5	2015	2015	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-35)time-214)|SpaceAfter=No
+5	2015	2015	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-32)time-201)|SpaceAfter=No
 6	,	,	PUNCT	,	_	3	punct	_	_
-7	while	while	SCONJ	IN	_	8	mark	_	_
+7	while	while	SCONJ	IN	_	8	mark	_	Discourse=circumstance:128->129
 8	starting	start	VERB	VBG	VerbForm=Ger	21	advcl	_	_
 9	at	at	ADP	IN	_	11	case	_	_
-10	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	11	amod	_	Entity=(place-216
-11	base	base	NOUN	NN	Number=Sing	8	obl	_	Entity=place-216)
+10	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	11	amod	_	Entity=(place-202
+11	base	base	NOUN	NN	Number=Sing	8	obl	_	Entity=place-202)
 12	for	for	ADP	IN	_	15	case	_	_
-13	the	the	DET	DT	Definite=Def|PronType=Art	15	det	_	Entity=(time-217
+13	the	the	DET	DT	Definite=Def|PronType=Art	15	det	_	Entity=(time-203
 14	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	15	amod	_	_
 15	time	time	NOUN	NN	Number=Sing	8	obl	_	_
 16	in	in	ADP	IN	_	18	case	_	_
-17	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	18	nmod:poss	_	Entity=(abstract-32(person-1)
-18	career	career	NOUN	NN	Number=Sing	15	nmod	_	Entity=time-217)abstract-32)|SpaceAfter=No
+17	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	18	nmod:poss	_	Entity=(abstract-29(person-1)
+18	career	career	NOUN	NN	Number=Sing	15	nmod	_	Entity=time-203)abstract-29)|SpaceAfter=No
 19	,	,	PUNCT	,	_	8	punct	_	_
-20	Holt	Holt	PROPN	NNP	Number=Sing	21	nsubj	_	Entity=(person-1)
+20	Holt	Holt	PROPN	NNP	Number=Sing	21	nsubj	_	Discourse=same-unit:129->127|Entity=(person-1)
 21	went	go	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-22	4-for-4	4-for-4	ADJ	JJ	Degree=Pos	21	xcomp	_	Entity=(event-218)
+22	4-for-4	4-for-4	ADJ	JJ	Degree=Pos	21	xcomp	_	Entity=(event-204)
 23	with	with	ADP	IN	_	25	case	_	_
-24	four	four	NUM	CD	NumType=Card	25	nummod	_	Entity=(event-218(event-219
-25	doubles	double	NOUN	NNS	Number=Plur	21	obl	_	Entity=event-219)|SpaceAfter=No
+24	four	four	NUM	CD	NumType=Card	25	nummod	_	Entity=(event-204(event-205
+25	doubles	double	NOUN	NNS	Number=Plur	21	obl	_	Entity=event-205)|SpaceAfter=No
 26	,	,	PUNCT	,	_	28	punct	_	_
-27	a	a	DET	DT	Definite=Ind|PronType=Art	28	det	_	Entity=(event-220
-28	walk	walk	NOUN	NN	Number=Sing	25	conj	_	Entity=event-220)|SpaceAfter=No
+27	a	a	DET	DT	Definite=Ind|PronType=Art	28	det	_	Entity=(event-206
+28	walk	walk	NOUN	NN	Number=Sing	25	conj	_	Entity=event-206)|SpaceAfter=No
 29	,	,	PUNCT	,	_	32	punct	_	_
 30	and	and	CCONJ	CC	_	32	cc	_	_
 31	two	two	NUM	CD	NumType=Card	32	nummod	_	_
-32	RBI	RBI	NOUN	NNS	Number=Plur	25	conj	_	Entity=(event-221)event-218)
+32	RBI	RBI	NOUN	NNS	Number=Plur	25	conj	_	Entity=(event-207)event-204)
 33	against	against	ADP	IN	_	37	case	_	_
-34	the	the	DET	DT	Definite=Def|PronType=Art	37	det	_	Entity=(organization-222
-35	Tampa	Tampa	PROPN	NNP	Number=Sing	36	compound	_	Entity=(place-192(place-193)
-36	Bay	Bay	PROPN	NNP	Number=Sing	37	compound	_	Entity=place-192)
-37	Rays	Ray	PROPN	NNPS	Number=Plur	21	obl	_	Entity=organization-222)
-38	to	to	PART	TO	_	39	mark	_	_
+34	the	the	DET	DT	Definite=Def|PronType=Art	37	det	_	Entity=(organization-208
+35	Tampa	Tampa	PROPN	NNP	Number=Sing	36	compound	_	Entity=(place-181(place-182)
+36	Bay	Bay	PROPN	NNP	Number=Sing	37	compound	_	Entity=place-181)
+37	Rays	Ray	PROPN	NNPS	Number=Plur	21	obl	_	Entity=organization-208)
+38	to	to	PART	TO	_	39	mark	_	Discourse=result:130->129
 39	win	win	VERB	VB	VerbForm=Inf	21	xcomp	_	_
-40	4	4	NUM	CD	NumType=Card	39	obl:npmod	_	Entity=(quantity-223)
+40	4	4	NUM	CD	NumType=Card	39	obl:npmod	_	Entity=(abstract-209)
 41	to	to	ADP	IN	_	42	case	_	_
-42	0	0	NUM	CD	NumType=Card	40	nmod	_	Entity=(quantity-224)|SpaceAfter=No
+42	0	0	NUM	CD	NumType=Card	40	nmod	_	Entity=(abstract-210)|SpaceAfter=No
 43	.	.	PUNCT	.	_	21	punct	_	_
-44	[	[	PUNCT	-LSB-	_	45	punct	_	SpaceAfter=No
-45	14	14	NUM	CD	NumType=Card	21	dep	_	Entity=(abstract-225)|SpaceAfter=No
+44	[	[	PUNCT	-LSB-	_	45	punct	_	Discourse=evidence:131->127|SpaceAfter=No
+45	14	14	NUM	CD	NumType=Card	21	dep	_	Entity=(abstract-211)|SpaceAfter=No
 46	]	]	PUNCT	-RSB-	_	45	punct	_	_
 
 # sent_id = GUM_bio_holt-66
 # text = By the end of the season, Holt had started games at every position except pitcher and catcher. [15]
-# s_type=decl
-1	By	by	ADP	IN	_	3	case	_	_
-2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	_	Entity=(event-226
+# s_type = decl
+1	By	by	ADP	IN	_	3	case	_	Discourse=sequence:132->115
+2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	_	Entity=(time-212
 3	end	end	NOUN	NN	Number=Sing	10	obl	_	_
 4	of	of	ADP	IN	_	6	case	_	_
-5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	_	Entity=(time-227
-6	season	season	NOUN	NN	Number=Sing	3	nmod	_	Entity=event-226)time-227)|SpaceAfter=No
+5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	_	Entity=(time-213
+6	season	season	NOUN	NN	Number=Sing	3	nmod	_	Entity=time-212)time-213)|SpaceAfter=No
 7	,	,	PUNCT	,	_	3	punct	_	_
 8	Holt	Holt	PROPN	NNP	Number=Sing	10	nsubj	_	Entity=(person-1)
 9	had	have	AUX	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	10	aux	_	_
 10	started	start	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
-11	games	game	NOUN	NNS	Number=Plur	10	obj	_	Entity=(event-228)
+11	games	game	NOUN	NNS	Number=Plur	10	obj	_	Entity=(event-214)
 12	at	at	ADP	IN	_	14	case	_	_
-13	every	every	DET	DT	_	14	det	_	Entity=(abstract-42
+13	every	every	DET	DT	_	14	det	_	Entity=(abstract-38
 14	position	position	NOUN	NN	Number=Sing	10	obl	_	_
 15	except	except	ADP	IN	_	16	case	_	_
-16	pitcher	pitcher	NOUN	NN	Number=Sing	14	nmod	_	Entity=(abstract-43)
+16	pitcher	pitcher	NOUN	NN	Number=Sing	14	nmod	_	Entity=(abstract-39)
 17	and	and	CCONJ	CC	_	18	cc	_	_
-18	catcher	catcher	NOUN	NN	Number=Sing	16	conj	_	Entity=(abstract-44)abstract-42)|SpaceAfter=No
+18	catcher	catcher	NOUN	NN	Number=Sing	16	conj	_	Entity=(abstract-40)abstract-38)|SpaceAfter=No
 19	.	.	PUNCT	.	_	10	punct	_	_
-20	[	[	PUNCT	-LSB-	_	21	punct	_	SpaceAfter=No
-21	15	15	NUM	CD	NumType=Card	10	dep	_	Entity=(abstract-229)|SpaceAfter=No
+20	[	[	PUNCT	-LSB-	_	21	punct	_	Discourse=evidence:133->132|SpaceAfter=No
+21	15	15	NUM	CD	NumType=Card	10	dep	_	Entity=(abstract-215)|SpaceAfter=No
 22	]	]	PUNCT	-RSB-	_	21	punct	_	_
+
+
+
+
+
 
 

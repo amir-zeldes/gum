@@ -1,16 +1,16 @@
 # newdoc id = GUM_voyage_cleveland
 # sent_id = GUM_voyage_cleveland-1
 # text = Cleveland is a culturally diverse city on the shores of Lake Erie, one of the Great Lakes, in Cuyahoga County, Ohio, USA.
-# s_type=decl
-1	Cleveland	Cleveland	PROPN	NNP	Number=Sing	6	nsubj	_	Entity=(place-1)
+# s_type = decl
+1	Cleveland	Cleveland	PROPN	NNP	Number=Sing	6	nsubj	_	Discourse=ROOT:1|Entity=(place-1)
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	_	_
-3	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	_	_
+3	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	_	Entity=(place-1
 4	culturally	culturally	ADV	RB	_	5	advmod	_	_
 5	diverse	diverse	ADJ	JJ	Degree=Pos	6	amod	_	_
 6	city	city	NOUN	NN	Number=Sing	0	root	_	_
 7	on	on	ADP	IN	_	9	case	_	_
 8	the	the	DET	DT	Definite=Def|PronType=Art	9	det	_	Entity=(place-2
-9	shores	shore	NOUN	NNS	Number=Plur	6	nmod	_	Entity=place-2)
+9	shores	shore	NOUN	NNS	Number=Plur	6	nmod	_	_
 10	of	of	ADP	IN	_	11	case	_	_
 11	Lake	Lake	PROPN	NNP	Number=Sing	9	nmod	_	Entity=(place-3
 12	Erie	Erie	PROPN	NNP	Number=Sing	11	flat	_	Entity=place-3)|SpaceAfter=No
@@ -19,7 +19,7 @@
 15	of	of	ADP	IN	_	18	case	_	_
 16	the	the	DET	DT	Definite=Def|PronType=Art	18	det	_	_
 17	Great	Great	PROPN	NNP	Number=Sing	18	compound	_	_
-18	Lakes	Lakes	PROPN	NNPS	Number=Plur	14	nmod	_	Entity=place-3)|SpaceAfter=No
+18	Lakes	Lakes	PROPN	NNPS	Number=Plur	14	nmod	_	Entity=place-2)place-3)|SpaceAfter=No
 19	,	,	PUNCT	,	_	22	punct	_	_
 20	in	in	ADP	IN	_	22	case	_	Entity=(place-4
 21	Cuyahoga	Cuyahoga	PROPN	NNP	Number=Sing	22	compound	_	_
@@ -27,13 +27,13 @@
 23	,	,	PUNCT	,	_	24	punct	_	_
 24	Ohio	Ohio	PROPN	NNP	Number=Sing	22	appos	_	Entity=(place-5|SpaceAfter=No
 25	,	,	PUNCT	,	_	26	punct	_	_
-26	USA	USA	PROPN	NNP	Number=Sing	22	appos	_	Entity=(place-6)place-4)place-5)|SpaceAfter=No
+26	USA	USA	PROPN	NNP	Number=Sing	22	appos	_	Entity=(place-6)place-1)place-4)place-5)|SpaceAfter=No
 27	.	.	PUNCT	.	_	6	punct	_	_
 
 # sent_id = GUM_voyage_cleveland-2
 # text = Recreational, cultural and educational opportunities are abundant throughout Northeast Ohio.
-# s_type=decl
-1	Recreational	recreational	ADJ	JJ	Degree=Pos	6	amod	_	Entity=(abstract-7|SpaceAfter=No
+# s_type = decl
+1	Recreational	recreational	ADJ	JJ	Degree=Pos	6	amod	_	Discourse=background:2->1|Entity=(abstract-7|SpaceAfter=No
 2	,	,	PUNCT	,	_	3	punct	_	_
 3	cultural	cultural	ADJ	JJ	Degree=Pos	1	conj	_	_
 4	and	and	CCONJ	CC	_	5	cc	_	_
@@ -48,60 +48,60 @@
 
 # sent_id = GUM_voyage_cleveland-3
 # text = Youll find world-class museums and cultural events, professional sports and amusement parks, and the most golf courses per capita in the United States.
-# s_type=decl
-1	You	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	_	SpaceAfter=No
+# s_type = decl
+1	You	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	3	nsubj	_	Discourse=evidence:3->2|Entity=(person-9)|SpaceAfter=No
 2	ll	will	AUX	MD	VerbForm=Fin	3	aux	_	_
 3	find	find	VERB	VB	VerbForm=Inf	0	root	_	_
-4	world-class	world-class	ADJ	JJ	Degree=Pos	5	amod	_	Entity=(abstract-7
-5	museums	museum	NOUN	NNS	Number=Plur	3	obj	_	Entity=abstract-7)
+4	world-class	world-class	ADJ	JJ	Degree=Pos	5	amod	_	Entity=(place-10
+5	museums	museum	NOUN	NNS	Number=Plur	3	obj	_	Entity=place-10)
 6	and	and	CCONJ	CC	_	8	cc	_	_
-7	cultural	cultural	ADJ	JJ	Degree=Pos	8	amod	_	Entity=(abstract-7
-8	events	event	NOUN	NNS	Number=Plur	5	conj	_	Entity=abstract-7)|SpaceAfter=No
+7	cultural	cultural	ADJ	JJ	Degree=Pos	8	amod	_	Entity=(event-11
+8	events	event	NOUN	NNS	Number=Plur	5	conj	_	Entity=event-11)|SpaceAfter=No
 9	,	,	PUNCT	,	_	11	punct	_	_
-10	professional	professional	ADJ	JJ	Degree=Pos	11	amod	_	Entity=(abstract-7
-11	sports	sport	NOUN	NNS	Number=Plur	5	conj	_	Entity=abstract-7)
+10	professional	professional	ADJ	JJ	Degree=Pos	11	amod	_	Entity=(abstract-12
+11	sports	sport	NOUN	NNS	Number=Plur	5	conj	_	Entity=abstract-12)
 12	and	and	CCONJ	CC	_	14	cc	_	_
-13	amusement	amusement	NOUN	NN	Number=Sing	14	compound	_	Entity=(abstract-7
-14	parks	park	NOUN	NNS	Number=Plur	11	conj	_	Entity=abstract-7)|SpaceAfter=No
+13	amusement	amusement	NOUN	NN	Number=Sing	14	compound	_	Entity=(place-13
+14	parks	park	NOUN	NNS	Number=Plur	11	conj	_	Entity=place-13)|SpaceAfter=No
 15	,	,	PUNCT	,	_	20	punct	_	_
 16	and	and	CCONJ	CC	_	20	cc	_	_
-17	the	the	DET	DT	Definite=Def|PronType=Art	20	det	_	Entity=(abstract-7
+17	the	the	DET	DT	Definite=Def|PronType=Art	20	det	_	Entity=(place-14
 18	most	most	ADJ	JJS	Degree=Sup	20	amod	_	_
 19	golf	golf	NOUN	NN	Number=Sing	20	compound	_	_
-20	courses	course	NOUN	NNS	Number=Plur	5	conj	_	Entity=abstract-7)
+20	courses	course	NOUN	NNS	Number=Plur	5	conj	_	_
 21	per	per	ADP	IN	_	22	case	_	_
 22	capita	capita	NOUN	NN	Number=Sing	20	nmod	_	_
 23	in	in	ADP	IN	_	26	case	_	_
 24	the	the	DET	DT	Definite=Def|PronType=Art	26	det	_	Entity=(place-6
 25	United	United	PROPN	NNP	Number=Sing	26	compound	_	_
-26	States	States	PROPN	NNPS	Number=Plur	20	nmod	_	Entity=place-6)|SpaceAfter=No
+26	States	States	PROPN	NNPS	Number=Plur	20	nmod	_	Entity=place-14)place-6)|SpaceAfter=No
 27	.	.	PUNCT	.	_	3	punct	_	_
 
 # sent_id = GUM_voyage_cleveland-4
 # text = Places Rated Almanac ranks the area second in recreational options out of 354 US metro areas.
-# s_type=decl
-1	Places	place	PROPN	NNPS	Number=Plur	3	compound	_	Entity=(organization-9
+# s_type = decl
+1	Places	place	PROPN	NNPS	Number=Plur	3	compound	_	Discourse=joint:4->3|Entity=(organization-15
 2	Rated	rate	PROPN	NNP	Number=Sing	3	compound	_	_
-3	Almanac	almanac	PROPN	NNP	Number=Sing	4	nsubj	_	Entity=organization-9)
+3	Almanac	almanac	PROPN	NNP	Number=Sing	4	nsubj	_	Entity=organization-15)
 4	ranks	rank	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	_
 5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	_	Entity=(place-8
 6	area	area	NOUN	NN	Number=Sing	4	obj	_	Entity=place-8)
 7	second	second	ADJ	JJ	Degree=Pos|NumType=Ord	4	advmod	_	_
 8	in	in	ADP	IN	_	10	case	_	_
-9	recreational	recreational	ADJ	JJ	Degree=Pos	10	amod	_	Entity=(abstract-7
-10	options	option	NOUN	NNS	Number=Plur	7	obl	_	Entity=abstract-7)
+9	recreational	recreational	ADJ	JJ	Degree=Pos	10	amod	_	Entity=(abstract-16
+10	options	option	NOUN	NNS	Number=Plur	7	obl	_	Entity=abstract-16)
 11	out	out	SCONJ	RP	_	16	mark	_	_
 12	of	of	ADP	IN	_	16	case	_	_
-13	354	354	NUM	CD	NumType=Card	16	nummod	_	_
+13	354	354	NUM	CD	NumType=Card	16	nummod	_	Entity=(place-17
 14	US	US	PROPN	NNP	Number=Sing	16	compound	_	Entity=(place-6)
 15	metro	metro	ADJ	JJ	Degree=Pos	16	amod	_	_
-16	areas	area	NOUN	NNS	Number=Plur	7	advcl	_	SpaceAfter=No
+16	areas	area	NOUN	NNS	Number=Plur	7	advcl	_	Entity=place-17)|SpaceAfter=No
 17	.	.	PUNCT	.	_	4	punct	_	_
 
 # sent_id = GUM_voyage_cleveland-5
 # text = Plus, this region ranks fifth in the nation in number of major cultural resources per one million residents.
-# s_type=decl
-1	Plus	plus	CCONJ	CC	_	5	cc	_	SpaceAfter=No
+# s_type = decl
+1	Plus	plus	CCONJ	CC	_	5	cc	_	Discourse=joint:5->3|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	_	_
 3	this	this	DET	DT	Number=Sing|PronType=Dem	4	det	_	Entity=(place-8
 4	region	region	NOUN	NN	Number=Sing	5	nsubj	_	Entity=place-8)
@@ -113,34 +113,34 @@
 10	in	in	ADP	IN	_	11	case	_	_
 11	number	number	NOUN	NN	Number=Sing	6	obl	_	_
 12	of	of	ADP	IN	_	15	case	_	_
-13	major	major	ADJ	JJ	Degree=Pos	15	amod	_	Entity=(abstract-7
+13	major	major	ADJ	JJ	Degree=Pos	15	amod	_	Entity=(abstract-18
 14	cultural	cultural	ADJ	JJ	Degree=Pos	15	amod	_	_
-15	resources	resource	NOUN	NNS	Number=Plur	11	nmod	_	Entity=abstract-7)
+15	resources	resource	NOUN	NNS	Number=Plur	11	nmod	_	Entity=abstract-18)
 16	per	per	ADP	IN	_	19	case	_	_
-17	one	one	NUM	CD	NumType=Card	18	compound	_	_
+17	one	one	NUM	CD	NumType=Card	18	compound	_	Entity=(person-19
 18	million	million	NUM	CD	NumType=Card	19	nummod	_	_
-19	residents	resident	NOUN	NNS	Number=Plur	15	nmod	_	SpaceAfter=No
+19	residents	resident	NOUN	NNS	Number=Plur	15	nmod	_	Entity=person-19)|SpaceAfter=No
 20	.	.	PUNCT	.	_	5	punct	_	_
 
 # sent_id = GUM_voyage_cleveland-6
 # text = Understand
-# s_type=imp
-1	Understand	understand	VERB	VB	Mood=Imp|VerbForm=Fin	0	root	_	_
+# s_type = imp
+1	Understand	understand	VERB	VB	Mood=Imp|VerbForm=Fin	0	root	_	Discourse=preparation:6->8
 
 # sent_id = GUM_voyage_cleveland-7
 # text = Cleveland from lakefront.
-# s_type=frag
-1	Cleveland	Cleveland	PROPN	NNP	Number=Sing	0	root	_	Entity=(place-1)
+# s_type = frag
+1	Cleveland	Cleveland	PROPN	NNP	Number=Sing	0	root	_	Discourse=preparation:7->8|Entity=(place-1)
 2	from	from	ADP	IN	_	3	case	_	_
-3	lakefront	lakefront	NOUN	NN	Number=Sing	1	nmod	_	Entity=(place-2)|SpaceAfter=No
+3	lakefront	lakefront	NOUN	NN	Number=Sing	1	nmod	_	Entity=(place-20)|SpaceAfter=No
 4	.	.	PUNCT	.	_	1	punct	_	_
 
 # sent_id = GUM_voyage_cleveland-8
 # text = Cleveland is the urban center of Northeast Ohio, the 15th largest combined metropolitan area in the United States.
-# s_type=decl
-1	Cleveland	Cleveland	PROPN	NNP	Number=Sing	5	nsubj	_	Entity=(place-1)
+# s_type = decl
+1	Cleveland	Cleveland	PROPN	NNP	Number=Sing	5	nsubj	_	Discourse=elaboration:8->1|Entity=(place-1)
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	cop	_	_
-3	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	_
+3	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Entity=(place-1
 4	urban	urban	ADJ	JJ	Degree=Pos	5	amod	_	_
 5	center	center	NOUN	NN	Number=Sing	0	root	_	_
 6	of	of	ADP	IN	_	8	case	_	_
@@ -156,16 +156,16 @@
 16	in	in	ADP	IN	_	19	case	_	_
 17	the	the	DET	DT	Definite=Def|PronType=Art	19	det	_	Entity=(place-6
 18	United	United	PROPN	NNP	Number=Sing	19	compound	_	_
-19	States	States	PROPN	NNPS	Number=Plur	15	nmod	_	Entity=place-8)place-6)|SpaceAfter=No
+19	States	States	PROPN	NNPS	Number=Plur	15	nmod	_	Entity=place-1)place-8)place-6)|SpaceAfter=No
 20	.	.	PUNCT	.	_	5	punct	_	_
 
 # sent_id = GUM_voyage_cleveland-9
 # text = Throughout the twentieth century, the City of Cleveland proper was ranked as one of the 10 largest cities in the U.S. (from 1890 until 1970 per US Census Bureau statistics).
-# s_type=decl
-1	Throughout	throughout	ADP	IN	_	4	case	_	_
-2	the	the	DET	DT	Definite=Def|PronType=Art	4	det	_	Entity=(time-10
+# s_type = decl
+1	Throughout	throughout	ADP	IN	_	4	case	_	Discourse=evidence:9->8
+2	the	the	DET	DT	Definite=Def|PronType=Art	4	det	_	Entity=(time-21
 3	twentieth	twentieth	ADJ	JJ	Degree=Pos	4	amod	_	_
-4	century	century	NOUN	NN	Number=Sing	12	obl	_	Entity=time-10)|SpaceAfter=No
+4	century	century	NOUN	NN	Number=Sing	12	obl	_	Entity=time-21)|SpaceAfter=No
 5	,	,	PUNCT	,	_	4	punct	_	_
 6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	_	Entity=(place-1
 7	City	City	PROPN	NNP	Number=Sing	12	nsubj:pass	_	_
@@ -175,7 +175,7 @@
 11	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	12	aux:pass	_	_
 12	ranked	rank	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
 13	as	as	ADP	IN	_	14	case	_	_
-14	one	one	NUM	CD	NumType=Card	12	obl	_	Entity=(place-11
+14	one	one	NUM	CD	NumType=Card	12	obl	_	Entity=(place-22
 15	of	of	ADP	IN	_	19	case	_	_
 16	the	the	DET	DT	Definite=Def|PronType=Art	19	det	_	_
 17	10	10	NUM	CD	NumType=Card	18	nummod	_	_
@@ -183,284 +183,284 @@
 19	cities	city	NOUN	NNS	Number=Plur	14	nmod	_	_
 20	in	in	ADP	IN	_	22	case	_	_
 21	the	the	DET	DT	Definite=Def|PronType=Art	22	det	_	Entity=(place-6
-22	U.S.	U.S.	PROPN	NNP	Number=Sing	19	nmod	_	Entity=place-11)place-6)
-23	(	(	PUNCT	-LRB-	_	25	punct	_	SpaceAfter=No
+22	U.S.	U.S.	PROPN	NNP	Number=Sing	19	nmod	_	Entity=place-22)place-6)
+23	(	(	PUNCT	-LRB-	_	25	punct	_	Discourse=elaboration:10->9|SpaceAfter=No
 24	from	from	ADP	IN	_	25	case	_	_
-25	1890	1890	NUM	CD	NumType=Card	12	obl	_	Entity=(time-12)
+25	1890	1890	NUM	CD	NumType=Card	12	obl	_	Entity=(time-23)
 26	until	until	ADP	IN	_	27	case	_	_
-27	1970	1970	NUM	CD	NumType=Card	25	nmod	_	Entity=(time-13)
+27	1970	1970	NUM	CD	NumType=Card	25	nmod	_	Entity=(time-24)
 28	per	per	ADP	IN	_	32	case	_	_
-29	US	US	PROPN	NNP	Number=Sing	31	compound	_	Entity=(place-6)
+29	US	US	PROPN	NNP	Number=Sing	31	compound	_	Entity=(abstract-25(organization-26(place-6)
 30	Census	Census	PROPN	NNP	Number=Sing	31	compound	_	_
-31	Bureau	Bureau	PROPN	NNP	Number=Sing	32	compound	_	_
-32	statistics	statistic	NOUN	NNS	Number=Plur	27	nmod	_	SpaceAfter=No
+31	Bureau	Bureau	PROPN	NNP	Number=Sing	32	compound	_	Entity=organization-26)
+32	statistics	statistic	NOUN	NNS	Number=Plur	27	nmod	_	Entity=abstract-25)|SpaceAfter=No
 33	)	)	PUNCT	-RRB-	_	25	punct	_	SpaceAfter=No
 34	.	.	PUNCT	.	_	12	punct	_	_
 
 # sent_id = GUM_voyage_cleveland-10
 # text = Like most U.S. cities, Cleveland proper began to lose population to suburban areas in the 1960s and 1970s.
-# s_type=decl
-1	Like	like	ADP	IN	_	4	case	_	_
-2	most	most	ADJ	JJS	Degree=Sup	4	amod	_	_
+# s_type = decl
+1	Like	like	ADP	IN	_	4	case	_	Discourse=background:11->8
+2	most	most	ADJ	JJS	Degree=Sup	4	amod	_	Entity=(place-27
 3	U.S.	U.S.	PROPN	NNP	Number=Sing	4	compound	_	Entity=(place-6)
-4	cities	city	NOUN	NNS	Number=Plur	10	obl	_	SpaceAfter=No
+4	cities	city	NOUN	NNS	Number=Plur	10	obl	_	Entity=place-27)|SpaceAfter=No
 5	,	,	PUNCT	,	_	4	punct	_	_
 6	Cleveland	Cleveland	PROPN	NNP	Number=Sing	8	nsubj	_	Entity=(place-1
 7	proper	proper	ADJ	JJ	Degree=Pos	6	amod	_	Entity=place-1)
 8	began	begin	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
 9	to	to	PART	TO	_	10	mark	_	_
 10	lose	lose	VERB	VB	VerbForm=Inf	8	xcomp	_	_
-11	population	population	NOUN	NN	Number=Sing	10	obj	_	_
+11	population	population	NOUN	NN	Number=Sing	10	obj	_	Entity=(person-28)
 12	to	to	ADP	IN	_	14	case	_	_
-13	suburban	suburban	ADJ	JJ	Degree=Pos	14	amod	_	Entity=(place-14
-14	areas	area	NOUN	NNS	Number=Plur	10	obl	_	Entity=place-14)
+13	suburban	suburban	ADJ	JJ	Degree=Pos	14	amod	_	Entity=(place-29
+14	areas	area	NOUN	NNS	Number=Plur	10	obl	_	Entity=place-29)
 15	in	in	ADP	IN	_	17	case	_	_
-16	the	the	DET	DT	Definite=Def|PronType=Art	17	det	_	Entity=(time-15
-17	1960s	1960s	NOUN	NNS	Number=Plur	10	obl	_	Entity=time-15)
+16	the	the	DET	DT	Definite=Def|PronType=Art	17	det	_	Entity=(time-30
+17	1960s	1960s	NOUN	NNS	Number=Plur	10	obl	_	Entity=time-30)
 18	and	and	CCONJ	CC	_	19	cc	_	_
-19	1970s	1970s	NOUN	NNS	Number=Plur	17	conj	_	Entity=(time-16)|SpaceAfter=No
+19	1970s	1970s	NOUN	NNS	Number=Plur	17	conj	_	Entity=(time-31)|SpaceAfter=No
 20	.	.	PUNCT	.	_	8	punct	_	_
 
 # sent_id = GUM_voyage_cleveland-11
 # text = However, in the mid-1980s, Cleveland earned the nickname the "Comeback City" as the urban core experienced a dramatic revitalization process that continues today.
-# s_type=decl
-1	However	however	ADV	RB	_	8	advmod	_	SpaceAfter=No
+# s_type = decl
+1	However	however	ADV	RB	_	8	advmod	_	Discourse=contrast:12->11|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	_	_
 3	in	in	ADP	IN	_	5	case	_	_
-4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Entity=(time-17
-5	mid-1980s	mid-1980	NOUN	NNS	Number=Plur	8	obl	_	Entity=time-17)|SpaceAfter=No
+4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Entity=(time-32
+5	mid-1980s	mid-1980	NOUN	NNS	Number=Plur	8	obl	_	Entity=time-32)|SpaceAfter=No
 6	,	,	PUNCT	,	_	5	punct	_	_
 7	Cleveland	Cleveland	PROPN	NNP	Number=Sing	8	nsubj	_	Entity=(place-1)
 8	earned	earn	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	_	Entity=(place-1
-10	nickname	nickname	NOUN	NN	Number=Sing	8	obj	_	Entity=place-1)
-11	the	the	DET	DT	Definite=Def|PronType=Art	14	det	_	Entity=(place-1
-12	"	"	PUNCT	``	_	14	punct	_	SpaceAfter=No
-13	Comeback	comeback	PROPN	NNP	Number=Sing	14	compound	_	Entity=(event-18)
-14	City	city	PROPN	NNP	Number=Sing	10	appos	_	Entity=place-1)|SpaceAfter=No
-15	"	"	PUNCT	''	_	14	punct	_	_
-16	as	as	SCONJ	IN	_	20	mark	_	_
-17	the	the	DET	DT	Definite=Def|PronType=Art	19	det	_	Entity=(place-19
+9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	_	Entity=(abstract-33
+10	nickname	nickname	NOUN	NN	Number=Sing	8	obj	_	Entity=abstract-33)
+11	the	the	DET	DT	Definite=Def|PronType=Art	14	det	_	Entity=(abstract-33
+12	"	''	PUNCT	``	_	14	punct	_	SpaceAfter=No
+13	Comeback	comeback	PROPN	NNP	Number=Sing	14	compound	_	Entity=(event-34)
+14	City	city	PROPN	NNP	Number=Sing	10	appos	_	Entity=abstract-33)|SpaceAfter=No
+15	"	''	PUNCT	''	_	14	punct	_	_
+16	as	as	SCONJ	IN	_	20	mark	_	Discourse=cause:13->12
+17	the	the	DET	DT	Definite=Def|PronType=Art	19	det	_	Entity=(place-35
 18	urban	urban	ADJ	JJ	Degree=Pos	19	amod	_	_
-19	core	core	NOUN	NN	Number=Sing	20	nsubj	_	Entity=place-19)
+19	core	core	NOUN	NN	Number=Sing	20	nsubj	_	Entity=place-35)
 20	experienced	experience	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	8	parataxis	_	_
-21	a	a	DET	DT	Definite=Ind|PronType=Art	24	det	_	Entity=(event-18
+21	a	a	DET	DT	Definite=Ind|PronType=Art	24	det	_	Entity=(event-34
 22	dramatic	dramatic	ADJ	JJ	Degree=Pos	24	amod	_	_
 23	revitalization	revitalization	NOUN	NN	Number=Sing	24	compound	_	_
-24	process	process	NOUN	NN	Number=Sing	20	obj	_	Entity=event-18)
-25	that	that	SCONJ	WDT	PronType=Rel	26	mark	_	_
+24	process	process	NOUN	NN	Number=Sing	20	obj	_	_
+25	that	that	SCONJ	WDT	PronType=Rel	26	mark	_	Discourse=elaboration:14->13
 26	continues	continue	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	24	acl:relcl	_	_
-27	today	today	NOUN	NN	Number=Sing	26	obl:tmod	_	Entity=(time-20)|SpaceAfter=No
+27	today	today	NOUN	NN	Number=Sing	26	obl:tmod	_	Entity=(time-36)event-34)|SpaceAfter=No
 28	.	.	PUNCT	.	_	8	punct	_	_
 
 # sent_id = GUM_voyage_cleveland-12
 # text = As its "comeback" has continued, the official moniker is now the New American City as Cleveland has rightfully earned the reputation as a model of effective public-private partnership for urban planning.
-# s_type=decl
-1	As	as	SCONJ	IN	_	7	mark	_	_
-2	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	4	nmod:poss	_	Entity=(event-18(place-1)
-3	"	"	PUNCT	``	_	4	punct	_	SpaceAfter=No
-4	comeback	comeback	NOUN	NN	Number=Sing	7	nsubj	_	Entity=event-18)|SpaceAfter=No
-5	"	"	PUNCT	''	_	4	punct	_	_
+# s_type = decl
+1	As	as	SCONJ	IN	_	7	mark	_	Discourse=cause:15->16
+2	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	4	nmod:poss	_	Entity=(event-34(place-1)
+3	"	''	PUNCT	``	_	4	punct	_	SpaceAfter=No
+4	comeback	comeback	NOUN	NN	Number=Sing	7	nsubj	_	SpaceAfter=No
+5	"	''	PUNCT	''	_	4	punct	_	Entity=event-34)
 6	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	7	aux	_	_
 7	continued	continue	VERB	VBN	Tense=Past|VerbForm=Part	17	acl	_	SpaceAfter=No
 8	,	,	PUNCT	,	_	7	punct	_	_
-9	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(abstract-21
+9	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Discourse=sequence:16->12|Entity=(abstract-37
 10	official	official	ADJ	JJ	Degree=Pos	11	amod	_	_
-11	moniker	moniker	NOUN	NN	Number=Sing	17	nsubj	_	Entity=abstract-21)
+11	moniker	moniker	NOUN	NN	Number=Sing	17	nsubj	_	Entity=abstract-37)
 12	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	17	cop	_	_
 13	now	now	ADV	RB	_	17	advmod	_	_
-14	the	the	DET	DT	Definite=Def|PronType=Art	17	det	_	_
+14	the	the	DET	DT	Definite=Def|PronType=Art	17	det	_	Entity=(abstract-37
 15	New	New	PROPN	NNP	Number=Sing	17	compound	_	_
 16	American	American	PROPN	NNP	Number=Sing	17	compound	_	_
-17	City	City	PROPN	NNP	Number=Sing	0	root	_	_
-18	as	as	SCONJ	IN	_	22	mark	_	_
+17	City	City	PROPN	NNP	Number=Sing	0	root	_	Entity=abstract-37)
+18	as	as	SCONJ	IN	_	22	mark	_	Discourse=cause:17->16
 19	Cleveland	Cleveland	PROPN	NNP	Number=Sing	22	nsubj	_	Entity=(place-1)
 20	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	22	aux	_	_
 21	rightfully	rightfully	ADV	RB	_	22	advmod	_	_
 22	earned	earn	VERB	VBN	Tense=Past|VerbForm=Part	17	acl	_	_
-23	the	the	DET	DT	Definite=Def|PronType=Art	24	det	_	_
-24	reputation	reputation	NOUN	NN	Number=Sing	22	obj	_	_
+23	the	the	DET	DT	Definite=Def|PronType=Art	24	det	_	Entity=(abstract-38
+24	reputation	reputation	NOUN	NN	Number=Sing	22	obj	_	Entity=abstract-38)
 25	as	as	ADP	IN	_	27	case	_	_
-26	a	a	DET	DT	Definite=Ind|PronType=Art	27	det	_	_
+26	a	a	DET	DT	Definite=Ind|PronType=Art	27	det	_	Entity=(abstract-39
 27	model	model	NOUN	NN	Number=Sing	24	nmod	_	_
 28	of	of	ADP	IN	_	31	case	_	_
-29	effective	effective	ADJ	JJ	Degree=Pos	31	amod	_	Entity=(abstract-22
+29	effective	effective	ADJ	JJ	Degree=Pos	31	amod	_	Entity=(abstract-40
 30	public-private	public-private	ADJ	JJ	Degree=Pos	31	amod	_	_
-31	partnership	partnership	NOUN	NN	Number=Sing	27	nmod	_	Entity=abstract-22)
+31	partnership	partnership	NOUN	NN	Number=Sing	27	nmod	_	Entity=abstract-40)
 32	for	for	ADP	IN	_	34	case	_	_
-33	urban	urban	ADJ	JJ	Degree=Pos	34	amod	_	Entity=(abstract-23
-34	planning	planning	NOUN	NN	Number=Sing	31	nmod	_	Entity=abstract-23)|SpaceAfter=No
+33	urban	urban	ADJ	JJ	Degree=Pos	34	amod	_	Entity=(abstract-41
+34	planning	planning	NOUN	NN	Number=Sing	31	nmod	_	Entity=abstract-39)abstract-41)|SpaceAfter=No
 35	.	.	PUNCT	.	_	17	punct	_	_
 
 # sent_id = GUM_voyage_cleveland-13
 # text = Despite the common perception that Cleveland is an industrial town, just beyond the automotive and steel plants, a clean and beautiful downtown rises at the mouth of the Cuyahoga River on the southern shore of Lake Erie (often marvelled over by visitors who are surprised you can't see the other side, i.e., Canada).
-# s_type=decl
-1	Despite	despite	ADP	IN	_	4	case	_	_
-2	the	the	DET	DT	Definite=Def|PronType=Art	4	det	_	_
-3	common	common	ADJ	JJ	Degree=Pos	4	amod	_	Entity=(abstract-24
-4	perception	perception	NOUN	NN	Number=Sing	25	obl	_	Entity=abstract-24)
-5	that	that	SCONJ	WDT	PronType=Rel	10	mark	_	_
+# s_type = decl
+1	Despite	despite	ADP	IN	_	4	case	_	Discourse=antithesis:18->20
+2	the	the	DET	DT	Definite=Def|PronType=Art	4	det	_	Entity=(abstract-42
+3	common	common	ADJ	JJ	Degree=Pos	4	amod	_	_
+4	perception	perception	NOUN	NN	Number=Sing	25	obl	_	_
+5	that	that	SCONJ	WDT	PronType=Rel	10	mark	_	Discourse=elaboration:19->18
 6	Cleveland	Cleveland	PROPN	NNP	Number=Sing	10	nsubj	_	Entity=(place-1)
 7	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	10	cop	_	_
-8	an	a	DET	DT	Definite=Ind|PronType=Art	10	det	_	Entity=(place-25
+8	an	a	DET	DT	Definite=Ind|PronType=Art	10	det	_	Entity=(place-43
 9	industrial	industrial	ADJ	JJ	Degree=Pos	10	amod	_	_
-10	town	town	NOUN	NN	Number=Sing	4	acl:relcl	_	Entity=place-25)|SpaceAfter=No
+10	town	town	NOUN	NN	Number=Sing	4	acl:relcl	_	Entity=abstract-42)place-43)|SpaceAfter=No
 11	,	,	PUNCT	,	_	4	punct	_	_
-12	just	just	ADV	RB	_	18	advmod	_	_
+12	just	just	ADV	RB	_	18	advmod	_	Discourse=joint:20->8
 13	beyond	beyond	ADP	IN	_	18	case	_	_
-14	the	the	DET	DT	Definite=Def|PronType=Art	18	det	_	Entity=(object-26
+14	the	the	DET	DT	Definite=Def|PronType=Art	18	det	_	Entity=(object-44
 15	automotive	automotive	ADJ	JJ	Degree=Pos	18	amod	_	_
 16	and	and	CCONJ	CC	_	17	cc	_	_
 17	steel	steel	NOUN	NN	Number=Sing	15	conj	_	_
-18	plants	plant	NOUN	NNS	Number=Plur	25	obl	_	Entity=object-26)|SpaceAfter=No
+18	plants	plant	NOUN	NNS	Number=Plur	25	obl	_	Entity=object-44)|SpaceAfter=No
 19	,	,	PUNCT	,	_	18	punct	_	_
-20	a	a	DET	DT	Definite=Ind|PronType=Art	24	det	_	Entity=(place-27
+20	a	a	DET	DT	Definite=Ind|PronType=Art	24	det	_	Entity=(place-45
 21	clean	clean	ADJ	JJ	Degree=Pos	24	amod	_	_
 22	and	and	CCONJ	CC	_	23	cc	_	_
 23	beautiful	beautiful	ADJ	JJ	Degree=Pos	21	conj	_	_
-24	downtown	downtown	NOUN	NN	Number=Sing	25	nsubj	_	Entity=place-27)
+24	downtown	downtown	NOUN	NN	Number=Sing	25	nsubj	_	Entity=place-45)
 25	rises	rise	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	_
 26	at	at	ADP	IN	_	28	case	_	_
-27	the	the	DET	DT	Definite=Def|PronType=Art	28	det	_	Entity=(place-28
-28	mouth	mouth	NOUN	NN	Number=Sing	25	obl	_	Entity=place-28)
+27	the	the	DET	DT	Definite=Def|PronType=Art	28	det	_	Entity=(place-46
+28	mouth	mouth	NOUN	NN	Number=Sing	25	obl	_	_
 29	of	of	ADP	IN	_	32	case	_	_
-30	the	the	DET	DT	Definite=Def|PronType=Art	32	det	_	Entity=(place-29
+30	the	the	DET	DT	Definite=Def|PronType=Art	32	det	_	Entity=(place-47
 31	Cuyahoga	Cuyahoga	PROPN	NNP	Number=Sing	32	compound	_	_
-32	River	River	PROPN	NNP	Number=Sing	28	nmod	_	Entity=place-29)
+32	River	River	PROPN	NNP	Number=Sing	28	nmod	_	Entity=place-46)place-47)
 33	on	on	ADP	IN	_	36	case	_	_
-34	the	the	DET	DT	Definite=Def|PronType=Art	36	det	_	Entity=(place-30
+34	the	the	DET	DT	Definite=Def|PronType=Art	36	det	_	Entity=(place-48
 35	southern	southern	ADJ	JJ	Degree=Pos	36	amod	_	_
-36	shore	shore	NOUN	NN	Number=Sing	25	obl	_	Entity=place-30)
+36	shore	shore	NOUN	NN	Number=Sing	25	obl	_	_
 37	of	of	ADP	IN	_	38	case	_	_
 38	Lake	Lake	PROPN	NNP	Number=Sing	36	nmod	_	Entity=(place-3
-39	Erie	Erie	PROPN	NNP	Number=Sing	38	flat	_	Entity=place-3)
-40	(	(	PUNCT	-LRB-	_	42	punct	_	SpaceAfter=No
+39	Erie	Erie	PROPN	NNP	Number=Sing	38	flat	_	Entity=place-48)place-3)
+40	(	(	PUNCT	-LRB-	_	42	punct	_	Discourse=evaluation:21->20|SpaceAfter=No
 41	often	often	ADV	RB	_	42	advmod	_	_
 42	marvelled	marvel	VERB	VBN	Tense=Past|VerbForm=Part	38	acl	_	_
 43	over	over	ADP	RP	_	42	compound:prt	_	_
 44	by	by	ADP	IN	_	45	case	_	_
-45	visitors	visitor	NOUN	NNS	Number=Plur	42	obl	_	Entity=(person-31)
-46	who	who	PRON	WP	PronType=Rel	48	nsubj	_	_
+45	visitors	visitor	NOUN	NNS	Number=Plur	42	obl	_	Entity=(person-49
+46	who	who	PRON	WP	PronType=Rel	48	nsubj	_	Discourse=attribution:22->23
 47	are	be	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	48	aux	_	_
 48	surprised	surprised	VERB	VBN	Tense=Past|VerbForm=Part	45	acl:relcl	_	_
-49	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	52	nsubj	_	_
+49	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	52	nsubj	_	Discourse=elaboration:23->21|Entity=(person-50)
 50	ca	can	AUX	MD	VerbForm=Fin	52	aux	_	SpaceAfter=No
 51	n't	not	PART	RB	Polarity=Neg	52	advmod	_	_
 52	see	see	VERB	VB	VerbForm=Inf	48	ccomp	_	_
-53	the	the	DET	DT	Definite=Def|PronType=Art	55	det	_	Entity=(place-32
+53	the	the	DET	DT	Definite=Def|PronType=Art	55	det	_	Entity=(place-51
 54	other	other	ADJ	JJ	Degree=Pos	55	amod	_	_
-55	side	side	NOUN	NN	Number=Sing	52	obj	_	Entity=place-32)|SpaceAfter=No
+55	side	side	NOUN	NN	Number=Sing	52	obj	_	Entity=place-51)|SpaceAfter=No
 56	,	,	PUNCT	,	_	57	punct	_	_
 57	i.e.	i.e.	X	FW	_	55	dep	_	SpaceAfter=No
 58	,	,	PUNCT	,	_	59	punct	_	_
-59	Canada	Canada	PROPN	NNP	Number=Sing	55	appos	_	Entity=(place-32)|SpaceAfter=No
+59	Canada	Canada	PROPN	NNP	Number=Sing	55	appos	_	Entity=(place-51)person-49)|SpaceAfter=No
 60	)	)	PUNCT	-RRB-	_	42	punct	_	SpaceAfter=No
 61	.	.	PUNCT	.	_	25	punct	_	_
 
 # sent_id = GUM_voyage_cleveland-14
 # text = Like other cities in the so-called "rust belt“, Cleveland has endured growing pains as it makes its transition from a manufacturing-based economy.
-# s_type=decl
-1	Like	like	ADP	IN	_	3	case	_	_
-2	other	other	ADJ	JJ	Degree=Pos	3	amod	_	_
+# s_type = decl
+1	Like	like	ADP	IN	_	3	case	_	Discourse=background:24->27
+2	other	other	ADJ	JJ	Degree=Pos	3	amod	_	Entity=(place-52
 3	cities	city	NOUN	NNS	Number=Plur	14	obl	_	_
 4	in	in	ADP	IN	_	9	case	_	_
-5	the	the	DET	DT	Definite=Def|PronType=Art	9	det	_	Entity=(place-33
+5	the	the	DET	DT	Definite=Def|PronType=Art	9	det	_	Entity=(place-53
 6	so-called	so-called	ADJ	JJ	Degree=Pos	9	amod	_	_
-7	"	"	PUNCT	``	_	6	punct	_	SpaceAfter=No
+7	"	''	PUNCT	``	_	6	punct	_	SpaceAfter=No
 8	rust	rust	ADJ	JJ	Degree=Pos	9	amod	_	_
-9	belt	belt	NOUN	NN	Number=Sing	3	nmod	_	Entity=place-33)|SpaceAfter=No
-10	“	"	PUNCT	''	_	3	punct	_	SpaceAfter=No
+9	belt	belt	NOUN	NN	Number=Sing	3	nmod	_	SpaceAfter=No
+10	“	''	PUNCT	''	_	3	punct	_	Entity=place-52)place-53)|SpaceAfter=No
 11	,	,	PUNCT	,	_	3	punct	_	_
 12	Cleveland	Cleveland	PROPN	NNP	Number=Sing	14	nsubj	_	Entity=(place-1)
 13	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	14	aux	_	_
 14	endured	endure	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
-15	growing	grow	VERB	VBG	VerbForm=Ger	16	amod	_	_
-16	pains	pain	NOUN	NNS	Number=Plur	14	obj	_	_
-17	as	as	SCONJ	IN	_	19	mark	_	_
+15	growing	grow	VERB	VBG	VerbForm=Ger	16	amod	_	Entity=(abstract-54
+16	pains	pain	NOUN	NNS	Number=Plur	14	obj	_	Entity=abstract-54)
+17	as	as	SCONJ	IN	_	19	mark	_	Discourse=circumstance:25->24
 18	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	19	nsubj	_	Entity=(place-1)
 19	makes	make	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	16	acl	_	_
-20	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	21	nmod:poss	_	Entity=(event-34
-21	transition	transition	NOUN	NN	Number=Sing	19	obj	_	Entity=event-34)
+20	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	21	nmod:poss	_	Entity=(event-55(place-56)
+21	transition	transition	NOUN	NN	Number=Sing	19	obj	_	_
 22	from	from	ADP	IN	_	25	case	_	_
-23	a	a	DET	DT	Definite=Ind|PronType=Art	25	det	_	Entity=(abstract-35
+23	a	a	DET	DT	Definite=Ind|PronType=Art	25	det	_	Entity=(abstract-57
 24	manufacturing-based	manufacturing-based	ADJ	JJ	Degree=Pos	25	amod	_	_
-25	economy	economy	NOUN	NN	Number=Sing	21	nmod	_	Entity=abstract-35)|SpaceAfter=No
+25	economy	economy	NOUN	NN	Number=Sing	21	nmod	_	Entity=event-55)abstract-57)|SpaceAfter=No
 26	.	.	PUNCT	.	_	14	punct	_	_
 
 # sent_id = GUM_voyage_cleveland-15
 # text = While Cleveland continues to play a leading role in building the U.S. industrial base, it has also developed economic prowess in the fields of health care, law, finance, insurance, real estate development, and professional services.
-# s_type=decl
-1	While	while	SCONJ	IN	_	3	mark	_	_
+# s_type = decl
+1	While	while	SCONJ	IN	_	3	mark	_	Discourse=concession:26->27
 2	Cleveland	Cleveland	PROPN	NNP	Number=Sing	3	nsubj	_	Entity=(place-1)
 3	continues	continue	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	19	advcl	_	_
 4	to	to	PART	TO	_	5	mark	_	_
 5	play	play	VERB	VB	VerbForm=Inf	3	xcomp	_	_
-6	a	a	DET	DT	Definite=Ind|PronType=Art	8	det	_	Entity=(abstract-36
+6	a	a	DET	DT	Definite=Ind|PronType=Art	8	det	_	Entity=(abstract-58
 7	leading	lead	VERB	VBG	VerbForm=Ger	8	amod	_	_
-8	role	role	NOUN	NN	Number=Sing	5	obj	_	Entity=abstract-36)
+8	role	role	NOUN	NN	Number=Sing	5	obj	_	Entity=abstract-58)
 9	in	in	SCONJ	IN	_	10	mark	_	_
 10	building	build	VERB	VBG	VerbForm=Ger	8	acl	_	_
-11	the	the	DET	DT	Definite=Def|PronType=Art	14	det	_	Entity=(abstract-37
+11	the	the	DET	DT	Definite=Def|PronType=Art	14	det	_	Entity=(abstract-59
 12	U.S.	U.S.	PROPN	NNP	Number=Sing	14	compound	_	_
 13	industrial	industrial	ADJ	JJ	Degree=Pos	14	amod	_	_
-14	base	base	NOUN	NN	Number=Sing	10	obj	_	Entity=abstract-37)|SpaceAfter=No
+14	base	base	NOUN	NN	Number=Sing	10	obj	_	Entity=abstract-59)|SpaceAfter=No
 15	,	,	PUNCT	,	_	3	punct	_	_
-16	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	19	nsubj	_	Entity=(event-34(place-1)
+16	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	19	nsubj	_	Discourse=joint:27->8|Entity=(place-1)
 17	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	19	aux	_	_
 18	also	also	ADV	RB	_	19	advmod	_	_
 19	developed	develop	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
-20	economic	economic	ADJ	JJ	Degree=Pos	21	amod	_	_
+20	economic	economic	ADJ	JJ	Degree=Pos	21	amod	_	Entity=(abstract-60
 21	prowess	prowess	NOUN	NN	Number=Sing	19	obj	_	_
 22	in	in	ADP	IN	_	24	case	_	_
 23	the	the	DET	DT	Definite=Def|PronType=Art	24	det	_	_
 24	fields	field	NOUN	NNS	Number=Plur	21	nmod	_	_
 25	of	of	ADP	IN	_	27	case	_	_
-26	health	health	NOUN	NN	Number=Sing	27	compound	_	_
-27	care	care	NOUN	NN	Number=Sing	24	nmod	_	SpaceAfter=No
+26	health	health	NOUN	NN	Number=Sing	27	compound	_	Entity=(abstract-61
+27	care	care	NOUN	NN	Number=Sing	24	nmod	_	Entity=abstract-61)|SpaceAfter=No
 28	,	,	PUNCT	,	_	29	punct	_	_
-29	law	law	NOUN	NN	Number=Sing	27	conj	_	SpaceAfter=No
+29	law	law	NOUN	NN	Number=Sing	27	conj	_	Entity=(abstract-62)|SpaceAfter=No
 30	,	,	PUNCT	,	_	31	punct	_	_
-31	finance	finance	NOUN	NN	Number=Sing	27	conj	_	SpaceAfter=No
+31	finance	finance	NOUN	NN	Number=Sing	27	conj	_	Entity=(abstract-63)|SpaceAfter=No
 32	,	,	PUNCT	,	_	33	punct	_	_
-33	insurance	insurance	NOUN	NN	Number=Sing	27	conj	_	SpaceAfter=No
+33	insurance	insurance	NOUN	NN	Number=Sing	27	conj	_	Entity=(abstract-64)|SpaceAfter=No
 34	,	,	PUNCT	,	_	37	punct	_	_
-35	real	real	ADJ	JJ	Degree=Pos	36	amod	_	_
+35	real	real	ADJ	JJ	Degree=Pos	36	amod	_	Entity=(abstract-65
 36	estate	estate	NOUN	NN	Number=Sing	37	compound	_	_
-37	development	development	NOUN	NN	Number=Sing	27	conj	_	SpaceAfter=No
+37	development	development	NOUN	NN	Number=Sing	27	conj	_	Entity=abstract-65)|SpaceAfter=No
 38	,	,	PUNCT	,	_	41	punct	_	_
 39	and	and	CCONJ	CC	_	41	cc	_	_
-40	professional	professional	ADJ	JJ	Degree=Pos	41	amod	_	_
-41	services	service	NOUN	NNS	Number=Plur	27	conj	_	Entity=event-34)|SpaceAfter=No
+40	professional	professional	ADJ	JJ	Degree=Pos	41	amod	_	Entity=(abstract-66
+41	services	service	NOUN	NNS	Number=Plur	27	conj	_	Entity=abstract-60)abstract-66)|SpaceAfter=No
 42	.	.	PUNCT	.	_	19	punct	_	_
 
 # sent_id = GUM_voyage_cleveland-16
 # text = Rock and Roll Hall of Fame and Museum
-# s_type=frag
-1	Rock	Rock	PROPN	NNP	Number=Sing	4	compound	_	_
+# s_type = frag
+1	Rock	Rock	PROPN	NNP	Number=Sing	4	compound	_	Discourse=preparation:28->29|Entity=(place-67(abstract-68
 2	and	and	CCONJ	CC	_	3	cc	_	_
-3	Roll	Roll	PROPN	NNP	Number=Sing	1	conj	_	_
+3	Roll	Roll	PROPN	NNP	Number=Sing	1	conj	_	Entity=abstract-68)
 4	Hall	Hall	PROPN	NNP	Number=Sing	0	root	_	_
 5	of	of	ADP	IN	_	6	case	_	_
 6	Fame	Fame	PROPN	NNP	Number=Sing	4	nmod	_	_
 7	and	and	CCONJ	CC	_	8	cc	_	_
-8	Museum	Museum	PROPN	NNP	Number=Sing	4	conj	_	_
+8	Museum	Museum	PROPN	NNP	Number=Sing	4	conj	_	Entity=place-67)
 
 # sent_id = GUM_voyage_cleveland-17
 # text = Another thing non-locals don't often realize is that Cleveland's long history of industrial wealth has left it chock full of cultural riches as well as the beginnings of a "sustainable city" movement.
-# s_type=decl
-1	Another	another	DET	DT	_	2	det	_	_
-2	thing	thing	NOUN	NN	Number=Sing	18	nsubj	_	Entity=(abstract-38)
-3	non-locals	non-locals	NOUN	NNS	Number=Plur|Polarity=Neg	7	nsubj	_	Entity=(person-31)
+# s_type = decl
+1	Another	another	DET	DT	_	2	det	_	Discourse=joint:29->8|Entity=(abstract-69
+2	thing	thing	NOUN	NN	Number=Sing	18	nsubj	_	Entity=abstract-69)
+3	non-locals	non-locals	NOUN	NNS	Number=Plur|Polarity=Neg	7	nsubj	_	Discourse=antithesis:30->29|Entity=(person-49)
 4	do	do	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	7	aux	_	SpaceAfter=No
 5	n't	not	PART	RB	Polarity=Neg	7	advmod	_	_
 6	often	often	ADV	RB	_	7	advmod	_	_
 7	realize	realize	VERB	VB	VerbForm=Inf	2	acl:relcl	_	_
-8	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	18	cop	_	_
+8	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	18	cop	_	Discourse=same-unit:31->29
 9	that	that	SCONJ	IN	_	18	mark	_	_
-10	Cleveland	Cleveland	PROPN	NNP	Number=Sing	13	nmod:poss	_	Entity=(abstract-38(abstract-39(place-1|SpaceAfter=No
+10	Cleveland	Cleveland	PROPN	NNP	Number=Sing	13	nmod:poss	_	Entity=(abstract-69(abstract-70(place-1|SpaceAfter=No
 11	's	's	PART	POS	_	10	case	_	Entity=place-1)
 12	long	long	ADJ	JJ	Degree=Pos	13	amod	_	_
-13	history	history	NOUN	NN	Number=Sing	18	nsubj	_	Entity=abstract-39)
+13	history	history	NOUN	NN	Number=Sing	18	nsubj	_	Entity=abstract-70)
 14	of	of	ADP	IN	_	16	case	_	_
 15	industrial	industrial	ADJ	JJ	Degree=Pos	16	amod	_	_
 16	wealth	wealth	NOUN	NN	Number=Sing	13	nmod	_	_
@@ -470,57 +470,57 @@
 20	chock	chock	ADV	RB	_	21	advmod	_	_
 21	full	full	ADJ	JJ	Degree=Pos	18	xcomp	_	_
 22	of	of	ADP	IN	_	24	case	_	_
-23	cultural	cultural	ADJ	JJ	Degree=Pos	24	amod	_	Entity=(abstract-40
-24	riches	rich	NOUN	NNS	Number=Plur	21	obl	_	Entity=abstract-40)
+23	cultural	cultural	ADJ	JJ	Degree=Pos	24	amod	_	Entity=(abstract-71
+24	riches	rich	NOUN	NNS	Number=Plur	21	obl	_	Entity=abstract-71)
 25	as	as	ADV	RB	_	29	cc	_	_
 26	well	well	ADV	RB	Degree=Pos	25	fixed	_	_
 27	as	as	ADP	IN	_	25	fixed	_	_
 28	the	the	DET	DT	Definite=Def|PronType=Art	29	det	_	_
 29	beginnings	beginning	NOUN	NNS	Number=Plur	24	conj	_	_
 30	of	of	ADP	IN	_	36	case	_	_
-31	a	a	DET	DT	Definite=Ind|PronType=Art	36	det	_	Entity=(abstract-41
-32	"	"	PUNCT	``	_	34	punct	_	SpaceAfter=No
+31	a	a	DET	DT	Definite=Ind|PronType=Art	36	det	_	Entity=(abstract-72
+32	"	''	PUNCT	``	_	34	punct	_	SpaceAfter=No
 33	sustainable	sustainable	ADJ	JJ	Degree=Pos	34	amod	_	_
 34	city	city	NOUN	NN	Number=Sing	36	compound	_	SpaceAfter=No
-35	"	"	PUNCT	''	_	34	punct	_	_
-36	movement	movement	NOUN	NN	Number=Sing	29	nmod	_	Entity=abstract-38)abstract-41)|SpaceAfter=No
+35	"	''	PUNCT	''	_	34	punct	_	_
+36	movement	movement	NOUN	NN	Number=Sing	29	nmod	_	Entity=abstract-69)abstract-72)|SpaceAfter=No
 37	.	.	PUNCT	.	_	18	punct	_	_
 
 # sent_id = GUM_voyage_cleveland-18
 # text = Serving as a global model for urban rebirth, Cleveland has been named one of the top 10 international visitor hotspots by Travel and Leisure magazine.
-# s_type=decl
-1	Serving	serve	VERB	VBG	VerbForm=Ger	13	advcl	_	_
+# s_type = decl
+1	Serving	serve	VERB	VBG	VerbForm=Ger	13	advcl	_	Discourse=evaluation:32->33
 2	as	as	ADP	IN	_	5	case	_	_
-3	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	_	_
+3	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	_	Entity=(abstract-73
 4	global	global	ADJ	JJ	Degree=Pos	5	amod	_	_
 5	model	model	NOUN	NN	Number=Sing	1	obl	_	_
 6	for	for	ADP	IN	_	8	case	_	_
-7	urban	urban	ADJ	JJ	Degree=Pos	8	amod	_	_
-8	rebirth	rebirth	NOUN	NN	Number=Sing	5	nmod	_	SpaceAfter=No
+7	urban	urban	ADJ	JJ	Degree=Pos	8	amod	_	Entity=(event-74
+8	rebirth	rebirth	NOUN	NN	Number=Sing	5	nmod	_	Entity=abstract-73)event-74)|SpaceAfter=No
 9	,	,	PUNCT	,	_	1	punct	_	_
-10	Cleveland	Cleveland	PROPN	NNP	Number=Sing	13	nsubj:pass	_	Entity=(place-1)
+10	Cleveland	Cleveland	PROPN	NNP	Number=Sing	13	nsubj:pass	_	Discourse=evidence:33->29|Entity=(place-1)
 11	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	13	aux	_	_
 12	been	be	AUX	VBN	Tense=Past|VerbForm=Part	13	aux:pass	_	_
 13	named	name	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
-14	one	one	NUM	CD	NumType=Card	13	obj	_	Entity=(place-42
+14	one	one	NUM	CD	NumType=Card	13	obj	_	Entity=(place-75
 15	of	of	ADP	IN	_	21	case	_	_
-16	the	the	DET	DT	Definite=Def|PronType=Art	21	det	_	_
+16	the	the	DET	DT	Definite=Def|PronType=Art	21	det	_	Entity=(place-76
 17	top	top	ADJ	JJ	Degree=Pos	21	amod	_	_
 18	10	10	NUM	CD	NumType=Card	17	nummod	_	_
 19	international	international	ADJ	JJ	Degree=Pos	21	amod	_	_
-20	visitor	visitor	NOUN	NN	Number=Sing	21	compound	_	Entity=(person-31)
-21	hotspots	hotspot	NOUN	NNS	Number=Plur	14	nmod	_	Entity=place-42)
+20	visitor	visitor	NOUN	NN	Number=Sing	21	compound	_	Entity=(person-49)
+21	hotspots	hotspot	NOUN	NNS	Number=Plur	14	nmod	_	Entity=place-75)place-76)
 22	by	by	ADP	IN	_	26	case	_	_
-23	Travel	Travel	PROPN	NNP	Number=Sing	26	compound	_	Entity=(organization-43
+23	Travel	Travel	PROPN	NNP	Number=Sing	26	compound	_	Entity=(organization-77
 24	and	and	CCONJ	CC	_	25	cc	_	_
 25	Leisure	Leisure	PROPN	NNP	Number=Sing	23	conj	_	_
-26	magazine	magazine	NOUN	NN	Number=Sing	13	obl	_	Entity=organization-43)|SpaceAfter=No
+26	magazine	magazine	NOUN	NN	Number=Sing	13	obl	_	Entity=organization-77)|SpaceAfter=No
 27	.	.	PUNCT	.	_	13	punct	_	_
 
 # sent_id = GUM_voyage_cleveland-19
 # text = For decades, the city has boasted of: a "Big Five" orchestra (The Cleveland Orchestra), the second largest performing arts center in the U.S. (Playhouse Square Center), a world-renowned art museum (The Cleveland Museum of Art), the nation's first health museum (HealthSpace Cleveland), R&D hub of the aerospace and aviation industry (the NASA Glenn Research & Visitors Center) and a number of other first-rate attractions (too many to mention here - read on).
-# s_type=decl
-1	For	for	ADP	IN	_	2	case	_	_
+# s_type = decl
+1	For	for	ADP	IN	_	2	case	_	Discourse=evidence:34->29
 2	decades	decade	NOUN	NNS	Number=Plur	7	obl	_	SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	_	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Entity=(place-1
@@ -529,19 +529,19 @@
 7	boasted	boast	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
 8	of	of	ADP	IN	_	15	case	_	SpaceAfter=No
 9	:	:	PUNCT	:	_	8	punct	_	_
-10	a	a	DET	DT	Definite=Ind|PronType=Art	15	det	_	Entity=(organization-44
-11	"	"	PUNCT	``	_	13	punct	_	SpaceAfter=No
+10	a	a	DET	DT	Definite=Ind|PronType=Art	15	det	_	Entity=(organization-78
+11	"	''	PUNCT	``	_	13	punct	_	SpaceAfter=No
 12	Big	Big	PROPN	NNP	Number=Sing	13	compound	_	_
 13	Five	Five	NUM	CD	NumType=Card	15	compound	_	SpaceAfter=No
-14	"	"	PUNCT	''	_	13	punct	_	_
-15	orchestra	orchestra	NOUN	NN	Number=Sing	7	obl	_	Entity=organization-44)
-16	(	(	PUNCT	-LRB-	_	19	punct	_	SpaceAfter=No
-17	The	the	PROPN	NNP	Number=Sing	19	compound	_	Entity=(organization-44
+14	"	''	PUNCT	''	_	13	punct	_	_
+15	orchestra	orchestra	NOUN	NN	Number=Sing	7	obl	_	Entity=organization-78)
+16	(	(	PUNCT	-LRB-	_	19	punct	_	Discourse=elaboration:35->34|SpaceAfter=No
+17	The	the	PROPN	NNP	Number=Sing	19	compound	_	Entity=(organization-78
 18	Cleveland	Cleveland	PROPN	NNP	Number=Sing	19	compound	_	_
-19	Orchestra	orchestra	PROPN	NNP	Number=Sing	15	appos	_	Entity=organization-44)|SpaceAfter=No
+19	Orchestra	orchestra	PROPN	NNP	Number=Sing	15	appos	_	Entity=organization-78)|SpaceAfter=No
 20	)	)	PUNCT	-RRB-	_	19	punct	_	SpaceAfter=No
 21	,	,	PUNCT	,	_	27	punct	_	_
-22	the	the	DET	DT	Definite=Def|PronType=Art	27	det	_	Entity=(place-45
+22	the	the	DET	DT	Definite=Def|PronType=Art	27	det	_	Discourse=same-unit:36->34|Entity=(place-79
 23	second	second	ADJ	JJ	Degree=Pos|NumType=Ord	24	amod	_	_
 24	largest	large	ADJ	JJS	Degree=Sup	27	amod	_	_
 25	performing	performing	VERB	VBG	VerbForm=Ger	26	amod	_	_
@@ -549,87 +549,87 @@
 27	center	center	NOUN	NN	Number=Sing	15	conj	_	_
 28	in	in	ADP	IN	_	30	case	_	_
 29	the	the	DET	DT	Definite=Def|PronType=Art	30	det	_	_
-30	U.S.	U.S.	PROPN	NNP	Number=Sing	27	nmod	_	Entity=place-45)
-31	(	(	PUNCT	-LRB-	_	34	punct	_	SpaceAfter=No
-32	Playhouse	playhouse	PROPN	NNP	Number=Sing	33	compound	_	Entity=(place-45
+30	U.S.	U.S.	PROPN	NNP	Number=Sing	27	nmod	_	Entity=place-79)
+31	(	(	PUNCT	-LRB-	_	34	punct	_	Discourse=elaboration:37->36|SpaceAfter=No
+32	Playhouse	playhouse	PROPN	NNP	Number=Sing	33	compound	_	Entity=(place-79
 33	Square	Square	PROPN	NNP	Number=Sing	34	compound	_	_
-34	Center	Center	PROPN	NNP	Number=Sing	27	appos	_	Entity=place-45)|SpaceAfter=No
+34	Center	Center	PROPN	NNP	Number=Sing	27	appos	_	Entity=place-79)|SpaceAfter=No
 35	)	)	PUNCT	-RRB-	_	34	punct	_	SpaceAfter=No
 36	,	,	PUNCT	,	_	40	punct	_	_
-37	a	a	DET	DT	Definite=Ind|PronType=Art	40	det	_	Entity=(place-46
+37	a	a	DET	DT	Definite=Ind|PronType=Art	40	det	_	Discourse=same-unit:38->34|Entity=(place-80
 38	world-renowned	world-renowned	ADJ	JJ	Degree=Pos	40	amod	_	_
 39	art	art	NOUN	NN	Number=Sing	40	compound	_	_
-40	museum	museum	NOUN	NN	Number=Sing	15	conj	_	Entity=place-46)
-41	(	(	PUNCT	-LRB-	_	44	punct	_	SpaceAfter=No
-42	The	the	PROPN	NNP	Number=Sing	44	compound	_	Entity=(place-46
+40	museum	museum	NOUN	NN	Number=Sing	15	conj	_	Entity=place-80)
+41	(	(	PUNCT	-LRB-	_	44	punct	_	Discourse=elaboration:39->38|SpaceAfter=No
+42	The	the	PROPN	NNP	Number=Sing	44	compound	_	Entity=(place-80
 43	Cleveland	Cleveland	PROPN	NNP	Number=Sing	44	compound	_	_
 44	Museum	Museum	PROPN	NNP	Number=Sing	40	appos	_	_
 45	of	of	ADP	IN	_	46	case	_	_
-46	Art	Art	PROPN	NNP	Number=Sing	44	nmod	_	Entity=place-46)|SpaceAfter=No
+46	Art	Art	PROPN	NNP	Number=Sing	44	nmod	_	Entity=place-80)|SpaceAfter=No
 47	)	)	PUNCT	-RRB-	_	44	punct	_	SpaceAfter=No
 48	,	,	PUNCT	,	_	54	punct	_	_
-49	the	the	DET	DT	Definite=Def|PronType=Art	50	det	_	Entity=(place-47
+49	the	the	DET	DT	Definite=Def|PronType=Art	50	det	_	Discourse=same-unit:40->34|Entity=(place-81(place-6
 50	nation	nation	NOUN	NN	Number=Sing	54	nmod:poss	_	SpaceAfter=No
-51	's	's	PART	POS	_	50	case	_	_
+51	's	's	PART	POS	_	50	case	_	Entity=place-6)
 52	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	54	amod	_	_
 53	health	health	NOUN	NN	Number=Sing	54	compound	_	_
-54	museum	museum	NOUN	NN	Number=Sing	15	conj	_	Entity=place-47)
-55	(	(	PUNCT	-LRB-	_	56	punct	_	SpaceAfter=No
-56	HealthSpace	HealthSpace	PROPN	NNP	Number=Sing	54	appos	_	Entity=(place-47
-57	Cleveland	Cleveland	PROPN	NNP	Number=Sing	56	compound	_	Entity=place-47)|SpaceAfter=No
+54	museum	museum	NOUN	NN	Number=Sing	15	conj	_	Entity=place-81)
+55	(	(	PUNCT	-LRB-	_	56	punct	_	Discourse=elaboration:41->40|SpaceAfter=No
+56	HealthSpace	HealthSpace	PROPN	NNP	Number=Sing	54	appos	_	Entity=(place-81
+57	Cleveland	Cleveland	PROPN	NNP	Number=Sing	56	compound	_	Entity=place-81)|SpaceAfter=No
 58	)	)	PUNCT	-RRB-	_	56	punct	_	SpaceAfter=No
 59	,	,	PUNCT	,	_	61	punct	_	_
-60	R&D	R&D	NOUN	NN	Number=Sing	61	compound	_	Entity=(place-48
+60	R&D	R&D	NOUN	NN	Number=Sing	61	compound	_	Discourse=same-unit:42->34|Entity=(place-82
 61	hub	hub	NOUN	NN	Number=Sing	15	conj	_	_
 62	of	of	ADP	IN	_	67	case	_	_
-63	the	the	DET	DT	Definite=Def|PronType=Art	67	det	_	_
+63	the	the	DET	DT	Definite=Def|PronType=Art	67	det	_	Entity=(abstract-83
 64	aerospace	aerospace	NOUN	NN	Number=Sing	67	compound	_	_
 65	and	and	CCONJ	CC	_	66	cc	_	_
 66	aviation	aviation	NOUN	NN	Number=Sing	64	conj	_	_
-67	industry	industry	NOUN	NN	Number=Sing	61	nmod	_	Entity=place-48)
-68	(	(	PUNCT	-LRB-	_	75	punct	_	SpaceAfter=No
-69	the	the	DET	DT	Definite=Def|PronType=Art	75	det	_	Entity=(place-48
+67	industry	industry	NOUN	NN	Number=Sing	61	nmod	_	Entity=place-82)abstract-83)
+68	(	(	PUNCT	-LRB-	_	75	punct	_	Discourse=elaboration:43->42|SpaceAfter=No
+69	the	the	DET	DT	Definite=Def|PronType=Art	75	det	_	Entity=(place-82
 70	NASA	NASA	PROPN	NNP	Number=Sing	75	compound	_	_
 71	Glenn	Glenn	PROPN	NNP	Number=Sing	75	compound	_	_
 72	Research	Research	PROPN	NNP	Number=Sing	75	compound	_	_
 73	&	&	CCONJ	CC	_	74	cc	_	_
 74	Visitors	Visitors	PROPN	NNPS	Number=Plur	72	conj	_	_
-75	Center	Center	PROPN	NNP	Number=Sing	61	appos	_	Entity=place-48)|SpaceAfter=No
+75	Center	Center	PROPN	NNP	Number=Sing	61	appos	_	Entity=place-82)|SpaceAfter=No
 76	)	)	PUNCT	-RRB-	_	75	punct	_	_
-77	and	and	CCONJ	CC	_	79	cc	_	_
-78	a	a	DET	DT	Definite=Ind|PronType=Art	79	det	_	_
+77	and	and	CCONJ	CC	_	79	cc	_	Discourse=same-unit:44->34
+78	a	a	DET	DT	Definite=Ind|PronType=Art	79	det	_	Entity=(abstract-84
 79	number	number	NOUN	NN	Number=Sing	15	conj	_	_
 80	of	of	ADP	IN	_	83	case	_	_
-81	other	other	ADJ	JJ	Degree=Pos	83	amod	_	Entity=(abstract-49
+81	other	other	ADJ	JJ	Degree=Pos	83	amod	_	_
 82	first-rate	first-rate	ADJ	JJ	Degree=Pos	83	amod	_	_
-83	attractions	attraction	NOUN	NNS	Number=Plur	79	nmod	_	Entity=abstract-49)
-84	(	(	PUNCT	-LRB-	_	86	punct	_	SpaceAfter=No
-85	too	too	ADV	RB	_	86	advmod	_	_
+83	attractions	attraction	NOUN	NNS	Number=Plur	79	nmod	_	Entity=abstract-84)
+84	(	(	PUNCT	-LRB-	_	86	punct	_	Discourse=motivation:45->46|SpaceAfter=No
+85	too	too	ADV	RB	_	86	advmod	_	Entity=(abstract-84
 86	many	many	ADJ	JJ	Degree=Pos	79	amod	_	_
 87	to	to	PART	TO	_	88	mark	_	_
 88	mention	mention	VERB	VB	VerbForm=Inf	86	xcomp	_	_
-89	here	here	ADV	RB	PronType=Dem	88	advmod	_	_
+89	here	here	ADV	RB	PronType=Dem	88	advmod	_	Entity=abstract-84)
 90	-	-	PUNCT	:	_	91	punct	_	_
-91	read	read	VERB	VB	VerbForm=Inf	88	dep	_	_
+91	read	read	VERB	VB	VerbForm=Inf	88	dep	_	Discourse=concession:46->44
 92	on	on	ADP	IN	_	91	compound:prt	_	SpaceAfter=No
 93	)	)	PUNCT	-RRB-	_	86	punct	_	SpaceAfter=No
 94	.	.	PUNCT	.	_	7	punct	_	_
 
 # sent_id = GUM_voyage_cleveland-20
 # text = During its "comeback" years, Cleveland has added: the Rock and Roll Hall of Fame and Museum, the Great Lakes Science Center with Omnimax theatre, and four new sports facilities in the downtown area - Progressive Field (Still known as "The Jake" after a recent corporate name change) for the Major League Baseball Indians, QuickenLoans Arena ("The Q") for the NBA Cavaliers, Cleveland Browns Stadium for the NFL Browns and the Wolstein Center for the Cleveland State University Vikings basketball team.
-# s_type=decl
-1	During	during	ADP	IN	_	6	case	_	_
-2	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	_	Entity=(event-18
-3	"	"	PUNCT	``	_	4	punct	_	SpaceAfter=No
+# s_type = decl
+1	During	during	ADP	IN	_	6	case	_	Discourse=preparation:47->48
+2	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	_	Entity=(event-34
+3	"	''	PUNCT	``	_	4	punct	_	SpaceAfter=No
 4	comeback	comeback	NOUN	NN	Number=Sing	6	compound	_	SpaceAfter=No
-5	"	"	PUNCT	''	_	4	punct	_	_
-6	years	year	NOUN	NNS	Number=Plur	10	obl	_	Entity=event-18)|SpaceAfter=No
+5	"	''	PUNCT	''	_	4	punct	_	_
+6	years	year	NOUN	NNS	Number=Plur	10	obl	_	Entity=event-34)|SpaceAfter=No
 7	,	,	PUNCT	,	_	6	punct	_	_
 8	Cleveland	Cleveland	PROPN	NNP	Number=Sing	10	nsubj	_	Entity=(place-1)
 9	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	10	aux	_	_
 10	added	add	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	SpaceAfter=No
 11	:	:	PUNCT	:	_	16	punct	_	_
-12	the	the	DET	DT	Definite=Def|PronType=Art	16	det	_	Entity=(place-50
+12	the	the	DET	DT	Definite=Def|PronType=Art	16	det	_	Discourse=joint:48->34|Entity=(place-85
 13	Rock	Rock	PROPN	NNP	Number=Sing	16	compound	_	_
 14	and	and	CCONJ	CC	_	15	cc	_	_
 15	Roll	Roll	PROPN	NNP	Number=Sing	13	conj	_	_
@@ -637,83 +637,88 @@
 17	of	of	ADP	IN	_	18	case	_	_
 18	Fame	Fame	PROPN	NNP	Number=Sing	16	nmod	_	_
 19	and	and	CCONJ	CC	_	20	cc	_	_
-20	Museum	Museum	PROPN	NNP	Number=Sing	16	conj	_	Entity=place-50)|SpaceAfter=No
+20	Museum	Museum	PROPN	NNP	Number=Sing	16	conj	_	Entity=place-85)|SpaceAfter=No
 21	,	,	PUNCT	,	_	26	punct	_	_
-22	the	the	DET	DT	Definite=Def|PronType=Art	26	det	_	Entity=(place-51
+22	the	the	DET	DT	Definite=Def|PronType=Art	26	det	_	Entity=(place-86
 23	Great	Great	PROPN	NNP	Number=Sing	24	compound	_	_
 24	Lakes	Lakes	PROPN	NNPS	Number=Plur	26	compound	_	_
 25	Science	Science	PROPN	NNP	Number=Sing	26	compound	_	_
 26	Center	Center	PROPN	NNP	Number=Sing	16	conj	_	_
 27	with	with	ADP	IN	_	29	case	_	_
 28	Omnimax	Omnimax	PROPN	NNP	Number=Sing	29	compound	_	_
-29	theatre	theatre	NOUN	NN	Number=Sing	26	nmod	_	Entity=place-51)|SpaceAfter=No
+29	theatre	theatre	NOUN	NN	Number=Sing	26	nmod	_	Entity=place-86)|SpaceAfter=No
 30	,	,	PUNCT	,	_	35	punct	_	_
 31	and	and	CCONJ	CC	_	35	cc	_	_
-32	four	four	NUM	CD	NumType=Card	35	nummod	_	Entity=(place-52
+32	four	four	NUM	CD	NumType=Card	35	nummod	_	Entity=(place-87
 33	new	new	ADJ	JJ	Degree=Pos	35	amod	_	_
 34	sports	sport	NOUN	NNS	Number=Plur	35	compound	_	_
-35	facilities	facility	NOUN	NNS	Number=Plur	16	conj	_	Entity=place-52)
+35	facilities	facility	NOUN	NNS	Number=Plur	16	conj	_	_
 36	in	in	ADP	IN	_	39	case	_	_
-37	the	the	DET	DT	Definite=Def|PronType=Art	39	det	_	Entity=(place-27
+37	the	the	DET	DT	Definite=Def|PronType=Art	39	det	_	Entity=(place-45
 38	downtown	downtown	NOUN	NN	Number=Sing	39	compound	_	_
-39	area	area	NOUN	NN	Number=Sing	35	nmod	_	Entity=place-27)
+39	area	area	NOUN	NN	Number=Sing	35	nmod	_	Entity=place-87)place-45)
 40	-	-	PUNCT	:	_	42	punct	_	_
-41	Progressive	Progressive	PROPN	NNP	Number=Sing	42	amod	_	Entity=(place-53
-42	Field	Field	PROPN	NNP	Number=Sing	35	appos	_	Entity=place-53)
-43	(	(	PUNCT	-LRB-	_	45	punct	_	SpaceAfter=No
+41	Progressive	Progressive	PROPN	NNP	Number=Sing	42	amod	_	Discourse=elaboration:49->48|Entity=(place-88(place-89
+42	Field	Field	PROPN	NNP	Number=Sing	35	appos	_	Entity=place-89)
+43	(	(	PUNCT	-LRB-	_	45	punct	_	Discourse=elaboration:50->49|SpaceAfter=No
 44	Still	still	ADV	RB	_	45	advmod	_	_
 45	known	know	VERB	VBN	Tense=Past|VerbForm=Part	42	amod	_	_
 46	as	as	ADP	IN	_	49	case	_	_
-47	"	"	PUNCT	``	_	49	punct	_	SpaceAfter=No
-48	The	the	DET	DT	Definite=Def|PronType=Art	49	det	_	Entity=(place-53
-49	Jake	Jake	PROPN	NNP	Number=Sing	45	obl	_	Entity=place-53)|SpaceAfter=No
-50	"	"	PUNCT	''	_	49	punct	_	_
+47	"	''	PUNCT	``	_	49	punct	_	SpaceAfter=No
+48	The	the	DET	DT	Definite=Def|PronType=Art	49	det	_	Entity=(place-89
+49	Jake	Jake	PROPN	NNP	Number=Sing	45	obl	_	Entity=place-89)|SpaceAfter=No
+50	"	''	PUNCT	''	_	49	punct	_	_
 51	after	after	ADP	IN	_	56	case	_	_
-52	a	a	DET	DT	Definite=Ind|PronType=Art	56	det	_	_
+52	a	a	DET	DT	Definite=Ind|PronType=Art	56	det	_	Entity=(event-90
 53	recent	recent	ADJ	JJ	Degree=Pos	56	amod	_	_
 54	corporate	corporate	ADJ	JJ	Degree=Pos	55	amod	_	_
 55	name	name	NOUN	NN	Number=Sing	56	compound	_	_
-56	change	change	NOUN	NN	Number=Sing	49	nmod	_	SpaceAfter=No
+56	change	change	NOUN	NN	Number=Sing	49	nmod	_	Entity=event-90)|SpaceAfter=No
 57	)	)	PUNCT	-RRB-	_	45	punct	_	_
-58	for	for	ADP	IN	_	63	case	_	_
+58	for	for	ADP	IN	_	63	case	_	Discourse=same-unit:51->49
 59	the	the	DET	DT	Definite=Def|PronType=Art	63	det	_	_
-60	Major	Major	PROPN	NNP	Number=Sing	61	compound	_	Entity=(organization-54
+60	Major	Major	PROPN	NNP	Number=Sing	61	compound	_	Entity=(organization-91
 61	League	League	PROPN	NNP	Number=Sing	63	compound	_	_
 62	Baseball	Baseball	PROPN	NNP	Number=Sing	63	compound	_	_
-63	Indians	Indians	PROPN	NNPS	Number=Plur	42	nmod	_	Entity=organization-54)|SpaceAfter=No
+63	Indians	Indians	PROPN	NNPS	Number=Plur	42	nmod	_	Entity=organization-91)|SpaceAfter=No
 64	,	,	PUNCT	,	_	66	punct	_	_
-65	QuickenLoans	QuickenLoans	PROPN	NNP	Number=Sing	66	compound	_	Entity=(place-55
-66	Arena	Arena	PROPN	NNP	Number=Sing	42	conj	_	Entity=place-55)
-67	(	(	PUNCT	-LRB-	_	70	punct	_	SpaceAfter=No
-68	"	"	PUNCT	``	_	70	punct	_	SpaceAfter=No
-69	The	the	DET	DT	Definite=Def|PronType=Art	70	det	_	Entity=(place-55
-70	Q	Q	PROPN	NNP	Number=Sing	66	appos	_	Entity=place-55)|SpaceAfter=No
-71	"	"	PUNCT	''	_	70	punct	_	SpaceAfter=No
+65	QuickenLoans	QuickenLoans	PROPN	NNP	Number=Sing	66	compound	_	Entity=(place-92
+66	Arena	Arena	PROPN	NNP	Number=Sing	42	conj	_	Entity=place-92)
+67	(	(	PUNCT	-LRB-	_	70	punct	_	Discourse=restatement:52->51|SpaceAfter=No
+68	"	''	PUNCT	``	_	70	punct	_	SpaceAfter=No
+69	The	the	DET	DT	Definite=Def|PronType=Art	70	det	_	Entity=(place-92
+70	Q	Q	PROPN	NNP	Number=Sing	66	appos	_	Entity=place-92)|SpaceAfter=No
+71	"	''	PUNCT	''	_	70	punct	_	SpaceAfter=No
 72	)	)	PUNCT	-RRB-	_	70	punct	_	_
-73	for	for	ADP	IN	_	76	case	_	_
-74	the	the	DET	DT	Definite=Def|PronType=Art	76	det	_	Entity=(organization-56
+73	for	for	ADP	IN	_	76	case	_	Discourse=same-unit:53->49
+74	the	the	DET	DT	Definite=Def|PronType=Art	76	det	_	Entity=(organization-93
 75	NBA	NBA	PROPN	NNP	Number=Sing	76	compound	_	_
-76	Cavaliers	Cavaliers	PROPN	NNPS	Number=Plur	66	nmod	_	Entity=organization-56)|SpaceAfter=No
+76	Cavaliers	Cavaliers	PROPN	NNPS	Number=Plur	66	nmod	_	Entity=organization-93)|SpaceAfter=No
 77	,	,	PUNCT	,	_	80	punct	_	_
-78	Cleveland	Cleveland	PROPN	NNP	Number=Sing	80	compound	_	Entity=(place-57
+78	Cleveland	Cleveland	PROPN	NNP	Number=Sing	80	compound	_	Entity=(place-94
 79	Browns	Browns	PROPN	NNPS	Number=Plur	80	compound	_	_
-80	Stadium	Stadium	PROPN	NNP	Number=Sing	42	conj	_	Entity=place-57)
+80	Stadium	Stadium	PROPN	NNP	Number=Sing	42	conj	_	Entity=place-94)
 81	for	for	ADP	IN	_	84	case	_	_
-82	the	the	DET	DT	Definite=Def|PronType=Art	84	det	_	Entity=(organization-58
+82	the	the	DET	DT	Definite=Def|PronType=Art	84	det	_	Entity=(organization-95
 83	NFL	NFL	PROPN	NNP	Number=Sing	84	compound	_	_
-84	Browns	Browns	PROPN	NNPS	Number=Plur	80	nmod	_	Entity=organization-58)
+84	Browns	Browns	PROPN	NNPS	Number=Plur	80	nmod	_	Entity=organization-95)
 85	and	and	CCONJ	CC	_	88	cc	_	_
-86	the	the	DET	DT	Definite=Def|PronType=Art	88	det	_	_
-87	Wolstein	Wolstein	PROPN	NNP	Number=Sing	88	compound	_	Entity=(place-59
-88	Center	Center	PROPN	NNP	Number=Sing	42	conj	_	Entity=place-59)
+86	the	the	DET	DT	Definite=Def|PronType=Art	88	det	_	Entity=(place-96
+87	Wolstein	Wolstein	PROPN	NNP	Number=Sing	88	compound	_	_
+88	Center	Center	PROPN	NNP	Number=Sing	42	conj	_	Entity=place-96)
 89	for	for	ADP	IN	_	96	case	_	_
-90	the	the	DET	DT	Definite=Def|PronType=Art	96	det	_	Entity=(organization-60
-91	Cleveland	Cleveland	PROPN	NNP	Number=Sing	92	compound	_	_
+90	the	the	DET	DT	Definite=Def|PronType=Art	96	det	_	Entity=(organization-97
+91	Cleveland	Cleveland	PROPN	NNP	Number=Sing	92	compound	_	Entity=(organization-98(place-1)
 92	State	State	PROPN	NNP	Number=Sing	93	compound	_	_
-93	University	University	PROPN	NNP	Number=Sing	94	compound	_	_
+93	University	University	PROPN	NNP	Number=Sing	94	compound	_	Entity=organization-98)
 94	Vikings	Viking	PROPN	NNPS	Number=Plur	96	compound	_	_
 95	basketball	basketball	NOUN	NN	Number=Sing	96	compound	_	_
-96	team	team	NOUN	NN	Number=Sing	88	nmod	_	Entity=organization-60)|SpaceAfter=No
+96	team	team	NOUN	NN	Number=Sing	88	nmod	_	Entity=place-88)organization-97)|SpaceAfter=No
 97	.	.	PUNCT	.	_	10	punct	_	_
+
+
+
+
+
 
 
