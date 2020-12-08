@@ -179,8 +179,14 @@ else:
 		sys.exit()
 
 	# Inject gum_target in pepper_params and replace os.sep with URI slash
-	pepper_params = pepper_params.replace("**gum_tmp**",os.path.abspath(pepper_tmp).replace(os.sep,"/"))
-	pepper_params = pepper_params.replace("**gum_target**",gum_target.replace(os.sep,"/"))
+	#if platform.system() == "Windows":
+	#	pepper_params = pepper_params.replace("**gum_tmp**",os.path.abspath(pepper_tmp).replace(os.sep,"/"))
+	#	pepper_params = pepper_params.replace("**gum_target**",gum_target.replace(os.sep,"/"))
+	#else:
+	pepper_params = pepper_params.replace("file:/**gum_tmp**", os.path.abspath(pepper_tmp))
+	pepper_params = pepper_params.replace("file:/**gum_target**", os.path.abspath(pepper_home) + os.sep + "../../target/")
+	pepper_params = pepper_params.replace("file:/**gum_home**", os.path.abspath(pepper_home) + os.sep + "../../../")
+
 
 
 	# Setup metadata file

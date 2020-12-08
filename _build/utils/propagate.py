@@ -5,11 +5,12 @@
 # v1.0.2
 
 from glob import glob
-from .nlp_helper import get_claws, adjudicate_claws, parse, ud_morph
+from .nlp_helper import get_claws, adjudicate_claws, ud_morph
 from .depedit import DepEdit
 import os, re, sys, io
 import ntpath
 from collections import defaultdict
+from constituent_parser_lal import LALConstituentParser
 
 PY2 = sys.version_info[0] < 3
 
@@ -491,7 +492,7 @@ def compile_ud(tmp, gum_target, reddit=False):
 
 		processed_lines = "\n".join(processed_lines) + "\n"
 		# Serialize entity tagged dependencies for debugging
-		with io.open(tmp + "entidep" + os.sep + docname + ".conllu",'w',encoding="utf8", newline="\n") as f:
+		with io.open(tmp + os.sep + "dep" + os.sep + "tmp" + os.sep + docname + ".conllu",'w',encoding="utf8", newline="\n") as f:
 			f.write(processed_lines)
 
 		# UPOS
@@ -685,8 +686,13 @@ def enrich_xml(gum_source, gum_target, add_claws=False, reddit=False, warn=False
 
 
 def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
+
 	xml_source = gum_source + "xml" + os.sep
 	const_target = gum_target + "const" + os.sep
+
+	# because this parent function is called just once,
+	# init the lal parser here instead of as a global const
+	lalparser = LALConstituentParser(const_target)
 
 	files_ = glob(xml_source + "*.xml")
 	xmlfiles = []
@@ -696,6 +702,7 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
 		xmlfiles.append(file_)
 
 	for docnum, xmlfile in enumerate(xmlfiles):
+
 		if "_all" in xmlfile:
 			continue
 		docname = ntpath.basename(xmlfile)
@@ -705,7 +712,6 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
 
 		# Name for parser output file
 		constfile = const_target + docname.replace("xml", "ptb")
-
 
 		xml_lines = io.open(xmlfile, encoding="utf8").read().replace("\r", "").split("\n")
 		line_num = 0
@@ -728,16 +734,11 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
 					print("WARN: slash found in token on line " + str(line_num) + ": " + token + "; retained as '/'")
 
 				token = token.replace("&amp;","&").replace("&gt;",">").replace("&lt;","<").replace("&apos;","'").replace("&quot;",'"').replace("(","-LRB-").replace(")","-RRB-")
-				item = token + "/" + tag + " "
+				item = tag + '_' + token + " "
 				out_line += item
 
-		parsed = parse(output)
-
-		parsed = parsed.strip() + "\n" + "\n"
-
-		outfile = io.open(constfile, 'w', encoding="utf8")
-		outfile.write(parsed)
-		outfile.close()
+		sentences = output.split('\n')
+		lalparser.run_parse(sentences,constfile)
 
 	print("o Reparsed " + str(len(xmlfiles)) + " documents" + " " * 20)
 

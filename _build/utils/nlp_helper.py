@@ -149,7 +149,7 @@ def adjudicate_claws(claws,tt,form,func):
 
 	return claws
 
-
+"""
 def parse(sent_per_line):
 
 	parse_command = [parser_path + os.sep + 'lexparser_eng_const_plus.bat', 'tempfilename']
@@ -164,6 +164,7 @@ def parse(sent_per_line):
 
 
 	return parsed
+"""
 
 def ud_morph(conllu_string, doc_name, const_path):
 
