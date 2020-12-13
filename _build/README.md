@@ -11,12 +11,12 @@ Next, run the following to compile the cython packages used by the neural consti
 Navigate to the _build folder:
 > cd _build
 
-(*Windows machines only*) Install the Visual C++ Build Tools, needed for compiling the Cython modules. This is a one-time setup activity.
+(*Windows machines only*) Install the Visual C++ Build Tools, needed for compiling the Cython modules. This is a one-time installation activity on the Host OS.
 > Download and Install the latest Build Tools for Visual Studio 2019 from [here](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019)
 
 > For other versions, please check [here](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 
-Then run this to compile and install the cython packages
+Then run this to compile and install the cython packages. 
 >  python setup.py build_ext --inplace
 
 If this works, you should see these files in the _build folder (indicating successful compilation). If no, consider upgrading cython. 
@@ -42,4 +42,4 @@ At this stage, the build bot process can be started as normal:
 
 This will download the best PyTorch model for constituent parsing automatically and summon it for inferring the constituent parses, which are saved to the folder target/const 
 
-Note that the conda environment and cython dependencies must be setup to run the build bot processes, even should you choose to not re-generate the constituent parses. This is a one-time setup activity. 
+Note that the conda environment and cython dependencies must be setup to run the build bot processes, even should you choose to not re-generate the constituent parses. These are one-time setup activities for each conda environment created.  
