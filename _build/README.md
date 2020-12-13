@@ -24,10 +24,10 @@ If this works, you should see these files in the _build folder (indicating succe
 > const_decoder.c <br/> 
 > hpsg_decoder.c <br/>
 > const_decoder.cpython-37m-x86_64-linux-gnu.so (on Ubuntu / Linux) <br/>
-> const_decoder.cp37-win_amd64 (on Windows 64-bit) <br/>
+> const_decoder.cp37-win_amd64.pyd (on Windows 64-bit) <br/>
 > const_decoder.cpython-37m-darwin.so (on MacOS) <br/>
 > hpsg_decoder.cpython-37m-x86_64-linux-gnu.so (on Ubuntu / Linux) <br/>
-> hspg_decoder.cp37-win_amd64 (on Windows 64-bit) <br/>
+> hspg_decoder.cp37-win_amd64.pyd (on Windows 64-bit) <br/>
 > hpsg_decoder.cpython-37m-darwin.so (on MacOS) <br/>
 
 #### Step Three
