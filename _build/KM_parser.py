@@ -540,7 +540,7 @@ class MultiLevelEmbedding(nn.Module):
 
     def forward(self, xs, pre_words_idxs, batch_idxs, extra_content_annotations=None):
         content_annotations = [
-            emb_dropout(emb(x), batch_idxs)
+            emb_dropout(emb(x.to(torch.int64)), batch_idxs)
             for x, emb, emb_dropout in zip(xs, self.embs, self.emb_dropouts)
             ]
         if self.hparams.use_cat:
@@ -1720,7 +1720,7 @@ class ChartParser(nn.Module):
                 all_word_end_mask = from_numpy(
                     np.ascontiguousarray(all_word_end_mask[:, :subword_max_len]))
 
-            transformer_outputs = self.xlnet(all_input_ids, attention_mask=all_input_mask)
+            transformer_outputs = self.xlnet(all_input_ids.to(torch.int64), attention_mask=all_input_mask)
             # features = all_encoder_layers[-1]
             features = transformer_outputs[0]
 
