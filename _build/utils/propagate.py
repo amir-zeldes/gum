@@ -10,7 +10,7 @@ from .depedit import DepEdit
 import os, re, sys, io
 import ntpath
 from collections import defaultdict
-from constituent_parser_lal import LALConstituentParser
+
 
 PY2 = sys.version_info[0] < 3
 
@@ -684,7 +684,7 @@ def enrich_xml(gum_source, gum_target, add_claws=False, reddit=False, warn=False
 		print("o Retrieved fresh CLAWS5 tags" + " " * 20 + "\r")
 	print("o Enriched xml in " + str(len(xmlfiles)) + " documents" + " " *20)
 
-
+"""
 def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
 
 	xml_source = gum_source + "xml" + os.sep
@@ -741,7 +741,7 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
 		lalparser.run_parse(sentences,constfile)
 
 	print("o Reparsed " + str(len(xmlfiles)) + " documents" + " " * 20)
-
+"""
 
 def get_coref_ids(gum_target):
 
