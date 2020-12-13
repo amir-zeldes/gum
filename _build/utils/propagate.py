@@ -734,7 +734,7 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
 					print("WARN: slash found in token on line " + str(line_num) + ": " + token + "; retained as '/'")
 
 				token = token.replace("&amp;","&").replace("&gt;",">").replace("&lt;","<").replace("&apos;","'").replace("&quot;",'"').replace("(","-LRB-").replace(")","-RRB-")
-				item = tag + '_' + token + " "
+				item = tag + '\t' + token + " "
 				out_line += item
 
 		sentences = output.split('\n')

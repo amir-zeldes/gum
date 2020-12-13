@@ -57,13 +57,13 @@ class LALConstituentParser():
                 output_file.write('\n\n')
 
 
-        # sentences are in the form tag0_word0 tag1_word1
+        # sentences are in the form tag0\tword0 tag1\tword1
         sentences = [sentence.strip() for sentence in sentences if len(sentence.strip()) > 0]
 
         syntree_pred = []
-        tagged_sentences = [[(self.reversetokenmap.get(word.split('_')[0], word.split('_')[0]),
-                              self.reversetokenmap.get(word.split('_')[1], word.split('_')[1])) for word in
-                             sentence.split()] for sentence in sentences]
+        tagged_sentences = [[(self.reversetokenmap.get(word.split('\t')[0], word.split('\t')[0]),
+                              self.reversetokenmap.get(word.split('\t')[1], word.split('\t')[1])) for word in
+                             sentence.split(' ')] for sentence in sentences]
 
         syntree, _ = self.parser.parse_batch(tagged_sentences)
         syntree_pred.extend(syntree)
@@ -73,7 +73,7 @@ class LALConstituentParser():
 
 
 def main():
-    targetdir = "/home/nitin/Desktop/gum/gum/_build/target/const/"
+    targetdir = "<gum_home_dir>_build/target/const/"
     test = LALConstituentParser(targetdir) # loads model automatically
 
 if __name__ == "__main__":
