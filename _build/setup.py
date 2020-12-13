@@ -2,7 +2,7 @@ from distutils.core import setup, Extension
 from Cython.Build import cythonize
 import numpy
 
-cythonize("*.pyx")
+cythonize("*.pyx",language_level="3")
 
 setup(
     name = "hpsg_decoder",
