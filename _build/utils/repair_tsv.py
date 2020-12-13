@@ -11,7 +11,7 @@ PY2 = sys.version_info[0] < 3
 script_dir = os.path.dirname(os.path.realpath(__file__)) + os.sep
 tsv_temp_dir = script_dir + "pepper" + os.sep + "tmp" + os.sep + "tsv" + os.sep + "GUM" + os.sep
 if not os.path.exists(tsv_temp_dir):
-	os.mkdir(tsv_temp_dir)
+	os.makedirs(tsv_temp_dir)
 
 def equiv_tok(token):
 	replacements = {"&amp;": "&", "&gt;": ">", "&lt;": "<", "’": "'", "—": "-", "&quot;": '"', "&apos;": "'", "(":"-LRB-", ")":"-RRB-", "…":"...",
