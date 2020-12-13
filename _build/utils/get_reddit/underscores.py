@@ -227,6 +227,9 @@ def make_text_const(const_path, textdic):
 
 		with io.open(f_path, 'r', encoding='utf-8') as fin:
 			in_lines = fin.read().replace("\r","").strip().split("\n")
+			# removes trailing newline
+			in_lines = [i for i in in_lines if i]
+
 
 		with io.open(f_path, 'w', encoding='utf-8', newline="\n") as fout:
 
