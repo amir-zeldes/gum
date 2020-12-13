@@ -11,10 +11,13 @@ Next, run the following to compile the cython packages used by the neural consti
 Navigate to the _build folder:
 > cd _build
 
+(*Windows machines only*) Install the Visual C++ Build Tools, needed for compiling the Cython modules.
+> Download and Install the latest build tools for Visual Studio 20XX from [here](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019)
+
 Then run this to compile and install the cython packages
 >  python setup.py build_ext --inplace
 
-If this works, you should see these files in the _build folder (indicating successful compilation). If no, consider upgrading cython
+If this works, you should see these files in the _build folder (indicating successful compilation). If no, consider upgrading cython. 
 > const_decoder.c 
 
 > hpsg_decoder.c
