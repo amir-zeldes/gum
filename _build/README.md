@@ -5,7 +5,7 @@ To setup a conda environment named 'gum' to host the build process and install t
 > conda env create --name gum --file environment.yml <br/>
 > conda activate gum
 
-####Step Two
+#### Step Two
 Step Two (*Building the Cython dependencies*) is optional and needs to be done only if you intend to re-generate the constituent parses using the neural parser with the -p flag. <br/> <br/>
 Run the following to compile the cython packages used by the neural parser (assuming you're still at the root (gum) folder):
  
