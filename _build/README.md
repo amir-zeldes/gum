@@ -20,13 +20,22 @@ Then run this to compile and install the cython packages
 >  python setup.py build_ext --inplace
 
 If this works, you should see these files in the _build folder (indicating successful compilation). If no, consider upgrading cython. 
+
 > const_decoder.c 
 
 > hpsg_decoder.c
 
-> const_decoder.cpython-37m-x86_64-linux-gnu.so (on ubuntu build)
+> const_decoder.cpython-37m-x86_64-linux-gnu.so (on Ubuntu / Linux)
 
-> hpsg_decoder.cpython-37m-x86_64-linux-gnu.so (on ubuntu build)
+> const_decoder.cp37-win_amd64 (on Windows 64-bit)
+
+> const_decoder.cpython-37m-darwin.so (on MacOS)
+
+> hpsg_decoder.cpython-37m-x86_64-linux-gnu.so (on Ubuntu / Linux)
+
+> hspg_decoder.cp37-win_amd64 (on Windows 64-bit)
+
+> hpsg_decoder.cpython-37m-darwin.so (on MacOS)
 
 At this stage, the build bot process can be started as normal:
 > python build_gum.py -s src -t target -p -v
