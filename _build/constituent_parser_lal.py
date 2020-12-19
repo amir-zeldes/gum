@@ -50,6 +50,9 @@ class LALConstituentParser():
 
             for tree in syntree_pred:
                 treestr = "{}\n".format(tree.convert().linearize())
+                # undo the LSB / RSB mapping
+                treestr = treestr.replace('-LSB-)','[)').replace('-RSB-)','])')
+
                 # add the ROOT
                 treestr = "(ROOT " + treestr + ")"
                 tree = nltk.Tree.fromstring(treestr)
