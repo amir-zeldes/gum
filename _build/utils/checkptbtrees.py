@@ -90,8 +90,8 @@ def main(old,new):
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument("-o", dest="old", action="store", help="GUM build target directory", default='..' + os.sep + 'target' + os.sep + 'const' + os.sep)
-    parser.add_argument("-n", dest="new", action="store", help="GUM build source directory", default='..' + os.sep + 'target' + os.sep + 'const' + os.sep)
+    parser.add_argument("-o", dest="old", action="store", help="Directory with old PTB trees", default='..' + os.sep + 'target' + os.sep + 'const' + os.sep)
+    parser.add_argument("-n", dest="new", action="store", help="Directory with new PTB trees, default is target/const", default='..' + os.sep + 'target' + os.sep + 'const' + os.sep)
 
     options = parser.parse_args()
 
