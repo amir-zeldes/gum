@@ -189,6 +189,7 @@ def make_underscores_const(const_path):
 
 		with io.open(f_path, 'r', encoding='utf-8') as fin:
 			in_lines = fin.read().replace("\r","").strip().split("\n")
+			in_lines = [i for i in in_lines if i]
 
 		with io.open(f_path, 'w', encoding='utf-8', newline="\n") as fout:
 
@@ -202,6 +203,13 @@ def make_underscores_const(const_path):
 						for c in unit:
 							if c != ")":
 								buffer += "_"
+								# only 1 underscore for these fellas
+								if "-LSB-" in unit or "-RSB-" in unit:
+									buffer += ')'
+									break
+								if unit == '—)' and out_units[-1] == '(:': # hack because the new parser replaces '--' with a single '-'
+									buffer += '_)'
+									break
 							else:
 								buffer += c
 					else:
@@ -227,6 +235,9 @@ def make_text_const(const_path, textdic):
 
 		with io.open(f_path, 'r', encoding='utf-8') as fin:
 			in_lines = fin.read().replace("\r","").strip().split("\n")
+			# removes trailing newline
+			in_lines = [i for i in in_lines if i]
+
 
 		with io.open(f_path, 'w', encoding='utf-8', newline="\n") as fout:
 

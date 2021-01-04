@@ -6,6 +6,9 @@ from glob import glob
 from argparse import ArgumentParser
 from utils.pepper_runner import run_pepper
 import datetime
+import ntpath
+
+
 
 if sys.platform == "win32":  # Print \n new lines in Windows
 	import os, msvcrt
@@ -90,10 +93,73 @@ validate_src(gum_source, reddit=reddit)
 ######################################
 ## Step 2: propagate annotations
 ######################################
-from utils.propagate import enrich_dep, enrich_xml, const_parse, compile_ud
+from utils.propagate import enrich_dep, enrich_xml, compile_ud, tt2vanilla
 from utils.repair_tsv import fix_tsv
 from utils.repair_rst import fix_rst
 
+
+# Moved from propagate.py to facilitate lazy loading of the Cython dependencies
+def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
+
+	# added here for lazy loading
+	# only load the cython dependencies if need to regenerate the parse trees
+	# this avoids need to compile the cython packages unless they are needed (-p option)
+	from constituent_parser_lal import LALConstituentParser
+
+	xml_source = gum_source + "xml" + os.sep
+	const_target = gum_target + "const" + os.sep
+
+	# because this parent function is called just once,
+	# init the lal parser here instead of as a global const
+	lalparser = LALConstituentParser(const_target)
+
+	files_ = glob(xml_source + "*.xml")
+	xmlfiles = []
+	for file_ in files_:
+		if not reddit and "reddit_" in file_:
+			continue
+		xmlfiles.append(file_)
+
+	for docnum, xmlfile in enumerate(xmlfiles):
+
+		if "_all" in xmlfile:
+			continue
+		docname = ntpath.basename(xmlfile)
+		output = ""
+		sys.stdout.write("\t+ " + " "*40 + "\r")
+		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(xmlfiles)) + ":\t+ Parsing " + docname + "\r")
+
+		# Name for parser output file
+		constfile = const_target + docname.replace("xml", "ptb")
+
+		xml_lines = io.open(xmlfile, encoding="utf8").read().replace("\r", "").split("\n")
+		line_num = 0
+		out_line = ""
+
+		for line in xml_lines:
+			if line.startswith("</s>"): # Sentence ended
+				output += out_line.strip() + "\n"
+				out_line = ""
+
+			elif "\t" in line:  # Token
+				line_num += 1
+				fields = line.split("\t")
+				token, tag = fields[0], fields[1]
+				tag = tt2vanilla(tag,token)
+				if " " in token:
+					print("WARN: space found in token on line " + str(line_num) + ": " + token + "; replaced by '_'")
+					token = token.replace(" ","_")
+				elif "/" in token and warn_slash_tokens:
+					print("WARN: slash found in token on line " + str(line_num) + ": " + token + "; retained as '/'")
+
+				token = token.replace("&amp;","&").replace("&gt;",">").replace("&lt;","<").replace("&apos;","'").replace("&quot;",'"').replace("(","-LRB-").replace(")","-RRB-")
+				item = tag + '\t' + token + " "
+				out_line += item
+
+		sentences = output.split('\n')
+		lalparser.run_parse(sentences,constfile)
+
+	print("o Reparsed " + str(len(xmlfiles)) + " documents" + " " * 20)
 
 # Check and potentially correct POS tags and lemmas based on pooled annotations
 #proof(gum_source)
@@ -179,8 +245,14 @@ else:
 		sys.exit()
 
 	# Inject gum_target in pepper_params and replace os.sep with URI slash
-	pepper_params = pepper_params.replace("**gum_tmp**",os.path.abspath(pepper_tmp).replace(os.sep,"/"))
-	pepper_params = pepper_params.replace("**gum_target**",gum_target.replace(os.sep,"/"))
+	#if platform.system() == "Windows":
+	#	pepper_params = pepper_params.replace("**gum_tmp**",os.path.abspath(pepper_tmp).replace(os.sep,"/"))
+	#	pepper_params = pepper_params.replace("**gum_target**",gum_target.replace(os.sep,"/"))
+	#else:
+	pepper_params = pepper_params.replace("file:/**gum_tmp**", os.path.abspath(pepper_tmp))
+	pepper_params = pepper_params.replace("file:/**gum_target**", os.path.abspath(pepper_home) + os.sep + "../../target/")
+	pepper_params = pepper_params.replace("file:/**gum_home**", os.path.abspath(pepper_home) + os.sep + "../../../")
+
 
 
 	# Setup metadata file

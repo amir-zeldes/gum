@@ -98,7 +98,7 @@ def run_pepper(pepper_params,full_log=False):
 	sys.__stdout__.write(" " *30 + "\n")
 
 	script_dir = os.path.dirname(os.path.realpath(__file__)) + os.sep
-	annis_out_dir = script_dir + ".." + os.sep + "target" + os.sep + "annis" + os.sep
+	annis_out_dir = script_dir + ".." + os.sep + ".." + os.sep + "annis" + os.sep
 	# Rename ANNIS namespaces
 	ext = "annis"
 
