@@ -7,7 +7,7 @@ def deunderscoring(src_folder, textdic):
 	make_text(src_folder + "tsv" + os.sep, textdic, 2, unescape_xml=True)
 	make_text(src_folder + "dep" + os.sep, textdic, 1, unescape_xml=True)
 	make_text_rst(src_folder + "rst" + os.sep, textdic)
-	make_text_const(src_folder + ".." + os.sep + "target" + os.sep + "const" + os.sep, textdic)
+	make_text_const(src_folder + "const" + os.sep, textdic)
 
 
 def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False):
@@ -107,7 +107,7 @@ def underscoring(src_folder):
 	make_underscores(src_folder + "tsv" + os.sep,2)
 	make_underscores(src_folder + "dep" + os.sep,1)
 	make_underscores_rst(src_folder + "rst" + os.sep)
-	make_underscores_const(src_folder + ".." + os.sep + "target" + os.sep + "const" + os.sep)
+	make_underscores_const(src_folder + "const" + os.sep)
 
 
 def make_underscores_rst(folder):
@@ -189,7 +189,6 @@ def make_underscores_const(const_path):
 
 		with io.open(f_path, 'r', encoding='utf-8') as fin:
 			in_lines = fin.read().replace("\r","").strip().split("\n")
-			in_lines = [i for i in in_lines if i]
 
 		with io.open(f_path, 'w', encoding='utf-8', newline="\n") as fout:
 
@@ -235,9 +234,6 @@ def make_text_const(const_path, textdic):
 
 		with io.open(f_path, 'r', encoding='utf-8') as fin:
 			in_lines = fin.read().replace("\r","").strip().split("\n")
-			# removes trailing newline
-			in_lines = [i for i in in_lines if i]
-
 
 		with io.open(f_path, 'w', encoding='utf-8', newline="\n") as fout:
 
@@ -263,5 +259,3 @@ def make_text_const(const_path, textdic):
 				out_lines.append(" ".join(out_units))
 
 			fout.write("\n".join(out_lines) + "\n")
-
-
