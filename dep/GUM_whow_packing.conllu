@@ -54,7 +54,7 @@
 # text = Pack one room at a time if possible, and start with items that are least often used.
 # s_type = imp
 1	Pack	pack	VERB	VB	Mood=Imp|VerbForm=Fin	0	root	_	Discourse=ROOT:7
-2	one	one	NUM	CD	NumType=Card	3	nummod	_	Entity=(object-8
+2	one	one	NUM	CD	NumForm=Word|NumType=Card	3	nummod	_	Entity=(object-8
 3	room	room	NOUN	NN	Number=Sing	1	obj	_	Entity=object-8)
 4	at	at	ADP	IN	_	6	case	_	_
 5	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	_	_
@@ -158,7 +158,7 @@
 9	on	on	ADP	IN	_	10	case	_	_
 10	top	top	NOUN	NN	Number=Sing	7	obl	_	_
 11	of	of	ADP	IN	_	12	case	_	_
-12	one	one	NUM	CD	NumType=Card	10	nmod	_	Entity=(object-21
+12	one	one	NUM	CD	NumForm=Word|NumType=Card	10	nmod	_	Entity=(object-21
 13	another	another	PRON	DT	_	12	fixed	_	Entity=object-21)|SpaceAfter=No
 14	.	.	PUNCT	.	_	7	punct	_	_
 
@@ -538,7 +538,7 @@
 15	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	14	obj	_	Entity=(object-68)
 16	out	out	ADP	RP	_	14	compound:prt	_	_
 17	of	of	ADP	IN	_	19	case	_	_
-18	100	100	NUM	CD	NumType=Card	19	nummod	_	Entity=(object-70
+18	100	100	NUM	CD	NumForm=Digit|NumType=Card	19	nummod	_	Entity=(object-70
 19	others	other	NOUN	NNS	Number=Plur	14	obl	_	Entity=object-70)
 20	when	when	SCONJ	WRB	PronType=Int	22	mark	_	Discourse=circumstance:62->61
 21	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	22	nsubj	_	Entity=(person-2)
@@ -552,7 +552,7 @@
 1	Do	do	AUX	VB	VerbForm=Inf	3	aux	_	Discourse=antithesis:63->65|SpaceAfter=No
 2	n't	not	PART	RB	Polarity=Neg	3	advmod	_	_
 3	pack	pack	VERB	VB	Mood=Imp|VerbForm=Fin	0	root	_	_
-4	one	one	NUM	CD	NumType=Card	5	nummod	_	Entity=(object-71
+4	one	one	NUM	CD	NumForm=Word|NumType=Card	5	nummod	_	Entity=(object-71
 5	box	box	NOUN	NN	Number=Sing	3	obj	_	Entity=object-71)
 6	full	full	ADJ	JJ	Degree=Pos	5	amod	_	_
 7	of	of	ADP	IN	_	8	case	_	_
@@ -596,12 +596,12 @@
 1	National	national	ADJ	JJ	Degree=Pos	2	amod	_	Discourse=background:67->73|Entity=(organization-75
 2	superstores	superstore	NOUN	NNS	Number=Plur	7	nsubj	_	Entity=organization-75)
 3	(	(	PUNCT	-LRB-	_	4	punct	_	Discourse=elaboration:68->67|SpaceAfter=No
-4	Walmart	Walmart	PROPN	NNP	Number=Sing	2	appos	_	Entity=(organization-76)|SpaceAfter=No
+4	Walmart	Walmart	PROPN	NNP	Number=Sing	2	appos	_	Entity=(organization-76-Walmart)|SpaceAfter=No
 5	)	)	PUNCT	-RRB-	_	4	punct	_	_
 6	will	will	AUX	MD	VerbForm=Fin	7	aux	_	Discourse=same-unit:69->67
 7	let	let	VERB	VB	VerbForm=Inf	0	root	_	_
-8	you	you	PRON	PRP	Case=Nom|Person=2|PronType=Prs	9	nsubj	_	Entity=(person-2)
-9	walk	walk	VERB	VB	VerbForm=Inf	7	ccomp	_	_
+8	you	you	PRON	PRP	Case=Acc|Person=2|PronType=Prs	7	obj	_	Entity=(person-2)
+9	walk	walk	VERB	VB	VerbForm=Inf	7	xcomp	_	_
 10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(organization-77
 11	store	store	NOUN	NN	Number=Sing	9	obj	_	Entity=organization-77)
 12	for	for	ADP	IN	_	13	case	_	_
@@ -612,12 +612,12 @@
 17	stocking	stock	VERB	VBG	Tense=Pres|VerbForm=Part	7	advcl	_	_
 18	the	the	DET	DT	Definite=Def|PronType=Art	19	det	_	Entity=(organization-77
 19	stores	store	NOUN	NNS	Number=Plur	17	obj	_	Entity=organization-77)
-20	between	between	ADP	IN	_	22	case	_	_
-21	11	11	NUM	CD	NumType=Card	22	nummod	_	Entity=(time-80
-22	pm	pm	SYM	SYM	_	19	nmod	_	Entity=time-80)
-23	and	and	CCONJ	CC	_	25	cc	_	_
-24	1	1	NUM	CD	NumType=Card	25	nummod	_	Entity=(time-81
-25	am	am	SYM	SYM	_	19	conj	_	Entity=time-81)|SpaceAfter=No
+20	between	between	ADP	IN	_	21	case	_	_
+21	11	11	NUM	CD	NumForm=Digit|NumType=Card	17	obl	_	Entity=(time-80
+22	pm	pm	NOUN	NN	Number=Sing	21	nmod:tmod	_	Entity=time-80)
+23	and	and	CCONJ	CC	_	24	cc	_	_
+24	1	1	NUM	CD	NumForm=Digit|NumType=Card	21	conj	_	Entity=(time-81
+25	am	am	NOUN	NN	Number=Sing	24	nmod:tmod	_	Entity=time-81)|SpaceAfter=No
 26	.	.	PUNCT	.	_	7	punct	_	_
 
 # sent_id = GUM_whow_packing-37
@@ -687,7 +687,7 @@
 # sent_id = GUM_whow_packing-41
 # text = U-haul and other nation companies offer box buy back services.
 # s_type = decl
-1	U-haul	U-haul	PROPN	NNP	Number=Sing	6	nsubj	_	Discourse=joint:77->43|Entity=(organization-91)
+1	U-haul	U-haul	PROPN	NNP	Number=Sing	6	nsubj	_	Discourse=joint:77->43|Entity=(organization-91-U-Haul)
 2	and	and	CCONJ	CC	_	5	cc	_	_
 3	other	other	ADJ	JJ	Degree=Pos	5	amod	_	Entity=(organization-92
 4	nation	nation	NOUN	NN	Number=Sing|Typo=Yes	5	compound	_	_
@@ -911,10 +911,6 @@
 11	of	of	ADP	IN	_	12	case	_	_
 12	boxes	box	NOUN	NNS	Number=Plur	10	nmod	_	Entity=(object-120)object-119)|SpaceAfter=No
 13	.	.	PUNCT	.	_	4	punct	_	_
-
-
-
-
 
 
 

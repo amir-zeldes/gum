@@ -3,9 +3,9 @@
 # text = Method 2 of 2: Using Grammar
 # s_type = frag
 1	Method	method	NOUN	NN	Number=Sing	0	root	_	Discourse=preparation:1->2|Entity=(abstract-1
-2	2	2	NUM	CD	NumType=Card	1	dep	_	_
+2	2	2	NUM	CD	NumForm=Digit|NumType=Card	1	dep	_	_
 3	of	of	ADP	IN	_	4	case	_	_
-4	2	2	NUM	CD	NumType=Card	1	nmod	_	Entity=(abstract-2)abstract-1)|SpaceAfter=No
+4	2	2	NUM	CD	NumForm=Digit|NumType=Card	1	nmod	_	Entity=(abstract-2)abstract-1)|SpaceAfter=No
 5	:	:	PUNCT	:	_	6	punct	_	_
 6	Using	use	VERB	VBG	VerbForm=Ger	1	appos	_	Discourse=preparation:2->3
 7	Grammar	grammar	NOUN	NN	Number=Sing	6	obj	_	Entity=(abstract-3)
@@ -103,7 +103,7 @@
 17	'	'	PUNCT	''	_	16	punct	_	_
 18	or	or	CCONJ	CC	_	20	cc	_	_
 19	'	'	PUNCT	``	_	20	punct	_	SpaceAfter=No
-20	one	one	NUM	CD	NumType=Card	12	conj	_	Entity=(abstract-16)|SpaceAfter=No
+20	one	one	NUM	CD	NumForm=Word|NumType=Card	12	conj	_	Entity=(abstract-16)|SpaceAfter=No
 21	'	'	PUNCT	''	_	20	punct	_	_
 22	or	or	CCONJ	CC	_	24	cc	_	_
 23	'	'	PUNCT	``	_	24	punct	_	SpaceAfter=No
@@ -229,9 +229,9 @@
 14	European	European	ADJ	JJ	Degree=Pos	15	amod	_	_
 15	languages	language	NOUN	NNS	Number=Plur	11	nmod	_	_
 16	like	like	ADP	IN	_	17	case	_	_
-17	French	French	PROPN	NNP	Number=Sing	15	nmod	_	Entity=(abstract-39)
+17	French	French	PROPN	NNP	Number=Sing	15	nmod	_	Entity=(abstract-39-French_language)
 18	and	and	CCONJ	CC	_	19	cc	_	_
-19	German	German	PROPN	NNP	Number=Sing	17	conj	_	Entity=(abstract-40)abstract-38)|SpaceAfter=No
+19	German	German	PROPN	NNP	Number=Sing	17	conj	_	Entity=(abstract-40-German_language)abstract-38)|SpaceAfter=No
 20	.	.	PUNCT	.	_	10	punct	_	_
 
 # sent_id = GUM_whow_languages-13
@@ -349,7 +349,7 @@
 3	'	'	PUNCT	''	_	2	punct	_	_
 4	comes	come	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	_
 5	from	from	ADP	IN	_	6	case	_	_
-6	German	German	PROPN	NNP	Number=Sing	4	obl	_	Entity=(abstract-40)|SpaceAfter=No
+6	German	German	PROPN	NNP	Number=Sing	4	obl	_	Entity=(abstract-40-German_language)|SpaceAfter=No
 7	,	,	PUNCT	,	_	9	punct	_	_
 8	which	which	PRON	WDT	PronType=Rel	9	nsubj	_	_
 9	means	mean	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	2	acl:relcl	_	_
@@ -363,7 +363,7 @@
 3	'	'	PUNCT	''	_	2	punct	_	_
 4	comes	come	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	_
 5	from	from	ADP	IN	_	6	case	_	_
-6	English	English	PROPN	NNP	Number=Sing	4	obl	_	Entity=(abstract-54)|SpaceAfter=No
+6	English	English	PROPN	NNP	Number=Sing	4	obl	_	Entity=(abstract-54-English_language)|SpaceAfter=No
 7	.	.	PUNCT	.	_	4	punct	_	_
 
 # sent_id = GUM_whow_languages-19
@@ -542,7 +542,7 @@
 14	at	at	ADP	IN	_	15	case	_	_
 15	all	all	PRON	DT	_	9	obl	_	_
 16	like	like	ADP	IN	_	17	case	_	_
-17	Chinese	Chinese	PROPN	NNP	Number=Sing	7	nmod	_	Entity=(abstract-75)|SpaceAfter=No
+17	Chinese	Chinese	PROPN	NNP	Number=Sing	7	nmod	_	Entity=(abstract-75-Standard_Chinese)|SpaceAfter=No
 18	!	!	PUNCT	.	_	4	punct	_	_
 
 # sent_id = GUM_whow_languages-27
@@ -694,14 +694,14 @@
 # text = As soon as your friends understand your language, communicate to them with it.
 # s_type = imp
 1	As	as	ADV	RB	_	2	advmod	_	Discourse=condition:61->62
-2	soon	soon	ADV	RB	Degree=Pos	6	advmod	_	_
+2	soon	soon	ADV	RB	Degree=Pos	10	advmod	_	_
 3	as	as	SCONJ	IN	_	6	mark	_	_
 4	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	5	nmod:poss	_	Entity=(person-87(person-5)
 5	friends	friend	NOUN	NNS	Number=Plur	6	nsubj	_	Entity=person-87)
-6	understand	understand	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	10	advcl	_	_
+6	understand	understand	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	2	advcl	_	_
 7	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	8	nmod:poss	_	Entity=(abstract-4(person-5)
 8	language	language	NOUN	NN	Number=Sing	6	obj	_	Entity=abstract-4)|SpaceAfter=No
-9	,	,	PUNCT	,	_	6	punct	_	_
+9	,	,	PUNCT	,	_	2	punct	_	_
 10	communicate	communicate	VERB	VB	Mood=Imp|VerbForm=Fin	0	root	_	Discourse=elaboration:62->60
 11	to	to	ADP	IN	_	12	case	_	_
 12	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	10	obl	_	Entity=(person-87)
@@ -777,7 +777,7 @@
 # sent_id = GUM_whow_languages-41
 # text = One day, maybe you can make it the official language of a country!
 # s_type = sub
-1	One	One	NUM	CD	NumType=Card	2	nummod	_	Discourse=motivation:69->67
+1	One	one	NUM	CD	NumForm=Word|NumType=Card	2	nummod	_	Discourse=motivation:69->67
 2	day	day	NOUN	NN	Number=Sing	7	obl:tmod	_	SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	_	_
 4	maybe	maybe	ADV	RB	_	7	advmod	_	_
@@ -851,14 +851,14 @@
 9	right	right	NOUN	NN	Number=Sing	4	obl	_	SpaceAfter=No
 10	,	,	PUNCT	,	_	15	punct	_	_
 11	in	in	ADP	IN	_	12	case	_	Discourse=contrast:77->76
-12	Arabic	Arabic	PROPN	NNP	Number=Sing	15	nmod	_	Entity=(abstract-100)
+12	Arabic	Arabic	PROPN	NNP	Number=Sing	15	nmod	_	Entity=(abstract-100-Arabic)
 13	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	15	nsubj	_	Entity=(abstract-99)|SpaceAfter=No
 14	's	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	15	cop	_	_
 15	right	right	NOUN	NN	Number=Sing	4	conj	_	_
 16	to	to	ADP	IN	_	17	case	_	_
 17	left	left	NOUN	NN	Number=Sing	15	nmod	_	SpaceAfter=No
 18	,	,	PUNCT	,	_	20	punct	_	_
-19	Chinese	Chinese	PROPN	NNP	Number=Sing	20	nsubj	_	Discourse=contrast:78->76|Entity=(abstract-75)
+19	Chinese	Chinese	PROPN	NNP	Number=Sing	20	nsubj	_	Discourse=contrast:78->76|Entity=(abstract-75-Standard_Chinese)
 20	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	conj	_	_
 21	in	in	ADP	IN	_	22	case	_	_
 22	columns	column	NOUN	NNS	Number=Plur	20	obl	_	SpaceAfter=No
@@ -1362,7 +1362,7 @@
 9	break	break	NOUN	NN	Number=Sing	7	obj	_	_
 10	about	about	ADV	RB	_	13	advmod	_	_
 11	every	every	DET	DT	_	13	det	_	Entity=(time-175
-12	five	five	NUM	CD	NumType=Card	13	nummod	_	_
+12	five	five	NUM	CD	NumForm=Word|NumType=Card	13	nummod	_	_
 13	minutes	minute	NOUN	NNS	Number=Plur	7	obl:npmod	_	Entity=time-175)
 14	and	and	CCONJ	CC	_	15	cc	_	Discourse=sequence:130->129
 15	come	come	VERB	VB	VerbForm=Inf	7	conj	_	_
@@ -1434,10 +1434,6 @@
 17	of	of	ADP	IN	_	18	case	_	_
 18	languages	language	NOUN	NNS	Number=Plur	16	nmod	_	Entity=(abstract-183)abstract-181)abstract-182)|SpaceAfter=No
 19	.	.	PUNCT	.	_	2	punct	_	_
-
-
-
-
 
 
 
