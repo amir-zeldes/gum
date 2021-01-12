@@ -37,11 +37,12 @@ class Args:
 
 class Entity:
 
-	def __init__(self, ent_id, type, infstat):
+	def __init__(self, ent_id, type, infstat, identity):
 		self.id = ent_id
 		self.type = type
 		self.infstat = infstat
 		self.tokens = []
+		self.identity = identity
 		self.line_tokens = []
 		self.coref_type = ""
 		self.coref_link = ""
@@ -194,7 +195,7 @@ def enrich_dep(gum_source, tmp, reddit=False):
 
 	for docnum, depfile in enumerate(depfiles):
 		docname = ntpath.basename(depfile)
-		sys.stdout.write("\t+ " + " "*50 + "\r")
+		sys.stdout.write("\t+ " + " "*70 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(depfiles)) + ":\t+ " + docname + "\r")
 		current_stype = ""
 		current_speaker = ""
@@ -355,7 +356,7 @@ def compile_ud(tmp, gum_target, reddit=False):
 
 		docname = os.path.basename(depfile).replace(".conllu","")
 
-		sys.stdout.write("\t+ " + " "*50 + "\r")
+		sys.stdout.write("\t+ " + " "*70 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(depfiles)) + ":\t+ " + docname + "\r")
 
 		entity_file = tmp + "tsv" + os.sep + "GUM" + os.sep + docname + ".tsv"
@@ -371,10 +372,11 @@ def compile_ud(tmp, gum_target, reddit=False):
 				fields = line.split("\t")
 				line_tok_id = fields[0]
 				tok_num_to_tsv_id[tok_id] = line_tok_id
-				entity_string, infstat_string,coref_type_string, coref_link_string  = fields[3:7]
+				entity_string, infstat_string,identity_string, coref_type_string, coref_link_string  = fields[3:8]
 				if entity_string != "_":
 					entities = entity_string.split("|")
 					infstats = infstat_string.split("|")
+					identities = identity_string.split("|")
 					if coref_type_string != "_":
 						coref_types = coref_type_string.split("|")
 						coref_links = coref_link_string.split("|")
@@ -388,11 +390,19 @@ def compile_ud(tmp, gum_target, reddit=False):
 						entity_id = entity[entity.find("[")+1:-1]
 						entity = entity[:entity.find("[")]
 						infstat = infstat[:infstat.find("[")]
+						match_ident = "_"
+						for ident in identities:
+							if "[" not in ident:
+								ident += "["+entity_id+"]"
+								ident_id = entity_id
+							else:
+								ident_id = ident[ident.find("[")+1:-1]
+							if ident_id == entity_id:
+								match_ident = ident[:ident.find("[")]
 						if entity_id not in entity_dict:
-							entity_dict[entity_id] = Entity(entity_id,entity,infstat)
+							entity_dict[entity_id] = Entity(entity_id,entity,infstat,match_ident)
 						entity_dict[entity_id].tokens.append(str(tok_id))
 						entity_dict[entity_id].line_tokens.append(line_tok_id)
-
 
 						# loop through coref relations
 						if coref_type_string != "_":
@@ -405,8 +415,6 @@ def compile_ud(tmp, gum_target, reddit=False):
 									if (entity_id in with_ids) or ("0" in with_ids):
 										entity_dict[entity_id].coref_type = coref_types[j]
 										entity_dict[entity_id].coref_link = coref_link[:coref_link.find("[")]
-
-
 
 		toks_to_ents = defaultdict(list)
 		for ent in entity_dict:
@@ -492,7 +500,7 @@ def compile_ud(tmp, gum_target, reddit=False):
 
 		processed_lines = "\n".join(processed_lines) + "\n"
 		# Serialize entity tagged dependencies for debugging
-		with io.open(tmp + os.sep + "dep" + os.sep + "tmp" + os.sep + docname + ".conllu",'w',encoding="utf8", newline="\n") as f:
+		with io.open(tmp + "entidep" + os.sep + docname + ".conllu",'w',encoding="utf8", newline="\n") as f:
 			f.write(processed_lines)
 
 		# UPOS
@@ -543,6 +551,13 @@ def compile_ud(tmp, gum_target, reddit=False):
 				fields = line.split("\t")
 				if tok_num in negative and "Polarity" not in fields[5]:
 					fields[5] = add_feat(fields[5],"Polarity=Neg")
+				if fields[4] == "CD" and fields[2].isnumeric():
+					fields[5] = add_feat(fields[5],"NumForm=Digit")
+				elif fields[4] == "CD" and re.match(r'[XIVLMC]+\.?$',fields[2]) is not None:
+					fields[5] = add_feat(fields[5],"NumForm=Roman")
+				elif fields[4] == "CD":
+					fields[5] = add_feat(fields[5],"NumForm=Word")
+
 				fields[1] = tok  # Restore correct utf8 token and lemma
 				fields[2] = lemma
 				if imp and fields[5] == "VerbForm=Inf" and fields[7] == "root":  # Inf root in s_type=imp should be Imp
@@ -609,7 +624,7 @@ def enrich_xml(gum_source, gum_target, add_claws=False, reddit=False, warn=False
 			continue
 		docname = ntpath.basename(xmlfile)
 		output = ""
-		sys.stdout.write("\t+ " + " "*40 + "\r")
+		sys.stdout.write("\t+ " + " "*70 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(xmlfiles)) + ":\t+ " + docname + "\r")
 
 		# Dictionaries to hold token annotations from conllu data
@@ -681,7 +696,7 @@ def enrich_xml(gum_source, gum_target, add_claws=False, reddit=False, warn=False
 		outfile.close()
 
 	if add_claws:
-		print("o Retrieved fresh CLAWS5 tags" + " " * 20 + "\r")
+		print("o Retrieved fresh CLAWS5 tags" + " " * 70 + "\r")
 	print("o Enriched xml in " + str(len(xmlfiles)) + " documents" + " " *20)
 
 """
