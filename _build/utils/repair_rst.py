@@ -33,11 +33,11 @@ def fix_rst(gum_source, gum_target, reddit=False):
 
 	for docnum, filename in enumerate(file_list):
 		tt_file = filename.replace(".rs3", ".xml").replace("rst","xml")
-		sys.stdout.write("\t+ " + " "*60 + "\r")
+		sys.stdout.write("\t+ " + " "*70 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Adjusting borders for " + ntpath.basename(filename) + "\r")
 		fix_file(filename,tt_file,gum_source,gum_target + "rst" + os.sep + "rstweb" + os.sep)
 
-	print("o Adjusted " + str(len(file_list)) + " RST files" + " " * 40)
+	print("o Adjusted " + str(len(file_list)) + " RST files" + " " * 70)
 
 
 def fix_file(filename,tt_file,gum_source,outdir):
