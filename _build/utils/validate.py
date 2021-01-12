@@ -47,7 +47,7 @@ def validate_xsd(file_list, gum_source):
 	schema = etree.XMLSchema(schema_root)
 
 	for docnum, xml_file in enumerate(file_list):
-		sys.stdout.write("\t+ " + " "*40 + "\r")
+		sys.stdout.write("\t+ " + " "*70 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Validating " + xml_file + "\r")
 
 		try:
@@ -67,7 +67,7 @@ def validate_xsd(file_list, gum_source):
 						errors += "  Line " + err_match.group(1) + ": " + err_match.group(2) + "\n"
 					else:
 						errors += "\n  "+err + "\n"
-	print("o " + str(valid_files) + " documents pass XSD validation" + " "*30)
+	print("o " + str(valid_files) + " documents pass XSD validation" + " "*70)
 	if len(errors) > 0:
 		print(errors)
 		print("Aborting due to validation errors")
@@ -261,7 +261,7 @@ def validate_src(gum_source, reddit=False):
 		print("i (to fix this warning: pip install lxml)")
 
 	validate_annos(gum_source, reddit)
-	sys.stdout.write("\r" + " "*40)
+	sys.stdout.write("\r" + " "*70)
 
 
 def validate_annos(gum_source, reddit=False):
@@ -279,7 +279,7 @@ def validate_annos(gum_source, reddit=False):
 			continue
 		docname = ntpath.basename(xmlfile)
 		output = ""
-		sys.stdout.write("\t+ " + " " * 40 + "\r")
+		sys.stdout.write("\t+ " + " " * 70 + "\r")
 		sys.stdout.write(" " + str(docnum + 1) + "/" + str(len(xmlfiles)) + ":\t+ " + docname + "\r")
 
 		# Dictionaries to hold token annotations from conllu data
@@ -382,7 +382,7 @@ def validate_annos(gum_source, reddit=False):
 		for line in coref_lines:
 			if "\t" in line:  # Token
 				fields = line.strip().split("\t")
-				entity_str, infstat_str, coref_str, src_str = fields[-4:]
+				entity_str, infstat_str, identity_str, coref_str, src_str = fields[-5:]
 				if entity_str != "":  # Entity annotation found
 					entities = entity_str.split("|")
 					infstats = infstat_str.split("|")
@@ -632,7 +632,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if s_type == "imp" or s_type == "frag" or s_type == "ger" or s_type == "inf":
 		if func == "root" and "nsubj" in child_funcs:
 			# Exception for frag structures like "Whatever it is that ...", which is actually frag
-			if not ("acl:relcl" in child_funcs and "cop" in child_funcs and s_type=="frag"):
+			# and "don't you VERB", which is an imperative with a subject
+			if not ("acl:relcl" in child_funcs and "cop" in child_funcs and s_type=="frag") and \
+					not (("do" in children or "Do" in children) and ("n't" in children or "not" in children)):
 				print("WARN: " + s_type + " root may not have nsubj" + inname)
 
 	temp_wh = ["when", "how", "where", "why", "whenever", "while", "who", "whom", "which", "whoever", "whatever",
