@@ -565,6 +565,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print(str(id) + docname)
 		print("WARN: VV.* must not be 'have'" + inname)
 
+	if func == "amod" and pos in ["VBD","VVD","VHD"]:
+		print("WARN: finite past verb labeled amod " + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
+
 	if func == 'mwe' and id < parent_id:
 		print("WARN: back-pointing func mwe" + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
