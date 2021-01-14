@@ -29,6 +29,10 @@ except:
 		print("      Punctuation behavior in the UD conversion relies on udapi. ")
 		print("      Please install it (e.g. pip3 install udapi)")
 
+utils_abs_path = os.path.dirname(os.path.realpath(__file__))
+ud_morph_deped = DepEdit(utils_abs_path + os.sep + "ud_morph.ini")
+ud_morph_deped.quiet = True
+
 class Args:
 
 	def __init__(self):
@@ -206,11 +210,13 @@ def enrich_dep(gum_source, tmp, reddit=False):
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(depfiles)) + ":\t+ " + docname + "\r")
 		current_stype = ""
 		current_speaker = ""
+		current_addressee = ""
 		current_sic = False
 		current_w = False
 		output = ""
 		stype_by_token = {}
 		speaker_by_token = {}
+		addressee_by_token = {}
 		space_after_by_token = defaultdict(lambda: True)
 		sic_by_token = defaultdict(lambda: False)
 
@@ -229,8 +235,11 @@ def enrich_dep(gum_source, tmp, reddit=False):
 					current_stype = re.match(r'<s type="([^"]+)"',line).group(1)
 				elif line.startswith("<sp who="):
 					current_speaker = re.search(r' who="([^"]+)"', line).group(1).replace("#","")
+					if "whom=" in line:
+						current_addressee = re.search(r' whom="([^"]+)"', line).group(1).replace("#", "")
 				elif line.startswith("</sp>"):
 					current_speaker = ""
+					current_addressee = ""
 				elif line.startswith("<w>"):
 					space_after_by_token[tok_num+1] = True
 				elif line.startswith("</w>"):
@@ -257,13 +266,14 @@ def enrich_dep(gum_source, tmp, reddit=False):
 					space_after_by_token[tok_num-1] = False
 				stype_by_token[tok_num] = current_stype
 				speaker_by_token[tok_num] = current_speaker
+				addressee_by_token[tok_num] = current_addressee
 				sic_by_token[tok_num] = current_sic
 				wordforms[tok_num], pos[tok_num], lemmas[tok_num] = fields[:3]
 
 		conll_lines = io.open(depfile,encoding="utf8").read().replace("\r","").split("\n")
 		tok_num = 0
 		for line in conll_lines:
-			if "# speaker" in line or "# s_type" in line:
+			if "# speaker" in line or "# s_type" in line or "# addressee" in line:
 				# Ignore old speaker and s_type annotations in favor of fresh ones
 				continue
 			if "\t" in line:  # Token
@@ -302,6 +312,8 @@ def enrich_dep(gum_source, tmp, reddit=False):
 					output += "# s_type = " + stype_by_token[tok_num] + "\n"
 				if len(speaker_by_token[tok_num]) > 0:
 					output += "# speaker = " + speaker_by_token[tok_num] + "\n"
+				if len(addressee_by_token[tok_num]) > 0:
+					output += "# addressee = " + addressee_by_token[tok_num] + "\n"
 			output += line + "\n"
 
 		output = output.strip() + "\n" + "\n"
@@ -531,16 +543,20 @@ def compile_ud(tmp, gum_target, reddit=False):
 		else:
 			punct_fixed = fix_punct(processed_lines)
 
-		# Add UD morphology using CoreNLP script - we assume target/const/ already has .ptb tree files
-		utils_abs_path = os.path.dirname(os.path.realpath(__file__))
 		# morphed = punct_fixed
-		morphed = ud_morph(punct_fixed, docname, utils_abs_path + os.sep + ".." + os.sep + "target" + os.sep + "const" + os.sep)
 
-		if not PY2 and False:
-			# CoreNLP returns bytes in ISO-8859-1
-			# ISO-8859-1 mangles ellipsis glyph, so replace manually
-			morphed = morphed.decode("ISO-8859-1").replace("","…").replace("","“").replace("","’").replace("",'—').replace("","–").replace("","”").replace("\r","")
-		morphed = morphed.decode("ISO-8859-1").replace("\r","")
+		use_corenlp = False
+		if use_corenlp:
+			# Add UD morphology using CoreNLP script - we assume target/const/ already has .ptb tree files
+			morphed = ud_morph(punct_fixed, docname, utils_abs_path + os.sep + ".." + os.sep + "target" + os.sep + "const" + os.sep)
+
+			if not PY2 and False:
+				# CoreNLP returns bytes in ISO-8859-1
+				# ISO-8859-1 mangles ellipsis glyph, so replace manually
+				morphed = morphed.decode("ISO-8859-1").replace("","…").replace("","“").replace("","’").replace("",'—').replace("","–").replace("","”").replace("\r","")
+			morphed = morphed.decode("ISO-8859-1").replace("\r","")
+		else:
+			morphed = ud_morph_deped.run_depedit(punct_fixed)
 
 		# Add negative polarity and imperative mood
 		negatived = []

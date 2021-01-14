@@ -701,13 +701,17 @@ class DepEdit:
 									value = re.sub(r"\$" + group_str, group_value, value)
 							if add_val:
 								old_val = getattr(result[node_position],prop)
+								new_vals = sorted(value.split("|"))
+								new_vals_keys = [v.split("=")[0] for v in new_vals]
 								if old_val != "_":  # Some values already exist
 									kv = []
 									for ov in sorted(old_val.split("|")):
-										if not ov.startswith(prop + "="):  # Else this needs to be overwritten
+										if not ov.split("=")[0] in new_vals_keys:  # Else this needs to be overwritten
 											kv.append(ov)
-									kv.append(value)
+									kv += new_vals
 									value = "|".join(sorted(kv))
+								else:
+									value = "|".join(new_vals)
 							setattr(result[node_position], prop, value)
 					elif ">" in action:  # Binary instruction; head relation
 						operator = ">"
