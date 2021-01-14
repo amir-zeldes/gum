@@ -22,7 +22,7 @@ from glob import glob
 import io
 from six import iteritems
 
-__version__ = "2.3.0.0"
+__version__ = "2.3.1.0"
 
 ALIASES = {"form":"text","upostag":"pos","xpostag":"cpos","feats":"morph","deprel":"func","deps":"head2","misc":"func2",
 		   "xpos": "cpos","upos":"pos"}
@@ -171,7 +171,7 @@ class Transformation:
 		for action in self.actions:
 			commands = action.split(";")
 			for command in commands:  # Node action
-				if re.match(r"(#[0-9]+>#[0-9]+|#[0-9]+:(func|lemma|text|pos|cpos|morph|head|head2|func2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc)=[^;]*)$", command) is None:
+				if re.match(r"(#[0-9]+>#[0-9]+|#[0-9]+:(func|lemma|text|pos|cpos|morph|head|head2|func2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc)\+?=[^;]*)$", command) is None:
 					if re.match(r"#S:[A-Za-z_]+=[A-Za-z_]+$|last$", command) is None:  # Sentence annotation action or quit
 						report += "Column 3 invalid action definition: " + command + " and the action was " + action
 		return report
@@ -667,6 +667,10 @@ class DepEdit:
 									sys.stdout.write("  Applying the transformation to first token in sentence.\n")
 							prop = action[action.find(":") + 1:action.find("=")]
 							value = action[action.find("=") + 1:].strip()
+							add_val = False
+							if prop.endswith("+"):  # Add annotation, e.g. feats+=...
+								add_val = True
+								prop = prop[:-1]
 							group_num_matches = re.findall(r"(\$[0-9]+[LU]?)", value)
 							if group_num_matches is not None:
 								for g in group_num_matches:
@@ -695,6 +699,15 @@ class DepEdit:
 									elif case == "upper":
 										group_str += "U"
 									value = re.sub(r"\$" + group_str, group_value, value)
+							if add_val:
+								old_val = getattr(result[node_position],prop)
+								if old_val != "_":  # Some values already exist
+									kv = []
+									for ov in sorted(old_val.split("|")):
+										if not ov.startswith(prop + "="):  # Else this needs to be overwritten
+											kv.append(ov)
+									kv.append(value)
+									value = "|".join(sorted(kv))
 							setattr(result[node_position], prop, value)
 					elif ">" in action:  # Binary instruction; head relation
 						operator = ">"

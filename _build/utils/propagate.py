@@ -95,6 +95,13 @@ def is_neg_lemma(lemma,pos):
 	return False
 
 
+def is_abbr(word, xpos):
+	abbr = r"(US|NASA|NATO|U\.S\.|USI|DH|DAB|UK|IE6|COVID-19|KPA|UNESCO|FTU|LA|VR|MLB|USA|IATA|ROS|CC|IE|OK|ABC|BBC|DSW|NBC|U\.S|KCNA|ACPeds|US-412|WB|CBC|ICI|ISO|JSC|KKK|KSC|PHX|WHO|BART|CNRS|ELI5|FIFA|O\.J\.|NWSC|ROTC|BAFTA|STS-1|US-75|US-169|NEMISIS|STS-133|STS-134|STS-135|NSU|FEDERAL|ANDRILL|AS|AV|CO|CV|CW|DC|FN|GW|JK|KS|LV|MC|NB|NJ|NZ|PC|QC|RA|SC|ST|UC|VM|XP|XV|AFP|AIM|BAK|BBF|BPA|CBS|CEI|CIS|CRA|DBE|DNA|FRS|GIS|GPL|HBO|HIV|IDD|IE9|IFN|IMU|IQA|IRC|JFK|JPL|LIS|LSD|MIT|MSN|MTV|NBA|NFL|NHS|NPP|NSW|NTU|OIR|ROS|RVS|SNY|TUL|UKB|UNC|USD|USS|WTA|XML|ADPL|AIDS|AKMA|B\.A\.|ARES|D\.C\.|DPRK|FFFF|FGCU|HECS|HTML|IOTM|IRIS|K\.C\.|L\.A\.|MASS|MMPI|OSCE|S\.F\.|SETI|TAOM|THEO|U\.N\.|UAAR|WWII|XKCD|DHBs|U\.S\.|BY-SA|CITIC|LIBER|M\.Sc\.|NCLAN|ODIHR|UNMIK|OSU|CC-BY-SA-NC|CBC\.ca|DH+Lib|DH2017|e\.g\.|al\.|etc\.|Mr\.|St\.|i\.e\.|c\.|b\.|Ph\.D\.|Mrs\.|d\.|m\.|p\.|Dr\.|Jr\.|No\.|vs\.|div\.|approx\.|a\.|Ed\.|Mt\.|Op\.|ca\.|cm\.|Ave\.|Cal\.|E\.g\.|Feb\.|Inc\.|Vol\.|a\.m\.|eds\.|p\.m\.|M\.Sc\.|Mlle\.|Prof\.)$"
+	if re.match(abbr,word) is not None:
+		return True
+	return False
+
+
 def add_feat(field,feat):
 	if field == "_":
 		return feat
@@ -350,6 +357,8 @@ def compile_ud(tmp, gum_target, reddit=False):
 			continue
 		depfiles.append(file_)
 
+	# depedit script to fix known projective punctuation issues
+	# note that this script also introduces some post editing to morphology, such as passive Voice
 	punct_depedit = DepEdit(config_file="utils" + os.sep + "projectivize_punct.ini")
 
 	for docnum, depfile in enumerate(depfiles):
@@ -372,7 +381,7 @@ def compile_ud(tmp, gum_target, reddit=False):
 				fields = line.split("\t")
 				line_tok_id = fields[0]
 				tok_num_to_tsv_id[tok_id] = line_tok_id
-				entity_string, infstat_string,identity_string, coref_type_string, coref_link_string  = fields[3:8]
+				entity_string, infstat_string,identity_string, coref_type_string, coref_link_string = fields[3:8]
 				if entity_string != "_":
 					entities = entity_string.split("|")
 					infstats = infstat_string.split("|")
@@ -557,6 +566,8 @@ def compile_ud(tmp, gum_target, reddit=False):
 					fields[5] = add_feat(fields[5],"NumForm=Roman")
 				elif fields[4] == "CD":
 					fields[5] = add_feat(fields[5],"NumForm=Word")
+				if is_abbr(fields[1],fields[4]):
+					fields[5] = add_feat(fields[5],"Abbr=Yes")
 
 				fields[1] = tok  # Restore correct utf8 token and lemma
 				fields[2] = lemma

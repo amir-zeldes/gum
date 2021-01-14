@@ -230,6 +230,7 @@ def parse_tsv_line(line):
 			for ident_anno in identities:  # See if an identity anno corresponds to the currently processed entity ID
 				if ident_anno is not None:
 					entity_identity, ident_id = extract_from_bracket(ident_anno)
+					entity_identity = entity_identity.replace(" ","_").replace("(","%28").replace(")","%29")
 				else:
 					continue
 				if int(ident_id) == entity_id:
