@@ -337,19 +337,26 @@ def compile_ud(tmp, gum_target, reddit=False):
 		print("      Punctuation behavior in the UD data relies on udapi ")
 		print("      which does not support Python 2. All punctuation will be attached to sentence roots.\n")
 
-
-	ud_dev = ["GUM_interview_peres","GUM_interview_cyclone","GUM_interview_gaming",
-			   "GUM_news_iodine","GUM_news_defector","GUM_news_homeopathic",
-			   "GUM_voyage_athens","GUM_voyage_isfahan","GUM_voyage_coron",
-			   "GUM_whow_joke","GUM_whow_skittles","GUM_whow_overalls",
-			   "GUM_fiction_beast","GUM_bio_emperor","GUM_academic_librarians",
-			   "GUM_fiction_lunre","GUM_bio_byron","GUM_academic_exposure"]
-	ud_test = ["GUM_interview_mcguire","GUM_interview_libertarian","GUM_interview_hill",
-			   "GUM_news_nasa","GUM_news_expo","GUM_news_sensitive",
-			   "GUM_voyage_oakland","GUM_voyage_thailand","GUM_voyage_vavau",
-			   "GUM_whow_mice","GUM_whow_cupcakes","GUM_whow_cactus",
-			   "GUM_fiction_falling","GUM_bio_jespersen","GUM_academic_discrimination",
-			   "GUM_academic_eegimaa","GUM_bio_dvorak","GUM_fiction_teeth"]
+	ud_dev = ["GUM_interview_cyclone", "GUM_interview_gaming",
+			  "GUM_news_iodine", "GUM_news_homeopathic",
+			  "GUM_voyage_athens", "GUM_voyage_coron",
+			  "GUM_whow_joke", "GUM_whow_overalls",
+			  "GUM_bio_byron", "GUM_bio_emperor",
+			  "GUM_fiction_lunre", "GUM_fiction_beast",
+			  "GUM_academic_exposure", "GUM_academic_librarians",
+			  "GUM_reddit_macroeconomics", "GUM_reddit_pandas",
+			  "GUM_speech_impeachment", "GUM_textbook_cognition",
+			  "GUM_vlog_radiology", "GUM_conversation_grounded"]
+	ud_test = ["GUM_interview_libertarian", "GUM_interview_hill",
+			   "GUM_news_nasa", "GUM_news_sensitive",
+			   "GUM_voyage_oakland", "GUM_voyage_vavau",
+			   "GUM_whow_mice", "GUM_whow_cactus",
+			   "GUM_fiction_falling", "GUM_fiction_teeth",
+			   "GUM_bio_jespersen", "GUM_bio_dvorak",
+			   "GUM_academic_eegimaa", "GUM_academic_discrimination",
+			   "GUM_reddit_escape", "GUM_reddit_monsters",
+			   "GUM_speech_austria", "GUM_textbook_chemistry",
+			   "GUM_vlog_studying", "GUM_conversation_retirement"]
 
 
 	train_string, dev_string, test_string = "", "", ""
