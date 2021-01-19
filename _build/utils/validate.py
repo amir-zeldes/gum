@@ -656,5 +656,6 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		for wh in children:
 			if wh in temp_wh:
 				if not any([c.lower()=="do" or c.lower()=="did" for c in children]):
-					print("WARN: q root may not have wh child " + wh + inname)
+					if not (tok == "Remember" and wh == "when"):  # Listed exception in GUM_reddit_bobby
+						print("WARN: q root may not have wh child " + wh + inname)
 
