@@ -38,6 +38,7 @@ parser.add_argument("-v",dest="verbose_pepper",action="store_true",help="Whether
 parser.add_argument("-n",dest="no_pepper",action="store_true",help="No pepper conversion, just validation and file fixing")
 parser.add_argument("-i",dest="increment_version",action="store",help="A new version number to assign",default="DEVELOP")
 parser.add_argument("--pepper_only",action="store_true", help="Just rerun pepper on generated targets")
+parser.add_argument("--skip_ptb_labels",action="store_true", help="Skip projecting function labels to PTB trees")
 
 options = parser.parse_args()
 
@@ -214,16 +215,21 @@ if not options.pepper_only:
 	compile_ud(pepper_tmp, gum_target, reddit=reddit)
 
 	# Add labels to PTB trees
-	print("\n\nAdding function labels to PTB constituent trees:\n" + "=" * 40)
-	from utils.label_trees import add_ptb_labels
+	if not options.skip_ptb_labels:
+		print("\n\nAdding function labels to PTB constituent trees:\n" + "=" * 40)
+		from utils.label_trees import add_ptb_labels
 	ptb_files = sorted(glob(gum_source + "const" + os.sep + "*.ptb"))
 	entidep_files = sorted(glob(pepper_tmp + "entidep" + os.sep + "*.conllu"))
 	for i, ptb_file in enumerate(ptb_files):
 		docname = os.path.basename(ptb_file)
 		entidep_file = entidep_files[i]
-		labeled = add_ptb_labels(io.open(ptb_file,encoding="utf8").read(),io.open(entidep_file,encoding="utf8").read())
-		sys.stdout.write("\t+ " + " " * 70 + "\r")
-		sys.stdout.write(" " + str(i + 1) + "/" + str(len(ptb_files)) + ":\t+ " + docname + "\r")
+		if not options.skip_ptb_labels:
+			labeled = add_ptb_labels(io.open(ptb_file,encoding="utf8").read(),io.open(entidep_file,encoding="utf8").read())
+		else:
+			labeled = io.open(ptb_file,encoding="utf8").read()
+		if not options.skip_ptb_labels:
+			sys.stdout.write("\t+ " + " " * 70 + "\r")
+			sys.stdout.write(" " + str(i + 1) + "/" + str(len(ptb_files)) + ":\t+ " + docname + "\r")
 		with io.open(gum_target + "const" + os.sep + docname,'w',encoding="utf8",newline="\n") as f:
 			f.write(labeled)
 	sys.stdout.write("\n")
@@ -280,10 +286,12 @@ else:
 	sys.__stdout__.write(out + "\n")
 
 ## Step 4: propagate entity types and coref into conllu dep files
+from utils.propagate import add_entities_to_conllu, add_rsd_to_conllu, add_bridging_to_conllu
+
 if options.no_pepper:
 	sys.__stdout__.write("\ni Not adding entity information to UD parses since Pepper conversion was skipped\n")
 else:
-	from utils.propagate import add_entities_to_conllu, add_rsd_to_conllu
 	add_entities_to_conllu(gum_target,reddit=reddit)
+	add_bridging_to_conllu(gum_target,reddit=reddit)
 	add_rsd_to_conllu(gum_target,reddit=reddit)
 	sys.__stdout__.write("\no Added entities, coreference and discourse relations to UD parses\n")
