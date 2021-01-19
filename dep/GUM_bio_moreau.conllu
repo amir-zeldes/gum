@@ -32,7 +32,7 @@
 # sent_id = GUM_bio_moreau-5
 # text = Died 31 July 2017 (aged 89) Paris, France
 # s_type = other
-1	Died	die	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	Discourse=sequence:5->4
+1	Died	die	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	Discourse=sequence:5->4
 2	31	31	NUM	CD	NumForm=Digit|NumType=Card	1	obl:tmod	_	Entity=(time-8
 3	July	July	PROPN	NNP	Number=Sing	2	compound	_	Entity=(time-9
 4	2017	2017	NUM	CD	NumForm=Digit|NumType=Card	2	nmod:tmod	_	Entity=(time-10)time-8)time-9)
@@ -89,22 +89,22 @@
 # text = Spouse(s) Jean-Louis Richard (m. 1949; div. 1964) William Friedkin (m. 1977; div. 1979)
 # s_type = other
 1	Spouse(s)	Spouse(s)	NOUN	NNS	Number=Plur	2	nsubj	_	Discourse=joint:12->4|Entity=(person-22)
-2	Jean-Louis	Jean-Louis	PROPN	NNP	Number=Sing	0	root	_	Entity=(person-23-Jean-Louis_Richard
+2	Jean-Louis	Jean-Louis	PROPN	NNP	Number=Sing	0	root	_	Bridge=person-22<person-23-Jean-Louis_Richard|Entity=(person-23-Jean-Louis_Richard
 3	Richard	Richard	PROPN	NNP	Number=Sing	2	flat	_	Entity=person-23-Jean-Louis_Richard)
 4	(	(	PUNCT	-LRB-	_	5	punct	_	Discourse=elaboration:13->12|SpaceAfter=No
-5	m.	marry	VERB	VBN	Tense=Past|VerbForm=Part	2	parataxis	_	_
+5	m.	marry	VERB	VBN	Abbr=Yes|Tense=Past|VerbForm=Part	2	parataxis	_	_
 6	1949	1949	NUM	CD	NumForm=Digit|NumType=Card	5	obl:tmod	_	Entity=(time-24)|SpaceAfter=No
 7	;	;	PUNCT	:	_	8	punct	_	_
-8	div.	divorce	VERB	VBN	Tense=Past|VerbForm=Part	5	parataxis	_	_
+8	div.	divorce	VERB	VBN	Abbr=Yes|Tense=Past|VerbForm=Part	5	parataxis	_	_
 9	1964	1964	NUM	CD	NumForm=Digit|NumType=Card	8	obl:tmod	_	Entity=(time-25)|SpaceAfter=No
 10	)	)	PUNCT	-RRB-	_	5	punct	_	_
-11	William	William	PROPN	NNP	Number=Sing	2	conj	_	Discourse=same-unit:14->12|Entity=(person-26-William_Friedkin
+11	William	William	PROPN	NNP	Number=Sing	2	conj	_	Bridge=person-22<person-26-William_Friedkin|Discourse=same-unit:14->12|Entity=(person-26-William_Friedkin
 12	Friedkin	Friedkin	PROPN	NNP	Number=Sing	11	flat	_	Entity=person-26-William_Friedkin)
 13	(	(	PUNCT	-LRB-	_	14	punct	_	Discourse=elaboration:15->14|SpaceAfter=No
-14	m.	married	VERB	VBN	Tense=Past|VerbForm=Part	11	parataxis	_	_
+14	m.	married	VERB	VBN	Abbr=Yes|Tense=Past|VerbForm=Part	11	parataxis	_	_
 15	1977	1977	NUM	CD	NumForm=Digit|NumType=Card	14	obl:tmod	_	Entity=(time-27)|SpaceAfter=No
 16	;	;	PUNCT	:	_	17	punct	_	_
-17	div.	divorced	VERB	VBN	Tense=Past|VerbForm=Part	14	parataxis	_	_
+17	div.	divorced	VERB	VBN	Abbr=Yes|Tense=Past|VerbForm=Part	14	parataxis	_	_
 18	1979	1979	NUM	CD	NumForm=Digit|NumType=Card	17	obl:tmod	_	Entity=(time-28)|SpaceAfter=No
 19	)	)	PUNCT	-RRB-	_	14	punct	_	_
 
@@ -153,7 +153,7 @@
 # text = She won the Cannes Film Festival Award for Best Actress for Seven Days ... Seven Nights (1960), the BAFTA Award for Best Foreign Actress for Viva Maria! (1965), and the César Award for Best Actress for The Old Lady Who Walked in the Sea (1992).
 # s_type = decl
 1	She	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	2	nsubj	_	Discourse=elaboration:22->17|Entity=(person-1-Jeanne_Moreau)
-2	won	win	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+2	won	win	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	7	det	_	Entity=(abstract-31-Cannes_Film_Festival_Award_for_Best_Actress
 4	Cannes	Cannes	PROPN	NNP	Number=Sing	6	compound	_	Entity=(event-32-Cannes_Film_Festival(place-33-Cannes)
 5	Film	Film	PROPN	NNP	Number=Sing	6	compound	_	_
@@ -173,7 +173,7 @@
 19	)	)	PUNCT	-RRB-	_	18	punct	_	Entity=abstract-35)|SpaceAfter=No
 20	,	,	PUNCT	,	_	23	punct	_	_
 21	the	the	DET	DT	Definite=Def|PronType=Art	23	det	_	Discourse=same-unit:24->22|Entity=(abstract-39-BAFTA_Award_for_Best_Actress_in_a_Leading_Role
-22	BAFTA	BAFTA	PROPN	NNP	Number=Sing	23	compound	_	Entity=(organization-40-British_Academy_of_Film_and_Television_Arts)
+22	BAFTA	BAFTA	PROPN	NNP	Abbr=Yes|Number=Sing	23	compound	_	Entity=(organization-40-British_Academy_of_Film_and_Television_Arts)
 23	Award	Award	PROPN	NNP	Number=Sing	2	conj	_	_
 24	for	for	ADP	IN	_	27	case	_	_
 25	Best	good	ADJ	JJS	Degree=Sup	27	amod	_	Entity=(person-41
@@ -199,7 +199,7 @@
 45	Old	Old	PROPN	NNP	Number=Sing	46	amod	_	_
 46	Lady	Lady	PROPN	NNP	Number=Sing	39	orphan	_	_
 47	Who	who	PRON	WP	PronType=Rel	48	nsubj	_	Discourse=elaboration:27->26
-48	Walked	walk	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	46	acl:relcl	_	_
+48	Walked	walk	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	46	acl:relcl	_	_
 49	in	in	ADP	IN	_	51	case	_	_
 50	the	the	DET	DT	Definite=Def|PronType=Art	51	det	_	Entity=(place-49-The_Sea
 51	Sea	Sea	PROPN	NNP	Number=Sing	48	obl	_	Entity=person-48-The_Old_Lady_Who_Walked_in_the_Sea)place-49-The_Sea)
@@ -223,7 +223,7 @@
 10	,	,	PUNCT	,	_	14	punct	_	_
 11	including	include	VERB	VBG	VerbForm=Ger	14	case	_	Discourse=evidence:30->29
 12	a	a	DET	DT	Definite=Ind|PronType=Art	14	det	_	Entity=(abstract-52-BAFTA_Fellowship
-13	BAFTA	BAFTA	PROPN	NNP	Number=Sing	14	compound	_	Entity=(organization-40-British_Academy_of_Film_and_Television_Arts)
+13	BAFTA	BAFTA	PROPN	NNP	Abbr=Yes|Number=Sing	14	compound	_	Entity=(organization-40-British_Academy_of_Film_and_Television_Arts)
 14	Fellowship	Fellowship	PROPN	NNP	Number=Sing	9	nmod	_	Entity=abstract-52-BAFTA_Fellowship)
 15	in	in	ADP	IN	_	16	case	_	_
 16	1996	1996	NUM	CD	NumForm=Digit|NumType=Card	14	nmod	_	Entity=(time-53)|SpaceAfter=No
@@ -244,7 +244,7 @@
 # text = Moreau made her theatrical debut in 1947, and established herself as one of the leading actresses of the Comédie-Française.
 # s_type = decl
 1	Moreau	Moreau	PROPN	NNP	Number=Sing	2	nsubj	_	Discourse=joint:31->22|Entity=(person-1-Jeanne_Moreau)
-2	made	make	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+2	made	make	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 3	her	her	PRON	PRP$	Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	5	nmod:poss	_	Entity=(event-58(person-1-Jeanne_Moreau)
 4	theatrical	theatrical	ADJ	JJ	Degree=Pos	5	amod	_	_
 5	debut	debut	NOUN	NN	Number=Sing	2	obj	_	Entity=event-58)
@@ -252,7 +252,7 @@
 7	1947	1947	NUM	CD	NumForm=Digit|NumType=Card	2	obl	_	Entity=(time-59)|SpaceAfter=No
 8	,	,	PUNCT	,	_	10	punct	_	_
 9	and	and	CCONJ	CC	_	10	cc	_	Discourse=joint:32->31
-10	established	establish	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	2	conj	_	_
+10	established	establish	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	2	conj	_	_
 11	herself	herself	PRON	PRP	Case=Acc|Gender=Fem|Number=Sing|Person=3|PronType=Prs|Reflex=Yes	10	obj	_	Entity=(person-1-Jeanne_Moreau)
 12	as	as	ADP	IN	_	13	case	_	_
 13	one	one	NUM	CD	NumForm=Word|NumType=Card	10	obl	_	Entity=(person-1-Jeanne_Moreau
@@ -269,7 +269,7 @@
 # text = She began playing small roles in films in 1949, with impressive performances in the Fernandel vehicle Meurtres? (Three Sinners, 1950) and alongside Jean Gabin as a showgirl / gangster'smoll in the film Touchez pas au grisbi (1954).
 # s_type = decl
 1	She	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	2	nsubj	_	Discourse=sequence:33->31|Entity=(person-1-Jeanne_Moreau)
-2	began	begin	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+2	began	begin	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 3	playing	play	VERB	VBG	VerbForm=Ger	2	xcomp	_	_
 4	small	small	ADJ	JJ	Degree=Pos	5	amod	_	Entity=(abstract-61
 5	roles	role	NOUN	NNS	Number=Plur	3	obj	_	Entity=abstract-61)
@@ -320,7 +320,7 @@
 # text = She achieved prominence as the star of Elevator to the Gallows (1958), directed by Louis Malle, and Jules et Jim (1962), directed by François Truffaut.
 # s_type = decl
 1	She	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	2	nsubj	_	Discourse=sequence:37->31|Entity=(person-1-Jeanne_Moreau)
-2	achieved	achieve	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+2	achieved	achieve	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 3	prominence	prominence	NOUN	NN	Number=Sing	2	obj	_	Entity=(abstract-73)
 4	as	as	ADP	IN	_	6	case	_	_
 5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	_	Entity=(person-1-Jeanne_Moreau
@@ -356,14 +356,14 @@
 # sent_id = GUM_bio_moreau-18
 # text = Most prolific during the 1960s, Moreau continued to appear in films into her 80s.
 # s_type = decl
-1	Most	most	ADV	RBS	_	2	advmod	_	Discourse=concession:43->44
+1	Most	most	ADV	RBS	Degree=Sup	2	advmod	_	Discourse=concession:43->44
 2	prolific	prolific	ADJ	JJ	Degree=Pos	8	advmod	_	_
 3	during	during	ADP	IN	_	5	case	_	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Entity=(time-83
 5	1960s	1960s	NOUN	NNS	Number=Plur	2	obl	_	Entity=time-83)|SpaceAfter=No
 6	,	,	PUNCT	,	_	2	punct	_	_
 7	Moreau	Moreau	PROPN	NNP	Number=Sing	8	nsubj	_	Discourse=sequence:44->31|Entity=(person-1-Jeanne_Moreau)
-8	continued	continue	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+8	continued	continue	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 9	to	to	PART	TO	_	10	mark	_	_
 10	appear	appear	VERB	VB	VerbForm=Inf	8	xcomp	_	_
 11	in	in	ADP	IN	_	12	case	_	_
@@ -376,17 +376,17 @@
 # sent_id = GUM_bio_moreau-19
 # text = Early life and education
 # s_type = frag
-1	Early	early	ADJ	JJ	Degree=Pos	2	amod	_	Discourse=preparation:45->46|Entity=(abstract-86
+1	Early	early	ADJ	JJ	Degree=Pos	2	amod	_	Bridge=person-1-Jeanne_Moreau<abstract-86|Discourse=preparation:45->46|Entity=(abstract-86
 2	life	life	NOUN	NN	Number=Sing	0	root	_	Entity=abstract-86)
 3	and	and	CCONJ	CC	_	4	cc	_	_
-4	education	education	NOUN	NN	Number=Sing	2	conj	_	Entity=(abstract-87)
+4	education	education	NOUN	NN	Number=Sing	2	conj	_	Bridge=person-1-Jeanne_Moreau<abstract-87|Entity=(abstract-87)
 
 # sent_id = GUM_bio_moreau-20
 # text = Moreau was born in Paris, the daughter of Katherine (née Buckley), a dancer who performed at the Folies Bergère (d. 1990), and Anatole-Désiré Moreau, a restaurateur (d. 1975). [1] [2]
 # s_type = decl
 1	Moreau	Moreau	PROPN	NNP	Number=Sing	3	nsubj:pass	_	Discourse=elaboration:46->17|Entity=(person-1-Jeanne_Moreau)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	aux:pass	_	_
-3	born	bear	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
+3	born	bear	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	_	_
 4	in	in	ADP	IN	_	5	case	_	_
 5	Paris	Paris	PROPN	NNP	Number=Sing	3	obl	_	Entity=(place-6-Paris)|SpaceAfter=No
 6	,	,	PUNCT	,	_	8	punct	_	_
@@ -402,13 +402,13 @@
 16	a	a	DET	DT	Definite=Ind|PronType=Art	17	det	_	Discourse=same-unit:48->46|Entity=(person-88
 17	dancer	dancer	NOUN	NN	Number=Sing	10	appos	_	_
 18	who	who	PRON	WP	PronType=Rel	19	nsubj	_	Discourse=elaboration:49->48
-19	performed	perform	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	17	acl:relcl	_	_
+19	performed	perform	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	17	acl:relcl	_	_
 20	at	at	ADP	IN	_	22	case	_	_
 21	the	the	DET	DT	Definite=Def|PronType=Art	22	det	_	Entity=(place-90-Folies_Bergère
 22	Folies	Folie	PROPN	NNPS	Number=Plur	19	obl	_	_
 23	Bergère	Bergère	PROPN	NNP	Number=Sing	22	flat	_	Entity=person-88)place-90-Folies_Bergère)
 24	(	(	PUNCT	-LRB-	_	25	punct	_	Discourse=elaboration:50->46|SpaceAfter=No
-25	d.	die	VERB	VBN	Tense=Past|VerbForm=Part	10	parataxis	_	_
+25	d.	die	VERB	VBN	Abbr=Yes|Tense=Past|VerbForm=Part	10	parataxis	_	_
 26	1990	1990	NUM	CD	NumForm=Digit|NumType=Card	25	obl:tmod	_	Entity=(time-91)|SpaceAfter=No
 27	)	)	PUNCT	-RRB-	_	25	punct	_	SpaceAfter=No
 28	,	,	PUNCT	,	_	30	punct	_	_
@@ -419,7 +419,7 @@
 33	a	a	DET	DT	Definite=Ind|PronType=Art	34	det	_	Entity=(person-92
 34	restaurateur	restaurateur	NOUN	NN	Number=Sing	30	appos	_	Entity=person-92)
 35	(	(	PUNCT	-LRB-	_	36	punct	_	Discourse=elaboration:52->51|SpaceAfter=No
-36	d.	die	VERB	VBN	Tense=Past|VerbForm=Part	30	parataxis	_	_
+36	d.	die	VERB	VBN	Abbr=Yes|Tense=Past|VerbForm=Part	30	parataxis	_	_
 37	1975	1975	NUM	CD	NumForm=Digit|NumType=Card	36	obl:tmod	_	Entity=(time-93)|SpaceAfter=No
 38	)	)	PUNCT	-RRB-	_	36	punct	_	Entity=person-1-Jeanne_Moreau)|SpaceAfter=No
 39	.	.	PUNCT	.	_	3	punct	_	_
@@ -483,11 +483,11 @@
 7	her	her	PRON	PRP$	Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	8	nmod:poss	_	Entity=(person-88(person-1-Jeanne_Moreau)
 8	mother	mother	NOUN	NN	Number=Sing	14	nsubj	_	Entity=person-88)|SpaceAfter=No
 9	,	,	PUNCT	,	_	12	punct	_	_
-10	originally	originally	ADV	RB	_	12	advmod	_	Entity=(person-88
+10	originally	originally	ADV	RB	Degree=Pos	12	advmod	_	Entity=(person-88
 11	a	a	DET	DT	Definite=Ind|PronType=Art	12	det	_	_
 12	Protestant	Protestant	NOUN	NN	Number=Sing	8	appos	_	Entity=person-88)|SpaceAfter=No
 13	,	,	PUNCT	,	_	8	punct	_	_
-14	converted	convert	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	5	conj	_	_
+14	converted	convert	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	5	conj	_	_
 15	to	to	ADP	IN	_	16	case	_	_
 16	Catholicism	Catholicism	NOUN	NN	Number=Sing	14	obl	_	Entity=(abstract-103)
 17	upon	upon	ADP	IN	_	18	case	_	_
@@ -506,10 +506,10 @@
 4	girl	girl	NOUN	NN	Number=Sing	9	advcl	_	Entity=person-1-Jeanne_Moreau)|SpaceAfter=No
 5	,	,	PUNCT	,	_	4	punct	_	SpaceAfter=No
 6	"	''	PUNCT	''	Typo=Yes	4	punct	_	Discourse=sequence:66->46
-7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	_	Entity=(person-105
+7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	_	Bridge=person-1-Jeanne_Moreau<person-105|Entity=(person-105
 8	family	family	NOUN	NN	Number=Sing	9	nsubj	_	Entity=person-105)
-9	moved	move	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-10	south	south	ADV	RB	_	9	advmod	_	_
+9	moved	move	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
+10	south	south	ADV	RB	Degree=Pos	9	advmod	_	_
 11	to	to	ADP	IN	_	12	case	_	_
 12	Vichy	Vichy	PROPN	NNP	Number=Sing	9	obl	_	Entity=(place-106-Vichy)|SpaceAfter=No
 13	,	,	PUNCT	,	_	14	punct	_	_
@@ -547,7 +547,7 @@
 6	"	''	PUNCT	''	_	4	punct	_	SpaceAfter=No
 7	,	,	PUNCT	,	_	4	punct	_	_
 8	Moreau	Moreau	PROPN	NNP	Number=Sing	9	nsubj	_	Discourse=attribution:69->68|Entity=(person-1-Jeanne_Moreau)
-9	said	say	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
+9	said	say	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
 10	.	.	PUNCT	.	_	9	punct	_	_
 
 # sent_id = GUM_bio_moreau-25
@@ -557,7 +557,7 @@
 2	Every	every	DET	DT	_	3	det	_	Entity=(object-112
 3	tombstone	tombstone	NOUN	NN	Number=Sing	10	nsubj	_	_
 4	in	in	ADP	IN	_	6	case	_	_
-5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	_	Entity=(place-113
+5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	_	Bridge=place-108-Mazirat<place-113|Entity=(place-113
 6	cemetery	cemetery	NOUN	NN	Number=Sing	3	nmod	_	Entity=object-112)place-113)
 7	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	10	cop	_	_
 8	for	for	ADP	IN	_	10	case	_	_
@@ -573,16 +573,16 @@
 2	the	the	DET	DT	Definite=Def|PronType=Art|Typo=Yes	4	det	_	Entity=(event-115-World_War_II
 3	World	World	PROPN	NNP	Number=Sing	4	compound	_	_
 4	War	War	PROPN	NNP	Number=Sing	10	obl	_	_
-5	II	II	NUM	CD	NumForm=Roman|NumType=Card	4	dep	_	Entity=event-115-World_War_II)|SpaceAfter=No
+5	II	II	NUM	CD	NumForm=Roman|NumType=Card	4	amod	_	Entity=event-115-World_War_II)|SpaceAfter=No
 6	,	,	PUNCT	,	_	4	punct	_	_
 7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	_	Entity=(person-105
 8	family	family	NOUN	NN	Number=Sing	10	nsubj:pass	_	Entity=person-105)
 9	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	10	aux:pass	_	_
-10	split	split	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	SpaceAfter=No
+10	split	split	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	_	SpaceAfter=No
 11	,	,	PUNCT	,	_	14	punct	_	_
 12	and	and	CCONJ	CC	_	14	cc	_	Discourse=sequence:72->46
 13	Moreau	Moreau	PROPN	NNP	Number=Sing	14	nsubj	_	Entity=(person-1-Jeanne_Moreau)
-14	lived	live	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	10	conj	_	_
+14	lived	live	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	10	conj	_	_
 15	with	with	ADP	IN	_	17	case	_	_
 16	her	her	PRON	PRP$	Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	17	nmod:poss	_	Entity=(person-88(person-1-Jeanne_Moreau)
 17	mother	mother	NOUN	NN	Number=Sing	14	obl	_	Entity=person-88)
@@ -594,8 +594,8 @@
 # text = Moreau ultimately lost interest in school at age 16, and after attending a performance of Jean Anouilh's Antigone, found her calling as an actor.
 # s_type = decl
 1	Moreau	Moreau	PROPN	NNP	Number=Sing	3	nsubj	_	Discourse=sequence:73->46|Entity=(person-1-Jeanne_Moreau)
-2	ultimately	ultimately	ADV	RB	_	3	advmod	_	_
-3	lost	lose	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+2	ultimately	ultimately	ADV	RB	Degree=Pos	3	advmod	_	_
+3	lost	lose	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 4	interest	interest	NOUN	NN	Number=Sing	3	obj	_	_
 5	in	in	ADP	IN	_	6	case	_	_
 6	school	school	NOUN	NN	Number=Sing	4	nmod	_	Entity=(organization-116)
@@ -614,7 +614,7 @@
 19	's	's	PART	POS	_	17	case	_	Entity=person-120-Jean_Anouilh)
 20	Antigone	Antigone	PROPN	NNP	Number=Sing	15	nmod	_	Entity=event-118)abstract-119-Antigone_%28Anouilh_play%29)|SpaceAfter=No
 21	,	,	PUNCT	,	_	13	punct	_	_
-22	found	find	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	3	conj	_	Discourse=sequence:75->73
+22	found	find	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	conj	_	Discourse=sequence:75->73
 23	her	her	PRON	PRP$	Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	24	nmod:poss	_	Entity=(abstract-121(person-1-Jeanne_Moreau)
 24	calling	calling	NOUN	NN	Number=Sing	22	obj	_	_
 25	as	as	ADP	IN	_	27	case	_	_
@@ -627,7 +627,7 @@
 # s_type = decl
 1	She	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	3	nsubj	_	Discourse=sequence:76->46|Entity=(person-1-Jeanne_Moreau)
 2	later	later	ADV	RBR	Degree=Cmp	3	advmod	_	_
-3	studied	study	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+3	studied	study	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 4	at	at	ADP	IN	_	6	case	_	_
 5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	_	Entity=(organization-123-Conservatoire_de_Paris
 6	Conservatoire	Conservatoire	PROPN	NNP	Number=Sing	3	obl	_	_
@@ -638,10 +638,10 @@
 # sent_id = GUM_bio_moreau-29
 # text = Her parents separated permanently while Moreau was at the conservatory and her mother, "after 24 difficult years in France, returned to England with Jeanne's [6] sister, Michelle." [6]
 # s_type = decl
-1	Her	her	PRON	PRP$	Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	2	nmod:poss	_	Discourse=sequence:77->46|Entity=(person-124(person-1-Jeanne_Moreau)
+1	Her	her	PRON	PRP$	Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	2	nmod:poss	_	Discourse=sequence:77->46|Entity=(person-124(person-1-Jeanne_Moreau)|Split=person-92<person-124,person-88<person-124
 2	parents	parent	NOUN	NNS	Number=Plur	3	nsubj	_	Entity=person-124)
-3	separated	separate	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
-4	permanently	permanently	ADV	RB	_	3	advmod	_	_
+3	separated	separate	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
+4	permanently	permanently	ADV	RB	Degree=Pos	3	advmod	_	_
 5	while	while	SCONJ	IN	_	10	mark	_	Discourse=circumstance:78->77
 6	Moreau	Moreau	PROPN	NNP	Number=Sing	10	nsubj	_	Entity=(person-1-Jeanne_Moreau)
 7	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	10	cop	_	_
@@ -660,7 +660,7 @@
 20	in	in	ADP	IN	_	21	case	_	_
 21	France	France	PROPN	NNP	Number=Sing	19	nmod	_	Entity=(place-7-France)time-125)|SpaceAfter=No
 22	,	,	PUNCT	,	_	19	punct	_	_
-23	returned	return	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	3	conj	_	_
+23	returned	return	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	3	conj	_	_
 24	to	to	ADP	IN	_	25	case	_	_
 25	England	England	PROPN	NNP	Number=Sing	23	obl	_	Entity=(place-98-England)
 26	with	with	ADP	IN	_	32	case	_	_
@@ -681,7 +681,7 @@
 # sent_id = GUM_bio_moreau-30
 # text = Career
 # s_type = frag
-1	Career	Career	PROPN	NNP	Number=Sing	0	root	_	Discourse=preparation:83->84|Entity=(abstract-128-Career)
+1	Career	Career	PROPN	NNP	Number=Sing	0	root	_	Bridge=person-1-Jeanne_Moreau<abstract-128-Career|Discourse=preparation:83->84|Entity=(abstract-128-Career)
 
 # sent_id = GUM_bio_moreau-31
 # text = In 1947, Moreau made her theatrical debut at the Avignon Festival.
@@ -690,7 +690,7 @@
 2	1947	1947	NUM	CD	NumForm=Digit|NumType=Card	5	obl	_	Entity=(time-59)|SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	_	_
 4	Moreau	Moreau	PROPN	NNP	Number=Sing	5	nsubj	_	Entity=(person-1-Jeanne_Moreau)
-5	made	make	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+5	made	make	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 6	her	her	PRON	PRP$	Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	8	nmod:poss	_	Entity=(event-58(person-1-Jeanne_Moreau)
 7	theatrical	theatrical	ADJ	JJ	Degree=Pos	8	amod	_	_
 8	debut	debut	NOUN	NN	Number=Sing	5	obj	_	Entity=event-58)
@@ -704,7 +704,7 @@
 # text = She debuted at the Comédie-Française in Ivan Turgenev's A Month in the Country [6] and, by her 20s, was already one of leading actresses in the theatre's troupe. [2]
 # s_type = decl
 1	She	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	2	nsubj	_	Discourse=sequence:85->84|Entity=(person-1-Jeanne_Moreau)
-2	debuted	debut	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+2	debuted	debut	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 3	at	at	ADP	IN	_	5	case	_	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Entity=(organization-60-Comédie-Française
 5	Comédie-Française	Comédie-Française	NOUN	NN	Number=Sing	2	obl	_	Entity=organization-60-Comédie-Française)
@@ -749,7 +749,7 @@
 2	1949	1949	NUM	CD	NumForm=Digit|NumType=Card	5	obl	_	Entity=(time-24)|SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	_	_
 4	she	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	5	nsubj	_	Entity=(person-1-Jeanne_Moreau)
-5	began	begin	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+5	began	begin	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 6	appearing	appear	VERB	VBG	VerbForm=Ger	5	xcomp	_	_
 7	in	in	ADP	IN	_	8	case	_	_
 8	films	film	NOUN	NNS	Number=Plur	6	obl	_	Entity=(abstract-137)
@@ -757,8 +757,8 @@
 10	small	small	ADJ	JJ	Degree=Pos	11	amod	_	Entity=(abstract-138
 11	parts	part	NOUN	NNS	Number=Plur	6	obl	_	Entity=abstract-138)
 12	but	but	CCONJ	CC	_	13	cc	_	Discourse=contrast:90->89
-13	continued	continue	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	5	conj	_	_
-14	primarily	primarily	ADV	RB	_	15	advmod	_	_
+13	continued	continue	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	5	conj	_	_
+14	primarily	primarily	ADV	RB	Degree=Pos	15	advmod	_	_
 15	active	active	ADJ	JJ	Degree=Pos	13	xcomp	_	_
 16	in	in	ADP	IN	_	18	case	_	_
 17	the	the	DET	DT	Definite=Def|PronType=Art	18	det	_	Entity=(place-139
@@ -840,7 +840,7 @@
 11	films	film	NOUN	NNS	Number=Plur	7	obl	_	Entity=abstract-157)|SpaceAfter=No
 12	,	,	PUNCT	,	_	7	punct	_	_
 13	she	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	14	nsubj	_	Discourse=same-unit:95->93|Entity=(person-1-Jeanne_Moreau)
-14	began	begin	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+14	began	begin	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 15	to	to	PART	TO	_	16	mark	_	_
 16	work	work	VERB	VB	VerbForm=Inf	14	xcomp	_	_
 17	with	with	ADP	IN	_	20	case	_	_
@@ -868,7 +868,7 @@
 11	Louis	Louis	PROPN	NNP	Number=Sing	10	flat	_	_
 12	Malle	Malle	PROPN	NNP	Number=Sing	10	flat	_	Entity=person-77-Louis_Malle)
 13	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	14	aux:pass	_	_
-14	followed	follow	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
+14	followed	follow	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	_	_
 15	by	by	ADP	IN	_	19	case	_	_
 16	Malle	Malle	PROPN	NNP	Number=Sing	19	nmod:poss	_	Entity=(abstract-160-The_Lovers_%281958_film%29(person-77-Louis_Malle|SpaceAfter=No
 17	's	's	PART	POS	_	16	case	_	Entity=person-77-Louis_Malle)
@@ -889,7 +889,7 @@
 # text = Moreau went on to work with many of the best known New Wave and avant-garde directors. [2]
 # s_type = decl
 1	Moreau	Moreau	PROPN	NNP	Number=Sing	2	nsubj	_	Discourse=sequence:101->84|Entity=(person-1-Jeanne_Moreau)
-2	went	go	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+2	went	go	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 3	on	on	ADP	RP	_	2	compound:prt	_	_
 4	to	to	PART	TO	_	5	mark	_	_
 5	work	work	VERB	VB	VerbForm=Inf	2	xcomp	_	_
@@ -928,10 +928,10 @@
 14	her	her	PRON	PRP$	Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	16	nmod:poss	_	Discourse=same-unit:105->103|Entity=(abstract-78-Jules_and_Jim(person-1-Jeanne_Moreau)
 15	biggest	big	ADJ	JJS	Degree=Sup	16	amod	_	_
 16	success	success	NOUN	NN	Number=Sing	6	appos	_	_
-17	internationally	internationally	ADV	RB	_	16	advmod	_	Entity=abstract-78-Jules_and_Jim)|SpaceAfter=No
+17	internationally	internationally	ADV	RB	Degree=Pos	16	advmod	_	Entity=abstract-78-Jules_and_Jim)|SpaceAfter=No
 18	,	,	PUNCT	,	_	6	punct	_	_
 19	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	20	aux:pass	_	_
-20	centered	center	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
+20	centered	center	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	_	_
 21	on	on	ADP	IN	_	25	case	_	_
 22	her	her	PRON	PRP$	Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	25	nmod:poss	_	Entity=(abstract-166(person-1-Jeanne_Moreau)
 23	magnetic	magnetic	ADJ	JJ	Degree=Pos	25	amod	_	_
@@ -947,7 +947,7 @@
 # s_type = decl
 1	She	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	3	nsubj	_	Discourse=joint:107->103|Entity=(person-1-Jeanne_Moreau)
 2	also	also	ADV	RB	_	3	advmod	_	_
-3	worked	work	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+3	worked	work	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 4	with	with	ADP	IN	_	6	case	_	_
 5	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	_	Entity=(person-167
 6	number	number	NOUN	NN	Number=Sing	3	obl	_	_
@@ -979,7 +979,7 @@
 32	Midnight	Midnight	PROPN	NNP	Number=Sing	30	nmod	_	Entity=(time-175-Midnight)abstract-174-Chimes_at_Midnight)
 33	and	and	CCONJ	CC	_	36	cc	_	_
 34	The	the	DET	DT	Definite=Def|PronType=Art	36	det	_	Entity=(abstract-176-The_Immortal_Story
-35	Immortal	Immortal	PROPN	NNP	Number=Sing|Polarity=Neg	36	amod	_	_
+35	Immortal	Immortal	PROPN	NNP	Number=Sing	36	amod	_	_
 36	Story	Story	PROPN	NNP	Number=Sing	28	conj	_	Entity=abstract-176-The_Immortal_Story)|SpaceAfter=No
 37	)	)	PUNCT	-RRB-	_	28	punct	_	SpaceAfter=No
 38	,	,	PUNCT	,	_	39	punct	_	_
@@ -1071,7 +1071,7 @@
 3	,	,	PUNCT	,	_	2	punct	_	_
 4	she	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	6	nsubj:pass	_	Entity=(person-1-Jeanne_Moreau)
 5	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	6	aux:pass	_	_
-6	awarded	award	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
+6	awarded	award	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	_	_
 7	with	with	ADP	IN	_	10	case	_	_
 8	the	the	DET	DT	Definite=Def|PronType=Art	10	det	_	Entity=(abstract-199-Stanislavsky_Award
 9	Stanislavsky	Stanislavsky	PROPN	NNP	Number=Sing	10	compound	_	Entity=(person-200-Konstantin_Stanislavski)
@@ -1102,12 +1102,12 @@
 # text = She released several albums and once performed with Frank Sinatra at Carnegie Hall in 1984. [2]
 # s_type = decl
 1	She	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	2	nsubj	_	Discourse=elaboration:128->127|Entity=(person-1-Jeanne_Moreau)
-2	released	release	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+2	released	release	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 3	several	several	ADJ	JJ	Degree=Pos	4	amod	_	Entity=(abstract-204
 4	albums	album	NOUN	NNS	Number=Plur	2	obj	_	Entity=abstract-204)
 5	and	and	CCONJ	CC	_	7	cc	_	Discourse=joint:129->128
 6	once	once	ADV	RB	NumType=Mult	7	advmod	_	_
-7	performed	perform	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	2	conj	_	_
+7	performed	perform	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	2	conj	_	_
 8	with	with	ADP	IN	_	9	case	_	_
 9	Frank	Frank	PROPN	NNP	Number=Sing	7	obl	_	Entity=(person-205-Frank_Sinatra
 10	Sinatra	Sinatra	PROPN	NNP	Number=Sing	9	flat	_	Entity=person-205-Frank_Sinatra)
@@ -1130,7 +1130,7 @@
 4	acting	acting	NOUN	NN	Number=Sing	2	nmod	_	Entity=(abstract-209)|SpaceAfter=No
 5	,	,	PUNCT	,	_	2	punct	_	_
 6	Moreau	Moreau	PROPN	NNP	Number=Sing	7	nsubj	_	Discourse=joint:132->84|Entity=(person-1-Jeanne_Moreau)
-7	worked	work	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+7	worked	work	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 8	behind	behind	ADP	IN	_	10	case	_	_
 9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	_	Entity=(object-210
 10	camera	camera	NOUN	NN	Number=Sing	7	obl	_	Entity=object-210)
@@ -1151,7 +1151,7 @@
 # s_type = decl
 1	Her	her	PRON	PRP$	Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	2	nmod:poss	_	Discourse=joint:134->84|Entity=(abstract-211(person-1-Jeanne_Moreau)
 2	accomplishments	accomplishment	NOUN	NNS	Number=Plur	5	nsubj	_	Entity=abstract-211)
-3	were	be	AUX	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	5	cop	_	_
+3	were	be	AUX	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	5	cop	_	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Entity=(abstract-211
 5	subject	subject	NOUN	NN	Number=Sing	0	root	_	_
 6	of	of	ADP	IN	_	8	case	_	_
@@ -1174,6 +1174,4 @@
 23	citation	citation	NOUN	NN	Number=Sing	5	dep	_	Entity=(abstract-216)
 24	needed	need	VERB	VBN	Tense=Past|VerbForm=Part	23	acl	_	SpaceAfter=No
 25	]	]	PUNCT	-RSB-	_	23	punct	_	_
-
-
 
