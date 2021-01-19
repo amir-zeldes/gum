@@ -9,7 +9,7 @@ from .nlp_helper import get_claws, adjudicate_claws, ud_morph
 from .depedit import DepEdit
 import os, re, sys, io
 import ntpath
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
 
 
 PY2 = sys.version_info[0] < 3
@@ -344,7 +344,7 @@ def compile_ud(tmp, gum_target, reddit=False):
 			  "GUM_bio_byron", "GUM_bio_emperor",
 			  "GUM_fiction_lunre", "GUM_fiction_beast",
 			  "GUM_academic_exposure", "GUM_academic_librarians",
-			  "GUM_reddit_macroeconomics", "GUM_reddit_pandas",
+			  #"GUM_reddit_macroeconomics", "GUM_reddit_pandas",
 			  "GUM_speech_impeachment", "GUM_textbook_cognition",
 			  "GUM_vlog_radiology", "GUM_conversation_grounded"]
 	ud_test = ["GUM_interview_libertarian", "GUM_interview_hill",
@@ -354,7 +354,7 @@ def compile_ud(tmp, gum_target, reddit=False):
 			   "GUM_fiction_falling", "GUM_fiction_teeth",
 			   "GUM_bio_jespersen", "GUM_bio_dvorak",
 			   "GUM_academic_eegimaa", "GUM_academic_discrimination",
-			   "GUM_reddit_escape", "GUM_reddit_monsters",
+			   #"GUM_reddit_escape", "GUM_reddit_monsters",
 			   "GUM_speech_austria", "GUM_textbook_chemistry",
 			   "GUM_vlog_studying", "GUM_conversation_retirement"]
 
@@ -581,22 +581,23 @@ def compile_ud(tmp, gum_target, reddit=False):
 				lemma = doc_lemmas[tok_num]
 				tok_num += 1
 				fields = line.split("\t")
-				if tok_num in negative and "Polarity" not in fields[5]:
-					fields[5] = add_feat(fields[5],"Polarity=Neg")
-				if fields[4] == "CD" and fields[2].isnumeric():
-					fields[5] = add_feat(fields[5],"NumForm=Digit")
-				elif fields[4] == "CD" and re.match(r'[XIVLMC]+\.?$',fields[2]) is not None:
-					fields[5] = add_feat(fields[5],"NumForm=Roman")
-				elif fields[4] == "CD":
-					fields[5] = add_feat(fields[5],"NumForm=Word")
-				if is_abbr(fields[1],fields[4]):
-					fields[5] = add_feat(fields[5],"Abbr=Yes")
-
+				if use_corenlp:  # Handle annotations not covered by corenlp
+					if tok_num in negative and "Polarity" not in fields[5]:
+						fields[5] = add_feat(fields[5],"Polarity=Neg")
+					if fields[4] == "CD" and fields[2].isnumeric() and "NumForm" not in fields[5]:
+						fields[5] = add_feat(fields[5],"NumForm=Digit")
+					elif fields[4] == "CD" and re.match(r'[XIVLMC]+\.?$',fields[2]) is not None and "NumForm" not in fields[5]:
+						fields[5] = add_feat(fields[5],"NumForm=Roman")
+					elif fields[4] == "CD" and "NumForm" not in fields[5]:
+						fields[5] = add_feat(fields[5],"NumForm=Word")
+					if is_abbr(fields[1],fields[4]) and "Abbr" not in fields[5]:
+						fields[5] = add_feat(fields[5],"Abbr=Yes")
+					if imp and fields[5] == "VerbForm=Inf" and fields[7] == "root":  # Inf root in s_type=imp should be Imp
+						fields[5] = "Mood=Imp|VerbForm=Fin"
+				fields[8] = "_"
 				fields[1] = tok  # Restore correct utf8 token and lemma
 				fields[2] = lemma
-				if imp and fields[5] == "VerbForm=Inf" and fields[7] == "root":  # Inf root in s_type=imp should be Imp
-					fields[5] = "Mood=Imp|VerbForm=Fin"
-				fields[8] = "_"
+
 				negatived.append("\t".join(fields))
 			else:
 				if line.startswith("# text = "):  # Regenerate correct utf8 plain text
@@ -863,7 +864,7 @@ def add_rsd_to_conllu(gum_target,reddit=False):
 			output.append(line)
 
 		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
-			f.write("\n".join(output) + "\n")
+			f.write("\n".join(output).strip() + "\n\n")
 
 
 def add_entities_to_conllu(gum_target,reddit=False):
@@ -903,5 +904,167 @@ def add_entities_to_conllu(gum_target,reddit=False):
 			output.append(line)
 
 		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
-			f.write("\n".join(output) + "\n")
+			f.write("\n".join(output).strip() + "\n\n")
 
+
+def get_bridging(webannotsv):
+	"""Get entities connected by bridging relations as sources, target, briding type, where
+		entities are described by their token spans and edges are mapped from source to target and edge type
+	"""
+
+	tid = 0
+	edges_by_source = defaultdict(OrderedDict)
+	spans_by_id = defaultdict(list)
+	for line in webannotsv.split("\n"):
+		if "\t" in line:  # Token
+			fields = line.split("\t")
+			ents = fields[3].split("|")
+			edge_types = fields[-3].split("|")
+			edges = fields[-2].split("|")
+			for i, ent in enumerate(ents):
+				if ent != "_":
+					if "[" in ent:
+						eid = ent.split("[")[1][:-1]
+					else:
+						eid = fields[0]
+					spans_by_id[eid].append(tid)
+			for i, edge_type in enumerate(edge_types):
+				if edge_type.startswith("bridge"):
+					edge = edges[i]
+					if "[" not in edge:
+						edge += "[0_0]"
+					src, target = edge.split("[")[1].split("_")
+					target = target[:-1]
+					if src == "0":
+						src = edge.split("[")[0]
+					if target == "0":
+						target = fields[0]
+					if "aggr" in edge_type:
+						edges_by_source[src][(target,"split")] = None
+					else:
+						edges_by_source[src][(target,"bridge")] = None
+			tid += 1
+
+	out_spans = {}
+	rev_out_spans = {}
+
+	for eid in spans_by_id:
+		start = min(spans_by_id[eid])
+		end = max(spans_by_id[eid])
+		out_spans[(start,end)] = eid
+		rev_out_spans[eid] = (start, end)
+
+	return edges_by_source, out_spans, rev_out_spans
+
+
+def merge_bridge_conllu(conllu, webannotsv):
+	def no_brace(instr):
+		return instr.replace("(","").replace(")","")
+
+	edges_by_source, span_to_eid, eid_to_span = get_bridging(webannotsv)
+
+	lines = conllu.split("\n")
+
+	tid = 0
+	# Pass 1 - get spans
+	opened = defaultdict(list)
+	conll_start_to_end = {}
+	conll_span_to_ent = {}
+	for line in lines:
+		if "\t" in line:
+			fields = line.split("\t")
+			if "-" in fields[0]:
+				continue
+			if "Entity=" in fields[-1]:
+				ent_field = fields[-1].split("Entity=")[1].split("|")[0]
+				ents = re.findall(r'(\(?[^()]+\)?)',ent_field)  # look for opening and closing entities
+				for ent in ents:
+					plain_ent = no_brace(ent)
+					if ent.startswith("("):
+						if ent.endswith(")"):  # Single line ent
+							conll_start_to_end[(tid,plain_ent)] = tid
+							conll_span_to_ent[(tid, tid)] = plain_ent
+						else:
+							opened[plain_ent].append(tid)
+					else:
+						start = opened[plain_ent].pop()
+						conll_start_to_end[(start,plain_ent)] = tid
+						conll_span_to_ent[(start,tid)] = plain_ent
+			tid += 1
+
+	# Pass 2 - insert bridge data
+	tid = 0
+	output = []
+	bridging = []
+	split_ante = []
+	for line in lines:
+		if "\t" in line:
+			fields = line.split("\t")
+			if "-" in fields[0]:
+				output.append(line)
+				continue
+			if "Entity=" in fields[-1]:
+				ent_field = fields[-1].split("Entity=")[1].split("|")[0]
+				ents = re.findall(r'(\([^()]+\)?)',ent_field)  # only look for opening entities
+				for ent in ents:
+					plain_ent = no_brace(ent)
+					end = conll_start_to_end[(tid,plain_ent)]
+					if (tid, end) in span_to_eid:
+						eid = span_to_eid[(tid, end)]
+						if eid in edges_by_source:
+							for target, bridge_type in edges_by_source[eid]:
+								target_start, target_end = eid_to_span[target]
+								target_ent = conll_span_to_ent[(target_start, target_end)]
+								edge = target_ent + "<" + plain_ent
+								if bridge_type == "split":
+									split_ante.append(edge)
+								else:
+									bridging.append(edge)
+			out_misc = fields[-1].split("|") if fields[-1] != "_" else []
+			out_misc = [a for a in out_misc if not a.startswith("Bridg") and not a.startswith("Split")]  # Kill existing values
+			if len(bridging) > 0:
+				out_misc.append("Bridge=" + ",".join(bridging))
+			if len(split_ante) > 0:
+				out_misc.append("Split=" + ",".join(split_ante))
+			bridging = []
+			split_ante = []
+			fields[-1] = "|".join(sorted(out_misc)) if len(out_misc) > 0 else "_"
+			line = "\t".join(fields)
+			tid += 1
+		output.append(line)
+
+	return "\n".join(output).strip() + "\n\n"
+
+
+def add_bridging_to_conllu(gum_target,reddit=False):
+	if not gum_target.endswith(os.sep):
+		gum_target += os.sep
+
+	files = glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
+
+	if not reddit:
+		files = [f for f in files if not "reddit" in f]
+
+	all_merged = {}
+	for file_ in files:
+		tsv_file = gum_target + "coref" + os.sep + "tsv" + os.sep + os.path.basename(file_).replace("conllu","tsv")
+
+		merged = merge_bridge_conllu(io.open(file_,encoding="utf8").read(),io.open(tsv_file,encoding="utf8").read())
+		merged = merged.strip() + "\n\n"
+
+		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
+			f.write(merged)
+
+		all_merged[os.path.basename(file_).replace(".conllu","")] = merged
+
+	bigfiles = glob(gum_target + "dep" + os.sep + "*.conllu")
+
+	for file_ in bigfiles:
+		docs = re.findall("# newdoc id ?= ?(GUM_[^\n]+)",io.open(file_).read())
+
+		output = []
+		for doc in docs:
+			output.append(all_merged[doc])
+
+		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
+			f.write("".join(output).strip() + "\n\n")
