@@ -120,6 +120,11 @@ def const_parse(gum_source, warn_slash_tokens=False, reddit=False):
 			continue
 		xmlfiles.append(file_)
 
+	# Do not overwrite gold constituent parse trees
+	gold_const = ["GUM_academic_discrimination","GUM_bio_emperor","GUM_fiction_oversite","GUM_interview_peres",
+				  "GUM_news_nasa","GUM_reddit_polygraph","GUM_voyage_athens","GUM_whow_arrogant"]
+	xmlfiles = [f for f in xmlfiles if os.path.basename(f).replace(".xml","") not in gold_const]
+	
 	for docnum, xmlfile in enumerate(xmlfiles):
 
 		if "_all" in xmlfile:
