@@ -709,7 +709,7 @@ class DepEdit:
 										if not ov.split("=")[0] in new_vals_keys:  # Else this needs to be overwritten
 											kv.append(ov)
 									kv += new_vals
-									value = "|".join(sorted(kv))
+									value = "|".join(sorted(kv,key=lambda x:x.lower()))
 								else:
 									value = "|".join(new_vals)
 							setattr(result[node_position], prop, value)
