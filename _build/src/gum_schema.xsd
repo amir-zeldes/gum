@@ -16,7 +16,7 @@
       <xs:attribute name="id" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="GUM_(bio|academic|reddit|fiction|news|whow|voyage|interview)_[a-z]+[0-9]?"/>
+            <xs:pattern value="GUM_(bio|academic|reddit|fiction|news|whow|voyage|interview|conversation|speech|textbook|vlog)_[a-z]+[0-9]?"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -76,6 +76,12 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
+      <xs:attribute name="sourcePublication" use="optional">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
       <xs:attribute name="type" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -87,6 +93,10 @@
             <xs:enumeration value="bio"/>
             <xs:enumeration value="reddit"/>
             <xs:enumeration value="fiction"/>
+            <xs:enumeration value="conversation"/>
+            <xs:enumeration value="speech"/>
+            <xs:enumeration value="textbook"/>
+            <xs:enumeration value="vlog"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -240,13 +250,16 @@
     <xs:complexType mixed="true">
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="ref"/>
- <xs:element minOccurs="0" maxOccurs="unbounded" ref="w"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="incident"/>
+         <xs:element minOccurs="0" maxOccurs="unbounded" ref="w"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="w">
     <xs:complexType mixed="true">
       <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="hi"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="q"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="sic"/>
       </xs:sequence>
     </xs:complexType>

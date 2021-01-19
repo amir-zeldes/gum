@@ -5,11 +5,12 @@
 # v1.0.2
 
 from glob import glob
-from .nlp_helper import get_claws, adjudicate_claws, parse, ud_morph
+from .nlp_helper import get_claws, adjudicate_claws, ud_morph
 from .depedit import DepEdit
 import os, re, sys, io
 import ntpath
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
+
 
 PY2 = sys.version_info[0] < 3
 
@@ -28,6 +29,10 @@ except:
 		print("      Punctuation behavior in the UD conversion relies on udapi. ")
 		print("      Please install it (e.g. pip3 install udapi)")
 
+utils_abs_path = os.path.dirname(os.path.realpath(__file__))
+ud_morph_deped = DepEdit(utils_abs_path + os.sep + "ud_morph.ini")
+ud_morph_deped.quiet = True
+
 class Args:
 
 	def __init__(self):
@@ -36,11 +41,12 @@ class Args:
 
 class Entity:
 
-	def __init__(self, ent_id, type, infstat):
+	def __init__(self, ent_id, type, infstat, identity):
 		self.id = ent_id
 		self.type = type
 		self.infstat = infstat
 		self.tokens = []
+		self.identity = identity
 		self.line_tokens = []
 		self.coref_type = ""
 		self.coref_link = ""
@@ -90,6 +96,13 @@ def is_neg_lemma(lemma,pos):
 	for stem in negstems:
 		if lemma.startswith(stem):
 			return True
+	return False
+
+
+def is_abbr(word, xpos):
+	abbr = r"(US|NASA|NATO|U\.S\.|USI|DH|DAB|UK|IE6|COVID-19|KPA|UNESCO|FTU|LA|VR|MLB|USA|IATA|ROS|CC|IE|OK|ABC|BBC|DSW|NBC|U\.S|KCNA|ACPeds|US-412|WB|CBC|ICI|ISO|JSC|KKK|KSC|PHX|WHO|BART|CNRS|ELI5|FIFA|O\.J\.|NWSC|ROTC|BAFTA|STS-1|US-75|US-169|NEMISIS|STS-133|STS-134|STS-135|NSU|FEDERAL|ANDRILL|AS|AV|CO|CV|CW|DC|FN|GW|JK|KS|LV|MC|NB|NJ|NZ|PC|QC|RA|SC|ST|UC|VM|XP|XV|AFP|AIM|BAK|BBF|BPA|CBS|CEI|CIS|CRA|DBE|DNA|FRS|GIS|GPL|HBO|HIV|IDD|IE9|IFN|IMU|IQA|IRC|JFK|JPL|LIS|LSD|MIT|MSN|MTV|NBA|NFL|NHS|NPP|NSW|NTU|OIR|ROS|RVS|SNY|TUL|UKB|UNC|USD|USS|WTA|XML|ADPL|AIDS|AKMA|B\.A\.|ARES|D\.C\.|DPRK|FFFF|FGCU|HECS|HTML|IOTM|IRIS|K\.C\.|L\.A\.|MASS|MMPI|OSCE|S\.F\.|SETI|TAOM|THEO|U\.N\.|UAAR|WWII|XKCD|DHBs|U\.S\.|BY-SA|CITIC|LIBER|M\.Sc\.|NCLAN|ODIHR|UNMIK|OSU|CC-BY-SA-NC|CBC\.ca|DH+Lib|DH2017|e\.g\.|al\.|etc\.|Mr\.|St\.|i\.e\.|c\.|b\.|Ph\.D\.|Mrs\.|d\.|m\.|p\.|Dr\.|Jr\.|No\.|vs\.|div\.|approx\.|a\.|Ed\.|Mt\.|Op\.|ca\.|cm\.|Ave\.|Cal\.|E\.g\.|Feb\.|Inc\.|Vol\.|a\.m\.|eds\.|p\.m\.|M\.Sc\.|Mlle\.|Prof\.)$"
+	if re.match(abbr,word) is not None:
+		return True
 	return False
 
 
@@ -193,15 +206,17 @@ def enrich_dep(gum_source, tmp, reddit=False):
 
 	for docnum, depfile in enumerate(depfiles):
 		docname = ntpath.basename(depfile)
-		sys.stdout.write("\t+ " + " "*50 + "\r")
+		sys.stdout.write("\t+ " + " "*70 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(depfiles)) + ":\t+ " + docname + "\r")
 		current_stype = ""
 		current_speaker = ""
+		current_addressee = ""
 		current_sic = False
 		current_w = False
 		output = ""
 		stype_by_token = {}
 		speaker_by_token = {}
+		addressee_by_token = {}
 		space_after_by_token = defaultdict(lambda: True)
 		sic_by_token = defaultdict(lambda: False)
 
@@ -220,8 +235,11 @@ def enrich_dep(gum_source, tmp, reddit=False):
 					current_stype = re.match(r'<s type="([^"]+)"',line).group(1)
 				elif line.startswith("<sp who="):
 					current_speaker = re.search(r' who="([^"]+)"', line).group(1).replace("#","")
+					if "whom=" in line:
+						current_addressee = re.search(r' whom="([^"]+)"', line).group(1).replace("#", "")
 				elif line.startswith("</sp>"):
 					current_speaker = ""
+					current_addressee = ""
 				elif line.startswith("<w>"):
 					space_after_by_token[tok_num+1] = True
 				elif line.startswith("</w>"):
@@ -248,13 +266,14 @@ def enrich_dep(gum_source, tmp, reddit=False):
 					space_after_by_token[tok_num-1] = False
 				stype_by_token[tok_num] = current_stype
 				speaker_by_token[tok_num] = current_speaker
+				addressee_by_token[tok_num] = current_addressee
 				sic_by_token[tok_num] = current_sic
 				wordforms[tok_num], pos[tok_num], lemmas[tok_num] = fields[:3]
 
 		conll_lines = io.open(depfile,encoding="utf8").read().replace("\r","").split("\n")
 		tok_num = 0
 		for line in conll_lines:
-			if "# speaker" in line or "# s_type" in line:
+			if "# speaker" in line or "# s_type" in line or "# addressee" in line:
 				# Ignore old speaker and s_type annotations in favor of fresh ones
 				continue
 			if "\t" in line:  # Token
@@ -293,6 +312,8 @@ def enrich_dep(gum_source, tmp, reddit=False):
 					output += "# s_type = " + stype_by_token[tok_num] + "\n"
 				if len(speaker_by_token[tok_num]) > 0:
 					output += "# speaker = " + speaker_by_token[tok_num] + "\n"
+				if len(addressee_by_token[tok_num]) > 0:
+					output += "# addressee = " + addressee_by_token[tok_num] + "\n"
 			output += line + "\n"
 
 		output = output.strip() + "\n" + "\n"
@@ -316,19 +337,26 @@ def compile_ud(tmp, gum_target, reddit=False):
 		print("      Punctuation behavior in the UD data relies on udapi ")
 		print("      which does not support Python 2. All punctuation will be attached to sentence roots.\n")
 
-
-	ud_dev = ["GUM_interview_peres","GUM_interview_cyclone","GUM_interview_gaming",
-			   "GUM_news_iodine","GUM_news_defector","GUM_news_homeopathic",
-			   "GUM_voyage_athens","GUM_voyage_isfahan","GUM_voyage_coron",
-			   "GUM_whow_joke","GUM_whow_skittles","GUM_whow_overalls",
-			   "GUM_fiction_beast","GUM_bio_emperor","GUM_academic_librarians",
-			   "GUM_fiction_lunre","GUM_bio_byron","GUM_academic_exposure"]
-	ud_test = ["GUM_interview_mcguire","GUM_interview_libertarian","GUM_interview_hill",
-			   "GUM_news_nasa","GUM_news_expo","GUM_news_sensitive",
-			   "GUM_voyage_oakland","GUM_voyage_thailand","GUM_voyage_vavau",
-			   "GUM_whow_mice","GUM_whow_cupcakes","GUM_whow_cactus",
-			   "GUM_fiction_falling","GUM_bio_jespersen","GUM_academic_discrimination",
-			   "GUM_academic_eegimaa","GUM_bio_dvorak","GUM_fiction_teeth"]
+	ud_dev = ["GUM_interview_cyclone", "GUM_interview_gaming",
+			  "GUM_news_iodine", "GUM_news_homeopathic",
+			  "GUM_voyage_athens", "GUM_voyage_coron",
+			  "GUM_whow_joke", "GUM_whow_overalls",
+			  "GUM_bio_byron", "GUM_bio_emperor",
+			  "GUM_fiction_lunre", "GUM_fiction_beast",
+			  "GUM_academic_exposure", "GUM_academic_librarians",
+			  #"GUM_reddit_macroeconomics", "GUM_reddit_pandas",
+			  "GUM_speech_impeachment", "GUM_textbook_cognition",
+			  "GUM_vlog_radiology", "GUM_conversation_grounded"]
+	ud_test = ["GUM_interview_libertarian", "GUM_interview_hill",
+			   "GUM_news_nasa", "GUM_news_sensitive",
+			   "GUM_voyage_oakland", "GUM_voyage_vavau",
+			   "GUM_whow_mice", "GUM_whow_cactus",
+			   "GUM_fiction_falling", "GUM_fiction_teeth",
+			   "GUM_bio_jespersen", "GUM_bio_dvorak",
+			   "GUM_academic_eegimaa", "GUM_academic_discrimination",
+			   #"GUM_reddit_escape", "GUM_reddit_monsters",
+			   "GUM_speech_austria", "GUM_textbook_chemistry",
+			   "GUM_vlog_studying", "GUM_conversation_retirement"]
 
 
 	train_string, dev_string, test_string = "", "", ""
@@ -348,13 +376,15 @@ def compile_ud(tmp, gum_target, reddit=False):
 			continue
 		depfiles.append(file_)
 
+	# depedit script to fix known projective punctuation issues
+	# note that this script also introduces some post editing to morphology, such as passive Voice
 	punct_depedit = DepEdit(config_file="utils" + os.sep + "projectivize_punct.ini")
 
 	for docnum, depfile in enumerate(depfiles):
 
 		docname = os.path.basename(depfile).replace(".conllu","")
 
-		sys.stdout.write("\t+ " + " "*50 + "\r")
+		sys.stdout.write("\t+ " + " "*70 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(depfiles)) + ":\t+ " + docname + "\r")
 
 		entity_file = tmp + "tsv" + os.sep + "GUM" + os.sep + docname + ".tsv"
@@ -370,10 +400,11 @@ def compile_ud(tmp, gum_target, reddit=False):
 				fields = line.split("\t")
 				line_tok_id = fields[0]
 				tok_num_to_tsv_id[tok_id] = line_tok_id
-				entity_string, infstat_string,coref_type_string, coref_link_string  = fields[3:7]
+				entity_string, infstat_string,identity_string, coref_type_string, coref_link_string = fields[3:8]
 				if entity_string != "_":
 					entities = entity_string.split("|")
 					infstats = infstat_string.split("|")
+					identities = identity_string.split("|")
 					if coref_type_string != "_":
 						coref_types = coref_type_string.split("|")
 						coref_links = coref_link_string.split("|")
@@ -387,11 +418,19 @@ def compile_ud(tmp, gum_target, reddit=False):
 						entity_id = entity[entity.find("[")+1:-1]
 						entity = entity[:entity.find("[")]
 						infstat = infstat[:infstat.find("[")]
+						match_ident = "_"
+						for ident in identities:
+							if "[" not in ident:
+								ident += "["+entity_id+"]"
+								ident_id = entity_id
+							else:
+								ident_id = ident[ident.find("[")+1:-1]
+							if ident_id == entity_id:
+								match_ident = ident[:ident.find("[")]
 						if entity_id not in entity_dict:
-							entity_dict[entity_id] = Entity(entity_id,entity,infstat)
+							entity_dict[entity_id] = Entity(entity_id,entity,infstat,match_ident)
 						entity_dict[entity_id].tokens.append(str(tok_id))
 						entity_dict[entity_id].line_tokens.append(line_tok_id)
-
 
 						# loop through coref relations
 						if coref_type_string != "_":
@@ -404,8 +443,6 @@ def compile_ud(tmp, gum_target, reddit=False):
 									if (entity_id in with_ids) or ("0" in with_ids):
 										entity_dict[entity_id].coref_type = coref_types[j]
 										entity_dict[entity_id].coref_link = coref_link[:coref_link.find("[")]
-
-
 
 		toks_to_ents = defaultdict(list)
 		for ent in entity_dict:
@@ -513,16 +550,20 @@ def compile_ud(tmp, gum_target, reddit=False):
 		else:
 			punct_fixed = fix_punct(processed_lines)
 
-		# Add UD morphology using CoreNLP script - we assume target/const/ already has .ptb tree files
-		utils_abs_path = os.path.dirname(os.path.realpath(__file__))
 		# morphed = punct_fixed
-		morphed = ud_morph(punct_fixed, docname, utils_abs_path + os.sep + ".." + os.sep + "target" + os.sep + "const" + os.sep)
 
-		if not PY2 and False:
-			# CoreNLP returns bytes in ISO-8859-1
-			# ISO-8859-1 mangles ellipsis glyph, so replace manually
-			morphed = morphed.decode("ISO-8859-1").replace("","…").replace("","“").replace("","’").replace("",'—').replace("","–").replace("","”").replace("\r","")
-		morphed = morphed.decode("ISO-8859-1").replace("\r","")
+		use_corenlp = False
+		if use_corenlp:
+			# Add UD morphology using CoreNLP script - we assume target/const/ already has .ptb tree files
+			morphed = ud_morph(punct_fixed, docname, utils_abs_path + os.sep + ".." + os.sep + "target" + os.sep + "const" + os.sep)
+
+			if not PY2 and False:
+				# CoreNLP returns bytes in ISO-8859-1
+				# ISO-8859-1 mangles ellipsis glyph, so replace manually
+				morphed = morphed.decode("ISO-8859-1").replace("","…").replace("","“").replace("","’").replace("",'—').replace("","–").replace("","”").replace("\r","")
+			morphed = morphed.decode("ISO-8859-1").replace("\r","")
+		else:
+			morphed = ud_morph_deped.run_depedit(punct_fixed)
 
 		# Add negative polarity and imperative mood
 		negatived = []
@@ -540,13 +581,23 @@ def compile_ud(tmp, gum_target, reddit=False):
 				lemma = doc_lemmas[tok_num]
 				tok_num += 1
 				fields = line.split("\t")
-				if tok_num in negative and "Polarity" not in fields[5]:
-					fields[5] = add_feat(fields[5],"Polarity=Neg")
+				if use_corenlp:  # Handle annotations not covered by corenlp
+					if tok_num in negative and "Polarity" not in fields[5]:
+						fields[5] = add_feat(fields[5],"Polarity=Neg")
+					if fields[4] == "CD" and fields[2].isnumeric() and "NumForm" not in fields[5]:
+						fields[5] = add_feat(fields[5],"NumForm=Digit")
+					elif fields[4] == "CD" and re.match(r'[XIVLMC]+\.?$',fields[2]) is not None and "NumForm" not in fields[5]:
+						fields[5] = add_feat(fields[5],"NumForm=Roman")
+					elif fields[4] == "CD" and "NumForm" not in fields[5]:
+						fields[5] = add_feat(fields[5],"NumForm=Word")
+					if is_abbr(fields[1],fields[4]) and "Abbr" not in fields[5]:
+						fields[5] = add_feat(fields[5],"Abbr=Yes")
+					if imp and fields[5] == "VerbForm=Inf" and fields[7] == "root":  # Inf root in s_type=imp should be Imp
+						fields[5] = "Mood=Imp|VerbForm=Fin"
+				fields[8] = "_"
 				fields[1] = tok  # Restore correct utf8 token and lemma
 				fields[2] = lemma
-				if imp and fields[5] == "VerbForm=Inf" and fields[7] == "root":  # Inf root in s_type=imp should be Imp
-					fields[5] = "Mood=Imp|VerbForm=Fin"
-				fields[8] = "_"
+
 				negatived.append("\t".join(fields))
 			else:
 				if line.startswith("# text = "):  # Regenerate correct utf8 plain text
@@ -608,7 +659,7 @@ def enrich_xml(gum_source, gum_target, add_claws=False, reddit=False, warn=False
 			continue
 		docname = ntpath.basename(xmlfile)
 		output = ""
-		sys.stdout.write("\t+ " + " "*40 + "\r")
+		sys.stdout.write("\t+ " + " "*70 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(xmlfiles)) + ":\t+ " + docname + "\r")
 
 		# Dictionaries to hold token annotations from conllu data
@@ -680,13 +731,18 @@ def enrich_xml(gum_source, gum_target, add_claws=False, reddit=False, warn=False
 		outfile.close()
 
 	if add_claws:
-		print("o Retrieved fresh CLAWS5 tags" + " " * 20 + "\r")
+		print("o Retrieved fresh CLAWS5 tags" + " " * 70 + "\r")
 	print("o Enriched xml in " + str(len(xmlfiles)) + " documents" + " " *20)
 
-
+"""
 def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
+
 	xml_source = gum_source + "xml" + os.sep
 	const_target = gum_target + "const" + os.sep
+
+	# because this parent function is called just once,
+	# init the lal parser here instead of as a global const
+	lalparser = LALConstituentParser(const_target)
 
 	files_ = glob(xml_source + "*.xml")
 	xmlfiles = []
@@ -696,6 +752,7 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
 		xmlfiles.append(file_)
 
 	for docnum, xmlfile in enumerate(xmlfiles):
+
 		if "_all" in xmlfile:
 			continue
 		docname = ntpath.basename(xmlfile)
@@ -705,7 +762,6 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
 
 		# Name for parser output file
 		constfile = const_target + docname.replace("xml", "ptb")
-
 
 		xml_lines = io.open(xmlfile, encoding="utf8").read().replace("\r", "").split("\n")
 		line_num = 0
@@ -728,19 +784,14 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
 					print("WARN: slash found in token on line " + str(line_num) + ": " + token + "; retained as '/'")
 
 				token = token.replace("&amp;","&").replace("&gt;",">").replace("&lt;","<").replace("&apos;","'").replace("&quot;",'"').replace("(","-LRB-").replace(")","-RRB-")
-				item = token + "/" + tag + " "
+				item = tag + '\t' + token + " "
 				out_line += item
 
-		parsed = parse(output)
-
-		parsed = parsed.strip() + "\n" + "\n"
-
-		outfile = io.open(constfile, 'w', encoding="utf8")
-		outfile.write(parsed)
-		outfile.close()
+		sentences = output.split('\n')
+		lalparser.run_parse(sentences,constfile)
 
 	print("o Reparsed " + str(len(xmlfiles)) + " documents" + " " * 20)
-
+"""
 
 def get_coref_ids(gum_target):
 
@@ -813,7 +864,7 @@ def add_rsd_to_conllu(gum_target,reddit=False):
 			output.append(line)
 
 		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
-			f.write("\n".join(output) + "\n")
+			f.write("\n".join(output).strip() + "\n\n")
 
 
 def add_entities_to_conllu(gum_target,reddit=False):
@@ -853,5 +904,167 @@ def add_entities_to_conllu(gum_target,reddit=False):
 			output.append(line)
 
 		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
-			f.write("\n".join(output) + "\n")
+			f.write("\n".join(output).strip() + "\n\n")
 
+
+def get_bridging(webannotsv):
+	"""Get entities connected by bridging relations as sources, target, briding type, where
+		entities are described by their token spans and edges are mapped from source to target and edge type
+	"""
+
+	tid = 0
+	edges_by_source = defaultdict(OrderedDict)
+	spans_by_id = defaultdict(list)
+	for line in webannotsv.split("\n"):
+		if "\t" in line:  # Token
+			fields = line.split("\t")
+			ents = fields[3].split("|")
+			edge_types = fields[-3].split("|")
+			edges = fields[-2].split("|")
+			for i, ent in enumerate(ents):
+				if ent != "_":
+					if "[" in ent:
+						eid = ent.split("[")[1][:-1]
+					else:
+						eid = fields[0]
+					spans_by_id[eid].append(tid)
+			for i, edge_type in enumerate(edge_types):
+				if edge_type.startswith("bridge"):
+					edge = edges[i]
+					if "[" not in edge:
+						edge += "[0_0]"
+					src, target = edge.split("[")[1].split("_")
+					target = target[:-1]
+					if src == "0":
+						src = edge.split("[")[0]
+					if target == "0":
+						target = fields[0]
+					if "aggr" in edge_type:
+						edges_by_source[src][(target,"split")] = None
+					else:
+						edges_by_source[src][(target,"bridge")] = None
+			tid += 1
+
+	out_spans = {}
+	rev_out_spans = {}
+
+	for eid in spans_by_id:
+		start = min(spans_by_id[eid])
+		end = max(spans_by_id[eid])
+		out_spans[(start,end)] = eid
+		rev_out_spans[eid] = (start, end)
+
+	return edges_by_source, out_spans, rev_out_spans
+
+
+def merge_bridge_conllu(conllu, webannotsv):
+	def no_brace(instr):
+		return instr.replace("(","").replace(")","")
+
+	edges_by_source, span_to_eid, eid_to_span = get_bridging(webannotsv)
+
+	lines = conllu.split("\n")
+
+	tid = 0
+	# Pass 1 - get spans
+	opened = defaultdict(list)
+	conll_start_to_end = {}
+	conll_span_to_ent = {}
+	for line in lines:
+		if "\t" in line:
+			fields = line.split("\t")
+			if "-" in fields[0]:
+				continue
+			if "Entity=" in fields[-1]:
+				ent_field = fields[-1].split("Entity=")[1].split("|")[0]
+				ents = re.findall(r'(\(?[^()]+\)?)',ent_field)  # look for opening and closing entities
+				for ent in ents:
+					plain_ent = no_brace(ent)
+					if ent.startswith("("):
+						if ent.endswith(")"):  # Single line ent
+							conll_start_to_end[(tid,plain_ent)] = tid
+							conll_span_to_ent[(tid, tid)] = plain_ent
+						else:
+							opened[plain_ent].append(tid)
+					else:
+						start = opened[plain_ent].pop()
+						conll_start_to_end[(start,plain_ent)] = tid
+						conll_span_to_ent[(start,tid)] = plain_ent
+			tid += 1
+
+	# Pass 2 - insert bridge data
+	tid = 0
+	output = []
+	bridging = []
+	split_ante = []
+	for line in lines:
+		if "\t" in line:
+			fields = line.split("\t")
+			if "-" in fields[0]:
+				output.append(line)
+				continue
+			if "Entity=" in fields[-1]:
+				ent_field = fields[-1].split("Entity=")[1].split("|")[0]
+				ents = re.findall(r'(\([^()]+\)?)',ent_field)  # only look for opening entities
+				for ent in ents:
+					plain_ent = no_brace(ent)
+					end = conll_start_to_end[(tid,plain_ent)]
+					if (tid, end) in span_to_eid:
+						eid = span_to_eid[(tid, end)]
+						if eid in edges_by_source:
+							for target, bridge_type in edges_by_source[eid]:
+								target_start, target_end = eid_to_span[target]
+								target_ent = conll_span_to_ent[(target_start, target_end)]
+								edge = target_ent + "<" + plain_ent
+								if bridge_type == "split":
+									split_ante.append(edge)
+								else:
+									bridging.append(edge)
+			out_misc = fields[-1].split("|") if fields[-1] != "_" else []
+			out_misc = [a for a in out_misc if not a.startswith("Bridg") and not a.startswith("Split")]  # Kill existing values
+			if len(bridging) > 0:
+				out_misc.append("Bridge=" + ",".join(bridging))
+			if len(split_ante) > 0:
+				out_misc.append("Split=" + ",".join(split_ante))
+			bridging = []
+			split_ante = []
+			fields[-1] = "|".join(sorted(out_misc)) if len(out_misc) > 0 else "_"
+			line = "\t".join(fields)
+			tid += 1
+		output.append(line)
+
+	return "\n".join(output).strip() + "\n\n"
+
+
+def add_bridging_to_conllu(gum_target,reddit=False):
+	if not gum_target.endswith(os.sep):
+		gum_target += os.sep
+
+	files = glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
+
+	if not reddit:
+		files = [f for f in files if not "reddit" in f]
+
+	all_merged = {}
+	for file_ in files:
+		tsv_file = gum_target + "coref" + os.sep + "tsv" + os.sep + os.path.basename(file_).replace("conllu","tsv")
+
+		merged = merge_bridge_conllu(io.open(file_,encoding="utf8").read(),io.open(tsv_file,encoding="utf8").read())
+		merged = merged.strip() + "\n\n"
+
+		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
+			f.write(merged)
+
+		all_merged[os.path.basename(file_).replace(".conllu","")] = merged
+
+	bigfiles = glob(gum_target + "dep" + os.sep + "*.conllu")
+
+	for file_ in bigfiles:
+		docs = re.findall("# newdoc id ?= ?(GUM_[^\n]+)",io.open(file_).read())
+
+		output = []
+		for doc in docs:
+			output.append(all_merged[doc])
+
+		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
+			f.write("".join(output).strip() + "\n\n")

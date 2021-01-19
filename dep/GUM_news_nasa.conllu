@@ -2,7 +2,7 @@
 # sent_id = GUM_news_nasa-1
 # text = NASA celebrates 30th anniversary of first shuttle launch; announces new homes for retired shuttles
 # s_type = decl
-1	NASA	NASA	PROPN	NNP	Number=Sing	2	nsubj	_	Discourse=preparation:1->9|Entity=(organization-1)
+1	NASA	NASA	PROPN	NNP	Abbr=Yes|Number=Sing	2	nsubj	_	Discourse=preparation:1->9|Entity=(organization-1-NASA)
 2	celebrates	celebrate	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	_
 3	30th	30th	ADJ	JJ	Degree=Pos|NumType=Ord	4	amod	_	Entity=(event-2
 4	anniversary	anniversary	NOUN	NN	Number=Sing	2	obj	_	_
@@ -24,35 +24,35 @@
 1	Wednesday	Wednesday	PROPN	NNP	Number=Sing	0	root	_	Discourse=circumstance:3->1|Entity=(time-7)|SpaceAfter=No
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	April	April	PROPN	NNP	Number=Sing	4	nmod:tmod	_	Entity=(time-8
-4	13	13	NUM	CD	NumType=Card	1	appos	_	SpaceAfter=No
+4	13	13	NUM	CD	NumForm=Digit|NumType=Card	1	appos	_	SpaceAfter=No
 5	,	,	PUNCT	,	_	6	punct	_	_
-6	2011	2011	NUM	CD	NumType=Card	4	nmod:tmod	_	Entity=(time-9)time-8)
+6	2011	2011	NUM	CD	NumForm=Digit|NumType=Card	4	nmod:tmod	_	Entity=(time-9)time-8)
 
 # sent_id = GUM_news_nasa-3
 # text = NASA Administrator Charles Bolden announces where four space shuttle orbiters will be permanently displayed at the conclusion of the Space Shuttle Program during an event commemorating the 30th anniversay of the first shuttle launch on April 12, 2011.
 # s_type = decl
-1	NASA	NASA	PROPN	NNP	Number=Sing	2	compound	_	Discourse=attribution:4->5|Entity=(person-10(organization-1)
+1	NASA	NASA	PROPN	NNP	Abbr=Yes|Number=Sing	2	compound	_	Discourse=attribution:4->5|Entity=(person-10-Charles_Bolden(organization-1-NASA)
 2	Administrator	Administrator	PROPN	NNP	Number=Sing	5	nsubj	_	_
 3	Charles	Charles	PROPN	NNP	Number=Sing	2	flat	_	_
-4	Bolden	Bolden	PROPN	NNP	Number=Sing	2	flat	_	Entity=person-10)
+4	Bolden	Bolden	PROPN	NNP	Number=Sing	2	flat	_	Entity=person-10-Charles_Bolden)
 5	announces	announce	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	_
-6	where	where	SCONJ	WRB	PronType=Int	14	mark	_	Discourse=background:5->9|Entity=(place-5
-7	four	four	NUM	CD	NumType=Card	10	nummod	_	Entity=(object-11
+6	where	where	SCONJ	WRB	PronType=Rel	5	obj	_	Discourse=background:5->9|Entity=(place-5
+7	four	four	NUM	CD	NumForm=Word|NumType=Card	10	nummod	_	Entity=(object-11
 8	space	space	NOUN	NN	Number=Sing	9	compound	_	_
 9	shuttle	shuttle	NOUN	NN	Number=Sing	10	compound	_	_
 10	orbiters	orbiter	NOUN	NNS	Number=Plur	14	nsubj:pass	_	Entity=object-11)
 11	will	will	AUX	MD	VerbForm=Fin	14	aux	_	_
 12	be	be	AUX	VB	VerbForm=Inf	14	aux:pass	_	_
-13	permanently	permanently	ADV	RB	_	14	advmod	_	_
-14	displayed	display	VERB	VBN	Tense=Past|VerbForm=Part	5	ccomp	_	Entity=place-5)
+13	permanently	permanently	ADV	RB	Degree=Pos	14	advmod	_	_
+14	displayed	display	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	6	acl:relcl	_	Entity=place-5)
 15	at	at	ADP	IN	_	17	case	_	_
 16	the	the	DET	DT	Definite=Def|PronType=Art	17	det	_	Entity=(event-12
 17	conclusion	conclusion	NOUN	NN	Number=Sing	14	obl	_	_
 18	of	of	ADP	IN	_	22	case	_	_
 19	the	the	DET	DT	Definite=Def|PronType=Art	22	det	_	_
-20	Space	Space	PROPN	NNP	Number=Sing	21	compound	_	Entity=(abstract-13
+20	Space	Space	PROPN	NNP	Number=Sing	21	compound	_	Entity=(abstract-13-Space_Shuttle_program
 21	Shuttle	shuttle	NOUN	NN	Number=Sing	22	compound	_	_
-22	Program	program	NOUN	NN	Number=Sing	17	nmod	_	Entity=event-12)abstract-13)
+22	Program	program	NOUN	NN	Number=Sing	17	nmod	_	Entity=event-12)abstract-13-Space_Shuttle_program)
 23	during	during	ADP	IN	_	25	case	_	_
 24	an	a	DET	DT	Definite=Ind|PronType=Art	25	det	_	Entity=(event-14
 25	event	event	NOUN	NN	Number=Sing	5	obl	_	_
@@ -67,9 +67,9 @@
 34	launch	launch	NOUN	NN	Number=Sing	29	nmod	_	Entity=event-2)event-3)
 35	on	on	ADP	IN	_	37	case	_	_
 36	April	April	PROPN	NNP	Number=Sing	37	nmod:tmod	_	Entity=(time-15
-37	12	12	NUM	CD	NumType=Card	34	nmod	_	SpaceAfter=No
+37	12	12	NUM	CD	NumForm=Digit|NumType=Card	34	nmod	_	SpaceAfter=No
 38	,	,	PUNCT	,	_	39	punct	_	_
-39	2011	2011	NUM	CD	NumType=Card	37	nmod:tmod	_	Entity=event-14)time-15)|SpaceAfter=No
+39	2011	2011	NUM	CD	NumForm=Digit|NumType=Card	37	nmod:tmod	_	Entity=event-14)time-15)|SpaceAfter=No
 40	.	.	PUNCT	.	_	5	punct	_	_
 
 # sent_id = GUM_news_nasa-4
@@ -77,7 +77,7 @@
 # s_type = frag
 1	Image	image	NOUN	NN	Number=Sing	0	root	_	Discourse=background:7->5|Entity=(abstract-16)|SpaceAfter=No
 2	:	:	PUNCT	:	_	3	punct	_	_
-3	NASA	NASA	PROPN	NNP	Number=Sing	1	dep	_	Discourse=attribution:8->7|Entity=(organization-1)
+3	NASA	NASA	PROPN	NNP	Abbr=Yes|Number=Sing	1	dep	_	Discourse=attribution:8->7|Entity=(organization-1-NASA)
 4	Bill	Bill	PROPN	NNP	Number=Sing	3	flat	_	Entity=(person-17
 5	Ingalls	Ingalls	PROPN	NNP	Number=Sing	3	flat	_	Entity=person-17)|SpaceAfter=No
 6	.	.	PUNCT	.	_	1	punct	_	_
@@ -85,12 +85,12 @@
 # sent_id = GUM_news_nasa-5
 # text = NASA celebrated the launch of the first space shuttle Tuesday at an event at the Kennedy Space Center (KSC) in Cape Canaveral, Florida.
 # s_type = decl
-1	NASA	NASA	PROPN	NNP	Number=Sing	2	nsubj	_	Discourse=ROOT:9|Entity=(organization-1)
-2	celebrated	celebrate	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+1	NASA	NASA	PROPN	NNP	Abbr=Yes|Number=Sing	2	nsubj	_	Discourse=ROOT:9|Entity=(organization-1-NASA)
+2	celebrated	celebrate	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	_	Entity=(event-3
 4	launch	launch	NOUN	NN	Number=Sing	2	obj	_	_
 5	of	of	ADP	IN	_	9	case	_	_
-6	the	the	DET	DT	Definite=Def|PronType=Art	9	det	_	Entity=(object-18
+6	the	the	DET	DT	Definite=Def|PronType=Art	9	det	_	Bridge=object-6<object-18|Entity=(object-18
 7	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	9	amod	_	_
 8	space	space	NOUN	NN	Number=Sing	9	compound	_	_
 9	shuttle	shuttle	NOUN	NN	Number=Sing	4	nmod	_	Entity=event-3)object-18)
@@ -100,94 +100,94 @@
 13	event	event	NOUN	NN	Number=Sing	2	obl	_	_
 14	at	at	ADP	IN	_	18	case	_	_
 15	the	the	DET	DT	Definite=Def|PronType=Art	18	det	_	_
-16	Kennedy	Kennedy	PROPN	NNP	Number=Sing	18	compound	_	Entity=(place-19
+16	Kennedy	Kennedy	PROPN	NNP	Number=Sing	18	compound	_	Entity=(place-19-Kennedy_Space_Center
 17	Space	Space	PROPN	NNP	Number=Sing	18	compound	_	_
-18	Center	Center	PROPN	NNP	Number=Sing	13	nmod	_	Entity=place-19)
+18	Center	Center	PROPN	NNP	Number=Sing	13	nmod	_	Entity=place-19-Kennedy_Space_Center)
 19	(	(	PUNCT	-LRB-	_	20	punct	_	Discourse=restatement:10->9|SpaceAfter=No
-20	KSC	KSC	PROPN	NNP	Number=Sing	18	appos	_	Entity=(place-19)|SpaceAfter=No
+20	KSC	KSC	PROPN	NNP	Abbr=Yes|Number=Sing	18	appos	_	Entity=(place-19-Kennedy_Space_Center)|SpaceAfter=No
 21	)	)	PUNCT	-RRB-	_	20	punct	_	_
 22	in	in	ADP	IN	_	24	case	_	Discourse=same-unit:11->9
-23	Cape	Cape	PROPN	NNP	Number=Sing	24	compound	_	Entity=(place-20
+23	Cape	Cape	PROPN	NNP	Number=Sing	24	compound	_	Entity=(place-20-Cape_Canaveral
 24	Canaveral	Canaveral	PROPN	NNP	Number=Sing	18	nmod	_	SpaceAfter=No
 25	,	,	PUNCT	,	_	26	punct	_	_
-26	Florida	Florida	PROPN	NNP	Number=Sing	24	appos	_	Entity=event-14)place-20)|SpaceAfter=No
+26	Florida	Florida	PROPN	NNP	Number=Sing	24	appos	_	Entity=(place-21-Florida)event-14)place-20-Cape_Canaveral)|SpaceAfter=No
 27	.	.	PUNCT	.	_	2	punct	_	_
 
 # sent_id = GUM_news_nasa-6
 # text = On April 12, 1981, Space Shuttle Columbia lifted off from the Kennedy Space Center on STS-1, the first space shuttle mission.
 # s_type = decl
 1	On	on	ADP	IN	_	3	case	_	Discourse=background:12->9
-2	April	April	PROPN	NNP	Number=Sing	3	nmod:tmod	_	Entity=(time-21
-3	12	12	NUM	CD	NumType=Card	10	obl	_	SpaceAfter=No
+2	April	April	PROPN	NNP	Number=Sing	3	nmod:tmod	_	Entity=(time-22
+3	12	12	NUM	CD	NumForm=Digit|NumType=Card	10	obl	_	SpaceAfter=No
 4	,	,	PUNCT	,	_	5	punct	_	_
-5	1981	1981	NUM	CD	NumType=Card	3	nmod:tmod	_	Entity=(time-22)time-21)|SpaceAfter=No
+5	1981	1981	NUM	CD	NumForm=Digit|NumType=Card	3	nmod:tmod	_	Entity=(time-23)time-22)|SpaceAfter=No
 6	,	,	PUNCT	,	_	3	punct	_	_
 7	Space	Space	PROPN	NNP	Number=Sing	8	compound	_	Entity=(object-18
 8	Shuttle	shuttle	PROPN	NNP	Number=Sing	9	compound	_	_
 9	Columbia	Columbia	PROPN	NNP	Number=Sing	10	nsubj	_	Entity=object-18)
-10	lifted	lift	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+10	lifted	lift	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 11	off	off	ADP	RP	_	10	compound:prt	_	_
 12	from	from	ADP	IN	_	16	case	_	_
-13	the	the	DET	DT	Definite=Def|PronType=Art	16	det	_	Entity=(place-19
+13	the	the	DET	DT	Definite=Def|PronType=Art	16	det	_	Entity=(place-19-Kennedy_Space_Center
 14	Kennedy	Kennedy	PROPN	NNP	Number=Sing	16	compound	_	_
 15	Space	Space	PROPN	NNP	Number=Sing	16	compound	_	_
-16	Center	Center	PROPN	NNP	Number=Sing	10	obl	_	Entity=place-19)
+16	Center	Center	PROPN	NNP	Number=Sing	10	obl	_	Entity=place-19-Kennedy_Space_Center)
 17	on	on	ADP	IN	_	18	case	_	_
-18	STS-1	STS-1	PROPN	NNP	Number=Sing	10	obl	_	Entity=(event-23)|SpaceAfter=No
+18	STS-1	STS-1	PROPN	NNP	Abbr=Yes|Number=Sing	10	obl	_	Entity=(event-24-STS-1)|SpaceAfter=No
 19	,	,	PUNCT	,	_	24	punct	_	_
-20	the	the	DET	DT	Definite=Def|PronType=Art	24	det	_	Entity=(event-23
+20	the	the	DET	DT	Definite=Def|PronType=Art	24	det	_	Entity=(event-24-STS-1
 21	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	24	amod	_	_
-22	space	space	NOUN	NN	Number=Sing	23	compound	_	Entity=(object-24
-23	shuttle	shuttle	NOUN	NN	Number=Sing	24	compound	_	Entity=object-24)
-24	mission	mission	NOUN	NN	Number=Sing	18	appos	_	Entity=event-23)|SpaceAfter=No
+22	space	space	NOUN	NN	Number=Sing	23	compound	_	Entity=(object-25
+23	shuttle	shuttle	NOUN	NN	Number=Sing	24	compound	_	Entity=object-25)
+24	mission	mission	NOUN	NN	Number=Sing	18	appos	_	Entity=event-24-STS-1)|SpaceAfter=No
 25	.	.	PUNCT	.	_	10	punct	_	_
 
 # sent_id = GUM_news_nasa-7
 # text = NASA held a ceremony commemorating the date outside the hangar, known as Orbiter Processing Facility-1, for Space Shuttle Atlantis, which is being prepped for its final mission which will be STS-135, which will be the last Space Shuttle mission.
 # s_type = decl
-1	NASA	NASA	PROPN	NNP	Number=Sing	2	nsubj	_	Discourse=elaboration:13->9|Entity=(organization-1)
-2	held	hold	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+1	NASA	NASA	PROPN	NNP	Abbr=Yes|Number=Sing	2	nsubj	_	Discourse=elaboration:13->9|Entity=(organization-1-NASA)
+2	held	hold	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 3	a	a	DET	DT	Definite=Ind|PronType=Art	4	det	_	Entity=(event-14
 4	ceremony	ceremony	NOUN	NN	Number=Sing	2	obj	_	_
 5	commemorating	commemorate	VERB	VBG	VerbForm=Ger	4	acl	_	Discourse=elaboration:14->13
-6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	_	Entity=(time-21
-7	date	date	NOUN	NN	Number=Sing	5	obj	_	Entity=event-14)time-21)
+6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	_	Entity=(time-22
+7	date	date	NOUN	NN	Number=Sing	5	obj	_	Entity=event-14)time-22)
 8	outside	outside	ADP	IN	_	10	case	_	_
-9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	_	Entity=(place-25
+9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	_	Entity=(place-26
 10	hangar	hangar	NOUN	NN	Number=Sing	2	obl	_	SpaceAfter=No
 11	,	,	PUNCT	,	_	12	punct	_	_
 12	known	know	VERB	VBN	Tense=Past|VerbForm=Part	10	acl	_	Discourse=elaboration:15->14
 13	as	as	ADP	IN	_	16	case	_	_
-14	Orbiter	orbiter	PROPN	NNP	Number=Sing	15	compound	_	Entity=(place-25(object-26)
+14	Orbiter	orbiter	PROPN	NNP	Number=Sing	15	compound	_	Entity=(place-26(object-27-Space_Shuttle_orbiter)
 15	Processing	Processing	PROPN	NNP	Number=Sing	16	compound	_	_
-16	Facility-1	Facility-1	PROPN	NNP	Number=Sing	12	obl	_	Entity=place-25)place-25)|SpaceAfter=No
+16	Facility-1	Facility-1	PROPN	NNP	Number=Sing	12	obl	_	Entity=place-26)place-26)|SpaceAfter=No
 17	,	,	PUNCT	,	_	21	punct	_	_
 18	for	for	ADP	IN	_	21	case	_	_
-19	Space	Space	PROPN	NNP	Number=Sing	20	compound	_	Entity=(object-27
+19	Space	Space	PROPN	NNP	Number=Sing	20	compound	_	Bridge=object-6<object-28-Space_Shuttle_Atlantis|Entity=(object-28-Space_Shuttle_Atlantis
 20	Shuttle	shuttle	PROPN	NNP	Number=Sing	21	compound	_	_
 21	Atlantis	Atlantis	PROPN	NNP	Number=Sing	2	obl	_	SpaceAfter=No
 22	,	,	PUNCT	,	_	26	punct	_	_
 23	which	which	PRON	WDT	PronType=Rel	26	nsubj:pass	_	Discourse=elaboration:16->15
 24	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	26	aux	_	_
 25	being	be	AUX	VBG	VerbForm=Ger	26	aux:pass	_	_
-26	prepped	prepped	VERB	VBN	Tense=Past|VerbForm=Part	21	acl:relcl	_	_
+26	prepped	prepped	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	21	acl:relcl	_	_
 27	for	for	ADP	IN	_	30	case	_	_
-28	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	30	nmod:poss	_	Entity=(event-28(object-27)
+28	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	30	nmod:poss	_	Entity=(event-29(object-28-Space_Shuttle_Atlantis)
 29	final	final	ADJ	JJ	Degree=Pos	30	amod	_	_
 30	mission	mission	NOUN	NN	Number=Sing	26	obl	_	_
 31	which	which	PRON	WDT	PronType=Rel	34	nsubj	_	Discourse=elaboration:17->16
 32	will	will	AUX	MD	VerbForm=Fin	34	aux	_	_
 33	be	be	AUX	VB	VerbForm=Inf	34	cop	_	_
-34	STS-135	STS-135	PROPN	NNP	Number=Sing	30	acl:relcl	_	Entity=(event-28|SpaceAfter=No
+34	STS-135	STS-135	PROPN	NNP	Abbr=Yes|Number=Sing	30	acl:relcl	_	Entity=(event-29|SpaceAfter=No
 35	,	,	PUNCT	,	_	43	punct	_	_
 36	which	which	PRON	WDT	PronType=Rel	43	nsubj	_	Discourse=elaboration:18->17
 37	will	will	AUX	MD	VerbForm=Fin	43	aux	_	_
 38	be	be	AUX	VB	VerbForm=Inf	43	cop	_	_
-39	the	the	DET	DT	Definite=Def|PronType=Art	43	det	_	Entity=(abstract-29
+39	the	the	DET	DT	Definite=Def|PronType=Art	43	det	_	Entity=(event-29
 40	last	last	ADJ	JJ	Degree=Pos	43	amod	_	_
 41	Space	Space	PROPN	NNP	Number=Sing	42	compound	_	_
 42	Shuttle	shuttle	PROPN	NNP	Number=Sing	43	compound	_	_
-43	mission	mission	NOUN	NN	Number=Sing	34	acl:relcl	_	Entity=object-27)event-28)event-28)abstract-29)|SpaceAfter=No
+43	mission	mission	NOUN	NN	Number=Sing	34	acl:relcl	_	Entity=object-28-Space_Shuttle_Atlantis)event-29)event-29)event-29)|SpaceAfter=No
 44	.	.	PUNCT	.	_	2	punct	_	_
 
 # sent_id = GUM_news_nasa-8
@@ -197,19 +197,19 @@
 2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	_	Entity=(event-14
 3	ceremony	ceremony	NOUN	NN	Number=Sing	9	obl	_	Entity=event-14)|SpaceAfter=No
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	NASA	NASA	PROPN	NNP	Number=Sing	6	compound	_	Entity=(person-10(organization-1)
+5	NASA	NASA	PROPN	NNP	Abbr=Yes|Number=Sing	6	compound	_	Entity=(person-10-Charles_Bolden(organization-1-NASA)
 6	Administrator	Administrator	PROPN	NNP	Number=Sing	9	nsubj	_	_
 7	Charles	Charles	PROPN	NNP	Number=Sing	6	flat	_	_
-8	Bolden	Bolden	PROPN	NNP	Number=Sing	6	flat	_	Entity=person-10)
-9	announced	announce	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+8	Bolden	Bolden	PROPN	NNP	Number=Sing	6	flat	_	Entity=person-10-Charles_Bolden)
+9	announced	announce	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(place-30
 11	locations	location	NOUN	NNS	Number=Plur	9	obj	_	_
 12	that	that	PRON	WDT	PronType=Rel	15	nsubj:pass	_	Discourse=elaboration:20->19
 13	would	would	AUX	MD	VerbForm=Fin	15	aux	_	_
 14	be	be	AUX	VB	VerbForm=Inf	15	aux:pass	_	_
-15	given	give	VERB	VBN	Tense=Past|VerbForm=Part	11	acl:relcl	_	_
+15	given	give	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	11	acl:relcl	_	_
 16	the	the	DET	DT	Definite=Def|PronType=Art	21	det	_	Entity=(object-31
-17	three	three	NUM	CD	NumType=Card	21	nummod	_	_
+17	three	three	NUM	CD	NumForm=Word|NumType=Card	21	nummod	_	_
 18	remaining	remain	VERB	VBG	VerbForm=Ger	21	amod	_	_
 19	Space	Space	PROPN	NNP	Number=Sing	20	compound	_	_
 20	Shuttle	shuttle	PROPN	NNP	Number=Sing	21	compound	_	_
@@ -219,9 +219,9 @@
 24	end	end	NOUN	NN	Number=Sing	22	obj	_	_
 25	of	of	ADP	IN	_	29	case	_	_
 26	the	the	DET	DT	Definite=Def|PronType=Art	29	det	_	_
-27	Space	Space	PROPN	NNP	Number=Sing	28	compound	_	Entity=(abstract-13
+27	Space	Space	PROPN	NNP	Number=Sing	28	compound	_	Entity=(abstract-13-Space_Shuttle_program
 28	Shuttle	shuttle	PROPN	NNP	Number=Sing	29	compound	_	_
-29	program	program	NOUN	NN	Number=Sing	24	nmod	_	Entity=place-30)event-12)abstract-13)|SpaceAfter=No
+29	program	program	NOUN	NN	Number=Sing	24	nmod	_	Entity=place-30)event-12)abstract-13-Space_Shuttle_program)|SpaceAfter=No
 30	.	.	PUNCT	.	_	9	punct	_	_
 
 # sent_id = GUM_news_nasa-9
@@ -231,47 +231,47 @@
 2	prototype	prototype	NOUN	NN	Number=Sing	3	compound	_	_
 3	orbiter	orbiter	NOUN	NN	Number=Sing	10	nsubj:pass	_	Entity=object-32)|SpaceAfter=No
 4	,	,	PUNCT	,	_	7	punct	_	_
-5	Space	Space	PROPN	NNP	Number=Sing	6	compound	_	Entity=(object-32
+5	Space	Space	PROPN	NNP	Number=Sing	6	compound	_	Bridge=object-6<object-32|Entity=(object-32
 6	Shuttle	shuttle	PROPN	NNP	Number=Sing	7	compound	_	_
 7	Enterprise	enterprise	PROPN	NNP	Number=Sing	3	appos	_	Entity=object-32)
 8	would	would	AUX	MD	VerbForm=Fin	10	aux	_	_
 9	be	be	AUX	VB	VerbForm=Inf	10	aux:pass	_	_
-10	relocated	relocate	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
+10	relocated	relocate	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	_	_
 11	from	from	ADP	IN	_	23	case	_	_
-12	the	the	DET	DT	Definite=Def|PronType=Art	13	det	_	Entity=(place-33
-13	Smithsonian	Smithsonian	PROPN	NNP	Number=Sing	23	nmod:poss	_	Entity=(organization-34|SpaceAfter=No
-14	's	's	PART	POS	_	13	case	_	Entity=organization-34)
+12	the	the	DET	DT	Definite=Def|PronType=Art	13	det	_	Entity=(place-33-Steven_F._Udvar-Hazy_Center
+13	Smithsonian	Smithsonian	PROPN	NNP	Number=Sing	23	nmod:poss	_	Entity=(organization-34-Smithsonian_Institution|SpaceAfter=No
+14	's	's	PART	POS	_	13	case	_	Entity=organization-34-Smithsonian_Institution)
 15	National	National	PROPN	NNP	Number=Sing	19	amod	_	_
 16	Air	Air	PROPN	NNP	Number=Sing	19	compound	_	_
 17	and	and	CCONJ	CC	_	18	cc	_	_
 18	Space	Space	PROPN	NNP	Number=Sing	16	conj	_	_
 19	Museum	Museum	PROPN	NNP	Number=Sing	23	compound	_	_
-20	Steven	Steven	PROPN	NNP	Number=Sing	23	compound	_	Entity=(person-35
+20	Steven	Steven	PROPN	NNP	Number=Sing	23	compound	_	Entity=(person-35-Steven_F._Udvar-Házy
 21	F.	F.	PROPN	NNP	Number=Sing	20	flat	_	_
-22	Udvar-Hazy	Udvar-Hazy	PROPN	NNP	Number=Sing	20	flat	_	Entity=person-35)
+22	Udvar-Hazy	Udvar-Hazy	PROPN	NNP	Number=Sing	20	flat	_	Entity=person-35-Steven_F._Udvar-Házy)
 23	Center	Center	PROPN	NNP	Number=Sing	10	obl	_	_
 24	at	at	ADP	IN	_	28	case	_	_
-25	Washington	Washington	PROPN	NNP	Number=Sing	28	compound	_	Entity=(place-36(place-37)
-26	Dulles	Dulles	PROPN	NNP	Number=Sing	28	compound	_	Entity=(place-38)
+25	Washington	Washington	PROPN	NNP	Number=Sing	28	compound	_	Entity=(place-36-Dulles_International_Airport(place-37-Washington_%28state%29)
+26	Dulles	Dulles	PROPN	NNP	Number=Sing	28	compound	_	Entity=(place-38-John_Foster_Dulles)
 27	International	International	PROPN	NNP	Number=Sing	28	amod	_	_
-28	Airport	Airport	PROPN	NNP	Number=Sing	23	nmod	_	Entity=place-33)place-36)
+28	Airport	Airport	PROPN	NNP	Number=Sing	23	nmod	_	Entity=place-33-Steven_F._Udvar-Hazy_Center)place-36-Dulles_International_Airport)
 29	to	to	ADP	IN	_	33	case	_	_
-30	the	the	DET	DT	Definite=Def|PronType=Art	33	det	_	Entity=(place-39
+30	the	the	DET	DT	Definite=Def|PronType=Art	33	det	_	Entity=(place-39-Intrepid_Sea,_Air_&_Space_Museum
 31	Intrepid	intrepid	PROPN	NNP	Number=Sing	33	compound	_	_
 32	Sea-Air-Space	Sea-Air-Space	PROPN	NNP	Number=Sing	33	compound	_	_
 33	Museum	Museum	PROPN	NNP	Number=Sing	10	obl	_	_
 34	in	in	ADP	IN	_	37	case	_	_
-35	New	New	PROPN	NNP	Number=Sing	37	compound	_	Entity=(place-40
+35	New	New	PROPN	NNP	Number=Sing	37	compound	_	Entity=(place-40-New_York_City
 36	York	York	PROPN	NNP	Number=Sing	35	flat	_	_
-37	City	City	PROPN	NNP	Number=Sing	33	nmod	_	Entity=place-39)place-40)|SpaceAfter=No
+37	City	City	PROPN	NNP	Number=Sing	33	nmod	_	Entity=place-39-Intrepid_Sea,_Air_&_Space_Museum)place-40-New_York_City)|SpaceAfter=No
 38	.	.	PUNCT	.	_	10	punct	_	_
 
 # sent_id = GUM_news_nasa-10
 # text = Space Shuttle Discovery will take the place of Enterprise at the Udvar-Hazy Center.
 # s_type = decl
-1	Space	space	NOUN	NN	Number=Sing	2	compound	_	Discourse=joint:23->22|Entity=(object-41
+1	Space	space	NOUN	NN	Number=Sing	2	compound	_	Discourse=joint:23->22|Entity=(object-41-Space_Shuttle_Discovery
 2	Shuttle	shuttle	NOUN	NN	Number=Sing	3	compound	_	_
-3	Discovery	Discovery	PROPN	NNP	Number=Sing	5	nsubj	_	Entity=object-41)
+3	Discovery	Discovery	PROPN	NNP	Number=Sing	5	nsubj	_	Entity=object-41-Space_Shuttle_Discovery)
 4	will	will	AUX	MD	VerbForm=Fin	5	aux	_	_
 5	take	take	VERB	VB	VerbForm=Inf	0	root	_	_
 6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	_	_
@@ -279,43 +279,43 @@
 8	of	of	ADP	IN	_	9	case	_	_
 9	Enterprise	enterprise	PROPN	NNP	Number=Sing	7	nmod	_	Entity=(object-32)
 10	at	at	ADP	IN	_	13	case	_	_
-11	the	the	DET	DT	Definite=Def|PronType=Art	13	det	_	Entity=(place-42
-12	Udvar-Hazy	Udvar-Hazy	PROPN	NNP	Number=Sing	13	compound	_	Entity=(person-35)
-13	Center	Center	PROPN	NNP	Number=Sing	5	obl	_	Entity=place-42)|SpaceAfter=No
+11	the	the	DET	DT	Definite=Def|PronType=Art	13	det	_	Entity=(place-42-Steven_F._Udvar-Hazy_Center
+12	Udvar-Hazy	Udvar-Hazy	PROPN	NNP	Number=Sing	13	compound	_	Entity=(person-35-Steven_F._Udvar-Házy)
+13	Center	Center	PROPN	NNP	Number=Sing	5	obl	_	Entity=place-42-Steven_F._Udvar-Hazy_Center)|SpaceAfter=No
 14	.	.	PUNCT	.	_	5	punct	_	_
 
 # sent_id = GUM_news_nasa-11
 # text = Discovery has already been retired following the completion of STS-133 last month, its 39th mission.
 # s_type = decl
-1	Discovery	Discovery	PROPN	NNP	Number=Sing	5	nsubj:pass	_	Discourse=background:24->23|Entity=(object-41)
+1	Discovery	Discovery	PROPN	NNP	Number=Sing	5	nsubj:pass	_	Discourse=background:24->23|Entity=(object-41-Space_Shuttle_Discovery)
 2	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	aux	_	_
 3	already	already	ADV	RB	_	5	advmod	_	_
 4	been	be	AUX	VBN	Tense=Past|VerbForm=Part	5	aux:pass	_	_
-5	retired	retire	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
+5	retired	retire	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	_	_
 6	following	follow	VERB	VBG	VerbForm=Ger	5	advcl	_	Discourse=circumstance:25->24
 7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	_	Entity=(event-43
 8	completion	completion	NOUN	NN	Number=Sing	6	obj	_	_
 9	of	of	ADP	IN	_	10	case	_	_
-10	STS-133	STS-133	PROPN	NNP	Number=Sing	8	nmod	_	Entity=(event-44)
+10	STS-133	STS-133	PROPN	NNP	Abbr=Yes|Number=Sing	8	nmod	_	Entity=(event-44-STS-133)
 11	last	last	ADJ	JJ	Degree=Pos	12	amod	_	Entity=(time-45
 12	month	month	NOUN	NN	Number=Sing	8	nmod:tmod	_	Entity=event-43)time-45)|SpaceAfter=No
 13	,	,	PUNCT	,	_	16	punct	_	_
-14	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	16	nmod:poss	_	Entity=(event-44(object-41)
+14	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	16	nmod:poss	_	Entity=(event-44-STS-133(object-41-Space_Shuttle_Discovery)
 15	39th	39th	ADJ	JJ	Degree=Pos|NumType=Ord	16	amod	_	_
-16	mission	mission	NOUN	NN	Number=Sing	10	appos	_	Entity=event-44)|SpaceAfter=No
+16	mission	mission	NOUN	NN	Number=Sing	10	appos	_	Entity=event-44-STS-133)|SpaceAfter=No
 17	.	.	PUNCT	.	_	5	punct	_	_
 
 # sent_id = GUM_news_nasa-12
 # text = Discovery is undergoing decommissioning and currently being prepped for display by removing toxic materials from the orbiter.
 # s_type = decl
-1	Discovery	Discovery	PROPN	NNP	Number=Sing	3	nsubj	_	Discourse=joint:26->24|Entity=(object-41)
+1	Discovery	Discovery	PROPN	NNP	Number=Sing	3	nsubj	_	Discourse=joint:26->24|Entity=(object-41-Space_Shuttle_Discovery)
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	aux	_	_
 3	undergoing	undergo	VERB	VBG	Tense=Pres|VerbForm=Part	0	root	_	_
 4	decommissioning	decommission	NOUN	NN	Number=Sing	3	obj	_	Entity=(event-46)
 5	and	and	CCONJ	CC	_	8	cc	_	Discourse=joint:27->26
-6	currently	currently	ADV	RB	_	8	advmod	_	_
+6	currently	currently	ADV	RB	Degree=Pos	8	advmod	_	_
 7	being	be	AUX	VBG	VerbForm=Ger	8	aux:pass	_	_
-8	prepped	prepped	VERB	VBN	Tense=Past|VerbForm=Part	3	conj	_	_
+8	prepped	prepped	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	3	conj	_	_
 9	for	for	ADP	IN	_	10	case	_	_
 10	display	display	NOUN	NN	Number=Sing	8	obl	_	_
 11	by	by	SCONJ	IN	_	12	mark	_	Discourse=means:28->27
@@ -331,7 +331,7 @@
 # text = Looking back: Space Shuttle Columbia lifts off on STS-1 from Launch Pad 39A at the Kennedy Space Center on April 12, 1981.
 # s_type = ger
 1	Looking	look	VERB	VBG	VerbForm=Ger	0	root	_	Discourse=preparation:29->30
-2	back	back	ADV	RB	_	1	advmod	_	SpaceAfter=No
+2	back	back	ADV	RB	Degree=Pos	1	advmod	_	SpaceAfter=No
 3	:	:	PUNCT	:	_	7	punct	_	_
 4	Space	space	NOUN	NN	Number=Sing	5	compound	_	Discourse=joint:30->22|Entity=(object-18
 5	Shuttle	shuttle	NOUN	NN	Number=Sing	6	compound	_	_
@@ -339,21 +339,21 @@
 7	lifts	lift	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	1	parataxis	_	_
 8	off	off	ADP	RP	_	7	compound:prt	_	_
 9	on	on	ADP	IN	_	10	case	_	_
-10	STS-1	STS-1	PROPN	NNP	Number=Sing	7	obl	_	Entity=(event-23)
+10	STS-1	STS-1	PROPN	NNP	Abbr=Yes|Number=Sing	7	obl	_	Entity=(event-24-STS-1)
 11	from	from	ADP	IN	_	13	case	_	_
-12	Launch	launch	NOUN	NN	Number=Sing	13	compound	_	Entity=(place-49
+12	Launch	launch	NOUN	NN	Number=Sing	13	compound	_	Entity=(place-49-Kennedy_Space_Center_Launch_Complex_39A
 13	Pad	pad	NOUN	NN	Number=Sing	7	obl	_	_
-14	39A	39A	PROPN	NNP	Number=Sing	13	compound	_	Entity=place-49)
+14	39A	39A	PROPN	NNP	Number=Sing	13	compound	_	Entity=place-49-Kennedy_Space_Center_Launch_Complex_39A)
 15	at	at	ADP	IN	_	19	case	_	_
-16	the	the	DET	DT	Definite=Def|PronType=Art	19	det	_	Entity=(place-19
+16	the	the	DET	DT	Definite=Def|PronType=Art	19	det	_	Entity=(place-19-Kennedy_Space_Center
 17	Kennedy	Kennedy	PROPN	NNP	Number=Sing	19	compound	_	_
 18	Space	Space	PROPN	NNP	Number=Sing	19	compound	_	_
-19	Center	Center	PROPN	NNP	Number=Sing	7	obl	_	Entity=place-19)
+19	Center	Center	PROPN	NNP	Number=Sing	7	obl	_	Entity=place-19-Kennedy_Space_Center)
 20	on	on	ADP	IN	_	22	case	_	_
-21	April	April	PROPN	NNP	Number=Sing	22	nmod:tmod	_	Entity=(time-21
-22	12	12	NUM	CD	NumType=Card	7	obl	_	SpaceAfter=No
+21	April	April	PROPN	NNP	Number=Sing	22	nmod:tmod	_	Entity=(time-22
+22	12	12	NUM	CD	NumForm=Digit|NumType=Card	7	obl	_	SpaceAfter=No
 23	,	,	PUNCT	,	_	24	punct	_	_
-24	1981	1981	NUM	CD	NumType=Card	22	nmod:tmod	_	Entity=(time-22)time-21)|SpaceAfter=No
+24	1981	1981	NUM	CD	NumForm=Digit|NumType=Card	22	nmod:tmod	_	Entity=(time-23)time-22)|SpaceAfter=No
 25	.	.	PUNCT	.	_	1	punct	_	_
 
 # sent_id = GUM_news_nasa-14
@@ -361,13 +361,13 @@
 # s_type = frag
 1	Image	image	NOUN	NN	Number=Sing	0	root	_	Discourse=elaboration:31->30|Entity=(abstract-50)|SpaceAfter=No
 2	:	:	PUNCT	:	_	3	punct	_	_
-3	NASA	NASA	PROPN	NNP	Number=Sing	1	dep	_	Discourse=attribution:32->31|Entity=(organization-1)|SpaceAfter=No
+3	NASA	NASA	PROPN	NNP	Abbr=Yes|Number=Sing	1	dep	_	Discourse=attribution:32->31|Entity=(organization-1-NASA)|SpaceAfter=No
 4	.	.	PUNCT	.	_	1	punct	_	_
 
 # sent_id = GUM_news_nasa-15
 # text = Space Shuttle Endeavour, which will launch on STS-134 at the end of the month on April 29, will be sent to the California Science Center in Los Angeles, California following its retirement.
 # s_type = decl
-1	Space	space	PROPN	NNP	Number=Sing	2	compound	_	Discourse=joint:33->22|Entity=(object-51
+1	Space	space	PROPN	NNP	Number=Sing	2	compound	_	Bridge=object-6<object-51-Space_Shuttle_Endeavour|Discourse=joint:33->22|Entity=(object-51-Space_Shuttle_Endeavour
 2	Shuttle	shuttle	PROPN	NNP	Number=Sing	3	compound	_	_
 3	Endeavour	endeavour	PROPN	NNP	Number=Sing	22	nsubj:pass	_	SpaceAfter=No
 4	,	,	PUNCT	,	_	7	punct	_	_
@@ -375,7 +375,7 @@
 6	will	will	AUX	MD	VerbForm=Fin	7	aux	_	_
 7	launch	launch	VERB	VB	VerbForm=Inf	3	acl:relcl	_	_
 8	on	on	ADP	IN	_	9	case	_	_
-9	STS-134	STS-134	PROPN	NNP	Number=Sing	7	obl	_	Entity=(event-52)
+9	STS-134	STS-134	PROPN	NNP	Abbr=Yes|Number=Sing	7	obl	_	Entity=(event-52-STS-134)
 10	at	at	ADP	IN	_	12	case	_	_
 11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	_	Entity=(time-53
 12	end	end	NOUN	NN	Number=Sing	7	obl	_	_
@@ -384,53 +384,53 @@
 15	month	month	NOUN	NN	Number=Sing	12	nmod	_	Entity=time-53)time-54)
 16	on	on	ADP	IN	_	18	case	_	_
 17	April	April	PROPN	NNP	Number=Sing	18	nmod:tmod	_	Entity=(time-55(time-54)
-18	29	29	NUM	CD	NumType=Card	7	obl	_	Entity=object-51)time-55)|SpaceAfter=No
+18	29	29	NUM	CD	NumForm=Digit|NumType=Card	7	obl	_	Entity=object-51-Space_Shuttle_Endeavour)time-55)|SpaceAfter=No
 19	,	,	PUNCT	,	_	3	punct	_	_
 20	will	will	AUX	MD	VerbForm=Fin	22	aux	_	Discourse=same-unit:35->33
 21	be	be	AUX	VB	VerbForm=Inf	22	aux:pass	_	_
-22	sent	send	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
+22	sent	send	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	_	_
 23	to	to	ADP	IN	_	27	case	_	_
-24	the	the	DET	DT	Definite=Def|PronType=Art	27	det	_	Entity=(place-56
+24	the	the	DET	DT	Definite=Def|PronType=Art	27	det	_	Entity=(place-56-California_Science_Center
 25	California	California	PROPN	NNP	Number=Sing	27	compound	_	_
 26	Science	Science	PROPN	NNP	Number=Sing	27	compound	_	_
 27	Center	Center	PROPN	NNP	Number=Sing	22	obl	_	_
 28	in	in	ADP	IN	_	29	case	_	_
-29	Los	Los	PROPN	NNP	Number=Sing	27	nmod	_	Entity=(place-57
+29	Los	Los	PROPN	NNP	Number=Sing	27	nmod	_	Entity=(place-57-Los_Angeles
 30	Angeles	Angeles	PROPN	NNP	Number=Sing	29	flat	_	SpaceAfter=No
 31	,	,	PUNCT	,	_	32	punct	_	_
-32	California	California	PROPN	NNP	Number=Sing	29	appos	_	Entity=(place-58)place-56)place-57)
+32	California	California	PROPN	NNP	Number=Sing	29	appos	_	Entity=(place-58-California)place-56-California_Science_Center)place-57-Los_Angeles)
 33	following	follow	VERB	VBG	VerbForm=Ger	35	case	_	Discourse=circumstance:36->35
-34	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	35	nmod:poss	_	Entity=(event-59(object-51)
+34	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	35	nmod:poss	_	Entity=(event-59(object-51-Space_Shuttle_Endeavour)
 35	retirement	retirement	NOUN	NN	Number=Sing	22	obl	_	Entity=event-59)|SpaceAfter=No
 36	.	.	PUNCT	.	_	22	punct	_	_
 
 # sent_id = GUM_news_nasa-16
 # text = Finally, Atlantis will go on display at the Kennedy Space Center Visitor Complex following the orbiter's last flight which launches June 28.
 # s_type = decl
-1	Finally	finally	ADV	RB	_	5	advmod	_	Discourse=joint:37->22|SpaceAfter=No
+1	Finally	finally	ADV	RB	Degree=Pos	5	advmod	_	Discourse=joint:37->22|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	Atlantis	Atlantis	PROPN	NNP	Number=Sing	5	nsubj	_	Entity=(object-27)
+3	Atlantis	Atlantis	PROPN	NNP	Number=Sing	5	nsubj	_	Entity=(object-28-Space_Shuttle_Atlantis)
 4	will	will	AUX	MD	VerbForm=Fin	5	aux	_	_
 5	go	go	VERB	VB	VerbForm=Inf	0	root	_	_
 6	on	on	ADP	IN	_	7	case	_	_
 7	display	display	NOUN	NN	Number=Sing	5	obl	_	_
 8	at	at	ADP	IN	_	14	case	_	_
-9	the	the	DET	DT	Definite=Def|PronType=Art	14	det	_	Entity=(place-60(place-19
+9	the	the	DET	DT	Definite=Def|PronType=Art	14	det	_	Entity=(place-60-Kennedy_Space_Center_Visitor_Complex(place-19-Kennedy_Space_Center
 10	Kennedy	Kennedy	PROPN	NNP	Number=Sing	12	compound	_	_
 11	Space	Space	PROPN	NNP	Number=Sing	12	compound	_	_
-12	Center	Center	PROPN	NNP	Number=Sing	14	compound	_	Entity=place-19)
+12	Center	Center	PROPN	NNP	Number=Sing	14	compound	_	Entity=place-19-Kennedy_Space_Center)
 13	Visitor	visitor	PROPN	NNP	Number=Sing	14	compound	_	_
-14	Complex	complex	PROPN	NNP	Number=Sing	5	obl	_	Entity=place-60)
+14	Complex	complex	PROPN	NNP	Number=Sing	5	obl	_	Entity=place-60-Kennedy_Space_Center_Visitor_Complex)
 15	following	follow	VERB	VBG	VerbForm=Ger	20	case	_	Discourse=circumstance:38->37
-16	the	the	DET	DT	Definite=Def|PronType=Art	17	det	_	Entity=(event-61(object-27
+16	the	the	DET	DT	Definite=Def|PronType=Art	17	det	_	Entity=(event-61(object-28-Space_Shuttle_Atlantis
 17	orbiter	orbiter	NOUN	NN	Number=Sing	20	nmod:poss	_	SpaceAfter=No
-18	's	's	PART	POS	_	17	case	_	Entity=object-27)
+18	's	's	PART	POS	_	17	case	_	Entity=object-28-Space_Shuttle_Atlantis)
 19	last	last	ADJ	JJ	Degree=Pos	20	amod	_	_
 20	flight	flight	NOUN	NN	Number=Sing	5	obl	_	_
 21	which	which	PRON	WDT	PronType=Rel	22	nsubj	_	Discourse=elaboration:39->38
 22	launches	launch	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	20	acl:relcl	_	_
 23	June	June	PROPN	NNP	Number=Sing	24	nmod:tmod	_	Entity=(time-62
-24	28	28	NUM	CD	NumType=Card	22	obl:tmod	_	Entity=event-61)time-62)|SpaceAfter=No
+24	28	28	NUM	CD	NumForm=Digit|NumType=Card	22	obl:tmod	_	Entity=event-61)time-62)|SpaceAfter=No
 25	.	.	PUNCT	.	_	5	punct	_	_
 
 # sent_id = GUM_news_nasa-17
@@ -438,22 +438,22 @@
 # s_type = decl
 1	Columbia	Columbia	PROPN	NNP	Number=Sing	3	nsubj:pass	_	Discourse=joint:40->9|Entity=(object-18)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	aux:pass	_	_
-3	lost	lose	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
-4	tragically	tragically	ADV	RB	_	3	advmod	_	_
-5	back	back	ADV	RB	_	8	advmod	_	_
+3	lost	lose	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	_	_
+4	tragically	tragically	ADV	RB	Degree=Pos	3	advmod	_	_
+5	back	back	ADV	RB	Degree=Pos	8	advmod	_	_
 6	on	on	ADP	IN	_	8	case	_	_
 7	February	February	PROPN	NNP	Number=Sing	8	nmod:tmod	_	Entity=(time-63
-8	1	1	NUM	CD	NumType=Card	3	obl	_	SpaceAfter=No
+8	1	1	NUM	CD	NumForm=Digit|NumType=Card	3	obl	_	SpaceAfter=No
 9	,	,	PUNCT	,	_	10	punct	_	_
-10	2003	2003	NUM	CD	NumType=Card	8	nmod:tmod	_	Entity=(time-64)
+10	2003	2003	NUM	CD	NumForm=Digit|NumType=Card	8	nmod:tmod	_	Entity=(time-64)
 11	when	when	SCONJ	WRB	PronType=Int	13	mark	_	Discourse=circumstance:41->40
 12	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	13	nsubj	_	Entity=(object-18)
-13	disintegrated	disintegrate	VERB	VBD	Mood=Ind|Polarity=Neg|Tense=Past|VerbForm=Fin	3	advcl	_	_
+13	disintegrated	disintegrate	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	advcl	_	_
 14	during	during	ADP	IN	_	15	case	_	_
 15	re-entry	re-entry	NOUN	NN	Number=Sing	13	obl	_	Entity=(event-65)
 16	killing	kill	VERB	VBG	VerbForm=Ger	13	advcl	_	Discourse=result:42->40
 17	all	all	PRON	DT	_	19	det:predet	_	Entity=(person-66
-18	seven	seven	NUM	CD	NumType=Card	19	nummod	_	_
+18	seven	seven	NUM	CD	NumForm=Word|NumType=Card	19	nummod	_	_
 19	astronauts	astronaut	NOUN	NNS	Number=Plur	16	obj	_	_
 20	aboard	aboard	ADJ	JJ	Degree=Pos	19	amod	_	Entity=time-63)person-66)|SpaceAfter=No
 21	.	.	PUNCT	.	_	3	punct	_	_
@@ -461,27 +461,27 @@
 # sent_id = GUM_news_nasa-18
 # text = Space Shuttle Challenger was lost when it exploded 73 seconds after liftoff back on January 28, 1986 killing all six aboard.
 # s_type = decl
-1	Space	space	NOUN	NN	Number=Sing	2	compound	_	Discourse=joint:43->40|Entity=(object-67
+1	Space	space	NOUN	NN	Number=Sing	2	compound	_	Discourse=joint:43->40|Entity=(object-67-Space_Shuttle_Challenger
 2	Shuttle	shuttle	NOUN	NN	Number=Sing	3	compound	_	_
-3	Challenger	Challenger	PROPN	NNP	Number=Sing	5	nsubj:pass	_	Entity=object-67)
+3	Challenger	Challenger	PROPN	NNP	Number=Sing	5	nsubj:pass	_	Entity=object-67-Space_Shuttle_Challenger)
 4	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	5	aux:pass	_	_
-5	lost	lose	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
+5	lost	lose	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	_	_
 6	when	when	SCONJ	WRB	PronType=Int	8	mark	_	Discourse=circumstance:44->43
-7	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	8	nsubj	_	Entity=(object-67)
-8	exploded	explode	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	5	advcl	_	_
-9	73	73	NUM	CD	NumType=Card	10	nummod	_	Entity=(time-68
+7	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	8	nsubj	_	Entity=(object-67-Space_Shuttle_Challenger)
+8	exploded	explode	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	5	advcl	_	_
+9	73	73	NUM	CD	NumForm=Digit|NumType=Card	10	nummod	_	Entity=(time-68
 10	seconds	second	NOUN	NNS	Number=Plur	8	obl:tmod	_	_
 11	after	after	ADP	IN	_	12	case	_	_
 12	liftoff	liftoff	NOUN	NN	Number=Sing	10	nmod	_	Entity=(event-69)time-68)
-13	back	back	ADV	RB	_	16	advmod	_	_
+13	back	back	ADV	RB	Degree=Pos	16	advmod	_	_
 14	on	on	ADP	IN	_	16	case	_	_
 15	January	January	PROPN	NNP	Number=Sing	16	nmod:tmod	_	Entity=(time-70
-16	28	28	NUM	CD	NumType=Card	8	obl	_	SpaceAfter=No
+16	28	28	NUM	CD	NumForm=Digit|NumType=Card	8	obl	_	SpaceAfter=No
 17	,	,	PUNCT	,	_	18	punct	_	_
-18	1986	1986	NUM	CD	NumType=Card	16	nmod:tmod	_	Entity=(time-71)time-70)
+18	1986	1986	NUM	CD	NumForm=Digit|NumType=Card	16	nmod:tmod	_	Entity=(time-71)time-70)
 19	killing	kill	VERB	VBG	VerbForm=Ger	8	advcl	_	Discourse=result:45->44
 20	all	all	DET	DT	_	21	det	_	Entity=(person-72
-21	six	six	NUM	CD	NumType=Card	19	obj	_	_
+21	six	six	NUM	CD	NumForm=Word|NumType=Card	19	obj	_	_
 22	aboard	aboard	ADJ	JJ	Degree=Pos	21	amod	_	Entity=person-72)|SpaceAfter=No
 23	.	.	PUNCT	.	_	5	punct	_	_
 
@@ -489,8 +489,8 @@
 # text = "We want to thank all of the locations that expressed an interest in one of these national treasures," said Bolden to the gathered crowd which contained many KSC employees.
 # s_type = decl
 1	"	''	PUNCT	``	_	3	punct	_	Discourse=joint:46->9|SpaceAfter=No
-2	We	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	3	nsubj	_	Entity=(organization-1)
-3	want	want	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	22	ccomp	_	_
+2	We	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	3	nsubj	_	Entity=(organization-1-NASA)
+3	want	want	VERB	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	22	ccomp	_	_
 4	to	to	PART	TO	_	5	mark	_	_
 5	thank	thank	VERB	VB	VerbForm=Inf	3	xcomp	_	_
 6	all	all	PRON	DT	_	5	obj	_	_
@@ -498,27 +498,27 @@
 8	the	the	DET	DT	Definite=Def|PronType=Art	9	det	_	Entity=(place-73
 9	locations	location	NOUN	NNS	Number=Plur	6	nmod	_	_
 10	that	that	PRON	WDT	PronType=Rel	11	nsubj	_	Discourse=elaboration:47->46
-11	expressed	express	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	9	acl:relcl	_	_
+11	expressed	express	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	9	acl:relcl	_	_
 12	an	a	DET	DT	Definite=Ind|PronType=Art	13	det	_	Entity=(abstract-74
 13	interest	interest	NOUN	NN	Number=Sing	11	obj	_	_
 14	in	in	ADP	IN	_	15	case	_	_
-15	one	one	NUM	CD	NumType=Card	13	nmod	_	Entity=(object-75
+15	one	one	NUM	CD	NumForm=Word|NumType=Card	13	nmod	_	Entity=(object-75
 16	of	of	ADP	IN	_	19	case	_	_
 17	these	this	DET	DT	Number=Plur|PronType=Dem	19	det	_	Entity=(object-6
 18	national	national	ADJ	JJ	Degree=Pos	19	amod	_	_
 19	treasures	treasure	NOUN	NNS	Number=Plur	15	nmod	_	Entity=place-73)abstract-74)object-75)object-6)|SpaceAfter=No
 20	,	,	PUNCT	,	_	3	punct	_	SpaceAfter=No
 21	"	''	PUNCT	''	_	3	punct	_	_
-22	said	say	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	Discourse=attribution:48->46
-23	Bolden	Bolden	PROPN	NNP	Number=Sing	22	nsubj	_	Entity=(person-10)
+22	said	say	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	Discourse=attribution:48->46
+23	Bolden	Bolden	PROPN	NNP	Number=Sing	22	nsubj	_	Entity=(person-10-Charles_Bolden)
 24	to	to	ADP	IN	_	27	case	_	_
 25	the	the	DET	DT	Definite=Def|PronType=Art	27	det	_	Entity=(person-76
 26	gathered	gather	VERB	VBN	Tense=Past|VerbForm=Part	27	amod	_	_
 27	crowd	crowd	NOUN	NN	Number=Sing	22	obl	_	_
 28	which	which	PRON	WDT	PronType=Rel	29	nsubj	_	Discourse=elaboration:49->48
-29	contained	contain	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	27	acl:relcl	_	_
+29	contained	contain	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	27	acl:relcl	_	_
 30	many	many	ADJ	JJ	Degree=Pos	32	amod	_	_
-31	KSC	KSC	PROPN	NNP	Number=Sing	32	compound	_	Entity=(person-77(place-19)
+31	KSC	KSC	PROPN	NNP	Abbr=Yes|Number=Sing	32	compound	_	Entity=(person-77(place-19-Kennedy_Space_Center)
 32	employees	employee	NOUN	NNS	Number=Plur	29	obj	_	Entity=person-76)person-77)|SpaceAfter=No
 33	.	.	PUNCT	.	_	22	punct	_	_
 
@@ -534,10 +534,10 @@
 7	decision	decision	NOUN	NN	Number=Sing	0	root	_	Entity=abstract-78)|SpaceAfter=No
 8	,	,	PUNCT	,	_	10	punct	_	_
 9	but	but	CCONJ	CC	_	10	cc	_	Discourse=elaboration:51->46
-10	one	one	NUM	CD	NumType=Card	7	conj	_	Entity=(abstract-78
+10	one	one	NUM	CD	NumForm=Word|NumType=Card	7	conj	_	Entity=(abstract-78
 11	that	that	PRON	WDT	PronType=Rel	13	nsubj:pass	_	Discourse=elaboration:52->51
 12	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	13	aux:pass	_	_
-13	made	make	VERB	VBN	Tense=Past|VerbForm=Part	10	acl:relcl	_	_
+13	made	make	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	10	acl:relcl	_	_
 14	with	with	ADP	IN	_	17	case	_	_
 15	the	the	DET	DT	Definite=Def|PronType=Art	17	det	_	_
 16	American	American	ADJ	JJ	Degree=Pos	17	amod	_	_
@@ -555,7 +555,7 @@
 4	,	,	PUNCT	,	_	3	punct	_	_
 5	these	this	DET	DT	Number=Plur|PronType=Dem	6	det	_	Entity=(abstract-78
 6	choices	choice	NOUN	NNS	Number=Plur	7	nsubj	_	Entity=abstract-78)
-7	provide	provide	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	0	root	_	_
+7	provide	provide	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	_
 8	the	the	DET	DT	Definite=Def|PronType=Art	10	det	_	Entity=(person-79
 9	greatest	great	ADJ	JJS	Degree=Sup	10	amod	_	_
 10	number	number	NOUN	NN	Number=Sing	7	obj	_	_
@@ -573,12 +573,12 @@
 22	and	and	CCONJ	CC	_	23	cc	_	_
 23	accomplishments	accomplishment	NOUN	NNS	Number=Plur	21	conj	_	_
 24	of	of	ADP	IN	_	30	case	_	_
-25	NASA	NASA	PROPN	NNP	Number=Sing	30	nmod:poss	_	Entity=(organization-1|SpaceAfter=No
-26	's	's	PART	POS	_	25	case	_	Entity=organization-1)
+25	NASA	NASA	PROPN	NNP	Abbr=Yes|Number=Sing	30	nmod:poss	_	Entity=(organization-1-NASA|SpaceAfter=No
+26	's	's	PART	POS	_	25	case	_	Entity=organization-1-NASA)
 27	remarkable	remarkable	ADJ	JJ	Degree=Pos	30	amod	_	_
-28	Space	Space	PROPN	NNP	Number=Sing	29	compound	_	Entity=(abstract-13
+28	Space	Space	PROPN	NNP	Number=Sing	29	compound	_	Entity=(abstract-13-Space_Shuttle_program
 29	Shuttle	shuttle	PROPN	NNP	Number=Sing	30	compound	_	_
-30	Program	program	PROPN	NNP	Number=Sing	21	nmod	_	Entity=abstract-80)abstract-81)abstract-13)|SpaceAfter=No
+30	Program	program	PROPN	NNP	Number=Sing	21	nmod	_	Entity=abstract-80)abstract-81)abstract-13-Space_Shuttle_program)|SpaceAfter=No
 31	.	.	PUNCT	.	_	7	punct	_	_
 
 # sent_id = GUM_news_nasa-22
@@ -586,10 +586,10 @@
 # s_type = decl
 1	These	this	DET	DT	Number=Plur|PronType=Dem	2	det	_	Discourse=justify:55->53|Entity=(place-73
 2	facilities	facility	NOUN	NNS	Number=Plur	6	nsubj	_	_
-3	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	5	nsubj	_	Discourse=elaboration:56->55|Entity=(organization-1)|SpaceAfter=No
-4	've	have	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	5	aux	_	_
+3	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	5	nsubj	_	Discourse=elaboration:56->55|Entity=(organization-1-NASA)|SpaceAfter=No
+4	've	have	AUX	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	5	aux	_	_
 5	chosen	choose	VERB	VBN	Tense=Past|VerbForm=Part	2	acl:relcl	_	Entity=place-73)
-6	have	have	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	0	root	_	Discourse=same-unit:57->55
+6	have	have	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	Discourse=same-unit:57->55
 7	a	a	DET	DT	Definite=Ind|PronType=Art	9	det	_	Entity=(abstract-82
 8	noteworthy	noteworthy	ADJ	JJ	Degree=Pos	9	amod	_	_
 9	legacy	legacy	NOUN	NN	Number=Sing	6	obj	_	_
@@ -602,7 +602,7 @@
 16	outstanding	outstanding	ADJ	JJ	Degree=Pos	17	amod	_	Entity=(abstract-84
 17	access	access	NOUN	NN	Number=Sing	15	obj	_	_
 18	to	to	ADP	IN	_	22	case	_	_
-19	U.S.	U.S.	PROPN	NNP	Number=Sing	22	compound	_	Entity=(person-85(place-86)
+19	U.S.	U.S.	PROPN	NNP	Abbr=Yes|Number=Sing	22	compound	_	Entity=(person-85(place-86-United_States)
 20	and	and	CCONJ	CC	_	21	cc	_	_
 21	international	international	ADJ	JJ	Degree=Pos	19	conj	_	_
 22	visitors	visitor	NOUN	NNS	Number=Plur	15	obl	_	Entity=abstract-82)abstract-84)person-85)|SpaceAfter=No
@@ -620,10 +620,10 @@
 6	decision	decision	NOUN	NN	Number=Sing	0	root	_	Entity=abstract-78)|SpaceAfter=No
 7	,	,	PUNCT	,	_	9	punct	_	_
 8	but	but	CCONJ	CC	_	9	cc	_	Discourse=restatement:61->51
-9	one	one	NUM	CD	NumType=Card	6	conj	_	Entity=(abstract-78
+9	one	one	NUM	CD	NumForm=Word|NumType=Card	6	conj	_	Entity=(abstract-78
 10	that	that	PRON	WDT	PronType=Rel	12	nsubj:pass	_	Discourse=elaboration:62->61
 11	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	12	aux:pass	_	_
-12	made	make	VERB	VBN	Tense=Past|VerbForm=Part	9	acl:relcl	_	_
+12	made	make	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	9	acl:relcl	_	_
 13	with	with	ADP	IN	_	16	case	_	_
 14	the	the	DET	DT	Definite=Def|PronType=Art	16	det	_	_
 15	American	American	ADJ	JJ	Degree=Pos	16	amod	_	_
@@ -641,7 +641,7 @@
 4	,	,	PUNCT	,	_	3	punct	_	_
 5	these	this	DET	DT	Number=Plur|PronType=Dem	6	det	_	Entity=(abstract-78
 6	choices	choice	NOUN	NNS	Number=Plur	7	nsubj	_	Entity=abstract-78)
-7	provide	provide	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	0	root	_	_
+7	provide	provide	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	_
 8	the	the	DET	DT	Definite=Def|PronType=Art	10	det	_	Entity=(person-79
 9	greatest	great	ADJ	JJS	Degree=Sup	10	amod	_	_
 10	number	number	NOUN	NN	Number=Sing	7	obj	_	_
@@ -659,22 +659,22 @@
 22	and	and	CCONJ	CC	_	23	cc	_	_
 23	accomplishments	accomplishment	NOUN	NNS	Number=Plur	21	conj	_	_
 24	of	of	ADP	IN	_	30	case	_	_
-25	NASA	NASA	PROPN	NNP	Number=Sing	30	nmod:poss	_	Entity=(organization-1|SpaceAfter=No
-26	's	's	PART	POS	_	25	case	_	Entity=organization-1)
+25	NASA	NASA	PROPN	NNP	Abbr=Yes|Number=Sing	30	nmod:poss	_	Entity=(organization-1-NASA|SpaceAfter=No
+26	's	's	PART	POS	_	25	case	_	Entity=organization-1-NASA)
 27	remarkable	remarkable	ADJ	JJ	Degree=Pos	30	amod	_	_
-28	Space	Space	PROPN	NNP	Number=Sing	29	compound	_	Entity=(abstract-13
+28	Space	Space	PROPN	NNP	Number=Sing	29	compound	_	Entity=(abstract-13-Space_Shuttle_program
 29	Shuttle	shuttle	PROPN	NNP	Number=Sing	30	compound	_	_
-30	Program	program	PROPN	NNP	Number=Sing	21	nmod	_	Entity=abstract-80)abstract-81)abstract-13)|SpaceAfter=No
+30	Program	program	PROPN	NNP	Number=Sing	21	nmod	_	Entity=abstract-80)abstract-81)abstract-13-Space_Shuttle_program)|SpaceAfter=No
 31	.	.	PUNCT	.	_	7	punct	_	_
 
 # sent_id = GUM_news_nasa-25
 # text = Charles Bolden, NASA Administrator
 # s_type = frag
-1	Charles	Charles	PROPN	NNP	Number=Sing	0	root	_	Discourse=elaboration:65->61|Entity=(person-10
-2	Bolden	Bolden	PROPN	NNP	Number=Sing	1	flat	_	Entity=person-10)|SpaceAfter=No
+1	Charles	Charles	PROPN	NNP	Number=Sing	0	root	_	Discourse=elaboration:65->61|Entity=(person-10-Charles_Bolden
+2	Bolden	Bolden	PROPN	NNP	Number=Sing	1	flat	_	Entity=person-10-Charles_Bolden)|SpaceAfter=No
 3	,	,	PUNCT	,	_	4	punct	_	_
-4	NASA	NASA	PROPN	NNP	Number=Sing	1	appos	_	Entity=(person-10(organization-1)
-5	Administrator	Administrator	PROPN	NNP	Number=Sing	4	flat	_	Entity=person-10)
+4	NASA	NASA	PROPN	NNP	Abbr=Yes|Number=Sing	1	appos	_	Entity=(person-10-Charles_Bolden(organization-1-NASA)
+5	Administrator	Administrator	PROPN	NNP	Number=Sing	4	flat	_	Entity=person-10-Charles_Bolden)
 
 # sent_id = GUM_news_nasa-26
 # text = File image of Space Shuttle Atlantis lifting off, which approaches its last mission before retirement.
@@ -682,7 +682,7 @@
 1	File	file	NOUN	NN	Number=Sing	2	compound	_	Discourse=joint:66->9|Entity=(abstract-87
 2	image	image	NOUN	NN	Number=Sing	0	root	_	_
 3	of	of	ADP	IN	_	6	case	_	Discourse=elaboration:67->66
-4	Space	Space	PROPN	NNP	Number=Sing	5	compound	_	Entity=(object-27
+4	Space	Space	PROPN	NNP	Number=Sing	5	compound	_	Entity=(object-28-Space_Shuttle_Atlantis
 5	Shuttle	shuttle	PROPN	NNP	Number=Sing	6	compound	_	_
 6	Atlantis	Atlantis	PROPN	NNP	Number=Sing	2	nmod	_	_
 7	lifting	lift	VERB	VBG	VerbForm=Ger	6	acl	_	_
@@ -690,11 +690,11 @@
 9	,	,	PUNCT	,	_	11	punct	_	_
 10	which	which	PRON	WDT	PronType=Rel	11	nsubj	_	Discourse=elaboration:68->66
 11	approaches	approach	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	acl:relcl	_	_
-12	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	14	nmod:poss	_	Entity=(event-61(object-27)
+12	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	14	nmod:poss	_	Entity=(event-61(object-28-Space_Shuttle_Atlantis)
 13	last	last	ADJ	JJ	Degree=Pos	14	amod	_	_
 14	mission	mission	NOUN	NN	Number=Sing	11	obj	_	_
 15	before	before	ADP	IN	_	16	case	_	_
-16	retirement	retirement	NOUN	NN	Number=Sing	14	nmod	_	Entity=abstract-87)object-27)event-61)|SpaceAfter=No
+16	retirement	retirement	NOUN	NN	Number=Sing	14	nmod	_	Entity=abstract-87)object-28-Space_Shuttle_Atlantis)event-61)|SpaceAfter=No
 17	.	.	PUNCT	.	_	2	punct	_	_
 
 # sent_id = GUM_news_nasa-27
@@ -702,7 +702,7 @@
 # s_type = frag
 1	Image	image	NOUN	NN	Number=Sing	0	root	_	Discourse=elaboration:69->66|Entity=(abstract-87)|SpaceAfter=No
 2	:	:	PUNCT	:	_	3	punct	_	_
-3	NASA	NASA	PROPN	NNP	Number=Sing	1	dep	_	Discourse=attribution:70->69|Entity=(organization-1)|SpaceAfter=No
+3	NASA	NASA	PROPN	NNP	Abbr=Yes|Number=Sing	1	dep	_	Discourse=attribution:70->69|Entity=(organization-1-NASA)|SpaceAfter=No
 4	.	.	PUNCT	.	_	1	punct	_	_
 
 # sent_id = GUM_news_nasa-28
@@ -710,8 +710,8 @@
 # s_type = decl
 1	Not	not	PART	RB	Polarity=Neg	4	advmod	_	Discourse=preparation:71->72
 2	all	all	PRON	DT	_	4	nsubj:pass	_	_
-3	were	be	AUX	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	4	aux:pass	_	_
-4	pleased	please	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
+3	were	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	4	aux:pass	_	_
+4	pleased	please	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	_	_
 5	with	with	ADP	IN	_	8	case	_	_
 6	the	the	DET	DT	Definite=Def|PronType=Art	8	det	_	Entity=(abstract-78
 7	final	final	ADJ	JJ	Degree=Pos	8	amod	_	_
@@ -723,32 +723,32 @@
 # sent_id = GUM_news_nasa-29
 # text = U.S. Senator John Cornyn, Republican from Texas, issued a statement regarding the rejection of Johnson Space Center (JSC) in Houston, Texas as a location.
 # s_type = decl
-1	U.S.	U.S.	PROPN	NNP	Number=Sing	2	compound	_	Discourse=joint:72->9|Entity=(person-88(place-86)
+1	U.S.	U.S.	PROPN	NNP	Abbr=Yes|Number=Sing	2	compound	_	Discourse=joint:72->9|Entity=(person-88-John_Cornyn(place-86-United_States)
 2	Senator	Senator	PROPN	NNP	Number=Sing	10	nsubj	_	_
 3	John	John	PROPN	NNP	Number=Sing	2	flat	_	_
-4	Cornyn	Cornyn	PROPN	NNP	Number=Sing	2	flat	_	Entity=person-88)|SpaceAfter=No
+4	Cornyn	Cornyn	PROPN	NNP	Number=Sing	2	flat	_	Entity=person-88-John_Cornyn)|SpaceAfter=No
 5	,	,	PUNCT	,	_	6	punct	_	_
-6	Republican	Republican	PROPN	NNP	Number=Sing	2	appos	_	Entity=(person-88
+6	Republican	Republican	PROPN	NNP	Number=Sing	2	appos	_	Entity=(person-88-John_Cornyn
 7	from	from	ADP	IN	_	8	case	_	_
-8	Texas	Texas	PROPN	NNP	Number=Sing	6	nmod	_	Entity=(place-89)person-88)|SpaceAfter=No
+8	Texas	Texas	PROPN	NNP	Number=Sing	6	nmod	_	Entity=(place-89-Texas)person-88-John_Cornyn)|SpaceAfter=No
 9	,	,	PUNCT	,	_	2	punct	_	_
-10	issued	issue	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+10	issued	issue	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 11	a	a	DET	DT	Definite=Ind|PronType=Art	12	det	_	Entity=(abstract-90
 12	statement	statement	NOUN	NN	Number=Sing	10	obj	_	_
 13	regarding	regard	VERB	VBG	VerbForm=Ger	15	case	_	Discourse=elaboration:73->72
-14	the	the	DET	DT	Definite=Def|PronType=Art	15	det	_	Entity=(event-91
+14	the	the	DET	DT	Definite=Def|PronType=Art	15	det	_	Bridge=abstract-78<event-91|Entity=(event-91
 15	rejection	rejection	NOUN	NN	Number=Sing	12	nmod	_	_
 16	of	of	ADP	IN	_	19	case	_	_
-17	Johnson	Johnson	PROPN	NNP	Number=Sing	19	compound	_	Entity=(place-92
+17	Johnson	Johnson	PROPN	NNP	Number=Sing	19	compound	_	Entity=(place-92-Johnson_Space_Center
 18	Space	Space	PROPN	NNP	Number=Sing	19	compound	_	_
 19	Center	Center	PROPN	NNP	Number=Sing	15	nmod	_	_
 20	(	(	PUNCT	-LRB-	_	21	punct	_	Discourse=restatement:74->73|SpaceAfter=No
-21	JSC	JSC	PROPN	NNP	Number=Sing	19	appos	_	Entity=(place-92)|SpaceAfter=No
+21	JSC	JSC	PROPN	NNP	Abbr=Yes|Number=Sing	19	appos	_	Entity=(place-92-Johnson_Space_Center)|SpaceAfter=No
 22	)	)	PUNCT	-RRB-	_	21	punct	_	_
 23	in	in	ADP	IN	_	24	case	_	Discourse=same-unit:75->73
-24	Houston	Houston	PROPN	NNP	Number=Sing	19	nmod	_	Entity=(place-93|SpaceAfter=No
+24	Houston	Houston	PROPN	NNP	Number=Sing	19	nmod	_	Entity=(place-93-Houston|SpaceAfter=No
 25	,	,	PUNCT	,	_	26	punct	_	_
-26	Texas	Texas	PROPN	NNP	Number=Sing	24	appos	_	Entity=(place-89)event-91)place-92)place-93)
+26	Texas	Texas	PROPN	NNP	Number=Sing	24	appos	_	Entity=(place-89-Texas)event-91)place-92-Johnson_Space_Center)place-93-Houston)
 27	as	as	ADP	IN	_	29	case	_	_
 28	a	a	DET	DT	Definite=Ind|PronType=Art	29	det	_	_
 29	location	location	NOUN	NN	Number=Sing	15	nmod	_	Entity=(place-73)abstract-90)|SpaceAfter=No
@@ -762,25 +762,25 @@
 3	many	many	ADJ	JJ	Degree=Pos	4	amod	_	Entity=(person-94
 4	Texans	Texans	PROPN	NNPS	Number=Plur	8	obl	_	Entity=person-94)|SpaceAfter=No
 5	,	,	PUNCT	,	_	4	punct	_	_
-6	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	8	nsubj:pass	_	Entity=(person-88)
+6	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	8	nsubj:pass	_	Entity=(person-88-John_Cornyn)
 7	am	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	8	aux:pass	_	_
-8	disappointed	disappoint	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
+8	disappointed	disappoint	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	_	_
 9	with	with	ADP	IN	_	12	case	_	_
-10	NASA	NASA	PROPN	NNP	Number=Sing	12	nmod:poss	_	Entity=(event-91(organization-1|SpaceAfter=No
-11	's	's	PART	POS	_	10	case	_	Entity=organization-1)
+10	NASA	NASA	PROPN	NNP	Abbr=Yes|Number=Sing	12	nmod:poss	_	Entity=(event-91(organization-1-NASA|SpaceAfter=No
+11	's	's	PART	POS	_	10	case	_	Entity=organization-1-NASA)
 12	decision	decision	NOUN	NN	Number=Sing	8	obl	_	_
 13	to	to	PART	TO	_	14	mark	_	Discourse=elaboration:77->76
 14	slight	slight	VERB	VB	VerbForm=Inf	12	acl	_	_
-15	the	the	DET	DT	Definite=Def|PronType=Art	18	det	_	Entity=(place-92
+15	the	the	DET	DT	Definite=Def|PronType=Art	18	det	_	Entity=(place-92-Johnson_Space_Center
 16	Johnson	Johnson	PROPN	NNP	Number=Sing	18	compound	_	_
 17	Space	Space	PROPN	NNP	Number=Sing	18	compound	_	_
-18	Center	Center	PROPN	NNP	Number=Sing	14	obj	_	Entity=event-91)place-92)
+18	Center	Center	PROPN	NNP	Number=Sing	14	obj	_	Entity=event-91)place-92-Johnson_Space_Center)
 19	as	as	ADP	IN	_	22	case	_	_
 20	a	a	DET	DT	Definite=Ind|PronType=Art	22	det	_	Entity=(place-73
 21	permanent	permanent	ADJ	JJ	Degree=Pos	22	amod	_	_
 22	home	home	NOUN	NN	Number=Sing	14	obl	_	_
 23	for	for	ADP	IN	_	24	case	_	_
-24	one	one	NUM	CD	NumType=Card	22	nmod	_	Entity=(object-95
+24	one	one	NUM	CD	NumForm=Word|NumType=Card	22	nmod	_	Entity=(object-95
 25	of	of	ADP	IN	_	29	case	_	_
 26	the	the	DET	DT	Definite=Def|PronType=Art	29	det	_	Entity=(object-6
 27	Space	Space	PROPN	NNP	Number=Sing	28	compound	_	_
@@ -791,7 +791,7 @@
 # sent_id = GUM_news_nasa-31
 # text = Houston has played a critical role throughout the life of the space shuttle, but it is clear political favors trumped common sense and fairness in the selection of the final locations for the orbiter fleet."
 # s_type = decl
-1	Houston	Houston	PROPN	NNP	Number=Sing	3	nsubj	_	Discourse=justify:78->76|Entity=(place-93)
+1	Houston	Houston	PROPN	NNP	Number=Sing	3	nsubj	_	Discourse=justify:78->76|Entity=(place-93-Houston)
 2	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	aux	_	_
 3	played	play	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
 4	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	_	Entity=(abstract-96
@@ -806,12 +806,12 @@
 13	shuttle	shuttle	NOUN	NN	Number=Sing	9	nmod	_	Entity=abstract-96)abstract-97)object-98)|SpaceAfter=No
 14	,	,	PUNCT	,	_	18	punct	_	_
 15	but	but	CCONJ	CC	_	18	cc	_	Discourse=contrast:79->78
-16	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	18	expl	_	Entity=(event-99)
+16	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	18	expl	_	Entity=(event-99)
 17	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	18	cop	_	_
 18	clear	clear	ADJ	JJ	Degree=Pos	3	conj	_	_
 19	political	political	ADJ	JJ	Degree=Pos	20	amod	_	Entity=(event-99(abstract-100
 20	favors	favors	NOUN	NNS	Number=Plur	21	nsubj	_	Entity=abstract-100)
-21	trumped	trump	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	18	csubj	_	_
+21	trumped	trump	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	18	csubj	_	_
 22	common	common	ADJ	JJ	Degree=Pos	23	amod	_	Entity=(abstract-101
 23	sense	sense	NOUN	NN	Number=Sing	21	obj	_	Entity=abstract-101)
 24	and	and	CCONJ	CC	_	25	cc	_	_
@@ -824,7 +824,7 @@
 31	final	final	ADJ	JJ	Degree=Pos	32	amod	_	_
 32	locations	location	NOUN	NNS	Number=Plur	28	nmod	_	Entity=place-73)
 33	for	for	ADP	IN	_	36	case	_	_
-34	the	the	DET	DT	Definite=Def|PronType=Art	36	det	_	Entity=(object-103
+34	the	the	DET	DT	Definite=Def|PronType=Art	36	det	_	Bridge=object-98<object-103|Entity=(object-103
 35	orbiter	orbiter	NOUN	NN	Number=Sing	36	compound	_	_
 36	fleet	fleet	NOUN	NN	Number=Sing	32	nmod	_	Entity=event-99)event-91)object-103)|SpaceAfter=No
 37	.	.	PUNCT	.	_	3	punct	_	SpaceAfter=No
@@ -833,35 +833,35 @@
 # sent_id = GUM_news_nasa-32
 # text = Cornyn's statement added, "There is no question Houston should have been selected as a final home for one of the orbiters — even Administrator Bolden stated as much.
 # s_type = decl
-1	Cornyn	Cornyn	PROPN	NNP	Number=Sing	3	nmod:poss	_	Discourse=attribution:80->81|Entity=(abstract-104(person-88|SpaceAfter=No
-2	's	's	PART	POS	_	1	case	_	Entity=person-88)
+1	Cornyn	Cornyn	PROPN	NNP	Number=Sing	3	nmod:poss	_	Discourse=attribution:80->81|Entity=(abstract-104(person-88-John_Cornyn|SpaceAfter=No
+2	's	's	PART	POS	_	1	case	_	Entity=person-88-John_Cornyn)
 3	statement	statement	NOUN	NN	Number=Sing	4	nsubj	_	Entity=abstract-104)
-4	added	add	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
+4	added	add	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
 5	,	,	PUNCT	,	_	8	punct	_	_
 6	"	''	PUNCT	``	_	8	punct	_	Discourse=joint:81->78|SpaceAfter=No
 7	There	there	PRON	EX	_	8	expl	_	_
 8	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	ccomp	_	_
 9	no	no	DET	DT	Polarity=Neg	10	det	_	_
 10	question	question	NOUN	NN	Number=Sing	8	nsubj	_	_
-11	Houston	Houston	PROPN	NNP	Number=Sing	15	nsubj:pass	_	Discourse=elaboration:82->81|Entity=(place-93)
+11	Houston	Houston	PROPN	NNP	Number=Sing	15	nsubj:pass	_	Discourse=elaboration:82->81|Entity=(place-93-Houston)
 12	should	should	AUX	MD	VerbForm=Fin	15	aux	_	_
 13	have	have	AUX	VB	VerbForm=Inf	15	aux	_	_
 14	been	be	AUX	VBN	Tense=Past|VerbForm=Part	15	aux:pass	_	_
-15	selected	select	VERB	VBN	Tense=Past|VerbForm=Part	10	acl:relcl	_	_
+15	selected	select	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	10	acl:relcl	_	_
 16	as	as	ADP	IN	_	19	case	_	_
 17	a	a	DET	DT	Definite=Ind|PronType=Art	19	det	_	Entity=(place-73
 18	final	final	ADJ	JJ	Degree=Pos	19	amod	_	_
 19	home	home	NOUN	NN	Number=Sing	15	obl	_	_
 20	for	for	ADP	IN	_	21	case	_	_
-21	one	one	NUM	CD	NumType=Card	19	nmod	_	_
+21	one	one	NUM	CD	NumForm=Word|NumType=Card	19	nmod	_	_
 22	of	of	ADP	IN	_	24	case	_	_
 23	the	the	DET	DT	Definite=Def|PronType=Art	24	det	_	_
 24	orbiters	orbiters	NOUN	NNS	Number=Plur	21	nmod	_	Entity=place-73)
 25	—	—	PUNCT	:	_	29	punct	_	Discourse=restatement:83->81
 26	even	even	ADV	RB	_	27	advmod	_	_
-27	Administrator	Administrator	PROPN	NNP	Number=Sing	29	nsubj	_	Entity=(person-10
-28	Bolden	Bolden	PROPN	NNP	Number=Sing	27	flat	_	Entity=person-10)
-29	stated	state	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	8	parataxis	_	_
+27	Administrator	Administrator	PROPN	NNP	Number=Sing	29	nsubj	_	Entity=(person-10-Charles_Bolden
+28	Bolden	Bolden	PROPN	NNP	Number=Sing	27	flat	_	Entity=person-10-Charles_Bolden)
+29	stated	state	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	8	parataxis	_	_
 30	as	as	ADV	RB	_	31	advmod	_	_
 31	much	much	ADJ	JJ	Degree=Pos	29	obj	_	SpaceAfter=No
 32	.	.	PUNCT	.	_	4	punct	_	_
@@ -884,29 +884,29 @@
 13	and	and	CCONJ	CC	_	14	cc	_	_
 14	women	woman	NOUN	NNS	Number=Plur	12	conj	_	_
 15	at	at	ADP	IN	_	18	case	_	_
-16	Johnson	Johnson	PROPN	NNP	Number=Sing	18	compound	_	Entity=(place-92
+16	Johnson	Johnson	PROPN	NNP	Number=Sing	18	compound	_	Entity=(place-92-Johnson_Space_Center
 17	Space	Space	PROPN	NNP	Number=Sing	18	compound	_	_
-18	Center	Center	PROPN	NNP	Number=Sing	12	nmod	_	Entity=person-106)place-92)|SpaceAfter=No
+18	Center	Center	PROPN	NNP	Number=Sing	12	nmod	_	Entity=person-106)place-92-Johnson_Space_Center)|SpaceAfter=No
 19	,	,	PUNCT	,	_	23	punct	_	_
 20	the	the	DET	DT	Definite=Def|PronType=Art	23	det	_	Entity=(abstract-107
 21	greater	great	ADJ	JJR	Degree=Cmp	23	amod	_	_
-22	Houston	Houston	PROPN	NNP	Number=Sing	23	compound	_	Entity=(place-108)
+22	Houston	Houston	PROPN	NNP	Number=Sing	23	compound	_	Entity=(place-108-Houston)
 23	community	community	NOUN	NN	Number=Sing	9	appos	_	Entity=abstract-107)
 24	and	and	CCONJ	CC	_	26	cc	_	_
-25	the	the	DET	DT	Definite=Def|PronType=Art	26	det	_	Entity=(place-89
+25	the	the	DET	DT	Definite=Def|PronType=Art	26	det	_	Entity=(place-89-Texas
 26	State	State	PROPN	NNP	Number=Sing	23	conj	_	_
 27	of	of	ADP	IN	_	28	case	_	_
-28	Texas	Texas	PROPN	NNP	Number=Sing	26	nmod	_	Entity=place-89)|SpaceAfter=No
+28	Texas	Texas	PROPN	NNP	Number=Sing	26	nmod	_	Entity=place-89-Texas)|SpaceAfter=No
 29	,	,	PUNCT	,	_	34	punct	_	_
 30	and	and	CCONJ	CC	_	34	cc	_	Discourse=evaluation:85->81
-31	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	34	nsubj:pass	_	Entity=(person-88)|SpaceAfter=No
-32	m	be	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	34	aux:pass	_	_
-33	deeply	deeply	ADV	RB	_	34	advmod	_	_
-34	disappointed	disappoint	VERB	VBN	Tense=Past|VerbForm=Part	6	conj	_	_
+31	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	34	nsubj:pass	_	Entity=(person-88-John_Cornyn)|SpaceAfter=No
+32	m	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	34	aux:pass	_	_
+33	deeply	deeply	ADV	RB	Degree=Pos	34	advmod	_	_
+34	disappointed	disappoint	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	6	conj	_	_
 35	with	with	ADP	IN	_	40	case	_	_
-36	the	the	DET	DT	Definite=Def|PronType=Art	37	det	_	Entity=(event-91(organization-1
+36	the	the	DET	DT	Definite=Def|PronType=Art	37	det	_	Entity=(event-91(organization-1-NASA
 37	Administration	Administration	PROPN	NNP	Number=Sing	40	nmod:poss	_	SpaceAfter=No
-38	's	's	PART	POS	_	37	case	_	Entity=organization-1)
+38	's	's	PART	POS	_	37	case	_	Entity=organization-1-NASA)
 39	misguided	misguided	ADJ	JJ	Degree=Pos	40	amod	_	_
 40	decision	decision	NOUN	NN	Number=Sing	34	obl	_	Entity=event-91)|SpaceAfter=No
 41	.	.	PUNCT	.	_	6	punct	_	SpaceAfter=No
@@ -915,10 +915,10 @@
 # sent_id = GUM_news_nasa-34
 # text = However, the JSC will recieve pilot and commander seats from the flight deck.
 # s_type = decl
-1	However	however	ADV	RB	_	6	advmod	_	Discourse=concession:86->72|SpaceAfter=No
+1	However	however	ADV	RB	Degree=Pos	6	advmod	_	Discourse=concession:86->72|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	_	Entity=(place-92
-4	JSC	JSC	PROPN	NNP	Number=Sing	6	nsubj	_	Entity=place-92)
+3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	_	Entity=(place-92-Johnson_Space_Center
+4	JSC	JSC	PROPN	NNP	Abbr=Yes|Number=Sing	6	nsubj	_	Entity=place-92-Johnson_Space_Center)
 5	will	will	AUX	MD	VerbForm=Fin	6	aux	_	_
 6	recieve	recieve	VERB	VB	VerbForm=Inf	0	root	_	_
 7	pilot	pilot	NOUN	NN	Number=Sing	10	compound	_	Entity=(object-109(person-110)
@@ -934,17 +934,17 @@
 # sent_id = GUM_news_nasa-35
 # text = The Museum of Flight in Seattle, Washington was also proposed as another location for a shuttle, going so far as to build a new building to house an orbiter.
 # s_type = decl
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	_	Discourse=joint:87->9|Entity=(place-113
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	_	Discourse=joint:87->9|Entity=(place-113-Museum_of_Flight
 2	Museum	Museum	PROPN	NNP	Number=Sing	11	nsubj:pass	_	_
 3	of	of	ADP	IN	_	4	case	_	_
 4	Flight	Flight	PROPN	NNP	Number=Sing	2	nmod	_	_
 5	in	in	ADP	IN	_	6	case	_	_
-6	Seattle	Seattle	PROPN	NNP	Number=Sing	2	nmod	_	Entity=(place-114|SpaceAfter=No
+6	Seattle	Seattle	PROPN	NNP	Number=Sing	2	nmod	_	Entity=(place-114-Seattle|SpaceAfter=No
 7	,	,	PUNCT	,	_	8	punct	_	_
-8	Washington	Washington	PROPN	NNP	Number=Sing	6	appos	_	Entity=(place-115)place-113)place-114)
+8	Washington	Washington	PROPN	NNP	Number=Sing	6	appos	_	Entity=(place-115-Washington_%28state%29)place-113-Museum_of_Flight)place-114-Seattle)
 9	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	11	aux:pass	_	_
 10	also	also	ADV	RB	_	11	advmod	_	_
-11	proposed	propose	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
+11	proposed	propose	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	_	_
 12	as	as	ADP	IN	_	14	case	_	_
 13	another	another	PRON	DT	_	14	amod	_	Entity=(place-73
 14	location	location	NOUN	NN	Number=Sing	11	obl	_	_
@@ -974,19 +974,19 @@
 2	a	a	DET	DT	Definite=Ind|PronType=Art	3	det	_	Entity=(abstract-119
 3	statement	statement	NOUN	NN	Number=Sing	10	obl	_	Entity=abstract-119)|SpaceAfter=No
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	Governor	Governor	PROPN	NNP	Number=Sing	10	nsubj	_	Entity=(person-120
+5	Governor	Governor	PROPN	NNP	Number=Sing	10	nsubj	_	Entity=(person-120-Christine_Gregoire
 6	of	of	ADP	IN	_	7	case	_	_
-7	Washington	Washington	PROPN	NNP	Number=Sing	5	nmod	_	Entity=(place-115)
+7	Washington	Washington	PROPN	NNP	Number=Sing	5	nmod	_	Entity=(place-115-Washington_%28state%29)
 8	Chris	Chris	PROPN	NNP	Number=Sing	5	flat	_	_
-9	Gregoire	Gregoire	PROPN	NNP	Number=Sing	5	flat	_	Entity=person-120)
-10	said	say	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
+9	Gregoire	Gregoire	PROPN	NNP	Number=Sing	5	flat	_	Entity=person-120-Christine_Gregoire)
+10	said	say	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	SpaceAfter=No
 11	,	,	PUNCT	,	_	17	punct	_	_
 12	"	''	PUNCT	``	_	17	punct	_	Discourse=background:91->97|SpaceAfter=No
-13	The	the	DET	DT	Definite=Def|PronType=Art	14	det	_	Entity=(place-121
+13	The	the	DET	DT	Definite=Def|PronType=Art	14	det	_	Entity=(place-121-Museum_of_Flight
 14	Museum	Museum	PROPN	NNP	Number=Sing	17	nsubj	_	_
 15	of	of	ADP	IN	_	16	case	_	_
-16	Flight	Flight	PROPN	NNP	Number=Sing	14	nmod	_	Entity=place-121)
-17	put	put	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	10	ccomp	_	_
+16	Flight	Flight	PROPN	NNP	Number=Sing	14	nmod	_	Entity=place-121-Museum_of_Flight)
+17	put	put	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	10	ccomp	_	_
 18	a	a	DET	DT	Definite=Ind|PronType=Art	20	det	_	Entity=(abstract-122
 19	tremendous	tremendous	ADJ	JJ	Degree=Pos	20	amod	_	_
 20	amount	amount	NOUN	NN	Number=Sing	17	obj	_	_
@@ -997,10 +997,10 @@
 25	a	a	DET	DT	Definite=Ind|PronType=Art	27	det	_	Entity=(object-123
 26	retired	retire	VERB	VBN	Tense=Past|VerbForm=Part	27	amod	_	_
 27	shuttle	shuttle	NOUN	NN	Number=Sing	24	obj	_	Entity=object-123)
-28	in	in	ADP	IN	_	31	case	_	Entity=(place-124
-29	the	the	DET	DT	Definite=Def|PronType=Art	31	det	_	_
+28	in	in	ADP	IN	_	31	case	_	_
+29	the	the	DET	DT	Definite=Def|PronType=Art	31	det	_	Entity=(place-124-Pacific_Northwest
 30	Pacific	Pacific	PROPN	NNP	Number=Sing	31	amod	_	_
-31	Northwest	Northwest	PROPN	NNP	Number=Sing	24	obl	_	Entity=place-124)|SpaceAfter=No
+31	Northwest	Northwest	PROPN	NNP	Number=Sing	24	obl	_	Entity=place-124-Pacific_Northwest)|SpaceAfter=No
 32	.	.	PUNCT	.	_	10	punct	_	_
 
 # sent_id = GUM_news_nasa-37
@@ -1015,21 +1015,21 @@
 7	air	air	NOUN	NN	Number=Sing	8	compound	_	_
 8	travel	travel	NOUN	NN	Number=Sing	3	nmod	_	Entity=abstract-126)
 9	and	and	CCONJ	CC	_	11	cc	_	_
-10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(object-128
+10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	_	Entity=(object-128-Boeing_747
 11	747	747	PROPN	NNP	Number=Sing	8	conj	_	SpaceAfter=No
 12	,	,	PUNCT	,	_	16	punct	_	_
 13	which	which	PRON	WDT	PronType=Rel	16	nsubj	_	Discourse=elaboration:93->92
 14	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	16	aux	_	_
-15	gracefully	gracefully	ADV	RB	_	16	advmod	_	_
+15	gracefully	gracefully	ADV	RB	Degree=Pos	16	advmod	_	_
 16	transported	transport	VERB	VBN	Tense=Past|VerbForm=Part	11	acl:relcl	_	_
 17	shuttles	shuttle	NOUN	NNS	Number=Plur	16	obj	_	Entity=(object-129)
 18	for	for	ADP	IN	_	22	case	_	_
 19	the	the	DET	DT	Definite=Def|PronType=Art	22	det	_	_
 20	last	last	ADJ	JJ	Degree=Pos	22	amod	_	_
-21	30	30	NUM	CD	NumType=Card	22	nummod	_	_
-22	years	year	NOUN	NNS	Number=Plur	16	obl	_	Entity=place-125)object-128)|SpaceAfter=No
+21	30	30	NUM	CD	NumForm=Digit|NumType=Card	22	nummod	_	_
+22	years	year	NOUN	NNS	Number=Plur	16	obl	_	Entity=place-125)object-128-Boeing_747)|SpaceAfter=No
 23	,	,	PUNCT	,	_	3	punct	_	_
-24	Seattle	Seattle	PROPN	NNP	Number=Sing	30	nsubj	_	Discourse=same-unit:94->92|Entity=(place-114)
+24	Seattle	Seattle	PROPN	NNP	Number=Sing	30	nsubj	_	Discourse=same-unit:94->92|Entity=(place-114-Seattle)
 25	would	would	AUX	MD	VerbForm=Fin	30	aux	_	_
 26	have	have	AUX	VB	VerbForm=Inf	30	aux	_	_
 27	been	be	AUX	VBN	Tense=Past|VerbForm=Part	30	cop	_	_
@@ -1042,37 +1042,37 @@
 # text = While the Museum of Flight was in the top running, Im disappointed that NASA did not choose them.
 # s_type = decl
 1	While	while	SCONJ	WRB	PronType=Int	10	mark	_	Discourse=concession:95->97
-2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	_	Entity=(place-121
+2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	_	Entity=(place-121-Museum_of_Flight
 3	Museum	Museum	PROPN	NNP	Number=Sing	10	nsubj	_	_
 4	of	of	ADP	IN	_	5	case	_	_
-5	Flight	Flight	PROPN	NNP	Number=Sing	3	nmod	_	Entity=place-121)
+5	Flight	Flight	PROPN	NNP	Number=Sing	3	nmod	_	Entity=place-121-Museum_of_Flight)
 6	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	10	cop	_	_
 7	in	in	ADP	IN	_	10	case	_	_
 8	the	the	DET	DT	Definite=Def|PronType=Art	10	det	_	Entity=(abstract-131
 9	top	top	ADJ	JJ	Degree=Pos	10	amod	_	_
 10	running	running	NOUN	NN	Number=Sing	14	advcl	_	Entity=abstract-131)|SpaceAfter=No
 11	,	,	PUNCT	,	_	10	punct	_	_
-12	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	14	nsubj:pass	_	Discourse=attribution:96->97|Entity=(person-120)|SpaceAfter=No
-13	m	be	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	14	aux:pass	_	_
-14	disappointed	disappoint	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
+12	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	14	nsubj:pass	_	Discourse=attribution:96->97|Entity=(person-120-Christine_Gregoire)|SpaceAfter=No
+13	m	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	14	aux:pass	_	_
+14	disappointed	disappoint	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	_	_
 15	that	that	SCONJ	IN	_	19	mark	_	Discourse=elaboration:97->87
-16	NASA	NASA	PROPN	NNP	Number=Sing	19	nsubj	_	Entity=(organization-1)
-17	did	do	AUX	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	19	aux	_	_
+16	NASA	NASA	PROPN	NNP	Abbr=Yes|Number=Sing	19	nsubj	_	Entity=(organization-1-NASA)
+17	did	do	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	19	aux	_	_
 18	not	not	PART	RB	Polarity=Neg	19	advmod	_	_
 19	choose	choose	VERB	VB	VerbForm=Inf	14	ccomp	_	_
-20	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	19	obj	_	Entity=(place-121)|SpaceAfter=No
+20	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	19	obj	_	Entity=(place-121-Museum_of_Flight)|SpaceAfter=No
 21	.	.	PUNCT	.	_	14	punct	_	_
 
 # sent_id = GUM_news_nasa-39
 # text = In 2008, Endeavour and Atlantis await a journey on their respective launchpads.
 # s_type = decl
 1	In	in	ADP	IN	_	2	case	_	Discourse=background:98->101
-2	2008	2008	NUM	CD	NumType=Card	7	obl	_	Entity=(time-132)|SpaceAfter=No
+2	2008	2008	NUM	CD	NumForm=Digit|NumType=Card	7	obl	_	Entity=(time-132)|SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	_	_
-4	Endeavour	endeavour	PROPN	NNP	Number=Sing	7	nsubj	_	Entity=(object-133(object-51)
+4	Endeavour	endeavour	PROPN	NNP	Number=Sing	7	nsubj	_	Entity=(object-133(object-51-Space_Shuttle_Endeavour)
 5	and	and	CCONJ	CC	_	6	cc	_	_
-6	Atlantis	Atlantis	PROPN	NNP	Number=Sing	4	conj	_	Entity=(object-27)object-133)
-7	await	await	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	0	root	_	_
+6	Atlantis	Atlantis	PROPN	NNP	Number=Sing	4	conj	_	Entity=(object-28-Space_Shuttle_Atlantis)object-133)
+7	await	await	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	_
 8	a	a	DET	DT	Definite=Ind|PronType=Art	9	det	_	Entity=(event-134
 9	journey	journey	NOUN	NN	Number=Sing	7	obj	_	Entity=event-134)
 10	on	on	ADP	IN	_	13	case	_	_
@@ -1086,14 +1086,14 @@
 # s_type = frag
 1	Image	image	NOUN	NN	Number=Sing	0	root	_	Discourse=elaboration:99->98|Entity=(abstract-136)|SpaceAfter=No
 2	:	:	PUNCT	:	_	3	punct	_	_
-3	NASA	NASA	PROPN	NNP	Number=Sing	1	dep	_	Discourse=attribution:100->99|Entity=(organization-1)|SpaceAfter=No
+3	NASA	NASA	PROPN	NNP	Abbr=Yes|Number=Sing	1	dep	_	Discourse=attribution:100->99|Entity=(organization-1-NASA)|SpaceAfter=No
 4	.	.	PUNCT	.	_	1	punct	_	_
 
 # sent_id = GUM_news_nasa-41
 # text = "However, the full fuselage trainer, that every astronaut including [former Museum of Flight CEO] Bonnie Dunbar has been trained on, will soon call the Museum of Flight home.
 # s_type = decl
 1	"	''	PUNCT	``	_	29	punct	_	Discourse=concession:101->97|SpaceAfter=No
-2	However	however	SCONJ	RB	_	29	mark	_	SpaceAfter=No
+2	However	however	SCONJ	RB	Degree=Pos	29	mark	_	SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	_	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	7	det	_	Entity=(event-137(object-138
 5	full	full	ADJ	JJ	Degree=Pos	7	amod	_	_
@@ -1106,25 +1106,25 @@
 12	including	include	VERB	VBG	VerbForm=Ger	20	case	_	Discourse=elaboration:103->102
 13	[	[	PUNCT	-LSB-	_	18	punct	_	SpaceAfter=No
 14	former	former	ADJ	JJ	Degree=Pos	18	amod	_	Entity=(person-140
-15	Museum	Museum	PROPN	NNP	Number=Sing	18	compound	_	Entity=(place-121
+15	Museum	Museum	PROPN	NNP	Number=Sing	18	compound	_	Entity=(place-121-Museum_of_Flight
 16	of	of	ADP	IN	_	17	case	_	_
-17	Flight	Flight	PROPN	NNP	Number=Sing	15	nmod	_	Entity=place-121)
+17	Flight	Flight	PROPN	NNP	Number=Sing	15	nmod	_	Entity=place-121-Museum_of_Flight)
 18	CEO	CEO	NOUN	NN	Number=Sing	20	compound	_	Entity=person-140)|SpaceAfter=No
 19	]	]	PUNCT	-RSB-	_	18	punct	_	_
 20	Bonnie	Bonnie	PROPN	NNP	Number=Sing	11	nmod	_	Entity=(person-140
 21	Dunbar	Dunbar	PROPN	NNP	Number=Sing	20	flat	_	Entity=person-140)
 22	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	24	aux	_	Discourse=same-unit:104->102
 23	been	be	AUX	VBN	Tense=Past|VerbForm=Part	24	aux:pass	_	_
-24	trained	train	VERB	VBN	Tense=Past|VerbForm=Part	7	acl:relcl	_	_
+24	trained	train	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	7	acl:relcl	_	_
 25	on	on	ADP	IN	_	9	case	_	Entity=object-138)|SpaceAfter=No
 26	,	,	PUNCT	,	_	7	punct	_	_
 27	will	will	AUX	MD	VerbForm=Fin	29	aux	_	Discourse=same-unit:105->101
 28	soon	soon	ADV	RB	Degree=Pos	29	advmod	_	_
 29	call	call	VERB	VB	VerbForm=Inf	0	root	_	_
-30	the	the	DET	DT	Definite=Def|PronType=Art	31	det	_	Entity=(place-121
+30	the	the	DET	DT	Definite=Def|PronType=Art	31	det	_	Entity=(place-121-Museum_of_Flight
 31	Museum	Museum	PROPN	NNP	Number=Sing	29	obj	_	_
 32	of	of	ADP	IN	_	33	case	_	_
-33	Flight	Flight	PROPN	NNP	Number=Sing	31	nmod	_	Entity=place-121)
+33	Flight	Flight	PROPN	NNP	Number=Sing	31	nmod	_	Entity=place-121-Museum_of_Flight)
 34	home	home	NOUN	NN	Number=Sing	29	xcomp	_	Entity=event-137)|SpaceAfter=No
 35	.	.	PUNCT	.	_	29	punct	_	_
 
@@ -1135,7 +1135,7 @@
 2	largest	large	ADJ	JJS	Degree=Sup	8	advcl	_	_
 3	of	of	ADP	IN	_	5	case	_	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	_	Entity=(object-141
-5	trainers	trainer	NOUN	NNS	Number=Plur	2	obl	_	Entity=object-138)object-141)|SpaceAfter=No
+5	trainers	trainer	NOUN	NNS	Number=Plur	2	nmod	_	Entity=object-138)object-141)|SpaceAfter=No
 6	,	,	PUNCT	,	_	2	punct	_	_
 7	this	this	DET	DT	Number=Sing|PronType=Dem	8	det	_	Discourse=elaboration:107->101|Entity=(event-137
 8	addition	addition	NOUN	NN	Number=Sing	10	nsubj	_	Entity=event-137)
@@ -1143,7 +1143,7 @@
 10	allow	allow	VERB	VB	VerbForm=Inf	0	root	_	_
 11	visitors	visitor	NOUN	NNS	Number=Plur	10	obj	_	Entity=(person-142)
 12	to	to	PART	TO	_	14	mark	_	_
-13	actually	actually	ADV	RB	_	14	advmod	_	_
+13	actually	actually	ADV	RB	Degree=Pos	14	advmod	_	_
 14	climb	climb	VERB	VB	VerbForm=Inf	10	xcomp	_	_
 15	aboard	aboard	ADP	IN	_	17	case	_	_
 16	the	the	DET	DT	Definite=Def|PronType=Art	17	det	_	Entity=(object-138
@@ -1155,7 +1155,7 @@
 22	training	training	NOUN	NN	Number=Sing	19	obj	_	_
 23	that	that	PRON	WDT	PronType=Rel	25	obj	_	Discourse=elaboration:108->107
 24	astronauts	astronaut	NOUN	NNS	Number=Plur	25	nsubj	_	Entity=(person-139)
-25	get	get	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	22	acl:relcl	_	Entity=event-143)|SpaceAfter=No
+25	get	get	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	22	acl:relcl	_	Entity=event-143)|SpaceAfter=No
 26	.	.	PUNCT	.	_	10	punct	_	_
 
 # sent_id = GUM_news_nasa-43
@@ -1165,7 +1165,7 @@
 2	will	will	AUX	MD	VerbForm=Fin	5	aux	_	_
 3	not	not	PART	RB	Polarity=Neg	5	advmod	_	_
 4	be	be	AUX	VB	VerbForm=Inf	5	aux:pass	_	_
-5	allowed	allow	VERB	VBN	Tense=Past|VerbForm=Part	0	root	_	_
+5	allowed	allow	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	_	_
 6	in	in	ADP	IN	_	9	case	_	_
 7	the	the	DET	DT	Definite=Def|PronType=Art	9	det	_	Entity=(object-145
 8	other	other	ADJ	JJ	Degree=Pos	9	amod	_	_
@@ -1178,9 +1178,9 @@
 15	true	true	ADJ	JJ	Degree=Pos	16	amod	_	_
 16	win	win	NOUN	NN	Number=Sing	5	conj	_	_
 17	for	for	ADP	IN	_	20	case	_	_
-18	our	our	PRON	PRP$	Number=Plur|Person=1|Poss=Yes|PronType=Prs	20	nmod:poss	_	Entity=(place-121(person-147)
+18	our	our	PRON	PRP$	Number=Plur|Person=1|Poss=Yes|PronType=Prs	20	nmod:poss	_	Entity=(place-121-Museum_of_Flight(person-147)
 19	dynamic	dynamic	ADJ	JJ	Degree=Pos	20	amod	_	_
-20	museum	museum	NOUN	NN	Number=Sing	16	nmod	_	Entity=event-146)place-121)|SpaceAfter=No
+20	museum	museum	NOUN	NN	Number=Sing	16	nmod	_	Entity=event-146)place-121-Museum_of_Flight)|SpaceAfter=No
 21	.	.	PUNCT	.	_	5	punct	_	_
 
 # sent_id = GUM_news_nasa-44
@@ -1233,29 +1233,29 @@
 13	and	and	CCONJ	CC	_	14	cc	_	_
 14	women	woman	NOUN	NNS	Number=Plur	12	conj	_	_
 15	at	at	ADP	IN	_	18	case	_	_
-16	Johnson	Johnson	PROPN	NNP	Number=Sing	18	compound	_	Entity=(place-92
+16	Johnson	Johnson	PROPN	NNP	Number=Sing	18	compound	_	Entity=(place-92-Johnson_Space_Center
 17	Space	Space	PROPN	NNP	Number=Sing	18	compound	_	_
-18	Center	Center	PROPN	NNP	Number=Sing	12	nmod	_	Entity=person-106)place-92)|SpaceAfter=No
+18	Center	Center	PROPN	NNP	Number=Sing	12	nmod	_	Entity=person-106)place-92-Johnson_Space_Center)|SpaceAfter=No
 19	,	,	PUNCT	,	_	23	punct	_	_
 20	the	the	DET	DT	Definite=Def|PronType=Art	23	det	_	Entity=(abstract-107
 21	greater	great	ADJ	JJR	Degree=Cmp	23	amod	_	_
-22	Houston	Houston	PROPN	NNP	Number=Sing	23	compound	_	Entity=(place-108)
+22	Houston	Houston	PROPN	NNP	Number=Sing	23	compound	_	Entity=(place-108-Houston)
 23	community	community	NOUN	NN	Number=Sing	9	appos	_	Entity=abstract-107)
 24	and	and	CCONJ	CC	_	26	cc	_	_
-25	the	the	DET	DT	Definite=Def|PronType=Art	26	det	_	Entity=(place-89
+25	the	the	DET	DT	Definite=Def|PronType=Art	26	det	_	Entity=(place-89-Texas
 26	State	State	PROPN	NNP	Number=Sing	23	conj	_	_
 27	of	of	ADP	IN	_	28	case	_	_
-28	Texas	Texas	PROPN	NNP	Number=Sing	26	nmod	_	Entity=event-157)place-89)|SpaceAfter=No
+28	Texas	Texas	PROPN	NNP	Number=Sing	26	nmod	_	Entity=event-157)place-89-Texas)|SpaceAfter=No
 29	,	,	PUNCT	,	_	34	punct	_	_
 30	and	and	CCONJ	CC	_	34	cc	_	Discourse=joint:113->9
-31	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	34	nsubj:pass	_	Entity=(person-88)|SpaceAfter=No
-32	m	be	AUX	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	34	aux:pass	_	_
-33	deeply	deeply	ADV	RB	_	34	advmod	_	_
-34	disappointed	disappoint	VERB	VBN	Tense=Past|VerbForm=Part	6	conj	_	_
+31	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	34	nsubj:pass	_	Entity=(person-88-John_Cornyn)|SpaceAfter=No
+32	m	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	34	aux:pass	_	_
+33	deeply	deeply	ADV	RB	Degree=Pos	34	advmod	_	_
+34	disappointed	disappoint	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	6	conj	_	_
 35	with	with	ADP	IN	_	40	case	_	_
-36	the	the	DET	DT	Definite=Def|PronType=Art	37	det	_	Entity=(event-91(organization-1
+36	the	the	DET	DT	Definite=Def|PronType=Art	37	det	_	Entity=(event-91(organization-1-NASA
 37	Administration	Administration	PROPN	NNP	Number=Sing	40	nmod:poss	_	SpaceAfter=No
-38	's	's	PART	POS	_	37	case	_	Entity=organization-1)
+38	's	's	PART	POS	_	37	case	_	Entity=organization-1-NASA)
 39	misguided	misguided	ADJ	JJ	Degree=Pos	40	amod	_	_
 40	decision	decision	NOUN	NN	Number=Sing	34	obl	_	Entity=event-91)|SpaceAfter=No
 41	.	.	PUNCT	.	_	6	punct	_	_
@@ -1263,50 +1263,50 @@
 # sent_id = GUM_news_nasa-46
 # text = John Cornyn, U.S. Senator (R-Texas)
 # s_type = frag
-1	John	John	PROPN	NNP	Number=Sing	0	root	_	Discourse=elaboration:114->113|Entity=(person-88
-2	Cornyn	Cornyn	PROPN	NNP	Number=Sing	1	flat	_	Entity=person-88)|SpaceAfter=No
+1	John	John	PROPN	NNP	Number=Sing	0	root	_	Discourse=elaboration:114->113|Entity=(person-88-John_Cornyn
+2	Cornyn	Cornyn	PROPN	NNP	Number=Sing	1	flat	_	Entity=person-88-John_Cornyn)|SpaceAfter=No
 3	,	,	PUNCT	,	_	4	punct	_	_
-4	U.S.	U.S.	PROPN	NNP	Number=Sing	1	appos	_	Entity=(person-88(place-86)
+4	U.S.	U.S.	PROPN	NNP	Abbr=Yes|Number=Sing	1	appos	_	Entity=(person-88-John_Cornyn(place-86-United_States)
 5	Senator	Senator	PROPN	NNP	Number=Sing	4	flat	_	_
 6	(	(	PUNCT	-LRB-	_	7	punct	_	Discourse=restatement:115->114|SpaceAfter=No
 7	R-Texas	R-Texas	PROPN	NNP	Number=Sing	1	appos	_	SpaceAfter=No
-8	)	)	PUNCT	-RRB-	_	7	punct	_	Entity=person-88)
+8	)	)	PUNCT	-RRB-	_	7	punct	_	Entity=person-88-John_Cornyn)
 
 # sent_id = GUM_news_nasa-47
 # text = Other items include various shuttle simulators which will be given to the Adler Planetarium in Chicago, Illinois, the Evergreen Aviation & Space Museum of McMinnville, Oregon, and Texas A&M's Aerospace Engineering Department.
 # s_type = decl
 1	Other	other	ADJ	JJ	Degree=Pos	2	amod	_	Discourse=joint:116->9|Entity=(object-159
 2	items	item	NOUN	NNS	Number=Plur	3	nsubj	_	Entity=object-159)
-3	include	include	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	0	root	_	_
-4	various	various	ADJ	JJ	Degree=Pos	6	amod	_	Entity=(object-160
+3	include	include	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	_
+4	various	various	ADJ	JJ	Degree=Pos	6	amod	_	Bridge=object-159<object-160|Entity=(object-160
 5	shuttle	shuttle	NOUN	NN	Number=Sing	6	compound	_	Entity=(object-161)
 6	simulators	simulator	NOUN	NNS	Number=Plur	3	obj	_	_
 7	which	which	PRON	WDT	PronType=Rel	10	nsubj:pass	_	Discourse=elaboration:117->116
 8	will	will	AUX	MD	VerbForm=Fin	10	aux	_	_
 9	be	be	AUX	VB	VerbForm=Inf	10	aux:pass	_	_
-10	given	give	VERB	VBN	Tense=Past|VerbForm=Part	6	acl:relcl	_	_
+10	given	give	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	6	acl:relcl	_	_
 11	to	to	ADP	IN	_	14	case	_	_
-12	the	the	DET	DT	Definite=Def|PronType=Art	14	det	_	Entity=(place-162
+12	the	the	DET	DT	Definite=Def|PronType=Art	14	det	_	Entity=(place-162-Adler_Planetarium
 13	Adler	Adler	PROPN	NNP	Number=Sing	14	compound	_	_
 14	Planetarium	planetarium	PROPN	NNP	Number=Sing	10	obl	_	_
 15	in	in	ADP	IN	_	16	case	_	_
-16	Chicago	Chicago	PROPN	NNP	Number=Sing	14	nmod	_	Entity=(place-163|SpaceAfter=No
+16	Chicago	Chicago	PROPN	NNP	Number=Sing	14	nmod	_	Entity=(place-163-Chicago|SpaceAfter=No
 17	,	,	PUNCT	,	_	18	punct	_	_
-18	Illinois	Illinois	PROPN	NNP	Number=Sing	16	appos	_	Entity=(place-164)object-160)place-162)place-163)|SpaceAfter=No
+18	Illinois	Illinois	PROPN	NNP	Number=Sing	16	appos	_	Entity=(place-164-Illinois)object-160)place-162-Adler_Planetarium)place-163-Chicago)|SpaceAfter=No
 19	,	,	PUNCT	,	_	25	punct	_	_
-20	the	the	DET	DT	Definite=Def|PronType=Art	25	det	_	Entity=(place-165
+20	the	the	DET	DT	Definite=Def|PronType=Art	25	det	_	Entity=(place-165-Evergreen_Aviation_&_Space_Museum
 21	Evergreen	Evergreen	PROPN	NNP	Number=Sing	25	compound	_	_
 22	Aviation	Aviation	PROPN	NNP	Number=Sing	25	compound	_	_
 23	&	&	CCONJ	CC	_	24	cc	_	_
 24	Space	Space	PROPN	NNP	Number=Sing	22	conj	_	_
 25	Museum	Museum	PROPN	NNP	Number=Sing	14	conj	_	_
 26	of	of	ADP	IN	_	27	case	_	_
-27	McMinnville	McMinnville	PROPN	NNP	Number=Sing	25	nmod	_	Entity=(place-166|SpaceAfter=No
+27	McMinnville	McMinnville	PROPN	NNP	Number=Sing	25	nmod	_	Entity=(place-166-McMinnville,_Oregon|SpaceAfter=No
 28	,	,	PUNCT	,	_	29	punct	_	_
-29	Oregon	Oregon	PROPN	NNP	Number=Sing	27	appos	_	Entity=(place-167)place-165)place-166)|SpaceAfter=No
+29	Oregon	Oregon	PROPN	NNP	Number=Sing	27	appos	_	Entity=(place-167-Oregon)place-165-Evergreen_Aviation_&_Space_Museum)place-166-McMinnville,_Oregon)|SpaceAfter=No
 30	,	,	PUNCT	,	_	37	punct	_	_
 31	and	and	CCONJ	CC	_	37	cc	_	_
-32	Texas	Texas	PROPN	NNP	Number=Sing	33	compound	_	Entity=(organization-168(place-169)
+32	Texas	Texas	PROPN	NNP	Number=Sing	33	compound	_	Entity=(organization-168(place-169-Texas)
 33	A&M	A&M	PROPN	NNP	Number=Sing	37	nmod:poss	_	SpaceAfter=No
 34	's	's	PART	POS	_	33	case	_	_
 35	Aerospace	Aerospace	PROPN	NNP	Number=Sing	36	compound	_	_
@@ -1317,71 +1317,71 @@
 # sent_id = GUM_news_nasa-48
 # text = The nose cap assembly and crew compartment trainer for the National Museum of the U.S. Air Force at Wright-Patterson Air Force Base in Ohio and orbital maneuvering system engines for the U.S. Space and Rocket Center in Huntsville, Alabama, the National Air and Space Museum, and the Evergreen Aviation & Space Museum.
 # s_type = frag
-1	The	the	DET	DT	Definite=Def|PronType=Art	4	det	_	Discourse=joint:118->116|Entity=(object-170
+1	The	the	DET	DT	Definite=Def|PronType=Art	4	det	_	Bridge=object-159<object-170|Discourse=joint:118->116|Entity=(object-170
 2	nose	nose	NOUN	NN	Number=Sing	3	compound	_	_
 3	cap	cap	NOUN	NN	Number=Sing	4	compound	_	_
 4	assembly	assembly	NOUN	NN	Number=Sing	0	root	_	Entity=object-170)
 5	and	and	CCONJ	CC	_	8	cc	_	_
-6	crew	crew	NOUN	NN	Number=Sing	7	compound	_	Entity=(object-171(person-172)
+6	crew	crew	NOUN	NN	Number=Sing	7	compound	_	Bridge=object-159<object-171|Entity=(object-171(person-172)
 7	compartment	compartment	NOUN	NN	Number=Sing	8	compound	_	_
 8	trainer	trainer	NOUN	NN	Number=Sing	4	conj	_	Entity=object-171)
 9	for	for	ADP	IN	_	12	case	_	_
-10	the	the	DET	DT	Definite=Def|PronType=Art	12	det	_	Entity=(place-173
+10	the	the	DET	DT	Definite=Def|PronType=Art	12	det	_	Entity=(place-173-National_Museum_of_the_United_States_Air_Force
 11	National	National	PROPN	NNP	Number=Sing	12	amod	_	_
 12	Museum	Museum	PROPN	NNP	Number=Sing	4	nmod	_	_
 13	of	of	ADP	IN	_	17	case	_	_
 14	the	the	DET	DT	Definite=Def|PronType=Art	17	det	_	_
-15	U.S.	U.S.	PROPN	NNP	Number=Sing	17	compound	_	Entity=(organization-174(place-86)
+15	U.S.	U.S.	PROPN	NNP	Abbr=Yes|Number=Sing	17	compound	_	Entity=(organization-174-United_States_Air_Force(place-86-United_States)
 16	Air	Air	PROPN	NNP	Number=Sing	17	compound	_	_
-17	Force	Force	PROPN	NNP	Number=Sing	12	nmod	_	Entity=organization-174)
+17	Force	Force	PROPN	NNP	Number=Sing	12	nmod	_	Entity=organization-174-United_States_Air_Force)
 18	at	at	ADP	IN	_	22	case	_	_
-19	Wright-Patterson	Wright-Patterson	PROPN	NNP	Number=Sing	22	compound	_	Entity=(place-175
+19	Wright-Patterson	Wright-Patterson	PROPN	NNP	Number=Sing	22	compound	_	Entity=(place-175-Wright-Patterson_Air_Force_Base
 20	Air	Air	PROPN	NNP	Number=Sing	21	compound	_	_
 21	Force	Force	PROPN	NNP	Number=Sing	22	compound	_	_
 22	Base	Base	PROPN	NNP	Number=Sing	12	nmod	_	_
 23	in	in	ADP	IN	_	24	case	_	_
-24	Ohio	Ohio	PROPN	NNP	Number=Sing	22	nmod	_	Entity=(place-176)place-173)place-175)
+24	Ohio	Ohio	PROPN	NNP	Number=Sing	22	nmod	_	Entity=(place-176-Ohio)place-173-National_Museum_of_the_United_States_Air_Force)place-175-Wright-Patterson_Air_Force_Base)
 25	and	and	CCONJ	CC	_	29	cc	_	_
-26	orbital	orbital	ADJ	JJ	Degree=Pos	27	amod	_	Entity=(object-177
+26	orbital	orbital	ADJ	JJ	Degree=Pos	27	amod	_	Bridge=object-159<object-177|Entity=(object-177
 27	maneuvering	maneuvering	NOUN	NN	Number=Sing	28	compound	_	_
 28	system	system	NOUN	NN	Number=Sing	29	compound	_	_
 29	engines	engine	NOUN	NNS	Number=Plur	4	conj	_	Entity=object-177)
 30	for	for	ADP	IN	_	36	case	_	_
-31	the	the	DET	DT	Definite=Def|PronType=Art	36	det	_	Entity=(place-178
-32	U.S.	U.S.	PROPN	NNP	Number=Sing	36	compound	_	Entity=(place-86)
+31	the	the	DET	DT	Definite=Def|PronType=Art	36	det	_	Entity=(place-178-U.S._Space_&_Rocket_Center
+32	U.S.	U.S.	PROPN	NNP	Abbr=Yes|Number=Sing	36	compound	_	Entity=(place-86-United_States)
 33	Space	Space	PROPN	NNP	Number=Sing	36	compound	_	_
 34	and	and	CCONJ	CC	_	35	cc	_	_
 35	Rocket	rocket	PROPN	NNP	Number=Sing	33	conj	_	_
 36	Center	Center	PROPN	NNP	Number=Sing	29	nmod	_	_
 37	in	in	ADP	IN	_	38	case	_	_
-38	Huntsville	Huntsville	PROPN	NNP	Number=Sing	36	nmod	_	Entity=(place-179|SpaceAfter=No
+38	Huntsville	Huntsville	PROPN	NNP	Number=Sing	36	nmod	_	Entity=(place-179-Huntsville,_Alabama|SpaceAfter=No
 39	,	,	PUNCT	,	_	40	punct	_	_
-40	Alabama	Alabama	PROPN	NNP	Number=Sing	38	appos	_	Entity=(place-180)place-178)place-179)|SpaceAfter=No
+40	Alabama	Alabama	PROPN	NNP	Number=Sing	38	appos	_	Entity=(place-180-Alabama)place-178-U.S._Space_&_Rocket_Center)place-179-Huntsville,_Alabama)|SpaceAfter=No
 41	,	,	PUNCT	,	_	47	punct	_	_
-42	the	the	DET	DT	Definite=Def|PronType=Art	47	det	_	Entity=(place-181
+42	the	the	DET	DT	Definite=Def|PronType=Art	47	det	_	Entity=(place-181-National_Air_and_Space_Museum
 43	National	National	PROPN	NNP	Number=Sing	47	amod	_	_
 44	Air	Air	PROPN	NNP	Number=Sing	47	compound	_	_
 45	and	and	CCONJ	CC	_	46	cc	_	_
 46	Space	Space	PROPN	NNP	Number=Sing	44	conj	_	_
-47	Museum	Museum	PROPN	NNP	Number=Sing	36	conj	_	Entity=place-181)|SpaceAfter=No
+47	Museum	Museum	PROPN	NNP	Number=Sing	36	conj	_	Entity=place-181-National_Air_and_Space_Museum)|SpaceAfter=No
 48	,	,	PUNCT	,	_	55	punct	_	_
 49	and	and	CCONJ	CC	_	55	cc	_	_
-50	the	the	DET	DT	Definite=Def|PronType=Art	55	det	_	Entity=(place-182
+50	the	the	DET	DT	Definite=Def|PronType=Art	55	det	_	Entity=(place-182-Evergreen_Aviation_&_Space_Museum
 51	Evergreen	Evergreen	PROPN	NNP	Number=Sing	55	compound	_	_
 52	Aviation	Aviation	PROPN	NNP	Number=Sing	55	compound	_	_
 53	&	&	CCONJ	CC	_	54	cc	_	_
 54	Space	Space	PROPN	NNP	Number=Sing	52	conj	_	_
-55	Museum	Museum	PROPN	NNP	Number=Sing	36	conj	_	Entity=place-182)|SpaceAfter=No
+55	Museum	Museum	PROPN	NNP	Number=Sing	36	conj	_	Entity=place-182-Evergreen_Aviation_&_Space_Museum)|SpaceAfter=No
 56	.	.	PUNCT	.	_	4	punct	_	_
 
 # sent_id = GUM_news_nasa-49
 # text = NASA is also offering shuttle heat shield tiles to schools and universities that want to share technology and a piece of space history with their students.
 # s_type = decl
-1	NASA	NASA	PROPN	NNP	Number=Sing	4	nsubj	_	Discourse=joint:119->116|Entity=(organization-1)
+1	NASA	NASA	PROPN	NNP	Abbr=Yes|Number=Sing	4	nsubj	_	Discourse=joint:119->116|Entity=(organization-1-NASA)
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	aux	_	_
 3	also	also	ADV	RB	_	4	advmod	_	_
 4	offering	offer	VERB	VBG	Tense=Pres|VerbForm=Part	0	root	_	_
-5	shuttle	shuttle	NOUN	NN	Number=Sing	8	compound	_	Entity=(object-183(object-184)
+5	shuttle	shuttle	NOUN	NN	Number=Sing	8	compound	_	Bridge=object-159<object-183|Entity=(object-183(object-184)
 6	heat	heat	NOUN	NN	Number=Sing	7	compound	_	_
 7	shield	shield	NOUN	NN	Number=Sing	8	compound	_	_
 8	tiles	tile	NOUN	NNS	Number=Plur	4	obj	_	Entity=object-183)
@@ -1390,7 +1390,7 @@
 11	and	and	CCONJ	CC	_	12	cc	_	_
 12	universities	university	NOUN	NNS	Number=Plur	10	conj	_	Entity=(organization-186
 13	that	that	PRON	WDT	PronType=Rel	14	nsubj	_	Discourse=elaboration:120->119
-14	want	want	VERB	VBP	Mood=Ind|Tense=Pres|VerbForm=Fin	10	acl:relcl	_	_
+14	want	want	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	10	acl:relcl	_	_
 15	to	to	PART	TO	_	16	mark	_	_
 16	share	share	VERB	VB	VerbForm=Inf	14	xcomp	_	_
 17	technology	technology	NOUN	NN	Number=Sing	16	obj	_	Entity=(abstract-187)
@@ -1401,7 +1401,7 @@
 22	space	space	NOUN	NN	Number=Sing	23	compound	_	_
 23	history	history	NOUN	NN	Number=Sing	20	nmod	_	Entity=object-188)
 24	with	with	ADP	IN	_	26	case	_	_
-25	their	their	PRON	PRP$	Number=Plur|Person=3|Poss=Yes|PronType=Prs	26	nmod:poss	_	Entity=(person-189(organization-190)
+25	their	their	PRON	PRP$	Number=Plur|Person=3|Poss=Yes|PronType=Prs	26	nmod:poss	_	Entity=(person-189(organization-190)|Split=organization-185<organization-190,organization-186<organization-190
 26	students	student	NOUN	NNS	Number=Plur	16	obl	_	Entity=organization-185)organization-186)person-189)|SpaceAfter=No
 27	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -1416,7 +1416,7 @@
 6	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	8	amod	_	_
 7	shuttle	shuttle	NOUN	NN	Number=Sing	8	compound	_	Entity=(object-191)
 8	mission	mission	NOUN	NN	Number=Sing	3	nmod	_	Entity=event-2)event-3)
-9	coincided	coincide	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	0	root	_	_
+9	coincided	coincide	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	_	_
 10	with	with	ADP	IN	_	13	case	_	_
 11	the	the	DET	DT	Definite=Def|PronType=Art	13	det	_	Entity=(event-192
 12	50th	50th	ADJ	JJ	Degree=Pos|NumType=Ord	13	amod	_	_
@@ -1428,20 +1428,14 @@
 18	space	space	NOUN	NN	Number=Sing	19	compound	_	_
 19	flight	flight	NOUN	NN	Number=Sing	13	nmod	_	_
 20	when	when	SCONJ	WRB	PronType=Rel	23	mark	_	Discourse=circumstance:122->121
-21	Yuri	Yuri	PROPN	NNP	Number=Sing	23	nsubj	_	Entity=(person-194
-22	Gagarin	Gagarin	PROPN	NNP	Number=Sing	21	flat	_	Entity=person-194)
-23	lifted	lift	VERB	VBD	Mood=Ind|Tense=Past|VerbForm=Fin	19	acl:relcl	_	_
+21	Yuri	Yuri	PROPN	NNP	Number=Sing	23	nsubj	_	Entity=(person-194-Yuri_Gagarin
+22	Gagarin	Gagarin	PROPN	NNP	Number=Sing	21	flat	_	Entity=person-194-Yuri_Gagarin)
+23	lifted	lift	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	19	acl:relcl	_	_
 24	off	off	ADP	RP	_	23	compound:prt	_	_
 25	aboard	aboard	ADP	IN	_	26	case	_	_
-26	Vostok	Vostok	PROPN	NNP	Number=Sing	23	obl	_	Entity=(object-195
-27	1	1	NUM	CD	NumType=Card	26	nummod	_	Entity=object-195)
+26	Vostok	Vostok	PROPN	NNP	Number=Sing	23	obl	_	Entity=(object-195-Vostok_1
+27	1	1	NUM	CD	NumForm=Digit|NumType=Card	26	nummod	_	Entity=object-195-Vostok_1)
 28	into	into	ADP	IN	_	29	case	_	_
 29	space	space	NOUN	NN	Number=Sing	23	obl	_	Entity=(place-150)event-192)event-193)|SpaceAfter=No
 30	.	.	PUNCT	.	_	9	punct	_	_
-
-
-
-
-
-
 

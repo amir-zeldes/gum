@@ -11,7 +11,7 @@ PY2 = sys.version_info[0] < 3
 script_dir = os.path.dirname(os.path.realpath(__file__)) + os.sep
 tsv_temp_dir = script_dir + "pepper" + os.sep + "tmp" + os.sep + "tsv" + os.sep + "GUM" + os.sep
 if not os.path.exists(tsv_temp_dir):
-	os.mkdir(tsv_temp_dir)
+	os.makedirs(tsv_temp_dir)
 
 def equiv_tok(token):
 	replacements = {"&amp;": "&", "&gt;": ">", "&lt;": "<", "’": "'", "—": "-", "&quot;": '"', "&apos;": "'", "(":"-LRB-", ")":"-RRB-", "…":"...",
@@ -129,18 +129,19 @@ def format_relations(relations):
 		return "_"
 
 
-def format_infstat(entities):
+def format_attr(entities, attr="infstat"):
 	"""
-	Turn a list of parsed WebAnno entities into a string representing their information status.
+	Turn a list of parsed WebAnno entities into a string representing their annotations.
 	:param entities: A list of (parsed) entities from a single WebAnno line
-	:return: A string representing the information status of those entities.
+	:param attr: A string giving the name of the annotation to format
+	:return: A string representing the annotations of those entities.
 	"""
 	strs = []
 	for entity in entities:
 		if entity['id']:
-			strs.append(entity['infstat'] + '[' + str(entity['id']) + ']')
+			strs.append(entity[attr] + '[' + str(entity['id']) + ']')
 		else:
-			strs.append(entity['infstat'])
+			strs.append(entity[attr])
 
 	if strs:
 		return "|".join(strs)
@@ -176,8 +177,10 @@ def serialize_tsv_lines(lines, parsed_lines, tsv_path, outdir, as_string=False):
 		else:
 			cols = line.split("\t")
 			cols[3] = format_entities(parsed_lines[i]['entities'])
-			cols[4] = format_infstat(parsed_lines[i]['entities'])
-			cols[6] = format_relations(parsed_lines[i]['relations'])
+			cols[4] = format_attr(parsed_lines[i]['entities'],attr="infstat")
+			cols[5] = format_attr(parsed_lines[i]['entities'],attr="identity")
+			cols[5] = cols[5].replace(" ","_").replace("(","%28").replace(")","%29")
+			cols[-2] = format_relations(parsed_lines[i]['relations'])
 			if as_string:
 				output.append("\t".join(cols))
 			else:
@@ -217,12 +220,23 @@ def parse_tsv_line(line):
 	if line[3]:
 		# parse something like "person[3]" or "person"
 		information_statuses = line[4].split("|")
+		identities = line[5].split("|") if line[5] is not None else [None for i, _ in enumerate(information_statuses)]
 		for i, entity in enumerate(line[3].split("|")):
 			entity_type, entity_id = extract_from_bracket(entity)
 			entity_id = int(entity_id) if entity_id else None
 
 			entity_infstat, _ = extract_from_bracket(information_statuses[i])
-			entities.append({'id': entity_id, 'type': entity_type, 'infstat': entity_infstat})
+			ident_field = "_"
+			for ident_anno in identities:  # See if an identity anno corresponds to the currently processed entity ID
+				if ident_anno is not None:
+					entity_identity, ident_id = extract_from_bracket(ident_anno)
+					entity_identity = entity_identity.replace(" ","_").replace("(","%28").replace(")","%29")
+				else:
+					continue
+				if int(ident_id) == entity_id:
+					ident_field = entity_identity
+					break
+			entities.append({'id': entity_id, 'type': entity_type, 'infstat': entity_infstat, "identity": ident_field})
 
 			# assumption: there should be at most one single-token entity on any given line
 			assert not (entity_id is None and already_seen_single_tok_entity)
@@ -230,11 +244,11 @@ def parse_tsv_line(line):
 				already_seen_single_tok_entity = True
 
 	relations = []
-	if line[6]:
-		rel_types = line[5].split("|")
+	if line[7]:
+		rel_types = line[6].split("|")
 		# parse something like "5-1[20_10]",
 		# i.e. "this line is where entity 10 begins, and it is related to entity 20 beginning at token 5-1
-		for i, relation in enumerate(line[6].split("|")):
+		for i, relation in enumerate(line[7].split("|")):
 			src_token, src_dest = extract_from_bracket(relation)
 			if src_dest:
 				src, dest = src_dest.split("_")
@@ -436,7 +450,8 @@ def merge_genitive_s(parsed_lines, tsv_path, warn_only):
 	"""
 	for i, line in enumerate(parsed_lines):
 		if is_genitive_s(line):
-			entity_difference = [e for e in parsed_lines[i - 1]['entities'] if e not in line['entities']]
+			entity_difference = [e for e in parsed_lines[i - 1]['entities'] if e not in line['entities'] and \
+								 parsed_lines[i - 1]['token'] !="NSW"]  # exception for [University of [NSW] 's]
 			if not entity_difference:
 				continue
 
@@ -502,6 +517,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
 	  * All coref chain initial tokens and cata targets which are not infstat 'acc' receive infstat 'new'
 	  * All other coref chain non-initial entities receive infstat 'giv'
 	  * All bridging non-initial members receive infstat 'acc'
+	  * Named entity identities are propagated to all members of a coref chain (transitive Wikification)
 
 	:param webanno_tsv: input webanno tsv with possibly incorrect edge types
 	:param parsed_lines: structured information about each token line
@@ -526,8 +542,8 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
 					entities[e["id"]]["length"] += 1
 				else:
 					entities[e["id"]] = {"start":tid, "length":1, "func": dct["func"], "pos": dct["pos"],
-									 "infstat": e["infstat"], "type":e["type"], "relations": [],
-									 "head_tok_abs_id": dct["abs_id"], "head_tok_parent_abs_id" : 0,
+									 "infstat": e["infstat"], "type":e["type"], "identity": e["identity"], "relations": [],
+									 "head_tok_abs_id": dct["abs_id"], "head_tok_parent_abs_id" : 0, "group":None,
 									 "toks":[(int(dct["id_in_sent"]),int(dct["dep_parent"]),dct["pos"],dct["func"],dct["abs_id"])]}
 				if "relations" in dct:
 					for rel in dct["relations"]:
@@ -603,6 +619,46 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
 						source2rel[e_id].append(new_rel)
 						dest2rel[new_rel["dest"]].append(new_rel)
 
+	max_group = 0
+	mapping = {}
+	for e_id in source2rel:
+		ent = entities[e_id]
+		for rel in source2rel[e_id]:
+			if rel["rel_type"].startswith("bridg"):  # ignore bridging
+				continue
+			while ent["group"] in mapping:
+				ent["group"] = mapping[ent["group"]]
+			if entities[rel["dest"]]["group"] is not None:
+				if ent["group"] is not None:
+					if ent["group"] != entities[rel["dest"]]["group"]:
+						if entities[rel["dest"]]["group"] in mapping:
+							if mapping[entities[rel["dest"]]["group"]] == ent["group"]:
+								# Source group already mapped to dest group
+								entities[rel["dest"]]["group"] = ent["group"]
+								continue
+						mapping[ent["group"]] = entities[rel["dest"]]["group"]
+				ent["group"] = entities[rel["dest"]]["group"]
+			else:  # Assign common group ID to this new pair
+				if ent["group"] is None:
+					ent["group"] = entities[rel["dest"]]["group"] = max_group
+					max_group += 1
+				else:
+					entities[rel["dest"]]["group"] = ent["group"]
+
+	group_identities = {}
+	for e_id in entities:
+		ent = entities[e_id]
+		if ent["group"] is None:  # Not coreferent
+			continue
+		if ent["identity"] != "_":
+			if ent["group"] in group_identities:
+				if group_identities[ent["group"]] != ent["identity"]:
+					sys.stderr.write("Multiple entity conflict in doc "+ webanno_tsv[webanno_tsv.find("Text"): webanno_tsv.find("Text") + 20]+"\n"+
+									 group_identities[ent["group"]] + "<>" + ent["identity"] + "\n")
+			group_identities[ent["group"]] = ent["identity"]
+		elif ent["group"] in group_identities:
+			ent["identity"] = group_identities[ent["group"]]
+
 	lines = webanno_tsv.split("\n")
 	counter = 0
 
@@ -613,9 +669,10 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
 		else:
 			fields = line.split("\t")
 			counter +=1
-			ents, infs, types, edges = fields[3:7]
+			ents, infs, idents, types, edges = fields[3:8]
 			ents = ents.split("|")
 			infs = infs.split("|")
+			idents = []
 			types = []
 			edges = []
 			for i in range(len(infs)):
@@ -632,6 +689,8 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
 					e_id = single_tok_mappings[fields[0]]
 				ents[i] = entities[e_id]["type"] + "[" + str(e_id) + "]"
 				infs[i] = entities[e_id]["infstat"] + "[" + str(e_id) + "]"
+				if entities[e_id]["identity"] != "_":
+					idents.append(entities[e_id]["identity"] + "[" + str(e_id) + "]")
 				if e_id in dest2rel:
 					for rel in dest2rel[e_id]:
 						if e_id not in seen:
@@ -645,10 +704,12 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
 			edges = "_" if len(edges) == 0 else "|".join(edges)
 			infs = "|".join(infs)
 			ents = "|".join(ents)
+			idents = "|".join(idents) if len(idents) > 0 else "_"
 			fields[3] = ents
 			fields[4] = infs
-			fields[5] = types
-			fields[6] = edges
+			fields[5] = idents
+			fields[-3] = types
+			fields[-2] = edges
 			line = "\t".join(fields)
 			adjusted.append(line)
 
