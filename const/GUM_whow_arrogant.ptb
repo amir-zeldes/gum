@@ -4,45 +4,48 @@
     (S (VP (TO to) (VP (VB Detect) (NP (JJ Arrogant) (NNS People)))))))
 
 (ROOT
-  (SQ
-    (VBP Do)
-    (NP-SBJ (PRP you))
-    (ADVP-TMP (RB always))
+  (S
     (VP
-      (VBP seem)
-      (S
-        (VP
-          (TO to)
+      (VBP Do)
+      (SBAR
+        (S
+          (NP-SBJ (PRP you))
+          (ADVP-TMP (RB always))
           (VP
-            (VB cross)
-            (NP (NNS paths))
-            (PP
-              (IN with)
-              (NP
-                (NP (NNS people))
-                (SBAR
-                  (NP-SBJ (WP who))
-                  (S
-                    (VP
-                      (VBP are)
-                      (ADJP
-                        (ADJP-PRD
-                          (VBN stuck)
-                          (PP (IN on) (NP (PRP themselves))))
-                        (, ,)
-                        (ADJP
-                          (JJ intolerant)
-                          (PP
-                            (IN of)
-                            (NP
-                              (NP (NNS people))
-                              (ADJP
-                                (JJ different)
-                                (PP (IN from) (NP (PRP them)))))))
-                        (, ,)
-                        (ADJP (JJ rude))
-                        (CC or)
-                        (ADJP (RB downright) (JJ arrogant))))))))))))
+            (VBP seem)
+            (S
+              (VP
+                (TO to)
+                (VP
+                  (VB cross)
+                  (NP (NNS paths))
+                  (PP
+                    (IN with)
+                    (NP
+                      (NP (NNS people))
+                      (SBAR
+                        (NP-SBJ (WP who))
+                        (S
+                          (VP
+                            (VBP are)
+                            (VP
+                              (VBN stuck)
+                              (PP (IN on) (NP (PRP themselves))))
+                            (, ,)
+                            (ADJP
+                              (JJ intolerant)
+                              (PP
+                                (IN of)
+                                (NP
+                                  (NP (NNS people))
+                                  (ADJP
+                                    (ADJP
+                                      (JJ different)
+                                      (PP (IN from) (NP (PRP them))))))))
+                            (, ,)
+                            (ADJP (JJ rude))
+                            (CC or)
+                            (ADJP (RB downright) (JJ arrogant))))))))))))))
     (. ?)))
 
 (ROOT
@@ -116,8 +119,7 @@
   (SQ
     (VBZ Is)
     (NP-SBJ (PRP it))
-    (ADVP-TMP (RB always))
-    (PP-PRD (IN about) (NP (PRP them)))
+    (PP-PRD (ADVP-TMP (RB always)) (IN about) (NP (PRP them)))
     (. ?)))
 
 (ROOT
@@ -126,7 +128,7 @@
     (NP-SBJ (PRP they))
     (VP
       (VB get)
-      (ADJP-PRD (JJ mad) (CC or) (VBN irritated))
+      (UCP (ADJP-PRD (JJ mad)) (CC or) (VP (VBN irritated)))
       (SBAR-ADV
         (IN if)
         (S
@@ -148,23 +150,23 @@
 
 (ROOT
   (S
-    (NP-SBJ (NN Arrogance) (CC and) (NN smugness))
-    (VP
-      (VBZ is)
-      (ADVP-TMP (RB often))
-      (NP-PRD
-        (NP (DT a) (NN reflection))
-        (PP
-          (IN of)
-          (NP
-            (NP (JJ limited) (NN life) (NN experience))
-            (, ,)
-            (CC and)
-            (S
-              (VP
-                (VBG feeling)
-                (ADJP-PRD
-                  (JJ concerned)
+    (S
+      (NP-SBJ (NN Arrogance) (CC and) (NN smugness))
+      (VP
+        (VBZ is)
+        (ADVP-TMP (RB often))
+        (NP-PRD
+          (NP (DT a) (NN reflection))
+          (PP
+            (IN of)
+            (UCP
+              (NP (JJ limited) (NN life) (NN experience))
+              (, ,)
+              (CC and)
+              (S
+                (VP
+                  (VBG feeling)
+                  (ADJP-PRD (JJ concerned))
                   (SBAR
                     (IN that)
                     (S
@@ -204,7 +206,9 @@
                 (PP
                   (IN through)
                   (NP
-                    (NP (NNS questions) (CC and) (VBG learning))
+                    (NP (NNS questions))
+                    (CC and)
+                    (VP (VBG learning))
                     (PRN
                       (-LRB- -LRB-)
                       (NP
@@ -222,11 +226,11 @@
     (, ,)
     (NP-SBJ (JJ arrogant) (NNS people))
     (VP
-      (VBP tend)
-      (S
-        (VP
-          (TO to)
+      (VP
+        (VBP tend)
+        (S
           (VP
+            (TO to)
             (VP
               (VB generalize)
               (PP
@@ -237,17 +241,17 @@
                   (, ,)
                   (JJ narrow)
                   (NN life)
-                  (NNS experiences))))
-            (CC and)
+                  (NNS experiences)))))))
+      (CC and)
+      (VP
+        (VBP try)
+        (S
+          (VP
+            (TO to)
             (VP
-              (VBP try)
-              (S
-                (VP
-                  (TO to)
-                  (VP
-                    (VB impose)
-                    (NP (PRP$ their) (JJ small) (NN worldview))
-                    (PP (IN on) (NP (NNS others)))))))))))
+              (VB impose)
+              (NP (PRP$ their) (JJ small) (NN worldview))
+              (PP (IN on) (NP (NNS others))))))))
     (. .)))
 
 (ROOT
@@ -257,11 +261,9 @@
       (PP
         (IN of)
         (NP
-          (PRP$ your)
-          (NX
-            (NX (NNS achievements))
-            (CC or)
-            (NX (JJ seeming) (NN lifestyle))))))
+          (NP (PRP$ your) (NNS achievements))
+          (CC or)
+          (NP (JJ seeming) (NN lifestyle)))))
     (VP
       (MD can)
       (VP
@@ -272,36 +274,34 @@
             (TO to)
             (VP
               (VB feel)
-              (ADJP-PRD
-                (JJ smug)
-                (CC or)
-                (JJ arrogant)
-                (PP
-                  (IN about)
-                  (NP
-                    (NP (NN something))
-                    (SBAR
-                      (S
-                        (NP-SBJ (PRP they))
+              (ADJP-PRD (JJ smug) (CC or) (JJ arrogant))
+              (PP
+                (IN about)
+                (NP
+                  (NP (NN something))
+                  (SBAR
+                    (S
+                      (NP-SBJ (PRP they))
+                      (VP
                         (VP
                           (VBP think)
                           (SBAR
                             (S
                               (NP-SBJ (PRP they))
                               (VP
-                                (VP
-                                  (VBP do)
-                                  (ADVP
-                                    (ADVP (JJR better))
-                                    (PP (IN than) (NP (PRP you)))))
-                                (CC or)
-                                (VP
-                                  (VP (VBP own) (SYM /) (VBP have))
-                                  (SBAR
-                                    (WHNP (WDT that))
-                                    (S
-                                      (NP-SBJ (PRP you))
-                                      (VP (VBP do) (RB n't)))))))))))))))))))
+                                (VBP do)
+                                (ADJP (JJR better))
+                                (PP (IN than) (NP (PRP you)))))))
+                        (CC or)
+                        (VP
+                          (VP (VBP own))
+                          (SYM /)
+                          (VP (VBP have))
+                          (SBAR
+                            (WHNP (WDT that))
+                            (S
+                              (NP-SBJ (PRP you))
+                              (VP (VBP do) (RB n't)))))))))))))))
     (. .)))
 
 (ROOT
@@ -318,27 +318,32 @@
 
 (ROOT
   (S
-    (SBAR
-      (SBAR-TMP
-        (WHADVP (WRB When))
-        (S
-          (NP-SBJ (PRP you))
-          (VP
-            (VBP make)
-            (S-PRD
+    (SBAR-TMP
+      (WHADVP (WRB When))
+      (S
+        (NP-SBJ (PRP you))
+        (VP
+          (VBP make)
+          (SBAR-PRD
+            (S
               (NP-SBJ (PRP them))
-              (VP (VBP look) (ADJP-PRD (JJ bad)))))))
-      (PRN
-        (: -)
-        (SBAR
-          (RB even)
-          (IN if)
-          (S
-            (NP-SBJ (PRP it))
-            (VP
-              (VBZ is)
-              (NP-PRD (DT the) (JJS slightest) (NN offense)))))
-        (: -)))
+              (VP
+                (VBP look)
+                (ADJP
+                  (ADJP-PRD (JJ bad))
+                  (: -)
+                  (SBAR
+                    (RB even)
+                    (IN if)
+                    (S
+                      (NP-SBJ (PRP it))
+                      (VP
+                        (VBZ is)
+                        (NP-PRD
+                          (DT the)
+                          (JJS slightest)
+                          (NN offense)))))
+                  (: -))))))))
     (NP-SBJ (PRP they))
     (VP
       (MD will)
@@ -358,7 +363,7 @@
         (S
           (NP-SBJ (PRP you))
           (VP
-            (VP (VBP question))
+            (VBP question)
             (PRN
               (-LRB- -LRB-)
               (CC or)
@@ -417,8 +422,10 @@
       (MD may)
       (VP
         (VB be)
-        (ADVP-MNR (RB simply))
-        (VP (VBG having) (NP (DT a) (JJ bad) (NN day)))))
+        (VP
+          (ADVP-MNR (RB simply))
+          (VBG having)
+          (NP (DT a) (JJ bad) (NN day)))))
     (. .)))
 
 (ROOT
@@ -426,7 +433,7 @@
     (CC But)
     (SBAR
       (IN if)
-      (S (NP-SBJ (PRP they)) (VP (VBP 're) (ADJP-PRD (VBN enraged)))))
+      (S (NP-SBJ (PRP they)) (VP (VBP 're) (VP (VBN enraged)))))
     (, ,)
     (ADVP-TMP (RB then))
     (NP-SBJ (PRP they))
@@ -440,12 +447,9 @@
           (S-NOM
             (VP
               (VBG questioning)
-              (NP
-                (PRP$ their)
-                (`` ')
-                (JJ perfect)
-                (JJ little)
-                (NN world)))))))
+              (NP (PRP$ their))
+              (`` ')
+              (NP (JJ perfect) (JJ little) (NN world)))))))
     (. .)
     ('' ')))
 
@@ -499,8 +503,9 @@
                   (NP-SBJ (WDT that))
                   (S
                     (VP
-                      (VBZ revolves)
-                      (PP (IN around) (NP (PRP them)))))))))))
+                      (VP
+                        (VBZ revolves)
+                        (PP (IN around) (NP (PRP them))))))))))))
       (, ,)
       (CC and)
       (VP
@@ -531,26 +536,36 @@
             (VBZ suggests)
             (NP
               (NP
-                (NP (NN imperfection))
-                (, ,)
-                (NP (NN change))
-                (CC and)
-                (NP (NP (NN lack)) (PP (IN of) (NP (NN certainty)))))
-              (-LRB- -LRB-)
-              (NP
-                (NP (NNS realities))
-                (SBAR
-                  (S
-                    (NP-SBJ (PRP we) (DT all))
-                    (VP
-                      (MD must)
-                      (VP
-                        (VB contend)
-                        (PP (IN with))
-                        (ADVP
-                          (ADVP (IN as) (JJS best))
-                          (S (NP-SBJ (PRP we)) (VP (MD can)))))))))
-              (-RRB- -RRB-))))))
+                (NP
+                  (NN imperfection)
+                  (, ,)
+                  (NN change)
+                  (CC and)
+                  (NP
+                    (NN lack)
+                    (PP (IN of) (NP (NP (NN certainty)))))
+                  (PRN
+                    (-LRB- -LRB-)
+                    (NP
+                      (NP (NNS realities))
+                      (SBAR
+                        (S
+                          (NP-SBJ (PRP we))
+                          (ADVP (DT all))
+                          (VP
+                            (MD must)
+                            (VP
+                              (VB contend)
+                              (PP
+                                (IN with)
+                                (IN as)
+                                (NP
+                                  (NP (JJS best))
+                                  (SBAR
+                                    (S
+                                      (NP-SBJ (PRP we))
+                                      (VP (MD can)))))))))))
+                    (-RRB- -RRB-)))))))))
     (. .)))
 
 (ROOT
@@ -569,16 +584,19 @@
               (NP-SBJ (DT the) (NN world))
               (VP
                 (VBZ behaves)
-                (UCP
+                (ADVP
                   (ADVP (RB randomly))
                   (CC and)
-                  (PP (IN at) (NP (NNS times)))
                   (ADVP
-                    (RB totally)
-                    (JJ averse)
-                    (PP
-                      (IN to)
-                      (NP (NP (PRP one) (POS 's)) (NNS preferences)))))))))))
+                    (PP (IN at) (NP (NNS times)))
+                    (ADJP
+                      (RB totally)
+                      (JJ averse)
+                      (PP
+                        (IN to)
+                        (NP
+                          (NP (PRP one) (POS 's))
+                          (NNS preferences))))))))))))
     (, ,)
     (NP-SBJ (DT the) (JJ arrogant) (NN person))
     (VP
@@ -587,18 +605,21 @@
         (VP
           (TO to)
           (VP
-            (VP
-              (VB control)
-              (NP (NN everything) (CC and) (NN everyone)))
-            (, ,)
-            (SBAR
-              (NP-SBJ (WDT which))
-              (S
-                (PP (IN of) (NP (NN course)))
-                (, ,)
-                (VP
-                  (VBZ is)
-                  (NP-PRD (DT an) (JJ impossible) (NN mission)))))))))
+            (VB control)
+            (NP
+              (NP (NN everything) (CC and) (NN everyone))
+              (, ,)
+              (SBAR
+                (NP-SBJ (WDT which))
+                (S
+                  (PP (IN of) (NP (NN course)))
+                  (, ,)
+                  (VP
+                    (VBZ is)
+                    (NP-PRD
+                      (DT an)
+                      (ADJP (JJ impossible))
+                      (NN mission))))))))))
     (. .)))
 
 (ROOT
@@ -617,19 +638,19 @@
       (NP-SBJ (DT an) (JJ arrogant) (NN person))
       (VP
         (VBZ is)
-        (ADJP
-          (ADJP-PRD (RBR less) (JJ likely))
+        (ADJP-PRD
+          (RBR less)
+          (JJ likely)
           (PP (IN than) (NP (JJ other) (NNS people)))
           (S
             (VP (TO to) (VP (VB self-reflect) (CC or) (VB analyse)))))
         (, ,)
+        (ADVP (RB thereby))
         (S
-          (ADVP (RB thereby))
+          (RB not)
           (VP
-            (RB not)
-            (VP
-              (VBG seeing)
-              (NP (PRP$ their) (JJ own) (NNS imperfections)))))))
+            (VBG seeing)
+            (NP (PRP$ their) (JJ own) (NNS imperfections))))))
     (. .)))
 
 (ROOT
@@ -641,8 +662,10 @@
       (VP
         (VB give)
         (NP (PRP themselves))
-        (NP (JJ undue) (NN credit))
-        (PP (IN for) (NP (JJ positive) (NNS achievements)))
+        (NP
+          (NP (JJ undue) (NN credit))
+          (PP (IN for) (NP (NP (JJ positive) (NNS achievements))))))
+      (PP
         (PP
           (RB instead)
           (IN of)
@@ -669,25 +692,30 @@
 (ROOT
   (S
     (S
-      (VB Do)
-      (RB n't)
-      (VP (VB be) (ADJP-PRD (JJ nosy) (CC or) (JJ gossipy))))
+      (VP
+        (VB Do)
+        (RB n't)
+        (VP (VB be) (ADJP-PRD (JJ nosy) (CC or) (JJ gossipy)))))
     (, ,)
-    (CC but)
     (S
+      (CC but)
       (SBAR
         (IN if)
         (S
           (NP-SBJ (PRP they))
           (VP
-            (VP
-              (VBP are)
-              (ADJP-PRD (JJ happy) (PP (IN with) (NP (NN someone))))
-              (NP-TMP (CD one) (NN day)))
-            (CC and)
-            (VP
-              (ADJP (JJ hateful) (PP (IN with) (NP (PRP them))))
-              (NP-TMP (DT the) (JJ next))))))
+            (VBP are)
+            (ADJP
+              (ADJP
+                (ADJP-PRD
+                  (JJ happy)
+                  (PP (IN with) (NP (NN someone))))
+                (NP-ADV (CD one) (NN day)))
+              (CC and)
+              (ADJP
+                (JJ hateful)
+                (PP (IN with) (NP (PRP them)))
+                (NP-TMP (DT the) (JJ next)))))))
       (, ,)
       (NP-SBJ (DT that))
       (VP
@@ -717,7 +745,7 @@
       (SBAR
         (IN since)
         (S
-          (NP (NP (PRP it)))
+          (NP (PRP it))
           (VP
             (VBZ is)
             (ADJP-PRD (RB very) (JJ hard))
@@ -740,7 +768,7 @@
                           (S
                             (VP
                               (VBZ 's)
-                              (ADJP
+                              (VP
                                 (VBN stuck)
                                 (PP (IN on) (NP (PRP themselves)))))))))))))))))
     (. .)))
@@ -763,8 +791,10 @@
       (VP
         (VBZ is)
         (NP-PRD
-          (NP (DT an) (JJ effective) (NN way))
-          (SBAR (S (VP (TO to) (VP (VB do) (NP (DT that)))))))))
+          (DT an)
+          (JJ effective)
+          (NN way)
+          (S (VP (TO to) (VP (VB do) (NP (DT that))))))))
     (. .)))
 
 (ROOT
@@ -827,9 +857,8 @@
       (NP-SBJ (PRP they))
       (VP
         (VB treat)
-        (NP
-          (NP (DT those))
-          (PP (RB not) (IN like) (NP (PRP themselves))))))
+        (NP (DT those))
+        (PP (RB not) (IN like) (NP (PRP themselves)))))
     (. ?)))
 
 (ROOT
@@ -842,23 +871,21 @@
       (NP-SBJ (PRP they))
       (VP
         (VB treat)
-        (NP
-          (NP (DT those))
-          (PP
-            (IN with)
+        (NP (DT those))
+        (PP
+          (IN with)
+          (NP
+            (JJ different)
+            (NNS beliefs)
+            (, ,)
+            (JJ cultural)
+            (NNS backgrounds)
+            (CC and)
             (NP
-              (JJ different)
-              (NX
-                (NX (NNS beliefs))
-                (, ,)
-                (NX (JJ cultural) (NNS backgrounds))
-                (CC and)
-                (NX
-                  (NX (NNS ways))
-                  (PP
-                    (IN of)
-                    (S-NOM
-                      (VP (VBG seeing) (NP (DT the) (NN world))))))))))))
+              (NNS ways)
+              (PP
+                (IN of)
+                (S-NOM (VP (VBG seeing) (NP (DT the) (NN world))))))))))
     (. ?)))
 
 (ROOT
@@ -873,7 +900,7 @@
     (NP-SBJ (PRP they))
     (VP
       (VBP 're)
-      (UCP
+      (ADJP
         (CC either)
         (ADJP-PRD (JJ over-zealous))
         (, ,)
@@ -881,14 +908,14 @@
           (JJ ignorant)
           (PP
             (IN of)
-            (NP
-              (NP (JJ other) (NNS people))
-              (CC or)
-              (SBAR
-                (WHNP (WP what))
-                (S
+            (NP (JJ other) (NNS people))
+            (CC or)
+            (SBAR
+              (WHNP (WP what))
+              (S
+                (VP
+                  (TO to)
                   (VP
-                    (TO to)
                     (VP
                       (VB avoid)
                       (NP
@@ -911,11 +938,11 @@
                                       (PP
                                         (IN to)
                                         (NP
+                                          (NP (PRP them))
+                                          (CC and)
                                           (NP
-                                            (NP (PRP them))
-                                            (CC and)
-                                            (NP (PRP them)))
-                                          (ADVP (RB only)))))))))))))))))))))
+                                            (PRP them)
+                                            (ADVP (RB only))))))))))))))))))))))
     (. .)))
 
 (ROOT
@@ -937,8 +964,8 @@
                   (NP-SBJ (PRP they))
                   (VP
                     (VBP 're)
-                    (VP (VBG interacting) (PP (IN with)))))))))))
-    (. .)))
+                    (VP (VBG interacting) (PP (IN with))))))))))))
+  (. .))
 
 (ROOT
   (S
@@ -976,77 +1003,83 @@
     (WHNP (WP What))
     (SQ
       (VBZ 's)
-      (NP-SBJ (PRP$ their) (NN personality))
-      (PP (IN like)))
+      (NP-SBJ (NP (PRP$ their) (NN personality)) (PP (IN like))))
     (. ?)))
 
 (ROOT
   (S
     (VP
       (VB Take)
-      (NP (NN note))
-      (PP
-        (IN of)
-        (SBAR
-          (WHADVP (WRB how))
-          (S
-            (NP-SBJ (PRP they))
-            (VP
-              (VP (VBP act))
-              (, ,)
-              (VP (VBP talk))
-              (, ,)
-              (CC and)
-              (VP (VB use) (NP (PRP$ their) (JJ social) (NN status))))))))
+      (NP
+        (NP (NN note))
+        (PP
+          (IN of)
+          (SBAR
+            (WHADVP (WRB how))
+            (S
+              (NP-SBJ (PRP they))
+              (VP
+                (VP (VBP act))
+                (, ,)
+                (VP (VBP talk))
+                (, ,)
+                (CC and)
+                (VP
+                  (VB use)
+                  (NP (PRP$ their) (JJ social) (NN status)))))))))
     (. .)))
 
 (ROOT
-  (SQ
-    (VBP Do)
-    (NP-SBJ (PRP they))
+  (S
     (VP
-      (VB have)
-      (NP
-        (NP (DT a) (JJ general) (NN sense))
-        (PP (IN of) (`` ') (NP (NN coolness)))))
-    (. ?)
-    ('' ')))
+      (VBP Do)
+      (FRAG
+        (NP-SBJ (PRP they))
+        (VP
+          (VB have)
+          (NP
+            (NP (DT a) (JJ general) (NN sense))
+            (PP (IN of) (`` ') (NP (NN coolness)) (. ?) ('' '))))))))
 
 (ROOT
   (SQ
-    (VBP Are)
-    (NP-PRD (PRP they))
-    (NP (DT a) (NN chatterbox))
+    (VP
+      (VBP Are)
+      (NP-PRD (NP (PRP they)) (NP (DT a) (NN chatterbox))))
     (. ?)))
 
 (ROOT
-  (SQ
-    (VBP Do)
-    (NP-SBJ (PRP they))
+  (S
     (VP
-      (VP
-        (VB act)
-        (SBAR-ADV
-          (IN like)
-          (S
-            (NP-SBJ (PRP they))
-            (VP (VBP own) (NP (DT the) (NN place))))))
-      (, ,)
-      (CC or)
-      (VP
-        (VB act)
-        (PP (IN like) (NP (DT the) (`` ') (JJ big) (NN dog)))))
-    (. ?)
-    ('' ')))
+      (VBP Do)
+      (S
+        (NP-SBJ (PRP they))
+        (VP
+          (VP
+            (VB act)
+            (SBAR-ADV
+              (IN like)
+              (S
+                (NP-SBJ (PRP they))
+                (VP (VBP own) (NP (DT the) (NN place))))))
+          (, ,)
+          (CC or)
+          (VP
+            (VB act)
+            (PP
+              (IN like)
+              (NP (DT the) (`` ') (NP (JJ big) (NN dog))))
+            (. ?)
+            ('' ')))))))
 
 (ROOT
   (SQ
     (VBP Are)
     (NP-SBJ (PRP they))
-    (ADJP-PRD
-      (RB very)
-      (JJ keen)
-      (PP (IN on) (NP (PRP$ their) (NN self-image))))
+    (PP
+      (NP (ADJP-PRD (RB very) (JJ keen)))
+      (IN on)
+      (NP (PRP$ their) (NN self-image)))
     (. ?)))
 
 (ROOT
@@ -1100,17 +1133,16 @@
     (, ,)
     (NP-SBJ (PRP$ their) (NNS friends))
     (VP
-      (MD will)
-      (ADVP-TMP (RB usually))
       (VP
-        (VP (VB ignore) (NP (PRP it)))
-        (CC or)
-        (VP
-          (RB not)
-          (VB do)
-          (NP
-            (NP (NN anything))
-            (SBAR-PRP (S (VP (TO to) (VP (VB stop) (NP (PRP it))))))))
+        (MD will)
+        (ADVP-TMP (RB usually))
+        (VP (VB ignore) (NP (PRP it))))
+      (CC or)
+      (RB not)
+      (VP
+        (VB do)
+        (NP (NN anything))
+        (S-PRP (VP (TO to) (VP (VB stop) (NP (PRP it)))))
         (SBAR
           (IN since)
           (S
@@ -1132,9 +1164,12 @@
                           (ADVP-MNR (RB badly))
                           (PP
                             (IN by)
-                            (NP (PRP$ their) (`` ') (NN friend))))))))))))))
-    (. .)
-    ('' ')))
+                            (NP
+                              (PRP$ their)
+                              (`` ')
+                              (NN friend)
+                              (. .)
+                              ('' '))))))))))))))))
 
 (ROOT
   (S
@@ -1142,12 +1177,16 @@
       (VB Mention)
       (NP
         (NP (NNS people))
-        (SBAR (S (NP-SBJ (PRP you)) (VP (VBP know))))
         (SBAR
-          (WHNP (WDT that))
           (S
-            (NP-SBJ (PRP they))
-            (VP (VBP do) (RB n't) (VP (VB like)))))))
+            (NP-SBJ (PRP you))
+            (VP
+              (VBP know)
+              (SBAR
+                (IN that)
+                (S
+                  (NP-SBJ (PRP they))
+                  (VP (VBP do) (RB n't) (VP (VB like))))))))))
     (. .)))
 
 (ROOT
@@ -1168,12 +1207,11 @@
               (VP
                 (VB gauge)
                 (NP
-                  (PRP$ their)
-                  (NNS rivalries)
+                  (NP (PRP$ their) (NNS rivalries))
                   (, ,)
-                  (NNS annoyances)
+                  (NP (NNS annoyances))
                   (CC and)
-                  (NNS enmities))))))))
+                  (NP (NNS enmities)))))))))
     (. .)))
 
 (ROOT
@@ -1242,11 +1280,11 @@
     (CC And)
     (PP (IN in) (NP (NN turn)))
     (, ,)
-    (X (X (DT the) (JJR bigger)) (NP (DT the) (NN threat)))
+    (SBAR (S (X (DT the) (JJR bigger)) (NP (DT the) (NN threat))))
     (, ,)
-    (X (DT the) (JJR harsher))
-    (NP (DT the) (NN criticism))
-    (. .)))
+    (X (NP (DT the) (JJR harsher)))
+    (NP (DT the) (NN criticism)))
+  (. .))
 
 (ROOT
   (S
@@ -1301,14 +1339,14 @@
         (VP
           (VP
             (VBP 're)
-            (ADJP-PRD (JJ nice))
-            (PP (IN to) (NP (PRP$ your) (NN face))))
+            (ADJP-PRD
+              (JJ nice)
+              (PP (IN to) (NP (PRP$ your) (NN face)))))
           (, ,)
           (CC but)
           (VP
             (VBP talk)
-            (ADVP (RB bad))
-            (PP (IN about) (NP (PRP you)))
+            (ADVP (RB bad) (PP (IN about) (NP (PRP you))))
             (PP (IN behind) (NP (PRP$ your) (NN back)))
             (SBAR
               (IN like)
@@ -1318,7 +1356,7 @@
                   (VBZ 's)
                   (NP-PRD (PRP$ their) (JJ favourite) (NN hobby)))))))))
     (, ,)
-    (ADVP-TMP (RB then))
+    (RB then)
     (NP-SBJ (PRP they))
     (ADVP (RB probably))
     (VP
@@ -1330,8 +1368,8 @@
   (S
     (NP-SBJ (JJ Arrogant) (NNS people))
     (ADVP-TMP (RB often))
-    (ADVP (RB subconsciously))
     (VP
+      (ADVP (RB subconsciously))
       (VBP know)
       (SBAR
         (IN that)
@@ -1356,10 +1394,9 @@
             (VP
               (VBG creating)
               (NP
-                (DT the)
-                (NN impression)
+                (NP (DT the) (NN impression))
                 (SBAR
-                  (WDT that)
+                  (WHNP (WDT that))
                   (S
                     (NP-SBJ (PRP they))
                     (VP
@@ -1375,7 +1412,9 @@
         (NP
           (DT a)
           (`` ')
-          (ADJP (NN quantity) (, ,) (RB not) (NN quality))
+          (NN quantity)
+          (, ,)
+          (NP (RB not) (NN quality))
           ('' ')
           (NN mentality))))
     (. .)))
@@ -1384,8 +1423,8 @@
   (S
     (RB Then)
     (NP-SBJ (PRP they))
-    (ADVP-MNR (RB simply))
     (VP
+      (ADVP-MNR (RB simply))
       (VBP insult)
       (NP (PRP$ their) (NN trophy) (NNS friends))
       (SBAR-TMP
