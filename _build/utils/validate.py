@@ -606,6 +606,13 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print(str(id) + docname)
 		print("WARN: tag POS must have lemma " +'"'+ "'s" + '"' + inname)
 
+	if pos in ["VBG","VVG","VHG"] and "det" in child_funcs:
+		print(str(id) + docname)
+		print("WARN: tag "+pos+" should not have a determinder 'det' " + inname)
+
+	if pos in ["VBD","VVD","VHD","VBP","VVP","VHP"] and "aux" in child_funcs:
+		print(str(id) + docname)
+		print("WARN: tag "+pos+" should not have auxiliaries 'aux' " + inname)
 
 	mwe_pairs = {("accord", "to"), ("all","but"), ("as","if"), ("as", "well"), ("as", "as"), ("as","in"), ("as","oppose"),("as","to"),
 				 ("at","least"),("because","of"),("due","to"),("had","better"),("'d","better"),("in","between"),
