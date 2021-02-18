@@ -572,11 +572,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func == "amod" and pos in ["VBD","VVD","VHD"]:
 		print("WARN: finite past verb labeled amod " + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
-	if func == 'fixed' and id < parent_id:
-		print("WARN: back-pointing func fixed" + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
-
-	if func == 'conj' and id < parent_id:
-		print("WARN: back-pointing func conj" + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
+	if func in ['fixed','goeswith','flat', 'conj'] and id < parent_id:
+		print("WARN: back-pointing func " + func + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
 	if func == "auxpass" and lemma != "be" and lemma != "get":
 		print("WARN: auxpass must be 'be' or 'get'" + inname)
