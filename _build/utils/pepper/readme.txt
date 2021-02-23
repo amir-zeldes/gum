@@ -27,7 +27,7 @@
 * Pepper is a Salt model based converter for a variety of linguistic formats.                                          *
 * For further information, visit: http://corpus-tools.org/pepper/                                                      *
 * For contact write an eMail to:  saltnpepper@lists.hu-berlin.de                                                       *
-* Version of Pepper:              3.1.0-SNAPSHOT                                                                       *
+* Version of Pepper:              3.4.2                                                                       *
 ************************************************************************************************************************
 
 
