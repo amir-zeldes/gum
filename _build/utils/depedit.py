@@ -4,7 +4,7 @@
 """
 DepEdit - A simple configurable tool for manipulating dependency trees
 
-Input: CoNLL10 or CoNLLU (10 columns, tab-delimited, blank line between sentences, comments with pound sign #)
+Input: CoNLL10 or CoNLL-U (10 columns, tab-delimited, blank line between sentences, comments with pound sign #)
 
 Author: Amir Zeldes
 """
@@ -20,12 +20,13 @@ from collections import defaultdict
 from copy import copy, deepcopy
 from glob import glob
 import io
-from six import iteritems
+from six import iteritems, iterkeys
 
-__version__ = "2.3.1.0"
+__version__ = "3.0.0.0"
 
 ALIASES = {"form":"text","upostag":"pos","xpostag":"cpos","feats":"morph","deprel":"func","deps":"head2","misc":"func2",
 		   "xpos": "cpos","upos":"pos"}
+
 
 def escape(string, symbol_to_mask, border_marker):
 	inside = False
@@ -39,7 +40,7 @@ def escape(string, symbol_to_mask, border_marker):
 
 
 class ParsedToken:
-	def __init__(self, tok_id, text, lemma, pos, cpos, morph, head, func, head2, func2, num, child_funcs, position, is_super_tok=False):
+	def __init__(self, tok_id, text, lemma, pos, cpos, morph, head, func, head2, func2, num, child_funcs, position, is_super_tok=False, tokoffset=0):
 		self.id = tok_id
 		self.text = text
 		self.pos = pos
@@ -48,8 +49,17 @@ class ParsedToken:
 		self.morph = morph
 		self.head = head
 		self.func = func
+		self.edep = []
 		self.head2 = head2
 		self.func2 = func2
+		if ":" in head2:  # edep format
+			try:
+				h, d = head2.split(":", maxsplit=1)
+				h = str(float(h) + tokoffset)
+				self.edep.append([h, d])
+			except ValueError:
+				pass
+		self.storage = ""  # Storage field for temporary values, never read or written to/from conllu
 		self.num = num
 		self.child_funcs = child_funcs
 		self.position = position
@@ -85,11 +95,15 @@ class Sentence:
 
 class Transformation:
 
-	def parse_transformation(self, transformation_text, depedit_container):
+	def parse_transformation(self, transformation_text, depedit_container, line):
 		split_trans = transformation_text.split("\t")
 		if len(split_trans) < 3:
 			return None
 		definition_string, relation_string, action_string = split_trans
+		if "~#" in action_string and "edep=" not in action_string:
+			sys.stderr.write("WARN: action specifies enhanced edge (~) but no edep label on line " + str(line) + "\n")
+		elif "~#" not in action_string and "edep=" in action_string and not action_string.endswith("edep="):
+			sys.stderr.write("WARN: action specifies an edep label but no enhanced edge (~) on line " + str(line) + "\n")
 		match_variables = re.findall(r'\{([^}]+)\}',definition_string)
 		for m in match_variables:
 			if m in depedit_container.variables:
@@ -126,13 +140,13 @@ class Transformation:
 		temp = ""
 		while temp != criterion_string:
 			temp = criterion_string
-			criterion_string = re.sub(r'(#[0-9]+)(>|\.(?:[0-9]+(?:,[0-9]+)?)?)(#[0-9]+)(>|\.(?:[0-9]+(?:,[0-9]+)?)?)',
+			criterion_string = re.sub(r'(#[0-9]+)(>|\.(?:[0-9]+(?:,[0-9]+)?)?)(#[0-9]+)([>~]|\.(?:[0-9]+(?:,[0-9]+)?)?)',
 									  r'\1\2\3;\3\4', criterion_string)
 		return criterion_string
 
 	def __init__(self, transformation_text, line, depedit_container):
 		self.transformation_text = transformation_text
-		instructions = self.parse_transformation(transformation_text, depedit_container)
+		instructions = self.parse_transformation(transformation_text, depedit_container, line)
 		if instructions is None:
 			sys.stderr.write("Depedit says: error in configuration file\n"
 				  "Malformed instruction on line " + str(line) + " (instruction lines must contain exactly two tabs)\n")
@@ -149,7 +163,7 @@ class Transformation:
 			node = escape(definition.def_text, "&", "/")
 			criteria = (_crit.replace("%%%%%", "&") for _crit in node.split("&"))
 			for criterion in criteria:
-				if re.match(r"(text|pos|cpos|lemma|morph|func|head|func2|head2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc)!?=/[^/=]*/", criterion) is None:
+				if re.match(r"(text|pos|cpos|lemma|morph|storage|edom|func|head|func2|head2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc|edep|ehead)!?=/[^/=]*/", criterion) is None:
 					if re.match(r"position!?=/(first|last|mid)/", criterion) is None:
 						if re.match(r"#S:[A-Za-z_]+!?=/[^/\t]+/",criterion) is None:
 							report += "Invalid node definition in column 1: " + criterion
@@ -163,17 +177,18 @@ class Transformation:
 				criteria = relation.split(";")
 				for criterion in criteria:
 					criterion = criterion.strip()
-					# if not re.match(r"#[0-9]+((>|\.([0-9]+(,[0-9]+)?)?)#[0-9]+)+",criterion):
-					if not re.match(r"(#[0-9]+((>|\.([0-9]+(,[0-9]+)?)?)#[0-9]+)+|#[0-9]+:(text|pos|cpos|lemma|morph|"
-									r"func|head|func2|head2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc)==#[0-9]+)",
+					if not re.match(r"(#[0-9]+(([>~]|\.([0-9]+(,[0-9]+)?)?)#[0-9]+)+|#[0-9]+:(text|pos|cpos|lemma|morph|storage|edom|"
+									r"func|head|func2|head2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc|edep|ehead)==#[0-9]+)",
 									criterion):
 						report += "Column 2 relation setting invalid criterion: " + criterion + "."
 		for action in self.actions:
 			commands = action.split(";")
 			for command in commands:  # Node action
-				if re.match(r"(#[0-9]+>#[0-9]+|#[0-9]+:(func|lemma|text|pos|cpos|morph|head|head2|func2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc)\+?=[^;]*)$", command) is None:
-					if re.match(r"#S:[A-Za-z_]+=[A-Za-z_]+$|last$", command) is None:  # Sentence annotation action or quit
+				if re.match(r"(#[0-9]+[>~]#[0-9]+|#[0-9]+:(func|lemma|text|pos|cpos|morph|storage|edom|head|head2|func2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc|edep|ehead)\+?=[^;]*)$", command) is None:
+					if re.match(r"#S:[A-Za-z_]+=[A-Za-z_]+$|last$|once$", command) is None:  # Sentence annotation action or quit
 						report += "Column 3 invalid action definition: " + command + " and the action was " + action
+						if "#" not in action:
+							report += " (no node declaration with #)"
 		return report
 
 
@@ -203,6 +218,8 @@ class DefinitionMatcher:
 				def_value = "^" + def_value
 			if def_value[-1] != "$":
 				def_value += "$"
+			if "^(?i)" in def_value:
+				def_value = def_value.replace("^(?i)","(?i)^")  # ensure case insensitive flag is initial
 			self.defs.append(Definition(criterion, def_value, negative_criterion))
 
 	def __repr__(self):
@@ -211,8 +228,13 @@ class DefinitionMatcher:
 	def match(self, token):
 		potential_groups = []
 		for def_item in self.defs:
-			tok_value = getattr(token, def_item.criterion)
-			if def_item.criterion == "head":
+			if def_item.criterion == "edep":
+				tok_value = [e[1] for e in token.edep]  # Get list of edeprels
+			elif def_item.criterion == "edom":
+				tok_value = ["||".join(e) for e in token.edep]  # Get list of edeprels and their heads
+			else:
+				tok_value = getattr(token, def_item.criterion)
+			if def_item.criterion in ["head","ehead"] and len(tok_value) > 0:
 				tok_value = str(Decimal(tok_value) - token.sentence.offset)
 				if tok_value.endswith('.0'):
 					tok_value = tok_value.replace(".0","")
@@ -245,18 +267,24 @@ class Definition:
 		self.compiled_re = None
 		self.match_func = None
 		self.negative = negative
-		self.set_match_type()
+		self.set_match_type(criterion)
 
-	def set_match_type(self):
+	def set_match_type(self, criterion):
 		value = self.value[1:-1]
 		if self.value == "^.*$" and not self.negative:
 			self.match_func = self.return_true
-		elif re.escape(value) == value:  # No regex operators within  expression
-			self.match_func = self.return_exact_negative if self.negative else self.return_exact
+		elif re.escape(value) == value:  # No regex operators within expression
+			if criterion in ["edep","edom"]:
+				self.match_func = self.return_not_in if self.negative else self.return_in
+			else:
+				self.match_func = self.return_exact_negative if self.negative else self.return_exact
 			self.value = value
 		else:  # regex
 			self.compiled_re = re.compile(self.value)
-			self.match_func = self.return_regex_negative if self.negative else self.return_regex
+			if criterion in ["edep","edom"]:
+				self.match_func = self.return_regex_not_in if self.negative else self.return_regex_in
+			else:
+				self.match_func = self.return_regex_negative if self.negative else self.return_regex
 
 	@staticmethod
 	def return_exact(definition, test_val):
@@ -275,6 +303,24 @@ class Definition:
 		return definition.compiled_re.search(test_val) is None
 
 	@staticmethod
+	def return_in(definition, test_val):
+		return any([definition.value == v for v in test_val])
+
+	@staticmethod
+	def return_not_in(definition, test_val):
+		return all([definition.value != v for v in test_val])
+
+	@staticmethod
+	def return_regex_in(definition, test_val):
+		matchers = [definition.compiled_re.search(v) for v in test_val if v is not None]
+		successful = [m for m in matchers if m is not None]
+		return successful[0] if len(successful) > 0 else None
+
+	@staticmethod
+	def return_regex_not_in(definition, test_val):
+		return all([definition.compiled_re.search(v) is None for v in test_val])
+
+	@staticmethod
 	def return_true(definition, test_val):
 		return True
 
@@ -288,7 +334,7 @@ class Match:
 		self.sent_def = False  # Whether this is a sentence annotation match
 
 	def __repr__(self):
-		return "#" + str(self.def_index) + ": " + self.token.__repr__
+		return "#" + str(self.def_index) + ": " + str(self.token)
 
 
 class DepEdit:
@@ -336,7 +382,7 @@ class DepEdit:
 				key = match_variable.group(1)
 				val = match_variable.group(2)
 				self.add_variable(key,val)
-			elif len(instruction)>0 and not instruction.startswith(";") and not instruction.startswith("#") \
+			elif len(instruction) > 0 and not instruction.startswith(";") and not instruction.startswith("#") \
 					or instruction.startswith("#S:"):
 					self.transformations.append(Transformation(instruction, line_num, self))
 
@@ -399,6 +445,8 @@ class DepEdit:
 				operator = "."
 		elif ">" in relation:
 			operator = ">"
+		elif "~" in relation:
+			operator = "~"
 
 		matches = defaultdict(list)
 
@@ -481,7 +529,17 @@ class DepEdit:
 				return True
 			else:
 				return False
+		elif operator == "~":
+			try:
+				eheads = [int(float(e[0])) for e in node2.edep]
+				if int(float(node1.id)) in eheads:
+					return True
+				return False
+			except ValueError:  # Node has no ehead or non-numeric ehead value, so float conversion fails
+				return False
 		elif "." in operator:
+			if int(float(node2.id)) == int(float(node1.id)):  # Same node
+				return False
 			m = re.match(r'\.([0-9]+)(,[0-9]+)?',operator)
 			if len(m.groups()) > 1:
 				min_dist = int(m.group(1))
@@ -607,8 +665,11 @@ class DepEdit:
 			for matcher2 in bin2["matchers"]:
 				if matcher2.def_index == matcher.def_index:
 					skip = True
+				elif matcher.token == matcher2.token:
+					skip = True  # Same token can't serve two roles in a merged bin
 			if not skip:
-				bin2["matchers"].append(matcher)
+				if matcher not in bin2["matchers"]:
+					bin2["matchers"].append(matcher)
 		for key in bin1:
 			if key != "rels":
 				if key not in bin2:
@@ -651,8 +712,10 @@ class DepEdit:
 		for result in result_sets:
 			if len(result) > 0:
 				for action in actions:
-					if action == "last":
+					if action == "last":  # Completely ends processing of this sentence
 						return "last"
+					elif action == "once":  # Stop executing action but return to rule cascade
+						return None
 					elif ":" in action:  # Unary instruction
 						if action.startswith("#S:"):  # Sentence annotation instruction
 							key_val = action.split(":")[1]
@@ -661,10 +724,11 @@ class DepEdit:
 						else:  # node instruction
 							node_position = int(action[1:action.find(":")])
 							if not self.quiet:
-								if result["ID2matcher"][node_position].sent_def:
-									sys.stdout.write("! Warning: Rule is applying a *token* transformation to a *sentence* annotation node:\n")
-									sys.stdout.write("  " + transformation.transformation_text + "\n")
-									sys.stdout.write("  Applying the transformation to first token in sentence.\n")
+								if node_position in result["ID2matcher"]:
+									if result["ID2matcher"][node_position].sent_def:
+										sys.stdout.write("! Warning: Rule is applying a *token* transformation to a *sentence* annotation node:\n")
+										sys.stdout.write("  " + transformation.transformation_text + "\n")
+										sys.stdout.write("  Applying the transformation to first token in sentence.\n")
 							prop = action[action.find(":") + 1:action.find("=")]
 							value = action[action.find("=") + 1:].strip()
 							add_val = False
@@ -712,15 +776,50 @@ class DepEdit:
 									value = "|".join(sorted(kv,key=lambda x:x.lower()))
 								else:
 									value = "|".join(new_vals)
-							setattr(result[node_position], prop, value)
-					elif ">" in action:  # Binary instruction; head relation
-						operator = ">"
+							if prop == "edep":
+								if value == "":  # Set empty edep
+									result[node_position].edep = []
+								elif len(result[node_position].edep) == 0:
+									result[node_position].edep.append([None,value])
+									sys.stderr.write("WARN: added an enhanced label before adding its edge in transformation:\n" +
+													 str(transformation) + "\n")
+								else:  # There is an edge waiting for a label
+									# Get first edge with None label (FIFO)
+									try:
+										index = [i for i, dep in enumerate(result[node_position].edep) if dep[-1] is None][0]
+									except IndexError:  # All are filled, overwrite top of stack
+										index = -1
+									result[node_position].edep[index][1] = value
+							elif prop == "edom":
+								if "||" in value:
+									result[node_position].edep.append(value.split("||", maxsplit=1))
+								else:
+									sys.stderr.write("WARN: skipped attempt to write edom; value does not follow the format HEAD||EDEP (e.g. 8.0||nsubj:xsubj)\n")
+							else:
+								setattr(result[node_position], prop, value)
+					else:
+						if ">" in action:  # Binary instruction; head relation
+							operator = ">"
+						elif "~" in action:
+							operator = "~"
+						else:
+							continue
 						node1 = int(action.split(operator)[0].replace("#", ""))
 						node2 = int(action.split(operator)[1].replace("#", ""))
 						tok1 = result[node1]
 						tok2 = result[node2]
 						if tok1 != tok2:
-							tok2.head = tok1.id
+							if operator == ">":
+								tok2.head = tok1.id
+							else:
+								if tok1.id not in [e[0] for e in tok2.edep] or True:  # Experimental: remove True to disallow overwriting edeps
+									# This is a new enhanced edge
+									if len(tok2.edep) == 0:
+										tok2.edep.append([tok1.id, None])  # Add an enhanced edge, with a pending label None
+									elif tok2.edep[-1][0] is None:  # There is an existing label with a pending parent
+										tok2.edep[-1][0] = tok1.id
+									else:
+										tok2.edep.append([tok1.id, None])  # Add an enhanced edge, with a pending label None
 
 	def add_variable(self, key, value):
 		self.variables[key] = value
@@ -762,7 +861,29 @@ class DepEdit:
 				new_transformation = Transformation(transformation_string, user_line_number, self)
 				self.transformations.append(new_transformation)
 
-	def serialize_output_tree(self, tokens, tokoffset):
+	def serialize_output_tree(self, tokens, tokoffset, enhanced=False):
+		def order_edep(multi_edep_string):
+			# edep with | must be ordered by ehead without duplicates
+			parts = multi_edep_string.split("|")
+			d = {}
+			# sort by len, meaning we prefer longer edeps for duplicates with same ehead
+			for p in sorted(parts,key=lambda x: len(x)):
+				if ":" in p:
+					eh, ed = p.split(":",maxsplit=1)
+					d[eh] = ed
+				else:  # Non-UD edeps field, warn and return naive sort
+					sys.stderr.write("WARN: Non-standard value in column 9: enhanced dependencies should contain ':'\n")
+					sys.stderr.write(multi_edep_string + "\n")
+					return "|".join(sorted(parts))
+			try:
+				sorted_keys = sorted(iterkeys(d), key=lambda x: float(x))
+			except ValueError:
+				sys.stderr.write("WARN: Non-numeric enhanced head in column 9:\n")
+				sys.stderr.write(multi_edep_string + "\n")
+				return "|".join(sorted(parts))
+			vals = [":".join([k, d[k]]) for k in sorted_keys]
+			return "|".join(vals)
+
 		output_tree_lines = []
 		for tok in tokens:
 			if tok.is_super_tok:
@@ -776,12 +897,24 @@ class DepEdit:
 			else:
 				tok_head_string = str(Decimal(tok.head) - tokoffset)
 				tok_id = str(Decimal(tok.id) - tokoffset)
+			if len(tok.edep) == 0:
+				tok_ehead_string = "_"
+				tok.head2 = "_"
+			else:
+				tok_ehead_string = [":".join([str(Decimal(ehead[0]) - tokoffset).replace(".0", ""),ehead[1]]) for ehead in tok.edep]
+				tok_ehead_string = "|".join(tok_ehead_string)
+				tok_ehead_string = order_edep(tok_ehead_string)
 			tok_id = tok_id.replace(".0", "")
 			tok_head_string = tok_head_string.replace(".0", "")
 			if "." in tok_id:
 				tok_head_string = "_"
 			fields = (tok_id, tok.text, tok.lemma, tok.pos, tok.cpos, tok.morph, tok_head_string, tok.func)
 			if self.input_mode != "8col":
+				if enhanced or tok.edep != []:
+					if tok.edep != []:
+						tok.head2 = tok_ehead_string
+					elif tok.head2 == "_":
+						tok.head2 = ":".join([tok_head_string, tok.func])  # Default edep column contents
 				fields += (tok.head2, tok.func2)
 			output_tree_lines.append("\t".join(fields))
 		return output_tree_lines
@@ -789,7 +922,7 @@ class DepEdit:
 	def make_sent_id(self, sent_id):
 		return "# sent_id = " + self.docname + "-" + str(sent_id)
 
-	def run_depedit(self, infile, filename="file", sent_id=False, docname=False, stepwise=False):
+	def run_depedit(self, infile, filename="file", sent_id=False, docname=False, stepwise=False, enhanced=False):
 
 		children = defaultdict(list)
 		child_funcs = defaultdict(list)
@@ -801,12 +934,12 @@ class DepEdit:
 		sentence_lines = []
 		current_sentence = Sentence(sent_num=1)
 
-		def _process_sentence(stepwise=False):
+		def _process_sentence(stepwise=False, enhanced=False):
 			current_sentence.length = sentlength
 			conll_tokens[-1].position = "last"
 			sentence_tokens = conll_tokens[tokoffset + supertok_offset + 1:]
 			self.process_sentence(sentence_tokens,stepwise=stepwise)
-			transformed = current_sentence.print_annos() + self.serialize_output_tree(sentence_tokens, tokoffset)
+			transformed = current_sentence.print_annos() + self.serialize_output_tree(sentence_tokens, tokoffset, enhanced=enhanced)
 			output_lines.extend(transformed)
 			if sent_id:
 				output_lines.append(self.make_sent_id(current_sentence.sent_num))
@@ -820,7 +953,7 @@ class DepEdit:
 			in_data.append(myline)
 			myline = myline.strip()
 			if sentlength > 0 and "\t" not in myline:
-				_process_sentence(stepwise=stepwise)
+				_process_sentence(stepwise=stepwise, enhanced=enhanced)
 				sentence_lines = []
 				tokoffset += sentlength
 				supertok_offset += supertok_length
@@ -845,7 +978,7 @@ class DepEdit:
 					super_tok = False
 					tok_id = str(float(cols[0]) + tokoffset)
 					if cols[6] == "_":
-						if not self.quiet:
+						if not self.quiet and "." not in cols[0]:
 							sys.stderr.write("DepEdit WARN: head not set for token " + tok_id + " in " + filename + "\n")
 						head_id = str(0 + tokoffset)
 					else:
@@ -857,7 +990,7 @@ class DepEdit:
 				else:  # Attempt to read as 8 column Malt input
 					args += (cols[6], cols[7])
 					self.input_mode = "8col"
-				args += (cols[0], [], "mid", super_tok)
+				args += (cols[0], [], "mid", super_tok, tokoffset)
 				this_tok = ParsedToken(*args)
 				if cols[0] == "1" and not super_tok:
 					this_tok.position = "first"
@@ -871,7 +1004,7 @@ class DepEdit:
 					child_funcs[(float(head_id) + tokoffset)].append(cols[7])
 
 		if sentlength > 0:  # Possible final sentence without trailing new line
-			_process_sentence(stepwise=stepwise)
+			_process_sentence(stepwise=stepwise, enhanced=enhanced)
 
 		if docname:
 			newdoc = '# newdoc id = ' + self.docname
@@ -897,11 +1030,15 @@ def main(options):
 		import msvcrt
 		msvcrt.setmode(sys.stdout.fileno(), os.O_BINARY)
 	files = glob(options.file)
+	if len(files) == 0:
+		sys.stderr.write("File(s) not found:\n" + options.file)
+		sys.exit()
 	for filename in files:
 		infile = io.open(filename, encoding="utf8")
 		basename = os.path.basename(filename)
 		docname = basename[:basename.rfind(".")] if options.docname or options.sent_id else filename
-		output_trees = depedit.run_depedit(infile, docname, sent_id=options.sent_id, docname=options.docname, stepwise=options.stepwise)
+		output_trees = depedit.run_depedit(infile, docname, sent_id=options.sent_id, docname=options.docname,
+										   stepwise=options.stepwise, enhanced=options.enhanced)
 		if len(files) == 1:
 			# Single file being processed, just print to STDOUT
 			if sys.version_info[0] < 3:
@@ -940,6 +1077,7 @@ if __name__ == "__main__":
 	parser.add_argument('-d', '--docname', action="store_true", dest="docname",
 						help="Begin output with # newdoc id =...")
 	parser.add_argument('-s', '--sent_id', action="store_true", dest="sent_id", help="Add running sentence ID comments")
+	parser.add_argument('--enhanced', action="store_true", help="Add enhanced dependencies column when absent in input")
 	parser.add_argument('-k', '--kill', action="store", choices=["supertoks", "comments", "both"],
 						help="Remove supertokens or commments from output")
 	parser.add_argument('-q', '--quiet', action="store_true", dest="quiet", help="Do not output warnings and messages")
