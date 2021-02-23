@@ -306,7 +306,7 @@ def enrich_tsv_representation_with_pos(parsed_lines, xml_path):
 	for line in conll_lines:
 		if "\t" in line:
 			fields = line.split("\t")
-			if "-" not in fields[0]:  # Token
+			if "-" not in fields[0] and "." not in fields[0]:  # Regular token, not ellipsis or supertoken
 				tsv_line = parsed_lines[abs_id]
 				abs_id += 1
 				tsv_line['abs_id'] = abs_id

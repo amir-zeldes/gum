@@ -32,6 +32,13 @@ except:
 utils_abs_path = os.path.dirname(os.path.realpath(__file__))
 ud_morph_deped = DepEdit(utils_abs_path + os.sep + "ud_morph.ini")
 ud_morph_deped.quiet = True
+# depedit script to fix known projective punctuation issues
+# note that this script also introduces some post editing to morphology, such as passive Voice
+punct_depedit = DepEdit(config_file="utils" + os.sep + "projectivize_punct.ini")
+punct_depedit.quiet = True
+ud_edep_deped = DepEdit(utils_abs_path + os.sep + "eng_enhance.ini")
+ud_edep_deped.quiet = True
+
 
 class Args:
 
@@ -66,7 +73,42 @@ class Entity:
 
 
 def fix_punct(conllu_string):
+	def preserve_ellipsis_tokens(conllu):
+		lines = conllu.split("\n")
+		ellipses = defaultdict(list)
+		tok_num = 0
+		for line in lines:
+			if "\t" in line:
+				fields=line.split("\t")
+				if "-" in fields[0]:
+					continue
+				elif "." in fields[0]:
+					ellipses[tok_num].append(line)
+				else:
+					tok_num += 1
+		return ellipses
+
+	def restore_ellipses(conllu, ellipses):
+		lines = conllu.split("\n")
+		tok_num = 0
+		output = []
+		for line in lines:
+			if "\t" in line:
+				fields = line.split("\t")
+				if "-" in fields[0]:
+					pass
+				elif "." in fields[0]:
+					continue
+				else:
+					if tok_num in ellipses:
+						for el_line in ellipses[tok_num]:
+							output.append(el_line)
+					tok_num += 1
+			output.append(line)
+		return "\n".join(output).strip() + "\n\n"
+
 	# Protect possessive apostrophe from being treated as punctuation
+	ellipses = preserve_ellipsis_tokens(conllu_string)
 	conllu_string = re.sub(r"\t'\t([^\t\n]+\tPART\tPOS)", r'\t&udapi_apos;\t\1', conllu_string, flags=re.MULTILINE)  # remove udapi sent_id
 	doc = Document()
 	doc.from_conllu_string(conllu_string)
@@ -75,6 +117,7 @@ def fix_punct(conllu_string):
 	output_string = doc.to_conllu_string()
 	output_string = output_string.replace('&udapi_apos;',"'")
 	output_string = re.sub(r'# sent_id = [0-9]+\n',r'',output_string)  # remove udapi sent_id
+	output_string = restore_ellipses(output_string, ellipses)
 	return output_string
 
 
@@ -113,6 +156,19 @@ def add_feat(field,feat):
 		attrs = field.split("|")
 		attrs.append(feat)
 		return "|".join(sorted(list(set(attrs))))
+
+
+def remove_entities(misc):
+	output = []
+	for anno in misc.split("|"):
+		if anno.startswith("Entity=") or anno.startswith("Bridge=") or anno.startswith("Split=") or anno == "_":
+			continue
+		else:
+			output.append(anno)
+	if len(output) == 0:
+		return "_"
+	else:
+		return "|".join(sorted(list(set(output))))
 
 
 def do_hard_replaces(text):
@@ -188,6 +244,7 @@ def fix_card_lemma(wordform,lemma):
 
 def enrich_dep(gum_source, tmp, reddit=False):
 
+	pre_annotated = defaultdict(lambda: defaultdict(dict))  # Placeholder for explicit annotations in src/dep/
 	no_space_after_strings = {"(","[","{"}
 	no_space_before_strings = {".",",",";","?","!","'s","n't","'ve","'d","'m","'ll","]",")","}",":","%"}
 	no_space_after_combos = {("'","``"),('"',"``")}
@@ -205,9 +262,9 @@ def enrich_dep(gum_source, tmp, reddit=False):
 		depfiles.append(file_)
 
 	for docnum, depfile in enumerate(depfiles):
-		docname = ntpath.basename(depfile)
+		docname = ntpath.basename(depfile).replace(".conllu","")
 		sys.stdout.write("\t+ " + " "*70 + "\r")
-		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(depfiles)) + ":\t+ " + docname + "\r")
+		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(depfiles)) + ":\t+ " + docname + ".conllu\r")
 		current_stype = ""
 		current_speaker = ""
 		current_addressee = ""
@@ -254,8 +311,6 @@ def enrich_dep(gum_source, tmp, reddit=False):
 				word = word.replace('“','"').replace("”",'"')
 				word_pos = fields[1].replace('"',"''")
 				tok_num += 1
-				if word == "(":
-					a=5
 				if word in no_space_after_strings:
 					space_after_by_token[tok_num] = False
 				if word in no_space_before_strings:
@@ -277,13 +332,19 @@ def enrich_dep(gum_source, tmp, reddit=False):
 				# Ignore old speaker and s_type annotations in favor of fresh ones
 				continue
 			if "\t" in line:  # Token
+				fields = line.split("\t")
+				if "." in fields[0]:  # Ignore ellipsis token
+					output += line + "\n"
+					continue
+				for index in [2,3,4,5,8,9]:
+					if fields[index] != "_":
+						pre_annotated[docname][tok_num][index] = fields[index]
 				tok_num += 1
 				wordform = wordforms[tok_num]
 				lemma = lemmas[tok_num]
 				# De-escape XML escapes
 				wordform = wordform.replace("&amp;","&").replace("&gt;",">").replace("&lt;","<")
 				lemma = lemma.replace("&amp;","&").replace("&gt;",">").replace("&lt;","<")
-				fields = line.split("\t")
 				tt_pos = pos[tok_num]
 				tt_pos = clean_tag(tt_pos)
 				vanilla_pos = tt2vanilla(tt_pos, fields[1])
@@ -326,11 +387,13 @@ def enrich_dep(gum_source, tmp, reddit=False):
 		output = output.strip() + "\n\n"  # Ensure exactly two new lines at end
 
 		# output now contains conll string ready for udapi and morph
-		with io.open(dep_target + docname,'w',encoding="utf8",newline="\n") as f:
+		with io.open(dep_target + docname + ".conllu",'w',encoding="utf8",newline="\n") as f:
 			f.write(output)
 
+	return pre_annotated
 
-def compile_ud(tmp, gum_target, reddit=False):
+
+def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 
 	if PY2:
 		print("WARN: Running on Python 2 - consider upgrading to Python 3. ")
@@ -375,10 +438,6 @@ def compile_ud(tmp, gum_target, reddit=False):
 		if not reddit and "reddit_" in file_:
 			continue
 		depfiles.append(file_)
-
-	# depedit script to fix known projective punctuation issues
-	# note that this script also introduces some post editing to morphology, such as passive Voice
-	punct_depedit = DepEdit(config_file="utils" + os.sep + "projectivize_punct.ini")
 
 	for docnum, depfile in enumerate(depfiles):
 
@@ -467,35 +526,28 @@ def compile_ud(tmp, gum_target, reddit=False):
 		for line in conll_lines:
 			line_id += 1
 			if "\t" in line:  # Token
-				sent_len += 1
 				fields = line.split("\t")
-				field_cache[tok_num] = fields
-				tok_num += 1
-				doc_toks.append(fields[1])
-				doc_lemmas.append(fields[2])
-				if fields[7] == "neg" or is_neg_lemma(fields[2],fields[3]):
-					negative.append(tok_num)
-				absolute_head_id = tok_num - int(fields[0]) + int(fields[6]) if fields[6] != "0" else 0
-				if str(tok_num) in toks_to_ents:
-					for ent in sorted(toks_to_ents[str(tok_num)],key=lambda x:x.get_length(),reverse=True):
-						# Check if this is the head of that entity
-						if absolute_head_id > ent.end or (absolute_head_id < ent.start and absolute_head_id > 0) or absolute_head_id == 0:
-							# This is the head
-							fields[5] = "ent_head=" + ent.type + "|" + "infstat=" + ent.infstat
+				if "." in fields[0] or "-" in fields[0]:  # ellipsis tokens or supertokens
+					pass
+				else:
+					sent_len += 1
+					field_cache[tok_num] = fields
+					tok_num += 1
+					doc_toks.append(fields[1])
+					doc_lemmas.append(fields[2])
+					if fields[7] == "neg" or is_neg_lemma(fields[2],fields[3]):
+						negative.append(tok_num)
+					absolute_head_id = tok_num - int(fields[0]) + int(fields[6]) if fields[6] != "0" else 0
+					if str(tok_num) in toks_to_ents:
+						for ent in sorted(toks_to_ents[str(tok_num)],key=lambda x: x.get_length(), reverse=True):
+							# Check if this is the head of that entity
+							if absolute_head_id > ent.end or (absolute_head_id < ent.start and absolute_head_id > 0) or absolute_head_id == 0:
+								# This is the head
+								fields[5] = "ent_head=" + ent.type + "|" + "infstat=" + ent.infstat
 
-							# store all head lines
-							tsv_sent = tok_num_to_tsv_id[tok_num].split("-")[0]
-							coref_line_and_ent.append((line_id, ent, tsv_sent))
-
-							# # store all corefed heads
-							# if ent.coref_type in ["coref", "ana", "cata"]:
-							# 	tsv_sent = tok_num_to_tsv_id[tok_num].split("-")[0]
-							# 	link_sent = ent.coref_link.split("-")[0]
-							# 	if link_sent == tsv_sent:
-							# 		coref_line_and_ent.append((line_id, ent, tsv_sent))
-							# 		coref_line_and_ent_last_in_sent[tsv_sent] = counter
-							# 		counter += 1
-
+								# store all head lines
+								tsv_sent = tok_num_to_tsv_id[tok_num].split("-")[0]
+								coref_line_and_ent.append((line_id, ent, tsv_sent))
 
 				line = "\t".join(fields)
 			else:
@@ -577,9 +629,6 @@ def compile_ud(tmp, gum_target, reddit=False):
 				else:
 					imp = False
 			if "\t" in line:
-				tok = doc_toks[tok_num]
-				lemma = doc_lemmas[tok_num]
-				tok_num += 1
 				fields = line.split("\t")
 				if use_corenlp:  # Handle annotations not covered by corenlp
 					if tok_num in negative and "Polarity" not in fields[5]:
@@ -594,9 +643,15 @@ def compile_ud(tmp, gum_target, reddit=False):
 						fields[5] = add_feat(fields[5],"Abbr=Yes")
 					if imp and fields[5] == "VerbForm=Inf" and fields[7] == "root":  # Inf root in s_type=imp should be Imp
 						fields[5] = "Mood=Imp|VerbForm=Fin"
-				fields[8] = "_"
-				fields[1] = tok  # Restore correct utf8 token and lemma
-				fields[2] = lemma
+				if "." in fields[0] or "-" in fields[0]:  # Ellipsis token or supertoken
+					pass
+				else:
+					tok = doc_toks[tok_num]
+					lemma = doc_lemmas[tok_num]
+					tok_num += 1
+					fields[8] = "_"
+					fields[1] = tok  # Restore correct utf8 token and lemma
+					fields[2] = lemma
 
 				negatived.append("\t".join(fields))
 			else:
@@ -615,21 +670,39 @@ def compile_ud(tmp, gum_target, reddit=False):
 		negatived = do_hard_replaces(negatived)
 
 		# Broken non-projective punctuation
-		negatived = punct_depedit.run_depedit(negatived).strip() + "\n\n"
+		negatived = punct_depedit.run_depedit(negatived).strip()
+
+		# Add enhanced dependencies
+		negatived = ud_edep_deped.run_depedit(negatived).strip()
+
+		# Restore explicitly pre-annotated fields from src/dep/
+		output = []
+		tok_num = 0
+		for line in negatived.split("\n"):
+			if "\t" in line:
+				fields = line.split("\t")
+				if "." not in fields[0] and "-" not in fields[0]:
+					if tok_num in pre_annotated[docname]:
+						for index in pre_annotated[docname][tok_num]:
+							fields[index] = pre_annotated[docname][tok_num][index]
+					tok_num +=1
+				line = "\t".join(fields)
+			output.append(line)
+		output = "\n".join(output).strip() + "\n\n"
 
 		# Directory with dependency output
 		with io.open(dep_target + docname + ".conllu",'w',encoding="utf8", newline="\n") as f:
-			f.write(negatived)
+			f.write(output)
 		# Directory for SaltNPepper merging, must be nested in a directory 'GUM'
 		with io.open(dep_merge_dir + docname + ".conll10",'w',encoding="utf8", newline="\n") as f:
-			f.write(negatived)
+			f.write(output)
 
 		if docname in ud_dev:
-			dev_string += negatived
+			dev_string += output
 		elif docname in ud_test:
-			test_string += negatived
+			test_string += output
 		elif "reddit_" not in docname:  # Exclude reddit data from UD release
-			train_string += negatived
+			train_string += output
 
 
 	train_split_target = dep_target + ".." + os.sep
@@ -686,8 +759,10 @@ def enrich_xml(gum_source, gum_target, add_claws=False, reddit=False, warn=False
 				if line.count("\t") != 9:
 					print("WARN: Found line with less than 9 tabs in " + docname + " line: " + str(line_num))
 				else:
-					tok_num += 1
 					fields = line.split("\t")
+					if "."  in fields[0] or "-" in fields[0]:  # Supertoken or ellipsis token
+						continue
+					tok_num += 1
 					funcs[tok_num] = fields[7]
 
 		if PY2:
@@ -726,7 +801,7 @@ def enrich_xml(gum_source, gum_target, add_claws=False, reddit=False, warn=False
 		if PY2:
 			outfile = open(xml_target + docname, 'wb')
 		else:
-			outfile = io.open(xml_target + docname,'w',encoding="utf8")
+			outfile = io.open(xml_target + docname,'w',encoding="utf8",newline="\n")
 		outfile.write(output)
 		outfile.close()
 
@@ -851,7 +926,7 @@ def add_rsd_to_conllu(gum_target,reddit=False):
 
 			if "\t" in line:
 				fields = line.split("\t")
-				if not "-" in fields[0]:  # Regular token
+				if not "-" in fields[0] and not "." in fields[0]:  # Regular token, not an ellipsis token or supertok
 					if toknum in rsd_spans[doc]:
 						rsd_data = rsd_spans[doc][toknum]
 						if rsd_data[2] == "0":  # ROOT
@@ -891,15 +966,16 @@ def add_entities_to_conllu(gum_target,reddit=False):
 
 			if "\t" in line:
 				fields = line.split("\t")
-				if not "-" in fields[0]:  # Regular token
+				if not "-" in fields[0] and not "." in fields[0]:  # Regular token, not ellipsis or supertok
 					try:
 						entity_data = entity_doc[doc][toknum]
 					except IndexError:
 						raise IndexError("Token number " + str(toknum) + " not found in document " + doc)
+					misc = remove_entities(fields[-1])
 					if entity_data != "_":
-						misc = add_feat(fields[-1],"Entity="+entity_data)
-						fields[-1] = misc
-						line = "\t".join(fields)
+						misc = add_feat(misc,"Entity="+entity_data)
+					fields[-1] = misc
+					line = "\t".join(fields)
 					toknum += 1
 			output.append(line)
 
@@ -973,7 +1049,7 @@ def merge_bridge_conllu(conllu, webannotsv):
 	for line in lines:
 		if "\t" in line:
 			fields = line.split("\t")
-			if "-" in fields[0]:
+			if "-" in fields[0] or "." in fields[0]:  # ellipsis or supertok
 				continue
 			if "Entity=" in fields[-1]:
 				ent_field = fields[-1].split("Entity=")[1].split("|")[0]
@@ -1000,7 +1076,7 @@ def merge_bridge_conllu(conllu, webannotsv):
 	for line in lines:
 		if "\t" in line:
 			fields = line.split("\t")
-			if "-" in fields[0]:
+			if "-" in fields[0] or "." in fields[0]:  # ellipsis token or supertok
 				output.append(line)
 				continue
 			if "Entity=" in fields[-1]:

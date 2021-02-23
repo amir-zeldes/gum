@@ -38,7 +38,8 @@ def get_tok_info(docname,corpus_root):
 	for line in io.open(conll_file,encoding="utf8").read().replace("\r","").split("\n"):
 		if "\t" in line:
 			cols = line.split("\t")
-			tokens.append(ParsedToken(cols[0],cols[1],cols[2],cols[3],cols[5],cols[6],cols[7]))
+			if "." not in cols[0] and "-" not in cols[0]:  # Ignore ellipsis and supertokens
+				tokens.append(ParsedToken(cols[0],cols[1],cols[2],cols[3],cols[5],cols[6],cols[7]))
 
 	counter = 0
 	heading = "_"
@@ -75,6 +76,7 @@ def get_tok_info(docname,corpus_root):
 		elif '<item>' in line:
 			item = "open_item"
 		if "\t" in line:
+			fields = line.split("\t")
 			tokens[counter].heading = heading
 			tokens[counter].caption = caption
 			tokens[counter].list = list
@@ -82,6 +84,8 @@ def get_tok_info(docname,corpus_root):
 			tokens[counter].date = date
 			tokens[counter].para = para
 			tokens[counter].item = item
+			tokens[counter].pos = fields[1]
+			tokens[counter].lemma = fields[2]
 			para = "_"
 			item = "_"
 
