@@ -39,6 +39,7 @@ punct_depedit.quiet = True
 ud_edep_deped = DepEdit(utils_abs_path + os.sep + "eng_enhance.ini")
 ud_edep_deped.quiet = True
 
+efuncs = set(["acl","acl:relcl","advcl","advmod","amod","appos","aux","aux:pass","case","cc","cc:preconj","ccomp","compound","compound:prt","conj","cop","csubj","csubj:pass","csubj:xsubj","dep","det","det:predet","discourse","dislocated","expl","fixed","flat","goeswith","iobj","list","mark","nmod","nmod:npmod","nmod:poss","nmod:tmod","nsubj","nsubj:pass","nsubj:xsubj","nummod","obj","obl","obl:npmod","obl:tmod","orphan","parataxis","punct","ref","reparandum","root","vocative","xcomp"])
 
 class Args:
 
@@ -119,6 +120,41 @@ def fix_punct(conllu_string):
 	output_string = re.sub(r'# sent_id = [0-9]+\n',r'',output_string)  # remove udapi sent_id
 	output_string = restore_ellipses(output_string, ellipses)
 	return output_string
+
+
+def validate_enhanced(conllu, docname):
+	for i, line in enumerate(conllu.split("\n")):
+		if "\t" in line:
+			fields = line.split("\t")
+			location = " on line " + str(i) + " in " + docname + "\n"
+			if "." in fields[0]:
+				if fields[-1].count("=") == 1:
+					CopyOf, CopyID = fields[-1].split("=")
+					if CopyOf != "CopyOf":
+						sys.stderr.write("! edeps missing CopyOf" + location)
+					try:
+						int(CopyID)
+					except ValueError:
+						sys.stderr.write("! invalid edep CopyOf value" + location)
+					if fields[6] != "_" or fields[7] != "_":
+						sys.stderr.write("! ellipsis token with filled normal deps" + location)
+				else:
+					edeps = fields[8].split("|")
+					if len(edeps) == 0:
+						sys.stderr.write("! missing edeps line" + location)
+					else:
+						for edep in edeps:
+							head, func = edep.split(":",maxsplit=1)
+							try:
+								float(head)
+							except ValueError:
+								sys.stderr.write("! invalid edep head on line " + str(i) + " in " + docname + "\n")
+							if func not in efuncs and ":" not in func:
+								sys.stderr.write("! invalid edep relation " + func + location)
+							elif ":" in func:
+								prefix = func.split(":")[0]
+								if prefix not in ["acl","obl","nmod","conj","advcl"]:
+									sys.stderr.write("! invalid edep relation" + func + location)
 
 
 def is_neg_lemma(lemma,pos):
@@ -674,6 +710,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 
 		# Add enhanced dependencies
 		negatived = ud_edep_deped.run_depedit(negatived).strip()
+		validate_enhanced(negatived,docname)
 
 		# Restore explicitly pre-annotated fields from src/dep/
 		output = []
