@@ -857,7 +857,10 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 					print("Error on line " + str(line_num) + " of TSV file: " + filename)
 					quit()
 				if link_anno == "bridge":
-					bridging_count[tok] += 1
+					if spans != "" and not spans.startswith("[0_"):# and not spans.endswith("_0]"):
+						bridging_count[spans.split("_")[0].replace("[","")] += 1
+					else:
+						bridging_count[tok] += 1
 
 				if spans != "":
 					tok += spans
@@ -883,11 +886,16 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 			#continue ##AZ
 			for i, anno in enumerate(split_link_annos):
 				link = split_links[i]
+				bridge_count_id = link
 				if "[" in link:
+					if "[0_" not in link: # and not link.endswith("_0]"):
+						bridge_count_id = link.split("[")[1].split("_")[0].replace("[","")
+					else:
+						bridge_count_id = link.split("[")[0]
 					link = link.split("[")[0]
 				source_word = bridge_words[link]
 				if anno == "bridge":
-					if bridging_count[link] > 1:
+					if bridging_count[bridge_count_id] > 1:
 						anno = "bridge:aggr"
 					elif re.match(r'(the|this|that|these|those)$',source_word,re.IGNORECASE) is not None:
 						anno = "bridge:def"
