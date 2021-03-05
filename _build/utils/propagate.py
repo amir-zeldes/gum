@@ -710,7 +710,6 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 
 		# Add enhanced dependencies
 		negatived = ud_edep_deped.run_depedit(negatived).strip()
-		validate_enhanced(negatived,docname)
 
 		# Restore explicitly pre-annotated fields from src/dep/
 		output = []
@@ -726,6 +725,8 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 				line = "\t".join(fields)
 			output.append(line)
 		output = "\n".join(output).strip() + "\n\n"
+
+		validate_enhanced(output, docname)
 
 		# Directory with dependency output
 		with io.open(dep_target + docname + ".conllu",'w',encoding="utf8", newline="\n") as f:
@@ -996,7 +997,7 @@ def add_entities_to_conllu(gum_target,reddit=False):
 
 		output = []
 		toknum = 0
-		for line in lines:
+		for i, line in enumerate(lines):
 			if line.startswith("# newdoc"):
 				doc = line.strip().split()[-1]
 				toknum = 0

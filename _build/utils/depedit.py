@@ -22,7 +22,7 @@ from glob import glob
 import io
 from six import iteritems, iterkeys
 
-__version__ = "3.0.0.0"
+__version__ = "3.0.1.0"
 
 ALIASES = {"form":"text","upostag":"pos","xpostag":"cpos","feats":"morph","deprel":"func","deps":"head2","misc":"func2",
 		   "xpos": "cpos","upos":"pos"}
@@ -60,6 +60,7 @@ class ParsedToken:
 			except ValueError:
 				pass
 		self.storage = ""  # Storage field for temporary values, never read or written to/from conllu
+		self.storage2 = ""  # Storage field for temporary values, never read or written to/from conllu
 		self.num = num
 		self.child_funcs = child_funcs
 		self.position = position
@@ -102,7 +103,8 @@ class Transformation:
 		definition_string, relation_string, action_string = split_trans
 		if "~#" in action_string and "edep=" not in action_string:
 			sys.stderr.write("WARN: action specifies enhanced edge (~) but no edep label on line " + str(line) + "\n")
-		elif "~#" not in action_string and "edep=" in action_string and not action_string.endswith("edep="):
+		elif "~#" not in action_string and "edep=" in action_string and not action_string.endswith("edep=") and \
+				not "edep=;" in action_string and not "ehead=" in action_string:
 			sys.stderr.write("WARN: action specifies an edep label but no enhanced edge (~) on line " + str(line) + "\n")
 		match_variables = re.findall(r'\{([^}]+)\}',definition_string)
 		for m in match_variables:
@@ -163,7 +165,7 @@ class Transformation:
 			node = escape(definition.def_text, "&", "/")
 			criteria = (_crit.replace("%%%%%", "&") for _crit in node.split("&"))
 			for criterion in criteria:
-				if re.match(r"(text|pos|cpos|lemma|morph|storage|edom|func|head|func2|head2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc|edep|ehead)!?=/[^/=]*/", criterion) is None:
+				if re.match(r"(text|pos|cpos|lemma|morph|storage2?|edom|func|head|func2|head2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc|edep|ehead)!?=/[^/=]*/", criterion) is None:
 					if re.match(r"position!?=/(first|last|mid)/", criterion) is None:
 						if re.match(r"#S:[A-Za-z_]+!?=/[^/\t]+/",criterion) is None:
 							report += "Invalid node definition in column 1: " + criterion
@@ -177,14 +179,14 @@ class Transformation:
 				criteria = relation.split(";")
 				for criterion in criteria:
 					criterion = criterion.strip()
-					if not re.match(r"(#[0-9]+(([>~]|\.([0-9]+(,[0-9]+)?)?)#[0-9]+)+|#[0-9]+:(text|pos|cpos|lemma|morph|storage|edom|"
+					if not re.match(r"(#[0-9]+(([>~]|\.([0-9]+(,[0-9]+)?)?)#[0-9]+)+|#[0-9]+:(text|pos|cpos|lemma|morph|storage2?|edom|"
 									r"func|head|func2|head2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc|edep|ehead)==#[0-9]+)",
 									criterion):
 						report += "Column 2 relation setting invalid criterion: " + criterion + "."
 		for action in self.actions:
 			commands = action.split(";")
 			for command in commands:  # Node action
-				if re.match(r"(#[0-9]+[>~]#[0-9]+|#[0-9]+:(func|lemma|text|pos|cpos|morph|storage|edom|head|head2|func2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc|edep|ehead)\+?=[^;]*)$", command) is None:
+				if re.match(r"(#[0-9]+[>~]#[0-9]+|#[0-9]+:(func|lemma|text|pos|cpos|morph|storage2?|edom|head|head2|func2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc|edep|ehead)\+?=[^;]*)$", command) is None:
 					if re.match(r"#S:[A-Za-z_]+=[A-Za-z_]+$|last$|once$", command) is None:  # Sentence annotation action or quit
 						report += "Column 3 invalid action definition: " + command + " and the action was " + action
 						if "#" not in action:
@@ -531,7 +533,7 @@ class DepEdit:
 				return False
 		elif operator == "~":
 			try:
-				eheads = [int(float(e[0])) for e in node2.edep]
+				eheads = [int(float(e[0])) for e in node2.edep if e[0] is not None]  # ignore root edep
 				if int(float(node1.id)) in eheads:
 					return True
 				return False
@@ -795,6 +797,8 @@ class DepEdit:
 									result[node_position].edep.append(value.split("||", maxsplit=1))
 								else:
 									sys.stderr.write("WARN: skipped attempt to write edom; value does not follow the format HEAD||EDEP (e.g. 8.0||nsubj:xsubj)\n")
+							elif prop == "ehead":
+								result[node_position].edep.append([value, None])
 							else:
 								setattr(result[node_position], prop, value)
 					else:
@@ -903,6 +907,8 @@ class DepEdit:
 			else:
 				tok_ehead_string = [":".join([str(Decimal(ehead[0]) - tokoffset).replace(".0", ""),ehead[1]]) for ehead in tok.edep]
 				tok_ehead_string = "|".join(tok_ehead_string)
+				if "-" in tok_ehead_string:
+					tok_ehead_string = re.sub(r'-[0-9]+(?=:)', '0', tok_ehead_string)
 				tok_ehead_string = order_edep(tok_ehead_string)
 			tok_id = tok_id.replace(".0", "")
 			tok_head_string = tok_head_string.replace(".0", "")
