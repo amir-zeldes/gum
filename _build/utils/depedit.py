@@ -316,6 +316,7 @@ class Definition:
 	def return_regex_in(definition, test_val):
 		matchers = [definition.compiled_re.search(v) for v in test_val if v is not None]
 		successful = [m for m in matchers if m is not None]
+		successful.sort(key=lambda x: x.endpos - x.pos, reverse=True)
 		return successful[0] if len(successful) > 0 else None
 
 	@staticmethod
@@ -880,7 +881,7 @@ class DepEdit:
 					sys.stderr.write(multi_edep_string + "\n")
 					return "|".join(sorted(parts))
 			try:
-				sorted_keys = sorted(iterkeys(d), key=lambda x: float(x))
+				sorted_keys = sorted(list(iterkeys(d)), key=lambda x: float(x))
 			except ValueError:
 				sys.stderr.write("WARN: Non-numeric enhanced head in column 9:\n")
 				sys.stderr.write(multi_edep_string + "\n")

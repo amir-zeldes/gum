@@ -155,7 +155,8 @@ def validate_enhanced(conllu, docname):
 								prefix = func.split(":")[0]
 								if prefix not in ["acl","obl","nmod","conj","advcl"]:
 									sys.stderr.write("! invalid edep relation" + func + location)
-
+				if fields[8] == "_":
+					sys.stderr.write("! missing ehead info for ellipsis token" + location)
 
 def is_neg_lemma(lemma,pos):
 	negstems = set(["imposs","improb","immort","inevit","incomp","indirec","inadeq","insuff","ineff","incong","incoh","inacc","invol","infreq","inapp","indist","infin","intol",
