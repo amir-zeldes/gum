@@ -7,6 +7,7 @@ import re
 import xml.etree.ElementTree as ET
 import io
 from collections import defaultdict
+from six import iterkeys
 
 class Markable:
 	def __init__(self):
@@ -102,6 +103,8 @@ def check_reddit(gum_source):
 
 def validate_src(gum_source, reddit=False):
 
+	lemma_dict = defaultdict(lambda : defaultdict(int))  # collects tok+pos -> lemmas -> count  for consistency checks
+	lemma_docs = defaultdict(set)
 	dirs = [('xml', 'xml'), ('dep', 'conllu'), ('rst', 'rs3'), ('tsv', 'tsv')]
 
 	# check that each dir has same # and names of files (except extensions)
@@ -152,10 +155,14 @@ def validate_src(gum_source, reddit=False):
 				file_lines = this_file.readlines()
 	
 				if dirs[d][0] == 'xml':
+					doc = os.path.basename(filename).replace(".xml", "")
 					tok_count = 0
 					for line in file_lines:
 						if line.count('\t') > 0:
 							tok_count += 1
+							tok, pos, lemma = line.strip().split("\t")
+							lemma_dict[(tok,pos)][lemma] += 1
+							lemma_docs[(tok,pos,lemma)].add(doc)
 					dir_tok_counts.append(tok_count)
 	
 				elif dirs[d][0] == 'dep':
@@ -263,7 +270,26 @@ def validate_src(gum_source, reddit=False):
 		print("i (to fix this warning: pip install lxml)")
 
 	validate_annos(gum_source, reddit)
+	validate_lemmas(lemma_dict,lemma_docs)
 	sys.stdout.write("\r" + " "*70)
+
+def validate_lemmas(lemma_dict, lemma_docs):
+	exceptions = [("Democratic","JJ","Democratic"),("Water","NP","Waters"),("Sun","NP","Sunday"),("a","IN","of"),
+				  ("a","IN","as"),("car","NN","card"),("lay","VV","lay")]
+	suspicious_types = 0
+	for tok, pos in sorted(list(iterkeys(lemma_dict))):
+		if len(lemma_dict[(tok,pos)]) > 1:
+			for i, lem in enumerate(sorted(lemma_dict[(tok,pos)],key=lambda x:lemma_dict[(tok,pos)][x],reverse=True)):
+				docs = ", ".join(list(lemma_docs[(tok,pos,lem)]))
+				if i == 0:
+					majority = lem
+				else:
+					if (tok,pos,lem) not in exceptions:  # known exceptions
+						suspicious_types += 1
+						sys.stderr.write("! rare lemma " + lem + " for " + tok + "/" + pos + " in " + docs +
+									 " (majority: " + majority + ")\n")
+	if suspicious_types > 0:
+		sys.stderr.write("! "+str(suspicious_types) + " suspicious lemma types detected\n")
 
 
 def validate_annos(gum_source, reddit=False):
@@ -584,14 +610,53 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func not in ["case","reparandum"] and pos == "POS":
 		print("WARN: tag POS must have function case" + inname)
 
+	if pos in ["VVG","VVN","VVD"] and lemma == tok:
+		# check cases where VVN form is same as tok ('know' and 'notice' are recorded typos, l- is a disfluency)
+		if tok not in ["shed","put","read","become","come","cut","hit","split","cast","set","hurt","run","broadcast",
+					   "spread","shut","upset","burst","bit","let","l-","know","notice"]:
+			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
+
+	if pos == "NPS" and tok == lemma and tok.endswith("s"):
+		if tok not in ["Netherlands","Analytics","Olympics","Commons","Paralympics","Vans","Andes","Forties"]:
+			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
+
+	if pos == "NNS" and tok.lower() == lemma.lower() and lemma.endswith("s"):
+		if lemma not in ["surroundings","energetics","politics","jeans","clothes","electronics","means","feces",
+						 "biceps","triceps","news","species","economics","arrears","glasses","thanks"]:
+			if re.match(r"[0-9]+'?s",lemma) is None:  # 1920s, 80s
+				print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
+
+	if pos == "IN" and func=="compound:prt":
+		print("WARN: function " + func + " should have pos RP, not IN" + inname)
+
+	if pos in ["JJR","JJS","RBR","RBS"] and lemma == tok:
+		if lemma not in ["least","further","less","more"] and not lemma.endswith("most"):
+			print("WARN: comparative or superlative "+tok+" with tag "+pos+" should have positive lemma not " + lemma + inname)
+
 	if re.search(r"never|not|no|n't|n’t|’t|'t|nt|ne|pas|nit", tok, re.IGNORECASE) is None and func == "neg":
 		print(str(id) + docname)
 		print("WARN: mistagged negative" + inname)
+
+	if pos == "VVG" and func == "compound":
+		# Check phrasal compound exceptions where gerund clause is a compound modifier:
+		# "'we're *losing* $X - fix it' levels of pressure
+		if tok not in ["losing"]:
+			print("WARN: gerund compound modifier should be tagged as NN not VVG" + inname)
+
+	if pos == "VVG" and func in ["obj","nsubj","iobj","nmod","obl"]:
+		print("WARN: gerund should not have noun argument structure function " + func + inname)
+
+	if pos.startswith("NN") and func=="amod":
+		print("WARN: tag "+ pos + " should not be " + func + inname)
 
 	be_funcs = ["cop", "aux", "root", "csubj", "auxpass", "rcmod", "ccomp", "advcl", "conj","xcomp","parataxis","vmod","pcomp"]
 	if lemma == "be" and func not in be_funcs:
 		if not parent_lemma == "that" and func == "fixed":  # Exception for 'that is' as mwe
 			print("WARN: invalid dependency of lemma 'be' > " + func + inname)
+
+	if parent_lemma in ["tell","show","give","pay","teach","owe","text","write"] and \
+			tok in ["him","her","me","us","you"] and func=="obj":
+		print("WARN: person object of ditransitive expected to be iobj, not obj" + inname)
 
 	if func == "aux" and lemma != "be" and lemma != "have" and lemma !="do" and pos!="MD" and pos!="TO":
 		print("WARN: aux must be modal, 'be,' 'have,' or 'do'" + inname)
