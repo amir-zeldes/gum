@@ -179,7 +179,7 @@ def serialize_tsv_lines(lines, parsed_lines, tsv_path, outdir, as_string=False):
 			cols[3] = format_entities(parsed_lines[i]['entities'])
 			cols[4] = format_attr(parsed_lines[i]['entities'],attr="infstat")
 			cols[5] = format_attr(parsed_lines[i]['entities'],attr="identity")
-			cols[5] = cols[5].replace(" ","_").replace("(","%28").replace(")","%29")
+			cols[5] = cols[5].replace(" ","_").replace("(","%28").replace(")","%29").replace(",","%2C")
 			cols[-2] = format_relations(parsed_lines[i]['relations'])
 			if as_string:
 				output.append("\t".join(cols))
@@ -230,7 +230,7 @@ def parse_tsv_line(line):
 			for ident_anno in identities:  # See if an identity anno corresponds to the currently processed entity ID
 				if ident_anno is not None:
 					entity_identity, ident_id = extract_from_bracket(ident_anno)
-					entity_identity = entity_identity.replace(" ","_").replace("(","%28").replace(")","%29")
+					entity_identity = entity_identity.replace(" ","_").replace("(","%28").replace(")","%29").replace(",","%2C")
 				else:
 					continue
 				if int(ident_id) == entity_id:
@@ -657,6 +657,9 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
 									 group_identities[ent["group"]] + "<>" + ent["identity"] + "\n")
 			group_identities[ent["group"]] = ent["identity"]
 		elif ent["group"] in group_identities:
+			#continue
+			#if ent["pos"][0] == "P":
+			#	pass  # pronoun
 			ent["identity"] = group_identities[ent["group"]]
 
 	lines = webanno_tsv.split("\n")
