@@ -123,6 +123,26 @@ def fix_punct(conllu_string):
 
 
 def validate_enhanced(conllu, docname):
+	def get_descendants(parent,children_dict,seen,snum,docname, rev=0):
+		my_descendants = []
+		my_descendants += children_dict[parent]
+		for child in children_dict[parent]:
+			if child in seen and rev < 2:
+				rev_descendants = get_descendants(child, children_dict, set(), snum, docname, rev=rev+1)
+				if parent in rev_descendants:  # two way cycle, not a DAG
+					raise IOError("Cycle detected in "+docname+" in sentence " + str(snum+1) + " -- " + parent)
+			elif rev > 1:  # prevent endless loop
+				raise IOError("Cycle detected in " + docname + " in sentence " + str(snum + 1) + " -- " + parent)
+			else:
+				seen.add(child)
+		for child in children_dict[parent]:
+			if child in children_dict:
+				try:
+					my_descendants += get_descendants(child, children_dict, seen, snum, docname)
+				except RecursionError:
+					raise IOError("Cycle detected in " + docname + " in sentence " + str(snum + 1) + " -- " + parent)
+		return my_descendants
+
 	for i, line in enumerate(conllu.split("\n")):
 		if "\t" in line:
 			fields = line.split("\t")
@@ -157,6 +177,23 @@ def validate_enhanced(conllu, docname):
 									sys.stderr.write("! invalid edep relation" + func + location)
 				if fields[8] == "_":
 					sys.stderr.write("! missing ehead info for ellipsis token" + location)
+	# Detect edep cycles
+	for i, sent in enumerate(conllu.split("\n\n")):
+		toks = [l.split("\t") for l in sent.strip().split("\n") if "\t" in l]
+		children = defaultdict(set)
+		for tok in toks:
+			secdeps = tok[-2]
+			for secdep in secdeps.split("|"):
+				if ":" in secdep:
+					parent, func = secdep.split(":",maxsplit=1)
+					if parent == tok[6] and func == tok[7]:  # redundant secdep, ignore
+						continue
+					children[parent].add(tok[0])
+		for tok in toks:
+			seen = set()
+			if tok[0] in children:
+				get_descendants(tok[0], children, seen, snum=i, docname=docname)
+
 
 def is_neg_lemma(lemma,pos):
 	negstems = set(["imposs","improb","immort","inevit","incomp","indirec","inadeq","insuff","ineff","incong","incoh","inacc","invol","infreq","inapp","indist","infin","intol",
@@ -179,9 +216,21 @@ def is_neg_lemma(lemma,pos):
 	return False
 
 
-def is_abbr(word, xpos):
-	abbr = r"(US|NASA|NATO|U\.S\.|USI|DH|DAB|UK|IE6|COVID-19|KPA|UNESCO|FTU|LA|VR|MLB|USA|IATA|ROS|CC|IE|OK|ABC|BBC|DSW|NBC|U\.S|KCNA|ACPeds|US-412|WB|CBC|ICI|ISO|JSC|KKK|KSC|PHX|WHO|BART|CNRS|ELI5|FIFA|O\.J\.|NWSC|ROTC|BAFTA|STS-1|US-75|US-169|NEMISIS|STS-133|STS-134|STS-135|NSU|FEDERAL|ANDRILL|AS|AV|CO|CV|CW|DC|FN|GW|JK|KS|LV|MC|NB|NJ|NZ|PC|QC|RA|SC|ST|UC|VM|XP|XV|AFP|AIM|BAK|BBF|BPA|CBS|CEI|CIS|CRA|DBE|DNA|FRS|GIS|GPL|HBO|HIV|IDD|IE9|IFN|IMU|IQA|IRC|JFK|JPL|LIS|LSD|MIT|MSN|MTV|NBA|NFL|NHS|NPP|NSW|NTU|OIR|ROS|RVS|SNY|TUL|UKB|UNC|USD|USS|WTA|XML|ADPL|AIDS|AKMA|B\.A\.|ARES|D\.C\.|DPRK|FFFF|FGCU|HECS|HTML|IOTM|IRIS|K\.C\.|L\.A\.|MASS|MMPI|OSCE|S\.F\.|SETI|TAOM|THEO|U\.N\.|UAAR|WWII|XKCD|DHBs|U\.S\.|BY-SA|CITIC|LIBER|M\.Sc\.|NCLAN|ODIHR|UNMIK|OSU|CC-BY-SA-NC|CBC\.ca|DH+Lib|DH2017|e\.g\.|al\.|etc\.|Mr\.|St\.|i\.e\.|c\.|b\.|Ph\.D\.|Mrs\.|d\.|m\.|p\.|Dr\.|Jr\.|No\.|vs\.|div\.|approx\.|a\.|Ed\.|Mt\.|Op\.|ca\.|cm\.|Ave\.|Cal\.|E\.g\.|Feb\.|Inc\.|Vol\.|a\.m\.|eds\.|p\.m\.|M\.Sc\.|Mlle\.|Prof\.)$"
+def is_abbr(word, xpos, lemma_eq_tok):
+	abbr = r"(irl|TLDR|BC|BCE|CE|AD|PS|IIRC|BTW|IMO|TL;DR|GRF|US|NASA|NATO|div.|U\.S\.|gov't|USI|DH|DAB|UK|IE6|COVID-19|KPA|UNESCO|FTU|LA|VR|MLB|USA|IATA|ROS|CC|IE|OK|ABC|BBC|DSW|NBC|U\.S|KCNA|ACPeds|US-412|WB|CBC|ICI|ISO|JSC|KKK|KSC|PHX|WHO|BART|CNRS|ELI5|FIFA|O\.J\.|NWSC|ROTC|BAFTA|STS-1|US-75|US-169|NEMISIS|STS-133|STS-134|STS-135|NSU|FEDERAL|ANDRILL|AS|AV|CO|CV|CW|DC|FN|GW|JK|KS|LV|MC|NB|NJ|NZ|PC|QC|RA|SC|ST|UC|VM|XP|XV|AFP|AIM|BAK|BBF|BPA|CBS|CEI|CIS|CRA|DBE|DNA|FRS|GIS|GPL|HBO|HIV|IDD|IE9|IFN|IMU|IQA|IRC|JFK|JPL|LIS|LSD|MIT|MSN|MTV|NBA|NFL|NHS|NPP|NSW|NTU|OIR|ROS|RVS|SNY|TUL|UKB|UNC|USD|USS|WTA|XML|ADPL|AIDS|AKMA|B\.A\.|ARES|D\.C\.|DPRK|FFFF|FGCU|HECS|HTML|IOTM|IRIS|K\.C\.|L\.A\.|MASS|MMPI|OSCE|S\.F\.|SETI|TAOM|THEO|U\.N\.|UAAR|WWII|XKCD|DHBs|U\.S\.|BY-SA|CITIC|LIBER|M\.Sc\.|NCLAN|ODIHR|UNMIK|OSU|CC-BY-SA-NC|CBC\.ca|DH+Lib|DH2017|e\.g\.|al\.|etc\.|Mr\.|St\.|i\.e\.|c\.|b\.|Ph\.D\.|Mrs\.|d\.|m\.|p\.|Dr\.|Jr\.|No\.|vs\.|div\.|approx\.|a\.|Ed\.|Mt\.|Op\.|ca\.|cm\.|Ave\.|Cal\.|E\.g\.|Inc\.|Vol\.|a\.m\.|eds\.|p\.m\.|M\.Sc\.|Mlle\.|Prof\.|evals?|BBQs?|hrs?\.?)$"
 	if re.match(abbr,word) is not None:
+		return True
+	# For the following make sure this isn't just the word "Sun" or the name "Jun"
+	abbr_diff_lemma = r"(Sun|Mon|Tue|Wed|Thu|Fri|Sat|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec|[Tt]el|[Vv]ols?)\.?"
+	if re.match(abbr_diff_lemma,word) and not lemma_eq_tok:
+		return True
+	if word in ["it"] and abbr_diff_lemma and xpos == "NP":  # it -> Italian
+		return True
+	# Substrings
+	abbr_subst = r"gov't"
+	if re.search(abbr_subst,word) is not None:
+		if lemma_eq_tok:
+			sys.stderr.write("WARN: abbreviation substring in " + word + " but lemma == word\n")
 		return True
 	return False
 
@@ -283,7 +332,7 @@ def enrich_dep(gum_source, tmp, reddit=False):
 
 	pre_annotated = defaultdict(lambda: defaultdict(dict))  # Placeholder for explicit annotations in src/dep/
 	no_space_after_strings = {"(","[","{"}
-	no_space_before_strings = {".",",",";","?","!","'s","n't","'ve","'d","'m","'ll","]",")","}",":","%"}
+	no_space_before_strings = {".",",",";","?","!","'s","n't","'ve","'re","'d","'m","'ll","]",")","}",":","%"}
 	no_space_after_combos = {("'","``"),('"',"``")}
 	no_space_before_combos = {("ll","MD"),("d","MD"),("m","VBP"),("ve","VHP"),("s","POS"),("s","VBZ"),("s","VHZ"),("'","POS"),("nt","RB"),("'","''"),('"',"''")}
 	dep_source = gum_source + "dep" + os.sep
@@ -323,6 +372,7 @@ def enrich_dep(gum_source, tmp, reddit=False):
 
 		xmlfile = depfile.replace("dep" + os.sep,"xml" + os.sep).replace("conllu","xml")
 		xml_lines = io.open(xmlfile,encoding="utf8").read().replace("\r","").split("\n")
+		in_w_tag = False
 		for line in xml_lines:
 			if line.startswith("<"):  # XML tag
 				if line.startswith("<s type="):
@@ -335,9 +385,10 @@ def enrich_dep(gum_source, tmp, reddit=False):
 					current_speaker = ""
 					current_addressee = ""
 				elif line.startswith("<w>"):
-					space_after_by_token[tok_num+1] = True
+					in_w_tag = True
 				elif line.startswith("</w>"):
-					space_after_by_token[tok_num] = False
+					in_w_tag = False
+					space_after_by_token[tok_num] = True  # Most recent token is normally followed by space
 				elif line.startswith("<sic>"):
 					current_sic = True
 				elif line.startswith("</sic>"):
@@ -356,6 +407,8 @@ def enrich_dep(gum_source, tmp, reddit=False):
 					space_after_by_token[tok_num] = False
 				if (word,word_pos) in no_space_before_combos:
 					space_after_by_token[tok_num-1] = False
+				if in_w_tag:
+					space_after_by_token[tok_num] = False
 				stype_by_token[tok_num] = current_stype
 				speaker_by_token[tok_num] = current_speaker
 				addressee_by_token[tok_num] = current_addressee
@@ -656,6 +709,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 
 		# Add negative polarity and imperative mood
 		negatived = []
+		upos_list = []
 		tok_num = 0
 		sent_num = 0
 		imp = False
@@ -676,7 +730,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 						fields[5] = add_feat(fields[5],"NumForm=Roman")
 					elif fields[4] == "CD" and "NumForm" not in fields[5]:
 						fields[5] = add_feat(fields[5],"NumForm=Word")
-					if is_abbr(fields[1],fields[4]) and "Abbr" not in fields[5]:
+					if is_abbr(fields[1],fields[4],fields[1]==fields[2]) and "Abbr" not in fields[5]:
 						fields[5] = add_feat(fields[5],"Abbr=Yes")
 					if imp and fields[5] == "VerbForm=Inf" and fields[7] == "root":  # Inf root in s_type=imp should be Imp
 						fields[5] = "Mood=Imp|VerbForm=Fin"
@@ -689,6 +743,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 					fields[8] = "_"
 					fields[1] = tok  # Restore correct utf8 token and lemma
 					fields[2] = lemma
+					upos_list.append(fields[3])
 
 				negatived.append("\t".join(fields))
 			else:
@@ -711,6 +766,21 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 
 		# Add enhanced dependencies
 		negatived = ud_edep_deped.run_depedit(negatived).strip()
+
+		# Add upos to target/xml/
+		xml_lines = io.open(gum_target + "xml" + os.sep + docname + ".xml",encoding="utf8").read().split("\n")
+		toknum = 0
+		output = []
+		for line in xml_lines:
+			if "\t" in line:
+				fields = line.split("\t")
+				fields.append(fields[-1])
+				fields[-2] = upos_list[toknum]
+				toknum += 1
+				line = "\t".join(fields)
+			output.append(line)
+		with io.open(gum_target + "xml" + os.sep + docname + ".xml",'w',encoding="utf8",newline="\n") as f:
+			f.write("\n".join(output))
 
 		# Restore explicitly pre-annotated fields from src/dep/
 		output = []
