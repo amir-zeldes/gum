@@ -61,6 +61,8 @@ def adjudicate_claws(claws,tt,form,func):
 		return "NP0"
 	if claws == "NN0":
 		return claws
+	if tt == "UH":
+		return "ITJ"
 
 	# Handle forms of 'do'
 	if form.lower() in ["do", "did", "does", "done", "doing"]:

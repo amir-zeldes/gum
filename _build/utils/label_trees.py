@@ -143,7 +143,7 @@ def add_ptb_labels(ptb_string, entidep_string):
     dep_funcs = []
 
     for sent in dep_sents:
-        dep_funcs.append([line.split("\t")[7] for line in sent.split("\n") if "\t" in line])
+        dep_funcs.append([line.split("\t")[7] for line in sent.split("\n") if "\t" in line and "." not in line.split("\t")[0]])
 
     out_sents = []
     for i, tree_str in enumerate(trees):

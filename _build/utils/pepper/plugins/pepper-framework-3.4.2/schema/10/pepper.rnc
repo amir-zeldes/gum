@@ -1,0 +1,42 @@
+default namespace = ""
+
+start =
+  # main and entry element
+  element pepper-job {
+    #an id is given by Pepper, but not from the user
+    attribute id { text },
+    attribute version { "1.0" },
+    #general customization, to customize the behavior of Pepper
+    customization?,
+    element importer {
+      moduleCoordinates,
+      path,
+      #module customization, to customize the behavior of the particular module
+      customization?
+    }+,
+    element manipulator {
+      attribute name { text },
+      attribute version { text }?,
+      #module customization, to customize the behavior of the particular module
+      customization?
+    }*,
+    element exporter {
+      moduleCoordinates,
+      path,
+      #module customization, to customize the behavior of the particular module
+      customization?
+    }+
+  }
+path=attribute path { xsd:anyURI }
+moduleCoordinates= ((attribute formatName { text },
+      attribute formatVersion { text })|
+      (attribute name { text },
+      attribute version { text }?))
+# customization properties
+customization =
+  element customization {
+    element property {
+      attribute key { text },
+      text
+    }
+  }

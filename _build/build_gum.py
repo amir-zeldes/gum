@@ -124,7 +124,7 @@ def const_parse(gum_source, warn_slash_tokens=False, reddit=False):
 	gold_const = ["GUM_academic_discrimination","GUM_bio_emperor","GUM_fiction_oversite","GUM_interview_peres",
 				  "GUM_news_nasa","GUM_reddit_polygraph","GUM_voyage_athens","GUM_whow_arrogant"]
 	xmlfiles = [f for f in xmlfiles if os.path.basename(f).replace(".xml","") not in gold_const]
-	
+
 	for docnum, xmlfile in enumerate(xmlfiles):
 
 		if "_all" in xmlfile:
@@ -174,8 +174,9 @@ if not options.pepper_only:
 	#   * fresh token strings, POS tags and lemmas from xml/
 	#   * generates vanilla tags in CPOS column from POS
 	#   * creates speaker and s_type comments from xml/
+	# Returns pre_annotated, a dictionary giving pre-annotated fields in src/dep/ which overwrite annotation values
 	print("\nEnriching Dependencies:\n" + "="*23)
-	enrich_dep(gum_source, pepper_tmp, reddit)
+	pre_annotated = enrich_dep(gum_source, pepper_tmp, reddit)
 
 	# Add annotations to xml/:
 	#   * add CLAWS tags in fourth column
@@ -217,7 +218,7 @@ if not options.pepper_only:
 	#   * udapi does not support Python 2, meaning punctuation will be attached to the root if using Python 2
 	#   * UD morphology generation relies on parses already existing in <target>/const/
 	print("\nCompiling Universal Dependencies version:\n" + "=" * 40)
-	compile_ud(pepper_tmp, gum_target, reddit=reddit)
+	compile_ud(pepper_tmp, gum_target, pre_annotated, reddit=reddit)
 
 	# Add labels to PTB trees
 	if not options.skip_ptb_labels:

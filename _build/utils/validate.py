@@ -7,6 +7,7 @@ import re
 import xml.etree.ElementTree as ET
 import io
 from collections import defaultdict
+from six import iterkeys
 
 class Markable:
 	def __init__(self):
@@ -102,6 +103,8 @@ def check_reddit(gum_source):
 
 def validate_src(gum_source, reddit=False):
 
+	lemma_dict = defaultdict(lambda : defaultdict(int))  # collects tok+pos -> lemmas -> count  for consistency checks
+	lemma_docs = defaultdict(set)
 	dirs = [('xml', 'xml'), ('dep', 'conllu'), ('rst', 'rs3'), ('tsv', 'tsv')]
 
 	# check that each dir has same # and names of files (except extensions)
@@ -152,17 +155,22 @@ def validate_src(gum_source, reddit=False):
 				file_lines = this_file.readlines()
 	
 				if dirs[d][0] == 'xml':
+					doc = os.path.basename(filename).replace(".xml", "")
 					tok_count = 0
 					for line in file_lines:
 						if line.count('\t') > 0:
 							tok_count += 1
+							tok, pos, lemma = line.strip().split("\t")
+							lemma_dict[(tok,pos)][lemma] += 1
+							lemma_docs[(tok,pos,lemma)].add(doc)
 					dir_tok_counts.append(tok_count)
 	
 				elif dirs[d][0] == 'dep':
 					tok_count = 0
 					for line in file_lines:
 						if line.count('\t') == 9:
-							tok_count += 1
+							if "." not in line.split("\t")[0]:  # Ignore ellipsis tokens
+								tok_count += 1
 					dir_tok_counts.append(tok_count)
 	
 				# rst -- use xml reader, add up space-split counts of segment.text
@@ -237,7 +245,8 @@ def validate_src(gum_source, reddit=False):
 						sent_length = 0
 						for line in sent_lines:
 							if line.count('\t') == 9:
-								sent_length += 1
+								if "." not in line.split("\t")[0]:  # Ignore ellipsis tokens
+									sent_length += 1
 						file_sent_lengths.append(sent_length)
 	
 			dir_sent_lengths.append(file_sent_lengths)
@@ -261,7 +270,26 @@ def validate_src(gum_source, reddit=False):
 		print("i (to fix this warning: pip install lxml)")
 
 	validate_annos(gum_source, reddit)
+	validate_lemmas(lemma_dict,lemma_docs)
 	sys.stdout.write("\r" + " "*70)
+
+def validate_lemmas(lemma_dict, lemma_docs):
+	exceptions = [("Democratic","JJ","Democratic"),("Water","NP","Waters"),("Sun","NP","Sunday"),("a","IN","of"),
+				  ("a","IN","as"),("car","NN","card"),("lay","VV","lay")]
+	suspicious_types = 0
+	for tok, pos in sorted(list(iterkeys(lemma_dict))):
+		if len(lemma_dict[(tok,pos)]) > 1:
+			for i, lem in enumerate(sorted(lemma_dict[(tok,pos)],key=lambda x:lemma_dict[(tok,pos)][x],reverse=True)):
+				docs = ", ".join(list(lemma_docs[(tok,pos,lem)]))
+				if i == 0:
+					majority = lem
+				else:
+					if (tok,pos,lem) not in exceptions:  # known exceptions
+						suspicious_types += 1
+						sys.stderr.write("! rare lemma " + lem + " for " + tok + "/" + pos + " in " + docs +
+									 " (majority: " + majority + ")\n")
+	if suspicious_types > 0:
+		sys.stderr.write("! "+str(suspicious_types) + " suspicious lemma types detected\n")
 
 
 def validate_annos(gum_source, reddit=False):
@@ -302,6 +330,8 @@ def validate_annos(gum_source, reddit=False):
 			if "\t" in line:  # token line
 				if line.count("\t") != 9:
 					# Shouldn't be possible, since file validation is already complete
+					pass
+				elif "." in line.split("\t")[0]:  # Ignore ellipsis tokens
 					pass
 				else:
 					tok_num += 1
@@ -568,29 +598,93 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func == "amod" and pos in ["VBD","VVD","VHD"]:
 		print("WARN: finite past verb labeled amod " + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
-	if func == 'mwe' and id < parent_id:
-		print("WARN: back-pointing func mwe" + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
+	if func in ['fixed','goeswith','flat', 'conj'] and id < parent_id:
+		print("WARN: back-pointing func " + func + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
-	if func == 'conj' and id < parent_id:
-		print("WARN: back-pointing func conj" + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
-
-	if func == "auxpass" and lemma!= "be" and lemma != "get":
+	if func == "auxpass" and lemma != "be" and lemma != "get":
 		print("WARN: auxpass must be 'be' or 'get'" + inname)
 
-	if lemma == "'s" and pos!= "POS":
+	if lemma == "'s" and pos != "POS":
 		print("WARN: possessive 's must be tagged POS" + inname)
 
-	if func != "case" and pos== "POS":
+	if func not in ["case","reparandum"] and pos == "POS":
 		print("WARN: tag POS must have function case" + inname)
+
+	if pos in ["VVG","VVN","VVD"] and lemma == tok:
+		# check cases where VVN form is same as tok ('know' and 'notice' are recorded typos, l- is a disfluency)
+		if tok not in ["shed","put","read","become","come","cut","hit","split","cast","set","hurt","run","broadcast",
+					   "spread","shut","upset","burst","bit","let","l-","g-","know","notice"]:
+			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
+
+	if pos == "NPS" and tok == lemma and tok.endswith("s"):
+		if tok not in ["Netherlands","Analytics","Olympics","Commons","Paralympics","Vans",
+					   "Andes","Forties","Philippines"]:
+			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
+
+	if pos == "NNS" and tok.lower() == lemma.lower() and lemma.endswith("s"):
+		if lemma not in ["surroundings","energetics","politics","jeans","clothes","electronics","means","feces",
+						 "biceps","triceps","news","species","economics","arrears","glasses","thanks","series"]:
+			if re.match(r"[0-9]+'?s",lemma) is None:  # 1920s, 80s
+				print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
+
+	if pos == "IN" and func=="compound:prt":
+		print("WARN: function " + func + " should have pos RP, not IN" + inname)
+
+	if pos == "CC" and func not in ["cc","cc:preconj","conj","reparandum","root","dep"]:
+		if not ("languages" in inname and tok == "and"):  # metalinguistic discussion in whow_languages
+			print("WARN: pos " + pos + " should normally have function cc or cc:preconj, not " + func + inname)
+
+	if pos == "RP" and func not in ["compound:prt","root","conj","ccomp"] or pos != "RP" and func=="compound:prt":
+		print("WARN: pos " + pos + " should not normally have function " + func + inname)
+
+	if pos != "CC" and func in ["cc","cc:preconj"]:
+		if lemma not in ["/","rather","as","et","+","let","only","-"]:
+			print("WARN: function " + func + " should normally have pos CC, not " + pos + inname)
+
+	if pos == "VVG" and "very" in children:
+		print("WARN: pos " + pos + " should not normally have child 'very'" + inname)
+
+	if pos == "UH" and func=="advmod":
+		print("WARN: pos " + pos + " should not normally have function 'advmod'" + inname)
+
+	if pos =="IN" and func=="discourse":
+		print("WARN: pos " + pos + " should not normally have function 'discourse'" + inname)
+
+	if pos == "VVG" and "case" in child_funcs:
+		print("WARN: pos " + pos + " should not normally have child function 'case'" + inname)
+
+	if pos.startswith("V") and any([f.startswith("nmod") for f in child_funcs]):
+		print("WARN: pos " + pos + " should not normally have child function 'nmod.*'" + inname)
+
+	if pos in ["JJR","JJS","RBR","RBS"] and lemma == tok:
+		if lemma not in ["least","further","less","more"] and not lemma.endswith("most"):
+			print("WARN: comparative or superlative "+tok+" with tag "+pos+" should have positive lemma not " + lemma + inname)
 
 	if re.search(r"never|not|no|n't|n’t|’t|'t|nt|ne|pas|nit", tok, re.IGNORECASE) is None and func == "neg":
 		print(str(id) + docname)
 		print("WARN: mistagged negative" + inname)
 
+	if pos == "VVG" and func == "compound":
+		# Check phrasal compound exceptions where gerund clause is a compound modifier:
+		# "'we're *losing* $X - fix it' levels of pressure
+		if tok not in ["losing"]:
+			print("WARN: gerund compound modifier should be tagged as NN not VVG" + inname)
+
+	if pos == "VVG" and func in ["obj","nsubj","iobj","nmod","obl"]:
+		if not tok == "following" and func=="obj":  # Exception nominalized "the following"
+			print("WARN: gerund should not have noun argument structure function " + func + inname)
+
+	if pos.startswith("NN") and func=="amod":
+		print("WARN: tag "+ pos + " should not be " + func + inname)
+
 	be_funcs = ["cop", "aux", "root", "csubj", "auxpass", "rcmod", "ccomp", "advcl", "conj","xcomp","parataxis","vmod","pcomp"]
 	if lemma == "be" and func not in be_funcs:
-		if not parent_lemma == "that" and func=="mwe":  # Exception for 'that is' as mwe
+		if not parent_lemma == "that" and func == "fixed":  # Exception for 'that is' as mwe
 			print("WARN: invalid dependency of lemma 'be' > " + func + inname)
+
+	if parent_lemma in ["tell","show","give","pay","teach","owe","text","write"] and \
+			tok in ["him","her","me","us","you"] and func=="obj":
+		print("WARN: person object of ditransitive expected to be iobj, not obj" + inname)
 
 	if func == "aux" and lemma != "be" and lemma != "have" and lemma !="do" and pos!="MD" and pos!="TO":
 		print("WARN: aux must be modal, 'be,' 'have,' or 'do'" + inname)
@@ -606,31 +700,40 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print(str(id) + docname)
 		print("WARN: tag POS must have lemma " +'"'+ "'s" + '"' + inname)
 
+	if pos in ["VBG","VVG","VHG"] and "det" in child_funcs:
+		# Exceptions for phrasal compound in GUM_reddit_card and nominalization in GUM_academic_exposure
+		if tok != "prioritizing" and tok != "following":
+			print(str(id) + docname)
+			print("WARN: tag "+pos+" should not have a determinder 'det' " + inname)
+
+	if pos in ["VBD","VVD","VHD","VBP","VVP","VHP"] and "aux" in child_funcs:
+		print(str(id) + docname)
+		print("WARN: tag "+pos+" should not have auxiliaries 'aux' " + inname)
 
 	mwe_pairs = {("accord", "to"), ("all","but"), ("as","if"), ("as", "well"), ("as", "as"), ("as","in"), ("as","oppose"),("as","to"),
-				 ("at","least"),("because","of"),("due","to"),("had","better"),("'d","better"),("in","between"),
+				 ("at","least"),("because","of"),("due","to"),("had","better"),("'d","better"),("in","between"), ("per", "se"),
 				 ("in","case"),("in","of"), ("in","order"),("instead","of"), ("kind","of"),("less","than"),("let","alone"),
 				 ("more","than"),("not","to"),("not","mention"),("of","course"),("prior","to"),("rather","than"),("so","as"),
 				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("that","is"), ("up","to"),("whether","or"),
-				 ("whether","not"),("depend","on"),("out","of"),("more","than"),("on","board"),("as","of"),("depend","upon"),
+				 ("whether","not"),("depend","on"),("out","of"),("off","of"),("long","than"),("on","board"),("as","of"),("depend","upon"),
 				 ("that","be"),("just","about"),("vice","versa"),("as","such"),("next","to"),("close","to"),("one","another"),("de","facto")}
 
 	# Ad hoc listing of triple mwe parts - All in all, in order for
 	mwe_pairs.update({("all","in"),("all","all"),("in","for")})
 
-	if func == "mwe":
+	if func == "fixed":
 		if (parent_lemma.lower(), lemma.lower()) not in mwe_pairs:
-			print("WARN: unlisted mwe" + inname)
+			print("WARN: unlisted fixed expression" + inname)
 
 	#if pos != "CD" and "quantmod" in child_funcs:
 	#	print("WARN: quantmod must be cardinal number" + inname)
 
 	if tok == "sort" or tok == "kind":
-		if "det" in child_funcs and "mwe" in child_funcs:
-			print("WARN: mistagged mwe" + inname)
+		if "det" in child_funcs and "fixed" in child_funcs:
+			print("WARN: mistagged fixed expression" + inname)
 
-	if tok == "rather" and "mwe" in child_funcs and func != "cc":
-		print("WARN: 'rather than' mwe must be cc" + inname)
+	if tok == "rather" and "fixed" in child_funcs and func not in ["cc","mark"]:
+		print("WARN: 'rather than' fixed expression must be cc or mark " + inname)
 
 	if s_type == "imp" or s_type == "frag" or s_type == "ger" or s_type == "inf":
 		if func == "root" and "nsubj" in child_funcs:

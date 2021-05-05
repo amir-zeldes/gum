@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pepper>
+	<importer name="CoNLLImporter" path="file:/**gum_tmp**/dep/ud/GUM/">
+		<customization>
+			<property key="pepper.before.addSLayer">dep</property>
+			<property key="conll.SPOS">NONE</property> <!--POSTAG comes from XML -->
+			<property key="conll.EDGE.TYPE">dep</property>
+			<property key="conll.EDGE.LAYER">dep</property>
+			<property key="conll.EDGE.ANNO.NS">dep</property>
+			<property key="conll.EDGE.ANNO.NAME">func</property>
+			<property key="conll.SENTENCE">FALSE</property>
+			<property key="conll.KeyValFeatures">TRUE</property>
+			<property key="conll.FEATURES.NAMESPACE">morph</property>
+			<property key="conll.SLEMMA">NONE</property> <!-- lemma should come from XML -->
+			<property key="conll.split.edeps">FALSE</property>
+			<property key="conll.enhanced.EDGE.TYPE">edep</property>
+			<property key="conll.no.duplicate.edeps">TRUE</property>
+			<property key="conll.dependency.layers">TRUE</property>
+			<property key="conll.ellipsis.tok.annotation">morph:Ellipsis</property>
+			<property key="pepper.after.removeAnnos">cat</property>
+			<!--<property key="pepper.after.addSLayer">dep</property>-->
+			<!--<property key="pepper.after.renameAnnos">deprel:=func</property>-->
+		</customization>
+	</importer>
 	<importer name="TreetaggerImporter" path="file:/**gum_tmp**/xml/GUM/">
 		<customization>
 			<property key="pepper.before.readMeta">meta</property>
 			<property key="treetagger.fileExtension">xml</property>
-			<property key="treetagger.input.column1">pos</property>
-			<property key="treetagger.input.column2">lemma</property>
-			<property key="treetagger.input.column3">claws5</property>
-			<property key="treetagger.input.column4">tok_func</property>
-			<property key="pepper.after.addSLayer">tei</property>
+			<property key="columnNames">pos,lemma,claws5,upos,tok_func</property>
+			<property key="pepper.before.addSLayer">tei</property>
 			<property key="treetagger.input.metaTag">text</property>
 			<property key="treetagger.input.annotateAllSpansWithSpanName">true</property>
 			<property key="treetagger.input.annotateUnannotatedSpans">true</property>
@@ -17,6 +36,12 @@
 			<!-- remove annotations that always have an attribute and no content of their own -->
 			<property key="pepper.after.removeAnnos">figure;hi;s;sp</property>
 			<property key="pepper.after.addSLayer">tei</property>
+		</customization>
+	</importer>
+	<importer name="WebannoTSVImporter" path="file:/**gum_tmp**/tsv/GUM/">
+		<customization>
+			<property key="WebannoTSV.lowerTypes">TRUE</property>
+			<property key="WebannoTSV.namespace">ref</property>
 		</customization>
 	</importer>
 	<importer name="RSTImporter" path="file:/**gum_tmp**/rst/GUM/">
@@ -34,32 +59,10 @@
 			<property key="pepper.after.addSLayer">rsd</property>
 		</customization>
 	</importer>
-	<importer name="WebannoTSVImporter" path="file:/**gum_tmp**/tsv/GUM/">
-		<customization>
-			<property key="WebannoTSV.lowerTypes">TRUE</property>
-			<property key="WebannoTSV.namespace">ref</property>
-		</customization>
-	</importer>
-	<importer name="CoNLLImporter" path="file:/**gum_tmp**/dep/ud/GUM/">
-		<customization>
-			<property key="pepper.before.addSLayer">dep</property>
-			<property key="conll.SPOS">NONE</property> <!--POSTAG comes from XML -->
-			<property key="conll.EDGE.TYPE">dep</property>
-			<property key="conll.EDGE.LAYER">dep</property>
-			<property key="conll.EDGE.ANNO.NS">dep</property>
-			<property key="conll.EDGE.ANNO.NAME">func</property>
-			<property key="conll.SENTENCE">FALSE</property>
-			<property key="conll.KeyValFeatures">TRUE</property>
-			<property key="conll.FEATURES.NAMESPACE">morph</property>
-			<property key="conll.SLEMMA">NONE</property> <!-- lemma should come from XML -->
-			<property key="pepper.after.removeAnnos">cat</property>
-			<property key="pepper.after.addSLayer">dep</property>
-			<!--<property key="pepper.after.renameAnnos">deprel:=func</property>-->
-		</customization>
-	</importer>
+
 	<importer name="PTBImporter" path="file:/**gum_tmp**/const/GUM/">
 		<customization>
-			<property key="ptb.importer.posName">penn_pos</property>
+			<property key="ptb.importer.posName">xpos</property>
 			<property key="ptb.importer.relationType">edge</property>
 			<property key="ptb.importer.nodeNamespace">const</property>
 			<property key="ptb.importer.edgeAnnoNamespace">const</property>
@@ -68,7 +71,7 @@
 	<manipulator name="Merger">
 		<property key="copyNodes">true</property>
 		<property key="firstAsBase">true</property>
-		<property key="escapeMapping">"(":"-LRB-",")":"-RRB-","[":"-LSB-","]":"-RSB-"</property> <!-- map escaped PTB tokens -->
+		<property key="escapeMapping">"(":"-LRB-",")":"-RRB-","[":"-LSB-","]":"-RSB-"," ":""</property> <!-- map escaped PTB tokens -->
 	</manipulator>
 	<manipulator name="Mover">
 		<property key="Mover.sourceType">tok2node</property>
@@ -93,8 +96,15 @@
 		<property key="HeadMarker.ignoreEdgeAnnotation">punct</property>
 		<!--<property key="HeadMarker.headRelLayerName">head</property>-->
 	</manipulator>
+		<manipulator name="HeadMarker">
+		<property key="HeadMarker.spanLayer">rsd</property>
+		<property key="HeadMarker.edgeType">dep</property>
+		<property key="HeadMarker.ignoreEdgeAnnotation">punct</property>
+		<!--<property key="HeadMarker.headRelLayerName">head</property>-->
+	</manipulator>
 	<!--<manipulator name="Counter">
 	</manipulator>-->
+	<!-- export CoNLL coref before merging any other formats, to avoid issues with empty tokens -->
 	<exporter name="CoNLLCorefExporter" path="file:/**gum_target**coref/conll">
 		<customization>
 			<property key="ConllCoref.Exporter.NodeLayer">ref</property>
@@ -103,6 +113,7 @@
 			<property key="ConllCoref.Exporter.OutputAnnotation">entity</property>
 			<property key="ConllCoref.Exporter.OutputSuffixAnnotation">identity</property>
 			<property key="ConllCoref.Exporter.RemoveSingletons">FALSE</property>
+			<property key="ConllCoref.Exporter.RemoveEmptyTokens">TRUE</property>
 		</customization>
 	</exporter>
 	<exporter name="PAULAExporter" path="file:/**gum_target**paula">

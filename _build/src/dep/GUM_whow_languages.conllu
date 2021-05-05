@@ -58,7 +58,7 @@
 1	The	_	_	_	_	2	det	_	_
 2	choice	_	_	_	_	5	nsubj	_	_
 3	is	_	_	_	_	5	cop	_	_
-4	all	_	_	_	_	5	det	_	_
+4	all	_	_	_	_	5	advmod	_	_
 5	yours	_	_	_	_	0	root	_	_
 6	.	_	_	_	_	5	punct	_	_
 
@@ -160,7 +160,7 @@
 20	'	_	_	_	_	19	punct	_	_
 21	since	_	_	_	_	28	mark	_	_
 22	the	_	_	_	_	23	det	_	_
-23	suffix	_	_	_	_	28	nsubj	_	_
+23	suffix	_	_	_	_	28	nsubj:pass	_	_
 24	'	_	_	_	_	25	punct	_	_
 25	s	_	_	_	_	23	appos	_	_
 26	'	_	_	_	_	25	punct	_	_
@@ -516,7 +516,7 @@
 1	Keep	_	_	_	_	0	root	_	_
 2	track	_	_	_	_	1	obj	_	_
 3	of	_	_	_	_	5	case	_	_
-4	all	_	_	_	_	5	det	_	_
+4	all	_	_	_	_	5	det:predet	_	_
 5	your	_	_	_	_	2	nmod	_	_
 
 1	Remember	_	_	_	_	0	root	_	_
@@ -672,12 +672,12 @@
 1	Tips	_	_	_	_	0	root	_	_
 
 1	Make	_	_	_	_	0	root	_	_
-2	sure	_	_	_	_	1	compound:prt	_	_
+2	sure	_	_	_	_	1	xcomp	_	_
 3	that	_	_	_	_	7	mark	_	_
 4	it	_	_	_	_	7	nsubj	_	_
 5	is	_	_	_	_	7	cop	_	_
 6	a	_	_	_	_	7	det	_	_
-7	language	_	_	_	_	1	ccomp	_	_
+7	language	_	_	_	_	2	ccomp	_	_
 8	that	_	_	_	_	15	obj	_	_
 9	while	_	_	_	_	10	mark	_	_
 10	speaking	_	_	_	_	15	advcl	_	_
@@ -733,14 +733,14 @@
 27	.	_	_	_	_	4	punct	_	_
 
 1	Make	_	_	_	_	0	root	_	_
-2	sure	_	_	_	_	1	compound:prt	_	_
+2	sure	_	_	_	_	1	xcomp	_	_
 3	that	_	_	_	_	9	mark	_	_
 4	you	_	_	_	_	9	nsubj	_	_
 5	and	_	_	_	_	7	cc	_	_
 6	your	_	_	_	_	7	nmod:poss	_	_
 7	friend(s)	_	_	_	_	4	conj	_	_
 8	all	_	_	_	_	9	advmod	_	_
-9	follow	_	_	_	_	1	ccomp	_	_
+9	follow	_	_	_	_	2	ccomp	_	_
 10	a	_	_	_	_	13	det	_	_
 11	systematic	_	_	_	_	13	amod	_	_
 12	language	_	_	_	_	13	compound	_	_
@@ -752,10 +752,10 @@
 3	words	_	_	_	_	5	obl	_	_
 4	,	_	_	_	_	3	punct	_	_
 5	make	_	_	_	_	0	root	_	_
-6	sure	_	_	_	_	5	compound:prt	_	_
+6	sure	_	_	_	_	5	xcomp	_	_
 7	that	_	_	_	_	9	mark	_	_
 8	you	_	_	_	_	9	nsubj	_	_
-9	follow	_	_	_	_	5	ccomp	_	_
+9	follow	_	_	_	_	6	ccomp	_	_
 10	the	_	_	_	_	12	det	_	_
 11	same	_	_	_	_	12	amod	_	_
 12	guidelines	_	_	_	_	9	obj	_	_
@@ -775,44 +775,46 @@
 5	sense	_	_	_	_	3	obj	_	_
 6	,	_	_	_	_	12	punct	_	_
 7	so	_	_	_	_	12	mark	_	_
-8	that	_	_	_	_	12	mark	_	_
-9	it	_	_	_	_	12	expl	_	_
+8	that	_	_	_	_	7	fixed	_	_
+9	it	_	_	_	_	12	nsubj	12:nsubj|14:obj|16:obl:with	_
 10	will	_	_	_	_	12	aux	_	_
 11	be	_	_	_	_	12	cop	_	_
 12	easier	_	_	_	_	3	advcl	_	_
 13	to	_	_	_	_	14	mark	_	_
-14	learn	_	_	_	_	12	csubj	_	_
+14	learn	_	_	_	_	12	acl	_	_
 15	and	_	_	_	_	16	cc	_	_
 16	speak	_	_	_	_	14	conj	_	_
-17	with	_	_	_	_	16	compound:prt	_	_
+17	with	_	_	_	_	16	obl	9:case	_
 18	[	_	_	_	_	19	punct	_	_
-19	Example	_	_	_	_	3	dep	_	_
+19	Example	_	_	_	_	3	parataxis	_	_
 20	:	_	_	_	_	23	punct	_	_
-21	Do	_	_	_	_	23	aux	_	_
-22	n't	_	_	_	_	23	advmod	_	_
-23	use	_	_	_	_	19	dep	_	_
+21	Do	_	_	_	_	23	aux	23:aux|27.1:aux|32.1:aux	_
+22	n't	_	_	_	_	23	advmod	23:advmod|27.1:advmod|32.1:advmod	_
+23	use	_	_	_	_	19	parataxis	_	_
 24	oh	_	_	_	_	23	obj	_	_
 25	as	_	_	_	_	26	case	_	_
 26	e	_	_	_	_	23	obl	_	_
 27	,	_	_	_	_	28	punct	_	_
-28	hello	_	_	_	_	23	conj	_	_
+27.1	use	use	VERB	VB	VerbForm=Inf	_	_	23:conj:and	CopyOf=23
+28	hello	_	_	_	_	23	conj	27.1:obj	_
 29	as	_	_	_	_	30	case	_	_
-30	llo	_	_	_	_	28	orphan	_	_
+30	llo	_	_	_	_	28	orphan	27.1:obl:as	_
 31	,	_	_	_	_	33	punct	_	_
 32	and	_	_	_	_	33	cc	_	_
-33	See	_	_	_	_	23	conj	_	_
+32.1	use	use	VERB	VB	VerbForm=Inf	_	_	23:conj:and	CopyOf=23
+33	See	_	_	_	_	23	conj	32.1:obj	_
 34	ya	_	_	_	_	33	obj	_	_
 35	as	_	_	_	_	36	case	_	_
-36	c	_	_	_	_	33	orphan	_	_
+36	c	_	_	_	_	33	orphan	32.1:obl:as	_
 37	yah	_	_	_	_	36	obj	_	_
 38	)	_	_	_	_	3	punct	_	_
 39	.	_	_	_	_	3	punct	_	_
 
 1	Make	_	_	_	_	0	root	_	_
-2	sure	_	_	_	_	1	compound:prt	_	_
-3	you	_	_	_	_	1	obj	_	_
-4	practice	_	_	_	_	1	dep	_	_
-5	saying	_	_	_	_	4	ccomp	_	_
+2	sure	_	_	_	_	1	xcomp	_	_
+3	you	_	_	_	_	4	nsubj	_	_
+4	practice	_	_	_	_	2	ccomp	_	_
+5	saying	_	_	_	_	4	xcomp	_	_
 6	and	_	_	_	_	7	cc	_	_
 7	spelling	_	_	_	_	5	conj	_	_
 8	out	_	_	_	_	7	compound:prt	_	_
@@ -824,9 +826,9 @@
 14	language	_	_	_	_	7	obl	_	_
 15	,	_	_	_	_	17	punct	_	_
 16	English	_	_	_	_	17	amod	_	_
-17	examples	_	_	_	_	4	dep	_	_
+17	examples	_	_	_	_	1	parataxis	_	_
 18	:	_	_	_	_	19	punct	_	_
-19	is	_	_	_	_	17	parataxis	_	_
+19	is	_	_	_	_	17	appos	_	_
 20	,	_	_	_	_	21	punct	_	_
 21	who	_	_	_	_	19	conj	_	_
 22	,	_	_	_	_	23	punct	_	_
@@ -900,7 +902,7 @@
 3	language	_	_	_	_	1	obj	_	_
 4	frequently	_	_	_	_	1	advmod	_	_
 5	so	_	_	_	_	10	mark	_	_
-6	that	_	_	_	_	10	mark	_	_
+6	that	_	_	_	_	5	fixed	_	_
 7	you	_	_	_	_	10	nsubj	_	_
 8	do	_	_	_	_	10	aux	_	_
 9	n't	_	_	_	_	10	advmod	_	_
@@ -937,7 +939,7 @@
 21	.	_	_	_	_	13	punct	_	_
 
 1	To	_	_	_	_	2	mark	_	_
-2	do	_	_	_	_	13	csubj	_	_
+2	do	_	_	_	_	5	advcl	_	_
 3	this	_	_	_	_	2	obj	_	_
 4	,	_	_	_	_	2	punct	_	_
 5	think	_	_	_	_	0	root	_	_
@@ -946,15 +948,15 @@
 8	words	_	_	_	_	5	obl	_	_
 9	that	_	_	_	_	10	nsubj	_	_
 10	begin	_	_	_	_	8	acl:relcl	_	_
-11	with	_	_	_	_	10	compound:prt	_	_
-12	/	_	_	_	_	13	punct	_	_
+11	with	_	_	_	_	10	obl	19:case	_
+12	/	_	_	_	_	13	cc	_	_
 13	have	_	_	_	_	10	conj	_	_
 14	a	_	_	_	_	15	det	_	_
 15	lot	_	_	_	_	13	obj	_	_
 16	of	_	_	_	_	19	case	_	_
 17	a	_	_	_	_	19	det	_	_
 18	certain	_	_	_	_	19	amod	_	_
-19	vowel	_	_	_	_	15	nmod	_	_
+19	vowel	_	_	_	_	15	nmod	10:obl:with|15:nmod	_
 20	.	_	_	_	_	5	punct	_	_
 
 1	For	_	_	_	_	2	case	_	_
@@ -1102,7 +1104,7 @@
 12	to	_	_	_	_	13	mark	_	_
 13	start	_	_	_	_	11	acl	_	_
 14	a	_	_	_	_	16	det	_	_
-15	writing	_	_	_	_	16	amod	_	_
+15	writing	_	_	_	_	16	compound	_	_
 16	system	_	_	_	_	13	obj	_	_
 17	.	_	_	_	_	11	punct	_	_
 
@@ -1140,7 +1142,7 @@
 6	the	_	_	_	_	7	det	_	_
 7	language	_	_	_	_	3	obj	_	_
 8	so	_	_	_	_	15	mark	_	_
-9	that	_	_	_	_	15	mark	_	_
+9	that	_	_	_	_	8	fixed	_	_
 10	they	_	_	_	_	15	nsubj:pass	_	_
 11	wo	_	_	_	_	15	aux	_	_
 12	n't	_	_	_	_	15	advmod	_	_
@@ -1161,14 +1163,14 @@
 10	about	_	_	_	_	13	advmod	_	_
 11	every	_	_	_	_	13	det	_	_
 12	five	_	_	_	_	13	nummod	_	_
-13	minutes	_	_	_	_	7	obl:npmod	_	_
+13	minutes	_	_	_	_	7	obl:tmod	_	_
 14	and	_	_	_	_	15	cc	_	_
 15	come	_	_	_	_	7	conj	_	_
-16	back	_	_	_	_	15	compound:prt	_	_
+16	back	_	_	_	_	15	advmod	_	_
 17	to	_	_	_	_	18	case	_	_
 18	it	_	_	_	_	15	obl	_	_
 19	or	_	_	_	_	24	cc	_	_
-20	all	_	_	_	_	22	det	_	_
+20	all	_	_	_	_	22	det:predet	_	_
 21	your	_	_	_	_	22	nmod:poss	_	_
 22	letters	_	_	_	_	24	nsubj	_	_
 23	will	_	_	_	_	24	aux	_	_
@@ -1217,7 +1219,7 @@
 8	—	_	_	_	_	10	punct	_	_
 9	a	_	_	_	_	10	det	_	_
 10	language	_	_	_	_	7	appos	_	_
-11	that	_	_	_	_	12	mark	_	_
+11	that	_	_	_	_	12	nsubj	_	_
 12	branches	_	_	_	_	10	acl:relcl	_	_
 13	off	_	_	_	_	12	compound:prt	_	_
 14	into	_	_	_	_	16	case	_	_

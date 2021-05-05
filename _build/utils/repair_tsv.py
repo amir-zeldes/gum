@@ -179,7 +179,7 @@ def serialize_tsv_lines(lines, parsed_lines, tsv_path, outdir, as_string=False):
 			cols[3] = format_entities(parsed_lines[i]['entities'])
 			cols[4] = format_attr(parsed_lines[i]['entities'],attr="infstat")
 			cols[5] = format_attr(parsed_lines[i]['entities'],attr="identity")
-			cols[5] = cols[5].replace(" ","_").replace("(","%28").replace(")","%29")
+			cols[5] = cols[5].replace(" ","_").replace("(","%28").replace(")","%29").replace(",","%2C")
 			cols[-2] = format_relations(parsed_lines[i]['relations'])
 			if as_string:
 				output.append("\t".join(cols))
@@ -230,7 +230,7 @@ def parse_tsv_line(line):
 			for ident_anno in identities:  # See if an identity anno corresponds to the currently processed entity ID
 				if ident_anno is not None:
 					entity_identity, ident_id = extract_from_bracket(ident_anno)
-					entity_identity = entity_identity.replace(" ","_").replace("(","%28").replace(")","%29")
+					entity_identity = entity_identity.replace(" ","_").replace("(","%28").replace(")","%29").replace(",","%2C")
 				else:
 					continue
 				if int(ident_id) == entity_id:
@@ -306,7 +306,7 @@ def enrich_tsv_representation_with_pos(parsed_lines, xml_path):
 	for line in conll_lines:
 		if "\t" in line:
 			fields = line.split("\t")
-			if "-" not in fields[0]:  # Token
+			if "-" not in fields[0] and "." not in fields[0]:  # Regular token, not ellipsis or supertoken
 				tsv_line = parsed_lines[abs_id]
 				abs_id += 1
 				tsv_line['abs_id'] = abs_id
@@ -657,6 +657,9 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
 									 group_identities[ent["group"]] + "<>" + ent["identity"] + "\n")
 			group_identities[ent["group"]] = ent["identity"]
 		elif ent["group"] in group_identities:
+			#continue
+			#if ent["pos"][0] == "P":
+			#	pass  # pronoun
 			ent["identity"] = group_identities[ent["group"]]
 
 	lines = webanno_tsv.split("\n")
@@ -857,7 +860,10 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 					print("Error on line " + str(line_num) + " of TSV file: " + filename)
 					quit()
 				if link_anno == "bridge":
-					bridging_count[tok] += 1
+					if spans != "" and not spans.startswith("[0_"):# and not spans.endswith("_0]"):
+						bridging_count[spans.split("_")[0].replace("[","")] += 1
+					else:
+						bridging_count[tok] += 1
 
 				if spans != "":
 					tok += spans
@@ -883,11 +889,16 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 			#continue ##AZ
 			for i, anno in enumerate(split_link_annos):
 				link = split_links[i]
+				bridge_count_id = link
 				if "[" in link:
+					if "[0_" not in link: # and not link.endswith("_0]"):
+						bridge_count_id = link.split("[")[1].split("_")[0].replace("[","")
+					else:
+						bridge_count_id = link.split("[")[0]
 					link = link.split("[")[0]
 				source_word = bridge_words[link]
 				if anno == "bridge":
-					if bridging_count[link] > 1:
+					if bridging_count[bridge_count_id] > 1:
 						anno = "bridge:aggr"
 					elif re.match(r'(the|this|that|these|those)$',source_word,re.IGNORECASE) is not None:
 						anno = "bridge:def"
