@@ -54,9 +54,11 @@ class ParsedToken:
 		self.func2 = func2
 		if ":" in head2:  # edep format
 			try:
-				h, d = head2.split(":", maxsplit=1)
-				h = str(float(h) + tokoffset)
-				self.edep.append([h, d])
+				edeps = head2.split("|")
+				for edep in edeps:
+					h, d = edep.split(":", maxsplit=1)
+					h = str(float(h) + tokoffset)
+					self.edep.append([h, d])
 			except ValueError:
 				pass
 		self.storage = ""  # Storage field for temporary values, never read or written to/from conllu
@@ -93,17 +95,26 @@ class Sentence:
 
 	def print_annos(self):
 		anno_dict = dict((k, v) for k, v in iteritems(self.annotations))
+		if "text" in self.input_annotations and "text" in self.annotations:
+			self.input_annotations["text"] = self.annotations["text"]
 		if self.depedit.kill not in ["comments", "both"]:
 			anno_dict.update(dict((k, v) for k, v in iteritems(self.input_annotations)))
 		sorted_keys = sorted(list(iterkeys(anno_dict)))
+		newdoc_anno = []
+		sent_id = []
 		if "sent_id" in sorted_keys:
 			# Ensure sent_id is first
+			sent_id = ["sent_id"]
 			sorted_keys.remove("sent_id")
-			sorted_keys = ["sent_id"] + sorted_keys
 		if "newdoc id" in sorted_keys:
 			# Ensure newdoc id is first
+			newdoc_anno = ["newdoc id"]
 			sorted_keys.remove("newdoc id")
-			sorted_keys = ["newdoc id"] + sorted_keys
+		global_specs = [k for k in sorted_keys if k.startswith("global.")]
+		meta = sorted([k for k in sorted_keys if k.startswith("meta::")])
+		others = [k for k in sorted_keys if not k.startswith("meta::") and not k.startswith("global.") and k != "text"]
+		text = ["text"] if "text" in sorted_keys else []
+		sorted_keys = newdoc_anno + global_specs + meta + sent_id + sorted(others) + text
 		return ["# " + key.strip() + " = " + anno_dict[key].strip() for key in sorted_keys]
 
 
@@ -199,7 +210,7 @@ class Transformation:
 		for action in self.actions:
 			commands = action.split(";")
 			for command in commands:  # Node action
-				if re.match(r"(#[0-9]+[>~]#[0-9]+|#[0-9]+:(func|lemma|text|pos|cpos|morph|storage2?|edom|head|head2|func2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc|edep|ehead)\+?=[^;]*)$", command) is None:
+				if re.match(r"(#[0-9]+([>~]|><)#[0-9]+|#[0-9]+:(func|lemma|text|pos|cpos|morph|storage2?|edom|head|head2|func2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc|edep|ehead)\+?=[^;]*)$", command) is None:
 					if re.match(r"#S:[A-Za-z_]+=[A-Za-z_]+$|last$|once$", command) is None:  # Sentence annotation action or quit
 						report += "Column 3 invalid action definition: " + command + " and the action was " + action
 						if "#" not in action:
@@ -438,7 +449,10 @@ class DepEdit:
 			self.add_groups(result_sets)
 			if len(result_sets) > 0:
 				for action in transformation.actions:
-					retval = self.execute_action(result_sets, action, transformation)
+					if "><" not in action:
+						retval = self.execute_action(result_sets, action, transformation)
+					else:
+						retval = self.execute_supertoken(result_sets, action, transformation, conll_tokens)
 					if retval == "last":  # Explicit instruction to cease processing
 						return
 			if stepwise:
@@ -726,6 +740,32 @@ class DepEdit:
 						groups.append(g)
 			result["groups"] = groups[:]
 
+	def execute_supertoken(self, result_sets, action_list, transformation, conll_tokens):
+		def remove_misc(token, anno):
+			miscs = token.func2.split("|")
+			filtered = []
+			for a in miscs:
+				if not a.startswith(anno+"="):
+					filtered.append(a)
+			if len(filtered) == 0:
+				token.func2 = "_"
+			else:
+				token.func2 = "|".join(filtered)
+
+		for res in result_sets:
+			begin_idx = conll_tokens.index(res[1])
+			if "." in res[1].num or "." in res[2].num:  # Ellipsis tokens cannot form supertokens
+				continue
+			super_id = res[1].num + "-" + res[2].num
+			if any([t.num==super_id for t in conll_tokens]):  # Do not produce already existing supertokens
+				continue
+			super_text = res[1].text + res[2].text
+			misc = "_" if "SpaceAfter=No" not in res[2].func2 else "SpaceAfter=No"
+			remove_misc(res[1],"SpaceAfter")
+			remove_misc(res[2],"SpaceAfter")
+			supertok = ParsedToken(super_id, super_text, "_", "_", "_", "_", "_", "_", "_", misc, super_id, [], "", is_super_tok=True)
+			conll_tokens.insert(begin_idx, supertok)
+
 	def execute_action(self, result_sets, action_list, transformation):
 		actions = action_list.split(";")
 		for result in result_sets:
@@ -811,7 +851,16 @@ class DepEdit:
 									result[node_position].edep[index][1] = value
 							elif prop == "edom":
 								if "||" in value:
-									result[node_position].edep.append(value.split("||", maxsplit=1))
+									h, rel = value.split("||", maxsplit=1)
+									new_rels = []
+									for dom in result[node_position].edep:
+										if dom[0] != h:  # Leave out any existing edeps with the same head unless they are substrings
+											new_rels.append(dom)
+										elif dom[1].startswith(rel) or rel.startswith(dom[1]):
+											new_rels.append(dom)
+									new_rels.append([h, rel])
+									#result[node_position].edep.append([h, rel])
+									result[node_position].edep = new_rels
 								else:
 									sys.stderr.write("WARN: skipped attempt to write edom; value does not follow the format HEAD||EDEP (e.g. 8.0||nsubj:xsubj)\n")
 							elif prop == "ehead":
@@ -949,18 +998,22 @@ class DepEdit:
 		toks = []
 		word = ""
 		skip = 0
+		super_space_after = True
 		for tok in sentence_tokens:
 			if tok.is_super_tok:
 				word = tok.text
 				start, end = tok.num.split("-")
 				skip = int(end) - int(start) + 1
+				if "SpaceAfter=No" in tok.func2:
+					super_space_after = False
 			if tok.id.endswith(".0"):
 				if skip > 0:
 					skip -= 1
 					if skip == 0:
-						if "SpaceAfter=No" not in tok.func2:
+						if "SpaceAfter=No" not in tok.func2 and super_space_after:
 							word += " "
 						toks.append(word)
+						super_space_after = True
 					continue
 				word = tok.text
 				if "SpaceAfter=No" not in tok.func2:
@@ -1066,7 +1119,34 @@ class DepEdit:
 		return "\n".join(output_lines).strip() + white
 
 
-def main(options):
+def main():
+
+	depedit_version = "DepEdit V" + __version__
+
+	parser = argparse.ArgumentParser(prog=None if globals().get('__spec__') is None else 'python -m {}'.format(__spec__.name.partition('.')[0]))
+	parser.add_argument('file', action="store",
+						help="Input single file name or glob pattern to process a batch (e.g. *.conll10)")
+	parser.add_argument('-c', '--config', action="store", dest="config", default="config.ini",
+						help="Configuration file defining transformation")
+	parser.add_argument('-d', '--docname', action="store_true", dest="docname",
+						help="Begin output with # newdoc id =...")
+	parser.add_argument('-t', '--text', action="store_true", help="Add # text =...")
+	parser.add_argument('-s', '--sent_id', action="store_true", dest="sent_id", help="Add running sentence ID comments")
+	parser.add_argument('--enhanced', action="store_true", help="Add enhanced dependencies column when absent in input")
+	parser.add_argument('-k', '--kill', action="store", choices=["supertoks", "comments", "both"],
+						help="Remove supertokens or commments from output")
+	parser.add_argument('-q', '--quiet', action="store_true", dest="quiet", help="Do not output warnings and messages")
+	parser.add_argument('--stepwise', action="store_true", help="Output sentence repeatedly after each step (useful for debugging)")
+	group = parser.add_argument_group('Batch mode options')
+	group.add_argument('-o', '--outdir', action="store", dest="outdir", default="",
+					   help="Output directory in batch mode")
+	group.add_argument('-e', '--extension', action="store", dest="extension", default="",
+					   help="Extension for output files in batch mode")
+	group.add_argument('-i', '--infix', action="store", dest="infix", default=".depedit",
+					   help="Infix to denote edited files in batch mode (default: .depedit)")
+	parser.add_argument('--version', action='version', version=depedit_version)
+	options = parser.parse_args()
+
 	if options.extension.startswith("."):  # Ensure user specified extension does not include leading '.'
 		options.extension = options.extension[1:]
 	try:
@@ -1117,28 +1197,5 @@ def main(options):
 
 
 if __name__ == "__main__":
-	depedit_version = "DepEdit V" + __version__
-	parser = argparse.ArgumentParser()
-	parser.add_argument('file', action="store",
-						help="Input single file name or glob pattern to process a batch (e.g. *.conll10)")
-	parser.add_argument('-c', '--config', action="store", dest="config", default="config.ini",
-						help="Configuration file defining transformation")
-	parser.add_argument('-d', '--docname', action="store_true", dest="docname",
-						help="Begin output with # newdoc id =...")
-	parser.add_argument('-t', '--text', action="store_true", help="Add # text =...")
-	parser.add_argument('-s', '--sent_id', action="store_true", dest="sent_id", help="Add running sentence ID comments")
-	parser.add_argument('--enhanced', action="store_true", help="Add enhanced dependencies column when absent in input")
-	parser.add_argument('-k', '--kill', action="store", choices=["supertoks", "comments", "both"],
-						help="Remove supertokens or commments from output")
-	parser.add_argument('-q', '--quiet', action="store_true", dest="quiet", help="Do not output warnings and messages")
-	parser.add_argument('--stepwise', action="store_true", help="Output sentence repeatedly after each step (useful for debugging)")
-	group = parser.add_argument_group('Batch mode options')
-	group.add_argument('-o', '--outdir', action="store", dest="outdir", default="",
-					   help="Output directory in batch mode")
-	group.add_argument('-e', '--extension', action="store", dest="extension", default="",
-					   help="Extension for output files in batch mode")
-	group.add_argument('-i', '--infix', action="store", dest="infix", default=".depedit",
-					   help="Infix to denote edited files in batch mode (default: .depedit)")
-	parser.add_argument('--version', action='version', version=depedit_version)
-	main(parser.parse_args())
+    main()
 
