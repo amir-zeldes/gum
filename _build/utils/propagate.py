@@ -216,8 +216,11 @@ def is_neg_lemma(lemma,pos):
 	return False
 
 
-def is_abbr(word, xpos, lemma_eq_tok):
-	abbr = r"(irl|TLDR|BC|BCE|CE|AD|PS|IIRC|BTW|IMO|TL;DR|GRF|US|NASA|NATO|div.|U\.S\.|gov't|USI|DH|DAB|UK|IE6|COVID-19|KPA|UNESCO|FTU|LA|VR|MLB|USA|IATA|ROS|CC|IE|OK|ABC|BBC|DSW|NBC|U\.S|KCNA|ACPeds|US-412|WB|CBC|ICI|ISO|JSC|KKK|KSC|PHX|WHO|BART|CNRS|ELI5|FIFA|O\.J\.|NWSC|ROTC|BAFTA|STS-1|US-75|US-169|NEMISIS|STS-133|STS-134|STS-135|NSU|FEDERAL|ANDRILL|AS|AV|CO|CV|CW|DC|FN|GW|JK|KS|LV|MC|NB|NJ|NZ|PC|QC|RA|SC|ST|UC|VM|XP|XV|AFP|AIM|BAK|BBF|BPA|CBS|CEI|CIS|CRA|DBE|DNA|FRS|GIS|GPL|HBO|HIV|IDD|IE9|IFN|IMU|IQA|IRC|JFK|JPL|LIS|LSD|MIT|MSN|MTV|NBA|NFL|NHS|NPP|NSW|NTU|OIR|ROS|RVS|SNY|TUL|UKB|UNC|USD|USS|WTA|XML|ADPL|AIDS|AKMA|B\.A\.|ARES|D\.C\.|DPRK|FFFF|FGCU|HECS|HTML|IOTM|IRIS|K\.C\.|L\.A\.|MASS|MMPI|OSCE|S\.F\.|SETI|TAOM|THEO|U\.N\.|UAAR|WWII|XKCD|DHBs|U\.S\.|BY-SA|CITIC|LIBER|M\.Sc\.|NCLAN|ODIHR|UNMIK|OSU|CC-BY-SA-NC|CBC\.ca|DH+Lib|DH2017|e\.g\.|al\.|etc\.|Mr\.|St\.|i\.e\.|c\.|b\.|Ph\.D\.|Mrs\.|d\.|m\.|p\.|Dr\.|Jr\.|No\.|vs\.|div\.|approx\.|a\.|Ed\.|Mt\.|Op\.|ca\.|cm\.|Ave\.|Cal\.|E\.g\.|Inc\.|Vol\.|a\.m\.|eds\.|p\.m\.|M\.Sc\.|Mlle\.|Prof\.|evals?|BBQs?|hrs?\.?)$"
+def is_abbr(word, xpos, lemma):
+	lemma_eq_tok = word == lemma
+	combos = [("wan","VBP"),("gon","VBG"),("na","TO"),("a","TO"),("em","PRP"),("m","NNS"),("h","NN"),
+			  ("oz","NNS"),("fl","JJ")]
+	abbr = r"(irl|TLDR|BC|BCE|CE|AD|PS|IIRC|BTW|IMO|TL;DR|GRF|US|NASA|NATO|div.|S.F.|U\.S\.|gov't|USI|DH|DAB|UK|IE6|COVID-19|KPA|UNESCO|FTU|LA|VR|MLB|USA|IATA|ROS|CC|IE|OK|ABC|BBC|DSW|NBC|U\.S|KCNA|ACPeds|US-412|WB|CBC|ICI|ISO|JSC|KKK|KSC|PHX|WHO|BART|CNRS|ELI5|FIFA|O\.J\.|NWSC|ROTC|BAFTA|STS-1|US-75|US-169|NEMISIS|STS-133|STS-134|STS-135|NSU|FEDERAL|ANDRILL|AS|AV|CO|CV|CW|DC|FN|GW|JK|KS|LV|MC|NB|NJ|NZ|PC|QC|RA|SC|ST|UC|VM|XP|XV|AFP|AIM|BAK|BBF|BPA|CBS|CEI|CIS|CRA|DBE|DNA|FRS|GIS|GPL|HBO|HIV|IDD|IE9|IFN|IMU|IQA|IRC|JFK|JPL|LIS|LSD|MIT|MSN|MTV|NBA|NFL|NHS|NPP|NSW|NTU|OIR|ROS|RVS|SNY|TUL|UKB|UNC|USD|USS|WTA|XML|ADPL|AIDS|AKMA|B\.A\.|ARES|D\.C\.|DPRK|FFFF|FGCU|HECS|HTML|IOTM|IRIS|K\.C\.|L\.A\.|MASS|MMPI|OSCE|S\.F\.|SETI|TAOM|THEO|U\.N\.|UAAR|WWII|XKCD|DHBs|U\.S\.|BY-SA|CITIC|LIBER|M\.Sc\.|NCLAN|ODIHR|UNMIK|OSU|CC-BY-SA-NC|CBC\.ca|DH+Lib|DH2017|e\.g\.|al\.|etc\.|Mr\.|St\.|i\.e\.|c\.|b\.|Ph\.D\.|Mrs\.|d\.|m\.|p\.|Dr\.|Jr\.|No\.|vs\.?|div\.|approx\.|a\.|Ed\.|Mt\.|Op\.|ca\.|cm\.|Ave\.|Cal\.|E\.g\.|Inc\.|Vol\.|a\.m\.|eds\.|p\.m\.|M\.Sc\.|Mlle\.|Prof\.|evals?|BBQs?|hrs?\.?|kg\.?|ft\.?|km\.?|[Mm]l\.?|g\.?)$"
 	if re.match(abbr,word) is not None:
 		return True
 	# For the following make sure this isn't just the word "Sun" or the name "Jun"
@@ -226,6 +229,11 @@ def is_abbr(word, xpos, lemma_eq_tok):
 		return True
 	if word in ["it"] and abbr_diff_lemma and xpos == "NP":  # it -> Italian
 		return True
+	if not lemma_eq_tok:
+		if (word, xpos) in combos:
+			return True
+		elif (word.endswith("in") or word.endswith("in'")) and (xpos=="VBG" or lemma.endswith("ing")):
+			return True
 	# Substrings
 	abbr_subst = r"gov't"
 	if re.search(abbr_subst,word) is not None:
@@ -294,12 +302,12 @@ def tt2vanilla(tag,token):
 		tag = "IN"
 	elif tag=="(":
 		if token == "[":
-			tag = "-LSB-"
+			tag = "-LRB-"  # "-LSB-"
 		else:
 			tag = "-LRB-"
 	elif tag == ")":
 		if token == "]":
-			tag = "-RSB-"
+			tag = "-RRB-"  # "-RSB-"
 		else:
 			tag = "-RRB-"
 	return tag
@@ -484,6 +492,14 @@ def enrich_dep(gum_source, tmp, reddit=False):
 
 
 def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
+	def get_meta(docname,gum_target):
+		with io.open(gum_target + "xml" + os.sep + docname + ".xml", encoding="utf8") as f:
+			meta_line = f.read().split("\n")[0]
+		key_vals = re.findall(r' ([^=]+?)="([^"]+?)"',meta_line)
+		meta = {}
+		for key, val in key_vals:
+			meta[key] = val.replace("&amp;","&").replace("&apos;","'").replace("&quot;",'"')
+		return meta
 
 	if PY2:
 		print("WARN: Running on Python 2 - consider upgrading to Python 3. ")
@@ -676,12 +692,24 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		# UPOS
 		depedit = DepEdit(config_file="utils" + os.sep + "upos.ini")
 		uposed = depedit.run_depedit(processed_lines,filename=docname,sent_id=True,docname=True)
-		# Make sure sent_id is first comment except newdox
-		uposed = re.sub(r'((?:# [^n][^\t\n]+\n)+)(# sent_id[^\n]+\n)',r'\2\1',uposed)
 		uposed = re.sub(r'ent_head=[a-z]+\|infstat=[a-z]+\|?','',uposed)
 		if "infstat=" in uposed:
 			sys.__stdout__.write("o WARN: invalid entity annotation from tsv for document " + docname)
 		processed_lines = uposed
+
+		# Add metadata and global declaration
+		lines = processed_lines.split("\n")
+		header = ["# global.Entity = entity-GRP-identity"]
+		meta = get_meta(docname,gum_target)
+		header.append("# meta::dateCollected = " + meta["dateCollected"])
+		header.append("# meta::dateCreated = " + meta["dateCreated"])
+		header.append("# meta::dateModified = " + meta["dateModified"])
+		#header.append("# meta::shortTitle = " + meta["shortTitle"])
+		header.append("# meta::sourceURL = " + meta["sourceURL"])
+		header.append("# meta::speakerCount = " + meta["speakerCount"])
+		header.append("# meta::title = "+ meta["title"])
+		processed_lines = [lines[0]] + header + lines[1:]
+		processed_lines = "\n".join(processed_lines)
 
 		#depedit = DepEdit(config_file="utils" + os.sep + "fix_flat.ini")
 		#processed_lines = depedit.run_depedit(processed_lines,filename=docname)
@@ -730,7 +758,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 						fields[5] = add_feat(fields[5],"NumForm=Roman")
 					elif fields[4] == "CD" and "NumForm" not in fields[5]:
 						fields[5] = add_feat(fields[5],"NumForm=Word")
-					if is_abbr(fields[1],fields[4],fields[1]==fields[2]) and "Abbr" not in fields[5]:
+					if is_abbr(fields[1],fields[4],fields[2]) and "Abbr" not in fields[5]:
 						fields[5] = add_feat(fields[5],"Abbr=Yes")
 					if imp and fields[5] == "VerbForm=Inf" and fields[7] == "root":  # Inf root in s_type=imp should be Imp
 						fields[5] = "Mood=Imp|VerbForm=Fin"

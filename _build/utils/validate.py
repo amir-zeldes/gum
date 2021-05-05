@@ -613,21 +613,48 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if pos in ["VVG","VVN","VVD"] and lemma == tok:
 		# check cases where VVN form is same as tok ('know' and 'notice' are recorded typos, l- is a disfluency)
 		if tok not in ["shed","put","read","become","come","cut","hit","split","cast","set","hurt","run","broadcast",
-					   "spread","shut","upset","burst","bit","let","l-","know","notice"]:
+					   "spread","shut","upset","burst","bit","let","l-","g-","know","notice"]:
 			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
 	if pos == "NPS" and tok == lemma and tok.endswith("s"):
-		if tok not in ["Netherlands","Analytics","Olympics","Commons","Paralympics","Vans","Andes","Forties"]:
+		if tok not in ["Netherlands","Analytics","Olympics","Commons","Paralympics","Vans",
+					   "Andes","Forties","Philippines"]:
 			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
 	if pos == "NNS" and tok.lower() == lemma.lower() and lemma.endswith("s"):
 		if lemma not in ["surroundings","energetics","politics","jeans","clothes","electronics","means","feces",
-						 "biceps","triceps","news","species","economics","arrears","glasses","thanks"]:
+						 "biceps","triceps","news","species","economics","arrears","glasses","thanks","series"]:
 			if re.match(r"[0-9]+'?s",lemma) is None:  # 1920s, 80s
 				print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
 	if pos == "IN" and func=="compound:prt":
 		print("WARN: function " + func + " should have pos RP, not IN" + inname)
+
+	if pos == "CC" and func not in ["cc","cc:preconj","conj","reparandum","root","dep"]:
+		if not ("languages" in inname and tok == "and"):  # metalinguistic discussion in whow_languages
+			print("WARN: pos " + pos + " should normally have function cc or cc:preconj, not " + func + inname)
+
+	if pos == "RP" and func not in ["compound:prt","root","conj","ccomp"] or pos != "RP" and func=="compound:prt":
+		print("WARN: pos " + pos + " should not normally have function " + func + inname)
+
+	if pos != "CC" and func in ["cc","cc:preconj"]:
+		if lemma not in ["/","rather","as","et","+","let","only","-"]:
+			print("WARN: function " + func + " should normally have pos CC, not " + pos + inname)
+
+	if pos == "VVG" and "very" in children:
+		print("WARN: pos " + pos + " should not normally have child 'very'" + inname)
+
+	if pos == "UH" and func=="advmod":
+		print("WARN: pos " + pos + " should not normally have function 'advmod'" + inname)
+
+	if pos =="IN" and func=="discourse":
+		print("WARN: pos " + pos + " should not normally have function 'discourse'" + inname)
+
+	if pos == "VVG" and "case" in child_funcs:
+		print("WARN: pos " + pos + " should not normally have child function 'case'" + inname)
+
+	if pos.startswith("V") and any([f.startswith("nmod") for f in child_funcs]):
+		print("WARN: pos " + pos + " should not normally have child function 'nmod.*'" + inname)
 
 	if pos in ["JJR","JJS","RBR","RBS"] and lemma == tok:
 		if lemma not in ["least","further","less","more"] and not lemma.endswith("most"):
@@ -644,7 +671,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 			print("WARN: gerund compound modifier should be tagged as NN not VVG" + inname)
 
 	if pos == "VVG" and func in ["obj","nsubj","iobj","nmod","obl"]:
-		print("WARN: gerund should not have noun argument structure function " + func + inname)
+		if not tok == "following" and func=="obj":  # Exception nominalized "the following"
+			print("WARN: gerund should not have noun argument structure function " + func + inname)
 
 	if pos.startswith("NN") and func=="amod":
 		print("WARN: tag "+ pos + " should not be " + func + inname)
@@ -673,7 +701,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print("WARN: tag POS must have lemma " +'"'+ "'s" + '"' + inname)
 
 	if pos in ["VBG","VVG","VHG"] and "det" in child_funcs:
-		if tok != "prioritizing":  # Exception for phrasal compound in GUM_reddit_card
+		# Exceptions for phrasal compound in GUM_reddit_card and nominalization in GUM_academic_exposure
+		if tok != "prioritizing" and tok != "following":
 			print(str(id) + docname)
 			print("WARN: tag "+pos+" should not have a determinder 'det' " + inname)
 
@@ -686,7 +715,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 				 ("in","case"),("in","of"), ("in","order"),("instead","of"), ("kind","of"),("less","than"),("let","alone"),
 				 ("more","than"),("not","to"),("not","mention"),("of","course"),("prior","to"),("rather","than"),("so","as"),
 				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("that","is"), ("up","to"),("whether","or"),
-				 ("whether","not"),("depend","on"),("out","of"),("long","than"),("on","board"),("as","of"),("depend","upon"),
+				 ("whether","not"),("depend","on"),("out","of"),("off","of"),("long","than"),("on","board"),("as","of"),("depend","upon"),
 				 ("that","be"),("just","about"),("vice","versa"),("as","such"),("next","to"),("close","to"),("one","another"),("de","facto")}
 
 	# Ad hoc listing of triple mwe parts - All in all, in order for
