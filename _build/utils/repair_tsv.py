@@ -6,6 +6,7 @@ from collections import OrderedDict, defaultdict
 import ntpath
 from glob import glob
 from six import iteritems
+from utils.ontogum import build_ontogum
 
 PY2 = sys.version_info[0] < 3
 script_dir = os.path.dirname(os.path.realpath(__file__)) + os.sep
@@ -49,6 +50,29 @@ def fix_tsv(gum_source, gum_target, reddit=False, genitive_s=False):
 		fix_file(filename,tt_file,outdir,genitive_s=genitive_s)
 
 	print("o Adjusted " + str(len(file_list)) + " WebAnno TSV files" + " " * 40)
+
+
+def make_ontogum(gum_source, gum_target, reddit=False):
+	file_list = []
+	files_ = glob(gum_source + "tsv" + os.sep + "*.tsv")
+	for file_ in files_:
+		if not reddit and "reddit_" in file_:
+			continue
+		file_list.append(file_)
+
+	outdir = gum_target + "coref" + os.sep + "ontogum" + os.sep
+	if not os.path.exists(outdir):
+		os.makedirs(outdir)
+
+	for docnum, filename in enumerate(file_list):
+		sys.stdout.write("\t+ " + " "*60 + "\r")
+		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Processing " + ntpath.basename(filename) + "\n")
+		docname = os.path.basename(filename).replace(".tsv","")
+		tsv = io.open(filename,encoding="utf8").read()
+		conllu = gum_target + "dep" + os.sep + "not-for-release" + os.sep + docname + ".conllu"
+		onto_tsv, onto_conll = build_ontogum(conllu, tsv)
+		with io.open(outdir + docname + ".conll",'w',encoding="utf8",newline="\n") as f:
+			f.write(onto_conll)
 
 
 ### begin functions for genitive s fix
