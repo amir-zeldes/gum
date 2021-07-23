@@ -125,7 +125,7 @@ def fix_punct(conllu_string):
 def validate_upos(conllu, docname):
 	for l, line in enumerate(conllu.split("\n")):
 		if "so\tSCONJ\tRB" in line:
-			sys.stderr.write("invalid xpos + upos comibation on line " + l + " in doc " + docname + ": " + line + "\n")
+			sys.stderr.write("invalid xpos + upos comibation on line " + str(l) + " in doc " + docname + ": " + line + "\n")
 
 def validate_enhanced(conllu, docname):
 	def get_descendants(parent,children_dict,seen,snum,docname, rev=0):
