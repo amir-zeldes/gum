@@ -52,27 +52,33 @@ def fix_tsv(gum_source, gum_target, reddit=False, genitive_s=False):
 	print("o Adjusted " + str(len(file_list)) + " WebAnno TSV files" + " " * 40)
 
 
-def make_ontogum(gum_source, gum_target, reddit=False):
+def make_ontogum(gum_target, reddit=False):
 	file_list = []
-	files_ = glob(gum_source + "tsv" + os.sep + "*.tsv")
+	files_ = glob(gum_target + os.path.join("coref", "tsv", "*.tsv"))
 	for file_ in files_:
 		if not reddit and "reddit_" in file_:
 			continue
 		file_list.append(file_)
 
-	outdir = gum_target + "coref" + os.sep + "ontogum" + os.sep
-	if not os.path.exists(outdir):
-		os.makedirs(outdir)
+	tsv_out_dir = gum_target + "coref" + os.sep + "ontogum" + os.sep + "tsv" + os.sep
+	conll_out_dir = gum_target + "coref" + os.sep + "ontogum" + os.sep + "conll" + os.sep
+	if not os.path.exists(conll_out_dir):
+		os.makedirs(conll_out_dir)
+		os.makedirs(tsv_out_dir)
 
 	for docnum, filename in enumerate(file_list):
-		sys.stdout.write("\t+ " + " "*60 + "\r")
-		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Processing " + ntpath.basename(filename) + "\n")
-		docname = os.path.basename(filename).replace(".tsv","")
-		tsv = io.open(filename,encoding="utf8").read()
-		conllu = gum_target + "dep" + os.sep + "not-for-release" + os.sep + docname + ".conllu"
+		sys.stdout.write("\t+ " + " " * 60 + "\r")
+		sys.stdout.write(
+			" " + str(docnum + 1) + "/" + str(len(file_list)) + ":\t+ Processing " + ntpath.basename(filename) + "\r")
+		docname = os.path.basename(filename).replace(".tsv", "")
+		tsv = io.open(filename, encoding="utf8").read()
+		conllu_filename = gum_target + "dep" + os.sep + "not-to-release" + os.sep + docname + ".conllu"
+		conllu = io.open(conllu_filename, encoding="utf8").read()
 		onto_tsv, onto_conll = build_ontogum(conllu, tsv)
-		with io.open(outdir + docname + ".conll",'w',encoding="utf8",newline="\n") as f:
+		with io.open(conll_out_dir + docname + ".conll", 'w', encoding="utf8", newline="\n") as f:
 			f.write(onto_conll)
+		with io.open(tsv_out_dir + docname + ".tsv", 'w', encoding="utf8", newline="\n") as f:
+			f.write(onto_tsv)
 
 
 ### begin functions for genitive s fix
