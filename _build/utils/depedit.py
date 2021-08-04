@@ -158,6 +158,7 @@ class Transformation:
 	def handle_aliases(orig_action):
 		for source, target in iteritems(ALIASES):
 			orig_action = orig_action.replace(":" + source + "=", ":" + target + "=")
+			orig_action = orig_action.replace(":" + source + "+=", ":" + target + "+=")
 		return orig_action
 
 	@staticmethod
@@ -967,7 +968,9 @@ class DepEdit:
 			else:
 				tok_head_string = str(Decimal(tok.head) - tokoffset)
 				tok_id = str(Decimal(tok.id) - tokoffset)
-			if len(tok.edep) == 0:
+			if tok.head2 not in ["","_"]:  # explicitly set head2 field
+				tok_ehead_string = tok.head2
+			elif len(tok.edep) == 0:
 				tok_ehead_string = "_"
 				tok.head2 = "_"
 			else:
@@ -980,14 +983,15 @@ class DepEdit:
 			tok_head_string = tok_head_string.replace(".0", "")
 			if "." in tok_id:
 				tok_head_string = "_"
-			fields = (tok_id, tok.text, tok.lemma, tok.pos, tok.cpos, tok.morph, tok_head_string, tok.func)
+			fields = [tok_id, tok.text, tok.lemma, tok.pos, tok.cpos, tok.morph, tok_head_string, tok.func]
 			if self.input_mode != "8col":
 				if enhanced or tok.edep != []:
 					if tok.edep != []:
 						tok.head2 = tok_ehead_string
 					elif tok.head2 == "_":
 						tok.head2 = ":".join([tok_head_string, tok.func])  # Default edep column contents
-				fields += (tok.head2, tok.func2)
+				func2 = tok.func2 if len(tok.func2) > 0 else "_"
+				fields += [tok.head2, func2]
 			output_tree_lines.append("\t".join(fields))
 		return output_tree_lines
 
