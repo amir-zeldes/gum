@@ -222,7 +222,7 @@ if not options.pepper_only:
 
 	# Create OntoGUM data (OntoNotes schema version of coref annotations)
 	print("\n\nCreating alternate OntoGUM version of coref annotations:\n" + "="*37)
-	make_ontogum(gum_source, gum_target, reddit=reddit)
+	make_ontogum(gum_target, reddit=reddit)
 
 	# Add labels to PTB trees
 	if not options.skip_ptb_labels:
