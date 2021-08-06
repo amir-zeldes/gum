@@ -69,9 +69,9 @@
 12	about	about	ADV	RB	_	13	advmod	13:advmod	Entity=(person-9
 13	937,000	937000	NUM	CD	NumForm=Digit|NumType=Card	14	nummod	14:nummod	_
 14	people	person	NOUN	NNS	Number=Plur	11	obj	11:obj	Entity=person-9)
-15	as	as	SCONJ	RB	_	16	mark	16:mark	_
-16	of	of	ADP	IN	_	3	advcl	3:advcl:as	_
-17	2010	2010	NUM	CD	NumForm=Digit|NumType=Card	16	nummod	16:nummod	Entity=(time-10)
+15	as	as	SCONJ	IN	_	17	mark	17:mark	_
+16	of	of	ADP	IN	_	17	case	17:case	_
+17	2010	2010	NUM	CD	NumForm=Digit|NumType=Card	3	advcl	3:advcl:as	Entity=(time-10)
 18	from	from	ADP	IN	_	22	case	22:case	_
 19	the	the	DET	DT	Definite=Def|PronType=Art	22	det	22:det	Entity=(organization-11-United_States_Census_Bureau
 20	US	US	PROPN	NNP	Abbr=Yes|Number=Sing	22	compound	22:compound	Entity=(place-12-United_States)
@@ -91,7 +91,7 @@
 7	988,000	988000	NUM	CD	NumForm=Digit|NumType=Card	6	obj	6:obj	Entity=(person-15)
 8	in	in	ADP	IN	_	11	case	11:case	_
 9	the	the	DET	DT	Definite=Def|PronType=Art	11	det	11:det	Bridge=organization-11-United_States_Census_Bureau<event-16|Entity=(event-16
-10	2010	2010	NUM	CD	NumForm=Digit|NumType=Card	11	nummod	11:nummod	Entity=(time-10)
+10	2010	2010	NUM	CD	NumForm=Digit|NumType=Card	11	compound	11:compound	Entity=(time-10)
 11	census	census	NOUN	NN	Number=Sing	7	nmod	7:nmod:in	Entity=event-16)|SpaceAfter=No
 12	.	.	PUNCT	.	_	6	punct	6:punct	_
 
@@ -133,10 +133,10 @@
 28	each	each	DET	DT	_	29	det	29:det	Entity=(time-23
 29	year	year	NOUN	NN	Number=Sing	20	obl:tmod	20:obl:tmod	Entity=time-23)|SpaceAfter=No
 30	,	,	PUNCT	,	_	34	punct	34:punct	_
-31	both	both	PRON	DT	_	34	nsubj	34:nsubj	Discourse=result:11->9|Entity=(abstract-24|Split=place-18<abstract-24,substance-21<abstract-24
+31	both	both	DET	DT	_	34	nsubj	34:nsubj	Discourse=result:11->9|Entity=(abstract-24|Split=place-18<abstract-24,substance-21<abstract-24
 32	of	of	ADP	IN	_	33	case	33:case	_
 33	which	which	PRON	WDT	PronType=Int	31	nmod	31:nmod:of	Entity=abstract-24)
-34	account	account	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	2	parataxis	2:parataxis	_
+34	account	account	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	2	parataxis	2:parataxis	_
 35	for	for	ADP	IN	_	41	case	41:case	_
 36	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	41	nmod:poss	41:nmod:poss	Entity=(object-25(place-1-Tulsa%2C_Oklahoma)
 37	abundant	abundant	ADJ	JJ	Degree=Pos	41	amod	41:amod	_
@@ -465,7 +465,7 @@
 7	parking	parking	NOUN	NN	Number=Sing	3	obj	3:obj	Entity=event-65)
 8	(	(	PUNCT	-LRB-	_	10	punct	10:punct	Discourse=elaboration:40->39|SpaceAfter=No
 9	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	10	amod	10:amod	Entity=(time-66
-10	half-hour	half-hour	NOUN	NN	Number=Sing	3	parataxis	3:parataxis	Entity=time-66)
+10	half-hour	half-hour	NOUN	NN	Number=Sing|NumType=Frac	3	parataxis	3:parataxis	Entity=time-66)
 11	free	free	ADJ	JJ	Degree=Pos	10	amod	10:amod	SpaceAfter=No
 12	)	)	PUNCT	-RRB-	_	10	punct	10:punct	SpaceAfter=No
 13	.	.	PUNCT	.	_	3	punct	3:punct	_
@@ -794,9 +794,9 @@
 5	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	7	cop	7:cop	_
 6	one	one	NUM	CD	NumForm=Word|NumType=Card	7	nummod	7:nummod	Entity=(abstract-122
 7	mile	mile	NOUN	NN	Number=Sing	0	root	0:root	Entity=abstract-122)
-8	from	from	ADP	IN	_	10	case	10:case	_
-9	each	each	DET	DT	_	10	det	10:det	Entity=(place-121
-10	other	other	ADJ	JJ	Degree=Pos	7	obl	7:obl:from	Entity=place-121)|SpaceAfter=No
+8	from	from	ADP	IN	_	9	case	9:case	_
+9	each	each	DET	DT	_	7	obl	7:obl:from	Entity=(place-121
+10	other	other	ADJ	JJ	Degree=Pos	9	fixed	9:fixed	Entity=place-121)|SpaceAfter=No
 11	,	,	PUNCT	,	_	17	punct	17:punct	_
 12	and	and	CCONJ	CC	_	17	cc	17:cc	_
 13	exactly	exactly	ADV	RB	Degree=Pos	17	advmod	17:advmod	_
@@ -820,9 +820,9 @@
 9	than	than	SCONJ	IN	_	11	mark	11:mark	_
 10	in	in	ADP	IN	_	11	case	11:case	_
 11	cities	city	NOUN	NNS	Number=Plur	5	advcl	5:advcl:than	Entity=(place-126
-12	where	where	SCONJ	WRB	PronType=Int	14	mark	14:mark	Discourse=elaboration:73->72
+12	where	where	SCONJ	WRB	PronType=Rel	14	mark	14:mark	Discourse=elaboration:73->72
 13	streets	street	NOUN	NNS	Number=Plur	14	nsubj	14:nsubj	Bridge=place-126<place-127|Entity=(place-127)
-14	go	go	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	11	acl	11:acl:where	_
+14	go	go	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	11	acl:relcl	11:acl:relcl	_
 15	every	every	DET	DT	_	17	det	17:det	_
 16	which	which	DET	WDT	PronType=Int	17	det	17:det	_
 17	way	way	NOUN	NN	Number=Sing	14	obl:npmod	14:obl:npmod	Entity=place-126)|SpaceAfter=No
@@ -965,7 +965,7 @@
 12	/	/	SYM	SYM	_	13	cc	13:cc	_
 13	south	south	ADV	RB	Degree=Pos	11	conj	10:advmod|11:conj:slash	Entity=(place-149)
 14	and	and	CCONJ	CC	_	16	cc	16:cc	Discourse=elaboration:88->87
-15	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	16	aux:pass	16:aux:pass	_
+15	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	16	aux:pass	16:aux:pass	_
 16	named	name	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	10	conj	10:conj:and	_
 17	after	after	ADP	IN	_	19	case	19:case	_
 18	US	US	PROPN	NNP	Abbr=Yes|Number=Sing	19	compound	19:compound	Entity=(place-150(place-12-United_States)
@@ -1205,7 +1205,7 @@
 5	east-west	east-west	ADJ	JJ	Degree=Pos	7	amod	7:amod	_
 6	numbered	numbered	ADJ	JJ	Degree=Pos	7	amod	7:amod	_
 7	street	street	NOUN	NN	Number=Sing	10	nsubj	10:nsubj	Entity=place-192)
-8	may	may	AUX	MD	VerbForm=Fin	10	aux	10:aux	_
+8	may	may	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	10	aux	10:aux	_
 9	even	even	ADV	RB	_	10	advmod	10:advmod	_
 10	intersect	intersect	VERB	VB	VerbForm=Inf	0	root	0:root	_
 11	with	with	ADP	IN	_	13	case	13:case	_
@@ -1399,7 +1399,7 @@
 8	for	for	ADP	IN	_	9	case	9:case	_
 9	those	this	PRON	DT	Number=Plur|PronType=Dem	7	nmod	7:nmod:for|11:nsubj	Entity=(person-218
 10	who	who	PRON	WP	PronType=Rel	11	nsubj	9:ref	Discourse=elaboration:116->115
-11	are	be	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	9	acl:relcl	9:acl:relcl	_
+11	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	9	acl:relcl	9:acl:relcl	_
 12	without	without	ADP	IN	_	16	case	16:case	_
 13	their	their	PRON	PRP$	Number=Plur|Person=3|Poss=Yes|PronType=Prs	16	nmod:poss	16:nmod:poss	Entity=(object-219(person-218)
 14	own	own	ADJ	JJ	Degree=Pos	16	amod	16:amod	_
@@ -1515,7 +1515,7 @@
 3	to	to	ADP	IN	_	5	case	5:case	_
 4	flat	flat	ADJ	JJ	Degree=Pos	5	amod	5:amod	Entity=(place-235
 5	terrain	terrain	NOUN	NN	Number=Sing	2	obl	2:obl:to	Entity=person-234)place-235)
-6	may	may	AUX	MD	VerbForm=Fin	7	aux	7:aux	_
+6	may	may	AUX	MD	Number=Plur|Person=3|VerbForm=Fin	7	aux	7:aux	_
 7	find	find	VERB	VB	VerbForm=Inf	0	root	0:root	_
 8-9	Tulsa's	_	_	_	_	_	_	_	_
 8	Tulsa	Tulsa	PROPN	NNP	Number=Sing	11	nmod:poss	11:nmod:poss	Entity=(object-25(place-1-Tulsa%2C_Oklahoma

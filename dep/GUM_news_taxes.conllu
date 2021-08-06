@@ -77,9 +77,9 @@
 7	in	in	ADP	IN	_	8	case	8:case	_
 8	Milan	Milan	PROPN	NNP	Number=Sing	6	nmod	6:nmod:in	Entity=(place-14-Milan)|SpaceAfter=No
 9	.	.	PUNCT	.	_	1	punct	1:punct	_
-10	Image	image	NOUN	NN	Number=Sing	1	parataxis	1:parataxis	Discourse=attribution:6->7|Entity=(abstract-15)|SpaceAfter=No
+10	Image	image	NOUN	NN	Number=Sing	1	parataxis	1:parataxis	Discourse=preparation:6->7|Entity=(abstract-15)|SpaceAfter=No
 11	:	:	PUNCT	:	_	12	punct	12:punct	_
-12	Friedrichstrasse	Friedrichstrasse	PROPN	NNP	Number=Sing	10	dep	10:dep	Discourse=elaboration:7->5|Entity=(organization-16)|SpaceAfter=No
+12	Friedrichstrasse	Friedrichstrasse	PROPN	NNP	Number=Sing	10	dep	10:dep	Discourse=attribution:7->5|Entity=(organization-16)|SpaceAfter=No
 13	.	.	PUNCT	.	_	1	punct	1:punct	_
 
 # sent_id = GUM_news_taxes-5
@@ -183,15 +183,15 @@
 19	requests	request	NOUN	NNS	Number=Plur	16	nmod	16:nmod:of	_
 20	for	for	ADP	IN	_	21	case	21:case	_
 21	payment	payment	NOUN	NN	Number=Sing	19	nmod	19:nmod:for	Entity=(abstract-3)event-35)event-36)
-22	because	because	SCONJ	IN	_	27	mark	27:mark	Discourse=cause:16->15
-23	of	of	ADP	IN	_	27	case	27:case	_
+22	because	because	ADP	IN	_	27	case	27:case	Discourse=cause:16->15
+23	of	of	ADP	IN	_	22	fixed	22:fixed	_
 24	the	the	DET	DT	Definite=Def|PronType=Art	27	det	27:det	Entity=(organization-37
 25	religious	religious	ADJ	JJ	Degree=Pos	27	amod	27:amod	_
 26	nursery	nursery	NOUN	NN	Number=Sing	27	compound	27:compound	_
-27	school	school	NOUN	NN	Number=Sing	14	advcl	14:advcl:because	Entity=organization-37)
+27	school	school	NOUN	NN	Number=Sing	14	obl	14:obl:because_of	Entity=organization-37)
 28	and	and	CCONJ	CC	_	30	cc	30:cc	_
 29	retirement	retirement	NOUN	NN	Number=Sing	30	compound	30:compound	Entity=(place-38
-30	home	home	NOUN	NN	Number=Sing	27	conj	14:advcl:because|27:conj:and	Entity=person-33)place-38)|SpaceAfter=No
+30	home	home	NOUN	NN	Number=Sing	27	conj	14:obl:because_of|27:conj:and	Entity=person-33)place-38)|SpaceAfter=No
 31	.	.	PUNCT	.	_	7	punct	7:punct	_
 
 # sent_id = GUM_news_taxes-8
@@ -482,7 +482,7 @@
 7	"	''	PUNCT	``	_	11	punct	11:punct	Discourse=cause:39->41|SpaceAfter=No
 8	many	many	ADJ	JJ	Degree=Pos	9	amod	9:amod	Entity=(organization-79
 9	schools	school	NOUN	NNS	Number=Plur	11	nsubj	11:nsubj	Entity=organization-79)
-10	will	will	AUX	MD	VerbForm=Fin	11	aux	11:aux	_
+10	will	will	AUX	MD	Number=Plur|Person=3|VerbForm=Fin	11	aux	11:aux	_
 11	increase	increase	VERB	VB	VerbForm=Inf	6	ccomp	6:ccomp	_
 12	their	their	PRON	PRP$	Number=Plur|Person=3|Poss=Yes|PronType=Prs	13	nmod:poss	13:nmod:poss	Entity=(abstract-80(organization-79)
 13	fees	fee	NOUN	NNS	Number=Plur	11	obj	11:obj	Entity=abstract-80)
@@ -494,7 +494,7 @@
 19	Then	then	ADV	RB	PronType=Dem	23	advmod	23:advmod	Discourse=joint:41->34
 20	the	the	DET	DT	Definite=Def|PronType=Art	21	det	21:det	Entity=(place-31-Lombardy
 21	State	State	PROPN	NNP	Number=Sing	23	nsubj	23:nsubj|25:nsubj:xsubj	Entity=place-31-Lombardy)
-22	will	will	AUX	MD	VerbForm=Fin	23	aux	23:aux	_
+22	will	will	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	23	aux	23:aux	_
 23	have	have	VERB	VB	VerbForm=Inf	6	parataxis	6:parataxis	_
 24	to	to	PART	TO	_	25	mark	25:mark	_
 25	find	find	VERB	VB	VerbForm=Inf	23	xcomp	23:xcomp	_
@@ -505,7 +505,7 @@
 30	new	new	ADJ	JJ	Degree=Pos	31	amod	31:amod	Entity=(abstract-82
 31	structures	structure	NOUN	NNS	Number=Plur	29	obj	29:obj	Entity=abstract-82)
 32	and	and	CCONJ	CC	_	33	cc	33:cc	Discourse=joint:43->42
-33	manage	manage	VERB	VB	Person=2|VerbForm=Inf	29	conj	25:advcl:to|29:conj:and	_
+33	manage	manage	VERB	VB	VerbForm=Inf	29	conj	25:advcl:to|29:conj:and	_
 34	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	33	obj	33:obj	Entity=(organization-79)|SpaceAfter=No
 35	"	''	PUNCT	''	_	23	punct	23:punct	_
 36	(	(	PUNCT	-LRB-	_	38	punct	38:punct	SpaceAfter=No
@@ -601,7 +601,7 @@
 3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	Entity=(abstract-91
 4	decisions	decision	NOUN	NNS	Number=Plur	2	obj	2:obj|6:nsubj:xsubj	Entity=event-90)abstract-91)|SpaceAfter=No
 5	,	,	PUNCT	,	_	6	punct	6:punct	_
-6	do	do	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|Typo=Yes|VerbForm=Fin	2	xcomp	2:xcomp	_
+6	do	do	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|Typo=Yes|VerbForm=Fin	2	xcomp	2:xcomp	_
 7	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	6	obj	6:obj	Entity=(event-90)
 8	with	with	ADP	IN	_	10	case	10:case	_
 9	less	less	ADJ	JJR	Degree=Cmp	10	amod	10:amod	Entity=(abstract-92
@@ -670,7 +670,7 @@
 5	concerned	concern	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
 6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	Discourse=contrast:57->34|Entity=(organization-62
 7	Government	government	NOUN	NN	Number=Sing	9	nsubj	9:nsubj	Entity=organization-62)
-8	will	will	AUX	MD	VerbForm=Fin	9	aux	9:aux	_
+8	will	will	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	9	aux	9:aux	_
 9	modify	modify	VERB	VB	VerbForm=Inf	5	ccomp	5:ccomp	_
 10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	11:det	Entity=(abstract-57
 11	law	law	NOUN	NN	Number=Sing	9	obj	9:obj	Entity=abstract-57)
@@ -692,7 +692,7 @@
 2	secularist	secularist	NOUN	NN	Number=Sing	3	compound	3:compound	_
 3	magazine	magazine	NOUN	NN	Number=Sing	5	nsubj	5:nsubj	Entity=organization-101)
 4	MicroMega	MicroMega	PROPN	NNP	Number=Sing	3	appos	3:appos	Entity=(organization-101)
-5	describe	describe	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+5	describe	describe	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	Entity=(abstract-18(organization-19-Supreme_Court_of_Cassation_%28Italy%29
 7-8	court's	_	_	_	_	_	_	_	_
 7	court	court	NOUN	NN	Number=Sing	9	nmod:poss	9:nmod:poss	_
@@ -733,7 +733,7 @@
 26	to	to	PART	TO	_	27	mark	27:mark	_
 27	respect	respect	VERB	VB	VerbForm=Inf	23	xcomp	23:xcomp	_
 28	and	and	CCONJ	CC	_	29	cc	29:cc	_
-29	execute	execute	VERB	VB	Person=2|VerbForm=Inf	27	conj	23:xcomp|27:conj:and	_
+29	execute	execute	VERB	VB	VerbForm=Inf	27	conj	23:xcomp|27:conj:and	_
 30	the	the	DET	DT	Definite=Def|PronType=Art	31	det	31:det	Entity=(abstract-18
 31	sentence	sentence	NOUN	NN	Number=Sing	27	obj	27:obj|29:obj	_
 32	of	of	ADP	IN	_	35	case	35:case	_

@@ -37,10 +37,10 @@
 # sent_id = GUM_interview_onion-3
 # s_type = decl
 # text = How The Onion writes an issue
-1	How	how	SCONJ	WRB	PronType=Int	4	mark	4:mark	Discourse=preparation:4->8
+1	How	how	SCONJ	WRB	PronType=Rel	0	root	0:root	Discourse=preparation:4->8
 2	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Entity=(organization-1-The_Onion
 3	Onion	Onion	PROPN	NNP	Number=Sing	4	nsubj	4:nsubj	Entity=organization-1-The_Onion)
-4	writes	write	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+4	writes	write	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	1	acl:relcl	1:acl:relcl	_
 5	an	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	Entity=(abstract-7
 6	issue	issue	NOUN	NN	Number=Sing	4	obj	4:obj	Entity=abstract-7)
 
@@ -55,7 +55,7 @@
 6	journalism	journalism	NOUN	NN	Number=Sing	4	obj	4:obj	_
 7	by	by	ADP	IN	_	10	case	10:case	_
 8	a	a	DET	DT	Definite=Ind|PronType=Art	10	det	10:det	Entity=(person-9
-9	Wikinews	Wikinews	ADJ	JJ	Degree=Pos	10	amod	10:amod	Entity=(organization-10)
+9	Wikinews	Wikinews	PROPN	NNP	Number=Sing	10	compound	10:compound	Entity=(organization-10)
 10	reporter	reporter	NOUN	NN	Number=Sing	6	nmod	6:nmod:by	Entity=abstract-8)person-9)|SpaceAfter=No
 11	.	.	PUNCT	.	_	4	punct	4:punct	_
 
@@ -111,7 +111,7 @@
 10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	11:det	Bridge=abstract-15<abstract-18|Entity=(abstract-18
 11	story	story	NOUN	NN	Number=Sing	8	obj	8:obj	Entity=abstract-18)|SpaceAfter=No
 12	,	,	PUNCT	,	_	14	punct	14:punct	_
-13	as	as	SCONJ	RB	_	14	mark	14:mark	Discourse=antithesis:11->9
+13	as	as	SCONJ	IN	_	14	mark	14:mark	Discourse=antithesis:11->9
 14	opposed	oppose	VERB	VBN	Tense=Past|VerbForm=Part	2	advcl	2:advcl:as	_
 15	to	to	ADP	IN	_	19	case	19:case	_
 16	The	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	Entity=(organization-19-The_New_York_Times
@@ -204,7 +204,7 @@
 18	an	a	DET	DT	Definite=Ind|PronType=Art	19	det	19:det	Entity=(abstract-32
 19	issue	issue	NOUN	NN	Number=Sing	17	obj	17:obj	Entity=abstract-32)
 20	and	and	CCONJ	CC	_	21	cc	21:cc	Discourse=sequence:22->19
-21	brainstorm	brainstorm	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	17	conj	2:conj|17:conj:and	_
+21	brainstorm	brainstorm	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	17	conj	2:conj|17:conj:and	_
 22	with	with	ADP	IN	_	26	case	26:case	_
 23	the	the	DET	DT	Definite=Def|PronType=Art	26	det	26:det	Entity=(person-28
 24	whole	whole	ADJ	JJ	Degree=Pos	26	amod	26:amod	_
@@ -254,7 +254,7 @@
 14	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	13	obj	13:obj	Bridge=abstract-35<abstract-36|Entity=(abstract-36)
 15	up	up	ADP	RP	_	13	compound:prt	13:compound:prt	_
 16	and	and	CCONJ	CC	_	17	cc	17:cc	Discourse=sequence:28->26
-17	assign	assign	VERB	VB	Person=2|VerbForm=Inf	13	conj	10:xcomp|13:conj:and	_
+17	assign	assign	VERB	VB	VerbForm=Inf	13	conj	10:xcomp|13:conj:and	_
 18	the	the	DET	DT	Definite=Def|PronType=Art	20	det	20:det	Entity=(abstract-37
 19	photojournalism	photojournalism	NOUN	NN	Number=Sing	20	compound	20:compound	Entity=(abstract-38)
 20	aspect	aspect	NOUN	NN	Number=Sing	17	obj	17:obj	_
@@ -293,7 +293,7 @@
 12	and	and	CCONJ	CC	_	15	cc	15:cc	Discourse=sequence:31->15
 13	then	then	ADV	RB	PronType=Dem	15	advmod	15:advmod	_
 14	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	15	nsubj	15:nsubj	Entity=(abstract-36)
-15	goes	go	VERB	VBZ	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	3	conj	3:conj:and	_
+15	goes	go	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	conj	3:conj:and	_
 16	out	out	ADP	RP	_	15	compound:prt	15:compound:prt	_
 17	over	over	ADP	IN	_	19	case	19:case	_
 18	the	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	Entity=(abstract-43
@@ -339,7 +339,7 @@
 27	headlines	headline	NOUN	NNS	Number=Plur	24	obj	24:obj	Entity=abstract-49)
 28	and	and	CCONJ	CC	_	30	cc	30:cc	Discourse=sequence:36->34
 29	then	then	ADV	RB	PronType=Dem	30	advmod	30:advmod	_
-30	assign	assign	VERB	VB	Person=2|VerbForm=Inf	19	conj	5:conj|19:conj:and	_
+30	assign	assign	VERB	VB	VerbForm=Inf	19	conj	5:conj|19:conj:and	_
 31	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	30	obj	30:obj	Bridge=abstract-49<abstract-50|Entity=(abstract-50)
 32	to	to	ADP	IN	_	35	case	35:case	_
 33	a	a	DET	DT	Definite=Ind|PronType=Art	35	det	35:det	Entity=(person-51
@@ -357,7 +357,7 @@
 # speaker = ChetClem
 # text = Writers will occasionally write their own headlines, but we come up with a list of 15 or 20 headline ideas, what we think will make a good story and then we assign it based upon what people’s writing strengths are.
 1	Writers	writer	NOUN	NNS	Number=Plur	4	nsubj	4:nsubj	Discourse=concession:38->39|Entity=(person-46)
-2	will	will	AUX	MD	VerbForm=Fin	4	aux	4:aux	_
+2	will	will	AUX	MD	Number=Plur|Person=3|VerbForm=Fin	4	aux	4:aux	_
 3	occasionally	occasionally	ADV	RB	Degree=Pos	4	advmod	4:advmod	_
 4	write	write	VERB	VB	VerbForm=Inf	0	root	0:root	_
 5	their	their	PRON	PRP$	Number=Plur|Person=3|Poss=Yes|PronType=Prs	7	nmod:poss	7:nmod:poss	Entity=(abstract-52(person-46)
@@ -411,7 +411,7 @@
 3	some	some	DET	DT	_	4	det	4:det	Bridge=person-46<person-58|Entity=(person-58
 4	people	person	NOUN	NNS	Number=Plur	2	obj	2:obj|7:nsubj	_
 5	who	who	PRON	WP	PronType=Rel	7	nsubj	4:ref	Discourse=elaboration:45->44
-6	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	7	cop	7:cop	_
+6	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	7	cop	7:cop	_
 7	great	great	ADJ	JJ	Degree=Pos	4	acl:relcl	4:acl:relcl	_
 8	at	at	ADP	IN	_	9	case	9:case	_
 9	politics	politics	NOUN	NN	Number=Sing	7	obl	7:obl:at	Entity=(abstract-59)person-58)|SpaceAfter=No
@@ -420,7 +420,7 @@
 12	people	person	NOUN	NNS	Number=Plur	4	conj	2:obj|4:conj	Entity=person-60)
 13	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	14	nsubj	14:nsubj	Discourse=elaboration:47->46|Entity=(person-14)
 14	give	give	VERB	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	12	acl:relcl	12:acl:relcl	_
-15	all	all	PRON	PDT	_	18	det:predet	18:det:predet	Entity=(abstract-61
+15	all	all	DET	PDT	_	18	det:predet	18:det:predet	Entity=(abstract-61
 16	the	the	DET	DT	Definite=Def|PronType=Art	18	det	18:det	_
 17	war	war	NOUN	NN	Number=Sing	18	compound	18:compound	Entity=(event-62)
 18	stuff	stuff	NOUN	NN	Number=Sing	14	obj	14:obj	Entity=abstract-61)
@@ -806,7 +806,7 @@
 3	our	our	PRON	PRP$	Number=Plur|Person=1|Poss=Yes|PronType=Prs	4	nmod:poss	4:nmod:poss	Entity=(abstract-107(person-14)
 4	reaction	reaction	NOUN	NN	Number=Sing	0	root	0:root	_
 5	to	to	ADP	IN	_	6	case	6:case	_
-6	all	all	PRON	DT	_	4	nmod	4:nmod:to	Entity=(abstract-110
+6	all	all	DET	DT	_	4	nmod	4:nmod:to	Entity=(abstract-110
 7	of	of	ADP	IN	_	10	case	10:case	_
 8	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	_
 9	J-Lo	J-Lo	PROPN	NNP	Number=Sing	10	compound	10:compound	Entity=(person-108-Jennifer_Lopez)
@@ -910,7 +910,7 @@
 2-3	don’t	_	_	_	_	_	_	_	_
 2	do	do	VERB	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 3	n’t	not	PART	RB	Polarity=Neg	4	advmod	4:advmod	_
-4	want	want	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	2	ccomp	2:ccomp	_
+4	want	want	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	2	ccomp	2:ccomp	_
 5	to	to	ADP	IN	_	7	case	7:case	_
 6	just	just	ADJ	JJ	Degree=Pos	7	amod	7:amod	_
 7	traffic	traffic	NOUN	NN	Number=Sing	4	obl	4:obl:to	_
@@ -939,7 +939,7 @@
 9	that	that	PRON	WDT	PronType=Rel	10	nsubj	8:ref	Discourse=elaboration:90->89
 10	exists	exist	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	8	acl:relcl	8:acl:relcl	_
 11	on	on	ADP	IN	_	17	case	17:case	_
-12	all	all	PRON	PDT	_	17	det:predet	17:det:predet	Entity=(abstract-128
+12	all	all	DET	PDT	_	17	det:predet	17:det:predet	Entity=(abstract-128
 13	the	the	DET	DT	Definite=Def|PronType=Art	17	det	17:det	_
 14	late	late	ADJ	JJ	Degree=Pos	15	amod	15:amod	Entity=(time-129
 15	night	night	NOUN	NN	Number=Sing	17	compound	17:compound	Entity=time-129)
@@ -1038,8 +1038,8 @@
 16	trying	try	VERB	VBG	VerbForm=Ger	14	advcl	14:advcl	Discourse=elaboration:98->97
 17	to	to	PART	TO	_	18	mark	18:mark	_
 18	crack	crack	VERB	VB	VerbForm=Inf	16	xcomp	16:xcomp	_
-19	each	each	DET	DT	_	20	det	20:det	Entity=(person-14
-20	other	other	ADJ	JJ	Degree=Pos	18	obj	18:obj	Entity=person-14)
+19	each	each	DET	DT	_	18	obj	18:obj	Entity=(person-14
+20	other	other	ADJ	JJ	Degree=Pos	19	fixed	19:fixed	Entity=person-14)
 21	up	up	ADP	RP	_	18	compound:prt	18:compound:prt	Entity=event-134)|SpaceAfter=No
 22	?	?	PUNCT	.	_	13	punct	13:punct	_
 
@@ -1143,7 +1143,7 @@
 3	analogy	analogy	NOUN	NN	Number=Sing	4	compound	4:compound	_
 4-5	I’ve	_	_	_	_	_	_	_	_
 4	I	I	NOUN	NN	Number=Sing	5	nsubj	5:nsubj	Discourse=elaboration:107->106|Entity=(person-119)
-5	’ve	have	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+5	’ve	have	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 6	heard	hear	VERB	VBN	Tense=Past|VerbForm=Part	7	csubj	7:csubj	Entity=abstract-140)
 7	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	ccomp	5:ccomp	Discourse=same-unit:108->106
 8	when	when	SCONJ	WRB	PronType=Int	15	mark	15:mark	_
@@ -1196,7 +1196,7 @@
 29	take	take	NOUN	NN	Number=Sing	26	nsubj	26:nsubj|34:nsubj	Entity=abstract-146)|SpaceAfter=No
 30	,	,	PUNCT	,	_	34	punct	34:punct	_
 31	what	what	PRON	WP	PronType=Rel	34	nsubj	29:ref	Discourse=joint:113->110
-32	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	34	cop	34:cop	_
+32	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	34	cop	34:cop	_
 33	other	other	ADJ	JJ	Degree=Pos	34	amod	34:amod	Entity=(person-147
 34	people	person	NOUN	NNS	Number=Plur	29	acl:relcl	29:acl:relcl	Entity=person-147)
 35	doing	do	VERB	VBG	VerbForm=Ger	34	acl	34:acl	SpaceAfter=No
@@ -1252,7 +1252,7 @@
 8	what	what	PRON	WP	PronType=Int	12	obj	12:obj	Discourse=antithesis:119->117
 9	most	most	ADJ	JJS	Degree=Sup	10	amod	10:amod	Entity=(person-150
 10	people	person	NOUN	NNS	Number=Plur	12	nsubj	12:nsubj	Entity=person-150)
-11	would	would	AUX	MD	VerbForm=Fin	12	aux	12:aux	_
+11	would	would	AUX	MD	Number=Plur|Person=3|VerbForm=Fin	12	aux	12:aux	_
 12	expect	expect	VERB	VB	VerbForm=Inf	7	ccomp	7:ccomp	SpaceAfter=No
 13	.	.	PUNCT	.	_	2	punct	2:punct	_
 
@@ -1274,7 +1274,7 @@
 # speaker = SeanMills
 # text = Not all the time, but it can’t be a laugh a minute.
 1	Not	not	PART	RB	Polarity=Neg	4	advmod	4:advmod	Discourse=concession:121->122
-2	all	all	PRON	PDT	_	4	det:predet	4:det:predet	Entity=(time-151
+2	all	all	DET	PDT	_	4	det:predet	4:det:predet	Entity=(time-151
 3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	_
 4	time	time	NOUN	NN	Number=Sing	12	parataxis	12:parataxis	Entity=time-151)|SpaceAfter=No
 5	,	,	PUNCT	,	_	4	punct	4:punct	_
@@ -1336,7 +1336,7 @@
 6	unfunny	unfunny	ADJ	JJ	Degree=Pos|Polarity=Neg	7	amod	7:amod	_
 7	jokes	joke	NOUN	NNS	Number=Plur	4	nmod	4:nmod:of	_
 8	that	that	PRON	WDT	PronType=Rel	10	nsubj:pass	4:ref	Discourse=elaboration:126->125
-9	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	10	aux:pass	10:aux:pass	_
+9	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	10	aux:pass	10:aux:pass	_
 10	told	tell	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	4	acl:relcl	4:acl:relcl	_
 11	in	in	ADP	IN	_	14	case	14:case	_
 12	a	a	DET	DT	Definite=Ind|PronType=Art	14	det	14:det	Entity=(place-160
@@ -1357,9 +1357,9 @@
 26	room	room	NOUN	NN	Number=Sing	20	obl	20:obl:in	Entity=place-160)
 27	and	and	CCONJ	CC	_	30	cc	30:cc	Discourse=joint:129->127
 28-29	don’t	_	_	_	_	_	_	_	_
-28	do	do	AUX	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	30	aux	30:aux	_
+28	do	do	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	30	aux	30:aux	_
 29	n’t	not	PART	RB	Polarity=Neg	30	advmod	30:advmod	_
-30	go	go	VERB	VB	Person=2|VerbForm=Inf	10	conj	4:acl:relcl|10:conj:and	_
+30	go	go	VERB	VB	VerbForm=Inf	10	conj	4:acl:relcl|10:conj:and	_
 31	out	out	ADP	RP	_	30	compound:prt	30:compound:prt	_
 32	in	in	ADP	IN	_	34	case	34:case	_
 33	The	the	DET	DT	Definite=Def|PronType=Art	34	det	34:det	Entity=(organization-1-The_Onion
@@ -1467,7 +1467,7 @@
 1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	2	nsubj	2:nsubj	Discourse=restatement:140->139|Entity=(person-45)
 2	go	go	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 3	through	through	ADP	IN	_	6	case	6:case	_
-4	quite	quite	PRON	PDT	_	6	det:predet	6:det:predet	Entity=(abstract-170
+4	quite	quite	DET	PDT	_	6	det:predet	6:det:predet	Entity=(abstract-170
 5	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	_
 6	bit	bit	NOUN	NN	Number=Sing	2	obl	2:obl:through	Entity=abstract-170)|SpaceAfter=No
 7	.	.	PUNCT	.	_	2	punct	2:punct	_

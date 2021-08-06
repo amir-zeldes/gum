@@ -9,9 +9,9 @@
 # sent_id = GUM_whow_cactus-1
 # s_type = inf
 # text = How to Grow Beavertail Cactus
-1	How	how	SCONJ	WRB	PronType=Int	3	mark	3:mark	Discourse=preparation:1->18
+1	How	how	SCONJ	WRB	PronType=Int	0	root	0:root	Discourse=preparation:1->18
 2	to	to	PART	TO	_	3	mark	3:mark	_
-3	Grow	grow	VERB	VB	Person=2|VerbForm=Inf	0	root	0:root	_
+3	Grow	grow	VERB	VB	VerbForm=Inf	1	acl	1:acl:to	_
 4	Beavertail	Beavertail	PROPN	NNP	Number=Sing	5	compound	5:compound	Entity=(plant-1-Opuntia_basilaris
 5	Cactus	Cactus	PROPN	NNP	Number=Sing	3	obj	3:obj	Entity=plant-1-Opuntia_basilaris)
 
@@ -36,7 +36,7 @@
 16	northwest	northwest	ADJ	JJ	Degree=Pos	17	amod	17:amod	Entity=(place-3
 17	Mexico	Mexico	PROPN	NNP	Number=Sing	14	conj	9:obl:in|14:conj:and	Entity=plant-1-Opuntia_basilaris)place-3)|SpaceAfter=No
 18	;	;	PUNCT	:	_	3	punct	3:punct	_
-19	can	can	AUX	MD	VerbForm=Fin	20	aux	20:aux	Discourse=same-unit:5->2
+19	can	can	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	20	aux	20:aux	Discourse=same-unit:5->2
 20	grow	grow	VERB	VB	VerbForm=Inf	0	root	0:root	_
 21	to	to	PART	TO	_	30	mark	30:mark	_
 22	be	be	AUX	VB	VerbForm=Inf	30	cop	30:cop	_
@@ -129,9 +129,9 @@
 5	to	to	PART	TO	_	6	mark	6:mark	Discourse=purpose:15->14
 6	find	find	VERB	VB	VerbForm=Inf	1	xcomp	1:xcomp	_
 7	out	out	ADP	RP	_	6	compound:prt	6:compound:prt	_
-8	how	how	SCONJ	WRB	PronType=Int	10	mark	10:mark	_
+8	how	how	SCONJ	WRB	PronType=Int	6	obj	6:obj	_
 9	to	to	PART	TO	_	10	mark	10:mark	_
-10	grow	grow	VERB	VB	VerbForm=Inf	6	xcomp	6:xcomp	_
+10	grow	grow	VERB	VB	VerbForm=Inf	8	acl	8:acl:to	_
 11	Beavertail	Beavertail	PROPN	NNP	Number=Sing	12	compound	12:compound	Entity=(plant-1-Opuntia_basilaris
 12	cactus	cactus	NOUN	NN	Number=Sing	10	obj	10:obj	Entity=plant-1-Opuntia_basilaris)|SpaceAfter=No
 13	.	.	PUNCT	.	_	1	punct	1:punct	_
@@ -387,7 +387,7 @@
 17	cactus	cactus	NOUN	NN	Number=Sing	14	obj	14:obj	Entity=plant-40)plant-41)|SpaceAfter=No
 18	)	)	PUNCT	-RRB-	_	12	punct	12:punct	_
 19	that	that	PRON	WDT	PronType=Rel	23	nsubj	5:ref	Discourse=elaboration:45->43
-20	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	23	cop	23:cop	_
+20	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	23	cop	23:cop	_
 21	6	6	NUM	CD	NumForm=Digit|NumType=Card	22	nummod	22:nummod	_
 22	months	month	NOUN	NNS	Number=Plur	23	obl:npmod	23:obl:npmod	_
 23	old	old	ADJ	JJ	Degree=Pos	5	acl:relcl	5:acl:relcl	_
@@ -411,7 +411,7 @@
 5	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	Entity=(object-43
 6	callous	callous	NOUN	NN	Number=Sing	4	obj	4:obj	Entity=object-43)
 7	and	and	CCONJ	CC	_	8	cc	8:cc	Discourse=joint:48->47
-8	prevent	prevent	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	4	conj	4:conj:and|11:advcl:in_order_to	_
+8	prevent	prevent	VERB	VB	VerbForm=Inf	4	conj	4:conj:and|11:advcl:in_order_to	_
 9	rot	rot	NOUN	NN	Number=Sing	8	obj	8:obj	Entity=(event-44)|SpaceAfter=No
 10	,	,	PUNCT	,	_	4	punct	4:punct	_
 11	cure	cure	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=sequence:49->43
@@ -510,7 +510,7 @@
 10	an	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	_
 11	inch	inch	NOUN	NN	Number=Sing	16	obl:npmod	16:obl:npmod	Entity=abstract-55)
 12	(	(	PUNCT	-LRB-	_	14	punct	14:punct	Discourse=restatement:58->57|SpaceAfter=No
-13	2.5	2.5	NUM	CD	NumForm=Digit|NumType=Card	14	nummod	14:nummod	Entity=(abstract-55
+13	2.5	2.5	NUM	CD	NumForm=Digit|NumType=Frac	14	nummod	14:nummod	Entity=(abstract-55
 14	cm.	centimeter	NOUN	NNS	Abbr=Yes|Number=Plur	11	appos	11:appos	Entity=abstract-55)|SpaceAfter=No
 15	)	)	PUNCT	-RRB-	_	14	punct	14:punct	_
 16	deep	deep	ADJ	JJ	Degree=Pos	1	advmod	1:advmod	Discourse=same-unit:59->57|SpaceAfter=No
@@ -666,7 +666,7 @@
 3	in	in	ADP	IN	_	5	case	5:case	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	Entity=(plant-36
 5	pad	pad	NOUN	NN	Number=Sing	2	nmod	2:nmod:in	Entity=substance-70)plant-36)
-6	will	will	AUX	MD	VerbForm=Fin	7	aux	7:aux	_
+6	will	will	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	7	aux	7:aux	_
 7	provide	provide	VERB	VB	VerbForm=Inf	0	root	0:root	_
 8	enough	enough	ADJ	JJ	Degree=Pos	9	amod	9:amod	Entity=(substance-71
 9	nutrients	nutrient	NOUN	NNS	Number=Plur	7	obj	7:obj	Entity=substance-71)
@@ -682,7 +682,7 @@
 1	Too	too	ADV	RB	Degree=Pos	2	advmod	2:advmod	Discourse=antithesis:75->72|Entity=(substance-73
 2	much	much	ADJ	JJ	Degree=Pos	3	amod	3:amod	_
 3	water	water	NOUN	NN	Number=Sing	5	nsubj	5:nsubj	Entity=substance-73)
-4	might	might	AUX	MD	VerbForm=Fin	5	aux	5:aux	_
+4	might	might	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	5	aux	5:aux	_
 5	cause	cause	VERB	VB	VerbForm=Inf	0	root	0:root	_
 6	rot	rot	NOUN	NN	Number=Sing	5	obj	5:obj	Entity=(event-44)|SpaceAfter=No
 7	.	.	PUNCT	.	_	5	punct	5:punct	_
@@ -765,7 +765,7 @@
 13	grows	grow	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 14	and	and	CCONJ	CC	_	16	cc	16:cc	Discourse=motivation:84->82
 15	will	will	AUX	MD	VerbForm=Fin	16	aux	16:aux	_
-16	benefit	benefit	VERB	VB	Person=2|VerbForm=Inf	13	conj	13:conj:and	_
+16	benefit	benefit	VERB	VB	VerbForm=Inf	13	conj	13:conj:and	_
 17	from	from	ADP	IN	_	20	case	20:case	_
 18	a	a	DET	DT	Definite=Ind|PronType=Art	20	det	20:det	Entity=(substance-77
 19	balanced	balance	VERB	VBN	Tense=Past|VerbForm=Part	20	amod	20:amod	_
@@ -803,13 +803,13 @@
 3	or	or	CCONJ	CC	_	4	cc	4:cc	_
 4	third	third	ADJ	JJ	Degree=Pos|NumType=Ord	2	conj	2:conj:or|5:amod	_
 5	pad	pad	NOUN	NN	Number=Sing	7	nsubj	7:nsubj|12:nsubj	Entity=plant-79)
-6	will	will	AUX	MD	VerbForm=Fin	7	aux	7:aux|12:aux	_
+6	will	will	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	7	aux	7:aux|12:aux	_
 7	bear	bear	VERB	VB	VerbForm=Inf	0	root	0:root	_
 8	some	some	DET	DT	_	9	det	9:det	Entity=(plant-80
 9	flowers	flower	NOUN	NNS	Number=Plur	7	obj	7:obj	Entity=plant-80)|SpaceAfter=No
 10	,	,	PUNCT	,	_	12	punct	12:punct	_
 11	but	but	CCONJ	CC	_	12	cc	12:cc	Discourse=elaboration:88->85
-12	wait	wait	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	7	conj	7:conj:but	_
+12	wait	wait	VERB	VB	VerbForm=Inf	7	conj	7:conj:but	_
 13	before	before	SCONJ	IN	_	14	mark	14:mark	_
 14	harvesting	harvest	VERB	VBG	VerbForm=Ger	12	advcl	12:advcl:before	_
 15	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	14	obj	14:obj	Entity=(plant-80)
