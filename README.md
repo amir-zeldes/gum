@@ -50,7 +50,7 @@ If you are using the **Reddit** subset of GUM in particular, please use this cit
 @InProceedings{BehzadZeldes2020,
   author    = {Shabnam Behzad and Amir Zeldes},
   title     = {A Cross-Genre Ensemble Approach to Robust {R}eddit Part of Speech Tagging},
-  booktitle   = {Proceedings of the 12th Web as Corpus Workshop (WAC-XII)},
+  booktitle = {Proceedings of the 12th Web as Corpus Workshop (WAC-XII)},
   pages     = {50--56},
   year      = {2020},
 }
