@@ -25,7 +25,7 @@ For one of the twelve text types in this corpus, reddit forum discussions, plain
 
 ## Citing
 
-To cite this corpus, please refer to the following article:
+To cite this corpus in general, please refer to the following article, or see different citations for specific aspects below:
 
 Zeldes, Amir (2017) "The GUM Corpus: Creating Multilayer Resources in the Classroom". Language Resources and Evaluation 51(3), 581–612. 
 
@@ -42,6 +42,32 @@ Zeldes, Amir (2017) "The GUM Corpus: Creating Multilayer Resources in the Classr
 }
 ```
 
+If you are using the **Reddit** subset of GUM in particular, please use this citation instead:
+
+* Behzad, Shabnam and Zeldes, Amir (2020) "A Cross-Genre Ensemble Approach to Robust Reddit Part of Speech Tagging". In: Proceedings of the 12th Web as Corpus Workshop (WAC-XII).
+
+```
+@InProceedings{BehzadZeldes2020,
+  author    = {Shabnam Behzad and Amir Zeldes},
+  title     = {A Cross-Genre Ensemble Approach to Robust {R}eddit Part of Speech Tagging},
+  booktitle = {Proceedings of the 12th Web as Corpus Workshop (WAC-XII)},
+  pages     = {50--56},
+  year      = {2020},
+}
+```
+
+If you are using the OntoNotes schema version of the coreference annotations (a.k.a. OntoGUM data in `coref/ontogum/`), please cite this paper instead:
+
+```
+@InProceedings{ZhuEtAl2021,
+  author    = {Yilun Zhu and Sameer Pradhan and Amir Zeldes},
+  booktitle = {Proceedings of ACL-IJCNLP 2021},
+  title     = {{OntoGUM}: Evaluating Contextualized {SOTA} Coreference Resolution on 12 More Genres},
+  year      = {2021},
+  pages     = {461--467},
+  address   = {Bangkok, Thailand}
+```
+
 For a full list of contributors please see [the corpus website](https://corpling.uis.georgetown.edu/gum).
 
 ## Directories
@@ -55,6 +81,7 @@ The corpus is downloadable in multiple formats. Not all formats contain all anno
   * const/ - Constituent trees with function labels and PTB POS tags in the PTB bracketing format (automatic parser output)
   * coref/ - Entity and coreference annotation in two formats: 
     * conll/ - CoNLL shared task tabular format (with Wikification but no bridging or split antecedent annotations)
+    * ontogum/ - alternative version of coreference annotation in CoNLL format following OntoNotes guidelines (see Zhu et al. 2021)
     * tsv/ - WebAnno .tsv format, including entity and information status annotations, Wikification, bridging, split antecedent and singleton entities
   * dep/ - Dependency trees using Universal Dependencies, enriched with sentence types, entities, coreference, bridging, Wikification, automatic morphological tags and Universal POS tags according to the UD standard
   * paula/ - The entire merged corpus in standoff [PAULA XML](https://www.sfb632.uni-potsdam.de/en/paula.html), with all annotations

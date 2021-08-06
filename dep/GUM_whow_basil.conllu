@@ -9,9 +9,9 @@
 # sent_id = GUM_whow_basil-1
 # s_type = inf
 # text = How to Grow Basil
-1	How	how	SCONJ	WRB	PronType=Int	3	mark	3:mark	Discourse=preparation:1->20
+1	How	how	SCONJ	WRB	PronType=Int	0	root	0:root	Discourse=preparation:1->20
 2	to	to	PART	TO	_	3	mark	3:mark	_
-3	Grow	grow	VERB	VB	Person=2|VerbForm=Inf	0	root	0:root	_
+3	Grow	grow	VERB	VB	VerbForm=Inf	1	acl	1:acl:to	_
 4	Basil	basil	NOUN	NN	Number=Sing	3	obj	3:obj	Entity=(plant-1)
 
 # sent_id = GUM_whow_basil-2
@@ -66,7 +66,7 @@
 13	different	different	ADJ	JJ	Degree=Pos	12	xcomp	12:xcomp	SpaceAfter=No
 14	,	,	PUNCT	,	_	23	punct	23:punct	_
 15	almost	almost	ADV	RB	Degree=Pos	23	advmod	23:advmod	Discourse=antithesis:11->10
-16	as	as	SCONJ	RB	_	23	mark	23:mark	_
+16	as	as	SCONJ	IN	_	23	mark	23:mark	_
 17	if	if	ADP	IN	_	16	fixed	16:fixed	_
 18	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	23	nsubj	23:nsubj	Entity=(plant-6)
 19	were	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	23	cop	23:cop	_
@@ -80,13 +80,13 @@
 # s_type = decl
 # text = This article outlines how to plant and harvest basil.
 1	This	this	DET	DT	Number=Sing|PronType=Dem	2	det	2:det	Discourse=attribution:12->13|Entity=(abstract-8
-2	article	article	NOUN	NN	Number=Sing	3	nsubj	3:nsubj|6:nsubj:xsubj|8:nsubj:xsubj	Entity=abstract-8)
+2	article	article	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	Entity=abstract-8)
 3	outlines	outline	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
-4	how	how	SCONJ	WRB	PronType=Int	6	mark	6:mark	Discourse=background:13->3
+4	how	how	SCONJ	WRB	PronType=Int	3	obj	3:obj	Discourse=background:13->3
 5	to	to	PART	TO	_	6	mark	6:mark	_
-6	plant	plant	VERB	VB	VerbForm=Inf	3	xcomp	3:xcomp	_
+6	plant	plant	VERB	VB	VerbForm=Inf	4	acl	4:acl:to	_
 7	and	and	CCONJ	CC	_	8	cc	8:cc	_
-8	harvest	harvest	VERB	VB	Person=2|VerbForm=Inf	6	conj	3:xcomp|6:conj:and	_
+8	harvest	harvest	VERB	VB	VerbForm=Inf	6	conj	4:acl:to|6:conj:and	_
 9	basil	basil	NOUN	NN	Number=Sing	6	obj	6:obj|8:obj	Entity=(plant-1)|SpaceAfter=No
 10	.	.	PUNCT	.	_	3	punct	3:punct	_
 
@@ -126,10 +126,10 @@
 5	different	different	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
 6	varieties	variety	NOUN	NNS	Number=Plur	2	obl	2:obl:in|8:nmod:of	SpaceAfter=No
 7	,	,	PUNCT	,	_	11	punct	11:punct	_
-8	each	each	PRON	DT	_	11	nsubj	11:nsubj	Discourse=elaboration:19->18
+8	each	each	DET	DT	_	11	nsubj	11:nsubj	Discourse=elaboration:19->18
 9	of	of	ADP	IN	_	10	case	10:case	_
 10	which	which	PRON	WDT	PronType=Int	8	nmod	6:ref	_
-11	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	acl:relcl	6:acl:relcl	_
+11	have	have	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	6	acl:relcl	6:acl:relcl	_
 12	a	a	DET	DT	Definite=Ind|PronType=Art	14	det	14:det	Entity=(abstract-13
 13	unique	unique	ADJ	JJ	Degree=Pos	14	amod	14:amod	_
 14	flavor	flavor	NOUN	NN	Number=Sing	11	obj	11:obj	_
@@ -156,7 +156,7 @@
 14	several	several	ADJ	JJ	Degree=Pos	11	dep	11:dep	Entity=(plant-16
 15	-	-	PUNCT	:	_	17	punct	17:punct	_
 16	that	that	PRON	WDT	PronType=Rel	17	nsubj	11:ref	Discourse=elaboration:23->21
-17	appeal	appeal	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	11	acl:relcl	11:acl:relcl	_
+17	appeal	appeal	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	11	acl:relcl	11:acl:relcl	_
 18	to	to	ADP	IN	_	19	case	19:case	_
 19	you	you	PRON	PRP	Case=Acc|Number=Sing|Person=2|PronType=Prs	17	obl	17:obl:to	Entity=(person-11)plant-15)plant-16)|SpaceAfter=No
 20	,	,	PUNCT	,	_	22	punct	22:punct	_
@@ -177,7 +177,7 @@
 # s_type = decl
 # text = Here are a few ideas:
 1	Here	here	ADV	RB	PronType=Dem	5	dep	5:dep	Discourse=preparation:26->27
-2	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	cop	5:cop	_
+2	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	5	cop	5:cop	_
 3	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	5:det	Entity=(abstract-20
 4	few	few	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
 5	ideas	idea	NOUN	NNS	Number=Plur	0	root	0:root	Entity=abstract-20)|SpaceAfter=No
@@ -308,7 +308,7 @@
 2	and	and	CCONJ	CC	_	4	cc	4:cc	_
 3	Greek	Greek	ADJ	JJ	Degree=Pos	4	amod	4:amod	_
 4	basil	basil	NOUN	NN	Number=Sing	1	conj	1:conj:and|8:nsubj:xsubj|10:nsubj:xsubj|13:nsubj:xsubj	Entity=plant-41)
-5	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	8	cop	8:cop	_
+5	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	8	cop	8:cop	_
 6	much	much	ADV	RB	Degree=Pos	8	advmod	8:advmod	_
 7	more	more	ADV	RBR	Degree=Cmp	8	advmod	8:advmod	_
 8	difficult	difficult	ADJ	JJ	Degree=Pos	0	root	0:root	_
@@ -316,7 +316,7 @@
 10	grow	grow	VERB	VB	VerbForm=Inf	8	xcomp	8:xcomp	SpaceAfter=No
 11	,	,	PUNCT	,	_	13	punct	13:punct	_
 12	but	but	CCONJ	CC	_	13	cc	13:cc	Discourse=contrast:40->27
-13	form	form	VERB	VB	Person=2|VerbForm=Inf	10	conj	8:xcomp|10:conj:but	_
+13	form	form	VERB	VB	VerbForm=Inf	10	conj	8:xcomp|10:conj:but	_
 14	pretty	pretty	ADJ	JJ	Degree=Pos	16	amod	16:amod	Entity=(plant-42
 15	little	little	ADJ	JJ	Degree=Pos	16	amod	16:amod	_
 16	bushes	bush	NOUN	NNS	Number=Plur	13	obj	13:obj|18:nsubj	_
@@ -746,7 +746,7 @@
 15	of	of	ADP	IN	_	16	case	16:case	_
 16	sunshine	sunshine	NOUN	NN	Number=Sing	14	nmod	14:nmod:of	Entity=abstract-84)
 17	and	and	CCONJ	CC	_	18	cc	18:cc	Discourse=joint:86->85
-18	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	11	conj	3:advcl:where|11:conj:and	_
+18	have	have	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	11	conj	3:advcl:where|11:conj:and	_
 19	well-drained	well-drained	ADJ	JJ	Degree=Pos	20	amod	20:amod	Entity=(substance-85
 20	soil	soil	NOUN	NN	Number=Sing	18	obj	18:obj	Entity=abstract-82)place-83)substance-85)|SpaceAfter=No
 21	.	.	PUNCT	.	_	3	punct	3:punct	_
@@ -840,7 +840,7 @@
 # s_type = decl
 # text = they need to be planted 6 inches apart, since they grow quite large.
 1	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	5	nsubj:pass	5:nsubj:pass	Discourse=elaboration:97->95|Entity=(plant-74)
-2	need	need	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+2	need	need	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 3	to	to	PART	TO	_	5	mark	5:mark	_
 4	be	be	AUX	VB	VerbForm=Inf	5	aux:pass	5:aux:pass	_
 5	planted	plant	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	2	xcomp	2:xcomp	_
@@ -914,7 +914,7 @@
 20	soak	soak	VERB	VB	VerbForm=Inf	18	acl	18:acl:to	_
 21	in	in	ADP	RP	_	20	compound:prt	20:compound:prt	_
 22	and	and	CCONJ	CC	_	23	cc	23:cc	Discourse=joint:106->105
-23	evaporate	evaporate	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	20	conj	18:acl:to|20:conj:and	Entity=time-99)
+23	evaporate	evaporate	VERB	VB	VerbForm=Inf	20	conj	18:acl:to|20:conj:and	Entity=time-99)
 24	rather	rather	ADV	RB	_	26	cc	26:cc	Discourse=antithesis:107->104
 25	than	than	ADP	IN	_	24	fixed	24:fixed	_
 26	sitting	sit	VERB	VBG	VerbForm=Ger	23	conj	20:conj|23:conj:rather_than	_
@@ -1024,7 +1024,7 @@
 10	,	,	PUNCT	,	_	7	punct	7:punct	_
 11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Discourse=same-unit:121->119|Entity=(plant-111
 12	plant	plant	NOUN	NN	Number=Sing	14	nsubj	14:nsubj|15:nsubj:xsubj	Entity=plant-111)
-13	will	will	AUX	MD	VerbForm=Fin	14	aux	14:aux	_
+13	will	will	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	14	aux	14:aux	_
 14	become	become	VERB	VB	VerbForm=Inf	3	ccomp	3:ccomp	_
 15	lanky	lanky	ADJ	JJ	Degree=Pos	14	xcomp	14:xcomp	_
 16	and	and	CCONJ	CC	_	23	cc	23:cc	Discourse=joint:122->119
@@ -1280,7 +1280,7 @@
 13	the	the	DET	DT	Definite=Def|PronType=Art	15	det	15:det	Entity=(plant-134
 14	basil	basil	NOUN	NN	Number=Sing	15	compound	15:compound	Entity=(plant-1)
 15	plants	plant	NOUN	NNS	Number=Plur	17	nsubj	17:nsubj|18:nsubj:xsubj|20:nsubj:xsubj	Entity=plant-134)
-16	will	will	AUX	MD	VerbForm=Fin	17	aux	17:aux	_
+16	will	will	AUX	MD	Number=Plur|Person=3|VerbForm=Fin	17	aux	17:aux	_
 17	grow	grow	VERB	VB	VerbForm=Inf	3	conj	3:conj:or	_
 18	tall	tall	ADJ	JJ	Degree=Pos	17	xcomp	17:xcomp	_
 19	and	and	CCONJ	CC	_	20	cc	20:cc	_
@@ -1373,7 +1373,7 @@
 15	plan	plan	VERB	VB	VerbForm=Inf	11	dep	11:dep	_
 16	on	on	SCONJ	IN	_	17	mark	17:mark	_
 17	storing	store	VERB	VBG	VerbForm=Ger	15	advcl	15:advcl:on	_
-18	some	some	PRON	DT	_	17	obj	17:obj	Bridge=plant-145<plant-146|Entity=(plant-146)
+18	some	some	DET	DT	_	17	obj	17:obj	Bridge=plant-145<plant-146|Entity=(plant-146)
 19	in	in	ADP	IN	_	21	case	21:case	_
 20	the	the	DET	DT	Definite=Def|PronType=Art	21	det	21:det	Entity=(object-144
 21	fridge	fridge	NOUN	NN	Number=Sing	18	nmod	18:nmod:in	Entity=object-144)|SpaceAfter=No

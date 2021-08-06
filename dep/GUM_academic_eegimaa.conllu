@@ -84,7 +84,7 @@
 12	6	6	NUM	CD	NumForm=Digit|NumType=Card	11	dep	11:dep	Entity=abstract-15)
 13	below	below	ADV	RB	Degree=Pos	9	advmod	9:advmod	SpaceAfter=No
 14	,	,	PUNCT	,	_	9	punct	9:punct	_
-15	some	some	PRON	DT	_	26	nsubj:pass	26:nsubj:pass	Discourse=same-unit:12->10|Entity=(abstract-16
+15	some	some	DET	DT	_	26	nsubj:pass	26:nsubj:pass	Discourse=same-unit:12->10|Entity=(abstract-16
 16	of	of	ADP	IN	_	21	case	21:case	_
 17	the	the	DET	DT	Definite=Def|PronType=Art	21	det	21:det	Entity=(abstract-17
 18	Eegimaa	Eegimaa	PROPN	NNP	Number=Sing	21	compound	21:compound	Entity=(abstract-1)
@@ -94,7 +94,7 @@
 22	and	and	CCONJ	CC	_	24	cc	24:cc	_
 23	child-bearing	child-bearing	ADJ	JJ	Degree=Pos	24	amod	24:amod	Entity=(abstract-19
 24	names	name	NOUN	NNS	Number=Plur	21	conj	15:nmod:of|21:conj:and	Entity=abstract-19)
-25	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	26	aux:pass	26:aux:pass	_
+25	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	26	aux:pass	26:aux:pass	_
 26	given	give	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	3	advcl	3:advcl:because	_
 27	to	to	ADP	IN	_	29	case	29:case	_
 28	Eegimaa	Eegimaa	PROPN	NNP	Number=Sing	29	compound	29:compound	Entity=(person-20
@@ -125,8 +125,8 @@
 16	a	a	DET	DT	Definite=Ind|PronType=Art	17	det	17:det	Entity=(person-2
 17	population	population	NOUN	NN	Number=Sing	6	obl	6:obl:by	_
 18	estimated	estimate	VERB	VBN	Tense=Past|VerbForm=Part	17	acl	17:acl	Discourse=elaboration:15->14
-19	to	to	PART	TO	_	20	mark	20:mark	_
-20	be	be	VERB	VB	VerbForm=Inf	18	xcomp	18:xcomp	_
+19	to	to	PART	TO	_	30	mark	30:mark	_
+20	be	be	AUX	VB	VerbForm=Inf	30	cop	30:cop	_
 21	between	between	ADP	IN	_	30	case	30:case	_
 22	7,000	7000	NUM	CD	NumForm=Digit|NumType=Card	30	nummod	30:nummod	Entity=(person-26)
 23	(	(	PUNCT	-LRB-	_	24	punct	24:punct	Discourse=evidence:16->15|SpaceAfter=No
@@ -136,7 +136,7 @@
 27	)	)	PUNCT	-RRB-	_	24	punct	24:punct	_
 28	and	and	CCONJ	CC	_	29	cc	29:cc	Discourse=same-unit:17->15
 29	11,200	11200	NUM	CD	NumForm=Digit|NumType=Card	22	conj	22:conj:and|30:nummod	Entity=(person-30
-30	speakers	speaker	NOUN	NNS	Number=Plur	20	obl	20:obl:between	Entity=person-2)person-30)
+30	speakers	speaker	NOUN	NNS	Number=Plur	18	xcomp	18:xcomp	Entity=person-2)person-30)
 31	(	(	PUNCT	-LRB-	_	32	punct	32:punct	Discourse=evidence:18->17|SpaceAfter=No
 32	Lewis	Lewis	PROPN	NNP	Number=Sing	30	dep	30:dep	Entity=(abstract-31(person-32(person-33)|SpaceAfter=No
 33	,	,	PUNCT	,	_	34	punct	34:punct	_
@@ -195,13 +195,13 @@
 12	the	the	DET	DT	Definite=Def|PronType=Art	15	det	15:det	Entity=(place-46
 13	former	former	ADJ	JJ	Degree=Pos	15	amod	15:amod	_
 14	Casamance	Casamance	PROPN	NNP	Number=Sing	15	compound	15:compound	Entity=(place-47-Casamance)
-15	region	region	NOUN	NN	Number=Sing	7	conj	7:conj:and|9:case	_
+15	region	region	NOUN	NN	Number=Sing	9	conj	6:obl:in|9:conj:and	_
 16	of	of	ADP	IN	_	18	case	18:case	_
 17	Southern	Southern	ADJ	NNP	Degree=Pos	18	amod	18:amod	Entity=(place-25
 18	Senegal	Senegal	PROPN	NNP	Number=Sing	15	nmod	15:nmod:of	Entity=place-46)place-25)
 19	and	and	CCONJ	CC	_	21	cc	21:cc	_
 20	in	in	ADP	IN	_	21	case	21:case	_
-21	Guinea	Guinea	PROPN	NNP	Number=Sing	7	conj	7:conj:and|9:case	Entity=(place-48-Guinea-Bissau
+21	Guinea	Guinea	PROPN	NNP	Number=Sing	9	conj	6:obl:in|9:conj:and	Entity=(place-48-Guinea-Bissau
 22	Bissau	Bissau	PROPN	NNP	Number=Sing	21	flat	21:flat	Entity=place-48-Guinea-Bissau)|SpaceAfter=No
 23	.	.	PUNCT	.	_	6	punct	6:punct	_
 
@@ -320,13 +320,14 @@
 23	Fogny	Fogny	PROPN	NNP	Number=Sing	22	flat	22:flat	Entity=abstract-63-Jola-Fonyi_language)
 24	areas	area	NOUN	NNS	Number=Plur	15	obl	15:obl:from	Entity=place-61)|SpaceAfter=No
 25	,	,	PUNCT	,	_	29	punct	29:punct	_
-26	and	and	CCONJ	CC	_	29	cc	29:cc	Discourse=same-unit:32->30
+26	and	and	CCONJ	CC	_	29	cc	26.1:cc	Discourse=same-unit:32->30
+26.1	bordered	_	_	_	_	_	_	12:conj:and	CopyOf=5
 27	to	to	ADP	IN	_	29	case	29:case	_
 28	the	the	DET	DT	Definite=Def|PronType=Art	29	det	29:det	Entity=(place-64
-29	east	east	NOUN	NN	Number=Sing	10	conj	10:conj:and|12:case	Entity=place-64)
+29	east	east	NOUN	NN	Number=Sing	12	conj	26.1:obl:to	Entity=place-64)
 30	by	by	ADP	IN	_	32	case	32:case	_
 31	the	the	DET	DT	Definite=Def|PronType=Art	32	det	32:det	Entity=(place-65
-32	villages	village	NOUN	NNS	Number=Plur	5	obl	5:obl:by	Entity=place-65)
+32	villages	village	NOUN	NNS	Number=Plur	29	orphan	26.1:obl:by	Entity=place-65)
 33	Brin	Brin	PROPN	NNP	Number=Sing	32	appos	32:appos	Entity=(place-65(place-66)
 34	and	and	CCONJ	CC	_	35	cc	35:cc	_
 35	Djibonker	Djibonker	PROPN	NNP	Number=Sing	33	conj	32:appos|33:conj:and	Entity=(place-67)|SpaceAfter=No
@@ -422,7 +423,7 @@
 # sent_id = GUM_academic_eegimaa-14
 # s_type = decl
 # text = Some of these communities will be referred to in our discussion of death prevention names in § 6.
-1	Some	some	PRON	DT	_	7	nsubj:pass	7:nsubj:pass	Bridge=organization-86<organization-87|Discourse=elaboration:41->38|Entity=(organization-87
+1	Some	some	DET	DT	_	7	nsubj:pass	7:nsubj:pass	Bridge=organization-86<organization-87|Discourse=elaboration:41->38|Entity=(organization-87
 2	of	of	ADP	IN	_	4	case	4:case	_
 3	these	this	DET	DT	Number=Plur|PronType=Dem	4	det	4:det	_
 4	communities	community	NOUN	NNS	Number=Plur	1	nmod	1:nmod:of	Entity=organization-87)
@@ -522,10 +523,10 @@
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	cop	4:cop	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	Entity=(abstract-99
 4	name	name	NOUN	NN	Number=Sing	0	root	0:root	_
-5	given	give	SCONJ	VBN	Tense=Past|VerbForm=Part	8	mark	8:mark	_
+5	given	give	VERB	VBN	Tense=Past|VerbForm=Part	4	acl	4:acl	_
 6	by	by	ADP	IN	_	8	case	8:case	_
 7	Bayot	Bayot	PROPN	NNP	Number=Sing	8	compound	8:compound	Entity=(person-100(abstract-74-Bayot_language)
-8	speakers	speaker	NOUN	NNS	Number=Plur	4	advcl	4:advcl:given	Entity=abstract-99)person-100)|SpaceAfter=No
+8	speakers	speaker	NOUN	NNS	Number=Plur	5	obl	5:obl:by	Entity=abstract-99)person-100)|SpaceAfter=No
 9	,	,	PUNCT	,	_	15	punct	15:punct	_
 10	but	but	CCONJ	CC	_	15	cc	15:cc	Discourse=concession:53->52
 11	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	12	nmod:poss	12:nmod:poss	Entity=(abstract-101(abstract-99)
@@ -560,7 +561,7 @@
 20	Kaasa	Kaasa	PROPN	NNP	Number=Sing	19	flat	19:flat	Entity=abstract-105-Kasa_language)
 21	speakers	speaker	NOUN	NNS	Number=Plur	17	obl	17:obl:by|25:nsubj	_
 22	who	who	PRON	WP	PronType=Rel	25	nsubj	21:ref	Discourse=elaboration:56->55
-23	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	25	cop	25:cop	_
+23	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	25	cop	25:cop	_
 24	more	more	ADV	RBR	Degree=Cmp	25	advmod	25:advmod	_
 25	familiar	familiar	ADJ	JJ	Degree=Pos	21	acl:relcl	21:acl:relcl	_
 26	with	with	ADP	IN	_	28	case	28:case	_
@@ -601,7 +602,7 @@
 17	most	most	ADV	RBS	Degree=Sup	18	advmod	18:advmod	_
 18	popular	popular	ADJ	JJ	Degree=Pos	3	appos	3:appos	_
 19	of	of	ADP	IN	_	22	case	22:case	_
-20	all	all	PRON	PDT	_	22	det:predet	22:det:predet	Entity=(abstract-90
+20	all	all	DET	PDT	_	22	det:predet	22:det:predet	Entity=(abstract-90
 21	those	this	DET	DT	Number=Plur|PronType=Dem	22	det	22:det	_
 22	names	name	NOUN	NNS	Number=Plur	18	obl	18:obl:of	Entity=abstract-54-Bandial_language)abstract-90)|SpaceAfter=No
 23	,	,	PUNCT	,	_	3	punct	3:punct	_
@@ -625,7 +626,7 @@
 41	language	language	NOUN	NN	Number=Sing	38	conj	27:obl:to|38:conj:and	Entity=abstract-54-Bandial_language)abstract-1)|SpaceAfter=No
 42	,	,	PUNCT	,	_	52	punct	52:punct	_
 43	because	because	SCONJ	IN	_	52	mark	52:mark	Discourse=cause:59->58
-44	people	person	NOUN	NNS	Number=Plur	52	nsubj	52:nsubj	Entity=(person-109
+44	people	person	NOUN	NNS	Number=Plur	52	nsubj	52:nsubj|56:nsubj:xsubj	Entity=(person-109
 45	from	from	ADP	IN	_	47	case	47:case	_
 46	the	the	DET	DT	Definite=Def|PronType=Art	47	det	47:det	Entity=(place-107
 47	village	village	NOUN	NN	Number=Sing	44	nmod	44:nmod:from	_
@@ -634,10 +635,10 @@
 50	were	be	AUX	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	52	cop	52:cop	_
 51	the	the	DET	DT	Definite=Def|PronType=Art	52	det	52:det	Entity=(person-109
 52	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	27	advcl	27:advcl:because	_
-53	to	to	PART	TO	_	54	mark	54:mark	Discourse=elaboration:60->59
-54	be	be	VERB	VB	VerbForm=Inf	52	acl	52:acl:to	_
+53	to	to	PART	TO	_	56	mark	56:mark	Discourse=elaboration:60->59
+54	be	be	AUX	VB	VerbForm=Inf	56	cop	56:cop	_
 55	in	in	ADP	IN	_	56	case	56:case	_
-56	contact	contact	NOUN	NN	Number=Sing	54	obl	54:obl:in	_
+56	contact	contact	NOUN	NN	Number=Sing	52	xcomp	52:xcomp	_
 57	with	with	ADP	IN	_	58	case	58:case	_
 58	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	56	nmod	56:nmod:with	Entity=(person-108)person-109)|SpaceAfter=No
 59	.	.	PUNCT	.	_	26	punct	26:punct	_
@@ -766,7 +767,7 @@
 2	language	language	NOUN	NN	Number=Sing	3	compound	3:compound	_
 3	varieties	variety	NOUN	NNS	Number=Plur	10	nsubj	7:nsubj|10:nsubj	_
 4	which	which	PRON	WDT	PronType=Rel	7	nsubj	3:ref	Discourse=elaboration:76->75
-5	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	7	cop	7:cop	_
+5	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	7	cop	7:cop	_
 6	closely	closely	ADV	RB	Degree=Pos	7	advmod	7:advmod	_
 7	related	related	ADJ	JJ	Degree=Pos	3	acl:relcl	3:acl:relcl	_
 8	to	to	ADP	IN	_	9	case	9:case	_
@@ -846,7 +847,7 @@
 28	of	of	ADP	IN	_	30	case	30:case	_
 29	Thionk	Thionk	PROPN	NNP	Number=Sing	30	compound	30:compound	_
 30	Essil	Essil	PROPN	NNP	Number=Sing	27	nmod	27:nmod:of	Entity=abstract-131)abstract-136-Gusilay_language)place-138-Thionck_Essyl)
-31	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	34	cop	34:cop	_
+31	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	34	cop	34:cop	_
 32	also	also	ADV	RB	_	34	advmod	34:advmod	_
 33	other	other	ADJ	JJ	Degree=Pos	34	amod	34:amod	Entity=(abstract-131
 34	languages	language	NOUN	NNS	Number=Plur	0	root	0:root	_
@@ -957,9 +958,9 @@
 17	when	when	SCONJ	WRB	PronType=Int	19	mark	19:mark	Discourse=circumstance:100->97
 18	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	19	nsubj	19:nsubj	Entity=(person-2)
 19	speak	speak	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	13	advcl	13:advcl:when	_
-20	to	to	ADP	IN	_	22	case	22:case	_
-21	each	each	DET	DT	_	22	det	22:det	Entity=(person-2
-22	other	other	ADJ	JJ	Degree=Pos	19	obl	19:obl:to	Entity=person-2)|SpaceAfter=No
+20	to	to	ADP	IN	_	21	case	21:case	_
+21	each	each	DET	DT	_	19	obl	19:obl:to	Entity=(person-2
+22	other	other	ADJ	JJ	Degree=Pos	21	fixed	21:fixed	Entity=person-2)|SpaceAfter=No
 23	,	,	PUNCT	,	_	27	punct	27:punct	_
 24	but	but	CCONJ	CC	_	27	cc	27:cc	Discourse=contrast:101->97
 25	Eegimaa	Eegimaa	PROPN	NNP	Number=Sing	27	nsubj	27:nsubj	Entity=(abstract-1)
@@ -1014,7 +1015,7 @@
 10	Eegimaa	Eegimaa	PROPN	NNP	Number=Sing	8	nmod	8:nmod:of	Entity=(abstract-1)event-153)abstract-13)|SpaceAfter=No
 11	,	,	PUNCT	,	_	22	punct	22:punct	_
 12	because	because	SCONJ	IN	_	22	mark	22:mark	Discourse=justify:106->105
-13	some	some	PRON	DT	_	22	nsubj	22:nsubj	Entity=(abstract-154
+13	some	some	DET	DT	_	22	nsubj	22:nsubj	Entity=(abstract-154
 14	of	of	ADP	IN	_	17	case	17:case	_
 15	the	the	DET	DT	Definite=Def|PronType=Art	17	det	17:det	_
 16	ritual	ritual	NOUN	NN	Number=Sing	17	compound	17:compound	_
@@ -1023,7 +1024,7 @@
 19	in	in	ADP	IN	_	21	case	21:case	_
 20	this	this	DET	DT	Number=Sing|PronType=Dem	21	det	21:det	Entity=(abstract-155
 21	paper	paper	NOUN	NN	Number=Sing	18	obl	18:obl:in	Entity=abstract-154)abstract-155)
-22	come	come	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	advcl	3:advcl:because	Discourse=same-unit:108->106
+22	come	come	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	3	advcl	3:advcl:because	Discourse=same-unit:108->106
 23	from	from	ADP	IN	_	25	case	25:case	_
 24	other	other	ADJ	JJ	Degree=Pos	25	amod	25:amod	Entity=(abstract-156
 25	languages	language	NOUN	NNS	Number=Plur	22	obl	22:obl:from	Entity=abstract-156)

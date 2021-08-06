@@ -9,9 +9,9 @@
 # sent_id = GUM_whow_arrogant-1
 # s_type = inf
 # text = How to Detect Arrogant People
-1	How	how	SCONJ	WRB	PronType=Int	3	mark	3:mark	Discourse=preparation:1->11
+1	How	how	SCONJ	WRB	PronType=Int	0	root	0:root	Discourse=preparation:1->11
 2	to	to	PART	TO	_	3	mark	3:mark	_
-3	Detect	detect	VERB	VB	Person=2|VerbForm=Inf	0	root	0:root	_
+3	Detect	detect	VERB	VB	VerbForm=Inf	1	acl	1:acl:to	_
 4	Arrogant	arrogant	ADJ	JJ	Degree=Pos	5	amod	5:amod	Entity=(person-1
 5	People	person	NOUN	NNS	Number=Plur	3	obj	3:obj	Entity=person-1)
 
@@ -28,7 +28,7 @@
 8	with	with	ADP	IN	_	9	case	9:case	_
 9	people	person	NOUN	NNS	Number=Plur	6	obl	6:obl:with|12:nsubj	Entity=(person-1
 10	who	who	PRON	WP	PronType=Rel	12	nsubj	9:ref	Discourse=elaboration:3->2
-11	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	12	cop	12:cop	_
+11	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	12	cop	12:cop	_
 12	stuck	stick	VERB	VBN	Tense=Past|VerbForm=Part	9	acl:relcl	9:acl:relcl	_
 13	on	on	ADP	IN	_	14	case	14:case	_
 14	themselves	themselves	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs|Reflex=Yes	12	obl	12:obl:on	Entity=(person-1)|SpaceAfter=No
@@ -248,7 +248,7 @@
 5	or	or	CCONJ	CC	_	7	cc	7:cc	_
 6	seeming	seeming	ADJ	JJ	Degree=Pos	7	amod	7:amod	_
 7	lifestyle	lifestyle	NOUN	NN	Number=Sing	4	conj	1:nmod:of|4:conj:or	Entity=abstract-27)abstract-28)
-8	can	can	AUX	MD	VerbForm=Fin	9	aux	9:aux	_
+8	can	can	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	9	aux	9:aux	_
 9	cause	cause	VERB	VB	VerbForm=Inf	0	root	0:root	_
 10	another	another	DET	DT	_	11	det	11:det	Entity=(person-29
 11	person	person	NOUN	NN	Number=Sing	9	obj	9:obj|13:nsubj:xsubj	Entity=person-29)
@@ -271,7 +271,7 @@
 26.2	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	_	_	27:nsubj|29:nsubj	CopyOf=19
 27	own	own	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	20	conj	26.1:acl:relcl	_
 28	/	/	SYM	SYM	_	29	cc	29:cc	_
-29	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	27	conj	20:conj|27:conj:slash	_
+29	have	have	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	27	conj	20:conj|27:conj:slash	_
 30	that	that	PRON	WDT	_	32	obj	26.1:ref	Discourse=elaboration:29->28
 31	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	32	nsubj	32:nsubj	Entity=(person-2)
 32-33	don't	_	_	_	_	_	_	_	SpaceAfter=No
@@ -301,7 +301,7 @@
 2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Entity=(person-2)
 3	make	make	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	21	advcl	21:advcl:when	_
 4	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	3	obj	3:obj|5:nsubj:xsubj	Entity=(person-1)
-5	look	look	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	xcomp	3:xcomp	_
+5	look	look	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	3	xcomp	3:xcomp	_
 6	bad	bad	ADJ	JJ	Degree=Pos	5	xcomp	5:xcomp	Entity=event-32)
 7	-	-	PUNCT	:	_	14	punct	14:punct	Discourse=concession:33->32
 8	even	even	ADV	RB	_	14	advmod	14:advmod	_
@@ -456,7 +456,7 @@
 2	some	some	DET	DT	_	3	det	3:det	_
 3	point	point	NOUN	NN	Number=Sing	9	obl	9:obl:at	_
 4	or	or	CCONJ	CC	_	5	cc	5:cc	_
-5	another	another	PRON	DT	_	3	conj	3:conj:or|9:obl:at	SpaceAfter=No
+5	another	another	DET	DT	_	3	conj	3:conj:or|9:obl:at	SpaceAfter=No
 6	,	,	PUNCT	,	_	3	punct	3:punct	_
 7	most	most	ADJ	JJS	Degree=Sup	8	amod	8:amod	Entity=(person-45
 8	people	person	NOUN	NNS	Number=Plur	9	nsubj	9:nsubj	Entity=person-45)
@@ -489,7 +489,7 @@
 12	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	10	obl	10:obl:around	Entity=(person-1)abstract-48)|SpaceAfter=No
 13	,	,	PUNCT	,	_	15	punct	15:punct	_
 14	and	and	CCONJ	CC	_	15	cc	15:cc	Discourse=joint:55->52
-15	get	get	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	conj	3:conj:and	_
+15	get	get	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	3	conj	3:conj:and	_
 16	angry	angry	ADJ	JJ	Degree=Pos	15	xcomp	15:xcomp	_
 17	if	if	SCONJ	IN	_	20	mark	20:mark	Discourse=condition:56->55
 18	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	20	nsubj:pass	20:nsubj:pass	Entity=(person-1)|SpaceAfter=No
@@ -601,7 +601,7 @@
 19	to	to	PART	TO	_	20	mark	20:mark	_
 20	self-reflect	self-reflect	VERB	VB	VerbForm=Inf	15	xcomp	15:xcomp	_
 21	or	or	CCONJ	CC	_	22	cc	22:cc	_
-22	analyse	analyse	VERB	VB	Person=2|VerbForm=Inf	20	conj	15:xcomp|20:conj:or	SpaceAfter=No
+22	analyse	analyse	VERB	VB	VerbForm=Inf	20	conj	15:xcomp|20:conj:or	SpaceAfter=No
 23	,	,	PUNCT	,	_	26	punct	26:punct	_
 24	thereby	thereby	ADV	RB	Degree=Pos	26	advmod	26:advmod	Discourse=result:69->68
 25	not	not	PART	RB	Polarity=Neg	26	advmod	26:advmod	_
@@ -785,7 +785,7 @@
 4	people	person	NOUN	NNS	Number=Plur	8	nsubj	8:nsubj	Entity=person-1)
 5	often	often	ADV	RB	Degree=Pos	8	advmod	8:advmod	_
 6-7	can't	_	_	_	_	_	_	_	_
-6	ca	can	AUX	MD	VerbForm=Fin	8	aux	8:aux	_
+6	ca	can	AUX	MD	Number=Plur|Person=3|VerbForm=Fin	8	aux	8:aux	_
 7	n't	not	PART	RB	Polarity=Neg	8	advmod	8:advmod	_
 8	understand	understand	VERB	VB	VerbForm=Inf	0	root	0:root	_
 9	why	why	SCONJ	WRB	PronType=Rel	8	obj	8:obj	_
@@ -957,7 +957,7 @@
 8	talk	talk	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	6	conj	4:acl:relcl|6:conj:and	SpaceAfter=No
 9	,	,	PUNCT	,	_	11	punct	11:punct	_
 10	and	and	CCONJ	CC	_	11	cc	11:cc	_
-11	use	use	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	6	conj	4:acl:relcl|6:conj:and	_
+11	use	use	VERB	VB	VerbForm=Inf	6	conj	4:acl:relcl|6:conj:and	_
 12	their	their	PRON	PRP$	Number=Plur|Person=3|Poss=Yes|PronType=Prs	14	nmod:poss	14:nmod:poss	Entity=(abstract-97(person-1)
 13	social	social	ADJ	JJ	Degree=Pos	14	amod	14:amod	_
 14	status	status	NOUN	NN	Number=Sing	11	obj	11:obj	Entity=abstract-97)|SpaceAfter=No
@@ -981,7 +981,7 @@
 # sent_id = GUM_whow_arrogant-43
 # s_type = q
 # text = Are they a chatterbox?
-1	Are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	2	cop	2:cop	Discourse=joint:102->101
+1	Are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	2	cop	2:cop	Discourse=joint:102->101
 2	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	4	nsubj	4:nsubj	Entity=(person-1)
 3	a	a	DET	DT	Definite=Ind|PronType=Art	4	det	4:det	Entity=(person-100
 4	chatterbox	chatterbox	NOUN	NN	Number=Sing	0	root	0:root	Entity=person-100)|SpaceAfter=No
@@ -1000,7 +1000,7 @@
 8	place	place	NOUN	NN	Number=Sing	6	obj	6:obj	Entity=place-101)|SpaceAfter=No
 9	,	,	PUNCT	,	_	11	punct	11:punct	_
 10	or	or	CCONJ	CC	_	11	cc	11:cc	Discourse=restatement:105->103
-11	act	act	VERB	VB	Person=2|VerbForm=Inf	3	conj	3:conj:or	_
+11	act	act	VERB	VB	VerbForm=Inf	3	conj	3:conj:or	_
 12	like	like	ADP	IN	_	16	case	16:case	_
 13	the	the	DET	DT	Definite=Def|PronType=Art	16	det	16:det	Entity=(person-102
 14	'	'	PUNCT	``	_	16	punct	16:punct	SpaceAfter=No
@@ -1077,13 +1077,13 @@
 5	,	,	PUNCT	,	_	4	punct	4:punct	_
 6	their	their	PRON	PRP$	Number=Plur|Person=3|Poss=Yes|PronType=Prs	7	nmod:poss	7:nmod:poss	Discourse=elaboration:112->109|Entity=(person-109(person-1)
 7	friends	friend	NOUN	NNS	Number=Plur	10	nsubj	10:nsubj|14:nsubj	Entity=person-109)
-8	will	will	AUX	MD	VerbForm=Fin	10	aux	10:aux|14:aux	_
+8	will	will	AUX	MD	Number=Plur|Person=3|VerbForm=Fin	10	aux	10:aux|14:aux	_
 9	usually	usually	ADV	RB	Degree=Pos	10	advmod	10:advmod	_
 10	ignore	ignore	VERB	VB	VerbForm=Inf	0	root	0:root	_
 11	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	10	obj	10:obj	Entity=(event-108)
 12	or	or	CCONJ	CC	_	14	cc	14:cc	Discourse=contrast:113->112
 13	not	not	PART	RB	Polarity=Neg	14	advmod	14:advmod	_
-14	do	do	VERB	VB	Person=2|VerbForm=Inf	10	conj	10:conj:or	_
+14	do	do	VERB	VB	VerbForm=Inf	10	conj	10:conj:or	_
 15	anything	anything	NOUN	NN	Number=Sing	14	obj	14:obj	Entity=(abstract-110
 16	to	to	PART	TO	_	17	mark	17:mark	Discourse=purpose:114->113
 17	stop	stop	VERB	VB	VerbForm=Inf	14	advcl	14:advcl:to	_
@@ -1136,7 +1136,7 @@
 9	,	,	PUNCT	,	_	12	punct	12:punct	_
 10	but	but	CCONJ	CC	_	12	cc	12:cc	Discourse=motivation:120->116
 11	to	to	PART	TO	_	12	mark	12:mark	_
-12	gauge	gauge	VERB	VB	Person=2|VerbForm=Inf	6	conj	4:xcomp|6:conj:but	_
+12	gauge	gauge	VERB	VB	VerbForm=Inf	6	conj	4:xcomp|6:conj:but	_
 13	their	their	PRON	PRP$	Number=Plur|Person=3|Poss=Yes|PronType=Prs	14	nmod:poss	14:nmod:poss	Entity=(abstract-114
 14	rivalries	rivalry	NOUN	NNS	Number=Plur	12	obj	12:obj	SpaceAfter=No
 15	,	,	PUNCT	,	_	16	punct	16:punct	_
@@ -1293,7 +1293,7 @@
 7	face	face	NOUN	NN	Number=Sing	4	obl	4:obl:to	SpaceAfter=No
 8	,	,	PUNCT	,	_	10	punct	10:punct	_
 9	but	but	CCONJ	CC	_	10	cc	10:cc	Discourse=contrast:138->137
-10	talk	talk	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	conj	4:conj:but|27:advcl:if	Entity=(event-122
+10	talk	talk	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	4	conj	4:conj:but|27:advcl:if	Entity=(event-122
 11	bad	bad	ADV	RB	Degree=Pos	10	advmod	10:advmod	_
 12	about	about	ADP	IN	_	13	case	13:case	_
 13	you	you	PRON	PRP	Case=Acc|Number=Sing|Person=2|PronType=Prs	10	obl	10:obl:about	Entity=(person-2)

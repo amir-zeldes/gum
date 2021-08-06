@@ -9,9 +9,9 @@
 # sent_id = GUM_whow_elevator-1
 # s_type = inf
 # text = How to Annoy People in Elevators
-1	How	how	SCONJ	WRB	PronType=Int	3	mark	3:mark	Discourse=preparation:1->22
+1	How	how	SCONJ	WRB	PronType=Int	0	root	0:root	Discourse=preparation:1->22
 2	to	to	PART	TO	_	3	mark	3:mark	_
-3	Annoy	annoy	VERB	VB	Person=2|VerbForm=Inf	0	root	0:root	_
+3	Annoy	annoy	VERB	VB	VerbForm=Inf	1	acl	1:acl:to	_
 4	People	person	NOUN	NNS	Number=Plur	3	obj	3:obj	Entity=(person-1)
 5	in	in	ADP	IN	_	6	case	6:case	_
 6	Elevators	elevator	NOUN	NNS	Number=Plur	3	obl	3:obl:in	Entity=(place-2)
@@ -47,7 +47,7 @@
 9	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	10	cop	10:cop	_
 10	cramped	cramped	ADJ	JJ	Degree=Pos	5	advcl	5:advcl:when	_
 11	in	in	ADP	IN	_	17	case	17:case	_
-12	such	such	PRON	PDT	_	17	det:predet	17:det:predet	Entity=(place-8
+12	such	such	DET	PDT	_	17	det:predet	17:det:predet	Entity=(place-8
 13	a	a	DET	DT	Definite=Ind|PronType=Art	17	det	17:det	_
 14	small	small	ADJ	JJ	Degree=Pos	17	amod	17:amod	SpaceAfter=No
 15	,	,	PUNCT	,	_	14	punct	14:punct	_
@@ -75,7 +75,7 @@
 15	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	16	cop	16:cop	_
 16	quick	quick	ADJ	JJ	Degree=Pos	12	ccomp	12:ccomp	_
 17	and	and	CCONJ	CC	_	18	cc	18:cc	Discourse=joint:8->7
-18	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	16	conj	12:ccomp|16:conj:and	_
+18	have	have	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	16	conj	12:ccomp|16:conj:and	_
 19	a	a	DET	DT	Definite=Ind|PronType=Art	20	det	20:det	Entity=(abstract-13
 20	lot	lot	NOUN	NN	Number=Sing	18	obj	18:obj	_
 21	of	of	ADP	IN	_	22	case	22:case	_
@@ -108,7 +108,7 @@
 21	leaving	leave	VERB	VBG	VerbForm=Ger	20	acl	20:acl	Discourse=elaboration:13->12
 22	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	Entity=(place-16
 23	elevator	elevator	NOUN	NN	Number=Sing	21	obj	21:obj	Entity=person-15)place-16)
-24	will	will	AUX	MD	VerbForm=Fin	25	aux	25:aux	Discourse=same-unit:14->12
+24	will	will	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	25	aux	25:aux	Discourse=same-unit:14->12
 25	have	have	VERB	VB	VerbForm=Inf	8	advcl	8:advcl:so_that	_
 26	a	a	DET	DT	Definite=Ind|PronType=Art	28	det	28:det	Entity=(abstract-17
 27	pleasant	pleasant	ADJ	JJ	Degree=Pos	28	amod	28:amod	_
@@ -133,7 +133,7 @@
 # s_type = imp
 # text = Push all the buttons.
 1	Push	push	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=preparation:19->22|Entity=(event-19
-2	all	all	PRON	PDT	_	4	det:predet	4:det:predet	Bridge=place-16<object-20|Entity=(object-20
+2	all	all	DET	PDT	_	4	det:predet	4:det:predet	Bridge=place-16<object-20|Entity=(object-20
 3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	_
 4	buttons	button	NOUN	NNS	Number=Plur	1	obj	1:obj	Entity=event-19)object-20)|SpaceAfter=No
 5	.	.	PUNCT	.	_	1	punct	1:punct	_
@@ -235,7 +235,7 @@
 15	before	before	SCONJ	IN	_	17	mark	17:mark	Discourse=circumstance:32->31
 16	you	you	PRON	PRP	Case=Nom|Number=Plur|Person=2|PronType=Prs	17	nsubj	17:nsubj	Entity=(person-7)
 17	push	push	VERB	VBP	Mood=Ind|Number=Plur|Person=2|Tense=Pres|VerbForm=Fin	6	advcl	6:advcl:before	Entity=(event-19
-18	all	all	PRON	DT	_	17	obj	17:obj	Entity=(object-20
+18	all	all	DET	DT	_	17	obj	17:obj	Entity=(object-20
 19	of	of	ADP	IN	_	21	case	21:case	_
 20	the	the	DET	DT	Definite=Def|PronType=Art	21	det	21:det	_
 21	buttons	button	NOUN	NNS	Number=Plur	18	nmod	18:nmod:of	Entity=event-19)object-20)|SpaceAfter=No
@@ -248,7 +248,7 @@
 2	can	can	AUX	MD	VerbForm=Fin	4	aux	4:aux	_
 3	also	also	ADV	RB	_	4	advmod	4:advmod	_
 4	push	push	VERB	VB	VerbForm=Inf	0	root	0:root	Entity=(event-19
-5	all	all	PRON	PDT	_	7	det:predet	7:det:predet	Entity=(object-20
+5	all	all	DET	PDT	_	7	det:predet	7:det:predet	Entity=(object-20
 6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	_
 7	buttons	button	NOUN	NNS	Number=Plur	4	obj	4:obj	Entity=event-19)object-20)
 8	as	as	SCONJ	IN	_	10	mark	10:mark	Discourse=circumstance:34->33
@@ -273,7 +273,7 @@
 5	why	why	SCONJ	WRB	PronType=Rel	3	obj	3:obj	Discourse=same-unit:38->36
 6	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	7	nsubj	7:nsubj	Entity=(person-7)
 7	pushed	push	VERB	VBD	Mood=Ind|Number=Sing|Person=2|Tense=Past|VerbForm=Fin	5	acl:relcl	5:acl:relcl	Entity=(event-19
-8	all	all	PRON	PDT	_	10	det:predet	10:det:predet	Entity=(object-20
+8	all	all	DET	PDT	_	10	det:predet	10:det:predet	Entity=(object-20
 9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	_
 10	buttons	button	NOUN	NNS	Number=Plur	7	obj	7:obj	Entity=event-19)object-20)|SpaceAfter=No
 11	,	,	PUNCT	,	_	3	punct	3:punct	_
@@ -455,13 +455,13 @@
 10	different	different	ADJ	JJ	Degree=Pos	11	amod	11:amod	Entity=(abstract-52
 11	angles	angle	NOUN	NNS	Number=Plur	9	obj	9:obj	Entity=abstract-52)
 12	and	and	CCONJ	CC	_	13	cc	13:cc	Discourse=attribution:62->63
-13	say	say	VERB	VB	Person=2|VerbForm=Inf	3	conj	3:conj:and	_
+13	say	say	VERB	VB	VerbForm=Inf	3	conj	3:conj:and	_
 14	“	''	PUNCT	``	_	15	punct	15:punct	Discourse=joint:63->60|SpaceAfter=No
-15	All	all	PRON	DT	_	13	ccomp	13:ccomp	_
-16	right	right	NOUN	NN	Number=Sing	15	goeswith	15:goeswith	SpaceAfter=No
+15	All	all	ADV	DT	_	13	ccomp	13:ccomp	_
+16	right	right	X	NN	_	15	goeswith	15:goeswith	SpaceAfter=No
 17	,	,	PUNCT	,	_	18	punct	18:punct	_
-18	all	all	PRON	DT	_	15	parataxis	15:parataxis	_
-19	right	right	NOUN	NN	Number=Sing	18	goeswith	18:goeswith	SpaceAfter=No
+18	all	all	ADV	DT	_	15	parataxis	15:parataxis	_
+19	right	right	X	NN	_	18	goeswith	18:goeswith	SpaceAfter=No
 20	,	,	PUNCT	,	_	24	punct	24:punct	_
 21	now	now	ADV	RB	_	24	advmod	24:advmod	_
 22	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	24	nsubj	24:nsubj	Entity=(person-53)|SpaceAfter=No
@@ -591,7 +591,7 @@
 10	,	,	PUNCT	,	_	13	punct	13:punct	_
 11	and	and	CCONJ	CC	_	13	cc	13:cc	Discourse=sequence:75->74
 12	then	then	ADV	RB	PronType=Dem	13	advmod	13:advmod	_
-13	get	get	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	3	conj	1:xcomp|3:conj:and	_
+13	get	get	VERB	VB	VerbForm=Inf	3	conj	1:xcomp|3:conj:and	_
 14	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	16	nmod:poss	16:nmod:poss	Entity=(object-72(person-7)
 15	whole	whole	ADJ	JJ	Degree=Pos	16	amod	16:amod	_
 16	body	body	NOUN	NN	Number=Sing	13	obj	13:obj	Entity=object-72)
@@ -670,7 +670,7 @@
 16	time	time	NOUN	NN	Number=Sing	11	parataxis	11:parataxis	Entity=time-81)
 17	to	to	PART	TO	_	18	mark	18:mark	Discourse=elaboration:89->88
 18	dilly	dilly	VERB	VB	VerbForm=Inf	16	acl	16:acl:to	_
-19	dally	dally	VERB	VB	VerbForm=Inf	18	goeswith	18:goeswith	SpaceAfter=No
+19	dally	dally	X	VB	VerbForm=Inf	18	goeswith	18:goeswith	SpaceAfter=No
 20	!	!	PUNCT	.	_	11	punct	11:punct	SpaceAfter=No
 21	”	''	PUNCT	''	_	11	punct	11:punct	_
 22	[	[	PUNCT	-LRB-	_	23	punct	23:punct	Discourse=evidence:90->82|SpaceAfter=No
@@ -693,7 +693,7 @@
 11	,	,	PUNCT	,	_	12	punct	12:punct	_
 12	saying	say	VERB	VBG	VerbForm=Ger	6	advcl	6:advcl	Discourse=attribution:92->93
 13	“	''	PUNCT	``	_	14	punct	14:punct	Discourse=elaboration:93->91|SpaceAfter=No
-14	All	all	PRON	DT	_	12	obj	12:obj	_
+14	All	all	DET	DT	_	12	obj	12:obj	_
 15	aboard	aboard	ADP	IN	_	18	case	18:case	_
 16	the	the	DET	DT	Definite=Def|PronType=Art	18	det	18:det	Entity=(place-84
 17	elevator	elevator	NOUN	NN	Number=Sing	18	compound	18:compound	_
@@ -763,7 +763,7 @@
 # text = Most people will probably see that this is a joke.
 1	Most	most	ADJ	JJS	Degree=Sup	2	amod	2:amod	Discourse=elaboration:102->99|Entity=(person-92
 2	people	person	NOUN	NNS	Number=Plur	5	nsubj	5:nsubj	Entity=person-92)
-3	will	will	AUX	MD	VerbForm=Fin	5	aux	5:aux	_
+3	will	will	AUX	MD	Number=Plur|Person=3|VerbForm=Fin	5	aux	5:aux	_
 4	probably	probably	ADV	RB	Degree=Pos	5	advmod	5:advmod	_
 5	see	see	VERB	VB	VerbForm=Inf	0	root	0:root	_
 6	that	that	SCONJ	IN	_	10	mark	10:mark	_
@@ -864,7 +864,7 @@
 # text = When there are a lot of people, say, "You're probably wondering why I've gathered you here today."
 1	When	when	SCONJ	WRB	PronType=Int	3	mark	3:mark	Discourse=circumstance:114->117
 2	there	there	PRON	EX	_	3	expl	3:expl	_
-3	are	be	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	9	advcl	9:advcl:when	_
+3	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	9	advcl	9:advcl:when	_
 4	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	5:det	Entity=(person-101
 5	lot	lot	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	_
 6	of	of	ADP	IN	_	7	case	7:case	_

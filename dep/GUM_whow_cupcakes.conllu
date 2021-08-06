@@ -9,9 +9,9 @@
 # sent_id = GUM_whow_cupcakes-1
 # s_type = inf
 # text = How to Make Vegan Cupcakes
-1	How	how	SCONJ	WRB	PronType=Int	3	mark	3:mark	Discourse=preparation:1->19
+1	How	how	SCONJ	WRB	PronType=Int	0	root	0:root	Discourse=preparation:1->19
 2	to	to	PART	TO	_	3	mark	3:mark	_
-3	Make	make	VERB	VB	Person=2|VerbForm=Inf	0	root	0:root	_
+3	Make	make	VERB	VB	VerbForm=Inf	1	acl	1:acl:to	_
 4	Vegan	vegan	ADJ	JJ	Degree=Pos	5	amod	5:amod	Entity=(object-1
 5	Cupcakes	cupcake	NOUN	NNS	Number=Plur	3	obj	3:obj	Entity=object-1)
 
@@ -109,13 +109,13 @@
 # sent_id = GUM_whow_cupcakes-8
 # s_type = frag
 # text = Ingredients
-1	Ingredients	ingredient	NOUN	NNS	Number=Plur	0	root	0:root	Discourse=preparation:12->19|Entity=(substance-14
+1	Ingredients	ingredient	NOUN	NNS	Number=Plur	0	root	0:root	Discourse=preparation:12->19|Entity=(substance-14)
 
 # sent_id = GUM_whow_cupcakes-9
 # s_type = frag
 # text = Method 1: Basic Vanilla Vegan Cupcakes:
 1	Method	method	NOUN	NN	Number=Sing	0	root	0:root	Bridge=abstract-2<abstract-15|Discourse=preparation:13->14|Entity=(abstract-15
-2	1	1	NUM	CD	NumForm=Digit|NumType=Card	1	dep	1:dep	Entity=substance-14)abstract-15)|SpaceAfter=No
+2	1	1	NUM	CD	NumForm=Digit|NumType=Card	1	dep	1:dep	Entity=abstract-15)|SpaceAfter=No
 3	:	:	PUNCT	:	_	7	punct	7:punct	_
 4	Basic	basic	ADJ	JJ	Degree=Pos	7	amod	7:amod	Discourse=preparation:14->19|Entity=(object-3
 5	Vanilla	vanilla	NOUN	NN	Number=Sing	7	compound	7:compound	_
@@ -508,7 +508,7 @@
 # text = The mixture will now curdle and this is what should be happening.
 1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=sequence:80->70|Entity=(event-61(substance-59
 2	mixture	mixture	NOUN	NN	Number=Sing	5	nsubj	5:nsubj	Entity=substance-59)
-3	will	will	AUX	MD	VerbForm=Fin	5	aux	5:aux	_
+3	will	will	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	5	aux	5:aux	_
 4	now	now	ADV	RB	_	5	advmod	5:advmod	_
 5	curdle	curdle	VERB	VB	VerbForm=Inf	0	root	0:root	Entity=event-61)
 6	and	and	CCONJ	CC	_	12	cc	12:cc	Discourse=evaluation:81->80
@@ -651,7 +651,7 @@
 7	then	then	ADV	RB	PronType=Dem	8	advmod	8:advmod	Discourse=contrast:95->93
 8	add	add	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	_
 9	a	a	DET	DT	Definite=Ind|PronType=Art	12	det	12:det	Bridge=substance-68<substance-70|Entity=(substance-70
-10	half	half	PRON	PDT	_	12	det:predet	12:det:predet	_
+10	half	half	DET	PDT	_	12	det:predet	12:det:predet	_
 11	a	a	DET	DT	Definite=Ind|PronType=Art	12	det	12:det	_
 12	cup	cup	NOUN	NN	Number=Sing	8	obj	8:obj	Entity=substance-70)
 13	but	but	CCONJ	CC	_	14	cc	14:cc	Discourse=condition:96->95
@@ -739,7 +739,7 @@
 20	minutes	minute	NOUN	NNS	Number=Plur	15	obl	15:obl:for	Entity=time-73)
 21	rather	rather	ADV	RB	_	23	cc	23:cc	Discourse=antithesis:105->103
 22	than	than	ADP	IN	_	21	fixed	21:fixed	_
-23	bake	bake	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	13	conj	7:conj|13:conj:rather_than	_
+23	bake	bake	VERB	VB	VerbForm=Inf	13	conj	7:conj|13:conj:rather_than	_
 24	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	23	obj	23:obj	Entity=(object-3)
 25	into	into	ADP	IN	_	26	case	26:case	_
 26	rocks	rock	NOUN	NNS	Number=Plur	23	obl	23:obl:into	Entity=(object-74)|SpaceAfter=No
@@ -1252,7 +1252,7 @@
 7-8	it's	_	_	_	_	_	_	_	_
 7	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	9	nsubj	9:nsubj	Entity=(substance-119)
 8	's	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	9	cop	9:cop	_
-9	all	all	PRON	DT	_	4	advcl	4:advcl:if|12:nsubj:pass	Entity=(substance-120
+9	all	all	DET	DT	_	4	advcl	4:advcl:if|12:nsubj:pass	Entity=(substance-120
 10-11	that's	_	_	_	_	_	_	_	_
 10	that	that	PRON	WDT	PronType=Rel	12	nsubj:pass	9:ref	_
 11	's	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	12	aux:pass	12:aux:pass	_

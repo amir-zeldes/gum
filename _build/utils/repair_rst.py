@@ -55,12 +55,15 @@ def fix_file(filename,tt_file,gum_source,outdir):
 	lines = tt.read().replace("\r","").split("\n")
 
 	current_token = 0
+	s_splits = []
 
 	for line in lines:
 		if not line.startswith("<") and len(line) > 0 and "\t" in line: # token
 			token = line.split("\t")[0]
 			current_token += 1
 			tokens.append(token)
+		elif line.startswith("<s type"):
+			s_splits.append(current_token)
 
 	if PY2:
 		rst = open(filename)
@@ -87,6 +90,8 @@ def fix_file(filename,tt_file,gum_source,outdir):
 			seg_tokens = len(seg.split(" "))
 			repaired_seg = " ".join(tokens[token_reached:token_reached+seg_tokens])
 			out_data += t_open + repaired_seg + t_close + "\n"
+			if any([t in s_splits for t in range(token_reached+1,token_reached+seg_tokens)]):
+				sys.stderr.write("! RST segment contains sentence break in " + rst_file_name + ": " + t_open + "\n")
 			token_reached += seg_tokens
 
 	with io.open(outdir + rst_file_name,'w',encoding="utf8",newline="\n") as f:

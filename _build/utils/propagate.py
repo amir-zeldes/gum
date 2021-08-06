@@ -122,6 +122,11 @@ def fix_punct(conllu_string):
 	return output_string
 
 
+def validate_upos(conllu, docname):
+	for l, line in enumerate(conllu.split("\n")):
+		if "so\tSCONJ\tRB" in line:
+			sys.stderr.write("invalid xpos + upos comibation on line " + str(l) + " in doc " + docname + ": " + line + "\n")
+
 def validate_enhanced(conllu, docname):
 	def get_descendants(parent,children_dict,seen,snum,docname, rev=0):
 		my_descendants = []
@@ -695,6 +700,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		uposed = re.sub(r'ent_head=[a-z]+\|infstat=[a-z]+\|?','',uposed)
 		if "infstat=" in uposed:
 			sys.__stdout__.write("o WARN: invalid entity annotation from tsv for document " + docname)
+		validate_upos(uposed, docname)
 		processed_lines = uposed
 
 		# Add metadata and global declaration

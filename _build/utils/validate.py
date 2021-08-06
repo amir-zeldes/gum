@@ -275,7 +275,7 @@ def validate_src(gum_source, reddit=False):
 
 def validate_lemmas(lemma_dict, lemma_docs):
 	exceptions = [("Democratic","JJ","Democratic"),("Water","NP","Waters"),("Sun","NP","Sunday"),("a","IN","of"),
-				  ("a","IN","as"),("car","NN","card"),("lay","VV","lay")]
+				  ("a","IN","as"),("car","NN","card"),("lay","VV","lay"),("that","IN","than")]
 	suspicious_types = 0
 	for tok, pos in sorted(list(iterkeys(lemma_dict))):
 		if len(lemma_dict[(tok,pos)]) > 1:
@@ -607,7 +607,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if lemma == "'s" and pos != "POS":
 		print("WARN: possessive 's must be tagged POS" + inname)
 
-	if func not in ["case","reparandum"] and pos == "POS":
+	if func not in ["case","reparandum","goeswith"] and pos == "POS":
 		print("WARN: tag POS must have function case" + inname)
 
 	if pos in ["VVG","VVN","VVD"] and lemma == tok:
@@ -716,7 +716,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 				 ("more","than"),("not","to"),("not","mention"),("of","course"),("prior","to"),("rather","than"),("so","as"),
 				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("that","is"), ("up","to"),("whether","or"),
 				 ("whether","not"),("depend","on"),("out","of"),("off","of"),("long","than"),("on","board"),("as","of"),("depend","upon"),
-				 ("that","be"),("just","about"),("vice","versa"),("as","such"),("next","to"),("close","to"),("one","another"),("de","facto")}
+				 ("that","be"),("just","about"),("vice","versa"),("as","such"),("next","to"),("close","to"),("one","another"),
+				 ("de","facto"),("each","other")}
 
 	# Ad hoc listing of triple mwe parts - All in all, in order for
 	mwe_pairs.update({("all","in"),("all","all"),("in","for")})

@@ -68,11 +68,11 @@
 # text = I felt as if I should help her sleep.
 1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	2:nsubj	Discourse=attribution:8->9|Entity=(person-3)
 2	felt	feel	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	_
-3	as	as	ADV	RB	_	7	advmod	7:advmod	Discourse=result:9->5
-4	if	if	SCONJ	IN	_	7	mark	7:mark	_
+3	as	as	SCONJ	RB	_	7	mark	7:mark	Discourse=result:9->5
+4	if	if	ADP	IN	_	3	fixed	3:fixed	_
 5	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	7	nsubj	7:nsubj	Entity=(person-3)
 6	should	should	AUX	MD	VerbForm=Fin	7	aux	7:aux	_
-7	help	help	VERB	VB	VerbForm=Inf	2	advcl	2:advcl:if	_
+7	help	help	VERB	VB	VerbForm=Inf	2	advcl	2:advcl:as_if	_
 8	her	she	PRON	PRP	Case=Acc|Gender=Fem|Number=Sing|Person=3|PronType=Prs	7	obj	7:obj	Entity=(person-2)
 9	sleep	sleep	VERB	VB	VerbForm=Inf	8	xcomp	8:xcomp	SpaceAfter=No
 10	.	.	PUNCT	.	_	2	punct	2:punct	_
@@ -196,7 +196,7 @@
 9	but	but	CCONJ	CC	_	11	cc	11:cc	Discourse=elaboration:22->20
 10	she	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	11	nsubj	11:nsubj	Entity=(person-2)
 11-12	didn't	_	_	_	_	_	_	_	SpaceAfter=No
-11	did	do	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	2	conj	2:conj:but	_
+11	did	do	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	2	conj	2:conj:but	_
 12	n't	not	PART	RB	Polarity=Neg	11	advmod	11:advmod	_
 13	.	.	PUNCT	.	_	2	punct	2:punct	_
 
@@ -374,7 +374,7 @@
 # sent_id = GUM_fiction_veronique-25
 # s_type = decl
 # text = All the offworlders I had ever met were teachers.
-1	All	all	PRON	PDT	_	3	det:predet	3:det:predet	Discourse=background:43->42|Entity=(person-20
+1	All	all	DET	PDT	_	3	det:predet	3:det:predet	Discourse=background:43->42|Entity=(person-20
 2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	_
 3	offworlders	offworlder	NOUN	NNS	Number=Plur	9	nsubj	9:nsubj	_
 4	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	7	nsubj	7:nsubj	Discourse=elaboration:44->43|Entity=(person-3)
@@ -392,7 +392,7 @@
 2	wondered	wonder	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	who	who	PRON	WP	PronType=Int	4	nsubj	4:nsubj	Discourse=evaluation:47->43
 4	did	do	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	2	ccomp	2:ccomp	_
-5	all	all	PRON	PDT	_	7	det:predet	7:det:predet	Entity=(abstract-21
+5	all	all	DET	PDT	_	7	det:predet	7:det:predet	Entity=(abstract-21
 6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	_
 7	work	work	NOUN	NN	Number=Sing	4	obj	4:obj	Entity=abstract-21)
 8	on	on	ADP	IN	_	9	case	9:case	_
@@ -463,12 +463,12 @@
 2	did	do	AUX	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	4	aux	4:aux	_
 3	n't	not	PART	RB	Polarity=Neg	4	advmod	4:advmod	_
 4	understand	understand	VERB	VB	VerbForm=Inf	0	root	0:root	_
-5	so	so	SCONJ	IN	_	9	mark	9:mark	Discourse=evaluation:55->49
+5	so	so	ADV	RB	_	9	advmod	9:advmod	Discourse=evaluation:55->49
 6	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	9	nsubj	9:nsubj	Entity=(person-3)
 7-8	didn't	_	_	_	_	_	_	_	_
 7	did	do	AUX	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	9	aux	9:aux	_
 8	n't	not	PART	RB	Polarity=Neg	9	advmod	9:advmod	_
-9	say	say	VERB	VB	VerbForm=Inf	4	advcl	4:advcl:so	_
+9	say	say	VERB	VB	VerbForm=Inf	4	advcl	4:advcl	_
 10	anything	anything	NOUN	NN	Number=Sing	9	obj	9:obj	Entity=(abstract-26)|SpaceAfter=No
 11	.	.	PUNCT	.	_	4	punct	4:punct	_
 
@@ -633,7 +633,7 @@
 12	people	person	NOUN	NNS	Number=Plur	15	nsubj	15:nsubj	_
 13	of	of	ADP	IN	_	14	case	14:case	_
 14	Earth	Earth	PROPN	NNP	Number=Sing	12	nmod	12:nmod:of	Entity=(place-12-Earth)person-38)
-15	forget	forget	VERB	VBP	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	conj	3:conj:and	_
+15	forget	forget	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	3	conj	3:conj:and	_
 16	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	17	nsubj	17:nsubj	Discourse=sequence:73->69|Entity=(person-36)
 17	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	15	ccomp	15:ccomp	_
 18	here	here	ADV	RB	PronType=Dem	17	advmod	17:advmod	Entity=(place-23)|SpaceAfter=No
@@ -881,7 +881,7 @@
 5	outside	outside	ADP	IN	_	4	nmod	4:nmod	Entity=(place-56)
 6	and	and	CCONJ	CC	_	8	cc	8:cc	Discourse=sequence:101->98
 7	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	8	nsubj	8:nsubj	Entity=(person-57)
-8	jumped	jump	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	conj	3:conj:and	SpaceAfter=No
+8	jumped	jump	VERB	VBD	Mood=Ind|Number=Plur|Person=1|Tense=Past|VerbForm=Fin	3	conj	3:conj:and	SpaceAfter=No
 9	,	,	PUNCT	,	_	11	punct	11:punct	_
 10	even	even	ADV	RB	_	11	advmod	11:advmod	Discourse=concession:102->101
 11	Mam	Mam	PROPN	NNP	Number=Sing	8	advcl	8:advcl	Entity=(person-58)
@@ -947,16 +947,16 @@
 8	offworlder	offworlder	NOUN	NN	Number=Sing	10	nmod:poss	10:nmod:poss	_
 9	's	's	PART	POS	_	8	case	8:case	Entity=person-2)
 10	home	home	NOUN	NN	Number=Sing	2	ccomp	2:ccomp	SpaceAfter=No
-11	,	,	PUNCT	,	_	14	punct	14:punct	_
-12	where	where	SCONJ	WRB	PronType=Int	14	mark	14:mark	Discourse=elaboration:111->110
-13	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	14	nsubj	14:nsubj	_
-14	was	be	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	10	acl	10:acl:where	_
-15	summer	summer	NOUN	NN	Number=Sing	14	obl:tmod	14:obl:tmod	Entity=(time-64)
+11	,	,	PUNCT	,	_	15	punct	15:punct	_
+12	where	where	SCONJ	WRB	PronType=Rel	15	mark	15:mark	Discourse=elaboration:111->110
+13	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	15	nsubj	15:nsubj	_
+14	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	15	cop	15:cop	_
+15	summer	summer	NOUN	NN	Number=Sing	10	acl:relcl	10:acl:relcl	Entity=(time-64)
 16	but	but	CCONJ	CC	_	20	cc	20:cc	Discourse=sequence:112->98
 17	no	no	DET	DT	Polarity=Neg	18	det	18:det	Entity=(person-65
 18	one	one	NOUN	NN	Number=Sing	20	nsubj	20:nsubj	Entity=person-65)
 19	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	20	aux	20:aux	_
-20	taking	take	VERB	VBG	Tense=Pres|VerbForm=Part	2	conj	2:conj:but	_
+20	taking	take	VERB	VBG	Tense=Pres|VerbForm=Part	15	conj	10:acl:relcl|15:conj:but	_
 21	care	care	NOUN	NN	Number=Sing	20	obj	20:obj	_
 22	of	of	ADP	IN	_	24	case	24:case	_
 23	the	the	DET	DT	Definite=Def|PronType=Art	24	det	24:det	Entity=(animal-66
@@ -966,7 +966,7 @@
 27	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	30	nsubj	30:nsubj	Entity=(person-65)
 28	were	be	AUX	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	30	cop	30:cop	_
 29	all	all	ADV	RB	Degree=Pos	30	advmod	30:advmod	_
-30	glad	glad	ADJ	JJ	Degree=Pos	20	conj	2:conj|20:conj:and	Entity=place-12-Earth)|SpaceAfter=No
+30	glad	glad	ADJ	JJ	Degree=Pos	20	conj	15:conj|20:conj:and	Entity=place-12-Earth)|SpaceAfter=No
 31	,	,	PUNCT	,	_	37	punct	37:punct	_
 32	and	and	CCONJ	CC	_	37	cc	37:cc	Discourse=result:114->112
 33	so	so	ADV	RB	_	37	advmod	37:advmod	_
@@ -1001,7 +1001,7 @@
 2	wished	wish	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	4	nmod:poss	4:nmod:poss	Entity=(person-69(person-3)
 4	da	da	NOUN	NN	Number=Sing	6	nsubj	6:nsubj	Entity=person-69)
-5	would	would	AUX	MD	VerbForm=Fin	6	aux	6:aux	_
+5	would	would	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	6	aux	6:aux	_
 6	come	come	VERB	VB	VerbForm=Inf	2	ccomp	2:ccomp	_
 7	home	home	ADV	RB	Degree=Pos	6	advmod	6:advmod	Entity=(place-70)|SpaceAfter=No
 8	.	.	PUNCT	.	_	2	punct	2:punct	_

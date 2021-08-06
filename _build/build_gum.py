@@ -94,7 +94,7 @@ validate_src(gum_source, reddit=reddit)
 ## Step 2: propagate annotations
 ######################################
 from utils.propagate import enrich_dep, enrich_xml, compile_ud, tt2vanilla
-from utils.repair_tsv import fix_tsv
+from utils.repair_tsv import fix_tsv, make_ontogum
 from utils.repair_rst import fix_rst
 
 
@@ -220,11 +220,17 @@ if not options.pepper_only:
 	print("\nCompiling Universal Dependencies version:\n" + "=" * 40)
 	compile_ud(pepper_tmp, gum_target, pre_annotated, reddit=reddit)
 
+	# Create OntoGUM data (OntoNotes schema version of coref annotations)
+	print("\n\nCreating alternate OntoGUM version of coref annotations:\n" + "="*37)
+	make_ontogum(gum_target, reddit=reddit)
+
 	# Add labels to PTB trees
 	if not options.skip_ptb_labels:
 		print("\n\nAdding function labels to PTB constituent trees:\n" + "=" * 40)
 		from utils.label_trees import add_ptb_labels
 	ptb_files = sorted(glob(gum_source + "const" + os.sep + "*.ptb"))
+	if not reddit:
+		ptb_files = [f for f in ptb_files if "_reddit" not in f]
 	entidep_files = sorted(glob(pepper_tmp + "entidep" + os.sep + "*.conllu"))
 	for i, ptb_file in enumerate(ptb_files):
 		docname = os.path.basename(ptb_file)
