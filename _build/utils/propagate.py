@@ -1039,10 +1039,12 @@ def get_rsd_spans(gum_target):
 		for line in lines:
 			if "\t" in line:
 				fields = line.split("\t")
-				edu_id, toks = fields[0:2]
+				#edu_id, toks, dist, depth, domain = fields[0:5]
+				edu_id, toks, dist = fields[0:3]
 				head, rsd_rel = fields[6:8]
-				rsd_rel = rsd_rel.replace("_m","").replace("_r","")
-				rsd_spans[doc][tok_num] = (edu_id, rsd_rel, head)
+				#rsd_rel = rsd_rel.replace("_m","").replace("_r","")
+				rsd_rel = rsd_rel.replace("_r","")
+				rsd_spans[doc][tok_num] = (edu_id, rsd_rel, head, dist)#, depth, domain)
 				tok_num += toks.strip().count(" ") + 1
 
 	return rsd_spans
@@ -1079,9 +1081,9 @@ def add_rsd_to_conllu(gum_target,reddit=False,ontogum=False):
 					if toknum in rsd_spans[doc]:
 						rsd_data = rsd_spans[doc][toknum]
 						if rsd_data[2] == "0":  # ROOT
-							misc = add_feat(fields[-1],"Discourse=" + rsd_data[1] + ":" + rsd_data[0])
+							misc = add_feat(fields[-1],"Discourse=" + rsd_data[1] + ":" + rsd_data[0] + ":" + rsd_data[3]) #+ ":" + rsd_data[4] + ":" + rsd_data[5])
 						else:
-							misc = add_feat(fields[-1],"Discourse="+rsd_data[1]+":"+rsd_data[0]+"->"+rsd_data[2])
+							misc = add_feat(fields[-1],"Discourse="+rsd_data[1]+":"+rsd_data[0]+"->"+rsd_data[2] + ":" + rsd_data[3]) #+ ":" + rsd_data[4] + ":" + rsd_data[5])
 						fields[-1] = misc
 						line = "\t".join(fields)
 					toknum += 1
