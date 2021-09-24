@@ -1011,10 +1011,13 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
 	print("o Reparsed " + str(len(xmlfiles)) + " documents" + " " * 20)
 """
 
-def get_coref_ids(gum_target):
+def get_coref_ids(gum_target, ontogum=False):
 
 	entity_dict = defaultdict(list)
-	conll_coref = glob(gum_target + "coref" + os.sep + "conll" + os.sep + "GUM" + os.sep + "*.conll")
+	if ontogum:
+		conll_coref = glob(gum_target + "coref" + os.sep + "ontogum" + os.sep + "conll" + os.sep + "*.conll")
+	else:
+		conll_coref = glob(gum_target + "coref" + os.sep + "conll" + os.sep + "GUM" + os.sep + "*.conll")
 	for file_ in conll_coref:
 		doc = os.path.basename(file_).replace(".conll","")
 		lines = io.open(file_,encoding="utf8").read().split("\n")
@@ -1045,13 +1048,16 @@ def get_rsd_spans(gum_target):
 	return rsd_spans
 
 
-def add_rsd_to_conllu(gum_target,reddit=False):
+def add_rsd_to_conllu(gum_target,reddit=False,ontogum=False):
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
 	rsd_spans = get_rsd_spans(gum_target)
 
-	files = glob(gum_target + "dep" + os.sep + "*.conllu")
-	files += glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
+	if not ontogum:
+		files = glob(gum_target + "dep" + os.sep + "*.conllu")
+		files += glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
+	else:
+		files = glob(gum_target + "coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep + "*.conllu")
 
 	if not reddit:
 		files = [f for f in files if not "reddit" in f]
@@ -1085,10 +1091,10 @@ def add_rsd_to_conllu(gum_target,reddit=False):
 			f.write("\n".join(output).strip() + "\n\n")
 
 
-def add_entities_to_conllu(gum_target,reddit=False):
+def add_entities_to_conllu(gum_target,reddit=False,ontogum=False):
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
-	entity_doc = get_coref_ids(gum_target)
+	entity_doc = get_coref_ids(gum_target,ontogum=ontogum)
 
 	files = glob(gum_target + "dep" + os.sep + "*.conllu")
 	files += glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
@@ -1122,8 +1128,15 @@ def add_entities_to_conllu(gum_target,reddit=False):
 					toknum += 1
 			output.append(line)
 
-		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
-			f.write("\n".join(output).strip() + "\n\n")
+		if ontogum:
+			onto_conllu = gum_target+"coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep
+			if not os.path.exists(onto_conllu):
+				os.makedirs(onto_conllu)
+			with io.open(onto_conllu + os.path.basename(file_), 'w', encoding="utf8", newline="\n") as f:
+				f.write("\n".join(output).strip() + "\n\n")
+		else:
+			with io.open(file_,'w',encoding="utf8",newline="\n") as f:
+				f.write("\n".join(output).strip() + "\n\n")
 
 
 def get_bridging(webannotsv):

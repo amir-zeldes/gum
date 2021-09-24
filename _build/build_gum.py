@@ -304,6 +304,8 @@ if options.no_pepper:
 	sys.__stdout__.write("\ni Not adding entity information to UD parses since Pepper conversion was skipped\n")
 else:
 	add_entities_to_conllu(gum_target,reddit=reddit)
+	add_entities_to_conllu(gum_target,reddit=reddit,ontogum=True)
 	add_bridging_to_conllu(gum_target,reddit=reddit)
 	add_rsd_to_conllu(gum_target,reddit=reddit)
+	add_rsd_to_conllu(gum_target,reddit=reddit,ontogum=True)
 	sys.__stdout__.write("\no Added entities, coreference and discourse relations to UD parses\n")

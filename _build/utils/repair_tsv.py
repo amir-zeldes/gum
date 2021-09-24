@@ -538,7 +538,7 @@ def fix_genitive_s(tsv_path, xml_path, warn_only=True, outdir=None, string_input
 ### end genitive s fix
 
 
-def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
+def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, single_coref_type=False):
 	"""
 	Fix webanno TSV in several ways:
 	  * All edges pointing back from a pronoun receive type 'ana'
