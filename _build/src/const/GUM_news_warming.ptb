@@ -211,15 +211,19 @@
 
 (ROOT
   (S
-    (S
-      (NP (DT The) (NN study))
-      (VP
-        (VBZ focuses)
-        (PP (IN on) (NP (NN ozone-temperature) (NN covariation)))))
-    (: :)
-    (S
-      (NP (NN ground-level) (NN ozone))
-      (VP (VBZ increases) (PP (IN with) (NP (NNS temperatures)))))
+    (NP (DT The) (NN study))
+    (VP
+      (VBZ focuses)
+      (PP
+        (IN on)
+        (NP
+          (NP (NN ozone) (HYPH -) (NN temperature) (NN covariation))
+          (: :)
+          (S
+            (NP (ADJP (NN ground) (HYPH -) (NN level)) (NN ozone))
+            (VP
+              (VBZ increases)
+              (PP (IN with) (NP (NNS temperatures))))))))
     (. .)))
 
 (ROOT
@@ -322,18 +326,19 @@
       (, ,)
       (`` ")
       (S
-        (NP (NN Ground-level) (NN ozone))
+        (NP (ADJP (NN Ground) (HYPH -) (NN level)) (NN ozone))
         (VP
-          (VBZ causes)
-          (NP
-            (NP (JJR more) (NN damage))
-            (PP (IN to) (NP (NNS plants)))
-            (PP
-              (IN than)
-              (NP
-                (NP (DT all) (JJ other) (NN air) (NNS pollutants))
-                (VP (VBN combined)))))))
-      ('' ")
+          (VP
+            (VBZ causes)
+            (NP
+              (NP (JJR more) (NN damage))
+              (PP (IN to) (NP (NNS plants)))
+              (PP
+                (IN than)
+                (NP
+                  (NP (DT all) (JJ other) (NN air) (NNS pollutants))
+                  (VP (VBN combined))))))
+          ('' ")))
       (, ,)
       (S
         (VP
@@ -416,7 +421,11 @@
                 (IN of)
                 (NP
                   (NP
-                    (ADJP (RB previously) (JJ heat-attributed))
+                    (ADJP
+                      (RB previously)
+                      (NN heat)
+                      (HYPH -)
+                      (VBN attributed))
                     (NN damage))
                   (PP (IN to) (NP (NN soybean) (NNS crops))))))))))
     (. .)))
@@ -495,21 +504,20 @@
         (PP
           (IN of)
           (NP
+            (NP (JJ extreme) (NNS crops))
+            (HYPH -)
             (NP
-              (JJ extreme)
-              (JJ crops-damaging)
-              (NN weather)
-              (NNS events))
-            (PP
-              (JJ such)
-              (IN as)
-              (NP
-                (NP (NNS floods))
-                (, ,)
-                (NP (NNS droughts))
-                (, ,)
-                (CC and)
-                (NP (JJ extreme) (NNS temperatures))))))))
+              (NP (VBG damaging) (NN weather) (NNS events))
+              (PP
+                (JJ such)
+                (IN as)
+                (NP
+                  (NP (NNS floods))
+                  (, ,)
+                  (NP (NNS droughts))
+                  (, ,)
+                  (CC and)
+                  (NP (JJ extreme) (NNS temperatures)))))))))
     (. .)))
 
 (ROOT
@@ -549,7 +557,7 @@
 (ROOT
   (S
     (`` ")
-    (NP (DT An) (NN air-quality) (NN cleanup))
+    (NP (DT An) (ADJP (NN air) (HYPH -) (NN quality)) (NN cleanup))
     (VP (MD would) (VP (VB improve) (NP (NN crop) (NNS yields))))
     (. [...])))
 

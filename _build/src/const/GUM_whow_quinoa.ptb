@@ -220,7 +220,9 @@
       (VB Drizzle)
       (NP (NP (DT a) (NN bit)) (PP (IN of) (NP (NN olive) (NN oil))))
       (PP (IN in) (NP (DT a) (NN pan)))
-      (PP (IN over) (NP (JJ medium-high) (NN heat))))
+      (PP
+        (IN over)
+        (NP (ADJP (JJ medium) (HYPH -) (JJ high)) (NN heat))))
     (. .)))
 
 (ROOT
@@ -257,7 +259,9 @@
           (IN in)
           (NP
             (NP (DT a) (NN saucepan))
-            (PP (IN over) (NP (JJ medium-high) (NN heat))))))
+            (PP
+              (IN over)
+              (NP (ADJP (JJ medium) (HYPH -) (JJ high)) (NN heat))))))
       (CC and)
       (VP (VB bring) (PP (IN to) (NP (DT a) (NN boil)))))
     (. .)))
@@ -454,18 +458,21 @@
 (ROOT (S (VP (VB Serve) (PP (IN with))) (: :)))
 
 (ROOT
-  (NP
-    (NP (NN Stir-fry))
-    (, ,)
-    (S
-      (VP
-        (VBG using)
-        (NP (DT the) (NN quinoa))
-        (PP
-          (IN as)
-          (NP
-            (NP (DT a) (NN substitute))
-            (PP (IN for) (NP (NN rice)))))))
+  (S
+    (VP
+      (NN Stir)
+      (HYPH -)
+      (NN fry)
+      (, ,)
+      (S
+        (VP
+          (VBG using)
+          (NP (DT the) (NN quinoa))
+          (PP
+            (IN as)
+            (NP
+              (NP (DT a) (NN substitute))
+              (PP (IN for) (NP (NN rice))))))))
     (. .)))
 
 (ROOT (NP (NN Curry) (. .)))
@@ -695,7 +702,7 @@
       (VB heat)
       (PRT (RP up))
       (NP (CD 2) (NNS tablespoons) (NN vegetable) (NN oil))
-      (PP (IN over) (NP (JJ medium-low) (NN heat))))
+      (PP (IN over) (NP (JJ medium) (HYPH -) (JJ low) (NN heat))))
     (. .)))
 
 (ROOT
@@ -799,7 +806,18 @@
     (VP
       (VB transfer)
       (NP (NN quinoa))
-      (PP (IN to) (NP (DT a) (NN 8-by-8-inch) (NN baking) (NN dish))))
+      (PP
+        (IN to)
+        (NP
+          (DT a)
+          (ADJP
+            (CD 8)
+            (HYPH -)
+            (IN by)
+            (X (NP (HYPH -) (CD 8) (HYPH -)))
+            (NN inch))
+          (NN baking)
+          (NN dish))))
     (. .)
     (PRN (-LRB- [) (CD 2) (-RRB- ]))))
 

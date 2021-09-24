@@ -29,9 +29,9 @@
                         (NP
                           (DT the)
                           (ADJP
-                            (VBN twisted)
+                            (ADJP (VBN twisted))
                             (CC and)
-                            (JJ burnt-out))
+                            (ADJP (VBN burnt) (HYPH -) (RP out)))
                           (NNS remnants))
                         (PP
                           (IN of)
@@ -464,7 +464,12 @@
               (CC and)
               (VP
                 (VBG performing)
-                (NP (JJ last-minute) (NN safety) (NNS checks))))))))
+                (NP
+                  (JJ last)
+                  (HYPH -)
+                  (NN minute)
+                  (NN safety)
+                  (NNS checks))))))))
     (. .)))
 
 (ROOT
@@ -744,13 +749,17 @@
               (NP
                 (NP (NN row))
                 (PP (IN upon) (NP (NN row)))
-                (PP (IN of) (NP (JJ black-clad) (NNS soldiers)))))))))
+                (PP
+                  (IN of)
+                  (NP
+                    (ADJP (JJ black) (HYPH -) (JJ clad))
+                    (NNS soldiers)))))))))
     (. .)))
 
 (ROOT
   (S
     (S
-      (NP (NP (DT A) (JJ white) (NN emblem)))
+      (NP (DT A) (JJ white) (NN emblem))
       (VP
         (VBD resided)
         (PP
@@ -765,7 +774,7 @@
     (S
       (NP
         (DT an)
-        (JJ all-encompassing)
+        (ADJP (DT all) (HYPH -) (VBG encompassing))
         (JJ full)
         (JJ black)
         (NN helmet))
@@ -791,7 +800,10 @@
           (PP
             (IN into)
             (NP
-              (NP (DT an) (JJ eye-level) (NN groove))
+              (NP
+                (DT an)
+                (ADJP (NN eye) (HYPH -) (NN level))
+                (NN groove))
               (SBAR
                 (WHNP (WDT that))
                 (S (VP (VBD ran) (ADVP (RB all) (RB around))))))))))
@@ -820,7 +832,7 @@
       (S (VP (TO to) (VP (VB face) (NP (PRP him)))))
       (, ,)
       (S
-        (NP (DT the) (JJ ruby-like) (NNS eyes))
+        (NP (DT the) (ADJP (NN ruby) (HYPH -) (JJ like)) (NNS eyes))
         (VP
           (VBG seeming)
           (S
@@ -1067,45 +1079,49 @@
     (. .)))
 
 (ROOT
-  (S
-    (ADVP (JJ Zombie-like))
-    (NP (PRP he))
-    (VP
-      (VBD sank)
-      (ADVP (RP down))
-      (PP (IN into) (NP (DT the) (NN seat)))
-      (, ,)
+  (FRAG
+    (NP (NN Zombie))
+    (HYPH -)
+    (SBAR
+      (RB like)
       (S
+        (NP (PRP he))
         (VP
-          (VBG watching)
-          (PP
-            (IN as)
-            (IN if)
-            (S
-              (VP
-                (IN from)
-                (PP (IN outside) (NP (PRP$ his) (NN body))))))
-          (SBAR
-            (IN as)
-            (S
-              (S
-                (NP (PRP$ his) (NNS hands))
-                (VP (VBD buckled) (NP (PRP him)) (PRT (RP in))))
-              (, ,)
-              (S
-                (NP (PRP$ his) (NNS fingers))
-                (VP (VB flip) (NP (NNS switches)))
+          (VBD sank)
+          (ADVP (RP down))
+          (PP (IN into) (NP (DT the) (NN seat)))
+          (, ,)
+          (S
+            (VP
+              (VBG watching)
+              (PP
+                (IN as)
+                (IN if)
+                (S
+                  (VP
+                    (IN from)
+                    (PP (IN outside) (NP (PRP$ his) (NN body))))))
+              (SBAR
+                (SBAR
+                  (IN as)
+                  (S
+                    (NP (PRP$ his) (NNS hands))
+                    (VP (VBD buckled) (NP (PRP him)) (PRT (RP in)))))
                 (, ,)
-                (VP (VB press) (NP (NNS buttons)))
-                (, ,))
-              (VP
-                (VB acknowledge)
-                (NP (NNS questions) (CC and) (NNS confirmations))
-                (PP
-                  (IN on)
-                  (NP
-                    (NP (DT the) (NNS screens))
-                    (PP (IN before) (NP (PRP him)))))))))))
+                (S
+                  (NP (PRP$ his) (NNS fingers))
+                  (VP (VB flip) (NP (NNS switches)))
+                  (, ,)
+                  (VP (VB press) (NP (NNS buttons))))
+                (, ,)
+                (VP
+                  (VB acknowledge)
+                  (NP (NNS questions) (CC and) (NNS confirmations))
+                  (PP
+                    (IN on)
+                    (NP
+                      (NP (DT the) (NNS screens))
+                      (PP (IN before) (NP (PRP him))))))))))))
     (. .)))
 
 (ROOT
