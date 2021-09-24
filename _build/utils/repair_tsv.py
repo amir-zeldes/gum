@@ -551,6 +551,9 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 
 	:param webanno_tsv: input webanno tsv with possibly incorrect edge types
 	:param parsed_lines: structured information about each token line
+	:param ent_mappings: maps entity numbers like [320]
+	:param single_tok_mappings: maps single token entities identified by their tok ID, like 13-1 (sent. 13, tok 1)
+	:param single_coref_type: if True only use coref and bridge in output, do not distinguish ana, cata and appos types
 	:return: adjusted webanno tsv output
 	"""
 
@@ -608,9 +611,9 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 				if rel["rel_type"] == "coref":
 					if ent["infstat"] == 'new':  # Source in coref chain can't be new
 						ent["infstat"] = 'giv'
-					if ent["pos"] in pronouns:
+					if ent["pos"] in pronouns and not single_coref_type:
 						rel["rel_type"] = "ana"
-					elif ent["func"] == "appos":
+					elif ent["func"] == "appos" and not single_coref_type:
 						if entities[rel["dest"]]["head_tok_abs_id"] == ent["head_tok_parent_abs_id"]:
 							rel["rel_type"] = "appos"
 				elif rel["rel_type"].startswith("bridge"):
@@ -622,7 +625,8 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 				ent = entities[e_id]
 				if ent["infstat"] == "giv":
 					ent["infstat"] = "new"
-				if ent["pos"] in pronouns and ent["length"] == 1 and ent["infstat"] != "acc":  # Cataphora
+				# Cataphora
+				if ent["pos"] in pronouns and ent["length"] == 1 and ent["infstat"] != "acc" and not single_coref_type:
 					rem_rel = None
 					for rel in dest2rel[e_id]:
 						if rel["rel_type"] in ["coref","ana","appos"]:
