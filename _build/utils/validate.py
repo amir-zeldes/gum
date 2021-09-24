@@ -372,10 +372,11 @@ def validate_annos(gum_source, reddit=False):
 
 		tok_num = 0
 
-		# Extended PTB (TT/AMALGAM) tagset
+		# Extended PTB (TT/AMALGAM) tagset with HYPH
 		tagset = ["CC","CD","DT","EX","FW","IN","IN/that","JJ","JJR","JJS","LS","MD","NN","NNS","NP","NPS","PDT","POS",
 				  "PP","PP$","RB","RBR","RBS","RP","SENT","SYM","TO","UH","VB","VBD","VBG","VBN","VBP","VBZ","VH","VHD",
-				  "VHG","VHN","VHP","VHZ","VV","VVD","VVG","VVN","VVP","VVZ","WDT","WP","WP$","WRB","``","''","(",")",",",":"]
+				  "VHG","VHN","VHP","VHZ","VV","VVD","VVG","VVN","VVP","VVZ","WDT","WP","WP$","WRB","``","''","(",")",
+				  ",",":","HYPH"]
 		non_lemmas = ["them","me","him","n't"]
 		non_lemma_combos = [("PP","her"),("MD","wo"),("PP","us"),("DT","an")]
 		non_cap_lemmas = ["There","How","Why","Where","When"]
@@ -408,12 +409,13 @@ def validate_annos(gum_source, reddit=False):
 
 		markables = {}
 		antecedents = {}
+		single_tok_ids = False
 
 		for line in coref_lines:
 			if "\t" in line:  # Token
 				fields = line.strip().split("\t")
 				entity_str, infstat_str, identity_str, coref_str, src_str = fields[-5:]
-				if entity_str != "":  # Entity annotation found
+				if entity_str != "" and entity_str != "_":  # Entity annotation found
 					entities = entity_str.split("|")
 					infstats = infstat_str.split("|")
 					corefs = coref_str.split("|")
@@ -430,6 +432,7 @@ def validate_annos(gum_source, reddit=False):
 							src = srcs
 						if not entity.endswith("]"):
 							# Single token entity
+							single_tok_ids = True
 							id = tok_id
 						else:
 							id = re.search(r'\[([0-9]+)\]',entity).group(1)
@@ -446,13 +449,14 @@ def validate_annos(gum_source, reddit=False):
 						markables[id].text += " " + text
 						markables[id].end = tok_id
 
-		# Ensure single token markables are given a tok_id-style identifier
+		# Ensure single token markables are given a tok_id-style identifier if the document uses this convention
 		mark_ids = list(markables.keys())
-		for mark_id in mark_ids:
-			mark = markables[mark_id]
-			if mark.start == mark.end:
-				markables[mark.start] = mark
-				del markables[mark_id]
+		if single_tok_ids:
+			for mark_id in mark_ids:
+				mark = markables[mark_id]
+				if mark.start == mark.end:
+					markables[mark.start] = mark
+					del markables[mark_id]
 
 		for mark_id in markables:
 			mark = markables[mark_id]
