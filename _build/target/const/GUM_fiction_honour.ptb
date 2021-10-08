@@ -13,10 +13,10 @@
         (SBAR
           (IN for)
           (S
-            (NP (DT the) (NNP Kethlan) (NN system))
+            (NP-SBJ (DT the) (NNP Kethlan) (NN system))
             (VP
               (TO to)
-              (VP
+              (VP-SBJ
                 (VB become)
                 (NP
                   (NP (DT a) (VBG tumbling) (NN sea))
@@ -28,7 +28,10 @@
                       (NP
                         (NP
                           (DT the)
-                          (ADJP (JJ twisted) (CC and) (JJ burnt-out))
+                          (ADJP
+                            (ADJP (VBN twisted))
+                            (CC and)
+                            (ADJP (VBN burnt) (HYPH -) (RP out)))
                           (NNS remnants))
                         (PP
                           (IN of)
@@ -43,18 +46,18 @@
   (NP
     (NP (DT An) (NN empire))
     (SBAR
-      (WHNP (WP$ whose) (JJ costly) (NNS mistakes))
+      (NP-SBJ (WP$ whose) (JJ costly) (NNS mistakes))
       (S
         (VP
           (MD would)
-          (PP
+          (PP-TMP
             (IN for)
             (NP
               (NP (JJ many) (NNS years))
               (SBAR (S (VP (TO to) (VP (VB come)))))))
           (VP
             (VB echo)
-            (PP
+            (PP-DIR
               (IN into)
               (NP
                 (NP (DT every) (NN corner))
@@ -66,7 +69,7 @@
     (CC And)
     (PP (IN with) (NP (DT those) (NNS mistakes)))
     (VP (MD would) (VP (VB come)))
-    (NP
+    (NP-SBJ
       (NP (NN death))
       (PP
         (IN to)
@@ -79,13 +82,13 @@
 
 (ROOT
   (S
-    (NP (DT A) (NN starfighter))
+    (NP-SBJ (DT A) (NN starfighter))
     (VP
       (VBD hurtled)
       (PP (IN through) (NP (DT the) (JJ scattered) (NN metal)))
       (, ,)
       (S
-        (NP (DT the) (NN pilot))
+        (NP-SBJ (DT the) (NN pilot))
         (ADJP
           (JJ desperate)
           (S
@@ -104,7 +107,7 @@
                           (NP (PRP himself))
                           (PP
                             (IN from)
-                            (S
+                            (S-NOM
                               (VP
                                 (VBG joining)
                                 (NP
@@ -123,7 +126,7 @@
 (ROOT
   (S
     (S
-      (NP (NNP Jacques) (NNP Chalmers))
+      (NP-SBJ (NNP Jacques) (NNP Chalmers))
       (VP
         (VBD was)
         (RB not)
@@ -136,18 +139,18 @@
     (, ,)
     (CC but)
     (S
-      (NP (PRP he))
+      (NP-SBJ (PRP he))
       (VP
         (VBD was)
         (ADVP (RB doubtless))
-        (NP
+        (NP-PRD
           (NP (CD one))
           (PP (IN of) (NP (DT the) (ADJP (RBS most) (JJ panicked)))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP He))
+    (NP-SBJ (PRP He))
     (VP
       (VBD tried)
       (S
@@ -156,16 +159,16 @@
           (VP
             (VB steady)
             (NP (PRP himself))
-            (SBAR
+            (SBAR-ADV
               (IN as)
               (S
-                (NP (PRP he))
+                (NP-SBJ (PRP he))
                 (VP
                   (VBD began)
                   (S
                     (VP
                       (VBG cycling)
-                      (ADVP (RB once) (RB again))
+                      (ADVP-TMP (RB once) (RB again))
                       (PP
                         (IN through)
                         (NP
@@ -187,7 +190,7 @@
 
 (ROOT
   (S
-    (NP (PRP$ His) (NN anxiety))
+    (NP-SBJ (PRP$ His) (NN anxiety))
     (VP
       (VBD continued)
       (S
@@ -195,22 +198,24 @@
           (TO to)
           (VP
             (VB grow)
-            (PP (IN with) (NP (DT each) (VBG passing) (NN second))))))
+            (PP-TMP
+              (IN with)
+              (NP (DT each) (VBG passing) (NN second))))))
       (, ,)
       (S
-        (NP
+        (NP-SBJ
           (NP (DT every) (NN change))
           (PP (IN of) (NP (DT the) (NN screen))))
         (VP
           (VBG doing)
           (NP
             (NP (NN nothing))
-            (S (VP (TO to) (VP (VB abate) (NP (PRP it)))))))))
+            (S-PRP (VP (TO to) (VP (VB abate) (NP (PRP it)))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP He))
+    (NP-SBJ (PRP He))
     (VP
       (VP
         (VBD stopped)
@@ -220,35 +225,37 @@
       (CC and)
       (VP
         (VBD glanced)
-        (PP (IN out) (PP (IN of) (NP (PRP$ his) (NN cockpit))))))
+        (PP-LOC (IN out) (PP (IN of) (NP (PRP$ his) (NN cockpit))))))
     (. .)))
 
 (ROOT
   (S
     (S
-      (NP (DT The) (NN scene))
+      (NP-SBJ (DT The) (NN scene))
       (VP
         (VBD was)
-        (NP
+        (NP-PRD
           (NP (DT the) (JJ same))
-          (SBAR
+          (SBAR-ADV
             (IN as)
             (S
-              (NP (PRP it))
+              (NP-SBJ (PRP it))
               (VP
                 (VBD had)
                 (VP
                   (VBN been)
-                  (ADVP (NP (DT a) (JJ few) (NNS moments)) (IN ago)))))))))
+                  (ADVP-TMP
+                    (NP-TMP (DT a) (JJ few) (NNS moments))
+                    (RB ago)))))))))
     (CC and)
     (S
-      (NP (PRP it))
+      (NP-SBJ (PRP it))
       (VP (VBD brought) (NP (PRP him)) (NP (DT no) (NN comfort))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP He))
+    (NP-SBJ (PRP He))
     (VP
       (MD could)
       (RB n't)
@@ -258,7 +265,7 @@
           (NP (DT the) (NN number))
           (PP (IN of) (NP (NN capital) (NNS ships)))
           (SBAR
-            (WHNP (WDT that))
+            (NP-SBJ (WDT that))
             (S
               (VP
                 (VBD dominated)
@@ -273,7 +280,7 @@
 
 (ROOT
   (S
-    (PP
+    (PP-TMP
       (IN In)
       (NP
         (NP (PRP$ his) (NNS years))
@@ -284,10 +291,10 @@
             (PP
               (IN to)
               (NP (DT the) (NNP Imperial) (NNP Naval) (NNPS Forces)))))))
-    (NP (PRP he))
+    (NP-SBJ (PRP he))
     (VP
       (VBD had)
-      (ADVP (RB never))
+      (ADVP-TMP (RB never))
       (VP
         (VBN seen)
         (NP (NP (NN anything)) (PP (IN like) (NP (PRP it))))
@@ -300,34 +307,34 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (DT The) (JJ enormous) (NNS forms))
       (PP (IN of) (NP (DT the) (NNS battleships))))
     (VP
       (VBD loomed)
       (PP
         (PP (IN like) (NP (NNS giants)))
-        (PP (IN atop) (NP (DT a) (NN hill))))
+        (PP-DIR (IN atop) (NP (DT a) (NN hill))))
       (, ,)
-      (S
+      (S-ADV
         (VP
           (VBG staring)
-          (ADVP (RP down))
-          (PP
+          (ADVP (RB down))
+          (PP-LOC
             (IN upon)
             (NP (DT a) (JJ tiny) (NN village) (RB below))))))
     (. .)))
 
 (ROOT
   (S
-    (ADVP (RB Then))
+    (ADVP-TMP (RB Then))
     (NP (EX there))
     (VP
       (VBD were)
-      (NP
+      (NP-SBJ
         (NP
           (NP (DT the) (NN Enemy) (NNS starfighters))
-          (NP (PRP themselves)))
+          (NP-ADV (PRP themselves)))
         (: :)
         (NP
           (NP (NP (NNS hundreds)) (ADVP (IN at) (JJS least)))
@@ -344,16 +351,16 @@
 
 (ROOT
   (S
-    (S
+    (S-ADV
       (VP
         (VBG Knowing)
         (SBAR
           (IN that)
           (S
-            (NP (PRP he))
+            (NP-SBJ (PRP he))
             (VP
               (VBD had)
-              (ADVP (RB already))
+              (ADVP-TMP (RB already))
               (VP
                 (VBN been)
                 (VP
@@ -365,13 +372,13 @@
                       (NP (JJR longer))
                       (SBAR
                         (IN than)
-                        (S (VP (VBD was) (ADJP (JJ advisable))))))))))))))
+                        (S (VP (VBD was) (ADJP-PRD (JJ advisable))))))))))))))
     (, ,)
-    (NP (NNP Chalmers))
+    (NP-SBJ (NNP Chalmers))
     (VP
       (VBD altered)
       (NP (PRP$ his) (NN course))
-      (S
+      (S-PRP
         (VP
           (TO to)
           (VP
@@ -389,15 +396,15 @@
 
 (ROOT
   (S
-    (ADVP (NP (RB Not) (RB long)) (RB before))
-    (NP (PRP he))
+    (ADVP-TMP (NP (RB Not) (RB long)) (RB before))
+    (NP-SBJ (PRP he))
     (VP
       (VBD had)
       (VP
         (VBN been)
         (VP
           (VBG standing)
-          (PP
+          (PP-LOC
             (IN on)
             (NP
               (NP (DT the) (NN flight) (NN deck))
@@ -409,19 +416,19 @@
           (, ,)
           (S
             (S
-              (NP (PRP$ his) (NN heart))
+              (NP-SBJ (PRP$ his) (NN heart))
               (VP
                 (VBG pumping)
                 (PP (IN in) (NP (PRP$ his) (NNS ears)))))
             (, ,)
             (S
-              (NP (PRP$ his) (NNS hands))
+              (NP-SBJ (PRP$ his) (NNS hands))
               (VP
                 (VBG sweating)
-                (SBAR
+                (SBAR-ADV
                   (IN as)
                   (S
-                    (NP (PRP he))
+                    (NP-SBJ (PRP he))
                     (VP
                       (VBD awaited)
                       (NP
@@ -437,65 +444,72 @@
 
 (ROOT
   (S
-    (NP (NNP Chalmers))
+    (NP-SBJ (NNP Chalmers))
     (VP
       (VBD saw)
-      (S
-        (NP (PRP$ his) (NNS friends))
+      (S-PRD
+        (NP-SBJ (PRP$ his) (NNS friends))
         (VP
           (VB run)
           (ADVP (RB forward))
-          (SBAR
+          (SBAR-ADV
             (IN as)
             (S
-              (NP (PRP$ their) (NNS names))
+              (NP-SBJ (PRP$ their) (NNS names))
               (VP (VBD were) (VP (VBN called) (PRT (RP out))))))
           (, ,)
-          (S
+          (S-ADV
             (VP
               (VP
                 (VBG scrambling)
-                (PP (IN into) (NP (NNS cockpits))))
+                (PP-DIR (IN into) (NP (NNS cockpits))))
               (, ,)
               (VP (VBG pulling) (PRT (RP on)) (NP (NNS helmets)))
               (CC and)
               (VP
                 (VBG performing)
-                (NP (JJ last-minute) (NN safety) (NNS checks))))))))
+                (NP
+                  (JJ last)
+                  (HYPH -)
+                  (NN minute)
+                  (NN safety)
+                  (NNS checks))))))))
     (. .)))
 
 (ROOT
   (S
-    (SBAR
+    (SBAR-ADV
       (IN Though)
       (S
-        (NP (JJS most))
-        (VP (VBD hid) (NP (PRP it)) (ADVP (RB well)))))
+        (NP-SBJ (JJS most))
+        (VP (VBD hid) (NP (PRP it)) (ADVP-MNR (RB well)))))
     (, ,)
-    (NP (PRP he))
+    (NP-SBJ (PRP he))
     (VP
       (VBD was)
       (ADJP
         (VBN convinced)
         (SBAR
           (S
-            (NP (PRP they))
+            (NP-SBJ (PRP they))
             (VP
               (VBD were)
-              (DT all)
+              (RB all)
               (ADJP
-                (ADJP (RB as) (JJ nervous) (CC and) (JJ scared))
-                (SBAR (IN as) (S (NP (PRP he)) (VP (VBD was)))))
+                (ADJP-PRD (RB as) (JJ nervous) (CC and) (JJ scared))
+                (SBAR-ADV
+                  (IN as)
+                  (S (NP-SBJ (PRP he)) (VP (VBD was)))))
               (: -)
-              (S
+              (S-ADV
                 (VP
                   (VBG knowing)
                   (SBAR
                     (S
-                      (NP (PRP they))
+                      (NP-SBJ (PRP they))
                       (VP
                         (MD could)
-                        (ADVP (RB well))
+                        (ADVP-MNR (RB well))
                         (VP
                           (VB be)
                           (VP
@@ -508,19 +522,21 @@
 
 (ROOT
   (S
-    (SBAR
+    (SBAR-ADV
       (IN As)
       (S
-        (NP (PRP he))
+        (NP-SBJ (PRP he))
         (VP
           (VBD watched)
-          (S
-            (NP (NP (PRP$ his) (NNS friends) (POS ')) (NNS fighters))
+          (S-PRD
+            (NP-SBJ
+              (NP (PRP$ his) (NNS friends) (POS '))
+              (NNS fighters))
             (VP
               (VB hurtle)
               (PP (IN down) (NP (DT the) (NN catapult))))))))
     (, ,)
-    (NP (PRP$ his) (JJ commanding) (NN officer))
+    (NP-SBJ (PRP$ his) (JJ commanding) (NN officer))
     (VP
       (VBD had)
       (VP
@@ -528,9 +544,9 @@
         (NP
           (NP (DT the) (JJ last) (VBG remaining) (NNS pilots))
           (VP
-            (ADVP (RB still))
+            (ADVP-TMP (RB still))
             (VBG standing)
-            (PP (IN on) (NP (DT the) (NN flight) (NN deck)))))))
+            (PP-LOC (IN on) (NP (DT the) (NN flight) (NN deck)))))))
     (. .)))
 
 (ROOT
@@ -539,26 +555,26 @@
     (S (INTJ (UH Right)) (, ,) (VP (VB listen) (PRT (RP up))))
     (, ,)
     ('' ”)
-    (NP (PRP he))
+    (NP-SBJ (PRP he))
     (VP (VBD started))
     (. .)))
 
 (ROOT
   (S
     (`` “)
-    (NP (DT This))
+    (NP-SBJ (DT This))
     (VP
       (VBZ is)
       (SBAR
         (WHADVP (WRB where))
         (S
-          (NP (PRP we))
+          (NP-SBJ (PRP we))
           (VP (MD must) (VP (VB make) (NP (PRP$ our) (NN stand)))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT The) (NNP Enemy))
+    (NP-SBJ (DT The) (NNP Enemy))
     (VP
       (MD can)
       (RB not)
@@ -569,20 +585,20 @@
           (S
             (VP
               (TO to)
-              (VP (VB advance) (ADVP (DT any) (RBR further))))))))
+              (VP (VB advance) (ADVP-TMP (DT any) (RBR further))))))))
     (. .)))
 
 (ROOT
   (S
     (NP (RB Tonight))
-    (NP (PRP we))
+    (NP-SBJ (PRP we))
     (VP
       (VBP fight)
       (NP
         (NP
           (NP (DT the) (NN battle))
           (PP
-            (PP (IN for) (NP (NNP Kethlan)))
+            (PP-LOC (IN for) (NP (NNP Kethlan)))
             (CC and)
             (PP (IN for) (NP (DT the) (NNP Imperium)))))
         (: ;)
@@ -593,7 +609,7 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (NNS Hundreds))
       (PP
         (IN of)
@@ -609,7 +625,7 @@
 
 (ROOT
   (S
-    (VP (VB Make) (S (NP (PRP them)) (ADJP (JJ proud))))
+    (VP (VB Make) (S (NP-SBJ (PRP them)) (ADJP-PRD (JJ proud))))
     (. !)
     ('' ”)))
 
@@ -618,37 +634,37 @@
     (FRAG (NP (NP (NNS Hundreds)) (PP (IN of) (NP (NNS millions)))))
     (. ?)
     (VP (VBD thought))
-    (NP (NNP Chalmers))
+    (NP-SBJ (NNP Chalmers))
     (. .)))
 
 (ROOT
   (SQ
     (VBZ Is)
-    (NP (DT that))
-    (NP
+    (NP-SBJ (DT that))
+    (NP-PRD
       (NP (DT all))
-      (SBAR (WHNP (WDT that)) (S (VP (VBZ 's) (VP (VBN left))))))
+      (SBAR (NP-SBJ (WDT that)) (S (VP (VBZ 's) (VP (VBN left))))))
     (. ?)))
 
 (ROOT
   (S
-    (ADVP (NP (DT A) (JJ few) (NNS months)) (IN ago))
-    (NP (PRP it))
-    (VP (VBD was) (NP (NNS billions)))
+    (ADVP-TMP (NP-TMP (DT A) (JJ few) (NNS months)) (RB ago))
+    (NP-SBJ (PRP it))
+    (VP (VBD was) (NP-PRD (NNS billions)))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT This) (NN day))
+    (NP-SBJ (DT This) (NN day))
     (VP
       (VBD had)
       (VP
         (VBN crept)
-        (ADVP (RB ever) (JJR closer))
-        (SBAR
+        (ADVP-TMP (RB ever) (JJR closer))
+        (SBAR-ADV
           (IN as)
           (S
-            (NP
+            (NP-SBJ
               (NP (NNS cities))
               (, ,)
               (NP (NNS planets))
@@ -680,10 +696,10 @@
       (PP (IN of) (NP (PRP$ his) (NNS friends))))
     (SQ
       (VBD had)
-      (NP (PRP he))
+      (NP-SBJ (PRP he))
       (VP
         (VBN lost)
-        (PP
+        (PP-TMP
           (IN over)
           (NP
             (DT these)
@@ -696,13 +712,13 @@
 (ROOT
   (SQ
     (VBD Had)
-    (NP (PRP they))
-    (VP (VBN died) (ADVP (RB fast)))
+    (NP-SBJ (PRP they))
+    (VP (VBN died) (ADVP-MNR (RB fast)))
     (CC or)
     (SQ
       (VBD were)
-      (NP (PRP they))
-      (ADVP (RB now))
+      (NP-SBJ (PRP they))
+      (ADVP-TMP (RB now))
       (VP
         (VBG suffering)
         (NP (NP (DT a) (NN fate)) (ADJP (RB far) (JJR worse)))))
@@ -712,10 +728,10 @@
 
 (ROOT
   (S
-    (SBAR
+    (SBAR-ADV
       (IN As)
       (S
-        (NP (PRP$ his) (NNP CO))
+        (NP-SBJ (PRP$ his) (NNP CO))
         (VP
           (VBD continued)
           (S
@@ -727,7 +743,7 @@
                 (PRT (RP up))
                 (PP (IN for) (NP (DT the) (JJ critical) (NN battle)))))))))
     (, ,)
-    (NP (NP (NNP Chalmers) (POS ')) (NN head))
+    (NP-SBJ (NP (NNP Chalmers) (POS ')) (NN head))
     (VP
       (VBD was)
       (VP
@@ -741,13 +757,17 @@
               (NP
                 (NP (NN row))
                 (PP (IN upon) (NP (NN row)))
-                (PP (IN of) (NP (JJ black-clad) (NNS soldiers)))))))))
+                (PP
+                  (IN of)
+                  (NP
+                    (ADJP (JJ black) (HYPH -) (JJ clad))
+                    (NNS soldiers)))))))))
     (. .)))
 
 (ROOT
   (S
     (S
-      (NP (NP (DT A) (JJ white) (NN emblem)))
+      (NP-SBJ (DT A) (JJ white) (NN emblem))
       (VP
         (VBD resided)
         (PP
@@ -760,23 +780,23 @@
               (NX (JJ left) (NN breast)))))))
     (, ,)
     (S
-      (NP
+      (NP-SBJ
         (DT an)
-        (JJ all-encompassing)
+        (ADJP (DT all) (HYPH -) (VBG encompassing))
         (JJ full)
         (JJ black)
         (NN helmet))
       (PP (IN upon) (NP (PRP$ their) (NNS heads))))
     (, ,)
     (S
-      (NP (PRP$ its) (JJ smooth) (NN form))
+      (NP-SBJ (PRP$ its) (JJ smooth) (NN form))
       (VP (VBG negating) (NP (DT all) (JJ facial) (NNS features))))
     (. .)))
 
 (ROOT
   (S
     (S
-      (NP
+      (NP-SBJ
         (CD Two)
         (ADJP (JJ bright) (JJ red))
         (JJ oval)
@@ -785,21 +805,24 @@
         (VBD were)
         (VP
           (VBN set)
-          (PP
+          (PP-DIR
             (IN into)
             (NP
-              (NP (DT an) (JJ eye-level) (NN groove))
+              (NP
+                (DT an)
+                (ADJP (NN eye) (HYPH -) (NN level))
+                (NN groove))
               (SBAR
-                (WHNP (WDT that))
+                (NP-SBJ (WDT that))
                 (S (VP (VBD ran) (ADVP (RB all) (RB around))))))))))
     (, ,)
     (S
-      (NP
+      (NP-SBJ
         (NP (DT the) (`` “) (NNS eyes) ('' ”))
-        (NP (PRP themselves)))
+        (NP-ADV (PRP themselves)))
       (VP
         (VBN slanted)
-        (PP
+        (PP-DIR
           (IN into)
           (NP
             (DT a)
@@ -811,13 +834,16 @@
 
 (ROOT
   (S
-    (NP (NP (CD One)) (PP (IN of) (NP (DT the) (NNS soldiers))))
+    (NP-SBJ (NP (CD One)) (PP (IN of) (NP (DT the) (NNS soldiers))))
     (VP
       (VBD turned)
-      (S (VP (TO to) (VP (VB face) (NP (PRP him)))))
+      (S-PRP (VP (TO to) (VP (VB face) (NP (PRP him)))))
       (, ,)
       (S
-        (NP (DT the) (JJ ruby-like) (NNS eyes))
+        (NP-SBJ
+          (DT the)
+          (ADJP (NN ruby) (HYPH -) (JJ like))
+          (NNS eyes))
         (VP
           (VBG seeming)
           (S
@@ -828,20 +854,20 @@
 
 (ROOT
   (S
-    (NP (PRP He))
+    (NP-SBJ (PRP He))
     (VP
       (VBD felt)
-      (S
-        (NP (PRP$ his) (NN hand))
+      (S-PRD
+        (NP-SBJ (PRP$ his) (NN hand))
         (VP
           (VB tighten)
           (PP
             (IN on)
             (NP
               (NP (DT the) (NN flight) (NN helmet))
-              (SBAR (S (NP (PRP he)) (VP (VBD held))))))))
+              (SBAR (S (NP-SBJ (PRP he)) (VP (VBD held))))))))
       (, ,)
-      (S (VP (VBG swallowing) (ADVP (RB hard)))))
+      (S-ADV (VP (VBG swallowing) (ADVP-MNR (RB hard)))))
     (. .)))
 
 (ROOT
@@ -859,7 +885,7 @@
       (NNP Rye))
     (: ...)
     ('' ”)
-    (NP (DT a) (NN voice))
+    (NP-SBJ (DT a) (NN voice))
     (VP
       (VBD called)
       (PRT (RP out))
@@ -868,30 +894,32 @@
         (NP
           (NP (DT the) (JJ other) (NNS sounds))
           (SBAR
-            (WHNP (WDT that))
+            (NP-SBJ (WDT that))
             (S (VP (VBD filled) (NP (DT the) (NN flight) (NN deck))))))))
     (. .)))
 
 (ROOT
   (S
-    (S (NP (NNS Feet)) (VP (VBD moved)))
+    (S (NP-SBJ (NNS Feet)) (VP (VBD moved)))
     (CC and)
     (S
-      (NP (NNP Chalmers))
+      (NP-SBJ (NNP Chalmers))
       (VP
         (VBD felt)
-        (S (NP (PRP$ his) (NN stomach)) (VP (VB lurch)))))
+        (S-PRD (NP-SBJ (PRP$ his) (NN stomach)) (VP (VB lurch)))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP$ His) (NN name))
-    (VP (MD would) (VP (VB be) (VP (VBN called) (ADVP (RB soon)))))
+    (NP-SBJ (PRP$ His) (NN name))
+    (VP
+      (MD would)
+      (VP (VB be) (VP (VBN called) (ADVP-TMP (RB soon)))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP He))
+    (NP-SBJ (PRP He))
     (VP
       (VBD felt)
       (NP (NP (DT a) (NN sense)) (PP (IN of) (NP (NN doom)))))
@@ -899,40 +927,46 @@
 
 (ROOT
   (SBARQ
-    (SBAR
+    (SBAR-ADV
       (IN If)
       (S
-        (NP (DT the) (NNP Empire))
+        (NP-SBJ (DT the) (NNP Empire))
         (VP
           (MD could)
           (RB not)
-          (VP (VB stop) (NP (DT the) (NN Enemy)) (ADVP (RB before))))))
+          (VP
+            (VB stop)
+            (NP (DT the) (NN Enemy))
+            (ADVP-TMP (RB before))))))
     (, ,)
     (WHNP (WP what) (NN hope))
-    (SQ (VBD did) (NP (PRP they)) (VP (VB have) (ADVP (RB now))))
+    (SQ
+      (VBD did)
+      (NP-SBJ (PRP they))
+      (VP (VB have) (ADVP-TMP (RB now))))
     (. ?)))
 
 (ROOT
   (S
     (S
-      (NP (NP (DT The) (NNP Enemy) (POS 's)) (NN power))
+      (NP-SBJ (NP (DT The) (NNP Enemy) (POS 's)) (NN power))
       (VP (VBD had) (VP (VBN grown) (ADVP (RB exponentially)))))
     (CC and)
     (S
-      (NP (PRP they))
+      (NP-SBJ (PRP they))
       (VP
         (VBD had)
         (VP
           (VBN crushed)
           (NP
             (NP (NN everything))
-            (PP (IN in) (NP (PRP$ their) (NN path))))
+            (PP-LOC (IN in) (NP (PRP$ their) (NN path))))
           (PP (IN with) (NP (RB harrowing) (JJ little) (NN effort))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (NNP Chalmers))
+    (NP-SBJ (NNP Chalmers))
     (VP
       (VBD was)
       (VP
@@ -948,13 +982,13 @@
                   (NP (DT the) (NN truth))
                   (: :)
                   (S
-                    (NP (PRP they))
+                    (NP-SBJ (PRP they))
                     (VP
                       (VBD were)
-                      (NP
+                      (NP-PRD
                         (NP (DT all))
                         (SBAR
-                          (WHNP (WDT that))
+                          (NP-SBJ (WDT that))
                           (S
                             (VP
                               (VBD was)
@@ -971,13 +1005,13 @@
 
 (ROOT
   (S
-    (NP (DT This))
+    (NP-SBJ (DT This))
     (VP
       (VBD was)
-      (NP
+      (NP-PRD
         (NP (DT a) (NN battle))
         (SBAR
-          (WHNP (WDT that))
+          (NP-SBJ (WDT that))
           (S
             (VP
               (MD could)
@@ -987,8 +1021,8 @@
                 (VP
                   (VBN won)
                   (: ;)
-                  (ADVP
-                    (ADVP (RB not) (RB now))
+                  (ADVP-TMP
+                    (ADVP-TMP (RB not) (RB now))
                     (, ,)
                     (RB not)
                     (RB ever)))))))))
@@ -1020,13 +1054,15 @@
         (NP (DT the) (NN sound))
         (PP (IN of) (NP (PRP$ his) (NN name)))))
     (, ,)
-    (NP (NNP Chalmers))
+    (NP-SBJ (NNP Chalmers))
     (VP
       (VBD felt)
-      (S (NP (PRP himself)) (VP (VB move) (ADVP (RB robotically))))
+      (S-PRD
+        (NP-SBJ (PRP himself))
+        (VP (VB move) (ADVP (RB robotically))))
       (, ,)
       (S
-        (NP (PRP$ his) (NN mind))
+        (NP-SBJ (PRP$ his) (NN mind))
         (VP
           (VBG screaming)
           (PP
@@ -1038,13 +1074,13 @@
                 (SBAR
                   (WHNP (WP what))
                   (S
-                    (NP (PRP$ his) (NNS legs))
+                    (NP-SBJ (PRP$ his) (NNS legs))
                     (VP (VBD were) (VP (VBG doing)))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP He))
+    (NP-SBJ (PRP He))
     (VP
       (VP
         (VBD ran)
@@ -1060,71 +1096,75 @@
           (VP
             (VBG ascending)
             (NP (DT the) (NN ladder))
-            (PP (IN into) (NP (DT the) (NN cockpit)))))))
+            (PP-DIR (IN into) (NP (DT the) (NN cockpit)))))))
     (. .)))
 
 (ROOT
-  (S
-    (ADVP (JJ Zombie-like))
-    (NP (PRP he))
-    (VP
-      (VBD sank)
-      (ADVP (RP down))
-      (PP (IN into) (NP (DT the) (NN seat)))
-      (, ,)
+  (FRAG
+    (NP (NN Zombie))
+    (HYPH -)
+    (SBAR
+      (RB like)
       (S
+        (NP-SBJ (PRP he))
         (VP
-          (VBG watching)
-          (PP
-            (RB as)
-            (IN if)
-            (S
-              (VP
-                (IN from)
-                (PP (IN outside) (NP (PRP$ his) (NN body))))))
-          (SBAR
-            (IN as)
-            (S
-              (S
-                (NP (PRP$ his) (NNS hands))
-                (VP (VBD buckled) (NP (PRP him)) (PRT (RP in))))
-              (, ,)
-              (S
-                (NP (PRP$ his) (NNS fingers))
-                (VP (VB flip) (NP (NNS switches)))
+          (VBD sank)
+          (ADVP (RP down))
+          (PP-DIR (IN into) (NP (DT the) (NN seat)))
+          (, ,)
+          (S-ADV
+            (VP
+              (VBG watching)
+              (PP
+                (IN as)
+                (IN if)
+                (S
+                  (VP
+                    (IN from)
+                    (PP (IN outside) (NP (PRP$ his) (NN body))))))
+              (SBAR
+                (SBAR-ADV
+                  (IN as)
+                  (S
+                    (NP-SBJ (PRP$ his) (NNS hands))
+                    (VP (VBD buckled) (NP (PRP him)) (PRT (RP in)))))
                 (, ,)
-                (VP (VB press) (NP (NNS buttons)))
-                (, ,))
-              (VP
-                (VB acknowledge)
-                (NP (NNS questions) (CC and) (NNS confirmations))
-                (PP
-                  (IN on)
-                  (NP
-                    (NP (DT the) (NNS screens))
-                    (PP (IN before) (NP (PRP him)))))))))))
+                (S
+                  (NP-SBJ (PRP$ his) (NNS fingers))
+                  (VP (VB flip) (NP (NNS switches)))
+                  (, ,)
+                  (VP (VB press) (NP (NNS buttons))))
+                (, ,)
+                (VP
+                  (VB acknowledge)
+                  (NP (NNS questions) (CC and) (NNS confirmations))
+                  (PP
+                    (IN on)
+                    (NP
+                      (NP (DT the) (NNS screens))
+                      (PP (IN before) (NP (PRP him))))))))))))
     (. .)))
 
 (ROOT
   (S
     (S
-      (ADVP (NP (NNS Moments)) (RBR later))
+      (ADVP-TMP (NP-TMP (NNS Moments)) (RBR later))
       (, ,)
-      (NP (PRP$ his) (NN craft))
+      (NP-SBJ (PRP$ his) (NN craft))
       (VP
         (VBD was)
         (VP (VBN taxied) (PP (IN to) (NP (DT the) (NN catapult))))))
     (CC and)
     (S
       (PP (IN before) (NP (JJ long)))
-      (NP (PRP he))
+      (NP-SBJ (PRP he))
       (VP
         (VBD 'd)
         (VP
           (VBN found)
-          (NP (PRP himself))
+          (NP-SBJ (PRP himself))
           (PP
-            (ADVP (RB out) (PP (IN in) (NP (NN space))))
+            (ADVP-PRD (RB out) (PP-LOC (IN in) (NP (NN space))))
             (CC and)
             (PP
               (IN into)
@@ -1135,18 +1175,17 @@
 
 (ROOT
   (S
-    (PP (IN At) (NP (DT that) (NN moment)))
+    (PP-TMP (IN At) (NP (DT that) (NN moment)))
     (, ,)
-    (NP (PRP$ his) (JJS worst) (NNS fears))
+    (NP-SBJ (PRP$ his) (JJS worst) (NNS fears))
     (VP
       (VBD had)
       (VP
         (CONJP (RB not) (RB only))
         (VBN been)
         (VP
-          (VP (ADVP (RB altogether)) (VBN realised))
+          (VP (ADVP-MNR (RB altogether)) (VBN realised))
           (, ,)
           (CC but)
-          (VP (ADVP (RB far)) (VBN exceeded)))))
+          (VP (ADVP-TMP (RB far)) (VBN exceeded)))))
     (. .)))
-

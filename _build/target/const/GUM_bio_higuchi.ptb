@@ -2,19 +2,19 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (NNP Ichiyō) (NNP Higuchi))
       (PRN
         (-LRB- -LRB-)
         (NP (FW 樋口) (FW 一葉) (NP (NNP Higuchi) (NNP Ichiyō)))
         (, ,)
-        (NP (NNP May) (CD 2) (, ,) (CD 1872))
+        (NP-TMP (NNP May) (CD 2) (, ,) (CD 1872))
         (SYM –)
-        (NP (NNP November) (CD 23) (, ,) (CD 1896))
+        (NP-TMP (NNP November) (CD 23) (, ,) (CD 1896))
         (-RRB- -RRB-)))
     (VP
       (VBD was)
-      (NP
+      (NP-PRD
         (NP (DT a) (NN pen) (NN name))
         (PP
           (IN of)
@@ -48,10 +48,10 @@
         (VBG Specializing)
         (PP (IN in) (NP (JJ short) (NNS stories)))))
     (, ,)
-    (NP (PRP she))
+    (NP-SBJ (PRP she))
     (VP
       (VBD was)
-      (NP
+      (NP-PRD
         (NP
           (NP (CD one))
           (PP
@@ -64,7 +64,7 @@
                     (TO to)
                     (VP
                       (VB appear)
-                      (PP
+                      (PP-TMP
                         (IN in)
                         (NP
                           (NP (DT the) (NNP Meiji) (NN period))
@@ -80,14 +80,14 @@
             (JJ prominent)
             (NN woman)
             (NN writer))
-          (PP (IN of) (NP (JJ modern) (NNS times))))))
+          (PP-TMP (IN of) (NP (JJ modern) (NNS times))))))
     (. .)))
 
 (ROOT
   (S
     (S
       (S
-        (NP (PRP She))
+        (NP-SBJ (PRP She))
         (VP
           (VBD wrote)
           (NP (RB relatively) (JJ little))
@@ -97,16 +97,18 @@
               (NP (DT a) (NN result))
               (PP
                 (IN of)
-                (S
+                (S-NOM
                   (VP (VBG living) (NP (DT a) (JJ brief) (NN life)))))))))
       (PRN
         (: —)
-        (S (NP (PRP she)) (VP (VBD died) (PP (IN at) (NP (CD 24)))))
+        (S
+          (NP-SBJ (PRP she))
+          (VP (VBD died) (PP (IN at) (NP (CD 24)))))
         (: —)))
     (CC but)
     (S
       (S
-        (NP (PRP$ her) (NNS stories))
+        (NP-SBJ (PRP$ her) (NNS stories))
         (VP
           (VBD had)
           (NP
@@ -114,14 +116,14 @@
             (PP (IN on) (NP (JJ Japanese) (NN literature))))))
       (CC and)
       (S
-        (NP (PRP she))
+        (NP-SBJ (PRP she))
         (VP
           (VBZ is)
-          (ADVP (RB still))
+          (ADVP-TMP (RB still))
           (VP
             (VBN appreciated)
             (PP (IN by) (NP (DT the) (JJ Japanese) (NN public)))
-            (NP (NN today))))))
+            (NP-TMP (NN today))))))
     (. .)))
 
 (ROOT
@@ -131,7 +133,7 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (PRP She))
       (, ,)
       (NP (PRP$ her) (NN mother))
@@ -140,10 +142,10 @@
       (NX (JJR younger) (NN sister)))
     (VP
       (VBD made)
-      (S (NP (NNS ends)) (VP (VB meet)))
+      (S-PRD (NP-SBJ (NNS ends)) (VP (VB meet)))
       (PP
         (IN by)
-        (S
+        (S-NOM
           (VP
             (VBG doing)
             (NP
@@ -157,11 +159,11 @@
 
 (ROOT
   (S
-    (PP (IN In) (NP (CD 1892)))
+    (PP-TMP (IN In) (NP (CD 1892)))
     (, ,)
     (PP
       (IN after)
-      (S
+      (S-NOM
         (VP
           (VBG seeing)
           (NP
@@ -174,26 +176,27 @@
                 (NP (NNP Kaho) (NNP Tanabe))
                 (, ,)
                 (SBAR
-                  (WHNP (WP who))
+                  (NP-SBJ (WP who))
                   (S (VP (VBD wrote) (NP (DT a) (NN novel)))))))))))
     (, ,)
-    (NP (NNP Higuchi))
+    (NP-SBJ (NNP Higuchi))
     (VP
       (VBD decided)
       (S (VP (TO to) (VP (VB become) (NP (DT a) (NN novelist)))))
-      (S (VP (TO to) (VP (VB support) (NP (PRP$ her) (NN family))))))
+      (S-PRP
+        (VP (TO to) (VP (VB support) (NP (PRP$ her) (NN family))))))
     (. .)))
 
 (ROOT
   (S
-    (ADVP (RB Nevertheless))
+    (ADVP-TMP (RB Nevertheless))
     (, ,)
-    (NP
+    (NP-SBJ
       (NP (PRP$ her) (JJ initial) (NNS efforts))
-      (PP (IN at) (S (VP (VBG writing) (NP (NN fiction))))))
+      (PP (IN at) (S-NOM (VP (VBG writing) (NP (NN fiction))))))
     (VP
       (VBD were)
-      (PP
+      (PP-PRD
         (IN in)
         (NP
           (NP (DT the) (NN form))
@@ -207,50 +210,58 @@
                 (SBAR
                   (WHPP (IN to) (WHNP (WDT which)))
                   (S
-                    (NP (PRP she))
-                    (VP (MD would) (VP (VB remain) (ADJP (JJ true))))))))))))
+                    (NP-SBJ (PRP she))
+                    (VP
+                      (MD would)
+                      (VP (VB remain) (ADJP-PRD (JJ true))))))))))))
     (. .)))
 
 (ROOT
   (S
-    (PP (IN In) (NP (CD 1891)))
-    (NP (PRP she))
+    (PP-TMP (IN In) (NP (CD 1891)))
+    (NP-SBJ (PRP she))
     (VP
       (VBD met)
       (NP
-        (NP
-          (NP (PRP$ her) (JJ future) (NN advisor))
-          (SBAR
-            (WHNP (WP who))
-            (S
+        (NP (PRP$ her) (JJ future) (NN advisor))
+        (SBAR
+          (NP-SBJ (WP who))
+          (S
+            (VP
+              (MD would)
               (VP
-                (MD would)
                 (VP
-                  (VP
-                    (VB help)
+                  (VB help)
+                  (PRN
+                    (, ,)
+                    (S (NP-SBJ (PRP she)) (VP (VBD assumed)))
+                    (, ,))
+                  (NP
+                    (DT this)
+                    (NN poet)
                     (PRN
-                      (, ,)
-                      (S (NP (PRP she)) (VP (VBD assumed)))
-                      (, ,))
-                    (NP (DT this) (NN poet-turned-fiction-writer)))
-                  (CC and)
-                  (VP
-                    (VB connect)
-                    (NP (PRP her))
-                    (PP (IN with) (NP (NNS editors)))))))))
-        (: :)
-        (NP (NNP Tosui) (NNP Nakarai))))
+                      (HYPH -)
+                      (VBN turned)
+                      (PRN (HYPH -) (NN fiction) (HYPH -)))
+                    (NN writer)))
+                (CC and)
+                (VP
+                  (VB connect)
+                  (NP (PRP her))
+                  (PP (IN with) (NP (NNS editors))))
+                (: :)
+                (NP (NNP Tosui) (NNP Nakarai))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP She))
+    (NP-SBJ (PRP She))
     (VP
       (VBD fell)
       (PP (IN in) (NP (NP (NN love)) (PP (IN with) (NP (PRP him)))))
-      (ADVP (RB right) (RB away))
+      (ADVP-MNR (RB right) (RB away))
       (, ,)
-      (S
+      (S-ADV
         (RB not)
         (VP
           (VBG knowing)
@@ -260,7 +271,7 @@
             (S
               (PP (IN at) (NP (CD 31)))
               (, ,)
-              (NP (PRP he))
+              (NP-SBJ (PRP he))
               (VP
                 (VBD had)
                 (NP
@@ -272,19 +283,19 @@
   (SINV
     (CC Nor)
     (VBD did)
-    (NP (PRP she))
+    (NP-SBJ (PRP she))
     (VP
       (VB realize)
       (SBAR
         (IN that)
         (S
-          (NP (PRP he))
+          (NP-SBJ (PRP he))
           (VP
             (VBD wrote)
             (NP
               (NP (JJ popular) (NN literature))
               (SBAR
-                (WHNP (WDT which))
+                (NP-SBJ (WDT which))
                 (S
                   (VP
                     (VP
@@ -313,7 +324,7 @@
 
 (ROOT
   (S
-    (NP (PRP$ Her) (NN mentor))
+    (NP-SBJ (PRP$ Her) (NN mentor))
     (VP
       (VP
         (VBD did)
@@ -338,7 +349,7 @@
 
 (ROOT
   (S
-    (NP (DT This) (JJ failed) (NN relationship))
+    (NP-SBJ (DT This) (JJ failed) (NN relationship))
     (VP
       (MD would)
       (VP
@@ -350,22 +361,24 @@
 
 (ROOT
   (S
-    (ADVP (RB Eventually))
+    (ADVP-TMP (RB Eventually))
     (, ,)
-    (NP (PRP she))
+    (NP-SBJ (PRP she))
     (VP
       (VBD got)
       (NP
         (NP (DT the) (NN break))
         (SBAR
           (S
-            (NP (PRP she))
-            (VP (VBD was) (ADJP (RB so) (JJ eager) (PP (IN for))))))))
+            (NP-SBJ (PRP she))
+            (VP
+              (VBD was)
+              (ADJP-PRD (RB so) (JJ eager) (PP (IN for))))))))
     (: :)))
 
 (ROOT
   (S
-    (NP (PRP$ her) (JJ first) (NNS stories))
+    (NP-SBJ (PRP$ her) (JJ first) (NNS stories))
     (VP
       (VBD were)
       (VP
@@ -381,9 +394,9 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (DT The) (NNS stories))
-      (PP
+      (PP-TMP
         (IN from)
         (NP
           (NP (DT this) (JJ first) (NN period))
@@ -402,7 +415,7 @@
 
 (ROOT
   (S
-    (NP (NNP Higuchi))
+    (NP-SBJ (NNP Higuchi))
     (VP
       (VBD felt)
       (VP
@@ -421,18 +434,20 @@
 
 (ROOT
   (S
-    (S (NP (DT The) (NNS plots)) (VP (VBD were) (ADJP (JJ thin))))
+    (S
+      (NP-SBJ (DT The) (NNS plots))
+      (VP (VBD were) (ADJP-PRD (JJ thin))))
     (, ,)
     (S
       (NP (EX there))
       (VP
         (VBD was)
-        (NP
+        (NP-SBJ
           (NP (JJ little) (NN development))
           (PP (IN of) (NP (NN character))))))
     (CC and)
     (S
-      (NP (PRP they))
+      (NP-SBJ (PRP they))
       (VP
         (VBD were)
         (VP
@@ -441,7 +456,7 @@
           (PP (IN by) (NP (JJ excessive) (NN sentiment)))
           (, ,)
           (SBAR
-            (ADVP (RB especially))
+            (ADVP-MNR (RB especially))
             (WRB when)
             (S
               (VP
@@ -451,25 +466,25 @@
                   (SBAR
                     (WHNP (WP what))
                     (S
-                      (NP (PRP she))
+                      (NP-SBJ (PRP she))
                       (VP
                         (VBD was)
                         (VP
                           (VBG writing)
-                          (ADVP (RB concurrently))
+                          (ADVP-TMP (RB concurrently))
                           (PP (IN in) (NP (PRP$ her) (NN diary))))))))))))))
     (. .)))
 
 (ROOT
   (S
     (CC But)
-    (NP (PRP she))
-    (VP (VBD was) (VP (VBG developing) (ADVP (RB rapidly))))
+    (NP-SBJ (PRP she))
+    (VP (VBD was) (VP (VBG developing) (ADVP-MNR (RB rapidly))))
     (. .)))
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (JJ Several))
       (PP (IN of) (NP (PRP$ her) (NN trademark) (NNS themes))))
     (VP
@@ -493,7 +508,7 @@
                   (JJ young)
                   (NN woman))
                 (SBAR
-                  (WHNP (WP who))
+                  (NP-SBJ (WP who))
                   (S
                     (VP
                       (VBZ has)
@@ -502,7 +517,7 @@
               (NP
                 (NP (DT a) (JJ handsome) (NN man))
                 (SBAR
-                  (WHNP (WP who))
+                  (NP-SBJ (WP who))
                   (S
                     (VP
                       (S
@@ -524,7 +539,7 @@
                   (ADJP (JJ lonely) (CC and) (JJ desperate))
                   (NN ragamuffin))
                 (SBAR
-                  (WHNP (WP who))
+                  (NP-SBJ (WP who))
                   (S
                     (VP
                       (VBZ falls)
@@ -535,19 +550,19 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (DT Another) (NN theme))
-      (SBAR (S (NP (NNP Higuchi)) (VP (VBD repeated)))))
+      (SBAR (S (NP-SBJ (NNP Higuchi)) (VP (VBD repeated)))))
     (VP
       (VBD was)
-      (NP
+      (NP-PRD
         (NP (DT the) (NN ambition) (CC and) (NN cruelty))
         (PP (IN of) (NP (DT the) (NNP Meiji) (JJ middle) (NN class)))))
     (. .)))
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (DT The) (NN story))
       (NP
         (`` ")
@@ -568,7 +583,7 @@
 
 (ROOT
   (S
-    (NP (PRP It))
+    (NP-SBJ (PRP It))
     (VP
       (VBD was)
       (VP
@@ -582,13 +597,13 @@
             (FW Miyako)
             (FW no)
             (FW Hana)))
-        (PP (IN in) (NP (CD 1892)))
+        (PP-TMP (IN in) (NP (CD 1892)))
         (, ,)
-        (SBAR
-          (NP (QP (RB only) (CD nine)) (NNS months))
+        (SBAR-ADV
+          (NP-ADV (QP (RB only) (CD nine)) (NNS months))
           (IN after)
           (S
-            (NP (PRP she))
+            (NP-SBJ (PRP she))
             (VP
               (VBD had)
               (VP
@@ -598,10 +613,12 @@
 
 (ROOT
   (S
-    (S (NP (PRP$ Her) (NN work)) (VP (VBD was) (VP (VBN noticed))))
+    (S
+      (NP-SBJ (PRP$ Her) (NN work))
+      (VP (VBD was) (VP (VBN noticed))))
     (CC and)
     (S
-      (NP (PRP she))
+      (NP-SBJ (PRP she))
       (VP
         (VBD was)
         (VP
@@ -615,9 +632,9 @@
 
 (ROOT
   (S
-    (PP (IN In) (NP (CD 1893)))
+    (PP-TMP (IN In) (NP (CD 1893)))
     (, ,)
-    (NP
+    (NP-SBJ
       (NP (NNP Higuchi))
       (, ,)
       (NP (PRP$ her) (NN mother))
@@ -639,20 +656,20 @@
             (S (VP (TO to) (VP (VB survive))))))
         (, ,)
         (VBD moved)
-        (PP
+        (PP-DIR
           (IN to)
           (NP
             (NP (DT a) (JJ poor) (NN neighborhood))
             (SBAR
               (WHADVP (WRB where))
               (S
-                (NP (PRP they))
+                (NP-SBJ (PRP they))
                 (VP
                   (VBD opened)
                   (NP
                     (NP (DT a) (NN stationery) (NN store))
                     (SBAR
-                      (WHNP (IN that))
+                      (NP-SBJ (WDT that))
                       (S
                         (PP (IN before) (NP (JJ long)))
                         (VP (VBD failed))))))))))))
@@ -660,18 +677,20 @@
 
 (ROOT
   (S
-    (NP (PRP$ Their) (JJ new) (NN dwelling))
+    (NP-SBJ (PRP$ Their) (JJ new) (NN dwelling))
     (VP
       (VBD was)
-      (NP
-        (NP (DT a) (NN five-minute) (NN walk))
-        (PP
+      (NP-PRD
+        (NP (DT a) (ADJP (CD five) (HYPH -) (NN minute)) (NN walk))
+        (PP-DIR
           (IN from)
           (NP
             (NP
               (NP (NNP Tokyo) (POS 's))
-              (JJ ill-famed)
-              (NN red-light)
+              (ADJP (JJ ill) (HYPH -) (JJ famed))
+              (JJ red)
+              (HYPH -)
+              (NN light)
               (NN district))
             (, ,)
             (NP (DT the) (NNP Yoshiwara))))))
@@ -679,16 +698,18 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (PRP$ Her) (NN experience))
-      (VP (VBG living) (PP (IN in) (NP (DT this) (NN neighborhood)))))
+      (VP
+        (VBG living)
+        (PP-LOC (IN in) (NP (DT this) (NN neighborhood)))))
     (VP
       (MD would)
       (VP
         (VB provide)
         (NP
           (NP (NN material))
-          (PP
+          (PP-BNF
             (IN for)
             (NP
               (NP
@@ -706,7 +727,7 @@
                 (FRAG
                   (ADVP
                     (-LRB- -LRB-)
-                    (ADVP (RB literally))
+                    (ADVP-MNR (RB literally))
                     (, ,)
                     ('' ")
                     (S (VP (NNP Comparing) (NP (NNPS heights))))
@@ -728,10 +749,7 @@
                 (VP
                   (ADVP (RB also))
                   (VBN called)
-                  (S
-                    (`` ")
-                    (S (VP (VBG Growing) (PRT (RP Up))))
-                    ('' "))
+                  (S (`` ") (VP (NNP Growing) (PRT (RP Up))) ('' "))
                   (PP
                     (IN in)
                     (NP
@@ -744,9 +762,9 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (DT The) (NNS stories))
-      (PP
+      (PP-TMP
         (IN of)
         (NP
           (NP (PRP$ her) (JJ mature) (NN period))
@@ -756,7 +774,7 @@
             (-RRB- -RRB-)))))
     (VP
       (VBD were)
-      (VP
+      (ADJP
         (CONJP (RB not) (RB only))
         (VP
           (VBN marked)
@@ -768,9 +786,14 @@
                   (NP (PRP$ her) (NN experience))
                   (VP
                     (VBG living)
-                    (PP
+                    (PP-LOC
                       (IN near)
-                      (NP (DT the) (NN red-light) (NN district)))))
+                      (NP
+                        (DT the)
+                        (JJ red)
+                        (HYPH -)
+                        (NN light)
+                        (NN district)))))
                 (CC and)
                 (NP
                   (NP (JJR greater) (NN concern))
@@ -790,21 +813,24 @@
                   (NP
                     (NP (NNP Ihara) (NNP Saikaku))
                     (, ,)
-                    (NP (DT a) (NN 17th-century) (NN writer))
+                    (NP
+                      (DT a)
+                      (ADJP (JJ 17th) (HYPH -) (NN century))
+                      (NN writer))
                     (, ,)
                     (SBAR
                       (WHNP (WP$ whose) (NNS stories))
                       (S
-                        (NP (PRP she))
+                        (NP-SBJ (PRP she))
                         (VP
                           (VBD had)
-                          (ADVP (RB recently))
+                          (ADVP-TMP (RB recently))
                           (VP (VBN discovered)))))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP$ His) (NN distinctiveness))
+    (NP-SBJ (PRP$ His) (NN distinctiveness))
     (VP
       (VBD lay)
       (PP (IN in) (NP (JJ great) (NN part)))
@@ -812,7 +838,9 @@
         (IN in)
         (NP
           (NP (PRP$ his) (NN acceptance))
-          (PP (IN of) (NP (JJ low-life) (NNS characters)))
+          (PP
+            (IN of)
+            (NP (ADJP (JJ low) (HYPH -) (JJ life)) (NNS characters)))
           (PP
             (IN as)
             (NP (JJ worthwhile) (JJ literary) (NNS subjects))))))
@@ -820,19 +848,21 @@
 
 (ROOT
   (S
-    (SBAR (WHNP (WP What)) (S (NP (NNP Higuchi)) (VP (VBD added))))
+    (SBAR
+      (WHNP (WP What))
+      (S-SBJ (NP-SBJ (NNP Higuchi)) (VP (VBD added))))
     (VP
       (VBD was)
-      (NP
+      (NP-PRD
         (NP (DT a) (JJ special) (NN awareness))
         (PP (IN of) (NP (NN suffering) (CC and) (NN sensitivity)))))
     (. .)))
 
 (ROOT
   (SINV
-    (PP (IN To) (NP (DT this) (NN period)))
+    (PP-TMP (IN To) (NP (DT this) (NN period)))
     (VP (VBP belong))
-    (NP
+    (NP-SBJ
       (NP
         (`` ")
         (NP (NNP Ōtsugomori))
@@ -844,7 +874,7 @@
             (IN On)
             (NP
               (NP (DT the) (NNP Last) (NNP Day))
-              (PP (IN of) (NP (DT the) (NNP Year)))))
+              (PP-TMP (IN of) (NP (DT the) (NNP Year)))))
           ('' ")
           (-RRB- -RRB-)))
       (, ,)
@@ -861,7 +891,9 @@
       (, ,)
       (NP
         (`` ")
-        (NNP Wakare-Michi)
+        (NNP Wakare)
+        (HYPH -)
+        (NNP Michi)
         ('' ")
         (PRN
           (-LRB- -LRB-)
@@ -895,7 +927,7 @@
 
 (ROOT
   (S
-    (NP (DT The) (JJ last) (CD two))
+    (NP-SBJ (DT The) (JJ last) (CD two))
     (VP
       (VBP are)
       (VP (VBN considered) (S (NP (PRP$ her) (JJS best) (NN work)))))
@@ -904,7 +936,7 @@
 (ROOT
   (S
     (PP (IN With) (NP (DT these) (JJ last) (NNS stories)))
-    (NP (PRP$ her) (NN fame))
+    (NP-SBJ (PRP$ her) (NN fame))
     (VP
       (VBD spread)
       (PP
@@ -914,8 +946,8 @@
 
 (ROOT
   (S
-    (PP (IN In) (NP (PRP$ her) (JJ humble) (NN home)))
-    (NP (PRP she))
+    (PP-LOC (IN In) (NP (PRP$ her) (JJ humble) (NN home)))
+    (NP-SBJ (PRP she))
     (VP
       (VBD was)
       (VP
@@ -951,16 +983,16 @@
         (CC and)
         (NP (JJ frequent) (NNS headaches))))
     (, ,)
-    (NP (NNP Higuchi))
+    (NP-SBJ (NNP Higuchi))
     (VP (VBD stopped) (S (VP (VBG writing))))
     (. .)))
 
 (ROOT
   (S
-    (SBAR
+    (SBAR-ADV
       (IN As)
       (S
-        (NP
+        (NP-SBJ
           (NP (PRP$ her) (NN father))
           (CC and)
           (NP
@@ -968,33 +1000,35 @@
             (PP (IN of) (NP (PRP$ her) (NNS brothers)))))
         (VP (VBD had) (PP (IN before) (NP (PRP her))))))
     (, ,)
-    (NP (PRP she))
+    (NP-SBJ (PRP she))
     (VP (VBD had) (VP (VBN caught) (NP (NN tuberculosis))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP She))
+    (NP-SBJ (PRP She))
     (VP
       (VBD died)
-      (PP (IN on) (NP (NNP November) (CD 23) (, ,) (CD 1896)))
+      (PP-TMP
+        (IN on)
+        (NP-TMP (NNP November) (CD 23) (, ,) (CD 1896)))
       (, ,)
       (PP
         (IN at)
         (NP
           (NP (DT the) (NN age))
-          (PP (IN of) (NP (CD twenty-four))))))
+          (PP (IN of) (NP (QP (CD twenty) (HYPH -) (CD four)))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (NP (NNP Higuchi) (POS 's)) (NN likeness))
+    (NP-SBJ (NP (NNP Higuchi) (POS 's)) (NN likeness))
     (VP
       (VBZ adorns)
       (NP (DT the) (JJ Japanese) (CD 5000) (FW yen) (NN banknote))
-      (PP (IN as) (PP (IN of) (NP (NN fall) (CD 2004))))
+      (PP-TMP (IN as) (PP (IN of) (NP-TMP (NN fall) (CD 2004))))
       (, ,)
-      (S
+      (S-ADV
         (VP
           (VBG becoming)
           (NP
@@ -1014,20 +1048,22 @@
               (NP
                 (NP
                   (NP (NNP Empress) (NNP Jingū))
-                  (PP (IN in) (NP (CD 1881))))
+                  (PP-TMP (IN in) (NP (CD 1881))))
                 (CC and)
                 (NP
                   (NP (NNP Murasaki) (NNP Shikibu))
-                  (PP (IN in) (NP (CD 2000))))))))))
+                  (PP-TMP (IN in) (NP (CD 2000))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP$ Her) (JJS best-known) (NNS stories))
+    (NP-SBJ
+      (PRP$ Her)
+      (ADJP (RBS best) (HYPH -) (JJ known))
+      (NNS stories))
     (VP
       (VBP have)
       (VP
         (VBN been)
-        (VP (VBN made) (PP (IN into) (NP (NNS movies))))))
+        (VP (VBN made) (PP-DIR (IN into) (NP (NNS movies))))))
     (. .)))
-

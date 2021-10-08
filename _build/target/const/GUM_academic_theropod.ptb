@@ -2,7 +2,7 @@
 
 (ROOT
   (S
-    (NP (PRP We))
+    (NP-SBJ (PRP We))
     (VP
       (VBP have)
       (VP
@@ -10,7 +10,7 @@
         (SBAR
           (IN that)
           (S
-            (NP
+            (NP-SBJ
               (NP (DT the) (NN addition))
               (PP (IN of) (NP (DT an) (JJ artificial) (NN tail)))
               (PP (IN during) (NP (NN ontogeny))))
@@ -41,18 +41,18 @@
                               (IN for)
                               (NP (JJ non-avian) (NNS dinosaurs))))
                           (NP
-                            (-LSB- [)
+                            (-LRB- [)
                             (CD 5)
-                            (-RSB- ])
+                            (-RRB- ])
                             (, ,)
-                            (ADJP (-LSB- [) (CD 6) (-RSB- ]))
+                            (PRN (-LRB- [) (CD 6) (-RRB- ]))
                             (, ,)
-                            (ADVP (-LSB- [) (CD 11) (-RSB- ]))))))))))))))
+                            (ADVP (-LRB- [) (CD 11) (-RRB- ]))))))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (DT The) (JJ posterior) (NN displacement))
       (PP (IN of) (NP (DT the) (NN CoM))))
     (VP
@@ -68,13 +68,16 @@
           (PRN
             (-LRB- -LRB-)
             (S
-              (NP
+              (NP-SBJ
                 (NP (NN femur))
                 (PP (IN in) (NP (JJ experimental) (NNS animals))))
               (VP
                 (VBD was)
                 (ADJP
-                  (ADJP (NP (CD 40) (NN %)) (RBR more) (JJ vertical))
+                  (ADJP-PRD
+                    (NP-EXT (CD 40) (NN %))
+                    (RBR more)
+                    (JJ vertical))
                   (PP (IN than) (NP (NN control) (NNS subjects))))))
             (-RRB- -RRB-))))
       (, ,)
@@ -84,12 +87,12 @@
           (NP (VBD increased) (JJ femoral) (NN retraction))
           (CC and)
           (NP (VBD decreased) (NN knee) (NN flexion)))
-        (PP (IN during) (NP (VBG walking)))))
+        (PP (IN during) (NP (NN walking)))))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT These) (NNS results))
+    (NP-SBJ (DT These) (NNS results))
     (VP
       (VBP indicate)
       (NP
@@ -101,7 +104,7 @@
             (JJ standard)
             (NN bird)
             (, ,)
-            (JJ knee-driven)
+            (ADJP (NN knee) (HYPH -) (VBN driven))
             (JJ bipedal)
             (NN locomotion)))
         (PP
@@ -109,7 +112,7 @@
           (NP
             (NP
               (DT a)
-              (ADJP (RBR more) (JJ hip-driven))
+              (ADJP (RBR more) (NN hip) (HYPH -) (JJ driven))
               (NN locomotion))
             (, ,)
             (ADJP
@@ -133,14 +136,15 @@
                   (NP (NNS mammals))
                   (, ,)
                   (CC and)
-                  (ADVP (RB hypothetically))
-                  (, ,)
-                  (NP (JJ bipedal) (JJ non-avian) (NNS dinosaurs)))))))))
+                  (NP
+                    (ADVP (RB hypothetically))
+                    (, ,)
+                    (NP (JJ bipedal) (JJ non-avian) (NNS dinosaurs))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (DT These)
       (ADJP (JJ postural) (CC and) (NN kinematics))
       (NNS changes))
@@ -152,14 +156,17 @@
         (VP
           (VBN attributed)
           (PP (IN to) (NP (DT an) (VBN increased) (NN weight)))
-          (SBAR
+          (SBAR-ADV
             (IN as)
             (S
-              (NP
+              (NP-SBJ
                 (NP (NNS subjects))
                 (PP
                   (IN of)
-                  (NP (DT the) (NN control-weight) (NN group))))
+                  (NP
+                    (DT the)
+                    (ADJP (NN control) (HYPH -) (NN weight))
+                    (NN group))))
               (VP
                 (VBD did)
                 (RB not)
@@ -176,7 +183,10 @@
   (S
     (PP (IN In) (NP (NN fact)))
     (, ,)
-    (NP (DT the) (NN control-weight) (NNS subjects))
+    (NP-SBJ
+      (DT the)
+      (ADJP (NN control) (HYPH -) (NN weight))
+      (NNS subjects))
     (VP
       (VBD showed)
       (NP
@@ -184,7 +194,7 @@
           (DT a)
           (ADJP (ADVP (RBR more) (RB horizontally)) (VBN oriented))
           (NN femur)))
-      (PP (IN during) (NP (VBG walking)))
+      (PP (IN during) (NP (NN walking)))
       (PP
         (IN with)
         (NP
@@ -210,31 +220,31 @@
                       (POS 's))
                     (JJ experimental)
                     (NNS subjects))
-                  (PRN (-LSB- [) (CD 7) (-RSB- ])))))))))
+                  (PRN (-LRB- [) (CD 7) (-RRB- ])))))))))
     (. .)))
 
 (ROOT
   (S
     (ADVP (RB Therefore))
     (, ,)
-    (NP (PRP we))
+    (NP-SBJ (PRP we))
     (VP
       (VBP conclude)
       (SBAR
         (IN that)
         (S
-          (NP
+          (NP-SBJ
             (NP (DT the) (NN location))
             (PP (IN of) (NP (DT the) (NN CoM))))
           (VP
             (MD can)
             (VP
               (VB be)
-              (NP
+              (NP-PRD
                 (NP (DT a) (JJ key) (NN factor))
                 (PP
                   (IN in)
-                  (S
+                  (S-NOM
                     (VP
                       (VBG defining)
                       (NP
@@ -256,7 +266,7 @@
           (SBAR
             (IN that)
             (S
-              (NP
+              (NP-SBJ
                 (NP (DT the) (JJ relative) (NN mass))
                 (PP (IN of) (NP (DT the) (NN CFL))))
               (VP
@@ -287,12 +297,12 @@
                                   (JJ extinct)
                                   (JJ bipedal)
                                   (NNS dinosaurs))))))))
-                    (PRN (-LSB- [) (CD 8) (-RSB- ]))))))))))
+                    (PRN (-LRB- [) (CD 8) (-RRB- ]))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP$ Our) (NNS data))
+    (NP-SBJ (PRP$ Our) (NNS data))
     (VP
       (VBP show)
       (SBAR
@@ -300,15 +310,15 @@
         (S
           (PP (IN for) (NP (DT a) (VBN given) (NN CFL) (NN mass)))
           (, ,)
-          (NP (JJ femoral) (NN retraction))
+          (NP-SBJ (JJ femoral) (NN retraction))
           (VP
             (MD can)
             (VP
               (VB be)
               (VP
-                (ADVP (RB greatly))
+                (ADVP-MNR (RB greatly))
                 (VBN affected)
-                (PP
+                (PP-LOC
                   (IN by)
                   (NP
                     (NP
@@ -320,9 +330,9 @@
 
 (ROOT
   (S
-    (ADVP (RB Furthermore))
+    (ADVP-MNR (RB Furthermore))
     (, ,)
-    (NP (NN limb) (NN retraction))
+    (NP-SBJ (NN limb) (NN retraction))
     (VP
       (MD can)
       (VP
@@ -331,19 +341,19 @@
           (ADVP (RB markedly))
           (VBN modulated)
           (PP (IN with) (NP (NN speed)))
-          (PRN (-LSB- [) (NP (CD 5)) (-RSB- ]))
+          (PRN (-LRB- [) (NP (CD 5)) (-RRB- ]))
           (, ,)
-          (S
+          (S-ADV
             (VP
               (VBG suggesting)
               (NP
                 (NP (NN caution))
-                (SBAR
+                (SBAR-TMP
                   (WHADVP (WRB when))
-                  (S
+                  (S-NOM
                     (VP
                       (VBG using)
-                      (NP
+                      (NP-SBJ
                         (JJ simple)
                         (JJ morphological)
                         (NNS parameters))
@@ -357,7 +367,7 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (NNS Differences))
       (PP (IN in) (NP (NN limb) (NN orientation))))
     (VP
@@ -369,14 +379,14 @@
           (PP
             (IN in)
             (NP
-              (NP (VBG loading) (NNS regimes))
+              (NP (NN loading) (NNS regimes))
               (PP (IN on) (NP (NN limb) (NNS bones))))))))
     (. .)))
 
 (ROOT
   (S
     (S
-      (NP
+      (NP-SBJ
         (NP (DT The) (NN orientation))
         (PP (IN of) (NP (DT each) (NN limb) (NN element)))
         (PP
@@ -390,13 +400,11 @@
           (NP (DT the) (JJ relative) (NN contribution))
           (PP
             (IN of)
-            (NP
-              (ADJP (JJ axial) (CC and) (VBG bending))
-              (NNS forces)))
+            (NP (ADJP (JJ axial) (CC and) (NN bending)) (NNS forces)))
           (PP (IN to) (NP (JJ external) (NN bone) (NN loading))))))
     (: :)
     (S
-      (NP
+      (NP-SBJ
         (NP (DT a) (NN bone))
         (ADJP (JJ perpendicular) (PP (IN to) (NP (DT the) (NN GRF)))))
       (VP
@@ -405,37 +413,37 @@
           (VBN expected)
           (S
             (VP
-              (NN experience)
+              (VB experience)
               (NP
-                (NP (JJR greater) (VBG bending) (NNS forces))
+                (NP (JJR greater) (NN bending) (NNS forces))
                 (PP
                   (IN than)
                   (NP
                     (NP (CD one))
                     (ADJP
-                      (NN parallel)
+                      (JJ parallel)
                       (PP (IN to) (NP (DT the) (NN GRF))))))))))))
     (. .)))
 
 (ROOT
   (S
-    (SBAR
+    (SBAR-ADV
       (IN Because)
       (S
-        (NP (NN bone))
+        (NP-SBJ (NN bone))
         (VP
           (VBZ adapts)
-          (PP (IN to) (NP (PRP$ its) (VBG loading) (NN environment)))
+          (PP (IN to) (NP (PRP$ its) (NN loading) (NN environment)))
           (PRN
-            (-LSB- [)
+            (-LRB- [)
             (CD 19)
-            (-RSB- ])
+            (-RRB- ])
             (, ,)
-            (ADJP (-LSB- [) (CD 20) (-RSB- ]))
+            (PRN (-LRB- [) (CD 20) (-RRB- ]))
             (, ,)
-            (PRN (-LSB- [) (CD 21) (-RSB- ]))
+            (PRN (-LRB- [) (CD 21) (-RRB- ]))
             (, ,)))))
-    (NP
+    (NP-SBJ
       (NP (JJ geometric) (NN information))
       (PP (IN from) (NP (NN limb) (NNS bones)))
       (, ,)
@@ -460,7 +468,7 @@
                 (NP (NNS differences))
                 (PP
                   (PP
-                    (PP (IN in) (NP (VBG loading) (NNS regimes)))
+                    (PP (IN in) (NP (NN loading) (NNS regimes)))
                     (CC and)
                     (ADVP (RB consequently))
                     (PP
@@ -469,20 +477,20 @@
                         (NP (NN behavior))
                         (CC and)
                         (NP (JJ locomotor) (NNS patterns)))))
-                  (NP
-                    (-LSB- [)
+                  (PRN
+                    (-LRB- [)
                     (CD 22)
-                    (-RSB- ])
+                    (-RRB- ])
                     (, ,)
-                    (PRN (-LSB- [) (CD 23) (-RSB- ]))))))))))
+                    (PRN (-LRB- [) (CD 23) (-RRB- ]))))))))))
     (. .)))
 
 (ROOT
   (S
     (PP (IN In) (NP (DT this) (NN framework)))
     (, ,)
-    (NP
-      (NP (VBG scaling) (NNS differences))
+    (NP-SBJ
+      (NP (NN scaling) (NNS differences))
       (PP (IN in) (NP (JJ femoral) (NN geometry)))
       (PP
         (IN between)
@@ -501,7 +509,7 @@
               (TO to)
               (VP
                 (VB be)
-                (NP
+                (NP-PRD
                   (NP (DT the) (NN result))
                   (PP
                     (IN of)
@@ -511,17 +519,17 @@
                         (PP
                           (IN between)
                           (NP (DT these) (NNS groups))))
-                      (NP
-                        (-LSB- [)
+                      (PRN
+                        (-LRB- [)
                         (CD 6)
-                        (-RSB- ])
+                        (-RRB- ])
                         (, ,)
-                        (PRN (-LSB- [) (CD 23) (-RSB- ]))))))))))))
+                        (PRN (-LRB- [) (CD 23) (-RRB- ]))))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (NNS Birds))
+    (NP-SBJ (NNS Birds))
     (VP
       (VBP have)
       (NP
@@ -549,7 +557,7 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (JJ Experimental) (NNS manipulations))
       (PP (IN of) (NP (JJ femoral) (NN orientation)))
       (PP (IN in) (NP (NNS chickens))))
@@ -558,16 +566,16 @@
       (SBAR
         (IN that)
         (S
-          (NP (JJ torsional) (NNS loads))
+          (NP-SBJ (JJ torsional) (NNS loads))
           (VP
-            (NN increase)
-            (SBAR
+            (VBP increase)
+            (SBAR-ADV
               (IN as)
               (S
-                (NP (DT the) (NN femur))
+                (NP-SBJ (DT the) (NN femur))
                 (VP (VBZ becomes) (ADJP (RBR more) (NN horizontal))))))))
-      (PRN (-LSB- [) (CD 7) (-RSB- ]))
-      (S
+      (PRN (-LRB- [) (CD 7) (-RRB- ]))
+      (S-ADV
         (VP
           (VBG supporting)
           (NP
@@ -576,7 +584,7 @@
             (SBAR
               (IN that)
               (S
-                (NP (JJ postural) (NNS differences))
+                (NP-SBJ (JJ postural) (NNS differences))
                 (VP
                   (MD could)
                   (VP
@@ -597,7 +605,7 @@
 
 (ROOT
   (S
-    (S
+    (S-PRP
       (VP
         (TO To)
         (VP
@@ -605,7 +613,7 @@
           (SBAR
             (IN if)
             (S
-              (NP
+              (NP-SBJ
                 (NP (DT the) (JJ postural) (NNS differences))
                 (VP
                   (VBD observed)
@@ -616,7 +624,7 @@
                   (NP (NNS changes))
                   (PP (IN in) (NP (NN limb) (NN morphology))))))))))
     (, ,)
-    (NP (PRP we))
+    (NP-SBJ (PRP we))
     (VP
       (VBD measured)
       (NP
@@ -632,9 +640,9 @@
 
 (ROOT
   (S
-    (ADVP (RB However))
+    (ADVP-TMP (RB However))
     (, ,)
-    (NP (PRP we))
+    (NP-SBJ (PRP we))
     (VP
       (VBD found)
       (NP
@@ -648,17 +656,17 @@
 (ROOT
   (S
     (ADVP (RB Maybe))
-    (NP (DT this))
+    (NP-SBJ (DT this))
     (VP
       (VBZ is)
       (RB not)
-      (ADJP (JJ surprising))
+      (ADJP-PRD (JJ surprising))
       (PP
         (VBG considering)
         (SBAR
           (IN that)
           (S
-            (NP
+            (NP-SBJ
               (NP (DT a) (JJ recent) (NN study))
               (VP
                 (VBG analyzing)
@@ -688,15 +696,15 @@
                           (NP (NNS birds))
                           (CC and)
                           (NP (JJ non-avian) (NNS theropods))))))))
-              (PRN (-LSB- [) (CD 24) (-RSB- ]))
+              (PRN (-LRB- [) (CD 24) (-RRB- ]))
               (, ,)
-              (S
+              (S-ADV
                 (VP
                   (VBG suggesting)
                   (SBAR
                     (IN that)
                     (S
-                      (NP
+                      (NP-SBJ
                         (NP
                           (JJ simple)
                           (JJ morphological)
@@ -715,7 +723,7 @@
   (S
     (ADVP (RB Interestingly))
     (, ,)
-    (NP (NN femur) (NN length))
+    (NP-SBJ (NN femur) (NN length))
     (VP
       (VBD tended)
       (S
@@ -731,26 +739,25 @@
                 (IN in)
                 (NP
                   (CC both)
-                  (NP (DT the) (NN control-weight))
+                  (NP (DT the) (NN control) (HYPH -) (NN weight))
                   (CC and)
                   (NP (DT the) (NN control) (NN group)))))
             (PRN
               (-LRB- -LRB-)
               (PP
                 (IN by)
-                (NP
-                  (NP (QP (CD 4) (CC and) (CD 7)) (NN %))
-                  (, ,)
-                  (ADVP (RB respectively))))
+                (NP (QP (CD 4) (CC and) (CD 7)) (NN %))
+                (, ,)
+                (ADVP (RB respectively)))
               (-RRB- -RRB-))
             (, ,)
-            (SBAR (IN although) (RB not) (ADJP (JJ signifcant)))))))
+            (SBAR-ADV (IN although) (RB not) (ADJP (JJ signifcant)))))))
     (. .)))
 
 (ROOT
   (S
     (S
-      (NP (JJR Longer) (NNS limbs))
+      (NP-SBJ (JJR Longer) (NNS limbs))
       (VP
         (VBP are)
         (VP
@@ -762,37 +769,35 @@
                 (VB experience)
                 (NP
                   (JJR larger)
-                  (VBG bending)
-                  (CC and)
-                  (JJ torsional)
+                  (UCP (NN bending) (CC and) (JJ torsional))
                   (NNS moments))))))))
     (, ,)
     (ADVP (RB so))
     (S
-      (NP
+      (NP-SBJ
         (DT the)
         (NN fact)
         (SBAR
           (IN that)
           (S
-            (NP (JJ experimental) (NNS animals))
+            (NP-SBJ (JJ experimental) (NNS animals))
             (VP (VBD had) (NP (JJR longer) (NN femora))))))
       (VP
         (VBZ suggests)
         (SBAR
           (IN that)
           (S
-            (NP (NN limb) (NN verticalization))
+            (NP-SBJ (NN limb) (NN verticalization))
             (VP
               (VBZ reduces)
               (NP (DT these) (NNS moments))
               (PP
                 (IN by)
-                (S
+                (S-NOM
                   (VP
                     (VBG orienting)
-                    (NP (DT the) (NN bone))
-                    (ADVP
+                    (NP-SBJ (DT the) (NN bone))
+                    (ADVP-PRD
                       (RBR more)
                       (JJ parallel)
                       (PP
@@ -806,9 +811,11 @@
   (S
     (SBAR
       (IN If)
-      (S (NP (DT this)) (VP (VBD were) (NP (DT the) (NN case)))))
+      (S
+        (NP-SBJ (DT this))
+        (VP (VBD were) (NP-PRD (DT the) (NN case)))))
     (, ,)
-    (NP (PRP it))
+    (NP-SBJ (PRP it))
     (VP
       (MD would)
       (VP
@@ -819,7 +826,7 @@
           (SBAR
             (IN that)
             (S
-              (NP (JJ non-avian) (NNS theropods))
+              (NP-SBJ (JJ non-avian) (NNS theropods))
               (VP
                 (VBP have)
                 (NP
@@ -832,13 +839,13 @@
                   (IN of)
                   (NP
                     (NP (JJ postural) (NNS differences))
-                    (PRN (-LSB- [) (CD 6) (-RSB- ]))))))))))
+                    (PRN (-LRB- [) (CD 6) (-RRB- ]))))))))))
     (. .)))
 
 (ROOT
   (S
     (S
-      (NP (DT The) (JJ present) (NN study))
+      (NP-SBJ (DT The) (JJ present) (NN study))
       (VP
         (VBD was)
         (VP
@@ -847,10 +854,10 @@
             (IN by)
             (NP
               (NP (NNP Carrano) (CC &) (NNP Biewener))
-              (PRN (-LSB- [) (CD 7) (-RSB- ])))))))
+              (PRN (-LRB- [) (CD 7) (-RRB- ])))))))
     (CC but)
     (S
-      (NP (PRP$ our) (NNS results))
+      (NP-SBJ (PRP$ our) (NNS results))
       (VP
         (VBD differed)
         (ADVP (RB markedly))
@@ -859,27 +866,27 @@
 
 (ROOT
   (S
-    (NP (PRP We))
+    (NP-SBJ (PRP We))
     (VP
       (VBP suggest)
       (SBAR
         (IN that)
         (S
-          (NP (DT the) (JJ different) (NNS outcomes))
+          (NP-SBJ (DT the) (JJ different) (NNS outcomes))
           (VP
             (VBP are)
-            (ADJP
+            (ADJP-PRD
               (JJ due)
               (PP
-                (TO to)
+                (IN to)
                 (NP
                   (NP
                     (NP
                       (DT the)
                       (JJ distinct)
-                      (VBG rearing)
+                      (NN rearing)
                       (CC and)
-                      (VBG exercising)
+                      (NN exercising)
                       (NNS conditions))
                     (VP
                       (VBN used)
@@ -902,28 +909,28 @@
 
 (ROOT
   (S
-    (ADVP (RB First))
+    (ADVP-TMP (RB First))
     (, ,)
-    (NP (PRP$ our) (JJ experimental) (NNS subjects))
+    (NP-SBJ (PRP$ our) (JJ experimental) (NNS subjects))
     (VP
       (VBN lived)
-      (PP (IN in) (NP (DT a) (JJ large) (NN enclosure)))
+      (PP-LOC (IN in) (NP (DT a) (JJ large) (NN enclosure)))
       (PP
         (IN under)
         (NP
           (NP (NNS conditions))
           (SBAR
-            (WHNP (WDT that))
+            (NP-SBJ (WDT that))
             (S
               (VP
                 (VBD allowed)
                 (S
-                  (NP (PRP them))
+                  (NP-SBJ (PRP them))
                   (VP
                     (TO to)
                     (VP
                       (VB exercise)
-                      (ADVP (NP (DT all) (NN day)) (RB long)))))))))))
+                      (ADVP-TMP (NP-TMP (DT all) (NN day)) (RB long)))))))))))
     (. .)))
 
 (ROOT
@@ -934,14 +941,14 @@
         (NP (NNP Carrano) (CC &) (NNP Biewener) (POS 's))
         (NN study)))
     (, ,)
-    (NP (JJ experimental) (NNS chickens))
+    (NP-SBJ (JJ experimental) (NNS chickens))
     (VP
       (VP
         (VBD were)
         (VP
           (VBN housed)
           (ADVP (RB individually))
-          (PP (IN in) (NP (JJR smaller) (NNS cages)))))
+          (PP-LOC (IN in) (NP (JJR smaller) (NNS cages)))))
       (CC and)
       (VP
         (VBD were)
@@ -954,16 +961,16 @@
               (VP
                 (VB exercise)
                 (NP
-                  (NP (CD 20) (NNS minutes))
-                  (PP (IN per) (NP (NN day))))
+                  (NP-TMP (CD 20) (NNS minutes))
+                  (PP-TMP (IN per) (NP (NN day))))
                 (, ,)
                 (NP
-                  (NP (CD 3) (NNS days))
-                  (PP (IN per) (NP (NN week))))
+                  (NP-TMP (CD 3) (NNS days))
+                  (PP-TMP (IN per) (NP (NN week))))
                 (, ,)
                 (PP
-                  (PP (IN from) (NP (DT the) (JJ 6th)))
-                  (PP (IN to) (NP (DT the) (JJ 12th) (NN week))))))))))
+                  (PP-TMP (IN from) (NP (DT the) (JJ 6th)))
+                  (PP-TMP (IN to) (NP (DT the) (JJ 12th) (NN week))))))))))
     (. .)))
 
 (ROOT
@@ -972,18 +979,18 @@
     (, ,)
     (PP (IN in) (NP (PRP$ their) (NN study)))
     (, ,)
-    (NP (DT a) (JJ lead) (NN mass))
+    (NP-SBJ (DT a) (JJ lead) (NN mass))
     (VP
       (VBD was)
       (VP
         (VBN attached)
-        (PP
+        (PP-LOC
           (IN at)
           (NP
             (NP (DT the) (JJ distal) (NN end))
             (PP (IN of) (NP (DT the) (JJ experimental) (NN tail)))))
         (, ,)
-        (S
+        (S-ADV
           (ADVP (RB probably))
           (VP
             (VBG generating)
@@ -996,7 +1003,7 @@
   (S
     (PP (IN During) (NP (JJ avian) (NN evolution)))
     (, ,)
-    (NP
+    (NP-SBJ
       (NP
         (NP (DT the) (NN loss))
         (PP (IN of) (NP (DT the) (NN CFL))))
@@ -1006,11 +1013,11 @@
           (NP (NN reorganization))
           (PP (IN of) (NP (DT the) (JJ pelvic) (NN musculature))))
         (PRN
-          (-LSB- [)
+          (-LRB- [)
           (CD 5)
-          (-RSB- ])
+          (-RRB- ])
           (, ,)
-          (X (-LSB- [) (CD 13) (-RSB- ])))))
+          (PRN (-LRB- [) (CD 13) (-RRB- ])))))
     (VP
       (MD could)
       (VP
@@ -1024,47 +1031,43 @@
               (S
                 (VP
                   (TO to)
-                  (ADVP (RB properly))
+                  (ADVP-MNR (RB properly))
                   (VP
                     (VB carry)
                     (NP
                       (NP (DT a) (JJ postacetabular) (NN mass))
                       (ADJP
-                        (NN equivalent)
+                        (JJ equivalent)
                         (PP
                           (IN to)
                           (NP
-                            (NP (WDT that))
+                            (NP (DT that))
                             (VP
-                              (VBD carried)
+                              (VBN carried)
                               (PP
                                 (IN by)
                                 (NP
                                   (NP (JJ non-avian) (NNS theropods))
                                   (NP
-                                    (-LSB- [)
+                                    (-LRB- [)
                                     (CD 5)
-                                    (-RSB- ])
+                                    (-RRB- ])
                                     (, ,)
-                                    (VP
-                                      (ADVP
-                                        (-LSB- [)
-                                        (CD 6)
-                                        (-RSB- ])))))))))))))))))))
+                                    (PRN (-LRB- [) (CD 6) (-RRB- ]))))))))))))))))))
     (. .)))
 
 (ROOT
   (S
     (PP (IN In) (NP (PRP$ our) (JJ experimental) (NN setup)))
     (, ,)
-    (NP (PRP we))
+    (NP-SBJ (PRP we))
     (VP
       (VBD attempted)
       (S
         (VP
           (TO to)
           (VP
-            (ADVP (RBR more) (RB closely))
+            (ADVP-MNR (RBR more) (RB closely))
             (VB mimic)
             (NP
               (NP
@@ -1076,7 +1079,7 @@
               (SBAR
                 (WHPP (IN in) (WHNP (WDT which)))
                 (S
-                  (NP (NN mass))
+                  (NP-SBJ (NN mass))
                   (VP
                     (VBZ is)
                     (VP
@@ -1093,7 +1096,7 @@
   (S
     (PP (IN In) (NP (NN addition)))
     (, ,)
-    (NP (PRP we))
+    (NP-SBJ (PRP we))
     (VP
       (VBD reduced)
       (NP (DT the) (JJ total) (NN tail) (NN mass))
@@ -1111,7 +1114,7 @@
   (S
     (ADVP (RB Thus))
     (, ,)
-    (NP (PRP$ our) (NN study))
+    (NP-SBJ (PRP$ our) (NN study))
     (VP
       (VBZ seems)
       (S
@@ -1140,11 +1143,11 @@
                         (IN by)
                         (NP (DT the) (JJ artificial) (NN tail)))))))
               (, ,)
-              (S
+              (S-ADV
                 (VP
                   (VBG allowing)
                   (S
-                    (NP (JJ experimental) (NNS subjects))
+                    (NP-SBJ (JJ experimental) (NNS subjects))
                     (VP
                       (TO to)
                       (VP
@@ -1154,7 +1157,7 @@
                           (NP (DT the) (JJ posterior) (NN mass)))
                         (PP
                           (IN by)
-                          (S
+                          (S-NOM
                             (VP
                               (VBG adopting)
                               (NP
@@ -1172,10 +1175,12 @@
   (S
     (ADVP (RB Interestingly))
     (, ,)
-    (NP
+    (NP-SBJ
       (NP (DT the) (NN femur) (NN kinematics))
-      (PP (IN during) (NP (VBG walking)))
-      (PP (IN in) (NP (PRP$ our) (NN control-weight) (NN group))))
+      (PP (IN during) (NP (NN walking)))
+      (PP
+        (IN in)
+        (NP (PRP$ our) (NN control) (HYPH -) (NN weight) (NN group))))
     (VP
       (VBZ resembles)
       (NP
@@ -1191,19 +1196,19 @@
 
 (ROOT
   (S
-    (NP (DT This))
+    (NP-SBJ (DT This))
     (VP
       (VBZ suggests)
       (SBAR
         (IN that)
         (S
-          (NP (PRP$ their) (NNS results))
+          (NP-SBJ (PRP$ their) (NNS results))
           (VP
             (MD could)
             (VP
               (VB be)
               (VP
-                (ADVP (RB partially))
+                (ADVP-MNR (RB partially))
                 (VBN explained)
                 (PP
                   (IN as)
@@ -1212,7 +1217,7 @@
                     (PP
                       (PP
                         (IN to)
-                        (NP (DT the) (VBN increased) (VBG loading)))
+                        (NP (DT the) (VBN increased) (NN loading)))
                       (CONJP (RB rather) (IN than))
                       (PP
                         (IN to)
@@ -1225,10 +1230,10 @@
   (S
     (PP
       (JJ Due)
-      (TO to)
+      (IN to)
       (NP (DT the) (JJ phylogenetic) (NN relatedness)))
     (, ,)
-    (NP (JJ extant) (NNS birds))
+    (NP-SBJ (JJ extant) (NNS birds))
     (VP
       (VBP have)
       (VP
@@ -1249,16 +1254,16 @@
 
 (ROOT
   (S
-    (ADVP (RB However))
+    (ADVP-TMP (RB However))
     (, ,)
-    (NP
+    (NP-SBJ
       (NP (JJ substantial) (NNS differences))
       (PP (IN in) (NP (NN hindlimb) (NN morphology)))
       (PP (IN between) (NP (DT these) (NNS groups))))
     (VP
       (VBP make)
       (S
-        (ADJP (JJ difficult))
+        (ADJP-PRD (JJ difficult))
         (S
           (VP
             (TO to)
@@ -1291,16 +1296,16 @@
               (, ,)
               (PP
                 (JJ due)
-                (TO to)
+                (IN to)
                 (NP (JJ functional) (NN convergence)))
               (, ,)
-              (NP (NNS mammals))
+              (NP-SBJ (NNS mammals))
               (VP
                 (MD might)
                 (VP
                   (VP
                     (VB be)
-                    (NP
+                    (NP-PRD
                       (NP (DT a) (JJR better) (NN system))
                       (SBAR
                         (S
@@ -1313,11 +1318,11 @@
                                 (NN dinosaur)
                                 (NN locomotion))))))))
                   (PRN
-                    (-LSB- [)
+                    (-LRB- [)
                     (CD 7)
-                    (-RSB- ])
+                    (-RRB- ])
                     (, ,)
-                    (PRN (-LSB- [) (CD 23) (-RSB- ]))))))))))
+                    (PRN (-LRB- [) (CD 23) (-RRB- ]))))))))))
     (, ,)
     (CC but)
     (S
@@ -1329,7 +1334,7 @@
         (SBAR
           (IN that)
           (S
-            (NP
+            (NP-SBJ
               (NP (JJ important) (NNS aspects))
               (PP
                 (IN of)
@@ -1346,25 +1351,25 @@
 
 (ROOT
   (S
-    (NP (CD One) (NN caveat))
+    (NP-SBJ (CD One) (NN caveat))
     (, ,)
-    (ADVP (RB however))
+    (ADVP-TMP (RB however))
     (, ,)
     (VP
       (VBZ is)
-      (SBAR
+      (SBAR-PRD
         (IN that)
         (S
-          (NP (PRP$ our) (NN approach))
+          (NP-SBJ (PRP$ our) (NN approach))
           (VP
             (VBZ uses)
-            (NP (JJ tail) (NN reduction))
+            (NP (NN tail) (NN reduction))
             (PP
               (IN as)
               (NP
                 (NP (DT the) (NN mechanism))
                 (PP (IN for) (NP (NN CoM) (NN displacement)))))
-            (SBAR
+            (SBAR-ADV
               (IN despite)
               (S
                 (NP (NP (PRP it)))
@@ -1372,13 +1377,13 @@
                   (VBZ has)
                   (VP
                     (VBN been)
-                    (ADVP (RB recently))
+                    (ADVP-TMP (RB recently))
                     (VP
                       (VBN shown)
                       (SBAR
                         (IN that)
                         (S
-                          (NP
+                          (NP-SBJ
                             (NP
                               (DT the)
                               (JJ evolutionary)
@@ -1387,20 +1392,20 @@
                           (VP
                             (VBD was)
                             (VP
-                              (VBN driven)
-                              (ADVP (RB instead))
-                              (PP
+                              (VP
+                                (VBN driven)
+                                (ADVP (RB instead))
                                 (PP
                                   (IN by)
-                                  (NP (NN forelimb) (NN enlargement)))
-                                (PRN (-LSB- [) (CD 8) (-RSB- ]))))))))))))))))
+                                  (NP (NN forelimb) (NN enlargement))))
+                              (PRN (-LRB- [) (CD 8) (-RRB- ])))))))))))))))
     (. .)))
 
 (ROOT
   (S
     (ADVP (RB Nonetheless))
     (, ,)
-    (NP (DT this))
+    (NP-SBJ (DT this))
     (VP
       (VBZ does)
       (RB not)
@@ -1410,7 +1415,7 @@
           (SBAR
             (IN that)
             (S
-              (NP (NN tail) (NN reduction))
+              (NP-SBJ (NN tail) (NN reduction))
               (VP
                 (VBD had)
                 (NP
@@ -1421,11 +1426,11 @@
           (SBAR
             (IN that)
             (S
-              (NP (PRP it))
+              (NP-SBJ (PRP it))
               (VP
                 (VBD was)
                 (RB not)
-                (NP
+                (NP-PRD
                   (DT the)
                   (ADJP (RBS most) (JJ important))
                   (NN factor))))))))
@@ -1435,13 +1440,13 @@
   (S
     (S
       (ADVP (RB Ideally))
-      (NP (PRP we))
+      (NP-SBJ (PRP we))
       (VP
         (MD would)
         (VP
           (VB have)
           (VP
-            (VP (VBN increased) (NP (JJ tail) (NN mass)))
+            (VP (VBN increased) (NP (NN tail) (NN mass)))
             (CC and)
             (VP (VBD reduced) (NP (JJ pectoral) (NN limb) (NN mass)))))))
     (CC but)
@@ -1449,27 +1454,30 @@
     (S
       (ADVP (RB unfortunately))
       (, ,)
-      (NP (DT this))
-      (VP (VBZ is) (RB not) (ADJP (RB experimentally) (JJ feasible))))
+      (NP-SBJ (DT this))
+      (VP
+        (VBZ is)
+        (RB not)
+        (ADJP-PRD (RB experimentally) (JJ feasible))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP We))
+    (NP-SBJ (PRP We))
     (VP
       (VBP argue)
       (SBAR
         (IN that)
         (S
-          (NP (PRP$ our) (JJ experimental) (NN approach))
+          (NP-SBJ (PRP$ our) (JJ experimental) (NN approach))
           (, ,)
-          (SBAR
+          (SBAR-ADV
             (IN although)
             (FRAG (ADJP (RB not) (ADJP (JJ perfect)))))
           (, ,)
           (VP
             (VBD was)
-            (ADJP
+            (ADJP-PRD
               (JJ effective)
               (PP
                 (IN in)
@@ -1492,13 +1500,13 @@
   (S
     (ADVP (RB Thus))
     (, ,)
-    (NP (PRP we))
+    (NP-SBJ (PRP we))
     (VP
       (VBP expect)
       (SBAR
         (IN that)
         (S
-          (NP
+          (NP-SBJ
             (NP (JJ careful) (JJ phenotypic) (NN manipulation))
             (PP (IN of) (NP (JJ extant) (NNS birds))))
           (VP
@@ -1511,7 +1519,7 @@
                   (IN of)
                   (NP
                     (NP (JJ experimental) (NN investigation))
-                    (PP
+                    (PP-DIR
                       (IN into)
                       (NP
                         (NP (JJ unexplored) (NNS facets))
@@ -1524,7 +1532,7 @@
                             (CC and)
                             (NNS energetics))))))))
               (, ,)
-              (S
+              (S-ADV
                 (VP
                   (VBG providing)
                   (NP
@@ -1543,4 +1551,3 @@
                           (IN in)
                           (NP (NN dinosaur) (NN evolution)))))))))))))
     (. .)))
-

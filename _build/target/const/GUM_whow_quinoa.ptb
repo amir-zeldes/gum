@@ -5,7 +5,7 @@
 
 (ROOT
   (S
-    (NP (NN Quinoa))
+    (NP-SBJ (NN Quinoa))
     (VP
       (VBZ is)
       (VP
@@ -19,7 +19,7 @@
 
 (ROOT
   (S
-    (NP (DT The) (NNPS Incas))
+    (NP-SBJ (DT The) (NNPS Incas))
     (VP
       (VP
         (VBD treated)
@@ -42,31 +42,32 @@
               (PP (IN of) (NP (DT all) (NNS grains))))))))
     (. .)
     ('' ")
-    (PRN (-LSB- [) (CD 1) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 1) (-RRB- ]))))
 
 (ROOT
   (S
     (PP (IN By) (NP (NN tradition)))
     (, ,)
-    (NP (DT the) (NNP Inca) (NN emperor))
+    (NP-SBJ (DT the) (NNP Inca) (NN emperor))
     (VP
       (MD would)
       (VP
         (VB sow)
         (NP
           (NP (DT the) (JJ first) (NNS seeds))
-          (PP (IN of) (NP (DT the) (NN season))))
-        (S (VP (VBG using) (`` ") (NP (JJ golden) (NNS implements))))))
+          (PP-TMP (IN of) (NP (DT the) (NN season))))
+        (S-ADV
+          (VP (VBG using) (`` ") (NP (JJ golden) (NNS implements))))))
     (. .)
     ('' ")))
 
 (ROOT
   (S
-    (NP (NN Quinoa))
+    (NP-SBJ (NN Quinoa))
     (VP
       (VBZ is)
       (ADJP
-        (ADJP (JJ rich) (PP (IN in) (NP (NN protein))))
+        (ADJP-PRD (JJ rich) (PP (IN in) (NP (NN protein))))
         (CC and)
         (ADJP
           (ADJP (RB much) (JJR lighter))
@@ -80,26 +81,26 @@
       (VP
         (VBZ is)
         (ADJP
-          (ADJP
+          (ADJP-PRD
             (RB much)
             (JJR easier)
-            (SBAR (S (VP (TO to) (VP (VB prepare))))))
+            (SBAR (S (VP (TO to) (VP-SBJ (VB prepare))))))
           (PP (IN than) (NP (NN rice)))))
       (CC and)
       (VP
         (VBZ is)
         (VP
-          (ADVP (RB rapidly))
+          (ADVP-MNR (RB rapidly))
           (VBG gaining)
           (PP (IN in) (NP (NN popularity)))
           (, ,)
           (PP
-            (ADVP (RB especially))
+            (ADVP-MNR (RB especially))
             (IN among)
             (NP
               (NP (NNS vegetarians))
               (SBAR
-                (WHNP (WP who))
+                (NP-SBJ (WP who))
                 (S
                   (VP
                     (VBP value)
@@ -124,7 +125,7 @@
   (NP
     (NP
       (NP (NN Olive) (NN oil))
-      (SBAR (S (VP (IN to) (VP (VB taste))))))
+      (SBAR (S (VP (IN to) (VP (NN taste))))))
     (PRN (-LRB- -LRB-) (ADJP (JJ Optional)) (-RRB- -RRB-))))
 
 (ROOT
@@ -147,16 +148,16 @@
 
 (ROOT
   (S
-    (NP (PRP You))
+    (NP-SBJ (PRP You))
     (VP
       (MD can)
       (VP
         (VB skip)
         (NP (DT this) (NN step))
-        (SBAR
+        (SBAR-ADV
           (IN if)
           (S
-            (NP (PRP you))
+            (NP-SBJ (PRP you))
             (VP
               (VBP have)
               (VP
@@ -167,22 +168,22 @@
 
 (ROOT
   (S
-    (S (VP (TO To) (VP (VB rinse))))
+    (S-PRP (VP (TO To) (VP (VB rinse))))
     (, ,)
     (VP
       (VB place)
-      (NP (DT the) (JJ measured) (NN grain))
+      (NP (DT the) (VBN measured) (NN grain))
       (PP (IN in) (NP (DT a) (NN strainer)))
       (PP (IN under) (NP (JJ running) (NN water)))
-      (PP (IN for) (NP (DT a) (JJ few) (NNS minutes))))
+      (PP-TMP (IN for) (NP (DT a) (JJ few) (NNS minutes))))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT This))
+    (NP-SBJ (DT This))
     (VP
       (VBZ is)
-      (ADJP (JJ necessary))
+      (ADJP-PRD (JJ necessary))
       (S
         (VP
           (TO to)
@@ -190,19 +191,21 @@
             (VB remove)
             (NP
               (NP (DT the) (JJ excess) (NNS saponins))
-              (PP
+              (PP-LOC
                 (IN on)
                 (NP
                   (NP (DT the) (NN outside))
                   (PP (IN of) (NP (DT the) (NNS grains)))))
               (SBAR
-                (WHNP (WDT which))
+                (NP-SBJ (WDT which))
                 (S
                   (VP
                     (VBP impart)
                     (NP (DT a) (JJ bitter) (NN flavor))
                     (PP (IN to) (NP (NN quinoa)))
-                    (SBAR (IN if) (S (RB not) (VP (VBN removed))))))))))))
+                    (SBAR-ADV
+                      (IN if)
+                      (S (RB not) (VP (VBN removed))))))))))))
     (. .)))
 
 (ROOT
@@ -220,7 +223,9 @@
       (VB Drizzle)
       (NP (NP (DT a) (NN bit)) (PP (IN of) (NP (NN olive) (NN oil))))
       (PP (IN in) (NP (DT a) (NN pan)))
-      (PP (IN over) (NP (JJ medium-high) (NN heat))))
+      (PP
+        (IN over)
+        (NP (ADJP (JJ medium) (HYPH -) (JJ high)) (NN heat))))
     (. .)))
 
 (ROOT
@@ -230,12 +235,12 @@
       (CC and)
       (VP
         (VB cook)
-        (PP (IN for) (NP (QP (RB about) (CD 1)) (NN minute)))))
+        (PP-TMP (IN for) (NP (QP (RB about) (CD 1)) (NN minute)))))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT This))
+    (NP-SBJ (DT This))
     (VP
       (VBZ brings)
       (PRT (RP out))
@@ -249,7 +254,7 @@
     (VP
       (VP
         (VB Place)
-        (NP (CD two) (NNS parts) (NN water) (CC or) (NN stock))
+        (NP-EXT (CD two) (NNS parts) (NN water) (CC or) (NN stock))
         (PP
           (IN to)
           (NP (NP (CD one) (NN part)) (PP (IN of) (NP (NN quinoa)))))
@@ -257,9 +262,11 @@
           (IN in)
           (NP
             (NP (DT a) (NN saucepan))
-            (PP (IN over) (NP (JJ medium-high) (NN heat))))))
+            (PP
+              (IN over)
+              (NP (ADJP (JJ medium) (HYPH -) (JJ high)) (NN heat))))))
       (CC and)
-      (VP (VB bring) (PP (IN to) (NP (DT a) (NN boil)))))
+      (VP (VB bring) (PP-DTV (IN to) (NP (DT a) (NN boil)))))
     (. .)))
 
 (ROOT
@@ -276,21 +283,21 @@
       (VB Simmer)
       (NP (DT the) (NN quinoa))
       (PP
-        (PP (IN for) (NP (QP (RB about) (CD 15)) (NNS minutes)))
+        (PP-TMP (IN for) (NP (QP (RB about) (CD 15)) (NNS minutes)))
         (CC or)
         (SBAR
           (IN until)
           (S
             (S
-              (NP (DT the) (NN grain))
-              (VP (VBZ becomes) (ADJP (JJ translucent))))
+              (NP-SBJ (DT the) (NN grain))
+              (VP (VBZ becomes) (ADJP-PRD (JJ translucent))))
             (CC and)
             (S
-              (NP (DT the) (JJ white) (NN germ))
+              (NP-SBJ (DT the) (JJ white) (NN germ))
               (VP
                 (VBZ forms)
                 (NP (DT a) (JJ visible) (NN spiral))
-                (PP
+                (PP-LOC
                   (IN on)
                   (NP
                     (NP (DT the) (NN exterior))
@@ -311,7 +318,7 @@
                 (NP (EX there))
                 (VP
                   (VBZ is)
-                  (NP
+                  (NP-SBJ
                     (NP (DT an) (FW al) (FW dente) (NN bite))
                     (PP (IN to) (NP (DT the) (NN germ))))
                   (, ,)
@@ -324,18 +331,18 @@
 
 (ROOT
   (S
-    (NP (NN Quinoa))
+    (NP-SBJ (NN Quinoa))
     (VP
       (MD will)
       (VP
         (VB continue)
         (S (VP (VBG cooking)))
-        (PP (IN for) (NP (DT a) (NN bit)))
-        (SBAR
+        (PP-TMP (IN for) (NP (DT a) (NN bit)))
+        (SBAR-ADV
           (ADVP (RB even))
           (IN after)
           (S
-            (NP (PRP you))
+            (NP-SBJ (PRP you))
             (VP
               (VBP take)
               (NP (PRP it))
@@ -358,12 +365,12 @@
             (, ,)
             (S (VP (VBN covered)))
             (, ,)
-            (PP (IN for) (NP (CD 5) (NNS minutes)))))))
+            (PP-TMP (IN for) (NP (CD 5) (NNS minutes)))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT This))
+    (NP-SBJ (DT This))
     (VP
       (MD will)
       (VP
@@ -380,11 +387,11 @@
                   (NP
                     (NP (DT any) (NN moisture))
                     (SBAR
-                      (WHNP (WDT that))
+                      (NP-SBJ (WDT that))
                       (S
                         (VP
                           (MD might)
-                          (ADVP (RB still))
+                          (ADVP-TMP (RB still))
                           (VP
                             (VB be)
                             (PP (IN in) (NP (DT the) (NN pan)))))))))))))))
@@ -402,19 +409,19 @@
 (ROOT
   (S
     (S
-      (NP (DT The) (NN quinoa))
+      (NP-SBJ (DT The) (NN quinoa))
       (VP
         (MD should)
-        (VP (VB look) (ADJP (JJ light) (CC and) (JJ fluffy)))))
+        (VP (VB look) (ADJP-PRD (JJ light) (CC and) (JJ fluffy)))))
     (, ,)
     (CC and)
     (S
-      (NP (PRP you))
+      (NP-SBJ (PRP you))
       (VP
         (MD should)
         (VP
           (VB be)
-          (ADJP
+          (ADJP-PRD
             (JJ able)
             (S
               (VP
@@ -432,14 +439,14 @@
 
 (ROOT
   (S
-    (NP (ADJP (RB Freshly) (JJ cooked)) (NN quinoa))
+    (NP-SBJ (ADJP (RB Freshly) (JJ cooked)) (NN quinoa))
     (VP
       (MD should)
       (VP
         (VB be)
         (VP
           (VBN served)
-          (ADVP (RB immediately))
+          (ADVP-TMP (RB immediately))
           (S
             (VP
               (TO to)
@@ -454,18 +461,21 @@
 (ROOT (S (VP (VB Serve) (PP (IN with))) (: :)))
 
 (ROOT
-  (NP
-    (NP (NN Stir-fry))
-    (, ,)
-    (S
-      (VP
-        (VBG using)
-        (NP (DT the) (NN quinoa))
-        (PP
-          (IN as)
-          (NP
-            (NP (DT a) (NN substitute))
-            (PP (IN for) (NP (NN rice)))))))
+  (S
+    (VP
+      (NN Stir)
+      (HYPH -)
+      (NN fry)
+      (, ,)
+      (S
+        (VP
+          (VBG using)
+          (NP (DT the) (NN quinoa))
+          (PP
+            (IN as)
+            (NP
+              (NP (DT a) (NN substitute))
+              (PP (IN for) (NP (NN rice))))))))
     (. .)))
 
 (ROOT (NP (NN Curry) (. .)))
@@ -478,7 +488,9 @@
   (NP
     (NP (RB Virtually) (DT any) (JJ other) (NN combination))
     (SBAR
-      (S (NP (PRP you)) (VP (MD can) (VP (VB think) (PP (IN of))))))
+      (S
+        (NP-SBJ (PRP you))
+        (VP (MD can) (VP (VB think) (PP (IN of))))))
     (. !)))
 
 (ROOT
@@ -501,24 +513,28 @@
 (ROOT
   (S
     (S
-      (SBAR
+      (SBAR-ADV
         (IN If)
         (S
-          (NP (PRP you))
+          (NP-SBJ (PRP you))
           (VP (VBD bought) (NP (JJ packaged) (NN quinoa)))))
       (, ,)
-      (NP (DT this) (NN step))
-      (VP (VBZ is) (RB n't) (ADVP (RB always)) (ADJP (JJ necessary))))
+      (NP-SBJ (DT this) (NN step))
+      (VP
+        (VBZ is)
+        (RB n't)
+        (ADVP-TMP (RB always))
+        (ADJP-PRD (JJ necessary))))
     (, ,)
     (CC but)
     (S
       (NP (NP (PRP it)))
       (VP
         (VBZ 's)
-        (ADJP (JJR better))
+        (ADJP-PRD (JJR better))
         (S
           (VP
-            (S (VP (TO to) (VP (VB be) (ADJP (JJ safe)))))
+            (S (VP (TO to) (VP (VB be) (ADJP-PRD (JJ safe)))))
             (PP (IN than) (ADJP (JJ sorry)))))))
     (. .)))
 
@@ -527,12 +543,12 @@
     (VP
       (VB Pour)
       (NP (NN quinoa))
-      (PP (IN into) (NP (NN rice) (NN cooker))))
+      (PP-DIR (IN into) (NP (NN rice) (NN cooker))))
     (. .)))
 
 (ROOT
   (S
-    (NP (CD One) (NN option))
+    (NP-SBJ (CD One) (NN option))
     (VP
       (VBZ is)
       (S
@@ -543,7 +559,7 @@
             (NP (DT the) (NN quinoa))
             (PP
               (IN before)
-              (S
+              (S-NOM
                 (VP
                   (VBG placing)
                   (PP (IN in) (NP (DT the) (NN rice) (NN cooker))))))))))
@@ -557,7 +573,7 @@
         (NP
           (NP (NN Step) (SYM #) (CD 2))
           (PP (IN in) (NP (NN Method) (CD One))))
-        (ADVP (IN above)))
+        (ADVP (RB above)))
       (PP (IN for) (NP (NNS directions))))
     (. .)))
 
@@ -569,12 +585,12 @@
         (NP (NP (CD 2) (NNS cups)) (PP (IN of) (NP (NN liquid))))
         (CC and)
         (NP (NP (CD 1/2) (NN teaspoon)) (PP (IN of) (NP (NN salt)))))
-      (PP (IN into) (NP (DT the) (NN rice) (NN cooker))))
+      (PP-DIR (IN into) (NP (DT the) (NN rice) (NN cooker))))
     (. .)))
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (NN Water))
       (, ,)
       (NP (NP (NN chicken) (NN stock)) (CC or) (NP (NN broth)))
@@ -589,14 +605,14 @@
   (S
     (VP
       (VB Cook)
-      (PP
+      (PP-TMP
         (IN for)
         (NP (QP (RB approximately) (CD 15)) (NNS minutes))))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT Some) (NN rice) (NN cooker))
+    (NP-SBJ (DT Some) (NN rice) (NN cooker))
     (VP
       (MD will)
       (VP
@@ -620,10 +636,10 @@
     (VP
       (VB Try)
       (NP (DT the) (`` ") (JJ white) (NN rice) ('' ") (NN option))
-      (SBAR
+      (SBAR-ADV
         (IN if)
         (S
-          (NP (PRP$ your) (NN rice) (NN cooker))
+          (NP-SBJ (PRP$ your) (NN rice) (NN cooker))
           (VP
             (VBZ gives)
             (NP (PRP you))
@@ -636,7 +652,7 @@
       (VB Let)
       (VP
         (VB stand)
-        (PP (IN for) (NP (QP (RB about) (CD 5)) (NNS minutes)))))
+        (PP-TMP (IN for) (NP (QP (RB about) (CD 5)) (NNS minutes)))))
     (. .)))
 
 (ROOT
@@ -670,7 +686,7 @@
 (ROOT
   (S
     (NP (VB Arrange) (NP (NN rack)))
-    (PP
+    (PP-LOC
       (IN in)
       (NP
         (NP (DT the) (NN middle))
@@ -694,8 +710,8 @@
     (VP
       (VB heat)
       (PRT (RP up))
-      (NP (CD 2) (NNS tablespoons) (NN vegetable) (NN oil))
-      (PP (IN over) (NP (JJ medium-low) (NN heat))))
+      (NP-EXT (CD 2) (NNS tablespoons) (NN vegetable) (NN oil))
+      (PP (IN over) (NP (JJ medium) (HYPH -) (JJ low) (NN heat))))
     (. .)))
 
 (ROOT
@@ -714,8 +730,8 @@
           (NP (DT any) (JJ other) (NN type))
           (PP
             (IN of)
-            (NP (JJ desired) (NN vegetable) (CC or) (NN herb)))))
-      (PP (IN into) (NP (DT the) (NN saucepan)))
+            (NP (VBN desired) (NN vegetable) (CC or) (NN herb)))))
+      (PP-DIR (IN into) (NP (DT the) (NN saucepan)))
       (PRN (-LRB- -LRB-) (ADJP (JJ optional)) (-RRB- -RRB-)))
     (. .)))
 
@@ -727,11 +743,11 @@
       (SBAR
         (IN until)
         (S
-          (NP (PRP they))
+          (NP-SBJ (PRP they))
           (VP
             (VBP are)
             (ADJP
-              (ADJP (JJ translucent))
+              (ADJP-PRD (JJ translucent))
               (, ,)
               (CC but)
               (ADJP (RB not) (VBN burned)))))))
@@ -743,7 +759,7 @@
       (VB Sweat)
       (NP
         (NP (DT the) (NNS peppers) (CC or) (NNS vegetables))
-        (PP (IN along) (PP (IN with) (NP (DT the) (NNS onions))))))
+        (PP (RB along) (PP (IN with) (NP (DT the) (NNS onions))))))
     (. .)))
 
 (ROOT
@@ -753,24 +769,24 @@
       (NP (DT the) (NN quinoa) (CC and) (NN salt))
       (PP (IN to) (NP (DT the) (NN saucepan)))
       (, ,)
-      (S
+      (S-ADV
         (VP
           (VBG stirring)
-          (SBAR
+          (SBAR-ADV
             (IN until)
-            (S (VP (ADVP (RB completely)) (VBN incorporated)))))))
+            (S (VP (ADVP-MNR (RB completely)) (VBN incorporated)))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT This))
+    (NP-SBJ (DT This))
     (VP
       (MD should)
       (VP
         (VB take)
         (ADVP
-          (ADVP (RB no) (RBR longer))
-          (PP (IN than) (NP (CD 30) (NNS seconds))))))
+          (ADVP-TMP (RB no) (RBR longer))
+          (PP-TMP (IN than) (NP (CD 30) (NNS seconds))))))
     (. .)))
 
 (ROOT
@@ -786,7 +802,7 @@
       (CC and)
       (VP
         (VB bring)
-        (PP (IN to) (NP (DT a) (NN boil)))
+        (PP-DTV (IN to) (NP (DT a) (NN boil)))
         (PP (IN over) (NP (JJ medium) (JJ high) (NN heat)))))
     (. .)))
 
@@ -794,14 +810,25 @@
   (S
     (SBAR
       (RB Once)
-      (S (NP (DT a) (NN boil)) (VP (VBZ is) (VP (VBN reached)))))
+      (S (NP-SBJ (DT a) (NN boil)) (VP (VBZ is) (VP (VBN reached)))))
     (, ,)
     (VP
       (VB transfer)
       (NP (NN quinoa))
-      (PP (IN to) (NP (DT a) (NN 8-by-8-inch) (NN baking) (NN dish))))
+      (PP-DTV
+        (IN to)
+        (NP
+          (DT a)
+          (ADJP
+            (CD 8)
+            (HYPH -)
+            (IN by)
+            (X (NP (HYPH -) (CD 8) (HYPH -)))
+            (NN inch))
+          (NN baking)
+          (NN dish))))
     (. .)
-    (PRN (-LSB- [) (CD 2) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 2) (-RRB- ]))))
 
 (ROOT
   (S
@@ -810,12 +837,12 @@
         (VB Spread)
         (PRT (RP out))
         (NP (NN quinoa))
-        (ADVP (RB evenly)))
+        (ADVP-MNR (RB evenly)))
       (CC and)
       (VP
         (VB cover)
         (NP (NN baking) (NN dish))
-        (ADVP (RB completely))
+        (ADVP-MNR (RB completely))
         (PP (IN with) (NP (NN aluminum) (NN foil)))))
     (. .)))
 
@@ -826,13 +853,15 @@
       (NP (DT the) (NN quinoa))
       (PP (IN in) (NP (DT the) (NN oven)))
       (PP
-        (PP (IN for) (NP (QP (RB roughly) (CD 20)) (NNS minutes)))
+        (PP-TMP
+          (IN for)
+          (NP (QP (RB roughly) (CD 20)) (NNS minutes)))
         (, ,)
         (CC or)
         (SBAR
           (IN until)
           (S
-            (NP
+            (NP-SBJ
               (NP (JJS most))
               (PP (IN of) (NP (DT the) (NN liquid))))
             (VP (VBZ is) (VP (VBN gone)))))))
@@ -856,18 +885,19 @@
       (CC and)
       (VP
         (VB bake)
-        (PP
+        (PP-TMP
           (IN for)
           (NP (DT an) (JJ additional) (CD 5) (NNS minutes)))))
     (. .)))
 
 (ROOT
   (S
-    (PP (IN After) (NP (CD 5) (NNS minutes)))
+    (PP-TMP (IN After) (NP (CD 5) (NNS minutes)))
     (, ,)
-    (NP (DT the) (NN quinoa))
-    (VP (MD should) (VP (VB be) (VP (ADVP (RB fully)) (VBN cooked))))
+    (NP-SBJ (DT the) (NN quinoa))
+    (VP
+      (MD should)
+      (VP (VB be) (VP (ADVP-MNR (RB fully)) (VBN cooked))))
     (. .)))
 
 (ROOT (S (VP (VB Serve) (CC and) (VB enjoy)) (. !)))
-

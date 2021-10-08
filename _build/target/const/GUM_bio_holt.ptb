@@ -21,8 +21,8 @@
   (PRN
     (VBN Born)
     (: :)
-    (NP (NNP June) (CD 11) (, ,) (CD 1988))
-    (PRN (-LRB- -LRB-) (NP (NN age) (CD 30)) (-RRB- -RRB-))))
+    (NP-TMP (NNP June) (CD 11) (, ,) (CD 1988))
+    (PRN (-LRB- -LRB-) (NP-SBJ (NN age) (CD 30)) (-RRB- -RRB-))))
 
 (ROOT (NP (NP (NNP Fort) (NNP Worth)) (, ,) (NP (NNP Texas))))
 
@@ -33,7 +33,7 @@
 (ROOT (NP (NNP MLB) (NN debut)))
 
 (ROOT
-  (NP
+  (NP-TMP
     (NNP September)
     (CD 1)
     (, ,)
@@ -46,58 +46,62 @@
     (NP (NNP MLB) (NNS statistics))
     (PRN
       (-LRB- -LRB-)
-      (PP (IN through) (NP (NNP September) (CD 20) (, ,) (CD 2018)))
+      (PP-TMP
+        (IN through)
+        (NP-TMP (NNP September) (CD 20) (, ,) (CD 2018)))
       (-RRB- -RRB-))))
 
-(ROOT (NP (NN Batting) (NN average) (CD .265)))
+(ROOT (NP-SBJ (NN Batting) (NN average) (CD .265)))
 
-(ROOT (NP (NN Home) (NNS runs) (CD 19)))
+(ROOT (NP-SBJ (NN Home) (NNS runs) (CD 19)))
 
 (ROOT
-  (S (NP (NNS Runs)) (VP (VBN batted) (PP (IN in) (NP (CD 171))))))
+  (S
+    (NP-SBJ (NNS Runs))
+    (VP (VBN batted) (PP (IN in) (NP (CD 171))))))
 
 (ROOT (NP (NNS Teams)))
 
 (ROOT
   (NP
     (NP (NNP Pittsburgh) (NNP Pirates))
-    (PRN (-LRB- -LRB-) (NP (CD 2012)) (-RRB- -RRB-))))
+    (PRN (-LRB- -LRB-) (NP-TMP (CD 2012)) (-RRB- -RRB-))))
 
 (ROOT
   (NP
     (NP (NNP Boston) (NNP Red) (NNPS Sox))
     (PRN
       (-LRB- -LRB-)
-      (NP (NP (CD 2013)) (SYM –) (ADJP (NN present)))
+      (NP (NP-TMP (CD 2013)) (SYM –) (ADJP (NN present)))
       (-RRB- -RRB-))))
 
 (ROOT (NP (NN Career) (NNS highlights) (CC and) (NNS awards)))
 
 (ROOT
   (NP
-    (NP (NNP All-Star))
-    (PRN (-LRB- -LRB-) (NP (CD 2015)) (-RRB- -RRB-))))
+    (NP (DT All) (HYPH -) (NNP Star))
+    (PRN (-LRB- -LRB-) (NP-TMP (CD 2015)) (-RRB- -RRB-))))
 
 (ROOT
   (VP
     (VB Hit)
     (PP (IN for) (NP (DT the) (NN cycle)))
-    (PP (IN on) (NP (NNP June) (CD 16) (, ,) (CD 2015)))))
+    (PP-TMP (IN on) (NP-TMP (NNP June) (CD 16) (, ,) (CD 2015)))))
 
 (ROOT
   (NP
     (NP (NNP World) (NNP Series) (NN champion))
-    (PRN (-LRB- -LRB-) (NP (CD 2013)) (-RRB- -RRB-))))
+    (PRN (-LRB- -LRB-) (NP-TMP (CD 2013)) (-RRB- -RRB-))))
 
 (ROOT (NP (NNP Brock) (NNP Holt)))
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (NNP Brock) (NNP Wyatt) (NNP Holt))
       (PRN
         (-LRB- -LRB-)
-        (VP (VBN born) (NP (NNP June) (CD 11) (, ,) (CD 1988)))
+        (VP (VBN born) (NP-TMP (NNP June) (CD 11) (, ,) (CD 1988)))
         (-RRB- -RRB-)))
     (VP
       (VBZ is)
@@ -108,7 +112,7 @@
           (JJ professional)
           (NN baseball)
           (NX
-            (NX (JJ second) (NN baseman))
+            (NX-PRD (JJ second) (NN baseman))
             (, ,)
             (NX (NN shortstop))
             (CC and)
@@ -134,7 +138,7 @@
           (VBN used)
           (PP (IN as) (NP (DT an) (NN infielder))))))
     (, ,)
-    (NP (PRP he))
+    (NP-SBJ (PRP he))
     (VP
       (VBZ has)
       (VP
@@ -169,23 +173,23 @@
               (NP (CD 180) (NNS pounds))
               (PRN (-LRB- -LRB-) (NP (CD 82) (NNS kg)) (-RRB- -RRB-)))))))
     (, ,)
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
-      (VP (VBZ bats) (ADVP (RB left-handed)))
+      (VP (VBZ bats) (S (ADJP (JJ left) (HYPH -) (RB handed))))
       (CC and)
-      (VP (VBZ throws) (ADVP (RB right-handed))))
+      (VP (VBZ throws) (ADVP (JJ right) (HYPH -) (RB handed))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP He))
-    (ADVP (RB first))
+    (NP-SBJ (PRP He))
+    (ADVP-TMP (RB first))
     (VP
       (VP
         (VBD played)
         (PP (IN in) (NP (NNP MLB)))
         (PP (IN for) (NP (DT the) (NNP Pittsburgh) (NNP Pirates)))
-        (PP (IN in) (NP (CD 2012))))
+        (PP-TMP (IN in) (NP (CD 2012))))
       (, ,)
       (CC but)
       (VP
@@ -193,134 +197,147 @@
         (VP
           (VBN played)
           (PP (IN for) (NP (DT the) (NNP Red) (NNPS Sox)))
-          (NP (NP (DT every) (NN season)) (ADVP (RB since))))))
+          (NP (NP-TMP (DT every) (NN season)) (ADVP-TMP (RB since))))))
     (. .)))
 
 (ROOT (NP (JJ High) (NN school) (NN career)))
 
 (ROOT
   (S
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
       (VBD graduated)
-      (PP (IN in) (NP (CD 2006)))
+      (PP-TMP (IN in) (NP (CD 2006)))
       (PP
         (IN from)
         (NP
           (NP (NNP Stephenville) (NNP High) (NNP School))
-          (PP (IN in) (NP (NNP Texas))))))
+          (PP-LOC (IN in) (NP (NNP Texas))))))
     (. .)))
 
 (ROOT
   (S
-    (PP (IN In) (NP (CD 2003)))
+    (PP-TMP (IN In) (NP (CD 2003)))
     (, ,)
     (NP (PRP$ his) (NN freshman) (NN year))
     (, ,)
-    (NP (PRP he))
+    (NP-SBJ (PRP he))
     (VP
       (VP
         (VBD made)
         (NP
           (DT the)
           (NNP District)
-          (NNP 8-4A)
-          (NNP All-District)
+          (NNP 8)
+          (HYPH -)
+          (NN 4A)
+          (NNP All)
+          (HYPH -)
+          (NNP District)
           (NN baseball)
           (NN team))
         (PP
           (IN despite)
-          (S (VP (VBG batting) (NP (QP (RB just) (CD .227)))))))
+          (S-NOM (VP (VBG batting) (NP (QP (RB just) (CD .227)))))))
       (, ,)
       (CC and)
       (VP
         (VBD shared)
         (NP
           (NP (DT the) (NN league) (POS 's))
-          (NAC (NNP Newcomer) (PP (IN of) (NP (DT the) (NNP Year))))
+          (NAC
+            (NNP Newcomer)
+            (PP-TMP (IN of) (NP (DT the) (NNP Year))))
           (NN award))))
     (. .)
-    (PRN (-LSB- [) (CD 1) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 1) (-RRB- ]))))
 
 (ROOT
   (S
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
       (VBD was)
-      (NP
+      (NP-PRD
         (DT a)
-        (JJ second-team)
-        (JJ All-District)
-        (NNP 8-4A)
+        (JJ second)
+        (HYPH -)
+        (JJ team)
+        (UCP
+          (NNP All)
+          (HYPH -)
+          (NNP District)
+          (NNP 8)
+          (HYPH -)
+          (NN 4A))
         (NN inclusion))
-      (NP (PRP$ his) (NN sophomore) (NN year))
+      (NP-TMP (PRP$ his) (NN sophomore) (NN year))
       (, ,)
       (S
         (VP
           (VBG batting)
           (NP (CD .324))
-          (PP (IN for) (NP (DT the) (NN season))))))
+          (PP-TMP (IN for) (NP (DT the) (NN season))))))
     (. .)
-    (PRN (-LSB- [) (CD 2) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 2) (-RRB- ]))))
 
 (ROOT
   (S
     (S
-      (PP (IN In) (NP (CD 2005)))
+      (PP-TMP (IN In) (NP (CD 2005)))
       (, ,)
-      (NP (NNP Holt))
+      (NP-SBJ (NNP Holt))
       (VP
+        (VBD was)
         (VP
-          (VBD was)
           (VP
             (VBN named)
             (S
               (NP
-                (S
-                  (NP
-                    (NP (JJ defensive) (NN player))
-                    (PP (IN of) (NP (DT the) (NN year)))))
-                (PP (IN in) (NP (NNP District) (NNP 6-4A)))))))
-        (, ,)
-        (PRN (-LSB- [) (CD 3) (-RSB- ]))))
+                (NP (JJ defensive) (NN player))
+                (PP-TMP (IN of) (NP (DT the) (NN year)))
+                (PP-LOC
+                  (IN in)
+                  (NP (NNP District) (NNP 6) (HYPH -) (NN 4A))))))
+          (, ,)
+          (PRN (-LRB- [) (CD 3) (-RRB- ])))))
     (CC and)
     (S
-      (NP (PRP he))
+      (NP-SBJ (PRP he))
       (VP
         (VBD earned)
-        (NP (JJ all-district) (NNS honors))
-        (PP
+        (NP (DT all) (HYPH -) (NN district) (NNS honors))
+        (PP-TMP
           (IN in)
           (NP
             (NP (CD 2006))
             (, ,)
             (NP (PRP$ his) (JJ senior) (NN year))))))
     (. .)
-    (PRN (-LSB- [) (CD 4) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 4) (-RRB- ]))))
 
 (ROOT (NP (NN College) (NN career)))
 
 (ROOT
   (S
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
       (VBD attended)
       (NP (NNP Navarro) (NNP College))
-      (PP (IN in) (NP (CD 2007) (CC and) (CD 2008))))
+      (PP-TMP (IN in) (NP (CD 2007) (CC and) (CD 2008))))
     (. .)
-    (PRN (-LSB- [) (CD 5) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 5) (-RRB- ]))))
 
 (ROOT
   (S
     (PP
       (IN After)
-      (S
+      (S-NOM
         (VP
           (VBG transferring)
-          (PP (IN to) (NP (NNP Rice) (NNP University)))
-          (PP (IN in) (NP (CD 2009))))))
+          (PP-DTV (IN to) (NP (NNP Rice) (NNP University)))
+          (PP-TMP (IN in) (NP (CD 2009))))))
     (, ,)
-    (NP (PRP he))
+    (NP-SBJ (PRP he))
     (VP
       (VBD posted)
       (NP (DT a) (CD .348) (NN batting) (NN average))
@@ -339,7 +356,7 @@
 
 (ROOT
   (S
-    (NP (PRP He))
+    (NP-SBJ (PRP He))
     (ADVP (RB also))
     (VP
       (VP
@@ -355,9 +372,9 @@
 
 (ROOT
   (S
-    (PP (IN In) (NP (DT the) (JJ same) (NN season)))
+    (PP-TMP (IN In) (NP (DT the) (JJ same) (NN season)))
     (, ,)
-    (NP (PRP he))
+    (NP-SBJ (PRP he))
     (VP
       (VBD was)
       (VP
@@ -366,21 +383,29 @@
           (CC both)
           (IN to)
           (NP
-            (NP (DT the) (NNP All-NCAA) (NNP Regional) (NNP Team))
+            (NP
+              (DT the)
+              (DT All)
+              (HYPH -)
+              (NNP NCAA)
+              (NNP Regional)
+              (NNP Team))
             (CC and)
             (NP
               (DT the)
-              (NNP All-Silver)
+              (DT All)
+              (HYPH -)
+              (NNP Silver)
               (NNP Glove)
               (NNP Trophy)
               (NNP Series)
               (NN team))))))
     (. .)
-    (PRN (-LSB- [) (CD 6) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 6) (-RRB- ]))))
 
 (ROOT
   (S
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
       (VBD was)
       (VP
@@ -405,7 +430,7 @@
                 (NNP Draft)))))
         (, ,)
         (PP
-          (NP (CD one) (NN pick))
+          (NP-EXT (CD one) (NN pick))
           (IN before)
           (NP
             (PRP$ his)
@@ -414,7 +439,7 @@
             (NNP Ryan)
             (NNP Berry)))))
     (. .)
-    (PRN (-LSB- [) (CD 7) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 7) (-RRB- ]))))
 
 (ROOT (NP (JJ Professional) (NN career)))
 
@@ -422,11 +447,11 @@
 
 (ROOT
   (S
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
       (VBD began)
       (NP (PRP$ his) (JJ professional) (NN career))
-      (PP
+      (PP-TMP
         (IN with)
         (NP
           (NP
@@ -434,37 +459,37 @@
             (JJ short)
             (NN season)
             (, ,)
-            (NNP Class-A)
+            (ADJP (NNP Class) (HYPH -) (NNP A))
             (NN affiliate))
           (, ,)
           (NP (DT the) (NNP State) (NNP College) (NNP Spikes))))
       (, ,)
       (PP
         (IN before)
-        (S
+        (S-NOM
           (VP
             (VBG advancing)
             (PP
               (IN to)
               (NP
                 (DT the)
-                (NNP High-A)
+                (ADJP (JJ High) (HYPH -) (NNP A))
                 (NNP Bradenton)
                 (NNP Marauders)))
-            (PP (IN in) (NP (CD 2010)))))))
+            (PP-TMP (IN in) (NP (CD 2010)))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP$ His) (CD 2010) (NN season))
+    (NP-SBJ (PRP$ His) (CD 2010) (NN season))
     (VP
       (VBD was)
       (VP
         (VBN cut)
-        (S (ADJP (JJ short)))
+        (S (ADJP-PRD (JJ short)))
         (PP
           (JJ due)
-          (TO to)
+          (IN to)
           (NP
             (NP (NN injury))
             (PP
@@ -476,14 +501,14 @@
                 (NN ligament)))
             (, ,)
             (SBAR
-              (WHNP (WDT which))
+              (NP-SBJ (WDT which))
               (S (VP (VBD required) (NP (NN surgery)))))))))
     (. .)
-    (PRN (-LSB- [) (CD 8) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 8) (-RRB- ]))))
 
 (ROOT
   (S
-    (NP (PRP He))
+    (NP-SBJ (PRP He))
     (VP
       (VBD began)
       (NP (DT the) (CD 2011) (NN season))
@@ -492,7 +517,7 @@
         (NP
           (NP
             (NP (DT the) (NNP Pirates) (POS '))
-            (NNP Double-A)
+            (ADJP (NNP Double) (HYPH -) (NNP A))
             (NN affiliate))
           (, ,)
           (NP (DT the) (NNP Altoona) (NNP Curve)))))
@@ -500,9 +525,9 @@
 
 (ROOT
   (S
-    (PP (IN On) (NP (NNP July) (CD 13) (, ,) (CD 2011)))
+    (PP-TMP (IN On) (NP-TMP (NNP July) (CD 13) (, ,) (CD 2011)))
     (, ,)
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
       (VP
         (VBD was)
@@ -517,21 +542,26 @@
                   (DT the)
                   (NNP Eastern)
                   (NNP League)
-                  (NNP All-Star)
+                  (DT All)
+                  (HYPH -)
+                  (NNP Star)
                   (NNP Game)))))
           (PP
             (IN after)
-            (S
+            (S-NOM
               (VP
                 (VBG hitting)
-                (NP (DT a) (JJ two-run) (NN homer))
-                (PP (IN in) (NP (DT the) (JJ ninth) (NN inning))))))))
+                (NP
+                  (DT a)
+                  (ADJP (CD two) (HYPH -) (NN run))
+                  (NN homer))
+                (PP-TMP (IN in) (NP (DT the) (JJ ninth) (NN inning))))))))
       (. .)
-      (PRN (-LSB- [) (CD 9) (-RSB- ])))))
+      (PRN (-LRB- [) (CD 9) (-RRB- ])))))
 
 (ROOT
   (S
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
       (VP
         (VBD opened)
@@ -539,41 +569,48 @@
         (PP (IN with) (NP (NNP Altoona))))
       (CC and)
       (VP
-        (ADVP (RBR later))
+        (ADVP-TMP (RBR later))
         (VBD joined)
-        (NP (NNP Triple-A) (NNP Indianapolis) (NNPS Indians))))
+        (NP
+          (NNP Triple)
+          (HYPH -)
+          (NNP A)
+          (NNP Indianapolis)
+          (NNPS Indians))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP He))
+    (NP-SBJ (PRP He))
     (VP
       (VBD was)
       (VP
         (VBN promoted)
         (PP (IN to) (NP (DT the) (NNP Pittsburgh) (NNP Pirates)))
         (PP (IN from) (NP (DT the) (NNS minors)))
-        (SBAR
+        (SBAR-ADV
           (IN as)
           (S
-            (NP (DT the) (JJ major) (NN league) (NNS rosters))
+            (NP-SBJ (DT the) (JJ major) (NN league) (NNS rosters))
             (VP
               (VBD expanded)
-              (PP (IN on) (NP (NNP September) (CD 1))))))))
+              (PP-TMP (IN on) (NP (NNP September) (CD 1))))))))
     (. .)))
 
 (ROOT
   (NP
     (NP (NNP Pittsburgh) (NNP Pirates))
-    (PRN (-LRB- -LRB-) (NP (CD 2012)) (-RRB- -RRB-))))
+    (PRN (-LRB- -LRB-) (NP-TMP (CD 2012)) (-RRB- -RRB-))))
 
 (ROOT
   (S
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
       (VBD made)
       (NP (PRP$ his) (NNP Major) (NNP League) (NN debut))
-      (PP (IN on) (NP (NNP September) (CD 1) (, ,) (CD 2012))))
+      (PP-TMP
+        (IN on)
+        (NP-TMP (NNP September) (CD 1) (, ,) (CD 2012))))
     (. .)))
 
 (ROOT
@@ -584,7 +621,7 @@
         (NP (DT the) (NN time))
         (PP (IN of) (NP (PRP$ his) (NN promotion)))))
     (, ,)
-    (NP (PRP he))
+    (NP-SBJ (PRP he))
     (VP
       (VBD had)
       (VP
@@ -605,25 +642,31 @@
               (NP (CD 24) (NNS games))
               (PP (IN for) (NP (NNP Indianapolis))))))))
     (. .)
-    (PRN (-LSB- [) (CD 10) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 10) (-RRB- ]))))
 
 (ROOT
   (S
-    (PP (IN On) (NP (NNP September) (CD 4)))
+    (PP-TMP (IN On) (NP (NNP September) (CD 4)))
     (, ,)
     (PP (IN against) (NP (DT the) (NNP Houston) (NNP Astros)))
     (, ,)
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
       (VBD became)
-      (NP
-        (NP (RB only) (DT the) (JJ second) (NNP Pirates) (NN player))
-        (PP (IN since) (NP (CD 1900)))
+      (S
+        (NP
+          (NP
+            (RB only)
+            (DT the)
+            (JJ second)
+            (NNP Pirates)
+            (NN player))
+          (PP-TMP (IN since) (NP (CD 1900))))
         (VP
           (TO to)
           (VP
             (VB have)
-            (NP (DT a) (JJ four-hit) (NN game))
+            (NP (DT a) (ADJP (CD four) (HYPH -) (NN hit)) (NN game))
             (PP
               (IN within)
               (NP
@@ -638,7 +681,7 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (DT The) (JJ only) (JJ other) (NNP Pirates) (NN player))
       (SBAR
         (S
@@ -646,22 +689,25 @@
             (TO to)
             (VP
               (VB have)
-              (NP (DT a) (JJ four-hit) (NN game))
-              (ADVP
+              (NP
+                (DT a)
+                (ADJP (CD four) (HYPH -) (NN hit))
+                (NN game))
+              (ADVP-TMP
                 (RB so)
                 (RB early)
                 (PP (IN in) (NP (PRP$ his) (NN career)))))))))
     (VP
       (VBD was)
-      (NP
+      (NP-PRD
         (NP (NNP Jack) (NNP Merson))
         (, ,)
         (SBAR
-          (WHNP (WP who))
+          (NP-SBJ (WP who))
           (S
             (VP
               (VBD went)
-              (ADJP (JJ 4-for-5))
+              (ADVP (CD 4) (HYPH -) (IN for) (HYPH -) (CD 5))
               (PP
                 (IN in)
                 (NP
@@ -670,20 +716,20 @@
                   (JJ major)
                   (NN league)
                   (NN game)))
-              (PP
+              (PP-TMP
                 (IN on)
                 (NP
                   (NP (NNP September) (CD 15))
                   (, ,)
-                  (NP (CD 1951)))))))))
+                  (NP-TMP (CD 1951)))))))))
     (. .)
-    (PRN (-LSB- [) (CD 11) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 11) (-RRB- ]))))
 
 (ROOT
   (S
     (PP (IN In) (NP (CD 24) (NNS games)))
     (, ,)
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
       (VBD batted)
       (NP (CD .292))
@@ -697,15 +743,15 @@
     (NP (NNP Boston) (NNP Red) (NNPS Sox))
     (PRN
       (-LRB- -LRB-)
-      (NP (NP (CD 2013)) (SYM –) (ADJP (NN present)))
+      (NP (NP-TMP (CD 2013)) (SYM –) (ADJP (NN present)))
       (-RRB- -RRB-))))
 
 (ROOT (NP (CD 2013)))
 
 (ROOT
   (S
-    (PP (IN On) (NP (NNP December) (CD 26) (, ,) (CD 2012)))
-    (NP (PRP he))
+    (PP-TMP (IN On) (NP-TMP (NNP December) (CD 26) (, ,) (CD 2012)))
+    (NP-SBJ (PRP he))
     (VP
       (VBD was)
       (VP
@@ -713,8 +759,8 @@
         (PP (IN to) (NP (DT the) (NNP Boston) (NNP Red) (NNPS Sox)))
         (PRN
           (-LRB- -LRB-)
-          (PP
-            (IN along)
+          (ADVP-TMP
+            (RB along)
             (PP (IN with) (NP (NNP Joel) (NNP Hanrahan))))
           (-RRB- -RRB-))
         (PP
@@ -729,11 +775,11 @@
             (CC and)
             (NP (NNP Iván) (NNP DeJesús) (, ,) (NNP Jr.))))))
     (. .)
-    (PRN (-LSB- [) (CD 12) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 12) (-RRB- ]))))
 
 (ROOT
   (S
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
       (VBD started)
       (NP (DT the) (CD 2013) (NN season))
@@ -741,7 +787,7 @@
         (IN with)
         (NP
           (DT the)
-          (NNP Triple-A)
+          (ADJP (NNP Triple) (HYPH -) (NNP A))
           (NNP Pawtucket)
           (NNP Red)
           (NNPS Sox))))
@@ -749,7 +795,7 @@
 
 (ROOT
   (S
-    (NP (PRP He))
+    (NP-SBJ (PRP He))
     (VP
       (VBD debuted)
       (PP (IN for) (NP (NNP Boston)))
@@ -761,20 +807,20 @@
             (VP
               (VBN called)
               (PRT (RP up))
-              (PP (IN on) (NP (NNP July) (CD 6)))
-              (PP (IN in) (NP (NNP Anaheim))))))))
+              (PP-TMP (IN on) (NP (NNP July) (CD 6)))
+              (PP-LOC (IN in) (NP (NNP Anaheim))))))))
     (. .)))
 
 (ROOT
   (S
-    (PP (IN In) (NP (CD 2013)))
+    (PP-TMP (IN In) (NP (CD 2013)))
     (, ,)
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
       (VBD played)
       (PP (IN in) (NP (CD 26) (NNS games)))
       (, ,)
-      (S
+      (S-ADV
         (VP
           (VBG hitting)
           (NP (CD .203))
@@ -783,14 +829,14 @@
 
 (ROOT
   (S
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
       (VBD received)
       (NP (PRP$ his) (JJ first) (NN championship) (NN ring))
-      (SBAR
+      (SBAR-TMP
         (WHADVP (WRB when))
         (S
-          (NP (DT the) (NNP Red) (NNP Sox))
+          (NP-SBJ (DT the) (NNP Red) (NNP Sox))
           (VP
             (VBD won)
             (NP (DT the) (NNP World) (NNP Series))
@@ -801,24 +847,24 @@
       (, ,)
       (PP
         (IN despite)
-        (S
+        (S-NOM
           (RB not)
           (VP
             (VBG playing)
-            (PP (IN in) (NP (DT the) (NN postseason)))))))
+            (PP-TMP (IN in) (NP (DT the) (NN postseason)))))))
     (. .)))
 
 (ROOT (NP (CD 2014)))
 
 (ROOT
   (S
-    (NP (NNP Holt))
-    (ADVP (RB again))
+    (NP-SBJ (NNP Holt))
+    (ADVP-TMP (RB again))
     (VP
       (VP
         (VBD started)
         (NP (CD 2014))
-        (PP (IN in) (NP (NNP Triple-A))))
+        (PP (IN in) (NP (NNP Triple) (HYPH -) (NNP A))))
       (, ,)
       (CC but)
       (VP
@@ -827,7 +873,7 @@
           (VP
             (VBN called)
             (ADVP (RP up))
-            (NP (NNP May) (CD 17))
+            (NP-TMP (NNP May) (CD 17))
             (PP
               (IN after)
               (NP
@@ -837,21 +883,21 @@
         (VP
           (VBD hit)
           (ADVP (RB leadoff))
-          (PP
+          (PP-TMP
             (IN for)
             (NP
               (NP (DT the) (NN rest))
-              (PP (IN of) (NP (DT the) (NN season))))))))
+              (PP-TMP (IN of) (NP (DT the) (NN season))))))))
     (. .)))
 
 (ROOT
   (S
-    (PP (IN On) (NP (NNP May) (CD 31) (, ,) (CD 2014)))
+    (PP-TMP (IN On) (NP-TMP (NNP May) (CD 31) (, ,) (CD 2014)))
     (, ,)
     (PP (IN against) (NP (DT the) (NNP Tampa) (NNP Bay) (NNPS Rays)))
-    (PP (IN at) (NP (NNP Fenway) (NNP Park)))
+    (PP-LOC (IN at) (NP (NNP Fenway) (NNP Park)))
     (, ,)
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
       (VBD hit)
       (NP
@@ -865,38 +911,38 @@
 
 (ROOT
   (S
-    (PP (IN On) (NP (NNP June) (CD 8) (, ,) (CD 2014)))
+    (PP-TMP (IN On) (NP-TMP (NNP June) (CD 8) (, ,) (CD 2014)))
     (, ,)
-    (SBAR
+    (SBAR-ADV
       (IN in)
       (NN order)
-      (S
+      (S-PRP
         (VP
           (TO to)
           (VP
             (VB allow)
             (S
-              (NP (NNP Xander) (NNP Bogaerts))
+              (NP-SBJ (NNP Xander) (NNP Bogaerts))
               (VP (TO to) (VP (VB play) (NP (JJ 3rd) (NN base)))))))))
     (, ,)
-    (NP (NNP Holt))
-    (VP (VBD moved) (PP (IN to) (NP (JJ left) (NN field))))
+    (NP-SBJ (NNP Holt))
+    (VP (VBD moved) (PP-DIR (IN to) (NP (JJ left) (NN field))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP He))
-    (ADVP (RB immediately))
+    (NP-SBJ (PRP He))
+    (ADVP-TMP (RB immediately))
     (VP
       (VBD impressed)
       (, ,)
-      (S
+      (S-ADV
         (VP
           (VBG making)
           (NP
             (NP (DT a) (JJ sensational) (NN catch))
-            (PP (IN on) (NP (DT the) (NN warning) (NN track))))
-          (S
+            (PP-LOC (IN on) (NP (DT the) (NN warning) (NN track))))
+          (S-PRP
             (VP
               (TO to)
               (VP
@@ -907,50 +953,54 @@
 
 (ROOT
   (S
-    (PP (IN On) (NP (NNP July) (CD 9) (, ,) (CD 2014)))
+    (PP-TMP (IN On) (NP-TMP (NNP July) (CD 9) (, ,) (CD 2014)))
     (, ,)
     (PP
       (IN against)
       (NP (DT the) (NNP Chicago) (NNP White) (NNP Sox)))
     (, ,)
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
       (VBD drove)
       (PRT (RP in))
       (NP (NNP Daniel) (NNP Nava))
-      (PP
+      (PP-TMP
         (IN in)
         (NP
           (NP (DT the) (NN bottom))
-          (PP (IN of) (NP (DT the) (JJ 9th) (NN inning)))))
+          (PP-TMP (IN of) (NP (DT the) (JJ 9th) (NN inning)))))
       (PP
         (IN for)
         (NP
-          (NP (DT the) (JJ first) (JJ walk-off) (NN hit))
+          (NP
+            (DT the)
+            (JJ first)
+            (ADJP (NN walk) (HYPH -) (RP off))
+            (NN hit))
           (PP (IN of) (NP (PRP$ his) (NN career))))))
     (. .)
-    (PRN (-LSB- [) (CD 13) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 13) (-RRB- ]))))
 
 (ROOT
   (S
-    (PP (IN On) (NP (NNP June) (CD 1) (, ,) (CD 2015)))
+    (PP-TMP (IN On) (NP-TMP (NNP June) (CD 1) (, ,) (CD 2015)))
     (, ,)
     (SBAR
       (IN while)
-      (S
+      (S-NOM
         (VP
           (VBG starting)
-          (PP (IN at) (NP (JJ first) (NN base)))
-          (PP
+          (PP-LOC (IN at) (NP (JJ first) (NN base)))
+          (PP-TMP
             (IN for)
             (NP
               (NP (DT the) (JJ first) (NN time))
               (PP (IN in) (NP (PRP$ his) (NN career))))))))
     (, ,)
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
       (VBD went)
-      (ADVP (JJ 4-for-4))
+      (ADVP (CD 4) (HYPH -) (IN for) (HYPH -) (CD 4))
       (PP
         (IN with)
         (NP
@@ -963,20 +1013,19 @@
       (PP
         (IN against)
         (NP (DT the) (NNP Tampa) (NNP Bay) (NNPS Rays)))
-      (S
-        (VP (TO to) (VP (VB win) (ADVP (CD 4) (PP (IN to) (CD 0)))))))
+      (S (VP (TO to) (VP (VB win) (ADVP (CD 4) (IN to) (CD 0))))))
     (. .)
-    (PRN (-LSB- [) (CD 14) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 14) (-RRB- ]))))
 
 (ROOT
   (S
-    (PP
+    (PP-TMP
       (IN By)
       (NP
         (NP (DT the) (NN end))
-        (PP (IN of) (NP (DT the) (NN season)))))
+        (PP-TMP (IN of) (NP (DT the) (NN season)))))
     (, ,)
-    (NP (NNP Holt))
+    (NP-SBJ (NNP Holt))
     (VP
       (VBD had)
       (VP
@@ -988,5 +1037,4 @@
             (NP (DT every) (NN position))
             (PP (IN except) (NP (NN pitcher) (CC and) (NN catcher)))))))
     (. .)
-    (PRN (-LSB- [) (CD 15) (-RSB- ]))))
-
+    (PRN (-LRB- [) (CD 15) (-RRB- ]))))

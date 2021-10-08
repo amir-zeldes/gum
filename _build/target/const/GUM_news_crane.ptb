@@ -9,34 +9,34 @@
   (NP
     (NP (NNP Saturday))
     (, ,)
-    (NP (NNP September) (CD 12) (, ,) (CD 2015))))
+    (NP-TMP (NNP September) (CD 12) (, ,) (CD 2015))))
 
 (ROOT
   (FRAG
     (NP (NNS pilgrims))
-    (PP
+    (PP-LOC
       (IN at)
       (NP (NP (NNP Mecca) (POS 's)) (NNP Grand) (NNP Mosque)))
-    (PP (IN in) (NP (CD 2008)))
+    (PP-TMP (IN in) (NP (CD 2008)))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT A) (NN storm))
-    (NP (NN yesterday))
+    (NP-SBJ (DT A) (NN storm))
+    (NP-TMP (NN yesterday))
     (VP
       (VBD caused)
       (S
-        (NP (DT a) (NN crane))
+        (NP-SBJ (DT a) (NN crane))
         (VP
           (TO to)
           (VP
             (VB fall)
-            (PP
+            (PP-DIR
               (IN into)
               (NP (NP (NNP Mecca) (POS 's)) (NNP Grand) (NNP Mosque)))
             (, ,)
-            (S
+            (S-ADV
               (VP
                 (VP (VBG killing) (NP (CD 107) (CC or) (JJR more)))
                 (CC and)
@@ -45,7 +45,7 @@
       (PP
         (VBG according)
         (PP
-          (TO to)
+          (IN to)
           (NP
             (NP (NNP Saudi) (NNP Arabia) (POS 's))
             (NNP Civil)
@@ -55,31 +55,35 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NNP Civil)
       (NNP Defense)
       (NNP Authority)
       (NN director)
       (NNP General)
       (NNP Suleiman)
-      (NNP al-Amr))
+      (NNP al)
+      (HYPH -)
+      (NNP Amr))
     (, ,)
     (PP
       (IN in)
       (NP
         (NP (NNS remarks))
-        (PP (IN to) (NP (NNP al-Ikhbariya) (NN television)))))
+        (PP
+          (IN to)
+          (NP (NNP al) (HYPH -) (NNP Ikhbariya) (NN television)))))
     (, ,)
     (VP
       (VBD said)
       (`` ")
       (S
         (S
-          (NP
+          (NP-SBJ
             (NP
               (NP (PDT All) (DT those))
               (SBAR
-                (WHNP (WP who))
+                (NP-SBJ (WP who))
                 (S (VP (VBD were) (VP (VBN wounded))))))
             (CC and)
             (NP (DT the) (JJ dead)))
@@ -87,28 +91,29 @@
             (VBP have)
             (VP
               (VBN been)
-              (VP (VBN taken) (PP (IN to) (NP (NN hospital)))))))
+              (VP (VBN taken) (PP-DIR (IN to) (NP (NN hospital)))))))
         (. .)
         (S
           (NP (EX There))
           (VP
             (VBP are)
-            (NP
+            (NP-SBJ
               (NP (DT no) (NNS casualties))
               (VP
                 (VBN left)
-                (PP (IN at) (NP (DT the) (NN location)))))))))
+                (PP-LOC (IN at) (NP (DT the) (NN location)))))))))
     (. .)
     ('' ")))
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (DT The) (NN accident))
       (, ,)
       (SBAR
-        (WHNP (WDT which))
-        (S (VP (VBD occurred) (NP (NN yesterday) (NN afternoon)))))
+        (NP-SBJ (WDT which))
+        (S
+          (VP (VBD occurred) (NP-TMP (NN yesterday) (NN afternoon)))))
       (, ,))
     (VP
       (VBD was)
@@ -122,18 +127,18 @@
               (CC and)
               (NP (JJ heavy) (NN rain)))
             (SBAR
-              (WHNP (WDT that))
+              (NP-SBJ (WDT that))
               (S
                 (VP
                   (VBD led)
                   (S
-                    (NP (DT the) (NN crane))
+                    (NP-SBJ (DT the) (NN crane))
                     (VP (TO to) (VP (VB fall)))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (NNS Photos))
       (VP (VBN released) (PP (IN of) (NP (DT the) (NN scene)))))
     (VP
@@ -146,18 +151,20 @@
 
 (ROOT
   (S
-    (NP (DT The) (NN accident))
+    (NP-SBJ (DT The) (NN accident))
     (VP
       (VBD occurred)
-      (PP
+      (PP-TMP
         (IN at)
         (NP
           (NP (DT a) (NN time))
-          (SBAR
+          (SBAR-TMP
             (WHADVP (WRB when))
             (S
-              (NP (DT the) (NN mosque))
-              (VP (VBD was) (ADJP (RB relatively) (JJ uncrowded))))))))
+              (NP-SBJ (DT the) (NN mosque))
+              (VP
+                (VBD was)
+                (ADJP-PRD (RB relatively) (JJ uncrowded))))))))
     (. .)))
 
 (ROOT
@@ -167,18 +174,20 @@
       (S
         (VP
           (VBD Had)
-          (NP (PRP it))
+          (NP-SBJ (PRP it))
           (VP
-            (VBD happened)
-            (ADVP (NP (DT an) (NN hour)) (RBR later)))))
-      (NP (PRP it))
+            (VBN happened)
+            (ADVP-TMP (NP-TMP (DT an) (NN hour)) (RBR later)))))
+      (NP-SBJ (PRP it))
       (VP
         (MD would)
-        (VP (VB have) (VP (VBN been) (ADJP (RB much) (JJR worse))))))
+        (VP
+          (VB have)
+          (VP (VBN been) (ADJP-PRD (RB much) (JJR worse))))))
     (, ,)
     ('' ")
-    (NP
-      (NP (NNP Khaled) (NNP Al-Maeena))
+    (NP-SBJ
+      (NP (NNP Khaled) (NNP Al) (HYPH -) (NNP Maeena))
       (, ,)
       (NP
         (NP (NN editor))
@@ -194,20 +203,20 @@
     (SBAR
       (SINV
         (VBD Had)
-        (NP (PRP it))
+        (NP-SBJ (PRP it))
         (VP
-          (VBD happened)
+          (VBN happened)
           (ADVP
-            (ADVP (NP (CD five) (NNS hours)) (RBR earlier))
+            (ADVP-TMP (NP-TMP (CD five) (NNS hours)) (RBR earlier))
             (CC or)
-            (ADVP (NP (CD four) (NNS hours)) (RBR earlier))))))
+            (ADVP-TMP (NP-TMP (CD four) (NNS hours)) (RBR earlier))))))
     (, ,)
-    (NP (PRP I))
+    (NP-SBJ (PRP I))
     (VP
       (VBP think)
       (SBAR
         (S
-          (NP (DT the) (NN death) (NN toll))
+          (NP-SBJ (DT the) (NN death) (NN toll))
           (VP
             (MD would)
             (VP
@@ -215,18 +224,18 @@
               (VP
                 (VBN been)
                 (ADJP
-                  (NP (JJR more))
+                  (NP (RBR more))
                   (PP (IN than) (NP (QP (DT a) (CD thousand)))))))))))
     (. .)
     ('' ")))
 
 (ROOT
   (S
-    (NP (DT The) (NN crane) (NN accident))
+    (NP-SBJ (DT The) (NN crane) (NN accident))
     (VP
       (VBZ comes)
-      (PP
-        (NP (QP (RB just) (CD ten)) (NNS days))
+      (PP-TMP
+        (NP-TMP (QP (RB just) (CD ten)) (NNS days))
         (IN before)
         (NP
           (NP (DT the) (NN beginning))
@@ -237,7 +246,7 @@
               (, ,)
               (NP
                 (NP (DT the) (JJ annual) (NN pilgrimage))
-                (PP
+                (PP-DIR
                   (IN to)
                   (NP
                     (NP (NNP Mecca))
@@ -253,45 +262,48 @@
     (SBAR
       (IN As)
       (S
-        (S
+        (S-NOM-SBJ
           (VP
             (VBG undergoing)
             (NP
               (NP (DT a) (NN pilgrimage))
-              (PP (IN to) (NP (NNP Mecca))))))
+              (PP-DIR (IN to) (NP (NNP Mecca))))))
         (VP
           (VBZ is)
-          (NP
+          (NP-PRD
             (NP (DT a) (JJ mandatory) (JJ religious) (NN duty))
             (PP
               (IN for)
               (NP
                 (NP (DT all) (NNPS Muslims))
                 (SBAR
-                  (WHNP (WP who))
+                  (NP-SBJ (WP who))
                   (S
-                    (ADVP (RB physically) (CC and) (RB financially))
+                    (ADVP-MNR
+                      (RB physically)
+                      (CC and)
+                      (RB financially))
                     (MD can)))))))))
     (, ,)
-    (NP (NP (NNS millions)) (PP (IN of) (NP (NNS pilgrims))))
+    (NP-SBJ (NP (NNS millions)) (PP (IN of) (NP (NNS pilgrims))))
     (VP
       (VBP arrive)
-      (PP (IN in) (NP (NNP Mecca)))
-      (NP (DT each) (NN year))
+      (PP-LOC (IN in) (NP (NNP Mecca)))
+      (NP-TMP (DT each) (NN year))
       (PP (IN for) (NP (DT the) (NNP Hajj))))
     (. .)))
 
 (ROOT
   (S
-    (NP (NN Construction))
+    (NP-SBJ (NN Construction))
     (VP
       (VBD was)
-      (ADJP (JJ underway))
-      (PP (IN at) (NP (DT the) (NN mosque)))
-      (SBAR
+      (ADJP-PRD (JJ underway))
+      (PP-LOC (IN at) (NP (DT the) (NN mosque)))
+      (SBAR-ADV
         (IN in)
         (NN order)
-        (S
+        (S-PRP
           (VP
             (TO to)
             (VP
@@ -303,17 +315,19 @@
                   (NP (NN crowd) (NN control))
                   (, ,)
                   (SBAR
-                    (WHNP (WDT which))
+                    (NP-SBJ (WDT which))
                     (S
                       (VP
                         (VBZ has)
                         (VP
                           (VBN been)
-                          (NP (DT a) (VBG recurring) (NN problem))
+                          (NP-PRD
+                            (DT a)
+                            (VBG recurring)
+                            (NN problem))
                           (PP
                             (IN during)
                             (NP
                               (NP (NNP Mecca) (POS 's))
                               (NNS pilgrimages))))))))))))))
     (. .)))
-

@@ -542,6 +542,10 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 	dep_merge_dir = tmp + "dep" + os.sep + "ud" + os.sep + "GUM" + os.sep
 	if not os.path.isdir(dep_merge_dir):
 		os.makedirs(dep_merge_dir)
+	entidep_dir = tmp + "entidep" + os.sep	
+	if not os.path.isdir(entidep_dir):
+		os.makedirs(entidep_dir)
+	
 
 	depfiles = []
 	files_ = glob(dep_source + "*.conllu")

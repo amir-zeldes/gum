@@ -7,15 +7,15 @@
         (VP
           (VB Pack)
           (NP (PRP$ Your) (NNS Possessions))
-          (SBAR (WHADVP (WRB When)) (S (VP (VBG Moving)))))))))
+          (SBAR-TMP (WHADVP (WRB When)) (S-NOM (VP (VBG Moving)))))))))
 
 (ROOT
   (S
-    (SBAR
+    (SBAR-ADV
       (RB Even)
       (IN if)
       (S
-        (NP (PRP you))
+        (NP-SBJ (PRP you))
         (VP
           (MD ca)
           (RB n't)
@@ -42,8 +42,8 @@
               (VP
                 (VB cram)
                 (NP (PDT all) (PRP$ your) (NNS possessions))
-                (NP (RB any) (WDT which) (NN way))
-                (PP (IN into) (NP (NNS boxes)))))))))
+                (NP-ADV (PDT any) (WDT which) (NN way))
+                (PP-DIR (IN into) (NP (NNS boxes)))))))))
     (. .)))
 
 (ROOT (NP (NNS Steps)))
@@ -56,7 +56,7 @@
         (NP
           (NP (CD one) (NN room))
           (PP (IN at) (NP (DT a) (NN time))))
-        (SBAR (IN if) (FRAG (ADJP (JJ possible)))))
+        (SBAR-ADV (IN if) (FRAG (ADJP (JJ possible)))))
       (, ,)
       (CC and)
       (VP
@@ -66,11 +66,11 @@
           (NP
             (NP (NNS items))
             (SBAR
-              (WHNP (WDT that))
+              (NP-SBJ (WDT that))
               (S
                 (VP
                   (VBP are)
-                  (VP (ADVP (RBS least) (RB often)) (VBN used)))))))))
+                  (VP (ADVP-TMP (RBS least) (RB often)) (VBN used)))))))))
     (. .)))
 
 (ROOT
@@ -86,12 +86,16 @@
             (NP
               (NP (NN everything))
               (SBAR
-                (S (NP (PRP you)) (VP (VBP are) (VP (VBG packing))))))))
+                (S
+                  (NP-SBJ (PRP you))
+                  (VP (VBP are) (VP (VBG packing))))))))
         (, ,)
         (SBAR
           (PP (IN in) (ADJP (JJ particular)))
           (IN if)
-          (S (NP (PRP it)) (VP (VBZ 's) (ADJP (JJ valuable)))))))
+          (S
+            (NP-SBJ (PRP it))
+            (VP (VBZ 's) (ADJP-PRD (JJ valuable)))))))
     (. .)))
 
 (ROOT
@@ -113,8 +117,9 @@
       (PP
         (IN of)
         (SBAR
-          (WHNP (WDT which) (NN item))
-          (S (VP (VBZ is) (PP (IN in) (NP (WDT which) (NN box))))))))
+          (NP-SBJ (WDT which) (NN item))
+          (S
+            (VP (VBZ is) (PP-PRD (IN in) (NP (WDT which) (NN box))))))))
     (. .)))
 
 (ROOT (S (VP (VB Use) (NP (JJ sturdy) (NNS boxes))) (. .)))
@@ -132,13 +137,13 @@
 
 (ROOT
   (S
-    (NP (DT That) (NN way))
+    (NP-ADV (DT That) (NN way))
     (, ,)
-    (NP (PRP you))
+    (NP-SBJ (PRP you))
     (VP
       (MD can)
       (VP
-        (ADVP (RB easily))
+        (ADVP-MNR (RB easily))
         (VB stack)
         (NP (NNS boxes))
         (PP
@@ -154,36 +159,39 @@
         (NP (DT the) (NN bottom))
         (PP (IN of) (NP (DT the) (NN box))))
       (ADVP (RB securely))
-      (SBAR
-        (RB so)
+      (SBAR-ADV
+        (IN so)
         (IN that)
         (S
-          (NP (PRP it))
+          (NP-SBJ (PRP it))
           (VP (VBZ does) (RB n't) (VP (VB give) (PRT (NN way)))))))
     (. .)))
 
 (ROOT
   (S
-    (ADVP (RB Never))
+    (ADVP-TMP (RB Never))
     (VP
       (VB fill)
       (NP (DT a) (NN box))
       (SBAR
         (IN until)
         (S
-          (NP (PRP it))
+          (NP-SBJ (PRP it))
           (VP
             (VBZ is)
             (ADJP
-              (ADJP (RB so) (JJ heavy))
-              (SBAR
+              (ADJP-PRD (RB so) (JJ heavy))
+              (SBAR-ADV
                 (IN that)
                 (S
-                  (NP (PRP you))
+                  (NP-SBJ (PRP you))
                   (VP
                     (MD ca)
                     (RB n't)
-                    (VP (VB lift) (NP (PRP it)) (ADVP (RB safely)))))))))))
+                    (VP
+                      (VB lift)
+                      (NP (PRP it))
+                      (ADVP-MNR (RB safely)))))))))))
     (. .)))
 
 (ROOT
@@ -219,17 +227,17 @@
     (VP
       (VB Use)
       (NP (NP (NN bubble) (NN wrap)) (CC or) (NP (NNS newspapers)))
-      (SBAR
+      (SBAR-TMP
         (WHADVP (WRB when))
-        (S (VP (VBG packing) (NP (JJ fragile) (NNS items))))))
+        (S-NOM (VP (VBG packing) (NP (JJ fragile) (NNS items))))))
     (. .)))
 
 (ROOT
   (S
     (S
-      (ADVP (RB However))
+      (ADVP-TMP (RB However))
       (, ,)
-      (NP (NN newsprint))
+      (NP-SBJ (NN newsprint))
       (VP (MD may) (VP (VB smudge))))
     (RB so)
     (S (VP (VB use) (NP (NN newspaper)) (ADVP (RB selectively))))
@@ -237,14 +245,14 @@
 
 (ROOT
   (S
-    (NP (JJ Clean) (NN paper))
+    (NP-SBJ (JJ Clean) (NN paper))
     (VP
       (MD can)
       (VP
         (VB be)
         (VP
           (VBN purchased)
-          (ADVP (RB cheaply))
+          (ADVP-MNR (RB cheaply))
           (PP (IN from) (NP (VBG moving) (NN supply) (NNS stores))))))
     (. .)))
 
@@ -252,7 +260,7 @@
 
 (ROOT
   (S
-    (NP (NNS Boxes))
+    (NP-SBJ (NNS Boxes))
     (VP
       (MD should)
       (VP
@@ -261,13 +269,14 @@
           (VBN marked)
           (SBAR
             (`` ")
-            (ADJP (JJ Fragile))
+            (ADJP-PRD (JJ Fragile))
             ('' ")
             (CC and)
             (`` ")
-            (NP (DT This) (NN side) (RP up))
+            (NP (DT This) (NN side) (RB up))
             ('' "))
-          (S (VP (TO to) (VP (VB prevent) (NP (VBG mishandling))))))))
+          (S-PRP
+            (VP (TO to) (VP (VB prevent) (NP (NN mishandling))))))))
     (. .)))
 
 (ROOT
@@ -275,11 +284,11 @@
     (VP
       (VB Label)
       (NP (DT each) (NN box))
-      (ADVP (RB clearly))
+      (ADVP-TMP (RB clearly))
       (CC and)
       (SBAR
         (WHNP (WDT which) (NN room))
-        (S (NP (PRP it)) (VP (VBZ belongs) (PP (IN to))))))
+        (S (NP-SBJ (PRP it)) (VP (VBZ belongs) (PP (IN to))))))
     (. .)))
 
 (ROOT
@@ -291,7 +300,7 @@
         (NP
           (NP (DT the) (NNS sides))
           (PP (IN of) (NP (DT the) (NN box)))))
-      (ADVP (IN as) (RB well)))
+      (ADVP-MNR (RB as) (RB well)))
     (. .)))
 
 (ROOT
@@ -306,12 +315,12 @@
             (NP (NNS essentials))
             (SBAR
               (S
-                (NP (PRP you))
+                (NP-SBJ (PRP you))
                 (VP
                   (MD may)
                   (VP
                     (VB need)
-                    (PP
+                    (PP-TMP
                       (IN for)
                       (NP
                         (NP (DT the) (JJ first) (NN night))
@@ -340,11 +349,11 @@
             (NP
               (NP (DT a) (NN change))
               (PP (IN of) (NP (NNS clothes)))))))
-      (SBAR
+      (SBAR-ADV
         (IN in)
         (NN case)
         (S
-          (NP (PRP you))
+          (NP-SBJ (PRP you))
           (VP
             (MD can)
             (RB not)
@@ -368,8 +377,8 @@
         (SBAR
           (IN if)
           (S
-            (NP (DT the) (NNS contents))
-            (VP (VBP are) (ADJP (JJ valuable)))))))
+            (NP-SBJ (DT the) (NNS contents))
+            (VP (VBP are) (ADJP-PRD (JJ valuable)))))))
     (. .)))
 
 (ROOT
@@ -377,13 +386,13 @@
     (PP
       (RB Instead)
       (IN of)
-      (S
+      (S-NOM
         (VP
           (VBG writing)
           (`` ")
           (NP (NP (JJ Silver) (NN Service)) (: -) (NP (JJ Fragile)))
           ('' "))))
-    (NP (PRP you))
+    (NP-SBJ (PRP you))
     (VP
       (MD should)
       (VP
@@ -391,18 +400,18 @@
         (NP
           (NP (NN something))
           (SBAR
-            (WHNP (WDT that))
+            (NP-SBJ (WDT that))
             (S
               (VP
                 (VBZ makes)
                 (S
-                  (NP (PRP it))
+                  (NP-SBJ (PRP it))
                   (VP
                     (VB sound)
                     (ADJP (JJR less) (NN theft) (VBG inviting))))
                 (SBAR
                   (IN while)
-                  (S
+                  (S-NOM
                     (VP
                       (VBG showing)
                       (NP
@@ -421,7 +430,8 @@
       (PP (RB instead) (IN of) (`` ") (NP (JJ Fine) (NN China)))
       ('' "))))
 
-(ROOT (S (NP (NN Tape)) (VP (VBZ is) (ADJP (JJ cheap))) (. .)))
+(ROOT
+  (S (NP-SBJ (NN Tape)) (VP (VBZ is) (ADJP-PRD (JJ cheap))) (. .)))
 
 (ROOT
   (S
@@ -430,7 +440,7 @@
 
 (ROOT
   (S
-    (VP (VB Close) (NP (NN box) (NNS bottoms)) (ADVP (RB well)))
+    (VP (VB Close) (NP (NN box) (NNS bottoms)) (ADVP-MNR (RB well)))
     (. .)))
 
 (ROOT
@@ -439,7 +449,7 @@
       (VB Get)
       (NP
         (NP
-          (NP (VBG masking) (NN tape))
+          (NP (NN masking) (NN tape))
           (CC or)
           (NP (NN packing) (NN tape))
           (CC and)
@@ -449,17 +459,17 @@
           (NP
             (NP (JJ other) (JJ little) (NNS things))
             (SBAR
-              (WHNP (WDT that))
+              (NP-SBJ (WDT that))
               (S
                 (VP
                   (VBD came)
-                  (PP (RP out) (PP (IN of) (NP (NN something)))))))))
-        (ADVP (RP back) (PP (IN against) (NP (PRP it))))))
+                  (PP (IN out) (PP (IN of) (NP (NN something)))))))))
+        (ADVP (RB back) (PP (IN against) (NP (PRP it))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP You))
+    (NP-SBJ (PRP You))
     (VP
       (MD 'll)
       (VP
@@ -469,12 +479,12 @@
             (TO to)
             (VP
               (VB find)
-              (NP (DT the) (JJ right) (NN screw))
+              (NP-SBJ (DT the) (JJ right) (NN screw))
               (VB reassemble)
               (NP (NN something))
               (PP
                 (IN without)
-                (S
+                (S-NOM
                   (VP
                     (VBG having)
                     (S
@@ -484,12 +494,12 @@
                           (VB pick)
                           (NP (PRP it))
                           (PP
-                            (RP out)
+                            (IN out)
                             (PP (IN of) (NP (CD 100) (NNS others))))
-                          (SBAR
+                          (SBAR-TMP
                             (WHADVP (WRB when))
                             (S
-                              (NP (PRP you))
+                              (NP-SBJ (PRP you))
                               (VP (VBP get) (ADVP (RB there))))))))))))))))
     (. .)))
 
@@ -508,13 +518,13 @@
               (PP (IN of) (NP (NNS books) (CC or) (NN paperwork))))))))
     (: -)
     (S
-      (NP (PRP you))
+      (NP-SBJ (PRP you))
       (VP
         (MD might)
         (RB not)
         (VP
           (VB be)
-          (ADJP
+          (ADJP-PRD
             (JJ able)
             (S
               (VP
@@ -541,39 +551,39 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (JJ National) (NNS superstores))
       (PRN (-LRB- -LRB-) (NP (NNP Walmart)) (-RRB- -RRB-)))
     (VP
       (MD will)
       (VP
         (VB let)
-        (S
-          (NP (PRP you))
+        (S-PRD
+          (NP-SBJ (PRP you))
           (VP
             (VB walk)
             (NP (DT the) (NN store))
             (PP (IN for) (NP (NNS boxes)))))
-        (SBAR
+        (SBAR-TMP
           (WHADVP (WRB when))
           (S
-            (NP (PRP they))
+            (NP-SBJ (PRP they))
             (VP
               (VBP are)
               (VP
                 (VBG stocking)
                 (NP (DT the) (NNS stores))
-                (PP
+                (PP-TMP
                   (IN between)
                   (NP
-                    (NP (CD 11) (NN pm))
+                    (NP-TMP (CD 11) (NN pm))
                     (CC and)
-                    (NP (CD 1) (NN am))))))))))
+                    (NP-TMP (CD 1) (NN am))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP You))
+    (NP-SBJ (PRP You))
     (VP
       (MD can)
       (VP
@@ -583,7 +593,7 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NN Cereal)
       (, ,)
       (NN diaper)
@@ -593,7 +603,7 @@
     (VP
       (VBP are)
       (UCP
-        (NP (DT a) (JJ good) (NN size))
+        (NP-PRD (DT a) (JJ good) (NN size))
         (CC and)
         (ADJP (JJ durable))))
     (. .)))
@@ -610,13 +620,13 @@
 (ROOT
   (S
     (S
-      (NP (PRP They))
+      (NP-SBJ (PRP They))
       (VP
         (VBP do)
         (VP
           (VB check)
           (NP (DT the) (NN cart))
-          (SBAR (IN as) (S (NP (PRP you)) (VP (VBP leave)))))))
+          (SBAR-ADV (IN as) (S (NP-SBJ (PRP you)) (VP (VBP leave)))))))
     (RB so)
     (S
       (VP
@@ -636,19 +646,19 @@
 (ROOT
   (S
     (NP
-      (NP (NP (NP (NP (NNP U-haul)) (CC and))))
+      (NP (NP-SBJ (NP (NP (NNP U-haul)) (CC and))))
       (NP (JJ other) (NN nation) (NNS companies)))
     (VP (VBP offer) (NP (NN box) (VB buy) (RP back) (NNS services)))
     (. .)))
 
 (ROOT
   (S
-    (SBAR
+    (SBAR-ADV
       (IN If)
       (S
-        (NP (PRP you))
+        (NP-SBJ (PRP you))
         (VP (VBP buy) (NP (ADJP (RB too) (JJ many)) (NNS boxes)))))
-    (NP (PRP you))
+    (NP-SBJ (PRP you))
     (VP
       (MD can)
       (VP
@@ -659,15 +669,15 @@
 
 (ROOT
   (S
-    (NP (DT These) (NNS boxes))
+    (NP-SBJ (DT These) (NNS boxes))
     (VP
       (VBP are)
       (ADVP (RB also))
-      (ADJP (RB quite) (JJ sturdy))
+      (ADJP-PRD (RB quite) (JJ sturdy))
       (SBAR
         (RB so)
         (S
-          (NP (PRP you))
+          (NP-SBJ (PRP you))
           (VP
             (MD can)
             (VP
@@ -675,25 +685,25 @@
               (CC or)
               (VP
                 (VB stash)
-                (PP (IN in) (NP (PRP$ your) (NN attic)))
-                (SBAR
+                (PP-LOC (IN in) (NP (PRP$ your) (NN attic)))
+                (SBAR-ADV
                   (IN until)
                   (S
-                    (NP (PRP you))
-                    (VP (VBP move) (ADVP (RB again)))))))))))
+                    (NP-SBJ (PRP you))
+                    (VP (VBP move) (ADVP-TMP (RB again)))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT Some) (JJ national) (NNS companies))
+    (NP-SBJ (DT Some) (JJ national) (NNS companies))
     (ADVP (RB even))
     (VP
       (VBP offer)
-      (NP (JJ free) (VBG shipping) (CC and) (VBG handling))
-      (SBAR
+      (NP (JJ free) (NN shipping) (CC and) (NN handling))
+      (SBAR-ADV
         (IN so)
         (S
-          (NP (PRP you))
+          (NP-SBJ (PRP you))
           (VP
             (MD can)
             (VP
@@ -701,7 +711,9 @@
               (CC or)
               (VP
                 (VB go)
-                (PP (IN to) (NP (DT the) (JJ local) (NN location)))))))))
+                (PP-DIR
+                  (IN to)
+                  (NP (DT the) (JJ local) (NN location)))))))))
     (. .)))
 
 (ROOT
@@ -715,14 +727,14 @@
 (ROOT
   (S
     (VP
-      (VP (VB Throw) (PRT (RP away)))
+      (VP (VB Throw) (PRT (RB away)))
       (CC or)
       (VP (VB donate))
       (NP
         (NP (NN junk))
         (SBAR
           (S
-            (NP (PRP you))
+            (NP-SBJ (PRP you))
             (VP
               (VBP do)
               (RB n't)
@@ -733,7 +745,7 @@
                     (TO to)
                     (VP
                       (VB take)
-                      (PP
+                      (PP-DIR
                         (IN to)
                         (NP (PRP$ your) (JJ new) (NN place))))))))))))
     (. .)))
@@ -743,7 +755,7 @@
     (VP
       (VB Do)
       (RB n't)
-      (VP (VB pack) (NP (PRP it)) (ADVP (RB again))))
+      (VP (VB pack) (NP (PRP it)) (ADVP-TMP (RB again))))
     (. !)
     (. !)
     (. !)))
@@ -759,7 +771,7 @@
         (SBAR
           (WHADVP (WRB where))
           (S
-            (NP (PRP you))
+            (NP-SBJ (PRP you))
             (VP
               (MD can)
               (VP
@@ -774,13 +786,13 @@
       (NP
         (NP (DT a) (NN room))
         (SBAR
-          (WHNP (WDT that))
+          (NP-SBJ (WDT that))
           (S
             (VP
               (VBZ is)
               (RB n't)
-              (VP (VBN used) (NP (DT every) (NN day))))))
-        (PP
+              (VP (VBN used) (NP-TMP (DT every) (NN day))))))
+        (PP-LOC
           (JJ such)
           (IN as)
           (NP
@@ -795,7 +807,7 @@
 (ROOT
   (S
     (S
-      (NP (PRP You))
+      (NP-SBJ (PRP You))
       (VP
         (MD wo)
         (RB n't)
@@ -804,7 +816,7 @@
           (VP (VBG tripping) (PP (IN over) (NP (NNS boxes)))))))
     (CC and)
     (S
-      (NP (PRP you))
+      (NP-SBJ (PRP you))
       (VP
         (MD can)
         (VP
@@ -816,11 +828,11 @@
               (SBAR
                 (SBAR
                   (WHNP (WP what))
-                  (S (NP (PRP you)) (VP (VBP have))))
+                  (S (NP-SBJ (PRP you)) (VP (VBP have))))
                 (CC and)
                 (SBAR
                   (WHADVP (WRB where))
-                  (S (NP (NNS things)) (VP (VBP are))))))))))
+                  (S (NP-SBJ (NNS things)) (VP (VBP are))))))))))
     (. .)))
 
 (ROOT
@@ -828,7 +840,7 @@
     (VP
       (VB Pack)
       (NP (NP (NNS books)) (CC and) (NP (JJ heavy) (NNS items)))
-      (PP (IN into) (NP (JJR smaller) (NNS boxes))))
+      (PP-DIR (IN into) (NP (JJR smaller) (NNS boxes))))
     (. .)))
 
 (ROOT
@@ -839,7 +851,7 @@
       (VP
         (VB use)
         (NP (PRP$ your) (NN camera))
-        (S
+        (S-PRP
           (VP
             (TO to)
             (VP
@@ -848,4 +860,3 @@
                 (NP (DT the) (NNS contents))
                 (PP (IN of) (NP (NNS boxes)))))))))
     (. .)))
-

@@ -1,6 +1,6 @@
 (ROOT
   (S
-    (NP (NNP Wikinews))
+    (NP-SBJ (NNP Wikinews))
     (VP
       (VBZ interviews)
       (NP
@@ -18,13 +18,13 @@
 (ROOT
   (S
     (S
-      (NP (NNP Cyclone) (NNP Phailin))
+      (NP-SBJ (NNP Cyclone) (NNP Phailin))
       (VP
         (VBZ has)
         (NP
           (NP (NNS winds))
           (SBAR
-            (WHNP (WDT that))
+            (NP-SBJ (WDT that))
             (S
               (VP
                 (VBP have)
@@ -37,13 +37,13 @@
                       (NP (CD 200) (NNS km) (SYM /) (NN h)))))))))))
     (, ,)
     (S
-      (SBAR
+      (SBAR-ADV
         (IN as)
         (S
-          (NP (PRP it))
-          (VP (VBZ surges) (PP (IN over) (NP (NN land))))))
+          (NP-SBJ (PRP it))
+          (VP (VBZ surges) (PP-LOC (IN over) (NP (NN land))))))
       (MD will)
-      (NP (PRP it))
+      (NP-SBJ (PRP it))
       (VP
         (VB begin)
         (S (VP (TO to) (VP (VB lose) (NP (NN strength)))))))
@@ -53,7 +53,7 @@
   (S
     (INTJ (UH Yes))
     (, ,)
-    (NP (DT all) (JJ tropical) (NNS cyclones))
+    (NP-SBJ (DT all) (JJ tropical) (NNS cyclones))
     (VP
       (VBP are)
       (VP
@@ -65,27 +65,27 @@
 
 (ROOT
   (S
-    (SBAR
+    (SBAR-ADV
       (IN Once)
       (S
-        (NP (DT a) (NN storm))
+        (NP-SBJ (DT a) (NN storm))
         (VP
           (VBZ moves)
-          (PP
+          (PP-LOC
             (IN over)
             (NP
               (NP
                 (DT any)
-                (ADJP (RB appreciably) (VBN sized))
+                (ADJP (RB appreciably) (JJ sized))
                 (NN piece))
               (PP (IN of) (NP (NN land))))))))
     (, ,)
     (S
-      (NP (DT the) (NN moisture) (NN source))
+      (NP-SBJ (DT the) (NN moisture) (NN source))
       (VP (VBZ is) (VP (VBN removed))))
     (CC and)
     (S
-      (NP (DT the) (NN storm))
+      (NP-SBJ (DT the) (NN storm))
       (VP (VBZ begins) (S (VP (TO to) (VP (VB dissipate))))))
     (. .)))
 
@@ -93,7 +93,7 @@
   (S
     (PP (RB As) (PP (IN of) (NP (DT the) (JJ last) (NN advisory))))
     (, ,)
-    (NP (NNP T) (NNP C) (NNP Phailin))
+    (NP-SBJ (NNP T) (NNP C) (NNP Phailin))
     (VP
       (VP
         (VBZ has)
@@ -119,26 +119,28 @@
 
 (ROOT
   (S
-    (NP (DT That))
-    (VP (VBZ is) (NP (DT a) (ADJP (NN Category) (CD 3)) (NN storm)))
+    (NP-SBJ (DT That))
+    (VP
+      (VBZ is)
+      (NP-PRD (DT a) (ADJP (NNP Category) (CD 3)) (NN storm)))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT The) (NN forecast))
+    (NP-SBJ (DT The) (NN forecast))
     (VP
       (VBZ is)
-      (PP
+      (PP-PRD
         (IN for)
         (NP
           (NP
-            (NP (DT a) (VBN continued) (NN decline))
+            (NP (DT a) (JJ continued) (NN decline))
             (PP (IN in) (NP (NN strength)))
             (PP
               (IN to)
               (NP
                 (NP (DT a) (JJ tropical) (NN storm))
-                (PP (IN within) (NP (CD 24) (NNS hours))))))
+                (PP-TMP (IN within) (NP (CD 24) (NNS hours))))))
           (CC and)
           (NP
             (NP (DT a) (JJ tropical) (NN depression))
@@ -147,7 +149,7 @@
 
 (ROOT
   (S
-    (ADVP (RB However))
+    (ADVP-TMP (RB However))
     (, ,)
     (NP (EX there))
     (VP
@@ -156,9 +158,7 @@
         (VB be)
         (NP
           (ADJP (RB very) (JJ heavy))
-          (NX (NNS rains))
-          (CC and)
-          (NX (VBG flooding)))
+          (NX (NX-PRD (NNS rains)) (CC and) (NX (NN flooding))))
         (PP (IN along) (NP (PRP$ its) (NN path)))))
     (. .)))
 
@@ -166,44 +166,50 @@
   (S
     (INTJ (UH Yes))
     (, ,)
-    (NP (PRP it))
+    (NP-SBJ (PRP it))
     (VP
       (MD will)
       (VP
         (VB loose)
         (NP (NN strength))
-        (ADVP (RB steadily))
-        (SBAR
+        (ADVP-MNR (RB steadily))
+        (SBAR-ADV
           (IN as)
           (S
-            (NP
+            (NP-SBJ
               (NP (JJR more) (CC and) (JJR more))
               (PP (IN of) (NP (DT this) (VBG swirling) (NN system))))
             (VP
               (VBZ moves)
               (PP
                 (IN from)
-                (S (VP (VBG being) (PP (IN over) (NP (NN ocean))))))
+                (S
+                  (VP
+                    (VBG being)
+                    (PP-LOC-PRD (IN over) (NP (NN ocean))))))
               (PP
-                (TO to)
-                (S (VP (VBG being) (PP (IN over) (NP (NN land)))))))))))
+                (IN to)
+                (S
+                  (VP
+                    (VBG being)
+                    (PP-LOC-PRD (IN over) (NP (NN land)))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT This))
+    (NP-SBJ (DT This))
     (VP (VBZ occurs) (PP (IN for) (NP (CD two) (NNS reasons))))
     (: :)))
 
 (ROOT
   (S
-    (SBAR
+    (SBAR-ADV
       (IN As)
       (S
-        (NP (PRP it))
-        (VP (VBZ moves) (PP (IN over) (NP (NN land))))))
+        (NP-SBJ (PRP it))
+        (VP (VBZ moves) (PP-LOC (IN over) (NP (NN land))))))
     (, ,)
-    (NP (PRP it))
+    (NP-SBJ (PRP it))
     (VP
       (VBZ is)
       (VP
@@ -216,16 +222,16 @@
             (PP (IN of) (NP (NN energy)))
             (VP (VBG driving) (NP (DT the) (NN storm)))
             (SBAR
-              (-LSB- [)
-              (WHNP (WDT which))
+              (-LRB- [)
+              (NP-SBJ (WDT which))
               (S
                 (VP
                   (VBZ is)
-                  (-RSB- ])
+                  (-RRB- ])
                   (NP
                     (NP (DT the) (NN evaporation))
                     (PP (IN of) (NP (NN water)))
-                    (PP
+                    (PP-DIR
                       (IN from)
                       (NP (DT the) (JJ warm) (NN sea) (NN surface)))))))))))
     (: ;)))
@@ -235,17 +241,17 @@
     (NP (VBN Increased) (NN friction))
     (: -)
     (S
-      (NP (DT the) (NN ocean) (NN surface))
+      (NP-SBJ (DT the) (NN ocean) (NN surface))
       (VP
         (VBZ is)
         (ADJP
-          (ADJP (RB much) (, ,) (RB much) (JJR smoother))
-          (PP (IN than) (NP (DT the) (NN land) (NN surface))))))
+          (ADJP-PRD (RB much) (, ,) (RB much) (JJR smoother))
+          (PP-LOC (IN than) (NP (DT the) (NN land) (NN surface))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (JJ Tropical) (NNS cyclones))
+    (NP-SBJ (JJ Tropical) (NNS cyclones))
     (VP
       (VBP are)
       (VP
@@ -259,7 +265,7 @@
               (VP (VBN called) (S (NP (JJ latent) (NN heat))))
               (, ,)
               (SBAR
-                (WHNP (WDT which))
+                (NP-SBJ (WDT which))
                 (S
                   (VP
                     (VBZ is)
@@ -271,13 +277,15 @@
                           (NP (NN moisture))
                           (VP
                             (VBN evaporated)
-                            (PP (IN from) (NP (DT the) (NN ocean))))
+                            (PP-DIR
+                              (IN from)
+                              (NP (DT the) (NN ocean))))
                           (SBAR
-                            (WHNP (WDT that))
+                            (NP-SBJ (WDT that))
                             (S
                               (VP
                                 (VBZ condenses)
-                                (S
+                                (S-PRP
                                   (VP
                                     (TO to)
                                     (VP (VB form) (NP (NN rain)))))))))))))))))))
@@ -285,37 +293,37 @@
 
 (ROOT
   (S
-    (SBAR
+    (SBAR-ADV
       (IN As)
       (S
-        (NP (JJ tropical) (NNS cyclones))
+        (NP-SBJ (JJ tropical) (NNS cyclones))
         (VP (VBP make) (NP (NN landfall)))))
     (, ,)
     (S
-      (NP (DT this) (NN energy) (NN source))
-      (VP (VBZ is) (VP (VBN cut-off))))
+      (NP-SBJ (DT this) (NN energy) (NN source))
+      (VP (VBZ is) (VP (VBN cut) (: -) (PRT (RP off)))))
     (CC and)
     (S
-      (NP (PRP they))
+      (NP-SBJ (PRP they))
       (VP
-        (ADVP (RB rapidly))
+        (ADVP-MNR (RB rapidly))
         (VBP lose)
         (NP (NN strength))
-        (SBAR
+        (SBAR-ADV
           (IN as)
           (S
-            (NP (PRP they))
-            (VP (VBP move) (PP (IN over) (NP (NN land))))))))
+            (NP-SBJ (PRP they))
+            (VP (VBP move) (PP-LOC (IN over) (NP (NN land))))))))
     (. .)))
 
 (ROOT
   (S
     (INTJ (UH Yes))
     (, ,)
-    (NP (DT the) (NNP Cyclone))
+    (NP-SBJ (DT the) (NNP Cyclone))
     (VP
       (VBZ is)
-      (ADJP
+      (ADJP-PRD
         (RB almost)
         (JJ certain)
         (S
@@ -324,22 +332,22 @@
             (VP
               (VB lose)
               (NP (NN strength))
-              (SBAR
+              (SBAR-ADV
                 (IN as)
                 (S
-                  (NP (PRP it))
-                  (VP (VBZ surges) (PP (IN over) (NP (NN land)))))))))))
+                  (NP-SBJ (PRP it))
+                  (VP (VBZ surges) (PP-LOC (IN over) (NP (NN land)))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (NNS Cyclones))
+    (NP-SBJ (NNS Cyclones))
     (VP
       (VBP gather)
       (NP (PRP$ their) (NN strength))
       (PP
         (IN through)
-        (S
+        (S-NOM
           (VP
             (VBG scraping)
             (NP (NN moisture) (CC and) (NN heat))
@@ -347,23 +355,23 @@
       (SBAR
         (IN that)
         (S
-          (NP (PRP it))
+          (NP-SBJ (PRP it))
           (VP
             (VBZ is)
             (RB not)
-            (NP (DT the) (NN case))
-            (PP (IN over) (NP (NN land)))))))
+            (NP-PRD (DT the) (NN case))
+            (PP-LOC (IN over) (NP (NN land)))))))
     (. .)))
 
 (ROOT
   (S
     (PP (IN In) (NP (DT the) (JJ mean) (NN time)))
     (, ,)
-    (NP
+    (NP-SBJ
       (NP (ADJP (RB much) (JJR stronger)) (NN friction))
-      (PP (IN over) (NP (NN land))))
+      (PP-LOC (IN over) (NP (NN land))))
     (VP
-      (ADVP (RB quickly))
+      (ADVP-MNR (RB quickly))
       (VBZ reduces)
       (NP (PRP$ their) (NN strength)))
     (. .)))
@@ -372,20 +380,20 @@
 
 (ROOT
   (S
-    (NP (DT All) (JJ tropical) (NNS cyclones))
+    (NP-SBJ (DT All) (JJ tropical) (NNS cyclones))
     (VP
       (VBP lose)
       (NP (NN strength))
-      (SBAR
+      (SBAR-ADV
         (IN once)
-        (S (NP (PRP they)) (VP (VBP make) (NP (NN landfall))))))
+        (S (NP-SBJ (PRP they)) (VP (VBP make) (NP (NN landfall))))))
     (. .)))
 
 (ROOT
   (S
-    (ADVP (RB However))
+    (ADVP-TMP (RB However))
     (, ,)
-    (NP (PRP they))
+    (NP-SBJ (PRP they))
     (VP
       (MD can)
       (VP
@@ -393,7 +401,7 @@
         (NP (JJ dangerous) (NNS storms))
         (PP
           (JJ due)
-          (TO to)
+          (IN to)
           (NP
             (NP
               (NP (ADJP (RB very) (JJ heavy)) (NNS rains))
@@ -406,28 +414,28 @@
 
 (ROOT
   (S
-    (NP (NP (NNP Phailin) (POS 's)) (NNS winds))
+    (NP-SBJ (NP (NNP Phailin) (POS 's)) (NNS winds))
     (VP
       (MD will)
       (VP
-        (ADVP (RB rapidly))
+        (ADVP-MNR (RB rapidly))
         (VB weaken)
-        (SBAR
+        (SBAR-ADV
           (IN as)
-          (S (NP (PRP it)) (VP (VBZ pushes) (ADVP (RB inland)))))))
+          (S (NP-SBJ (PRP it)) (VP (VBZ pushes) (ADVP (RB inland)))))))
     (. .)))
 
 (ROOT
   (S
-    (SBAR
+    (SBAR-ADV
       (IN Once)
       (S
-        (NP (NNP Cyclone) (NNP Phailin))
-        (VP (VBZ comes) (PP (IN on) (NP (NN shore))))))
-    (NP (PRP it))
+        (NP-SBJ (NNP Cyclone) (NNP Phailin))
+        (VP (VBZ comes) (PP-LOC (IN on) (NP (NN shore))))))
+    (NP-SBJ (PRP it))
     (VP
       (MD will)
-      (ADVP (RB immediately))
+      (ADVP-TMP (RB immediately))
       (VP
         (VB begin)
         (S (VP (TO to) (VP (VB lose) (NP (NN strength)))))))
@@ -435,14 +443,14 @@
 
 (ROOT
   (S
-    (ADVP (RB However))
+    (ADVP-TMP (RB However))
     (PRN
       (, ,)
       (CC and)
-      (S (NP (DT this)) (VP (VBZ is) (ADJP (JJ important))))
+      (S (NP-SBJ (DT this)) (VP (VBZ is) (ADJP-PRD (JJ important))))
       (, ,))
-    (NP (PRP it))
-    (ADVP (RB still))
+    (NP-SBJ (PRP it))
+    (ADVP-TMP (RB still))
     (VP
       (MD will)
       (VP
@@ -452,8 +460,8 @@
           (VP
             (VBG making)
             (S
-              (NP (VBG flooding))
-              (NP (DT an) (JJ almost) (NN certainty)))))))
+              (NP-SBJ (NN flooding))
+              (NP-PRD (DT an) (RB almost) (NN certainty)))))))
     (. .)))
 
 (ROOT
@@ -466,10 +474,10 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (DT A) (JJ previous) (NN cyclone))
-      (PP (IN in) (NP (CD 1999)))
-      (PP
+      (PP-TMP (IN in) (NP (CD 1999)))
+      (PP-LOC
         (IN in)
         (NP
           (NP
@@ -479,13 +487,13 @@
           (PP (IN of) (NP (NNP India))))))
     (VP
       (VBD left)
-      (S (NP (CD 10,000) (NNS people)) (ADJP (JJ dead))))
+      (S (NP-SBJ (CD 10,000) (NNS people)) (ADJP-PRD (JJ dead))))
     (. .)))
 
 (ROOT
   (SQ
     (VBZ Is)
-    (NP (DT the) (JJ Indian) (NN government))
+    (NP-SBJ (DT the) (JJ Indian) (NN government))
     (VP
       (RB well)
       (VBN prepared)
@@ -497,7 +505,7 @@
 
 (ROOT
   (S
-    (NP (PRP I))
+    (NP-SBJ (PRP I))
     (VP
       (VBP have)
       (RB not)
@@ -514,7 +522,7 @@
 
 (ROOT
   (S
-    (ADVP (RB However))
+    (ADVP-TMP (RB However))
     (, ,)
     (ADVP (RB historically))
     (, ,)
@@ -523,10 +531,10 @@
       (VBP have)
       (VP
         (VBN been)
-        (NP
+        (NP-SBJ
           (NP (JJ several) (NNS events))
           (SBAR
-            (WHNP (WDT that))
+            (NP-SBJ (WDT that))
             (S
               (VP
                 (MD should)
@@ -537,23 +545,23 @@
 
 (ROOT
   (S
-    (ADVP (RB Hopefully))
+    (ADVP-MNR (RB Hopefully))
     (, ,)
-    (NP (NP (PRP we)) (NP (DT all)))
+    (NP-SBJ (NP (PRP we)) (NP (DT all)))
     (VP (VBP learn) (PP (IN from) (NP (JJ past) (NNS mistakes))))
     (. .)))
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (DT The) (NN history))
       (PP
         (IN of)
         (NP (NP (JJ strong) (NNS cyclones)) (CC and) (NP (NN death))))
-      (PP (IN in) (NP (DT the) (NN region))))
+      (PP-LOC (IN in) (NP (DT the) (NN region))))
     (VP
       (VBZ is)
-      (ADJP (JJ notable))
+      (ADJP-PRD (JJ notable))
       (, ,)
       (PP
         (IN with)
@@ -563,12 +571,14 @@
             (JJ large)
             (NN cyclone)
             (NNS events))
-          (PP (IN in) (NP (DT the) (JJ past) (CD 35) (NNS years)))
+          (PP-TMP
+            (IN in)
+            (NP (DT the) (JJ past) (CD 35) (NNS years)))
           (PP
             (IN with)
-            (NP
+            (NP-SBJ
               (S
-                (NP
+                (NP-SBJ
                   (QP
                     (CD 10,000)
                     (CC and)
@@ -581,21 +591,22 @@
               (, ,)
               (NP
                 (NP (NNS millions))
-                (VP (VBD left) (S (ADJP (JJ homeless)))))
+                (VP (VBN left) (S (ADJP-PRD (JJ homeless)))))
               (CC and)
-              (NP
-                (NP (JJ estimated) (NNS damages))
+              (NP-SBJ
+                (NP (VBN estimated) (NNS damages))
                 (ADJP
-                  (IN as)
+                  (RB as)
                   (JJ high)
                   (PP
                     (IN as)
-                    (NP (QP (NNS US$) (CD 10) (CD billion)))))))))))
+                    (NP
+                      (QP (NNP US) (QP (SYM $) (CD 10) (CD billion))))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP I))
+    (NP-SBJ (PRP I))
     (VP
       (VBP do)
       (RB n't)
@@ -612,7 +623,7 @@
                 (NP (DT this) (NN question))
                 (, ,)
                 (NP
-                  (NP (CD one) (NN way))
+                  (NP-EXT (CD one) (NN way))
                   (CC or)
                   (NP (DT the) (JJ other)))))))))
     (. .)))
@@ -625,9 +636,9 @@
         (NP (PDT all) (DT the) (NN press) (NNS reports))
         (SBAR
           (WHNP (WDT that))
-          (S (NP (PRP I)) (VP (VBP have) (VP (VBN read)))))))
+          (S (NP-SBJ (PRP I)) (VP (VBP have) (VP (VBN read)))))))
     (, ,)
-    (NP (DT the) (JJ Indian) (NN government))
+    (NP-SBJ (DT the) (JJ Indian) (NN government))
     (VP
       (VBZ appears)
       (S
@@ -640,21 +651,21 @@
               (NP
                 (NP (DT the) (NN threat))
                 (PP (IN of) (NP (NNP Cyclone) (NNP Phailin))))
-              (ADVP (RB very) (RB seriously) (RB indeed)))))))
+              (ADVP-MNR (RB very) (RB seriously) (RB indeed)))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT The) (NN government))
+    (NP-SBJ (DT The) (NN government))
     (VP
       (VBZ has)
       (VP
         (VBN been)
         (ADJP
-          (ADJP (ADVP (RB much) (RBR more)) (JJ pro-active))
+          (ADJP-PRD (ADVP (RB much) (RBR more)) (JJ pro-active))
           (PP
             (IN in)
-            (S
+            (S-NOM
               (VP
                 (VBG preparing)
                 (PP (IN for) (NP (DT this) (NN cyclone)))))))
@@ -663,17 +674,19 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (DT The) (NNS forecasts))
       (PP
         (IN of)
         (NP (NN cyclone) (NN track) (CC and) (NN intensity))))
-    (VP (VBP have) (VP (VBN been) (ADJP (RB fairly) (JJ accurate))))
+    (VP
+      (VBP have)
+      (VP (VBN been) (ADJP-PRD (RB fairly) (JJ accurate))))
     (. .)))
 
 (ROOT
   (S
-    (NP (JJ Mandatory) (JJ mass) (NNS evacuations))
+    (NP-SBJ (JJ Mandatory) (JJ mass) (NNS evacuations))
     (VP
       (VBP have)
       (VP
@@ -682,12 +695,12 @@
           (VP (VBN carried) (PRT (RP out)))
           (, ,)
           (SBAR
-            (WHNP (WDT which))
+            (NP-SBJ (WDT which))
             (S
               (VP
                 (VBZ is)
-                (ADJP (JJ essential))
-                (S
+                (ADJP-PRD (JJ essential))
+                (S-PRP
                   (VP
                     (TO to)
                     (VP
@@ -700,11 +713,11 @@
   (S
     (ADVP (RB Unfortunately))
     (, ,)
-    (NP (JJ extensive) (NN property) (NN damage))
+    (NP-SBJ (JJ extensive) (NN property) (NN damage))
     (VP
       (VBZ is)
       (VP
-        (VBN bound)
+        (JJ bound)
         (S
           (VP
             (TO to)
@@ -718,7 +731,7 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (PRP$ My) (NN knowledge))
       (PP
         (IN of)
@@ -729,18 +742,18 @@
     (VP
       (VBZ is)
       (ADVP (RB purely))
-      (PP (IN from) (NP (DT the) (JJ cyber) (NN space))))
+      (PP-PRD (IN from) (NP (DT the) (JJ cyber) (NN space))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP I))
+    (NP-SBJ (PRP I))
     (VP
       (VBD heard)
       (SBAR
         (IN that)
         (S
-          (NP (PRP they))
+          (NP-SBJ (PRP they))
           (VP
             (VBD orchestrated)
             (NP
@@ -755,13 +768,13 @@
 
 (ROOT
   (S
-    (NP (DT This))
+    (NP-SBJ (DT This))
     (VP
       (MD shall)
       (VP
         (VB be)
         (VP
-          (VBD applauded)
+          (VBN applauded)
           (PP
             (VBN given)
             (NP
@@ -771,16 +784,18 @@
 
 (ROOT
   (S
-    (NP (PRP I))
+    (NP-SBJ (PRP I))
     (VP
       (VBD visited)
       (NP
-        (NP (DT the) (JJ damaged) (NN area))
+        (NP (DT the) (VBN damaged) (NN area))
         (PP (IN of) (NP (DT the) (CD 1999) (NN storm)))
-        (PP (IN near) (NP (NNP Bhubaneshwar))))
-      (PP
+        (PP-LOC (IN near) (NP (NNP Bhubaneshwar))))
+      (PP-TMP
         (IN in)
-        (NP (NP (DT the) (NN summer)) (PP (IN of) (NP (CD 2012)))))
+        (NP
+          (NP (DT the) (NN summer))
+          (PP-TMP (IN of) (NP (CD 2012)))))
       (PP
         (IN for)
         (NP
@@ -792,9 +807,9 @@
                 (CC and)
                 (NX (NN summer) (NN school))))
             (PP (IN on) (NP (JJ tropical) (NNS cyclones))))
-          (-LSB- [)
+          (-LRB- [)
           (: ...)
-          (-RSB- ])
+          (-RRB- ])
           (VP
             (VBN sponsored)
             (PP (IN by) (NP (DT the) (JJ Indian) (NN government)))))))
@@ -808,7 +823,7 @@
         (NP
           (DT the)
           (NX
-            (NX (VBG living) (NN standard))
+            (NX (NN living) (NN standard))
             (CC and)
             (NX (NN residence))))
         (PP
@@ -817,35 +832,35 @@
             (NP (NNS people))
             (VP
               (VBG living)
-              (PP
+              (PP-LOC
                 (IN near)
                 (NP
                   (NP (DT the) (JJ coastal) (NNS areas))
-                  (PP (IN in) (NP (DT this) (NN region))))))))))
+                  (PP-LOC (IN in) (NP (DT this) (NN region))))))))))
     (, ,)
-    (NP (DT the) (NN evacuation))
+    (NP-SBJ (DT the) (NN evacuation))
     (VP
       (VBZ is)
       (ADVP (RB certainly))
-      (ADJP (JJ necessary) (CC and) (JJ essential))
-      (S (VP (TO to) (VP (VB save) (NP (NNS lives))))))
+      (ADJP-PRD (JJ necessary) (CC and) (JJ essential))
+      (S-PRP (VP (TO to) (VP (VB save) (NP (NNS lives))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP I))
+    (NP-SBJ (PRP I))
     (VP
       (MD can)
       (RB not)
       (VP
         (VB comment)
-        (ADVP (RB directly))
+        (ADVP-MNR (RB directly))
         (PP
           (IN on)
           (SBAR
             (WHADVP (WRB how))
             (S
-              (NP (DT the) (JJ Indian) (NN government))
+              (NP-SBJ (DT the) (JJ Indian) (NN government))
               (VP
                 (VBD was)
                 (VP
@@ -855,19 +870,19 @@
 
 (ROOT
   (S
-    (ADVP (RB However))
+    (ADVP-TMP (RB However))
     (, ,)
-    (NP
-      (NP (FRAG (WHPP (DT the) (NN news))) (VBZ reports))
+    (NP-SBJ
+      (NP (DT the) (NN news) (NNS reports))
       (PRN (-LRB- -LRB-) (NP (NNP BBC) (FW etc.)) (-RRB- -RRB-)))
     (VP
       (VBD were)
-      (ADJP (RB very) (VBG encouraging))
-      (SBAR
+      (ADJP-PRD (RB very) (JJ encouraging))
+      (SBAR-ADV
         (IN in)
         (IN that)
         (S
-          (NP (DT the) (NNS authorities))
+          (NP-SBJ (DT the) (NNS authorities))
           (VP
             (VBD were)
             (ADVP (RB reportedly))
@@ -890,21 +905,21 @@
                           (NP
                             (NP (NNS areas))
                             (SBAR
-                              (WHNP (WDT that))
+                              (NP-SBJ (WDT that))
                               (S
                                 (VP
                                   (VBP are)
-                                  (ADJP
+                                  (ADJP-PRD
                                     (JJ prone)
                                     (PP (IN to) (NP (NN flooding)))))))))))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (NN Water))
+    (NP-SBJ (NN Water))
     (VP
       (VBZ is)
-      (NP (DT the) (JJ main) (NN killer))
+      (NP-PRD (DT the) (JJ main) (NN killer))
       (PP (IN in) (NP (DT these) (NNS storms))))
     (. .)))
 
@@ -916,9 +931,9 @@
         (NP (DT all) (NNS reports))
         (SBAR
           (WHNP (WDT that))
-          (S (NP (PRP I)) (VP (VBP have) (VP (VBN seen)))))))
+          (S (NP-SBJ (PRP I)) (VP (VBP have) (VP (VBN seen)))))))
     (, ,)
-    (NP (DT the) (NN government))
+    (NP-SBJ (DT the) (NN government))
     (VP
       (VBD was)
       (ADJP
@@ -930,7 +945,7 @@
 (ROOT
   (S
     (PP (IN For) (NP (DT this) (NN question)))
-    (NP (PRP I))
+    (NP-SBJ (PRP I))
     (VP
       (VBP do)
       (RB n't)
@@ -942,4 +957,3 @@
           (S
             (VP (TO to) (VP (VB deal) (PP (IN with) (NP (DT this)))))))))
     (. .)))
-

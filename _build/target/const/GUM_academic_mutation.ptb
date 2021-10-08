@@ -4,7 +4,7 @@
     (PP (IN of) (NP (NN Mutation) (NNS Operators)))
     (PP
       (IN for)
-      (S
+      (S-NOM
         (VP
           (VBG Testing)
           (NP (JJ Geographic) (NN Information) (NNS Systems)))))))
@@ -41,11 +41,11 @@
           (NP (DT the) (JJ 2nd) (NNP XoveTIC) (NNP Congress))
           (, ,)
           (NP
-            (NP (NNP A) (NNP Coruña))
+            (NP-ADV (NNP A) (NNP Coruña))
             (, ,)
             (NP (NNP Spain))
             (, ,)
-            (NP (CD 5) (SYM –) (CD 6) (NNP September) (CD 2019))))))
+            (NP-TMP (CD 5) (SYM –) (CD 6) (NNP September) (CD 2019))))))
     (. .)))
 
 (ROOT (NP (NN Abstract) (: :)))
@@ -54,7 +54,7 @@
   (S
     (PP (IN In) (NP (DT this) (NN article)))
     (, ,)
-    (NP (PRP we))
+    (NP-SBJ (PRP we))
     (VP
       (VBP propose)
       (NP
@@ -62,7 +62,7 @@
         (PP (IN of) (NP (JJ specific) (NN mutation) (NNS operators)))
         (PP
           (IN for)
-          (S
+          (S-NOM
             (VP
               (VBG testing)
               (NP (JJ Geographic) (NN Information) (NNS Systems)))))))
@@ -70,7 +70,7 @@
 
 (ROOT
   (S
-    (NP (PRP We))
+    (NP-SBJ (PRP We))
     (VP
       (VP
         (VBP describe)
@@ -92,18 +92,21 @@
           (SBAR
             (WHADVP (WRB where))
             (S
-              (NP (DT these) (NN mutation) (NNS operators))
+              (NP-SBJ (DT these) (NN mutation) (NNS operators))
               (VP
                 (VBP are)
                 (VP
                   (VBN applied)
                   (PP
                     (IN to)
-                    (NP (CD two) (JJ real-world) (NNS applications))))))))))
+                    (NP
+                      (CD two)
+                      (ADJP (JJ real) (HYPH -) (NN world))
+                      (NNS applications))))))))))
     (. .)))
 
 (ROOT
-  (NP
+  (NP-SBJ
     (NP (NNS Keywords))
     (: :)
     (NP
@@ -117,24 +120,24 @@
 
 (ROOT
   (S
-    (NP
-      (NP (JJ Mutation-based) (NN testing))
-      (PRN (-LSB- [) (NP (CD 1)) (-RSB- ])))
+    (NP-SBJ
+      (NP (ADJP (NN Mutation) (HYPH -) (VBN based)) (NN testing))
+      (PRN (-LRB- [) (NP (CD 1)) (-RRB- ])))
     (VP
       (VBZ is)
-      (NP
+      (NP-PRD
         (NP (DT a) (NN test) (NN technique))
         (SBAR
-          (WHNP (WDT that))
+          (NP-SBJ (WDT that))
           (S
             (VP
               (VBZ involves)
               (S
                 (VP
-                  (ADVP (RB artificially))
+                  (ADVP-MNR (RB artificially))
                   (VBG introducing)
                   (NP (NNS errors))
-                  (PP
+                  (PP-DIR
                     (IN into)
                     (NP
                       (NP
@@ -145,10 +148,10 @@
 
 (ROOT
   (S
-    (NP (DT A) (NN mutant))
+    (NP-SBJ (DT A) (NN mutant))
     (VP
       (VBZ is)
-      (NP
+      (NP-PRD
         (NP (DT a) (NN copy))
         (PP
           (IN of)
@@ -157,7 +160,7 @@
             (SBAR
               (WHPP (IN in) (WHNP (WDT which)))
               (S
-                (NP (NP (DT a) (NN change)))
+                (NP-SBJ (NP (DT a) (NN change)))
                 (VP
                   (VBZ has)
                   (VP
@@ -165,7 +168,7 @@
                     (VP
                       (VBN done)
                       (SBAR
-                        (WHNP (WDT that))
+                        (NP-SBJ (WDT that))
                         (, ,)
                         (S
                           (PP (IN in) (NP (JJS most) (NNS cases)))
@@ -187,12 +190,12 @@
 
 (ROOT
   (S
-    (NP (DT The) (JJ different) (NNS mutants))
+    (NP-SBJ (DT The) (JJ different) (NNS mutants))
     (VP
       (VBP are)
       (VP
         (VBN generated)
-        (ADVP (RB automatically))
+        (ADVP-MNR (RB automatically))
         (PP
           (IN by)
           (NP
@@ -208,7 +211,7 @@
         (NP (DT the) (NN state))
         (PP (IN of) (NP (DT the) (NN art)))))
     (, ,)
-    (NP (PRP we))
+    (NP-SBJ (PRP we))
     (VP
       (VBP have)
       (VP
@@ -217,7 +220,7 @@
           (NP (NN mutation) (NNS operators))
           (, ,)
           (ADJP
-            (DT both)
+            (CC both)
             (ADJP (JJ general) (NN purpose))
             (CC and)
             (ADJP
@@ -233,23 +236,23 @@
                     (CC and)
                     (NNS paradigms))
                   (PRN
-                    (-LSB- [)
+                    (-LRB- [)
                     (NP (QP (CD 2) (SYM –) (CD 9)))
-                    (-RSB- ])))))))))
+                    (-RRB- ])))))))))
     (. .)))
 
 (ROOT
   (S
-    (ADVP (RB However))
+    (ADVP-TMP (RB However))
     (, ,)
-    (NP (DT these) (NNS operators))
+    (NP-SBJ (DT these) (NNS operators))
     (VP
       (VBP are)
       (RB not)
-      (ADJP (JJ adequate))
-      (SBAR
+      (ADJP-PRD (JJ adequate))
+      (SBAR-TMP
         (WHADVP (WRB when))
-        (S
+        (S-NOM
           (VP
             (VBG trying)
             (S
@@ -268,7 +271,7 @@
   (S
     (PP (IN In) (NP (DT this) (NN article)))
     (, ,)
-    (NP (PRP we))
+    (NP-SBJ (PRP we))
     (VP
       (VBP propose)
       (NP
@@ -291,13 +294,13 @@
 
 (ROOT
   (S
-    (NP (DT These) (NNS operators))
+    (NP-SBJ (DT These) (NNS operators))
     (VP
       (VBP reproduce)
       (NP
         (NP (NN programming) (NNS errors))
         (SBAR
-          (WHNP (WDT that))
+          (NP-SBJ (WDT that))
           (S
             (VP
               (VBP are)
@@ -323,7 +326,7 @@
     (PP (IN In) (NP (NN addition)))
     (, ,)
     (S
-      (NP (PRP we))
+      (NP-SBJ (PRP we))
       (VP
         (VBP present)
         (NP
@@ -331,19 +334,24 @@
           (PP (IN of) (NP (DT these) (NNS operators))))))
     (CC and)
     (S
-      (PP
-        (IN as)
-        (NP (NP (NN proof)) (PP (IN of) (NP (NN concept)))))
-      (NP (PRP we))
-      (VP
-        (VBP apply)
-        (NP (DT these) (NNS operators))
+      (S
         (PP
-          (IN to)
-          (NP (CD two) (JJ real-world) (NN GIS) (NNS applications))))
+          (IN as)
+          (NP (NP (NN proof)) (PP (IN of) (NP (NN concept)))))
+        (NP-SBJ (PRP we))
+        (VP
+          (VBP apply)
+          (NP (DT these) (NNS operators))
+          (PP
+            (IN to)
+            (NP
+              (CD two)
+              (ADJP (JJ real) (HYPH -) (NN world))
+              (NN GIS)
+              (NNS applications)))))
       (CC and)
       (S
-        (NP (PRP we))
+        (NP-SBJ (PRP we))
         (VP (VBP generate) (NP (DT the) (NNS mutants)))))
     (. .)))
 
@@ -361,14 +369,14 @@
       (NP
         (NP (DT a) (JJ previous) (NN step))
         (PP
-          (TO to)
-          (S
+          (IN to)
+          (S-NOM
             (VP
               (VBG designing)
               (NP (DT the) (NN mutation) (NNS operators)))))))
     (, ,)
     (S
-      (NP (PRP we))
+      (NP-SBJ (PRP we))
       (VP
         (VBD analyzed)
         (NP
@@ -376,7 +384,7 @@
           (VP
             (VBN used)
             (PP
-              (ADVP (RB specifically))
+              (ADVP-MNR (RB specifically))
               (IN in)
               (NP
                 (NP (DT the) (NN development))
@@ -384,14 +392,14 @@
     (, ,)
     (CC and)
     (S
-      (NP (PRP we))
+      (NP-SBJ (PRP we))
       (VP
         (VBD identified)
         (NP
           (NP (JJ typical) (NNS errors))
           (SBAR
             (S
-              (NP (DT a) (NN programmer))
+              (NP-SBJ (DT a) (NN programmer))
               (VP
                 (MD can)
                 (VP
@@ -401,20 +409,20 @@
 
 (ROOT
   (S
-    (NP (DT These) (NNS errors))
+    (NP-SBJ (DT These) (NNS errors))
     (VP
       (VBD were)
       (VP
         (VBN formalized)
-        (PP (IN into) (NP (NN mutation) (NNS operators)))))
+        (PP-DIR (IN into) (NP (NN mutation) (NNS operators)))))
     (. .)))
 
 (ROOT
   (S
-    (SBAR
+    (SBAR-ADV
       (IN In)
       (NN order)
-      (S
+      (S-PRP
         (VP
           (TO to)
           (VP
@@ -422,7 +430,7 @@
             (NP (DT these) (NNS operators))
             (PP (IN to) (NP (DT a) (NN SUT)))))))
     (, ,)
-    (NP (PRP we))
+    (NP-SBJ (PRP we))
     (VP
       (VBP rely)
       (PP
@@ -430,17 +438,19 @@
         (NP
           (NP (NNP Java) (NN reflection))
           (CC and)
-          (NP (JJ aspect-oriented) (NN programming)))))
+          (NP
+            (ADJP (NN aspect) (HYPH -) (VBN oriented))
+            (NN programming)))))
     (. .)))
 
 (ROOT
   (S
-    (NP (NN Reflection))
+    (NP-SBJ (NN Reflection))
     (VP
       (VBZ allows)
       (S
         (S
-          (NP (PRP us))
+          (NP-SBJ (PRP us))
           (VP
             (TO to)
             (VP
@@ -453,10 +463,10 @@
                     (NP (NNS classes) (CC and) (NNS methods))
                     (PP (IN of) (NP (DT the) (NN SUT)))))))))
         (, ,)
-        (SBAR
+        (SBAR-ADV
           (IN so)
           (S
-            (NP (DT the) (NN user))
+            (NP-SBJ (DT the) (NN user))
             (VP
               (MD can)
               (VP
@@ -471,7 +481,7 @@
                           (VB wish)
                           (SBAR
                             (S
-                              (NP (DT the) (NNS operators))
+                              (NP-SBJ (DT the) (NNS operators))
                               (VP
                                 (MD will)
                                 (VP (VB be) (VP (VBN applied)))))))))))))))))
@@ -479,9 +489,9 @@
 
 (ROOT
   (S
-    (ADVP (RBR Later))
+    (ADVP-TMP (RBR Later))
     (, ,)
-    (NP (PRP we))
+    (NP-SBJ (PRP we))
     (VP
       (VBP capture)
       (NP
@@ -503,11 +513,11 @@
               (NP
                 (NP (DT the) (NN mutation) (NNS operators))
                 (SBAR
-                  (WHNP (WDT that))
+                  (NP-SBJ (WDT that))
                   (S
                     (VP
                       (VBD were)
-                      (ADVP (RB already))
+                      (ADVP-TMP (RB already))
                       (VP (VBN defined)))))))))))
     (. .)))
 
@@ -515,7 +525,7 @@
   (S
     (PP (IN From) (NP (DT these) (NNS data)))
     (, ,)
-    (NP (PRP we))
+    (NP-SBJ (PRP we))
     (VP
       (VBP generate)
       (NP
@@ -525,17 +535,17 @@
           (IN in)
           (NP
             (NP (DT the) (NN form))
-            (PP (IN of) (NP (IN on) (NN aspect)))))
+            (PP (IN of) (NP (DT on) (NN aspect)))))
         (, ,)
         (SBAR
-          (WHNP (WDT which))
+          (NP-SBJ (WDT which))
           (S
             (VP
               (MD will)
-              (ADVP (RB then))
+              (ADVP-TMP (RB then))
               (VP
                 (VB be)
-                (ADJP
+                (ADJP-PRD
                   (JJ possible)
                   (S
                     (VP
@@ -547,7 +557,7 @@
                           (NP
                             (NP (DT the) (NN SUT))
                             (SBAR
-                              (WHNP (WDT which))
+                              (NP-SBJ (WDT which))
                               (S
                                 (VP
                                   (VBZ generates)
@@ -562,7 +572,7 @@
   (S
     (ADVP (RB Next))
     (, ,)
-    (NP (PRP we))
+    (NP-SBJ (PRP we))
     (VP
       (VBP describe)
       (NP
@@ -574,13 +584,13 @@
             (CC and)
             (NP
               (NP (CD two) (NNS cases))
+              (PP (IN of) (NP (NN application)))
               (PP
-                (IN of)
+                (IN on)
                 (NP
-                  (NP (NN application))
-                  (PP
-                    (IN on)
-                    (NP (JJ real-world) (NN GIS) (NNS applications))))))))))
+                  (ADJP (JJ real) (HYPH -) (NN world))
+                  (NN GIS)
+                  (NNS applications))))))))
     (. .)))
 
 (ROOT
@@ -591,17 +601,17 @@
 
 (ROOT
   (S
-    (NP (PRP It))
+    (NP-SBJ (PRP It))
     (VP
       (VBZ exchanges)
       (NP
         (NP (DT the) (NN coordinate) (NN system))
         (PP (IN of) (NP (DT a) (NN geometry))))
       (, ,)
-      (SBAR
+      (SBAR-ADV
         (IN so)
         (S
-          (NP (PRP it))
+          (NP-SBJ (PRP it))
           (VP
             (VBZ does)
             (RB not)
@@ -610,7 +620,7 @@
               (NP
                 (NP (DT the) (NN coordinate) (NN system))
                 (SBAR
-                  (WHNP (WDT that))
+                  (NP-SBJ (WDT that))
                   (S
                     (VP
                       (VBZ is)
@@ -625,43 +635,43 @@
 
 (ROOT
   (S
-    (NP (PRP It))
+    (NP-SBJ (PRP It))
     (VP
       (VBZ simulates)
       (NP
         (NP (DT the) (NN error))
         (PP
           (IN of)
-          (S
+          (S-NOM
             (VP
               (RB not)
               (VBG checking)
               (SBAR
                 (IN that)
                 (S
-                  (NP (DT the) (NN coordinate) (NN system))
-                  (VP (VBZ is) (ADJP (JJ correct))))))))))
+                  (NP-SBJ (DT the) (NN coordinate) (NN system))
+                  (VP (VBZ is) (ADJP-PRD (JJ correct))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT The) (NN error))
+    (NP-SBJ (DT The) (NN error))
     (VP
       (VBZ is)
       (VP
         (VBN introduced)
         (PP
           (IN by)
-          (S
+          (S-NOM
             (VP
-              (ADVP (RB directly))
+              (ADVP-MNR (RB directly))
               (VBG modifying)
               (NP
                 (NP (DT the) (NN coordinate) (NN system))
                 (PP (IN of) (NP (NN geometry))))
-              (SBAR
+              (SBAR-TMP
                 (WHADVP (WRB when))
-                (S
+                (S-NOM
                   (VP
                     (VBG recovering)
                     (NP
@@ -680,7 +690,7 @@
 
 (ROOT
   (S
-    (NP (DT This) (NN operator))
+    (NP-SBJ (DT This) (NN operator))
     (VP
       (VBD was)
       (VP
@@ -697,7 +707,7 @@
 
 (ROOT
   (S
-    (NP (DT This) (NN application))
+    (NP-SBJ (DT This) (NN application))
     (VP
       (VBZ allows)
       (S
@@ -711,18 +721,20 @@
 
 (ROOT
   (S
-    (NP (NP (DT These) (NNS areas)) (PP (IN of) (NP (NN interest))))
+    (NP-SBJ
+      (NP (DT These) (NNS areas))
+      (PP (IN of) (NP (NN interest))))
     (VP (VBP are) (VP (VBN called) (S (NP (NNS Geofences)))))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT A) (NN Geofence))
+    (NP-SBJ (DT A) (NN Geofence))
     (VP
       (VBZ is)
       (VP
         (VBN determined)
-        (PP
+        (PP-LOC
           (IN by)
           (NP
             (NP (DT a) (JJ geographical) (NN location))
@@ -742,22 +754,28 @@
                       (CC and)
                       (NP
                         (NP (DT a) (NN radius))
-                        (PP (IN around) (NP (DT that) (NN location)))))))))))))
+                        (PP-LOC
+                          (IN around)
+                          (NP (DT that) (NN location)))))))))))))
     (. .)))
 
 (ROOT
   (S
     (PP
       (IN By)
-      (S
+      (S-NOM
         (VP
           (VBG creating)
           (NP
             (NP (DT a) (NN Geofence))
-            (PP (IN with) (NP (DT an) (JJ erroneous) (NN location))))
-          (PP (IN from) (NP (PRP$ its) (JJ central) (NN location))))))
+            (PP-LOC
+              (IN with)
+              (NP (DT an) (JJ erroneous) (NN location))))
+          (PP-DIR
+            (IN from)
+            (NP (PRP$ its) (JJ central) (NN location))))))
     (, ,)
-    (NP (DT the) (NN device))
+    (NP-SBJ (DT the) (NN device))
     (VP
       (MD will)
       (VP
@@ -769,7 +787,7 @@
   (S
     (PP (IN As) (NP (DT a) (NN result)))
     (, ,)
-    (NP (DT the) (NN user))
+    (NP-SBJ (DT the) (NN user))
     (VP
       (MD will)
       (VP
@@ -804,7 +822,7 @@
 
 (ROOT
   (S
-    (NP (PRP It))
+    (NP-SBJ (PRP It))
     (VP
       (VBZ introduces)
       (NP (NNS errors))
@@ -814,7 +832,7 @@
           (NP (DT the) (NN processing))
           (PP (IN of) (NP (NNS geometries)))))
       (, ,)
-      (S
+      (S-ADV
         (VP
           (VBG manipulating)
           (NP
@@ -824,7 +842,7 @@
               (NP
                 (NP (DT the) (NNS operations))
                 (SBAR
-                  (WHNP (WDT that))
+                  (NP-SBJ (WDT that))
                   (S
                     (VP
                       (VBP carry)
@@ -864,20 +882,20 @@
 
 (ROOT
   (S
-    (S (VP (TO To) (VP (VB test) (NP (DT this) (NN operator)))))
-    (NP (PRP it))
+    (S-PRP (VP (TO To) (VP (VB test) (NP (DT this) (NN operator)))))
+    (NP-SBJ (PRP it))
     (VP
       (VBD was)
       (VP
         (VBN applied)
         (PP
           (IN to)
-          (NP (DT a) (NN land) (NN reparcelling) (NN system)))))
+          (NP (DT a) (NN land) (VBG reparcelling) (NN system)))))
     (. .)))
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (DT The) (NN objective))
       (PP (IN of) (NP (DT the) (NN land) (NN reparcelling))))
     (VP
@@ -890,7 +908,7 @@
             (NP
               (NP (DT the) (NNS lands))
               (PP (IN of) (NP (DT an) (NN owner))))
-            (S
+            (S-PRP
               (VP
                 (TO to)
                 (VP
@@ -902,7 +920,7 @@
   (S
     (PP (IN In) (NP (DT this) (NN application)))
     (, ,)
-    (NP
+    (NP-SBJ
       (NP (DT the) (NN result))
       (PP
         (IN of)
@@ -914,7 +932,7 @@
 
 (ROOT
   (S
-    (NP (DT This) (NN error))
+    (NP-SBJ (DT This) (NN error))
     (VP
       (VBZ causes)
       (NP
@@ -925,7 +943,7 @@
             (NP
               (NP (DT the) (VBG resulting) (NN geometry))
               (SBAR
-                (WHNP (WDT that))
+                (NP-SBJ (WDT that))
                 (S
                   (VP
                     (MD should)
@@ -968,28 +986,28 @@
   (S
     (PP (IN In) (NP (VBG existing) (NNS proposals)))
     (, ,)
-    (NP (PRP we))
+    (NP-SBJ (PRP we))
     (VP
       (MD can)
       (VP
         (VB find)
         (NP
-          (ADJP (DT both) (JJ generic) (CC and) (JJ specific))
+          (ADJP (CC both) (JJ generic) (CC and) (JJ specific))
           (NN mutation)
           (NNS operators))))
     (. .)))
 
 (ROOT
   (S
-    (ADVP (RB However))
+    (ADVP-TMP (RB However))
     (, ,)
-    (NP (DT these))
+    (NP-SBJ (DT these))
     (VP
       (VBP are)
       (RB not)
-      (ADJP
+      (ADJP-PRD
         (JJ adequate)
-        (S
+        (S-PRP
           (VP
             (TO to)
             (VP
@@ -1001,7 +1019,7 @@
 
 (ROOT
   (S
-    (NP (PRP We))
+    (NP-SBJ (PRP We))
     (VP
       (VBP have)
       (VP
@@ -1029,7 +1047,7 @@
   (S
     (PP (IN In) (NP (NN addition)))
     (, ,)
-    (NP (PRP we))
+    (NP-SBJ (PRP we))
     (VP
       (VBP have)
       (VP
@@ -1045,7 +1063,7 @@
   (S
     (PP (IN As) (NP (JJ future) (NN work)))
     (, ,)
-    (NP (PRP we))
+    (NP-SBJ (PRP we))
     (VP
       (VBP intend)
       (S
@@ -1055,7 +1073,7 @@
             (VP
               (VB extend)
               (NP (DT this) (NN approach))
-              (PP (IN to) (NP (JJ other) (NNS domains)))))
+              (PP-DTV (IN to) (NP (JJ other) (NNS domains)))))
           (, ,)
           (CONJP (RB as) (RB well) (IN as))
           (VP
@@ -1073,4 +1091,3 @@
                       (NP (NNS sets))
                       (PP (IN of) (NP (NN test) (NNS cases))))))))))))
     (. .)))
-

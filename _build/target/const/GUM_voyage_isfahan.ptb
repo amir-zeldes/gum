@@ -2,7 +2,7 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (NNP Isfahan))
       (PRN
         (-LRB- -LRB-)
@@ -13,35 +13,36 @@
         (VP
           (ADVP (RB also))
           (VBN known)
-          (PP (IN as) (NP (NNP Esfahan))))
+          (PP-LOC (IN as) (NP (NNP Esfahan))))
         (-RRB- -RRB-)))
     (VP
       (VP
         (VBZ is)
-        (NP
+        (NP-PRD
           (NP (DT a) (NN city))
-          (PP (IN in) (NP (JJ central) (NNP Iran)))
+          (PP-LOC (IN in) (NP (JJ central) (NNP Iran)))
           (, ,)
           (ADVP (RB south) (PP (IN of) (NP (NNP Tehran))))))
       (CC and)
       (VP
         (VBZ is)
-        (NP
+        (NP-PRD
           (NP (DT the) (NN capital))
           (PP (IN of) (NP (NNP Isfahan) (NNP Province))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT The) (NNS Persians))
+    (NP-SBJ (DT The) (NNS Persians))
     (VP
       (VBP call)
       (S
-        (NP (PRP it))
+        (NP-SBJ (PRP it))
         (`` ")
-        (NP (FW Nesf-e-Jahan))
-        ('' ")
-        (, ,)
+        (NP-PRD (NNP Nesf) (HYPH -) (NNP e) (HYPH -) (NNP Jahan))
+        ('' "))
+      (, ,)
+      (S
         (VP
           (VBG meaning)
           (S (`` ") (NP (PDT Half) (DT The) (NN World)) ('' ")))))
@@ -51,15 +52,17 @@
   (S
     (PP
       (JJ Due)
-      (TO to)
+      (IN to)
       (NP
-        (PRP$ its)
-        (NX
-          (NX (JJ beautiful) (JJ hand-painted) (NN tiling))
-          (CC and)
-          (NX (JJ magnificent) (JJ public) (NN square)))))
+        (NP
+          (PRP$ its)
+          (JJ beautiful)
+          (ADJP (NN hand) (HYPH -) (VBN painted))
+          (NN tiling))
+        (CC and)
+        (NX (JJ magnificent) (JJ public) (NN square))))
     (, ,)
-    (NP (PRP it))
+    (NP-SBJ (PRP it))
     (VP
       (VBZ is)
       (VP
@@ -69,7 +72,7 @@
             (TO to)
             (VP
               (VB be)
-              (NP
+              (NP-PRD
                 (NP (CD one))
                 (PP
                   (IN of)
@@ -78,7 +81,7 @@
                       (DT the)
                       (ADJP (RBS most) (JJ beautiful))
                       (NNS cities))
-                    (PP (IN in) (NP (DT the) (NN world)))))))))))
+                    (PP-LOC (IN in) (NP (DT the) (NN world)))))))))))
     (. .)))
 
 (ROOT
@@ -91,13 +94,13 @@
           (NP (NN capital))
           (PP (IN of) (NP (NNP Persia)))
           (PP
-            (PP (IN from) (NP (CD 1598)))
-            (PP (TO to) (NP (CD 1722)))))))
+            (PP-TMP (IN from) (NP (CD 1598)))
+            (PP-TMP (IN to) (NP (CD 1722)))))))
     (, ,)
-    (NP (PRP it))
+    (NP-SBJ (PRP it))
     (VP
       (VBD was)
-      (ADVP (RB long))
+      (ADVP-TMP (RB long))
       (VP
         (VBN noted)
         (PP
@@ -110,9 +113,9 @@
 
 (ROOT
   (S
-    (NP (NN Today))
+    (NP-TMP (NN Today))
     (, ,)
-    (NP (NN textile) (CC and) (NN steel) (NNS mills))
+    (NP-SBJ (NN textile) (CC and) (NN steel) (NNS mills))
     (VP (VBP take) (NP (PRP$ their) (NN place)))
     (. .)))
 
@@ -121,16 +124,16 @@
     (NP
       (PRP$ Its)
       (NX
-        (NX (NN architecture))
+        (NX-SBJ (NN architecture))
         (, ,)
-        (NX (JJ tree-lined) (NNS boulevards))
+        (NX (ADJP (NN tree) (HYPH -) (VBN lined)) (NNS boulevards))
         (CC and)
         (NX (VBN relaxed) (NN pace))))
     (VP
       (VB make)
       (S
-        (NP (PRP it))
-        (NP
+        (NP-SBJ (PRP it))
+        (NP-PRD
           (NP (CD one))
           (PP
             (IN of)
@@ -143,11 +146,11 @@
 
 (ROOT
   (S
-    (NP (DT The) (NN city))
+    (NP-SBJ (DT The) (NN city))
     (VP
       (VBZ is)
       (ADVP
-        (NP (JJ 430) (NNS km))
+        (NP-PRD (JJ 430) (NNS km))
         (RB south)
         (PP (IN of) (NP (NNP Tehran))))
       (PP
@@ -161,7 +164,7 @@
 
 (ROOT
   (S
-    (NP (DT The) (NN city))
+    (NP-SBJ (DT The) (NN city))
     (VP
       (VBZ enjoys)
       (NP
@@ -172,25 +175,32 @@
 
 (ROOT
   (S
-    (NP (NNP Isfahan))
+    (NP-SBJ (NNP Isfahan))
     (VP
       (VBZ is)
       (VP
         (VBN located)
-        (PP
+        (PP-LOC
           (IN on)
           (NP
             (NP
               (DT the)
               (JJ main)
-              (ADJP (JJ north-south) (CC and) (JJ east-west))
+              (ADJP
+                (NNP north)
+                (HYPH -)
+                (NNP south)
+                (CC and)
+                (NNP east)
+                (HYPH -)
+                (NNP west))
               (NNS routes))
             (VP (VBG crossing) (NP (NNP Iran)))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT The) (NN city))
+    (NP-SBJ (DT The) (NN city))
     (VP
       (VBZ has)
       (NP
@@ -199,18 +209,18 @@
         (PRN
           (-LRB- -LRB-)
           (VP
-            (ADVP (RB originally))
+            (ADVP-TMP (RB originally))
             (VBD called)
             (S (NP (NNP New) (NNP Julfa))))
           (-RRB- -RRB-))
         (VP
           (VBD established)
           (PP (IN by) (NP (NNP Shah) (NNP Abbas) (JJ I)))
-          (PP (IN in) (NP (DT the) (CD 1600s)))
-          (SBAR
+          (PP-TMP (IN in) (NP (DT the) (NNS 1600s)))
+          (SBAR-ADV
             (IN after)
             (S
-              (NP (PRP he))
+              (NP-SBJ (PRP he))
               (VP
                 (VP
                   (VBD destroyed)
@@ -221,21 +231,21 @@
                       (JJ Armenian)
                       (NN town))
                     (PP (IN of) (NP (NNP Julfa)))
-                    (PP (IN in) (NP (NNP Armenia)))))
+                    (PP-LOC (IN in) (NP (NNP Armenia)))))
                 (CC and)
                 (VP
                   (VBD forced)
                   (S
-                    (NP
+                    (NP-SBJ
                       (NP (DT all))
                       (PP (IN of) (NP (DT the) (NNPS Armenians))))
                     (VP
                       (TO to)
                       (VP
                         (VB move)
-                        (PP (IN to) (NP (NNP Persia)))
+                        (PP-DIR (IN to) (NP (NNP Persia)))
                         (, ,)
-                        (PP
+                        (PP-DIR
                           (ADVP (RB mostly))
                           (IN to)
                           (NP (NNP Isfahan)))))))))))))
@@ -243,7 +253,7 @@
 
 (ROOT
   (S
-    (NP (PRP They))
+    (NP-SBJ (PRP They))
     (VP
       (VP (VBD were) (VP (VBN allocated) (NP (NN land))))
       (CC and)
@@ -252,11 +262,11 @@
         (NP
           (NP (DT a) (JJ prosperous) (NN community))
           (SBAR
-            (WHNP (WDT that))
+            (NP-SBJ (WDT that))
             (S
               (VP
                 (VBD was)
-                (NP
+                (NP-PRD
                   (NP (DT a) (JJ key) (NN part))
                   (PP
                     (IN of)
@@ -268,19 +278,19 @@
                         (NN network))
                       (VP
                         (VBG extending)
-                        (PP
+                        (PP-DIR
                           (IN from)
                           (NP (NNP Singapore) (CC and) (NNP India)))
-                        (PP
+                        (PP-DIR
                           (IN to)
                           (NP (NNP Venice) (CC and) (NNP Amsterdam)))))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (NN Today))
-    (NP (DT the) (NN quarter))
-    (ADVP (RB still))
+    (NP-TMP (NN Today))
+    (NP-SBJ (DT the) (NN quarter))
+    (ADVP-TMP (RB still))
     (VP
       (VBZ has)
       (NP
@@ -293,13 +303,13 @@
         (NX (JJ Armenian) (NNS residents))))
     (. .)))
 
-(ROOT (S (VP (VB Get) (ADVP (IN in)))))
+(ROOT (S (VP (VB Get) (ADVP (RB in)))))
 
 (ROOT (PP (IN By) (NP (NN plane))))
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP
         (NP (NNP Isfahan) (NNP International) (NNP Airport))
         (CC or)
@@ -310,7 +320,7 @@
         (-RRB- -RRB-)))
     (VP
       (VBD was)
-      (NP (DT a) (JJ military) (NN air) (NN base))
+      (NP-PRD (DT a) (JJ military) (NN air) (NN base))
       (PP (IN before) (NP (DT the) (NN revolution))))
     (. .)))
 
@@ -319,13 +329,13 @@
     (NP (EX There))
     (VP
       (VBP are)
-      (NP
+      (NP-SBJ
         (NP (JJ daily) (NNS flights))
-        (PP
+        (PP-DIR
           (IN to)
           (NP
             (NP (NNP Tehran) (CC and) (NNP Mashhad))
-            (PP (IN in) (NP (NNP Iran)))))))
+            (PP-LOC (IN in) (NP (NNP Iran)))))))
     (. .)))
 
 (ROOT
@@ -334,9 +344,9 @@
     (VP
       (VBP are)
       (ADVP (RB also))
-      (NP
+      (NP-SBJ
         (NP (NNS flights))
-        (PP
+        (PP-DIR
           (IN to)
           (NP
             (NNP Damascus)
@@ -350,31 +360,31 @@
 
 (ROOT
   (S
-    (PP (IN From) (NP (DT the) (NNP Airport)))
-    (NP (PRP you))
+    (PP-DIR (IN From) (NP (DT the) (NNP Airport)))
+    (NP-SBJ (PRP you))
     (VP
       (MD can)
       (VP
         (VB take)
         (NP (NN cab))
-        (PP (IN for) (NP (QP (RB c.) (SYM IRR) (CD 200,000))))
-        (PP (IN to) (NP (DT the) (NN city) (NN centre)))))
+        (PP (IN for) (NP (QP (FW c.) (SYM IRR) (CD 200,000))))
+        (PP-DIR (IN to) (NP (DT the) (NN city) (NN centre)))))
     (. .)))
 
 (ROOT
   (S
-    (SBAR
+    (SBAR-ADV
       (IN Since)
       (S
-        (NP (JJS most) (NNS people))
+        (NP-SBJ (JJS most) (NNS people))
         (VP
           (VBP are)
           (VP (VBG going) (ADVP (RB there)) (ADVP (RB anyway))))))
     (, ,)
-    (NP (PRP you))
+    (NP-SBJ (PRP you))
     (VP
       (MD can)
-      (ADVP (RB always))
+      (ADVP-TMP (RB always))
       (VP
         (VB ask)
         (NP (NNS people))
@@ -394,7 +404,7 @@
     (VP
       (ADVP (RB Also))
       (VBN known)
-      (PP
+      (PP-LOC
         (IN as)
         (NP
           (NP (NNP shah) (NNP square))
@@ -402,13 +412,13 @@
           (NP (NNP imam) (NNP square)))))
     (: -)
     (NP
-      (NP (CD 1602))
+      (NP-TMP (CD 1602))
       (PRN (-LRB- -LRB-) (NP (NNP Meidan) (NNP Emam)) (-RRB- -RRB-)))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT The) (NN square))
+    (NP-SBJ (DT The) (NN square))
     (VP
       (VBZ contains)
       (NP
@@ -423,28 +433,28 @@
 (ROOT
   (S
     (S
-      (NP (DT The) (NN square))
+      (NP-SBJ (DT The) (NN square))
       (VP
         (VBZ is)
-        (NP
+        (NP-PRD
           (NP
             (DT the)
             (JJS largest)
             (JJ historical)
             (JJ public)
             (NN square))
-          (PP (IN in) (NP (DT the) (NN world)))
-          (PP
+          (PP-LOC (IN in) (NP (DT the) (NN world)))
+          (PP-LOC
             (IN after)
             (NP
               (NP (NNP Tiananmen) (NNP Square))
-              (PP (IN in) (NP (NNP Beijing))))))))
+              (PP-LOC (IN in) (NP (NNP Beijing))))))))
     (CC and)
     (S
-      (NP (PRP it))
+      (NP-SBJ (PRP it))
       (VP
         (VBZ is)
-        (NP
+        (NP-PRD
           (DT a)
           (NNP UNESCO)
           (NNP World)
@@ -454,32 +464,32 @@
 
 (ROOT
   (S
-    (NP (DT The) (NN square))
+    (NP-SBJ (DT The) (NN square))
     (VP
       (VBZ is)
       (VP
         (VBN surrounded)
-        (PP
+        (PP-LOC
           (IN by)
           (NP
             (NP (NNS buildings))
-            (PP (IN from) (NP (DT the) (NNP Safavid) (NN era)))))))
+            (PP-TMP (IN from) (NP (DT the) (NNP Safavid) (NN era)))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (DT This))
+    (NP-SBJ (DT This))
     (NP
       (NP (DT a) (ADJP (RB very) (JJ popular)) (NN place))
       (SBAR
         (IN for)
         (S
-          (NP (NNS locals))
+          (NP-SBJ (NNS locals))
           (VP
             (TO to)
             (VP
               (VB picnic)
-              (PP
+              (PP-TMP
                 (IN on)
                 (NP
                   (NNP Friday)
@@ -492,19 +502,21 @@
 
 (ROOT
   (S
-    (NP (CD 1596))
+    (NP-TMP (CD 1596))
     (, ,)
     (S
       (VP
         (VBG dating)
-        (PP (IN from) (NP (DT the) (NNP Saffavid) (NN era)))))
+        (PP-TMP (IN from) (NP (DT the) (NNP Saffavid) (NN era)))))
     (, ,)
-    (NP (DT the) (NN avenue))
+    (NP-SBJ (DT the) (NN avenue))
     (VP
       (VBZ is)
       (NP
-        (NP (DT the) (ADJP (RBS most) (RB historically) (JJ famous)))
-        (PP
+        (NP
+          (DT the)
+          (ADJP-PRD (RBS most) (RB historically) (JJ famous)))
+        (PP-LOC
           (IN in)
           (NP (NP (DT all)) (PP (IN of) (NP (NNP Persia)))))))
     (. .)))
@@ -525,22 +537,22 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (DT The) (JJ stunning) (NNS mosques))
       (PP (IN of) (NP (NNP Isfahan))))
     (VP
       (VBP are)
-      (PP
+      (PP-LOC
         (IN among)
         (NP
           (NP
             (DT the)
-            (ADJP
+            (ADJP-PRD
               (RBS most)
               (JJ beautiful)
               (CC and)
               (JJ interesting)))
-          (PP (IN in) (NP (DT the) (NN world))))))
+          (PP-LOC (IN in) (NP (DT the) (NN world))))))
     (. .)))
 
 (ROOT
@@ -557,7 +569,7 @@
     (, ,)
     (NP (NNP Naqsh-e) (NNP Jahan) (NNP Square))
     (, ,)
-    (NP (JJ south) (NN side))
+    (NP (NN south) (NN side))
     (. .)))
 
 (ROOT
@@ -565,13 +577,13 @@
     (S
       (VP
         (VBN Built)
-        (PP (IN during) (NP (DT the) (NNP Safavid) (NN period)))))
+        (PP-TMP (IN during) (NP (DT the) (NNP Safavid) (NN period)))))
     (, ,)
-    (NP (PRP it))
+    (NP-SBJ (PRP it))
     (VP
       (VBZ is)
       (UCP
-        (NP
+        (NP-PRD
           (NP (DT an) (JJ excellent) (NN example))
           (PP
             (IN of)
@@ -582,7 +594,7 @@
         (CC and)
         (VP
           (VBN regarded)
-          (PP
+          (PP-LOC
             (IN as)
             (NP
               (NP (CD one))
@@ -595,12 +607,12 @@
 
 (ROOT
   (S
-    (NP (PRP It))
+    (NP-SBJ (PRP It))
     (VP
       (VBZ is)
       (VP
         (VBN registered)
-        (PP
+        (PP-LOC
           (IN as)
           (NP
             (DT a)
@@ -612,11 +624,11 @@
 
 (ROOT
   (S
-    (NP (PRP$ Its) (NN splendour))
+    (NP-SBJ (PRP$ Its) (NN splendour))
     (VP
       (VBZ is)
       (ADVP (RB mainly))
-      (ADJP
+      (ADJP-PRD
         (JJ due)
         (PP
           (IN to)
@@ -625,11 +637,13 @@
             (PP
               (IN of)
               (NP
-                (PRP$ its)
-                (NX
-                  (NX (NN seven-colour) (NN mosaic) (NNS tiles))
-                  (CC and)
-                  (NX (JJ calligraphic) (NNS inscriptions)))))))))
+                (NP
+                  (PRP$ its)
+                  (ADJP (CD seven) (HYPH -) (NN colour))
+                  (NN mosaic)
+                  (NNS tiles))
+                (CC and)
+                (NX (JJ calligraphic) (NNS inscriptions))))))))
     (. .)))
 
 (ROOT
@@ -644,7 +658,7 @@
 (ROOT
   (S
     (S
-      (NP
+      (NP-SBJ
         (NP (CD One))
         (PP
           (IN of)
@@ -665,8 +679,8 @@
             (VP
               (VB be)
               (NP
-                (NP (DT the) (ADJP (RBS most) (JJ beautiful)))
-                (PP (IN in) (NP (NNP Iran)))))))))
+                (NP (DT the) (ADJP-PRD (RBS most) (JJ beautiful)))
+                (PP-LOC (IN in) (NP (NNP Iran)))))))))
     (. .)))
 
 (ROOT
@@ -674,7 +688,7 @@
     (VP
       (VP
         (VBN Built)
-        (PP (IN in) (NP (CD 1602)))
+        (PP-TMP (IN in) (NP (CD 1602)))
         (PP (IN by) (NP (NNP Shah) (NNP Abbas) (JJ I.=))))
       (CC and)
       (VP
@@ -690,7 +704,7 @@
 (ROOT
   (S
     (S
-      (NP (DT The) (NN mosque))
+      (NP-SBJ (DT The) (NN mosque))
       (VP
         (VBD was)
         (VP
@@ -700,13 +714,13 @@
               (TO to)
               (VP
                 (VB be)
-                (NP
+                (NP-PRD
                   (NP (DT a) (JJ private) (NN mosque))
                   (PP (IN for) (NP (DT the) (JJ royal) (NN family))))))))))
     (CC and)
     (S
       (ADVP (RB therefore))
-      (NP (PRP it))
+      (NP-SBJ (PRP it))
       (VP
         (VBZ does)
         (RB not)
@@ -718,13 +732,13 @@
     (NP (EX There))
     (VP
       (VBZ is)
-      (NP
+      (NP-SBJ
         (NP
           (NP (DT a) (NN tunnel))
-          (PP (IN from) (NP (DT the) (NN mosque)))
-          (PP (IN to) (NP (DT the) (NNP Royal) (NNP Palace))))
+          (PP-DIR (IN from) (NP (DT the) (NN mosque)))
+          (PP-DIR (IN to) (NP (DT the) (NNP Royal) (NNP Palace))))
         (, ,)
-        (PP (IN across) (NP (DT the) (NN square)))))
+        (PP-DIR (IN across) (NP (DT the) (NN square)))))
     (. .)))
 
 (ROOT
@@ -736,17 +750,17 @@
     (ADVP
       (RB north)
       (PP (IN of) (NP (NNP Naqsh-e) (NNP Jahan) (NNP Square))))
-    (PP (IN in) (NP (DT the) (JJ old) (NN quarter)))
+    (PP-LOC (IN in) (NP (DT the) (JJ old) (NN quarter)))
     (. .)))
 
 (ROOT
   (S
-    (S (VP (VBN Started) (PP (IN in) (NP (NN AD) (CD 842)))))
+    (S (VP (VBN Started) (PP-TMP (IN in) (NP-ADV (NN AD) (CD 842)))))
     (, ,)
-    (NP (DT this))
+    (NP-SBJ (DT this))
     (VP
       (VBZ is)
-      (NP
+      (NP-PRD
         (NP (DT the) (JJ first) (JJ Islamic) (NN building))
         (SBAR
           (S
@@ -755,7 +769,10 @@
               (VP
                 (VB adopt)
                 (NP
-                  (NP (DT the) (NN four-courtyard) (NN layout))
+                  (NP
+                    (DT the)
+                    (ADJP (CD four) (HYPH -) (NN courtyard))
+                    (NN layout))
                   (PP (IN of) (NP (NNP Sassanid) (NNS palaces))))))))))
     (. .)))
 
@@ -769,7 +786,7 @@
       (ADVP
         (RB north)
         (PP (IN of) (NP (NNP Naqsh-e) (NNP Jahan)))
-        (PP (IN in) (NP (DT the) (JJ old) (NN quarter))))
+        (PP-LOC (IN in) (NP (DT the) (JJ old) (NN quarter))))
       (-RRB- -RRB-))
     (. .)))
 
@@ -780,7 +797,7 @@
       (IN of)
       (NP
         (NP (DT the) (JJS oldest) (NNS mosques))
-        (PP (IN in) (NP (NNP Isfahan)))))
+        (PP-LOC (IN in) (NP (NNP Isfahan)))))
     (. .)))
 
 (ROOT
@@ -788,14 +805,14 @@
     (VP
       (VBN Built)
       (PP (IN by) (NP (NNP Shah) (NNP Abbas) (JJ II)))
-      (PP (IN between) (NP (CD 1656) (CC and) (CD 1662))))
+      (PP-TMP (IN between) (NP (CD 1656) (CC and) (CD 1662))))
     (. .)))
 
 (ROOT
   (S
     (VP
       (VBN Located)
-      (PP
+      (PP-LOC
         (IN on)
         (NP
           (NP (DT the) (NN site))
@@ -804,19 +821,19 @@
 
 (ROOT
   (S
-    (NP (DT The) (NN portal))
+    (NP-SBJ (DT The) (NN portal))
     (VP
       (VBD was)
       (VP
         (VBN covered)
         (PP (IN in) (NP (NN mud)))
-        (SBAR
+        (SBAR-ADV
           (IN until)
           (S
-            (NP (PRP it))
+            (NP-SBJ (PRP it))
             (VP
               (VBD was)
-              (VP (VBN discovered) (PP (IN in) (NP (CD 1956)))))))))
+              (VP (VBN discovered) (PP-TMP (IN in) (NP (CD 1956)))))))))
     (. .)))
 
 (ROOT (NP (NNS Palaces)))
@@ -839,19 +856,21 @@
 (ROOT
   (S
     (S
-      (NP (PRP It))
+      (NP-SBJ (PRP It))
       (VP
         (VBZ is)
-        (ADJP (NP (CD forty-eight) (NNS meters)) (JJ high))))
+        (ADJP-PRD
+          (NP-EXT (QP (CD forty) (HYPH -) (CD eight)) (NNS meters))
+          (JJ high))))
     (CC and)
     (S
       (NP (EX there))
       (VP
         (VBP are)
-        (NP
+        (NP-SBJ
           (NP (CD seven) (NNS floors))
           (, ,)
-          (NP
+          (NP-SBJ
             (NP (DT each))
             (ADJP
               (JJ accessible)
@@ -862,18 +881,18 @@
 
 (ROOT
   (S
-    (PP
+    (PP-LOC
       (IN In)
       (NP (DT the) (JJ sixth) (NN floor) (NN music) (NN room)))
     (, ,)
-    (NP (JJ deep) (JJ circular) (NNS niches))
+    (NP-SBJ (JJ deep) (JJ circular) (NNS niches))
     (VP
       (VBP are)
       (VP
         (VBN found)
         (PP (IN in) (NP (DT the) (NNS walls)))
         (, ,)
-        (S
+        (S-ADV
           (VP
             (VBG having)
             (NP
@@ -886,10 +905,10 @@
 
 (ROOT
   (S
-    (NP (PRP It))
+    (NP-SBJ (PRP It))
     (VP
       (VBZ is)
-      (ADJP
+      (ADJP-PRD
         (JJ rich)
         (PP
           (IN in)
@@ -914,7 +933,7 @@
     (NP (EX There))
     (VP
       (VBP are)
-      (NP
+      (NP-SBJ
         (ADJP (JJ floral) (, ,) (NN animal) (CC and) (NN bird))
         (NNS motifs)))
     (. .)))
@@ -925,19 +944,19 @@
     (PRN
       (-LRB- -LRB-)
       (NP
-        (NP (DT The) (NN Palace))
-        (PP (IN of) (NP (CD Eight) (NNS Paradises))))
+        (NP (DT The) (NNP Palace))
+        (PP (IN of) (NP (CD Eight) (NNPS Paradises))))
       (-RRB- -RRB-))
     (. .)))
 
 (ROOT
   (NP
-    (NP (CD 1669))
+    (NP-TMP (CD 1669))
     (, ,)
     (VP
       (ADVP (RB reportedly))
       (VBN built)
-      (PP
+      (PP-BNF
         (IN for)
         (NP
           (NP (NN residence) (NNS purposes))
@@ -949,20 +968,20 @@
 (ROOT
   (FRAG
     (VBN Set)
-    (PP
+    (PP-LOC
       (IN within)
       (NP
         (NP (JJ lush) (NNS gardens))
         (SBAR
-          (WHNP (WDT which))
+          (NP-SBJ (WDT which))
           (S
             (VP
               (VBP are)
-              (ADJP (JJ free) (S (VP (TO to) (VP (VB roam)))))
-              (SBAR
+              (ADJP-PRD (JJ free) (S (VP (TO to) (VP (VB roam)))))
+              (SBAR-ADV
                 (IN if)
                 (S
-                  (NP (PRP you))
+                  (NP-SBJ (PRP you))
                   (VP
                     (VBP do)
                     (RB n't)
@@ -973,7 +992,7 @@
                           (TO to)
                           (VP
                             (VB go)
-                            (PP
+                            (PP-LOC
                               (IN inside)
                               (NP (DT the) (NN building)))))))))))))))
     (. .)))
@@ -991,10 +1010,10 @@
 
 (ROOT
   (FRAG
-    (NP (CD 1647))
+    (NP-TMP (CD 1647))
     (: :)
     (S
-      (NP (PRP It))
+      (NP-SBJ (PRP It))
       (VP
         (VP
           (VBZ is)
@@ -1005,39 +1024,41 @@
                 (NP (NN Palace))
                 (PP (IN of) (NP (CD forty) (NNS columns)))))
             (, ,)
-            (SBAR
+            (SBAR-ADV
               (IN as)
               (S
                 (NP (EX there))
-                (VP (VBP are) (NP (JJ many) (NNS columns)))))))
+                (VP (VBP are) (NP-SBJ (JJ many) (NNS columns)))))))
         (, ,)
         (CC and)
         (S
           (PP (IN in) (NP (NNP Iranian)))
           (, ,)
-          (NP (CD 40))
-          (VP (VBZ means) (ADJP (JJ many))))))
+          (NP-SBJ (CD 40))
+          (VP (VBZ means) (ADJP-PRD (JJ many))))))
     (. .)))
 
 (ROOT
   (S
     (ADVP (RB Incidentally))
     (, ,)
-    (S (NP (EX there)) (VP (VBP are) (NP (CD twenty) (NNS columns))))
+    (S
+      (NP (EX there))
+      (VP (VBP are) (NP-SBJ (CD twenty) (NNS columns))))
     (, ,)
     (CC and)
     (S
-      (NP (DT these))
+      (NP-SBJ (DT these))
       (VP
         (VBP are)
         (VP
           (VBN reflected)
-          (PP
+          (PP-LOC
             (IN in)
             (NP (NP (DT the) (NN pool)) (PP (IN in) (NP (NN front)))))
           (, ,)
           (SBAR
-            (WHNP (WDT which))
+            (NP-SBJ (WDT which))
             (S
               (VP
                 (MD might)
@@ -1049,7 +1070,7 @@
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (DT The) (NN function))
       (PP (IN of) (NP (DT this) (NN palace))))
     (VP
@@ -1057,17 +1078,19 @@
       (PP
         (PP
           (IN for)
-          (S
+          (S-PRD
             (VP
               (VBG holding)
               (NP
-                (NP (JJ religious-national) (NNS ceremonies))
+                (NP
+                  (ADJP (JJ religious) (HYPH -) (JJ national))
+                  (NNS ceremonies))
                 (CC and)
                 (NP (JJ royal) (NNS festivals))))))
         (CC and)
         (PP
           (IN for)
-          (S
+          (S-NOM
             (VP
               (VBG receiving)
               (NP (JJ royal) (NNS ambassadors) (CC and) (NNS guests)))))))
@@ -1075,10 +1098,10 @@
 
 (ROOT
   (S
-    (NP (PRP$ It's) (NNP Persian) (NNPS Gardens))
+    (NP-SBJ (PRP$ It's) (NNP Persian) (NNPS Gardens))
     (VP
       (VBZ is)
-      (NP
+      (NP-PRD
         (NP (CD one))
         (PP
           (IN of)
@@ -1102,4 +1125,3 @@
       (VBZ Contains)
       (NP (DT some) (JJ spectacular) (NN battle) (NNS murals)))
     (. .)))
-

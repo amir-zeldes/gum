@@ -2,23 +2,23 @@
 
 (ROOT (NP (NNP Jeanne) (NNP Moreau)))
 
-(ROOT (FRAG (NP (NNP Moreau)) (PP (IN in) (NP (CD 1958)))))
+(ROOT (FRAG (NP (NNP Moreau)) (PP-TMP (IN in) (NP (CD 1958)))))
 
 (ROOT
   (S
     (VP
       (VBN Born)
-      (NP (CD 23) (NNP January) (CD 1928))
-      (NP (NP (NNP Paris)) (, ,) (NP (NNP France))))))
+      (NP-TMP (CD 23) (NNP January) (CD 1928))
+      (NP (NP-ADV (NNP Paris)) (, ,) (NP (NNP France))))))
 
 (ROOT
   (FRAG
-    (VP (VBD Died) (NP (CD 31) (NNP July) (CD 2017)))
-    (PRN (-LRB- -LRB-) (S (VP (VBN aged) (CD 89))) (-RRB- -RRB-))
-    (NP (NP (NNP Paris)) (, ,) (NP (NNP France)))))
+    (VP (VBD Died) (NP-TMP (CD 31) (NNP July) (CD 2017)))
+    (PRN (-LRB- -LRB-) (ADJP (JJ aged) (CD 89)) (-RRB- -RRB-))
+    (NP (NP-ADV (NNP Paris)) (, ,) (NP (NNP France)))))
 
 (ROOT
-  (NP
+  (NP-SBJ
     (NP (NN Resting) (NN place))
     (NP
       (NP (NNP Montmartre) (NNP Cemetery))
@@ -26,10 +26,15 @@
       (NP (NP (NNP Paris)) (, ,) (NP (NNP France))))))
 
 (ROOT
-  (NP (NN Alma) (NN mater) (NNP Conservatoire) (NNP de) (NNP Paris)))
+  (NP-SBJ
+    (NN Alma)
+    (NN mater)
+    (NNP Conservatoire)
+    (NNP de)
+    (NNP Paris)))
 
 (ROOT
-  (NP
+  (NP-SBJ
     (NP (NN Occupation) (NN Actress))
     (, ,)
     (NP (NN screenwriter))
@@ -37,46 +42,56 @@
     (NP (NN film) (NN director))))
 
 (ROOT
-  (NP
+  (NP-SBJ
     (NP (NP (NNS Years)) (ADJP (JJ active)))
     (NP (CD 1947) (SYM –) (CD 2012))))
 
 (ROOT
-  (NP
-    (NP (NNS Spouse-LRB-s-RRB-) (NNP Jean-Louis) (NNP Richard))
-    (PRN
-      (-LRB- -LRB-)
-      (NP (NP (VBN m.) (CD 1949)) (: ;) (NP (VBN div.) (CD 1964)))
-      (-RRB- -RRB-))
+  (NP-SBJ
+    (NP (NNS Spouse-LRB-s-RRB-) (NNP Jean))
+    (HYPH -)
     (NP
-      (NP (NNP William) (NNP Friedkin))
-      (PRN
-        (-LRB- -LRB-)
-        (NP (NP (VBN m.) (CD 1977)) (: ;) (NP (VBN div.) (CD 1979)))
-        (-RRB- -RRB-)))))
+      (NP
+        (NP (NNP Louis) (NNP Richard))
+        (PRN
+          (-LRB- -LRB-)
+          (NP
+            (NP-TMP (VBN m.) (CD 1949))
+            (: ;)
+            (NP-TMP (VBN div.) (CD 1964)))
+          (-RRB- -RRB-)))
+      (NP
+        (NP (NNP William) (NNP Friedkin))
+        (PRN
+          (-LRB- -LRB-)
+          (NP
+            (NP-TMP (VBN m.) (CD 1977))
+            (: ;)
+            (NP-TMP (VBN div.) (CD 1979)))
+          (-RRB- -RRB-))))))
 
-(ROOT (NP (NNS Children) (NNP Jérôme) (NNP Richard)))
+(ROOT (NP-SBJ (NNS Children) (NNP Jérôme) (NNP Richard)))
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (NNP Jeanne) (NNP Moreau))
       (PRN
         (-LRB- -LRB-)
-        (NP (JJ French) (NN pronunciation))
+        (NP-SBJ (JJ French) (NN pronunciation))
         (: :)
-        (-LSB- [)
+        (-LRB- [)
         (NP (SYM ʒan) (SYM mɔʁo))
-        (-RSB- ])
+        (-RRB- ])
         (: ;)
         (NP
-          (NP (CD 23) (NNP January) (CD 1928))
+          (NP-TMP (CD 23) (NNP January) (CD 1928))
           (SYM –)
-          (NP (CD 31) (NNP July) (CD 2017)))
+          (NP-TMP (CD 31) (NNP July) (CD 2017)))
         (-RRB- -RRB-)))
     (VP
       (VBD was)
-      (NP
+      (NP-PRD
         (DT a)
         (JJ French)
         (NN actress)
@@ -90,7 +105,7 @@
 
 (ROOT
   (S
-    (NP (PRP She))
+    (NP-SBJ (PRP She))
     (VP
       (VBD won)
       (NP
@@ -105,19 +120,19 @@
             (IN for)
             (NP
               (NP (JJS Best) (NN Actress))
-              (PP
+              (PP-TMP
                 (IN for)
                 (NP
                   (NP (NNP Seven) (NNPS Days))
                   (: ...)
                   (NP (NNP Seven) (NNPS Nights))))))
-          (PRN (-LRB- -LRB-) (NP (CD 1960)) (-RRB- -RRB-)))
+          (PRN (-LRB- -LRB-) (NP-TMP (CD 1960)) (-RRB- -RRB-)))
         (, ,)
         (NP
           (NP (DT the) (NNP BAFTA) (NNP Award))
           (PP (IN for) (NP (JJS Best) (JJ Foreign) (NN Actress)))
           (PP (IN for) (NP (NNP Viva) (NNP Maria) (. !)))
-          (PRN (-LRB- -LRB-) (NP (CD 1965)) (-RRB- -RRB-)))
+          (PRN (-LRB- -LRB-) (NP-TMP (CD 1965)) (-RRB- -RRB-)))
         (, ,)
         (CC and)
         (NP
@@ -129,21 +144,21 @@
               (NP
                 (NP (DT The) (NNP Old) (NNP Lady))
                 (SBAR
-                  (WHNP (WP Who))
+                  (NP-SBJ (WP Who))
                   (S
                     (VP
                       (VBD Walked)
-                      (PP (IN in) (NP (DT the) (NNP Sea)))))))
-              (PRN (-LRB- -LRB-) (NP (CD 1992)) (-RRB- -RRB-)))))))
+                      (PP-LOC (IN in) (NP (DT the) (NNP Sea)))))))
+              (PRN (-LRB- -LRB-) (NP-TMP (CD 1992)) (-RRB- -RRB-)))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP She))
+    (NP-SBJ (PRP She))
     (VP
       (VBD was)
       (ADVP (RB also))
-      (NP
+      (NP-PRD
         (NP (DT the) (NN recipient))
         (PP
           (IN of)
@@ -155,25 +170,25 @@
               (NP
                 (NP
                   (NP (DT a) (NNP BAFTA) (NNP Fellowship))
-                  (PP (IN in) (NP (CD 1996))))
+                  (PP-TMP (IN in) (NP (CD 1996))))
                 (, ,)
                 (NP
                   (NP (NNP Cannes) (NNP Golden) (NNP Palm))
-                  (PP (IN in) (NP (CD 2003))))
+                  (PP-TMP (IN in) (NP (CD 2003))))
                 (CC and)
                 (NP
                   (NP (NNP César) (NNP Award))
-                  (PP (IN in) (NP (CD 2008))))))))))
+                  (PP-TMP (IN in) (NP (CD 2008))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (NNP Moreau))
+    (NP-SBJ (NNP Moreau))
     (VP
       (VP
         (VBD made)
         (NP (PRP$ her) (JJ theatrical) (NN debut))
-        (PP (IN in) (NP (CD 1947))))
+        (PP-TMP (IN in) (NP (CD 1947))))
       (, ,)
       (CC and)
       (VP
@@ -187,12 +202,14 @@
               (IN of)
               (NP
                 (NP (DT the) (VBG leading) (NNS actresses))
-                (PP (IN of) (NP (DT the) (NNP Comédie-Française)))))))))
+                (PP
+                  (IN of)
+                  (NP (DT the) (NN Comédie) (HYPH -) (NNP Française)))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP She))
+    (NP-SBJ (PRP She))
     (VP
       (VBD began)
       (S
@@ -200,7 +217,7 @@
           (VBG playing)
           (NP (JJ small) (NNS roles))
           (PP (IN in) (NP (NNS films)))))
-      (PP (IN in) (NP (CD 1949)))
+      (PP-TMP (IN in) (NP (CD 1949)))
       (, ,)
       (PP
         (IN with)
@@ -221,7 +238,7 @@
                   (NP
                     (NP (NNP Three) (NNP Sinners))
                     (, ,)
-                    (NP (CD 1950)))
+                    (NP-TMP (CD 1950)))
                   (-RRB- -RRB-))))
             (CC and)
             (VP
@@ -248,12 +265,15 @@
                     (NNP pas)
                     (NNP au)
                     (NNP grisbi))
-                  (PRN (-LRB- -LRB-) (NP (CD 1954)) (-RRB- -RRB-)))))))))
+                  (PRN
+                    (-LRB- -LRB-)
+                    (NP-TMP (CD 1954))
+                    (-RRB- -RRB-)))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP She))
+    (NP-SBJ (PRP She))
     (VP
       (VBD achieved)
       (NP (NN prominence))
@@ -267,8 +287,8 @@
               (NP
                 (NP
                   (NP (NNP Elevator))
-                  (PP (IN to) (NP (DT the) (NNP Gallows))))
-                (PRN (-LRB- -LRB-) (NP (CD 1958)) (-RRB- -RRB-))
+                  (PP-DIR (IN to) (NP (DT the) (NNP Gallows))))
+                (PRN (-LRB- -LRB-) (NP-TMP (CD 1958)) (-RRB- -RRB-))
                 (, ,)
                 (VP
                   (VBN directed)
@@ -277,7 +297,7 @@
               (CC and)
               (NP
                 (NP (NNP Jules) (NNP et) (NNP Jim))
-                (PRN (-LRB- -LRB-) (NP (CD 1962)) (-RRB- -RRB-))
+                (PRN (-LRB- -LRB-) (NP-TMP (CD 1962)) (-RRB- -RRB-))
                 (, ,)
                 (VP
                   (VBN directed)
@@ -290,26 +310,26 @@
       (ADJP
         (RBS Most)
         (JJ prolific)
-        (PP (IN during) (NP (DT the) (NNS 1960s)))))
+        (PP-TMP (IN during) (NP (DT the) (NNS 1960s)))))
     (, ,)
-    (NP (NNP Moreau))
+    (NP-SBJ (NNP Moreau))
     (VP
       (VBD continued)
       (S (VP (TO to) (VP (VB appear) (PP (IN in) (NP (NNS films))))))
-      (PP (IN into) (NP (PRP$ her) (NNS 80s))))
+      (PP-TMP (IN into) (NP (PRP$ her) (NNS 80s))))
     (. .)))
 
 (ROOT (NP (JJ Early) (NN life) (CC and) (NN education)))
 
 (ROOT
   (S
-    (NP (NNP Moreau))
+    (NP-SBJ (NNP Moreau))
     (VP
       (VP
         (VBD was)
         (VP
           (VBN born)
-          (PP (IN in) (NP (NNP Paris)))
+          (PP-LOC (IN in) (NP (NNP Paris)))
           (, ,)
           (NP
             (NP (DT the) (NN daughter))
@@ -328,11 +348,11 @@
                     (NP
                       (NP (DT a) (NN dancer))
                       (SBAR
-                        (WHNP (WP who))
+                        (NP-SBJ (WP who))
                         (S
                           (VP
                             (VBD performed)
-                            (PP
+                            (PP-LOC
                               (IN at)
                               (NP
                                 (DT the)
@@ -340,34 +360,38 @@
                                 (NNP Bergère)))))))
                     (PRN
                       (-LRB- -LRB-)
-                      (NP (VBN d.) (CD 1990))
+                      (NP-TMP (VBN d.) (CD 1990))
                       (-RRB- -RRB-))))
                 (, ,)
                 (CC and)
                 (NP
-                  (NP (NNP Anatole-Désiré) (NNP Moreau))
+                  (NP
+                    (NNP Anatole)
+                    (HYPH -)
+                    (NNP Désiré)
+                    (NNP Moreau))
                   (, ,)
                   (NP
                     (NP (DT a) (NN restaurateur))
                     (PRN
                       (-LRB- -LRB-)
-                      (NP (VBN d.) (CD 1975))
+                      (NP-TMP (VBN d.) (CD 1975))
                       (-RRB- -RRB-)))))))))
       (. .)
-      (ADJP (-LSB- [) (CD 1) (-RSB- ]) (-LSB- [) (CD 2) (-RSB- ])))))
+      (PRN (-LRB- [) (CD 1) (-RRB- ]) (-LRB- [) (CD 2) (-RRB- ])))))
 
 (ROOT
   (S
     (S
-      (NP (NP (NNP Moreau) (POS 's)) (NN father))
-      (VP (VBD was) (ADJP (JJ French))))
+      (NP-SBJ (NP (NNP Moreau) (POS 's)) (NN father))
+      (VP (VBD was) (ADJP-PRD (JJ French))))
     (: ;)
     (S
-      (NP (PRP$ her) (NN mother))
+      (NP-SBJ (PRP$ her) (NN mother))
       (VP
         (VP
           (VBD was)
-          (ADJP (JJ English))
+          (ADJP-PRD (JJ English))
           (, ,)
           (NP
             (NP
@@ -381,54 +405,54 @@
                     (NP (NNP Lancashire))
                     (, ,)
                     (NP (NNP England)))
-                  (PRN (-LSB- [) (CD 3) (-RSB- ])))))
+                  (PRN (-LRB- [) (CD 3) (-RRB- ])))))
             (CC and)
             (PP (IN of) (NP (NN part) (JJ Irish) (NN descent)))))
         (. .)
         (NP
-          (-LSB- [)
+          (-LRB- [)
           (CD 2)
-          (-RSB- ])
-          (-LSB- [)
+          (-RRB- ])
+          (-LRB- [)
           (CD 4)
-          (-RSB- ])
-          (ADVP (-LSB- [) (CD 5) (-RSB- ])))))))
+          (-RRB- ])
+          (ADVP (-LRB- [) (CD 5) (-RRB- ])))))))
 
 (ROOT
   (S
     (S
-      (NP (NP (NNP Moreau) (POS 's)) (NN father))
-      (VP (VBD was) (ADJP (JJ Catholic))))
+      (NP-SBJ (NP (NNP Moreau) (POS 's)) (NN father))
+      (VP (VBD was) (ADJP-PRD (JJ Catholic))))
     (CC and)
     (S
-      (NP
+      (NP-SBJ
         (NP (PRP$ her) (NN mother))
         (, ,)
-        (NP (ADVP (RB originally)) (DT a) (NN Protestant))
+        (NP (ADVP-TMP (RB originally)) (DT a) (NN Protestant))
         (, ,))
       (VP
         (VBD converted)
         (PP (IN to) (NP (NN Catholicism)))
         (PP (IN upon) (NP (NN marriage)))))
     (. .)
-    (X (-LSB- [) (CD 2) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 2) (-RRB- ]))))
 
 (ROOT
   (S
-    (SBAR (WHADVP (WRB When)) (NP (DT a) (JJ young) (NN girl)))
+    (SBAR-TMP (WHADVP (WRB When)) (NP (DT a) (JJ young) (NN girl)))
     (, ,)
     ('' ")
-    (NP (DT the) (NN family))
+    (NP-SBJ (DT the) (NN family))
     (VP
       (VBD moved)
       (ADVP (RB south))
-      (PP (IN to) (NP (NNP Vichy)))
+      (PP-DIR (IN to) (NP (NNP Vichy)))
       (, ,)
-      (S
+      (S-ADV
         (VP
           (VBG spending)
           (NP (NNS vacations))
-          (PP
+          (PP-LOC
             (IN at)
             (NP
               (NP (DT the) (JJ paternal) (JJ ancestral) (NN village))
@@ -440,32 +464,32 @@
                   (NP
                     (NP (DT a) (NN town))
                     (PP (IN of) (NP (CD 30) (NNS houses)))
-                    (PP
+                    (PP-LOC
                       (IN in)
                       (NP
                         (NP (DT a) (NN valley))
-                        (PP (IN in) (NP (DT the) (NNP Allier)))))))))))))
+                        (PP-LOC (IN in) (NP (DT the) (NNP Allier)))))))))))))
     (. .)))
 
 (ROOT
   (S
     (`` ")
     (S
-      (NP (PRP It))
-      (VP (VBD was) (ADJP (JJ wonderful)) (ADVP (RB there))))
+      (NP-SBJ (PRP It))
+      (VP (VBD was) (ADJP-PRD (JJ wonderful)) (ADVP (RB there))))
     ('' ")
     (, ,)
-    (NP (NNP Moreau))
+    (NP-SBJ (NNP Moreau))
     (VP (VBD said))
     (. .)))
 
 (ROOT
   (S
     (`` ")
-    (NP
+    (NP-SBJ
       (NP (DT Every) (NN tombstone))
-      (PP (IN in) (NP (DT the) (NN cemetery))))
-    (VP (VBD was) (PP (IN for) (NP (DT a) (NNP Moreau))))
+      (PP-LOC (IN in) (NP (DT the) (NN cemetery))))
+    (VP (VBD was) (PP-PRD (IN for) (NP (DT a) (NNP Moreau))))
     ('' ")
     (. .)))
 
@@ -473,32 +497,32 @@
   (S
     (PP (IN During) (NP (DT the) (NNP World) (NNP War) (CD II)))
     (, ,)
-    (S (NP (DT the) (NN family)) (VP (VBD was) (VP (VBN split))))
+    (S (NP-SBJ (DT the) (NN family)) (VP (VBD was) (VP (VBN split))))
     (, ,)
     (CC and)
     (S
-      (NP (NNP Moreau))
+      (NP-SBJ (NNP Moreau))
       (VP
         (VBD lived)
         (PP (IN with) (NP (PRP$ her) (NN mother)))
-        (PP (IN in) (NP (NNP Paris)))))
+        (PP-LOC (IN in) (NP (NNP Paris)))))
     (. .)))
 
 (ROOT
   (S
-    (NP (NNP Moreau))
-    (ADVP (RB ultimately))
+    (NP-SBJ (NNP Moreau))
+    (ADVP-TMP (RB ultimately))
     (VP
       (VP
         (VBD lost)
         (NP (NP (NN interest)) (PP (IN in) (NP (NN school))))
-        (PP (IN at) (NP (NN age) (CD 16))))
+        (PP-TMP (IN at) (NP (NN age) (CD 16))))
       (, ,)
       (CC and)
       (VP
         (PP
           (IN after)
-          (S
+          (S-NOM
             (VP
               (VBG attending)
               (NP
@@ -517,8 +541,8 @@
 
 (ROOT
   (S
-    (NP (PRP She))
-    (ADVP (RBR later))
+    (NP-SBJ (PRP She))
+    (ADVP-TMP (RBR later))
     (VP
       (VBD studied)
       (PP
@@ -528,53 +552,53 @@
 
 (ROOT
   (S
-    (NP (PRP$ Her) (NNS parents))
+    (NP-SBJ (PRP$ Her) (NNS parents))
     (VP
       (VP
         (VBD separated)
-        (ADVP (RB permanently))
+        (ADVP-MNR (RB permanently))
         (SBAR
           (IN while)
           (S
             (S
-              (NP (NNP Moreau))
+              (NP-SBJ (NNP Moreau))
               (VP
                 (VBD was)
-                (PP (IN at) (NP (DT the) (NN conservatory)))))
+                (PP-PRD (IN at) (NP (DT the) (NN conservatory)))))
             (CC and)
             (S
-              (NP (PRP$ her) (NN mother))
+              (NP-SBJ (PRP$ her) (NN mother))
               (, ,)
               (`` ")
-              (PP
+              (PP-TMP
                 (IN after)
                 (NP
                   (NP (CD 24) (JJ difficult) (NNS years))
-                  (PP (IN in) (NP (NNP France)))))
+                  (PP-LOC (IN in) (NP (NNP France)))))
               (, ,)
               (VP
                 (VBD returned)
-                (PP (IN to) (NP (NNP England)))
+                (PP-DIR (IN to) (NP (NNP England)))
                 (PP
                   (IN with)
                   (NP
                     (NP
                       (NP (NNP Jeanne) (POS 's))
-                      (ADJP (-LSB- [) (CD 6) (-RSB- ]))
+                      (ADJP (-LRB- [) (CD 6) (-RRB- ]))
                       (NN sister))
                     (, ,)
                     (NP (NNP Michelle)))))))))
       (. .)
       ('' ")
-      (ADVP (-LSB- [) (CD 6) (-RSB- ])))))
+      (ADVP (-LRB- [) (CD 6) (-RRB- ])))))
 
 (ROOT (NP (NNP Career)))
 
 (ROOT
   (S
-    (PP (IN In) (NP (CD 1947)))
+    (PP-TMP (IN In) (NP (CD 1947)))
     (, ,)
-    (NP (NNP Moreau))
+    (NP-SBJ (NNP Moreau))
     (VP
       (VBD made)
       (NP (PRP$ her) (JJ theatrical) (NN debut))
@@ -583,27 +607,29 @@
 
 (ROOT
   (S
-    (NP (PRP She))
+    (NP-SBJ (PRP She))
     (VP
       (VP
         (VBD debuted)
-        (PP (IN at) (NP (DT the) (NN Comédie-Française)))
+        (PP
+          (IN at)
+          (NP (DT the) (NN Comédie) (HYPH -) (NNP Française)))
         (PP
           (IN in)
           (NP
+            (NP (NNP Ivan) (NNP Turgenev) (POS 's))
             (NP
-              (NP (NNP Ivan) (NNP Turgenev) (POS 's))
-              (NP (DT A) (NNP Month)))
-            (PP (IN in) (NP (DT the) (NNP Country)))))
-        (PRN (-LSB- [) (CD 6) (-RSB- ])))
+              (NP (DT A) (NNP Month))
+              (PP-LOC (IN in) (NP (DT the) (NNP Country))))))
+        (PRN (-LRB- [) (CD 6) (-RRB- ])))
       (CC and)
       (, ,)
       (VP
-        (PP (IN by) (NP (PRP$ her) (NNS 20s)))
+        (PP-TMP (IN by) (NP (PRP$ her) (NNS 20s)))
         (, ,)
         (VBD was)
-        (ADVP (RB already))
-        (NP
+        (ADVP-TMP (RB already))
+        (NP-PRD
           (NP (CD one))
           (PP
             (IN of)
@@ -613,13 +639,13 @@
                 (IN in)
                 (NP (NP (DT the) (NN theatre) (POS 's)) (NN troupe))))))))
     (. .)
-    (PRN (-LSB- [) (CD 2) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 2) (-RRB- ]))))
 
 (ROOT
   (S
-    (PP (IN After) (NP (CD 1949)))
+    (PP-TMP (IN After) (NP (CD 1949)))
     (, ,)
-    (NP (PRP she))
+    (NP-SBJ (PRP she))
     (VP
       (VP
         (VBD began)
@@ -634,11 +660,11 @@
       (CC but)
       (VP
         (VBD continued)
-        (ADJP
+        (ADJP-PRD
           (RB primarily)
           (JJ active)
-          (PP (IN in) (NP (DT the) (NN theatre))))
-        (PP
+          (PP-LOC (IN in) (NP (DT the) (NN theatre))))
+        (PP-TMP
           (IN for)
           (NP
             (NP (JJ several) (NNS years))
@@ -683,31 +709,36 @@
                   (NNP Infernale))
                 (CC and)
                 (NP (NNS others)))
-              (PP
+              (PP-TMP
                 (IN before)
                 (NP
-                  (NP (DT another) (JJ two-year) (NN run))
+                  (NP
+                    (DT another)
+                    (ADJP (CD two) (HYPH -) (NN year))
+                    (NN run))
                   (, ,)
                   (NP
-                    (NP (DT this) (NN time))
+                    (NP-ADV (DT this) (NN time))
                     (PP
                       (IN in)
                       (NP (NP (NNP Shaw) (POS 's)) (NNP Pygmalion)))))))))))
     (. .)
-    (PRN (-LSB- [) (CD 6) (-RSB- ]))))
+    (-LRB- [)
+    (CD 6)
+    (-RRB- ])))
 
 (ROOT
   (S
-    (PP (IN From) (NP (DT the) (JJ late) (NNS 1950s)))
+    (PP-TMP (IN From) (NP (DT the) (JJ late) (NNS 1950s)))
     (, ,)
     (PP
       (IN after)
-      (S
+      (S-NOM
         (VP
           (VBG appearing)
           (PP (IN in) (NP (JJ several) (JJ successful) (NNS films))))))
     (, ,)
-    (NP (PRP she))
+    (NP-SBJ (PRP she))
     (VP
       (VBD began)
       (S
@@ -719,18 +750,24 @@
               (IN with)
               (NP
                 (NP (DT the) (VBG emerging) (NN generation))
-                (PP (IN of) (NP (JJ French) (NNS film-makers)))))))))
+                (PP
+                  (IN of)
+                  (NP (JJ French) (NN film) (HYPH -) (NNS makers)))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP (NNP Elevator))
-      (PP (IN to) (NP (DT the) (NNP Gallows)))
-      (PRN (-LRB- -LRB-) (NP (CD 1958)) (-RRB- -RRB-))
+      (PP-DIR (IN to) (NP (DT the) (NNP Gallows)))
+      (PRN (-LRB- -LRB-) (NP-TMP (CD 1958)) (-RRB- -RRB-))
       (PP
         (IN with)
-        (NP (JJ first-time) (NN director) (NNP Louis) (NNP Malle))))
+        (NP
+          (ADJP (JJ first) (HYPH -) (NN time))
+          (NN director)
+          (NNP Louis)
+          (NNP Malle))))
     (VP
       (VBD was)
       (VP
@@ -741,42 +778,46 @@
             (NP (NP (NNP Malle) (POS 's)) (NX (DT The) (NNP Lovers)))
             (PRN
               (-LRB- -LRB-)
-              (NP (NP (NNP Les) (NNP Amants)) (, ,) (NP (CD 1959)))
+              (NP
+                (NP (NNP Les) (NNP Amants))
+                (, ,)
+                (NP-TMP (CD 1959)))
               (-RRB- -RRB-))))))
     (. .)
-    (PRN (-LSB- [) (CD 7) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 7) (-RRB- ]))))
 
 (ROOT
   (S
-    (NP (NNP Moreau))
+    (NP-SBJ (NNP Moreau))
     (VP
-      (VBD went)
-      (PRT (RP on))
-      (S
-        (VP
-          (TO to)
+      (VP
+        (VBD went)
+        (PRT (RP on))
+        (S
           (VP
-            (VB work)
-            (PP
-              (IN with)
-              (NP
-                (NP (JJ many))
-                (PP
-                  (IN of)
-                  (NP
-                    (DT the)
-                    (ADJP (RBS best) (VBN known))
-                    (NNP New)
-                    (NNP Wave)
-                    (CC and)
-                    (JJ avant-garde)
-                    (NNS directors)))))))))
-    (. .)
-    (PRN (-LSB- [) (CD 2) (-RSB- ]))))
+            (TO to)
+            (VP
+              (VB work)
+              (PP
+                (IN with)
+                (NP
+                  (NP (JJ many))
+                  (PP
+                    (IN of)
+                    (NP
+                      (DT the)
+                      (ADJP (RBS best) (VBN known))
+                      (NNP New)
+                      (NNP Wave)
+                      (CC and)
+                      (ADJP (FW avant) (HYPH -) (FW garde))
+                      (NNS directors)))))))))
+      (. .)
+      (PRN (-LRB- [) (CD 2) (-RRB- ])))))
 
 (ROOT
   (S
-    (NP
+    (NP-SBJ
       (NP
         (NP
           (NP (NNP François) (NNP Truffaut) (POS 's))
@@ -786,11 +827,11 @@
           (NNP Jules)
           (NNP et)
           (NNP Jim))
-        (PRN (-LRB- -LRB-) (NP (CD 1962)) (-RRB- -RRB-)))
+        (PRN (-LRB- -LRB-) (NP-TMP (CD 1962)) (-RRB- -RRB-)))
       (, ,)
       (NP
         (NP (PRP$ her) (JJS biggest) (NN success))
-        (ADVP (RB internationally)))
+        (ADVP-MNR (RB internationally)))
       (, ,))
     (VP
       (VBZ is)
@@ -800,11 +841,11 @@
           (IN on)
           (NP (PRP$ her) (JJ magnetic) (VBG starring) (NN role)))))
     (. .)
-    (PRN (-LSB- [) (CD 2) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 2) (-RRB- ]))))
 
 (ROOT
   (S
-    (NP (PRP She))
+    (NP-SBJ (PRP She))
     (ADVP (RB also))
     (VP
       (VBD worked)
@@ -839,7 +880,7 @@
                         (, ,)
                         (NP
                           (NP (NNP Chimes))
-                          (PP (IN at) (NP (NNP Midnight))))
+                          (PP-TMP (IN at) (NP (NNP Midnight))))
                         (CC and)
                         (NP (DT The) (NNP Immortal) (NNP Story)))
                       (-RRB- -RRB-)))
@@ -899,12 +940,12 @@
 
 (ROOT
   (S
-    (PP (IN In) (NP (CD 1983)))
+    (PP-TMP (IN In) (NP (CD 1983)))
     (, ,)
-    (NP (PRP she))
+    (NP-SBJ (PRP she))
     (VP
       (VBD was)
-      (NP
+      (NP-PRD
         (NP (NN head))
         (PP
           (IN of)
@@ -920,13 +961,13 @@
                 (NNP Film)
                 (NNP Festival)))))))
     (. .)
-    (PRN (-LSB- [) (CD 8) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 8) (-RRB- ]))))
 
 (ROOT
   (S
-    (PP (IN In) (NP (CD 2005)))
+    (PP-TMP (IN In) (NP (CD 2005)))
     (, ,)
-    (NP (PRP she))
+    (NP-SBJ (PRP she))
     (VP
       (VBD was)
       (VP
@@ -942,28 +983,28 @@
             (NNP Film)
             (NNP Festival)))))
     (. .)
-    (PRN (-LSB- [) (CD 9) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 9) (-RRB- ]))))
 
 (ROOT
   (S
-    (NP (NNP Moreau))
-    (VP (VBD was) (ADVP (RB also)) (NP (DT a) (NN vocalist)))
+    (NP-SBJ (NNP Moreau))
+    (VP (VBD was) (ADVP (RB also)) (NP-PRD (DT a) (NN vocalist)))
     (. .)))
 
 (ROOT
   (S
-    (NP (PRP She))
+    (NP-SBJ (PRP She))
     (VP
       (VP (VBD released) (NP (JJ several) (NNS albums)))
       (CC and)
       (VP
-        (ADVP (RB once))
+        (ADVP-TMP (RB once))
         (VBD performed)
         (PP (IN with) (NP (NNP Frank) (NNP Sinatra)))
-        (PP (IN at) (NP (NNP Carnegie) (NNP Hall)))
-        (PP (IN in) (NP (CD 1984)))))
+        (PP-LOC (IN at) (NP (NNP Carnegie) (NNP Hall)))
+        (PP-TMP (IN in) (NP (CD 1984)))))
     (. .)
-    (PRN (-LSB- [) (CD 2) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 2) (-RRB- ]))))
 
 (ROOT
   (S
@@ -971,7 +1012,7 @@
       (IN In)
       (NP (NP (NN addition)) (PP (IN to) (NP (NN acting)))))
     (, ,)
-    (NP (NNP Moreau))
+    (NP-SBJ (NNP Moreau))
     (VP
       (VBD worked)
       (PP (IN behind) (NP (DT the) (NN camera)))
@@ -985,21 +1026,21 @@
           (CC and)
           (NN producer))))
     (. .)
-    (PRN (-LSB- [) (CD 2) (-RSB- ]))))
+    (PRN (-LRB- [) (CD 2) (-RRB- ]))))
 
 (ROOT
   (S
-    (NP (PRP$ Her) (NNS accomplishments))
+    (NP-SBJ (PRP$ Her) (NNS accomplishments))
     (VP
       (VBD were)
-      (NP
+      (NP-PRD
         (NP (DT the) (NN subject))
         (PP
           (IN of)
           (NP
             (NP (DT the) (NN film))
             (VP (NNP Calling) (NP (DT the) (NNP Shots)))
-            (PRN (-LRB- -LRB-) (NP (CD 1988)) (-RRB- -RRB-))
+            (PRN (-LRB- -LRB-) (NP-TMP (CD 1988)) (-RRB- -RRB-))
             (PP
               (IN by)
               (NP
@@ -1008,7 +1049,6 @@
                 (NP (NNP Holly) (NNP Dale))))))))
     (. .)
     (PRN
-      (-LSB- [)
+      (-LRB- [)
       (S (NP (NN citation)) (VP (VBN needed)))
-      (-RSB- ]))))
-
+      (-RRB- ]))))
