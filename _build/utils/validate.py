@@ -380,6 +380,7 @@ def validate_annos(gum_source, reddit=False):
 		non_lemmas = ["them","me","him","n't"]
 		non_lemma_combos = [("PP","her"),("MD","wo"),("PP","us"),("DT","an")]
 		non_cap_lemmas = ["There","How","Why","Where","When"]
+		IN_not_like_lemma = ["vs", "vs.", "ca", "that", "then", "a", "fro", "too"]  # incl. known typos
 
 		for i, line in enumerate(xml_lines):
 			if "\t" in line:  # Token
@@ -395,6 +396,8 @@ def validate_annos(gum_source, reddit=False):
 					print("WARN: invalid lemma " + lemma + " in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
 				elif (pos,lemma.lower()) in non_lemma_combos:
 					print("WARN: invalid lemma " + lemma + " for POS "+pos+" in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
+				elif pos == "IN" and tok.lower() not in IN_not_like_lemma and lemma != tok.lower():
+						print("WARN: pos IN should have lemma identical to lower cased token in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
 
 				parent_string = parents[tok_num]
 				parent_id = parent_ids[tok_num]
