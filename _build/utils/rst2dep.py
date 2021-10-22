@@ -3,19 +3,24 @@
 
 """
 Script to convert Rhetorical Structure Theory trees from .rs3 format
-to a dependency representation.
+to a CoNLL-style dependency representation.
 """
 
 
-import re, io, ntpath
+import re, io, ntpath, collections
 from xml.dom import minidom
-from collections import defaultdict
 from xml.parsers.expat import ExpatError
 from argparse import ArgumentParser
 try:
     from .feature_extraction import ParsedToken
 except ImportError:
     from feature_extraction import ParsedToken
+
+# Add hardwired genre identifiers which appear as substring in filenames here
+GENRES = {"_news_":"news","_whow_":"whow","_voyage_":"voyage","_interview_":"interview",
+          "_bio_":"bio","_fiction_":"fiction","_academic_":"academic","_reddit_":"reddit",
+          "_speech_":"speech","_textbook_":"textbook","_vlog_":"vlog","_conversation_":"conversation",}
+
 
 class SIGNAL:
     def __init__(self, sigtype, sigsubtype, tokens):
@@ -29,9 +34,9 @@ class SIGNAL:
     def __str__(self):
         return "|".join([self.type,self.subtype,self.tokens])
 
+
 class NODE:
     def __init__(self, id, left, right, parent, depth, kind, text, relname, relkind):
-
         """Basic class to hold all nodes (EDU, span and multinuc) in structure.py and while importing"""
 
         self.id = id
@@ -67,13 +72,11 @@ class NODE:
         self.parse = "///".join(token_lines)
 
     def out_conll(self,feats=False):
-        tokens = self.text.split()
         self.rebuild_parse()
         head_word = "_"
         if len(self.tokens) == 0:  # No token information
             self.tokens.append(ParsedToken("1","_","_","_","_","0","_"))
         head_func = "_"
-        snippet = self.text
 
         if feats:
             first_pos = "pos1=" + self.tokens[0].pos
@@ -114,8 +117,7 @@ class NODE:
             feats = "_"
 
         signals = ";".join([str(sig) for sig in self.signals]) if len(self.signals) > 0 else "_"
-        #return "\t".join([self.id, snippet, str(self.dist),str(self.depth), str(self.domain), feats, self.dep_parent, self.dep_rel, "_", signals])
-        return "\t".join([self.id, snippet, str(self.dist),"_", "_", feats, self.dep_parent, self.dep_rel, "_", signals])
+        return "\t".join([self.id, self.text, str(self.dist),"_", "_", feats, self.dep_parent, self.dep_rel, "_", signals])
 
     def out_malt(self):
         first = self.tokens[0].lemma
@@ -188,8 +190,6 @@ def get_depth(orig_node, probe_node, nodes):
 
 
 def get_distance(node, parent, nodes):
-    if node.id == "34":
-        a=4
     head = node.parent
     dist = 1
     encountered = {}
@@ -214,7 +214,8 @@ def get_distance(node, parent, nodes):
         return dist2 #+ encountered[head]
     else:
         # direct ancestry
-        return 0 # dist
+        return 0  # dist
+
 
 def read_rst(data, rel_hash, as_text=False):
     if not as_text:
@@ -266,6 +267,22 @@ def read_rst(data, rel_hash, as_text=False):
     for element in node_elements:
         element_types[element.attributes["id"].value] = element.attributes["type"].value
 
+
+    # Collect all children of multinuc parents to prioritize which potentially multinuc relation they have
+    item_list = xmldoc.getElementsByTagName("segment") + xmldoc.getElementsByTagName("group")
+    multinuc_children = collections.defaultdict(lambda : collections.defaultdict(int))
+    for elem in item_list:
+        if elem.attributes.length >= 3:
+            parent = elem.attributes["parent"].value
+            relname = elem.attributes["relname"].value
+            # Tolerate schemas by treating as spans
+            if relname in schemas:
+                relname = "span"
+            relname = re.sub(r"[:;,]", "", relname)  # Remove characters used for undo logging, not allowed in rel names
+            if parent in element_types:
+                if element_types[parent] == "multinuc" and relname+"_m" in rel_hash:
+                    multinuc_children[parent][relname] += 1
+
     id_counter = 0
     item_list = xmldoc.getElementsByTagName("segment")
     for segment in item_list:
@@ -282,11 +299,19 @@ def read_rst(data, rel_hash, as_text=False):
         # Tolerate schemas, but no real support yet:
         if relname in schemas:
             relname = "span"
-
             relname = re.sub(r"[:;,]", "", relname)  # remove characters used for undo logging, not allowed in rel names
+
         # Note that in RSTTool, a multinuc child with a multinuc compatible relation is always interpreted as multinuc
+        if parent in multinuc_children:
+            if len(multinuc_children[parent]) > 0:
+                key_list = list(multinuc_children[parent])[:]
+                for key in key_list:
+                    if multinuc_children[parent][key] < 2:
+                        del multinuc_children[parent][key]
+
         if parent in element_types:
-            if element_types[parent] == "multinuc" and relname + "_m" in rel_hash:
+            if element_types[parent] == "multinuc" and relname + "_m" in rel_hash and (
+                    relname in multinuc_children[parent] or len(multinuc_children[parent]) == 0):
                 relname = relname + "_m"
             elif relname != "span":
                 relname = relname + "_r"
@@ -312,8 +337,16 @@ def read_rst(data, rel_hash, as_text=False):
 
             relname = re.sub(r"[:;,]", "", relname)  # remove characters used for undo logging, not allowed in rel names
             # Note that in RSTTool, a multinuc child with a multinuc compatible relation is always interpreted as multinuc
+
+            if parent in multinuc_children:
+                if len(multinuc_children[parent])>0:
+                    key_list = list(multinuc_children[parent])[:]
+                    for key in key_list:
+                        if multinuc_children[parent][key] < 2:
+                            del multinuc_children[parent][key]
+
             if parent in element_types:
-                if element_types[parent] == "multinuc" and relname + "_m" in rel_hash:
+                if element_types[parent] == "multinuc" and relname + "_m" in rel_hash and (relname in multinuc_children[parent] or len(multinuc_children[parent]) == 0):
                     relname = relname + "_m"
                 elif relname != "span":
                     relname = relname + "_r"
@@ -463,7 +496,7 @@ def get_nonspan_rel(nodes,node):
             return get_nonspan_rel(nodes,nodes[node.parent])
 
 
-def make_rsd(rstfile, xml_dep_root,as_text=False, docname=None):
+def make_rsd(rstfile, xml_dep_root,as_text=False, docname=None, out_mode="conll"):
     nodes = read_rst(rstfile,{},as_text=as_text)
     out_graph = []
     if rstfile.endswith("rs3"):
@@ -517,33 +550,17 @@ def make_rsd(rstfile, xml_dep_root,as_text=False, docname=None):
 
             edu.subord = subord
 
-            # TODO: remove hard-wired GUM genres
-            if "news" in out_file:
-                edu.genre = "news"
-            elif "whow" in out_file:
-                edu.genre = "whow"
-            elif "voyage" in out_file:
-                edu.genre = "voyage"
-            elif "interview" in out_file:
-                edu.genre = "interview"
-            elif "reddit" in out_file:
-                edu.genre = "reddit"
-            elif "academic" in out_file:
-                edu.genre = "academic"
-            elif "_bio" in out_file:
-                edu.genre = "bio"
-            elif "_fiction" in out_file:
-                edu.genre = "fiction"
-            else:
-                edu.genre = "news"
+            edu.genre = "genre"
+            for genre_id in GENRES:
+                if genre_id in out_file:
+                    edu.genre = GENRES[genre_id]
+                    break
 
             token_reached += edu.token_count
 
     # Get each node with 'span' relation its nearest non-span relname
     for nid in nodes:
         node = nodes[nid]
-        if nid == "9":
-            pass
         new_rel = node.relname
         sigs = []
         if node.parent == "0":
@@ -559,8 +576,6 @@ def make_rsd(rstfile, xml_dep_root,as_text=False, docname=None):
 
     for nid in nodes:
         node = nodes[nid]
-        if nid == "9":
-            pass
         if node.kind == "edu":
             dep_parent = find_dep_head(nodes,nid,nid,[])
             if dep_parent is None:
@@ -571,43 +586,17 @@ def make_rsd(rstfile, xml_dep_root,as_text=False, docname=None):
                 node.dep_parent = dep_parent
             out_graph.append(node)
 
-    # Get all multinuc ancestors of each node to compute multinuc domains they belong to
-    multinuc_ancestors = defaultdict(list)
-    domains = set()
+    # Get height distance from dependency parent to child's attachment point in the phrase structure (number of spans)
     for nid in nodes:
         node = nodes[nid]
-        if node.kind == "multinuc":
-            for i in range(node.left,node.right+1):
-                domain = (node.right-node.left,node.left,node.right)
-                multinuc_ancestors[str(i)].append(domain)
-                domains.add(domain)
-    domains = sorted(list(domains),reverse=True)
-    domain_mapping = {}
-    max_domain = 1
-    for domain in domains:
-        domain_mapping[domain] = max_domain
-        max_domain += 1
-
-    # Get path distance from child to parent including phrase structure
-    for nid in nodes:
-        if nid == "3":
-            s=3
-        node = nodes[nid]
-        node.domain = 0
         if node.dep_rel == "ROOT":
             node.dist = "0"
             continue
         if node.kind == "edu":
             parent = nodes[node.dep_parent]
             node.dist = get_distance(node, parent, nodes)
-            relevant_domains = [d for d in multinuc_ancestors[node.id] if int(parent.id) >= d[1] and int(parent.id) <= d[2]]
-            if len(relevant_domains) > 0:
-                min_domain = sorted(relevant_domains)[0]
-                node.domain = domain_mapping[min_domain]
 
     out_graph.sort(key=lambda x: int(x.id))
-
-    out_mode = "conll"  # NB only in split mode below
 
     output = []
 
