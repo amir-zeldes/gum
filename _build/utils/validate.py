@@ -8,6 +8,8 @@ import xml.etree.ElementTree as ET
 import io
 from collections import defaultdict
 from six import iterkeys
+from utils.rst2dep import make_rsd
+from utils.dep2rst import rsd2rs3
 
 class Markable:
 	def __init__(self):
@@ -316,6 +318,7 @@ def validate_annos(gum_source, reddit=False):
 		parent_ids = {}
 		lemmas = {}
 		sent_types = {}
+		sent_positions = defaultdict(lambda: "_")
 		parents = {}
 		children = defaultdict(list)
 		child_funcs = defaultdict(list)
@@ -360,15 +363,23 @@ def validate_annos(gum_source, reddit=False):
 		tok_num = 0
 
 		s_type = ""
+		new_sent = True
 		for line in xml_lines:
 			if "\t" in line:  # Token
 				tok_num += 1
 				lemmas[tok_num] = line.split("\t")[2]
 				sent_types[tok_num] = s_type
+				if new_sent:
+					sent_positions[tok_num] = "first"
+					new_sent = False
 			else:
 				m = re.search(r's type="([^"]+)"', line)
 				if m is not None:
 					s_type = m.group(1)
+					new_sent = True
+					if len(sent_positions) > 0:
+						sent_positions[tok_num] = "last"
+		sent_positions[tok_num] = "last"
 
 		tok_num = 0
 
@@ -382,6 +393,8 @@ def validate_annos(gum_source, reddit=False):
 		non_cap_lemmas = ["There","How","Why","Where","When"]
 		IN_not_like_lemma = ["vs", "vs.", "ca", "that", "then", "a", "fro", "too"]  # incl. known typos
 
+		prev_tok = ""
+		prev_pos = ""
 		for i, line in enumerate(xml_lines):
 			if "\t" in line:  # Token
 				tok_num += 1
@@ -403,8 +416,10 @@ def validate_annos(gum_source, reddit=False):
 				parent_id = parent_ids[tok_num]
 				parent_lemma = lemmas[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
 				flag_dep_warnings(tok_num, tok, pos, lemma, func, parent_string, parent_lemma, parent_id,
-								  children[tok_num], child_funcs[tok_num], sent_types[tok_num], docname)
-
+								  children[tok_num], child_funcs[tok_num], sent_types[tok_num], docname,
+								  prev_tok, prev_pos, sent_positions[tok_num])
+				prev_pos = pos
+				prev_tok = tok
 
 		# Validate WebAnno TSV data
 		coref_file = xmlfile.replace("xml" + os.sep, "tsv" + os.sep).replace("xml", "tsv")
@@ -426,7 +441,12 @@ def validate_annos(gum_source, reddit=False):
 					tok_id = fields[0]
 					text = fields[2]
 					for i, entity in enumerate(entities):
-						infstat = infstats[i]
+						try:
+							infstat = infstats[i]
+						except:
+							print("ERROR: " + docname)
+							print("no infstat for entity: " + str(entity))
+							quit()
 						if isinstance(corefs,list):
 							coref = corefs[i] if i < len(corefs) else corefs[-1]
 							src = srcs[i] if i < len(srcs) else srcs[-1]
@@ -479,8 +499,13 @@ def validate_annos(gum_source, reddit=False):
 
 		for anaphor in antecedents:
 			if anaphor != "_":
-				markables[anaphor].antecedent = markables[antecedents[anaphor]]
-				markables[anaphor].coref_type = markables[antecedents[anaphor]].anaphor_type
+				try:
+					markables[anaphor].antecedent = markables[antecedents[anaphor]]
+					markables[anaphor].coref_type = markables[antecedents[anaphor]].anaphor_type
+				except KeyError as e:
+					sys.stderr.write("Exception in " + docname + ": KeyError\n")
+					markables[anaphor].antecedent = markables[antecedents[anaphor]]
+					markables[anaphor].coref_type = markables[antecedents[anaphor]].anaphor_type
 
 		for mark_id in markables:
 			# Flag entity type clashes but skip giv/new since they are set automatically
@@ -488,7 +513,8 @@ def validate_annos(gum_source, reddit=False):
 
 		# Validate RST data
 		rst_file = xmlfile.replace("xml" + os.sep, "rst" + os.sep).replace("xml", "rs3")
-		rst_lines = io.open(rst_file,encoding="utf8").read().replace("\r", "").split("\n")
+		rst_xml = io.open(rst_file,encoding="utf8").read().replace("\r", "")
+		rst_lines = rst_xml.split("\n")
 
 		nodes = {}
 		children = defaultdict(list)
@@ -522,11 +548,17 @@ def validate_annos(gum_source, reddit=False):
 				node.type = m.group(2)
 				nodes[node.id] = node
 
-
 		for node in nodes:
 			children[nodes[node].parent].append(node)
 
 		flag_rst_warnings(nodes,children,docname)
+
+		# Run round-trip conversion to dependencies and back - valid, ordered hierarchy should produce same rs3<>rsd
+		rsd1 = make_rsd(rst_xml, "", as_text=True)
+		generated_rs3 = rsd2rs3(rsd1)
+		rsd2 = make_rsd(generated_rs3, "", as_text=True)
+		if rsd1 != rsd2:
+			sys.stderr.write("! RST file " + docname + " not identical in rsd<>rs3 round-trip conversion; possible broken hierarchy!\n")
 
 
 def flag_rst_warnings(nodes,children,docname):
@@ -585,7 +617,7 @@ def truncate(text):
 
 
 def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id, children, child_funcs, s_type,
-					  docname):
+					  docname, prev_tok, prev_pos, sent_position):
 	# Shorthand for printing errors
 	inname = " in " + docname + " @ token " + str(id) + " (" + parent + " -> " + tok + ")"
 
@@ -717,6 +749,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print(str(id) + docname)
 		print("WARN: tag "+pos+" should not have auxiliaries 'aux' " + inname)
 
+	if (sent_position == "first" and pos == "''") or (sent_position == "last" and pos=="``"):
+		print("WARN: incorrect quotation mark tag " + pos + " at "+sent_position+" position in sentence " + inname)
+
 	mwe_pairs = {("accord", "to"), ("all","but"), ("as","if"), ("as", "well"), ("as", "as"), ("as","in"), ("as","oppose"),("as","to"),
 				 ("at","least"),("because","of"),("due","to"),("had","better"),("'d","better"),("in","between"), ("per", "se"),
 				 ("in","case"),("in","of"), ("in","order"),("instead","of"), ("kind","of"),("less","than"),("let","alone"),
@@ -769,4 +804,14 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 				if not any([c.lower()=="do" or c.lower()=="did" for c in children]):
 					if not (tok == "Remember" and wh == "when"):  # Listed exception in GUM_reddit_bobby
 						print("WARN: q root may not have wh child " + wh + inname)
+
+	suspicious_pos_tok = [("*","DT","only","RB"),
+						  ("*","JJ","one","CD")]
+
+	for w1, pos1, w2, pos2 in suspicious_pos_tok:
+		if w1 == prev_tok or w1 == "*":
+			if pos1 == prev_pos or pos1 == "*":
+				if w2 == tok or w2 == "*":
+					if pos2 == pos or pos2 == "*":
+						print("WARN: suspicious n-gram " + prev_tok + "/" + prev_pos+" " + tok + "/" + pos + inname)
 
