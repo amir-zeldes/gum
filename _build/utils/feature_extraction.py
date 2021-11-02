@@ -1,10 +1,10 @@
 """
 Script to extract depdendency and XML markup information from data
-in the conllu and CWB XML formats.
+in the conll10/conllu and CWB XML formats.
 
 """
-import os, re, io
-
+import os, re
+import ntpath
 
 class ParsedToken:
 	def __init__(self, tok_id, text, lemma, pos, morph, head, func):
@@ -32,14 +32,19 @@ def get_tok_info(docname,corpus_root):
 		corpus_root += os.sep
 
 	xml_file = corpus_root + "xml" + os.sep + docname + ".xml"
-	conll_file = corpus_root + "dep" + os.sep + docname + ".conllu"
+	conll_file = corpus_root + "dep" + os.sep + docname + ".conll10"
 	tokens = []
 
-	for line in io.open(conll_file,encoding="utf8").read().replace("\r","").split("\n"):
+	try:
+		lines = open(conll_file).read().replace("\r","").split("\n")
+	except:
+		lines = open(conll_file.replace(".conll10",".conllu")).read().replace("\r","").split("\n")
+	for line in lines:
 		if "\t" in line:
 			cols = line.split("\t")
-			if "." not in cols[0] and "-" not in cols[0]:  # Ignore ellipsis and supertokens
-				tokens.append(ParsedToken(cols[0],cols[1],cols[2],cols[3],cols[5],cols[6],cols[7]))
+			if "-" in cols[0] or "." in cols[0]:
+				continue
+			tokens.append(ParsedToken(cols[0],cols[1],cols[2],cols[3],cols[5],cols[6],cols[7]))
 
 	counter = 0
 	heading = "_"
@@ -49,7 +54,7 @@ def get_tok_info(docname,corpus_root):
 	s_type = "_"
 	para = "_"
 	item = "_"
-	for line in io.open(xml_file,encoding="utf8").read().replace("\r", "").split("\n"):
+	for line in open(xml_file).read().replace("\r", "").split("\n"):
 		if "<s type=" in line:
 			m = re.search(r'<s type="([^"]+)"',line)
 			s_type = m.group(1)
@@ -76,7 +81,6 @@ def get_tok_info(docname,corpus_root):
 		elif '<item>' in line:
 			item = "open_item"
 		if "\t" in line:
-			fields = line.split("\t")
 			tokens[counter].heading = heading
 			tokens[counter].caption = caption
 			tokens[counter].list = list
@@ -84,8 +88,6 @@ def get_tok_info(docname,corpus_root):
 			tokens[counter].date = date
 			tokens[counter].para = para
 			tokens[counter].item = item
-			tokens[counter].pos = fields[1]
-			tokens[counter].lemma = fields[2]
 			para = "_"
 			item = "_"
 
