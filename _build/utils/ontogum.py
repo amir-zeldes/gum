@@ -1443,7 +1443,7 @@ def build_ontogum(dep_string, tsv_string):
     tsv_article = tsv_string.split('\n')
 
     if_appos = False
-    if_singletons = True
+    if_singletons = False
 
     doc, tokens, group_dict, next_dict, new_id2entity, dep_sents = process_doc(dep_doc, tsv_article)
 
