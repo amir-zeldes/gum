@@ -8,22 +8,24 @@
           (NP (JJ 30th) (NN anniversary))
           (PP (IN of) (NP (JJ first) (NN shuttle) (NN launch)))))
       (: ;)
-      (VP
-        (VBZ announces)
-        (NP
-          (NP (JJ new) (NNS homes))
-          (PP (IN for) (NP (VBN retired) (NNS shuttles))))))))
+      (S
+        (VP
+          (VBZ announces)
+          (NP
+            (NP (JJ new) (NNS homes))
+            (PP (IN for) (NP (VBN retired) (NNS shuttles)))))))))
 
 (ROOT
   (NP
-    (NNP Wednesday)
+    (NP (NNP Wednesday))
     (, ,)
     (NP-TMP (NNP April) (CD 13) (, ,) (CD 2011))))
 
 (ROOT
   (S
     (NP-SBJ
-      (NP (NNP NASA) (NNP Administrator))
+      (NNP NASA)
+      (NNP Administrator)
       (NNP Charles)
       (NNP Bolden))
     (VP
@@ -36,8 +38,8 @@
             (MD will)
             (VP
               (VB be)
+              (ADVP-MNR (RB permanently))
               (VP
-                (ADVP-MNR (RB permanently))
                 (VBN displayed)
                 (PP
                   (IN at)
@@ -48,30 +50,38 @@
                       (NP
                         (DT the)
                         (NNP Space)
-                        (NN Shuttle)
-                        (NN Program))))))))))
-      (PP
-        (IN during)
-        (NP
-          (NP (DT an) (NN event))
-          (VP
-            (VBG commemorating)
-            (NP
-              (NP (DT the) (JJ 30th) (NN anniversay))
-              (PP
-                (IN of)
-                (NP
-                  (NP (DT the) (JJ first) (NN shuttle) (NN launch))
-                  (PP-TMP
-                    (IN on)
-                    (NP-TMP (NNP April) (CD 12) (, ,) (CD 2011))))))))))
+                        (NNP Shuttle)
+                        (NNP Program)))))
+                (PP
+                  (IN during)
+                  (NP
+                    (NP (DT an) (NN event))
+                    (VP
+                      (VBG commemorating)
+                      (NP
+                        (NP (DT the) (JJ 30th) (NN anniversay))
+                        (PP
+                          (IN of)
+                          (NP
+                            (NP
+                              (DT the)
+                              (JJ first)
+                              (NN shuttle)
+                              (NN launch))
+                            (PP-TMP
+                              (IN on)
+                              (NP-TMP
+                                (NNP April)
+                                (CD 12)
+                                (, ,)
+                                (NP-TMP (CD 2011))))))))))))))))
     (. .)))
 
 (ROOT
-  (FRAG
+  (NP
     (NP (NN Image))
     (: :)
-    (NP (NP (NNP NASA)) (NP (NNP Bill) (NNP Ingalls)))
+    (NP (NNP NASA) (NNP Bill) (NNP Ingalls))
     (. .)))
 
 (ROOT
@@ -91,10 +101,13 @@
             (IN at)
             (NP
               (NP (DT the) (NNP Kennedy) (NNP Space) (NNP Center))
-              (PRN (-LRB- -LRB-) (NP (NNP KSC)) (-RRB- -RRB-))))))
-      (PP-LOC
-        (IN in)
-        (NP (NP (NNP Cape) (NNP Canaveral)) (, ,) (NP (NNP Florida)))))
+              (PRN (-LRB- -LRB-) (NP (NNP KSC)) (-RRB- -RRB-))
+              (PP-LOC
+                (IN in)
+                (NP
+                  (NP (NNP Cape) (NNP Canaveral))
+                  (, ,)
+                  (NP (NNP Florida)))))))))
     (. .)))
 
 (ROOT
@@ -103,22 +116,15 @@
     (, ,)
     (NP-SBJ (NNP Space) (NNP Shuttle) (NNP Columbia))
     (VP
-      (VBD lifted)
-      (PRT (RP off))
-      (PP-DIR
-        (IN from)
-        (NP (DT the) (NNP Kennedy) (NNP Space) (NNP Center)))
-      (PP
-        (IN on)
-        (NP
-          (NP (NNP STS-1))
-          (, ,)
-          (NP
-            (DT the)
-            (JJ first)
-            (NN space)
-            (NN shuttle)
-            (NN mission)))))
+      (VP
+        (VBD lifted)
+        (PRT (RP off))
+        (PP-DIR
+          (IN from)
+          (NP (DT the) (NNP Kennedy) (NNP Space) (NNP Center)))
+        (PP (IN on) (NP (NNP STS) (HYPH -) (CD 1))))
+      (, ,)
+      (NP (DT the) (JJ first) (NN space) (NN shuttle) (NN mission)))
     (. .)))
 
 (ROOT
@@ -143,50 +149,51 @@
                   (NP
                     (NNP Orbiter)
                     (NNP Processing)
-                    (NNP Facility-1))))
-              (, ,)))))
-      (PP
-        (IN for)
-        (NP
-          (NP (NNP Space) (NNP Shuttle) (NNP Atlantis))
-          (, ,)
-          (SBAR
-            (NP-SBJ (WDT which))
-            (S
-              (VP
-                (VBZ is)
+                    (NNP Facility)
+                    (HYPH -)
+                    (CD 1))))
+              (, ,))))
+        (PP
+          (IN for)
+          (NP
+            (NP (NNP Space) (NNP Shuttle) (NNP Atlantis))
+            (, ,)
+            (SBAR
+              (NP-SBJ (WDT which))
+              (S
                 (VP
-                  (VBG being)
+                  (VBZ is)
                   (VP
-                    (VBN prepped)
-                    (PP
-                      (IN for)
-                      (NP
-                        (NP (PRP$ its) (JJ final) (NN mission))
-                        (SBAR
-                          (NP-SBJ (WDT which))
-                          (S
-                            (VP
-                              (MD will)
+                    (VBG being)
+                    (VP
+                      (VBN prepped)
+                      (PP
+                        (IN for)
+                        (NP
+                          (NP (PRP$ its) (JJ final) (NN mission))
+                          (SBAR
+                            (NP-SBJ (WDT which))
+                            (S
                               (VP
-                                (VB be)
-                                (NP-PRD
-                                  (NP (NNP STS-135))
-                                  (, ,)
-                                  (SBAR
-                                    (NP-SBJ (WDT which))
-                                    (S
-                                      (VP
-                                        (MD will)
+                                (MD will)
+                                (VP
+                                  (VB be)
+                                  (NP-PRD
+                                    (NP (NNP STS) (HYPH -) (CD 135))
+                                    (, ,)
+                                    (SBAR
+                                      (NP-SBJ (WDT which))
+                                      (S
                                         (VP
-                                          (VB be)
-                                          (NP-PRD
-                                            (DT the)
-                                            (JJ last)
-                                            (NP
+                                          (MD will)
+                                          (VP
+                                            (VB be)
+                                            (NP-PRD
+                                              (DT the)
+                                              (JJ last)
                                               (NNP Space)
-                                              (NNP Shuttle))
-                                            (NN mission)))))))))))))))))))))
+                                              (NNP Shuttle)
+                                              (NN mission))))))))))))))))))))))
     (. .)))
 
 (ROOT
@@ -194,7 +201,8 @@
     (PP (IN At) (NP (DT the) (NN ceremony)))
     (, ,)
     (NP-SBJ
-      (NP (NNP NASA) (NNP Administrator))
+      (NNP NASA)
+      (NNP Administrator)
       (NNP Charles)
       (NNP Bolden))
     (VP
@@ -246,16 +254,18 @@
             (IN from)
             (NP
               (NP
-                (NP
-                  (NP (DT the) (NNP Smithsonian) (POS 's))
-                  (NNP National)
-                  (NNP Air)
-                  (CC and)
-                  (NNP Space)
-                  (NNP Museum))
-                (NP
-                  (NP (NNP Steven) (NNP F.) (NNP Udvar-Hazy))
-                  (NNP Center)))
+                (NP (DT the) (NNP Smithsonian) (POS 's))
+                (NNP National)
+                (NNP Air)
+                (CC and)
+                (NNP Space)
+                (NNP Museum)
+                (NNP Steven)
+                (NNP F.)
+                (NNP Udvar)
+                (HYPH -)
+                (NNP Hazy)
+                (NNP Center))
               (PP-LOC
                 (IN at)
                 (NP
@@ -269,22 +279,33 @@
               (NP
                 (DT the)
                 (NNP Intrepid)
-                (NNP Sea-Air-Space)
+                (NNP Sea)
+                (HYPH -)
+                (NNP Air)
+                (HYPH -)
+                (NNP Space)
                 (NNP Museum))
               (PP-LOC (IN in) (NP (NNP New) (NNP York) (NNP City))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP-SBJ (NN Space) (NN Shuttle) (NNP Discovery))
+    (NP-SBJ (NNP Space) (NNP Shuttle) (NNP Discovery))
     (VP
       (MD will)
       (VP
         (VB take)
         (NP
           (NP (DT the) (NN place))
-          (PP (IN of) (NP (NNP Enterprise))))
-        (PP-LOC (IN at) (NP (DT the) (NNP Udvar-Hazy) (NNP Center)))))
+          (PP (IN of) (NP (NNP Enterprise)))
+          (PP-LOC
+            (IN at)
+            (NP
+              (DT the)
+              (NNP Udvar)
+              (HYPH -)
+              (NNP Hazy)
+              (NNP Center))))))
     (. .)))
 
 (ROOT
@@ -300,37 +321,32 @@
           (PP
             (VBG following)
             (NP
-              (DT the)
-              (NN completion)
-              (PP
-                (IN of)
-                (NP
-                  (NP (NNP STS-133) (NP-TMP (JJ last) (NN month)))
-                  (, ,)
-                  (NP (PRP$ its) (JJ 39th) (NN mission)))))))))
+              (NP (DT the) (NN completion))
+              (PP (IN of) (NP (NNP STS) (HYPH -) (CD 133)))
+              (NP-TMP (JJ last) (NN month))
+              (, ,)
+              (NP (PRP$ its) (JJ 39th) (NN mission)))))))
     (. .)))
 
 (ROOT
   (S
     (NP-SBJ (NNP Discovery))
     (VP
-      (VBZ is)
+      (VP (VBZ is) (VP (VBG undergoing) (NP (NN decommissioning))))
+      (CC and)
       (VP
-        (VP (VBG undergoing) (NP (NN decommissioning)))
-        (CC and)
         (ADVP-TMP (RB currently))
+        (VBG being)
         (VP
-          (VBG being)
-          (VP
-            (VBN prepped)
-            (PP (IN for) (NP (NN display)))
-            (PP
-              (IN by)
-              (S-NOM
-                (VP
-                  (VBG removing)
-                  (NP (JJ toxic) (NNS materials))
-                  (PP (IN from) (NP (DT the) (NN orbiter))))))))))
+          (VBN prepped)
+          (PP (IN for) (NP (NN display)))
+          (PP
+            (IN by)
+            (S-NOM
+              (VP
+                (VBG removing)
+                (NP (JJ toxic) (NNS materials))
+                (PP (IN from) (NP (DT the) (NN orbiter)))))))))
     (. .)))
 
 (ROOT
@@ -338,22 +354,22 @@
     (S (VP (VBG Looking) (ADVP (RB back))))
     (: :)
     (S
-      (NP-SBJ (NN Space) (NN Shuttle) (NNP Columbia))
+      (NP-SBJ (NNP Space) (NNP Shuttle) (NNP Columbia))
       (VP
         (VBZ lifts)
         (PRT (RP off))
-        (PP (IN on) (NP (NP (NNP STS-1))))
+        (PP (IN on) (NP (NNP STS) (HYPH -) (CD 1)))
         (PP-DIR
           (IN from)
           (NP
-            (NP (NP (NN Launch) (NN Pad)) (NNP 39A))
+            (NP (NN Launch) (NN Pad) (NNP 39A))
             (PP-LOC
               (IN at)
               (NP (DT the) (NNP Kennedy) (NNP Space) (NNP Center)))))
         (PP-TMP (IN on) (NP-TMP (NNP April) (CD 12) (, ,) (CD 1981)))))
     (. .)))
 
-(ROOT (FRAG (NP (NN Image)) (: :) (NP (NNP NASA)) (. .)))
+(ROOT (NP (NP (NN Image)) (: :) (NP (NNP NASA)) (. .)))
 
 (ROOT
   (S
@@ -367,7 +383,7 @@
             (MD will)
             (VP
               (VB launch)
-              (PP (IN on) (NP (NNP STS-134)))
+              (PP (IN on) (NP (NNP STS) (HYPH -) (CD 134)))
               (PP-TMP
                 (IN at)
                 (NP
@@ -411,11 +427,12 @@
         (PP-LOC
           (IN at)
           (NP
-            (NP
-              (DT the)
-              (NP (NNP Kennedy) (NNP Space) (NNP Center))
-              (NNP Visitor)
-              (NNP Complex))))
+            (DT the)
+            (NNP Kennedy)
+            (NNP Space)
+            (NNP Center)
+            (NNP Visitor)
+            (NNP Complex)))
         (PP
           (VBG following)
           (NP
@@ -436,10 +453,11 @@
       (VP
         (VBN lost)
         (ADVP (RB tragically))
-        (PP-TMP
-          (ADVP (RB back))
-          (IN on)
-          (NP-TMP (NNP February) (CD 1) (, ,) (CD 2003)))
+        (PP
+          (RB back)
+          (PP-TMP
+            (IN on)
+            (NP-TMP (NNP February) (CD 1) (, ,) (CD 2003))))
         (SBAR-TMP
           (WHADVP (WRB when))
           (S
@@ -451,15 +469,13 @@
                 (VP
                   (VBG killing)
                   (NP
-                    (DT all)
-                    (CD seven)
-                    (NNS astronauts)
-                    (JJ aboard)))))))))
+                    (NP (QP (DT all) (CD seven)) (NNS astronauts))
+                    (ADVP (RB aboard))))))))))
     (. .)))
 
 (ROOT
   (S
-    (NP-SBJ (NN Space) (NN Shuttle) (NNP Challenger))
+    (NP-SBJ (NNP Space) (NNP Shuttle) (NNP Challenger))
     (VP
       (VBD was)
       (VP
@@ -470,15 +486,19 @@
             (NP-SBJ (PRP it))
             (VP
               (VBD exploded)
-              (NP-TMP (CD 73) (NNS seconds))
-              (PP (IN after) (NP (NN liftoff)))
-              (ADVP
+              (S
+                (NP
+                  (NP-TMP (CD 73) (NNS seconds))
+                  (IN after)
+                  (NP (NN liftoff))))
+              (PP-TMP
                 (RB back)
-                (PP-TMP
-                  (IN on)
-                  (NP-TMP (NNP January) (CD 28) (, ,) (CD 1986))))
+                (IN on)
+                (NP-TMP (NNP January) (CD 28) (, ,) (CD 1986)))
               (S-ADV
-                (VP (VBG killing) (NP (DT all) (CD six) (JJ aboard)))))))))
+                (VP
+                  (VBG killing)
+                  (NP (NP (DT all) (CD six)) (ADJP (RB aboard))))))))))
     (. .)))
 
 (ROOT
@@ -504,32 +524,32 @@
                       (S
                         (VP
                           (VBD expressed)
-                          (NP (DT an) (NN interest))
-                          (PP
-                            (IN in)
-                            (NP
-                              (NP (CD one))
-                              (PP
-                                (IN of)
-                                (NP
-                                  (DT these)
-                                  (JJ national)
-                                  (NNS treasures))))))))))))))))
+                          (NP
+                            (NP (DT an) (NN interest))
+                            (PP
+                              (IN in)
+                              (NP
+                                (NP (CD one))
+                                (PP
+                                  (IN of)
+                                  (NP
+                                    (DT these)
+                                    (JJ national)
+                                    (NNS treasures)))))))))))))))))
     (, ,)
     ('' ")
-    (VP
-      (VBD said)
-      (NP-SBJ (NNP Bolden))
-      (PP
-        (IN to)
-        (NP
-          (NP (DT the) (VBN gathered) (NN crowd))
-          (SBAR
-            (NP-SBJ (WDT which))
-            (S
-              (VP
-                (VBD contained)
-                (NP (JJ many) (NNP KSC) (NNS employees))))))))
+    (VP (VBD said))
+    (NP-SBJ (NNP Bolden))
+    (PP
+      (IN to)
+      (NP
+        (NP (DT the) (VBN gathered) (NN crowd))
+        (SBAR
+          (NP-SBJ (WDT which))
+          (S
+            (VP
+              (VBD contained)
+              (NP (JJ many) (NNP KSC) (NNS employees)))))))
     (. .)))
 
 (ROOT
@@ -553,9 +573,8 @@
                   (VBN made)
                   (PP
                     (IN with)
-                    (NP
-                      (NP (DT the) (JJ American) (NN public))
-                      (PP (IN in) (NP (NN mind))))))))))))
+                    (NP (DT the) (JJ American) (NN public))
+                    (PP (IN in) (NP (NN mind)))))))))))
     (. .)))
 
 (ROOT
@@ -567,7 +586,7 @@
       (VBP provide)
       (NP
         (NP (DT the) (JJS greatest) (NN number))
-        (PP (IN of) (NP (NP (NNS people)))))
+        (PP (IN of) (NP (NNS people))))
       (PP
         (IN with)
         (NP
@@ -577,23 +596,24 @@
           (S
             (VP
               (TO to)
-              (VB share)
-              (PP
-                (IN in)
-                (NP
+              (VP
+                (VB share)
+                (PP
+                  (IN in)
                   (NP
-                    (DT the)
-                    (NN history)
-                    (CC and)
-                    (NNS accomplishments))
-                  (PP
-                    (IN of)
                     (NP
-                      (NP (NNP NASA) (POS 's))
-                      (JJ remarkable)
-                      (NNP Space)
-                      (NNP Shuttle)
-                      (NNP Program))))))))))
+                      (DT the)
+                      (NN history)
+                      (CC and)
+                      (NNS accomplishments))
+                    (PP
+                      (IN of)
+                      (NP
+                        (NP (NNP NASA) (POS 's))
+                        (JJ remarkable)
+                        (NNP Space)
+                        (NNP Shuttle)
+                        (NNP Program)))))))))))
     (. .)))
 
 (ROOT
@@ -642,9 +662,8 @@
                   (VBN made)
                   (PP
                     (IN with)
-                    (NP
-                      (NP (DT the) (JJ American) (NN public))
-                      (PP (IN in) (NP (NN mind))))))))))))
+                    (NP (DT the) (JJ American) (NN public))
+                    (PP (IN in) (NP (NN mind)))))))))))
     (. .)))
 
 (ROOT
@@ -656,32 +675,34 @@
       (VBP provide)
       (NP
         (NP (DT the) (JJS greatest) (NN number))
-        (PP (IN of) (NP (NP (NNS people)))))
+        (PP (IN of) (NP (NNS people))))
       (PP
         (IN with)
         (NP
           (DT the)
           (JJS best)
           (NN opportunity)
-          (VP
-            (TO to)
-            (VB share)
-            (PP
-              (IN in)
-              (NP
-                (NP
-                  (DT the)
-                  (NN history)
-                  (CC and)
-                  (NNS accomplishments))
+          (S
+            (VP
+              (TO to)
+              (VP
+                (VB share)
                 (PP
-                  (IN of)
+                  (IN in)
                   (NP
-                    (NP (NNP NASA) (POS 's))
-                    (JJ remarkable)
-                    (NNP Space)
-                    (NNP Shuttle)
-                    (NNP Program)))))))))
+                    (NP
+                      (DT the)
+                      (NN history)
+                      (CC and)
+                      (NNS accomplishments))
+                    (PP
+                      (IN of)
+                      (NP
+                        (NP (NNP NASA) (POS 's))
+                        (JJ remarkable)
+                        (NNP Space)
+                        (NNP Shuttle)
+                        (NNP Program)))))))))))
     (. .)))
 
 (ROOT
@@ -697,27 +718,28 @@
       (IN of)
       (NP
         (NP (NNP Space) (NNP Shuttle) (NNP Atlantis))
-        (VP (VBG lifting) (PRT (RP off)))
-        (, ,)
-        (SBAR
-          (NP-SBJ (WDT which))
-          (S
-            (VP
-              (VBZ approaches)
-              (NP (PRP$ its) (JJ last) (NN mission))
-              (PP (IN before) (NP (NN retirement))))))))
+        (VP
+          (VP (VBG lifting) (PRT (RP off)))
+          (, ,)
+          (SBAR
+            (NP-SBJ (WDT which))
+            (S
+              (VP
+                (VBZ approaches)
+                (NP
+                  (NP (PRP$ its) (JJ last) (NN mission))
+                  (PP (IN before) (NP (NN retirement))))))))))
     (. .)))
 
-(ROOT (FRAG (NP (NN Image)) (: :) (NP (NNP NASA)) (. .)))
+(ROOT (NP (NP (NN Image)) (: :) (NP (NNP NASA)) (. .)))
 
 (ROOT
   (S
-    (RB Not)
-    (NP-SBJ (DT all))
+    (NP-SBJ (RB Not) (DT all))
     (VP
       (VBD were)
-      (VP
-        (VBN pleased)
+      (ADJP
+        (JJ pleased)
         (PP
           (IN with)
           (NP
@@ -736,17 +758,18 @@
       (VBD issued)
       (NP
         (NP (DT a) (NN statement))
-        (PP
+        (VP
           (VBG regarding)
           (NP
             (NP (DT the) (NN rejection))
             (PP
               (IN of)
               (NP
-                (NP
-                  (NP (NNP Johnson) (NNP Space) (NNP Center))
-                  (PRN (-LRB- -LRB-) (NP (NNP JSC)) (-RRB- -RRB-)))
-                (PP-LOC (IN in) (NP (NNP Houston) (, ,) (NNP Texas)))))
+                (NP (NNP Johnson) (NNP Space) (NNP Center))
+                (PRN (-LRB- -LRB-) (NP (NNP JSC)) (-RRB- -RRB-))
+                (PP-LOC
+                  (IN in)
+                  (NP (NP (NNP Houston)) (, ,) (NP (NNP Texas))))))
             (PP-LOC (IN as) (NP (DT a) (NN location)))))))
     (. .)))
 
@@ -809,127 +832,122 @@
     (, ,)
     (CC but)
     (S
-      (NP (PRP it))
+      (NP (NP (PRP it)))
       (VP
         (VBZ is)
-        (ADJP-PRD
-          (JJ clear)
-          (SBAR
-            (S-SBJ
-              (NP-SBJ (JJ political) (NNS favors))
-              (VP
-                (VBD trumped)
-                (NP (JJ common) (NN sense) (CC and) (NN fairness))
-                (PP
-                  (IN in)
-                  (NP
-                    (NP (DT the) (NN selection))
-                    (PP
-                      (IN of)
-                      (NP
-                        (NP (DT the) (JJ final) (NNS locations))
-                        (PP
-                          (IN for)
-                          (NP (DT the) (NN orbiter) (NN fleet)))))))))))))
+        (ADJP-PRD (JJ clear))
+        (SBAR
+          (S-SBJ
+            (NP-SBJ (JJ political) (NNS favors))
+            (VP
+              (VBD trumped)
+              (NP
+                (NP (JJ common) (NN sense))
+                (CC and)
+                (NP (NN fairness)))
+              (PP
+                (IN in)
+                (NP
+                  (NP (DT the) (NN selection))
+                  (PP
+                    (IN of)
+                    (NP
+                      (NP (DT the) (JJ final) (NNS locations))
+                      (PP
+                        (IN for)
+                        (NP (DT the) (NN orbiter) (NN fleet))))))))))))
     (. .)
     ('' ")))
 
 (ROOT
-  (FRAG
-    (S
-      (NP-SBJ (NP (NNP Cornyn) (POS 's)) (NN statement))
-      (VP
-        (VBD added)
-        (, ,)
-        (`` ")
+  (S
+    (NP-SBJ (NP (NNP Cornyn) (POS 's)) (NN statement))
+    (VP
+      (VBD added)
+      (, ,)
+      (`` ")
+      (S
         (S
-          (S
-            (NP (EX There))
-            (VP
-              (VBZ is)
-              (NP-SBJ
-                (NP (DT no) (NN question))
-                (SBAR
-                  (S
-                    (NP-SBJ (NNP Houston))
-                    (VP
-                      (MD should)
-                      (VP
-                        (VB have)
-                        (VP
-                          (VBN been)
-                          (VP
-                            (VBN selected)
-                            (PP-LOC
-                              (IN as)
-                              (NP
-                                (NP (DT a) (JJ final) (NN home))
-                                (PP
-                                  (IN for)
-                                  (NP
-                                    (NP (CD one))
-                                    (PP
-                                      (IN of)
-                                      (NP (DT the) (NNS orbiters))))))))))))))))
-          (: —)
-          (S
-            (ADVP (RB even))
+          (NP (EX There))
+          (VP
+            (VBZ is)
             (NP-SBJ
-              (NP (NNP Administrator) (NNP Bolden))
-              (SBAR (S (VP (VBD stated) (ADJP (RB as) (JJ much))))))))
-        (. .)))))
+              (DT no)
+              (NN question)
+              (SBAR
+                (S
+                  (NP-SBJ (NNP Houston))
+                  (VP
+                    (MD should)
+                    (VP
+                      (VB have)
+                      (VP
+                        (VBN been)
+                        (VP
+                          (VBN selected)
+                          (PP-LOC
+                            (IN as)
+                            (NP
+                              (NP (DT a) (JJ final) (NN home))
+                              (PP
+                                (IN for)
+                                (NP
+                                  (NP (CD one))
+                                  (PP
+                                    (IN of)
+                                    (NP (DT the) (NNS orbiters))))))))))))))))
+        (: —)
+        (S
+          (NP-SBJ (RB even) (NNP Administrator) (NNP Bolden))
+          (VP (VBD stated) (NP (RB as) (JJ much))))))
+    (. .)))
 
 (ROOT
   (S
-    (NP-SBJ (NP (NN Today) (POS 's)) (NN announcement))
-    (VP
-      (VBZ is)
-      (NP-PRD
-        (NP (DT an) (NN affront))
-        (PP
-          (IN to)
-          (NP
-            (NP (DT the) (NNS thousands))
-            (PP
-              (IN of)
-              (UCP
+    (S
+      (NP-SBJ (NP (NN Today) (POS 's)) (NN announcement))
+      (VP
+        (VBZ is)
+        (NP-PRD
+          (NP (DT an) (NN affront))
+          (PP
+            (IN to)
+            (NP
+              (NP (DT the) (NNS thousands))
+              (PP
+                (IN of)
+                (NP (JJ dedicated) (NNS men) (CC and) (NNS women)))
+              (PP-LOC
+                (IN at)
                 (NP
+                  (NP (NNP Johnson) (NNP Space) (NNP Center))
+                  (, ,)
                   (NP
-                    (ADJP (JJ dedicated))
-                    (NNS men)
-                    (CC and)
-                    (NNS women))
-                  (PP-LOC
-                    (IN at)
-                    (NP
-                      (NP (NNP Johnson) (NNP Space) (NNP Center))
-                      (, ,)
-                      (NP
-                        (DT the)
-                        (JJR greater)
-                        (NNP Houston)
-                        (NN community))
-                      (CC and)
-                      (NP
-                        (NP (DT the) (NNP State))
-                        (PP (IN of) (NP (NNP Texas))))
-                      (, ,))))
-                (CC and)
-                (S
-                  (NP-SBJ (PRP I))
-                  (VP
-                    (VBP m)
-                    (ADJP
-                      (RB deeply)
-                      (VBN disappointed)
-                      (PP
-                        (IN with)
-                        (NP
-                          (NP (DT the) (NNP Administration) (POS 's))
-                          (JJ misguided)
-                          (NN decision))))))
-                (. .)))
-            ('' “)))))))
+                    (DT the)
+                    (JJR greater)
+                    (NNP Houston)
+                    (NN community))
+                  (CC and)
+                  (NP
+                    (NP (DT the) (NNP State))
+                    (PP (IN of) (NP (NNP Texas)))))))))))
+    (, ,)
+    (CC and)
+    (S
+      (NP-SBJ (PRP I))
+      (VP
+        (VBP m)
+        (ADJP
+          (RB deeply)
+          (VBN disappointed)
+          (PP
+            (IN with)
+            (NP
+              (NP (DT the) (NNP Administration) (POS 's))
+              (JJ misguided)
+              (NN decision))))))
+    (. .)
+    ('' “)))
 
 (ROOT
   (S
@@ -940,19 +958,18 @@
       (MD will)
       (VP
         (VB recieve)
-        (NP
-          (NN pilot)
-          (CC and)
-          (NN commander)
-          (NNS seats)
-          (PP-DIR (IN from) (NP (DT the) (NN flight) (NN deck))))))
+        (NP (NN pilot) (CC and) (NN commander) (NNS seats))
+        (PP-DIR (IN from) (NP (DT the) (NN flight) (NN deck)))))
     (. .)))
 
 (ROOT
   (S
     (NP-SBJ
-      (NP (NP (DT The) (NNP Museum)) (PP (IN of) (NP (NNP Flight))))
-      (PP-LOC (IN in) (NP (NNP Seattle) (, ,) (NNP Washington))))
+      (NP (DT The) (NNP Museum))
+      (PP (IN of) (NP (NNP Flight)))
+      (PP-LOC
+        (IN in)
+        (NP (NP (NNP Seattle)) (, ,) (NP (NNP Washington)))))
     (VP
       (VBD was)
       (ADVP (RB also))
@@ -962,29 +979,37 @@
           (IN as)
           (NP
             (NP (DT another) (NN location))
-            (PP (IN for) (NP (DT a) (NN shuttle)))
-            (, ,)
-            (VP
-              (VBG going)
-              (ADVP-TMP (RB so) (RB far) (RB as))
-              (S-PRP
-                (VP
-                  (TO to)
+            (PP (IN for) (NP (DT a) (NN shuttle)))))
+        (, ,)
+        (S-ADV
+          (VP
+            (VBG going)
+            (ADVP
+              (ADVP-TMP (RB so) (RB far))
+              (SBAR-ADV
+                (IN as)
+                (S-PRP
                   (VP
-                    (VB build)
-                    (NP (DT a) (JJ new) (NN building))
-                    (S
-                      (VP
-                        (TO to)
-                        (VP (VB house) (NP (DT an) (NN orbiter)))))))))))))
+                    (TO to)
+                    (VP
+                      (VB build)
+                      (NP
+                        (NP (DT a) (JJ new) (NN building))
+                        (SBAR
+                          (S
+                            (VP
+                              (TO to)
+                              (VP
+                                (VB house)
+                                (NP (DT an) (NN orbiter))))))))))))))))
     (. .)))
 
 (ROOT
   (S
     (PP (IN In) (NP (DT a) (NN statement)))
     (, ,)
-    (NP-SBJ
-      (NP (NNP Governor) (PP (IN of) (NP (NNP Washington))))
+    (NP
+      (NAC (NNP Governor) (PP (IN of) (NP (NNP Washington))))
       (NNP Chris)
       (NNP Gregoire))
     (VP
@@ -1020,25 +1045,23 @@
         (PP
           (IN of)
           (NP
-            (NP (NP (JJ modern) (NN day)) (NN air) (NN travel))
+            (NP (JJ modern) (NN day) (NN air) (NN travel))
             (CC and)
             (NP
-              (DT the)
-              (NNP 747)
+              (NP (DT the) (CD 747))
               (, ,)
               (SBAR
                 (NP-SBJ (WDT which))
                 (S
                   (VP
                     (VBZ has)
-                    (ADVP-MNR (RB gracefully))
                     (VP
+                      (ADVP-MNR (RB gracefully))
                       (VBN transported)
-                      (NP
-                        (NP (NNS shuttles))
-                        (PP
-                          (IN for)
-                          (NP (DT the) (JJ last) (CD 30) (NNS years)))))))))))))
+                      (NP (NNS shuttles))
+                      (PP
+                        (IN for)
+                        (NP (DT the) (JJ last) (CD 30) (NNS years))))))))))))
     (, ,)
     (NP-SBJ (NNP Seattle))
     (VP
@@ -1050,8 +1073,8 @@
 
 (ROOT
   (S
-    (SBAR-TMP
-      (WHADVP (WRB While))
+    (SBAR
+      (IN While)
       (S
         (NP-SBJ
           (NP (DT the) (NNP Museum))
@@ -1086,7 +1109,7 @@
           (NP (PRP$ their) (JJ respective) (NNS launchpads)))))
     (. .)))
 
-(ROOT (FRAG (NP (NN Image)) (: :) (NP (NNP NASA)) (. .)))
+(ROOT (NP (NP (NN Image)) (: :) (NP (NNP NASA)) (. .)))
 
 (ROOT
   (S
@@ -1104,15 +1127,13 @@
             (PP
               (VBG including)
               (NP
-                (NP
-                  (-LSB- [)
-                  (NP
-                    (JJ former)
-                    (NP (NNP Museum) (PP (IN of) (NP (NNP Flight))))
-                    (NN CEO))
-                  (-RSB- ])
-                  (NNP Bonnie)
-                  (NNP Dunbar)))))
+                (-LRB- [)
+                (JJ former)
+                (NAC (NNP Museum) (PP (IN of) (NP (NNP Flight))))
+                (NN CEO)
+                (-RRB- ])
+                (NNP Bonnie)
+                (NNP Dunbar))))
           (VP
             (VBZ has)
             (VP (VBN been) (VP (VBN trained) (PP (IN on)))))))
@@ -1122,17 +1143,19 @@
       (ADVP-TMP (RB soon))
       (VP
         (VB call)
-        (NP-SBJ
-          (NP (DT the) (NNP Museum))
-          (PP (IN of) (NP (NNP Flight))))
-        (NP-PRD (NN home))))
+        (S
+          (NP-SBJ
+            (NP (DT the) (NNP Museum))
+            (PP (IN of) (NP (NNP Flight))))
+          (NP-PRD (NN home)))))
     (. .)))
 
 (ROOT
   (S
-    (NP
-      (NP (DT The) (JJS largest))
-      (PP (IN of) (NP (NP (DT the) (NNS trainers)))))
+    (S
+      (NP
+        (NP (DT The) (JJS largest))
+        (PP (IN of) (NP (DT the) (NNS trainers)))))
     (, ,)
     (NP-SBJ (DT this) (NN addition))
     (VP
@@ -1143,19 +1166,22 @@
           (NP-SBJ (NNS visitors))
           (VP
             (TO to)
+            (ADVP (RB actually))
             (VP
               (VP
-                (ADVP (RB actually))
                 (VB climb)
                 (PP (IN aboard) (NP (DT the) (NN trainer))))
               (CC and)
               (VP
                 (VB experience)
                 (NP
-                  (NP (DT the) (JJ hands-on) (NN training))
+                  (NP
+                    (DT the)
+                    (ADJP (NNS hands) (HYPH -) (RB on))
+                    (NN training))
                   (SBAR
-                    (NP-SBJ (WDT that) (NNS astronauts))
-                    (S (VP (VBP get)))))))))))
+                    (WHNP (WDT that))
+                    (S (NP-SBJ (NNS astronauts)) (VP (VBP get)))))))))))
     (. .)))
 
 (ROOT
@@ -1187,34 +1213,35 @@
       (MD will)
       (VP
         (VB help)
-        (VP
-          (VB inspire)
-          (NP (JJ young) (NNS people))
-          (PP
+        (S
+          (VP
+            (VB inspire)
+            (NP (JJ young) (NNS people))
             (PP
-              (IN to)
-              (NP
-                (NP (DT the) (NN adventure))
-                (PP (IN of) (NP (NN space)))))
-            (CC and)
-            (PP
-              (IN to)
-              (NP
-                (NP (DT the) (NN excitement))
-                (PP
-                  (IN of)
-                  (NP
-                    (NP (DT a) (NN career))
-                    (PP
-                      (IN in)
-                      (NP
-                        (NN science)
-                        (, ,)
-                        (NN technology)
-                        (, ,)
-                        (NN engineering)
-                        (CC and)
-                        (NN math)))))))))))
+              (PP
+                (IN to)
+                (NP
+                  (NP (DT the) (NN adventure))
+                  (PP (IN of) (NP (NN space)))))
+              (CC and)
+              (PP
+                (IN to)
+                (NP
+                  (NP (DT the) (NN excitement))
+                  (PP
+                    (IN of)
+                    (NP
+                      (NP (DT a) (NN career))
+                      (PP
+                        (IN in)
+                        (NP
+                          (NN science)
+                          (, ,)
+                          (NN technology)
+                          (, ,)
+                          (NN engineering)
+                          (CC and)
+                          (NN math))))))))))))
     (. .)
     ('' ")))
 
@@ -1224,25 +1251,29 @@
       (NP-SBJ (NP (NN Today) (POS 's)) (NN announcement))
       (VP
         (VBZ is)
-        (NP-PRD (DT an) (NN affront))
-        (PP
-          (IN to)
-          (NP
+        (NP-PRD
+          (NP (DT an) (NN affront))
+          (PP
+            (IN to)
             (NP
               (NP (DT the) (NNS thousands))
               (PP
                 (IN of)
+                (NP (JJ dedicated) (NNS men) (CC and) (NNS women)))
+              (PP-LOC
+                (IN at)
                 (NP
-                  (NP (JJ dedicated) (NNS men) (CC and) (NNS women))
-                  (PP-LOC
-                    (IN at)
-                    (NP (NP (NNP Johnson) (NNP Space) (NNP Center)))))))
-            (, ,)
-            (NP (DT the) (JJR greater) (NNP Houston) (NN community))
-            (CC and)
-            (NP
-              (NP (DT the) (NNP State))
-              (PP (IN of) (NP (NNP Texas))))))))
+                  (NP (NNP Johnson) (NNP Space) (NNP Center))
+                  (, ,)
+                  (NP
+                    (DT the)
+                    (JJR greater)
+                    (NNP Houston)
+                    (NN community))
+                  (CC and)
+                  (NP
+                    (NP (DT the) (NNP State))
+                    (PP (IN of) (NP (NNP Texas)))))))))))
     (, ,)
     (CC and)
     (S
@@ -1262,10 +1293,14 @@
 
 (ROOT
   (NP
-    (NP (NNP John) (NNP Cornyn))
-    (, ,)
-    (NP (NNP U.S.) (NNP Senator)))
-  (PRN (-LRB- -LRB-) (NP (NNP R-Texas)) (-RRB- -RRB-)))
+    (NP
+      (NP (NNP John) (NNP Cornyn))
+      (, ,)
+      (NP (NNP U.S.) (NNP Senator)))
+    (PRN
+      (-LRB- -LRB-)
+      (NP (NP (NNP R)) (HYPH -) (NP (NNP Texas)))
+      (-RRB- -RRB-))))
 
 (ROOT
   (S
@@ -1273,44 +1308,49 @@
     (VP
       (VBP include)
       (NP
-        (NP
-          (NP (JJ various) (NN shuttle) (NNS simulators))
-          (SBAR
-            (NP-SBJ (WDT which))
-            (S
+        (NP (JJ various) (NN shuttle) (NNS simulators))
+        (SBAR
+          (NP-SBJ (WDT which))
+          (S
+            (VP
+              (MD will)
               (VP
-                (MD will)
+                (VB be)
                 (VP
-                  (VB be)
-                  (VP
-                    (VBN given)
-                    (PP-DIR
-                      (IN to)
+                  (VBN given)
+                  (PP-DIR
+                    (IN to)
+                    (NP
+                      (NP
+                        (NP (DT the) (NNP Adler) (NNP Planetarium))
+                        (PP-LOC
+                          (IN in)
+                          (NP
+                            (NP (NNP Chicago))
+                            (, ,)
+                            (NP (NNP Illinois)))))
+                      (, ,)
                       (NP
                         (NP
-                          (NP (DT the) (NNP Adler) (NNP Planetarium))
-                          (PP-LOC
-                            (IN in)
-                            (NP (NNP Chicago) (, ,) (NNP Illinois))))
-                        (, ,)
-                        (NP
+                          (DT the)
+                          (NNP Evergreen)
+                          (NNP Aviation)
+                          (CC &)
+                          (NNP Space)
+                          (NNP Museum))
+                        (PP
+                          (IN of)
                           (NP
-                            (DT the)
-                            (NNP Evergreen)
-                            (NNP Aviation)
-                            (CC &)
-                            (NNP Space)
-                            (NNP Museum))
-                          (PP
-                            (IN of)
-                            (NP (NNP McMinnville) (, ,) (NNP Oregon))))
-                        (, ,)
-                        (CC and)
-                        (NP
-                          (NP (NNP Texas) (NNP A&M) (POS 's))
-                          (NNP Aerospace)
-                          (NNP Engineering)
-                          (NNP Department))))))))))))
+                            (NP (NNP McMinnville))
+                            (, ,)
+                            (NP (NNP Oregon)))))
+                      (, ,)
+                      (CC and)
+                      (NP
+                        (NP (NNP Texas) (NNP A&M) (POS 's))
+                        (NNP Aerospace)
+                        (NNP Engineering)
+                        (NNP Department)))))))))))
     (. .)))
 
 (ROOT
@@ -1318,29 +1358,29 @@
     (NP
       (NP
         (DT The)
-        (NP (NN nose) (NN cap))
+        (NN nose)
+        (NN cap)
         (NN assembly)
         (CC and)
-        (NP (NN crew) (NN compartment))
+        (NN crew)
+        (NN compartment)
         (NN trainer))
       (PP-LOC
         (IN for)
         (NP
-          (NP
-            (NP (DT the) (NNP National) (NNP Museum))
-            (PP
-              (IN of)
-              (NP (DT the) (NNP U.S.) (NNP Air) (NNP Force))))
+          (NP (DT the) (NNP National) (NNP Museum))
+          (PP (IN of) (NP (DT the) (NNP U.S.) (NNP Air) (NNP Force)))
           (PP-LOC
             (IN at)
             (NP
               (NP
-                (NP
-                  (NNP Wright-Patterson)
-                  (NNP Air)
-                  (NNP Force)
-                  (NNP Base))
-                (PP-LOC (IN in) (NP (NNP Ohio)))))))))
+                (NNP Wright)
+                (HYPH -)
+                (NNP Patterson)
+                (NNP Air)
+                (NNP Force)
+                (NNP Base))
+              (PP-LOC (IN in) (NP (NNP Ohio))))))))
     (CC and)
     (NP
       (NP (JJ orbital) (NN maneuvering) (NN system) (NNS engines))
@@ -1385,7 +1425,7 @@
       (ADVP (RB also))
       (VP
         (VBG offering)
-        (NP (NN shuttle) (NP (NN heat) (NN shield)) (NNS tiles))
+        (NP (NN shuttle) (NN heat) (NN shield) (NNS tiles))
         (PP-DTV
           (IN to)
           (NP

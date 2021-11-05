@@ -43,13 +43,17 @@ def fix_tsv(gum_source, gum_target, reddit=False, genitive_s=False):
 	if not os.path.exists(outdir):
 		os.makedirs(outdir)
 
+	conllua_data = {}
 	for docnum, filename in enumerate(file_list):
+		docname = ntpath.basename(filename).replace(".tsv","")
 		tt_file = filename.replace(".tsv", ".xml").replace("tsv","xml")
 		sys.stdout.write("\t+ " + " "*60 + "\r")
-		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Adjusting borders for " + ntpath.basename(filename) + "\r")
-		fix_file(filename,tt_file,outdir,genitive_s=genitive_s)
+		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Adjusting borders for " + docname + "\r")
+		conllua_doc = fix_file(filename,tt_file,outdir,genitive_s=genitive_s)
+		conllua_data[docname] = conllua_doc
 
 	print("o Adjusted " + str(len(file_list)) + " WebAnno TSV files" + " " * 40)
+	return conllua_data
 
 
 def make_ontogum(gum_target, reddit=False):
@@ -538,11 +542,13 @@ def fix_genitive_s(tsv_path, xml_path, warn_only=True, outdir=None, string_input
 ### end genitive s fix
 
 
-def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
+def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, single_coref_type=False):
 	"""
 	Fix webanno TSV in several ways:
 	  * All edges pointing back from a pronoun receive type 'ana'
 	  * All edges pointing from an entity headed by an apposition token to an entity headed by its parent are 'appos'
+	  * All edges pointing from an indefinite nominal entity which has a subject dependent are 'pred'
+	  * All edges pointing to a verbal entity are 'disc'
 	  * Chains whose first member is a pronoun receive type 'cata' and edge must point forward
 	  * All coref chain initial tokens and cata targets which are not infstat 'acc' receive infstat 'new'
 	  * All other coref chain non-initial entities receive infstat 'giv'
@@ -551,8 +557,52 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
 
 	:param webanno_tsv: input webanno tsv with possibly incorrect edge types
 	:param parsed_lines: structured information about each token line
-	:return: adjusted webanno tsv output
+	:param ent_mappings: maps entity numbers like [320]
+	:param single_tok_mappings: maps single token entities identified by their tok ID, like 13-1 (sent. 13, tok 1)
+	:param single_coref_type: if True only use coref and bridge in output, do not distinguish ana, cata, pred, disc and appos types
+	:return: adjusted webanno tsv output, per-token conllu_data for conllu-a bracket representation in MISC field
 	"""
+
+	def has_bridging(rels):
+		for rel in rels:
+			if rel["rel_type"].startswith("bridg"):
+				return True
+		return False
+
+	def get_min(toks):
+		start = toks[0][0]
+		end = toks[-1][0]
+		head = end
+		head_tokens_lowered = {}
+		toks_by_id = {0:(0,0,"","","",0)}  # Dummy token for root
+		for tok in toks:
+			toks_by_id[tok[0]] = tok
+			if tok[1] == 0:  # root
+				head = tok[0]
+				head_tokens_lowered[tok[0]] = tok[-2].lower()
+				break
+			elif tok[1] > end or tok[1] < start and tok[3] != "punct":
+				head = tok[0]
+				head_tokens_lowered[tok[0]] = tok[-2].lower()
+		min_ids = [head]
+		for i, tok in enumerate(toks):
+			if tok[3] == "conj" and tok[1] in min_ids:
+				min_ids.append(tok[0])
+				head_tokens_lowered[tok[0]] = tok[-2].lower()
+			elif tok[3] == "flat" and tok[1] in min_ids:
+				min_ids.append(tok[0])
+				head_tokens_lowered[tok[0]] = tok[-2].lower()
+			if tok[2].startswith("NP") and tok[1] in toks_by_id:  # NNP token with parent in span
+				if toks_by_id[tok[1]][2].startswith("NP") and tok[3] not in ["nmod:poss"]:
+					# NNP child of NNP, not a possessor
+					min_ids.append(tok[0])
+
+		min_idx = []
+		for i, tok in enumerate(toks):
+			if tok[0] in min_ids:
+				min_idx.append(str(i+1))
+		return ",".join(min_idx)
+
 
 	adjusted = []
 	entities = {}
@@ -562,23 +612,34 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
 	tokens = {l["abs_id"]:l["token"] for l in parsed_lines}
 	lowered_acc_prons = ["i","you","we","us","your","my","mine","yours","ours","me"]  # accessible pronouns, not cataphors
 
+	# Get all child dependency functions per token
+	child_funcs = defaultdict(set)
+	child_lower_toks = defaultdict(set)
+	for tok in parsed_lines:
+		if tok["func"] != "root":
+			sent_offset = tok["abs_id"] - int(tok["id_in_sent"])
+			abs_parent = int(tok["dep_parent"]) + sent_offset
+			child_funcs[abs_parent].add(tok["func"])
+			child_lower_toks[abs_parent].add(tok["token"].lower())
+
 	# Get all entities
 	for tid, dct in enumerate(parsed_lines):
 		if "entities" in dct:
 			for i, e in enumerate(dct["entities"]):
 				if e["id"] in entities:
 					entities[e["id"]]["end"] = tid
-					entities[e["id"]]["toks"].append((int(dct["id_in_sent"]),int(dct["dep_parent"]),dct["pos"],dct["func"],dct["abs_id"]))
+					entities[e["id"]]["toks"].append((int(dct["id_in_sent"]),int(dct["dep_parent"]),dct["pos"],dct["func"],dct["token"],dct["abs_id"]))
 					entities[e["id"]]["length"] += 1
 				else:
-					entities[e["id"]] = {"start":tid, "length":1, "func": dct["func"], "pos": dct["pos"],
+					entities[e["id"]] = {"start":tid, "end":tid,"length":1, "func": dct["func"], "pos": dct["pos"],
 									 "infstat": e["infstat"], "type":e["type"], "identity": e["identity"], "relations": [],
 									 "head_tok_abs_id": dct["abs_id"], "head_tok_parent_abs_id" : 0, "group":None,
-									 "toks":[(int(dct["id_in_sent"]),int(dct["dep_parent"]),dct["pos"],dct["func"],dct["abs_id"])]}
+									 "toks":[(int(dct["id_in_sent"]),int(dct["dep_parent"]),dct["pos"],dct["func"],dct["token"],dct["abs_id"])]}
 				if "relations" in dct:
 					for rel in dct["relations"]:
 						source2rel[rel["src"]].append(rel)
 						dest2rel[rel["dest"]].append(rel)
+						rel["sent_dist"] = abs(int(rel["src_token"].split("-")[0]) - int(rel["dst_token"].split("-")[0]))
 						if rel["dest"] == e["id"]:
 							e["relations"] = rel
 
@@ -591,63 +652,127 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
 				# local root
 				entities[e_id]["pos"] = tok[2]
 				entities[e_id]["func"] = tok[3]
-				entities[e_id]["head_tok_abs_id"] = tok[4]
+				entities[e_id]["head_tok_abs_id"] = tok[-1]
+				entities[e_id]["child_funcs"] = child_funcs[tok[-1]]
+				entities[e_id]["child_lower_toks"] = child_lower_toks[tok[-1]]
 				# abs parent
 				if tok[1] == 0:
 					entities[e_id]["head_tok_parent_abs_id"] = 0
 				else:
-					entities[e_id]["head_tok_parent_abs_id"] = tok[4] + tok[1] - tok[0]
+					entities[e_id]["head_tok_parent_abs_id"] = tok[-1] + tok[1] - tok[0]
 
 	pronouns = set(["PP", "PRP", "PP$", "PRP$", "DT"])
+	definites = set(["the","this","that","those","these","both"])
 	for e_id, ent in iteritems(entities):
+		ent["coref_type"] = "sgl"  # Assume everything is a singleton at first
 		if e_id not in dest2rel:  # No incoming relations, this is a singleton
-			if ent["infstat"] == "giv":
+			if ent["infstat"].startswith("giv"):
 				ent["infstat"] = "new"
 		if e_id in source2rel:
+			if all([r["rel_type"].startswith("bridg") for r in source2rel[e_id]]):  # Only has bridging
+				if ent["infstat"] not in ["split","acc:aggr"]:
+					ent["infstat"] = "acc:inf"
 			for rel in source2rel[e_id]:
-				if rel["rel_type"] == "coref":
-					if ent["infstat"] == 'new':  # Source in coref chain can't be new
-						ent["infstat"] = 'giv'
-					if ent["pos"] in pronouns:
+				if rel["rel_type"] in ["coref","disc","ana","appos"]:
+					entities[e_id]["sent_dist"] = rel["sent_dist"]
+					if ent["infstat"] in ['new','giv']:  # Source in coref chain can't be new
+						if rel["sent_dist"] > 1:
+							ent["infstat"] = 'giv:inact'
+						else:
+							ent["infstat"] = 'giv:act'
+						if rel["rel_type"] == "ana":
+							continue
+					if ent["coref_type"] == "sgl":
+						ent["coref_type"] = "coref"
+					if ent["pos"] in pronouns and not single_coref_type and rel["rel_type"] != "disc":
 						rel["rel_type"] = "ana"
-					elif ent["func"] == "appos":
+						ent["coref_type"] = "ana"
+					elif ent["func"] == "appos" and not single_coref_type:
 						if entities[rel["dest"]]["head_tok_abs_id"] == ent["head_tok_parent_abs_id"]:
 							rel["rel_type"] = "appos"
-				elif rel["rel_type"].startswith("bridge"):
-					if ent["infstat"]=='new':  # Source of bridging can't be new
-						ent["infstat"] = "acc"
+							ent["coref_type"] = "appos"
+							ent["infstat"] = 'giv:act'
+					if ent["pos"].startswith("NN") and any(["subj" in fnc for fnc in ent["child_funcs"]]) and not single_coref_type:
+						# nominal with subject
+						if not any([t in ent["child_lower_toks"] for t in definites]):  # no definite determiners
+							if not any([":poss" in fnc for fnc in ent["child_funcs"]]):  # no possessors
+								rel["rel_type"] = "pred"
+								ent["coref_type"] = "pred"
+
+				elif rel["rel_type"].startswith("bridg"):
+					if ent["infstat"]=='new' or ent["infstat"].startswith("giv"):  # Source of bridging can't be new or given
+						ent["infstat"] = "acc:inf"
 		if e_id in dest2rel:
+			ent = entities[e_id]
+			if ent["coref_type"] == "sgl":
+				ent["coref_type"] = "coref"
 			if e_id not in source2rel:
 				# This is the first member of a chain
-				ent = entities[e_id]
-				if ent["infstat"] == "giv":
+				if ent["infstat"].startswith("giv"):
 					ent["infstat"] = "new"
-				if ent["pos"] in pronouns and ent["length"] == 1 and ent["infstat"] != "acc":  # Cataphora
-					rem_rel = None
-					for rel in dest2rel[e_id]:
-						if rel["rel_type"] in ["coref","ana","appos"]:
-							if rel["src_token"].split("-")[0] == rel["dst_token"].split("-")[0]:  # same sentence
-								if tokens[ent["head_tok_abs_id"]].lower() not in lowered_acc_prons:  # I, you etc. not cataphors
-									entities[rel["src"]]["infstat"] = "new"  # Next mention also considered new
-									entities[rel["dest"]]["infstat"] = "new"
-									rem_rel = rel
-					if rem_rel is not None:
-						new_rel = {k:v for k,v in iteritems(rem_rel)}
-						new_rel["rel_type"] = "cata"
-						new_rel["dest"] = rem_rel["src"]
-						new_rel["src"] = e_id
-						new_rel["src_token"] = rem_rel["dst_token"]
-						new_rel["dst_token"] = rem_rel["src_token"]
-						d_rels = [d for d in dest2rel[e_id]]
-						for d_rel in d_rels:
-							if rem_rel["src"] == d_rel["src"] and rem_rel["dest"] == d_rel["dest"]:
-								dest2rel[e_id].remove(d_rel)
-						s_rels = [d for d in source2rel[rem_rel["src"]]]
-						for s_rel in s_rels:
-							if s_rel["src"] == rem_rel["src"] and s_rel["dest"] == rem_rel["dest"]:
-								source2rel[rem_rel["src"]].remove(s_rel)
-						source2rel[e_id].append(new_rel)
-						dest2rel[new_rel["dest"]].append(new_rel)
+				# Cataphora
+				if ent["pos"] in pronouns:
+					# First coref type should be ana if it's not cata
+					ent["coref_type"] = "ana"
+					if ent["length"] == 1 and not ent["infstat"].startswith("acc") and not single_coref_type:
+						rem_rel = None
+						for rel in dest2rel[e_id]:
+							if rel["rel_type"] in ["coref","ana","appos"]:
+								if rel["src_token"].split("-")[0] == rel["dst_token"].split("-")[0]:  # same sentence
+									if tokens[ent["head_tok_abs_id"]].lower() not in lowered_acc_prons:  # I, you etc. not cataphors
+										entities[rel["src"]]["infstat"] = "new"  # Next mention also considered new
+										entities[rel["dest"]]["infstat"] = "new"
+										rem_rel = rel
+						if rem_rel is not None:
+							ent["coref_type"] = "cata"
+							new_rel = {k:v for k,v in iteritems(rem_rel)}
+							new_rel["rel_type"] = "cata"
+							new_rel["dest"] = rem_rel["src"]
+							new_rel["src"] = e_id
+							new_rel["src_token"] = rem_rel["dst_token"]
+							new_rel["dst_token"] = rem_rel["src_token"]
+							d_rels = [d for d in dest2rel[e_id]]
+							for d_rel in d_rels:
+								if rem_rel["src"] == d_rel["src"] and rem_rel["dest"] == d_rel["dest"]:
+									dest2rel[e_id].remove(d_rel)
+							s_rels = [d for d in source2rel[rem_rel["src"]]]
+							for s_rel in s_rels:
+								if s_rel["src"] == rem_rel["src"] and s_rel["dest"] == rem_rel["dest"]:
+									source2rel[rem_rel["src"]].remove(s_rel)
+							source2rel[e_id].append(new_rel)
+							dest2rel[new_rel["dest"]].append(new_rel)
+			# Discourse deixis
+			head_tok_id_in_sent = 0
+			verbal = False
+			for t in ent["toks"]:
+				if t[-1] == ent["head_tok_abs_id"]:
+					head_tok_id_in_sent = t[0]
+			for t in ent["toks"]:
+				if t[1] == head_tok_id_in_sent and t[3] in ["cop","nsubj","csubj"]:  # non-verbal predicate
+					verbal = True
+			if ent["pos"].startswith("V") or verbal:
+				for rel in dest2rel[e_id]:
+					if rel["rel_type"] in ["coref", "ana"]:
+						rel["rel_type"] = "disc"
+						ent["coref_type"]= "disc"
+		if ent["infstat"].startswith("acc"):
+			if not has_bridging(source2rel[e_id]):
+				# Remove accessibles without bridging which are named places and dates/times (times with CD)
+				if ent["type"] == "place":
+					if ent["pos"].startswith("NP") and ent["identity"] != "":  # Accessible, non-bridge, linked NNP place: Country
+						ent["infstat"] = "new"
+						continue
+				elif ent["type"] == "time":
+					if any([t[2] == "CD" for t in ent["toks"]]):  # Accessible, non-bridge, time with number: Date
+						ent["infstat"] = "new"
+						continue
+				if ent["infstat"] != "acc:aggr":
+					if ent["pos"] in pronouns or any([x in {"this","that","those","these","here","there"} for x in ent["child_lower_toks"]]):
+						ent["infstat"] = "acc:com"  # proxy for acc:sit
+					else:
+						ent["infstat"] = "acc:com"  # proxy for acc:gen
+			else:
+				ent["infstat"] = "acc:inf"
 
 	max_group = 0
 	mapping = {}
@@ -678,7 +803,19 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
 	group_identities = {}
 	for e_id in entities:
 		ent = entities[e_id]
+		if ent["infstat"] == "split":
+			ent["infstat"] = "acc:aggr"
+		elif ent["infstat"] == "giv":
+			if "sent_dist" in ent:
+				if ent["sent_dist"] > 1:
+					ent["infstat"] = "giv:inact"
+				else:
+					ent["infstat"] = "giv:act"
+			else:
+				a=3
 		if ent["group"] is None:  # Not coreferent
+			max_group += 1
+			ent["group"] = max_group
 			continue
 		if ent["identity"] != "_":
 			if ent["group"] in group_identities:
@@ -691,6 +828,45 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
 			#if ent["pos"][0] == "P":
 			#	pass  # pronoun
 			ent["identity"] = group_identities[ent["group"]]
+
+	# Create opener and closer data for later conllu-a serialization
+	opener_lists = defaultdict(list)
+	closer_lists = defaultdict(list)
+	group_mapping = {}
+	max_mapped_group = 1
+	for e_id in sorted(entities, key=lambda x: (entities[x]["start"],-entities[x]["end"])):
+		ent = entities[e_id]
+		start = ent["toks"][0][-1]
+		end = ent["toks"][-1][-1]
+		etype = ent["type"]
+		coref_type = ent["coref_type"]
+		infstat = ent["infstat"]
+		identity = "-" + ent["identity"] if ent["identity"] != "_" else ""
+		min_ids = get_min(ent["toks"])
+		if ent["group"] not in group_mapping:
+			group_mapping[ent["group"]] = max_mapped_group
+			max_mapped_group += 1
+		group = group_mapping[ent["group"]]
+		starter = f'({etype}-{group}-{infstat}-{min_ids}-{coref_type}{identity}'
+		if start == end:
+			starter += ")"
+		opener_lists[start].append(starter)
+		if start != end:
+			closer_lists[end].append(str(group) + ")")
+
+	conllua_data = []
+	for i in range(len(tokens)):
+		if i+1 in opener_lists or i+1 in closer_lists:
+			tid = i+1
+			open_part = "".join(opener_lists[tid])
+			close_part = "".join(closer_lists[tid][::-1])
+			conllua_data.append(open_part + close_part)  # Prefer openers before closers for '(1(2)'
+			if open_part != "" and close_part != "":
+				if open_part[-1].isdigit() and close_part[-1].isdigit():
+					# This should never happen, but if we have open (1 and close 2), we must serialize 2)(1 to avoid (12)
+					conllua_data[-1] = close_part + open_part
+		else:
+			conllua_data.append("_")
 
 	lines = webanno_tsv.split("\n")
 	counter = 0
@@ -746,7 +922,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings):
 			line = "\t".join(fields)
 			adjusted.append(line)
 
-	return "\n".join(adjusted)
+	return "\n".join(adjusted), conllua_data
 
 
 def fix_file(filename, tt_file, outdir, genitive_s=False):
@@ -1013,12 +1189,14 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 	output += "\n".join(out_lines) + "\n"
 	parsed_lines, entity_mappings, single_tok_mappings = fix_genitive_s(output, tt_file, warn_only=True, string_input=True)
 
-	output = adjust_edges(output, parsed_lines, entity_mappings, single_tok_mappings)
+	output, conllua_data = adjust_edges(output, parsed_lines, entity_mappings, single_tok_mappings)
 
 	outfile.write(output)
 	outfile.close()
 	outtemp.write(output)
 	outtemp.close()
+
+	return conllua_data
 
 
 if __name__ == "__main__":

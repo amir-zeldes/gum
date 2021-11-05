@@ -21,7 +21,7 @@
         (ADVP (RB also))
         (VP
           (VBN called)
-          (S (`` “) (NP (NNP T-town)) ('' ”))
+          (S (NP (`` “) (NP (NNP T) (HYPH -) (NNP town)) ('' ”)))
           (PP (IN by) (NP (DT the) (NNS locals)))))
       (CC and)
       (VP
@@ -384,7 +384,10 @@
               (NP (NNS sofas) (CC and) (NNS chairs))
               (ADVP (RB all) (RB around)))
             (CC and)
-            (NP (DT a) (ADJP (RB very) (JJ laid-back)) (NN feel))))))
+            (NP
+              (DT a)
+              (ADJP (RB very) (JJ laid) (HYPH -) (RB back))
+              (NN feel))))))
     (. .)))
 
 (ROOT
@@ -406,7 +409,9 @@
         (NP (JJ free) (JJ short) (NN term) (NN parking))
         (PRN
           (-LRB- -LRB-)
-          (S (NP (JJ first) (NN half-hour)) (ADJP (JJ free)))
+          (S
+            (NP (JJ first) (NN half) (HYPH -) (NN hour))
+            (ADJP (JJ free)))
           (-RRB- -RRB-))))
     (. .)))
 
@@ -489,8 +494,8 @@
     (: -)
     (NP
       (NP
-        (NP (NNP US-75))
-        (ADVP
+        (NP (NP (NNP US)) (HYPH -) (NP (CD 75)))
+        (ADJP
           (NNP South)
           (PP-DIR
             (IN from)
@@ -498,8 +503,10 @@
       (, ,)
       (CC or)
       (NP
-        (NP (NNP US-169))
-        (ADVP
+        (NNP US)
+        (HYPH -)
+        (X
+          (NP (CD 169))
           (NNP South)
           (PP-DIR
             (IN from)
@@ -513,7 +520,7 @@
       (NP (DT the) (NNP Northeast) (SYM /) (NNP Missouri)))
     (: -)
     (NP
-      (NP (NNP I-44) (NNP West))
+      (NP (NNP I) (HYPH -) (CD 44) (NNP West))
       (, ,)
       (PP-LOC
         (IN aka)
@@ -542,10 +549,11 @@
       (NP (NP (DT the) (NNP East)) (SYM /) (NP (NNP Arkansas))))
     (: -)
     (NP
-      (NP (NP (NNP US-412)) (ADVP (NNP West)))
+      (NP (NP (NNP US) (HYPH -) (CD 412)) (ADVP (NNP West)))
       (, ,)
-      (IN aka)
-      (NP (DT the) (`` ") (NNP Cherokee) (NNP Turnpike)))
+      (PP
+        (IN aka)
+        (NP (DT the) (`` ") (NNP Cherokee) (NNP Turnpike))))
     (. .)
     ('' ")))
 
@@ -563,11 +571,13 @@
   (FRAG
     (PP-DIR (IN From) (NP (DT the) (NNP South)))
     (: -)
-    (NP (NNP US-75))
+    (NP (NNP US) (HYPH -) (CD 75))
     (PP-DIR
       (IN from)
       (NP
-        (NP (NP (NNP Okmulgee)) (, ,) (NP (NNP OK)))
+        (NP (NNP Okmulgee))
+        (, ,)
+        (NP (NNP OK))
         (, ,)
         (PP
           (IN aka)
@@ -582,11 +592,10 @@
     (NP (NNP Oklahoma) (NNP City))
     (: -)
     (NP
-      (NP (NNP I-44) (NNP East))
+      (NP (NNP I) (HYPH -) (CD 44) (NNP East))
       (, ,)
-      (PP-LOC
-        (IN aka)
-        (NP (DT the) (`` ") (NNP Turner) (NNP Turnpike))))
+      (IN aka)
+      (NP (DT the) (`` ") (NNP Turner) (NNP Turnpike)))
     (. .)
     ('' ")))
 
@@ -595,7 +604,7 @@
     (PP-DIR (IN From) (NP (DT the) (NNP West)))
     (: -)
     (NP
-      (NP (NP (NNP US-412)) (ADVP (NNP East)))
+      (NP (NP (QP (NNP US) (HYPH -) (CD 412))) (ADVP (NNP East)))
       (, ,)
       (IN aka)
       (NP (DT the) (`` ") (NNP Cimarron) (NNP Turnpike)))
@@ -742,26 +751,26 @@
                   (NP (DT the) (NNP Tulsa) (NNP Metro) (NN area))))))
           (: :)
           (NP
-            (NP (NNP I-244))
+            (NP (QP (NNP I) (HYPH -) (CD 244)))
             (, ,)
-            (NP (NNP I-44))
+            (NP (NNP I) (HYPH -) (CD 44))
             (, ,)
-            (NP (NNP US) (NNP 169))
-            (PRN
-              (-LRB- -LRB-)
-              (NP
-                (NP (NNP Mingo) (NNP Valley) (NNP Expressway))
-                (, ,)
-                (IN aka)
+            (NP
+              (NP (NNP US) (NNP 169))
+              (PRN
+                (-LRB- -LRB-)
                 (NP
-                  (`` ")
+                  (NP (NNP Mingo) (NNP Valley) (NNP Expressway))
+                  (, ,)
+                  (IN aka)
                   (NP
+                    (`` ")
                     (NNP Pearl)
                     (NNP Harbor)
                     (NNP Memorial)
-                    (NNP Expressway))
-                  ('' ")))
-              (-RRB- -RRB-))
+                    (NNP Expressway)
+                    ('' ")))
+                (-RRB- -RRB-)))
             (, ,)
             (NP (NNP US) (NNP 75))
             (, ,)
@@ -895,7 +904,7 @@
         (PP (IN of) (NP (DT the) (NN city)))
         (ADVP (JJR farther) (PP-DIR (IN from) (NP (NN downtown))))))
     (, ,)
-    (NP-SBJ (JJ north-south) (NNS streets))
+    (NP-SBJ (ADJP (NNP north) (HYPH -) (NNP south)) (NNS streets))
     (VP (VBP are) (VP (VBN numbered)))
     (. .)))
 
@@ -919,7 +928,7 @@
                     (IN of)
                     (NP
                       (DT the)
-                      (JJ north-south)
+                      (ADJP (NNP north) (HYPH -) (NNP south))
                       (JJ numbered)
                       (NN street)
                       (NNS names))))
@@ -942,7 +951,7 @@
     (VP
       (VBP run)
       (ADVP (NNP East) (SYM /) (NNP West))
-      (PP
+      (PP-LOC
         (IN with)
         (NP
           (NP
@@ -1002,8 +1011,11 @@
                     (IN of)
                     (NP
                       (DT the)
-                      (JJ east-west)
-                      (JJ numbered)
+                      (ADJP
+                        (NNP east)
+                        (HYPH -)
+                        (NNP west)
+                        (JJ numbered))
                       (NN street)
                       (NNS names))))
                 (VP
@@ -1041,7 +1053,10 @@
   (S
     (SBAR-ADV (IN Although) (S (ADJP (JJ rare))))
     (, ,)
-    (NP-SBJ (CD one) (JJ east-west) (JJ numbered) (NN street))
+    (NP-SBJ
+      (CD one)
+      (ADJP (NNP east) (HYPH -) (NNP west) (JJ numbered))
+      (NN street))
     (VP
       (MD may)
       (ADVP (RB even))
@@ -1052,7 +1067,9 @@
           (NP
             (NP (DT a) (NN street))
             (PP (IN of) (NP (DT the) (JJ same) (NN number)))
-            (VP (VBG running) (ADVP (RB north-south)))))))
+            (VP
+              (VBG running)
+              (ADVP (NNP north) (HYPH -) (NNP south)))))))
     (. .)))
 
 (ROOT
@@ -1105,12 +1122,13 @@
     (ADVP (RB Thus))
     (NP-SBJ
       (NP (DT the) (`` ") (VBN twisted) ('' ") (NN area))
-      (ADVP (NN down-town)))
+      (ADVP (NN down) (HYPH -) (NP-ADV (NN town))))
     (VP
       (VBZ represents)
       (NP
         (NP (DT the) (JJ original) (NN extent))
-        (PP (IN of) (NP (NP (NNP Tulsa)) (NP (IN ca) (CD 1907))))))
+        (PP (IN of) (NP (NNP Tulsa)))
+        (NP (IN ca) (CD 1907))))
     (. .)))
 
 (ROOT (PP (IN By) (NP (NN bus))))
@@ -1263,7 +1281,10 @@
     (VP
       (VBZ is)
       (NP-PRD
-        (NP (DT a) (JJ rails-to-trails) (NN route))
+        (NP
+          (DT a)
+          (UCP (NNS rails) (HYPH -) (IN to) (HYPH -) (NNS trails))
+          (NN route))
         (SBAR
           (NP-SBJ (WDT that))
           (S
@@ -1274,7 +1295,9 @@
                   (IN at)
                   (NP
                     (DT the)
-                    (NAC (NNP OSU) (SYM -) (NNP Tulsa))
+                    (NNP OSU)
+                    (SYM -)
+                    (NNP Tulsa)
                     (NN campus))))
               (CC and)
               (VP
@@ -1388,7 +1411,9 @@
             (PP (IN for) (ADJP (JJ free)))
             (PP-TMP
               (IN for)
-              (NP (QP (IN up) (IN to) (CD twenty-four)) (NNS hours)))))))
+              (NP
+                (QP (IN up) (IN to) (CD twenty) (HYPH -) (CD four))
+                (NNS hours)))))))
     (. .)))
 
 (ROOT

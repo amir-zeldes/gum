@@ -1,6 +1,9 @@
-
-import io, os, sys, re
+import io
+import os
+import sys
+import re
 from collections import defaultdict
+from copy import deepcopy
 
 
 class Coref(object):
@@ -51,6 +54,9 @@ def coref_(fields: list) -> dict:
     """
     coref = {}
     line_id = fields[0]
+    all_mentions = {x.strip(']').split('[')[1] for x in fields[3].split('|')}
+    seen = set()
+
     # when the entity has not coref relations except that it is pointed to by other entities
     if fields[-1] != '_':
         coref_types = fields[-2].split('|')
@@ -67,9 +73,10 @@ def coref_(fields: list) -> dict:
                     next_e = f'0_{point_to}'
 
                 coref_type = coref_types[i]
+                seen.add(cur_e)
 
             # e.g.  academic_art
-            #       7-3	397-403	people	person	new	ana	8-7
+            #       7-3 397-403 people  person  new ana 8-7
             elif fields[-2] != '_':
                 coref_type = coref_types[i]
 
@@ -80,19 +87,24 @@ def coref_(fields: list) -> dict:
                 raise ValueError(f'The coref type {coref_type} has not been added into conversion at line {fields[0]}.')
             coref[cur_e] = (point_to, next_e, coref_type)
 
+    # keep singletons
+    for mention in all_mentions:
+        if mention not in seen:
+            coref[mention] = ('', '', '')
+
     # when the entity exists and it is mentioned before, but does not have next coref
     # e.g.  fiction_veronique
-    #       23-2	939-941	He	person	giv	_	_
-    #       45-1	2047-2048	I	person	giv	_	_
-    elif fields[3] != '_' and fields[4] == 'giv':
-        coref[''] = ('', '', '')
-
-    # to keep singletons
-    elif '[' in fields[3] and fields[-1] == '_':
-        entities = fields[3].split('|')
-        for entity in entities:
-            cur_e = entity.strip(']').split('[')[1]
-            coref[cur_e] = ('', '', '')
+    #       23-2    939-941 He  person  giv _   _
+    #       45-1    2047-2048   I   person  giv _   _
+    # elif fields[3] != '_' and fields[4] == 'giv':
+    #     coref[''] = ('', '', '')
+    #
+    # # to keep singletons
+    # elif '[' in fields[3] and fields[-1] == '_':
+    #     entities = fields[3].split('|')
+    #     for entity in entities:
+    #         cur_e = entity.strip(']').split('[')[1]
+    #         coref[cur_e] = ('', '', '')
 
     return coref
 
@@ -130,8 +142,8 @@ def add_tsv(entities: dict, fields: list, coref_r: dict, doc: dict, entity_group
                 doc[new_id].tsv_line = fields
 
                 # if the coref does not a named entity
-                # 7-3	397-403	people	person	new	ana	8-7
-                # 8-7	472-476	they	person	giv	coref	9-9
+                # 7-3   397-403 people  person  new ana 8-7
+                # 8-7   472-476 they    person  giv coref   9-9
                 if coref_r[id][1] == '' and coref_r[id][0]:
                     doc[new_id].next = f'0_{coref_r[id][0]}'
                 else:
@@ -266,7 +278,7 @@ def check_appos(sent: list, head_row: list, dep_sent_id) -> bool:
     return appos
 
 
-def check_dep_cop_child(sent: list, head_range: list, head_row: list) -> bool:
+def check_dep_cop_child(sent: list, head_range: list, head_row: list, starting_heads_id: str) -> bool:
     """
     check GUM_academic_art, sent 25 and GUM_academic_games, sent 6. correct √
 
@@ -276,6 +288,10 @@ def check_dep_cop_child(sent: list, head_range: list, head_row: list) -> bool:
     for row in sent:
         if row[0] not in head_range and row[7] == 'cop':
             if row[6] == head_id:
+                # if the token is right before the span, and the token is a preposition, the span should not be removed
+                prev_pos = sent[int(starting_heads_id) - 2][3]
+                if prev_pos == 'ADP':
+                    return False
                 children = find_direct_dep_children(sent, head_id)
                 for r in sent:
                     if r[0] in children and r[7] == 'case':
@@ -303,7 +319,7 @@ def process_doc(dep_doc, coref_doc):
             line_id, token = coref_fields[0], coref_fields[2]
 
             # test
-            if line_id == '44-14':
+            if line_id == '32-25':
                 a = 1
             if coref_fields[5] == 'appos':
                 a = 1
@@ -373,6 +389,7 @@ def process_doc(dep_doc, coref_doc):
                     # find dep information and index for each word in heads
                     heads = [dep_doc[x] for x in range(int(i), int(i)+span_len) if len(dep_doc[x]) == 10]
                     head_range = [dep_doc[x][0] for x in range(int(i), int(i)+span_len) if len(dep_doc[x]) == 10]
+                    starting_heads_id = head_range[0]
                     head_of_the_phrase = ''
 
                     # loop each word in the head to find the head_func/head_pos/if_cop_in_dep for the entity
@@ -386,7 +403,7 @@ def process_doc(dep_doc, coref_doc):
                             doc[entity].head_pos = row[4]
                             doc[entity].head_id = f'{dep_sent_id}-{row[0]}'
                             # check if the head has a copula child
-                            doc[entity].child_cop = check_dep_cop_child(cur_dep_sent, head_range, row)
+                            doc[entity].child_cop = check_dep_cop_child(cur_dep_sent, head_range, row, starting_heads_id)
                             # check whether appos is a child of the current head
                             doc[entity].dep_appos = True if row[7] == 'appos' and not another_appos else False
                             # if doc[entity].coref_type == 'appos' or doc[entity].dep_appos:
@@ -405,7 +422,7 @@ def process_doc(dep_doc, coref_doc):
                             doc[entity].head_func = row[7]
                             doc[entity].head_pos = row[4]
                             doc[entity].head_id = f'{dep_sent_id}-{row[0]}'
-                            doc[entity].child_cop = check_dep_cop_child(cur_dep_sent, head_range, row)
+                            doc[entity].child_cop = check_dep_cop_child(cur_dep_sent, head_range, row, starting_heads_id)
                             # check whether appos is a child of the current head
                             doc[entity].dep_appos = True if row[7] == 'appos' and not another_appos else False
                             # if doc[entity].coref_type == 'appos' or doc[entity].dep_appos:
@@ -518,7 +535,8 @@ def process_doc(dep_doc, coref_doc):
 
                     if doc[entity].head_func == '':
                         # raise ValueError('The head feature is empty.')
-                        print('Warning: The head feature is empty.')
+                        # print('Warning: The head feature is empty.')
+                        a = 1
 
     # group dict
     entity_group = [x for x in entity_group if x]
@@ -530,11 +548,6 @@ def process_doc(dep_doc, coref_doc):
             group_dict[x] = group_id
 
     return doc, tokens, group_dict, antecedent_dict, new_id2entity, dep_sents
-
-
-import io, os
-from copy import deepcopy
-from utils.process_data import Coref
 
 
 class Convert(object):
@@ -596,11 +609,11 @@ class Convert(object):
                 '''
                 Sometimes the acl span precedes the entity
                 - Example:
-                    1	Born	bear	VERB	VBN	Tense=Past|VerbForm=Part	5	acl	_	_
-                    2	in  in	ADP	IN	_	3	case	_	_
-                    3	England	England	PROPN	NNP	Number=Sing	1	obl	_	Entity=(place-12)|SpaceAfter=No
-                    4	,	,	PUNCT	,	_	1	punct	_	_
-                    5	Norton	Norton	PROPN	NNP	Number=Sing	6	nsubj	_	Entity=(person-1)
+                    1   Born    bear    VERB    VBN Tense=Past|VerbForm=Part    5   acl _   _
+                    2   in  in  ADP IN  _   3   case    _   _
+                    3   England England PROPN   NNP Number=Sing 1   obl _   Entity=(place-12)|SpaceAfter=No
+                    4   ,   ,   PUNCT   ,   _   1   punct   _   _
+                    5   Norton  Norton  PROPN   NNP Number=Sing 6   nsubj   _   Entity=(person-1)
                 '''
                 min_id = min([int(x.split('-')[-1]) for x in ids])
                 if f'{sent_id}-{min_id}' != self.doc[new_k].text_id:
@@ -756,8 +769,7 @@ class Convert(object):
                     next_sent_id = self.doc[_coref.next].text_id.split('-')[0]
                     next_next_sent_id = self.doc[next_next].text_id.split('-')[0]
                     if int(next_next_sent_id) <= int(next_sent_id) + 2:
-                        # print(f'Warning: Skip breaking chains in Line {next_sent_id}.')
-                        a = 1
+                        print(f'Warning: Skip breaking chains in Line {next_sent_id}.')
                         continue
 
                 break_group = max(self.group_dict.values()) + 1
@@ -765,7 +777,7 @@ class Convert(object):
                 while next_coref.cur in self.antecedent_dict.keys():
                     # avoid cataphora that the coref points to itself
                     # E.g. GUM_fiction_pag
-                    #      55-1	3945-3954	Something	person	giv	cata	55-1
+                    #      55-1 3945-3954   Something   person  giv cata    55-1
                     if next_coref.text_id == next_coref.next or f'0_{next_coref.text_id}' == next_coref.next:
                         break
 
@@ -794,13 +806,13 @@ class Convert(object):
 
         Example:
             from :
-                27-40	3795-3798	the	object[220]	new[220]	appos	27-42[0_220]
-                27-41	3799-3803	13th	object[220]	new[220]	_	_
-                27-42	3804-3812	Benjamin	object	giv	coref	27-45[221_0]
+                27-40   3795-3798   the object[220] new[220]    appos   27-42[0_220]
+                27-41   3799-3803   13th    object[220] new[220]    _   _
+                27-42   3804-3812   Benjamin    object  giv coref   27-45[221_0]
             to:
-                27-40	3795-3798	the	object[220]|object[999]	new[220]|new[999]	coref|appos	27-45[221_220]|27-42[0_999]
-                27-41	3799-3803	13th	object[220]|object[999]	new[220]|new[999]	_	_
-                27-42	3804-3812	Benjamin	object||object[220]	giv|new[220]	_	_
+                27-40   3795-3798   the object[220]|object[999] new[220]|new[999]   coref|appos 27-45[221_220]|27-42[0_999]
+                27-41   3799-3803   13th    object[220]|object[999] new[220]|new[999]   _   _
+                27-42   3804-3812   Benjamin    object||object[220] giv|new[220]    _   _
         """
         loop_doc = deepcopy(self.doc)
         for k1, v in loop_doc.items():
@@ -1007,13 +1019,13 @@ class Convert(object):
         some cataphora affects the coref chain, move the coref chain to its cataphoric entity
 
         Example:
-            45-1	2047-2048	I	person	giv	_	_
-            45-2	2049-2051	'm	_	_	_	_
-            45-3	2052-2053	a	person[145]	giv[145]	cata|coref	45-1[0_145]|49-8[0_145]
-            45-4	2054-2062	graduate	person[145]	giv[145]	_	_
-            45-5	2063-2070	student	person[145]	giv[145]	_	_
-            45-6	2071-2072	.	_	_	_	_
-            45-7	2073-2074	"	_	_	_	_
+            45-1    2047-2048   I   person  giv _   _
+            45-2    2049-2051   'm  _   _   _   _
+            45-3    2052-2053   a   person[145] giv[145]    cata|coref  45-1[0_145]|49-8[0_145]
+            45-4    2054-2062   graduate    person[145] giv[145]    _   _
+            45-5    2063-2070   student person[145] giv[145]    _   _
+            45-6    2071-2072   .   _   _   _   _
+            45-7    2073-2074   "   _   _   _   _
         """
         for k1, v1 in self.doc.items():
             # If the cataphora does not have an antecedent
@@ -1028,7 +1040,7 @@ class Convert(object):
                         if coref_entity != '0':
                             """
                             Example: academic_games (probably an annotation error)
-                                14-19	2696-2705	attention	abstract	giv	cata	17-18[176_0]	
+                                14-19   2696-2705   attention   abstract    giv cata    17-18[176_0]    
                             """
                             cata_to = coref_entity
                             coref_id = coref_entity
@@ -1060,7 +1072,7 @@ class Convert(object):
                         if coref_entity != '0':
                             """
                             Example: academic_games (probably an annotation error)
-                                14-19	2696-2705	attention	abstract	giv	cata	17-18[176_0]	
+                                14-19   2696-2705   attention   abstract    giv cata    17-18[176_0]    
                             """
                             cata_to = coref_entity
                             coref_id = coref_entity
@@ -1114,12 +1126,6 @@ class Convert(object):
         coref_next = [v.next for v in self.doc.values()]
         valid_coref = []
         for k,v in self.doc.items():
-
-            # test
-            if k == '9':
-                a = 1
-            # if v.appos_father and v.appos_father not in coref_next:
-            #     continue
             if self.if_singletons:
                 if v.cur and not v.num:
                     valid_coref.append(k)
@@ -1159,6 +1165,7 @@ class Convert(object):
         return self.doc, valid_coref, self.new_id2entity
 
 
+
 def remove_singleton(e, non_singleton, coref_fields, line_id):
     if e:
         coref_fields[3] = '|'.join([x for x in coref_fields[3].split('|') if e != x.split('[')[-1].strip(']')])
@@ -1170,7 +1177,7 @@ def remove_singleton(e, non_singleton, coref_fields, line_id):
     return coref_fields[3], coref_fields[4], coref_fields[5]
 
 
-def gen_tsv(doc, coref_article, non_singleton, new_id2entity):
+def to_tsv(doc, coref_article, non_singleton, new_id2entity):
     converted_article = ''
     added_coref = []
     last_coref = ''
@@ -1341,7 +1348,7 @@ def to_conll(docname, doc, converted_tsv_article, dep_sents):
 
     for i, line in enumerate(converted_tsv_article.split('\n')):
         if line.startswith('#') or line == '':
-            converted_tsv_article += line + '\n'
+            # converted_tsv_article += line + '\n'
             continue
 
         fields = line.strip().split('\t')
@@ -1352,7 +1359,7 @@ def to_conll(docname, doc, converted_tsv_article, dep_sents):
         count += 1
         coref_part = ''
 
-        if line_id == '18-9':
+        if line_id == '20-11':
             a = 1
 
         if fields[3] == '_':
@@ -1414,7 +1421,6 @@ def to_conll(docname, doc, converted_tsv_article, dep_sents):
         cur_line += coref_part + '\n'
         conll_article += cur_line
     conll_article += '# end document\n'
-
     return conll_article
 
 
@@ -1446,7 +1452,7 @@ def build_ontogum(dep_string, tsv_string):
     converted_doc, non_singleton, new_id2entity = convert.process(new_id2entity)
 
     # generate tsv format
-    converted_tsv_article = gen_tsv(doc, tsv_article, non_singleton, new_id2entity)
+    converted_tsv_article = to_tsv(doc, tsv_article, non_singleton, new_id2entity)
 
     # generate conll bracket format
     converted_conll_article = to_conll(docname, doc, converted_tsv_article, dep_article)
@@ -1467,8 +1473,8 @@ if __name__ == '__main__':
         new_name = f'GUM_{name_fields[1]}_{name_fields[2]}'
 
         print(filename)
-        # if filename != 'GUM_academic_huh':
-        #     continue
+        if filename != 'GUM_fiction_teeth':
+            continue
 
         tsv_string = io.open(os.path.join(corefDir, f), encoding='utf-8').read()
         dep_string = io.open(os.path.join(depDir, new_name + '.conllu'), encoding='utf-8').read()

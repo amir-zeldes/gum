@@ -120,9 +120,11 @@ def const_parse(gum_source, warn_slash_tokens=False, reddit=False):
 			continue
 		xmlfiles.append(file_)
 
-	# Do not overwrite gold constituent parse trees
-	gold_const = ["GUM_academic_discrimination","GUM_bio_emperor","GUM_fiction_oversite","GUM_interview_peres",
-				  "GUM_news_nasa","GUM_reddit_polygraph","GUM_voyage_athens","GUM_whow_arrogant"]
+	#gold_const = ["GUM_academic_discrimination","GUM_bio_emperor","GUM_fiction_oversite","GUM_interview_peres",
+	#			  "GUM_news_nasa","GUM_reddit_polygraph","GUM_voyage_athens","GUM_whow_arrogant"]
+	# Gold constituents must now be overwritten since they no longer correspond to HYPH tokenization.
+	# Refer to GUM version <=7.2 for gold constituent trees of these 8 documents with old tokenization
+	gold_const = []
 	xmlfiles = [f for f in xmlfiles if os.path.basename(f).replace(".xml","") not in gold_const]
 
 	for docnum, xmlfile in enumerate(xmlfiles):
@@ -191,7 +193,8 @@ if not options.pepper_only:
 	#   * adjust sentence borders to match xml/ <s>-tags
 	#   * find instances of "'s" that are not included in any immediately preceding
 	#     markables and merge them into those markables if genitive_s is True
-	fix_tsv(gum_source, gum_target, reddit=reddit)
+	#   * return conllu-a style bracket informatio to add entity data to conllu files later
+	conllua_data = fix_tsv(gum_source, gum_target, reddit=reddit)
 
 	# Adjust rst/ files:
 	#   * refresh token strings in case of inconsistency
@@ -245,6 +248,9 @@ if not options.pepper_only:
 		with io.open(gum_target + "const" + os.sep + docname,'w',encoding="utf8",newline="\n") as f:
 			f.write(labeled)
 	sys.stdout.write("\n")
+else:
+	conllua_data = None
+	sys.stderr.write("i Pepper only conversion, entities in conllu-a data will be generated from Pepper output (no infsat or min IDs)\n")
 
 ## Step 3: merge and convert source formats to target formats
 if options.no_pepper:
@@ -297,13 +303,21 @@ else:
 	out = run_pepper(pepper_params,options.verbose_pepper)
 	sys.__stdout__.write(out + "\n")
 
-## Step 4: propagate entity types and coref into conllu dep files
-from utils.propagate import add_entities_to_conllu, add_rsd_to_conllu, add_bridging_to_conllu
+## Step 4: propagate entity types, coref, discourse relations and XML annotations into conllu dep files
+from utils.propagate import add_entities_to_conllu, add_rsd_to_conllu, add_bridging_to_conllu, add_xml_to_conllu
 
+add_entities_to_conllu(gum_target, reddit=reddit, ontogum=False, conllua_data=conllua_data)
 if options.no_pepper:
-	sys.__stdout__.write("\ni Not adding entity information to UD parses since Pepper conversion was skipped\n")
+	sys.__stdout__.write("\ni Not adding entity information to UD parses in OntoGUM version since Pepper conversion was skipped\n")
 else:
-	add_entities_to_conllu(gum_target,reddit=reddit)
-	add_bridging_to_conllu(gum_target,reddit=reddit)
-	add_rsd_to_conllu(gum_target,reddit=reddit)
-	sys.__stdout__.write("\no Added entities, coreference and discourse relations to UD parses\n")
+	add_entities_to_conllu(gum_target,reddit=reddit,ontogum=True)
+add_bridging_to_conllu(gum_target,reddit=reddit)
+
+sys.__stdout__.write("\no Added entities, coreference and bridging to UD parses\n")
+
+add_rsd_to_conllu(gum_target,reddit=reddit)
+add_rsd_to_conllu(gum_target,reddit=reddit,ontogum=True)
+add_xml_to_conllu(gum_target,reddit=reddit)
+add_xml_to_conllu(gum_target,reddit=reddit,ontogum=True)
+
+sys.__stdout__.write("\no Added discourse relations and XML tags to UD parses\n")

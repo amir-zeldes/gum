@@ -6,6 +6,7 @@
 
 from glob import glob
 from .nlp_helper import get_claws, adjudicate_claws, ud_morph
+from .add_xml_annotations import add_xml
 from .depedit import DepEdit
 import os, re, sys, io
 import ntpath
@@ -542,6 +543,10 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 	dep_merge_dir = tmp + "dep" + os.sep + "ud" + os.sep + "GUM" + os.sep
 	if not os.path.isdir(dep_merge_dir):
 		os.makedirs(dep_merge_dir)
+	entidep_dir = tmp + "entidep" + os.sep	
+	if not os.path.isdir(entidep_dir):
+		os.makedirs(entidep_dir)
+	
 
 	depfiles = []
 	files_ = glob(dep_source + "*.conllu")
@@ -697,7 +702,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		# UPOS
 		depedit = DepEdit(config_file="utils" + os.sep + "upos.ini")
 		uposed = depedit.run_depedit(processed_lines,filename=docname,sent_id=True,docname=True)
-		uposed = re.sub(r'ent_head=[a-z]+\|infstat=[a-z]+\|?','',uposed)
+		uposed = re.sub(r'ent_head=[a-z]+\|infstat=[a-z:]+\|?','',uposed)
 		if "infstat=" in uposed:
 			sys.__stdout__.write("o WARN: invalid entity annotation from tsv for document " + docname)
 		validate_upos(uposed, docname)
@@ -705,7 +710,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 
 		# Add metadata and global declaration
 		lines = processed_lines.split("\n")
-		header = ["# global.Entity = entity-GRP-identity"]
+		header = ["# global.Entity = entity-GRP-infstat-MIN-coref_type-identity"]
 		meta = get_meta(docname,gum_target)
 		header.append("# meta::dateCollected = " + meta["dateCollected"])
 		header.append("# meta::dateCreated = " + meta["dateCreated"])
@@ -1011,15 +1016,30 @@ def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
 	print("o Reparsed " + str(len(xmlfiles)) + " documents" + " " * 20)
 """
 
-def get_coref_ids(gum_target):
+def get_coref_ids(gum_target, ontogum=False):
+	def clean_closer(instr):
+		output = []
+		ents = re.findall(r'(\(?[^()]+\)?)',instr)
+		for ent in ents:
+			if "-" in ent and ent.endswith(")") and not ent.startswith("("):  # Closer
+				ent = ent.split("-")[1].replace(")","") + ")"
+			output.append(ent)
+		return "".join(output)
 
 	entity_dict = defaultdict(list)
-	conll_coref = glob(gum_target + "coref" + os.sep + "conll" + os.sep + "GUM" + os.sep + "*.conll")
+	if ontogum:
+		conll_coref = glob(gum_target + "coref" + os.sep + "ontogum" + os.sep + "conll" + os.sep + "*.conll")
+	else:
+		conll_coref = glob(gum_target + "coref" + os.sep + "conll" + os.sep + "GUM" + os.sep + "*.conll")
 	for file_ in conll_coref:
 		doc = os.path.basename(file_).replace(".conll","")
 		lines = io.open(file_,encoding="utf8").read().split("\n")
 		for line in lines:
 			if "\t" in line:
+				if not line.endswith("_"):
+					fields = line.split("\t")
+					fields[-1] = clean_closer(fields[-1])
+					line = "\t".join(fields)
 				entity_dict[doc].append(line.split("\t")[-1])
 
 	return entity_dict
@@ -1036,22 +1056,27 @@ def get_rsd_spans(gum_target):
 		for line in lines:
 			if "\t" in line:
 				fields = line.split("\t")
-				edu_id, toks = fields[0:2]
+				#edu_id, toks, dist, depth, domain = fields[0:5]
+				edu_id, toks, dist = fields[0:3]
 				head, rsd_rel = fields[6:8]
-				rsd_rel = rsd_rel.replace("_m","").replace("_r","")
-				rsd_spans[doc][tok_num] = (edu_id, rsd_rel, head)
+				#rsd_rel = rsd_rel.replace("_m","").replace("_r","")
+				rsd_rel = rsd_rel.replace("_r","")
+				rsd_spans[doc][tok_num] = (edu_id, rsd_rel, head, dist)#, depth, domain)
 				tok_num += toks.strip().count(" ") + 1
 
 	return rsd_spans
 
 
-def add_rsd_to_conllu(gum_target,reddit=False):
+def add_rsd_to_conllu(gum_target,reddit=False,ontogum=False):
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
 	rsd_spans = get_rsd_spans(gum_target)
 
-	files = glob(gum_target + "dep" + os.sep + "*.conllu")
-	files += glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
+	if not ontogum:
+		files = glob(gum_target + "dep" + os.sep + "*.conllu")
+		files += glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
+	else:
+		files = glob(gum_target + "coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep + "*.conllu")
 
 	if not reddit:
 		files = [f for f in files if not "reddit" in f]
@@ -1073,9 +1098,9 @@ def add_rsd_to_conllu(gum_target,reddit=False):
 					if toknum in rsd_spans[doc]:
 						rsd_data = rsd_spans[doc][toknum]
 						if rsd_data[2] == "0":  # ROOT
-							misc = add_feat(fields[-1],"Discourse=" + rsd_data[1] + ":" + rsd_data[0])
+							misc = add_feat(fields[-1],"Discourse=" + rsd_data[1] + ":" + rsd_data[0] + ":" + rsd_data[3]) #+ ":" + rsd_data[4] + ":" + rsd_data[5])
 						else:
-							misc = add_feat(fields[-1],"Discourse="+rsd_data[1]+":"+rsd_data[0]+"->"+rsd_data[2])
+							misc = add_feat(fields[-1],"Discourse="+rsd_data[1]+":"+rsd_data[0]+"->"+rsd_data[2] + ":" + rsd_data[3]) #+ ":" + rsd_data[4] + ":" + rsd_data[5])
 						fields[-1] = misc
 						line = "\t".join(fields)
 					toknum += 1
@@ -1085,10 +1110,13 @@ def add_rsd_to_conllu(gum_target,reddit=False):
 			f.write("\n".join(output).strip() + "\n\n")
 
 
-def add_entities_to_conllu(gum_target,reddit=False):
+def add_entities_to_conllu(gum_target,reddit=False,ontogum=False,conllua_data=None):
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
-	entity_doc = get_coref_ids(gum_target)
+	if conllua_data is None:
+		entity_doc = get_coref_ids(gum_target,ontogum=ontogum)
+	else:
+		entity_doc = conllua_data
 
 	files = glob(gum_target + "dep" + os.sep + "*.conllu")
 	files += glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
@@ -1118,12 +1146,24 @@ def add_entities_to_conllu(gum_target,reddit=False):
 					if entity_data != "_":
 						misc = add_feat(misc,"Entity="+entity_data)
 					fields[-1] = misc
+					if "-giv-" in misc or "-acc-" in misc:
+						sys.stderr.write("! WARN: Entity with unsub-typed infstat at token " + str(toknum) + " in " + doc + "\n")
 					line = "\t".join(fields)
 					toknum += 1
+			if "# global.Entity" in line and ontogum:
+				line = '# global.Entity = GRP'  # OntoGUM only has coref IDs
+
 			output.append(line)
 
-		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
-			f.write("\n".join(output).strip() + "\n\n")
+		if ontogum:
+			onto_conllu = gum_target+"coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep
+			if not os.path.exists(onto_conllu):
+				os.makedirs(onto_conllu)
+			with io.open(onto_conllu + os.path.basename(file_), 'w', encoding="utf8", newline="\n") as f:
+				f.write("\n".join(output).strip() + "\n\n")
+		else:
+			with io.open(file_,'w',encoding="utf8",newline="\n") as f:
+				f.write("\n".join(output).strip() + "\n\n")
 
 
 def get_bridging(webannotsv):
@@ -1178,7 +1218,10 @@ def get_bridging(webannotsv):
 
 def merge_bridge_conllu(conllu, webannotsv):
 	def no_brace(instr):
-		return instr.replace("(","").replace(")","")
+		if "-" in instr:
+			return instr.split("-")[1].replace("(","").replace(")","")
+		else:
+			return instr.replace("(","").replace(")","")
 
 	edges_by_source, span_to_eid, eid_to_span = get_bridging(webannotsv)
 
@@ -1287,3 +1330,43 @@ def add_bridging_to_conllu(gum_target,reddit=False):
 
 		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
 			f.write("".join(output).strip() + "\n\n")
+
+
+def add_xml_to_conllu(gum_target, reddit=False, ontogum=False):
+	xml_data = {}
+	if not gum_target.endswith(os.sep):
+		gum_target += os.sep
+
+	for file_ in glob(gum_target + "xml" + os.sep + "*.xml"):
+		xml_data[os.path.basename(file_).replace(".xml","")] = io.open(file_,encoding="utf8").read()
+
+	if ontogum:
+		files = glob(gum_target+"coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep + "GUM*.conllu")
+		files += glob(gum_target+"coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep + "en_gum-ud*.conllu")
+	else:
+		files = glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
+		files += glob(gum_target + "dep" + os.sep + "*.conllu")
+
+	if not reddit:
+		files = [f for f in files if not "reddit" in f]
+
+	xml_tagged_conllu = {}
+	for file_ in files:
+		with io.open(file_,encoding="utf8") as f:
+			if "en_gum-ud" not in file_:
+				docname = os.path.basename(file_).replace(".conllu", "")
+				conllu = f.read()
+				with_tags = add_xml(conllu,xml_data[docname])
+				xml_tagged_conllu[docname] = with_tags
+			else:  # Big file
+				docnames = []
+				docs = f.read().split("# newdoc id")
+				for doc in docs[1:]:
+					doc = "# newdoc id" + doc
+					docname = re.search(r'# newdoc id = (GUM_[^\s]+)',doc).group(1)
+					docnames.append(docname)
+				with_tags = "\n\n".join([xml_tagged_conllu[d] for d in docnames])
+
+		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
+			f.write(with_tags.strip() + "\n\n")
+

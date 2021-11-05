@@ -29,7 +29,7 @@
               (NNP Internet)
               (NNP Explorer)
               (CD 9)
-              (PRN (-LRB- -LRB-) (NP (NNP IE9)) (-RRB- -RRB-))
+              (PRN (-LRB- -LRB-) (NNP IE9) (-RRB- -RRB-))
               (NN browser))))
         (ADJP (RB almost) (JJ complete))))
     (, ,)
@@ -60,7 +60,10 @@
                           (NP
                             (DT the)
                             (JJ antiquated)
-                            (JJ 10-year-old)
+                            (ADJP
+                              (X (CD 10) (HYPH -) (NN year))
+                              (HYPH -)
+                              (JJ old))
                             (NN browser)))))))))))))
     (. .)))
 
@@ -342,7 +345,7 @@
       (MD could)
       (VP (VB fall) (PP (IN to) (NP (JJ fourth) (NN place)))))
     (. .)
-    (`` ")))
+    ('' ")))
 
 (ROOT
   (S
@@ -391,7 +394,13 @@
             (TO to)
             (VP
               (VB accommodate)
-              (NP (JJR older) (JJ out-of-date) (NN technology))
+              (NP
+                (JJR older)
+                (NAC
+                  (IN out)
+                  (HYPH -)
+                  (PP (IN of) (HYPH -) (NN date)))
+                (NN technology))
               (S
                 (VP
                   (TO to)
