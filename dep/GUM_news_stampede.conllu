@@ -1,5 +1,5 @@
 # newdoc id = GUM_news_stampede
-# global.Entity = entity-GRP-identity
+# global.Entity = entity-GRP-infstat-MIN-coref_type-identity
 # meta::dateCollected = 2015-09-21
 # meta::dateCreated = 2006-01-12
 # meta::dateModified = 2009-11-07
@@ -9,295 +9,306 @@
 # sent_id = GUM_news_stampede-1
 # s_type = frag
 # text = Hundreds dead in Hajj stampede
-1	Hundreds	hundred	NOUN	NNS	Number=Plur	0	root	0:root	Discourse=preparation:1->5|Entity=(person-1)
+# newpar = head rend:::"bold" (1 s)
+1	Hundreds	hundred	NOUN	NNS	Number=Plur	0	root	0:root	Discourse=preparation:1->5:9|Entity=(person-1-new-1-sgl)
 2	dead	dead	ADJ	JJ	Degree=Pos	1	dep	1:dep	_
 3	in	in	ADP	IN	_	5	case	5:case	_
-4	Hajj	Hajj	PROPN	NNP	Number=Sing	5	compound	5:compound	Entity=(event-2(event-3-Hajj)
-5	stampede	stampede	NOUN	NN	Number=Sing	2	obl	2:obl:in	Entity=event-2)
+4	Hajj	Hajj	PROPN	NNP	Number=Sing	5	compound	5:compound	Entity=(event-2-new-2-coref(event-3-new-1-coref-Hajj)
+5	stampede	stampede	NOUN	NN	Number=Sing	2	obl	2:obl:in	Entity=2)
 
 # sent_id = GUM_news_stampede-2
 # s_type = frag
 # text = Thursday, January 12, 2006
-1	Thursday	Thursday	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=circumstance:2->5|Entity=(time-4)|SpaceAfter=No
+1	Thursday	Thursday	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=circumstance:2->5:8|Entity=(time-4-acc:com-1-coref)|SpaceAfter=No|XML=<date when:::"2006-01-12" rend:::"bold">
 2	,	,	PUNCT	,	_	4	punct	4:punct	_
-3	January	January	PROPN	NNP	Number=Sing	4	compound	4:compound	Entity=(time-4
+3	January	January	PROPN	NNP	Number=Sing	4	compound	4:compound	Entity=(time-4-giv:act-2-appos
 4	12	12	NUM	CD	NumForm=Digit|NumType=Card	1	appos	1:appos	SpaceAfter=No
 5	,	,	PUNCT	,	_	6	punct	6:punct	_
-6	2006	2006	NUM	CD	NumForm=Digit|NumType=Card	4	nmod:tmod	4:nmod:tmod	Entity=(time-5)time-4)
+6	2006	2006	NUM	CD	NumForm=Digit|NumType=Card	4	nmod:tmod	4:nmod:tmod	Entity=(time-5-new-1-sgl)4)|XML=</date>
 
 # sent_id = GUM_news_stampede-3
 # s_type = frag
 # text = The Plains of Arafat on the day of Hajj
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=background:3->5|Entity=(place-6
+# newpar = figure rend:::"picture of Arafat" (1 s) | caption (1 s)
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=background:3->5:2|Entity=(place-6-new-2,4-sgl
 2	Plains	Plain	PROPN	NNPS	Number=Plur	0	root	0:root	_
 3	of	of	ADP	IN	_	4	case	4:case	_
 4	Arafat	Arafat	PROPN	NNP	Number=Sing	2	nmod	2:nmod:of	_
 5	on	on	ADP	IN	_	7	case	7:case	_
-6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	Entity=(time-7
+6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	Entity=(time-7-new-2-sgl
 7	day	day	NOUN	NN	Number=Sing	4	nmod	4:nmod:on	_
 8	of	of	ADP	IN	_	9	case	9:case	_
-9	Hajj	Hajj	PROPN	NNP	Number=Sing	7	nmod	7:nmod:of	Entity=(event-3-Hajj)place-6)time-7)
+9	Hajj	Hajj	PROPN	NNP	Number=Sing	7	nmod	7:nmod:of	Entity=(event-3-giv:inact-1-coref-Hajj)7)6)
 
 # sent_id = GUM_news_stampede-4
 # s_type = decl
 # text = According to the Saudi Interior Ministry over 345 Muslim pilgrims have been killed in a stampede during the annual Hajj pilgrimage near Mecca, Saudi Arabia.
-1	According	accord	VERB	VBG	VerbForm=Ger	6	case	6:case	Discourse=attribution:4->5
+# newpar = p (1 s)
+1	According	accord	VERB	VBG	VerbForm=Ger	6	case	6:case	Discourse=attribution:4->5:0
 2	to	to	ADP	IN	_	1	fixed	1:fixed	_
-3	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(organization-8-Ministry_of_Interior_%28Saudi_Arabia%29
+3	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(organization-8-new-2,3,4-sgl-Ministry_of_Interior_%28Saudi_Arabia%29
 4	Saudi	Saudi	PROPN	NNP	Number=Sing	6	compound	6:compound	_
 5	Interior	Interior	PROPN	NNP	Number=Sing	6	compound	6:compound	_
-6	Ministry	Ministry	PROPN	NNP	Number=Sing	13	obl	13:obl:according_to	Entity=organization-8-Ministry_of_Interior_%28Saudi_Arabia%29)
-7	over	over	ADV	RB	_	8	advmod	8:advmod	Discourse=ROOT:5|Entity=(person-9
+6	Ministry	Ministry	PROPN	NNP	Number=Sing	13	obl	13:obl:according_to	Entity=8)
+7	over	over	ADV	RB	_	8	advmod	8:advmod	Discourse=ROOT:5:0|Entity=(person-9-new-4-sgl
 8	345	345	NUM	CD	NumForm=Digit|NumType=Card	10	nummod	10:nummod	_
-9	Muslim	Muslim	PROPN	NNP	Number=Sing	10	compound	10:compound	_
-10	pilgrims	pilgrim	NOUN	NNS	Number=Plur	13	nsubj:pass	13:nsubj:pass	Entity=person-9)
+9	Muslim	Muslim	PROPN	NNP	Number=Sing	10	compound	10:compound	XML=<ref></ref>
+10	pilgrims	pilgrim	NOUN	NNS	Number=Plur	13	nsubj:pass	13:nsubj:pass	Entity=9)
 11	have	have	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	13	aux	13:aux	_
 12	been	be	AUX	VBN	Tense=Past|VerbForm=Part	13	aux:pass	13:aux:pass	_
 13	killed	kill	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
 14	in	in	ADP	IN	_	16	case	16:case	_
-15	a	a	DET	DT	Definite=Ind|PronType=Art	16	det	16:det	Entity=(event-2
-16	stampede	stampede	NOUN	NN	Number=Sing	13	obl	13:obl:in	Entity=event-2)
+15	a	a	DET	DT	Definite=Ind|PronType=Art	16	det	16:det	Entity=(event-2-giv:inact-2-coref
+16	stampede	stampede	NOUN	NN	Number=Sing	13	obl	13:obl:in	Entity=2)|XML=<ref></ref>
 17	during	during	ADP	IN	_	21	case	21:case	_
-18	the	the	DET	DT	Definite=Def|PronType=Art	21	det	21:det	Entity=(event-3-Hajj
+18	the	the	DET	DT	Definite=Def|PronType=Art	21	det	21:det	Entity=(event-3-giv:act-4,8,9-coref-Hajj
 19	annual	annual	ADJ	JJ	Degree=Pos	21	amod	21:amod	_
-20	Hajj	Hajj	PROPN	NNP	Number=Sing	21	compound	21:compound	_
-21	pilgrimage	pilgrimage	NOUN	NN	Number=Sing	13	obl	13:obl:during	_
+20	Hajj	Hajj	PROPN	NNP	Number=Sing	21	compound	21:compound	XML=<ref>
+21	pilgrimage	pilgrimage	NOUN	NN	Number=Sing	13	obl	13:obl:during	XML=</ref>
 22	near	near	ADP	IN	_	23	case	23:case	_
-23	Mecca	Mecca	PROPN	NNP	Number=Sing	21	nmod	21:nmod:near	Entity=(place-10-Mecca|SpaceAfter=No
+23	Mecca	Mecca	PROPN	NNP	Number=Sing	21	nmod	21:nmod:near	Entity=(place-10-new-1,3,4-coref-Mecca|SpaceAfter=No|XML=<ref>
 24	,	,	PUNCT	,	_	25	punct	25:punct	_
-25	Saudi	Saudi	PROPN	NNP	Number=Sing	23	compound	23:compound	Entity=(place-11-Saudi_Arabia
-26	Arabia	Arabia	PROPN	NNP	Number=Sing	25	flat	25:flat	Entity=event-3-Hajj)place-10-Mecca)place-11-Saudi_Arabia)|SpaceAfter=No
+25	Saudi	Saudi	PROPN	NNP	Number=Sing	23	compound	23:compound	Entity=(place-11-new-1,2-sgl-Saudi_Arabia
+26	Arabia	Arabia	PROPN	NNP	Number=Sing	25	flat	25:flat	Entity=11)10)3)|SpaceAfter=No|XML=</ref>
 27	.	.	PUNCT	.	_	13	punct	13:punct	_
 
 # sent_id = GUM_news_stampede-5
 # s_type = decl
 # text = The stampede at Islam's most holy site happened at Jamarat Bridge, during an event where pebbles are thrown at a pillar to represent the stoning of Satan as part of the final rites of the Hajj.
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=elaboration:6->5|Entity=(event-2
+# newpar = p (3 s)
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=elaboration:6->5:1|Entity=(event-2-giv:act-2-coref
 2	stampede	stampede	NOUN	NN	Number=Sing	9	nsubj	9:nsubj	_
 3	at	at	ADP	IN	_	8	case	8:case	_
 4-5	Islam's	_	_	_	_	_	_	_	_
-4	Islam	Islam	PROPN	NNP	Number=Sing	8	nmod:poss	8:nmod:poss	Entity=(place-12(abstract-13-Islam
-5	's	's	PART	POS	_	4	case	4:case	Entity=abstract-13-Islam)
+4	Islam	Islam	PROPN	NNP	Number=Sing	8	nmod:poss	8:nmod:poss	Entity=(place-12-new-5-sgl(abstract-13-new-1-coref-Islam
+5	's	's	PART	POS	_	4	case	4:case	Entity=13)
 6	most	most	ADV	RBS	Degree=Sup	7	advmod	7:advmod	_
 7	holy	holy	ADJ	JJ	Degree=Pos	8	amod	8:amod	_
-8	site	site	NOUN	NN	Number=Sing	2	nmod	2:nmod:at	Entity=event-2)place-12)
+8	site	site	NOUN	NN	Number=Sing	2	nmod	2:nmod:at	Entity=12)2)
 9	happened	happen	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 10	at	at	ADP	IN	_	12	case	12:case	_
-11	Jamarat	Jamarat	PROPN	NNP	Number=Sing	12	compound	12:compound	Entity=(place-14-Jamaraat_Bridge
-12	Bridge	Bridge	PROPN	NNP	Number=Sing	9	obl	9:obl:at	Entity=place-14-Jamaraat_Bridge)|SpaceAfter=No
+11	Jamarat	Jamarat	PROPN	NNP	Number=Sing	12	compound	12:compound	Entity=(place-14-new-1,2-sgl-Jamaraat_Bridge
+12	Bridge	Bridge	PROPN	NNP	Number=Sing	9	obl	9:obl:at	Entity=14)|SpaceAfter=No
 13	,	,	PUNCT	,	_	16	punct	16:punct	_
 14	during	during	ADP	IN	_	16	case	16:case	_
-15	an	a	DET	DT	Definite=Ind|PronType=Art	16	det	16:det	Entity=(event-15
+15	an	a	DET	DT	Definite=Ind|PronType=Art	16	det	16:det	Entity=(event-15-new-2-sgl
 16	event	event	NOUN	NN	Number=Sing	9	obl	9:obl:during	_
-17	where	where	SCONJ	WRB	PronType=Rel	20	mark	20:mark	Discourse=elaboration:7->6
-18	pebbles	pebble	NOUN	NNS	Number=Plur	20	nsubj:pass	20:nsubj:pass|25:nsubj:xsubj	Entity=(object-16)
+17	where	where	SCONJ	WRB	PronType=Rel	20	mark	20:mark	Discourse=elaboration:7->6:0
+18	pebbles	pebble	NOUN	NNS	Number=Plur	20	nsubj:pass	20:nsubj:pass|25:nsubj:xsubj	Entity=(object-16-new-1-sgl)
 19	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	20	aux:pass	20:aux:pass	_
 20	thrown	throw	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	16	acl:relcl	16:acl:relcl	_
 21	at	at	ADP	IN	_	23	case	23:case	_
-22	a	a	DET	DT	Definite=Ind|PronType=Art	23	det	23:det	Entity=(object-17
-23	pillar	pillar	NOUN	NN	Number=Sing	20	obl	20:obl:at	Entity=object-17)
-24	to	to	PART	TO	_	25	mark	25:mark	Discourse=purpose:8->7
+22	a	a	DET	DT	Definite=Ind|PronType=Art	23	det	23:det	Entity=(object-17-new-2-sgl
+23	pillar	pillar	NOUN	NN	Number=Sing	20	obl	20:obl:at	Entity=17)
+24	to	to	PART	TO	_	25	mark	25:mark	Discourse=purpose:8->7:0
 25	represent	represent	VERB	VB	VerbForm=Inf	20	xcomp	20:xcomp	_
-26	the	the	DET	DT	Definite=Def|PronType=Art	27	det	27:det	Entity=(event-18
+26	the	the	DET	DT	Definite=Def|PronType=Art	27	det	27:det	Entity=(event-18-new-2-sgl
 27	stoning	stoning	NOUN	NN	Number=Sing	25	obj	25:obj	_
 28	of	of	ADP	IN	_	29	case	29:case	_
-29	Satan	Satan	PROPN	NNP	Number=Sing	27	obl	27:obl:of	Entity=(abstract-19-Satan)event-18)
+29	Satan	Satan	PROPN	NNP	Number=Sing	27	obl	27:obl:of	Entity=(abstract-19-acc:com-1-sgl-Satan)18)
 30	as	as	ADP	IN	_	31	case	31:case	_
 31	part	part	NOUN	NN	Number=Sing	29	nmod	29:nmod:as	_
 32	of	of	ADP	IN	_	35	case	35:case	_
-33	the	the	DET	DT	Definite=Def|PronType=Art	35	det	35:det	Entity=(event-20
+33	the	the	DET	DT	Definite=Def|PronType=Art	35	det	35:det	Entity=(event-20-new-3-sgl
 34	final	final	ADJ	JJ	Degree=Pos	35	amod	35:amod	_
 35	rites	rite	NOUN	NNS	Number=Plur	31	nmod	31:nmod:of	_
 36	of	of	ADP	IN	_	38	case	38:case	_
-37	the	the	DET	DT	Definite=Def|PronType=Art	38	det	38:det	Entity=(event-3-Hajj
-38	Hajj	Hajj	PROPN	NNP	Number=Sing	35	nmod	35:nmod:of	Entity=event-15)event-20)event-3-Hajj)|SpaceAfter=No
+37	the	the	DET	DT	Definite=Def|PronType=Art	38	det	38:det	Entity=(event-3-giv:act-2-coref-Hajj
+38	Hajj	Hajj	PROPN	NNP	Number=Sing	35	nmod	35:nmod:of	Entity=3)20)15)|SpaceAfter=No
 39	.	.	PUNCT	.	_	9	punct	9:punct	_
 
 # sent_id = GUM_news_stampede-6
 # s_type = decl
 # text = The stampede began when luggage from a bus tripped pilgrims at the eastern end of the wall, causing a bottleneck.
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=elaboration:9->5|Entity=(event-2
-2	stampede	stampede	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	Entity=event-2)
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=elaboration:9->5:3|Entity=(event-2-giv:act-2-coref
+2	stampede	stampede	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	Entity=2)
 3	began	begin	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
-4	when	when	SCONJ	WRB	PronType=Int	9	mark	9:mark	Discourse=cause:10->9
-5	luggage	luggage	NOUN	NN	Number=Sing	9	nsubj	9:nsubj	Entity=(object-21
+4	when	when	SCONJ	WRB	PronType=Int	9	mark	9:mark	Discourse=cause:10->9:0
+5	luggage	luggage	NOUN	NN	Number=Sing	9	nsubj	9:nsubj	Entity=(object-21-new-1-sgl
 6	from	from	ADP	IN	_	8	case	8:case	_
-7	a	a	DET	DT	Definite=Ind|PronType=Art	8	det	8:det	Entity=(object-22
-8	bus	bus	NOUN	NN	Number=Sing	5	nmod	5:nmod:from	Entity=object-21)object-22)
+7	a	a	DET	DT	Definite=Ind|PronType=Art	8	det	8:det	Entity=(object-22-new-2-sgl
+8	bus	bus	NOUN	NN	Number=Sing	5	nmod	5:nmod:from	Entity=22)21)
 9	tripped	trip	VERB	VBN	Tense=Past|VerbForm=Part	3	advcl	3:advcl:when	_
-10	pilgrims	pilgrim	NOUN	NNS	Number=Plur	9	obj	9:obj	Entity=(person-23
+10	pilgrims	pilgrim	NOUN	NNS	Number=Plur	9	obj	9:obj	Entity=(person-23-new-1-coref
 11	at	at	ADP	IN	_	14	case	14:case	_
-12	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	Entity=(place-24
+12	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	Entity=(place-24-new-3-sgl
 13	eastern	eastern	ADJ	JJ	Degree=Pos	14	amod	14:amod	_
 14	end	end	NOUN	NN	Number=Sing	10	nmod	10:nmod:at	_
 15	of	of	ADP	IN	_	17	case	17:case	_
-16	the	the	DET	DT	Definite=Def|PronType=Art	17	det	17:det	Entity=(object-25
-17	wall	wall	NOUN	NN	Number=Sing	14	nmod	14:nmod:of	Entity=person-23)place-24)object-25)|SpaceAfter=No
+16	the	the	DET	DT	Definite=Def|PronType=Art	17	det	17:det	Entity=(object-25-new-2-sgl
+17	wall	wall	NOUN	NN	Number=Sing	14	nmod	14:nmod:of	Entity=25)24)23)|SpaceAfter=No
 18	,	,	PUNCT	,	_	19	punct	19:punct	_
-19	causing	cause	VERB	VBG	VerbForm=Ger	9	advcl	9:advcl	Discourse=result:11->10
-20	a	a	DET	DT	Definite=Ind|PronType=Art	21	det	21:det	Entity=(object-26
-21	bottleneck	bottleneck	NOUN	NN	Number=Sing	19	obj	19:obj	Entity=object-26)|SpaceAfter=No
+19	causing	cause	VERB	VBG	VerbForm=Ger	9	advcl	9:advcl	Discourse=result:11->10:0
+20	a	a	DET	DT	Definite=Ind|PronType=Art	21	det	21:det	Entity=(object-26-new-2-sgl
+21	bottleneck	bottleneck	NOUN	NN	Number=Sing	19	obj	19:obj	Entity=26)|SpaceAfter=No
 22	.	.	PUNCT	.	_	3	punct	3:punct	_
 
 # sent_id = GUM_news_stampede-7
 # s_type = decl
 # text = Those who were tripped were then crushed by the wave of people behind them.
-1	Those	this	PRON	DT	Number=Plur|PronType=Dem	4	acl:relcl	4:acl:relcl	Discourse=sequence:12->9|Entity=(person-23
-2	who	who	PRON	WP	PronType=Int	4	nsubj:pass	4:nsubj:pass	Discourse=elaboration:13->12
+1	Those	this	PRON	DT	Number=Plur|PronType=Dem	4	acl:relcl	4:acl:relcl	Discourse=sequence_m:12->9:1|Entity=(person-23-giv:act-7-disc
+2	who	who	PRON	WP	PronType=Int	4	nsubj:pass	4:nsubj:pass	Discourse=elaboration:13->12:0
 3	were	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	4	aux:pass	4:aux:pass	_
 4	tripped	trip	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	7	csubj	7:csubj	_
-5	were	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	7	aux:pass	7:aux:pass	Discourse=same-unit:14->12
+5	were	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	7	aux:pass	7:aux:pass	Discourse=same-unit_m:14->12:1
 6	then	then	ADV	RB	PronType=Dem	7	advmod	7:advmod	_
 7	crushed	crush	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
 8	by	by	ADP	IN	_	10	case	10:case	_
-9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	Entity=(person-27
+9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	Entity=(person-27-new-2-sgl
 10	wave	wave	NOUN	NN	Number=Sing	7	obl	7:obl:by	_
 11	of	of	ADP	IN	_	12	case	12:case	_
 12	people	person	NOUN	NNS	Number=Plur	10	nmod	10:nmod:of	_
 13	behind	behind	ADP	IN	_	14	case	14:case	_
-14	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	12	nmod	12:nmod:behind	Entity=(person-23)person-23)person-27)|SpaceAfter=No
+14	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	12	nmod	12:nmod:behind	Entity=(person-23-giv:act-1-coref)27)23)|SpaceAfter=No
 15	.	.	PUNCT	.	_	7	punct	7:punct	_
 
 # sent_id = GUM_news_stampede-8
 # s_type = decl
 # text = Muslims are required to make a pilgrimage to Mecca during their lifetimes, if physically or financially possible, as it is one of the five pillars of the Islamic faith.
-1	Muslims	Muslim	PROPN	NNPS	Number=Plur	3	nsubj:pass	3:nsubj:pass|5:nsubj:xsubj	Discourse=background:15->5|Entity=(person-28-Muslims)
+# newpar = p (2 s)
+1	Muslims	Muslim	PROPN	NNPS	Number=Plur	3	nsubj:pass	3:nsubj:pass|5:nsubj:xsubj	Discourse=background:15->5:4|Entity=(person-28-new-1-coref-Muslims)
 2	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	3	aux:pass	3:aux:pass	_
 3	required	require	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
 4	to	to	PART	TO	_	5	mark	5:mark	_
-5	make	make	VERB	VB	VerbForm=Inf	3	xcomp	3:xcomp	_
+5	make	make	VERB	VB	VerbForm=Inf	3	xcomp	3:xcomp	Entity=(event-3-giv:inact-1-disc-Hajj
 6	a	a	DET	DT	Definite=Ind|PronType=Art	7	det	7:det	_
-7	pilgrimage	pilgrimage	NOUN	NN	Number=Sing	5	obj	5:obj	Entity=(event-3-Hajj
+7	pilgrimage	pilgrimage	NOUN	NN	Number=Sing	5	obj	5:obj	_
 8	to	to	ADP	IN	_	9	case	9:case	_
-9	Mecca	Mecca	PROPN	NNP	Number=Sing	7	nmod	7:nmod:to	Entity=(place-10-Mecca)event-3-Hajj)
+9	Mecca	Mecca	PROPN	NNP	Number=Sing	7	nmod	7:nmod:to	Entity=(place-10-giv:inact-1-coref-Mecca)3)
 10	during	during	ADP	IN	_	12	case	12:case	_
-11	their	their	PRON	PRP$	Number=Plur|Person=3|Poss=Yes|PronType=Prs	12	nmod:poss	12:nmod:poss	Entity=(abstract-29(person-28-Muslims)
-12	lifetimes	lifetime	NOUN	NNS	Number=Plur	9	nmod	9:nmod:during	Entity=abstract-29)|SpaceAfter=No
+11	their	their	PRON	PRP$	Number=Plur|Person=3|Poss=Yes|PronType=Prs	12	nmod:poss	12:nmod:poss	Entity=(abstract-29-new-2-sgl(person-28-giv:act-1-ana-Muslims)
+12	lifetimes	lifetime	NOUN	NNS	Number=Plur	9	nmod	9:nmod:during	Entity=29)|SpaceAfter=No
 13	,	,	PUNCT	,	_	5	punct	5:punct	_
-14	if	if	SCONJ	IN	_	18	mark	18:mark	Discourse=condition:16->15
+14	if	if	SCONJ	IN	_	18	mark	18:mark	Discourse=condition:16->15:0
 15	physically	physically	ADV	RB	Degree=Pos	18	advmod	18:advmod	_
 16	or	or	CCONJ	CC	_	17	cc	17:cc	_
 17	financially	financially	ADV	RB	Degree=Pos	15	conj	15:conj:or|18:advmod	_
 18	possible	possible	ADJ	JJ	Degree=Pos	3	advcl	3:advcl:if	SpaceAfter=No
 19	,	,	PUNCT	,	_	23	punct	23:punct	_
-20	as	as	SCONJ	IN	_	23	mark	23:mark	Discourse=cause:17->15
-21	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	23	nsubj	23:nsubj	Entity=(event-3-Hajj)
+20	as	as	SCONJ	IN	_	23	mark	23:mark	Discourse=cause:17->15:1
+21	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	23	nsubj	23:nsubj	Entity=(event-3-giv:act-1-coref-Hajj)
 22	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	23	cop	23:cop	_
-23	one	one	NUM	CD	NumForm=Word|NumType=Card	5	advcl	5:advcl:as	Entity=(event-3-Hajj
+23	one	one	NUM	CD	NumForm=Word|NumType=Card	5	advcl	5:advcl:as	Entity=(event-3-giv:act-1-coref-Hajj
 24	of	of	ADP	IN	_	27	case	27:case	_
 25	the	the	DET	DT	Definite=Def|PronType=Art	27	det	27:det	_
 26	five	five	NUM	CD	NumForm=Word|NumType=Card	27	nummod	27:nummod	_
 27	pillars	pillar	NOUN	NNS	Number=Plur	23	nmod	23:nmod:of	_
 28	of	of	ADP	IN	_	31	case	31:case	_
-29	the	the	DET	DT	Definite=Def|PronType=Art	31	det	31:det	Entity=(abstract-13-Islam
+29	the	the	DET	DT	Definite=Def|PronType=Art	31	det	31:det	Entity=(abstract-13-acc:com-3-coref-Islam
 30	Islamic	Islamic	ADJ	JJ	Degree=Pos	31	amod	31:amod	_
-31	faith	faith	NOUN	NN	Number=Sing	27	nmod	27:nmod:of	Entity=event-3-Hajj)abstract-13-Islam)|SpaceAfter=No
+31	faith	faith	NOUN	NN	Number=Sing	27	nmod	27:nmod:of	Entity=13)3)|SpaceAfter=No
 32	.	.	PUNCT	.	_	3	punct	3:punct	_
 
 # sent_id = GUM_news_stampede-9
 # s_type = decl
 # text = Saudi officials had already provided safeguards by installing an oval wall with padded edges to protect pilgrams from a crush, installed security cameras and placed over 60,000 security personnel in the area.
-1	Saudi	Saudi	PROPN	NNP	Number=Sing	2	compound	2:compound	Discourse=background:18->5|Entity=(person-30
-2	officials	official	NOUN	NNS	Number=Plur	5	nsubj	5:nsubj|22:nsubj|26:nsubj	Entity=person-30)
+1	Saudi	Saudi	PROPN	NNP	Number=Sing	2	compound	2:compound	Discourse=background:18->5:5|Entity=(person-30-new-2-sgl
+2	officials	official	NOUN	NNS	Number=Plur	5	nsubj	5:nsubj|22:nsubj|26:nsubj	Entity=30)
 3	had	have	AUX	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	5	aux	5:aux|22:aux|26:aux	_
 4	already	already	ADV	RB	_	5	advmod	5:advmod	_
 5	provided	provide	VERB	VBN	Tense=Past|VerbForm=Part	0	root	0:root	_
-6	safeguards	safeguard	NOUN	NNS	Number=Plur	5	obj	5:obj	Entity=(object-31)
-7	by	by	SCONJ	IN	_	8	mark	8:mark	Discourse=means:19->18
+6	safeguards	safeguard	NOUN	NNS	Number=Plur	5	obj	5:obj	Entity=(object-31-new-1-coref)
+7	by	by	SCONJ	IN	_	8	mark	8:mark	Discourse=means:19->18:0
 8	installing	install	VERB	VBG	VerbForm=Ger	5	advcl	5:advcl:by	_
-9	an	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	Bridge=object-31<object-32|Entity=(object-32
+9	an	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	Bridge=31<32|Entity=(object-32-acc:inf-6-sgl
 10	oval	oval	ADJ	JJ	Degree=Pos	11	amod	11:amod	_
 11	wall	wall	NOUN	NN	Number=Sing	8	obj	8:obj	_
 12	with	with	ADP	IN	_	14	case	14:case	_
-13	padded	pad	VERB	VBN	Tense=Past|VerbForm=Part	14	amod	14:amod	Entity=(object-33
-14	edges	edge	NOUN	NNS	Number=Plur	8	obl	8:obl:with	Entity=object-32)object-33)
-15	to	to	PART	TO	_	16	mark	16:mark	Discourse=purpose:20->19
+13	padded	pad	VERB	VBN	Tense=Past|VerbForm=Part	14	amod	14:amod	Entity=(object-33-new-2-sgl
+14	edges	edge	NOUN	NNS	Number=Plur	8	obl	8:obl:with	Entity=33)32)
+15	to	to	PART	TO	_	16	mark	16:mark	Discourse=purpose:20->19:0
 16	protect	protect	VERB	VB	VerbForm=Inf	14	acl	14:acl:to	_
-17	pilgrams	pilgrim	NOUN	NNS	Number=Plur	16	obj	16:obj	Entity=(person-34)
+17	pilgrams	pilgrim	NOUN	NNS	Number=Plur	16	obj	16:obj	Entity=(person-34-new-1-sgl)|XML=<sic></sic>
 18	from	from	ADP	IN	_	20	case	20:case	_
-19	a	a	DET	DT	Definite=Ind|PronType=Art	20	det	20:det	Entity=(event-35
-20	crush	crush	NOUN	NN	Number=Sing	16	obl	16:obl:from	Entity=event-35)|SpaceAfter=No
+19	a	a	DET	DT	Definite=Ind|PronType=Art	20	det	20:det	Entity=(event-35-new-2-sgl
+20	crush	crush	NOUN	NN	Number=Sing	16	obl	16:obl:from	Entity=35)|SpaceAfter=No
 21	,	,	PUNCT	,	_	22	punct	22:punct	_
-22	installed	install	VERB	VBN	Tense=Past|VerbForm=Part	5	conj	5:conj:and	Discourse=joint:21->18
-23	security	security	NOUN	NN	Number=Sing	24	compound	24:compound	Bridge=object-31<object-36|Entity=(object-36
-24	cameras	camera	NOUN	NNS	Number=Plur	22	obj	22:obj	Entity=object-36)
-25	and	and	CCONJ	CC	_	26	cc	26:cc	Discourse=joint:22->18
+22	installed	install	VERB	VBN	Tense=Past|VerbForm=Part	5	conj	5:conj:and	Discourse=joint_m:21->18:1
+23	security	security	NOUN	NN	Number=Sing	24	compound	24:compound	Bridge=31<36|Entity=(object-36-acc:inf-2-sgl
+24	cameras	camera	NOUN	NNS	Number=Plur	22	obj	22:obj	Entity=36)
+25	and	and	CCONJ	CC	_	26	cc	26:cc	Discourse=joint_m:22->18:1
 26	placed	place	VERB	VBN	Tense=Past|VerbForm=Part	5	conj	5:conj:and	_
-27	over	over	ADV	RB	_	28	advmod	28:advmod	Bridge=object-31<person-37|Entity=(person-37
+27	over	over	ADV	RB	_	28	advmod	28:advmod	Bridge=31<37|Entity=(person-37-acc:inf-4-sgl
 28	60,000	60000	NUM	CD	NumForm=Digit|NumType=Card	30	nummod	30:nummod	_
 29	security	security	NOUN	NN	Number=Sing	30	compound	30:compound	_
-30	personnel	personnel	NOUN	NNS	Number=Plur	26	obj	26:obj	Entity=person-37)
+30	personnel	personnel	NOUN	NNS	Number=Plur	26	obj	26:obj	Entity=37)
 31	in	in	ADP	IN	_	33	case	33:case	_
-32	the	the	DET	DT	Definite=Def|PronType=Art	33	det	33:det	Entity=(place-38
-33	area	area	NOUN	NN	Number=Sing	30	nmod	30:nmod:in	Entity=place-38)|SpaceAfter=No
+32	the	the	DET	DT	Definite=Def|PronType=Art	33	det	33:det	Entity=(place-38-new-2-sgl
+33	area	area	NOUN	NN	Number=Sing	30	nmod	30:nmod:in	Entity=38)|SpaceAfter=No
 34	.	.	PUNCT	.	_	5	punct	5:punct	_
 
 # sent_id = GUM_news_stampede-10
 # s_type = decl
 # text = This is not the first time deadly stampedes have taken place during the Hajj, with the deadliest stampede during the 1991 Hajj, in which 1,426 pilgrims were trampled.
-1	This	this	PRON	DT	Number=Sing|PronType=Dem	6	nsubj	6:nsubj	Discourse=background:23->5|Entity=(event-2)
+# newpar = p (1 s)
+1	This	this	PRON	DT	Number=Sing|PronType=Dem	6	nsubj	6:nsubj	Discourse=background:23->5:6|Entity=(event-2-giv:inact-1-ana)
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	6:cop	_
 3	not	not	PART	RB	Polarity=Neg	6	advmod	6:advmod	_
-4	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(event-39
+4	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(event-39-new-3-sgl
 5	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	6	amod	6:amod	_
 6	time	time	NOUN	NN	Number=Sing	0	root	0:root	_
-7	deadly	deadly	ADJ	JJ	Degree=Pos	8	amod	8:amod	Discourse=elaboration:24->23|Entity=(event-40
-8	stampedes	stampede	NOUN	NNS	Number=Plur	10	nsubj	10:nsubj	Entity=event-40)
+7	deadly	deadly	ADJ	JJ	Degree=Pos	8	amod	8:amod	Discourse=elaboration:24->23:0|Entity=(event-40-new-2-coref
+8	stampedes	stampede	NOUN	NNS	Number=Plur	10	nsubj	10:nsubj	Entity=40)
 9	have	have	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	10	aux	10:aux	_
 10	taken	take	VERB	VBN	Tense=Past|VerbForm=Part	6	acl:relcl	6:acl:relcl	_
 11	place	place	NOUN	NN	Number=Sing	10	obj	10:obj	_
 12	during	during	ADP	IN	_	14	case	14:case	_
-13	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	Entity=(event-3-Hajj
-14	Hajj	Hajj	PROPN	NNP	Number=Sing	10	obl	10:obl:during	Entity=event-39)event-3-Hajj)|SpaceAfter=No
+13	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	Entity=(event-3-giv:inact-2-coref-Hajj
+14	Hajj	Hajj	PROPN	NNP	Number=Sing	10	obl	10:obl:during	Entity=3)39)|SpaceAfter=No
 15	,	,	PUNCT	,	_	19	punct	19:punct	_
-16	with	with	ADP	IN	_	19	case	19:case	Discourse=elaboration:25->23
-17	the	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	Bridge=event-40<event-41|Entity=(event-41
+16	with	with	ADP	IN	_	19	case	19:case	Discourse=elaboration:25->23:1
+17	the	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	Bridge=40<41|Entity=(event-41-acc:inf-3-sgl
 18	deadliest	deadly	ADJ	JJS	Degree=Sup	19	amod	19:amod	_
-19	stampede	stampede	NOUN	NN	Number=Sing	6	nmod	6:nmod:with	_
+19	stampede	stampede	NOUN	NN	Number=Sing	6	nmod	6:nmod:with|30:obl:in	_
 20	during	during	ADP	IN	_	23	case	23:case	_
-21	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	Bridge=event-3-Hajj<event-42|Entity=(event-42
-22	1991	1991	NUM	CD	NumForm=Digit|NumType=Card	23	compound	23:compound	Entity=(time-43)
-23	Hajj	Hajj	PROPN	NNP	Number=Sing	19	nmod	19:nmod:during|30:obl:in	Entity=event-42)|SpaceAfter=No
+21	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	Bridge=3<42|Entity=(event-42-acc:inf-3-sgl
+22	1991	1991	NUM	CD	NumForm=Digit|NumType=Card	23	compound	23:compound	Entity=(time-43-new-1-sgl)|XML=<date when:::"1991"></date>
+23	Hajj	Hajj	PROPN	NNP	Number=Sing	19	nmod	19:nmod:during	Entity=42)|SpaceAfter=No
 24	,	,	PUNCT	,	_	30	punct	30:punct	_
-25	in	in	ADP	IN	_	26	case	26:case	Discourse=elaboration:26->25
-26	which	which	PRON	WDT	PronType=Rel	30	obl	23:ref	_
-27	1,426	1426	NUM	CD	NumForm=Digit|NumType=Card	28	nummod	28:nummod	Entity=(person-44
-28	pilgrims	pilgrim	NOUN	NNS	Number=Plur	30	nsubj:pass	30:nsubj:pass	Entity=person-44)
+25	in	in	ADP	IN	_	26	case	26:case	Discourse=elaboration:26->25:0
+26	which	which	PRON	WDT	PronType=Rel	30	obl	19:ref	_
+27	1,426	1426	NUM	CD	NumForm=Digit|NumType=Card	28	nummod	28:nummod	Entity=(person-44-new-2-sgl
+28	pilgrims	pilgrim	NOUN	NNS	Number=Plur	30	nsubj:pass	30:nsubj:pass	Entity=44)
 29	were	be	AUX	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	30	aux:pass	30:aux:pass	_
-30	trampled	trample	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	23	acl:relcl	23:acl:relcl	Entity=event-41)|SpaceAfter=No
+30	trampled	trample	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	19	acl:relcl	19:acl:relcl	Entity=41)|SpaceAfter=No
 31	.	.	PUNCT	.	_	6	punct	6:punct	_
 
 # sent_id = GUM_news_stampede-11
 # s_type = decl
 # text = Last week, at least 76 people were killed when the Al-Ghaza Hotel near the Masjid Al-Haram (Grand Mosque) collasped, the cause of which is unknown.
-1	Last	last	ADJ	JJ	Degree=Pos	2	amod	2:amod	Discourse=background:27->5|Entity=(time-45
-2	week	week	NOUN	NN	Number=Sing	9	obl:tmod	9:obl:tmod	Entity=time-45)|SpaceAfter=No
+# newpar = p (1 s)
+1	Last	last	ADJ	JJ	Degree=Pos	2	amod	2:amod	Discourse=background:27->5:7|Entity=(time-45-acc:com-2-sgl|XML=<date from:::"2006-01-02" to:::"2006-01-08">
+2	week	week	NOUN	NN	Number=Sing	9	obl:tmod	9:obl:tmod	Entity=45)|SpaceAfter=No|XML=</date>
 3	,	,	PUNCT	,	_	2	punct	2:punct	_
-4	at	at	ADV	IN	_	6	advmod	6:advmod	Entity=(person-46
+4	at	at	ADV	IN	_	6	advmod	6:advmod	Entity=(person-46-new-4-sgl
 5	least	least	ADJ	JJS	Degree=Sup	4	fixed	4:fixed	_
 6	76	76	NUM	CD	NumForm=Digit|NumType=Card	7	nummod	7:nummod	_
-7	people	person	NOUN	NNS	Number=Plur	9	nsubj:pass	9:nsubj:pass	Entity=person-46)
+7	people	person	NOUN	NNS	Number=Plur	9	nsubj:pass	9:nsubj:pass	Entity=46)
 8	were	be	AUX	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	9	aux:pass	9:aux:pass	_
 9	killed	kill	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
-10	when	when	SCONJ	WRB	PronType=Int	22	mark	22:mark	Discourse=circumstance:28->27
-11	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	Entity=(place-47
-12	Al-Ghaza	Al-Ghaza	PROPN	NNP	Number=Sing	13	compound	13:compound	_
-13	Hotel	Hotel	PROPN	NNP	Number=Sing	22	nsubj	22:nsubj	_
-14	near	near	ADP	IN	_	17	case	17:case	_
-15	the	the	DET	DT	Definite=Def|PronType=Art	17	det	17:det	Entity=(place-48-Masjid_al-Haram
-16	Masjid	Masjid	PROPN	NNP	Number=Sing	17	compound	17:compound	_
-17	Al-Haram	Al-Haram	PROPN	NNP	Number=Sing	13	nmod	13:nmod:near	Entity=place-48-Masjid_al-Haram)
-18	(	(	PUNCT	-LRB-	_	20	punct	20:punct	Discourse=restatement:29->28|SpaceAfter=No
-19	Grand	Grand	ADJ	NNP	Degree=Pos	20	amod	20:amod	Entity=(place-48-Masjid_al-Haram
-20	Mosque	Mosque	PROPN	NNP	Number=Sing	17	appos	17:appos	Entity=place-48-Masjid_al-Haram)|SpaceAfter=No
-21	)	)	PUNCT	-RRB-	_	20	punct	20:punct	Entity=place-47)
-22	collasped	collaspe	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	9	advcl	9:advcl:when|25:nmod:of	Discourse=same-unit:30->28|SpaceAfter=No
-23	,	,	PUNCT	,	_	29	punct	29:punct	_
-24	the	the	DET	DT	Definite=Def|PronType=Art	25	det	25:det	Discourse=cause:31->27|Entity=(abstract-49
-25	cause	cause	NOUN	NN	Number=Sing	29	nsubj	29:nsubj	_
-26	of	of	ADP	IN	_	27	case	27:case	_
-27	which	which	PRON	WDT	PronType=Int	25	nmod	22:ref	Entity=abstract-49)
-28	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	29	cop	29:cop	_
-29	unknown	unknown	ADJ	JJ	Degree=Pos|Polarity=Neg	22	acl:relcl	22:acl:relcl	SpaceAfter=No
-30	.	.	PUNCT	.	_	9	punct	9:punct	_
+10	when	when	SCONJ	WRB	PronType=Int	26	mark	26:mark	Discourse=circumstance:28->27:0
+11	the	the	DET	DT	Definite=Def|PronType=Art	15	det	15:det	Entity=(place-47-new-2,4,5,8,9,11,13,14-sgl
+12	Al	Al	PROPN	NNP	Number=Sing	15	compound	15:compound	SpaceAfter=No|XML=<w>
+13	-	-	PUNCT	HYPH	_	14	punct	14:punct	SpaceAfter=No
+14	Ghaza	Ghaza	PROPN	NNP	Number=Sing	12	flat	12:flat	XML=</w>
+15	Hotel	Hotel	PROPN	NNP	Number=Sing	26	nsubj	26:nsubj	_
+16	near	near	ADP	IN	_	19	case	19:case	_
+17	the	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	Entity=(place-48-new-2,3,5-coref-Masjid_al-Haram
+18	Masjid	Masjid	PROPN	NNP	Number=Sing	19	compound	19:compound	XML=<ref>
+19	Al	Al	PROPN	NNP	Number=Sing	15	nmod	15:nmod:near	SpaceAfter=No|XML=<w>
+20	-	-	PUNCT	HYPH	_	21	punct	21:punct	SpaceAfter=No
+21	Haram	Haram	PROPN	NNP	Number=Sing	19	flat	19:flat	Entity=48)|XML=</w></ref>
+22	(	(	PUNCT	-LRB-	_	24	punct	24:punct	Discourse=restatement:29->28:0|SpaceAfter=No
+23	Grand	Grand	ADJ	NNP	Degree=Pos	24	amod	24:amod	Entity=(place-48-giv:act-1,2-appos-Masjid_al-Haram
+24	Mosque	Mosque	PROPN	NNP	Number=Sing	19	appos	19:appos	Entity=48)|SpaceAfter=No
+25	)	)	PUNCT	-RRB-	_	24	punct	24:punct	Entity=47)
+26	collasped	collaspe	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	9	advcl	9:advcl:when|29:nmod:of	Discourse=same-unit_m:30->28:1|SpaceAfter=No
+27	,	,	PUNCT	,	_	33	punct	33:punct	_
+28	the	the	DET	DT	Definite=Def|PronType=Art	29	det	29:det	Discourse=cause:31->27:1|Entity=(abstract-49-new-2-sgl
+29	cause	cause	NOUN	NN	Number=Sing	33	nsubj	33:nsubj	_
+30	of	of	ADP	IN	_	31	case	31:case	_
+31	which	which	PRON	WDT	PronType=Int	29	nmod	26:ref	Entity=49)
+32	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	33	cop	33:cop	_
+33	unknown	unknown	ADJ	JJ	Degree=Pos|Polarity=Neg	26	acl:relcl	26:acl:relcl	SpaceAfter=No
+34	.	.	PUNCT	.	_	9	punct	9:punct	_
 

@@ -1,5 +1,5 @@
 # newdoc id = GUM_voyage_cuba
-# global.Entity = entity-GRP-identity
+# global.Entity = entity-GRP-infstat-MIN-coref_type-identity
 # meta::dateCollected = 2015-09-21
 # meta::dateCreated = 2003-08-08
 # meta::dateModified = 2015-09-15
@@ -9,93 +9,97 @@
 # sent_id = GUM_voyage_cuba-1
 # s_type = imp
 # text = Get in
-1	Get	get	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=preparation:1->4
+# newpar = head (1 s)
+1	Get	get	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=preparation:1->4:5
 2	in	in	ADV	RB	Degree=Pos	1	advmod	1:advmod	_
 
 # sent_id = GUM_voyage_cuba-2
 # s_type = imp
 # text = For information specific to U.S. citizens see Americans in Cuba
-1	For	for	ADP	IN	_	2	case	2:case	Discourse=concession:2->1
-2	information	information	NOUN	NN	Number=Sing	7	obl	7:obl:for	Entity=(abstract-1
+# newpar = p (1 s)
+1	For	for	ADP	IN	_	2	case	2:case	Discourse=concession:2->1:0|XML=<hi rend:::"italic">
+2	information	information	NOUN	NN	Number=Sing	7	obl	7:obl:for	Entity=(abstract-1-new-1-sgl
 3	specific	specific	ADJ	JJ	Degree=Pos	2	amod	2:amod	_
 4	to	to	ADP	IN	_	6	case	6:case	_
-5	U.S.	U.S.	PROPN	NNP	Abbr=Yes|Number=Sing	6	compound	6:compound	Entity=(person-2(place-3-United_States)
-6	citizens	citizen	NOUN	NNS	Number=Plur	3	obl	3:obl:to	Entity=abstract-1)person-2)
-7	see	see	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	_
-8	Americans	American	PROPN	NNPS	Number=Plur	7	obj	7:obj	_
+5	U.S.	U.S.	PROPN	NNP	Abbr=Yes|Number=Sing	6	compound	6:compound	Entity=(person-2-new-2-sgl(place-3-new-1-sgl-United_States)|XML=<ref>
+6	citizens	citizen	NOUN	NNS	Number=Plur	3	obl	3:obl:to	Entity=2)1)|XML=</ref>
+7	see	see	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	XML=</hi>
+8	Americans	American	PROPN	NNPS	Number=Plur	7	obj	7:obj	XML=<ref><hi rend:::"bold italic">
 9	in	in	ADP	IN	_	10	case	10:case	_
-10	Cuba	Cuba	PROPN	NNP	Number=Sing	8	nmod	8:nmod:in	Entity=(place-4-Cuba)
+10	Cuba	Cuba	PROPN	NNP	Number=Sing	8	nmod	8:nmod:in	Entity=(place-4-new-1-coref-Cuba)|XML=</hi></ref>
 
 # sent_id = GUM_voyage_cuba-3
 # s_type = frag
 # text = Visa and legal issues
-1	Visa	Visa	NOUN	NN	Number=Sing	0	root	0:root	Discourse=preparation:3->4|Entity=(abstract-5)
+# newpar = head (1 s)
+1	Visa	Visa	NOUN	NN	Number=Sing	0	root	0:root	Discourse=preparation:3->4:4|Entity=(abstract-5-new-1-coref)
 2	and	and	CCONJ	CC	_	4	cc	4:cc	_
-3	legal	legal	ADJ	JJ	Degree=Pos	4	amod	4:amod	Entity=(abstract-6
-4	issues	issue	NOUN	NNS	Number=Plur	1	conj	1:conj:and	Entity=abstract-6)
+3	legal	legal	ADJ	JJ	Degree=Pos	4	amod	4:amod	Entity=(abstract-6-new-2-sgl
+4	issues	issue	NOUN	NNS	Number=Plur	1	conj	1:conj:and	Entity=6)
 
 # sent_id = GUM_voyage_cuba-4
 # s_type = decl
 # text = A tourist visa card (visa de tarjeta del turista) is necessary for travelers from most nations.
-1	A	a	DET	DT	Definite=Ind|PronType=Art	4	det	4:det	Discourse=ROOT:4|Entity=(object-7
-2	tourist	tourist	NOUN	NN	Number=Sing	3	compound	3:compound	Entity=(abstract-5
-3	visa	visa	NOUN	NN	Number=Sing	4	compound	4:compound	Entity=abstract-5)
-4	card	card	NOUN	NN	Number=Sing	13	nsubj	13:nsubj	Entity=object-7)
-5	(	(	PUNCT	-LRB-	_	6	punct	6:punct	Discourse=restatement:5->4|SpaceAfter=No
-6	visa	visa	X	FW	_	4	appos	4:appos	Entity=(object-7
+# newpar = p (7 s)
+1	A	a	DET	DT	Definite=Ind|PronType=Art	4	det	4:det	Discourse=ROOT:4:0|Entity=(object-7-new-4-coref
+2	tourist	tourist	NOUN	NN	Number=Sing	3	compound	3:compound	Entity=(abstract-5-giv:act-2-coref|XML=<hi rend:::"bold">
+3	visa	visa	NOUN	NN	Number=Sing	4	compound	4:compound	Entity=5)
+4	card	card	NOUN	NN	Number=Sing	13	nsubj	13:nsubj	Entity=7)|XML=</hi>
+5	(	(	PUNCT	-LRB-	_	6	punct	6:punct	Discourse=restatement:5->4:0|SpaceAfter=No
+6	visa	visa	X	FW	_	4	appos	4:appos	Entity=(object-7-giv:act-1-appos
 7	de	de	X	FW	_	8	case	8:case	_
 8	tarjeta	tarjeta	X	FW	_	6	nmod	6:nmod:de	_
 9	del	del	X	FW	_	10	case	10:case	_
-10	turista	turista	X	FW	_	8	nmod	8:nmod:del	Entity=object-7)|SpaceAfter=No
+10	turista	turista	X	FW	_	8	nmod	8:nmod:del	Entity=7)|SpaceAfter=No
 11	)	)	PUNCT	-RRB-	_	6	punct	6:punct	_
-12	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	13	cop	13:cop	Discourse=same-unit:6->4
+12	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	13	cop	13:cop	Discourse=same-unit_m:6->4:1
 13	necessary	necessary	ADJ	JJ	Degree=Pos	0	root	0:root	_
 14	for	for	ADP	IN	_	15	case	15:case	_
-15	travelers	traveler	NOUN	NNS	Number=Plur	13	obl	13:obl:for	Entity=(person-8
+15	travelers	traveler	NOUN	NNS	Number=Plur	13	obl	13:obl:for	Entity=(person-8-new-1-sgl
 16	from	from	ADP	IN	_	18	case	18:case	_
-17	most	most	ADJ	JJS	Degree=Sup	18	amod	18:amod	Entity=(place-9
-18	nations	nation	NOUN	NNS	Number=Plur	15	nmod	15:nmod:from	Entity=person-8)place-9)|SpaceAfter=No
+17	most	most	ADJ	JJS	Degree=Sup	18	amod	18:amod	Entity=(place-9-new-2-sgl
+18	nations	nation	NOUN	NNS	Number=Plur	15	nmod	15:nmod:from	Entity=9)8)|SpaceAfter=No
 19	.	.	PUNCT	.	_	13	punct	13:punct	_
 
 # sent_id = GUM_voyage_cuba-5
 # s_type = decl
 # text = This visa, which is really little more than a piece of paper on which you list your vital statistics, costs between 15 - 25 CUC (or € 15 - 25), depending on where purchased.
-1	This	this	DET	DT	Number=Sing|PronType=Dem	2	det	2:det	Discourse=elaboration:7->4|Entity=(abstract-5
-2	visa	visa	NOUN	NN	Number=Sing	22	nsubj	8:nsubj|22:nsubj	Entity=abstract-5)|SpaceAfter=No
+1	This	this	DET	DT	Number=Sing|PronType=Dem	2	det	2:det	Discourse=elaboration:7->4:2|Entity=(abstract-5-giv:act-2-coref
+2	visa	visa	NOUN	NN	Number=Sing	22	nsubj	8:nsubj|22:nsubj	Entity=5)|SpaceAfter=No
 3	,	,	PUNCT	,	_	8	punct	8:punct	_
-4	which	which	PRON	WDT	PronType=Rel	8	nsubj	2:ref	Discourse=elaboration:8->7
+4	which	which	PRON	WDT	PronType=Rel	8	nsubj	2:ref	Discourse=elaboration:8->7:0
 5	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	8	cop	8:cop	_
 6	really	really	ADV	RB	Degree=Pos	8	advmod	8:advmod	_
 7	little	little	ADV	RB	Degree=Pos	8	obl:npmod	8:obl:npmod	_
 8	more	more	ADJ	JJR	Degree=Cmp	2	acl:relcl	2:acl:relcl	_
 9	than	than	ADP	IN	_	11	case	11:case	_
-10	a	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	Entity=(object-10
+10	a	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	Entity=(object-10-new-2-sgl
 11	piece	piece	NOUN	NN	Number=Sing	8	obl	8:obl:than|17:obl:on	_
 12	of	of	ADP	IN	_	13	case	13:case	_
-13	paper	paper	NOUN	NN	Number=Sing	11	nmod	11:nmod:of	Entity=(substance-11)
-14	on	on	ADP	IN	_	15	case	15:case	Discourse=elaboration:9->8
+13	paper	paper	NOUN	NN	Number=Sing	11	nmod	11:nmod:of	Entity=(substance-11-new-1-sgl)
+14	on	on	ADP	IN	_	15	case	15:case	Discourse=elaboration:9->8:0
 15	which	which	PRON	WDT	PronType=Rel	17	obl	11:ref	_
-16	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	17	nsubj	17:nsubj	Entity=(person-12)
+16	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	17	nsubj	17:nsubj	Entity=(person-12-acc:com-1-ana)
 17	list	list	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	11	acl:relcl	11:acl:relcl	_
-18	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	20	nmod:poss	20:nmod:poss	Entity=(abstract-13(person-12)
+18	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	20	nmod:poss	20:nmod:poss	Entity=(abstract-13-new-3-sgl(person-12-giv:act-1-ana)
 19	vital	vital	ADJ	JJ	Degree=Pos	20	amod	20:amod	_
-20	statistics	statistic	NOUN	NNS	Number=Plur	17	obj	17:obj	Entity=object-10)abstract-13)|SpaceAfter=No
+20	statistics	statistic	NOUN	NNS	Number=Plur	17	obj	17:obj	Entity=13)10)|SpaceAfter=No
 21	,	,	PUNCT	,	_	2	punct	2:punct	_
-22	costs	cost	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Discourse=same-unit:10->7
+22	costs	cost	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Discourse=same-unit_m:10->7:1
 23	between	between	ADP	IN	_	27	case	27:case	_
-24	15	15	NUM	CD	NumForm=Digit|NumType=Card	27	nummod	27:nummod	Entity=(abstract-14
+24	15	15	NUM	CD	NumForm=Digit|NumType=Card	27	nummod	27:nummod	Entity=(abstract-14-new-4-coref|XML=<measure type:::"currency">
 25	-	-	SYM	SYM	_	26	case	26:case	_
 26	25	25	NUM	CD	NumForm=Digit|NumType=Card	24	nmod	24:nmod:minus	_
-27	CUC	CUC	NOUN	NN	Number=Sing	22	obl	22:obl:between	Entity=abstract-14)
-28	(	(	PUNCT	-LRB-	_	30	punct	30:punct	Discourse=restatement:11->10|SpaceAfter=No
+27	CUC	CUC	NOUN	NN	Number=Sing	22	obl	22:obl:between	Entity=14)|XML=</measure>
+28	(	(	PUNCT	-LRB-	_	30	punct	30:punct	Discourse=restatement:11->10:0|SpaceAfter=No
 29	or	or	CCONJ	CC	_	30	cc	30:cc	_
-30	€	€	SYM	SYM	_	27	conj	22:obl:between|27:conj:or	Bridge=abstract-14<abstract-15|Entity=(abstract-15
+30	€	€	SYM	SYM	_	27	conj	22:obl:between|27:conj:or	Bridge=14<15|Entity=(abstract-15-acc:inf-1-sgl|XML=<measure type:::"currency">
 31	15	15	NUM	CD	NumForm=Digit|NumType=Card	30	nummod	30:nummod	_
 32	-	-	SYM	SYM	_	33	case	33:case	_
-33	25	25	NUM	CD	NumForm=Digit|NumType=Card	31	nmod	31:nmod:minus	Entity=abstract-15)|SpaceAfter=No
+33	25	25	NUM	CD	NumForm=Digit|NumType=Card	31	nmod	31:nmod:minus	Entity=15)|SpaceAfter=No|XML=</measure>
 34	)	)	PUNCT	-RRB-	_	30	punct	30:punct	SpaceAfter=No
 35	,	,	PUNCT	,	_	38	punct	38:punct	_
-36	depending	depend	VERB	VBG	VerbForm=Ger	38	case	38:case	Discourse=condition:12->10
+36	depending	depend	VERB	VBG	VerbForm=Ger	38	case	38:case	Discourse=condition:12->10:1
 37	on	on	ADP	IN	_	36	fixed	36:fixed	_
 38	where	where	SCONJ	WRB	PronType=Rel	22	obl	22:obl:depending_on	_
 39	purchased	purchase	VERB	VBN	Tense=Past|VerbForm=Part	38	acl:relcl	38:acl:relcl	SpaceAfter=No
@@ -104,257 +108,258 @@
 # sent_id = GUM_voyage_cuba-6
 # s_type = decl
 # text = It can be purchased at the Airport in Cuba on arrival, however it should be noted that many airlines will require a valid tourist visa card before boarding flights.
-1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	4	nsubj:pass	4:nsubj:pass	Discourse=joint:13->7|Entity=(abstract-5)
+1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	4	nsubj:pass	4:nsubj:pass	Discourse=joint_m:13->7:2|Entity=(abstract-5-giv:act-1-ana)
 2	can	can	AUX	MD	VerbForm=Fin	4	aux	4:aux	_
 3	be	be	AUX	VB	VerbForm=Inf	4	aux:pass	4:aux:pass	_
 4	purchased	purchase	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
 5	at	at	ADP	IN	_	7	case	7:case	_
-6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	Entity=(place-16-List_of_airports_in_Cuba
+6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	Entity=(place-16-new-2,4-sgl-List_of_airports_in_Cuba
 7	Airport	Airport	PROPN	NNP	Number=Sing	4	obl	4:obl:at	_
 8	in	in	ADP	IN	_	9	case	9:case	_
-9	Cuba	Cuba	PROPN	NNP	Number=Sing	7	nmod	7:nmod:in	Entity=(place-4-Cuba)place-16-List_of_airports_in_Cuba)
+9	Cuba	Cuba	PROPN	NNP	Number=Sing	7	nmod	7:nmod:in	Entity=(place-4-giv:inact-1-coref-Cuba)16)
 10	on	on	ADP	IN	_	11	case	11:case	_
-11	arrival	arrival	NOUN	NN	Number=Sing	4	obl	4:obl:on	Entity=(event-17)|SpaceAfter=No
+11	arrival	arrival	NOUN	NN	Number=Sing	4	obl	4:obl:on	Entity=(event-17-new-1-sgl)|SpaceAfter=No
 12	,	,	PUNCT	,	_	17	punct	17:punct	_
-13	however	however	ADV	RB	_	17	advmod	17:advmod	Discourse=contrast:14->13
-14	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	17	nsubj:pass	17:nsubj:pass	Entity=(abstract-18)
+13	however	however	ADV	RB	_	17	advmod	17:advmod	Discourse=contrast_m:14->13:0
+14	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	17	nsubj:pass	17:nsubj:pass	Entity=(abstract-18-new-1-cata)
 15	should	should	AUX	MD	VerbForm=Fin	17	aux	17:aux	_
 16	be	be	AUX	VB	VerbForm=Inf	17	aux:pass	17:aux:pass	_
 17	noted	note	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	4	parataxis	4:parataxis	_
-18	that	that	SCONJ	IN	_	22	mark	22:mark	Entity=(abstract-18
-19	many	many	ADJ	JJ	Degree=Pos	20	amod	20:amod	Entity=(organization-19
-20	airlines	airline	NOUN	NNS	Number=Plur	22	nsubj	22:nsubj	Entity=organization-19)
+18	that	that	SCONJ	IN	_	22	mark	22:mark	Entity=(abstract-18-acc:com-5-coref
+19	many	many	ADJ	JJ	Degree=Pos	20	amod	20:amod	Entity=(organization-19-new-2-sgl
+20	airlines	airline	NOUN	NNS	Number=Plur	22	nsubj	22:nsubj	Entity=19)
 21	will	will	AUX	MD	Number=Plur|Person=3|VerbForm=Fin	22	aux	22:aux	_
 22	require	require	VERB	VB	VerbForm=Inf	17	ccomp	17:ccomp	_
-23	a	a	DET	DT	Definite=Ind|PronType=Art	27	det	27:det	Entity=(object-7
+23	a	a	DET	DT	Definite=Ind|PronType=Art	27	det	27:det	Entity=(object-7-giv:inact-5-coref
 24	valid	valid	ADJ	JJ	Degree=Pos	27	amod	27:amod	_
-25	tourist	tourist	NOUN	NN	Number=Sing	27	compound	27:compound	Entity=(abstract-5
-26	visa	visa	NOUN	NN	Number=Sing	27	compound	27:compound	Entity=abstract-5)
-27	card	card	NOUN	NN	Number=Sing	22	obj	22:obj	Entity=object-7)
-28	before	before	SCONJ	IN	_	29	mark	29:mark	Discourse=circumstance:15->14
+25	tourist	tourist	NOUN	NN	Number=Sing	27	compound	27:compound	Entity=(abstract-5-giv:act-2-coref
+26	visa	visa	NOUN	NN	Number=Sing	27	compound	27:compound	Entity=5)
+27	card	card	NOUN	NN	Number=Sing	22	obj	22:obj	Entity=7)
+28	before	before	SCONJ	IN	_	29	mark	29:mark	Discourse=circumstance:15->14:0
 29	boarding	board	VERB	VBG	VerbForm=Ger	22	advcl	22:advcl:before	_
-30	flights	flight	NOUN	NNS	Number=Plur	29	obj	29:obj	Entity=(event-20)abstract-18)|SpaceAfter=No
+30	flights	flight	NOUN	NNS	Number=Plur	29	obj	29:obj	Entity=(event-20-new-1-sgl)18)|SpaceAfter=No
 31	.	.	PUNCT	.	_	4	punct	4:punct	_
 
 # sent_id = GUM_voyage_cuba-7
 # s_type = decl
 # text = It is usually valid for 30 days and can be extended once for another 30 days at any immigration office in Cuba (for 25 CUC) - beyond this you would need a flight out of Cuba within the extended visa period.
-1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	4	nsubj	4:nsubj	Discourse=joint:16->7|Entity=(object-7)
+1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	4	nsubj	4:nsubj	Discourse=joint_m:16->7:2|Entity=(object-7-giv:act-1-ana)
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	cop	4:cop	_
 3	usually	usually	ADV	RB	Degree=Pos	4	advmod	4:advmod	_
 4	valid	valid	ADJ	JJ	Degree=Pos	0	root	0:root	_
 5	for	for	ADP	IN	_	7	case	7:case	_
-6	30	30	NUM	CD	NumForm=Digit|NumType=Card	7	nummod	7:nummod	Entity=(time-21
-7	days	day	NOUN	NNS	Number=Plur	4	obl	4:obl:for	Entity=time-21)
-8	and	and	CCONJ	CC	_	11	cc	11:cc	Discourse=joint:17->16
+6	30	30	NUM	CD	NumForm=Digit|NumType=Card	7	nummod	7:nummod	Entity=(time-21-new-2-coref
+7	days	day	NOUN	NNS	Number=Plur	4	obl	4:obl:for	Entity=21)
+8	and	and	CCONJ	CC	_	11	cc	11:cc	Discourse=joint_m:17->16:0
 9	can	can	AUX	MD	VerbForm=Fin	11	aux	11:aux	_
 10	be	be	AUX	VB	VerbForm=Inf	11	aux:pass	11:aux:pass	_
 11	extended	extend	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	4	conj	4:conj:and	_
 12	once	once	ADV	RB	NumType=Mult	11	advmod	11:advmod	_
 13	for	for	ADP	IN	_	16	case	16:case	_
-14	another	another	DET	DT	_	15	det	15:det	Entity=(time-22
+14	another	another	DET	DT	_	15	det	15:det	Entity=(time-22-new-3-coref
 15	30	30	NUM	CD	NumForm=Digit|NumType=Card	16	nummod	16:nummod	_
-16	days	day	NOUN	NNS	Number=Plur	11	obl	11:obl:for	Entity=time-22)
+16	days	day	NOUN	NNS	Number=Plur	11	obl	11:obl:for	Entity=22)
 17	at	at	ADP	IN	_	20	case	20:case	_
-18	any	any	DET	DT	_	20	det	20:det	Entity=(place-23
+18	any	any	DET	DT	_	20	det	20:det	Entity=(place-23-new-3-coref
 19	immigration	immigration	NOUN	NN	Number=Sing	20	compound	20:compound	_
 20	office	office	NOUN	NN	Number=Sing	11	obl	11:obl:at	_
 21	in	in	ADP	IN	_	22	case	22:case	_
-22	Cuba	Cuba	PROPN	NNP	Number=Sing	20	nmod	20:nmod:in	Entity=(place-4-Cuba)place-23)
-23	(	(	PUNCT	-LRB-	_	26	punct	26:punct	Discourse=elaboration:18->17|SpaceAfter=No
+22	Cuba	Cuba	PROPN	NNP	Number=Sing	20	nmod	20:nmod:in	Entity=(place-4-giv:act-1-coref-Cuba)23)
+23	(	(	PUNCT	-LRB-	_	26	punct	26:punct	Discourse=elaboration:18->17:0|SpaceAfter=No
 24	for	for	ADP	IN	_	26	case	26:case	_
-25	25	25	NUM	CD	NumForm=Digit|NumType=Card	26	nummod	26:nummod	Entity=(abstract-24
-26	CUC	CUC	NOUN	NN	Number=Sing	11	obl	11:obl:for	Entity=abstract-24)|SpaceAfter=No
+25	25	25	NUM	CD	NumForm=Digit|NumType=Card	26	nummod	26:nummod	Entity=(abstract-24-new-2-sgl|XML=<measure type:::"currency">
+26	CUC	CUC	NOUN	NN	Number=Sing	11	obl	11:obl:for	Entity=24)|SpaceAfter=No|XML=</measure>
 27	)	)	PUNCT	-RRB-	_	26	punct	26:punct	_
 28	-	-	PUNCT	:	_	33	punct	33:punct	_
-29	beyond	beyond	ADP	IN	_	30	case	30:case	Discourse=joint:19->16
-30	this	this	PRON	DT	Number=Sing|PronType=Dem	33	obl	33:obl:beyond	Entity=(time-22)
-31	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	33	nsubj	33:nsubj	Entity=(person-12)
+29	beyond	beyond	ADP	IN	_	30	case	30:case	Discourse=joint_m:19->16:0
+30	this	this	PRON	DT	Number=Sing|PronType=Dem	33	obl	33:obl:beyond	Entity=(time-22-giv:act-1-ana)
+31	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	33	nsubj	33:nsubj	Entity=(person-12-giv:inact-1-ana)
 32	would	would	AUX	MD	VerbForm=Fin	33	aux	33:aux	_
 33	need	need	VERB	VB	VerbForm=Inf	4	parataxis	4:parataxis	_
-34	a	a	DET	DT	Definite=Ind|PronType=Art	35	det	35:det	Entity=(event-25
+34	a	a	DET	DT	Definite=Ind|PronType=Art	35	det	35:det	Entity=(event-25-new-2-sgl
 35	flight	flight	NOUN	NN	Number=Sing	33	obj	33:obj	_
 36	out	out	ADP	IN	_	38	case	38:case	_
 37	of	of	ADP	IN	_	36	fixed	36:fixed	_
-38	Cuba	Cuba	PROPN	NNP	Number=Sing	35	nmod	35:nmod:out_of	Entity=(place-4-Cuba)event-25)
+38	Cuba	Cuba	PROPN	NNP	Number=Sing	35	nmod	35:nmod:out_of	Entity=(place-4-giv:act-1-coref-Cuba)25)
 39	within	within	ADP	IN	_	43	case	43:case	_
-40	the	the	DET	DT	Definite=Def|PronType=Art	43	det	43:det	Entity=(time-22
+40	the	the	DET	DT	Definite=Def|PronType=Art	43	det	43:det	Entity=(time-22-giv:act-4-coref
 41	extended	extended	ADJ	JJ	Degree=Pos	43	amod	43:amod	_
-42	visa	visa	NOUN	NN	Number=Sing	43	compound	43:compound	Entity=(abstract-5)
-43	period	period	NOUN	NN	Number=Sing	33	obl	33:obl:within	Entity=time-22)|SpaceAfter=No
+42	visa	visa	NOUN	NN	Number=Sing	43	compound	43:compound	Entity=(abstract-5-giv:act-1-coref)
+43	period	period	NOUN	NN	Number=Sing	33	obl	33:obl:within	Entity=22)|SpaceAfter=No
 44	.	.	PUNCT	.	_	4	punct	4:punct	_
 
 # sent_id = GUM_voyage_cuba-8
 # s_type = decl
 # text = Canadians are the exception, getting 90 days on arrival and can apply for a 90 day extension.
-1	Canadians	Canadian	PROPN	NNPS	Number=Plur	4	nsubj	4:nsubj	Discourse=contrast:20->16|Entity=(person-26-Canadians)
+1	Canadians	Canadian	PROPN	NNPS	Number=Plur	4	nsubj	4:nsubj	Discourse=contrast_m:20->16:1|Entity=(person-26-new-1-coref-Canadians)
 2	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	4	cop	4:cop	_
-3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	Entity=(person-26-Canadians
-4	exception	exception	NOUN	NN	Number=Sing	0	root	0:root	Entity=person-26-Canadians)|SpaceAfter=No
+3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	Entity=(person-26-giv:act-2-coref-Canadians
+4	exception	exception	NOUN	NN	Number=Sing	0	root	0:root	Entity=26)|SpaceAfter=No
 5	,	,	PUNCT	,	_	6	punct	6:punct	_
-6	getting	get	VERB	VBG	VerbForm=Ger	4	acl	4:acl	Discourse=elaboration:21->20
-7	90	90	NUM	CD	NumForm=Digit|NumType=Card	8	nummod	8:nummod	Entity=(time-27
-8	days	day	NOUN	NNS	Number=Plur	6	obj	6:obj	Entity=time-27)
+6	getting	get	VERB	VBG	VerbForm=Ger	4	acl	4:acl	Discourse=elaboration:21->20:0
+7	90	90	NUM	CD	NumForm=Digit|NumType=Card	8	nummod	8:nummod	Entity=(time-27-new-2-sgl
+8	days	day	NOUN	NNS	Number=Plur	6	obj	6:obj	Entity=27)
 9	on	on	ADP	IN	_	10	case	10:case	_
-10	arrival	arrival	NOUN	NN	Number=Sing	8	nmod	8:nmod:on	Entity=(event-28)
-11	and	and	CCONJ	CC	_	13	cc	13:cc	Discourse=joint:22->20
+10	arrival	arrival	NOUN	NN	Number=Sing	8	nmod	8:nmod:on	Entity=(event-28-new-1-sgl)
+11	and	and	CCONJ	CC	_	13	cc	13:cc	Discourse=joint_m:22->20:1
 12	can	can	AUX	MD	VerbForm=Fin	13	aux	13:aux	_
 13	apply	apply	VERB	VB	VerbForm=Inf	6	conj	4:acl|6:conj:and	_
 14	for	for	ADP	IN	_	18	case	18:case	_
-15	a	a	DET	DT	Definite=Ind|PronType=Art	18	det	18:det	Entity=(abstract-29
-16	90	90	NUM	CD	NumForm=Digit|NumType=Card	17	nummod	17:nummod	Entity=(time-30
-17	day	day	NOUN	NN	Number=Sing	18	compound	18:compound	Entity=time-30)
-18	extension	extension	NOUN	NN	Number=Sing	13	obl	13:obl:for	Entity=abstract-29)|SpaceAfter=No
+15	a	a	DET	DT	Definite=Ind|PronType=Art	18	det	18:det	Entity=(abstract-29-new-4-sgl
+16	90	90	NUM	CD	NumForm=Digit|NumType=Card	17	nummod	17:nummod	Entity=(time-30-new-2-sgl
+17	day	day	NOUN	NN	Number=Sing	18	compound	18:compound	Entity=30)
+18	extension	extension	NOUN	NN	Number=Sing	13	obl	13:obl:for	Entity=29)|SpaceAfter=No
 19	.	.	PUNCT	.	_	4	punct	4:punct	_
 
 # sent_id = GUM_voyage_cuba-9
 # s_type = decl
 # text = Your passport needs to be valid at least six months past the end of your planned return.
-1	Your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=joint:23->7|Entity=(object-31(person-12)
-2	passport	passport	NOUN	NN	Number=Sing	3	nsubj	3:nsubj|6:nsubj:xsubj	Entity=object-31)
+1	Your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=joint_m:23->7:2|Entity=(object-31-new-2-coref(person-12-giv:inact-1-ana)
+2	passport	passport	NOUN	NN	Number=Sing	3	nsubj	3:nsubj|6:nsubj:xsubj	Entity=31)
 3	needs	need	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 4	to	to	PART	TO	_	6	mark	6:mark	_
 5	be	be	AUX	VB	VerbForm=Inf	6	cop	6:cop	_
 6	valid	valid	ADJ	JJ	Degree=Pos	3	xcomp	3:xcomp	_
-7	at	at	ADP	IN	_	8	case	8:case	Entity=(time-32
-8	least	least	ADJ	JJS	Degree=Sup	9	advmod	9:advmod	_
+7	at	at	ADP	IN	_	8	case	8:case	Entity=(time-32-new-4-sgl
+8	least	least	ADJ	JJS	Degree=Sup	9	nmod	9:nmod:at	_
 9	six	six	NUM	CD	NumForm=Word|NumType=Card	10	nummod	10:nummod	_
-10	months	month	NOUN	NNS	Number=Plur	13	nmod:tmod	13:nmod:tmod	Entity=time-32)
+10	months	month	NOUN	NNS	Number=Plur	13	nmod:tmod	13:nmod:tmod	Entity=32)
 11	past	past	ADP	IN	_	13	case	13:case	_
-12	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	Entity=(time-33
+12	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	Entity=(time-33-new-2-sgl
 13	end	end	NOUN	NN	Number=Sing	6	obl	6:obl:past	_
 14	of	of	ADP	IN	_	17	case	17:case	_
-15	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	17	nmod:poss	17:nmod:poss	Entity=(event-34(person-12)
+15	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	17	nmod:poss	17:nmod:poss	Entity=(event-34-new-3-sgl(person-12-giv:act-1-ana)
 16	planned	planned	ADJ	JJ	Degree=Pos	17	amod	17:amod	_
-17	return	return	NOUN	NN	Number=Sing	13	nmod	13:nmod:of	Entity=time-33)event-34)|SpaceAfter=No
+17	return	return	NOUN	NN	Number=Sing	13	nmod	13:nmod:of	Entity=34)33)|SpaceAfter=No
 18	.	.	PUNCT	.	_	3	punct	3:punct	_
 
 # sent_id = GUM_voyage_cuba-10
 # s_type = decl
 # text = Canadian passports must be valid for at least one month beyond the date of expected departure ([2]).
-1	Canadian	Canadian	ADJ	JJ	Degree=Pos	2	amod	2:amod	Bridge=object-31<object-35|Discourse=contrast:24->23|Entity=(object-35
-2	passports	passport	NOUN	NNS	Number=Plur	5	nsubj	5:nsubj	Entity=object-35)
+1	Canadian	Canadian	ADJ	JJ	Degree=Pos	2	amod	2:amod	Bridge=31<35|Discourse=contrast_m:24->23:0|Entity=(object-35-acc:inf-2-sgl
+2	passports	passport	NOUN	NNS	Number=Plur	5	nsubj	5:nsubj	Entity=35)
 3	must	must	AUX	MD	VerbForm=Fin	5	aux	5:aux	_
 4	be	be	AUX	VB	VerbForm=Inf	5	cop	5:cop	_
 5	valid	valid	ADJ	JJ	Degree=Pos	0	root	0:root	_
 6	for	for	ADP	IN	_	10	case	10:case	_
 7	at	at	ADP	IN	_	8	case	8:case	_
-8	least	least	ADJ	JJS	Degree=Sup	9	advmod	9:advmod	_
-9	one	one	NUM	CD	NumForm=Word|NumType=Card	10	nummod	10:nummod	Entity=(time-36
+8	least	least	ADJ	JJS	Degree=Sup	9	nmod	9:nmod:at	_
+9	one	one	NUM	CD	NumForm=Word|NumType=Card	10	nummod	10:nummod	Entity=(time-36-new-2-sgl
 10	month	month	NOUN	NN	Number=Sing	5	obl	5:obl:for	_
 11	beyond	beyond	ADP	IN	_	13	case	13:case	_
-12	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	Entity=(time-37
+12	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	Entity=(time-37-new-2-sgl
 13	date	date	NOUN	NN	Number=Sing	10	nmod	10:nmod:beyond	_
 14	of	of	ADP	IN	_	16	case	16:case	_
-15	expected	expect	VERB	VBN	Tense=Past|VerbForm=Part	16	amod	16:amod	Entity=(event-38
-16	departure	departure	NOUN	NN	Number=Sing	13	nmod	13:nmod:of	Entity=time-36)time-37)event-38)
-17	(	(	PUNCT	-LRB-	_	19	punct	19:punct	Discourse=evidence:25->23|SpaceAfter=No
-18	[	[	PUNCT	-LRB-	_	19	punct	19:punct	SpaceAfter=No
-19	2	2	NUM	CD	NumForm=Digit|NumType=Card	5	dep	5:dep	Entity=(abstract-39)|SpaceAfter=No
-20	]	]	PUNCT	-RRB-	_	19	punct	19:punct	SpaceAfter=No
+15	expected	expect	VERB	VBN	Tense=Past|VerbForm=Part	16	amod	16:amod	Entity=(event-38-new-2-sgl
+16	departure	departure	NOUN	NN	Number=Sing	13	nmod	13:nmod:of	Entity=38)37)36)
+17	(	(	PUNCT	-LRB-	_	19	punct	19:punct	Discourse=evidence:25->23:1|SpaceAfter=No
+18	[	[	PUNCT	-LRB-	_	19	punct	19:punct	SpaceAfter=No|XML=<ref target:::"http://travel.gc.ca/destinations/cuba">
+19	2	2	NUM	CD	NumForm=Digit|NumType=Card	5	dep	5:dep	Entity=(abstract-39-new-1-sgl)|SpaceAfter=No
+20	]	]	PUNCT	-RRB-	_	19	punct	19:punct	SpaceAfter=No|XML=</ref>
 21	)	)	PUNCT	-RRB-	_	19	punct	19:punct	SpaceAfter=No
 22	.	.	PUNCT	.	_	5	punct	5:punct	_
 
 # sent_id = GUM_voyage_cuba-11
 # s_type = decl
 # text = From Canada, the tourist card is normally provided on the flight.
-1	From	from	ADP	IN	_	2	case	2:case	Discourse=joint:26->7
-2	Canada	Canada	PROPN	NNP	Number=Sing	9	obl	9:obl:from	Entity=(place-40-Canada)|SpaceAfter=No
+# newpar = p (5 s)
+1	From	from	ADP	IN	_	2	case	2:case	Discourse=joint_m:26->7:2
+2	Canada	Canada	PROPN	NNP	Number=Sing	9	obl	9:obl:from	Entity=(place-40-new-1-sgl-Canada)|SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	2:punct	_
-4	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(object-7
+4	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(object-7-giv:inact-3-coref
 5	tourist	tourist	NOUN	NN	Number=Sing	6	compound	6:compound	_
-6	card	card	NOUN	NN	Number=Sing	9	nsubj:pass	9:nsubj:pass	Entity=object-7)
+6	card	card	NOUN	NN	Number=Sing	9	nsubj:pass	9:nsubj:pass	Entity=7)
 7	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	9	aux:pass	9:aux:pass	_
 8	normally	normally	ADV	RB	Degree=Pos	9	advmod	9:advmod	_
 9	provided	provide	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
 10	on	on	ADP	IN	_	12	case	12:case	_
-11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(event-41
-12	flight	flight	NOUN	NN	Number=Sing	9	obl	9:obl:on	Entity=event-41)|SpaceAfter=No
+11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(event-41-new-2-sgl
+12	flight	flight	NOUN	NN	Number=Sing	9	obl	9:obl:on	Entity=41)|SpaceAfter=No
 13	.	.	PUNCT	.	_	9	punct	9:punct	_
 
 # sent_id = GUM_voyage_cuba-12
 # s_type = decl
 # text = It can also be purchased from most Latin American gateway airports if departing from there (Cancun: 250 MXN, Mexico City: USD 25).
-1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	5	nsubj:pass	5:nsubj:pass	Discourse=joint:27->26|Entity=(object-7)
+1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	5	nsubj:pass	5:nsubj:pass	Discourse=joint_m:27->26:0|Entity=(object-7-giv:act-1-ana)
 2	can	can	AUX	MD	VerbForm=Fin	5	aux	5:aux	_
 3	also	also	ADV	RB	_	5	advmod	5:advmod	_
 4	be	be	AUX	VB	VerbForm=Inf	5	aux:pass	5:aux:pass	_
 5	purchased	purchase	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
 6	from	from	ADP	IN	_	11	case	11:case	_
-7	most	most	ADJ	JJS	Degree=Sup	11	amod	11:amod	Entity=(place-42
+7	most	most	ADJ	JJS	Degree=Sup	11	amod	11:amod	Entity=(place-42-new-5-coref
 8	Latin	Latin	ADJ	JJ	Degree=Pos	9	amod	9:amod	_
 9	American	American	ADJ	JJ	Degree=Pos	11	amod	11:amod	_
 10	gateway	gateway	NOUN	NN	Number=Sing	11	compound	11:compound	_
-11	airports	airport	NOUN	NNS	Number=Plur	5	obl	5:obl:from	Entity=place-42)
-12	if	if	SCONJ	IN	_	13	mark	13:mark	Discourse=condition:28->27
+11	airports	airport	NOUN	NNS	Number=Plur	5	obl	5:obl:from	Entity=42)
+12	if	if	SCONJ	IN	_	13	mark	13:mark	Discourse=condition:28->27:0
 13	departing	depart	VERB	VBG	VerbForm=Ger	5	advcl	5:advcl:if	_
 14	from	from	ADP	IN	_	15	case	15:case	_
-15	there	there	ADV	RB	PronType=Dem	13	obl	13:obl:from	Entity=(place-42)
-16	(	(	PUNCT	-LRB-	_	17	punct	17:punct	Discourse=elaboration:29->27|SpaceAfter=No
-17	Cancun	Cancun	PROPN	NNP	Number=Sing	5	parataxis	5:parataxis	Bridge=place-42<place-43-Cancún|Entity=(place-43-Cancún)|SpaceAfter=No
+15	there	there	ADV	RB	PronType=Dem	13	obl	13:obl:from	Entity=(place-42-giv:act-1-coref)
+16	(	(	PUNCT	-LRB-	_	17	punct	17:punct	Discourse=elaboration:29->27:1|SpaceAfter=No
+17	Cancun	Cancun	PROPN	NNP	Number=Sing	5	parataxis	5:parataxis	Bridge=42<43|Entity=(place-43-acc:inf-1-coref-Cancún)|SpaceAfter=No
 18	:	:	PUNCT	:	_	20	punct	20:punct	_
-19	250	250	NUM	CD	NumForm=Digit|NumType=Card	20	nummod	20:nummod	Discourse=elaboration:30->29|Entity=(abstract-44
-20	MXN	MXN	NOUN	NN	Number=Sing	17	dep	17:dep	Entity=abstract-44)|SpaceAfter=No
+19	250	250	NUM	CD	NumForm=Digit|NumType=Card	20	nummod	20:nummod	Discourse=elaboration:30->29:0|Entity=(abstract-44-new-2-sgl|XML=<measure type:::"currency">
+20	MXN	MXN	NOUN	NN	Number=Sing	17	dep	17:dep	Entity=44)|SpaceAfter=No|XML=</measure>
 21	,	,	PUNCT	,	_	22	punct	22:punct	_
-22	Mexico	Mexico	PROPN	NNP	Number=Sing	17	conj	17:conj	Bridge=place-42<place-45-Mexico_City|Discourse=contrast:31->29|Entity=(place-45-Mexico_City
-23	City	City	PROPN	NNP	Number=Sing	22	flat	22:flat	Entity=place-45-Mexico_City)|SpaceAfter=No
+22	Mexico	Mexico	PROPN	NNP	Number=Sing	17	conj	17:conj	Bridge=42<45|Discourse=contrast_m:31->29:1|Entity=(place-45-acc:inf-1,2-sgl-Mexico_City
+23	City	City	PROPN	NNP	Number=Sing	22	flat	22:flat	Entity=45)|SpaceAfter=No
 24	:	:	PUNCT	:	_	25	punct	25:punct	_
-25	USD	USD	NOUN	NN	Abbr=Yes|Number=Sing	22	dep	22:dep	Discourse=elaboration:32->31|Entity=(abstract-46
-26	25	25	NUM	CD	NumForm=Digit|NumType=Card	25	nummod	25:nummod	Entity=abstract-46)|SpaceAfter=No
+25	USD	USD	NOUN	NN	Abbr=Yes|Number=Sing	22	dep	22:dep	Discourse=elaboration:32->31:0|Entity=(abstract-46-new-1-sgl|XML=<measure type:::"currency">
+26	25	25	NUM	CD	NumForm=Digit|NumType=Card	25	nummod	25:nummod	Entity=46)|SpaceAfter=No|XML=</measure>
 27	)	)	PUNCT	-RRB-	_	17	punct	17:punct	SpaceAfter=No
 28	.	.	PUNCT	.	_	5	punct	5:punct	_
 
 # sent_id = GUM_voyage_cuba-13
 # s_type = imp
 # text = Please note that if departing from Europe (this may apply to other countries), you will require to have the visa before boarding the plane.
-1	Please	please	INTJ	UH	_	2	discourse	2:discourse	Discourse=condition:33->35
+1	Please	please	INTJ	UH	_	2	discourse	2:discourse	Discourse=condition:33->35:1
 2	note	note	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	_
 3	that	that	SCONJ	IN	_	19	mark	19:mark	_
 4	if	if	SCONJ	IN	_	5	mark	5:mark	_
 5	departing	depart	VERB	VBG	VerbForm=Ger	19	advcl	19:advcl:if	_
 6	from	from	ADP	IN	_	7	case	7:case	_
-7	Europe	Europe	PROPN	NNP	Number=Sing	5	obl	5:obl:from	Entity=(place-47-Europe)
-8	(	(	PUNCT	-LRB-	_	11	punct	11:punct	Discourse=concession:34->33|SpaceAfter=No
-9	this	this	PRON	DT	Number=Sing|PronType=Dem	11	nsubj	11:nsubj	Entity=(event-48)
+7	Europe	Europe	PROPN	NNP	Number=Sing	5	obl	5:obl:from	Entity=(place-47-new-1-sgl-Europe)
+8	(	(	PUNCT	-LRB-	_	11	punct	11:punct	Discourse=concession:34->33:0|SpaceAfter=No
+9	this	this	PRON	DT	Number=Sing|PronType=Dem	11	nsubj	11:nsubj	Entity=(event-48-new-1-cata)
 10	may	may	AUX	MD	VerbForm=Fin	11	aux	11:aux	_
 11	apply	apply	VERB	VB	VerbForm=Inf	5	parataxis	5:parataxis	_
 12	to	to	ADP	IN	_	14	case	14:case	_
-13	other	other	ADJ	JJ	Degree=Pos	14	amod	14:amod	Entity=(place-49
-14	countries	country	NOUN	NNS	Number=Plur	11	obl	11:obl:to	Entity=place-49)|SpaceAfter=No
+13	other	other	ADJ	JJ	Degree=Pos	14	amod	14:amod	Entity=(place-49-new-2-sgl
+14	countries	country	NOUN	NNS	Number=Plur	11	obl	11:obl:to	Entity=49)|SpaceAfter=No
 15	)	)	PUNCT	-RRB-	_	11	punct	11:punct	SpaceAfter=No
 16	,	,	PUNCT	,	_	5	punct	5:punct	_
-17	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	19	nsubj	19:nsubj|21:nsubj:xsubj	Discourse=joint:35->7|Entity=(event-48(person-12)
+17	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	19	nsubj	19:nsubj|21:nsubj:xsubj	Discourse=joint_m:35->7:2|Entity=(event-48-acc:com-3-coref(person-12-giv:inact-1-ana)
 18	will	will	AUX	MD	VerbForm=Fin	19	aux	19:aux	_
 19	require	require	VERB	VB	VerbForm=Inf	2	ccomp	2:ccomp	_
 20	to	to	PART	TO	_	21	mark	21:mark	_
 21	have	have	VERB	VB	VerbForm=Inf	19	xcomp	19:xcomp	_
-22	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	Entity=(abstract-5
-23	visa	visa	NOUN	NN	Number=Sing	21	obj	21:obj	Entity=abstract-5)
-24	before	before	SCONJ	IN	_	25	mark	25:mark	Discourse=circumstance:36->35
+22	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	Entity=(abstract-5-giv:inact-2-coref
+23	visa	visa	NOUN	NN	Number=Sing	21	obj	21:obj	Entity=5)
+24	before	before	SCONJ	IN	_	25	mark	25:mark	Discourse=circumstance:36->35:0
 25	boarding	board	VERB	VBG	VerbForm=Ger	21	advcl	21:advcl:before	_
-26	the	the	DET	DT	Definite=Def|PronType=Art	27	det	27:det	Entity=(object-50
-27	plane	plane	NOUN	NN	Number=Sing	25	obj	25:obj	Entity=event-48)object-50)|SpaceAfter=No
+26	the	the	DET	DT	Definite=Def|PronType=Art	27	det	27:det	Entity=(object-50-new-2-coref
+27	plane	plane	NOUN	NN	Number=Sing	25	obj	25:obj	Entity=50)48)|SpaceAfter=No
 28	.	.	PUNCT	.	_	2	punct	2:punct	_
 
 # sent_id = GUM_voyage_cuba-14
 # s_type = multiple
 # text = Some times, the airline provides these at the airport, however check first that this is the case.
-1	Some	some	DET	DT	_	2	det	2:det	Discourse=antithesis:37->38
+1	Some	some	DET	DT	_	2	det	2:det	Discourse=antithesis:37->38:0
 2	times	time	NOUN	NNS	Number=Plur	6	obl:tmod	6:obl:tmod	SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	2:punct	_
-4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	Bridge=object-50<organization-52|Entity=(event-51(organization-52
-5	airline	airline	NOUN	NN	Number=Sing	6	nsubj	6:nsubj	Entity=organization-52)
+4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	Bridge=50<52|Entity=(event-51-new-3-disc(organization-52-acc:inf-2-coref
+5	airline	airline	NOUN	NN	Number=Sing	6	nsubj	6:nsubj	Entity=52)
 6	provides	provide	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
-7	these	this	PRON	DT	Number=Plur|PronType=Dem	6	obj	6:obj	Entity=(abstract-5)
+7	these	this	PRON	DT	Number=Plur|PronType=Dem	6	obj	6:obj	Entity=(abstract-5-giv:act-1-ana)
 8	at	at	ADP	IN	_	10	case	10:case	_
-9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	Entity=(place-53
-10	airport	airport	NOUN	NN	Number=Sing	6	obl	6:obl:at	Entity=event-51)place-53)|SpaceAfter=No
+9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	Entity=(place-53-new-2-sgl
+10	airport	airport	NOUN	NN	Number=Sing	6	obl	6:obl:at	Entity=53)51)|SpaceAfter=No
 11	,	,	PUNCT	,	_	13	punct	13:punct	_
-12	however	however	ADV	RB	_	13	advmod	13:advmod	Discourse=motivation:38->35
+12	however	however	ADV	RB	_	13	advmod	13:advmod	Discourse=motivation:38->35:2
 13	check	check	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	6	parataxis	6:parataxis	_
 14	first	first	ADV	RB	Degree=Pos|NumType=Ord	13	advmod	13:advmod	_
 15	that	that	SCONJ	IN	_	19	mark	19:mark	_
-16	this	this	PRON	DT	Number=Sing|PronType=Dem	19	nsubj	19:nsubj	Entity=(event-51)
+16	this	this	PRON	DT	Number=Sing|PronType=Dem	19	nsubj	19:nsubj	Entity=(event-51-giv:act-1-coref)
 17	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	19	cop	19:cop	_
 18	the	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	_
 19	case	case	NOUN	NN	Number=Sing	13	ccomp	13:ccomp	SpaceAfter=No
@@ -363,54 +368,58 @@
 # sent_id = GUM_voyage_cuba-15
 # s_type = decl
 # text = Without a valid visa, boarding will be denied (the airline would otherwise get a $ 1,000 fine from the Cuban immigration authorities).
-1	Without	without	ADP	IN	_	4	case	4:case	Discourse=motivation:39->35
-2	a	a	DET	DT	Definite=Ind|PronType=Art	4	det	4:det	Entity=(abstract-5
+1	Without	without	ADP	IN	_	4	case	4:case	Discourse=motivation:39->35:3
+2	a	a	DET	DT	Definite=Ind|PronType=Art	4	det	4:det	Entity=(abstract-5-giv:act-3-coref
 3	valid	valid	ADJ	JJ	Degree=Pos	4	amod	4:amod	_
-4	visa	visa	NOUN	NN	Number=Sing	9	obl	9:obl:without	Entity=abstract-5)|SpaceAfter=No
+4	visa	visa	NOUN	NN	Number=Sing	9	obl	9:obl:without	Entity=5)|SpaceAfter=No
 5	,	,	PUNCT	,	_	4	punct	4:punct	_
 6	boarding	board	VERB	VBG	VerbForm=Ger	9	nsubj:pass	9:nsubj:pass	_
 7	will	will	AUX	MD	VerbForm=Fin	9	aux	9:aux	_
 8	be	be	AUX	VB	VerbForm=Inf	9	aux:pass	9:aux:pass	_
 9	denied	deny	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
-10	(	(	PUNCT	-LRB-	_	15	punct	15:punct	Discourse=cause:40->39|SpaceAfter=No
-11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(organization-52
-12	airline	airline	NOUN	NN	Number=Sing	15	nsubj	15:nsubj	Entity=organization-52)
+10	(	(	PUNCT	-LRB-	_	15	punct	15:punct	Discourse=cause:40->39:0|SpaceAfter=No
+11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(organization-52-giv:act-2-coref
+12	airline	airline	NOUN	NN	Number=Sing	15	nsubj	15:nsubj	Entity=52)
 13	would	would	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	15	aux	15:aux	_
 14	otherwise	otherwise	ADV	RB	Degree=Pos	15	advmod	15:advmod	_
 15	get	get	VERB	VB	VerbForm=Inf	9	parataxis	9:parataxis	_
-16	a	a	DET	DT	Definite=Ind|PronType=Art	19	det	19:det	Entity=(abstract-54
-17	$	$	SYM	SYM	_	19	compound	19:compound	_
-18	1,000	1000	NUM	CD	NumForm=Digit|NumType=Card	17	nummod	17:nummod	_
-19	fine	fine	NOUN	NN	Number=Sing	15	obj	15:obj	Entity=abstract-54)
+16	a	a	DET	DT	Definite=Ind|PronType=Art	19	det	19:det	Entity=(abstract-54-new-4-sgl
+17	$	$	SYM	SYM	_	19	compound	19:compound	XML=<measure type:::"currency">
+18	1,000	1000	NUM	CD	NumForm=Digit|NumType=Card	17	nummod	17:nummod	XML=</measure>
+19	fine	fine	NOUN	NN	Number=Sing	15	obj	15:obj	Entity=54)
 20	from	from	ADP	IN	_	24	case	24:case	_
-21	the	the	DET	DT	Definite=Def|PronType=Art	24	det	24:det	Entity=(organization-55
+21	the	the	DET	DT	Definite=Def|PronType=Art	24	det	24:det	Entity=(organization-55-new-4-sgl
 22	Cuban	Cuban	ADJ	JJ	Degree=Pos	24	amod	24:amod	_
 23	immigration	immigration	NOUN	NN	Number=Sing	24	compound	24:compound	_
-24	authorities	authority	NOUN	NNS	Number=Plur	15	obl	15:obl:from	Entity=organization-55)|SpaceAfter=No
+24	authorities	authority	NOUN	NNS	Number=Plur	15	obl	15:obl:from	Entity=55)|SpaceAfter=No
 25	)	)	PUNCT	-RRB-	_	15	punct	15:punct	SpaceAfter=No
 26	.	.	PUNCT	.	_	9	punct	9:punct	_
 
 # sent_id = GUM_voyage_cuba-16
 # s_type = frag
 # text = Country-specific advise
-1	Country-specific	Country-specific	ADJ	JJ	Degree=Pos	2	amod	2:amod	Discourse=preparation:41->42|Entity=(abstract-56
-2	advise	advise	NOUN	NN	Number=Sing	0	root	0:root	Entity=abstract-56)
+# newpar = head (1 s)
+1	Country	country	NOUN	NN	Number=Sing	3	compound	3:compound	Discourse=preparation:41->42:2|Entity=(abstract-56-new-4-sgl|SpaceAfter=No|XML=<w>
+2	-	-	PUNCT	HYPH	_	1	punct	1:punct	SpaceAfter=No
+3	specific	specific	ADJ	JJ	Degree=Pos	4	amod	4:amod	XML=</w>
+4	advise	advise	NOUN	NN	Number=Sing	0	root	0:root	Entity=56)|XML=<sic></sic>
 
 # sent_id = GUM_voyage_cuba-17
 # s_type = decl
 # text = UK: Applying for the visa is a very simple process and can be done by post or in person at the Cuban embassy in London.
-1	UK	UK	PROPN	NNP	Abbr=Yes|Number=Sing	11	parataxis	11:parataxis	Discourse=joint:42->4|Entity=(place-57-United_Kingdom)|SpaceAfter=No
+# newpar = list type:::"unordered" (8 s) | item (6 s) | p (6 s)
+1	UK	UK	PROPN	NNP	Abbr=Yes|Number=Sing	11	parataxis	11:parataxis	Discourse=joint_m:42->4:3|Entity=(place-57-new-1-sgl-United_Kingdom)|SpaceAfter=No|XML=<hi rend:::"bold"></hi>
 2	:	:	PUNCT	:	_	1	punct	1:punct	_
-3	Applying	apply	VERB	VBG	VerbForm=Ger	11	csubj	11:csubj	Discourse=elaboration:43->42|Entity=(event-58
+3	Applying	apply	VERB	VBG	VerbForm=Ger	11	csubj	11:csubj	Discourse=elaboration:43->42:0|Entity=(event-58-new-1-disc
 4	for	for	ADP	IN	_	6	case	6:case	_
-5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(abstract-5
-6	visa	visa	NOUN	NN	Number=Sing	3	obl	3:obl:for	Entity=event-58)abstract-5)
+5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(abstract-5-giv:inact-2-coref
+6	visa	visa	NOUN	NN	Number=Sing	3	obl	3:obl:for	Entity=5)58)
 7	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	11	cop	11:cop	_
-8	a	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	Entity=(event-58
+8	a	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	Entity=(event-58-giv:act-4-pred
 9	very	very	ADV	RB	_	10	advmod	10:advmod	_
 10	simple	simple	ADJ	JJ	Degree=Pos	11	amod	11:amod	_
-11	process	process	NOUN	NN	Number=Sing	0	root	0:root	Entity=event-58)
-12	and	and	CCONJ	CC	_	11	cc	11:cc	Discourse=joint:44->43
+11	process	process	NOUN	NN	Number=Sing	0	root	0:root	Entity=58)
+12	and	and	CCONJ	CC	_	11	cc	11:cc	Discourse=joint_m:44->43:0
 13	can	can	AUX	MD	VerbForm=Fin	15	aux	15:aux	_
 14	be	be	AUX	VB	VerbForm=Inf	15	aux:pass	15:aux:pass	_
 15	done	do	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	11	nsubj:pass	11:nsubj:pass	_
@@ -420,69 +429,69 @@
 19	in	in	ADP	IN	_	20	case	20:case	_
 20	person	person	NOUN	NN	Number=Sing	16	conj	16:conj:or|17:case	_
 21	at	at	ADP	IN	_	24	case	24:case	_
-22	the	the	DET	DT	Definite=Def|PronType=Art	24	det	24:det	Entity=(organization-59
+22	the	the	DET	DT	Definite=Def|PronType=Art	24	det	24:det	Entity=(organization-59-new-3-coref
 23	Cuban	Cuban	ADJ	JJ	Degree=Pos	24	amod	24:amod	_
 24	embassy	embassy	NOUN	NN	Number=Sing	15	obl	15:obl:at	_
 25	in	in	ADP	IN	_	26	case	26:case	_
-26	London	London	PROPN	NNP	Number=Sing	24	nmod	24:nmod:in	Entity=(place-60-London)organization-59)|SpaceAfter=No
+26	London	London	PROPN	NNP	Number=Sing	24	nmod	24:nmod:in	Entity=(place-60-new-1-sgl-London)59)|SpaceAfter=No
 27	.	.	PUNCT	.	_	11	punct	11:punct	_
 
 # sent_id = GUM_voyage_cuba-18
 # s_type = decl
 # text = When applying to the Cuban Consulate by post, there is a new charge introduced in 2011 which is a £ 25 for a non-personal transaction.
-1	When	when	SCONJ	WRB	PronType=Int	2	mark	2:mark	Discourse=circumstance:45->46
+1	When	when	SCONJ	WRB	PronType=Int	2	mark	2:mark	Discourse=circumstance:45->46:2
 2	applying	apply	VERB	VBG	VerbForm=Ger	11	advcl	11:advcl:when	_
 3	to	to	ADP	IN	_	6	case	6:case	_
-4	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(organization-61
+4	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(organization-61-new-3-coref
 5	Cuban	Cuban	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
-6	Consulate	Consulate	PROPN	NNP	Number=Sing	2	obl	2:obl:to	Entity=organization-61)
+6	Consulate	Consulate	PROPN	NNP	Number=Sing	2	obl	2:obl:to	Entity=61)
 7	by	by	ADP	IN	_	8	case	8:case	_
 8	post	post	NOUN	NN	Number=Sing	2	obl	2:obl:by	SpaceAfter=No
 9	,	,	PUNCT	,	_	2	punct	2:punct	_
-10	there	there	PRON	EX	_	11	expl	11:expl	Discourse=elaboration:46->43
+10	there	there	PRON	EX	_	11	expl	11:expl	Discourse=elaboration:46->43:1
 11	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
-12	a	a	DET	DT	Definite=Ind|PronType=Art	14	det	14:det	Entity=(abstract-62
+12	a	a	DET	DT	Definite=Ind|PronType=Art	14	det	14:det	Entity=(abstract-62-new-3-sgl
 13	new	new	ADJ	JJ	Degree=Pos	14	amod	14:amod	_
-14	charge	charge	NOUN	NN	Number=Sing	11	nsubj	11:nsubj|21:nsubj	Entity=abstract-62)
-15	introduced	introduce	VERB	VBN	Tense=Past|VerbForm=Part	14	acl	14:acl	Discourse=elaboration:47->46
+14	charge	charge	NOUN	NN	Number=Sing	11	nsubj	11:nsubj|21:nsubj	Entity=62)
+15	introduced	introduce	VERB	VBN	Tense=Past|VerbForm=Part	14	acl	14:acl	Discourse=elaboration:47->46:0
 16	in	in	ADP	IN	_	17	case	17:case	_
-17	2011	2011	NUM	CD	NumForm=Digit|NumType=Card	15	obl	15:obl:in	Entity=(time-63)
-18	which	which	PRON	WDT	PronType=Rel	21	nsubj	14:ref	Discourse=elaboration:48->46
+17	2011	2011	NUM	CD	NumForm=Digit|NumType=Card	15	obl	15:obl:in	Entity=(time-63-new-1-sgl)|XML=<date when:::"2011"></date>
+18	which	which	PRON	WDT	PronType=Rel	21	nsubj	14:ref	Discourse=elaboration:48->46:1
 19	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	21	cop	21:cop	_
-20	a	a	DET	DT	Definite=Ind|PronType=Art	21	det	21:det	Entity=(abstract-64
-21	£	£	SYM	SYM	_	14	acl:relcl	14:acl:relcl	_
-22	25	25	NUM	CD	NumForm=Digit|NumType=Card	21	nummod	21:nummod	_
+20	a	a	DET	DT	Definite=Ind|PronType=Art	21	det	21:det	Entity=(abstract-64-new-2-sgl
+21	£	£	SYM	SYM	_	14	acl:relcl	14:acl:relcl	XML=<measure type:::"currency">
+22	25	25	NUM	CD	NumForm=Digit|NumType=Card	21	nummod	21:nummod	XML=</measure>
 23	for	for	ADP	IN	_	26	case	26:case	_
-24	a	a	DET	DT	Definite=Ind|PronType=Art	26	det	26:det	Entity=(event-65
+24	a	a	DET	DT	Definite=Ind|PronType=Art	26	det	26:det	Entity=(event-65-new-3-sgl
 25	non-personal	non-personal	ADJ	JJ	Degree=Pos|Polarity=Neg	26	amod	26:amod	_
-26	transaction	transaction	NOUN	NN	Number=Sing	22	nmod	22:nmod:for	Entity=abstract-64)event-65)|SpaceAfter=No
+26	transaction	transaction	NOUN	NN	Number=Sing	22	nmod	22:nmod:for	Entity=65)64)|SpaceAfter=No
 27	.	.	PUNCT	.	_	11	punct	11:punct	_
 
 # sent_id = GUM_voyage_cuba-19
 # s_type = decl
 # text = If you cannot go to the Cuban Consulate you may consider using VisaCuba ([3]) because it may be cheaper.
-1	If	if	SCONJ	IN	_	5	mark	5:mark	Discourse=condition:49->50
-2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	5	nsubj	5:nsubj	Entity=(person-12)
+1	If	if	SCONJ	IN	_	5	mark	5:mark	Discourse=condition:49->50:0
+2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	5	nsubj	5:nsubj	Entity=(person-12-giv:inact-1-ana)
 3-4	cannot	_	_	_	_	_	_	_	_
-3	can	can	AUX	MD	VerbForm=Fin	5	aux	5:aux	_
-4	not	not	PART	RB	Polarity=Neg	5	advmod	5:advmod	_
+3	can	can	AUX	MD	VerbForm=Fin	5	aux	5:aux	XML=<w>
+4	not	not	PART	RB	Polarity=Neg	5	advmod	5:advmod	XML=</w>
 5	go	go	VERB	VB	VerbForm=Inf	12	advcl	12:advcl:if	_
 6	to	to	ADP	IN	_	9	case	9:case	_
-7	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Entity=(organization-61
+7	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Entity=(organization-61-giv:act-3-coref
 8	Cuban	Cuban	ADJ	JJ	Degree=Pos	9	amod	9:amod	_
-9	Consulate	Consulate	PROPN	NNP	Number=Sing	5	obl	5:obl:to	Entity=organization-61)
-10	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	12	nsubj	12:nsubj	Discourse=joint:50->46|Entity=(person-12)
+9	Consulate	Consulate	PROPN	NNP	Number=Sing	5	obl	5:obl:to	Entity=61)
+10	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	12	nsubj	12:nsubj	Discourse=joint_m:50->46:3|Entity=(person-12-giv:act-1-ana)
 11	may	may	AUX	MD	VerbForm=Fin	12	aux	12:aux	_
 12	consider	consider	VERB	VB	VerbForm=Inf	0	root	0:root	_
-13	using	use	VERB	VBG	VerbForm=Ger	12	ccomp	12:ccomp	Entity=(event-66
-14	VisaCuba	VisaCuba	PROPN	NNP	Number=Sing	13	obj	13:obj	Entity=(organization-67)event-66)
-15	(	(	PUNCT	-LRB-	_	17	punct	17:punct	Discourse=evidence:51->50|SpaceAfter=No
-16	[	[	PUNCT	-LRB-	_	17	punct	17:punct	SpaceAfter=No
-17	3	3	NUM	CD	NumForm=Digit|NumType=Card	14	dep	14:dep	Entity=(abstract-68)|SpaceAfter=No
-18	]	]	PUNCT	-RRB-	_	17	punct	17:punct	SpaceAfter=No
+13	using	use	VERB	VBG	VerbForm=Ger	12	ccomp	12:ccomp	Entity=(event-66-new-1-disc
+14	VisaCuba	VisaCuba	PROPN	NNP	Number=Sing	13	obj	13:obj	Entity=(organization-67-new-1-coref)66)
+15	(	(	PUNCT	-LRB-	_	17	punct	17:punct	Discourse=evidence:51->50:1|SpaceAfter=No
+16	[	[	PUNCT	-LRB-	_	17	punct	17:punct	SpaceAfter=No|XML=<ref target:::"http://www.visacuba.co.uk/">
+17	3	3	NUM	CD	NumForm=Digit|NumType=Card	14	dep	14:dep	Entity=(abstract-68-new-1-sgl)|SpaceAfter=No
+18	]	]	PUNCT	-RRB-	_	17	punct	17:punct	SpaceAfter=No|XML=</ref>
 19	)	)	PUNCT	-RRB-	_	17	punct	17:punct	_
-20	because	because	SCONJ	IN	_	24	mark	24:mark	Discourse=motivation:52->50
-21	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	24	nsubj	24:nsubj	Entity=(event-66)
+20	because	because	SCONJ	IN	_	24	mark	24:mark	Discourse=motivation:52->50:2
+21	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	24	nsubj	24:nsubj	Entity=(event-66-giv:act-1-coref)
 22	may	may	AUX	MD	VerbForm=Fin	24	aux	24:aux	_
 23	be	be	AUX	VB	VerbForm=Inf	24	cop	24:cop	_
 24	cheaper	cheap	ADJ	JJR	Degree=Cmp	13	advcl	13:advcl:because	SpaceAfter=No
@@ -491,36 +500,36 @@
 # sent_id = GUM_voyage_cuba-20
 # s_type = decl
 # text = Through them it may cost £ 20 in total per person.
-1	Through	through	ADP	IN	_	2	case	2:case	Discourse=evidence:53->52
-2	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	5	obl	5:obl:through	Entity=(organization-67)
-3	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	5	nsubj	5:nsubj	Entity=(event-58)
+1	Through	through	ADP	IN	_	2	case	2:case	Discourse=evidence:53->52:0
+2	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	5	obl	5:obl:through	Entity=(organization-67-giv:act-1-ana)
+3	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	5	nsubj	5:nsubj	Entity=(event-58-giv:inact-1-ana)
 4	may	may	AUX	MD	VerbForm=Fin	5	aux	5:aux	_
 5	cost	cost	VERB	VB	VerbForm=Inf	0	root	0:root	_
-6	£	£	SYM	SYM	_	5	obj	5:obj	Entity=(abstract-69
-7	20	20	NUM	CD	NumForm=Digit|NumType=Card	6	nummod	6:nummod	Entity=abstract-69)
+6	£	£	SYM	SYM	_	5	obj	5:obj	Entity=(abstract-69-new-1-sgl|XML=<measure type:::"currency">
+7	20	20	NUM	CD	NumForm=Digit|NumType=Card	6	nummod	6:nummod	Entity=69)|XML=</measure>
 8	in	in	ADP	IN	_	9	case	9:case	_
 9	total	total	NOUN	NN	Number=Sing	5	obl	5:obl:in	_
 10	per	per	ADP	IN	_	11	case	11:case	_
-11	person	person	NOUN	NN	Number=Sing	9	nmod	9:nmod:per	Entity=(person-70)|SpaceAfter=No
+11	person	person	NOUN	NN	Number=Sing	9	nmod	9:nmod:per	Entity=(person-70-new-1-sgl)|SpaceAfter=No
 12	.	.	PUNCT	.	_	5	punct	5:punct	_
 
 # sent_id = GUM_voyage_cuba-21
 # s_type = decl
 # text = If you apply in person to the Cuban Consulate, you get the visa straight away.
-1	If	if	SCONJ	IN	_	3	mark	3:mark	Discourse=condition:54->55
-2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Entity=(person-12)
+1	If	if	SCONJ	IN	_	3	mark	3:mark	Discourse=condition:54->55:0
+2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Entity=(person-12-giv:inact-1-ana)
 3	apply	apply	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	12	advcl	12:advcl:if	_
 4	in	in	ADP	IN	_	5	case	5:case	_
 5	person	person	NOUN	NN	Number=Sing	3	obl	3:obl:in	_
 6	to	to	ADP	IN	_	9	case	9:case	_
-7	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Entity=(organization-61
+7	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Entity=(organization-61-giv:inact-3-coref
 8	Cuban	Cuban	ADJ	JJ	Degree=Pos	9	amod	9:amod	_
-9	Consulate	Consulate	PROPN	NNP	Number=Sing	3	obl	3:obl:to	Entity=organization-61)|SpaceAfter=No
+9	Consulate	Consulate	PROPN	NNP	Number=Sing	3	obl	3:obl:to	Entity=61)|SpaceAfter=No
 10	,	,	PUNCT	,	_	3	punct	3:punct	_
-11	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	12	nsubj	12:nsubj	Discourse=joint:55->46|Entity=(person-12)
+11	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	12	nsubj	12:nsubj	Discourse=joint_m:55->46:3|Entity=(person-12-giv:act-1-ana)
 12	get	get	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	0	root	0:root	_
-13	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	Entity=(abstract-5
-14	visa	visa	NOUN	NN	Number=Sing	12	obj	12:obj	Entity=abstract-5)
+13	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	Entity=(abstract-5-giv:inact-2-coref
+14	visa	visa	NOUN	NN	Number=Sing	12	obj	12:obj	Entity=5)
 15	straight	straight	ADV	RB	Degree=Pos	12	advmod	12:advmod	_
 16	away	away	ADV	RB	Degree=Pos	12	advmod	12:advmod	SpaceAfter=No
 17	.	.	PUNCT	.	_	12	punct	12:punct	_
@@ -528,281 +537,285 @@
 # sent_id = GUM_voyage_cuba-22
 # s_type = decl
 # text = It can also be done through online agencies as mentioned before although they may be slightly more expensive (normally £ 15 + £ 15 admin fee and additional postage).
-1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	5	nsubj:pass	5:nsubj:pass	Discourse=joint:56->46|Entity=(event-58)
+1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	5	nsubj:pass	5:nsubj:pass	Discourse=joint_m:56->46:3|Entity=(event-58-giv:inact-1-ana)
 2	can	can	AUX	MD	VerbForm=Fin	5	aux	5:aux	_
 3	also	also	ADV	RB	_	5	advmod	5:advmod	_
 4	be	be	AUX	VB	VerbForm=Inf	5	aux:pass	5:aux:pass	_
 5	done	do	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
 6	through	through	ADP	IN	_	8	case	8:case	_
-7	online	online	ADJ	JJ	Degree=Pos	8	amod	8:amod	Entity=(organization-71
-8	agencies	agency	NOUN	NNS	Number=Plur	5	obl	5:obl:through	Entity=organization-71)
-9	as	as	SCONJ	IN	_	10	mark	10:mark	Discourse=attribution:57->56
+7	online	online	ADJ	JJ	Degree=Pos	8	amod	8:amod	Entity=(organization-71-new-2-coref
+8	agencies	agency	NOUN	NNS	Number=Plur	5	obl	5:obl:through	Entity=71)
+9	as	as	SCONJ	IN	_	10	mark	10:mark	Discourse=attribution:57->56:0
 10	mentioned	mention	VERB	VBN	Tense=Past|VerbForm=Part	8	acl	8:acl:as	_
 11	before	before	ADV	RB	Degree=Pos	10	advmod	10:advmod	_
-12	although	although	SCONJ	IN	_	18	mark	18:mark	Discourse=concession:58->56
-13	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	18	nsubj	18:nsubj	Entity=(organization-71)
+12	although	although	SCONJ	IN	_	18	mark	18:mark	Discourse=concession:58->56:1
+13	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	18	nsubj	18:nsubj	Entity=(organization-71-giv:act-1-ana)
 14	may	may	AUX	MD	VerbForm=Fin	18	aux	18:aux	_
 15	be	be	AUX	VB	VerbForm=Inf	18	cop	18:cop	_
 16	slightly	slightly	ADV	RB	Degree=Pos	17	advmod	17:advmod	_
 17	more	more	ADV	RBR	Degree=Cmp	18	advmod	18:advmod	_
 18	expensive	expensive	ADJ	JJ	Degree=Pos	5	advcl	5:advcl:although	_
-19	(	(	PUNCT	-LRB-	_	21	punct	21:punct	Discourse=elaboration:59->58|SpaceAfter=No
+19	(	(	PUNCT	-LRB-	_	21	punct	21:punct	Discourse=elaboration:59->58:0|SpaceAfter=No
 20	normally	normally	ADV	RB	Degree=Pos	21	advmod	21:advmod	_
-21	£	£	SYM	SYM	_	18	parataxis	18:parataxis	Entity=(abstract-72
-22	15	15	NUM	CD	NumForm=Digit|NumType=Card	21	nummod	21:nummod	Entity=abstract-72)
+21	£	£	SYM	SYM	_	18	parataxis	18:parataxis	Entity=(abstract-72-new-1-sgl|XML=<measure type:::"currency">
+22	15	15	NUM	CD	NumForm=Digit|NumType=Card	21	nummod	21:nummod	Entity=72)|XML=</measure>
 23	+	+	SYM	SYM	_	27	cc	27:cc	_
-24	£	£	SYM	SYM	_	27	compound	27:compound	Entity=(abstract-73
-25	15	15	NUM	CD	NumForm=Digit|NumType=Card	24	nummod	24:nummod	_
+24	£	£	SYM	SYM	_	27	compound	27:compound	Entity=(abstract-73-new-4-sgl|XML=<measure type:::"currency">
+25	15	15	NUM	CD	NumForm=Digit|NumType=Card	24	nummod	24:nummod	XML=</measure>
 26	admin	admin	NOUN	NN	Number=Sing	27	compound	27:compound	_
-27	fee	fee	NOUN	NN	Number=Sing	21	conj	21:conj:plus	Entity=abstract-73)
+27	fee	fee	NOUN	NN	Number=Sing	21	conj	21:conj:plus	Entity=73)
 28	and	and	CCONJ	CC	_	30	cc	30:cc	_
-29	additional	additional	ADJ	JJ	Degree=Pos	30	amod	30:amod	Entity=(abstract-74
-30	postage	postage	NOUN	NN	Number=Sing	21	conj	21:conj:and	Entity=abstract-74)|SpaceAfter=No
+29	additional	additional	ADJ	JJ	Degree=Pos	30	amod	30:amod	Entity=(abstract-74-new-2-sgl
+30	postage	postage	NOUN	NN	Number=Sing	21	conj	21:conj:and	Entity=74)|SpaceAfter=No
 31	)	)	PUNCT	-RRB-	_	21	punct	21:punct	SpaceAfter=No
 32	.	.	PUNCT	.	_	5	punct	5:punct	_
 
 # sent_id = GUM_voyage_cuba-23
 # s_type = decl
 # text = Germany: You can obtain the tourist card through the Cuban embassy in post.
-1	Germany	Germany	PROPN	NNP	Number=Sing	5	parataxis	5:parataxis	Discourse=joint:60->42|Entity=(place-75-Germany)|SpaceAfter=No
+# newpar = item (2 s) | p (2 s)
+1	Germany	Germany	PROPN	NNP	Number=Sing	5	parataxis	5:parataxis	Discourse=joint_m:60->42:1|Entity=(place-75-new-1-sgl-Germany)|SpaceAfter=No|XML=<hi rend:::"bold"></hi>
 2	:	:	PUNCT	:	_	1	punct	1:punct	_
-3	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	5	nsubj	5:nsubj	Discourse=elaboration:61->60|Entity=(person-12)
+3	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	5	nsubj	5:nsubj	Discourse=elaboration:61->60:0|Entity=(person-12-giv:inact-1-ana)
 4	can	can	AUX	MD	VerbForm=Fin	5	aux	5:aux	_
 5	obtain	obtain	VERB	VB	VerbForm=Inf	0	root	0:root	_
-6	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(object-7
+6	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(object-7-giv:inact-3-coref
 7	tourist	tourist	NOUN	NN	Number=Sing	8	compound	8:compound	_
-8	card	card	NOUN	NN	Number=Sing	5	obj	5:obj	Entity=object-7)
+8	card	card	NOUN	NN	Number=Sing	5	obj	5:obj	Entity=7)
 9	through	through	ADP	IN	_	12	case	12:case	_
-10	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(organization-59
+10	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(organization-59-giv:inact-3-coref
 11	Cuban	Cuban	ADJ	JJ	Degree=Pos	12	amod	12:amod	_
-12	embassy	embassy	NOUN	NN	Number=Sing	5	obl	5:obl:through	Entity=organization-59)
-13	in	in	ADP	IN	Typo=Yes	14	case	14:case	_
+12	embassy	embassy	NOUN	NN	Number=Sing	5	obl	5:obl:through	Entity=59)
+13	in	in	ADP	IN	Typo=Yes	14	case	14:case	XML=<sic></sic>
 14	post	post	NOUN	NN	Number=Sing	12	nmod	12:nmod:in	SpaceAfter=No
 15	.	.	PUNCT	.	_	5	punct	5:punct	_
 
 # sent_id = GUM_voyage_cuba-24
 # s_type = decl
 # text = Travel agencies may often offer cheaper and quicker services though.
-1	Travel	travel	NOUN	NN	Number=Sing	2	compound	2:compound	Discourse=concession:62->61|Entity=(organization-76
-2	agencies	agency	NOUN	NNS	Number=Plur	5	nsubj	5:nsubj	Entity=organization-76)
+1	Travel	travel	NOUN	NN	Number=Sing	2	compound	2:compound	Discourse=concession:62->61:0|Entity=(organization-76-new-2-sgl
+2	agencies	agency	NOUN	NNS	Number=Plur	5	nsubj	5:nsubj	Entity=76)
 3	may	may	AUX	MD	Number=Plur|Person=3|VerbForm=Fin	5	aux	5:aux	_
 4	often	often	ADV	RB	Degree=Pos	5	advmod	5:advmod	_
 5	offer	offer	VERB	VB	VerbForm=Inf	0	root	0:root	_
-6	cheaper	cheap	ADJ	JJR	Degree=Cmp	9	amod	9:amod	Entity=(abstract-77
+6	cheaper	cheap	ADJ	JJR	Degree=Cmp	9	amod	9:amod	Entity=(abstract-77-new-4-sgl
 7	and	and	CCONJ	CC	_	8	cc	8:cc	_
 8	quicker	quick	ADJ	JJR	Degree=Cmp	6	conj	6:conj:and|9:amod	_
-9	services	service	NOUN	NNS	Number=Plur	5	obj	5:obj	Entity=abstract-77)
+9	services	service	NOUN	NNS	Number=Plur	5	obj	5:obj	Entity=77)
 10	though	though	ADV	RB	Degree=Pos	5	advmod	5:advmod	SpaceAfter=No
 11	.	.	PUNCT	.	_	5	punct	5:punct	_
 
 # sent_id = GUM_voyage_cuba-25
 # s_type = decl
 # text = Regular tourists who renew their 30 day visa are eligible to depart the country (to any destination) and return immediately enjoying a further 60 days (30 days plus a 30 day extension).
-1	Regular	regular	ADJ	JJ	Degree=Pos	2	amod	2:amod	Discourse=joint:63->4|Entity=(person-78
+# newpar = p (2 s)
+1	Regular	regular	ADJ	JJ	Degree=Pos	2	amod	2:amod	Discourse=joint_m:63->4:3|Entity=(person-78-new-2-coref
 2	tourists	tourist	NOUN	NNS	Number=Plur	10	nsubj	4:nsubj|10:nsubj|12:nsubj:xsubj|21:nsubj:xsubj	_
-3	who	who	PRON	WP	PronType=Rel	4	nsubj	2:ref	Discourse=elaboration:64->63
+3	who	who	PRON	WP	PronType=Rel	4	nsubj	2:ref	Discourse=elaboration:64->63:0
 4	renew	renew	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	2	acl:relcl	2:acl:relcl	_
-5	their	their	PRON	PRP$	Number=Plur|Person=3|Poss=Yes|PronType=Prs	8	nmod:poss	8:nmod:poss	Entity=(abstract-5(person-78)
-6	30	30	NUM	CD	NumForm=Digit|NumType=Card	7	nummod	7:nummod	Entity=(time-21
-7	day	day	NOUN	NN	Number=Sing	8	compound	8:compound	Entity=time-21)
-8	visa	visa	NOUN	NN	Number=Sing	4	obj	4:obj	Entity=person-78)abstract-5)
-9	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	10	cop	10:cop	Discourse=same-unit:65->63
+5	their	their	PRON	PRP$	Number=Plur|Person=3|Poss=Yes|PronType=Prs	8	nmod:poss	8:nmod:poss	Entity=(abstract-5-giv:inact-4-coref(person-78-giv:act-1-ana)
+6	30	30	NUM	CD	NumForm=Digit|NumType=Card	7	nummod	7:nummod	Entity=(time-21-giv:inact-2-coref
+7	day	day	NOUN	NN	Number=Sing	8	compound	8:compound	Entity=21)
+8	visa	visa	NOUN	NN	Number=Sing	4	obj	4:obj	Entity=5)78)
+9	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	10	cop	10:cop	Discourse=same-unit_m:65->63:1
 10	eligible	eligible	ADJ	JJ	Degree=Pos	0	root	0:root	_
 11	to	to	PART	TO	_	12	mark	12:mark	_
 12	depart	depart	VERB	VB	VerbForm=Inf	10	xcomp	10:xcomp	_
-13	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	Entity=(place-4-Cuba
-14	country	country	NOUN	NN	Number=Sing	12	obj	12:obj	Entity=place-4-Cuba)
-15	(	(	PUNCT	-LRB-	_	18	punct	18:punct	Discourse=elaboration:66->65|SpaceAfter=No
+13	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	Entity=(place-4-giv:inact-2-coref-Cuba
+14	country	country	NOUN	NN	Number=Sing	12	obj	12:obj	Entity=4)
+15	(	(	PUNCT	-LRB-	_	18	punct	18:punct	Discourse=elaboration:66->65:0|SpaceAfter=No
 16	to	to	ADP	IN	_	18	case	18:case	_
-17	any	any	DET	DT	_	18	det	18:det	Entity=(place-79
-18	destination	destination	NOUN	NN	Number=Sing	12	obl	12:obl:to	Entity=place-79)|SpaceAfter=No
+17	any	any	DET	DT	_	18	det	18:det	Entity=(place-79-new-2-sgl
+18	destination	destination	NOUN	NN	Number=Sing	12	obl	12:obl:to	Entity=79)|SpaceAfter=No
 19	)	)	PUNCT	-RRB-	_	18	punct	18:punct	_
-20	and	and	CCONJ	CC	_	21	cc	21:cc	Discourse=sequence:67->63
+20	and	and	CCONJ	CC	_	21	cc	21:cc	Discourse=sequence_m:67->63:2
 21	return	return	VERB	VB	VerbForm=Inf	12	conj	10:xcomp|12:conj:and	_
 22	immediately	immediately	ADV	RB	Degree=Pos	21	advmod	21:advmod	_
-23	enjoying	enjoy	VERB	VBG	VerbForm=Ger	21	advcl	21:advcl	Discourse=result:68->67
-24	a	a	DET	DT	Definite=Ind|PronType=Art	27	det	27:det	Entity=(time-80
+23	enjoying	enjoy	VERB	VBG	VerbForm=Ger	21	advcl	21:advcl	Discourse=result:68->67:0
+24	a	a	DET	DT	Definite=Ind|PronType=Art	27	det	27:det	Entity=(time-80-new-4-coref
 25	further	further	ADJ	JJR	Degree=Cmp	27	amod	27:amod	_
 26	60	60	NUM	CD	NumForm=Digit|NumType=Card	27	nummod	27:nummod	_
-27	days	day	NOUN	NNS	Number=Plur	23	obj	23:obj	Entity=time-80)
-28	(	(	PUNCT	-LRB-	_	30	punct	30:punct	Discourse=elaboration:69->68|SpaceAfter=No
-29	30	30	NUM	CD	NumForm=Digit|NumType=Card	30	nummod	30:nummod	Entity=(time-80(time-21
-30	days	day	NOUN	NNS	Number=Plur	27	appos	27:appos	Entity=time-21)
+27	days	day	NOUN	NNS	Number=Plur	23	obj	23:obj	Entity=80)
+28	(	(	PUNCT	-LRB-	_	30	punct	30:punct	Discourse=elaboration:69->68:0|SpaceAfter=No
+29	30	30	NUM	CD	NumForm=Digit|NumType=Card	30	nummod	30:nummod	Entity=(time-80-giv:act-2,7-appos(time-21-giv:act-2-coref
+30	days	day	NOUN	NNS	Number=Plur	27	appos	27:appos	Entity=21)
 31	plus	plus	CCONJ	CC	_	35	cc	35:cc	_
-32	a	a	DET	DT	Definite=Ind|PronType=Art	35	det	35:det	Entity=(abstract-81
-33	30	30	NUM	CD	NumForm=Digit|NumType=Card	34	nummod	34:nummod	Entity=(time-82
-34	day	day	NOUN	NN	Number=Sing	35	compound	35:compound	Entity=time-82)
-35	extension	extension	NOUN	NN	Number=Sing	30	conj	27:appos|30:conj:plus	Entity=time-80)abstract-81)|SpaceAfter=No
+32	a	a	DET	DT	Definite=Ind|PronType=Art	35	det	35:det	Entity=(abstract-81-new-4-sgl
+33	30	30	NUM	CD	NumForm=Digit|NumType=Card	34	nummod	34:nummod	Entity=(time-82-new-2-sgl
+34	day	day	NOUN	NN	Number=Sing	35	compound	35:compound	Entity=82)
+35	extension	extension	NOUN	NN	Number=Sing	30	conj	27:appos|30:conj:plus	Entity=81)80)|SpaceAfter=No
 36	)	)	PUNCT	-RRB-	_	30	punct	30:punct	SpaceAfter=No
 37	.	.	PUNCT	.	_	10	punct	10:punct	_
 
 # sent_id = GUM_voyage_cuba-26
 # s_type = decl
 # text = You are only allowed two consecutive stays in this manner.
-1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	4	nsubj:pass	4:nsubj:pass	Discourse=elaboration:70->63|Entity=(person-12)
+1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	4	nsubj:pass	4:nsubj:pass	Discourse=elaboration:70->63:3|Entity=(person-12-giv:inact-1-ana)
 2	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	4	aux:pass	4:aux:pass	_
 3	only	only	ADV	RB	_	4	advmod	4:advmod	_
 4	allowed	allow	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
-5	two	two	NUM	CD	NumForm=Word|NumType=Card	7	nummod	7:nummod	Entity=(event-83
+5	two	two	NUM	CD	NumForm=Word|NumType=Card	7	nummod	7:nummod	Entity=(event-83-new-3-sgl
 6	consecutive	consecutive	ADJ	JJ	Degree=Pos	7	amod	7:amod	_
-7	stays	stay	NOUN	NNS	Number=Plur	4	obj	4:obj	Entity=event-83)
+7	stays	stay	NOUN	NNS	Number=Plur	4	obj	4:obj	Entity=83)
 8	in	in	ADP	IN	_	10	case	10:case	_
-9	this	this	DET	DT	Number=Sing|PronType=Dem	10	det	10:det	Entity=(abstract-84
-10	manner	manner	NOUN	NN	Number=Sing	7	nmod	7:nmod:in	Entity=abstract-84)|SpaceAfter=No
+9	this	this	DET	DT	Number=Sing|PronType=Dem	10	det	10:det	Entity=(abstract-84-new-2-sgl
+10	manner	manner	NOUN	NN	Number=Sing	7	nmod	7:nmod:in	Entity=84)|SpaceAfter=No
 11	.	.	PUNCT	.	_	4	punct	4:punct	_
 
 # sent_id = GUM_voyage_cuba-27
 # s_type = decl
 # text = If you want to stay with friends or family in Cuba you have to go with your intended host within two days after arrival to a migration office and pay 40 CUC for a 30 days family visa.
-1	If	if	SCONJ	IN	_	3	mark	3:mark	Discourse=circumstance:71->72
-2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj|5:nsubj:xsubj	Entity=(person-12)
+# newpar = p (1 s)
+1	If	if	SCONJ	IN	_	3	mark	3:mark	Discourse=circumstance:71->72:0
+2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj|5:nsubj:xsubj	Entity=(person-12-giv:act-1-ana)
 3	want	want	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	13	advcl	13:advcl:if	_
 4	to	to	PART	TO	_	5	mark	5:mark	_
 5	stay	stay	VERB	VB	VerbForm=Inf	3	xcomp	3:xcomp	_
 6	with	with	ADP	IN	_	7	case	7:case	_
-7	friends	friend	NOUN	NNS	Number=Plur	5	obl	5:obl:with	Entity=(person-85)
+7	friends	friend	NOUN	NNS	Number=Plur	5	obl	5:obl:with	Entity=(person-85-new-1-sgl)
 8	or	or	CCONJ	CC	_	9	cc	9:cc	_
-9	family	family	NOUN	NN	Number=Sing	7	conj	5:obl:with|7:conj:or	Entity=(person-86)
+9	family	family	NOUN	NN	Number=Sing	7	conj	5:obl:with|7:conj:or	Entity=(person-86-new-1-sgl)
 10	in	in	ADP	IN	_	11	case	11:case	_
-11	Cuba	Cuba	PROPN	NNP	Number=Sing	5	obl	5:obl:in	Entity=(place-4-Cuba)
-12	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	13	nsubj	13:nsubj|15:nsubj:xsubj|30:nsubj:xsubj	Discourse=joint:72->63|Entity=(person-12)
+11	Cuba	Cuba	PROPN	NNP	Number=Sing	5	obl	5:obl:in	Entity=(place-4-giv:inact-1-coref-Cuba)
+12	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	13	nsubj	13:nsubj|15:nsubj:xsubj|30:nsubj:xsubj	Discourse=joint_m:72->63:4|Entity=(person-12-giv:act-1-ana)
 13	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 14	to	to	PART	TO	_	15	mark	15:mark	_
 15	go	go	VERB	VB	VerbForm=Inf	13	xcomp	13:xcomp	_
 16	with	with	ADP	IN	_	19	case	19:case	_
-17	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	19	nmod:poss	19:nmod:poss	Entity=(person-87(person-12)
+17	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	19	nmod:poss	19:nmod:poss	Entity=(person-87-new-3-sgl(person-12-giv:act-1-ana)
 18	intended	intended	ADJ	JJ	Degree=Pos	19	amod	19:amod	_
-19	host	host	NOUN	NN	Number=Sing	15	obl	15:obl:with	Entity=person-87)
+19	host	host	NOUN	NN	Number=Sing	15	obl	15:obl:with	Entity=87)
 20	within	within	ADP	IN	_	22	case	22:case	_
-21	two	two	NUM	CD	NumForm=Word|NumType=Card	22	nummod	22:nummod	Entity=(time-88
-22	days	day	NOUN	NNS	Number=Plur	19	nmod	19:nmod:within	Entity=time-88)
+21	two	two	NUM	CD	NumForm=Word|NumType=Card	22	nummod	22:nummod	Entity=(time-88-new-2-sgl
+22	days	day	NOUN	NNS	Number=Plur	19	nmod	19:nmod:within	Entity=88)
 23	after	after	ADP	IN	_	24	case	24:case	_
-24	arrival	arrival	NOUN	NN	Number=Sing	15	obl	15:obl:after	Entity=(event-89)
+24	arrival	arrival	NOUN	NN	Number=Sing	15	obl	15:obl:after	Entity=(event-89-new-1-sgl)
 25	to	to	ADP	IN	_	28	case	28:case	_
-26	a	a	DET	DT	Definite=Ind|PronType=Art	28	det	28:det	Entity=(place-23
-27	migration	migration	NOUN	NN	Number=Sing|Typo=Yes	28	compound	28:compound	_
-28	office	office	NOUN	NN	Number=Sing	15	obl	15:obl:to	Entity=place-23)
+26	a	a	DET	DT	Definite=Ind|PronType=Art	28	det	28:det	Entity=(place-23-giv:inact-3-coref
+27	migration	migration	NOUN	NN	Number=Sing|Typo=Yes	28	compound	28:compound	XML=<sic></sic>
+28	office	office	NOUN	NN	Number=Sing	15	obl	15:obl:to	Entity=23)
 29	and	and	CCONJ	CC	_	30	cc	30:cc	_
 30	pay	pay	VERB	VB	VerbForm=Inf	15	conj	13:xcomp|15:conj:and	_
-31	40	40	NUM	CD	NumForm=Digit|NumType=Card	32	nummod	32:nummod	Entity=(abstract-90
-32	CUC	CUC	NOUN	NNS	Number=Plur	30	obj	30:obj	Entity=abstract-90)
+31	40	40	NUM	CD	NumForm=Digit|NumType=Card	32	nummod	32:nummod	Entity=(abstract-90-new-2-sgl
+32	CUC	CUC	NOUN	NNS	Number=Plur	30	obj	30:obj	Entity=90)
 33	for	for	ADP	IN	_	38	case	38:case	_
-34	a	a	DET	DT	Definite=Ind|PronType=Art	38	det	38:det	Entity=(abstract-91
-35	30	30	NUM	CD	NumForm=Digit|NumType=Card	36	nummod	36:nummod	Entity=(time-92
-36	days	day	NOUN	NNS	Number=Plur	38	compound	38:compound	Entity=time-92)
-37	family	family	NOUN	NN	Number=Sing	38	compound	38:compound	_
-38	visa	visa	NOUN	NN	Number=Sing	32	nmod	32:nmod:for	Entity=abstract-91)|SpaceAfter=No
+34	a	a	DET	DT	Definite=Ind|PronType=Art	38	det	38:det	Entity=(abstract-91-new-5-sgl
+35	30	30	NUM	CD	NumForm=Digit|NumType=Card	36	nummod	36:nummod	Entity=(time-92-new-2-sgl
+36	days	day	NOUN	NNS	Number=Plur	38	compound	38:compound	Entity=92)
+37	family	family	NOUN	NN	Number=Sing	38	compound	38:compound	XML=<hi rend:::"italic">
+38	visa	visa	NOUN	NN	Number=Sing	32	nmod	32:nmod:for	Entity=91)|SpaceAfter=No|XML=</hi>
 39	.	.	PUNCT	.	_	13	punct	13:punct	_
 
 # sent_id = GUM_voyage_cuba-28
 # s_type = decl
 # text = Citizens of Antigua and Barbuda (28 days), Barbados (28 days), Benin, Bosnia and Herzegovina, CIS (except Ukraine and Uzbekistan), Dominica, Grenada (60 days), Liechtenstein (90 days), Macedonia, Malaysia (90 days), Mongolia, Montenegro (90 days), Namibia, Singapore, Slovakia, Saint Kitts and Nevis, Saint Lucia, Saint Vincent and the Grenadines, Serbia (90 days), Turkmenistan who can stay 30 days without visa.
-1	Citizens	citizen	NOUN	NNS	Number=Plur	0	root	0:root	Discourse=joint:73->63|Entity=(abstract-93(person-94
+# newpar = p (3 s)
+1	Citizens	citizen	NOUN	NNS	Number=Plur	0	root	0:root	Discourse=joint_m:73->63:4|Entity=(abstract-93-new-1-coref(person-94-new-1-sgl
 2	of	of	ADP	IN	_	3	case	3:case	_
-3	Antigua	Antigua	PROPN	NNP	Number=Sing	1	nmod	1:nmod:of	Entity=(place-95-Antigua_and_Barbuda)
+3	Antigua	Antigua	PROPN	NNP	Number=Sing	1	nmod	1:nmod:of	Entity=(place-95-new-1-sgl-Antigua_and_Barbuda)|XML=<ref>
 4	and	and	CCONJ	CC	_	5	cc	5:cc	_
-5	Barbuda	Barbuda	PROPN	NNP	Number=Sing	3	conj	1:nmod:of|3:conj:and	Entity=(place-96-Antigua_and_Barbuda)person-94)
-6	(	(	PUNCT	-LRB-	_	8	punct	8:punct	Discourse=elaboration:74->73|SpaceAfter=No
-7	28	28	NUM	CD	NumForm=Digit|NumType=Card	8	nummod	8:nummod	Entity=(time-97
-8	days	day	NOUN	NNS	Number=Plur	3	dep	3:dep	Entity=time-97)|SpaceAfter=No
+5	Barbuda	Barbuda	PROPN	NNP	Number=Sing	3	conj	1:nmod:of|3:conj:and	Entity=(place-96-new-1-sgl-Antigua_and_Barbuda)94)|XML=</ref>
+6	(	(	PUNCT	-LRB-	_	8	punct	8:punct	Discourse=elaboration:74->73:0|SpaceAfter=No
+7	28	28	NUM	CD	NumForm=Digit|NumType=Card	8	nummod	8:nummod	Entity=(time-97-new-2-sgl
+8	days	day	NOUN	NNS	Number=Plur	3	dep	3:dep	Entity=97)|SpaceAfter=No
 9	)	)	PUNCT	-RRB-	_	8	punct	8:punct	SpaceAfter=No
 10	,	,	PUNCT	,	_	11	punct	11:punct	_
-11	Barbados	Barbados	PROPN	NNP	Number=Sing	3	conj	1:nmod:of|3:conj	Discourse=same-unit:75->73|Entity=(place-98-Barbados)
-12	(	(	PUNCT	-LRB-	_	14	punct	14:punct	Discourse=elaboration:76->75|SpaceAfter=No
-13	28	28	NUM	CD	NumForm=Digit|NumType=Card	14	nummod	14:nummod	Entity=(time-99
-14	days	day	NOUN	NNS	Number=Plur	11	dep	11:dep	Entity=time-99)|SpaceAfter=No
+11	Barbados	Barbados	PROPN	NNP	Number=Sing	3	conj	1:nmod:of|3:conj	Discourse=same-unit_m:75->73:1|Entity=(place-98-new-1-sgl-Barbados)|XML=<ref></ref>
+12	(	(	PUNCT	-LRB-	_	14	punct	14:punct	Discourse=elaboration:76->75:0|SpaceAfter=No
+13	28	28	NUM	CD	NumForm=Digit|NumType=Card	14	nummod	14:nummod	Entity=(time-99-new-2-sgl
+14	days	day	NOUN	NNS	Number=Plur	11	dep	11:dep	Entity=99)|SpaceAfter=No
 15	)	)	PUNCT	-RRB-	_	14	punct	14:punct	SpaceAfter=No
 16	,	,	PUNCT	,	_	17	punct	17:punct	_
-17	Benin	Benin	PROPN	NNP	Number=Sing	3	conj	1:nmod:of|3:conj	Discourse=same-unit:77->73|Entity=(place-100-Benin)|SpaceAfter=No
+17	Benin	Benin	PROPN	NNP	Number=Sing	3	conj	1:nmod:of|3:conj	Discourse=same-unit_m:77->73:1|Entity=(place-100-new-1-sgl-Benin)|SpaceAfter=No|XML=<ref></ref>
 18	,	,	PUNCT	,	_	19	punct	19:punct	_
-19	Bosnia	Bosnia	PROPN	NNP	Number=Sing	17	conj	3:conj|17:conj	Entity=(place-101-Bosnia_and_Herzegovina)
+19	Bosnia	Bosnia	PROPN	NNP	Number=Sing	17	conj	3:conj|17:conj	Entity=(place-101-new-1-sgl-Bosnia_and_Herzegovina)|XML=<ref>
 20	and	and	CCONJ	CC	_	21	cc	21:cc	_
-21	Herzegovina	Herzegovina	PROPN	NNP	Number=Sing	19	conj	17:conj|19:conj:and	Entity=(place-102-Bosnia_and_Herzegovina)|SpaceAfter=No
+21	Herzegovina	Herzegovina	PROPN	NNP	Number=Sing	19	conj	17:conj|19:conj:and	Entity=(place-102-new-1-sgl-Bosnia_and_Herzegovina)|SpaceAfter=No|XML=</ref>
 22	,	,	PUNCT	,	_	23	punct	23:punct	_
-23	CIS	CIS	PROPN	NNP	Abbr=Yes|Number=Sing	17	conj	3:conj|17:conj	Entity=(place-103-Commonwealth_of_Independent_States
-24	(	(	PUNCT	-LRB-	_	26	punct	26:punct	Discourse=concession:78->77|SpaceAfter=No
+23	CIS	CIS	PROPN	NNP	Abbr=Yes|Number=Sing	17	conj	3:conj|17:conj	Entity=(place-103-new-1,4,6-sgl-Commonwealth_of_Independent_States
+24	(	(	PUNCT	-LRB-	_	26	punct	26:punct	Discourse=concession:78->77:0|SpaceAfter=No
 25	except	except	ADP	IN	_	26	case	26:case	_
-26	Ukraine	Ukraine	PROPN	NNP	Number=Sing	23	nmod	23:nmod:except	Entity=(place-104-Ukraine)
+26	Ukraine	Ukraine	PROPN	NNP	Number=Sing	23	nmod	23:nmod:except	Entity=(place-104-new-1-sgl-Ukraine)|XML=<ref></ref>
 27	and	and	CCONJ	CC	_	28	cc	28:cc	_
-28	Uzbekistan	Uzbekistan	PROPN	NNP	Number=Sing	26	conj	23:nmod:except|26:conj:and	Entity=(place-105-Uzbekistan)place-103-Commonwealth_of_Independent_States)|SpaceAfter=No
+28	Uzbekistan	Uzbekistan	PROPN	NNP	Number=Sing	26	conj	23:nmod:except|26:conj:and	Entity=(place-105-new-1-sgl-Uzbekistan)103)|SpaceAfter=No|XML=<ref></ref>
 29	)	)	PUNCT	-RRB-	_	26	punct	26:punct	SpaceAfter=No
 30	,	,	PUNCT	,	_	31	punct	31:punct	_
-31	Dominica	Dominica	PROPN	NNP	Number=Sing	17	conj	3:conj|17:conj	Discourse=same-unit:79->77|Entity=(place-106-Dominica)|SpaceAfter=No
+31	Dominica	Dominica	PROPN	NNP	Number=Sing	17	conj	3:conj|17:conj	Discourse=same-unit_m:79->77:1|Entity=(place-106-new-1-sgl-Dominica)|SpaceAfter=No|XML=<ref></ref>
 32	,	,	PUNCT	,	_	33	punct	33:punct	_
-33	Grenada	Grenada	PROPN	NNP	Number=Sing	17	conj	3:conj|17:conj	Entity=(place-107-Grenada)
-34	(	(	PUNCT	-LRB-	_	36	punct	36:punct	Discourse=elaboration:80->77|SpaceAfter=No
-35	60	60	NUM	CD	NumForm=Digit|NumType=Card	36	nummod	36:nummod	Entity=(time-108
-36	days	day	NOUN	NNS	Number=Plur	17	dep	17:dep	Entity=time-108)|SpaceAfter=No
+33	Grenada	Grenada	PROPN	NNP	Number=Sing	17	conj	3:conj|17:conj	Entity=(place-107-new-1-sgl-Grenada)|XML=<ref></ref>
+34	(	(	PUNCT	-LRB-	_	36	punct	36:punct	Discourse=elaboration:80->77:2|SpaceAfter=No
+35	60	60	NUM	CD	NumForm=Digit|NumType=Card	36	nummod	36:nummod	Entity=(time-108-new-2-sgl
+36	days	day	NOUN	NNS	Number=Plur	17	dep	17:dep	Entity=108)|SpaceAfter=No
 37	)	)	PUNCT	-RRB-	_	36	punct	36:punct	SpaceAfter=No
 38	,	,	PUNCT	,	_	39	punct	39:punct	_
-39	Liechtenstein	Liechtenstein	PROPN	NNP	Number=Sing	3	conj	1:nmod:of|3:conj	Discourse=same-unit:81->73|Entity=(place-109-Liechtenstein)
-40	(	(	PUNCT	-LRB-	_	42	punct	42:punct	Discourse=elaboration:82->81|SpaceAfter=No
-41	90	90	NUM	CD	NumForm=Digit|NumType=Card	42	nummod	42:nummod	Entity=(time-110
-42	days	day	NOUN	NNS	Number=Plur	39	dep	39:dep	Entity=time-110)|SpaceAfter=No
+39	Liechtenstein	Liechtenstein	PROPN	NNP	Number=Sing	3	conj	1:nmod:of|3:conj	Discourse=same-unit_m:81->73:1|Entity=(place-109-new-1-sgl-Liechtenstein)|XML=<ref></ref>
+40	(	(	PUNCT	-LRB-	_	42	punct	42:punct	Discourse=elaboration:82->81:0|SpaceAfter=No
+41	90	90	NUM	CD	NumForm=Digit|NumType=Card	42	nummod	42:nummod	Entity=(time-110-new-2-sgl
+42	days	day	NOUN	NNS	Number=Plur	39	dep	39:dep	Entity=110)|SpaceAfter=No
 43	)	)	PUNCT	-RRB-	_	42	punct	42:punct	SpaceAfter=No
 44	,	,	PUNCT	,	_	45	punct	45:punct	_
-45	Macedonia	Macedonia	PROPN	NNP	Number=Sing	3	conj	1:nmod:of|3:conj	Discourse=same-unit:83->73|Entity=(place-111-North_Macedonia)|SpaceAfter=No
+45	Macedonia	Macedonia	PROPN	NNP	Number=Sing	3	conj	1:nmod:of|3:conj	Discourse=same-unit_m:83->73:1|Entity=(place-111-new-1-sgl-North_Macedonia)|SpaceAfter=No|XML=<ref></ref>
 46	,	,	PUNCT	,	_	47	punct	47:punct	_
-47	Malaysia	Malaysia	PROPN	NNP	Number=Sing	45	conj	3:conj|45:conj	Entity=(place-112-Malaysia)
-48	(	(	PUNCT	-LRB-	_	50	punct	50:punct	Discourse=elaboration:84->83|SpaceAfter=No
-49	90	90	NUM	CD	NumForm=Digit|NumType=Card	50	nummod	50:nummod	Entity=(time-113
-50	days	day	NOUN	NNS	Number=Plur	47	dep	47:dep	Entity=time-113)|SpaceAfter=No
+47	Malaysia	Malaysia	PROPN	NNP	Number=Sing	45	conj	3:conj|45:conj	Entity=(place-112-new-1-sgl-Malaysia)|XML=<ref></ref>
+48	(	(	PUNCT	-LRB-	_	50	punct	50:punct	Discourse=elaboration:84->83:0|SpaceAfter=No
+49	90	90	NUM	CD	NumForm=Digit|NumType=Card	50	nummod	50:nummod	Entity=(time-113-new-2-sgl
+50	days	day	NOUN	NNS	Number=Plur	47	dep	47:dep	Entity=113)|SpaceAfter=No
 51	)	)	PUNCT	-RRB-	_	50	punct	50:punct	SpaceAfter=No
 52	,	,	PUNCT	,	_	53	punct	53:punct	_
-53	Mongolia	Mongolia	PROPN	NNP	Number=Sing	3	conj	1:nmod:of|3:conj	Discourse=same-unit:85->73|Entity=(place-114-Mongolia)|SpaceAfter=No
+53	Mongolia	Mongolia	PROPN	NNP	Number=Sing	3	conj	1:nmod:of|3:conj	Discourse=same-unit_m:85->73:1|Entity=(place-114-new-1-sgl-Mongolia)|SpaceAfter=No|XML=<ref></ref>
 54	,	,	PUNCT	,	_	55	punct	55:punct	_
-55	Montenegro	Montenegro	PROPN	NNP	Number=Sing	53	conj	3:conj|53:conj	Entity=(place-115-Montenegro)
-56	(	(	PUNCT	-LRB-	_	58	punct	58:punct	Discourse=elaboration:86->85|SpaceAfter=No
-57	90	90	NUM	CD	NumForm=Digit|NumType=Card	58	nummod	58:nummod	Entity=(time-116
-58	days	day	NOUN	NNS	Number=Plur	55	dep	55:dep	Entity=time-116)|SpaceAfter=No
+55	Montenegro	Montenegro	PROPN	NNP	Number=Sing	53	conj	3:conj|53:conj	Entity=(place-115-new-1-sgl-Montenegro)|XML=<ref></ref>
+56	(	(	PUNCT	-LRB-	_	58	punct	58:punct	Discourse=elaboration:86->85:0|SpaceAfter=No
+57	90	90	NUM	CD	NumForm=Digit|NumType=Card	58	nummod	58:nummod	Entity=(time-116-new-2-sgl
+58	days	day	NOUN	NNS	Number=Plur	55	dep	55:dep	Entity=116)|SpaceAfter=No
 59	)	)	PUNCT	-RRB-	_	58	punct	58:punct	SpaceAfter=No
 60	,	,	PUNCT	,	_	61	punct	61:punct	_
-61	Namibia	Namibia	PROPN	NNP	Number=Sing	3	conj	1:nmod:of|3:conj	Discourse=same-unit:87->73|Entity=(place-117-Namibia)|SpaceAfter=No
+61	Namibia	Namibia	PROPN	NNP	Number=Sing	3	conj	1:nmod:of|3:conj	Discourse=same-unit_m:87->73:1|Entity=(place-117-new-1-sgl-Namibia)|SpaceAfter=No|XML=<ref></ref>
 62	,	,	PUNCT	,	_	63	punct	63:punct	_
-63	Singapore	Singapore	PROPN	NNP	Number=Sing	61	conj	3:conj|61:conj	Entity=(place-118-Singapore)|SpaceAfter=No
+63	Singapore	Singapore	PROPN	NNP	Number=Sing	61	conj	3:conj|61:conj	Entity=(place-118-new-1-sgl-Singapore)|SpaceAfter=No|XML=<ref></ref>
 64	,	,	PUNCT	,	_	65	punct	65:punct	_
-65	Slovakia	Slovakia	PROPN	NNP	Number=Sing	61	conj	3:conj|61:conj	Entity=(place-119-Slovakia)|SpaceAfter=No
+65	Slovakia	Slovakia	PROPN	NNP	Number=Sing	61	conj	3:conj|61:conj	Entity=(place-119-new-1-sgl-Slovakia)|SpaceAfter=No|XML=<ref></ref>
 66	,	,	PUNCT	,	_	68	punct	68:punct	_
-67	Saint	Saint	ADJ	NNP	Degree=Pos	68	amod	68:amod	Entity=(place-120-Saint_Kitts
-68	Kitts	Kitts	PROPN	NNP	Number=Sing	61	conj	3:conj|61:conj	Entity=place-120-Saint_Kitts)
+67	Saint	Saint	ADJ	NNP	Degree=Pos	68	amod	68:amod	Entity=(place-120-new-1,2-sgl-Saint_Kitts|XML=<ref>
+68	Kitts	Kitts	PROPN	NNP	Number=Sing	61	conj	3:conj|61:conj	Entity=120)
 69	and	and	CCONJ	CC	_	70	cc	70:cc	_
-70	Nevis	Nevis	PROPN	NNP	Number=Sing	68	conj	61:conj|68:conj:and	Entity=(place-121-Nevis)|SpaceAfter=No
+70	Nevis	Nevis	PROPN	NNP	Number=Sing	68	conj	61:conj|68:conj:and	Entity=(place-121-new-1-sgl-Nevis)|SpaceAfter=No|XML=</ref>
 71	,	,	PUNCT	,	_	73	punct	73:punct	_
-72	Saint	Saint	ADJ	NNP	Degree=Pos	73	amod	73:amod	Entity=(place-122-Saint_Lucia
-73	Lucia	Lucia	PROPN	NNP	Number=Sing	61	conj	3:conj|61:conj	Entity=place-122-Saint_Lucia)|SpaceAfter=No
+72	Saint	Saint	ADJ	NNP	Degree=Pos	73	amod	73:amod	Entity=(place-122-new-1,2-sgl-Saint_Lucia|XML=<ref>
+73	Lucia	Lucia	PROPN	NNP	Number=Sing	61	conj	3:conj|61:conj	Entity=122)|SpaceAfter=No|XML=</ref>
 74	,	,	PUNCT	,	_	76	punct	76:punct	_
-75	Saint	Saint	ADJ	NNP	Degree=Pos	76	amod	76:amod	Entity=(place-123-Saint_Vincent_and_the_Grenadines
+75	Saint	Saint	ADJ	NNP	Degree=Pos	76	amod	76:amod	Entity=(place-123-new-1,2,5-sgl-Saint_Vincent_and_the_Grenadines|XML=<ref>
 76	Vincent	Vincent	PROPN	NNP	Number=Sing	61	conj	3:conj|61:conj	_
 77	and	and	CCONJ	CC	_	79	cc	79:cc	_
 78	the	the	DET	DT	Definite=Def|PronType=Art	79	det	79:det	_
-79	Grenadines	Grenadines	PROPN	NNP	Number=Sing	76	conj	61:conj|76:conj:and	Entity=place-123-Saint_Vincent_and_the_Grenadines)|SpaceAfter=No
+79	Grenadines	Grenadines	PROPN	NNP	Number=Sing	76	conj	61:conj|76:conj:and	Entity=123)|SpaceAfter=No|XML=</ref>
 80	,	,	PUNCT	,	_	81	punct	81:punct	_
-81	Serbia	Serbia	PROPN	NNP	Number=Sing	61	conj	3:conj|61:conj	Entity=(place-124-Serbia)
-82	(	(	PUNCT	-LRB-	_	84	punct	84:punct	Discourse=elaboration:88->87|SpaceAfter=No
-83	90	90	NUM	CD	NumForm=Digit|NumType=Card	84	nummod	84:nummod	Entity=(time-125
-84	days	day	NOUN	NNS	Number=Plur	81	dep	81:dep	Entity=time-125)|SpaceAfter=No
+81	Serbia	Serbia	PROPN	NNP	Number=Sing	61	conj	3:conj|61:conj	Entity=(place-124-new-1-sgl-Serbia)|XML=<ref></ref>
+82	(	(	PUNCT	-LRB-	_	84	punct	84:punct	Discourse=elaboration:88->87:0|SpaceAfter=No
+83	90	90	NUM	CD	NumForm=Digit|NumType=Card	84	nummod	84:nummod	Entity=(time-125-new-2-sgl
+84	days	day	NOUN	NNS	Number=Plur	81	dep	81:dep	Entity=125)|SpaceAfter=No
 85	)	)	PUNCT	-RRB-	_	84	punct	84:punct	SpaceAfter=No
 86	,	,	PUNCT	,	_	87	punct	87:punct	_
-87	Turkmenistan	Turkmenistan	PROPN	NNP	Number=Sing	3	conj	1:nmod:of|3:conj|90:nsubj	Discourse=same-unit:89->73|Entity=(place-126-Turkmenistan)
-88	who	who	PRON	WP	PronType=Rel	90	nsubj	87:ref	Discourse=elaboration:90->89
+87	Turkmenistan	Turkmenistan	PROPN	NNP	Number=Sing	3	conj	1:nmod:of|3:conj|90:nsubj	Discourse=same-unit_m:89->73:1|Entity=(place-126-new-1-sgl-Turkmenistan)|XML=<ref></ref>
+88	who	who	PRON	WP	PronType=Rel	90	nsubj	87:ref	Discourse=elaboration:90->89:0
 89	can	can	AUX	MD	VerbForm=Fin	90	aux	90:aux	_
 90	stay	stay	VERB	VB	VerbForm=Inf	87	acl:relcl	87:acl:relcl	_
-91	30	30	NUM	CD	NumForm=Digit|NumType=Card	92	nummod	92:nummod	Entity=(time-127
-92	days	day	NOUN	NNS	Number=Plur	90	obl:tmod	90:obl:tmod	Entity=time-127)
+91	30	30	NUM	CD	NumForm=Digit|NumType=Card	92	nummod	92:nummod	Entity=(time-127-new-2-sgl
+92	days	day	NOUN	NNS	Number=Plur	90	obl:tmod	90:obl:tmod	Entity=127)
 93	without	without	ADP	IN	_	94	case	94:case	_
-94	visa	visa	NOUN	NN	Number=Sing	90	obl	90:obl:without	Entity=(abstract-5)|SpaceAfter=No
-95	.	.	PUNCT	.	_	1	punct	1:punct	Entity=abstract-93)
+94	visa	visa	NOUN	NN	Number=Sing	90	obl	90:obl:without	Entity=(abstract-5-giv:inact-1-coref)|SpaceAfter=No
+95	.	.	PUNCT	.	_	1	punct	1:punct	Entity=93)
 
 # sent_id = GUM_voyage_cuba-29
 # s_type = decl
 # text = (The source of the previous sentence is unknown.
-1	(	(	PUNCT	-LRB-	_	9	punct	9:punct	Discourse=attribution:91->73|SpaceAfter=No
-2	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Entity=(abstract-128
+1	(	(	PUNCT	-LRB-	_	9	punct	9:punct	Discourse=attribution:91->73:2|SpaceAfter=No
+2	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Entity=(abstract-128-new-2-sgl
 3	source	source	NOUN	NN	Number=Sing	9	nsubj	9:nsubj	_
 4	of	of	ADP	IN	_	7	case	7:case	_
-5	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	Entity=(abstract-93
+5	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	Entity=(abstract-93-acc:com-3-coref
 6	previous	previous	ADJ	JJ	Degree=Pos	7	amod	7:amod	_
-7	sentence	sentence	NOUN	NN	Number=Sing	3	nmod	3:nmod:of	Entity=abstract-128)abstract-93)
+7	sentence	sentence	NOUN	NN	Number=Sing	3	nmod	3:nmod:of	Entity=93)128)
 8	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	9	cop	9:cop	_
 9	unknown	unknown	ADJ	JJ	Degree=Pos|Polarity=Neg	0	root	0:root	SpaceAfter=No
 10	.	.	PUNCT	.	_	9	punct	9:punct	_
@@ -810,151 +823,153 @@
 # sent_id = GUM_voyage_cuba-30
 # s_type = decl
 # text = Aeromexico staff at Cancun airport claim that only citizens of China and Russia need no visa.
-1	Aeromexico	Aeromexico	PROPN	NNP	Number=Sing	2	compound	2:compound	Discourse=attribution:92->93|Entity=(person-129(organization-130-Aeroméxico)
+1	Aeromexico	Aeromexico	PROPN	NNP	Number=Sing	2	compound	2:compound	Discourse=attribution:92->93:0|Entity=(person-129-new-2-sgl(organization-130-new-1-sgl-Aeroméxico)
 2	staff	staff	NOUN	NN	Number=Sing	6	nsubj	6:nsubj	_
 3	at	at	ADP	IN	_	5	case	5:case	_
-4	Cancun	Cancun	PROPN	NNP	Number=Sing	5	compound	5:compound	Entity=(place-131(place-43-Cancún)
-5	airport	airport	NOUN	NN	Number=Sing	2	nmod	2:nmod:at	Entity=person-129)place-131)
+4	Cancun	Cancun	PROPN	NNP	Number=Sing	5	compound	5:compound	Entity=(place-131-new-2-sgl(place-43-giv:inact-1-coref-Cancún)
+5	airport	airport	NOUN	NN	Number=Sing	2	nmod	2:nmod:at	Entity=131)129)
 6	claim	claim	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
-7	that	that	SCONJ	IN	_	14	mark	14:mark	Discourse=joint:93->73
+7	that	that	SCONJ	IN	_	14	mark	14:mark	Discourse=joint_m:93->73:3
 8	only	only	ADV	RB	_	9	advmod	9:advmod	_
-9	citizens	citizen	NOUN	NNS	Number=Plur	14	nsubj	14:nsubj	Entity=(person-132
+9	citizens	citizen	NOUN	NNS	Number=Plur	14	nsubj	14:nsubj	Entity=(person-132-new-1,5-sgl
 10	of	of	ADP	IN	_	11	case	11:case	_
-11	China	China	PROPN	NNP	Number=Sing	9	nmod	9:nmod:of	Entity=(place-133-China)
+11	China	China	PROPN	NNP	Number=Sing	9	nmod	9:nmod:of	Entity=(place-133-new-1-sgl-China)
 12	and	and	CCONJ	CC	_	13	cc	13:cc	_
-13	Russia	Russia	PROPN	NNP	Number=Sing	11	conj	9:nmod:of|11:conj:and	Entity=(place-134-Russia)person-132)
+13	Russia	Russia	PROPN	NNP	Number=Sing	11	conj	9:nmod:of|11:conj:and	Entity=(place-134-new-1-sgl-Russia)132)
 14	need	need	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	6	ccomp	6:ccomp	_
 15	no	no	DET	DT	Polarity=Neg	16	det	16:det	_
-16	visa	visa	NOUN	NN	Number=Sing	14	obj	14:obj	Entity=(abstract-5)|SpaceAfter=No
+16	visa	visa	NOUN	NN	Number=Sing	14	obj	14:obj	Entity=(abstract-5-giv:inact-1-coref)|SpaceAfter=No
 17	.	.	PUNCT	.	_	6	punct	6:punct	_
 
 # sent_id = GUM_voyage_cuba-31
 # s_type = decl
 # text = It is important to note that there is also a departure tax of CUC 25, to be paid in cash when departing Cuba by airplane; this is not required for boat departures.
-1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	3	expl	3:expl	Discourse=joint:94->4|Entity=(event-135)
+# newpar = p (4 s)
+1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	3	expl	3:expl	Discourse=joint_m:94->4:3|Entity=(event-135-new-1-cata)
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	cop	3:cop	_
 3	important	important	ADJ	JJ	Degree=Pos	0	root	0:root	_
-4	to	to	PART	TO	_	5	mark	5:mark	Entity=(event-135
+4	to	to	PART	TO	_	5	mark	5:mark	Entity=(event-135-acc:com-2-coref
 5	note	note	VERB	VB	VerbForm=Inf	3	csubj	3:csubj	_
 6	that	that	SCONJ	IN	_	8	mark	8:mark	_
 7	there	there	PRON	EX	_	8	expl	8:expl	_
 8	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	ccomp	5:ccomp	_
 9	also	also	ADV	RB	_	8	advmod	8:advmod	_
-10	a	a	DET	DT	Definite=Ind|PronType=Art	12	det	12:det	Entity=(abstract-136
-11	departure	departure	NOUN	NN	Number=Sing	12	compound	12:compound	Entity=(event-137)
-12	tax	tax	NOUN	NN	Number=Sing	8	nsubj	8:nsubj|19:nsubj:xsubj	_
+10	a	a	DET	DT	Definite=Ind|PronType=Art	12	det	12:det	Entity=(abstract-136-new-10-disc
+11	departure	departure	NOUN	NN	Number=Sing	12	compound	12:compound	Entity=(event-137-new-1-sgl)|XML=<hi rend:::"bold">
+12	tax	tax	NOUN	NN	Number=Sing	8	nsubj	8:nsubj|19:nsubj:pass:xsubj	XML=</hi>
 13	of	of	ADP	IN	_	14	case	14:case	_
-14	CUC	CUC	NOUN	NNS	Number=Plur	12	nmod	12:nmod:of	Entity=(abstract-138
-15	25	25	NUM	CD	NumForm=Digit|NumType=Card	14	nummod	14:nummod	Entity=abstract-138)|SpaceAfter=No
+14	CUC	CUC	NOUN	NNS	Number=Plur	12	nmod	12:nmod:of	Entity=(abstract-138-new-1-sgl|XML=<measure type:::"currency">
+15	25	25	NUM	CD	NumForm=Digit|NumType=Card	14	nummod	14:nummod	Entity=138)|SpaceAfter=No|XML=</measure>
 16	,	,	PUNCT	,	_	19	punct	19:punct	_
-17	to	to	PART	TO	_	19	mark	19:mark	Discourse=elaboration:95->94
+17	to	to	PART	TO	_	19	mark	19:mark	Discourse=elaboration:95->94:0
 18	be	be	AUX	VB	VerbForm=Inf	19	aux:pass	19:aux:pass	_
 19	paid	pay	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	8	xcomp	8:xcomp	_
 20	in	in	ADP	IN	_	21	case	21:case	_
 21	cash	cash	NOUN	NN	Number=Sing	19	obl	19:obl:in	_
-22	when	when	SCONJ	WRB	PronType=Int	23	mark	23:mark	Discourse=circumstance:96->94
-23	departing	depart	VERB	VBG	VerbForm=Ger	19	advcl	19:advcl:when	_
-24	Cuba	Cuba	PROPN	NNP	Number=Sing	23	obj	23:obj	Entity=(place-4-Cuba)
+22	when	when	SCONJ	WRB	PronType=Int	23	mark	23:mark	Discourse=circumstance:96->94:1
+23	departing	depart	VERB	VBG	VerbForm=Ger	19	advcl	19:advcl:when	XML=<hi rend:::"itatlics"></hi>
+24	Cuba	Cuba	PROPN	NNP	Number=Sing	23	obj	23:obj	Entity=(place-4-giv:inact-1-coref-Cuba)
 25	by	by	ADP	IN	_	26	case	26:case	_
-26	airplane	airplane	NOUN	NN	Number=Sing	23	obl	23:obl:by	Entity=(object-139)event-135)abstract-136)|SpaceAfter=No
+26	airplane	airplane	NOUN	NN	Number=Sing	23	obl	23:obl:by	Entity=(object-139-new-1-sgl)136)135)|SpaceAfter=No
 27	;	;	PUNCT	:	_	31	punct	31:punct	_
-28	this	this	PRON	DT	Number=Sing|PronType=Dem	31	nsubj:pass	31:nsubj:pass	Discourse=concession:97->94|Entity=(abstract-136)
+28	this	this	PRON	DT	Number=Sing|PronType=Dem	31	nsubj:pass	31:nsubj:pass	Discourse=concession:97->94:2|Entity=(abstract-136-giv:act-1-coref)
 29	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	31	aux:pass	31:aux:pass	_
 30	not	not	PART	RB	Polarity=Neg	31	advmod	31:advmod	_
 31	required	require	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	3	parataxis	3:parataxis	_
 32	for	for	ADP	IN	_	34	case	34:case	_
-33	boat	boat	NOUN	NN	Number=Sing	34	compound	34:compound	Entity=(event-140(object-141)
-34	departures	departure	NOUN	NNS	Number=Plur	31	obl	31:obl:for	Entity=event-140)|SpaceAfter=No
+33	boat	boat	NOUN	NN	Number=Sing	34	compound	34:compound	Entity=(event-140-new-2-sgl(object-141-new-1-sgl)
+34	departures	departure	NOUN	NNS	Number=Plur	31	obl	31:obl:for	Entity=140)|SpaceAfter=No
 35	.	.	PUNCT	.	_	3	punct	3:punct	_
 
 # sent_id = GUM_voyage_cuba-32
 # s_type = decl
 # text = This tax is not well publicized but it is essential to remember it.
-1	This	this	DET	DT	Number=Sing|PronType=Dem	2	det	2:det	Discourse=concession:98->99|Entity=(abstract-136
-2	tax	tax	NOUN	NN	Number=Sing	6	nsubj:pass	6:nsubj:pass	Entity=abstract-136)
+1	This	this	DET	DT	Number=Sing|PronType=Dem	2	det	2:det	Discourse=concession:98->99:0|Entity=(abstract-136-giv:act-2-coref
+2	tax	tax	NOUN	NN	Number=Sing	6	nsubj:pass	6:nsubj:pass	Entity=136)
 3	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	aux:pass	6:aux:pass	_
 4	not	not	PART	RB	Polarity=Neg	6	advmod	6:advmod	_
 5	well	well	ADV	RB	Degree=Pos	6	advmod	6:advmod	_
 6	publicized	publicize	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
-7	but	but	CCONJ	CC	_	10	cc	10:cc	Discourse=evaluation:99->94
-8	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	10	expl	10:expl	Entity=(event-142)
+7	but	but	CCONJ	CC	_	10	cc	10:cc	Discourse=evaluation:99->94:3
+8	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	10	expl	10:expl	Entity=(event-142-new-1-cata)
 9	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	10	cop	10:cop	_
 10	essential	essential	ADJ	JJ	Degree=Pos	6	conj	6:conj:but	_
-11	to	to	PART	TO	_	12	mark	12:mark	Entity=(event-142
+11	to	to	PART	TO	_	12	mark	12:mark	Entity=(event-142-acc:com-2-coref
 12	remember	remember	VERB	VB	VerbForm=Inf	10	csubj	10:csubj	_
-13	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	12	obj	12:obj	Entity=(abstract-136)event-142)|SpaceAfter=No
+13	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	12	obj	12:obj	Entity=(abstract-136-giv:act-1-ana)142)|SpaceAfter=No
 14	.	.	PUNCT	.	_	6	punct	6:punct	_
 
 # sent_id = GUM_voyage_cuba-33
 # s_type = decl
 # text = You will run into significant difficulties if you do not have enough cash to pay this tax when leaving the country.
-1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Discourse=motivation:100->99|Entity=(person-12)
+1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Discourse=motivation:100->99:1|Entity=(person-12-giv:inact-1-ana)
 2	will	will	AUX	MD	VerbForm=Fin	3	aux	3:aux	_
 3	run	run	VERB	VB	VerbForm=Inf	0	root	0:root	_
 4	into	into	ADP	IN	_	6	case	6:case	_
-5	significant	significant	ADJ	JJ	Degree=Pos	6	amod	6:amod	Entity=(abstract-143
-6	difficulties	difficulty	NOUN	NNS	Number=Plur	3	obl	3:obl:into	Entity=abstract-143)
-7	if	if	SCONJ	IN	_	11	mark	11:mark	Discourse=condition:101->100
-8	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	11	nsubj	11:nsubj	Entity=(person-12)
+5	significant	significant	ADJ	JJ	Degree=Pos	6	amod	6:amod	Entity=(abstract-143-new-2-sgl
+6	difficulties	difficulty	NOUN	NNS	Number=Plur	3	obl	3:obl:into	Entity=143)
+7	if	if	SCONJ	IN	_	11	mark	11:mark	Discourse=condition:101->100:0
+8	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	11	nsubj	11:nsubj	Entity=(person-12-giv:act-1-ana)
 9	do	do	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	11	aux	11:aux	_
 10	not	not	PART	RB	Polarity=Neg	11	advmod	11:advmod	_
 11	have	have	VERB	VB	VerbForm=Inf	3	advcl	3:advcl:if	_
-12	enough	enough	ADJ	JJ	Degree=Pos	13	amod	13:amod	Entity=(object-144
-13	cash	cash	NOUN	NN	Number=Sing	11	obj	11:obj|15:nsubj:xsubj	Entity=object-144)
-14	to	to	PART	TO	_	15	mark	15:mark	Discourse=purpose:102->101
+12	enough	enough	ADJ	JJ	Degree=Pos	13	amod	13:amod	Entity=(object-144-new-2-sgl
+13	cash	cash	NOUN	NN	Number=Sing	11	obj	11:obj|15:nsubj:xsubj	Entity=144)
+14	to	to	PART	TO	_	15	mark	15:mark	Discourse=purpose:102->101:0
 15	pay	pay	VERB	VB	VerbForm=Inf	11	xcomp	11:xcomp	_
-16	this	this	DET	DT	Number=Sing|PronType=Dem	17	det	17:det	Entity=(abstract-136
-17	tax	tax	NOUN	NN	Number=Sing	15	obj	15:obj	Entity=abstract-136)
-18	when	when	SCONJ	WRB	PronType=Int	19	mark	19:mark	Discourse=circumstance:103->100
+16	this	this	DET	DT	Number=Sing|PronType=Dem	17	det	17:det	Entity=(abstract-136-giv:act-2-coref
+17	tax	tax	NOUN	NN	Number=Sing	15	obj	15:obj	Entity=136)
+18	when	when	SCONJ	WRB	PronType=Int	19	mark	19:mark	Discourse=circumstance:103->100:1
 19	leaving	leave	VERB	VBG	VerbForm=Ger	15	advcl	15:advcl:when	_
-20	the	the	DET	DT	Definite=Def|PronType=Art	21	det	21:det	Entity=(place-4-Cuba
-21	country	country	NOUN	NN	Number=Sing	19	obj	19:obj	Entity=place-4-Cuba)|SpaceAfter=No
+20	the	the	DET	DT	Definite=Def|PronType=Art	21	det	21:det	Entity=(place-4-giv:inact-2-coref-Cuba
+21	country	country	NOUN	NN	Number=Sing	19	obj	19:obj	Entity=4)|SpaceAfter=No
 22	.	.	PUNCT	.	_	3	punct	3:punct	_
 
 # sent_id = GUM_voyage_cuba-34
 # s_type = decl
 # text = An ATM and currency exchange are available at Havana airport, but these facilities are not as reliable in Cuba as in other places.
-1	An	a	DET	DT	Definite=Ind|PronType=Art	2	det	2:det	Discourse=concession:104->100|Entity=(object-145(object-146
-2	ATM	ATM	NOUN	NN	Number=Sing	7	nsubj	7:nsubj	Entity=object-146)
+1	An	a	DET	DT	Definite=Ind|PronType=Art	2	det	2:det	Discourse=concession:104->100:2|Entity=(object-145-new-2,5-coref(object-146-new-2-sgl
+2	ATM	ATM	NOUN	NN	Number=Sing	7	nsubj	7:nsubj	Entity=146)
 3	and	and	CCONJ	CC	_	5	cc	5:cc	_
-4	currency	currency	NOUN	NN	Number=Sing	5	compound	5:compound	Entity=(organization-147
-5	exchange	exchange	NOUN	NN	Number=Sing	2	conj	2:conj:and|7:nsubj	Entity=object-145)organization-147)
+4	currency	currency	NOUN	NN	Number=Sing	5	compound	5:compound	Entity=(organization-147-new-2-sgl
+5	exchange	exchange	NOUN	NN	Number=Sing	2	conj	2:conj:and|7:nsubj	Entity=147)145)
 6	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	7	cop	7:cop	_
 7	available	available	ADJ	JJ	Degree=Pos	0	root	0:root	_
 8	at	at	ADP	IN	_	10	case	10:case	_
-9	Havana	Havana	PROPN	NNP	Number=Sing	10	compound	10:compound	Entity=(place-148(place-149-Havana)
-10	airport	airport	NOUN	NN	Number=Sing	7	obl	7:obl:at	Entity=place-148)|SpaceAfter=No
+9	Havana	Havana	PROPN	NNP	Number=Sing	10	compound	10:compound	Entity=(place-148-new-2-sgl(place-149-new-1-sgl-Havana)
+10	airport	airport	NOUN	NN	Number=Sing	7	obl	7:obl:at	Entity=148)|SpaceAfter=No
 11	,	,	PUNCT	,	_	18	punct	18:punct	_
-12	but	but	CCONJ	CC	_	18	cc	18:cc	Discourse=concession:105->104
-13	these	this	DET	DT	Number=Plur|PronType=Dem	14	det	14:det	Entity=(object-145
-14	facilities	facility	NOUN	NNS	Number=Plur	18	nsubj	18:nsubj	Entity=object-145)
+12	but	but	CCONJ	CC	_	18	cc	18:cc	Discourse=concession:105->104:0
+13	these	this	DET	DT	Number=Plur|PronType=Dem	14	det	14:det	Entity=(object-145-giv:act-2-coref
+14	facilities	facility	NOUN	NNS	Number=Plur	18	nsubj	18:nsubj	Entity=145)
 15	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	18	cop	18:cop	_
 16	not	not	PART	RB	Polarity=Neg	18	advmod	18:advmod	_
 17	as	as	ADV	RB	_	18	advmod	18:advmod	_
 18	reliable	reliable	ADJ	JJ	Degree=Pos	7	conj	7:conj:but	_
 19	in	in	ADP	IN	_	20	case	20:case	_
-20	Cuba	Cuba	PROPN	NNP	Number=Sing	18	obl	18:obl:in	Entity=(place-4-Cuba)
-21	as	as	SCONJ	IN	_	24	mark	24:mark	Discourse=antithesis:106->105
+20	Cuba	Cuba	PROPN	NNP	Number=Sing	18	obl	18:obl:in	Entity=(place-4-giv:act-1-coref-Cuba)
+21	as	as	SCONJ	IN	_	24	mark	24:mark	Discourse=antithesis:106->105:0
 22	in	in	ADP	IN	_	24	case	24:case	_
-23	other	other	ADJ	JJ	Degree=Pos	24	amod	24:amod	Entity=(place-150
-24	places	place	NOUN	NNS	Number=Plur	18	advcl	18:advcl:as	Entity=place-150)|SpaceAfter=No
+23	other	other	ADJ	JJ	Degree=Pos	24	amod	24:amod	Entity=(place-150-new-2-sgl
+24	places	place	NOUN	NNS	Number=Plur	18	advcl	18:advcl:as	Entity=150)|SpaceAfter=No
 25	.	.	PUNCT	.	_	7	punct	7:punct	_
 
 # sent_id = GUM_voyage_cuba-35
 # s_type = decl
 # text = Cuban customs can be strict, though they sometimes go easy on tourists.
-1	Cuban	Cuban	ADJ	JJ	Degree=Pos	2	amod	2:amod	Discourse=joint:107->4|Entity=(organization-151
-2	customs	custom	NOUN	NNS	Number=Plur	5	nsubj	5:nsubj	Entity=organization-151)
+# newpar = p (1 s)
+1	Cuban	Cuban	ADJ	JJ	Degree=Pos	2	amod	2:amod	Discourse=joint_m:107->4:3|Entity=(organization-151-new-2-coref|XML=<ref target:::"http://www.aduana.co.cu/agr3.htm">
+2	customs	custom	NOUN	NNS	Number=Plur	5	nsubj	5:nsubj	Entity=151)|XML=</ref>
 3	can	can	AUX	MD	VerbForm=Fin	5	aux	5:aux	_
 4	be	be	AUX	VB	VerbForm=Inf	5	cop	5:cop	_
 5	strict	strict	ADJ	JJ	Degree=Pos	0	root	0:root	SpaceAfter=No
 6	,	,	PUNCT	,	_	10	punct	10:punct	_
-7	though	though	SCONJ	IN	_	10	mark	10:mark	Discourse=concession:108->107
-8	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	10	nsubj	10:nsubj	Entity=(organization-151)
+7	though	though	SCONJ	IN	_	10	mark	10:mark	Discourse=concession:108->107:0
+8	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	10	nsubj	10:nsubj	Entity=(organization-151-giv:act-1-ana)
 9	sometimes	sometimes	ADV	RB	_	10	advmod	10:advmod	_
 10	go	go	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	5	advcl	5:advcl:though	_
 11	easy	easy	ADV	RB	Degree=Pos	10	advmod	10:advmod	_
 12	on	on	ADP	IN	_	13	case	13:case	_
-13	tourists	tourist	NOUN	NNS	Number=Plur	10	obl	10:obl:on	Entity=(person-152)|SpaceAfter=No
+13	tourists	tourist	NOUN	NNS	Number=Plur	10	obl	10:obl:on	Entity=(person-152-new-1-sgl)|SpaceAfter=No
 14	.	.	PUNCT	.	_	5	punct	5:punct	_
 
