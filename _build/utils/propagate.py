@@ -1150,6 +1150,9 @@ def add_entities_to_conllu(gum_target,reddit=False,ontogum=False,conllua_data=No
 						sys.stderr.write("! WARN: Entity with unsub-typed infstat at token " + str(toknum) + " in " + doc + "\n")
 					line = "\t".join(fields)
 					toknum += 1
+			if "# global.Entity" in line and ontogum:
+				line = '# global.Entity = GRP'  # OntoGUM only has coref IDs
+
 			output.append(line)
 
 		if ontogum:
