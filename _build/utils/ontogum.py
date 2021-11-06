@@ -61,6 +61,8 @@ def coref_(fields: list) -> dict:
     if fields[-1] != '_':
         coref_types = fields[-2].split('|')
         for i, x in enumerate(fields[-1].split('|')):
+            BRIDGE_CATA_FLAG = False
+
             point_to = x.split('[')[0]
             cur_e = ''
             next_e = ''
@@ -76,19 +78,27 @@ def coref_(fields: list) -> dict:
                 seen.add(cur_e)
 
             # e.g.  academic_art
-            #       7-3 397-403 people  person  new ana 8-7
+            #       7-3	397-403	people	person	new	ana	8-7
             elif fields[-2] != '_':
                 coref_type = coref_types[i]
 
             if 'bridge' in coref_type or 'cata' in coref_type:
-                continue
+                coref_type = ''
+                point_to = ''
+                next_e = ''
+                BRIDGE_CATA_FLAG = True
 
-            if cur_e in coref.keys():
-                raise ValueError(f'The coref type {coref_type} has not been added into conversion at line {fields[0]}.')
+            if cur_e in coref.keys() and not BRIDGE_CATA_FLAG:
+                # This happens when there are other coreference relations but the relation is either a bridging or cataphora
+                # Ignore the alert
+                a = 1
+                # raise ValueError(f'The coref type {coref_type} has not been added into conversion at line {fields[0]}.')
             coref[cur_e] = (point_to, next_e, coref_type)
 
     # keep singletons
     for mention in all_mentions:
+        # if mention in deleted_ent_id:
+        #     continue
         if mention not in seen:
             coref[mention] = ('', '', '')
 
@@ -319,7 +329,7 @@ def process_doc(dep_doc, coref_doc):
             line_id, token = coref_fields[0], coref_fields[2]
 
             # test
-            if line_id == '32-25':
+            if line_id == '35-6':
                 a = 1
             if coref_fields[5] == 'appos':
                 a = 1
@@ -769,7 +779,7 @@ class Convert(object):
                     next_sent_id = self.doc[_coref.next].text_id.split('-')[0]
                     next_next_sent_id = self.doc[next_next].text_id.split('-')[0]
                     if int(next_next_sent_id) <= int(next_sent_id) + 2:
-                        print(f'Warning: Skip breaking chains in Line {next_sent_id}.')
+                        # print(f'Warning: Skip breaking chains in Line {next_sent_id}.')
                         continue
 
                 break_group = max(self.group_dict.values()) + 1
@@ -897,7 +907,7 @@ class Convert(object):
                     prev_tok_id = int(self.doc[k1].sent[next_start-1][0])
                     id = f'{k1_sent_id}-{prev_tok_id}'
                     if prev_tok in ['"', "'", '-'] and prev_tok_id <= prev_last:
-                        print(prev_tok)
+                        # print(prev_tok)
                         self.doc[k1].span_len -= 1
 
                         self.doc[k2].span_len += 1
@@ -1461,8 +1471,8 @@ def build_ontogum(dep_string, tsv_string):
 
 
 if __name__ == '__main__':
-    corefDir = os.path.join('gum', 'coref', 'tsv')
-    depDir = os.path.join('gum', 'dep')
+    corefDir = os.path.join('..', 'src', 'tsv')
+    depDir = os.path.join('..', 'src', 'dep')
 
     for f in os.listdir(corefDir):
         if '.tsv' not in f:
@@ -1473,8 +1483,8 @@ if __name__ == '__main__':
         new_name = f'GUM_{name_fields[1]}_{name_fields[2]}'
 
         print(filename)
-        if filename != 'GUM_fiction_teeth':
-            continue
+        # if filename != 'GUM_fiction_teeth':
+        #     continue
 
         tsv_string = io.open(os.path.join(corefDir, f), encoding='utf-8').read()
         dep_string = io.open(os.path.join(depDir, new_name + '.conllu'), encoding='utf-8').read()
