@@ -110,6 +110,7 @@ def fix_punct(conllu_string):
 		return "\n".join(output).strip() + "\n\n"
 
 	# Protect possessive apostrophe from being treated as punctuation
+	conllu_string = conllu_string.strip() + "\n\n"
 	ellipses = preserve_ellipsis_tokens(conllu_string)
 	conllu_string = re.sub(r"\t'\t([^\t\n]+\tPART\tPOS)", r'\t&udapi_apos;\t\1', conllu_string, flags=re.MULTILINE)  # remove udapi sent_id
 	doc = Document()
@@ -214,7 +215,7 @@ def is_neg_lemma(lemma,pos):
 	elif lemma.startswith("not-"):
 		return True
 	elif lemma.startswith("un") and (pos.startswith("JJ") or pos.startswith("RB")):
-		if not lemma.startswith("unique") and not lemma.startswith("under"):
+		if not lemma.startswith("unique") and not lemma.startswith("under") and not lemma.startswith("univers"):
 			return True
 	for stem in negstems:
 		if lemma.startswith(stem):
@@ -1067,7 +1068,28 @@ def get_rsd_spans(gum_target):
 	return rsd_spans
 
 
-def add_rsd_to_conllu(gum_target,reddit=False,ontogum=False):
+def add_rsd_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8):
+	def convert_rel(rel, version=8):
+		if version < 7:
+			if "disjunction" in rel:
+				return "contrast_m"
+			elif "means" in rel or "manner" in rel:
+				return "elaboration"
+		elif version < 8:
+			if "restatement" in rel and "_r" not in rel and "_m" not in rel:
+				return "restatement"
+			elif "restatement" in rel and "_r" not in rel:
+				return "restatement_m"
+			elif rel.startswith("elaboration"):
+				return "elaboration"
+			elif "phatic" in rel:
+				return "phatic"
+			elif "preparation" in rel or "organization" in rel:
+				return "preparation"
+			elif "list" in rel:
+				return "joint_m"
+		return rel
+
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
 	rsd_spans = get_rsd_spans(gum_target)
@@ -1097,10 +1119,11 @@ def add_rsd_to_conllu(gum_target,reddit=False,ontogum=False):
 				if not "-" in fields[0] and not "." in fields[0]:  # Regular token, not an ellipsis token or supertok
 					if toknum in rsd_spans[doc]:
 						rsd_data = rsd_spans[doc][toknum]
+						relname = convert_rel(rsd_data[1],version=relation_set)
 						if rsd_data[2] == "0":  # ROOT
-							misc = add_feat(fields[-1],"Discourse=" + rsd_data[1] + ":" + rsd_data[0] + ":" + rsd_data[3]) #+ ":" + rsd_data[4] + ":" + rsd_data[5])
+							misc = add_feat(fields[-1],"Discourse=" + relname + ":" + rsd_data[0] + ":" + rsd_data[3]) #+ ":" + rsd_data[4] + ":" + rsd_data[5])
 						else:
-							misc = add_feat(fields[-1],"Discourse="+rsd_data[1]+":"+rsd_data[0]+"->"+rsd_data[2] + ":" + rsd_data[3]) #+ ":" + rsd_data[4] + ":" + rsd_data[5])
+							misc = add_feat(fields[-1],"Discourse=" + relname + ":"+rsd_data[0]+"->"+rsd_data[2] + ":" + rsd_data[3]) #+ ":" + rsd_data[4] + ":" + rsd_data[5])
 						fields[-1] = misc
 						line = "\t".join(fields)
 					toknum += 1
@@ -1313,6 +1336,10 @@ def add_bridging_to_conllu(gum_target,reddit=False):
 
 		merged = merge_bridge_conllu(io.open(file_,encoding="utf8").read(),io.open(tsv_file,encoding="utf8").read())
 		merged = merged.strip() + "\n\n"
+
+		if any(["Split=" not in l and "acc:aggr" in l for l in merged.split("\n")]):
+			sys.stderr.write("WARN: split information status acc:aggr but no split antecedent 'Split=' detected in " +
+							 os.path.basename(file_)+"\n")
 
 		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
 			f.write(merged)
