@@ -213,7 +213,7 @@ def serialize_tsv_lines(lines, parsed_lines, tsv_path, outdir, as_string=False):
 			cols[3] = format_entities(parsed_lines[i]['entities'])
 			cols[4] = format_attr(parsed_lines[i]['entities'],attr="infstat")
 			cols[5] = format_attr(parsed_lines[i]['entities'],attr="identity")
-			cols[5] = cols[5].replace(" ","_").replace("(","%28").replace(")","%29").replace(",","%2C")
+			cols[5] = cols[5].replace(" ","_").replace("(","%28").replace(")","%29").replace(",","%2C").replace("-","%2D")
 			cols[-2] = format_relations(parsed_lines[i]['relations'])
 			if as_string:
 				output.append("\t".join(cols))
@@ -264,7 +264,7 @@ def parse_tsv_line(line):
 			for ident_anno in identities:  # See if an identity anno corresponds to the currently processed entity ID
 				if ident_anno is not None:
 					entity_identity, ident_id = extract_from_bracket(ident_anno)
-					entity_identity = entity_identity.replace(" ","_").replace("(","%28").replace(")","%29").replace(",","%2C")
+					entity_identity = entity_identity.replace(" ","_").replace("(","%28").replace(")","%29").replace(",","%2C").replace("-","%2D")
 				else:
 					continue
 				if int(ident_id) == entity_id:
@@ -475,7 +475,7 @@ def is_genitive_s(line):
 	return line['pos'] == "POS"
 
 
-def merge_genitive_s(parsed_lines, tsv_path, warn_only):
+def merge_genitive_s(parsed_lines, tsv_path, warn_only, xml_path):
 	"""
 	Merges trailing genitive 's into immediately preceding entity span ([John] 's -> [John 's])
 	:param parsed_lines: list of dictionaries
@@ -496,7 +496,8 @@ def merge_genitive_s(parsed_lines, tsv_path, warn_only):
 						  + "and merged with immediately preceding markable " + e['type'] + '[' + str(e['id']) + '].')
 			else:
 				for e in entity_difference:
-					print("WARN: token " + line['token_id'] + " in doc '" + tsv_path + "' "
+					if not ("GUM_speech_school" in xml_path and e['type'] == "time"):  # Known split 's case, "Kenya Vision 2030 's ..."
+						print("WARN: token " + line['token_id'] + " in doc '" + xml_path + "' "
 						  + "looks like a genitive s but is not contained in the immediately preceding markable "
 						  + e['type'] + '[' + str(e['id']) +"].\n      Per GUM guidelines, it should be included."
 						  + " Run _build/utils/repair_tsv.py to correct this issue.")
@@ -527,7 +528,7 @@ def fix_genitive_s(tsv_path, xml_path, warn_only=True, outdir=None, string_input
 	enrich_tsv_representation_with_pos(parsed_lines, xml_path)
 
 	created_ids, entity_mappings, single_tok_mappings = expand_single_length_entities(parsed_lines)
-	merge_genitive_s(parsed_lines, tsv_path, warn_only)
+	merge_genitive_s(parsed_lines, tsv_path, warn_only, xml_path)
 
 	if not warn_only:
 		collapse_single_length_entities(parsed_lines, created_ids)
@@ -692,7 +693,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 							rel["rel_type"] = "appos"
 							ent["coref_type"] = "appos"
 							ent["infstat"] = 'giv:act'
-					if ent["pos"].startswith("NN") and any(["subj" in fnc for fnc in ent["child_funcs"]]) and not single_coref_type:
+					if ent["pos"].startswith("NN") and (any(["subj" in fnc for fnc in ent["child_funcs"]]) or "as" in ent["child_lower_toks"]) and not single_coref_type:
 						# nominal with subject
 						if not any([t in ent["child_lower_toks"] for t in definites]):  # no definite determiners
 							if not any([":poss" in fnc for fnc in ent["child_funcs"]]):  # no possessors
@@ -811,8 +812,6 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 					ent["infstat"] = "giv:inact"
 				else:
 					ent["infstat"] = "giv:act"
-			else:
-				a=3
 		if ent["group"] is None:  # Not coreferent
 			max_group += 1
 			ent["group"] = max_group
