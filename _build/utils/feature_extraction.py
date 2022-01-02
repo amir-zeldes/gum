@@ -39,12 +39,31 @@ def get_tok_info(docname,corpus_root):
 		lines = open(conll_file).read().replace("\r","").split("\n")
 	except:
 		lines = open(conll_file.replace(".conll10",".conllu")).read().replace("\r","").split("\n")
+	offset = sent_toks = 0
+	toks_by_abs_id = {}
+	sid = 1
 	for line in lines:
 		if "\t" in line:
 			cols = line.split("\t")
 			if "-" in cols[0] or "." in cols[0]:
 				continue
-			tokens.append(ParsedToken(cols[0],cols[1],cols[2],cols[3],cols[5],cols[6],cols[7]))
+			tok = ParsedToken(cols[0],cols[1],cols[2],cols[3],cols[5],cols[6],cols[7])
+			tok.abs_id = int(cols[0]) + offset
+			tok.abs_head = int(cols[6]) + offset if cols[6] != "0" else 0
+			tok.sent_id = sid
+			toks_by_abs_id[tok.abs_id] = tok
+			tokens.append(tok)
+			sent_toks += 1
+		elif len(line.strip())==0:
+			offset += sent_toks
+			sent_toks = 0
+			sid += 1
+
+	for tok in tokens:
+		if tok.head != "0":
+			tok.parent = toks_by_abs_id[tok.abs_head]
+		else:
+			tok.parent = None
 
 	counter = 0
 	heading = "_"
@@ -81,6 +100,7 @@ def get_tok_info(docname,corpus_root):
 		elif '<item>' in line:
 			item = "open_item"
 		if "\t" in line:
+			fields = line.split("\t")
 			tokens[counter].heading = heading
 			tokens[counter].caption = caption
 			tokens[counter].list = list
@@ -88,6 +108,8 @@ def get_tok_info(docname,corpus_root):
 			tokens[counter].date = date
 			tokens[counter].para = para
 			tokens[counter].item = item
+			tokens[counter].pos = fields[1]
+			tokens[counter].lemma = fields[2]
 			para = "_"
 			item = "_"
 
