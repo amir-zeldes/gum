@@ -44,14 +44,14 @@
       <xs:attribute name="dateCreated" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="(xxxx|(19|20)[0-9][0-9])-(1[0-2]|0[1-9])-(3[01]|[12][0-9]|0[1-9])"/>
+            <xs:pattern value="(xxxx|(18|19|20)[0-9][0-9])-(1[0-2]|0[1-9])-(3[01]|[12][0-9]|0[1-9])"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="dateModified" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="(xxxx|(19|20)[0-9][0-9])-(1[0-2]|0[1-9])-(3[01]|[12][0-9]|0[1-9])"/>
+            <xs:pattern value="(xxxx|(18|19|20)[0-9][0-9])-(1[0-2]|0[1-9])-(3[01]|[12][0-9]|0[1-9])"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -136,6 +136,7 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="head"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="list"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="p"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="quote"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="w"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="hi"/>
       </xs:choice>
@@ -259,6 +260,7 @@
     <xs:complexType mixed="true">
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="hi"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ref"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="q"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="sic"/>
       </xs:sequence>
@@ -305,6 +307,7 @@
     <xs:complexType mixed="true">
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="quote"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="hi"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="s"/>
       </xs:sequence>
       <xs:attribute name="rend"/>
