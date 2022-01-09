@@ -392,7 +392,7 @@ def validate_annos(gum_source, reddit=False):
 		non_lemmas = ["them","me","him","n't"]
 		non_lemma_combos = [("PP","her"),("MD","wo"),("PP","us"),("DT","an")]
 		non_cap_lemmas = ["There","How","Why","Where","When"]
-		IN_not_like_lemma = ["vs", "vs.", "ca", "that", "then", "a", "fro", "too"]  # incl. known typos
+		IN_not_like_lemma = ["vs", "vs.", "v", "ca", "that", "then", "a", "fro", "too", "til"]  # incl. known typos
 
 		prev_tok = ""
 		prev_pos = ""
@@ -754,6 +754,12 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if parent_lemma == "let" and func=="ccomp":
 		print("WARN: verb 'let' should take xcomp clausal object, not ccomp" + inname)
 
+	if pos == "MD" and lemma not in ["can","must","will","shall","would","could","may","might","ought","should"]:
+		print("WARN: lemma '"+lemma+"' is not a known modal verb for tag MD" + inname)
+
+	if lemma == "like" and pos == "UH" and func not in ["discourse","conj","reparandum"]:
+		print("WARN: lemma '"+lemma+"' with tag UH should have deprel discourse, not "+ func + inname)
+
 	if func in ["iobj","obj"] and parent_lemma in ["become","remain","stay"]:
 		print("WARN: verb '"+parent_lemma+"' should take xcomp not "+func+" argument" + inname)
 
@@ -777,7 +783,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("that","is"), ("up","to"),("whether","or"),
 				 ("whether","not"),("depend","on"),("out","of"),("off","of"),("long","than"),("on","board"),("as","of"),("depend","upon"),
 				 ("that","be"),("just","about"),("vice","versa"),("as","such"),("next","to"),("close","to"),("one","another"),
-				 ("de","facto"),("each","other")}
+				 ("de","facto"),("each","other"), ("as","many")}
 
 	# Ad hoc listing of triple mwe parts - All in all, in order for
 	mwe_pairs.update({("all","in"),("all","all"),("in","for")})
