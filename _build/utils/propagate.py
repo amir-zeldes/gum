@@ -521,8 +521,10 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 			  "GUM_fiction_lunre", "GUM_fiction_beast",
 			  "GUM_academic_exposure", "GUM_academic_librarians",
 			  #"GUM_reddit_macroeconomics", "GUM_reddit_pandas",
-			  "GUM_speech_impeachment", "GUM_textbook_cognition",
-			  "GUM_vlog_radiology", "GUM_conversation_grounded"]
+			  "GUM_speech_impeachment", "GUM_textbook_labor",
+			  "GUM_vlog_radiology", "GUM_conversation_grounded",
+			  "GUM_textbook_governments", "GUM_vlog_portland",
+			  "GUM_conversation_risk", "GUM_speech_inauguration"]
 	ud_test = ["GUM_interview_libertarian", "GUM_interview_hill",
 			   "GUM_news_nasa", "GUM_news_sensitive",
 			   "GUM_voyage_oakland", "GUM_voyage_vavau",
@@ -532,7 +534,9 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 			   "GUM_academic_eegimaa", "GUM_academic_discrimination",
 			   #"GUM_reddit_escape", "GUM_reddit_monsters",
 			   "GUM_speech_austria", "GUM_textbook_chemistry",
-			   "GUM_vlog_studying", "GUM_conversation_retirement"]
+			   "GUM_vlog_studying", "GUM_conversation_retirement",
+			   "GUM_textbook_union", "GUM_vlog_london",
+			   "GUM_conversation_lambada", "GUM_speech_newzealand"]
 
 
 	train_string, dev_string, test_string = "", "", ""
