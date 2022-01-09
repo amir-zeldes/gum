@@ -807,6 +807,10 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		# Add enhanced dependencies
 		negatived = ud_edep_deped.run_depedit(negatived).strip()
 
+		# Remove invalid enhanced dependencies
+		negatived = re.sub(r'(nmod|obl):(de|en|a)(?=[\|\t])',r'\1',negatived)
+		negatived = re.sub(r'(conj):(as_well)(?=[\|\t])',r'\1:as_well_as',negatived)
+
 		# Add upos to target/xml/
 		xml_lines = io.open(gum_target + "xml" + os.sep + docname + ".xml",encoding="utf8").read().split("\n")
 		toknum = 0
