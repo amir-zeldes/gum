@@ -715,7 +715,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 
 		# Add metadata and global declaration
 		lines = processed_lines.split("\n")
-		header = ["# global.Entity = entity-GRP-infstat-MIN-coref_type-identity"]
+		header = ["# global.Entity = etype-eid-infstat-minspan-link-identity"]
 		meta = get_meta(docname,gum_target)
 		header.append("# meta::dateCollected = " + meta["dateCollected"])
 		header.append("# meta::dateCreated = " + meta["dateCreated"])
@@ -1182,7 +1182,7 @@ def add_entities_to_conllu(gum_target,reddit=False,ontogum=False,conllua_data=No
 					line = "\t".join(fields)
 					toknum += 1
 			if "# global.Entity" in line and ontogum:
-				line = '# global.Entity = GRP'  # OntoGUM only has coref IDs
+				line = '# global.Entity = eid'  # OntoGUM only has coref IDs
 
 			output.append(line)
 
