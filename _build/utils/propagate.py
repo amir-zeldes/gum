@@ -262,7 +262,7 @@ def add_feat(field,feat):
 def remove_entities(misc):
 	output = []
 	for anno in misc.split("|"):
-		if anno.startswith("Entity=") or anno.startswith("Bridge=") or anno.startswith("Split=") or anno == "_":
+		if anno.startswith("Entity=") or anno.startswith("Bridge=") or anno.startswith("SplitAnte=") or anno == "_":
 			continue
 		else:
 			output.append(anno)
@@ -1318,7 +1318,7 @@ def merge_bridge_conllu(conllu, webannotsv):
 			if len(bridging) > 0:
 				out_misc.append("Bridge=" + ",".join(bridging))
 			if len(split_ante) > 0:
-				out_misc.append("Split=" + ",".join(split_ante))
+				out_misc.append("SplitAnte=" + ",".join(split_ante))
 			bridging = []
 			split_ante = []
 			fields[-1] = "|".join(sorted(out_misc)) if len(out_misc) > 0 else "_"
@@ -1345,8 +1345,8 @@ def add_bridging_to_conllu(gum_target,reddit=False):
 		merged = merge_bridge_conllu(io.open(file_,encoding="utf8").read(),io.open(tsv_file,encoding="utf8").read())
 		merged = merged.strip() + "\n\n"
 
-		if any(["Split=" not in l and "acc:aggr" in l for l in merged.split("\n")]):
-			sys.stderr.write("WARN: split information status acc:aggr but no split antecedent 'Split=' detected in " +
+		if any(["SplitAnte=" not in l and "acc:aggr" in l for l in merged.split("\n")]):
+			sys.stderr.write("WARN: split information status acc:aggr but no split antecedent 'SplitAnte=' detected in " +
 							 os.path.basename(file_)+"\n")
 
 		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
