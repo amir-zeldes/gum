@@ -315,6 +315,7 @@ def validate_annos(gum_source, reddit=False):
 
 		# Dictionaries to hold token annotations from conllu data
 		funcs = {}
+		postags = {}
 		tokens = {}
 		parent_ids = {}
 		lemmas = {}
@@ -368,7 +369,7 @@ def validate_annos(gum_source, reddit=False):
 		for line in xml_lines:
 			if "\t" in line:  # Token
 				tok_num += 1
-				lemmas[tok_num] = line.split("\t")[2]
+				_, postags[tok_num], lemmas[tok_num] = line.split("\t")
 				sent_types[tok_num] = s_type
 				if new_sent:
 					sent_positions[tok_num] = "first"
@@ -391,6 +392,7 @@ def validate_annos(gum_source, reddit=False):
 				  ",",":","HYPH"]
 		non_lemmas = ["them","me","him","n't"]
 		non_lemma_combos = [("PP","her"),("MD","wo"),("PP","us"),("DT","an")]
+		lemma_pos_combos = {"which":"WDT"}
 		non_cap_lemmas = ["There","How","Why","Where","When"]
 		IN_not_like_lemma = ["vs", "vs.", "v", "ca", "that", "then", "a", "fro", "too", "til"]  # incl. known typos
 
@@ -412,14 +414,18 @@ def validate_annos(gum_source, reddit=False):
 					print("WARN: invalid lemma " + lemma + " for POS "+pos+" in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
 				elif pos == "IN" and tok.lower() not in IN_not_like_lemma and lemma != tok.lower():
 						print("WARN: pos IN should have lemma identical to lower cased token in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
+				elif lemma in lemma_pos_combos:
+					if pos != lemma_pos_combos[lemma]:
+						print("WARN: invalid pos " + pos + " for lemma "+lemma+" in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
 
 				parent_string = parents[tok_num]
 				parent_id = parent_ids[tok_num]
 				parent_lemma = lemmas[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
 				parent_func = funcs[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
+				parent_pos = postags[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
 				flag_dep_warnings(tok_num, tok, pos, lemma, func, parent_string, parent_lemma, parent_id,
 								  children[tok_num], child_funcs[tok_num], sent_types[tok_num], docname,
-								  prev_tok, prev_pos, sent_positions[tok_num], parent_func)
+								  prev_tok, prev_pos, sent_positions[tok_num], parent_func, parent_pos)
 				prev_pos = pos
 				prev_tok = tok
 
@@ -619,7 +625,7 @@ def truncate(text):
 
 
 def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id, children, child_funcs, s_type,
-					  docname, prev_tok, prev_pos, sent_position, parent_func):
+					  docname, prev_tok, prev_pos, sent_position, parent_func, parent_pos):
 	# Shorthand for printing errors
 	inname = " in " + docname + " @ token " + str(id) + " (" + parent + " -> " + tok + ")"
 
@@ -765,6 +771,19 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if func in ["nmod:tmod","nmod:npmod","obl:tmod","obl:npmod"] and "case" in child_funcs:
 		print("WARN: function " + func +  " should not have 'case' dependents" + inname)
+
+	if func in ["aux:pass","nsubj:pass"] and parent_pos not in ["VVN","VBN","VHN"]:
+		if not (("stardust" in docname and parent_lemma == "would") or parent_lemma == "Rated"):
+			print("WARN: function " + func + " should not be the child of pos " + parent_pos + inname)
+
+	if func == "obl:agent" and (parent_pos not in ["VBN","VHN","VVN"] or "by" not in children):
+		print("WARN: function " + func +  " must by child of V.N with a 'by' dependent" + parent_pos + inname)
+
+	if child_funcs.count("obl:agent") > 1:
+		print("WARN: a token may have at most one obl:agent dependent" + inname)
+
+	if "obl:agent" in child_funcs and ("nsubj" in child_funcs or "csubj" in child_funcs) and not "nsubj:pass" in child_funcs:
+		print("WARN: a token cannot have both a *subj relation and obl:agent" + inname)
 
 	if pos in ["VBD","VVD","VHD","VBP","VVP","VHP"] and "aux" in child_funcs:
 		print(str(id) + docname)
