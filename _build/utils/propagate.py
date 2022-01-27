@@ -715,7 +715,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 
 		# Add metadata and global declaration
 		lines = processed_lines.split("\n")
-		header = ["# global.Entity = etype-eid-infstat-minspan-link-identity"]
+		header = ["# global.Entity = GRP-etype-infstat-minspan-link-identity"]
 		meta = get_meta(docname,gum_target)
 		header.append("# meta::dateCollected = " + meta["dateCollected"])
 		header.append("# meta::dateCreated = " + meta["dateCreated"])
@@ -1155,6 +1155,7 @@ def add_entities_to_conllu(gum_target,reddit=False,ontogum=False,conllua_data=No
 	if not reddit:
 		files = [f for f in files if not "reddit" in f]
 
+	entexp = "(person|place|organization|plant|abstract|object|event|time|animal|substance)-([0-9]+)"
 	for file_ in files:
 		with io.open(file_,encoding="utf8") as f:
 			lines = f.read().split("\n")
@@ -1175,6 +1176,10 @@ def add_entities_to_conllu(gum_target,reddit=False,ontogum=False,conllua_data=No
 						raise IndexError("Token number " + str(toknum) + " not found in document " + doc)
 					misc = remove_entities(fields[-1])
 					if entity_data != "_":
+						if "-" in entity_data:
+							# place GRP first to match CorefUD standard
+							entity_data = re.sub(entexp,r'\2-\1',entity_data)
+
 						misc = add_feat(misc,"Entity="+entity_data)
 					fields[-1] = misc
 					if "-giv-" in misc or "-acc-" in misc:
@@ -1182,7 +1187,7 @@ def add_entities_to_conllu(gum_target,reddit=False,ontogum=False,conllua_data=No
 					line = "\t".join(fields)
 					toknum += 1
 			if "# global.Entity" in line and ontogum:
-				line = '# global.Entity = eid'  # OntoGUM only has coref IDs
+				line = '# global.Entity = GRP'  # OntoGUM only has coref IDs
 
 			output.append(line)
 
@@ -1250,7 +1255,7 @@ def get_bridging(webannotsv):
 def merge_bridge_conllu(conllu, webannotsv):
 	def no_brace(instr):
 		if "-" in instr:
-			return instr.split("-")[1].replace("(","").replace(")","")
+			return instr.split("-")[0].replace("(","").replace(")","")
 		else:
 			return instr.replace("(","").replace(")","")
 
