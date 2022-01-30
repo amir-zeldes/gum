@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import os, shutil, sys, io
+import os, shutil, sys, io, re
 from glob import glob
 from argparse import ArgumentParser
 from utils.pepper_runner import run_pepper
@@ -99,7 +99,26 @@ from utils.repair_rst import fix_rst
 
 
 # Moved from propagate.py to facilitate lazy loading of the Cython dependencies
-def const_parse(gum_source, warn_slash_tokens=False, reddit=False):
+def const_parse(gum_source, warn_slash_tokens=False, reddit=False, only_parse_diff=True):
+	def check_diff(xml, ptb, docname):
+		# Check whether tokens, sentence splits and tags have changed in XML compared to PTB format
+		ptb_trees = ptb.strip().split("(ROOT")[1:]
+		xml_sents = xml.split("</s>")[:-1]
+		if len(xml_sents) != len(ptb_trees):
+			sys.stderr.write("! "+docname+": different sentence counts in const/ and xml/ - flagging for reparse\n")
+			return True
+		else:
+			for i, sent in enumerate(ptb_trees):
+				ptb_tags = re.findall(r"\(([^()\s]+) [^()\s]+\)",sent)
+				xml_tags = [l.split("\t")[:2] for l in xml_sents[i].split("\n") if "\t" in l]
+				vanilla_tags = [tt2vanilla(tag,token) for token, tag in xml_tags]
+				if len(vanilla_tags) != len(ptb_tags):
+					sys.stderr.write("! "+docname+": different token counts in const/ and xml/: '"+ " ".join([t[0] for t in xml_tags]) +"' - flagging for reparse\n")
+					return True
+				elif any([x != ptb_tags[i] for i, x in enumerate(vanilla_tags)]):
+					sys.stderr.write("! "+docname+": different tags in const/ and xml/: '"+ " ".join([t[0] for t in xml_tags]) +"' - flagging for reparse\n")
+					return True
+		return False
 
 	# added here for lazy loading
 	# only load the cython dependencies if need to regenerate the parse trees
@@ -117,6 +136,9 @@ def const_parse(gum_source, warn_slash_tokens=False, reddit=False):
 	xmlfiles = []
 	for file_ in files_:
 		if not reddit and "reddit_" in file_:
+			continue
+		changed = check_diff(io.open(file_,encoding="utf8").read(), io.open(file_.replace(".xml",".ptb").replace("xml","const"),encoding="utf8").read(), os.path.basename(file_))
+		if not changed:
 			continue
 		xmlfiles.append(file_)
 
