@@ -10,8 +10,8 @@
 # s_type = decl
 # text = Athens (Greek: Αθήνα, Athína), is the capital city of Greece with a metropolitan population of 3.7 million inhabitants.
 # newpar = p (2 s)
-1	Athens	Athens	PROPN	NNP	Number=Sing	13	nsubj	13:nsubj	Discourse=background:1->7:5|Entity=(1)|XML=<hi rend:::"bold"></hi>
-2	(	(	PUNCT	-LRB-	_	5	punct	5:punct	Discourse=elaboration:2->1:0|SpaceAfter=No
+1	Athens	Athens	PROPN	NNP	Number=Sing	13	nsubj	13:nsubj	Discourse=context-background:1->7:5|Entity=(1)|XML=<hi rend:::"bold"></hi>
+2	(	(	PUNCT	-LRB-	_	5	punct	5:punct	Discourse=elaboration-additional:2->1:0|SpaceAfter=No
 3	Greek	Greek	PROPN	NNP	Number=Sing	5	dep	5:dep	SpaceAfter=No|XML=<ref target:::"https://en.wikivoyage.org/wiki/Greek_phrasebook"></ref>
 4	:	:	PUNCT	:	_	3	punct	3:punct	_
 5	Αθήνα	Αθήνα	X	FW	_	1	appos	1:appos	Entity=(2)|SpaceAfter=No
@@ -38,11 +38,11 @@
 # sent_id = GUM_voyage_athens-2
 # s_type = decl
 # text = It is in many ways the birthplace of Classical Greece, and therefore of Western civilization.
-1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	7	nsubj	7:nsubj	Discourse=elaboration:4->1:2|Entity=(1)
+1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	7	nsubj	7:nsubj	Discourse=elaboration-additional:4->1:2|Entity=(1)
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	7	cop	7:cop	_
 3	in	in	ADP	IN	_	5	case	5:case	_
 4	many	many	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
-5	ways	way	NOUN	NNS	Number=Plur	7	nmod	7:nmod:in	_
+5	ways	way	NOUN	NNS	Number=Plur	7	obl	7:obl:in	_
 6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	_
 7	birthplace	birthplace	NOUN	NN	Number=Sing	0	root	0:root	_
 8	of	of	ADP	IN	_	10	case	10:case	_
@@ -53,20 +53,20 @@
 13	therefore	therefore	ADV	RB	Degree=Pos	16	advmod	16:advmod	_
 14	of	of	ADP	IN	_	16	case	16:case	_
 15	Western	Western	ADJ	JJ	Degree=Pos	16	amod	16:amod	_
-16	civilization	civilization	NOUN	NN	Number=Sing	8	conj	8:conj:and|10:case	SpaceAfter=No
+16	civilization	civilization	NOUN	NN	Number=Sing	10	conj	7:nmod:of|10:conj:and	SpaceAfter=No
 17	.	.	PUNCT	.	_	7	punct	7:punct	_
 
 # sent_id = GUM_voyage_athens-3
 # s_type = imp
 # text = Understand
 # newpar = head rend:::"bold" (1 s)
-1	Understand	understand	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=preparation:5->7:4
+1	Understand	understand	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=organization-heading:5->7:4
 
 # sent_id = GUM_voyage_athens-4
 # s_type = frag
 # text = Old Athens
 # newpar = figure rend:::"Old Athens street" (1 s) | caption (1 s)
-1	Old	Old	ADJ	NNP	Degree=Pos	2	amod	2:amod	Discourse=preparation:6->7:2
+1	Old	Old	ADJ	NNP	Degree=Pos	2	amod	2:amod	Discourse=organization-preparation:6->7:2
 2	Athens	Athens	PROPN	NNP	Number=Sing	0	root	0:root	_
 
 # sent_id = GUM_voyage_athens-5
@@ -92,10 +92,10 @@
 # sent_id = GUM_voyage_athens-6
 # s_type = decl
 # text = The legend says that the King of Athens, Theseus unified the ten tribes of early Athens into one kingdom (c. 1230 BC).
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=attribution:8->9:1
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=attribution-positive:8->9:1
 2	legend	legend	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	_
 3	says	say	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
-4	that	that	SCONJ	IN	_	11	mark	11:mark	Discourse=cause:9->11:3
+4	that	that	SCONJ	IN	_	11	mark	11:mark	Discourse=causal-cause:9->11:3
 5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	_
 6	King	King	PROPN	NNP	Number=Sing	11	nsubj	11:nsubj	_
 7	of	of	ADP	IN	_	8	case	8:case	_
@@ -112,7 +112,7 @@
 18	into	into	ADP	IN	_	20	case	20:case	_
 19	one	one	NUM	CD	NumForm=Word|NumType=Card	20	nummod	20:nummod	_
 20	kingdom	kingdom	NOUN	NN	Number=Sing	11	obl	11:obl:into	_
-21	(	(	PUNCT	-LRB-	_	23	punct	23:punct	Discourse=circumstance:10->9:0|SpaceAfter=No
+21	(	(	PUNCT	-LRB-	_	23	punct	23:punct	Discourse=context-circumstance:10->9:0|SpaceAfter=No
 22	c.	c.	ADV	FW	Abbr=Yes	23	advmod	23:advmod	_
 23	1230	1230	NUM	CD	NumForm=Digit|NumType=Card	11	obl	11:obl	XML=<date when:::"-1230">
 24	BC	BC	ADV	RB	Degree=Pos	23	nmod:tmod	23:nmod:tmod	SpaceAfter=No|XML=</date>
@@ -122,11 +122,11 @@
 # sent_id = GUM_voyage_athens-7
 # s_type = decl
 # text = This process of synoikismos – bringing together in one home – created the largest and wealthiest state on the Greek mainland, but it also created a larger class of people excluded from political life by the nobility.
-1	This	this	DET	DT	Number=Sing|PronType=Dem	2	det	2:det	Discourse=background:11->7:0
+1	This	this	DET	DT	Number=Sing|PronType=Dem	2	det	2:det	Discourse=context-background:11->7:0
 2	process	process	NOUN	NN	Number=Sing	12	nsubj	12:nsubj	_
 3	of	of	ADP	IN	_	4	case	4:case	_
 4	synoikismos	synoikismos	X	FW	_	2	nmod	2:nmod:of	_
-5	–	-	PUNCT	:	_	6	punct	6:punct	Discourse=restatement:12->11:0
+5	–	-	PUNCT	:	_	6	punct	6:punct	Discourse=restatement-partial:12->11:0
 6	bringing	bring	VERB	VBG	VerbForm=Ger	4	appos	4:appos	Entity=(4)
 7	together	together	ADV	RB	Degree=Pos	6	advmod	6:advmod	_
 8	in	in	ADP	IN	_	10	case	10:case	_
@@ -144,7 +144,7 @@
 20	Greek	Greek	ADJ	JJ	Degree=Pos	21	amod	21:amod	_
 21	mainland	mainland	NOUN	NN	Number=Sing	17	nmod	17:nmod:on	SpaceAfter=No
 22	,	,	PUNCT	,	_	26	punct	26:punct	_
-23	but	but	CCONJ	CC	_	26	cc	26:cc	Discourse=contrast_m:14->11:2
+23	but	but	CCONJ	CC	_	26	cc	26:cc	Discourse=adversative-contrast_m:14->11:2
 24	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	26	nsubj	26:nsubj	Entity=(4)
 25	also	also	ADV	RB	_	26	advmod	26:advmod	_
 26	created	create	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	12	conj	12:conj:but	_
@@ -159,13 +159,13 @@
 35	life	life	NOUN	NN	Number=Sing	32	obl	32:obl:from	_
 36	by	by	ADP	IN	_	38	case	38:case	_
 37	the	the	DET	DT	Definite=Def|PronType=Art	38	det	38:det	_
-38	nobility	nobility	NOUN	NN	Number=Sing	32	obl	32:obl:by	SpaceAfter=No
+38	nobility	nobility	NOUN	NN	Number=Sing	32	obl:agent	32:obl:agent	SpaceAfter=No
 39	.	.	PUNCT	.	_	12	punct	12:punct	_
 
 # sent_id = GUM_voyage_athens-8
 # s_type = decl
 # text = By the 7th century BC, social unrest had become widespread, and the Areopagus appointed Draco to draft a strict new law code (hence "draconian").
-1	By	by	ADP	IN	_	4	case	4:case	Discourse=cause:15->16:2|XML=<date notAfter:::"-0700">
+1	By	by	ADP	IN	_	4	case	4:case	Discourse=causal-cause:15->16:2|XML=<date notAfter:::"-0700">
 2	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	_
 3	7th	7th	ADJ	JJ	Degree=Pos|NumType=Ord	4	amod	4:amod	_
 4	century	century	NOUN	NN	Number=Sing	10	obl	10:obl:by	_
@@ -177,19 +177,19 @@
 10	become	become	VERB	VBN	Tense=Past|VerbForm=Part	0	root	0:root	_
 11	widespread	widespread	ADJ	JJ	Degree=Pos	10	xcomp	10:xcomp	SpaceAfter=No
 12	,	,	PUNCT	,	_	16	punct	16:punct	_
-13	and	and	CCONJ	CC	_	16	cc	16:cc	Discourse=sequence_m:16->7:1
+13	and	and	CCONJ	CC	_	16	cc	16:cc	Discourse=joint-sequence_m:16->7:1
 14	the	the	DET	DT	Definite=Def|PronType=Art	15	det	15:det	Entity=(5
 15	Areopagus	Areopagus	PROPN	NNP	Number=Sing	16	nsubj	16:nsubj	Entity=5)
 16	appointed	appoint	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	10	conj	10:conj:and	_
 17	Draco	Draco	PROPN	NNP	Number=Sing	16	obj	16:obj|19:nsubj:xsubj	_
-18	to	to	PART	TO	_	19	mark	19:mark	Discourse=purpose:17->16:0
+18	to	to	PART	TO	_	19	mark	19:mark	Discourse=purpose-goal:17->16:0
 19	draft	draft	VERB	VB	VerbForm=Inf	16	xcomp	16:xcomp	_
 20	a	a	DET	DT	Definite=Ind|PronType=Art	24	det	24:det	Entity=(6
 21	strict	strict	ADJ	JJ	Degree=Pos	24	amod	24:amod	_
 22	new	new	ADJ	JJ	Degree=Pos	24	amod	24:amod	_
 23	law	law	NOUN	NN	Number=Sing	24	compound	24:compound	_
 24	code	code	NOUN	NN	Number=Sing	19	obj	19:obj	Entity=6)
-25	(	(	PUNCT	-LRB-	_	28	punct	28:punct	Discourse=elaboration:18->16:1|SpaceAfter=No
+25	(	(	PUNCT	-LRB-	_	28	punct	28:punct	Discourse=elaboration-additional:18->16:1|SpaceAfter=No
 26	hence	hence	ADV	RB	Degree=Pos	28	advmod	28:advmod	_
 27	"	''	PUNCT	``	_	28	punct	28:punct	SpaceAfter=No
 28	draconian	draconian	ADJ	JJ	Degree=Pos	16	parataxis	16:parataxis	SpaceAfter=No
@@ -200,11 +200,11 @@
 # sent_id = GUM_voyage_athens-9
 # s_type = decl
 # text = When this failed, they appointed Solon, with a mandate to create a new constitution (594).
-1	When	when	SCONJ	WRB	PronType=Int	3	mark	3:mark	Discourse=circumstance:19->20:1
+1	When	when	SCONJ	WRB	PronType=Int	3	mark	3:mark	Discourse=context-circumstance:19->20:1
 2	this	this	PRON	DT	Number=Sing|PronType=Dem	3	nsubj	3:nsubj	Entity=(6)
 3	failed	fail	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	6	advcl	6:advcl:when	SpaceAfter=No
 4	,	,	PUNCT	,	_	3	punct	3:punct	_
-5	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	6	nsubj	6:nsubj	Discourse=cause:20->22:1|Entity=(5)
+5	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	6	nsubj	6:nsubj	Discourse=causal-cause:20->22:1|Entity=(5)
 6	appointed	appoint	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	Entity=(7)
 7	Solon	Solon	PROPN	NNP	Number=Sing	6	obj	6:obj	SpaceAfter=No
 8	,	,	PUNCT	,	_	11	punct	11:punct	_
@@ -216,7 +216,7 @@
 14	a	a	DET	DT	Definite=Ind|PronType=Art	16	det	16:det	_
 15	new	new	ADJ	JJ	Degree=Pos	16	amod	16:amod	_
 16	constitution	constitution	NOUN	NN	Number=Sing	13	obj	13:obj	_
-17	(	(	PUNCT	-LRB-	_	18	punct	18:punct	Discourse=circumstance:21->20:0|SpaceAfter=No
+17	(	(	PUNCT	-LRB-	_	18	punct	18:punct	Discourse=context-circumstance:21->20:0|SpaceAfter=No
 18	594	594	NUM	CD	NumForm=Digit|NumType=Card	6	obl:tmod	6:obl:tmod	SpaceAfter=No|XML=<date when:::"-0594"></date>
 19	)	)	PUNCT	-RRB-	_	18	punct	18:punct	SpaceAfter=No
 20	.	.	PUNCT	.	_	6	punct	6:punct	_
@@ -224,7 +224,7 @@
 # sent_id = GUM_voyage_athens-10
 # s_type = decl
 # text = This was the great beginning of a new social revolution, which was the result of the democracy under Clisthenes (508 BC).
-1	This	this	PRON	DT	Number=Sing|PronType=Dem	5	nsubj	5:nsubj	Discourse=sequence_m:22->7:1|Entity=(7)
+1	This	this	PRON	DT	Number=Sing|PronType=Dem	5	nsubj	5:nsubj	Discourse=joint-sequence_m:22->7:1|Entity=(7)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	5	cop	5:cop	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	_
 4	great	great	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
@@ -235,7 +235,7 @@
 9	social	social	ADJ	JJ	Degree=Pos	10	amod	10:amod	_
 10	revolution	revolution	NOUN	NN	Number=Sing	5	nmod	5:nmod:of|15:nsubj	SpaceAfter=No
 11	,	,	PUNCT	,	_	15	punct	15:punct	_
-12	which	which	PRON	WDT	PronType=Rel	15	nsubj	10:ref	Discourse=elaboration:23->22:0
+12	which	which	PRON	WDT	PronType=Rel	15	nsubj	10:ref	Discourse=elaboration-attribute:23->22:0
 13	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	15	cop	15:cop	_
 14	the	the	DET	DT	Definite=Def|PronType=Art	15	det	15:det	_
 15	result	result	NOUN	NN	Number=Sing	10	acl:relcl	10:acl:relcl	_
@@ -244,7 +244,7 @@
 18	democracy	democracy	NOUN	NN	Number=Sing	15	nmod	15:nmod:of	_
 19	under	under	ADP	IN	_	20	case	20:case	_
 20	Clisthenes	Clisthenes	PROPN	NNP	Number=Sing	18	nmod	18:nmod:under	_
-21	(	(	PUNCT	-LRB-	_	22	punct	22:punct	Discourse=circumstance:24->23:0|SpaceAfter=No
+21	(	(	PUNCT	-LRB-	_	22	punct	22:punct	Discourse=context-circumstance:24->23:0|SpaceAfter=No
 22	508	508	NUM	CD	NumForm=Digit|NumType=Card	18	nmod:tmod	18:nmod:tmod	XML=<date when:::"-0508">
 23	BC	BC	ADV	RB	Degree=Pos	22	nmod:tmod	22:nmod:tmod	SpaceAfter=No|XML=</date>
 24	)	)	PUNCT	-RRB-	_	22	punct	22:punct	SpaceAfter=No
@@ -253,7 +253,7 @@
 # sent_id = GUM_voyage_athens-11
 # s_type = decl
 # text = During the Middle Ages, Athens experienced a decline, but re-emerged under Byzantian rule.
-1	During	during	ADP	IN	_	4	case	4:case	Discourse=sequence_m:25->7:1
+1	During	during	ADP	IN	_	4	case	4:case	Discourse=joint-sequence_m:25->7:1
 2	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	XML=<date notBefore:::"0400-01-01" notAfter:::"1499-12-31">
 3	Middle	Middle	PROPN	NNP	Number=Sing	4	compound	4:compound	_
 4	Ages	Age	PROPN	NNPS	Number=Plur	7	obl	7:obl:during	SpaceAfter=No|XML=</date>
@@ -263,7 +263,7 @@
 8	a	a	DET	DT	Definite=Ind|PronType=Art	9	det	9:det	_
 9	decline	decline	NOUN	NN	Number=Sing	7	obj	7:obj	SpaceAfter=No
 10	,	,	PUNCT	,	_	12	punct	12:punct	_
-11	but	but	CCONJ	CC	_	12	cc	12:cc	Discourse=contrast_m:26->25:0
+11	but	but	CCONJ	CC	_	12	cc	12:cc	Discourse=adversative-contrast_m:26->25:0
 12	re-emerged	re-emerge	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	7	conj	7:conj:but	_
 13	under	under	ADP	IN	_	15	case	15:case	_
 14	Byzantian	Byzantian	ADJ	JJ	Degree=Pos	15	amod	15:amod	_
@@ -273,7 +273,7 @@
 # sent_id = GUM_voyage_athens-12
 # s_type = decl
 # text = Athens was thriving and prosperous during the Crusades, actually benefiting from the Italian trade during this period.
-1	Athens	Athens	PROPN	NNP	Number=Sing	3	nsubj	3:nsubj	Discourse=sequence_m:27->7:1|Entity=(1)
+1	Athens	Athens	PROPN	NNP	Number=Sing	3	nsubj	3:nsubj	Discourse=joint-sequence_m:27->7:1|Entity=(1)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	aux	3:aux	_
 3	thriving	thrive	VERB	VBG	Tense=Pres|VerbForm=Part	0	root	0:root	_
 4	and	and	CCONJ	CC	_	5	cc	5:cc	_
@@ -282,7 +282,7 @@
 7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(8|XML=<date from:::"1095" to:::"1291">
 8	Crusades	crusade	PROPN	NNPS	Number=Plur	3	obl	3:obl:during	Entity=8)|SpaceAfter=No|XML=</date>
 9	,	,	PUNCT	,	_	11	punct	11:punct	_
-10	actually	actually	ADV	RB	Degree=Pos	11	advmod	11:advmod	Discourse=cause:28->27:0
+10	actually	actually	ADV	RB	Degree=Pos	11	advmod	11:advmod	Discourse=causal-cause:28->27:0
 11	benefiting	benefit	VERB	VBG	VerbForm=Ger	3	acl	3:acl	_
 12	from	from	ADP	IN	_	15	case	15:case	_
 13	the	the	DET	DT	Definite=Def|PronType=Art	15	det	15:det	_
@@ -296,7 +296,7 @@
 # sent_id = GUM_voyage_athens-13
 # s_type = decl
 # text = However, this fruitful period was short-lived, as Greece suffered badly under the Ottoman Empire, only to recover in the 19th century as the capital of independent Greece.
-1	However	however	ADV	RB	_	9	advmod	9:advmod	Discourse=concession:29->27:1|SpaceAfter=No
+1	However	however	ADV	RB	_	9	advmod	9:advmod	Discourse=adversative-concession:29->27:1|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	1:punct	_
 3	this	this	DET	DT	Number=Sing|PronType=Dem	5	det	5:det	Entity=(8
 4	fruitful	fruitful	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
@@ -306,7 +306,7 @@
 8	-	-	PUNCT	HYPH	_	7	punct	7:punct	SpaceAfter=No
 9	lived	lived	ADJ	JJ	Degree=Pos	0	root	0:root	SpaceAfter=No|XML=</w>
 10	,	,	PUNCT	,	_	13	punct	13:punct	_
-11	as	as	SCONJ	IN	_	13	mark	13:mark	Discourse=cause:30->29:0
+11	as	as	SCONJ	IN	_	13	mark	13:mark	Discourse=causal-cause:30->29:0
 12	Greece	Greece	PROPN	NNP	Number=Sing	13	nsubj	13:nsubj|22:nsubj:xsubj	Entity=(3)
 13	suffered	suffer	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	9	advcl	9:advcl:as	_
 14	badly	badly	ADV	RB	Degree=Pos	13	advmod	13:advmod	_
@@ -315,7 +315,7 @@
 17	Ottoman	Ottoman	ADJ	NNP	Degree=Pos	18	amod	18:amod	_
 18	Empire	Empire	PROPN	NNP	Number=Sing	13	obl	13:obl:under	SpaceAfter=No
 19	,	,	PUNCT	,	_	22	punct	22:punct	_
-20	only	only	ADV	RB	_	22	advmod	22:advmod	Discourse=contrast_m:31->29:1
+20	only	only	ADV	RB	_	22	advmod	22:advmod	Discourse=joint-list_m:31->29:1
 21	to	to	PART	TO	_	22	mark	22:mark	_
 22	recover	recover	VERB	VB	VerbForm=Inf	13	xcomp	13:xcomp	_
 23	in	in	ADP	IN	_	26	case	26:case	_
@@ -334,7 +334,7 @@
 # s_type = frag
 # text = Modern Olympic Games
 # newpar = head rend:::"bold" (1 s)
-1	Modern	modern	ADJ	JJ	Degree=Pos	3	amod	3:amod	Discourse=preparation:32->33:2
+1	Modern	modern	ADJ	JJ	Degree=Pos	3	amod	3:amod	Discourse=organization-heading:32->33:2
 2	Olympic	Olympic	ADJ	NNP	Degree=Pos	3	amod	3:amod	_
 3	Games	Game	PROPN	NNPS	Number=Plur	0	root	0:root	_
 
@@ -342,7 +342,7 @@
 # s_type = decl
 # text = Athens hosted the 2004 Summer Olympic Games.
 # newpar = p (4 s)
-1	Athens	Athens	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=joint_m:33->7:3|Entity=(1)
+1	Athens	Athens	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=joint-other_m:33->7:3|Entity=(1)
 2	hosted	host	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	Entity=(9
 4	2004	2004	NUM	CD	NumForm=Digit|NumType=Card	7	compound	7:compound	XML=<date when:::"2004"></date>
@@ -354,7 +354,7 @@
 # sent_id = GUM_voyage_athens-16
 # s_type = decl
 # text = While most of the sporting venues were located outside the city proper - in various locations throughout Attica - the entire urban area of Athens underwent major lasting changes that have improved the quality of life for visitors and residents alike.
-1	While	while	SCONJ	IN	_	8	mark	8:mark	Discourse=concession:34->36:1
+1	While	while	SCONJ	IN	_	8	mark	8:mark	Discourse=adversative-concession:34->36:1
 2	most	most	ADJ	JJS	Degree=Sup	8	nsubj:pass	8:nsubj:pass	_
 3	of	of	ADP	IN	_	6	case	6:case	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	_
@@ -366,14 +366,14 @@
 10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	11:det	Entity=(1
 11	city	city	NOUN	NN	Number=Sing	8	obl	8:obl:outside	_
 12	proper	proper	ADJ	JJ	Degree=Pos	11	amod	11:amod	Entity=1)
-13	-	-	PUNCT	:	_	16	punct	16:punct	Discourse=elaboration:35->34:0
+13	-	-	PUNCT	:	_	16	punct	16:punct	Discourse=elaboration-additional:35->34:0
 14	in	in	ADP	IN	_	16	case	16:case	_
 15	various	various	ADJ	JJ	Degree=Pos	16	amod	16:amod	_
 16	locations	location	NOUN	NNS	Number=Plur	11	parataxis	11:parataxis	_
 17	throughout	throughout	ADP	IN	_	18	case	18:case	_
 18	Attica	Attica	PROPN	NNP	Number=Sing	16	nmod	16:nmod:throughout	_
 19	-	-	PUNCT	:	_	8	punct	8:punct	_
-20	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	Discourse=result:36->33:0
+20	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	Discourse=causal-result:36->33:0
 21	entire	entire	ADJ	JJ	Degree=Pos	23	amod	23:amod	_
 22	urban	urban	ADJ	JJ	Degree=Pos	23	amod	23:amod	_
 23	area	area	NOUN	NN	Number=Sing	26	nsubj	26:nsubj	_
@@ -383,7 +383,7 @@
 27	major	major	ADJ	JJ	Degree=Pos	29	amod	29:amod	_
 28	lasting	lasting	ADJ	JJ	Degree=Pos	29	amod	29:amod	_
 29	changes	change	NOUN	NNS	Number=Plur	26	obj	26:obj|32:nsubj	_
-30	that	that	PRON	WDT	PronType=Rel	32	nsubj	29:ref	Discourse=elaboration:37->36:0
+30	that	that	PRON	WDT	PronType=Rel	32	nsubj	29:ref	Discourse=elaboration-attribute:37->36:0
 31	have	have	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	32	aux	32:aux	_
 32	improved	improve	VERB	VBN	Tense=Past|VerbForm=Part	29	acl:relcl	29:acl:relcl	_
 33	the	the	DET	DT	Definite=Def|PronType=Art	34	det	34:det	_
@@ -400,13 +400,13 @@
 # sent_id = GUM_voyage_athens-17
 # s_type = decl
 # text = Aside from the excellent transportation infrastructure that was completed in time for the 2004 Olympics (from new freeways to light rail systems), the city's historic center underwent serious renovation.
-1	Aside	aside	ADV	RB	Degree=Pos	6	advmod	6:advmod	Discourse=evidence:38->36:2
+1	Aside	aside	ADV	RB	Degree=Pos	6	advmod	6:advmod	Discourse=explanation-evidence:38->36:2
 2	from	from	ADP	IN	_	6	case	6:case	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	_
 4	excellent	excellent	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
 5	transportation	transportation	NOUN	NN	Number=Sing	6	compound	6:compound	_
 6	infrastructure	infrastructure	NOUN	NN	Number=Sing	31	obl	9:nsubj:pass|31:obl:from	_
-7	that	that	PRON	WDT	PronType=Rel	9	nsubj:pass	6:ref	Discourse=elaboration:39->38:0
+7	that	that	PRON	WDT	PronType=Rel	9	nsubj:pass	6:ref	Discourse=elaboration-attribute:39->38:0
 8	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	9	aux:pass	9:aux:pass	_
 9	completed	complete	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	6	acl:relcl	6:acl:relcl	_
 10	in	in	ADP	IN	_	11	case	11:case	_
@@ -415,7 +415,7 @@
 13	the	the	DET	DT	Definite=Def|PronType=Art	15	det	15:det	Entity=(9
 14	2004	2004	NUM	CD	NumForm=Digit|NumType=Card	15	compound	15:compound	XML=<date when:::"2004"></date>
 15	Olympics	Olympics	PROPN	NNPS	Number=Plur	9	obl	9:obl:for	Entity=9)
-16	(	(	PUNCT	-LRB-	_	19	punct	19:punct	Discourse=elaboration:40->39:0|SpaceAfter=No
+16	(	(	PUNCT	-LRB-	_	19	punct	19:punct	Discourse=elaboration-additional:40->39:0|SpaceAfter=No
 17	from	from	ADP	IN	_	19	case	19:case	_
 18	new	new	ADJ	JJ	Degree=Pos	19	amod	19:amod	_
 19	freeways	freeway	NOUN	NNS	Number=Plur	6	nmod	6:nmod:from	_
@@ -439,7 +439,7 @@
 # sent_id = GUM_voyage_athens-18
 # s_type = decl
 # text = Most notable among the city's facelift projects are the Unification of Archaeological Sites - which connects the city's classical - era ruins and monuments to each other through a network of pleasant pedestrianized streets - and the restoration of the picturesque neoclassical Thissio and Pláka districts.
-1	Most	most	ADV	RBS	Degree=Sup	2	advmod	2:advmod	Discourse=elaboration:42->38:2
+1	Most	most	ADV	RBS	Degree=Sup	2	advmod	2:advmod	Discourse=elaboration-additional:42->38:2
 2	notable	notable	ADJ	JJ	Degree=Pos	0	root	0:root	_
 3	among	among	ADP	IN	_	8	case	8:case	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	Entity=(1
@@ -454,7 +454,7 @@
 12	of	of	ADP	IN	_	14	case	14:case	_
 13	Archaeological	Archaeological	ADJ	NNP	Degree=Pos	14	amod	14:amod	_
 14	Sites	Site	PROPN	NNPS	Number=Plur	11	nmod	11:nmod:of	_
-15	-	-	PUNCT	:	_	17	punct	17:punct	Discourse=elaboration:43->42:0
+15	-	-	PUNCT	:	_	17	punct	17:punct	Discourse=elaboration-attribute:43->42:0
 16	which	which	PRON	WDT	PronType=Rel	17	nsubj	11:ref	_
 17	connects	connect	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	11	acl:relcl	11:acl:relcl	_
 18	the	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	Entity=(10(1
@@ -468,7 +468,7 @@
 25	and	and	CCONJ	CC	_	26	cc	26:cc	_
 26	monuments	monument	NOUN	NNS	Number=Plur	24	conj	17:obj|24:conj:and	Entity=10)
 27	to	to	ADP	IN	_	28	case	28:case	_
-28	each	each	DET	DT	_	17	obl	17:obl:to	_
+28	each	each	DET	DT	PronType=Rcp	17	obl	17:obl:to	_
 29	other	other	ADJ	JJ	Degree=Pos	28	fixed	28:fixed	_
 30	through	through	ADP	IN	_	32	case	32:case	_
 31	a	a	DET	DT	Definite=Ind|PronType=Art	32	det	32:det	_
@@ -495,7 +495,7 @@
 # s_type = decl
 # text = The ancient Olympic Games took place in Olympia from 776 BCE to 394 AD.
 # newpar = p (2 s)
-1	The	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	Discourse=joint_m:45->33:1
+1	The	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	Discourse=joint-other_m:45->33:1
 2	ancient	ancient	ADJ	JJ	Degree=Pos	4	amod	4:amod	_
 3	Olympic	Olympic	PROPN	NNP	Number=Sing	4	compound	4:compound	_
 4	Games	Game	PROPN	NNPS	Number=Plur	5	nsubj	5:nsubj	_
@@ -514,7 +514,7 @@
 # sent_id = GUM_voyage_athens-20
 # s_type = decl
 # text = It is a lengthy day trip from Athens to visit Olympia, but quite interesting.
-1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	6	nsubj	6:nsubj|15:nsubj	Discourse=concession:46->47:0
+1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	6	nsubj	6:nsubj|15:nsubj	Discourse=adversative-concession:46->47:0
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	6:cop	_
 3	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	_
 4	lengthy	lengthy	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
@@ -526,7 +526,7 @@
 10	visit	visit	VERB	VB	VerbForm=Inf	6	acl	6:acl:to	_
 11	Olympia	Olympia	PROPN	NNP	Number=Sing	10	obj	10:obj	Entity=(11)|SpaceAfter=No
 12	,	,	PUNCT	,	_	15	punct	15:punct	_
-13	but	but	CCONJ	CC	_	15	cc	15:cc	Discourse=evaluation:47->45:0
+13	but	but	CCONJ	CC	_	15	cc	15:cc	Discourse=evaluation-comment:47->45:0
 14	quite	quite	ADV	RB	_	15	advmod	15:advmod	_
 15	interesting	interesting	ADJ	JJ	Degree=Pos	6	conj	6:conj:but	SpaceAfter=No
 16	.	.	PUNCT	.	_	6	punct	6:punct	_
@@ -535,20 +535,20 @@
 # s_type = frag
 # text = Architecture
 # newpar = head rend:::"bold" (1 s)
-1	Architecture	Architecture	NOUN	NN	Number=Sing	0	root	0:root	Discourse=preparation:48->59:3
+1	Architecture	Architecture	NOUN	NN	Number=Sing	0	root	0:root	Discourse=organization-heading:48->59:3
 
 # sent_id = GUM_voyage_athens-22
 # s_type = decl
 # text = Athens was just a small provincial village when it was chosen in the 1830s to serve as the national capital of the modern Greek State.
 # newpar = p (4 s)
-1	Athens	Athens	PROPN	NNP	Number=Sing	7	nsubj	7:nsubj	Discourse=background:49->54:3|Entity=(1)
+1	Athens	Athens	PROPN	NNP	Number=Sing	7	nsubj	7:nsubj	Discourse=context-background:49->54:3|Entity=(1)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	7	cop	7:cop	_
 3	just	just	ADV	RB	_	7	advmod	7:advmod	_
 4	a	a	DET	DT	Definite=Ind|PronType=Art	7	det	7:det	_
 5	small	small	ADJ	JJ	Degree=Pos	7	amod	7:amod	_
 6	provincial	provincial	ADJ	JJ	Degree=Pos	7	amod	7:amod	_
 7	village	village	NOUN	NN	Number=Sing	0	root	0:root	_
-8	when	when	SCONJ	WRB	PronType=Int	11	mark	11:mark	Discourse=circumstance:50->49:0
+8	when	when	SCONJ	WRB	PronType=Int	11	mark	11:mark	Discourse=context-circumstance:50->49:0
 9	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	11	nsubj:pass	11:nsubj:pass|16:nsubj:xsubj	Entity=(1)
 10	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	11	aux:pass	11:aux:pass	_
 11	chosen	choose	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	7	acl	7:acl:when	_
@@ -571,14 +571,14 @@
 # sent_id = GUM_voyage_athens-23
 # s_type = decl
 # text = Although it had a prestigious past, the city's political, economic, and cultural importance had declined over the centuries, leaving behind only its classical ruins as a reminder of better times.
-1	Although	although	SCONJ	IN	_	3	mark	3:mark	Discourse=concession:51->52:1
+1	Although	although	SCONJ	IN	_	3	mark	3:mark	Discourse=adversative-concession:51->52:1
 2	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	Entity=(1)
 3	had	have	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	19	advcl	19:advcl:although	_
 4	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	_
 5	prestigious	prestigious	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
 6	past	past	NOUN	NN	Number=Sing	3	obj	3:obj	SpaceAfter=No
 7	,	,	PUNCT	,	_	3	punct	3:punct	_
-8	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Discourse=joint_m:52->49:1|Entity=(1
+8	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Discourse=joint-other_m:52->49:1|Entity=(1
 9-10	city's	_	_	_	_	_	_	_	_
 9	city	city	NOUN	NN	Number=Sing	17	nmod:poss	17:nmod:poss	_
 10	's	's	PART	POS	_	9	case	9:case	Entity=1)
@@ -595,7 +595,7 @@
 21	the	the	DET	DT	Definite=Def|PronType=Art	22	det	22:det	_
 22	centuries	century	NOUN	NNS	Number=Plur	19	obl	19:obl:over	SpaceAfter=No
 23	,	,	PUNCT	,	_	24	punct	24:punct	_
-24	leaving	leave	VERB	VBG	VerbForm=Ger	19	advcl	19:advcl	Discourse=result:53->52:0
+24	leaving	leave	VERB	VBG	VerbForm=Ger	19	advcl	19:advcl	Discourse=causal-result:53->52:0
 25	behind	behind	ADV	RB	Degree=Pos	24	advmod	24:advmod	_
 26	only	only	ADV	RB	_	29	advmod	29:advmod	_
 27	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	29	nmod:poss	29:nmod:poss	Entity=(10(1)
@@ -612,10 +612,10 @@
 # sent_id = GUM_voyage_athens-24
 # s_type = decl
 # text = With the decision to move the national capital from Nafplio to Athens, architects and city planners were hired to build a new city next to the classical ruins, with grand neoclassical homes and public buildings, large city squares, green spaces, and wide avenues, making a conscious, decisive turn from the city's Ottoman past.
-1	With	with	ADP	IN	_	3	case	3:case	Discourse=background:54->59:1
+1	With	with	ADP	IN	_	3	case	3:case	Discourse=context-background:54->59:1
 2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	_
 3	decision	decision	NOUN	NN	Number=Sing	19	obl	19:obl:with	_
-4	to	to	PART	TO	_	5	mark	5:mark	Discourse=elaboration:55->54:0
+4	to	to	PART	TO	_	5	mark	5:mark	Discourse=purpose-attribute:55->54:0
 5	move	move	VERB	VB	VerbForm=Inf	3	acl	3:acl:to	_
 6	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(1
 7	national	national	ADJ	JJ	Degree=Pos	8	amod	8:amod	_
@@ -631,7 +631,7 @@
 17	planners	planner	NOUN	NNS	Number=Plur	14	conj	14:conj:and|19:nsubj:xsubj|21:nsubj:xsubj	_
 18	were	be	AUX	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	19	aux:pass	19:aux:pass	_
 19	hired	hire	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
-20	to	to	PART	TO	_	21	mark	21:mark	Discourse=purpose:57->54:2
+20	to	to	PART	TO	_	21	mark	21:mark	Discourse=purpose-goal:57->54:2
 21	build	build	VERB	VB	VerbForm=Inf	19	xcomp	19:xcomp	_
 22	a	a	DET	DT	Definite=Ind|PronType=Art	24	det	24:det	_
 23	new	new	ADJ	JJ	Degree=Pos	24	amod	24:amod	_
@@ -649,7 +649,7 @@
 35	and	and	CCONJ	CC	_	41	cc	41:cc	_
 36	public	public	ADJ	JJ	Degree=Pos	37	amod	37:amod	_
 37	buildings	building	NOUN	NNS	Number=Plur	34	conj	24:nmod:with|34:conj:and	SpaceAfter=No
-38	,	,	PUNCT	,	_	41	punct	41:punct	_
+38	,	,	PUNCT	,	_	37	punct	37:punct	_
 39	large	large	ADJ	JJ	Degree=Pos	41	amod	41:amod	_
 40	city	city	NOUN	NN	Number=Sing	41	compound	41:compound	_
 41	squares	square	NOUN	NNS	Number=Plur	34	conj	24:nmod:with|34:conj:and	SpaceAfter=No
@@ -661,7 +661,7 @@
 47	wide	wide	ADJ	JJ	Degree=Pos	48	amod	48:amod	_
 48	avenues	avenue	NOUN	NNS	Number=Plur	34	conj	24:nmod:with|34:conj:and	SpaceAfter=No
 49	,	,	PUNCT	,	_	50	punct	50:punct	_
-50	making	make	VERB	VBG	VerbForm=Ger	21	advcl	21:advcl	Discourse=result:58->57:0
+50	making	make	VERB	VBG	VerbForm=Ger	21	advcl	21:advcl	Discourse=causal-result:58->57:0
 51	a	a	DET	DT	Definite=Ind|PronType=Art	55	det	55:det	_
 52	conscious	conscious	ADJ	JJ	Degree=Pos	55	amod	55:amod	SpaceAfter=No
 53	,	,	PUNCT	,	_	52	punct	52:punct	_
@@ -679,32 +679,32 @@
 # sent_id = GUM_voyage_athens-25
 # s_type = decl
 # text = The city regained its importance in Greek civilization, and by 1900 had evolved into a very attractive cosmopolitan city, with abundant neoclassical architecture harking to the nation's past.
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=joint_m:59->7:3|Entity=(1
-2	city	city	NOUN	NN	Number=Sing	3	nsubj	3:nsubj|14:nsubj	Entity=1)
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=joint-other_m:59->7:3|Entity=(12
+2	city	city	NOUN	NN	Number=Sing	3	nsubj	3:nsubj|14:nsubj	Entity=12)
 3	regained	regain	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
-4	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	5	nmod:poss	5:nmod:poss	Entity=(1)
+4	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	5	nmod:poss	5:nmod:poss	Entity=(12)
 5	importance	importance	NOUN	NN	Number=Sing	3	obj	3:obj	_
 6	in	in	ADP	IN	_	8	case	8:case	_
 7	Greek	Greek	ADJ	JJ	Degree=Pos	8	amod	8:amod	_
 8	civilization	civilization	NOUN	NN	Number=Sing	5	nmod	5:nmod:in	SpaceAfter=No
 9	,	,	PUNCT	,	_	14	punct	14:punct	_
-10	and	and	CCONJ	CC	_	14	cc	14:cc	Discourse=joint_m:60->59:0
+10	and	and	CCONJ	CC	_	14	cc	14:cc	Discourse=joint-list_m:60->59:0
 11	by	by	ADP	IN	_	12	case	12:case	_
 12	1900	1900	NUM	CD	NumForm=Digit|NumType=Card	14	obl	14:obl:by	XML=<date notAfter:::"1900-01-01"></date>
 13	had	have	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	14	aux	14:aux	_
 14	evolved	evolve	VERB	VBN	Tense=Past|VerbForm=Part	3	conj	3:conj:and	_
 15	into	into	ADP	IN	_	20	case	20:case	_
-16	a	a	DET	DT	Definite=Ind|PronType=Art	20	det	20:det	Entity=(1
+16	a	a	DET	DT	Definite=Ind|PronType=Art	20	det	20:det	Entity=(12
 17	very	very	ADV	RB	_	18	advmod	18:advmod	_
 18	attractive	attractive	ADJ	JJ	Degree=Pos	20	amod	20:amod	_
 19	cosmopolitan	cosmopolitan	ADJ	JJ	Degree=Pos	20	amod	20:amod	_
-20	city	city	NOUN	NN	Number=Sing	14	obl	14:obl:into	Entity=1)|SpaceAfter=No
+20	city	city	NOUN	NN	Number=Sing	14	obl	14:obl:into	Entity=12)|SpaceAfter=No
 21	,	,	PUNCT	,	_	25	punct	25:punct	_
 22	with	with	ADP	IN	_	25	case	25:case	_
 23	abundant	abundant	ADJ	JJ	Degree=Pos	25	amod	25:amod	_
 24	neoclassical	neoclassical	ADJ	JJ	Degree=Pos	25	amod	25:amod	_
 25	architecture	architecture	NOUN	NN	Number=Sing	20	nmod	20:nmod:with	_
-26	harking	hark	VERB	VBG	VerbForm=Ger	25	acl	25:acl	Discourse=elaboration:61->60:0
+26	harking	hark	VERB	VBG	VerbForm=Ger	25	acl	25:acl	Discourse=elaboration-attribute:61->60:0
 27	to	to	ADP	IN	_	31	case	31:case	_
 28	the	the	DET	DT	Definite=Def|PronType=Art	29	det	29:det	Entity=(3
 29-30	nation's	_	_	_	_	_	_	_	_
@@ -717,7 +717,7 @@
 # s_type = decl
 # text = The 20th century however, marked the rapid development of Athens.
 # newpar = p (5 s)
-1	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Discourse=sequence_m:62->59:2
+1	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Discourse=joint-sequence_m:62->59:2
 2	20th	20th	ADJ	JJ	Degree=Pos|NumType=Ord	3	amod	3:amod	XML=<date from:::"1900-01-01" to:::"1999-12-31">
 3	century	century	NOUN	NN	Number=Sing	6	nsubj	6:nsubj	XML=</date>
 4	however	however	ADV	RB	_	6	advmod	6:advmod	SpaceAfter=No
@@ -727,21 +727,21 @@
 8	rapid	rapid	ADJ	JJ	Degree=Pos	9	amod	9:amod	_
 9	development	development	NOUN	NN	Number=Sing	6	obj	6:obj	_
 10	of	of	ADP	IN	_	11	case	11:case	_
-11	Athens	Athens	PROPN	NNP	Number=Sing	9	nmod	9:nmod:of	Entity=(1)|SpaceAfter=No
+11	Athens	Athens	PROPN	NNP	Number=Sing	9	nmod	9:nmod:of	Entity=(12)|SpaceAfter=No
 12	.	.	PUNCT	.	_	6	punct	6:punct	_
 
 # sent_id = GUM_voyage_athens-27
 # s_type = decl
 # text = The city suffered minor damage during WWII, and suffered extensive urban planning in the decades that followed, as the nation rapidly industrialized and urbanized.
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=elaboration:63->62:0|Entity=(1
-2	city	city	NOUN	NN	Number=Sing	3	nsubj	3:nsubj|10:nsubj	Entity=1)
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=elaboration-additional:63->62:0|Entity=(12
+2	city	city	NOUN	NN	Number=Sing	3	nsubj	3:nsubj|10:nsubj	Entity=12)
 3	suffered	suffer	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 4	minor	minor	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
 5	damage	damage	NOUN	NN	Number=Sing	3	obj	3:obj	_
 6	during	during	ADP	IN	_	7	case	7:case	_
 7	WWII	WWII	PROPN	NNP	Abbr=Yes|Number=Sing	3	obl	3:obl:during	SpaceAfter=No|XML=<date from:::"1939-09-01" to:::"1945-09-02"></date>
 8	,	,	PUNCT	,	_	10	punct	10:punct	_
-9	and	and	CCONJ	CC	_	10	cc	10:cc	Discourse=sequence_m:64->63:0
+9	and	and	CCONJ	CC	_	10	cc	10:cc	Discourse=joint-sequence_m:64->63:0
 10	suffered	suffer	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	conj	3:conj:and	_
 11	extensive	extensive	ADJ	JJ	Degree=Pos	13	amod	13:amod	_
 12	urban	urban	ADJ	JJ	Degree=Pos	13	amod	13:amod	_
@@ -749,22 +749,22 @@
 14	in	in	ADP	IN	_	16	case	16:case	_
 15	the	the	DET	DT	Definite=Def|PronType=Art	16	det	16:det	XML=<date notBefore:::"1945-09-02">
 16	decades	decade	NOUN	NNS	Number=Plur	10	obl	10:obl:in|18:nsubj	_
-17	that	that	PRON	WDT	PronType=Rel	18	nsubj	16:ref	Discourse=elaboration:65->64:0
+17	that	that	PRON	WDT	PronType=Rel	18	nsubj	16:ref	Discourse=elaboration-attribute:65->64:0
 18	followed	follow	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	16	acl:relcl	16:acl:relcl	SpaceAfter=No|XML=</date>
 19	,	,	PUNCT	,	_	24	punct	24:punct	_
-20	as	as	SCONJ	IN	_	24	mark	24:mark	Discourse=circumstance:66->64:1
+20	as	as	SCONJ	IN	_	24	mark	24:mark	Discourse=context-circumstance:66->64:1
 21	the	the	DET	DT	Definite=Def|PronType=Art	22	det	22:det	Entity=(3
 22	nation	nation	NOUN	NN	Number=Sing	24	nsubj	24:nsubj|26:nsubj	Entity=3)
 23	rapidly	rapidly	ADV	RB	Degree=Pos	24	advmod	24:advmod	_
 24	industrialized	industrialize	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	10	advcl	10:advcl:as	_
-25	and	and	CCONJ	CC	_	26	cc	26:cc	Discourse=joint_m:67->66:0
+25	and	and	CCONJ	CC	_	26	cc	26:cc	Discourse=joint-list_m:67->66:0
 26	urbanized	urbanize	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	24	conj	10:advcl:as|24:conj:and	SpaceAfter=No
 27	.	.	PUNCT	.	_	3	punct	3:punct	_
 
 # sent_id = GUM_voyage_athens-28
 # s_type = decl
 # text = In the 1960s and 1970s, many 19th century neoclassical buildings, often small and private, were demolished to make way for office buildings, often designed by great Greek architects.
-1	In	in	ADP	IN	_	3	case	3:case	Discourse=sequence_m:68->63:0
+1	In	in	ADP	IN	_	3	case	3:case	Discourse=joint-sequence_m:68->63:0
 2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	_
 3	1960s	1960s	NOUN	NNS	Number=Plur	19	obl	19:obl:in	XML=<date from:::"1960-01-01" to:::"1969-12-31"></date>
 4	and	and	CCONJ	CC	_	5	cc	5:cc	_
@@ -783,26 +783,26 @@
 17	,	,	PUNCT	,	_	11	punct	11:punct	_
 18	were	be	AUX	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	19	aux:pass	19:aux:pass	_
 19	demolished	demolish	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
-20	to	to	PART	TO	_	21	mark	21:mark	Discourse=purpose:69->68:0
+20	to	to	PART	TO	_	21	mark	21:mark	Discourse=purpose-goal:69->68:0
 21	make	make	VERB	VB	VerbForm=Inf	19	advcl	19:advcl:to	_
 22	way	way	NOUN	NN	Number=Sing	21	obj	21:obj	_
 23	for	for	ADP	IN	_	25	case	25:case	_
 24	office	office	NOUN	NN	Number=Sing	25	compound	25:compound	_
 25	buildings	building	NOUN	NNS	Number=Plur	21	obl	21:obl:for	SpaceAfter=No
 26	,	,	PUNCT	,	_	28	punct	28:punct	_
-27	often	often	ADV	RB	Degree=Pos	28	advmod	28:advmod	Discourse=elaboration:70->69:0
+27	often	often	ADV	RB	Degree=Pos	28	advmod	28:advmod	Discourse=elaboration-attribute:70->69:0
 28	designed	design	VERB	VBN	Tense=Past|VerbForm=Part	25	acl	25:acl	_
 29	by	by	ADP	IN	_	32	case	32:case	_
 30	great	great	ADJ	JJ	Degree=Pos	32	amod	32:amod	_
 31	Greek	Greek	ADJ	JJ	Degree=Pos	32	amod	32:amod	_
-32	architects	architect	NOUN	NNS	Number=Plur	28	obl	28:obl:by	SpaceAfter=No
+32	architects	architect	NOUN	NNS	Number=Plur	28	obl:agent	28:obl:agent	SpaceAfter=No
 33	.	.	PUNCT	.	_	19	punct	19:punct	_
 
 # sent_id = GUM_voyage_athens-29
 # s_type = decl
 # text = The city also expanded outward through rash development, particularly towards the west, as its population grew by absorbing job-seekers from the provinces.
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=sequence_m:71->63:0|Entity=(1
-2	city	city	NOUN	NN	Number=Sing	4	nsubj	4:nsubj	Entity=1)
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=joint-sequence_m:71->63:0|Entity=(12
+2	city	city	NOUN	NN	Number=Sing	4	nsubj	4:nsubj	Entity=12)
 3	also	also	ADV	RB	_	4	advmod	4:advmod	_
 4	expanded	expand	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 5	outward	outward	ADV	RB	Degree=Pos	4	advmod	4:advmod	_
@@ -815,11 +815,11 @@
 12	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	_
 13	west	west	NOUN	NN	Number=Sing	4	obl	4:obl:towards	SpaceAfter=No
 14	,	,	PUNCT	,	_	18	punct	18:punct	_
-15	as	as	SCONJ	IN	_	18	mark	18:mark	Discourse=circumstance:72->71:0
-16	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	17	nmod:poss	17:nmod:poss	Entity=(1)
+15	as	as	SCONJ	IN	_	18	mark	18:mark	Discourse=context-circumstance:72->71:0
+16	its	its	PRON	PRP$	Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	17	nmod:poss	17:nmod:poss	Entity=(13)
 17	population	population	NOUN	NN	Number=Sing	18	nsubj	18:nsubj	_
 18	grew	grow	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	4	advcl	4:advcl:as	_
-19	by	by	SCONJ	IN	_	20	mark	20:mark	Discourse=means:73->72:0
+19	by	by	SCONJ	IN	_	20	mark	20:mark	Discourse=mode-means:73->72:0
 20	absorbing	absorb	VERB	VBG	VerbForm=Ger	18	advcl	18:advcl:by	_
 21	job	job	NOUN	NN	Number=Sing	23	compound	23:compound	SpaceAfter=No|XML=<w>
 22	-	-	PUNCT	HYPH	_	21	punct	21:punct	SpaceAfter=No
@@ -832,7 +832,7 @@
 # sent_id = GUM_voyage_athens-30
 # s_type = decl
 # text = With the onset of the automobile, public officials reduced the city's public transportation services without foreseeing the traffic gridlock and smog that would menace the city by the 1980s.
-1	With	with	ADP	IN	_	3	case	3:case	Discourse=sequence_m:74->59:2
+1	With	with	ADP	IN	_	3	case	3:case	Discourse=joint-sequence_m:74->59:2
 2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	_
 3	onset	onset	NOUN	NN	Number=Sing	10	obl	10:obl:with	_
 4	of	of	ADP	IN	_	6	case	6:case	_
@@ -842,25 +842,25 @@
 8	public	public	ADJ	JJ	Degree=Pos	9	amod	9:amod	_
 9	officials	official	NOUN	NNS	Number=Plur	10	nsubj	10:nsubj	_
 10	reduced	reduce	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
-11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(1
+11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(13
 12-13	city's	_	_	_	_	_	_	_	_
 12	city	city	NOUN	NN	Number=Sing	16	nmod:poss	16:nmod:poss	_
-13	's	's	PART	POS	_	12	case	12:case	Entity=1)
+13	's	's	PART	POS	_	12	case	12:case	Entity=13)
 14	public	public	ADJ	JJ	Degree=Pos	16	amod	16:amod	_
 15	transportation	transportation	NOUN	NN	Number=Sing	16	compound	16:compound	_
 16	services	service	NOUN	NNS	Number=Plur	10	obj	10:obj	_
-17	without	without	SCONJ	IN	_	18	mark	18:mark	Discourse=antithesis:75->74:0
+17	without	without	SCONJ	IN	_	18	mark	18:mark	Discourse=adversative-antithesis:75->74:0
 18	foreseeing	foresee	VERB	VBG	VerbForm=Ger	10	advcl	10:advcl:without	_
 19	the	the	DET	DT	Definite=Def|PronType=Art	21	det	21:det	_
 20	traffic	traffic	NOUN	NN	Number=Sing	21	compound	21:compound	_
 21	gridlock	gridlock	NOUN	NN	Number=Sing	18	obj	18:obj|26:nsubj	_
 22	and	and	CCONJ	CC	_	23	cc	23:cc	_
-23	smog	smog	NOUN	NN	Number=Sing	21	conj	18:obj|21:conj:and	Entity=(12)
-24	that	that	PRON	WDT	PronType=Rel	26	nsubj	21:ref	Discourse=elaboration:76->75:0
+23	smog	smog	NOUN	NN	Number=Sing	21	conj	18:obj|21:conj:and	Entity=(14)
+24	that	that	PRON	WDT	PronType=Rel	26	nsubj	21:ref	Discourse=elaboration-attribute:76->75:0
 25	would	would	AUX	MD	VerbForm=Fin	26	aux	26:aux	_
 26	menace	menace	VERB	VB	VerbForm=Inf	21	acl:relcl	21:acl:relcl	_
-27	the	the	DET	DT	Definite=Def|PronType=Art	28	det	28:det	Entity=(1
-28	city	city	NOUN	NN	Number=Sing	26	obj	26:obj	Entity=1)
+27	the	the	DET	DT	Definite=Def|PronType=Art	28	det	28:det	Entity=(13
+28	city	city	NOUN	NN	Number=Sing	26	obj	26:obj	Entity=13)
 29	by	by	ADP	IN	_	31	case	31:case	_
 30	the	the	DET	DT	Definite=Def|PronType=Art	31	det	31:det	_
 31	1980s	1980s	NOUN	NNS	Number=Plur	26	obl	26:obl:by	SpaceAfter=No|XML=<date from:::"1980-01-01" to:::"1989-12-31"></date>
@@ -870,7 +870,7 @@
 # s_type = decl
 # text = By the late 1980s and early 1990s, the city's reality led to a rude awakening among local and national officials and, coupled with the country's new found remarkable prosperity, large scale projects began to slowly regenerate the city and undo some of the damages of recent decades.
 # newpar = p (4 s)
-1	By	by	ADP	IN	_	4	case	4:case	Discourse=sequence_m:77->59:2
+1	By	by	ADP	IN	_	4	case	4:case	Discourse=joint-sequence_m:77->59:2
 2	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	_
 3	late	late	ADJ	JJ	Degree=Pos	4	amod	4:amod	_
 4	1980s	1980s	NOUN	NNS	Number=Plur	13	obl	13:obl:by	XML=<date from:::"1980-01-01" to:::"1989-12-31"></date>
@@ -878,10 +878,10 @@
 6	early	early	ADJ	JJ	Degree=Pos	7	amod	7:amod	_
 7	1990s	1990s	NOUN	NNS	Number=Plur	4	conj	4:conj:and|13:obl:by	SpaceAfter=No|XML=<date from:::"1990-01-01" to:::"1999-12-31"></date>
 8	,	,	PUNCT	,	_	4	punct	4:punct	_
-9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	Entity=(1
+9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	Entity=(13
 10-11	city's	_	_	_	_	_	_	_	_
 10	city	city	NOUN	NN	Number=Sing	12	nmod:poss	12:nmod:poss	_
-11	's	's	PART	POS	_	10	case	10:case	Entity=1)
+11	's	's	PART	POS	_	10	case	10:case	Entity=13)
 12	reality	reality	NOUN	NN	Number=Sing	13	nsubj	13:nsubj	_
 13	led	lead	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 14	to	to	ADP	IN	_	17	case	17:case	_
@@ -893,9 +893,9 @@
 20	and	and	CCONJ	CC	_	21	cc	21:cc	_
 21	national	national	ADJ	JJ	Degree=Pos	19	conj	19:conj:and|22:amod	_
 22	officials	official	NOUN	NNS	Number=Plur	17	nmod	17:nmod:among	_
-23	and	and	CCONJ	CC	_	38	cc	38:cc	Discourse=joint_m:78->77:0|SpaceAfter=No
+23	and	and	CCONJ	CC	_	38	cc	38:cc	Discourse=joint-list_m:78->77:0|SpaceAfter=No
 24	,	,	PUNCT	,	_	23	punct	23:punct	_
-25	coupled	couple	VERB	VBN	Tense=Past|VerbForm=Part	38	advcl	38:advcl	Discourse=background:79->80:0
+25	coupled	couple	VERB	VBN	Tense=Past|VerbForm=Part	38	advcl	38:advcl	Discourse=context-background:79->80:0
 26	with	with	ADP	IN	_	33	case	33:case	_
 27	the	the	DET	DT	Definite=Def|PronType=Art	28	det	28:det	Entity=(3
 28-29	country's	_	_	_	_	_	_	_	_
@@ -913,11 +913,11 @@
 39	to	to	PART	TO	_	41	mark	41:mark	_
 40	slowly	slowly	ADV	RB	Degree=Pos	41	advmod	41:advmod	_
 41	regenerate	regenerate	VERB	VB	VerbForm=Inf	38	xcomp	38:xcomp	_
-42	the	the	DET	DT	Definite=Def|PronType=Art	43	det	43:det	Entity=(1
-43	city	city	NOUN	NN	Number=Sing	41	obj	41:obj	Entity=1)
+42	the	the	DET	DT	Definite=Def|PronType=Art	43	det	43:det	Entity=(13
+43	city	city	NOUN	NN	Number=Sing	41	obj	41:obj	Entity=13)
 44	and	and	CCONJ	CC	_	46	cc	46:cc	_
 45	undo	undo	VERB	VB	Polarity=Neg|VerbForm=Inf	46	case	46:case	_
-46	some	some	DET	DT	_	41	conj	38:xcomp|41:conj:and	_
+46	some	some	DET	DT	PronType=Ind	41	conj	38:xcomp|41:conj:and	_
 47	of	of	ADP	IN	_	49	case	49:case	_
 48	the	the	DET	DT	Definite=Def|PronType=Art	49	det	49:det	_
 49	damages	damage	NOUN	NNS	Number=Plur	46	nmod	46:nmod:of	_
@@ -929,7 +929,7 @@
 # sent_id = GUM_voyage_athens-32
 # s_type = decl
 # text = Over the course of the next 15 years, money was poured into new transportation infrastructure projects, the restoration of surviving neoclassical buildings, the gentrification of the city's historical center and the renovation of many former industrial areas and the city's coastline.
-1	Over	over	ADP	IN	_	3	case	3:case	Discourse=sequence_m:81->59:2
+1	Over	over	ADP	IN	_	3	case	3:case	Discourse=joint-sequence_m:81->59:2
 2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	_
 3	course	course	NOUN	NN	Number=Sing	12	obl	12:obl:over	_
 4	of	of	ADP	IN	_	8	case	8:case	_
@@ -957,10 +957,10 @@
 26	the	the	DET	DT	Definite=Def|PronType=Art	27	det	27:det	_
 27	gentrification	gentrification	NOUN	NN	Number=Sing	20	conj	17:appos|20:conj:and	_
 28	of	of	ADP	IN	_	33	case	33:case	_
-29	the	the	DET	DT	Definite=Def|PronType=Art	30	det	30:det	Entity=(1
+29	the	the	DET	DT	Definite=Def|PronType=Art	30	det	30:det	Entity=(13
 30-31	city's	_	_	_	_	_	_	_	_
 30	city	city	NOUN	NN	Number=Sing	33	nmod:poss	33:nmod:poss	_
-31	's	's	PART	POS	_	30	case	30:case	Entity=1)
+31	's	's	PART	POS	_	30	case	30:case	Entity=13)
 32	historical	historical	ADJ	JJ	Degree=Pos	33	amod	33:amod	_
 33	center	center	NOUN	NN	Number=Sing	27	nmod	27:nmod:of	_
 34	and	and	CCONJ	CC	_	36	cc	36:cc	_
@@ -972,46 +972,46 @@
 40	industrial	industrial	ADJ	JJ	Degree=Pos	41	amod	41:amod	_
 41	areas	area	NOUN	NNS	Number=Plur	36	nmod	36:nmod:of	_
 42	and	and	CCONJ	CC	_	46	cc	46:cc	_
-43	the	the	DET	DT	Definite=Def|PronType=Art	44	det	44:det	Entity=(1
+43	the	the	DET	DT	Definite=Def|PronType=Art	44	det	44:det	Entity=(13
 44-45	city's	_	_	_	_	_	_	_	_
 44	city	city	NOUN	NN	Number=Sing	46	nmod:poss	46:nmod:poss	_
-45	's	's	PART	POS	_	44	case	44:case	Entity=1)
+45	's	's	PART	POS	_	44	case	44:case	Entity=13)
 46	coastline	coastline	NOUN	NN	Number=Sing	41	conj	36:nmod:of|41:conj:and	SpaceAfter=No
 47	.	.	PUNCT	.	_	12	punct	12:punct	_
 
 # sent_id = GUM_voyage_athens-33
 # s_type = decl
 # text = The restoration of charming neoclassical buildings in the city's historical center has been accompanied by the construction of attractive post-modern buildings in newer districts; both of which have begun to improve the aesthetic essence of the city.
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=elaboration:82->81:0|Entity=(13
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=elaboration-additional:82->81:0|Entity=(15
 2	restoration	restoration	NOUN	NN	Number=Sing	15	nsubj:pass	15:nsubj:pass	_
 3	of	of	ADP	IN	_	6	case	6:case	_
 4	charming	charming	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
 5	neoclassical	neoclassical	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
 6	buildings	building	NOUN	NNS	Number=Plur	2	nmod	2:nmod:of	_
 7	in	in	ADP	IN	_	12	case	12:case	_
-8	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Entity=(1
+8	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Entity=(13
 9-10	city's	_	_	_	_	_	_	_	_
 9	city	city	NOUN	NN	Number=Sing	12	nmod:poss	12:nmod:poss	_
-10	's	's	PART	POS	_	9	case	9:case	Entity=1)
+10	's	's	PART	POS	_	9	case	9:case	Entity=13)
 11	historical	historical	ADJ	JJ	Degree=Pos	12	amod	12:amod	_
-12	center	center	NOUN	NN	Number=Sing	2	nmod	2:nmod:in	Entity=13)
+12	center	center	NOUN	NN	Number=Sing	2	nmod	2:nmod:in	Entity=15)
 13	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	15	aux	15:aux	_
 14	been	be	AUX	VBN	Tense=Past|VerbForm=Part	15	aux:pass	15:aux:pass	_
 15	accompanied	accompany	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
 16	by	by	ADP	IN	_	18	case	18:case	_
-17	the	the	DET	DT	Definite=Def|PronType=Art	18	det	18:det	Entity=(13
-18	construction	construction	NOUN	NN	Number=Sing	15	obl	15:obl:by	_
+17	the	the	DET	DT	Definite=Def|PronType=Art	18	det	18:det	Entity=(15
+18	construction	construction	NOUN	NN	Number=Sing	15	obl:agent	15:obl:agent	_
 19	of	of	ADP	IN	_	22	case	22:case	_
 20	attractive	attractive	ADJ	JJ	Degree=Pos	22	amod	22:amod	_
 21	post-modern	post-modern	ADJ	JJ	Degree=Pos	22	amod	22:amod	_
 22	buildings	building	NOUN	NNS	Number=Plur	18	nmod	18:nmod:of	_
 23	in	in	ADP	IN	_	25	case	25:case	_
 24	newer	new	ADJ	JJR	Degree=Cmp	25	amod	25:amod	_
-25	districts	district	NOUN	NNS	Number=Plur	18	nmod	18:nmod:in	Entity=13)|SpaceAfter=No
+25	districts	district	NOUN	NNS	Number=Plur	18	nmod	18:nmod:in	Entity=15)|SpaceAfter=No
 26	;	;	PUNCT	:	_	31	punct	31:punct	_
-27	both	both	DET	DT	_	31	nsubj	31:nsubj|33:nsubj:xsubj	Discourse=result:83->82:0|Entity=(13
+27	both	both	DET	DT	PronType=Art	31	nsubj	31:nsubj|33:nsubj:xsubj	Discourse=causal-result:83->82:0|Entity=(15
 28	of	of	ADP	IN	_	29	case	29:case	_
-29	which	which	PRON	WDT	PronType=Int	27	nmod	27:nmod:of	Entity=13)
+29	which	which	PRON	WDT	PronType=Int	27	nmod	27:nmod:of	Entity=15)
 30	have	have	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	31	aux	31:aux	_
 31	begun	begin	VERB	VBN	Tense=Past|VerbForm=Part	18	parataxis	18:parataxis	_
 32	to	to	PART	TO	_	33	mark	33:mark	_
@@ -1020,20 +1020,20 @@
 35	aesthetic	aesthetic	ADJ	JJ	Degree=Pos	36	amod	36:amod	_
 36	essence	essence	NOUN	NN	Number=Sing	33	obj	33:obj	_
 37	of	of	ADP	IN	_	39	case	39:case	_
-38	the	the	DET	DT	Definite=Def|PronType=Art	39	det	39:det	Entity=(1
-39	city	city	NOUN	NN	Number=Sing	36	nmod	36:nmod:of	Entity=1)|SpaceAfter=No
+38	the	the	DET	DT	Definite=Def|PronType=Art	39	det	39:det	Entity=(13
+39	city	city	NOUN	NN	Number=Sing	36	nmod	36:nmod:of	Entity=13)|SpaceAfter=No
 40	.	.	PUNCT	.	_	15	punct	15:punct	_
 
 # sent_id = GUM_voyage_athens-34
 # s_type = decl
 # text = Athens today is ever evolving, forging a brand new identity for the 21st century.
-1	Athens	Athens	PROPN	NNP	Number=Sing	5	nsubj	5:nsubj	Discourse=sequence_m:84->59:2|Entity=(1)
+1	Athens	Athens	PROPN	NNP	Number=Sing	5	nsubj	5:nsubj	Discourse=joint-sequence_m:84->59:2|Entity=(13)
 2	today	today	NOUN	NN	Number=Sing	1	nmod:tmod	1:nmod:tmod	_
 3	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	aux	5:aux	_
 4	ever	ever	ADV	RB	Degree=Pos	5	advmod	5:advmod	_
 5	evolving	evolve	VERB	VBG	Tense=Pres|VerbForm=Part	0	root	0:root	SpaceAfter=No
 6	,	,	PUNCT	,	_	7	punct	7:punct	_
-7	forging	forge	VERB	VBG	VerbForm=Ger	5	advcl	5:advcl	Discourse=result:85->84:0
+7	forging	forge	VERB	VBG	VerbForm=Ger	5	advcl	5:advcl	Discourse=causal-result:85->84:0
 8	a	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	_
 9	brand	brand	NOUN	NN	Number=Sing	10	compound	10:compound	_
 10	new	new	ADJ	JJ	Degree=Pos	11	amod	11:amod	_
@@ -1048,13 +1048,13 @@
 # s_type = frag
 # text = Climate
 # newpar = head rend:::"bold" (1 s)
-1	Climate	climate	NOUN	NN	Number=Sing	0	root	0:root	Discourse=preparation:86->87:2
+1	Climate	climate	NOUN	NN	Number=Sing	0	root	0:root	Discourse=organization-heading:86->87:2
 
 # sent_id = GUM_voyage_athens-36
 # s_type = decl
 # text = Spring and late autumn are the best times to visit Athens.
 # newpar = p (3 s)
-1	Spring	spring	NOUN	NN	Number=Sing	8	nsubj	8:nsubj	Discourse=joint_m:87->7:3|XML=<date from:::"--03" to:::"--06"></date>
+1	Spring	spring	NOUN	NN	Number=Sing	8	nsubj	8:nsubj	Discourse=joint-other_m:87->7:3|XML=<date from:::"--03" to:::"--06"></date>
 2	and	and	CCONJ	CC	_	4	cc	4:cc	_
 3	late	late	ADJ	JJ	Degree=Pos	4	amod	4:amod	_
 4	autumn	autumn	NOUN	NN	Number=Sing	1	conj	1:conj:and|8:nsubj	XML=<date from:::"--09" to:::"--12"></date>
@@ -1064,15 +1064,15 @@
 8	times	time	NOUN	NNS	Number=Plur	0	root	0:root	_
 9	to	to	PART	TO	_	10	mark	10:mark	_
 10	visit	visit	VERB	VB	VerbForm=Inf	8	acl	8:acl:to	_
-11	Athens	Athens	PROPN	NNP	Number=Sing	10	obj	10:obj	Entity=(1)|SpaceAfter=No
+11	Athens	Athens	PROPN	NNP	Number=Sing	10	obj	10:obj	Entity=(13)|SpaceAfter=No
 12	.	.	PUNCT	.	_	8	punct	8:punct	_
 
 # sent_id = GUM_voyage_athens-37
 # s_type = decl
 # text = Summer can be extremely hot and dry during heatwaves, but this rarely happens.
-1	Summer	summer	NOUN	NN	Number=Sing	5	nsubj	5:nsubj|7:nsubj	Discourse=contrast_m:88->87:0|XML=<date from:::"--06" to:::"--09"></date>
+1	Summer	summer	NOUN	NN	Number=Sing	5	nsubj	5:nsubj|7:nsubj	Discourse=joint-list_m:88->87:0|XML=<date from:::"--06" to:::"--09"></date>
 2	can	can	AUX	MD	VerbForm=Fin	5	aux	5:aux	_
-3	be	be	AUX	VB	VerbForm=Inf	5	cop	5:cop	Entity=(14)
+3	be	be	AUX	VB	VerbForm=Inf	5	cop	5:cop	Entity=(16)
 4	extremely	extremely	ADV	RB	Degree=Pos	5	advmod	5:advmod	_
 5	hot	hot	ADJ	JJ	Degree=Pos	0	root	0:root	_
 6	and	and	CCONJ	CC	_	7	cc	7:cc	_
@@ -1080,8 +1080,8 @@
 8	during	during	ADP	IN	_	9	case	9:case	_
 9	heatwaves	heatwave	NOUN	NNS	Number=Plur	5	obl	5:obl:during	SpaceAfter=No
 10	,	,	PUNCT	,	_	14	punct	14:punct	_
-11	but	but	CCONJ	CC	_	14	cc	14:cc	Discourse=concession:89->88:0
-12	this	this	PRON	DT	Number=Sing|PronType=Dem	14	nsubj	14:nsubj	Entity=(14)
+11	but	but	CCONJ	CC	_	14	cc	14:cc	Discourse=adversative-concession:89->88:0
+12	this	this	PRON	DT	Number=Sing|PronType=Dem	14	nsubj	14:nsubj	Entity=(16)
 13	rarely	rarely	ADV	RB	Degree=Pos	14	advmod	14:advmod	_
 14	happens	happen	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	conj	5:conj:but	SpaceAfter=No
 15	.	.	PUNCT	.	_	5	punct	5:punct	_
@@ -1089,7 +1089,7 @@
 # sent_id = GUM_voyage_athens-38
 # s_type = decl
 # text = Winter is definitely low season, with the occasional rainy or snowy day, but also an ideal time to save money while enjoying the city without countless other travelers and tourists.
-1	Winter	winter	NOUN	NN	Number=Sing	5	nsubj	5:nsubj|19:nsubj	Discourse=concession:90->91:1|XML=<date from:::"--12" to:::"--03"></date>
+1	Winter	winter	NOUN	NN	Number=Sing	5	nsubj	5:nsubj|19:nsubj	Discourse=adversative-concession:90->91:1|XML=<date from:::"--12" to:::"--03"></date>
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	cop	5:cop	_
 3	definitely	definitely	ADV	RB	Degree=Pos	5	advmod	5:advmod	_
 4	low	low	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
@@ -1103,19 +1103,19 @@
 12	snowy	snowy	ADJ	JJ	Degree=Pos	10	conj	10:conj:or|13:amod	_
 13	day	day	NOUN	NN	Number=Sing	5	nmod	5:nmod:with	SpaceAfter=No
 14	,	,	PUNCT	,	_	19	punct	19:punct	_
-15	but	but	CCONJ	CC	_	19	cc	19:cc	Discourse=contrast_m:91->87:0
+15	but	but	CCONJ	CC	_	19	cc	19:cc	Discourse=joint-list_m:91->87:0
 16	also	also	ADV	RB	_	19	advmod	19:advmod	_
 17	an	a	DET	DT	Definite=Ind|PronType=Art	19	det	19:det	_
 18	ideal	ideal	ADJ	JJ	Degree=Pos	19	amod	19:amod	_
 19	time	time	NOUN	NN	Number=Sing	5	conj	5:conj:but	_
-20	to	to	PART	TO	_	21	mark	21:mark	Discourse=purpose:92->91:0
+20	to	to	PART	TO	_	21	mark	21:mark	Discourse=purpose-attribute:92->91:0
 21	save	save	VERB	VB	VerbForm=Inf	19	acl	19:acl:to	_
 22	money	money	NOUN	NN	Number=Sing	21	obj	21:obj	_
-23	while	while	SCONJ	IN	_	24	mark	24:mark	Discourse=circumstance:93->92:0
+23	while	while	SCONJ	IN	_	24	mark	24:mark	Discourse=context-circumstance:93->92:0
 24	enjoying	enjoy	VERB	VBG	VerbForm=Ger	21	advcl	21:advcl:while	_
-25	the	the	DET	DT	Definite=Def|PronType=Art	26	det	26:det	Entity=(1
-26	city	city	NOUN	NN	Number=Sing	24	obj	24:obj	Entity=1)
-27	without	without	ADP	IN	_	30	case	30:case	_
+25	the	the	DET	DT	Definite=Def|PronType=Art	26	det	26:det	Entity=(13
+26	city	city	NOUN	NN	Number=Sing	24	obj	24:obj	Entity=13)
+27	without	without	ADP	IN	_	30	case	30:case	Discourse=mode-manner:94->93:0
 28	countless	countless	ADJ	JJ	Degree=Pos	30	amod	30:amod	_
 29	other	other	ADJ	JJ	Degree=Pos	30	amod	30:amod	_
 30	travelers	traveler	NOUN	NNS	Number=Plur	24	obl	24:obl:without	_
@@ -1127,7 +1127,7 @@
 # s_type = decl
 # text = Whilst peak traffic hour can be a bit smoggy on the main roads, on most sunny days the skies are azure blue.
 # newpar = p (3 s)
-1	Whilst	whilst	SCONJ	IN	_	9	mark	9:mark	Discourse=concession:94->95:0
+1	Whilst	whilst	SCONJ	IN	_	9	mark	9:mark	Discourse=adversative-concession:95->96:0
 2	peak	peak	NOUN	NN	Number=Sing	3	compound	3:compound	_
 3	traffic	traffic	NOUN	NN	Number=Sing	4	compound	4:compound	_
 4	hour	hour	NOUN	NN	Number=Sing	9	nsubj	9:nsubj	_
@@ -1141,7 +1141,7 @@
 12	main	main	ADJ	JJ	Degree=Pos	13	amod	13:amod	_
 13	roads	road	NOUN	NNS	Number=Plur	9	obl	9:obl:on	SpaceAfter=No
 14	,	,	PUNCT	,	_	9	punct	9:punct	_
-15	on	on	ADP	IN	_	18	case	18:case	Discourse=joint_m:95->87:1
+15	on	on	ADP	IN	_	18	case	18:case	Discourse=joint-other_m:96->87:1
 16	most	most	ADJ	JJS	Degree=Sup	18	amod	18:amod	_
 17	sunny	sunny	ADJ	JJ	Degree=Pos	18	amod	18:amod	_
 18	days	day	NOUN	NNS	Number=Plur	23	obl	23:obl:on	_
@@ -1155,7 +1155,7 @@
 # sent_id = GUM_voyage_athens-40
 # s_type = decl
 # text = The main reason attributed for the pollution of Athens is because the city is enclosed by mountains in a basin which does not let the smog leave.
-1	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Discourse=solutionhood:96->98:2
+1	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Discourse=topic-solutionhood:97->99:2
 2	main	main	ADJ	JJ	Degree=Pos	3	amod	3:amod	_
 3	reason	reason	NOUN	NN	Number=Sing	15	nsubj	15:nsubj	_
 4	attributed	attribute	VERB	VBN	Tense=Past|VerbForm=Part	3	acl	3:acl	_
@@ -1163,31 +1163,31 @@
 6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	_
 7	pollution	pollution	NOUN	NN	Number=Sing	4	obl	4:obl:for	_
 8	of	of	ADP	IN	_	9	case	9:case	_
-9	Athens	Athens	PROPN	NNP	Number=Sing	7	nmod	7:nmod:of	Entity=(1)
+9	Athens	Athens	PROPN	NNP	Number=Sing	7	nmod	7:nmod:of	Entity=(13)
 10	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	15	cop	15:cop	_
 11	because	because	SCONJ	IN	_	15	mark	15:mark	_
-12	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	Entity=(1
-13	city	city	NOUN	NN	Number=Sing	15	nsubj:pass	15:nsubj:pass	Entity=1)
+12	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	Entity=(13
+13	city	city	NOUN	NN	Number=Sing	15	nsubj:pass	15:nsubj:pass	Entity=13)
 14	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	15	aux:pass	15:aux:pass	_
 15	enclosed	enclose	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
 16	by	by	ADP	IN	_	17	case	17:case	_
-17	mountains	mountain	NOUN	NNS	Number=Plur	15	obl	15:obl:by	_
+17	mountains	mountain	NOUN	NNS	Number=Plur	15	obl:agent	15:obl:agent	_
 18	in	in	ADP	IN	_	20	case	20:case	_
-19	a	a	DET	DT	Definite=Ind|PronType=Art	20	det	20:det	Entity=(15
+19	a	a	DET	DT	Definite=Ind|PronType=Art	20	det	20:det	Entity=(17
 20	basin	basin	NOUN	NN	Number=Sing	15	obl	15:obl:in|24:nsubj	_
-21	which	which	PRON	WDT	PronType=Rel	24	nsubj	20:ref	Discourse=result:97->96:0
+21	which	which	PRON	WDT	PronType=Rel	24	nsubj	20:ref	Discourse=causal-result:98->97:0
 22	does	do	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	24	aux	24:aux	_
 23	not	not	PART	RB	Polarity=Neg	24	advmod	24:advmod	_
 24	let	let	VERB	VB	VerbForm=Inf	20	acl:relcl	20:acl:relcl	_
-25	the	the	DET	DT	Definite=Def|PronType=Art	26	det	26:det	Entity=(12
-26	smog	smog	NOUN	NN	Number=Sing	24	obj	24:obj|27:nsubj:xsubj	Entity=12)
-27	leave	leave	VERB	VB	VerbForm=Inf	24	xcomp	24:xcomp	Entity=15)|SpaceAfter=No
+25	the	the	DET	DT	Definite=Def|PronType=Art	26	det	26:det	Entity=(14
+26	smog	smog	NOUN	NN	Number=Sing	24	obj	24:obj|27:nsubj:xsubj	Entity=14)
+27	leave	leave	VERB	VB	VerbForm=Inf	24	xcomp	24:xcomp	Entity=17)|SpaceAfter=No
 28	.	.	PUNCT	.	_	15	punct	15:punct	_
 
 # sent_id = GUM_voyage_athens-41
 # s_type = decl
 # text = The government's ban on diesel vehicles within Athens and the early 1990s initiatives to improve car emissions have greatly contributed to better atmospheric conditions in the basin.
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=joint_m:98->87:1
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=joint-other_m:99->87:1
 2-3	government's	_	_	_	_	_	_	_	_
 2	government	government	NOUN	NN	Number=Sing	4	nmod:poss	4:nmod:poss	_
 3	's	's	PART	POS	_	2	case	2:case	_
@@ -1196,17 +1196,17 @@
 6	diesel	diesel	NOUN	NN	Number=Sing	7	compound	7:compound	_
 7	vehicles	vehicle	NOUN	NNS	Number=Plur	4	nmod	4:nmod:on	_
 8	within	within	ADP	IN	_	9	case	9:case	_
-9	Athens	Athens	PROPN	NNP	Number=Sing	7	nmod	7:nmod:within	Entity=(1)
+9	Athens	Athens	PROPN	NNP	Number=Sing	7	nmod	7:nmod:within	Entity=(13)
 10	and	and	CCONJ	CC	_	14	cc	14:cc	_
 11	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	_
 12	early	early	ADJ	JJ	Degree=Pos	13	amod	13:amod	_
 13	1990s	1990s	NOUN	NNS	Number=Plur	14	compound	14:compound	XML=<date from:::"1990-01-01" to:::"1999-12-31"></date>
 14	initiatives	initiative	NOUN	NNS	Number=Plur	4	conj	4:conj:and|21:nsubj	_
-15	to	to	PART	TO	_	16	mark	16:mark	Discourse=elaboration:99->98:0
+15	to	to	PART	TO	_	16	mark	16:mark	Discourse=purpose-attribute:100->99:0
 16	improve	improve	VERB	VB	VerbForm=Inf	14	acl	14:acl:to	_
 17	car	car	NOUN	NN	Number=Sing	18	compound	18:compound	_
 18	emissions	emission	NOUN	NNS	Number=Plur	16	obj	16:obj	_
-19	have	have	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	21	aux	21:aux	Discourse=same-unit_m:100->98:1
+19	have	have	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	21	aux	21:aux	Discourse=same-unit_m:101->99:1
 20	greatly	greatly	ADV	RB	Degree=Pos	21	advmod	21:advmod	_
 21	contributed	contribute	VERB	VBN	Tense=Past|VerbForm=Part	0	root	0:root	_
 22	to	to	ADP	IN	_	25	case	25:case	_
@@ -1214,7 +1214,7 @@
 24	atmospheric	atmospheric	ADJ	JJ	Degree=Pos	25	amod	25:amod	_
 25	conditions	condition	NOUN	NNS	Number=Plur	21	obl	21:obl:to	_
 26	in	in	ADP	IN	_	28	case	28:case	_
-27	the	the	DET	DT	Definite=Def|PronType=Art	28	det	28:det	Entity=(15
-28	basin	basin	NOUN	NN	Number=Sing	25	nmod	25:nmod:in	Entity=15)|SpaceAfter=No
+27	the	the	DET	DT	Definite=Def|PronType=Art	28	det	28:det	Entity=(17
+28	basin	basin	NOUN	NN	Number=Sing	25	nmod	25:nmod:in	Entity=17)|SpaceAfter=No
 29	.	.	PUNCT	.	_	21	punct	21:punct	_
 
