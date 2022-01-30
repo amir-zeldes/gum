@@ -789,6 +789,13 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print(str(id) + docname)
 		print("WARN: tag "+pos+" should not have auxiliaries 'aux' " + inname)
 
+	if lemma == "not" and func not in ["advmod","root","parataxis","reparandum","advcl","conj","orphan"]:
+		print("WARN: deprel "+func+" should not be used with lemma '"+lemma+"'" + inname)
+
+	if func == "xcomp" and parent_lemma in ["see","hear","notice"]:  # find
+		print("WARN: deprel "+func+" should not be used with perception verb lemma '"+lemma+"' (should this be nsubj+ccomp?)" + inname)
+
+
 	#if func == "advmod" and lemma in ["where","when"] and parent_func == "acl:relcl":
 	#	print("WARN: lemma "+lemma+" should not be func '"+func+"' when it is the child of a '" + parent_func + "'" + inname)
 
