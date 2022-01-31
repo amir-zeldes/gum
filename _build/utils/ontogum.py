@@ -88,10 +88,10 @@ def coref_(fields: list) -> dict:
                 next_e = ''
                 BRIDGE_CATA_FLAG = True
 
-            if cur_e in coref.keys() and not BRIDGE_CATA_FLAG:
+            if cur_e in coref and BRIDGE_CATA_FLAG:
                 # This happens when there are other coreference relations but the relation is either a bridging or cataphora
                 # Ignore the alert
-                a = 1
+                continue
                 # raise ValueError(f'The coref type {coref_type} has not been added into conversion at line {fields[0]}.')
             coref[cur_e] = (point_to, next_e, coref_type)
 
