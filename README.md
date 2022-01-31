@@ -78,12 +78,12 @@ The corpus is downloadable in multiple formats. Not all formats contain all anno
 
   * _build/ - The [GUM build bot](https://corpling.uis.georgetown.edu/gum/build.html) and utilities for data merging and validation
   * annis/ - The entire merged corpus, with all annotations, as a relANNIS 3.3 corpus dump, importable into [ANNIS](http://corpus-tools.org/annis)
-  * const/ - Constituent trees with function labels and PTB POS tags in the PTB bracketing format (automatic parser output)
+  * const/ - Constituent trees with function labels and PTB POS tags in the PTB bracketing format (automatic parser output from gold POS with functions projected from gold dependencies)
   * coref/ - Entity and coreference annotation in two formats: 
     * conll/ - CoNLL shared task tabular format (with Wikification but no bridging or split antecedent annotations)
     * ontogum/ - alternative version of coreference annotation in CoNLL, tsv and CoNLL-U formats following OntoNotes guidelines (see Zhu et al. 2021)
     * tsv/ - WebAnno .tsv format, including entity and information status annotations, Wikification, bridging, split antecedent and singleton entities
   * dep/ - Dependency trees using Universal Dependencies, enriched with sentence types, enhanced dependencies, entities, information status, coreference, bridging, Wikification, XML markup, morphological tags and Universal POS tags according to the UD standard
-  * paula/ - The entire merged corpus in standoff [PAULA XML](https://www.sfb632.uni-potsdam.de/en/paula.html), with all annotations
+  * paula/ - The entire merged corpus in standoff [PAULA XML](https://github.com/korpling/paula-xml), with all annotations
   * rst/ - Rhetorical Structure Theory analyses in .rs3 format as used by RSTTool and rstWeb, as well as binary and n-ary lisp trees (.dis) and an RST dependency representation (.rsd)
   * xml/ - vertical XML representations with 1 token or tag per line and tab delimited lemmas and POS tags (extended VVZ style, vanilla, UPOS and CLAWS5, as well as dependency functions), compatible with the IMS Corpus Workbench (a.k.a. TreeTagger format).
