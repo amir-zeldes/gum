@@ -49,8 +49,12 @@ from collections import defaultdict
 
 # Default relations to include in generated .rs3 header
 DEFAULT_RELATIONS = \
-    {"rst":{"antithesis","attribution","background","cause","circumstance","concession","condition","elaboration","evaluation","evidence","justify","manner","means","motivation","preparation","purpose","question","restatement","result","solutionhood"},
-     "multinuc":{"joint","contrast","restatement","same-unit","sequence"}}
+    {"rst":{"adversative-antithesis","attribution-positive","attribution-negative","context-background","causal-cause","context-circumstance",
+            "adversative-concession","contingency-condition","elaboration-additional","elaboration-attribute","evaluation-comment",
+            "explanation-evidence","explanation-justify","mode-manner","mode-means","explanation-motivation",
+            "organization-phatic","organization-preparation","organization-heading","purpose-goal","purpose-attribute","topic-question",
+            "restatement-partial","causal-result","topic-solutionhood"},
+     "multinuc":{"joint-other","adversative-contrast","same-unit","joint-sequence","joint-disjunction","restatement-repetition","joint-list"}}
 
 
 def conllu2rsd(conllu):
@@ -110,7 +114,7 @@ def determinstic_groups(nodes):
     return id_map
 
 
-def rsd2rs3(rsd, ordering="dist", default_rels=False):
+def rsd2rs3(rsd, ordering="dist", default_rels=False, strict=True):
     nodes = {}
     if default_rels:
         rels = DEFAULT_RELATIONS
@@ -130,15 +134,17 @@ def rsd2rs3(rsd, ordering="dist", default_rels=False):
             domain = int(fields[4]) if fields[4] != "_" else 0
             reltype = "multinuc" if fields[7].endswith("_m") else "rst"
             relation = fields[7].replace("_m","").replace("_r","")
-            if relation != "ROOT" and not default_rels:
-                rels[reltype].add(relation)
-            elif default_rels and relation not in rels[reltype]:
-                sys.stderr.write("! Unlisted relation detected: " + relation + " (" + reltype + ")\n")
-                sys.exit(0)
-            else:
-                relation = "span"
-                if reltype != "multinuc":
-                    reltype = "span"
+            if relation != "ROOT":
+                if not default_rels:
+                    rels[reltype].add(relation)
+                elif default_rels and relation not in rels[reltype]:
+                    sys.stderr.write("! Unlisted relation detected: " + relation + " (" + reltype + ")\n")
+                    if strict:
+                        sys.exit(0)
+                    else:
+                        relation = "span"
+                        if reltype != "multinuc":
+                            reltype = "span"
             node = NODE(int(eid),int(eid),int(eid),int(head),depth,"edu",contents,relation,reltype)
             node.dist = dist
             node.domain = domain

@@ -110,6 +110,7 @@ def fix_punct(conllu_string):
 		return "\n".join(output).strip() + "\n\n"
 
 	# Protect possessive apostrophe from being treated as punctuation
+	conllu_string = conllu_string.strip() + "\n\n"
 	ellipses = preserve_ellipsis_tokens(conllu_string)
 	conllu_string = re.sub(r"\t'\t([^\t\n]+\tPART\tPOS)", r'\t&udapi_apos;\t\1', conllu_string, flags=re.MULTILINE)  # remove udapi sent_id
 	doc = Document()
@@ -214,7 +215,7 @@ def is_neg_lemma(lemma,pos):
 	elif lemma.startswith("not-"):
 		return True
 	elif lemma.startswith("un") and (pos.startswith("JJ") or pos.startswith("RB")):
-		if not lemma.startswith("unique") and not lemma.startswith("under"):
+		if not lemma.startswith("unique") and not lemma.startswith("under") and not lemma.startswith("univers"):
 			return True
 	for stem in negstems:
 		if lemma.startswith(stem):
@@ -261,7 +262,7 @@ def add_feat(field,feat):
 def remove_entities(misc):
 	output = []
 	for anno in misc.split("|"):
-		if anno.startswith("Entity=") or anno.startswith("Bridge=") or anno.startswith("Split=") or anno == "_":
+		if anno.startswith("Entity=") or anno.startswith("Bridge=") or anno.startswith("SplitAnte=") or anno == "_":
 			continue
 		else:
 			output.append(anno)
@@ -520,8 +521,10 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 			  "GUM_fiction_lunre", "GUM_fiction_beast",
 			  "GUM_academic_exposure", "GUM_academic_librarians",
 			  #"GUM_reddit_macroeconomics", "GUM_reddit_pandas",
-			  "GUM_speech_impeachment", "GUM_textbook_cognition",
-			  "GUM_vlog_radiology", "GUM_conversation_grounded"]
+			  "GUM_speech_impeachment", "GUM_textbook_labor",
+			  "GUM_vlog_radiology", "GUM_conversation_grounded",
+			  "GUM_textbook_governments", "GUM_vlog_portland",
+			  "GUM_conversation_risk", "GUM_speech_inauguration"]
 	ud_test = ["GUM_interview_libertarian", "GUM_interview_hill",
 			   "GUM_news_nasa", "GUM_news_sensitive",
 			   "GUM_voyage_oakland", "GUM_voyage_vavau",
@@ -531,7 +534,9 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 			   "GUM_academic_eegimaa", "GUM_academic_discrimination",
 			   #"GUM_reddit_escape", "GUM_reddit_monsters",
 			   "GUM_speech_austria", "GUM_textbook_chemistry",
-			   "GUM_vlog_studying", "GUM_conversation_retirement"]
+			   "GUM_vlog_studying", "GUM_conversation_retirement",
+			   "GUM_textbook_union", "GUM_vlog_london",
+			   "GUM_conversation_lambada", "GUM_speech_newzealand"]
 
 
 	train_string, dev_string, test_string = "", "", ""
@@ -710,7 +715,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 
 		# Add metadata and global declaration
 		lines = processed_lines.split("\n")
-		header = ["# global.Entity = entity-GRP-infstat-MIN-coref_type-identity"]
+		header = ["# global.Entity = GRP-etype-infstat-minspan-link-identity"]
 		meta = get_meta(docname,gum_target)
 		header.append("# meta::dateCollected = " + meta["dateCollected"])
 		header.append("# meta::dateCreated = " + meta["dateCreated"])
@@ -805,6 +810,10 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 
 		# Add enhanced dependencies
 		negatived = ud_edep_deped.run_depedit(negatived).strip()
+
+		# Remove invalid enhanced dependencies
+		negatived = re.sub(r'(nmod|obl):(de|en|a)(?=[\|\t])',r'\1',negatived)
+		negatived = re.sub(r'(conj):(as_well)(?=[\|\t])',r'\1:as_well_as',negatived)
 
 		# Add upos to target/xml/
 		xml_lines = io.open(gum_target + "xml" + os.sep + docname + ".xml",encoding="utf8").read().split("\n")
@@ -1067,7 +1076,28 @@ def get_rsd_spans(gum_target):
 	return rsd_spans
 
 
-def add_rsd_to_conllu(gum_target,reddit=False,ontogum=False):
+def add_rsd_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8):
+	def convert_rel(rel, version=8):
+		if version < 7:
+			if "disjunction" in rel:
+				return "contrast_m"
+			elif "means" in rel or "manner" in rel:
+				return "elaboration"
+		elif version < 8:
+			if "restatement" in rel and "_r" not in rel and "_m" not in rel:
+				return "restatement"
+			elif "restatement" in rel and "_r" not in rel:
+				return "restatement_m"
+			elif rel.startswith("elaboration"):
+				return "elaboration"
+			elif "phatic" in rel:
+				return "phatic"
+			elif "preparation" in rel or "organization" in rel:
+				return "preparation"
+			elif "list" in rel:
+				return "joint_m"
+		return rel
+
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
 	rsd_spans = get_rsd_spans(gum_target)
@@ -1097,10 +1127,11 @@ def add_rsd_to_conllu(gum_target,reddit=False,ontogum=False):
 				if not "-" in fields[0] and not "." in fields[0]:  # Regular token, not an ellipsis token or supertok
 					if toknum in rsd_spans[doc]:
 						rsd_data = rsd_spans[doc][toknum]
+						relname = convert_rel(rsd_data[1],version=relation_set)
 						if rsd_data[2] == "0":  # ROOT
-							misc = add_feat(fields[-1],"Discourse=" + rsd_data[1] + ":" + rsd_data[0] + ":" + rsd_data[3]) #+ ":" + rsd_data[4] + ":" + rsd_data[5])
+							misc = add_feat(fields[-1],"Discourse=" + relname + ":" + rsd_data[0] + ":" + rsd_data[3]) #+ ":" + rsd_data[4] + ":" + rsd_data[5])
 						else:
-							misc = add_feat(fields[-1],"Discourse="+rsd_data[1]+":"+rsd_data[0]+"->"+rsd_data[2] + ":" + rsd_data[3]) #+ ":" + rsd_data[4] + ":" + rsd_data[5])
+							misc = add_feat(fields[-1],"Discourse=" + relname + ":"+rsd_data[0]+"->"+rsd_data[2] + ":" + rsd_data[3]) #+ ":" + rsd_data[4] + ":" + rsd_data[5])
 						fields[-1] = misc
 						line = "\t".join(fields)
 					toknum += 1
@@ -1124,6 +1155,7 @@ def add_entities_to_conllu(gum_target,reddit=False,ontogum=False,conllua_data=No
 	if not reddit:
 		files = [f for f in files if not "reddit" in f]
 
+	entexp = "(person|place|organization|plant|abstract|object|event|time|animal|substance)-([0-9]+)"
 	for file_ in files:
 		with io.open(file_,encoding="utf8") as f:
 			lines = f.read().split("\n")
@@ -1144,6 +1176,10 @@ def add_entities_to_conllu(gum_target,reddit=False,ontogum=False,conllua_data=No
 						raise IndexError("Token number " + str(toknum) + " not found in document " + doc)
 					misc = remove_entities(fields[-1])
 					if entity_data != "_":
+						if "-" in entity_data:
+							# place GRP first to match CorefUD standard
+							entity_data = re.sub(entexp,r'\2-\1',entity_data)
+
 						misc = add_feat(misc,"Entity="+entity_data)
 					fields[-1] = misc
 					if "-giv-" in misc or "-acc-" in misc:
@@ -1219,7 +1255,7 @@ def get_bridging(webannotsv):
 def merge_bridge_conllu(conllu, webannotsv):
 	def no_brace(instr):
 		if "-" in instr:
-			return instr.split("-")[1].replace("(","").replace(")","")
+			return instr.split("-")[0].replace("(","").replace(")","")
 		else:
 			return instr.replace("(","").replace(")","")
 
@@ -1287,7 +1323,7 @@ def merge_bridge_conllu(conllu, webannotsv):
 			if len(bridging) > 0:
 				out_misc.append("Bridge=" + ",".join(bridging))
 			if len(split_ante) > 0:
-				out_misc.append("Split=" + ",".join(split_ante))
+				out_misc.append("SplitAnte=" + ",".join(split_ante))
 			bridging = []
 			split_ante = []
 			fields[-1] = "|".join(sorted(out_misc)) if len(out_misc) > 0 else "_"
@@ -1313,6 +1349,10 @@ def add_bridging_to_conllu(gum_target,reddit=False):
 
 		merged = merge_bridge_conllu(io.open(file_,encoding="utf8").read(),io.open(tsv_file,encoding="utf8").read())
 		merged = merged.strip() + "\n\n"
+
+		if any(["SplitAnte=" not in l and "acc:aggr" in l for l in merged.split("\n")]):
+			sys.stderr.write("WARN: split information status acc:aggr but no split antecedent 'SplitAnte=' detected in " +
+							 os.path.basename(file_)+"\n")
 
 		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
 			f.write(merged)
@@ -1368,5 +1408,7 @@ def add_xml_to_conllu(gum_target, reddit=False, ontogum=False):
 				with_tags = "\n\n".join([xml_tagged_conllu[d] for d in docnames])
 
 		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
+			# Separate newpar and newpar_blocks
+			with_tags = with_tags.replace("# newpar ", "# newpar\n# newpar_block ")
 			f.write(with_tags.strip() + "\n\n")
 

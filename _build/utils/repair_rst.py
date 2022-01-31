@@ -40,6 +40,16 @@ def fix_rst(gum_source, gum_target, reddit=False):
 	print("o Adjusted " + str(len(file_list)) + " RST files" + " " * 70)
 
 
+def validate_rsd(rsd_line, linenum, docname):
+	inname = " in document " + docname + " on line " + str(linenum)
+	if re.search(r'\b[Tt]o\b[^\n]+head_pos=V.\|[^\n]+head_func=acl\|[^\n]+elaboration-attr', rsd_line) is not None:
+		if "\tthat" not in rsd_line and "\tabout" not in rsd_line and "\tyou " not in rsd_line:  # check for that-clause embedding to-, or about PP
+			sys.stderr.write("! adnominal infinitive clause should be purpose-attribute not elaboration-attribute" + inname)
+	if re.search(r'(\bn.t\b[^\n]+)attribution-positive_r', rsd_line) is not None:
+		if "surprised" not in rsd_line:
+			sys.stderr.write("! suspicious attribution-positive_r with negation" + inname)
+
+
 def fix_file(filename,tt_file,gum_source,outdir):
 
 	# Get reference tokens
@@ -101,6 +111,9 @@ def fix_file(filename,tt_file,gum_source,outdir):
 
 	# Make rsd version
 	rsd = make_rsd(out_data,gum_source,as_text=True,docname=os.path.basename(rst_file_name.replace(".rs3","")))
+	for l, line in enumerate(rsd.split("\n")):
+		validate_rsd(line, l, docname)
+
 	with io.open(outdir.replace("rstweb","dependencies") + docname + ".rsd",'w',encoding="utf8",newline="\n") as f:
 		f.write(rsd)
 

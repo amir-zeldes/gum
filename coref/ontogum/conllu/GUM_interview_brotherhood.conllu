@@ -9,8 +9,9 @@
 # sent_id = GUM_interview_brotherhood-1
 # s_type = decl
 # text = Wikinews interviews President of the International Brotherhood of Magicians
-# newpar = head (1 s)
-1	Wikinews	Wikinews	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=preparation:1->7:5|Entity=(1)
+# newpar
+# newpar_block = head (1 s)
+1	Wikinews	Wikinews	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=organization-heading:1->7:5|Entity=(1)
 2	interviews	interview	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 3	President	President	NOUN	NN	Number=Sing	2	obj	2:obj	Entity=(2
 4	of	of	ADP	IN	_	7	case	7:case	_
@@ -23,7 +24,7 @@
 # sent_id = GUM_interview_brotherhood-2
 # s_type = frag
 # text = Wednesday, October 9, 2013
-1	Wednesday	Wednesday	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=circumstance:2->7:4|SpaceAfter=No|XML=<date when:::"2013-10-09" rend:::"bold">
+1	Wednesday	Wednesday	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=context-circumstance:2->7:4|SpaceAfter=No|XML=<date when:::"2013-10-09" rend:::"bold">
 2	,	,	PUNCT	,	_	4	punct	4:punct	_
 3	October	October	PROPN	NNP	Number=Sing	4	compound	4:compound	_
 4	9	9	NUM	CD	NumForm=Digit|NumType=Card	1	appos	1:appos	SpaceAfter=No
@@ -33,8 +34,9 @@
 # sent_id = GUM_interview_brotherhood-3
 # s_type = decl
 # text = October is National Magic Month in the United States.
-# newpar = p (2 s)
-1	October	October	PROPN	NNP	Number=Sing	5	nsubj	5:nsubj	Discourse=background:3->4:0|Entity=(5)|XML=<date when:::"--10"></date>
+# newpar
+# newpar_block = p (2 s)
+1	October	October	PROPN	NNP	Number=Sing	5	nsubj	5:nsubj	Discourse=context-background:3->4:0|Entity=(5)|XML=<date when:::"--10"></date>
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	cop	5:cop	_
 3	National	National	ADJ	NNP	Degree=Pos	5	amod	5:amod	_
 4	Magic	Magic	PROPN	NNP	Number=Sing	5	compound	5:compound	_
@@ -48,7 +50,7 @@
 # sent_id = GUM_interview_brotherhood-4
 # s_type = decl
 # text = Wikinews spoke with William Evans, president of the International Brotherhood of Magicians, about the current state of magic and what its future looks like in the world of entertainment.
-1	Wikinews	Wikinews	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=background:4->7:3|Entity=(1)|XML=<hi rend:::"italic"></hi>
+1	Wikinews	Wikinews	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=context-background:4->7:3|Entity=(1)|XML=<hi rend:::"italic"></hi>
 2	spoke	speak	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	with	with	ADP	IN	_	4	case	4:case	_
 4	William	William	PROPN	NNP	Number=Sing	2	obl	2:obl:with	Entity=(2
@@ -85,15 +87,16 @@
 # s_type = wh
 # speaker = Wikinews
 # text = For how long have you been involved in performing / studying magic?
-# newpar = sp who:::"#Wikinews" (1 s) | p (1 s)
-1	For	for	ADP	IN	_	3	case	3:case	Discourse=question:5->7:1
+# newpar
+# newpar_block = sp who:::"#Wikinews" (1 s) | p (1 s)
+1	For	for	ADP	IN	_	3	case	3:case	Discourse=topic-question:5->7:1
 2	how	how	ADV	WRB	PronType=Int	3	advmod	3:advmod	_
 3	long	long	ADV	RB	Degree=Pos	7	obl	7:obl:for	_
 4	have	have	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	7	aux	7:aux	_
 5	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	7	nsubj:pass	7:nsubj:pass	Entity=(2)
 6	been	be	AUX	VBN	Tense=Past|VerbForm=Part	7	aux:pass	7:aux:pass	_
 7	involved	involve	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
-8	in	in	SCONJ	IN	_	9	mark	9:mark	Discourse=elaboration:6->5:0
+8	in	in	SCONJ	IN	_	9	mark	9:mark	Discourse=elaboration-additional:6->5:0
 9	performing	perform	VERB	VBG	VerbForm=Ger	7	advcl	7:advcl:in	_
 10	/	/	SYM	SYM	_	11	cc	11:cc	_
 11	studying	study	VERB	VBG	VerbForm=Ger	9	conj	7:advcl:in|9:conj:slash	_
@@ -104,7 +107,8 @@
 # s_type = frag
 # speaker = WilliamEvans
 # text = Over 50 years.
-# newpar = sp who:::"#WilliamEvans" (6 s) | p (6 s)
+# newpar
+# newpar_block = sp who:::"#WilliamEvans" (6 s) | p (6 s)
 1	Over	over	ADV	RB	_	2	advmod	2:advmod	Discourse=ROOT:7:0
 2	50	50	NUM	CD	NumForm=Digit|NumType=Card	3	nummod	3:nummod	_
 3	years	year	NOUN	NNS	Number=Plur	0	root	0:root	SpaceAfter=No
@@ -114,22 +118,22 @@
 # s_type = decl
 # speaker = WilliamEvans
 # text = I am 61 now so I really started when I was about 10 years old even though I had seen and worked with some basic tricks a few years earlier.
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	3:nsubj	Discourse=background:8->9:2|Entity=(2)
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	3:nsubj	Discourse=context-background:8->9:2|Entity=(2)
 2	am	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	3	cop	3:cop	_
 3	61	61	NUM	CD	NumForm=Digit|NumType=Card	0	root	0:root	_
 4	now	now	ADV	RB	_	3	advmod	3:advmod	_
-5	so	so	SCONJ	IN	_	8	mark	8:mark	Discourse=elaboration:9->7:0
+5	so	so	SCONJ	IN	_	8	mark	8:mark	Discourse=elaboration-additional:9->7:0
 6	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	8	nsubj	8:nsubj	Entity=(2)
 7	really	really	ADV	RB	Degree=Pos	8	advmod	8:advmod	_
 8	started	start	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	3	advcl	3:advcl:so	_
-9	when	when	SCONJ	WRB	PronType=Int	15	mark	15:mark	Discourse=circumstance:10->9:0
+9	when	when	SCONJ	WRB	PronType=Int	15	mark	15:mark	Discourse=context-circumstance:10->9:0
 10	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	15	nsubj	15:nsubj	Entity=(2)
 11	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	15	cop	15:cop	_
 12	about	about	ADV	RB	_	13	advmod	13:advmod	_
 13	10	10	NUM	CD	NumForm=Digit|NumType=Card	14	nummod	14:nummod	_
 14	years	year	NOUN	NNS	Number=Plur	15	obl:tmod	15:obl:tmod	_
 15	old	old	ADJ	JJ	Degree=Pos	8	advcl	8:advcl:when	_
-16	even	even	ADV	RB	_	20	advmod	20:advmod	Discourse=concession:11->9:1
+16	even	even	ADV	RB	_	20	advmod	20:advmod	Discourse=adversative-concession:11->9:1
 17	though	though	SCONJ	IN	_	20	mark	20:mark	_
 18	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	20	nsubj	20:nsubj|22:nsubj	Entity=(2)
 19	had	have	AUX	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	20	aux	20:aux|22:aux	_
@@ -137,7 +141,7 @@
 21	and	and	CCONJ	CC	_	22	cc	22:cc	_
 22	worked	work	VERB	VBN	Tense=Past|VerbForm=Part	20	conj	8:advcl:though|20:conj:and	_
 23	with	with	ADP	IN	_	26	case	26:case	_
-24	some	some	DET	DT	_	26	det	26:det	_
+24	some	some	DET	DT	PronType=Ind	26	det	26:det	_
 25	basic	basic	ADJ	JJ	Degree=Pos	26	amod	26:amod	_
 26	tricks	trick	NOUN	NNS	Number=Plur	22	obl	22:obl:with	_
 27	a	a	DET	DT	Definite=Ind|PronType=Art	29	det	29:det	_
@@ -150,13 +154,13 @@
 # s_type = decl
 # speaker = WilliamEvans
 # text = I remember going into Hollywood Magic and wanting that big red box with the dragons on it and I didn't even know what it did.
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	2:nsubj	Discourse=attribution:12->13:2|Entity=(2)
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	2:nsubj	Discourse=attribution-positive:12->13:2|Entity=(2)
 2	remember	remember	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	0	root	0:root	_
-3	going	go	VERB	VBG	VerbForm=Ger	2	ccomp	2:ccomp	Discourse=circumstance:13->17:1
+3	going	go	VERB	VBG	VerbForm=Ger	2	ccomp	2:ccomp	Discourse=context-circumstance:13->17:2
 4	into	into	ADP	IN	_	6	case	6:case	_
 5	Hollywood	Hollywood	PROPN	NNP	Number=Sing	6	compound	6:compound	_
 6	Magic	Magic	PROPN	NNP	Number=Sing	3	obl	3:obl:into	_
-7	and	and	CCONJ	CC	_	8	cc	8:cc	Discourse=sequence_m:14->13:0
+7	and	and	CCONJ	CC	_	8	cc	8:cc	Discourse=joint-sequence_m:14->13:0
 8	wanting	want	VERB	VBG	VerbForm=Ger	3	conj	2:ccomp|3:conj:and	_
 9	that	that	DET	DT	Number=Sing|PronType=Dem	12	det	12:det	Entity=(9
 10	big	big	ADJ	JJ	Degree=Pos	12	amod	12:amod	_
@@ -167,14 +171,14 @@
 15	dragons	dragon	NOUN	NNS	Number=Plur	17	nsubj	17:nsubj	_
 16	on	on	ADP	IN	_	17	case	17:case	_
 17	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	12	acl	12:acl:with	Entity=9)
-18	and	and	CCONJ	CC	_	23	cc	23:cc	Discourse=attribution:15->16:0
+18	and	and	CCONJ	CC	_	23	cc	23:cc	Discourse=attribution-negative:15->16:0
 19	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	23	nsubj	23:nsubj	Entity=(2)
 20-21	didn't	_	_	_	_	_	_	_	_
 20	did	do	AUX	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	23	aux	23:aux	_
 21	n't	not	PART	RB	Polarity=Neg	23	advmod	23:advmod	_
 22	even	even	ADV	RB	_	23	advmod	23:advmod	_
 23	know	know	VERB	VB	VerbForm=Inf	2	conj	2:conj:and	_
-24	what	what	PRON	WP	PronType=Rel	23	obj	23:obj	Discourse=concession:16->13:1
+24	what	what	PRON	WP	PronType=Rel	23	obj	23:obj	Discourse=adversative-concession:16->13:1
 25	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	26	nsubj	26:nsubj	Entity=(9)
 26	did	do	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	24	acl:relcl	24:acl:relcl	SpaceAfter=No
 27	.	.	PUNCT	.	_	2	punct	2:punct	_
@@ -183,34 +187,34 @@
 # s_type = decl
 # speaker = WilliamEvans
 # text = The magician behind the counter was wise enough not to sell it to me, but instead sold me two books which I still own today - "Scarne on Card Tricks" and "Scarne on Magic Tricks".
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=cause:17->21:1
-2	magician	magician	NOUN	NN	Number=Sing	7	nsubj	7:nsubj|11:nsubj:xsubj|18:nsubj:xsubj	_
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=causal-cause:17->22:1
+2	magician	magician	NOUN	NN	Number=Sing	7	nsubj	7:nsubj	_
 3	behind	behind	ADP	IN	_	5	case	5:case	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	_
 5	counter	counter	NOUN	NN	Number=Sing	2	nmod	2:nmod:behind	_
 6	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	7	cop	7:cop	_
 7	wise	wise	ADJ	JJ	Degree=Pos	0	root	0:root	_
 8	enough	enough	ADV	RB	Degree=Pos	7	advmod	7:advmod	_
-9	not	not	PART	RB	Polarity=Neg	11	advmod	11:advmod	_
+9	not	not	PART	RB	Polarity=Neg	11	advmod	11:advmod	Discourse=elaboration-additional:18->17:0
 10	to	to	PART	TO	_	11	mark	11:mark	_
-11	sell	sell	VERB	VB	VerbForm=Inf	7	xcomp	7:xcomp	_
+11	sell	sell	VERB	VB	VerbForm=Inf	7	advcl	7:advcl:to	_
 12	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	11	obj	11:obj	Entity=(9)
 13	to	to	ADP	IN	_	14	case	14:case	_
 14	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	11	obl	11:obl:to	Entity=(2)|SpaceAfter=No
 15	,	,	PUNCT	,	_	18	punct	18:punct	_
-16	but	but	CCONJ	CC	_	18	cc	18:cc	Discourse=contrast_m:18->17:0
-17	instead	instead	ADV	RB	Degree=Pos	18	advmod	18:advmod	_
-18	sold	sell	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	11	conj	7:xcomp|11:conj:but	Entity=(10)
+16	but	but	CCONJ	CC	_	18	cc	18:cc	Discourse=adversative-contrast_m:19->17:1
+17	instead	instead	ADV	RB	_	18	advmod	18:advmod	_
+18	sold	sell	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	11	conj	7:advcl:to|11:conj:but	Entity=(10)
 19	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	18	iobj	18:iobj	Entity=(2)
 20	two	two	NUM	CD	NumForm=Word|NumType=Card	21	nummod	21:nummod	_
 21	books	book	NOUN	NNS	Number=Plur	18	obj	18:obj|25:obj	_
-22	which	which	PRON	WDT	PronType=Rel	25	obj	21:ref	Discourse=elaboration:19->18:0
+22	which	which	PRON	WDT	PronType=Rel	25	obj	21:ref	Discourse=elaboration-attribute:20->19:0
 23	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	25	nsubj	25:nsubj	Entity=(2)
 24	still	still	ADV	RB	Degree=Pos	25	advmod	25:advmod	_
 25	own	own	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	21	acl:relcl	21:acl:relcl	_
 26	today	today	NOUN	NN	Number=Sing	25	obl:tmod	25:obl:tmod	_
 27	-	-	PUNCT	:	_	29	punct	29:punct	_
-28	"	''	PUNCT	``	_	29	punct	29:punct	Discourse=elaboration:20->19:0|SpaceAfter=No
+28	"	''	PUNCT	``	_	29	punct	29:punct	Discourse=elaboration-additional:21->20:0|SpaceAfter=No
 29	Scarne	Scarne	PROPN	NNP	Number=Sing	21	appos	21:appos	Entity=(11)
 30	on	on	ADP	IN	_	32	case	32:case	_
 31	Card	Card	PROPN	NNP	Number=Sing	32	compound	32:compound	_
@@ -229,13 +233,13 @@
 # s_type = decl
 # speaker = WilliamEvans
 # text = That started me out on books and I have amassed quite a few since then.
-1	That	that	PRON	DT	Number=Sing|PronType=Dem	2	nsubj	2:nsubj	Discourse=background:21->11:0|Entity=(10)
+1	That	that	PRON	DT	Number=Sing|PronType=Dem	2	nsubj	2:nsubj	Discourse=context-background:22->11:0|Entity=(10)
 2	started	start	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	2	obj	2:obj	Entity=(2)
 4	out	out	ADP	RP	_	2	compound:prt	2:compound:prt	_
 5	on	on	ADP	IN	_	6	case	6:case	_
 6	books	book	NOUN	NNS	Number=Plur	2	obl	2:obl:on	Entity=(12)
-7	and	and	CCONJ	CC	_	10	cc	10:cc	Discourse=result:22->21:0
+7	and	and	CCONJ	CC	_	10	cc	10:cc	Discourse=causal-result:23->22:0
 8	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	10	nsubj	10:nsubj	Entity=(2)
 9	have	have	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	10	aux	10:aux	_
 10	amassed	amass	VERB	VBN	Tense=Past|VerbForm=Part	2	conj	2:conj:and	_
@@ -250,7 +254,7 @@
 # s_type = decl
 # speaker = WilliamEvans
 # text = My major influences on performance are Eugene Burger and Michael Skinner.
-1	My	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	3	nmod:poss	3:nmod:poss	Discourse=elaboration:23->21:2|Entity=(2)
+1	My	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	3	nmod:poss	3:nmod:poss	Discourse=elaboration-additional:24->22:2|Entity=(2)
 2	major	major	ADJ	JJ	Degree=Pos	3	amod	3:amod	_
 3	influences	influence	NOUN	NNS	Number=Plur	7	nsubj	7:nsubj|10:nsubj	_
 4	on	on	ADP	IN	_	5	case	5:case	_
@@ -267,8 +271,9 @@
 # s_type = decl
 # speaker = Wikinews
 # text = October is National Magic Month in the US.
-# newpar = sp who:::"#Wikinews" (2 s) | p (2 s)
-1	October	October	PROPN	NNP	Number=Sing	5	nsubj	5:nsubj	Discourse=background:24->26:1|Entity=(5)|XML=<date when:::"--10"></date>
+# newpar
+# newpar_block = sp who:::"#Wikinews" (2 s) | p (2 s)
+1	October	October	PROPN	NNP	Number=Sing	5	nsubj	5:nsubj	Discourse=context-background:25->27:1|Entity=(5)|XML=<date when:::"--10"></date>
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	cop	5:cop	_
 3	National	National	ADJ	NNP	Degree=Pos	5	amod	5:amod	_
 4	Magic	Magic	PROPN	NNP	Number=Sing	5	compound	5:compound	Entity=(8)
@@ -282,10 +287,10 @@
 # s_type = q
 # speaker = Wikinews
 # text = Do you think magic is alive as a viable form of entertainment today?
-1	Do	do	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	3	aux	3:aux	Discourse=attribution:25->26:0
+1	Do	do	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	3	aux	3:aux	Discourse=attribution-positive:26->27:0
 2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Entity=(2)
 3	think	think	VERB	VB	VerbForm=Inf	0	root	0:root	_
-4	magic	magic	NOUN	NN	Number=Sing	6	nsubj	6:nsubj	Discourse=question:26->27:1
+4	magic	magic	NOUN	NN	Number=Sing	6	nsubj	6:nsubj	Discourse=topic-question:27->28:1
 5	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	6:cop	_
 6	alive	alive	ADJ	JJ	Degree=Pos	3	ccomp	3:ccomp	_
 7	as	as	ADP	IN	_	10	case	10:case	_
@@ -301,21 +306,22 @@
 # s_type = frag
 # speaker = WilliamEvans
 # text = Absolutely.
-# newpar = sp who:::"#WilliamEvans" (3 s) | p (3 s)
-1	Absolutely	absolutely	ADV	RB	Degree=Pos	0	root	0:root	Discourse=joint_m:27->7:2|SpaceAfter=No
+# newpar
+# newpar_block = sp who:::"#WilliamEvans" (3 s) | p (3 s)
+1	Absolutely	absolutely	ADV	RB	Degree=Pos	0	root	0:root	Discourse=joint-other_m:28->7:2|SpaceAfter=No
 2	.	.	PUNCT	.	_	1	punct	1:punct	_
 
 # sent_id = GUM_interview_brotherhood-15
 # s_type = decl
 # speaker = WilliamEvans
 # text = There are more magicians working today than ever before.
-1	There	there	PRON	EX	_	2	expl	2:expl	Discourse=elaboration:28->27:0
+1	There	there	PRON	EX	PronType=Dem	2	expl	2:expl	Discourse=elaboration-additional:29->28:0
 2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 3	more	more	ADJ	JJR	Degree=Cmp	4	amod	4:amod	_
 4	magicians	magician	NOUN	NNS	Number=Plur	2	nsubj	2:nsubj	_
-5	working	work	VERB	VBG	VerbForm=Ger	4	acl	4:acl	Discourse=elaboration:29->28:0
+5	working	work	VERB	VBG	VerbForm=Ger	4	acl	4:acl	Discourse=elaboration-attribute:30->29:0
 6	today	today	NOUN	NN	Number=Sing	5	obl:tmod	5:obl:tmod	_
-7	than	than	SCONJ	IN	_	9	mark	9:mark	Discourse=same-unit_m:30->28:1
+7	than	than	SCONJ	IN	_	9	mark	9:mark	Discourse=same-unit_m:31->29:1
 8	ever	ever	ADV	RB	Degree=Pos	9	advmod	9:advmod	_
 9	before	before	ADV	RB	Degree=Pos	4	acl	4:acl:than	SpaceAfter=No
 10	.	.	PUNCT	.	_	2	punct	2:punct	_
@@ -324,7 +330,7 @@
 # s_type = decl
 # speaker = WilliamEvans
 # text = There will always be an audience for good magicians doing good magic.
-1	There	there	PRON	EX	_	6	expl	6:expl	Discourse=cause:31->28:2
+1	There	there	PRON	EX	PronType=Dem	6	expl	6:expl	Discourse=causal-cause:32->29:2
 2	will	will	AUX	MD	VerbForm=Fin	6	aux	6:aux	_
 3	always	always	ADV	RB	_	6	advmod	6:advmod	_
 4	be	be	AUX	VB	VerbForm=Inf	6	cop	6:cop	_
@@ -333,7 +339,7 @@
 7	for	for	ADP	IN	_	9	case	9:case	_
 8	good	good	ADJ	JJ	Degree=Pos	9	amod	9:amod	_
 9	magicians	magician	NOUN	NNS	Number=Plur	6	nmod	6:nmod:for	_
-10	doing	do	VERB	VBG	VerbForm=Ger	9	acl	9:acl	Discourse=elaboration:32->31:0
+10	doing	do	VERB	VBG	VerbForm=Ger	9	acl	9:acl	Discourse=elaboration-attribute:33->32:0
 11	good	good	ADJ	JJ	Degree=Pos	12	amod	12:amod	_
 12	magic	magic	NOUN	NN	Number=Sing	10	obj	10:obj	SpaceAfter=No
 13	.	.	PUNCT	.	_	6	punct	6:punct	_
@@ -342,8 +348,9 @@
 # s_type = q
 # speaker = Wikinews
 # text = Has the internet helped or hurt magic?
-# newpar = sp who:::"#Wikinews" (1 s) | p (1 s)
-1	Has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	aux	4:aux|6:aux	Discourse=question:33->34:1
+# newpar
+# newpar_block = sp who:::"#Wikinews" (1 s) | p (1 s)
+1	Has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	aux	4:aux|6:aux	Discourse=topic-question:34->35:1
 2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Entity=(13
 3	internet	Internet	NOUN	NN	Number=Sing	4	nsubj	4:nsubj|6:nsubj	Entity=13)
 4	helped	help	VERB	VBN	Tense=Past|VerbForm=Part	0	root	0:root	Entity=(14)
@@ -356,17 +363,18 @@
 # s_type = frag
 # speaker = WilliamEvans
 # text = Both.
-# newpar = sp who:::"#WilliamEvans" (5 s) | p (5 s)
-1	Both	both	DET	DT	_	0	root	0:root	Discourse=joint_m:34->7:2|Entity=(14)|SpaceAfter=No
+# newpar
+# newpar_block = sp who:::"#WilliamEvans" (5 s) | p (5 s)
+1	Both	both	DET	DT	PronType=Art	0	root	0:root	Discourse=joint-other_m:35->7:2|Entity=(14)|SpaceAfter=No
 2	.	.	PUNCT	.	_	1	punct	1:punct	_
 
 # sent_id = GUM_interview_brotherhood-19
 # s_type = decl
 # speaker = WilliamEvans
 # text = I think it has helped draw younger people to magic as a hobby, but I think it has hurt the ability of young magicians to think because so many rely on the internet for everything and they aren't reading the books.
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	2:nsubj	Discourse=attribution:35->36:0|Entity=(2)
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	2:nsubj	Discourse=attribution-positive:36->37:0|Entity=(2)
 2	think	think	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	0	root	0:root	_
-3	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	5	nsubj	5:nsubj|6:nsubj:xsubj	Discourse=elaboration:36->34:0|Entity=(13)
+3	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	5	nsubj	5:nsubj|6:nsubj:xsubj	Discourse=elaboration-additional:37->35:0|Entity=(13)
 4	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	aux	5:aux	_
 5	helped	help	VERB	VBN	Tense=Past|VerbForm=Part	2	ccomp	2:ccomp	_
 6	draw	draw	VERB	VB	VerbForm=Inf	5	xcomp	5:xcomp	_
@@ -378,10 +386,10 @@
 12	a	a	DET	DT	Definite=Ind|PronType=Art	13	det	13:det	_
 13	hobby	hobby	NOUN	NN	Number=Sing	10	obl	10:obl:as	SpaceAfter=No
 14	,	,	PUNCT	,	_	17	punct	17:punct	_
-15	but	but	CCONJ	CC	_	17	cc	17:cc	Discourse=attribution:37->38:2
+15	but	but	CCONJ	CC	_	17	cc	17:cc	Discourse=attribution-positive:38->39:2
 16	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	17	nsubj	17:nsubj	Entity=(2)
 17	think	think	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	2	conj	2:conj:but	_
-18	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	20	nsubj	20:nsubj	Discourse=contrast_m:38->36:1|Entity=(13)
+18	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	20	nsubj	20:nsubj	Discourse=adversative-contrast_m:39->37:1|Entity=(13)
 19	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	20	aux	20:aux	_
 20	hurt	hurt	VERB	VBN	Tense=Past|VerbForm=Part	17	ccomp	17:ccomp	_
 21	the	the	DET	DT	Definite=Def|PronType=Art	22	det	22:det	_
@@ -389,9 +397,9 @@
 23	of	of	ADP	IN	_	25	case	25:case	_
 24	young	young	ADJ	JJ	Degree=Pos	25	amod	25:amod	_
 25	magicians	magician	NOUN	NNS	Number=Plur	22	nmod	22:nmod:of	_
-26	to	to	PART	TO	_	27	mark	27:mark	Discourse=elaboration:39->38:0
+26	to	to	PART	TO	_	27	mark	27:mark	Discourse=purpose-attribute:40->39:0
 27	think	think	VERB	VB	VerbForm=Inf	22	acl	22:acl:to	_
-28	because	because	SCONJ	IN	_	31	mark	31:mark	Discourse=cause:40->38:1
+28	because	because	SCONJ	IN	_	31	mark	31:mark	Discourse=causal-cause:41->39:1
 29	so	so	ADV	RB	_	30	advmod	30:advmod	Entity=(15
 30	many	many	ADJ	JJ	Degree=Pos	31	nsubj	31:nsubj	Entity=15)
 31	rely	rely	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	27	advcl	27:advcl:because	_
@@ -400,7 +408,7 @@
 34	internet	Internet	NOUN	NN	Number=Sing	31	obl	31:obl:on	Entity=13)
 35	for	for	ADP	IN	_	36	case	36:case	_
 36	everything	everything	NOUN	NN	Number=Sing	31	obl	31:obl:for	_
-37	and	and	CCONJ	CC	_	41	cc	41:cc	Discourse=joint_m:41->40:0
+37	and	and	CCONJ	CC	_	41	cc	41:cc	Discourse=joint-list_m:42->41:0
 38	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	41	nsubj	41:nsubj	Entity=(15)
 39-40	aren't	_	_	_	_	_	_	_	_
 39	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	41	aux	41:aux	_
@@ -414,7 +422,7 @@
 # s_type = sub
 # speaker = WilliamEvans
 # text = We have to have knowledge of the history of magic and what has been done before.
-1	We	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	2	nsubj	2:nsubj|4:nsubj:xsubj	Discourse=justify:42->38:3|Entity=(4)
+1	We	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	2	nsubj	2:nsubj|4:nsubj:xsubj	Discourse=explanation-justify:43->39:3|Entity=(4)
 2	have	have	VERB	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 3	to	to	PART	TO	_	4	mark	4:mark	_
 4	have	have	VERB	VB	VerbForm=Inf	2	xcomp	2:xcomp	_
@@ -436,7 +444,7 @@
 # s_type = decl
 # speaker = WilliamEvans
 # text = Moreover, seeing someone perform on the internet takes away the use of our senses, originality and imagination that reading and thinking about magic can produce.
-1	Moreover	moreover	ADV	RB	Degree=Pos	9	advmod	9:advmod	Discourse=joint_m:43->36:2|SpaceAfter=No
+1	Moreover	moreover	ADV	RB	Degree=Pos	9	advmod	9:advmod	Discourse=joint-other_m:44->37:2|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	1:punct	_
 3	seeing	see	VERB	VBG	VerbForm=Ger	9	csubj	9:csubj	_
 4	someone	someone	NOUN	NN	Number=Sing	5	nsubj	5:nsubj	_
@@ -455,7 +463,7 @@
 17	originality	originality	NOUN	NN	Number=Sing	15	conj	12:nmod:of|15:conj:and	_
 18	and	and	CCONJ	CC	_	19	cc	19:cc	_
 19	imagination	imagination	NOUN	NN	Number=Sing	15	conj	12:nmod:of|15:conj:and	_
-20	that	that	PRON	WDT	PronType=Rel	27	obj	12:ref	Discourse=elaboration:44->43:0
+20	that	that	PRON	WDT	PronType=Rel	27	obj	12:ref	Discourse=elaboration-attribute:45->44:0
 21	reading	read	VERB	VBG	VerbForm=Ger	27	csubj	27:csubj	_
 22	and	and	CCONJ	CC	_	23	cc	23:cc	_
 23	thinking	think	VERB	VBG	VerbForm=Ger	21	conj	21:conj:and|27:csubj	_
@@ -469,17 +477,17 @@
 # s_type = decl
 # speaker = WilliamEvans
 # text = Anyone can become a monkey; it takes serious study to become a magician.
-1	Anyone	anyone	NOUN	NN	Number=Sing	3	nsubj	3:nsubj|5:nsubj:xsubj	Discourse=restatement:45->43:1
+1	Anyone	anyone	NOUN	NN	Number=Sing	3	nsubj	3:nsubj|5:nsubj:xsubj	Discourse=restatement-partial:46->44:1
 2	can	can	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	3	aux	3:aux	_
 3	become	become	VERB	VB	VerbForm=Inf	0	root	0:root	_
 4	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	5:det	_
 5	monkey	monkey	NOUN	NN	Number=Sing	3	xcomp	3:xcomp	SpaceAfter=No
 6	;	;	PUNCT	:	_	8	punct	8:punct	_
-7	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	8	nsubj	8:nsubj	Discourse=contrast_m:46->45:0
+7	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	8	nsubj	8:nsubj	Discourse=adversative-contrast_m:47->46:0
 8	takes	take	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	parataxis	3:parataxis	_
 9	serious	serious	ADJ	JJ	Degree=Pos	10	amod	10:amod	_
 10	study	study	NOUN	NN	Number=Sing	8	obj	8:obj	_
-11	to	to	PART	TO	_	12	mark	12:mark	Discourse=purpose:47->46:0
+11	to	to	PART	TO	_	12	mark	12:mark	Discourse=purpose-goal:48->47:0
 12	become	become	VERB	VB	VerbForm=Inf	8	advcl	8:advcl:to	_
 13	a	a	DET	DT	Definite=Ind|PronType=Art	14	det	14:det	_
 14	magician	magician	NOUN	NN	Number=Sing	12	xcomp	12:xcomp	SpaceAfter=No
@@ -489,8 +497,9 @@
 # s_type = q
 # speaker = Wikinews
 # text = Do you travel much in your current role?
-# newpar = sp who:::"#Wikinews" (1 s) | p (1 s)
-1	Do	do	AUX	VB	VerbForm=Inf	3	aux	3:aux	Discourse=question:48->49:1
+# newpar
+# newpar_block = sp who:::"#Wikinews" (1 s) | p (1 s)
+1	Do	do	AUX	VB	VerbForm=Inf	3	aux	3:aux	Discourse=topic-question:49->50:1
 2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Entity=(2)
 3	travel	travel	VERB	VB	VerbForm=Inf	0	root	0:root	_
 4	much	much	ADV	RB	Degree=Pos	3	advmod	3:advmod	_
@@ -504,8 +513,9 @@
 # s_type = decl
 # speaker = WilliamEvans
 # text = Yes, I am traveling quite a bit.
-# newpar = sp who:::"#WilliamEvans" (4 s) | p (4 s)
-1	Yes	yes	INTJ	UH	_	5	discourse	5:discourse	Discourse=joint_m:49->7:2|SpaceAfter=No
+# newpar
+# newpar_block = sp who:::"#WilliamEvans" (4 s) | p (4 s)
+1	Yes	yes	INTJ	UH	_	5	discourse	5:discourse	Discourse=joint-other_m:50->7:2|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	1:punct	_
 3	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	5	nsubj	5:nsubj	Entity=(2)
 4	am	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	5	aux	5:aux	_
@@ -519,7 +529,7 @@
 # s_type = decl
 # speaker = WilliamEvans
 # text = After I was inducted as International President in Phoenix in July, I have been to the Jeff McBride Experience in Eureka Springs, Arkansas, Magic Live in Las Vegas, The Midwest Magic Jubilee in St. Louis, the TAOM in Dallas, the British Ring Convention in Buxton, England and the Magic Circle in London.
-1	After	after	SCONJ	IN	_	4	mark	4:mark	Discourse=circumstance:50->51:0
+1	After	after	SCONJ	IN	_	4	mark	4:mark	Discourse=context-circumstance:51->52:0
 2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj:pass	4:nsubj:pass	Entity=(2)
 3	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	4	aux:pass	4:aux:pass	_
 4	inducted	induct	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	20	advcl	20:advcl:after	_
@@ -531,7 +541,7 @@
 10	in	in	ADP	IN	_	11	case	11:case	_
 11	July	July	PROPN	NNP	Number=Sing	4	obl	4:obl:in	SpaceAfter=No|XML=<date when:::"--07"></date>
 12	,	,	PUNCT	,	_	4	punct	4:punct	_
-13	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	20	nsubj	20:nsubj|28:nsubj|36:nsubj|42:nsubj|49:nsubj|57:nsubj	Discourse=elaboration:51->49:0|Entity=(2)
+13	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	20	nsubj	20:nsubj|28:nsubj|36:nsubj|42:nsubj|49:nsubj|57:nsubj	Discourse=elaboration-additional:52->50:0|Entity=(2)
 14	have	have	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	20	aux	20:aux	_
 15	been	be	AUX	VBN	Tense=Past|VerbForm=Part	20	cop	20:cop	_
 16	to	to	ADP	IN	_	20	case	20:case	_
@@ -584,7 +594,7 @@
 # s_type = decl
 # speaker = WilliamEvans
 # text = I am going to Las Vegas and Los Angeles next month, Italy in November, back to Las Vegas in December, Mexico in January, Magi-Fest in February, the Winter Carnival of Magic in Tennessee in March, Eureka Springs Cavalcade of Magic in March, and the FFFF in April.
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	3:nsubj|12.1:nsubj|16.1:nsubj|23.1:nsubj|27.1:nsubj|33.1:nsubj|43.1:nsubj|52.1:nsubj	Discourse=sequence_m:52->51:1|Entity=(2)
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	3:nsubj|12.1:nsubj|16.1:nsubj|23.1:nsubj|27.1:nsubj|33.1:nsubj|43.1:nsubj|52.1:nsubj	Discourse=joint-sequence_m:53->52:1|Entity=(2)
 2	am	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	3	aux	3:aux|12.1:aux|16.1:aux|23.1:aux|27.1:aux|33.1:aux|43.1:aux|52.1:aux	Entity=(19)
 3	going	go	VERB	VBG	Tense=Pres|VerbForm=Part	0	root	0:root	_
 4	to	to	ADP	IN	_	5	case	5:case	_
@@ -598,12 +608,12 @@
 12	,	,	PUNCT	,	_	13	punct	13:punct	_
 12.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Ger	_	_	3:conj	CopyOf=3
 12.2	to	to	ADP	IN	_	_	_	13:case	CopyOf=4
-13	Italy	Italy	PROPN	NNP	Number=Sing	3	conj	12.1:obl:to	Discourse=sequence_m:53->52:0
+13	Italy	Italy	PROPN	NNP	Number=Sing	3	conj	12.1:obl:to	Discourse=joint-sequence_m:54->53:0
 14	in	in	ADP	IN	_	15	case	15:case	_
 15	November	November	PROPN	NNP	Number=Sing	13	orphan	12.1:obl:in	Entity=(20)|SpaceAfter=No|XML=<date when:::"2013-11"></date>
 16	,	,	PUNCT	,	_	19	punct	19:punct	_
 16.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Ger	_	_	3:conj	CopyOf=3
-17	back	back	ADV	RB	Degree=Pos	19	advmod	19:advmod	Discourse=sequence_m:54->52:0
+17	back	back	ADV	RB	Degree=Pos	19	advmod	19:advmod	Discourse=joint-sequence_m:55->53:0
 18	to	to	ADP	IN	_	19	case	19:case	_
 19	Las	Las	PROPN	NNP	Number=Sing	3	conj	16.1:obl:to	Entity=(18
 20	Vegas	Vegas	PROPN	NNP	Number=Sing	19	flat	19:flat	Entity=18)
@@ -612,13 +622,13 @@
 23	,	,	PUNCT	,	_	24	punct	24:punct	_
 23.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Ger	_	_	3:conj	CopyOf=3
 23.2	to	to	ADP	IN	_	_	_	24:case	CopyOf=4
-24	Mexico	Mexico	PROPN	NNP	Number=Sing	3	conj	23.1:obl:to	Discourse=sequence_m:55->52:0
+24	Mexico	Mexico	PROPN	NNP	Number=Sing	3	conj	23.1:obl:to	Discourse=joint-sequence_m:56->53:0
 25	in	in	ADP	IN	_	26	case	26:case	_
 26	January	January	PROPN	NNP	Number=Sing	24	orphan	23.1:obl:in	SpaceAfter=No|XML=<date when:::"2014-01"></date>
-27	,	,	PUNCT	,	_	30	punct	30:punct	_
+27	,	,	PUNCT	,	_	28	punct	28:punct	_
 27.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Ger	_	_	3:conj	CopyOf=3
 27.2	to	to	ADP	IN	_	_	_	28:case	CopyOf=4
-28	Magi	Magi	PROPN	NNP	Number=Sing	30	compound	27.1:obl:to	Discourse=sequence_m:56->52:0|SpaceAfter=No|XML=<w>
+28	Magi	Magi	PROPN	NNP	Number=Sing	30	compound	27.1:obl:to	Discourse=joint-sequence_m:57->53:0|SpaceAfter=No|XML=<w>
 29	-	-	PUNCT	HYPH	_	28	punct	28:punct	SpaceAfter=No
 30	Fest	Fest	PROPN	NNP	Number=Sing	3	conj	3:conj:and	XML=</w>
 31	in	in	ADP	IN	_	32	case	32:case	_
@@ -626,7 +636,7 @@
 33	,	,	PUNCT	,	_	36	punct	36:punct	_
 33.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Ger	_	_	3:conj	CopyOf=3
 33.2	to	to	ADP	IN	_	_	_	36:case	CopyOf=4
-34	the	the	DET	DT	Definite=Def|PronType=Art	36	det	36:det	Discourse=sequence_m:57->52:0
+34	the	the	DET	DT	Definite=Def|PronType=Art	36	det	36:det	Discourse=joint-sequence_m:58->53:0
 35	Winter	Winter	PROPN	NNP	Number=Sing	36	compound	36:compound	XML=<date from:::"--12" to:::"--03"></date>
 36	Carnival	Carnival	PROPN	NNP	Number=Sing	3	conj	33.1:obl:to	_
 37	of	of	ADP	IN	_	38	case	38:case	_
@@ -638,7 +648,7 @@
 43	,	,	PUNCT	,	_	46	punct	46:punct	_
 43.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Ger	_	_	3:conj	CopyOf=3
 43.2	to	to	ADP	IN	_	_	_	46:case	CopyOf=4
-44	Eureka	Eureka	PROPN	NNP	Number=Sing	46	compound	46:compound	Discourse=sequence_m:58->52:0|Entity=(17
+44	Eureka	Eureka	PROPN	NNP	Number=Sing	46	compound	46:compound	Discourse=joint-sequence_m:59->53:0|Entity=(17
 45	Springs	Springs	PROPN	NNP	Number=Sing	44	flat	44:flat	Entity=17)
 46	Cavalcade	Cavalcade	PROPN	NNP	Number=Sing	3	conj	43.1:obl:to	_
 47	of	of	ADP	IN	_	48	case	48:case	_
@@ -646,7 +656,7 @@
 49	in	in	ADP	IN	_	50	case	50:case	_
 50	March	March	PROPN	NNP	Number=Sing	46	orphan	43.1:obl:in	Entity=(21)|SpaceAfter=No|XML=<date when:::"2014-03"></date>
 51	,	,	PUNCT	,	_	54	punct	54:punct	_
-52	and	and	CCONJ	CC	_	54	cc	52.1:cc	Discourse=sequence_m:59->52:0
+52	and	and	CCONJ	CC	_	54	cc	52.1:cc	Discourse=joint-sequence_m:60->53:0
 52.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Ger	_	_	3:conj	CopyOf=3
 52.2	to	to	ADP	IN	_	_	_	54:case	CopyOf=4
 53	the	the	DET	DT	Definite=Def|PronType=Art	54	det	54:det	_
@@ -660,7 +670,7 @@
 # speaker = WilliamEvans
 # text = That's as of now.
 1-2	That's	_	_	_	_	_	_	_	_
-1	That	that	PRON	DT	Number=Sing|PronType=Dem	5	nsubj	5:nsubj	Discourse=concession:60->52:1|Entity=(19)
+1	That	that	PRON	DT	Number=Sing|PronType=Dem	5	nsubj	5:nsubj	Discourse=adversative-concession:61->53:1|Entity=(19)
 2	's	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	cop	5:cop	_
 3	as	as	ADP	IN	_	5	case	5:case	_
 4	of	of	ADP	IN	_	3	fixed	3:fixed	_
@@ -670,14 +680,15 @@
 # sent_id = GUM_interview_brotherhood-28
 # s_type = frag
 # text = File photo of magician David Gish displaying magic props for a young child.
-# newpar = figure (2 s) | caption (2 s)
-1	File	file	NOUN	NN	Number=Sing	2	compound	2:compound	Discourse=joint_m:61->7:2
+# newpar
+# newpar_block = figure (2 s) | caption (2 s)
+1	File	file	NOUN	NN	Number=Sing	2	compound	2:compound	Discourse=joint-other_m:62->7:2
 2	photo	photo	NOUN	NN	Number=Sing	0	root	0:root	_
 3	of	of	ADP	IN	_	4	case	4:case	_
 4	magician	magician	NOUN	NN	Number=Sing	2	nmod	2:nmod:of	_
 5	David	David	PROPN	NNP	Number=Sing	4	flat	4:flat	_
 6	Gish	Gish	PROPN	NNP	Number=Sing	4	flat	4:flat	_
-7	displaying	display	VERB	VBG	VerbForm=Ger	4	acl	4:acl	Discourse=elaboration:62->61:0
+7	displaying	display	VERB	VBG	VerbForm=Ger	4	acl	4:acl	Discourse=elaboration-attribute:63->62:0
 8	magic	magic	NOUN	NN	Number=Sing	9	compound	9:compound	_
 9	props	prop	NOUN	NNS	Number=Plur	7	obj	7:obj	_
 10	for	for	ADP	IN	_	13	case	13:case	_
@@ -689,9 +700,9 @@
 # sent_id = GUM_interview_brotherhood-29
 # s_type = frag
 # text = Image: Paul Budd.
-1	Image	image	NOUN	NN	Number=Sing	0	root	0:root	Discourse=preparation:63->64:0|SpaceAfter=No
+1	Image	image	NOUN	NN	Number=Sing	0	root	0:root	Discourse=organization-preparation:64->65:0|SpaceAfter=No
 2	:	:	PUNCT	:	_	3	punct	3:punct	_
-3	Paul	Paul	PROPN	NNP	Number=Sing	1	dep	1:dep	Discourse=attribution:64->61:1
+3	Paul	Paul	PROPN	NNP	Number=Sing	1	dep	1:dep	Discourse=attribution-positive:65->62:1
 4	Budd	Budd	PROPN	NNP	Number=Sing	3	flat	3:flat	SpaceAfter=No
 5	.	.	PUNCT	.	_	1	punct	1:punct	_
 

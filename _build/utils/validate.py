@@ -277,7 +277,8 @@ def validate_src(gum_source, reddit=False):
 
 def validate_lemmas(lemma_dict, lemma_docs):
 	exceptions = [("Democratic","JJ","Democratic"),("Water","NP","Waters"),("Sun","NP","Sunday"),("a","IN","of"),
-				  ("a","IN","as"),("car","NN","card"),("lay","VV","lay"),("that","IN","than")]
+				  ("a","IN","as"),("car","NN","card"),("lay","VV","lay"),("that","IN","than"),
+				  ("da","NP","Danish")]
 	suspicious_types = 0
 	for tok, pos in sorted(list(iterkeys(lemma_dict))):
 		if len(lemma_dict[(tok,pos)]) > 1:
@@ -314,6 +315,7 @@ def validate_annos(gum_source, reddit=False):
 
 		# Dictionaries to hold token annotations from conllu data
 		funcs = {}
+		postags = {}
 		tokens = {}
 		parent_ids = {}
 		lemmas = {}
@@ -367,7 +369,7 @@ def validate_annos(gum_source, reddit=False):
 		for line in xml_lines:
 			if "\t" in line:  # Token
 				tok_num += 1
-				lemmas[tok_num] = line.split("\t")[2]
+				_, postags[tok_num], lemmas[tok_num] = line.split("\t")
 				sent_types[tok_num] = s_type
 				if new_sent:
 					sent_positions[tok_num] = "first"
@@ -390,8 +392,9 @@ def validate_annos(gum_source, reddit=False):
 				  ",",":","HYPH"]
 		non_lemmas = ["them","me","him","n't"]
 		non_lemma_combos = [("PP","her"),("MD","wo"),("PP","us"),("DT","an")]
+		lemma_pos_combos = {"which":"WDT"}
 		non_cap_lemmas = ["There","How","Why","Where","When"]
-		IN_not_like_lemma = ["vs", "vs.", "ca", "that", "then", "a", "fro", "too"]  # incl. known typos
+		IN_not_like_lemma = ["vs", "vs.", "v", "ca", "that", "then", "a", "fro", "too", "til"]  # incl. known typos
 
 		prev_tok = ""
 		prev_pos = ""
@@ -411,13 +414,18 @@ def validate_annos(gum_source, reddit=False):
 					print("WARN: invalid lemma " + lemma + " for POS "+pos+" in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
 				elif pos == "IN" and tok.lower() not in IN_not_like_lemma and lemma != tok.lower():
 						print("WARN: pos IN should have lemma identical to lower cased token in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
+				elif lemma in lemma_pos_combos:
+					if pos != lemma_pos_combos[lemma]:
+						print("WARN: invalid pos " + pos + " for lemma "+lemma+" in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
 
 				parent_string = parents[tok_num]
 				parent_id = parent_ids[tok_num]
 				parent_lemma = lemmas[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
+				parent_func = funcs[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
+				parent_pos = postags[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
 				flag_dep_warnings(tok_num, tok, pos, lemma, func, parent_string, parent_lemma, parent_id,
 								  children[tok_num], child_funcs[tok_num], sent_types[tok_num], docname,
-								  prev_tok, prev_pos, sent_positions[tok_num])
+								  prev_tok, prev_pos, sent_positions[tok_num], parent_func, parent_pos)
 				prev_pos = pos
 				prev_tok = tok
 
@@ -617,7 +625,7 @@ def truncate(text):
 
 
 def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id, children, child_funcs, s_type,
-					  docname, prev_tok, prev_pos, sent_position):
+					  docname, prev_tok, prev_pos, sent_position, parent_func, parent_pos):
 	# Shorthand for printing errors
 	inname = " in " + docname + " @ token " + str(id) + " (" + parent + " -> " + tok + ")"
 
@@ -640,6 +648,10 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func in ['fixed','goeswith','flat', 'conj'] and id < parent_id:
 		print("WARN: back-pointing func " + func + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
+	if func in ['cc:preconj','cc','nmod:poss'] and id > parent_id:
+		if tok not in ["mia"]:
+			print("WARN: forward-pointing func " + func + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
+
 	if func == "auxpass" and lemma != "be" and lemma != "get":
 		print("WARN: auxpass must be 'be' or 'get'" + inname)
 
@@ -651,8 +663,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if pos in ["VVG","VVN","VVD"] and lemma == tok:
 		# check cases where VVN form is same as tok ('know' and 'notice' are recorded typos, l- is a disfluency)
-		if tok not in ["shed","put","read","become","come","cut","hit","split","cast","set","hurt","run","broadcast",
-					   "spread","shut","upset","burst","bit","let","l-","g-","know","notice"]:
+		if tok not in ["shed","put","read","become","come","cut","hit","split","cast","set","hurt","run","broadcast","knit",
+					   "undercut","spread","shut","upset","burst","bit","let","l-","g-","know","notice","reach"]:
 			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
 	if pos == "NPS" and tok == lemma and tok.endswith("s"):
@@ -743,23 +755,61 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		# Exceptions for phrasal compound in GUM_reddit_card and nominalization in GUM_academic_exposure
 		if tok != "prioritizing" and tok != "following":
 			print(str(id) + docname)
-			print("WARN: tag "+pos+" should not have a determinder 'det' " + inname)
+			print("WARN: tag "+pos+" should not have a determinder 'det'" + inname)
+
+	if parent_lemma == "let" and func=="ccomp":
+		print("WARN: verb 'let' should take xcomp clausal object, not ccomp" + inname)
+
+	if pos == "MD" and lemma not in ["can","must","will","shall","would","could","may","might","ought","should"]:
+		print("WARN: lemma '"+lemma+"' is not a known modal verb for tag MD" + inname)
+
+	if lemma == "like" and pos == "UH" and func not in ["discourse","conj","reparandum"]:
+		print("WARN: lemma '"+lemma+"' with tag UH should have deprel discourse, not "+ func + inname)
+
+	if func in ["iobj","obj"] and parent_lemma in ["become","remain","stay"]:
+		print("WARN: verb '"+parent_lemma+"' should take xcomp not "+func+" argument" + inname)
+
+	if func in ["nmod:tmod","nmod:npmod","obl:tmod","obl:npmod"] and "case" in child_funcs:
+		print("WARN: function " + func +  " should not have 'case' dependents" + inname)
+
+	if func in ["aux:pass","nsubj:pass"] and parent_pos not in ["VVN","VBN","VHN"]:
+		if not (("stardust" in docname and parent_lemma == "would") or parent_lemma == "Rated"):
+			print("WARN: function " + func + " should not be the child of pos " + parent_pos + inname)
+
+	if func == "obl:agent" and (parent_pos not in ["VBN","VHN","VVN"] or "by" not in children):
+		print("WARN: function " + func +  " must by child of V.N with a 'by' dependent" + parent_pos + inname)
+
+	if child_funcs.count("obl:agent") > 1:
+		print("WARN: a token may have at most one obl:agent dependent" + inname)
+
+	if "obl:agent" in child_funcs and ("nsubj" in child_funcs or "csubj" in child_funcs) and not "nsubj:pass" in child_funcs:
+		print("WARN: a token cannot have both a *subj relation and obl:agent" + inname)
 
 	if pos in ["VBD","VVD","VHD","VBP","VVP","VHP"] and "aux" in child_funcs:
 		print(str(id) + docname)
 		print("WARN: tag "+pos+" should not have auxiliaries 'aux' " + inname)
 
+	if lemma == "not" and func not in ["advmod","root","parataxis","reparandum","advcl","conj","orphan"]:
+		print("WARN: deprel "+func+" should not be used with lemma '"+lemma+"'" + inname)
+
+	if func == "xcomp" and parent_lemma in ["see","hear","notice"]:  # find
+		print("WARN: deprel "+func+" should not be used with perception verb lemma '"+lemma+"' (should this be nsubj+ccomp?)" + inname)
+
+
+	#if func == "advmod" and lemma in ["where","when"] and parent_func == "acl:relcl":
+	#	print("WARN: lemma "+lemma+" should not be func '"+func+"' when it is the child of a '" + parent_func + "'" + inname)
+
 	if (sent_position == "first" and pos == "''") or (sent_position == "last" and pos=="``"):
 		print("WARN: incorrect quotation mark tag " + pos + " at "+sent_position+" position in sentence " + inname)
 
-	mwe_pairs = {("accord", "to"), ("all","but"), ("as","if"), ("as", "well"), ("as", "as"), ("as","in"), ("as","oppose"),("as","to"),
+	mwe_pairs = {("accord", "to"), ("all","but"), ("as","if"), ("as", "well"), ("as", "as"), ("as","in"), ("all","of"), ("as","oppose"),("as","to"),
 				 ("at","least"),("because","of"),("due","to"),("had","better"),("'d","better"),("in","between"), ("per", "se"),
 				 ("in","case"),("in","of"), ("in","order"),("instead","of"), ("kind","of"),("less","than"),("let","alone"),
 				 ("more","than"),("not","to"),("not","mention"),("of","course"),("prior","to"),("rather","than"),("so","as"),
 				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("that","is"), ("up","to"),("whether","or"),
 				 ("whether","not"),("depend","on"),("out","of"),("off","of"),("long","than"),("on","board"),("as","of"),("depend","upon"),
 				 ("that","be"),("just","about"),("vice","versa"),("as","such"),("next","to"),("close","to"),("one","another"),
-				 ("de","facto"),("each","other")}
+				 ("de","facto"),("each","other"), ("as","many")}
 
 	# Ad hoc listing of triple mwe parts - All in all, in order for
 	mwe_pairs.update({("all","in"),("all","all"),("in","for")})
@@ -802,7 +852,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		for wh in children:
 			if wh in temp_wh:
 				if not any([c.lower()=="do" or c.lower()=="did" for c in children]):
-					if not (tok == "Remember" and wh == "when"):  # Listed exception in GUM_reddit_bobby
+					if not (tok == "Remember" and wh == "when") and not (tok=="know" and wh=="what") and \
+							not (tok =="Know" and wh=="when"):  # Listed exceptions in GUM_reddit_bobby, GUM_conversation_christmas, GUM_vlog_covid
 						print("WARN: q root may not have wh child " + wh + inname)
 
 	suspicious_pos_tok = [("*","DT","only","RB"),

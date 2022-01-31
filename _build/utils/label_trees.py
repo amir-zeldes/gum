@@ -42,7 +42,7 @@ d = DepEdit()
 d.quiet = True
 d.read_config_file(depedit_precprocess.strip().split("\n"))
 
-mapping = {("NP","nsubj"):"NP-SBJ", ("NP","nsubj:pass"):"NP-SBJ",
+mapping = {("NP","nsubj"):"NP-SBJ", ("NP","nsubj:pass"):"NP-SBJ", ("NP","obl:agent"):"NP-LGS",
            ("WHNP", "nsubj"): "NP-SBJ", ("WHNP", "nsubj:pass"): "NP-SBJ",
             ("NX", "nsubj"): "NX-SBJ", ("NX", "nsubj:pass"): "NX-SBJ",
            #("NP","tpc"):"NP-TPC",
@@ -85,6 +85,7 @@ percolating1 = {"VP-PRP":"S",
                "VP-ADV":"VP",
                "NP-CLF":"NP",
                "NP-SBJ":"NP",
+               "NP-LGS":"NP",
                "NX-SBJ":"NP",
                "NX-PRD":"NP",
                "NP-PRD":"NP",
@@ -96,6 +97,7 @@ percolating2 = {"S-PRP":"SBAR",
                 "NP-CLF": "S",
                 "VP-ADV": "S",
                 "NP-SBJ": "NP",
+                "NP-LGS": "NP",
                 "NP-PRD": "NP",
                 "WHADVP-TMP": "S",
                 }

@@ -9,8 +9,9 @@
 # sent_id = GUM_bio_byron-1
 # s_type = frag
 # text = Education and early loves
-# newpar = head (1 s)
-1	Education	education	NOUN	NN	Number=Sing	0	root	0:root	Discourse=preparation:1->2:4|Entity=(1)
+# newpar
+# newpar_block = head (1 s)
+1	Education	education	NOUN	NN	Number=Sing	0	root	0:root	Discourse=organization-heading:1->2:4|Entity=(1)
 2	and	and	CCONJ	CC	_	4	cc	4:cc	_
 3	early	early	ADJ	JJ	Degree=Pos	4	amod	4:amod	_
 4	loves	love	NOUN	NNS	Number=Plur	1	conj	1:conj:and	_
@@ -18,7 +19,8 @@
 # sent_id = GUM_bio_byron-2
 # s_type = decl
 # text = Byron received his early formal education at Aberdeen Grammar School, and in August 1799 entered the school of Dr. William Glennie, in Dulwich. [17]
-# newpar = p (3 s)
+# newpar
+# newpar_block = p (3 s)
 1	Byron	Byron	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj|16:nsubj	Discourse=ROOT:2:0|Entity=(2)
 2	received	receive	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(1(2)
@@ -30,7 +32,7 @@
 9	Grammar	Grammar	PROPN	NNP	Number=Sing	10	compound	10:compound	_
 10	School	School	PROPN	NNP	Number=Sing	6	nmod	6:nmod:at	Entity=1)|SpaceAfter=No|XML=</ref>
 11	,	,	PUNCT	,	_	16	punct	16:punct	_
-12	and	and	CCONJ	CC	_	16	cc	16:cc	Discourse=joint_m:3->2:0
+12	and	and	CCONJ	CC	_	16	cc	16:cc	Discourse=joint-sequence_m:3->2:0
 13	in	in	ADP	IN	_	14	case	14:case	_
 14	August	August	PROPN	NNP	Number=Sing	16	obl	16:obl:in	XML=<date when:::"1799-08">
 15	1799	1799	NUM	CD	NumForm=Digit|NumType=Card	14	nmod:tmod	14:nmod:tmod	XML=</date>
@@ -45,14 +47,14 @@
 24	in	in	ADP	IN	_	25	case	25:case	_
 25	Dulwich	Dulwich	PROPN	NNP	Number=Sing	18	nmod	18:nmod:in	SpaceAfter=No|XML=<ref target:::"https://en.wikipedia.org/wiki/Dulwich"></ref>
 26	.	.	PUNCT	.	_	2	punct	2:punct	_
-27	[	[	PUNCT	-LRB-	_	28	punct	28:punct	Discourse=evidence:4->2:1|SpaceAfter=No
+27	[	[	PUNCT	-LRB-	_	28	punct	28:punct	Discourse=explanation-evidence:4->2:1|SpaceAfter=No
 28	17	17	NUM	CD	NumForm=Digit|NumType=Card	2	dep	2:dep	SpaceAfter=No
 29	]	]	PUNCT	-RRB-	_	28	punct	28:punct	_
 
 # sent_id = GUM_bio_byron-3
 # s_type = decl
 # text = Placed under the care of a Dr. Bailey, he was encouraged to exercise in moderation but not restrain himself from "violent" bouts in an attempt to overcompensate for his deformed foot.
-1	Placed	place	VERB	VBN	Tense=Past|VerbForm=Part	12	advcl	12:advcl	Discourse=circumstance:5->6:1
+1	Placed	place	VERB	VBN	Tense=Past|VerbForm=Part	12	advcl	12:advcl	Discourse=context-circumstance:5->6:1
 2	under	under	ADP	IN	_	4	case	4:case	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	_
 4	care	care	NOUN	NN	Number=Sing	1	obl	1:obl:under	_
@@ -61,14 +63,14 @@
 7	Dr.	Dr.	PROPN	NNP	Abbr=Yes|Number=Sing	4	nmod	4:nmod:of	_
 8	Bailey	Bailey	PROPN	NNP	Number=Sing	7	flat	7:flat	SpaceAfter=No
 9	,	,	PUNCT	,	_	1	punct	1:punct	_
-10	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	12	nsubj:pass	12:nsubj:pass|14:nsubj:xsubj|19:nsubj:xsubj	Discourse=elaboration:6->2:2|Entity=(2)
+10	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	12	nsubj:pass	12:nsubj:pass|14:nsubj:xsubj|19:nsubj:xsubj	Discourse=elaboration-additional:6->2:2|Entity=(2)
 11	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	12	aux:pass	12:aux:pass	_
 12	encouraged	encourage	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
 13	to	to	PART	TO	_	14	mark	14:mark	_
 14	exercise	exercise	VERB	VB	VerbForm=Inf	12	xcomp	12:xcomp	_
 15	in	in	ADP	IN	_	16	case	16:case	_
 16	moderation	moderation	NOUN	NN	Number=Sing	14	obl	14:obl:in	_
-17	but	but	CCONJ	CC	_	19	cc	19:cc	Discourse=contrast_m:7->6:0
+17	but	but	CCONJ	CC	_	19	cc	19:cc	Discourse=adversative-contrast_m:7->6:0
 18	not	not	PART	RB	Polarity=Neg	19	advmod	19:advmod	_
 19	restrain	restrain	VERB	VB	VerbForm=Inf	14	conj	12:xcomp|14:conj:but	_
 20	himself	himself	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs|Reflex=Yes	19	obj	19:obj	Entity=(2)
@@ -80,7 +82,7 @@
 26	in	in	ADP	IN	_	28	case	28:case	_
 27	an	a	DET	DT	Definite=Ind|PronType=Art	28	det	28:det	_
 28	attempt	attempt	NOUN	NN	Number=Sing	12	obl	12:obl:in	_
-29	to	to	PART	TO	_	30	mark	30:mark	Discourse=elaboration:8->7:0
+29	to	to	PART	TO	_	30	mark	30:mark	Discourse=purpose-attribute:8->7:0
 30	overcompensate	overcompensate	VERB	VB	VerbForm=Inf	28	acl	28:acl:to	_
 31	for	for	ADP	IN	_	34	case	34:case	_
 32	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	34	nmod:poss	34:nmod:poss	Entity=(2)
@@ -91,27 +93,27 @@
 # sent_id = GUM_bio_byron-4
 # s_type = decl
 # text = His mother interfered with his studies, often withdrawing him from school, with the result that he lacked discipline and his classical studies were neglected.
-1	His	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=joint_m:9->6:2|Entity=(3(2)
+1	His	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=joint-other_m:9->6:2|Entity=(3(2)
 2	mother	mother	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	Entity=3)
 3	interfered	interfere	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 4	with	with	ADP	IN	_	6	case	6:case	_
 5	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(2)
 6	studies	study	NOUN	NNS	Number=Plur	3	obl	3:obl:with	SpaceAfter=No
 7	,	,	PUNCT	,	_	9	punct	9:punct	_
-8	often	often	ADV	RB	Degree=Pos	9	advmod	9:advmod	Discourse=elaboration:10->9:0
+8	often	often	ADV	RB	Degree=Pos	9	advmod	9:advmod	Discourse=elaboration-additional:10->9:0
 9	withdrawing	withdraw	VERB	VBG	VerbForm=Ger	3	advcl	3:advcl	_
 10	him	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	9	obj	9:obj	Entity=(2)
 11	from	from	ADP	IN	_	12	case	12:case	_
 12	school	school	NOUN	NN	Number=Sing	9	obl	9:obl:from	SpaceAfter=No
 13	,	,	PUNCT	,	_	16	punct	16:punct	_
-14	with	with	ADP	IN	_	16	case	16:case	Discourse=result:11->10:0
+14	with	with	ADP	IN	_	16	case	16:case	Discourse=causal-result:11->10:0
 15	the	the	DET	DT	Definite=Def|PronType=Art	16	det	16:det	_
 16	result	result	NOUN	NN	Number=Sing	3	obl	3:obl:with	_
-17	that	that	SCONJ	IN	_	19	mark	19:mark	Discourse=elaboration:12->11:0
+17	that	that	SCONJ	IN	_	19	mark	19:mark	Discourse=elaboration-attribute:12->11:0
 18	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	19	nsubj	19:nsubj	Entity=(2)
 19	lacked	lack	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	16	acl	16:acl:that	_
 20	discipline	discipline	NOUN	NN	Number=Sing	19	obj	19:obj	_
-21	and	and	CCONJ	CC	_	26	cc	26:cc	Discourse=joint_m:13->12:0
+21	and	and	CCONJ	CC	_	26	cc	26:cc	Discourse=joint-list_m:13->12:0
 22	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	24	nmod:poss	24:nmod:poss	Entity=(2)
 23	classical	classical	ADJ	JJ	Degree=Pos	24	amod	24:amod	_
 24	studies	study	NOUN	NNS	Number=Plur	26	nsubj:pass	26:nsubj:pass	_
@@ -122,8 +124,9 @@
 # sent_id = GUM_bio_byron-5
 # s_type = decl
 # text = In 1801, he was sent to Harrow, where he remained until July 1805. [6]
-# newpar = p (2 s)
-1	In	in	ADP	IN	_	2	case	2:case	Discourse=sequence_m:14->2:3
+# newpar
+# newpar_block = p (2 s)
+1	In	in	ADP	IN	_	2	case	2:case	Discourse=joint-sequence_m:14->2:3
 2	1801	1801	NUM	CD	NumForm=Digit|NumType=Card	6	obl	6:obl:in	SpaceAfter=No|XML=<date when:::"1801"></date>
 3	,	,	PUNCT	,	_	2	punct	2:punct	_
 4	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	6	nsubj:pass	6:nsubj:pass	Entity=(2)
@@ -132,21 +135,21 @@
 7	to	to	ADP	IN	_	8	case	8:case	_
 8	Harrow	Harrow	PROPN	NNP	Number=Sing	6	obl	6:obl:to	Entity=(4|SpaceAfter=No|XML=<ref target:::"https://en.wikipedia.org/wiki/Harrow_School"></ref>
 9	,	,	PUNCT	,	_	12	punct	12:punct	_
-10	where	where	SCONJ	WRB	PronType=Rel	12	mark	12:mark	Discourse=elaboration:15->14:0
+10	where	where	SCONJ	WRB	PronType=Rel	12	mark	12:mark	Discourse=elaboration-attribute:15->14:0
 11	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	12	nsubj	12:nsubj	Entity=(2)
 12	remained	remain	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	8	acl:relcl	8:acl:relcl	_
 13	until	until	ADP	IN	_	14	case	14:case	_
 14	July	July	PROPN	NNP	Number=Sing	12	obl	12:obl:until	XML=<date when:::"1805-07">
 15	1805	1805	NUM	CD	NumForm=Digit|NumType=Card	14	nmod:tmod	14:nmod:tmod	Entity=4)|SpaceAfter=No|XML=</date>
 16	.	.	PUNCT	.	_	6	punct	6:punct	_
-17	[	[	PUNCT	-LRB-	_	18	punct	18:punct	Discourse=evidence:16->14:1|SpaceAfter=No
+17	[	[	PUNCT	-LRB-	_	18	punct	18:punct	Discourse=explanation-evidence:16->14:1|SpaceAfter=No
 18	6	6	NUM	CD	NumForm=Digit|NumType=Card	6	dep	6:dep	SpaceAfter=No
 19	]	]	PUNCT	-RRB-	_	18	punct	18:punct	_
 
 # sent_id = GUM_bio_byron-6
 # s_type = decl
 # text = An undistinguished student and an unskilled cricketer, he did represent the school during the very first Eton v Harrow cricket match at Lord's in 1805. [19]
-1	An	a	DET	DT	Definite=Ind|PronType=Art	3	det	3:det	Discourse=concession:17->18:0|Entity=(5
+1	An	a	DET	DT	Definite=Ind|PronType=Art	3	det	3:det	Discourse=adversative-concession:17->18:0|Entity=(5
 2	undistinguished	undistinguished	ADJ	JJ	Degree=Pos|Polarity=Neg	3	amod	3:amod	_
 3	student	student	NOUN	NN	Number=Sing	11	advcl	11:advcl	Entity=5)
 4	and	and	CCONJ	CC	_	7	cc	7:cc	_
@@ -154,7 +157,7 @@
 6	unskilled	unskilled	ADJ	JJ	Degree=Pos|Polarity=Neg	7	amod	7:amod	_
 7	cricketer	cricketer	NOUN	NN	Number=Sing	3	conj	3:conj:and|11:advcl	Entity=5)|SpaceAfter=No
 8	,	,	PUNCT	,	_	3	punct	3:punct	_
-9	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	11	nsubj	11:nsubj	Discourse=sequence_m:18->2:3|Entity=(5)
+9	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	11	nsubj	11:nsubj	Discourse=joint-sequence_m:18->2:3|Entity=(5)
 10	did	do	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	11	aux	11:aux	_
 11	represent	represent	VERB	VB	VerbForm=Inf	0	root	0:root	_
 12	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	Entity=(4
@@ -164,8 +167,8 @@
 16	very	very	ADV	RB	_	17	advmod	17:advmod	_
 17	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	22	amod	22:amod	_
 18	Eton	Eton	PROPN	NNP	Number=Sing	22	compound	22:compound	XML=<ref target:::"https://en.wikipedia.org/wiki/Eton_v_Harrow">
-19	v	v	ADP	IN	_	20	case	20:case	_
-20	Harrow	Harrow	PROPN	NNP	Number=Sing	18	nmod	18:nmod:v	Entity=(4)|XML=</ref>
+19	v	versus	ADP	IN	_	20	case	20:case	_
+20	Harrow	Harrow	PROPN	NNP	Number=Sing	18	nmod	18:nmod:versus	Entity=(4)|XML=</ref>
 21	cricket	cricket	NOUN	NN	Number=Sing	22	compound	22:compound	_
 22	match	match	NOUN	NN	Number=Sing	11	obl	11:obl:during	_
 23	at	at	ADP	IN	_	24	case	24:case	_
@@ -175,15 +178,16 @@
 26	in	in	ADP	IN	_	27	case	27:case	_
 27	1805	1805	NUM	CD	NumForm=Digit|NumType=Card	11	obl	11:obl:in	SpaceAfter=No|XML=<date when:::"1805"></date>
 28	.	.	PUNCT	.	_	11	punct	11:punct	_
-29	[	[	PUNCT	-LRB-	_	30	punct	30:punct	Discourse=evidence:19->18:1|SpaceAfter=No
+29	[	[	PUNCT	-LRB-	_	30	punct	30:punct	Discourse=explanation-evidence:19->18:1|SpaceAfter=No
 30	19	19	NUM	CD	NumForm=Digit|NumType=Card	11	dep	11:dep	SpaceAfter=No
 31	]	]	PUNCT	-RRB-	_	30	punct	30:punct	_
 
 # sent_id = GUM_bio_byron-7
 # s_type = decl
 # text = His lack of moderation was not restricted to physical exercise.
-# newpar = p (4 s)
-1	His	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=preparation:20->21:4|Entity=(5)
+# newpar
+# newpar_block = p (4 s)
+1	His	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=organization-preparation:20->21:4|Entity=(5)
 2	lack	lack	NOUN	NN	Number=Sing	7	nsubj:pass	7:nsubj:pass	_
 3	of	of	ADP	IN	_	4	case	4:case	_
 4	moderation	moderation	NOUN	NN	Number=Sing	2	nmod	2:nmod:of	_
@@ -198,7 +202,7 @@
 # sent_id = GUM_bio_byron-8
 # s_type = decl
 # text = Byron fell in love with Mary Chaworth, whom he met while at school, [6] and she was the reason he refused to return to Harrow in September 1803.
-1	Byron	Byron	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=sequence_m:21->2:3|Entity=(5)
+1	Byron	Byron	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=joint-sequence_m:21->2:3|Entity=(5)
 2	fell	fall	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	in	in	ADP	IN	_	4	case	4:case	_
 4	love	love	NOUN	NN	Number=Sing	2	obl	2:obl:in	_
@@ -206,22 +210,22 @@
 6	Mary	Mary	PROPN	NNP	Number=Sing	2	obl	2:obl:with|11:obj	Entity=(6
 7	Chaworth	Chaworth	PROPN	NNP	Number=Sing	6	flat	6:flat	SpaceAfter=No
 8	,	,	PUNCT	,	_	11	punct	11:punct	_
-9	whom	who	PRON	WP	PronType=Rel	11	obj	6:ref	Discourse=elaboration:22->21:0
+9	whom	who	PRON	WP	PronType=Rel	11	obj	6:ref	Discourse=elaboration-attribute:22->21:0
 10	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	11	nsubj	11:nsubj	Entity=(5)
 11	met	meet	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	6	acl:relcl	6:acl:relcl	_
-12	while	while	SCONJ	IN	_	14	mark	14:mark	Discourse=circumstance:23->22:0
+12	while	while	SCONJ	IN	_	14	mark	14:mark	Discourse=context-circumstance:23->22:0
 13	at	at	ADP	IN	_	14	case	14:case	_
 14	school	school	NOUN	NN	Number=Sing	11	advcl	11:advcl:while	Entity=6)(4)|SpaceAfter=No
 15	,	,	PUNCT	,	_	17	punct	17:punct	_
-16	[	[	PUNCT	-LRB-	_	17	punct	17:punct	Discourse=evidence:24->21:1|SpaceAfter=No
+16	[	[	PUNCT	-LRB-	_	17	punct	17:punct	Discourse=explanation-evidence:24->21:1|SpaceAfter=No
 17	6	6	NUM	CD	NumForm=Digit|NumType=Card	2	dep	2:dep	SpaceAfter=No
 18	]	]	PUNCT	-RRB-	_	17	punct	17:punct	_
-19	and	and	CCONJ	CC	_	23	cc	23:cc	Discourse=cause:25->26:0
+19	and	and	CCONJ	CC	_	23	cc	23:cc	Discourse=causal-cause:25->26:0
 20	she	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	23	nsubj	23:nsubj	Entity=(6)
 21	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	23	cop	23:cop	_
 22	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	_
 23	reason	reason	NOUN	NN	Number=Sing	2	conj	2:conj:and	_
-24	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	25	nsubj	25:nsubj|27:nsubj:xsubj	Discourse=result:26->21:2|Entity=(5)
+24	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	25	nsubj	25:nsubj|27:nsubj:xsubj	Discourse=causal-result:26->21:2|Entity=(5)
 25	refused	refuse	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	23	acl:relcl	23:acl:relcl	_
 26	to	to	PART	TO	_	27	mark	27:mark	_
 27	return	return	VERB	VB	VerbForm=Inf	25	xcomp	25:xcomp	_
@@ -235,16 +239,16 @@
 # sent_id = GUM_bio_byron-9
 # s_type = decl
 # text = His mother wrote, "He has no indisposition that I know of but love, desperate love, the worst of all maladies in my opinion. In short, the boy is distractedly in love with Miss Chaworth." [6]
-1	His	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=attribution:27->28:2|Entity=(3(5)
+1	His	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=attribution-positive:27->28:2|Entity=(3(5)
 2	mother	mother	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	Entity=3)
 3	wrote	write	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	SpaceAfter=No
 4	,	,	PUNCT	,	_	7	punct	7:punct	_
-5	"	''	PUNCT	``	_	7	punct	7:punct	Discourse=evidence:28->21:3|SpaceAfter=No|XML=<quote>
+5	"	''	PUNCT	``	_	7	punct	7:punct	Discourse=explanation-evidence:28->21:3|SpaceAfter=No|XML=<quote>
 6	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	7	nsubj	7:nsubj	Entity=(5)
 7	has	have	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	ccomp	3:ccomp	_
-8	no	no	DET	DT	Polarity=Neg	9	det	9:det	_
+8	no	no	DET	DT	Polarity=Neg|PronType=Art	9	det	9:det	_
 9	indisposition	indisposition	NOUN	NN	Number=Sing	7	obj	7:obj|12:obl:of	_
-10	that	that	PRON	WDT	PronType=Rel	12	obl	9:ref	Discourse=concession:29->28:0
+10	that	that	PRON	WDT	PronType=Rel	12	obl	9:ref	Discourse=adversative-concession:29->28:0
 11	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	12	nsubj	12:nsubj	Entity=(3)
 12	know	know	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	9	acl:relcl	9:acl:relcl	_
 13	of	of	ADP	IN	_	10	case	10:case	_
@@ -257,7 +261,7 @@
 20	the	the	DET	DT	Definite=Def|PronType=Art	21	det	21:det	Entity=(7
 21	worst	bad	ADJ	JJS	Degree=Sup	15	appos	15:appos	_
 22	of	of	ADP	IN	_	24	case	24:case	_
-23	all	all	DET	DT	_	24	det	24:det	_
+23	all	all	DET	DT	PronType=Tot	24	det	24:det	_
 24	maladies	malady	NOUN	NNS	Number=Plur	21	obl	21:obl:of	Entity=7)
 25	in	in	ADP	IN	_	27	case	27:case	_
 26	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	27	nmod:poss	27:nmod:poss	Entity=(3)
@@ -277,14 +281,14 @@
 40	Chaworth	Chaworth	PROPN	NNP	Number=Sing	39	flat	39:flat	Entity=6)|SpaceAfter=No
 41	.	.	PUNCT	.	_	7	punct	7:punct	SpaceAfter=No
 42	"	''	PUNCT	''	_	7	punct	7:punct	XML=</quote>
-43	[	[	PUNCT	-LRB-	_	44	punct	44:punct	Discourse=evidence:31->28:3|SpaceAfter=No
+43	[	[	PUNCT	-LRB-	_	44	punct	44:punct	Discourse=explanation-evidence:31->28:3|SpaceAfter=No
 44	6	6	NUM	CD	NumForm=Digit|NumType=Card	3	dep	3:dep	SpaceAfter=No
 45	]	]	PUNCT	-RRB-	_	44	punct	44:punct	_
 
 # sent_id = GUM_bio_byron-10
 # s_type = decl
 # text = In Byron's later memoirs, "Mary Chaworth is portrayed as the first object of his adult sexual feelings." [20]
-1	In	in	ADP	IN	_	5	case	5:case	Discourse=joint_m:32->28:4
+1	In	in	ADP	IN	_	5	case	5:case	Discourse=joint-other_m:32->28:4
 2-3	Byron's	_	_	_	_	_	_	_	_
 2	Byron	Byron	PROPN	NNP	Number=Sing	5	nmod:poss	5:nmod:poss	Entity=(5
 3	's	's	PART	POS	_	2	case	2:case	Entity=5)
@@ -307,22 +311,23 @@
 20	feelings	feeling	NOUN	NNS	Number=Plur	15	nmod	15:nmod:of	Entity=6)|SpaceAfter=No
 21	.	.	PUNCT	.	_	11	punct	11:punct	SpaceAfter=No
 22	"	''	PUNCT	''	_	11	punct	11:punct	_
-23	[	[	PUNCT	-LRB-	_	24	punct	24:punct	Discourse=evidence:33->32:0|SpaceAfter=No
+23	[	[	PUNCT	-LRB-	_	24	punct	24:punct	Discourse=explanation-evidence:33->32:0|SpaceAfter=No
 24	20	20	NUM	CD	NumForm=Digit|NumType=Card	11	dep	11:dep	SpaceAfter=No
 25	]	]	PUNCT	-RRB-	_	24	punct	24:punct	XML=</quote>
 
 # sent_id = GUM_bio_byron-11
 # s_type = decl
 # text = Byron finally returned in January 1804, [6] to a more settled period which saw the formation of a circle of emotional involvements with other Harrow boys, which he recalled with great vividness: "My school friendships were with me passions (for I was always violent)." [21]
-# newpar = p (4 s)
-1	Byron	Byron	PROPN	NNP	Number=Sing	3	nsubj	3:nsubj	Discourse=sequence_m:34->2:3|Entity=(5)
+# newpar
+# newpar_block = p (4 s)
+1	Byron	Byron	PROPN	NNP	Number=Sing	3	nsubj	3:nsubj	Discourse=joint-sequence_m:34->2:3|Entity=(5)
 2	finally	finally	ADV	RB	Degree=Pos	3	advmod	3:advmod	_
 3	returned	return	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 4	in	in	ADP	IN	_	5	case	5:case	_
 5	January	January	PROPN	NNP	Number=Sing	3	obl	3:obl:in	XML=<date when:::"1804-01">
 6	1804	1804	NUM	CD	NumForm=Digit|NumType=Card	5	nmod:tmod	5:nmod:tmod	SpaceAfter=No|XML=</date>
 7	,	,	PUNCT	,	_	9	punct	9:punct	_
-8	[	[	PUNCT	-LRB-	_	9	punct	9:punct	Discourse=evidence:35->34:0|SpaceAfter=No
+8	[	[	PUNCT	-LRB-	_	9	punct	9:punct	Discourse=explanation-evidence:35->34:0|SpaceAfter=No
 9	6	6	NUM	CD	NumForm=Digit|NumType=Card	3	dep	3:dep	SpaceAfter=No
 10	]	]	PUNCT	-RRB-	_	9	punct	9:punct	_
 11	to	to	ADP	IN	_	15	case	15:case	Discourse=same-unit_m:36->34:1
@@ -330,7 +335,7 @@
 13	more	more	ADV	RBR	Degree=Cmp	14	advmod	14:advmod	_
 14	settled	settled	ADJ	JJ	Degree=Pos	15	amod	15:amod	_
 15	period	period	NOUN	NN	Number=Sing	3	obl	3:obl:to|17:nsubj	_
-16	which	which	PRON	WDT	PronType=Rel	17	nsubj	15:ref	Discourse=elaboration:37->36:0
+16	which	which	PRON	WDT	PronType=Rel	17	nsubj	15:ref	Discourse=elaboration-attribute:37->36:0
 17	saw	see	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	15	acl:relcl	15:acl:relcl	_
 18	the	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	_
 19	formation	formation	NOUN	NN	Number=Sing	17	obj	17:obj	_
@@ -345,14 +350,14 @@
 28	Harrow	Harrow	PROPN	NNP	Number=Sing	29	compound	29:compound	Entity=(4)
 29	boys	boy	NOUN	NNS	Number=Plur	25	nmod	25:nmod:with	SpaceAfter=No
 30	,	,	PUNCT	,	_	33	punct	33:punct	_
-31	which	which	PRON	WDT	PronType=Rel	33	obj	25:ref	Discourse=elaboration:38->37:0
+31	which	which	PRON	WDT	PronType=Rel	33	obj	25:ref	Discourse=elaboration-attribute:38->37:0
 32	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	33	nsubj	33:nsubj	Entity=(5)
 33	recalled	recall	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	25	acl:relcl	25:acl:relcl	_
 34	with	with	ADP	IN	_	36	case	36:case	_
 35	great	great	ADJ	JJ	Degree=Pos	36	amod	36:amod	_
 36	vividness	vividness	NOUN	NN	Number=Sing	33	obl	33:obl:with	SpaceAfter=No
 37	:	:	PUNCT	:	_	45	punct	45:punct	_
-38	"	''	PUNCT	``	_	45	punct	45:punct	Discourse=evidence:39->38:0|SpaceAfter=No|XML=<quote>
+38	"	''	PUNCT	``	_	45	punct	45:punct	Discourse=explanation-evidence:39->38:0|SpaceAfter=No|XML=<quote>
 39	My	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	41	nmod:poss	41:nmod:poss	Entity=(8(5)
 40	school	school	NOUN	NN	Number=Sing	41	compound	41:compound	_
 41	friendships	friendship	NOUN	NNS	Number=Plur	45	nsubj	45:nsubj	Entity=8)
@@ -360,7 +365,7 @@
 43	with	with	ADP	IN	_	44	case	44:case	_
 44	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	45	nmod	45:nmod:with	Entity=(5)
 45	passions	passion	NOUN	NNS	Number=Plur	3	parataxis	3:parataxis	_
-46	(	(	PUNCT	-LRB-	_	51	punct	51:punct	Discourse=cause:40->39:0|SpaceAfter=No
+46	(	(	PUNCT	-LRB-	_	51	punct	51:punct	Discourse=causal-cause:40->39:0|SpaceAfter=No
 47	for	for	SCONJ	IN	_	51	mark	51:mark	_
 48	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	51	nsubj	51:nsubj	Entity=(5)
 49	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	51	cop	51:cop	_
@@ -369,14 +374,14 @@
 52	)	)	PUNCT	-RRB-	_	51	punct	51:punct	SpaceAfter=No
 53	.	.	PUNCT	.	_	45	punct	45:punct	SpaceAfter=No
 54	"	''	PUNCT	''	_	45	punct	45:punct	_
-55	[	[	PUNCT	-LRB-	_	56	punct	56:punct	Discourse=evidence:41->39:1|SpaceAfter=No
+55	[	[	PUNCT	-LRB-	_	56	punct	56:punct	Discourse=explanation-evidence:41->39:1|SpaceAfter=No
 56	21	21	NUM	CD	NumForm=Digit|NumType=Card	45	dep	45:dep	SpaceAfter=No
 57	]	]	PUNCT	-RRB-	_	56	punct	56:punct	XML=</quote>
 
 # sent_id = GUM_bio_byron-12
 # s_type = decl
 # text = The most enduring of those was with John FitzGibbon, 2nd Earl of Clare — four years Byron's junior — whom he was to meet unexpectedly many years later in Italy (1821). [22]
-1	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Discourse=elaboration:42->34:2
+1	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Discourse=elaboration-additional:42->34:2
 2	most	most	ADV	RBS	Degree=Sup	3	advmod	3:advmod	_
 3	enduring	enduring	ADJ	JJ	Degree=Pos	8	nsubj	8:nsubj	_
 4	of	of	ADP	IN	_	5	case	5:case	_
@@ -390,7 +395,7 @@
 12	Earl	Earl	PROPN	NNP	Number=Sing	8	appos	8:appos	_
 13	of	of	ADP	IN	_	14	case	14:case	_
 14	Clare	Clare	PROPN	NNP	Number=Sing	12	nmod	12:nmod:of	_
-15	—	—	PUNCT	:	_	20	punct	20:punct	Discourse=elaboration:43->42:0
+15	—	—	PUNCT	:	_	20	punct	20:punct	Discourse=elaboration-attribute:43->42:0
 16	four	four	NUM	CD	NumForm=Word|NumType=Card	17	nummod	17:nummod	_
 17	years	year	NOUN	NNS	Number=Plur	20	obl:tmod	20:obl:tmod	_
 18-19	Byron's	_	_	_	_	_	_	_	_
@@ -398,7 +403,7 @@
 19	's	's	PART	POS	_	18	case	18:case	Entity=5)
 20	junior	junior	NOUN	NN	Number=Sing	8	acl	8:acl	_
 21	—	—	PUNCT	:	_	24	punct	24:punct	_
-22	whom	who	PRON	WP	PronType=Int	26	obj	26:obj	Discourse=elaboration:44->42:1
+22	whom	who	PRON	WP	PronType=Int	26	obj	26:obj	Discourse=elaboration-attribute:44->42:1
 23	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	24	nsubj	24:nsubj|26:nsubj:xsubj	Entity=(5)
 24	was	be	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	8	acl:relcl	8:acl:relcl	_
 25	to	to	PART	TO	_	26	mark	26:mark	_
@@ -409,18 +414,18 @@
 30	later	late	ADV	RBR	Degree=Cmp	26	advmod	26:advmod	_
 31	in	in	ADP	IN	_	32	case	32:case	_
 32	Italy	Italy	PROPN	NNP	Number=Sing	26	obl	26:obl:in	_
-33	(	(	PUNCT	-LRB-	_	34	punct	34:punct	Discourse=elaboration:45->44:0|SpaceAfter=No
+33	(	(	PUNCT	-LRB-	_	34	punct	34:punct	Discourse=elaboration-additional:45->44:0|SpaceAfter=No
 34	1821	1821	NUM	CD	NumForm=Digit|NumType=Card	26	obl:tmod	26:obl:tmod	SpaceAfter=No|XML=<date when:::"1821"></date>
 35	)	)	PUNCT	-RRB-	_	34	punct	34:punct	SpaceAfter=No
 36	.	.	PUNCT	.	_	8	punct	8:punct	_
-37	[	[	PUNCT	-LRB-	_	38	punct	38:punct	Discourse=evidence:46->42:2|SpaceAfter=No
+37	[	[	PUNCT	-LRB-	_	38	punct	38:punct	Discourse=explanation-evidence:46->42:2|SpaceAfter=No
 38	22	22	NUM	CD	NumForm=Digit|NumType=Card	8	dep	8:dep	SpaceAfter=No
 39	]	]	PUNCT	-RRB-	_	38	punct	38:punct	_
 
 # sent_id = GUM_bio_byron-13
 # s_type = decl
 # text = His nostalgic poems about his Harrow friendships, Childish Recollections (1806), express a prescient "consciousness of sexual differences that may in the end make England untenable to him." [23]
-1	His	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	3	nmod:poss	3:nmod:poss	Discourse=joint_m:47->42:3|Entity=(5)
+1	His	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	3	nmod:poss	3:nmod:poss	Discourse=joint-list_m:47->42:3|Entity=(5)
 2	nostalgic	nostalgic	ADJ	JJ	Degree=Pos	3	amod	3:amod	_
 3	poems	poem	NOUN	NNS	Number=Plur	15	nsubj	15:nsubj	_
 4	about	about	ADP	IN	_	7	case	7:case	_
@@ -430,7 +435,7 @@
 8	,	,	PUNCT	,	_	10	punct	10:punct	_
 9	Childish	Childish	ADJ	NNP	Degree=Pos	10	amod	10:amod	XML=<hi rend:::"italic">
 10	Recollections	Recollections	PROPN	NNP	Number=Sing	3	appos	3:appos	XML=</hi>
-11	(	(	PUNCT	-LRB-	_	12	punct	12:punct	Discourse=elaboration:48->47:0|SpaceAfter=No
+11	(	(	PUNCT	-LRB-	_	12	punct	12:punct	Discourse=elaboration-additional:48->47:0|SpaceAfter=No
 12	1806	1806	NUM	CD	NumForm=Digit|NumType=Card	10	nmod:tmod	10:nmod:tmod	SpaceAfter=No|XML=<date when:::"1806"></date>
 13	)	)	PUNCT	-RRB-	_	12	punct	12:punct	SpaceAfter=No
 14	,	,	PUNCT	,	_	3	punct	3:punct	_
@@ -442,7 +447,7 @@
 20	of	of	ADP	IN	_	22	case	22:case	_
 21	sexual	sexual	ADJ	JJ	Degree=Pos	22	amod	22:amod	_
 22	differences	difference	NOUN	NNS	Number=Plur	19	nmod	19:nmod:of	_
-23	that	that	PRON	WDT	PronType=Rel	28	nsubj	19:ref	Discourse=result:50->49:0
+23	that	that	PRON	WDT	PronType=Rel	28	nsubj	19:ref	Discourse=causal-result:50->49:0
 24	may	may	AUX	MD	VerbForm=Fin	28	aux	28:aux	_
 25	in	in	ADP	IN	_	27	case	27:case	_
 26	the	the	DET	DT	Definite=Def|PronType=Art	27	det	27:det	_
@@ -454,14 +459,14 @@
 32	him	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	30	obl	30:obl:to	Entity=(5)|SpaceAfter=No
 33	.	.	PUNCT	.	_	19	punct	19:punct	SpaceAfter=No
 34	"	''	PUNCT	''	_	19	punct	19:punct	_
-35	[	[	PUNCT	-LRB-	_	36	punct	36:punct	Discourse=evidence:51->47:2|SpaceAfter=No
+35	[	[	PUNCT	-LRB-	_	36	punct	36:punct	Discourse=explanation-evidence:51->47:2|SpaceAfter=No
 36	23	23	NUM	CD	NumForm=Digit|NumType=Card	15	dep	15:dep	SpaceAfter=No
 37	]	]	PUNCT	-RRB-	_	36	punct	36:punct	XML=</q>
 
 # sent_id = GUM_bio_byron-14
 # s_type = decl
 # text = Letters to Byron in the John Murray archive contain evidence of a previously unremarked if short-lived romantic relationship with a younger boy at Harrow, John Thomas Claridge.
-1	Letters	letter	NOUN	NNS	Number=Plur	9	nsubj	9:nsubj	Discourse=joint_m:52->42:3
+1	Letters	letter	NOUN	NNS	Number=Plur	9	nsubj	9:nsubj	Discourse=joint-list_m:52->42:3
 2	to	to	ADP	IN	_	3	case	3:case	_
 3	Byron	Byron	PROPN	NNP	Number=Sing	1	nmod	1:nmod:to	Entity=(5)
 4	in	in	ADP	IN	_	8	case	8:case	_
@@ -475,7 +480,7 @@
 12	a	a	DET	DT	Definite=Ind|PronType=Art	20	det	20:det	_
 13	previously	previously	ADV	RB	Degree=Pos	14	advmod	14:advmod	_
 14	unremarked	unremarked	ADJ	JJ	Degree=Pos|Polarity=Neg	20	amod	20:amod	_
-15	if	if	SCONJ	IN	_	18	mark	18:mark	Discourse=concession:53->52:0
+15	if	if	SCONJ	IN	_	18	mark	18:mark	Discourse=adversative-concession:53->52:0
 16	short	short	ADJ	JJ	Degree=Pos	18	compound	18:compound	SpaceAfter=No|XML=<w>
 17	-	-	PUNCT	HYPH	_	16	punct	16:punct	SpaceAfter=No
 18	lived	lived	ADJ	JJ	Degree=Pos	14	advcl	14:advcl:if	XML=</w>
@@ -496,8 +501,9 @@
 # sent_id = GUM_bio_byron-15
 # s_type = frag
 # text = John FitzGibbon, 2nd Earl of Clare
-# newpar = figure rend:::"John FitzGibbon" (1 s) | caption (1 s)
-1	John	John	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=background:55->42:4
+# newpar
+# newpar_block = figure rend:::"John FitzGibbon" (1 s) | caption (1 s)
+1	John	John	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=context-background:55->42:4
 2	FitzGibbon	Fitzgibbon	PROPN	NNP	Number=Sing	1	flat	1:flat	SpaceAfter=No
 3	,	,	PUNCT	,	_	5	punct	5:punct	_
 4	2nd	2nd	ADJ	JJ	Degree=Pos|NumType=Ord	5	amod	5:amod	_
@@ -508,31 +514,32 @@
 # sent_id = GUM_bio_byron-16
 # s_type = intj
 # text = Ah!
-# newpar = p (2 s)
-1	Ah	ah	INTJ	UH	_	0	root	0:root	Discourse=preparation:56->57:2|SpaceAfter=No
+# newpar
+# newpar_block = p (2 s)
+1	Ah	ah	INTJ	UH	_	0	root	0:root	Discourse=organization-phatic:56->57:2|SpaceAfter=No
 2	!	!	PUNCT	.	_	1	punct	1:punct	_
 
 # sent_id = GUM_bio_byron-17
 # s_type = decl
 # text = Sure some stronger impulse vibrates here, Which whispers friendship will be doubly dear To one, who thus for kindred hearts must roam, And seek abroad, the love denied at home.
-1	Sure	sure	ADV	RB	Degree=Pos	5	discourse	5:discourse	Discourse=evidence:57->42:5
-2	some	some	DET	DT	_	4	det	4:det	_
+1	Sure	sure	ADV	RB	Degree=Pos	5	discourse	5:discourse	Discourse=explanation-evidence:57->42:5
+2	some	some	DET	DT	PronType=Ind	4	det	4:det	_
 3	stronger	strong	ADJ	JJR	Degree=Cmp	4	amod	4:amod	_
 4	impulse	impulse	NOUN	NN	Number=Sing	5	nsubj	5:nsubj	_
 5	vibrates	vibrate	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root|9:nsubj	_
 6	here	here	ADV	RB	PronType=Dem	5	advmod	5:advmod	SpaceAfter=No
 7	,	,	PUNCT	,	_	9	punct	9:punct	_
-8	Which	which	PRON	WDT	PronType=Rel	9	nsubj	5:ref	Discourse=elaboration:58->57:0
+8	Which	which	PRON	WDT	PronType=Rel	9	nsubj	5:ref	Discourse=elaboration-additional:58->57:0
 9	whispers	whisper	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	acl:relcl	5:acl:relcl	_
 10	friendship	friendship	NOUN	NN	Number=Sing	9	obj	9:obj	_
-11	will	will	AUX	MD	VerbForm=Fin	14	aux	14:aux	Discourse=evaluation:59->57:1
+11	will	will	AUX	MD	VerbForm=Fin	14	aux	14:aux	Discourse=evaluation-comment:59->57:1
 12	be	be	AUX	VB	VerbForm=Inf	14	cop	14:cop	_
 13	doubly	doubly	ADV	RB	Degree=Pos	14	advmod	14:advmod	_
 14	dear	dear	ADJ	JJ	Degree=Pos	5	conj	5:conj	_
 15	To	to	ADP	IN	_	16	case	16:case	_
-16	one	one	PRON	PRP	_	14	obl	14:obl:to|24:nsubj	SpaceAfter=No
+16	one	one	PRON	PRP	PronType=Prs	14	obl	14:obl:to|24:nsubj	SpaceAfter=No
 17	,	,	PUNCT	,	_	24	punct	24:punct	_
-18	who	who	PRON	WP	PronType=Rel	24	nsubj	16:ref	Discourse=elaboration:60->59:0
+18	who	who	PRON	WP	PronType=Rel	24	nsubj	16:ref	Discourse=elaboration-attribute:60->59:0
 19	thus	thus	ADV	RB	_	24	advmod	24:advmod	_
 20	for	for	ADP	IN	_	22	case	22:case	_
 21	kindred	kindred	ADJ	JJ	Degree=Pos	22	amod	22:amod	_
@@ -554,8 +561,9 @@
 # sent_id = GUM_bio_byron-18
 # s_type = decl
 # text = The following autumn, he went up to Trinity College, Cambridge, [24] where he met and formed a close friendship with the younger John Edleston.
-# newpar = p (6 s)
-1	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Discourse=circumstance:61->63:1
+# newpar
+# newpar_block = p (6 s)
+1	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Discourse=context-circumstance:61->63:1
 2	following	follow	VERB	VBG	VerbForm=Ger	3	amod	3:amod	_
 3	autumn	autumn	NOUN	NN	Number=Sing	6	obl:tmod	6:obl:tmod	SpaceAfter=No|XML=<date from:::"--09" to:::"--12"></date>
 4	,	,	PUNCT	,	_	3	punct	3:punct	_
@@ -568,10 +576,10 @@
 11	,	,	PUNCT	,	_	12	punct	12:punct	_
 12	Cambridge	Cambridge	PROPN	NNP	Number=Sing	9	appos	9:appos	Entity=(12)|SpaceAfter=No|XML=</ref>
 13	,	,	PUNCT	,	_	9	punct	9:punct	_
-14	[	[	PUNCT	-LRB-	_	15	punct	15:punct	Discourse=evidence:62->61:0|SpaceAfter=No
+14	[	[	PUNCT	-LRB-	_	15	punct	15:punct	Discourse=explanation-evidence:62->61:0|SpaceAfter=No
 15	24	24	NUM	CD	NumForm=Digit|NumType=Card	6	dep	6:dep	SpaceAfter=No
 16	]	]	PUNCT	-RRB-	_	15	punct	15:punct	_
-17	where	where	SCONJ	WRB	PronType=Int	19	mark	19:mark	Discourse=sequence_m:63->2:3
+17	where	where	SCONJ	WRB	PronType=Int	19	mark	19:mark	Discourse=joint-sequence_m:63->2:3
 18	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	19	nsubj	19:nsubj|21:nsubj	Entity=(5)
 19	met	meet	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	9	acl	9:acl:where	_
 20	and	and	CCONJ	CC	_	21	cc	21:cc	_
@@ -589,7 +597,7 @@
 # sent_id = GUM_bio_byron-19
 # s_type = decl
 # text = About his "protégé" he wrote, "He has been my almost constant associate since October, 1805, when I entered Trinity College. His voice first attracted my attention, his countenance fixed it, and his manners attached me to him for ever."
-1	About	about	ADP	IN	_	4	case	4:case	Discourse=attribution:64->65:2
+1	About	about	ADP	IN	_	4	case	4:case	Discourse=attribution-positive:64->65:2
 2	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	4	nmod:poss	4:nmod:poss	Entity=(14(5)
 3	"	''	PUNCT	``	_	4	punct	4:punct	SpaceAfter=No|XML=<q>
 4	protégé	protégé	NOUN	NN	Number=Sing	7	obl	7:obl:about	SpaceAfter=No
@@ -597,7 +605,7 @@
 6	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	7	nsubj	7:nsubj	Entity=(5)
 7	wrote	write	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	SpaceAfter=No
 8	,	,	PUNCT	,	_	16	punct	16:punct	_
-9	"	''	PUNCT	``	_	16	punct	16:punct	Discourse=elaboration:65->63:0|SpaceAfter=No|XML=<quote>
+9	"	''	PUNCT	``	_	16	punct	16:punct	Discourse=elaboration-additional:65->63:0|SpaceAfter=No|XML=<quote>
 10	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	16	nsubj	16:nsubj	Entity=(14)
 11	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	16	aux	16:aux	_
 12	been	be	AUX	VBN	Tense=Past|VerbForm=Part	16	cop	16:cop	_
@@ -610,40 +618,40 @@
 19	,	,	PUNCT	,	_	20	punct	20:punct	_
 20	1805	1805	NUM	CD	NumForm=Digit|NumType=Card	18	nmod:tmod	18:nmod:tmod	SpaceAfter=No|XML=</date>
 21	,	,	PUNCT	,	_	24	punct	24:punct	_
-22	when	when	SCONJ	WRB	PronType=Int	24	mark	24:mark	Discourse=circumstance:66->65:0
+22	when	when	SCONJ	WRB	PronType=Int	24	mark	24:mark	Discourse=context-circumstance:66->65:0
 23	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	24	nsubj	24:nsubj	Entity=(5)
 24	entered	enter	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	18	acl	18:acl:when	_
 25	Trinity	Trinity	PROPN	NNP	Number=Sing	24	obj	24:obj	Entity=(11
 26	College	College	PROPN	NNP	Number=Sing	25	flat	25:flat	Entity=11)|SpaceAfter=No
 27	.	.	PUNCT	.	_	16	punct	16:punct	_
-28	His	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	29	nmod:poss	29:nmod:poss	Discourse=joint_m:67->65:1|Entity=(14)
+28	His	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	29	nmod:poss	29:nmod:poss	Discourse=joint-list_m:67->65:1|Entity=(14)
 29	voice	voice	NOUN	NN	Number=Sing	31	nsubj	31:nsubj	_
 30	first	first	ADV	RB	Degree=Pos|NumType=Ord	31	advmod	31:advmod	_
 31	attracted	attract	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	16	parataxis	16:parataxis	_
 32	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	33	nmod:poss	33:nmod:poss	Entity=(15(5)
 33	attention	attention	NOUN	NN	Number=Sing	31	obj	31:obj	Entity=15)|SpaceAfter=No
 34	,	,	PUNCT	,	_	37	punct	37:punct	_
-35	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	36	nmod:poss	36:nmod:poss	Discourse=joint_m:68->65:1|Entity=(14)
+35	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	36	nmod:poss	36:nmod:poss	Discourse=joint-list_m:68->65:1|Entity=(14)
 36	countenance	countenance	NOUN	NN	Number=Sing	37	nsubj	37:nsubj	_
 37	fixed	fix	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	31	conj	31:conj:and	_
 38	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	37	obj	37:obj	Entity=(15)|SpaceAfter=No
 39	,	,	PUNCT	,	_	43	punct	43:punct	_
-40	and	and	CCONJ	CC	_	43	cc	43:cc	Discourse=joint_m:69->65:1
+40	and	and	CCONJ	CC	_	43	cc	43:cc	Discourse=joint-list_m:69->65:1
 41	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	42	nmod:poss	42:nmod:poss	Entity=(14)
 42	manners	manner	NOUN	NNS	Number=Plur	43	nsubj	43:nsubj	_
 43	attached	attach	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	31	conj	31:conj:and	_
 44	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	43	obj	43:obj	Entity=(5)
 45	to	to	ADP	IN	_	46	case	46:case	_
 46	him	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	43	obl	43:obl:to	Entity=(14)
-47	for	for	ADV	IN	_	43	advmod	43:advmod	_
-48	ever	ever	X	RB	Degree=Pos	47	goeswith	47:goeswith	SpaceAfter=No
+47	for	for	ADV	IN	Degree=Pos	43	advmod	43:advmod	_
+48	ever	ever	X	RB	_	47	goeswith	47:goeswith	SpaceAfter=No
 49	.	.	PUNCT	.	_	16	punct	16:punct	SpaceAfter=No
 50	"	''	PUNCT	''	_	16	punct	16:punct	XML=</quote>
 
 # sent_id = GUM_bio_byron-20
 # s_type = decl
 # text = In his memory Byron composed Thyrza, a series of elegies. [25]
-1	In	in	ADP	IN	_	3	case	3:case	Discourse=elaboration:70->65:3
+1	In	in	ADP	IN	_	3	case	3:case	Discourse=elaboration-additional:70->65:3
 2	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	3	nmod:poss	3:nmod:poss	Entity=(14)
 3	memory	memory	NOUN	NN	Number=Sing	5	obl	5:obl:in	_
 4	Byron	Byron	PROPN	NNP	Number=Sing	5	nsubj	5:nsubj	Entity=(5)
@@ -655,14 +663,14 @@
 10	of	of	ADP	IN	_	11	case	11:case	_
 11	elegies	elegy	NOUN	NNS	Number=Plur	9	nmod	9:nmod:of	SpaceAfter=No
 12	.	.	PUNCT	.	_	5	punct	5:punct	_
-13	[	[	PUNCT	-LRB-	_	14	punct	14:punct	Discourse=evidence:71->70:0|SpaceAfter=No
+13	[	[	PUNCT	-LRB-	_	14	punct	14:punct	Discourse=explanation-evidence:71->70:0|SpaceAfter=No
 14	25	25	NUM	CD	NumForm=Digit|NumType=Card	5	dep	5:dep	SpaceAfter=No
 15	]	]	PUNCT	-RRB-	_	14	punct	14:punct	_
 
 # sent_id = GUM_bio_byron-21
 # s_type = decl
 # text = In later years, he described the affair as "a violent, though pure love and passion".
-1	In	in	ADP	IN	_	3	case	3:case	Discourse=joint_m:72->70:1
+1	In	in	ADP	IN	_	3	case	3:case	Discourse=joint-sequence_m:72->70:1
 2	later	late	ADJ	JJR	Degree=Cmp	3	amod	3:amod	_
 3	years	year	NOUN	NNS	Number=Plur	6	obl	6:obl:in	SpaceAfter=No
 4	,	,	PUNCT	,	_	3	punct	3:punct	_
@@ -686,7 +694,7 @@
 # sent_id = GUM_bio_byron-22
 # s_type = decl
 # text = This statement, however, needs to be read in the context of hardening public attitudes toward homosexuality in England and the severe sanctions (including public hanging) against convicted or even suspected offenders. [26]
-1	This	this	DET	DT	Number=Sing|PronType=Dem	2	det	2:det	Discourse=background:73->72:0|Entity=(16
+1	This	this	DET	DT	Number=Sing|PronType=Dem	2	det	2:det	Discourse=context-background:73->72:0|Entity=(16
 2	statement	statement	NOUN	NN	Number=Sing	6	nsubj	6:nsubj|9:nsubj:pass:xsubj	Entity=16)|SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	2:punct	_
 4	however	however	ADV	RB	_	6	advmod	6:advmod	SpaceAfter=No
@@ -710,7 +718,7 @@
 22	the	the	DET	DT	Definite=Def|PronType=Art	24	det	24:det	_
 23	severe	severe	ADJ	JJ	Degree=Pos	24	amod	24:amod	_
 24	sanctions	sanction	NOUN	NNS	Number=Plur	16	conj	12:nmod:of|16:conj:and	_
-25	(	(	PUNCT	-LRB-	_	28	punct	28:punct	Discourse=elaboration:74->73:0|SpaceAfter=No
+25	(	(	PUNCT	-LRB-	_	28	punct	28:punct	Discourse=elaboration-additional:74->73:0|SpaceAfter=No
 26	including	include	VERB	VBG	VerbForm=Ger	28	case	28:case	_
 27	public	public	ADJ	JJ	Degree=Pos	28	amod	28:amod	_
 28	hanging	hanging	NOUN	NN	Number=Sing	24	nmod	24:nmod:including	SpaceAfter=No
@@ -722,14 +730,14 @@
 34	suspected	suspect	VERB	VBN	Tense=Past|VerbForm=Part	31	conj	31:conj:or|35:amod	_
 35	offenders	offender	NOUN	NNS	Number=Plur	24	nmod	24:nmod:against	SpaceAfter=No
 36	.	.	PUNCT	.	_	6	punct	6:punct	_
-37	[	[	PUNCT	-LRB-	_	38	punct	38:punct	Discourse=evidence:76->73:2|SpaceAfter=No
+37	[	[	PUNCT	-LRB-	_	38	punct	38:punct	Discourse=explanation-evidence:76->73:2|SpaceAfter=No
 38	26	26	NUM	CD	NumForm=Digit|NumType=Card	6	dep	6:dep	SpaceAfter=No
 39	]	]	PUNCT	-RRB-	_	38	punct	38:punct	_
 
 # sent_id = GUM_bio_byron-23
 # s_type = sub
 # text = The liaison, on the other hand, may well have been "pure" out of respect for Edleston's innocence, in contrast to the (probably) more sexually overt relations experienced at Harrow School. [27]
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=evaluation:77->72:1|Entity=(17
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=evaluation-comment:77->72:1|Entity=(17
 2	liaison	liaison	NOUN	NN	Number=Sing	14	nsubj	14:nsubj	Entity=17)|SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	2:punct	_
 4	on	on	ADP	IN	_	7	case	7:case	_
@@ -757,7 +765,7 @@
 25	contrast	contrast	NOUN	NN	Number=Sing	14	obl	14:obl:in	_
 26	to	to	ADP	IN	_	34	case	34:case	_
 27	the	the	DET	DT	Definite=Def|PronType=Art	34	det	34:det	_
-28	(	(	PUNCT	-LRB-	_	29	punct	29:punct	Discourse=concession:78->79:0|SpaceAfter=No
+28	(	(	PUNCT	-LRB-	_	29	punct	29:punct	Discourse=adversative-concession:78->79:0|SpaceAfter=No
 29	probably	probably	ADV	RB	Degree=Pos	33	advmod	33:advmod	SpaceAfter=No
 30	)	)	PUNCT	-RRB-	_	29	punct	29:punct	_
 31	more	more	ADV	RBR	Degree=Cmp	33	advmod	33:advmod	Discourse=same-unit_m:79->77:0
@@ -769,15 +777,16 @@
 37	Harrow	Harrow	PROPN	NNP	Number=Sing	35	obl	35:obl:at	Entity=(9
 38	School	School	PROPN	NNP	Number=Sing	37	flat	37:flat	Entity=9)|SpaceAfter=No
 39	.	.	PUNCT	.	_	14	punct	14:punct	_
-40	[	[	PUNCT	-LRB-	_	41	punct	41:punct	Discourse=evidence:80->77:1|SpaceAfter=No
+40	[	[	PUNCT	-LRB-	_	41	punct	41:punct	Discourse=explanation-evidence:80->77:1|SpaceAfter=No
 41	27	27	NUM	CD	NumForm=Digit|NumType=Card	14	dep	14:dep	SpaceAfter=No
 42	]	]	PUNCT	-RRB-	_	41	punct	41:punct	_
 
 # sent_id = GUM_bio_byron-24
 # s_type = decl
 # text = Byron spent three years at Trinity College, engaging in sexual escapades, boxing, horse riding and gambling. [28]
-# newpar = p (2 s)
-1	Byron	Byron	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=sequence_m:81->2:3|Entity=(5)
+# newpar
+# newpar_block = p (2 s)
+1	Byron	Byron	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=joint-sequence_m:81->2:3|Entity=(5)
 2	spent	spend	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	three	three	NUM	CD	NumForm=Word|NumType=Card	4	nummod	4:nummod	_
 4	years	year	NOUN	NNS	Number=Plur	2	obj	2:obj	_
@@ -785,7 +794,7 @@
 6	Trinity	Trinity	PROPN	NNP	Number=Sing	2	obl	2:obl:at	Entity=(11
 7	College	College	PROPN	NNP	Number=Sing	6	flat	6:flat	Entity=11)|SpaceAfter=No
 8	,	,	PUNCT	,	_	9	punct	9:punct	_
-9	engaging	engage	VERB	VBG	VerbForm=Ger	2	advcl	2:advcl	Discourse=elaboration:82->81:0
+9	engaging	engage	VERB	VBG	VerbForm=Ger	2	advcl	2:advcl	Discourse=elaboration-additional:82->81:0
 10	in	in	ADP	IN	_	12	case	12:case	_
 11	sexual	sexual	ADJ	JJ	Degree=Pos	12	amod	12:amod	_
 12	escapades	escapade	NOUN	NNS	Number=Plur	9	obl	9:obl:in	SpaceAfter=No
@@ -797,18 +806,18 @@
 18	and	and	CCONJ	CC	_	19	cc	19:cc	_
 19	gambling	gambling	NOUN	NN	Number=Sing	12	conj	9:obl:in|12:conj:and	SpaceAfter=No
 20	.	.	PUNCT	.	_	2	punct	2:punct	_
-21	[	[	PUNCT	-LRB-	_	22	punct	22:punct	Discourse=evidence:83->82:0|SpaceAfter=No
+21	[	[	PUNCT	-LRB-	_	22	punct	22:punct	Discourse=explanation-evidence:83->82:0|SpaceAfter=No
 22	28	28	NUM	CD	NumForm=Digit|NumType=Card	2	dep	2:dep	SpaceAfter=No
 23	]	]	PUNCT	-RRB-	_	22	punct	22:punct	_
 
 # sent_id = GUM_bio_byron-25
 # s_type = decl
 # text = Also while at Cambridge he formed lifelong friendships with men such as John Cam Hobhouse, who initiated him into the Cambridge Whig Club, which endorsed liberal politics, [28] and Francis Hodgson, a Fellow at King's College, with whom he corresponded on literary and other matters until the end of his life.
-1	Also	also	ADV	RB	_	4	advmod	4:advmod	Discourse=circumstance:84->85:3
+1	Also	also	ADV	RB	_	4	advmod	4:advmod	Discourse=context-circumstance:84->85:3
 2	while	while	SCONJ	IN	_	4	mark	4:mark	_
 3	at	at	ADP	IN	_	4	case	4:case	_
 4	Cambridge	Cambridge	PROPN	NNP	Number=Sing	6	advcl	6:advcl:while	Entity=(12)
-5	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	6	nsubj	6:nsubj	Discourse=joint_m:85->82:1|Entity=(5)
+5	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	6	nsubj	6:nsubj	Discourse=joint-list_m:85->82:1|Entity=(5)
 6	formed	form	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 7	lifelong	lifelong	ADJ	JJ	Degree=Pos	8	amod	8:amod	_
 8	friendships	friendship	NOUN	NNS	Number=Plur	6	obj	6:obj	_
@@ -820,7 +829,7 @@
 14	Cam	Cam	PROPN	NNP	Number=Sing	13	flat	13:flat	_
 15	Hobhouse	Hobhouse	PROPN	NNP	Number=Sing	13	flat	13:flat	SpaceAfter=No|XML=</ref>
 16	,	,	PUNCT	,	_	18	punct	18:punct	_
-17	who	who	PRON	WP	PronType=Rel	18	nsubj	13:ref	Discourse=elaboration:86->85:0
+17	who	who	PRON	WP	PronType=Rel	18	nsubj	13:ref	Discourse=elaboration-attribute:86->85:0
 18	initiated	initiate	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	13	acl:relcl	13:acl:relcl	_
 19	him	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	18	obj	18:obj	Entity=(5)
 20	into	into	ADP	IN	_	24	case	24:case	_
@@ -829,12 +838,12 @@
 23	Whig	Whig	PROPN	NNP	Number=Sing	24	compound	24:compound	_
 24	Club	Club	PROPN	NNP	Number=Sing	18	obl	18:obl:into|27:nsubj	SpaceAfter=No
 25	,	,	PUNCT	,	_	27	punct	27:punct	_
-26	which	which	PRON	WDT	PronType=Rel	27	nsubj	24:ref	Discourse=elaboration:87->86:0
+26	which	which	PRON	WDT	PronType=Rel	27	nsubj	24:ref	Discourse=elaboration-attribute:87->86:0
 27	endorsed	endorse	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	24	acl:relcl	24:acl:relcl	_
 28	liberal	liberal	ADJ	JJ	Degree=Pos	29	amod	29:amod	_
 29	politics	politics	NOUN	NN	Number=Sing	27	obj	27:obj	SpaceAfter=No
 30	,	,	PUNCT	,	_	13	punct	13:punct	_
-31	[	[	PUNCT	-LRB-	_	32	punct	32:punct	Discourse=evidence:88->85:1|SpaceAfter=No
+31	[	[	PUNCT	-LRB-	_	32	punct	32:punct	Discourse=explanation-evidence:88->85:1|SpaceAfter=No
 32	28	28	NUM	CD	NumForm=Digit|NumType=Card	6	dep	6:dep	SpaceAfter=No
 33	]	]	PUNCT	-RRB-	_	32	punct	32:punct	_
 34	and	and	CCONJ	CC	_	35	cc	35:cc	Discourse=same-unit_m:89->85:2
@@ -848,8 +857,8 @@
 41	King	King	PROPN	NNP	Number=Sing	43	nmod:poss	43:nmod:poss	_
 42	's	's	PART	POS	_	41	case	41:case	_
 43	College	College	PROPN	NNP	Number=Sing	39	nmod	39:nmod:at	SpaceAfter=No
-44	,	,	PUNCT	,	_	48	punct	48:punct	_
-45	with	with	ADP	IN	_	46	case	46:case	Discourse=elaboration:90->89:0
+44	,	,	PUNCT	,	_	39	punct	39:punct	_
+45	with	with	ADP	IN	_	46	case	46:case	Discourse=elaboration-attribute:90->89:0
 46	whom	who	PRON	WP	PronType=Rel	48	obl	36:ref	_
 47	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	48	nsubj	48:nsubj	Entity=(5)
 48	corresponded	correspond	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	36	acl:relcl	36:acl:relcl	_

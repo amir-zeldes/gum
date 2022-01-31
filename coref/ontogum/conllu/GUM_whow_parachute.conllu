@@ -9,8 +9,9 @@
 # sent_id = GUM_whow_parachute-1
 # s_type = inf
 # text = How to Cope With a Double Parachute Failure
-# newpar = head rend:::"bold" (1 s)
-1	How	how	ADV	WRB	PronType=Int	0	root	0:root	Discourse=preparation:1->11:5
+# newpar
+# newpar_block = head rend:::"bold" (1 s)
+1	How	how	ADV	WRB	PronType=Int	0	root	0:root	Discourse=organization-heading:1->11:6
 2	to	to	PART	TO	_	3	mark	3:mark	_
 3	Cope	cope	VERB	VB	VerbForm=Inf	1	acl	1:acl:to	_
 4	With	with	ADP	IN	_	8	case	8:case	_
@@ -22,14 +23,15 @@
 # sent_id = GUM_whow_parachute-2
 # s_type = decl
 # text = While skydiving, it is possible (yet extremely unlikely) that both your primary and reserve parachutes will malfunction, leaving you with no method of reducing your velocity.
-# newpar = p (3 s)
-1	While	while	SCONJ	IN	_	2	mark	2:mark	Discourse=circumstance:2->3:3
+# newpar
+# newpar_block = p (3 s)
+1	While	while	SCONJ	IN	_	2	mark	2:mark	Discourse=context-circumstance:2->3:3
 2	skydiving	skydiving	NOUN	NN	Number=Sing	6	advcl	6:advcl:while	SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	2:punct	_
-4	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	6	nsubj	6:nsubj|10:nsubj	Discourse=background:3->9:1
+4	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	6	nsubj	6:nsubj|10:nsubj	Discourse=context-background:3->9:1
 5	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	6:cop	_
 6	possible	possible	ADJ	JJ	Degree=Pos	0	root	0:root	_
-7	(	(	PUNCT	-LRB-	_	10	punct	10:punct	Discourse=concession:4->3:0|SpaceAfter=No
+7	(	(	PUNCT	-LRB-	_	10	punct	10:punct	Discourse=adversative-concession:4->3:0|SpaceAfter=No
 8	yet	yet	CCONJ	CC	_	10	cc	10:cc	_
 9	extremely	extremely	ADV	RB	Degree=Pos	10	advmod	10:advmod	_
 10	unlikely	unlikely	ADJ	JJ	Degree=Pos|Polarity=Neg	6	conj	6:conj:yet	SpaceAfter=No
@@ -44,12 +46,12 @@
 19	will	will	AUX	MD	VerbForm=Fin	20	aux	20:aux	_
 20	malfunction	malfunction	VERB	VB	VerbForm=Inf	6	csubj	6:csubj|10:csubj	SpaceAfter=No
 21	,	,	PUNCT	,	_	22	punct	22:punct	_
-22	leaving	leave	VERB	VBG	VerbForm=Ger	20	advcl	20:advcl	Discourse=result:6->3:2
+22	leaving	leave	VERB	VBG	VerbForm=Ger	20	advcl	20:advcl	Discourse=causal-result:6->3:2
 23	you	you	PRON	PRP	Case=Acc|Number=Sing|Person=2|PronType=Prs	22	obj	22:obj	Entity=(2)
 24	with	with	ADP	IN	_	26	case	26:case	_
-25	no	no	DET	DT	Polarity=Neg	26	det	26:det	_
+25	no	no	DET	DT	Polarity=Neg|PronType=Art	26	det	26:det	_
 26	method	method	NOUN	NN	Number=Sing	22	obl	22:obl:with	_
-27	of	of	SCONJ	IN	_	28	mark	28:mark	Discourse=purpose:7->6:0
+27	of	of	SCONJ	IN	_	28	mark	28:mark	Discourse=purpose-attribute:7->6:0
 28	reducing	reduce	VERB	VBG	VerbForm=Ger	26	acl	26:acl:of	_
 29	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	30	nmod:poss	30:nmod:poss	Entity=(2)
 30	velocity	velocity	NOUN	NN	Number=Sing	28	obj	28:obj	SpaceAfter=No
@@ -58,7 +60,7 @@
 # sent_id = GUM_whow_parachute-3
 # s_type = decl
 # text = In the vast majority of cases, this will not occur;
-1	In	in	ADP	IN	_	4	case	4:case	Discourse=concession:8->9:0
+1	In	in	ADP	IN	_	4	case	4:case	Discourse=adversative-concession:8->9:0
 2	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	_
 3	vast	vast	ADJ	JJ	Degree=Pos	4	amod	4:amod	_
 4	majority	majority	NOUN	NN	Number=Sing	11	obl	11:obl:in	_
@@ -74,7 +76,7 @@
 # sent_id = GUM_whow_parachute-4
 # s_type = decl
 # text = nevertheless, in this event these coping strategies may assist.
-1	nevertheless	nevertheless	ADV	RB	Degree=Pos	10	advmod	10:advmod	Discourse=background:9->11:4|SpaceAfter=No
+1	nevertheless	nevertheless	ADV	RB	Degree=Pos	10	advmod	10:advmod	Discourse=context-background:9->11:5|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	1:punct	_
 3	in	in	ADP	IN	_	5	case	5:case	_
 4	this	this	DET	DT	Number=Sing|PronType=Dem	5	det	5:det	Entity=(1
@@ -89,13 +91,15 @@
 # sent_id = GUM_whow_parachute-5
 # s_type = frag
 # text = Steps
-# newpar = head (1 s)
-1	Steps	step	NOUN	NNS	Number=Plur	0	root	0:root	Discourse=preparation:10->11:3|XML=<hi rend:::"bold"></hi>
+# newpar
+# newpar_block = head (1 s)
+1	Steps	step	NOUN	NNS	Number=Plur	0	root	0:root	Discourse=organization-heading:10->11:3|XML=<hi rend:::"bold"></hi>
 
 # sent_id = GUM_whow_parachute-6
 # s_type = imp
 # text = Remain calm.
-# newpar = figure rend:::"image of stone-faced man in skydiving attire descending from sky" (0 s) | list type:::"ordered" (18 s) | item n:::"1" (2 s) | p (2 s)
+# newpar
+# newpar_block = figure rend:::"image of stone-faced man in skydiving attire descending from sky" (0 s) | list type:::"ordered" (18 s) | item n:::"1" (2 s) | p (2 s)
 1	Remain	remain	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=ROOT:11:0|XML=<hi rend:::"bold">
 2	calm	calm	ADJ	JJ	Degree=Pos	1	xcomp	1:xcomp	SpaceAfter=No
 3	.	.	PUNCT	.	_	1	punct	1:punct	XML=</hi>
@@ -103,23 +107,23 @@
 # sent_id = GUM_whow_parachute-7
 # s_type = decl
 # text = This may seem obvious, but deep, even breathing (despite the rushing slipstream) and controlling your heart-rate are essential to your continued survival.
-1	This	this	PRON	DT	Number=Sing|PronType=Dem	3	nsubj	3:nsubj|4:nsubj:xsubj	Discourse=concession:12->13:2
+1	This	this	PRON	DT	Number=Sing|PronType=Dem	3	nsubj	3:nsubj|4:nsubj:xsubj	Discourse=adversative-concession:12->13:2
 2	may	may	AUX	MD	VerbForm=Fin	3	aux	3:aux	_
 3	seem	seem	VERB	VB	VerbForm=Inf	0	root	0:root	_
 4	obvious	obvious	ADJ	JJ	Degree=Pos	3	xcomp	3:xcomp	SpaceAfter=No
-5	,	,	PUNCT	,	_	24	punct	24:punct	_
-6	but	but	CCONJ	CC	_	24	cc	24:cc	Discourse=elaboration:13->11:0
+5	,	,	PUNCT	,	_	6	punct	6:punct	_
+6	but	but	CCONJ	CC	_	24	cc	24:cc	Discourse=elaboration-additional:13->11:0
 7	deep	deep	ADJ	JJ	Degree=Pos	10	amod	10:amod	SpaceAfter=No
 8	,	,	PUNCT	,	_	7	punct	7:punct	_
 9	even	even	ADJ	JJ	Degree=Pos	10	amod	10:amod	_
 10	breathing	breathing	NOUN	NN	Number=Sing	24	nsubj	24:nsubj	_
-11	(	(	PUNCT	-LRB-	_	15	punct	15:punct	Discourse=concession:14->13:0|SpaceAfter=No
+11	(	(	PUNCT	-LRB-	_	15	punct	15:punct	Discourse=adversative-concession:14->13:0|SpaceAfter=No
 12	despite	despite	ADP	IN	_	15	case	15:case	_
 13	the	the	DET	DT	Definite=Def|PronType=Art	15	det	15:det	_
 14	rushing	rush	VERB	VBG	VerbForm=Ger	15	acl	15:acl	_
 15	slipstream	slipstream	NOUN	NN	Number=Sing	10	obl	10:obl:despite	SpaceAfter=No
 16	)	)	PUNCT	-RRB-	_	15	punct	15:punct	_
-17	and	and	CCONJ	CC	_	18	cc	18:cc	Discourse=joint_m:15->13:1
+17	and	and	CCONJ	CC	_	18	cc	18:cc	Discourse=joint-list_m:15->13:1
 18	controlling	control	VERB	VBG	VerbForm=Ger	10	conj	10:conj:and|24:csubj	_
 19	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	22	nmod:poss	22:nmod:poss	Entity=(2)
 20	heart	heart	NOUN	NN	Number=Sing	22	compound	22:compound	SpaceAfter=No|XML=<w>
@@ -136,15 +140,16 @@
 # sent_id = GUM_whow_parachute-8
 # s_type = imp
 # text = Entreat assistance.
-# newpar = figure rend:::"image of free-falling skydiver signaling to other skydiver in distance, asking for help by pointing to self" (0 s) | item n:::"2" (3 s) | p (3 s)
-1	Entreat	entreat	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=preparation:16->18:3|XML=<hi rend:::"bold">
+# newpar
+# newpar_block = figure rend:::"image of free-falling skydiver signaling to other skydiver in distance, asking for help by pointing to self" (0 s) | item n:::"2" (3 s) | p (3 s)
+1	Entreat	entreat	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=organization-preparation:16->18:3|XML=<hi rend:::"bold">
 2	assistance	assistance	NOUN	NN	Number=Sing	1	obj	1:obj	SpaceAfter=No
 3	.	.	PUNCT	.	_	1	punct	1:punct	XML=</hi>
 
 # sent_id = GUM_whow_parachute-9
 # s_type = imp
 # text = If both your primary and reserve chutes have malfunctioned, signal immediately to a fellow jumper who has not yet deployed their chute, waving your arms and signalling that your own is not functional.
-1	If	if	SCONJ	IN	_	9	mark	9:mark	Discourse=condition:17->18:2
+1	If	if	SCONJ	IN	_	9	mark	9:mark	Discourse=contingency-condition:17->18:2
 2	both	both	CCONJ	CC	_	4	cc:preconj	4:cc:preconj	Entity=(3
 3	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	4	nmod:poss	4:nmod:poss	Entity=(2)
 4	primary	primary	ADJ	JJ	Degree=Pos	7	amod	7:amod	_
@@ -154,13 +159,13 @@
 8	have	have	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	9	aux	9:aux	_
 9	malfunctioned	malfunction	VERB	VBN	Tense=Past|VerbForm=Part	11	advcl	11:advcl:if	SpaceAfter=No
 10	,	,	PUNCT	,	_	9	punct	9:punct	_
-11	signal	signal	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=joint_m:18->11:1
+11	signal	signal	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=joint-other_m:18->11:1
 12	immediately	immediately	ADV	RB	Degree=Pos	11	advmod	11:advmod	_
 13	to	to	ADP	IN	_	16	case	16:case	_
 14	a	a	DET	DT	Definite=Ind|PronType=Art	16	det	16:det	Entity=(4
 15	fellow	fellow	ADJ	JJ	Degree=Pos	16	amod	16:amod	_
 16	jumper	jumper	NOUN	NN	Number=Sing	11	obl	11:obl:to|21:nsubj	_
-17	who	who	PRON	WP	PronType=Rel	21	nsubj	16:ref	Discourse=elaboration:19->18:0
+17	who	who	PRON	WP	PronType=Rel	21	nsubj	16:ref	Discourse=elaboration-attribute:19->18:0
 18	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	21	aux	21:aux	_
 19	not	not	PART	RB	Polarity=Neg	21	advmod	21:advmod	_
 20	yet	yet	ADV	RB	_	21	advmod	21:advmod	_
@@ -168,10 +173,10 @@
 22	their	their	PRON	PRP$	Number=Plur|Person=3|Poss=Yes|PronType=Prs	23	nmod:poss	23:nmod:poss	_
 23	chute	chute	NOUN	NN	Number=Sing	21	obj	21:obj	Entity=4)|SpaceAfter=No
 24	,	,	PUNCT	,	_	25	punct	25:punct	_
-25	waving	wave	VERB	VBG	VerbForm=Ger	11	advcl	11:advcl	Discourse=manner:20->18:1
+25	waving	wave	VERB	VBG	VerbForm=Ger	11	advcl	11:advcl	Discourse=mode-manner:20->18:1
 26	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	27	nmod:poss	27:nmod:poss	Entity=(2)
 27	arms	arm	NOUN	NNS	Number=Plur	25	obj	25:obj	_
-28	and	and	CCONJ	CC	_	29	cc	29:cc	Discourse=joint_m:21->20:0
+28	and	and	CCONJ	CC	_	29	cc	29:cc	Discourse=joint-list_m:21->20:0
 29	signalling	signal	VERB	VBG	VerbForm=Ger	25	conj	11:advcl|25:conj:and	_
 30	that	that	SCONJ	IN	_	35	mark	35:mark	_
 31	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	32	nmod:poss	32:nmod:poss	Entity=(3(2)
@@ -184,14 +189,14 @@
 # sent_id = GUM_whow_parachute-10
 # s_type = imp
 # text = If this is a solo jump, then skip to step 6.
-1	If	if	SCONJ	IN	_	6	mark	6:mark	Discourse=condition:22->23:0
+1	If	if	SCONJ	IN	_	6	mark	6:mark	Discourse=contingency-condition:22->23:0
 2	this	this	PRON	DT	Number=Sing|PronType=Dem	6	nsubj	6:nsubj	_
 3	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	6:cop	_
 4	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	Entity=(5
 5	solo	solo	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
 6	jump	jump	NOUN	NN	Number=Sing	9	advcl	9:advcl:if	Entity=5)|SpaceAfter=No
 7	,	,	PUNCT	,	_	6	punct	6:punct	_
-8	then	then	ADV	RB	PronType=Dem	9	advmod	9:advmod	Discourse=joint_m:23->11:1
+8	then	then	ADV	RB	PronType=Dem	9	advmod	9:advmod	Discourse=joint-other_m:23->11:1
 9	skip	skip	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	_
 10	to	to	ADP	IN	_	11	case	11:case	_
 11	step	step	NOUN	NN	Number=Sing	9	obl	9:obl:to	_
@@ -201,8 +206,9 @@
 # sent_id = GUM_whow_parachute-11
 # s_type = imp
 # text = Prepare for deployment.
-# newpar = figure rend:::"image of skydiver with busted parachute clinging to arm of more successful skydiver" (0 s) | item n:::"3" (2 s) | p (2 s)
-1	Prepare	prepare	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=joint_m:24->11:1|XML=<hi rend:::"bold">
+# newpar
+# newpar_block = figure rend:::"image of skydiver with busted parachute clinging to arm of more successful skydiver" (0 s) | item n:::"3" (2 s) | p (2 s)
+1	Prepare	prepare	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=joint-other_m:24->11:1|XML=<hi rend:::"bold">
 2	for	for	ADP	IN	_	3	case	3:case	_
 3	deployment	deployment	NOUN	NN	Number=Sing	1	obl	1:obl:for	Entity=(6)|SpaceAfter=No
 4	.	.	PUNCT	.	_	1	punct	1:punct	XML=</hi>
@@ -210,7 +216,7 @@
 # sent_id = GUM_whow_parachute-12
 # s_type = decl
 # text = After linking arms with your fellow jumper, you will need to hook your arms through their chest strap, or through both sides of the front of their harness, as far as you can, then grab onto your own strap.
-1	After	after	SCONJ	IN	_	2	mark	2:mark	Discourse=circumstance:25->26:2
+1	After	after	SCONJ	IN	_	2	mark	2:mark	Discourse=context-circumstance:25->26:2
 2	linking	link	VERB	VBG	VerbForm=Ger	11	advcl	11:advcl:after	_
 3	arms	arm	NOUN	NNS	Number=Plur	2	obj	2:obj	Entity=(7)
 4	with	with	ADP	IN	_	7	case	7:case	_
@@ -218,13 +224,13 @@
 6	fellow	fellow	ADJ	JJ	Degree=Pos	7	amod	7:amod	_
 7	jumper	jumper	NOUN	NN	Number=Sing	2	obl	2:obl:with	Entity=4)|SpaceAfter=No
 8	,	,	PUNCT	,	_	2	punct	2:punct	_
-9	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	11	nsubj	11:nsubj|13:nsubj:xsubj|39:nsubj:xsubj	Discourse=elaboration:26->24:0|Entity=(2)
+9	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	11	nsubj	11:nsubj|13:nsubj:xsubj	Discourse=elaboration-additional:26->24:0|Entity=(2)
 10	will	will	AUX	MD	VerbForm=Fin	11	aux	11:aux	_
 11	need	need	VERB	VB	VerbForm=Inf	0	root	0:root	_
 12	to	to	PART	TO	_	13	mark	13:mark	_
 13	hook	hook	VERB	VB	VerbForm=Inf	11	xcomp	11:xcomp	_
 14	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	15	nmod:poss	15:nmod:poss	Entity=(7(2)
-15	arms	arm	NOUN	NNS	Number=Plur	13	obj	13:obj|39:nsubj:xsubj	Entity=7)
+15	arms	arm	NOUN	NNS	Number=Plur	13	obj	13:obj	Entity=7)
 16	through	through	ADP	IN	_	19	case	19:case	_
 17	their	their	PRON	PRP$	Number=Plur|Person=3|Poss=Yes|PronType=Prs	19	nmod:poss	19:nmod:poss	Entity=(4)
 18	chest	chest	NOUN	NN	Number=Sing	19	compound	19:compound	_
@@ -232,8 +238,8 @@
 20	,	,	PUNCT	,	_	24	punct	24:punct	_
 21	or	or	CCONJ	CC	_	24	cc	24:cc	_
 22	through	through	ADP	IN	_	24	case	24:case	_
-23	both	both	DET	DT	_	24	det	24:det	_
-24	sides	side	NOUN	NNS	Number=Plur	16	conj	16:conj:or|19:case	_
+23	both	both	DET	DT	PronType=Art	24	det	24:det	_
+24	sides	side	NOUN	NNS	Number=Plur	19	conj	13:obl:through|19:conj:or	_
 25	of	of	ADP	IN	_	27	case	27:case	_
 26	the	the	DET	DT	Definite=Def|PronType=Art	27	det	27:det	_
 27	front	front	NOUN	NN	Number=Sing	24	nmod	24:nmod:of	_
@@ -241,14 +247,14 @@
 29	their	their	PRON	PRP$	Number=Plur|Person=3|Poss=Yes|PronType=Prs	30	nmod:poss	30:nmod:poss	Entity=(8(4)
 30	harness	harness	NOUN	NN	Number=Sing	27	nmod	27:nmod:of	Entity=8)|SpaceAfter=No
 31	,	,	PUNCT	,	_	33	punct	33:punct	_
-32	as	as	ADV	RB	_	33	advmod	33:advmod	Discourse=manner:27->26:0
+32	as	as	ADV	RB	_	33	advmod	33:advmod	Discourse=mode-manner:27->26:0
 33	far	far	ADV	RB	Degree=Pos	13	advmod	13:advmod	_
 34	as	as	SCONJ	IN	_	36	mark	36:mark	_
 35	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	36	nsubj	36:nsubj	Entity=(2)
-36	can	can	AUX	MD	VerbForm=Fin	33	ccomp	33:ccomp	SpaceAfter=No
+36	can	can	AUX	MD	VerbForm=Fin	33	advcl	33:advcl:as	SpaceAfter=No
 37	,	,	PUNCT	,	_	39	punct	39:punct	_
-38	then	then	ADV	RB	PronType=Dem	39	advmod	39:advmod	Discourse=sequence_m:28->26:1
-39	grab	grab	VERB	VB	VerbForm=Inf	13	xcomp	13:xcomp	_
+38	then	then	ADV	RB	PronType=Dem	39	advmod	39:advmod	Discourse=joint-sequence_m:28->26:1
+39	grab	grab	VERB	VB	Person=2|VerbForm=Inf	13	parataxis	13:parataxis	_
 40	onto	onto	ADP	IN	_	43	case	43:case	_
 41	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	43	nmod:poss	43:nmod:poss	Entity=(2)
 42	own	own	ADJ	JJ	Degree=Pos	43	amod	43:amod	_
@@ -258,14 +264,15 @@
 # sent_id = GUM_whow_parachute-13
 # s_type = imp
 # text = Deploy.
-# newpar = figure rend:::"image of legs and torso of one skydiver, whose parachute has unfurled, holding onto other skydiver" (0 s) | item n:::"4" (6 s) | p (6 s)
-1	Deploy	deploy	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=joint_m:29->11:1|SpaceAfter=No|XML=<hi rend:::"bold">
+# newpar
+# newpar_block = figure rend:::"image of legs and torso of one skydiver, whose parachute has unfurled, holding onto other skydiver" (0 s) | item n:::"4" (6 s) | p (6 s)
+1	Deploy	deploy	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=joint-other_m:29->11:1|SpaceAfter=No|XML=<hi rend:::"bold">
 2	.	.	PUNCT	.	_	1	punct	1:punct	XML=</hi>
 
 # sent_id = GUM_whow_parachute-14
 # s_type = decl
 # text = The shock of the chute deployment will be intense.
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=elaboration:30->29:0|Entity=(9
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=elaboration-additional:30->29:0|Entity=(9
 2	shock	shock	NOUN	NN	Number=Sing	9	nsubj	9:nsubj	_
 3	of	of	ADP	IN	_	6	case	6:case	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(6
@@ -279,7 +286,7 @@
 # sent_id = GUM_whow_parachute-15
 # s_type = decl
 # text = The G-forces will multiply your body weight, making it impossible to hold on;
-1	The	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	Discourse=cause:31->32:0
+1	The	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	Discourse=causal-cause:31->32:0
 2	G	g	NOUN	NN	Number=Sing	4	compound	4:compound	SpaceAfter=No|XML=<w>
 3	-	-	PUNCT	HYPH	_	2	punct	2:punct	SpaceAfter=No
 4	forces	force	NOUN	NNS	Number=Plur	6	nsubj	6:nsubj	XML=</w>
@@ -289,7 +296,7 @@
 8	body	body	NOUN	NN	Number=Sing	9	compound	9:compound	_
 9	weight	weight	NOUN	NN	Number=Sing	6	obj	6:obj	SpaceAfter=No
 10	,	,	PUNCT	,	_	11	punct	11:punct	_
-11	making	make	VERB	VBG	VerbForm=Ger	6	advcl	6:advcl	Discourse=motivation:32->33:0
+11	making	make	VERB	VBG	VerbForm=Ger	6	advcl	6:advcl	Discourse=explanation-motivation:32->33:0
 12	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	11	obj	11:obj	_
 13	impossible	impossible	ADJ	JJ	Degree=Pos	11	amod	11:amod	_
 14	to	to	PART	TO	_	15	mark	15:mark	_
@@ -300,7 +307,7 @@
 # sent_id = GUM_whow_parachute-16
 # s_type = decl
 # text = this is why hooking your arms through the harness is essential.
-1	this	this	PRON	DT	Number=Sing|PronType=Dem	11	nsubj	11:nsubj	Discourse=result:33->30:0|Entity=(10)
+1	this	this	PRON	DT	Number=Sing|PronType=Dem	11	nsubj	11:nsubj	Discourse=causal-result:33->30:0|Entity=(10)
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	11	cop	11:cop	_
 3	why	why	SCONJ	WRB	PronType=Int	11	mark	11:mark	_
 4	hooking	hook	VERB	VBG	VerbForm=Ger	11	csubj	11:csubj	_
@@ -316,7 +323,7 @@
 # sent_id = GUM_whow_parachute-17
 # s_type = decl
 # text = It is likely that the shock will dislocate or break both your arms;
-1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	3	expl	3:expl	Discourse=joint_m:34->33:1
+1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	3	expl	3:expl	Discourse=joint-other_m:34->33:1
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	cop	3:cop	_
 3	likely	likely	ADJ	JJ	Degree=Pos	0	root	0:root	_
 4	that	that	SCONJ	IN	_	8	mark	8:mark	_
@@ -326,7 +333,7 @@
 8	dislocate	dislocate	VERB	VB	VerbForm=Inf	3	csubj	3:csubj	_
 9	or	or	CCONJ	CC	_	10	cc	10:cc	_
 10	break	break	VERB	VB	VerbForm=Inf	8	conj	3:csubj|8:conj:or	_
-11	both	both	DET	DT	_	13	det:predet	13:det:predet	_
+11	both	both	DET	DT	PronType=Art	13	det:predet	13:det:predet	_
 12	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	13	nmod:poss	13:nmod:poss	Entity=(2)
 13	arms	arm	NOUN	NNS	Number=Plur	8	obj	8:obj|10:obj	SpaceAfter=No
 14	;	;	PUNCT	:	_	3	punct	3:punct	_
@@ -334,7 +341,7 @@
 # sent_id = GUM_whow_parachute-18
 # s_type = decl
 # text = nevertheless this is a small price to pay for your life.
-1	nevertheless	nevertheless	ADV	RB	Degree=Pos	8	advmod	8:advmod	Discourse=evaluation:35->34:0
+1	nevertheless	nevertheless	ADV	RB	Degree=Pos	8	advmod	8:advmod	Discourse=evaluation-comment:35->34:0
 2	this	this	PRON	DT	Number=Sing|PronType=Dem	8	nsubj	8:nsubj	Entity=(9)
 3	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	6:cop	_
 4	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	_
@@ -350,8 +357,9 @@
 # sent_id = GUM_whow_parachute-19
 # s_type = imp
 # text = Prepare for impact.
-# newpar = figure rend:::"same image of stone-faced free-faller from item 1 but slightly zoomed in" (0 s) | item n:::"5" (5 s) | p (5 s)
-1	Prepare	prepare	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=preparation:36->40:2|XML=<hi rend:::"bold">
+# newpar
+# newpar_block = figure rend:::"same image of stone-faced free-faller from item 1 but slightly zoomed in" (0 s) | item n:::"5" (5 s) | p (5 s)
+1	Prepare	prepare	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=organization-preparation:36->40:2|XML=<hi rend:::"bold">
 2	for	for	ADP	IN	_	3	case	3:case	_
 3	impact	impact	NOUN	NN	Number=Sing	1	obl	1:obl:for	SpaceAfter=No
 4	.	.	PUNCT	.	_	1	punct	1:punct	XML=</hi>
@@ -359,7 +367,7 @@
 # sent_id = GUM_whow_parachute-20
 # s_type = decl
 # text = If your companion's canopy has successfully opened, then both your chances of survival have dramatically increased.
-1	If	if	SCONJ	IN	_	8	mark	8:mark	Discourse=condition:37->38:0
+1	If	if	SCONJ	IN	_	8	mark	8:mark	Discourse=contingency-condition:37->38:0
 2	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	3	nmod:poss	3:nmod:poss	Entity=(4(2)
 3-4	companion's	_	_	_	_	_	_	_	_
 3	companion	companion	NOUN	NN	Number=Sing	5	nmod:poss	5:nmod:poss	_
@@ -369,8 +377,8 @@
 7	successfully	successfully	ADV	RB	Degree=Pos	8	advmod	8:advmod	_
 8	opened	open	VERB	VBN	Tense=Past|VerbForm=Part	18	advcl	18:advcl:if	SpaceAfter=No
 9	,	,	PUNCT	,	_	8	punct	8:punct	_
-10	then	then	ADV	RB	PronType=Dem	13	advmod	13:advmod	Discourse=evaluation:38->40:1
-11	both	both	DET	DT	_	13	det:predet	13:det:predet	Entity=(11
+10	then	then	ADV	RB	PronType=Dem	13	advmod	13:advmod	Discourse=evaluation-comment:38->40:1
+11	both	both	DET	DT	PronType=Art	13	det:predet	13:det:predet	Entity=(11
 12	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	13	nmod:poss	13:nmod:poss	Entity=(12)
 13	chances	chance	NOUN	NNS	Number=Plur	18	nsubj	18:nsubj	_
 14	of	of	ADP	IN	_	15	case	15:case	_
@@ -383,7 +391,7 @@
 # sent_id = GUM_whow_parachute-21
 # s_type = decl
 # text = With a large and slow canopy, your chances are even better.
-1	With	with	ADP	IN	_	6	case	6:case	Discourse=joint_m:39->38:1
+1	With	with	ADP	IN	_	6	case	6:case	Discourse=joint-other_m:39->38:1
 2	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	Entity=(13
 3	large	large	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
 4	and	and	CCONJ	CC	_	5	cc	5:cc	_
@@ -400,7 +408,7 @@
 # sent_id = GUM_whow_parachute-22
 # s_type = decl
 # text = The canopy must be steered away from power lines and similar obstructions;
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=joint_m:40->11:1|Entity=(13
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=joint-other_m:40->11:1|Entity=(13
 2	canopy	canopy	NOUN	NN	Number=Sing	5	nsubj:pass	5:nsubj:pass	Entity=13)
 3	must	must	AUX	MD	VerbForm=Fin	5	aux	5:aux	_
 4	be	be	AUX	VB	VerbForm=Inf	5	aux:pass	5:aux:pass	_
@@ -417,14 +425,14 @@
 # sent_id = GUM_whow_parachute-23
 # s_type = imp
 # text = try for a large body of water if you are confident your companion can save you from drowning.
-1	try	try	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=joint_m:41->40:0
+1	try	try	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=joint-other_m:41->40:0
 2	for	for	ADP	IN	_	5	case	5:case	_
 3	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	5:det	_
 4	large	large	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
 5	body	body	NOUN	NN	Number=Sing	1	obl	1:obl:for	_
 6	of	of	ADP	IN	_	7	case	7:case	_
 7	water	water	NOUN	NN	Number=Sing	5	nmod	5:nmod:of	_
-8	if	if	SCONJ	IN	_	11	mark	11:mark	Discourse=condition:42->41:0
+8	if	if	SCONJ	IN	_	11	mark	11:mark	Discourse=contingency-condition:42->41:0
 9	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	11	nsubj	11:nsubj	Entity=(12)
 10	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	11	cop	11:cop	_
 11	confident	confident	ADJ	JJ	Degree=Pos	1	advcl	1:advcl:if	_
@@ -440,32 +448,34 @@
 # sent_id = GUM_whow_parachute-24
 # s_type = frag
 # text = Alternative: Lack of companions
-# newpar = head (1 s)
-1	Alternative	alternative	NOUN	NN	Number=Sing	0	root	0:root	Discourse=preparation:43->44:0|SpaceAfter=No|XML=<hi rend:::"bold">
+# newpar
+# newpar_block = head (1 s)
+1	Alternative	alternative	NOUN	NN	Number=Sing	0	root	0:root	Discourse=organization-preparation:43->44:0|SpaceAfter=No|XML=<hi rend:::"bold">
 2	:	:	PUNCT	:	_	3	punct	3:punct	_
-3	Lack	lack	NOUN	NN	Number=Sing	1	appos	1:appos	Discourse=preparation:44->47:3
+3	Lack	lack	NOUN	NN	Number=Sing	1	appos	1:appos	Discourse=organization-heading:44->47:3
 4	of	of	ADP	IN	_	5	case	5:case	_
 5	companions	companion	NOUN	NNS	Number=Plur	3	nmod	3:nmod:of	XML=</hi>
 
 # sent_id = GUM_whow_parachute-25
 # s_type = decl
 # text = If this is a solo jump, which constitutes the minority of skydivers, your only recourse is to ensure that at least one of your own chutes opens.
-# newpar = figure rend:::"image of freefaller still plummeting from the sky but conversing with a hallucination of his plainclothes skydiving instructor" (0 s) | list type:::"ordered" (16 s) | item n:::"1" (2 s) | p (2 s)
-1	If	if	SCONJ	IN	_	6	mark	6:mark	Discourse=circumstance:45->47:0|XML=<hi rend:::"bold">
+# newpar
+# newpar_block = figure rend:::"image of freefaller still plummeting from the sky but conversing with a hallucination of his plainclothes skydiving instructor" (0 s) | list type:::"ordered" (16 s) | item n:::"1" (2 s) | p (2 s)
+1	If	if	SCONJ	IN	_	6	mark	6:mark	Discourse=context-circumstance:45->47:0|XML=<hi rend:::"bold">
 2	this	this	PRON	DT	Number=Sing|PronType=Dem	6	nsubj	6:nsubj	Entity=(5)
 3	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	6:cop	_
 4	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	_
 5	solo	solo	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
 6	jump	jump	NOUN	NN	Number=Sing	18	advcl	9:nsubj|18:advcl:if	SpaceAfter=No
 7	,	,	PUNCT	,	_	9	punct	9:punct	_
-8	which	which	PRON	WDT	PronType=Rel	9	nsubj	6:ref	Discourse=background:46->45:0
+8	which	which	PRON	WDT	PronType=Rel	9	nsubj	6:ref	Discourse=context-background:46->45:0
 9	constitutes	constitute	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	acl:relcl	6:acl:relcl	_
 10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	11:det	_
 11	minority	minority	NOUN	NN	Number=Sing	9	obj	9:obj	_
 12	of	of	ADP	IN	_	13	case	13:case	_
 13	skydivers	skydiver	NOUN	NNS	Number=Plur	11	nmod	11:nmod:of	SpaceAfter=No
 14	,	,	PUNCT	,	_	6	punct	6:punct	_
-15	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	17	nmod:poss	17:nmod:poss	Discourse=contrast_m:47->11:2|Entity=(12)
+15	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	17	nmod:poss	17:nmod:poss	Discourse=joint-disjunction_m:47->11:2|Entity=(12)
 16	only	only	ADJ	JJ	Degree=Pos	17	amod	17:amod	_
 17	recourse	recourse	NOUN	NN	Number=Sing	18	nsubj	18:nsubj|20:nsubj:xsubj	_
 18	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
@@ -485,17 +495,17 @@
 # sent_id = GUM_whow_parachute-26
 # s_type = decl
 # text = In this case, the excellent advice offered by your instructors on assisting chute opening may be of assistance to you.
-1	In	in	ADP	IN	_	3	case	3:case	Discourse=elaboration:48->47:1
+1	In	in	ADP	IN	_	3	case	3:case	Discourse=elaboration-additional:48->47:1
 2	this	this	DET	DT	Number=Sing|PronType=Dem	3	det	3:det	Entity=(5
 3	case	case	NOUN	NN	Number=Sing	19	nmod	19:nmod:in	Entity=5)|SpaceAfter=No
 4	,	,	PUNCT	,	_	3	punct	3:punct	_
 5	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	_
 6	excellent	excellent	ADJ	JJ	Degree=Pos	7	amod	7:amod	_
 7	advice	advice	NOUN	NN	Number=Sing	19	nsubj	19:nsubj	_
-8	offered	offer	VERB	VBN	Tense=Past|VerbForm=Part	7	acl:relcl	7:acl:relcl	Discourse=elaboration:49->48:0
+8	offered	offer	VERB	VBN	Tense=Past|VerbForm=Part	7	acl:relcl	7:acl:relcl	Discourse=elaboration-attribute:49->48:0
 9	by	by	ADP	IN	_	11	case	11:case	_
 10	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	11	nmod:poss	11:nmod:poss	Entity=(12)
-11	instructors	instructor	NOUN	NNS	Number=Plur	8	obl	8:obl:by	_
+11	instructors	instructor	NOUN	NNS	Number=Plur	8	obl:agent	8:obl:agent	_
 12	on	on	SCONJ	IN	_	13	mark	13:mark	Discourse=same-unit_m:50->48:1
 13	assisting	assist	VERB	VBG	VerbForm=Ger	8	advcl	8:advcl:on	_
 14	chute	chute	NOUN	NN	Number=Sing	15	compound	15:compound	_
@@ -511,8 +521,9 @@
 # sent_id = GUM_whow_parachute-27
 # s_type = decl
 # text = If it becomes apparent that you cannot open either of your two parachutes, or that for some other reason they are fatally non-functional, then the following steps may be of some minor assistance.
-# newpar = figure rend:::"same image as previous, but zoomed in and mirrored" (0 s) | item n:::"2" (1 s) | p (1 s)
-1	If	if	SCONJ	IN	_	3	mark	3:mark	Discourse=condition:51->53:0|XML=<hi rend:::"bold">
+# newpar
+# newpar_block = figure rend:::"same image as previous, but zoomed in and mirrored" (0 s) | item n:::"2" (1 s) | p (1 s)
+1	If	if	SCONJ	IN	_	3	mark	3:mark	Discourse=contingency-condition:51->53:0|XML=<hi rend:::"bold">
 2	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	3	expl	3:expl	_
 3	becomes	become	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	36	advcl	36:advcl:if	_
 4	apparent	apparent	ADJ	JJ	Degree=Pos	3	xcomp	3:xcomp	_
@@ -522,16 +533,16 @@
 7	can	can	AUX	MD	VerbForm=Fin	9	aux	9:aux	XML=<w>
 8	not	not	PART	RB	Polarity=Neg	9	advmod	9:advmod	XML=</w>
 9	open	open	VERB	VB	VerbForm=Inf	3	csubj	3:csubj|4:csubj:xsubj	_
-10	either	either	DET	DT	_	9	obj	9:obj	Entity=(14
+10	either	either	DET	DT	PronType=Art	9	obj	9:obj	Entity=(14
 11	of	of	ADP	IN	_	14	case	14:case	_
 12	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	14	nmod:poss	14:nmod:poss	Entity=(15(12)
 13	two	two	NUM	CD	NumForm=Word|NumType=Card	14	nummod	14:nummod	_
 14	parachutes	parachute	NOUN	NNS	Number=Plur	10	nmod	10:nmod:of	Entity=15)14)|SpaceAfter=No
 15	,	,	PUNCT	,	_	25	punct	25:punct	_
-16	or	or	CCONJ	CC	_	25	cc	25:cc	Discourse=contrast_m:52->51:0
+16	or	or	CCONJ	CC	_	25	cc	25:cc	Discourse=joint-disjunction_m:52->51:0
 17	that	that	SCONJ	IN	_	25	mark	25:mark	_
 18	for	for	ADP	IN	_	21	case	21:case	_
-19	some	some	DET	DT	_	21	det	21:det	_
+19	some	some	DET	DT	PronType=Ind	21	det	21:det	_
 20	other	other	ADJ	JJ	Degree=Pos	21	amod	21:amod	_
 21	reason	reason	NOUN	NN	Number=Sing	22	nmod	22:nmod:for	_
 22	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	25	nsubj	25:nsubj	Entity=(15)
@@ -539,14 +550,14 @@
 24	fatally	fatally	ADV	RB	Degree=Pos	25	advmod	25:advmod	_
 25	non-functional	non-functional	ADJ	JJ	Degree=Pos|Polarity=Neg	14	conj	10:nmod:of|14:conj:or	SpaceAfter=No
 26	,	,	PUNCT	,	_	3	punct	3:punct	_
-27	then	then	ADV	RB	PronType=Dem	36	advmod	36:advmod	Discourse=preparation:53->54:2
+27	then	then	ADV	RB	PronType=Dem	36	advmod	36:advmod	Discourse=organization-preparation:53->54:2
 28	the	the	DET	DT	Definite=Def|PronType=Art	30	det	30:det	_
 29	following	follow	VERB	VBG	VerbForm=Ger	30	amod	30:amod	_
 30	steps	step	NOUN	NNS	Number=Plur	36	nsubj	36:nsubj	_
 31	may	may	AUX	MD	VerbForm=Fin	36	aux	36:aux	_
 32	be	be	AUX	VB	VerbForm=Inf	36	cop	36:cop	_
 33	of	of	ADP	IN	_	36	case	36:case	_
-34	some	some	DET	DT	_	36	det	36:det	_
+34	some	some	DET	DT	PronType=Ind	36	det	36:det	_
 35	minor	minor	ADJ	JJ	Degree=Pos	36	amod	36:amod	_
 36	assistance	assistance	NOUN	NN	Number=Sing	0	root	0:root	SpaceAfter=No
 37	.	.	PUNCT	.	_	36	punct	36:punct	XML=</hi>
@@ -554,14 +565,15 @@
 # sent_id = GUM_whow_parachute-28
 # s_type = imp
 # text = Appeal.
-# newpar = figure rend:::"image of freefalling skydiver, mouth slightly open with hands touched in prayer" (0 s) | item n:::"3" (5 s) | p (5 s)
-1	Appeal	appeal	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=joint_m:54->47:2|SpaceAfter=No|XML=<hi rend:::"bold">
+# newpar
+# newpar_block = figure rend:::"image of freefalling skydiver, mouth slightly open with hands touched in prayer" (0 s) | item n:::"3" (5 s) | p (5 s)
+1	Appeal	appeal	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=joint-other_m:54->47:2|SpaceAfter=No|XML=<hi rend:::"bold">
 2	.	.	PUNCT	.	_	1	punct	1:punct	XML=</hi>
 
 # sent_id = GUM_whow_parachute-29
 # s_type = decl
 # text = If you are of a religious turn of mind, you may wish at this point to offer a prayer to a god, goddess, protective spirit or guardian angel.
-1	If	if	SCONJ	IN	_	7	mark	7:mark	Discourse=condition:55->56:0
+1	If	if	SCONJ	IN	_	7	mark	7:mark	Discourse=contingency-condition:55->56:0
 2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	7	nsubj	7:nsubj	Entity=(12)
 3	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	7	cop	7:cop	_
 4	of	of	ADP	IN	_	7	case	7:case	_
@@ -571,7 +583,7 @@
 8	of	of	ADP	IN	_	9	case	9:case	_
 9	mind	mind	NOUN	NN	Number=Sing	7	nmod	7:nmod:of	SpaceAfter=No
 10	,	,	PUNCT	,	_	7	punct	7:punct	_
-11	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	13	nsubj	13:nsubj|18:nsubj:xsubj	Discourse=elaboration:56->54:0|Entity=(12)
+11	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	13	nsubj	13:nsubj|18:nsubj:xsubj	Discourse=elaboration-additional:56->54:0|Entity=(12)
 12	may	may	AUX	MD	VerbForm=Fin	13	aux	13:aux	_
 13	wish	wish	VERB	VB	VerbForm=Inf	0	root	0:root	_
 14	at	at	ADP	IN	_	16	case	16:case	_
@@ -597,7 +609,7 @@
 # sent_id = GUM_whow_parachute-30
 # s_type = decl
 # text = St Jude, the patron saint of Lost Causes, comes to mind.
-1	St	St	PROPN	NNP	Number=Sing	11	nsubj	11:nsubj	Discourse=elaboration:57->56:1
+1	St	St	PROPN	NNP	Number=Sing	11	nsubj	11:nsubj	Discourse=elaboration-additional:57->56:1
 2	Jude	Jude	PROPN	NNP	Number=Sing	1	flat	1:flat	SpaceAfter=No
 3	,	,	PUNCT	,	_	6	punct	6:punct	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	_
@@ -615,7 +627,7 @@
 # sent_id = GUM_whow_parachute-31
 # s_type = decl
 # text = Objectively, this is not likely to help very much; but it may improve your emotional state.
-1	Objectively	objectively	ADV	RB	Degree=Pos	6	advmod	6:advmod	Discourse=concession:58->56:2|SpaceAfter=No
+1	Objectively	objectively	ADV	RB	Degree=Pos	6	advmod	6:advmod	Discourse=adversative-concession:58->56:2|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	1:punct	_
 3	this	this	PRON	DT	Number=Sing|PronType=Dem	6	nsubj	6:nsubj|8:nsubj:xsubj	Entity=(16)
 4	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	6:cop	_
@@ -626,7 +638,7 @@
 9	very	very	ADV	RB	_	10	advmod	10:advmod	_
 10	much	much	ADV	RB	Degree=Pos	8	advmod	8:advmod	SpaceAfter=No
 11	;	;	PUNCT	:	Typo=Yes	15	punct	15:punct	XML=<sic></sic>
-12	but	but	CCONJ	CC	_	15	cc	15:cc	Discourse=contrast_m:59->58:0
+12	but	but	CCONJ	CC	_	15	cc	15:cc	Discourse=adversative-contrast_m:59->58:0
 13	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	15	nsubj	15:nsubj	Entity=(16)
 14	may	may	AUX	MD	VerbForm=Fin	15	aux	15:aux	_
 15	improve	improve	VERB	VB	VerbForm=Inf	6	conj	6:conj:but	_
@@ -638,19 +650,19 @@
 # sent_id = GUM_whow_parachute-32
 # s_type = imp
 # text = If you do not have any religious beliefs, or are for another reason unwilling to appeal to your patron deity, skip this step.
-1	If	if	SCONJ	IN	_	5	mark	5:mark	Discourse=condition:60->62:0
+1	If	if	SCONJ	IN	_	5	mark	5:mark	Discourse=contingency-condition:60->62:0
 2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	5	nsubj	5:nsubj|11:nsubj	Entity=(12)
 3	do	do	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	5	aux	5:aux	_
 4	not	not	PART	RB	Polarity=Neg	5	advmod	5:advmod	_
 5	have	have	VERB	VB	VerbForm=Inf	23	advcl	23:advcl:if	_
-6	any	any	DET	DT	_	8	det	8:det	_
+6	any	any	DET	DT	PronType=Ind	8	det	8:det	_
 7	religious	religious	ADJ	JJ	Degree=Pos	8	amod	8:amod	_
 8	beliefs	belief	NOUN	NNS	Number=Plur	5	obj	5:obj	SpaceAfter=No
 9	,	,	PUNCT	,	_	11	punct	11:punct	_
-10	or	or	CCONJ	CC	_	11	cc	11:cc	Discourse=contrast_m:61->60:0
+10	or	or	CCONJ	CC	_	11	cc	11:cc	Discourse=joint-disjunction_m:61->60:0
 11	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	5	conj	5:conj:or|23:advcl:if	_
 12	for	for	ADP	IN	_	14	case	14:case	_
-13	another	another	DET	DT	_	14	det	14:det	_
+13	another	another	DET	DT	PronType=Art	14	det	14:det	_
 14	reason	reason	NOUN	NN	Number=Sing	11	obl	11:obl:for	_
 15	unwilling	unwilling	ADJ	JJ	Degree=Pos|Polarity=Neg	11	amod	11:amod	_
 16	to	to	PART	TO	_	17	mark	17:mark	_
@@ -660,7 +672,7 @@
 20	patron	patron	NOUN	NN	Number=Sing	21	compound	21:compound	_
 21	deity	deity	NOUN	NN	Number=Sing	17	obl	17:obl:to	SpaceAfter=No
 22	,	,	PUNCT	,	_	5	punct	5:punct	_
-23	skip	skip	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=contrast_m:62->56:3
+23	skip	skip	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=adversative-contrast_m:62->56:3
 24	this	this	DET	DT	Number=Sing|PronType=Dem	25	det	25:det	Entity=(16
 25	step	step	NOUN	NN	Number=Sing	23	obj	23:obj	Entity=16)|SpaceAfter=No
 26	.	.	PUNCT	.	_	23	punct	23:punct	_
@@ -668,14 +680,15 @@
 # sent_id = GUM_whow_parachute-33
 # s_type = imp
 # text = Contemplate.
-# newpar = figure rend:::"close-up image of a different skydiver&apos;s strong-eyebrowed face" (0 s) | item n:::"4" (4 s) | p (4 s)
-1	Contemplate	contemplate	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=joint_m:63->54:1|SpaceAfter=No|XML=<hi rend:::"bold">
+# newpar
+# newpar_block = figure rend:::"close-up image of a different skydiver&apos;s strong-eyebrowed face" (0 s) | item n:::"4" (4 s) | p (4 s)
+1	Contemplate	contemplate	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=joint-list_m:63->54:1|SpaceAfter=No|XML=<hi rend:::"bold">
 2	.	.	PUNCT	.	_	1	punct	1:punct	XML=</hi>
 
 # sent_id = GUM_whow_parachute-34
 # s_type = decl
 # text = As you approach the Earth at, or close to, terminal velocity, you may wish to contemplate your past existence, and the possibility of a future afterlife.
-1	As	as	SCONJ	IN	_	3	mark	3:mark	Discourse=circumstance:64->65:1
+1	As	as	SCONJ	IN	_	3	mark	3:mark	Discourse=context-circumstance:64->65:1
 2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Entity=(12)
 3	approach	approach	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	17	advcl	17:advcl:as	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	_
@@ -689,7 +702,7 @@
 12	terminal	terminal	ADJ	JJ	Degree=Pos	13	amod	13:amod	_
 13	velocity	velocity	NOUN	NN	Number=Sing	3	obl	3:obl:at|9:obl:to	SpaceAfter=No
 14	,	,	PUNCT	,	_	3	punct	3:punct	_
-15	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	17	nsubj	17:nsubj|19:nsubj:xsubj	Discourse=elaboration:65->63:0|Entity=(12)
+15	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	17	nsubj	17:nsubj|19:nsubj:xsubj	Discourse=elaboration-additional:65->63:0|Entity=(12)
 16	may	may	AUX	MD	VerbForm=Fin	17	aux	17:aux	_
 17	wish	wish	VERB	VB	VerbForm=Inf	0	root	0:root	_
 18	to	to	PART	TO	_	19	mark	19:mark	_
@@ -710,7 +723,7 @@
 # sent_id = GUM_whow_parachute-35
 # s_type = decl
 # text = A strategy that might prove helpful is to consider how fortunate you are that life has been good to you so far.
-1	A	a	DET	DT	Definite=Ind|PronType=Art	2	det	2:det	Discourse=elaboration:66->65:0
+1	A	a	DET	DT	Definite=Ind|PronType=Art	2	det	2:det	Discourse=elaboration-additional:66->65:0
 2	strategy	strategy	NOUN	NN	Number=Sing	7	nsubj	5:nsubj|7:nsubj|9:nsubj:xsubj	_
 3	that	that	PRON	WDT	PronType=Rel	5	nsubj	2:ref	_
 4	might	might	AUX	MD	VerbForm=Fin	5	aux	5:aux	_
@@ -723,7 +736,7 @@
 11	fortunate	fortunate	ADJ	JJ	Degree=Pos	9	obj	9:obj	_
 12	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	13	nsubj	13:nsubj	Entity=(12)
 13	are	be	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	11	acl:relcl	11:acl:relcl	_
-14	that	that	SCONJ	IN	_	18	mark	18:mark	Discourse=elaboration:67->66:0
+14	that	that	SCONJ	IN	_	18	mark	18:mark	Discourse=elaboration-additional:67->66:0
 15	life	life	NOUN	NN	Number=Sing	18	nsubj	18:nsubj	_
 16	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	18	aux	18:aux	_
 17	been	be	AUX	VBN	Tense=Past|VerbForm=Part	18	cop	18:cop	_
@@ -737,9 +750,9 @@
 # sent_id = GUM_whow_parachute-36
 # s_type = imp
 # text = Alternatively, if life has not been good to you so far, (and considering your current situation this seems more likely) consider how lucky you are that it will not be troubling you much longer.
-1	Alternatively	alternatively	ADV	RB	Degree=Pos	25	advmod	25:advmod	Discourse=contrast_m:68->66:1|SpaceAfter=No
+1	Alternatively	alternatively	ADV	RB	Degree=Pos	25	advmod	25:advmod	Discourse=joint-disjunction_m:68->66:1|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	1:punct	_
-3	if	if	SCONJ	IN	_	8	mark	8:mark	Discourse=condition:69->73:1
+3	if	if	SCONJ	IN	_	8	mark	8:mark	Discourse=contingency-condition:69->73:1
 4	life	life	NOUN	NN	Number=Sing	8	nsubj	8:nsubj	Entity=(17)
 5	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	8	aux	8:aux	_
 6	not	not	PART	RB	Polarity=Neg	8	advmod	8:advmod	_
@@ -750,13 +763,13 @@
 11	so	so	ADV	RB	_	12	advmod	12:advmod	_
 12	far	far	ADV	RB	Degree=Pos	8	advmod	8:advmod	SpaceAfter=No
 13	,	,	PUNCT	,	_	21	punct	21:punct	_
-14	(	(	PUNCT	-LRB-	_	21	punct	21:punct	Discourse=evaluation:70->69:0|SpaceAfter=No
+14	(	(	PUNCT	-LRB-	_	21	punct	21:punct	Discourse=evaluation-comment:70->69:0|SpaceAfter=No
 15	and	and	CCONJ	CC	_	21	cc	21:cc	_
-16	considering	consider	VERB	VBG	VerbForm=Ger	21	advcl	21:advcl	Discourse=evidence:71->72:0
+16	considering	consider	VERB	VBG	VerbForm=Ger	21	advcl	21:advcl	Discourse=explanation-evidence:71->72:0
 17	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	19	nmod:poss	19:nmod:poss	Entity=(12)
 18	current	current	ADJ	JJ	Degree=Pos	19	amod	19:amod	_
 19	situation	situation	NOUN	NN	Number=Sing	16	obj	16:obj	_
-20	this	this	PRON	DT	Number=Sing|PronType=Dem	21	nsubj	21:nsubj|23:nsubj:xsubj	Discourse=joint_m:72->70:0|Entity=(18)
+20	this	this	PRON	DT	Number=Sing|PronType=Dem	21	nsubj	21:nsubj|23:nsubj:xsubj	Discourse=joint-list_m:72->70:0|Entity=(18)
 21	seems	seem	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	8	conj	8:conj:and|25:advcl:if	_
 22	more	more	ADV	RBR	Degree=Cmp	23	advmod	23:advmod	_
 23	likely	likely	ADJ	JJ	Degree=Pos	21	xcomp	21:xcomp	SpaceAfter=No
@@ -766,7 +779,7 @@
 27	lucky	lucky	ADJ	JJ	Degree=Pos	25	obj	25:obj	_
 28	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	29	nsubj	29:nsubj	Entity=(12)
 29	are	be	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	27	acl:relcl	27:acl:relcl	_
-30	that	that	SCONJ	IN	_	35	mark	35:mark	Discourse=justify:74->73:0
+30	that	that	SCONJ	IN	_	35	mark	35:mark	Discourse=explanation-justify:74->73:0
 31	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	35	nsubj	35:nsubj	Entity=(17)
 32	will	will	AUX	MD	VerbForm=Fin	35	aux	35:aux	_
 33	not	not	PART	RB	Polarity=Neg	35	advmod	35:advmod	_
@@ -780,15 +793,16 @@
 # sent_id = GUM_whow_parachute-37
 # s_type = imp
 # text = Expect impact.
-# newpar = figure rend:::"image of expressionless skydiver approaching Earth with arms crossed" (0 s) | item n:::"5" (4 s) | p (4 s)
-1	Expect	expect	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=joint_m:75->54:1|XML=<hi rend:::"bold">
+# newpar
+# newpar_block = figure rend:::"image of expressionless skydiver approaching Earth with arms crossed" (0 s) | item n:::"5" (4 s) | p (4 s)
+1	Expect	expect	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=joint-list_m:75->54:1|XML=<hi rend:::"bold">
 2	impact	impact	NOUN	NN	Number=Sing	1	obj	1:obj	SpaceAfter=No
 3	.	.	PUNCT	.	_	1	punct	1:punct	XML=</hi>
 
 # sent_id = GUM_whow_parachute-38
 # s_type = decl
 # text = You are unlikely to have the time or ability to aim for a soft landing-spot, body of water, or other impact site that might improve your chances of survival.
-1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj|5:nsubj:xsubj	Discourse=elaboration:76->75:0|Entity=(12)
+1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj|5:nsubj:xsubj	Discourse=elaboration-additional:76->75:0|Entity=(12)
 2	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	3	cop	3:cop	_
 3	unlikely	unlikely	ADJ	JJ	Degree=Pos|Polarity=Neg	0	root	0:root	_
 4	to	to	PART	TO	_	5	mark	5:mark	_
@@ -797,7 +811,7 @@
 7	time	time	NOUN	NN	Number=Sing	5	obj	5:obj	_
 8	or	or	CCONJ	CC	_	9	cc	9:cc	_
 9	ability	ability	NOUN	NN	Number=Sing	7	conj	5:obj|7:conj:or	_
-10	to	to	PART	TO	_	11	mark	11:mark	Discourse=purpose:77->76:0
+10	to	to	PART	TO	_	11	mark	11:mark	Discourse=purpose-attribute:77->76:0
 11	aim	aim	VERB	VB	VerbForm=Inf	7	acl	7:acl:to	_
 12	for	for	ADP	IN	_	17	case	17:case	_
 13	a	a	DET	DT	Definite=Ind|PronType=Art	17	det	17:det	_
@@ -814,7 +828,7 @@
 24	other	other	ADJ	JJ	Degree=Pos	26	amod	26:amod	_
 25	impact	impact	NOUN	NN	Number=Sing	26	compound	26:compound	_
 26	site	site	NOUN	NN	Number=Sing	17	conj	11:obl:for|17:conj:or	_
-27	that	that	PRON	WDT	PronType=Rel	29	nsubj	17:ref	Discourse=elaboration:78->77:0
+27	that	that	PRON	WDT	PronType=Rel	29	nsubj	17:ref	Discourse=elaboration-attribute:78->77:0
 28	might	might	AUX	MD	VerbForm=Fin	29	aux	29:aux	_
 29	improve	improve	VERB	VB	VerbForm=Inf	17	acl:relcl	17:acl:relcl	_
 30	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	31	nmod:poss	31:nmod:poss	Entity=(12)
@@ -826,12 +840,12 @@
 # sent_id = GUM_whow_parachute-39
 # s_type = decl
 # text = There is a minuscule chance that your impact will result in non-life-threatening injuries;
-1	There	there	PRON	EX	_	2	expl	2:expl	Discourse=concession:79->76:1
+1	There	there	PRON	EX	PronType=Dem	2	expl	2:expl	Discourse=adversative-concession:79->76:1
 2	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 3	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	5:det	_
 4	minuscule	minuscule	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
 5	chance	chance	NOUN	NN	Number=Sing	2	nsubj	2:nsubj	_
-6	that	that	SCONJ	IN	_	10	mark	10:mark	Discourse=elaboration:80->79:0
+6	that	that	SCONJ	IN	_	10	mark	10:mark	Discourse=elaboration-attribute:80->79:0
 7	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	8	nmod:poss	8:nmod:poss	Entity=(12)
 8	impact	impact	NOUN	NN	Number=Sing	10	nsubj	10:nsubj	_
 9	will	will	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	10	aux	10:aux	_
@@ -844,7 +858,7 @@
 # sent_id = GUM_whow_parachute-40
 # s_type = imp
 # text = if this seems incredibly far-fetched, comfort yourself that double chute failure in modern times is also extremely unlikely, and that you have already beaten worse odds.
-1	if	if	SCONJ	IN	_	3	mark	3:mark	Discourse=condition:81->82:0
+1	if	if	SCONJ	IN	_	3	mark	3:mark	Discourse=contingency-condition:81->82:0
 2	this	this	PRON	DT	Number=Sing|PronType=Dem	3	nsubj	3:nsubj|7:nsubj:xsubj	Entity=(19)
 3	seems	seem	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	9	acl	9:acl:if	_
 4	incredibly	incredibly	ADV	RB	Degree=Pos	7	advmod	7:advmod	_
@@ -852,7 +866,7 @@
 6	-	-	PUNCT	HYPH	_	5	punct	5:punct	SpaceAfter=No
 7	fetched	fetched	ADJ	JJ	Degree=Pos	3	xcomp	3:xcomp	SpaceAfter=No|XML=</w>
 8	,	,	PUNCT	,	_	3	punct	3:punct	_
-9	comfort	comfort	NOUN	NN	Number=Sing	0	root	0:root	Discourse=evaluation:82->79:1
+9	comfort	comfort	NOUN	NN	Number=Sing	0	root	0:root	Discourse=evaluation-comment:82->79:1
 10	yourself	yourself	PRON	PRP	Case=Acc|Number=Sing|Person=2|PronType=Prs|Reflex=Yes	9	obj	9:obj	Entity=(12)
 11	that	that	SCONJ	IN	_	21	mark	21:mark	_
 12	double	double	ADJ	JJ	Degree=Pos	14	amod	14:amod	_
@@ -879,14 +893,16 @@
 # sent_id = GUM_whow_parachute-41
 # s_type = frag
 # text = Tips
-# newpar = head (1 s)
-1	Tips	tip	NOUN	NNS	Number=Plur	0	root	0:root	Discourse=preparation:83->86:2|XML=<hi rend:::"bold"></hi>
+# newpar
+# newpar_block = head (1 s)
+1	Tips	tip	NOUN	NNS	Number=Plur	0	root	0:root	Discourse=organization-heading:83->86:2|XML=<hi rend:::"bold"></hi>
 
 # sent_id = GUM_whow_parachute-42
 # s_type = decl
 # text = Your reserve chute should have been packed by a certified rigger and is moderately less likely to fail;
-# newpar = list type:::"unordered" (5 s) | item (2 s) | p (2 s)
-1	Your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	3	nmod:poss	3:nmod:poss	Discourse=cause:84->85:0|Entity=(20(12)
+# newpar
+# newpar_block = list type:::"unordered" (5 s) | item (2 s) | p (2 s)
+1	Your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	3	nmod:poss	3:nmod:poss	Discourse=causal-cause:84->85:0|Entity=(20(12)
 2	reserve	reserve	NOUN	NN	Number=Sing	3	compound	3:compound	_
 3	chute	chute	NOUN	NN	Number=Sing	7	nsubj:pass	7:nsubj:pass|18:nsubj:xsubj	Entity=20)
 4	should	should	AUX	MD	VerbForm=Fin	7	aux	7:aux	_
@@ -896,8 +912,8 @@
 8	by	by	ADP	IN	_	11	case	11:case	_
 9	a	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	_
 10	certified	certified	ADJ	JJ	Degree=Pos	11	amod	11:amod	_
-11	rigger	rigger	NOUN	NN	Number=Sing	7	obl	7:obl:by	_
-12	and	and	CCONJ	CC	_	16	cc	16:cc	Discourse=motivation:85->86:0
+11	rigger	rigger	NOUN	NN	Number=Sing	7	obl:agent	7:obl:agent	_
+12	and	and	CCONJ	CC	_	16	cc	16:cc	Discourse=explanation-motivation:85->86:0
 13	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	16	cop	16:cop	_
 14	moderately	moderately	ADV	RB	Degree=Pos	15	advmod	15:advmod	_
 15	less	less	ADV	RBR	Degree=Cmp	16	advmod	16:advmod	_
@@ -909,7 +925,7 @@
 # sent_id = GUM_whow_parachute-43
 # s_type = decl
 # text = therefore, it may be helpful to focus your efforts on opening your reserve parachute.
-1	therefore	therefore	ADV	RB	Degree=Pos	6	advmod	6:advmod	Discourse=joint_m:86->11:3|SpaceAfter=No
+1	therefore	therefore	ADV	RB	Degree=Pos	6	advmod	6:advmod	Discourse=joint-other_m:86->11:4|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	1:punct	_
 3	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	6	expl	6:expl	_
 4	may	may	AUX	MD	VerbForm=Fin	6	aux	6:aux	_
@@ -929,10 +945,11 @@
 # sent_id = GUM_whow_parachute-44
 # s_type = decl
 # text = Some humans who have, for various reasons, become aware of their impending death, develop psychological coping strategies to deal with this;
-# newpar = item (3 s) | p (3 s)
-1	Some	some	DET	DT	_	2	det	2:det	Discourse=joint_m:87->86:1
+# newpar
+# newpar_block = item (3 s) | p (3 s)
+1	Some	some	DET	DT	PronType=Ind	2	det	2:det	Discourse=joint-list_m:87->86:1
 2	humans	human	NOUN	NNS	Number=Plur	17	nsubj	10:nsubj|17:nsubj	_
-3	who	who	PRON	WP	PronType=Rel	10	nsubj	2:ref	Discourse=elaboration:88->87:0
+3	who	who	PRON	WP	PronType=Rel	10	nsubj	2:ref	Discourse=elaboration-attribute:88->87:0
 4	have	have	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	10	aux	10:aux	SpaceAfter=No
 5	,	,	PUNCT	,	_	4	punct	4:punct	_
 6	for	for	ADP	IN	_	8	case	8:case	_
@@ -959,7 +976,7 @@
 # sent_id = GUM_whow_parachute-45
 # s_type = frag
 # text = for instance, the Kubler-Ross phases of grief.
-1	for	for	ADP	IN	_	2	case	2:case	Discourse=elaboration:90->87:2
+1	for	for	ADP	IN	_	2	case	2:case	Discourse=elaboration-additional:90->87:2
 2	instance	instance	NOUN	NN	Number=Sing	8	nmod	8:nmod:for	SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	2:punct	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(22
@@ -974,7 +991,7 @@
 # sent_id = GUM_whow_parachute-46
 # s_type = decl
 # text = Since your own death approaches far more quickly, this is unlikely to be of any use to you.
-1	Since	since	SCONJ	IN	_	5	mark	5:mark	Discourse=cause:91->92:0
+1	Since	since	SCONJ	IN	_	5	mark	5:mark	Discourse=causal-cause:91->92:0
 2	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	4	nmod:poss	4:nmod:poss	Entity=(12)
 3	own	own	ADJ	JJ	Degree=Pos	4	amod	4:amod	_
 4	death	death	NOUN	NN	Number=Sing	5	nsubj	5:nsubj	_
@@ -983,13 +1000,13 @@
 7	more	more	ADV	RBR	Degree=Cmp	8	advmod	8:advmod	_
 8	quickly	quickly	ADV	RB	Degree=Pos	5	advmod	5:advmod	SpaceAfter=No
 9	,	,	PUNCT	,	_	5	punct	5:punct	_
-10	this	this	PRON	DT	Number=Sing|PronType=Dem	12	nsubj	12:nsubj|17:nsubj:xsubj	Discourse=concession:92->87:3|Entity=(22)
+10	this	this	PRON	DT	Number=Sing|PronType=Dem	12	nsubj	12:nsubj|17:nsubj:xsubj	Discourse=adversative-concession:92->87:3|Entity=(22)
 11	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	12	cop	12:cop	_
 12	unlikely	unlikely	ADJ	JJ	Degree=Pos|Polarity=Neg	0	root	0:root	_
 13	to	to	PART	TO	_	17	mark	17:mark	_
 14	be	be	AUX	VB	VerbForm=Inf	17	cop	17:cop	_
 15	of	of	ADP	IN	_	17	case	17:case	_
-16	any	any	DET	DT	_	17	det	17:det	_
+16	any	any	DET	DT	PronType=Ind	17	det	17:det	_
 17	use	use	NOUN	NN	Number=Sing	12	xcomp	12:xcomp	_
 18	to	to	ADP	IN	_	19	case	19:case	_
 19	you	you	PRON	PRP	Case=Acc|Number=Sing|Person=2|PronType=Prs	17	nmod	17:nmod:to	Entity=(12)|SpaceAfter=No
@@ -998,17 +1015,19 @@
 # sent_id = GUM_whow_parachute-47
 # s_type = frag
 # text = Warnings
-# newpar = head (1 s)
-1	Warnings	warning	NOUN	NNS	Number=Plur	0	root	0:root	Discourse=preparation:93->97:4|XML=<hi rend:::"bold"></hi>
+# newpar
+# newpar_block = head (1 s)
+1	Warnings	warning	NOUN	NNS	Number=Plur	0	root	0:root	Discourse=organization-heading:93->97:4|XML=<hi rend:::"bold"></hi>
 
 # sent_id = GUM_whow_parachute-48
 # s_type = multiple
 # text = Water landings: if you have successfully attached to a companion whose chute opens, keep in mind that both your arms may be broken or dislocated, and you may be unable to swim or tread water before your chute fills and drags you under.
-# newpar = list type:::"unordered" (3 s) | item (1 s) | p (1 s)
-1	Water	water	NOUN	NN	Number=Sing	2	compound	2:compound	Discourse=preparation:94->97:2
+# newpar
+# newpar_block = list type:::"unordered" (3 s) | item (1 s) | p (1 s)
+1	Water	water	NOUN	NN	Number=Sing	2	compound	2:compound	Discourse=organization-preparation:94->97:2
 2	landings	landing	NOUN	NNS	Number=Plur	0	root	0:root	SpaceAfter=No
-3	:	:	PUNCT	:	_	16	punct	16:punct	_
-4	if	if	SCONJ	IN	_	8	mark	8:mark	Discourse=condition:95->96:0
+3	:	:	PUNCT	:	_	8	punct	8:punct	_
+4	if	if	SCONJ	IN	_	8	mark	8:mark	Discourse=contingency-condition:95->96:0
 5	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	8	nsubj	8:nsubj	Entity=(12)
 6	have	have	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	8	aux	8:aux	_
 7	successfully	successfully	ADV	RB	Degree=Pos	8	advmod	8:advmod	_
@@ -1020,11 +1039,11 @@
 13	chute	chute	NOUN	NN	Number=Sing	14	nsubj	14:nsubj	Entity=23)
 14	opens	open	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	11	acl:relcl	11:acl:relcl	SpaceAfter=No
 15	,	,	PUNCT	,	_	8	punct	8:punct	_
-16	keep	keep	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	2	parataxis	2:parataxis	Discourse=cause:96->97:1
+16	keep	keep	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	2	parataxis	2:parataxis	Discourse=causal-cause:96->97:1
 17	in	in	ADP	IN	_	18	case	18:case	_
 18	mind	mind	NOUN	NN	Number=Sing	16	obl	16:obl:in	_
 19	that	that	SCONJ	IN	_	25	mark	25:mark	_
-20	both	both	DET	DT	_	22	det:predet	22:det:predet	_
+20	both	both	DET	DT	PronType=Art	22	det:predet	22:det:predet	_
 21	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	22	nmod:poss	22:nmod:poss	Entity=(12)
 22	arms	arm	NOUN	NNS	Number=Plur	25	nsubj:pass	25:nsubj:pass|27:nsubj:pass	_
 23	may	may	AUX	MD	VerbForm=Fin	25	aux	25:aux|27:aux	_
@@ -1033,7 +1052,7 @@
 26	or	or	CCONJ	CC	_	27	cc	27:cc	_
 27	dislocated	dislocate	VERB	VBN	Tense=Past|VerbForm=Part	25	conj	16:ccomp|25:conj:or	SpaceAfter=No
 28	,	,	PUNCT	,	_	33	punct	33:punct	_
-29	and	and	CCONJ	CC	_	33	cc	33:cc	Discourse=joint_m:97->11:3
+29	and	and	CCONJ	CC	_	33	cc	33:cc	Discourse=joint-other_m:97->11:4
 30	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	33	nsubj	33:nsubj|35:nsubj:xsubj|37:nsubj:xsubj	Entity=(12)
 31	may	may	AUX	MD	VerbForm=Fin	33	aux	33:aux	_
 32	be	be	AUX	VB	VerbForm=Inf	33	cop	33:cop	_
@@ -1043,11 +1062,11 @@
 36	or	or	CCONJ	CC	_	37	cc	37:cc	_
 37	tread	tread	VERB	VB	VerbForm=Inf	35	conj	33:xcomp|35:conj:or	_
 38	water	water	NOUN	NN	Number=Sing	37	obj	37:obj	_
-39	before	before	SCONJ	IN	_	42	mark	42:mark	Discourse=cause:98->99:0
+39	before	before	SCONJ	IN	_	42	mark	42:mark	Discourse=causal-cause:98->99:0
 40	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	41	nmod:poss	41:nmod:poss	Entity=(23(12)
 41	chute	chute	NOUN	NN	Number=Sing	42	nsubj	42:nsubj|44:nsubj	Entity=23)
 42	fills	fill	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	35	advcl	35:advcl:before	_
-43	and	and	CCONJ	CC	_	44	cc	44:cc	Discourse=circumstance:99->97:0
+43	and	and	CCONJ	CC	_	44	cc	44:cc	Discourse=context-circumstance:99->97:0
 44	drags	drag	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	42	conj	35:advcl:before|42:conj:and	_
 45	you	you	PRON	PRP	Case=Acc|Number=Sing|Person=2|PronType=Prs	44	obj	44:obj	Entity=(12)
 46	under	under	ADP	RP	_	44	compound:prt	44:compound:prt	SpaceAfter=No
@@ -1056,8 +1075,9 @@
 # sent_id = GUM_whow_parachute-49
 # s_type = decl
 # text = If, after total chute failure, you land on something soft, it is possible that instead of being killed outright, you may be permanently paralyzed due to spinal injury.
-# newpar = item (2 s) | p (2 s)
-1	If	if	SCONJ	IN	_	9	mark	9:mark	Discourse=condition:100->102:1|SpaceAfter=No
+# newpar
+# newpar_block = item (2 s) | p (2 s)
+1	If	if	SCONJ	IN	_	9	mark	9:mark	Discourse=contingency-condition:100->102:1|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	1:punct	_
 3	after	after	ADP	IN	_	6	case	6:case	_
 4	total	total	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
@@ -1070,17 +1090,17 @@
 11	something	something	NOUN	NN	Number=Sing	9	obl	9:obl:on	_
 12	soft	soft	ADJ	JJ	Degree=Pos	11	amod	11:amod	SpaceAfter=No
 13	,	,	PUNCT	,	_	9	punct	9:punct	_
-14	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	16	expl	16:expl	Discourse=antithesis:101->102:0
+14	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	16	expl	16:expl	Discourse=adversative-antithesis:101->102:0
 15	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	16	cop	16:cop	_
 16	possible	possible	ADJ	JJ	Degree=Pos	0	root	0:root	_
 17	that	that	SCONJ	IN	_	28	mark	28:mark	_
-18	instead	instead	SCONJ	RB	Degree=Pos	21	mark	21:mark	_
+18	instead	instead	SCONJ	RB	_	21	mark	21:mark	_
 19	of	of	ADP	IN	_	18	fixed	18:fixed	_
 20	being	be	AUX	VBG	VerbForm=Ger	21	aux:pass	21:aux:pass	_
 21	killed	kill	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	28	advcl	28:advcl:instead_of	_
 22	outright	outright	ADV	RB	Degree=Pos	21	advmod	21:advmod	SpaceAfter=No
 23	,	,	PUNCT	,	_	21	punct	21:punct	_
-24	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	28	nsubj:pass	28:nsubj:pass	Discourse=joint_m:102->97:3|Entity=(12)
+24	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	28	nsubj:pass	28:nsubj:pass	Discourse=joint-list_m:102->97:3|Entity=(12)
 25	may	may	AUX	MD	VerbForm=Fin	28	aux	28:aux	_
 26	be	be	AUX	VB	VerbForm=Inf	28	aux:pass	28:aux:pass	Entity=(24)
 27	permanently	permanently	ADV	RB	Degree=Pos	28	advmod	28:advmod	_
@@ -1094,7 +1114,7 @@
 # sent_id = GUM_whow_parachute-50
 # s_type = decl
 # text = If you have a strong aversion to this outcome, aiming head-downward before impact in the manner of an Olympic diver may ensure the destruction of your cranium and your immediate demise.
-1	If	if	SCONJ	IN	_	3	mark	3:mark	Discourse=condition:103->104:0
+1	If	if	SCONJ	IN	_	3	mark	3:mark	Discourse=contingency-condition:103->104:0
 2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Entity=(12)
 3	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	25	advcl	25:advcl:if	_
 4	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	_
@@ -1104,7 +1124,7 @@
 8	this	this	DET	DT	Number=Sing|PronType=Dem	9	det	9:det	Entity=(24
 9	outcome	outcome	NOUN	NN	Number=Sing	6	nmod	6:nmod:to	Entity=24)|SpaceAfter=No
 10	,	,	PUNCT	,	_	3	punct	3:punct	_
-11	aiming	aim	VERB	VBG	VerbForm=Ger	25	csubj	25:csubj	Discourse=contrast_m:104->102:2
+11	aiming	aim	VERB	VBG	VerbForm=Ger	25	csubj	25:csubj	Discourse=adversative-contrast_m:104->102:2
 12	head	head	NOUN	NN	Number=Sing	14	nsubj	14:nsubj	SpaceAfter=No|XML=<w>
 13	-	-	PUNCT	HYPH	_	12	punct	12:punct	SpaceAfter=No
 14	downward	downward	ADV	RB	Degree=Pos	11	advcl	11:advcl	XML=</w>

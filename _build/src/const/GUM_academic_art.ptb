@@ -5,7 +5,10 @@
     (NP (JJ Spanish) (NN Art))
     (: :)))
 
-(ROOT (NP (NP (NNS Insights)) (PP (IN from) (NP (NN Eye-Tracking)))))
+(ROOT
+  (NP
+    (NP (NNS Insights))
+    (PP (IN from) (NP (NN Eye) (HYPH -) (NN Tracking)))))
 
 (ROOT
   (NP
@@ -263,7 +266,10 @@
           (NP (DT the) (JJ novel) (NNS insights))
           (SBAR
             (S
-              (NP (NN eye-tracking) (NNS techniques))
+              (NP
+                (NN eye)
+                (FRAG (WHNP (HYPH -) (NN tracking)))
+                (NNS techniques))
               (VP
                 (VBP have)
                 (VP
@@ -361,7 +367,9 @@
             (S
               (VP
                 (VBG using)
-                (NP (NN eye-tracking) (NNS techniques))))
+                (NP
+                  (ADJP (NN eye) (HYPH -) (NN tracking))
+                  (NNS techniques))))
             (, ,)
             (NP
               (NP
@@ -678,7 +686,7 @@
     (NP (PRP we))
     (VP
       (VBD used)
-      (NP (NN eye-tracking))
+      (NP (NN eye) (HYPH -) (NN tracking))
       (PP
         (IN in)
         (NP
@@ -788,85 +796,87 @@
 
 (ROOT
   (S
-    (NP (DT This) (NN pilot) (NN project))
-    (VP
+    (S
+      (NP (DT This) (NN pilot) (NN project))
       (VP
-        (ADVP (RB primarily))
-        (VBD investigated)
-        (SBAR
-          (WHADVP (WRB how))
-          (S
-            (NP (NNS participants))
+        (VP
+          (ADVP (RB primarily))
+          (VBD investigated)
+          (SBAR
+            (WHADVP (WRB how))
+            (S
+              (NP (NNS participants))
+              (VP
+                (ADVP (RB visually))
+                (VBP explore)
+                (NP (NNS artworks))))))
+        (CC and)
+        (VP
+          (VBZ provides)
+          (NP
+            (NP (JJ new) (NNS insights))
+            (PP (IN into) (NP (DT the) (NN potential) (NN eye)))))))
+    (HYPH -)
+    (S
+      (NP (NN tracking))
+      (VP
+        (VBZ has)
+        (S
+          (VP
+            (TO to)
             (VP
-              (ADVP (RB visually))
-              (VBP explore)
-              (NP (NNS artworks))))))
-      (CC and)
-      (VP
-        (VBZ provides)
-        (NP
-          (NP (JJ new) (NNS insights))
-          (PP
-            (IN into)
-            (NP
-              (NP (DT the) (JJ potential))
-              (SBAR (S (NP (NN eye-tracking)) (VBZ has)))
-              (S
-                (VP
-                  (TO to)
-                  (VP
-                    (VP
-                      (VB transform)
-                      (NP
-                        (NP (DT the) (NNS ways))
-                        (SBAR
-                          (S
-                            (NP (PRP we))
-                            (VP
-                              (VBP understand)
-                              (NP (JJ visual) (NN processing))
-                              (PP
-                                (IN in)
-                                (NP (NNS arts) (CC and) (NN culture))))))))
-                    (CC and)
-                    (VP
-                      (PP (IN at) (NP (DT the) (JJ same) (NN time)))
-                      (VB offer)
-                      (NP
-                        (NP (DT a) (JJ direct) (NN way))
+              (VP
+                (VB transform)
+                (NP
+                  (NP (DT the) (NNS ways))
+                  (SBAR
+                    (S
+                      (NP (PRP we))
+                      (VP
+                        (VBP understand)
+                        (NP (JJ visual) (NN processing))
                         (PP
-                          (IN of)
+                          (IN in)
+                          (NP (NNS arts) (CC and) (NN culture))))))))
+              (CC and)
+              (VP
+                (PP (IN at) (NP (DT the) (JJ same) (NN time)))
+                (VB offer)
+                (NP
+                  (NP (DT a) (JJ direct) (NN way))
+                  (PP
+                    (IN of)
+                    (S
+                      (VP
+                        (VBG studying)
+                        (NP
+                          (NP
+                            (JJ several)
+                            (JJ important)
+                            (NNS factors))
+                          (PP
+                            (IN of)
+                            (NP (DT a) (NN museum) (NN visit))))
+                        (, ,)
+                        (S
+                          (ADVP (RB namely))
                           (S
                             (VP
-                              (VBG studying)
-                              (NP
+                              (TO to)
+                              (VP
+                                (VB assess)
                                 (NP
-                                  (JJ several)
-                                  (JJ important)
-                                  (NNS factors))
-                                (PP
-                                  (IN of)
-                                  (NP (DT a) (NN museum) (NN visit))))
-                              (, ,)
-                              (S
-                                (ADVP (RB namely))
-                                (S
-                                  (VP
-                                    (TO to)
-                                    (VP
-                                      (VB assess)
-                                      (NP
-                                        (NP (DT the) (NNS effects))
-                                        (PP
-                                          (IN of)
-                                          (NP
-                                            (NN label)
-                                            (NNS characteristics)))
-                                        (PP
-                                          (IN on)
-                                          (NP
-                                            (NN visitor)
-                                            (JJ visual)
-                                            (NN behaviour)))))))))))))))))))))
+                                  (NP (DT the) (NNS effects))
+                                  (PP
+                                    (IN of)
+                                    (NP
+                                      (NN label)
+                                      (NNS characteristics)))
+                                  (PP
+                                    (IN on)
+                                    (NP
+                                      (NN visitor)
+                                      (JJ visual)
+                                      (NN behaviour))))))))))))))))))
     (. .)))
 

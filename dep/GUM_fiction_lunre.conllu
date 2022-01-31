@@ -1,5 +1,5 @@
 # newdoc id = GUM_fiction_lunre
-# global.Entity = entity-GRP-infstat-MIN-coref_type-identity
+# global.Entity = GRP-etype-infstat-minspan-link-identity
 # meta::dateCollected = 2018-08-15
 # meta::dateCreated = 2012-09-11
 # meta::dateModified = 2013-04-24
@@ -9,18 +9,20 @@
 # sent_id = GUM_fiction_lunre-1
 # s_type = other
 # text = Chapter Two: Master Lunre
-# newpar = head (1 s)
-1	Chapter	Chapter	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=preparation:1->2:0|Entity=(abstract-1-new-1-sgl
+# newpar
+# newpar_block = head (1 s)
+1	Chapter	Chapter	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=organization-preparation:1->2:0|Entity=(1-abstract-new-1-sgl
 2	Two	two	NUM	CD	NumForm=Word|NumType=Card	1	dep	1:dep	Entity=1)|SpaceAfter=No
 3	:	:	PUNCT	:	_	4	punct	4:punct	_
-4	Master	Master	PROPN	NNP	Number=Sing	1	dep	1:dep	Discourse=preparation:2->16:4|Entity=(person-2-new-1,2-coref
+4	Master	Master	PROPN	NNP	Number=Sing	1	dep	1:dep	Discourse=organization-heading:2->16:4|Entity=(2-person-new-1,2-coref
 5	Lunre	Lunre	PROPN	NNP	Number=Sing	4	flat	4:flat	Entity=2)
 
 # sent_id = GUM_fiction_lunre-2
 # s_type = decl
 # text = My father’s actions were largely incomprehensible to me, guided by his own secret and labyrinthine calculations.
-# newpar = p (4 s)
-1	My	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=background:3->8:1|Entity=(event-3-new-4-sgl(person-4-new-2-coref(person-5-acc:com-1-ana)
+# newpar
+# newpar_block = p (4 s)
+1	My	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=context-background:3->8:1|Entity=(3-event-new-4-sgl(4-person-new-2-coref(5-person-acc:com-1-ana)
 2-3	father’s	_	_	_	_	_	_	_	_
 2	father	father	NOUN	NN	Number=Sing	4	nmod:poss	4:nmod:poss	_
 3	’s	's	PART	POS	_	2	case	2:case	Entity=4)
@@ -29,240 +31,241 @@
 6	largely	largely	ADV	RB	Degree=Pos	7	advmod	7:advmod	_
 7	incomprehensible	incomprehensible	ADJ	JJ	Degree=Pos	0	root	0:root	_
 8	to	to	ADP	IN	_	9	case	9:case	_
-9	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	7	obl	7:obl:to	Entity=(person-5-giv:act-1-ana)|SpaceAfter=No
+9	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	7	obl	7:obl:to	Entity=(5-person-giv:act-1-ana)|SpaceAfter=No
 10	,	,	PUNCT	,	_	11	punct	11:punct	_
-11	guided	guide	VERB	VBN	Tense=Past|VerbForm=Part	7	acl	7:acl	Discourse=justify:4->3:0
+11	guided	guide	VERB	VBN	Tense=Past|VerbForm=Part	7	acl	7:acl	Discourse=explanation-justify:4->3:0
 12	by	by	ADP	IN	_	18	case	18:case	_
-13	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	18	nmod:poss	18:nmod:poss	Entity=(abstract-6-new-6-sgl(person-4-giv:act-1-ana)
+13	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	18	nmod:poss	18:nmod:poss	Entity=(6-abstract-new-6-sgl(4-person-giv:act-1-ana)
 14	own	own	ADJ	JJ	Degree=Pos	18	amod	18:amod	_
 15	secret	secret	ADJ	JJ	Degree=Pos	18	amod	18:amod	_
 16	and	and	CCONJ	CC	_	17	cc	17:cc	_
 17	labyrinthine	labyrinthine	ADJ	JJ	Degree=Pos	15	conj	15:conj:and|18:amod	_
-18	calculations	calculation	NOUN	NNS	Number=Plur	11	obl	11:obl:by	Entity=6)|SpaceAfter=No
+18	calculations	calculation	NOUN	NNS	Number=Plur	11	obl:agent	11:obl:agent	Entity=6)|SpaceAfter=No
 19	.	.	PUNCT	.	_	7	punct	7:punct	_
 
 # sent_id = GUM_fiction_lunre-3
 # s_type = decl
 # text = He dwelt in another world, a world of intrigue, bargains, contracts and clandestine purchases of land all over the island.
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=elaboration:5->3:1|Entity=(person-4-giv:act-1-ana)
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=elaboration-additional:5->3:1|Entity=(4-person-giv:act-1-ana)
 2	dwelt	dwell	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	in	in	ADP	IN	_	5	case	5:case	_
-4	another	another	DET	DT	_	5	det	5:det	Entity=(abstract-7-new-2-coref
+4	another	another	DET	DT	PronType=Art	5	det	5:det	Entity=(7-abstract-new-2-coref
 5	world	world	NOUN	NN	Number=Sing	2	obl	2:obl:in	Entity=7)|SpaceAfter=No
 6	,	,	PUNCT	,	_	8	punct	8:punct	_
-7	a	a	DET	DT	Definite=Ind|PronType=Art	8	det	8:det	Entity=(abstract-7-giv:act-2-appos
+7	a	a	DET	DT	Definite=Ind|PronType=Art	8	det	8:det	Entity=(7-abstract-giv:act-2-appos
 8	world	world	NOUN	NN	Number=Sing	5	appos	5:appos	_
 9	of	of	ADP	IN	_	10	case	10:case	_
-10	intrigue	intrigue	NOUN	NN	Number=Sing	8	nmod	8:nmod:of	Entity=(abstract-8-new-1-sgl)|SpaceAfter=No
+10	intrigue	intrigue	NOUN	NN	Number=Sing	8	nmod	8:nmod:of	Entity=(8-abstract-new-1-sgl)|SpaceAfter=No
 11	,	,	PUNCT	,	_	12	punct	12:punct	_
-12	bargains	bargain	NOUN	NNS	Number=Plur	10	conj	8:nmod:of|10:conj:and	Entity=(abstract-9-new-1-sgl)|SpaceAfter=No
+12	bargains	bargain	NOUN	NNS	Number=Plur	10	conj	8:nmod:of|10:conj:and	Entity=(9-abstract-new-1-sgl)|SpaceAfter=No
 13	,	,	PUNCT	,	_	14	punct	14:punct	_
-14	contracts	contract	NOUN	NNS	Number=Plur	10	conj	8:nmod:of|10:conj:and	Entity=(abstract-10-new-1-sgl)
+14	contracts	contract	NOUN	NNS	Number=Plur	10	conj	8:nmod:of|10:conj:and	Entity=(10-abstract-new-1-sgl)
 15	and	and	CCONJ	CC	_	17	cc	17:cc	_
-16	clandestine	clandestine	ADJ	JJ	Degree=Pos	17	amod	17:amod	Entity=(event-11-new-2-sgl
+16	clandestine	clandestine	ADJ	JJ	Degree=Pos	17	amod	17:amod	Entity=(11-event-new-2-sgl
 17	purchases	purchase	NOUN	NNS	Number=Plur	10	conj	8:nmod:of|10:conj:and	_
 18	of	of	ADP	IN	_	19	case	19:case	_
-19	land	land	NOUN	NN	Number=Sing	17	nmod	17:nmod:of	Entity=(place-12-new-1-sgl)
+19	land	land	NOUN	NN	Number=Sing	17	nmod	17:nmod:of	Entity=(12-place-new-1-sgl)
 20	all	all	ADV	RB	Degree=Pos	23	advmod	23:advmod	_
 21	over	over	ADP	IN	_	23	case	23:case	_
-22	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	Entity=(place-13-acc:com-2-coref
+22	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	Entity=(13-place-acc:com-2-coref
 23	island	island	NOUN	NN	Number=Sing	17	nmod	17:nmod:over	Entity=13)11)7)|SpaceAfter=No
 24	.	.	PUNCT	.	_	2	punct	2:punct	_
 
 # sent_id = GUM_fiction_lunre-4
 # s_type = decl
 # text = He was in many ways a world in himself, whole as a sphere.
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	7	nsubj	7:nsubj	Discourse=evaluation:6->3:2|Entity=(person-4-giv:act-1-ana)
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	7	nsubj	7:nsubj	Discourse=evaluation-comment:6->3:2|Entity=(4-person-giv:act-1-ana)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	7	cop	7:cop	_
 3	in	in	ADP	IN	_	5	case	5:case	_
 4	many	many	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
 5	ways	way	NOUN	NNS	Number=Plur	7	nmod	7:nmod:in	_
-6	a	a	DET	DT	Definite=Ind|PronType=Art	7	det	7:det	Entity=(abstract-14-new-2-sgl
+6	a	a	DET	DT	Definite=Ind|PronType=Art	7	det	7:det	Entity=(14-abstract-new-2-sgl
 7	world	world	NOUN	NN	Number=Sing	0	root	0:root	_
 8	in	in	ADP	IN	_	9	case	9:case	_
-9	himself	himself	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs|Reflex=Yes	7	nmod	7:nmod:in	Entity=(person-4-giv:act-1-ana)14)|SpaceAfter=No
+9	himself	himself	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs|Reflex=Yes	7	nmod	7:nmod:in	Entity=(4-person-giv:act-1-ana)14)|SpaceAfter=No
 10	,	,	PUNCT	,	_	11	punct	11:punct	_
 11	whole	whole	ADJ	JJ	Degree=Pos	7	amod	7:amod	_
 12	as	as	ADP	IN	_	14	case	14:case	_
-13	a	a	DET	DT	Definite=Ind|PronType=Art	14	det	14:det	Entity=(object-15-new-2-sgl
+13	a	a	DET	DT	Definite=Ind|PronType=Art	14	det	14:det	Entity=(15-object-new-2-sgl
 14	sphere	sphere	NOUN	NN	Number=Sing	11	obl	11:obl:as	Entity=15)|SpaceAfter=No
 15	.	.	PUNCT	.	_	7	punct	7:punct	_
 
 # sent_id = GUM_fiction_lunre-5
 # s_type = decl
 # text = No doubt his decisions were perfectly logical in his own eyes — even the one that prompted him, a patriotic islander, to bring me a tutor from Bain: Master Lunre, an Olondrian.
-1	No	no	DET	DT	Polarity=Neg	2	det	2:det	Discourse=concession:7->3:3
+1	No	no	DET	DT	Polarity=Neg|PronType=Art	2	det	2:det	Discourse=adversative-concession:7->3:3
 2	doubt	doubt	NOUN	NN	Number=Sing	7	obl:npmod	7:obl:npmod	_
-3	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	4	nmod:poss	4:nmod:poss	Entity=(abstract-16-new-2-coref(person-4-giv:act-1-ana)
+3	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	4	nmod:poss	4:nmod:poss	Entity=(16-abstract-new-2-coref(4-person-giv:act-1-ana)
 4	decisions	decision	NOUN	NNS	Number=Plur	7	nsubj	7:nsubj	Entity=16)
 5	were	be	AUX	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	7	cop	7:cop	_
 6	perfectly	perfectly	ADV	RB	Degree=Pos	7	advmod	7:advmod	_
 7	logical	logical	ADJ	JJ	Degree=Pos	0	root	0:root	_
 8	in	in	ADP	IN	_	11	case	11:case	_
-9	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	11	nmod:poss	11:nmod:poss	Entity=(object-17-new-3-sgl(person-4-giv:act-1-ana)
+9	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	11	nmod:poss	11:nmod:poss	Entity=(17-object-new-3-sgl(4-person-giv:act-1-ana)
 10	own	own	ADJ	JJ	Degree=Pos	11	amod	11:amod	_
 11	eyes	eye	NOUN	NNS	Number=Plur	7	obl	7:obl:in	Entity=17)
 12	—	—	PUNCT	:	_	15	punct	15:punct	_
-13	even	even	ADV	RB	_	15	advmod	15:advmod	Discourse=background:8->16:3
-14	the	the	DET	DT	Definite=Def|PronType=Art	15	det	15:det	Bridge=16<18|Entity=(abstract-18-acc:inf-2,20,23-sgl
+13	even	even	ADV	RB	_	15	advmod	15:advmod	Discourse=context-background:8->16:3
+14	the	the	DET	DT	Definite=Def|PronType=Art	15	det	15:det	Bridge=16<18|Entity=(18-abstract-acc:inf-2,20,23-sgl
 15	one	one	NOUN	NN	Number=Sing	7	parataxis	7:parataxis|17:nsubj	_
-16	that	that	PRON	WDT	PronType=Rel	17	nsubj	15:ref	Discourse=elaboration:9->8:0
+16	that	that	PRON	WDT	PronType=Rel	17	nsubj	15:ref	Discourse=elaboration-attribute:9->8:0
 17	prompted	prompt	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	15	acl:relcl	15:acl:relcl	_
-18	him	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	17	obj	17:obj|25:nsubj:xsubj	Entity=(person-4-giv:act-1-ana)|SpaceAfter=No
+18	him	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	17	obj	17:obj|25:nsubj:xsubj	Entity=(4-person-giv:act-1-ana)|SpaceAfter=No
 19	,	,	PUNCT	,	_	22	punct	22:punct	_
-20	a	a	DET	DT	Definite=Ind|PronType=Art	22	det	22:det	Entity=(person-4-giv:act-3-appos
+20	a	a	DET	DT	Definite=Ind|PronType=Art	22	det	22:det	Entity=(4-person-giv:act-3-appos
 21	patriotic	patriotic	ADJ	JJ	Degree=Pos	22	amod	22:amod	_
 22	islander	islander	NOUN	NN	Number=Sing	18	appos	18:appos	Entity=4)|SpaceAfter=No
 23	,	,	PUNCT	,	_	25	punct	25:punct	_
 24	to	to	PART	TO	_	25	mark	25:mark	_
 25	bring	bring	VERB	VB	VerbForm=Inf	17	xcomp	17:xcomp	_
-26	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	25	iobj	25:iobj	Entity=(person-5-giv:inact-1-ana)
-27	a	a	DET	DT	Definite=Ind|PronType=Art	28	det	28:det	Entity=(person-2-giv:inact-2-coref
+26	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	25	iobj	25:iobj	Entity=(5-person-giv:inact-1-ana)
+27	a	a	DET	DT	Definite=Ind|PronType=Art	28	det	28:det	Entity=(2-person-giv:inact-2-coref
 28	tutor	tutor	NOUN	NN	Number=Sing	25	obj	25:obj	_
 29	from	from	ADP	IN	_	30	case	30:case	_
-30	Bain	Bain	PROPN	NNP	Number=Sing	28	nmod	28:nmod:from	Entity=(place-19-new-1-sgl)2)|SpaceAfter=No
+30	Bain	Bain	PROPN	NNP	Number=Sing	28	nmod	28:nmod:from	Entity=(19-place-new-1-sgl)2)|SpaceAfter=No
 31	:	:	PUNCT	:	_	32	punct	32:punct	_
-32	Master	Master	PROPN	NNP	Number=Sing	28	appos	28:appos	Discourse=elaboration:10->9:0|Entity=(person-2-giv:act-1,2-appos
+32	Master	Master	PROPN	NNP	Number=Sing	28	appos	28:appos	Discourse=elaboration-additional:10->9:0|Entity=(2-person-giv:act-1,2-appos
 33	Lunre	Lunre	PROPN	NNP	Number=Sing	32	flat	32:flat	Entity=2)|SpaceAfter=No
 34	,	,	PUNCT	,	_	36	punct	36:punct	_
-35	an	a	DET	DT	Definite=Ind|PronType=Art	36	det	36:det	Entity=(person-2-giv:act-2-appos
+35	an	a	DET	DT	Definite=Ind|PronType=Art	36	det	36:det	Entity=(2-person-giv:act-2-appos
 36	Olondrian	Olondrian	PROPN	NNP	Number=Sing	32	appos	32:appos	Entity=2)18)|SpaceAfter=No
 37	.	.	PUNCT	.	_	7	punct	7:punct	_
 
 # sent_id = GUM_fiction_lunre-6
 # s_type = decl
 # text = The day began as it usually did when my father was expected home from his travels, the house festooned with flowers and stocked with coconut liquor.
-# newpar = p (4 s)
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=preparation:11->14:1|Entity=(time-20-acc:com-2-coref
+# newpar
+# newpar_block = p (4 s)
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=organization-preparation:11->14:1|Entity=(20-time-acc:com-2-coref
 2	day	day	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	Entity=20)
 3	began	begin	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
-4	as	as	SCONJ	IN	_	7	mark	7:mark	Discourse=manner:12->11:0
-5	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	7	nsubj	7:nsubj	Entity=(time-20-giv:act-1-ana)
+4	as	as	SCONJ	IN	_	7	mark	7:mark	Discourse=mode-manner:12->11:0
+5	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	7	nsubj	7:nsubj	Entity=(20-time-giv:act-1-ana)
 6	usually	usually	ADV	RB	Degree=Pos	7	advmod	7:advmod	_
 7	did	do	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	advcl	3:advcl:as	_
-8	when	when	SCONJ	WRB	PronType=Int	12	mark	12:mark	Discourse=condition:13->12:0
-9	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	10	nmod:poss	10:nmod:poss	Entity=(person-4-giv:act-2-coref(person-5-giv:act-1-ana)
+8	when	when	SCONJ	WRB	PronType=Int	12	mark	12:mark	Discourse=contingency-condition:13->12:0
+9	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	10	nmod:poss	10:nmod:poss	Entity=(4-person-giv:act-2-coref(5-person-giv:act-1-ana)
 10	father	father	NOUN	NN	Number=Sing	12	nsubj:pass	12:nsubj:pass	Entity=4)
 11	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	12	aux:pass	12:aux:pass	_
 12	expected	expect	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	3	advcl	3:advcl:when	_
-13	home	home	ADV	RB	Degree=Pos	12	advmod	12:advmod	Bridge=4<21|Entity=(place-21-acc:inf-1-coref)
+13	home	home	ADV	RB	Degree=Pos	12	advmod	12:advmod	Bridge=4<21|Entity=(21-place-acc:inf-1-coref)
 14	from	from	ADP	IN	_	16	case	16:case	_
-15	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	16	nmod:poss	16:nmod:poss	Entity=(event-22-new-2-sgl(person-4-giv:act-1-ana)
+15	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	16	nmod:poss	16:nmod:poss	Entity=(22-event-new-2-sgl(4-person-giv:act-1-ana)
 16	travels	travel	NOUN	NNS	Number=Plur	12	obl	12:obl:from	Entity=22)|SpaceAfter=No
 17	,	,	PUNCT	,	_	20	punct	20:punct	_
-18	the	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	Discourse=circumstance:14->16:1|Entity=(place-21-giv:act-2-coref
+18	the	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	Discourse=context-circumstance:14->16:1|Entity=(21-place-giv:act-2-coref
 19	house	house	NOUN	NN	Number=Sing	20	nsubj:pass	20:nsubj:pass|24:nsubj:pass	Entity=21)
 20	festooned	festoon	VERB	VBN	Tense=Past|VerbForm=Part	3	advcl	3:advcl	_
 21	with	with	ADP	IN	_	22	case	22:case	_
-22	flowers	flower	NOUN	NNS	Number=Plur	20	obl	20:obl:with	Entity=(plant-23-new-1-sgl)
-23	and	and	CCONJ	CC	_	24	cc	24:cc	Discourse=joint_m:15->14:0
+22	flowers	flower	NOUN	NNS	Number=Plur	20	obl	20:obl:with	Entity=(23-plant-new-1-sgl)
+23	and	and	CCONJ	CC	_	24	cc	24:cc	Discourse=joint-list_m:15->14:0
 24	stocked	stock	VERB	VBN	Tense=Past|VerbForm=Part	20	conj	3:advcl|20:conj:and	_
 25	with	with	ADP	IN	_	27	case	27:case	_
-26	coconut	coconut	NOUN	NN	Number=Sing	27	compound	27:compound	Entity=(substance-24-new-2-sgl(plant-25-new-1-sgl)
+26	coconut	coconut	NOUN	NN	Number=Sing	27	compound	27:compound	Entity=(24-substance-new-2-sgl(25-plant-new-1-sgl)
 27	liquor	liquor	NOUN	NN	Number=Sing	24	obl	24:obl:with	Entity=24)|SpaceAfter=No
 28	.	.	PUNCT	.	_	3	punct	3:punct	_
 
 # sent_id = GUM_fiction_lunre-7
 # s_type = decl
 # text = We stood by the gate, washed and perfumed and arrayed in our brightest clothes, my mother twisting her hands in her skirt, my father’s wife with red eyes.
-1	We	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	2	nsubj	2:nsubj	Bridge=5<26|Discourse=ROOT:16:0|Entity=(person-26-acc:inf-1-coref)
+1	We	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	2	nsubj	2:nsubj	Bridge=5<26|Discourse=ROOT:16:0|Entity=(26-person-acc:inf-1-coref)
 2	stood	stand	VERB	VBD	Mood=Ind|Number=Plur|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	by	by	ADP	IN	_	5	case	5:case	_
-4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	Bridge=21<27|Entity=(object-27-acc:inf-2-sgl
+4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	Bridge=21<27|Entity=(27-object-acc:inf-2-sgl
 5	gate	gate	NOUN	NN	Number=Sing	2	obl	2:obl:by	Entity=27)|SpaceAfter=No
 6	,	,	PUNCT	,	_	7	punct	7:punct	_
-7	washed	wash	VERB	VBN	Tense=Past|VerbForm=Part	2	advcl	2:advcl	Discourse=elaboration:17->16:0
-8	and	and	CCONJ	CC	_	9	cc	9:cc	Discourse=joint_m:18->17:0
+7	washed	wash	VERB	VBN	Tense=Past|VerbForm=Part	2	advcl	2:advcl	Discourse=elaboration-additional:17->16:0
+8	and	and	CCONJ	CC	_	9	cc	9:cc	Discourse=joint-list_m:18->17:0
 9	perfumed	perfume	VERB	VBN	Tense=Past|VerbForm=Part	7	conj	2:advcl|7:conj:and	_
-10	and	and	CCONJ	CC	_	11	cc	11:cc	Discourse=joint_m:19->17:0
+10	and	and	CCONJ	CC	_	11	cc	11:cc	Discourse=joint-list_m:19->17:0
 11	arrayed	array	VERB	VBN	Tense=Past|VerbForm=Part	7	conj	2:advcl|7:conj:and	_
 12	in	in	ADP	IN	_	15	case	15:case	_
-13	our	our	PRON	PRP$	Number=Plur|Person=1|Poss=Yes|PronType=Prs	15	nmod:poss	15:nmod:poss	Entity=(object-28-new-3-sgl(person-26-giv:act-1-ana)
+13	our	our	PRON	PRP$	Number=Plur|Person=1|Poss=Yes|PronType=Prs	15	nmod:poss	15:nmod:poss	Entity=(28-object-new-3-sgl(26-person-giv:act-1-ana)
 14	brightest	bright	ADJ	JJS	Degree=Sup	15	amod	15:amod	_
 15	clothes	clothes	NOUN	NNS	Number=Plur	11	obl	11:obl:in	Entity=28)|SpaceAfter=No
 16	,	,	PUNCT	,	_	19	punct	19:punct	_
-17	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	18	nmod:poss	18:nmod:poss	Discourse=joint_m:20->17:0|Entity=(person-29-new-2-coref(person-5-giv:act-1-ana)
+17	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	18	nmod:poss	18:nmod:poss	Discourse=joint-list_m:20->17:0|Entity=(29-person-new-2-coref(5-person-giv:act-1-ana)
 18	mother	mother	NOUN	NN	Number=Sing	19	nsubj	19:nsubj	Entity=29)
 19	twisting	twist	VERB	VBG	VerbForm=Ger	2	advcl	2:advcl	_
-20	her	her	PRON	PRP$	Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	21	nmod:poss	21:nmod:poss	Entity=(object-30-new-2-sgl(person-29-giv:act-1-ana)
+20	her	her	PRON	PRP$	Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	21	nmod:poss	21:nmod:poss	Entity=(30-object-new-2-sgl(29-person-giv:act-1-ana)
 21	hands	hand	NOUN	NNS	Number=Plur	19	obj	19:obj	Entity=30)
 22	in	in	ADP	IN	_	24	case	24:case	_
-23	her	her	PRON	PRP$	Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	24	nmod:poss	24:nmod:poss	Entity=(object-31-new-2-sgl(person-29-giv:act-1-ana)
+23	her	her	PRON	PRP$	Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	24	nmod:poss	24:nmod:poss	Entity=(31-object-new-2-sgl(29-person-giv:act-1-ana)
 24	skirt	skirt	NOUN	NN	Number=Sing	19	obl	19:obl:in	Entity=31)|SpaceAfter=No
 25	,	,	PUNCT	,	_	32	punct	32:punct	_
-26	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	27	nmod:poss	27:nmod:poss	Discourse=joint_m:21->17:0|Entity=(person-32-new-4-sgl(person-4-giv:act-2-coref(person-5-giv:act-1-ana)
+26	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	27	nmod:poss	27:nmod:poss	Discourse=joint-list_m:21->17:0|Entity=(32-person-new-4-sgl(4-person-giv:act-2-coref(5-person-giv:act-1-ana)
 27-28	father’s	_	_	_	_	_	_	_	_
 27	father	father	NOUN	NN	Number=Sing	29	nmod:poss	29:nmod:poss	_
 28	’s	's	PART	POS	_	27	case	27:case	Entity=4)
 29	wife	wife	NOUN	NN	Number=Sing	32	nsubj	32:nsubj	Entity=32)
 30	with	with	ADP	IN	_	32	case	32:case	_
-31	red	red	ADJ	JJ	Degree=Pos	32	amod	32:amod	Entity=(object-33-new-2-coref
+31	red	red	ADJ	JJ	Degree=Pos	32	amod	32:amod	Entity=(33-object-new-2-coref
 32	eyes	eye	NOUN	NNS	Number=Plur	2	advcl	2:advcl	Entity=33)|SpaceAfter=No
 33	.	.	PUNCT	.	_	2	punct	2:punct	_
 
 # sent_id = GUM_fiction_lunre-8
 # s_type = decl
 # text = Jom, grown taller and broad in the shoulders, moaned gently to himself, while I stood nervously rubbing the heel of one sandal on the flagstones.
-1	Jom	Jom	PROPN	NNP	Number=Sing	11	nsubj	11:nsubj	Discourse=joint_m:22->17:0|Entity=(person-34-new-1-coref)|SpaceAfter=No
+1	Jom	Jom	PROPN	NNP	Number=Sing	11	nsubj	11:nsubj	Discourse=joint-list_m:22->17:0|Entity=(34-person-new-1-coref)|SpaceAfter=No
 2	,	,	PUNCT	,	_	3	punct	3:punct	_
-3	grown	grow	VERB	VBN	Tense=Past|VerbForm=Part	1	acl	1:acl	Discourse=elaboration:23->22:0
+3	grown	grow	VERB	VBN	Tense=Past|VerbForm=Part	1	acl	1:acl	Discourse=elaboration-attribute:23->22:0
 4	taller	tall	ADJ	JJR	Degree=Cmp	3	xcomp	3:xcomp	_
 5	and	and	CCONJ	CC	_	6	cc	6:cc	_
 6	broad	broad	ADJ	JJ	Degree=Pos	4	conj	3:xcomp|4:conj:and	_
 7	in	in	ADP	IN	_	9	case	9:case	_
-8	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Bridge=34<35|Entity=(object-35-acc:inf-2-sgl
+8	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Bridge=34<35|Entity=(35-object-acc:inf-2-sgl
 9	shoulders	shoulder	NOUN	NNS	Number=Plur	6	obl	6:obl:in	Entity=35)|SpaceAfter=No
 10	,	,	PUNCT	,	_	1	punct	1:punct	_
 11	moaned	moan	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	Discourse=same-unit_m:24->22:1
 12	gently	gently	ADV	RB	Degree=Pos	11	advmod	11:advmod	_
 13	to	to	ADP	IN	_	14	case	14:case	_
-14	himself	himself	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs|Reflex=Yes	11	obl	11:obl:to	Entity=(person-34-giv:act-1-ana)|SpaceAfter=No
+14	himself	himself	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs|Reflex=Yes	11	obl	11:obl:to	Entity=(34-person-giv:act-1-ana)|SpaceAfter=No
 15	,	,	PUNCT	,	_	18	punct	18:punct	_
-16	while	while	SCONJ	IN	_	18	mark	18:mark	Discourse=contrast_m:25->22:2
-17	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	18	nsubj	18:nsubj	Entity=(person-5-giv:act-1-ana)
+16	while	while	SCONJ	IN	_	18	mark	18:mark	Discourse=adversative-contrast_m:25->22:2
+17	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	18	nsubj	18:nsubj	Entity=(5-person-giv:act-1-ana)
 18	stood	stand	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	11	advcl	11:advcl:while	_
 19	nervously	nervously	ADV	RB	Degree=Pos	20	advmod	20:advmod	_
-20	rubbing	rub	VERB	VBG	VerbForm=Ger	18	advcl	18:advcl	Discourse=manner:26->25:0
-21	the	the	DET	DT	Definite=Def|PronType=Art	22	det	22:det	Entity=(object-36-new-2-sgl
+20	rubbing	rub	VERB	VBG	VerbForm=Ger	18	advcl	18:advcl	Discourse=mode-manner:26->25:0
+21	the	the	DET	DT	Definite=Def|PronType=Art	22	det	22:det	Entity=(36-object-new-2-sgl
 22	heel	heel	NOUN	NN	Number=Sing	20	obj	20:obj	_
 23	of	of	ADP	IN	_	25	case	25:case	_
-24	one	one	NUM	CD	NumForm=Word|NumType=Card	25	nummod	25:nummod	Bridge=5<37|Entity=(object-37-acc:inf-2-sgl
+24	one	one	NUM	CD	NumForm=Word|NumType=Card	25	nummod	25:nummod	Bridge=5<37|Entity=(37-object-acc:inf-2-sgl
 25	sandal	sandal	NOUN	NN	Number=Sing	22	nmod	22:nmod:of	Entity=37)36)
 26	on	on	ADP	IN	_	28	case	28:case	_
-27	the	the	DET	DT	Definite=Def|PronType=Art	28	det	28:det	Entity=(object-38-new-2-sgl
+27	the	the	DET	DT	Definite=Def|PronType=Art	28	det	28:det	Entity=(38-object-new-2-sgl
 28	flagstones	flagstone	NOUN	NNS	Number=Plur	20	obl	20:obl:on	Entity=38)|SpaceAfter=No
 29	.	.	PUNCT	.	_	11	punct	11:punct	_
 
 # sent_id = GUM_fiction_lunre-9
 # s_type = decl
 # text = We scanned the deep blue valley for the first sign of the company, but before we saw them we heard the children shouting: “A yellow man!”
-1	We	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	2	nsubj	2:nsubj	Discourse=concession:27->28:0|Entity=(person-26-giv:inact-1-ana)
+1	We	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	2	nsubj	2:nsubj	Discourse=adversative-concession:27->28:0|Entity=(26-person-giv:inact-1-ana)
 2	scanned	scan	VERB	VBD	Mood=Ind|Number=Plur|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	_
-3	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(place-39-new-4-sgl
+3	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(39-place-new-4-sgl
 4	deep	deep	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
 5	blue	blue	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
 6	valley	valley	NOUN	NN	Number=Sing	2	obj	2:obj	Entity=39)
 7	for	for	ADP	IN	_	10	case	10:case	_
-8	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	Entity=(abstract-40-new-3-sgl
+8	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	Entity=(40-abstract-new-3-sgl
 9	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	10	amod	10:amod	_
 10	sign	sign	NOUN	NN	Number=Sing	2	obl	2:obl:for	_
 11	of	of	ADP	IN	_	13	case	13:case	_
-12	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	Entity=(person-41-new-2-coref
+12	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	Entity=(41-person-new-2-coref
 13	company	company	NOUN	NN	Number=Sing	10	nmod	10:nmod:of	Entity=41)40)|SpaceAfter=No
 14	,	,	PUNCT	,	_	21	punct	21:punct	_
-15	but	but	CCONJ	CC	_	21	cc	21:cc	Discourse=circumstance:28->30:1
+15	but	but	CCONJ	CC	_	21	cc	21:cc	Discourse=context-circumstance:28->30:1
 16	before	before	SCONJ	IN	_	18	mark	18:mark	_
-17	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	18	nsubj	18:nsubj	Entity=(person-26-giv:act-1-ana)
+17	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	18	nsubj	18:nsubj	Entity=(26-person-giv:act-1-ana)
 18	saw	see	VERB	VBD	Mood=Ind|Number=Plur|Person=1|Tense=Past|VerbForm=Fin	21	advcl	21:advcl:before	_
-19	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	18	obj	18:obj	Entity=(person-41-giv:act-1-ana)
-20	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	21	nsubj	21:nsubj	Discourse=attribution:29->30:0|Entity=(person-26-giv:act-1-ana)
+19	them	they	PRON	PRP	Case=Acc|Number=Plur|Person=3|PronType=Prs	18	obj	18:obj	Entity=(41-person-giv:act-1-ana)
+20	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	21	nsubj	21:nsubj	Discourse=attribution-positive:29->30:0|Entity=(26-person-giv:act-1-ana)
 21	heard	hear	VERB	VBD	Mood=Ind|Number=Plur|Person=1|Tense=Past|VerbForm=Fin	2	conj	2:conj:but	_
-22	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	Entity=(person-42-new-2-coref
-23	children	child	NOUN	NNS	Number=Plur	21	obj	21:obj|24:nsubj:xsubj	Entity=42)
-24	shouting	shout	VERB	VBG	VerbForm=Ger	21	xcomp	21:xcomp	SpaceAfter=No
+22	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	Entity=(42-person-new-2-coref
+23	children	child	NOUN	NNS	Number=Plur	24	nsubj	24:nsubj	Entity=42)
+24	shouting	shout	VERB	VBG	VerbForm=Ger	21	ccomp	21:ccomp	SpaceAfter=No
 25	:	:	PUNCT	:	_	29	punct	29:punct	_
-26	“	''	PUNCT	``	_	29	punct	29:punct	Discourse=sequence_m:30->16:2|SpaceAfter=No|XML=<sp who:::"#Children">
-27	A	a	DET	DT	Definite=Ind|PronType=Art	29	det	29:det	Entity=(person-2-giv:inact-3-coref
+26	“	''	PUNCT	``	_	29	punct	29:punct	Discourse=joint-sequence_m:30->16:2|SpaceAfter=No|XML=<sp who:::"#Children">
+27	A	a	DET	DT	Definite=Ind|PronType=Art	29	det	29:det	Entity=(2-person-giv:inact-3-coref
 28	yellow	yellow	ADJ	JJ	Degree=Pos	29	amod	29:amod	_
 29	man	man	NOUN	NN	Number=Sing	24	ccomp	24:ccomp	Entity=2)|SpaceAfter=No
 30	!	!	PUNCT	.	_	29	punct	29:punct	SpaceAfter=No
@@ -271,8 +274,9 @@
 # sent_id = GUM_fiction_lunre-10
 # s_type = frag
 # text = A yellow man!
-# newpar = p (6 s)
-1	A	a	DET	DT	Definite=Ind|PronType=Art	3	det	3:det	Discourse=evaluation:31->30:2|Entity=(person-2-giv:act-3-coref
+# newpar
+# newpar_block = p (6 s)
+1	A	a	DET	DT	Definite=Ind|PronType=Art	3	det	3:det	Discourse=evaluation-comment:31->30:2|Entity=(2-person-giv:act-3-coref
 2	yellow	yellow	ADJ	JJ	Degree=Pos	3	amod	3:amod	_
 3	man	man	NOUN	NN	Number=Sing	0	root	0:root	Entity=2)|SpaceAfter=No
 4	!	!	PUNCT	.	_	3	punct	3:punct	_
@@ -280,28 +284,28 @@
 # sent_id = GUM_fiction_lunre-11
 # s_type = decl
 # text = We glanced at one another in confusion.
-1	We	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	2	nsubj	2:nsubj	Discourse=result:32->30:3|Entity=(person-26-giv:inact-1-ana)
+1	We	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	2	nsubj	2:nsubj	Discourse=causal-result:32->30:3|Entity=(26-person-giv:inact-1-ana)
 2	glanced	glance	VERB	VBD	Mood=Ind|Number=Plur|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	at	at	ADP	IN	_	4	case	4:case	_
-4	one	one	NUM	CD	NumForm=Word|NumType=Card	2	obl	2:obl:at	Entity=(person-26-giv:act-1-coref
-5	another	another	DET	DT	_	4	fixed	4:fixed	Entity=26)
+4	one	one	NUM	CD	NumForm=Word|NumType=Card|PronType=Rcp	2	obl	2:obl:at	Entity=(26-person-giv:act-1-coref
+5	another	another	DET	DT	PronType=Art	4	fixed	4:fixed	Entity=26)
 6	in	in	ADP	IN	_	7	case	7:case	_
-7	confusion	confusion	NOUN	NN	Number=Sing	2	obl	2:obl:in	Entity=(abstract-43-new-1-sgl)|SpaceAfter=No
+7	confusion	confusion	NOUN	NN	Number=Sing	2	obl	2:obl:in	Entity=(43-abstract-new-1-sgl)|SpaceAfter=No
 8	.	.	PUNCT	.	_	2	punct	2:punct	_
 
 # sent_id = GUM_fiction_lunre-12
 # s_type = decl
 # text = My mother bit her lower lip; Jom gave a groan of alarm.
-1	My	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=joint_m:33->32:0|Entity=(person-29-giv:inact-2-coref(person-5-giv:inact-1-ana)
+1	My	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=joint-list_m:33->32:0|Entity=(29-person-giv:inact-2-coref(5-person-giv:inact-1-ana)
 2	mother	mother	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	Entity=29)
 3	bit	bite	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
-4	her	her	PRON	PRP$	Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(object-44-new-3-sgl(person-29-giv:act-1-ana)
+4	her	her	PRON	PRP$	Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(44-object-new-3-sgl(29-person-giv:act-1-ana)
 5	lower	low	ADJ	JJR	Degree=Cmp	6	amod	6:amod	_
 6	lip	lip	NOUN	NN	Number=Sing	3	obj	3:obj	Entity=44)|SpaceAfter=No
 7	;	;	PUNCT	:	_	9	punct	9:punct	_
-8	Jom	Jom	PROPN	NNP	Number=Sing	9	nsubj	9:nsubj	Discourse=joint_m:34->32:0|Entity=(person-34-giv:inact-1-coref)
+8	Jom	Jom	PROPN	NNP	Number=Sing	9	nsubj	9:nsubj	Discourse=joint-list_m:34->32:0|Entity=(34-person-giv:inact-1-coref)
 9	gave	give	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	parataxis	3:parataxis	_
-10	a	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	Entity=(abstract-45-new-2-sgl
+10	a	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	Entity=(45-abstract-new-2-sgl
 11	groan	groan	NOUN	NN	Number=Sing	9	obj	9:obj	_
 12	of	of	ADP	IN	_	13	case	13:case	_
 13	alarm	alarm	NOUN	NN	Number=Sing	11	nmod	11:nmod:of	Entity=45)|SpaceAfter=No
@@ -310,24 +314,24 @@
 # sent_id = GUM_fiction_lunre-13
 # s_type = decl
 # text = At first I thought the children meant my father, whose golden skin, the color of the night-monkey’s pelt, was a rarity in the islands; but certainly the children of Tyom were familiar with my father, and would never have greeted a council-member with such ill-mannered yells.
-1	At	at	ADP	IN	_	2	case	2:case	Discourse=attribution:35->36:1
+1	At	at	ADP	IN	_	2	case	2:case	Discourse=attribution-positive:35->36:1
 2	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	4	obl	4:obl:at	_
-3	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Entity=(person-5-giv:act-1-ana)
+3	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Entity=(5-person-giv:act-1-ana)
 4	thought	think	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	_
-5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Discourse=elaboration:36->30:4|Entity=(person-42-giv:inact-2-coref
+5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Discourse=elaboration-additional:36->30:4|Entity=(42-person-giv:inact-2-coref
 6	children	child	NOUN	NNS	Number=Plur	7	nsubj	7:nsubj	Entity=42)
 7	meant	mean	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	4	ccomp	4:ccomp	_
-8	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	9	nmod:poss	9:nmod:poss	Entity=(person-4-giv:inact-2-coref(person-5-giv:act-1-ana)
+8	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	9	nmod:poss	9:nmod:poss	Entity=(4-person-giv:inact-2-coref(5-person-giv:act-1-ana)
 9	father	father	NOUN	NN	Number=Sing	7	obj	7:obj	SpaceAfter=No
-10	,	,	PUNCT	,	_	27	punct	27:punct	_
-11	whose	whose	PRON	WP$	Poss=Yes|PronType=Rel	13	nmod:poss	13:nmod:poss	Discourse=justify:37->36:0|Entity=(abstract-46-new-3-coref
+10	,	,	PUNCT	,	_	13	punct	13:punct	_
+11	whose	whose	PRON	WP$	Poss=Yes|PronType=Rel	13	nmod:poss	13:nmod:poss	Discourse=explanation-justify:37->36:0|Entity=(46-abstract-new-3-coref
 12	golden	golden	ADJ	JJ	Degree=Pos	13	amod	13:amod	_
 13	skin	skin	NOUN	NN	Number=Sing	27	nsubj	27:nsubj	Entity=46)|SpaceAfter=No
 14	,	,	PUNCT	,	_	16	punct	16:punct	_
-15	the	the	DET	DT	Definite=Def|PronType=Art	16	det	16:det	Entity=(abstract-47-new-2-sgl
+15	the	the	DET	DT	Definite=Def|PronType=Art	16	det	16:det	Entity=(47-abstract-new-2-sgl
 16	color	color	NOUN	NN	Number=Sing	13	parataxis	13:parataxis	_
 17	of	of	ADP	IN	_	23	case	23:case	_
-18	the	the	DET	DT	Definite=Def|PronType=Art	21	det	21:det	Entity=(object-48-new-6-sgl(animal-49-acc:com-4-sgl
+18	the	the	DET	DT	Definite=Def|PronType=Art	21	det	21:det	Entity=(48-object-new-6-sgl(49-animal-acc:com-4-sgl
 19	night	night	NOUN	NN	Number=Sing	21	compound	21:compound	SpaceAfter=No|XML=<w>
 20	-	-	PUNCT	HYPH	_	19	punct	19:punct	SpaceAfter=No
 21-22	monkey’s	_	_	_	_	_	_	_	_
@@ -336,35 +340,35 @@
 23	pelt	pelt	NOUN	NN	Number=Sing	16	nmod	16:nmod:of	Entity=48)47)|SpaceAfter=No
 24	,	,	PUNCT	,	_	13	punct	13:punct	_
 25	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	27	cop	27:cop	_
-26	a	a	DET	DT	Definite=Ind|PronType=Art	27	det	27:det	Entity=(abstract-46-giv:act-2-pred
+26	a	a	DET	DT	Definite=Ind|PronType=Art	27	det	27:det	Entity=(46-abstract-giv:act-2-pred
 27	rarity	rarity	NOUN	NN	Number=Sing	9	acl:relcl	9:acl:relcl	_
 28	in	in	ADP	IN	_	30	case	30:case	_
-29	the	the	DET	DT	Definite=Def|PronType=Art	30	det	30:det	Entity=(place-50-new-2-sgl
+29	the	the	DET	DT	Definite=Def|PronType=Art	30	det	30:det	Entity=(50-place-new-2-sgl
 30	islands	island	NOUN	NNS	Number=Plur	27	nmod	27:nmod:in	Entity=50)46)4)|SpaceAfter=No
 31	;	;	PUNCT	:	_	39	punct	39:punct	_
-32	but	but	CCONJ	CC	_	39	cc	39:cc	Discourse=cause:38->39:0
+32	but	but	CCONJ	CC	_	39	cc	39:cc	Discourse=causal-cause:38->39:0
 33	certainly	certainly	ADV	RB	Degree=Pos	39	advmod	39:advmod	_
-34	the	the	DET	DT	Definite=Def|PronType=Art	35	det	35:det	Bridge=42<51|Entity=(person-51-acc:inf-2-sgl
+34	the	the	DET	DT	Definite=Def|PronType=Art	35	det	35:det	Bridge=42<51|Entity=(51-person-acc:inf-2-sgl
 35	children	child	NOUN	NNS	Number=Plur	39	nsubj	39:nsubj|48:nsubj	_
 36	of	of	ADP	IN	_	37	case	37:case	_
-37	Tyom	Tyom	PROPN	NNP	Number=Sing	35	nmod	35:nmod:of	Entity=(place-52-new-1-coref)51)
+37	Tyom	Tyom	PROPN	NNP	Number=Sing	35	nmod	35:nmod:of	Entity=(52-place-new-1-coref)51)
 38	were	be	AUX	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	39	cop	39:cop	_
 39	familiar	familiar	ADJ	JJ	Degree=Pos	4	conj	4:conj:but	_
 40	with	with	ADP	IN	_	42	case	42:case	_
-41	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	42	nmod:poss	42:nmod:poss	Entity=(person-4-giv:act-2-coref(person-5-giv:act-1-ana)
+41	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	42	nmod:poss	42:nmod:poss	Entity=(4-person-giv:act-2-coref(5-person-giv:act-1-ana)
 42	father	father	NOUN	NN	Number=Sing	39	obl	39:obl:with	Entity=4)|SpaceAfter=No
 43	,	,	PUNCT	,	_	48	punct	48:punct	_
-44	and	and	CCONJ	CC	_	48	cc	48:cc	Discourse=contrast_m:39->36:2
+44	and	and	CCONJ	CC	_	48	cc	48:cc	Discourse=adversative-contrast_m:39->36:2
 45	would	would	AUX	MD	VerbForm=Fin	48	aux	48:aux	_
 46	never	never	ADV	RB	Polarity=Neg	48	advmod	48:advmod	_
 47	have	have	AUX	VB	VerbForm=Inf	48	aux	48:aux	_
 48	greeted	greet	VERB	VBN	Tense=Past|VerbForm=Part	39	conj	4:conj|39:conj:and	_
-49	a	a	DET	DT	Definite=Ind|PronType=Art	52	det	52:det	Entity=(person-53-new-4-sgl
+49	a	a	DET	DT	Definite=Ind|PronType=Art	52	det	52:det	Entity=(53-person-new-4-sgl
 50	council	council	NOUN	NN	Number=Sing	52	compound	52:compound	SpaceAfter=No|XML=<w>
 51	-	-	PUNCT	HYPH	_	50	punct	50:punct	SpaceAfter=No
 52	member	member	NOUN	NN	Number=Sing	48	obj	48:obj	Entity=53)|XML=</w>
 53	with	with	ADP	IN	_	58	case	58:case	_
-54	such	such	ADJ	JJ	Degree=Pos	58	amod	58:amod	Entity=(event-54-new-5-sgl
+54	such	such	ADJ	JJ	Degree=Pos	58	amod	58:amod	Entity=(54-event-new-5-sgl
 55	ill	ill	ADJ	JJ	Degree=Pos	57	amod	57:amod	SpaceAfter=No|XML=<w>
 56	-	-	PUNCT	HYPH	_	55	punct	55:punct	SpaceAfter=No
 57	mannered	mannered	ADJ	JJ	Degree=Pos	58	amod	58:amod	XML=</w>
@@ -374,120 +378,120 @@
 # sent_id = GUM_fiction_lunre-14
 # s_type = decl
 # text = Then I remembered the only “yellow man” I had ever seen, an Olondrian wizard and doctor who had visited Tyom in my childhood, who wore two pieces of glass on his eyes, attached to his ears with wires, and roamed the hills of Tinimavet, cutting bits off the trees.
-1	Then	then	ADV	RB	PronType=Dem	3	advmod	3:advmod	Discourse=sequence_m:40->36:3
-2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	3:nsubj	Entity=(person-5-giv:act-1-ana)
+1	Then	then	ADV	RB	PronType=Dem	3	advmod	3:advmod	Discourse=joint-sequence_m:40->36:3
+2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	3:nsubj	Entity=(5-person-giv:act-1-ana)
 3	remembered	remember	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	_
-4	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(person-55-new-5-coref
+4	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(55-person-new-5-coref
 5	only	only	ADJ	JJ	Degree=Pos	8	amod	8:amod	_
 6	“	''	PUNCT	``	_	8	punct	8:punct	SpaceAfter=No|XML=<q>
 7	yellow	yellow	ADJ	JJ	Degree=Pos	8	amod	8:amod	_
 8	man	man	NOUN	NN	Number=Sing	3	obj	3:obj	SpaceAfter=No
 9	”	''	PUNCT	''	_	8	punct	8:punct	XML=</q>
-10	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	13	nsubj	13:nsubj	Discourse=antithesis:41->40:0|Entity=(person-5-giv:act-1-ana)
+10	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	13	nsubj	13:nsubj	Discourse=adversative-antithesis:41->40:0|Entity=(5-person-giv:act-1-ana)
 11	had	have	AUX	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	13	aux	13:aux	_
 12	ever	ever	ADV	RB	Degree=Pos	13	advmod	13:advmod	_
 13	seen	see	VERB	VBN	Tense=Past|VerbForm=Part	8	acl:relcl	8:acl:relcl	Entity=55)|SpaceAfter=No
 14	,	,	PUNCT	,	_	17	punct	17:punct	_
-15	an	a	DET	DT	Definite=Ind|PronType=Art	17	det	17:det	Discourse=same-unit_m:42->40:1|Entity=(person-55-giv:act-3,5-appos
+15	an	a	DET	DT	Definite=Ind|PronType=Art	17	det	17:det	Discourse=same-unit_m:42->40:1|Entity=(55-person-giv:act-3,5-appos
 16	Olondrian	Olondrian	ADJ	JJ	Degree=Pos	17	amod	17:amod	_
 17	wizard	wizard	NOUN	NN	Number=Sing	8	appos	8:appos|22:nsubj|29:nsubj	_
 18	and	and	CCONJ	CC	_	19	cc	19:cc	_
 19	doctor	doctor	NOUN	NN	Number=Sing	17	conj	8:appos|17:conj:and	_
-20	who	who	PRON	WP	PronType=Rel	22	nsubj	17:ref	Discourse=elaboration:43->42:0
+20	who	who	PRON	WP	PronType=Rel	22	nsubj	17:ref	Discourse=elaboration-attribute:43->42:0
 21	had	have	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	22	aux	22:aux	_
 22	visited	visit	VERB	VBN	Tense=Past|VerbForm=Part	17	acl:relcl	17:acl:relcl	_
-23	Tyom	Tyom	PROPN	NNP	Number=Sing	22	obj	22:obj	Entity=(place-52-giv:act-1-coref)
+23	Tyom	Tyom	PROPN	NNP	Number=Sing	22	obj	22:obj	Entity=(52-place-giv:act-1-coref)
 24	in	in	ADP	IN	_	26	case	26:case	_
-25	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	26	nmod:poss	26:nmod:poss	Entity=(time-56-new-2-sgl(person-5-giv:act-1-ana)
+25	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	26	nmod:poss	26:nmod:poss	Entity=(56-time-new-2-sgl(5-person-giv:act-1-ana)
 26	childhood	childhood	NOUN	NN	Number=Sing	22	obl	22:obl:in	Entity=56)|SpaceAfter=No
 27	,	,	PUNCT	,	_	29	punct	29:punct	_
-28	who	who	PRON	WP	PronType=Rel	29	nsubj	17:ref	Discourse=elaboration:44->43:0
+28	who	who	PRON	WP	PronType=Rel	29	nsubj	17:ref	Discourse=elaboration-attribute:44->43:0
 29	wore	wear	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	17	acl:relcl	17:acl:relcl	_
-30	two	two	NUM	CD	NumForm=Word|NumType=Card	31	nummod	31:nummod	Entity=(object-57-new-2-sgl
+30	two	two	NUM	CD	NumForm=Word|NumType=Card	31	nummod	31:nummod	Entity=(57-object-new-2-sgl
 31	pieces	piece	NOUN	NNS	Number=Plur	29	obj	29:obj	_
 32	of	of	ADP	IN	_	33	case	33:case	_
-33	glass	glass	NOUN	NN	Number=Sing	31	nmod	31:nmod:of	Entity=(substance-58-new-1-sgl)57)
+33	glass	glass	NOUN	NN	Number=Sing	31	nmod	31:nmod:of	Entity=(58-substance-new-1-sgl)57)
 34	on	on	ADP	IN	_	36	case	36:case	_
-35	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	36	nmod:poss	36:nmod:poss	Entity=(object-33-giv:inact-2-coref(person-55-giv:act-1-ana)
+35	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	36	nmod:poss	36:nmod:poss	Entity=(33-object-giv:inact-2-coref(55-person-giv:act-1-ana)
 36	eyes	eye	NOUN	NNS	Number=Plur	29	obl	29:obl:on	Entity=33)|SpaceAfter=No
-37	,	,	PUNCT	,	_	38	punct	38:punct	_
-38	attached	attach	VERB	VBN	Tense=Past|VerbForm=Part	31	acl	31:acl	Discourse=elaboration:45->44:0
+37	,	,	PUNCT	,	_	36	punct	36:punct	_
+38	attached	attach	VERB	VBN	Tense=Past|VerbForm=Part	31	acl	31:acl	Discourse=elaboration-attribute:45->44:0
 39	to	to	ADP	IN	_	41	case	41:case	_
-40	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	41	nmod:poss	41:nmod:poss	Entity=(object-59-new-2-sgl(person-55-giv:act-1-ana)
+40	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	41	nmod:poss	41:nmod:poss	Entity=(59-object-new-2-sgl(55-person-giv:act-1-ana)
 41	ears	ear	NOUN	NNS	Number=Plur	38	obl	38:obl:to	Entity=59)
 42	with	with	ADP	IN	_	43	case	43:case	_
-43	wires	wire	NOUN	NNS	Number=Plur	38	obl	38:obl:with	Entity=(object-60-new-1-sgl)|SpaceAfter=No
+43	wires	wire	NOUN	NNS	Number=Plur	38	obl	38:obl:with	Entity=(60-object-new-1-sgl)|SpaceAfter=No
 44	,	,	PUNCT	,	_	46	punct	46:punct	_
-45	and	and	CCONJ	CC	_	46	cc	46:cc	Discourse=joint_m:46->43:1
+45	and	and	CCONJ	CC	_	46	cc	46:cc	Discourse=joint-list_m:46->43:1
 46	roamed	roam	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	29	conj	17:acl:relcl|29:conj:and	_
-47	the	the	DET	DT	Definite=Def|PronType=Art	48	det	48:det	Entity=(place-61-new-2-sgl
+47	the	the	DET	DT	Definite=Def|PronType=Art	48	det	48:det	Entity=(61-place-new-2-sgl
 48	hills	hill	NOUN	NNS	Number=Plur	46	obj	46:obj	_
 49	of	of	ADP	IN	_	50	case	50:case	_
-50	Tinimavet	Tinimavet	PROPN	NNP	Number=Sing	48	nmod	48:nmod:of	Entity=(place-62-new-1-sgl)61)|SpaceAfter=No
+50	Tinimavet	Tinimavet	PROPN	NNP	Number=Sing	48	nmod	48:nmod:of	Entity=(62-place-new-1-sgl)61)|SpaceAfter=No
 51	,	,	PUNCT	,	_	52	punct	52:punct	_
-52	cutting	cut	VERB	VBG	VerbForm=Ger	46	advcl	46:advcl	Discourse=elaboration:47->46:0
-53	bits	bit	NOUN	NNS	Number=Plur	52	obj	52:obj	Entity=(object-63-new-1-sgl)
+52	cutting	cut	VERB	VBG	VerbForm=Ger	46	advcl	46:advcl	Discourse=elaboration-additional:47->46:0
+53	bits	bit	NOUN	NNS	Number=Plur	52	obj	52:obj	Entity=(63-object-new-1-sgl)
 54	off	off	ADP	IN	_	56	case	56:case	_
-55	the	the	DET	DT	Definite=Def|PronType=Art	56	det	56:det	Entity=(plant-64-new-2-sgl
+55	the	the	DET	DT	Definite=Def|PronType=Art	56	det	56:det	Entity=(64-plant-new-2-sgl
 56	trees	tree	NOUN	NNS	Number=Plur	52	obl	52:obl:off	Entity=64)55)|SpaceAfter=No
 57	.	.	PUNCT	.	_	3	punct	3:punct	_
 
 # sent_id = GUM_fiction_lunre-15
 # s_type = decl
 # text = I have since learned that that doctor wrote a well-received treatise, On the Medicinal Properties of the Juice of the Young Coconut, and died a respected man in his native city of Deinivel; but at the time I felt certain he had returned with his sack of tree-cuttings.
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Discourse=attribution:48->49:1|Entity=(person-5-giv:act-1-ana)
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Discourse=attribution-positive:48->49:1|Entity=(5-person-giv:act-1-ana)
 2	have	have	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	4	aux	4:aux	_
 3	since	since	ADV	RB	Degree=Pos	4	advmod	4:advmod	_
 4	learned	learn	VERB	VBN	Tense=Past|VerbForm=Part	0	root	0:root	_
-5	that	that	SCONJ	IN	_	8	mark	8:mark	Discourse=evaluation:49->40:2
-6	that	that	DET	DT	Number=Sing|PronType=Dem	7	det	7:det	Entity=(person-55-giv:act-2-coref
+5	that	that	SCONJ	IN	_	8	mark	8:mark	Discourse=adversative-concession:49->52:1
+6	that	that	DET	DT	Number=Sing|PronType=Dem	7	det	7:det	Entity=(55-person-giv:act-2-coref
 7	doctor	doctor	NOUN	NN	Number=Sing	8	nsubj	8:nsubj|28:nsubj	Entity=55)
 8	wrote	write	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	4	ccomp	4:ccomp	_
-9	a	a	DET	DT	Definite=Ind|PronType=Art	13	det	13:det	Entity=(abstract-65-new-5,9,13,16,17-sgl
+9	a	a	DET	DT	Definite=Ind|PronType=Art	13	det	13:det	Entity=(65-abstract-new-5,9,13,16,17-sgl
 10	well	well	ADV	RB	Degree=Pos	12	advmod	12:advmod	SpaceAfter=No|XML=<w>
 11	-	-	PUNCT	HYPH	_	10	punct	10:punct	SpaceAfter=No
 12	received	receive	VERB	VBN	Tense=Past|VerbForm=Part	13	amod	13:amod	XML=</w>
 13	treatise	treatise	NOUN	NN	Number=Sing	8	obj	8:obj	SpaceAfter=No
 14	,	,	PUNCT	,	_	18	punct	18:punct	_
 15	On	on	ADP	IN	_	18	case	18:case	XML=<hi rend:::"italics">
-16	the	the	DET	DT	Definite=Def|PronType=Art	18	det	18:det	Entity=(abstract-66-new-2,3,6,9,10-sgl
+16	the	the	DET	DT	Definite=Def|PronType=Art	18	det	18:det	Entity=(66-abstract-new-2,3,6,9,10-sgl
 17	Medicinal	Medicinal	ADJ	NNP	Degree=Pos	18	amod	18:amod	_
 18	Properties	Property	PROPN	NNPS	Number=Plur	13	appos	13:appos	_
 19	of	of	ADP	IN	_	21	case	21:case	_
-20	the	the	DET	DT	Definite=Def|PronType=Art	21	det	21:det	Entity=(substance-67-new-2,5,6-sgl
+20	the	the	DET	DT	Definite=Def|PronType=Art	21	det	21:det	Entity=(67-substance-new-2,5,6-sgl
 21	Juice	Juice	PROPN	NNP	Number=Sing	18	nmod	18:nmod:of	_
 22	of	of	ADP	IN	_	25	case	25:case	_
-23	the	the	DET	DT	Definite=Def|PronType=Art	25	det	25:det	Entity=(plant-68-new-2,3-sgl
+23	the	the	DET	DT	Definite=Def|PronType=Art	25	det	25:det	Entity=(68-plant-new-2,3-sgl
 24	Young	Young	ADJ	NNP	Degree=Pos	25	amod	25:amod	_
 25	Coconut	Coconut	PROPN	NNP	Number=Sing	21	nmod	21:nmod:of	Entity=68)67)66)65)|SpaceAfter=No|XML=</hi>
 26	,	,	PUNCT	,	_	28	punct	28:punct	_
-27	and	and	CCONJ	CC	_	28	cc	28:cc	Discourse=sequence_m:50->49:0
+27	and	and	CCONJ	CC	_	28	cc	28:cc	Discourse=joint-sequence_m:50->49:0
 28	died	die	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	8	conj	4:ccomp|8:conj:and	_
-29	a	a	DET	DT	Definite=Ind|PronType=Art	31	det	31:det	Entity=(person-55-giv:act-3-coref
+29	a	a	DET	DT	Definite=Ind|PronType=Art	31	det	31:det	Entity=(55-person-giv:act-3-coref
 30	respected	respect	VERB	VBN	Tense=Past|VerbForm=Part	31	amod	31:amod	_
 31	man	man	NOUN	NN	Number=Sing	28	obl:npmod	28:obl:npmod	Entity=55)
 32	in	in	ADP	IN	_	35	case	35:case	_
-33	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	35	nmod:poss	35:nmod:poss	Entity=(place-69-new-3-sgl(person-55-giv:act-1-ana)
+33	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	35	nmod:poss	35:nmod:poss	Entity=(69-place-new-3-sgl(55-person-giv:act-1-ana)
 34	native	native	ADJ	JJ	Degree=Pos	35	amod	35:amod	_
 35	city	city	NOUN	NN	Number=Sing	28	obl	28:obl:in	_
 36	of	of	ADP	IN	_	37	case	37:case	_
 37	Deinivel	Deinivel	PROPN	NNP	Number=Sing	35	nmod	35:nmod:of	Entity=69)|SpaceAfter=No
 38	;	;	PUNCT	:	_	44	punct	44:punct	_
-39	but	but	CCONJ	CC	_	44	cc	44:cc	Discourse=attribution:51->52:0
+39	but	but	CCONJ	CC	_	44	cc	44:cc	Discourse=attribution-positive:51->52:0
 40	at	at	ADP	IN	_	42	case	42:case	_
-41	the	the	DET	DT	Definite=Def|PronType=Art	42	det	42:det	Entity=(time-70-acc:com-2-sgl
+41	the	the	DET	DT	Definite=Def|PronType=Art	42	det	42:det	Entity=(70-time-acc:com-2-sgl
 42	time	time	NOUN	NN	Number=Sing	44	obl	44:obl:at	Entity=70)
-43	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	44	nsubj	44:nsubj|45:nsubj:xsubj	Entity=(person-5-giv:act-1-ana)
+43	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	44	nsubj	44:nsubj|45:nsubj:xsubj	Entity=(5-person-giv:act-1-ana)
 44	felt	feel	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	4	conj	4:conj:but	_
 45	certain	certain	ADJ	JJ	Degree=Pos	44	xcomp	44:xcomp	_
-46	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	48	nsubj	48:nsubj	Discourse=contrast_m:52->49:2|Entity=(person-55-giv:act-1-ana)
+46	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	48	nsubj	48:nsubj	Discourse=evaluation-comment:52->40:2|Entity=(55-person-giv:act-1-ana)
 47	had	have	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	48	aux	48:aux	_
 48	returned	return	VERB	VBN	Tense=Past|VerbForm=Part	45	ccomp	45:ccomp	_
 49	with	with	ADP	IN	_	51	case	51:case	_
-50	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	51	nmod:poss	51:nmod:poss	Entity=(object-71-new-2-sgl(person-55-giv:act-1-ana)
+50	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	51	nmod:poss	51:nmod:poss	Entity=(71-object-new-2-sgl(55-person-giv:act-1-ana)
 51	sack	sack	NOUN	NN	Number=Sing	48	obl	48:obl:with	_
 52	of	of	ADP	IN	_	55	case	55:case	_
-53	tree	tree	NOUN	NN	Number=Sing	55	compound	55:compound	Entity=(plant-72-new-3-sgl|SpaceAfter=No|XML=<w>
+53	tree	tree	NOUN	NN	Number=Sing	55	compound	55:compound	Entity=(72-plant-new-3-sgl|SpaceAfter=No|XML=<w>
 54	-	-	PUNCT	HYPH	_	53	punct	53:punct	SpaceAfter=No
 55	cuttings	cutting	NOUN	NNS	Number=Plur	51	nmod	51:nmod:of	Entity=72)71)|SpaceAfter=No|XML=</w>
 56	.	.	PUNCT	.	_	4	punct	4:punct	_
@@ -496,24 +500,25 @@
 # s_type = decl
 # speaker = Pavit
 # text = “There they are,” said Pavit, the head house-servant, in a strained voice.
-# newpar = p (9 s)
-1	“	''	PUNCT	``	_	4	punct	4:punct	Discourse=sequence_m:53->16:2|SpaceAfter=No|XML=<sp who:::"#Pavit">
+# newpar
+# newpar_block = p (9 s)
+1	“	''	PUNCT	``	_	4	punct	4:punct	Discourse=joint-sequence_m:53->16:2|SpaceAfter=No|XML=<sp who:::"#Pavit">
 2	There	there	ADV	RB	PronType=Dem	4	advmod	4:advmod	_
-3	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	4	nsubj	4:nsubj	Entity=(person-41-giv:inact-1-ana)
+3	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	4	nsubj	4:nsubj	Entity=(41-person-giv:inact-1-ana)
 4	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	7	ccomp	7:ccomp	SpaceAfter=No
 5	,	,	PUNCT	,	_	4	punct	4:punct	SpaceAfter=No
 6	”	''	PUNCT	''	_	4	punct	4:punct	XML=</sp>
-7	said	say	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	Discourse=attribution:54->53:0
-8	Pavit	Pavit	PROPN	NNP	Number=Sing	7	nsubj	7:nsubj	Entity=(person-73-new-1-coref)|SpaceAfter=No
-9	,	,	PUNCT	,	_	14	punct	14:punct	_
-10	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	Entity=(person-73-giv:act-5-appos
+7	said	say	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	Discourse=attribution-positive:54->53:0
+8	Pavit	Pavit	PROPN	NNP	Number=Sing	7	nsubj	7:nsubj	Entity=(73-person-new-1-coref)|SpaceAfter=No
+9	,	,	PUNCT	,	_	10	punct	10:punct	_
+10	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	Entity=(73-person-giv:act-5-appos
 11	head	head	NOUN	NN	Number=Sing	14	compound	14:compound	_
 12	house	house	NOUN	NN	Number=Sing	14	compound	14:compound	SpaceAfter=No|XML=<w>
 13	-	-	PUNCT	HYPH	_	12	punct	12:punct	SpaceAfter=No
 14	servant	servant	NOUN	NN	Number=Sing	8	appos	8:appos	Entity=73)|SpaceAfter=No|XML=</w>
 15	,	,	PUNCT	,	_	19	punct	19:punct	_
 16	in	in	ADP	IN	_	19	case	19:case	_
-17	a	a	DET	DT	Definite=Ind|PronType=Art	19	det	19:det	Entity=(abstract-74-new-3-sgl
+17	a	a	DET	DT	Definite=Ind|PronType=Art	19	det	19:det	Entity=(74-abstract-new-3-sgl
 18	strained	strain	VERB	VBN	Tense=Past|VerbForm=Part	19	amod	19:amod	_
 19	voice	voice	NOUN	NN	Number=Sing	7	obl	7:obl:in	Entity=74)|SpaceAfter=No
 20	.	.	PUNCT	.	_	7	punct	7:punct	_
@@ -521,33 +526,33 @@
 # sent_id = GUM_fiction_lunre-17
 # s_type = decl
 # text = And there they were: a chain of riders weaving among the trees.
-1	And	and	CCONJ	CC	_	4	cc	4:cc	Discourse=restatement_m:55->53:1
+1	And	and	CCONJ	CC	_	4	cc	4:cc	Discourse=restatement-repetition_m:55->53:1
 2	there	there	ADV	RB	PronType=Dem	4	advmod	4:advmod	_
-3	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	4	nsubj	4:nsubj	Entity=(person-41-giv:act-1-ana)
+3	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	4	nsubj	4:nsubj	Entity=(41-person-giv:act-1-ana)
 4	were	be	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	SpaceAfter=No
 5	:	:	PUNCT	:	_	7	punct	7:punct	_
-6	a	a	DET	DT	Definite=Ind|PronType=Art	7	det	7:det	Discourse=elaboration:56->55:0|Entity=(person-41-giv:act-2-coref
+6	a	a	DET	DT	Definite=Ind|PronType=Art	7	det	7:det	Discourse=elaboration-additional:56->55:0|Entity=(41-person-giv:act-2-coref
 7	chain	chain	NOUN	NN	Number=Sing	4	parataxis	4:parataxis	_
 8	of	of	ADP	IN	_	9	case	9:case	_
 9	riders	rider	NOUN	NNS	Number=Plur	7	nmod	7:nmod:of	_
-10	weaving	weave	VERB	VBG	VerbForm=Ger	7	acl	7:acl	Discourse=elaboration:57->56:0
+10	weaving	weave	VERB	VBG	VerbForm=Ger	7	acl	7:acl	Discourse=elaboration-attribute:57->56:0
 11	among	among	ADP	IN	_	13	case	13:case	_
-12	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	Entity=(plant-75-new-2-sgl
+12	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	Entity=(75-plant-new-2-sgl
 13	trees	tree	NOUN	NNS	Number=Plur	10	obl	10:obl:among	Entity=75)41)|SpaceAfter=No
 14	.	.	PUNCT	.	_	4	punct	4:punct	_
 
 # sent_id = GUM_fiction_lunre-18
 # s_type = decl
 # text = My father’s plaited umbrella appeared, his still, imposing figure, and beside him another man, tall and lean, astride an island mule.
-1	My	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=elaboration:58->56:1|Entity=(object-76-new-5-sgl(person-4-giv:inact-2-coref(person-5-giv:inact-1-ana)
+1	My	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=elaboration-additional:58->56:1|Entity=(76-object-new-5-sgl(4-person-giv:inact-2-coref(5-person-giv:inact-1-ana)
 2-3	father’s	_	_	_	_	_	_	_	_
 2	father	father	NOUN	NN	Number=Sing	5	nmod:poss	5:nmod:poss	_
 3	’s	's	PART	POS	_	2	case	2:case	Entity=4)
 4	plaited	plait	VERB	VBN	Tense=Past|VerbForm=Part	5	acl	5:acl	_
 5	umbrella	umbrella	NOUN	NN	Number=Sing	6	nsubj	6:nsubj	Entity=76)
 6	appeared	appear	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	SpaceAfter=No
-7	,	,	PUNCT	,	_	12	punct	12:punct	_
-8	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	12	nmod:poss	12:nmod:poss	Entity=(object-77-new-5-sgl(person-4-giv:act-1-ana)
+7	,	,	PUNCT	,	_	8	punct	8:punct	_
+8	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	12	nmod:poss	12:nmod:poss	Entity=(77-object-new-5-sgl(4-person-giv:act-1-ana)
 9	still	still	ADJ	JJ	Degree=Pos	12	amod	12:amod	SpaceAfter=No
 10	,	,	PUNCT	,	_	9	punct	9:punct	_
 11	imposing	impose	VERB	VBG	VerbForm=Ger	12	amod	12:amod	_
@@ -555,8 +560,8 @@
 13	,	,	PUNCT	,	_	18	punct	18:punct	_
 14	and	and	CCONJ	CC	_	18	cc	18:cc	_
 15	beside	beside	ADP	IN	_	16	case	16:case	_
-16	him	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	18	orphan	18.1:obl:beside	Entity=(person-4-giv:act-1-ana)
-17	another	another	DET	DT	_	18	det	18:det	Entity=(person-2-giv:inact-2-coref
+16	him	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	18	orphan	18.1:obl:beside	Entity=(4-person-giv:act-1-ana)
+17	another	another	DET	DT	PronType=Art	18	det	18:det	Entity=(2-person-giv:inact-2-coref
 18	man	man	NOUN	NN	Number=Sing	6	conj	18.1:nsubj	SpaceAfter=No
 18.1	appeared	appear	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	_	_	6:conj:and	CopyOf=6
 19	,	,	PUNCT	,	_	20	punct	20:punct	_
@@ -565,53 +570,53 @@
 22	lean	lean	ADJ	JJ	Degree=Pos	20	conj	18:amod|18.1:amod|20:conj:and	SpaceAfter=No
 23	,	,	PUNCT	,	_	27	punct	27:punct	_
 24	astride	astride	ADP	IN	_	27	case	27:case	_
-25	an	a	DET	DT	Definite=Ind|PronType=Art	27	det	27:det	Entity=(animal-78-new-3-coref
-26	island	island	NOUN	NN	Number=Sing	27	compound	27:compound	Entity=(place-79-new-1-sgl)
+25	an	a	DET	DT	Definite=Ind|PronType=Art	27	det	27:det	Entity=(78-animal-new-3-coref
+26	island	island	NOUN	NN	Number=Sing	27	compound	27:compound	Entity=(79-place-new-1-sgl)
 27	mule	mule	NOUN	NN	Number=Sing	18	nmod	18:nmod:astride	Entity=78)2)|SpaceAfter=No
 28	.	.	PUNCT	.	_	6	punct	6:punct	_
 
 # sent_id = GUM_fiction_lunre-19
 # s_type = decl
 # text = The hectic screams of the children preceded the company into the village, so that they advanced like a festival, drawing people out of their houses.
-1	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Discourse=justify:59->60:0|Entity=(event-80-new-3-sgl
+1	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Discourse=explanation-justify:59->60:0|Entity=(80-event-new-3-sgl
 2	hectic	hectic	ADJ	JJ	Degree=Pos	3	amod	3:amod	_
 3	screams	scream	NOUN	NNS	Number=Plur	7	nsubj	7:nsubj	_
 4	of	of	ADP	IN	_	6	case	6:case	_
-5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(person-42-giv:inact-2-coref
+5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(42-person-giv:inact-2-coref
 6	children	child	NOUN	NNS	Number=Plur	3	nmod	3:nmod:of	Entity=42)80)
 7	preceded	precede	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
-8	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Entity=(person-41-giv:inact-2-coref
+8	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Entity=(41-person-giv:inact-2-coref
 9	company	company	NOUN	NN	Number=Sing	7	obj	7:obj	Entity=41)
 10	into	into	ADP	IN	_	12	case	12:case	_
-11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(place-52-giv:inact-2-coref
+11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(52-place-giv:inact-2-coref
 12	village	village	NOUN	NN	Number=Sing	7	obl	7:obl:into	Entity=52)|SpaceAfter=No
 13	,	,	PUNCT	,	_	17	punct	17:punct	_
-14	so	so	SCONJ	IN	_	17	mark	17:mark	Discourse=sequence_m:60->16:2
+14	so	so	SCONJ	IN	_	17	mark	17:mark	Discourse=joint-sequence_m:60->16:2
 15	that	that	ADP	IN	_	14	fixed	14:fixed	_
-16	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	17	nsubj	17:nsubj	Entity=(person-41-giv:act-1-ana)
+16	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	17	nsubj	17:nsubj	Entity=(41-person-giv:act-1-ana)
 17	advanced	advance	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	7	advcl	7:advcl:so_that	_
 18	like	like	ADP	IN	_	20	case	20:case	_
-19	a	a	DET	DT	Definite=Ind|PronType=Art	20	det	20:det	Entity=(event-81-new-2-sgl
+19	a	a	DET	DT	Definite=Ind|PronType=Art	20	det	20:det	Entity=(81-event-new-2-sgl
 20	festival	festival	NOUN	NN	Number=Sing	17	obl	17:obl:like	Entity=81)|SpaceAfter=No
 21	,	,	PUNCT	,	_	22	punct	22:punct	_
-22	drawing	draw	VERB	VBG	VerbForm=Ger	17	advcl	17:advcl	Discourse=result:61->60:1
-23	people	person	NOUN	NNS	Number=Plur	22	obj	22:obj	Entity=(person-82-new-1-coref)
+22	drawing	draw	VERB	VBG	VerbForm=Ger	17	advcl	17:advcl	Discourse=causal-result:61->60:1
+23	people	person	NOUN	NNS	Number=Plur	22	obj	22:obj	Entity=(82-person-new-1-coref)
 24	out	out	ADP	IN	_	27	case	27:case	_
 25	of	of	ADP	IN	_	24	fixed	24:fixed	_
-26	their	their	PRON	PRP$	Number=Plur|Person=3|Poss=Yes|PronType=Prs	27	nmod:poss	27:nmod:poss	Entity=(place-83-new-2-sgl(person-82-giv:act-1-ana)
+26	their	their	PRON	PRP$	Number=Plur|Person=3|Poss=Yes|PronType=Prs	27	nmod:poss	27:nmod:poss	Entity=(83-place-new-2-sgl(82-person-giv:act-1-ana)
 27	houses	house	NOUN	NNS	Number=Plur	22	obl	22:obl:out_of	Entity=83)|SpaceAfter=No
 28	.	.	PUNCT	.	_	7	punct	7:punct	_
 
 # sent_id = GUM_fiction_lunre-20
 # s_type = decl
 # text = As they approached I saw that my father’s face was shining with pride, and his bearing had in it a new hauteur, like that of the old island kings.
-1	As	as	SCONJ	IN	_	3	mark	3:mark	Discourse=circumstance:62->63:1
-2	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	3	nsubj	3:nsubj	Entity=(person-41-giv:act-1-ana)
+1	As	as	SCONJ	IN	_	3	mark	3:mark	Discourse=context-circumstance:62->63:1
+2	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	3	nsubj	3:nsubj	Entity=(41-person-giv:act-1-ana)
 3	approached	approach	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	5	advcl	5:advcl:as	_
-4	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	5	nsubj	5:nsubj	Discourse=elaboration:63->60:2|Entity=(person-5-giv:inact-1-ana)
+4	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	5	nsubj	5:nsubj	Discourse=elaboration-additional:63->60:2|Entity=(5-person-giv:inact-1-ana)
 5	saw	see	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	_
 6	that	that	SCONJ	IN	_	12	mark	12:mark	_
-7	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	8	nmod:poss	8:nmod:poss	Entity=(object-84-new-4-sgl(person-4-giv:inact-2-coref(person-5-giv:act-1-ana)
+7	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	8	nmod:poss	8:nmod:poss	Entity=(84-object-new-4-sgl(4-person-giv:inact-2-coref(5-person-giv:act-1-ana)
 8-9	father’s	_	_	_	_	_	_	_	_
 8	father	father	NOUN	NN	Number=Sing	10	nmod:poss	10:nmod:poss	_
 9	’s	's	PART	POS	_	8	case	8:case	Entity=4)
@@ -619,55 +624,55 @@
 11	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	12	aux	12:aux	_
 12	shining	shine	VERB	VBG	Tense=Pres|VerbForm=Part	5	ccomp	5:ccomp	_
 13	with	with	ADP	IN	_	14	case	14:case	_
-14	pride	pride	NOUN	NN	Number=Sing	12	obl	12:obl:with	Entity=(abstract-85-new-1-sgl)|SpaceAfter=No
+14	pride	pride	NOUN	NN	Number=Sing	12	obl	12:obl:with	Entity=(85-abstract-new-1-sgl)|SpaceAfter=No
 15	,	,	PUNCT	,	_	19	punct	19:punct	_
-16	and	and	CCONJ	CC	_	19	cc	19:cc	Discourse=joint_m:64->63:0
-17	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	18	nmod:poss	18:nmod:poss	Entity=(abstract-86-new-2-coref(person-4-giv:act-1-ana)
+16	and	and	CCONJ	CC	_	19	cc	19:cc	Discourse=joint-list_m:64->63:0
+17	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	18	nmod:poss	18:nmod:poss	Entity=(86-abstract-new-2-coref(4-person-giv:act-1-ana)
 18	bearing	bearing	NOUN	NN	Number=Sing	19	nsubj	19:nsubj	Entity=86)
 19	had	have	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	5	conj	5:conj:and	_
 20	in	in	ADP	IN	_	21	case	21:case	_
-21	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	19	obl	19:obl:in	Entity=(abstract-86-giv:act-1-ana)
-22	a	a	DET	DT	Definite=Ind|PronType=Art	24	det	24:det	Entity=(abstract-87-new-3-sgl
+21	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	19	obl	19:obl:in	Entity=(86-abstract-giv:act-1-ana)
+22	a	a	DET	DT	Definite=Ind|PronType=Art	24	det	24:det	Entity=(87-abstract-new-3-sgl
 23	new	new	ADJ	JJ	Degree=Pos	24	amod	24:amod	_
 24	hauteur	hauteur	NOUN	NN	Number=Sing	19	obj	19:obj	SpaceAfter=No
 25	,	,	PUNCT	,	_	27	punct	27:punct	_
 26	like	like	ADP	IN	_	27	case	27:case	_
-27	that	that	PRON	DT	Number=Sing|PronType=Dem	24	nmod	24:nmod:like	Entity=(abstract-88-new-1-sgl
+27	that	that	PRON	DT	Number=Sing|PronType=Dem	24	nmod	24:nmod:like	Entity=(88-abstract-new-1-sgl
 28	of	of	ADP	IN	_	32	case	32:case	_
-29	the	the	DET	DT	Definite=Def|PronType=Art	32	det	32:det	Entity=(person-89-new-4-sgl
+29	the	the	DET	DT	Definite=Def|PronType=Art	32	det	32:det	Entity=(89-person-new-4-sgl
 30	old	old	ADJ	JJ	Degree=Pos	32	amod	32:amod	_
-31	island	island	NOUN	NN	Number=Sing	32	compound	32:compound	Entity=(place-13-giv:inact-1-coref)
+31	island	island	NOUN	NN	Number=Sing	32	compound	32:compound	Entity=(13-place-giv:inact-1-coref)
 32	kings	king	NOUN	NNS	Number=Plur	27	nmod	27:nmod:of	Entity=89)88)87)|SpaceAfter=No
 33	.	.	PUNCT	.	_	5	punct	5:punct	_
 
 # sent_id = GUM_fiction_lunre-21
 # s_type = decl
 # text = The man who rode beside him, looking uncomfortable with his long legs, kept his gaze lowered and fixed between the ears of his plodding mule.
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=joint_m:65->63:2|Entity=(person-2-giv:inact-8-disc
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=joint-list_m:65->63:2|Entity=(2-person-giv:inact-8-disc
 2	man	man	NOUN	NN	Number=Sing	15	nsubj	4:nsubj|15:nsubj|20:nsubj:xsubj	_
-3	who	who	PRON	WP	PronType=Rel	4	nsubj	2:ref	Discourse=elaboration:66->65:0
+3	who	who	PRON	WP	PronType=Rel	4	nsubj	2:ref	Discourse=elaboration-attribute:66->65:0
 4	rode	ride	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	2	acl:relcl	2:acl:relcl	_
 5	beside	beside	ADP	IN	_	6	case	6:case	_
-6	him	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	4	obl	4:obl:beside	Entity=(person-4-giv:act-1-ana)|SpaceAfter=No
+6	him	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	4	obl	4:obl:beside	Entity=(4-person-giv:act-1-ana)|SpaceAfter=No
 7	,	,	PUNCT	,	_	2	punct	2:punct	_
-8	looking	look	VERB	VBG	VerbForm=Ger	15	advcl	15:advcl	Discourse=evaluation:67->65:1
+8	looking	look	VERB	VBG	VerbForm=Ger	15	advcl	15:advcl	Discourse=evaluation-comment:67->65:1
 9	uncomfortable	uncomfortable	ADJ	JJ	Degree=Pos|Polarity=Neg	8	xcomp	8:xcomp	_
 10	with	with	ADP	IN	_	13	case	13:case	_
-11	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	13	nmod:poss	13:nmod:poss	Entity=(object-90-new-3-sgl(person-2-giv:act-1-coref)
+11	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	13	nmod:poss	13:nmod:poss	Entity=(90-object-new-3-sgl(2-person-giv:act-1-coref)
 12	long	long	ADJ	JJ	Degree=Pos	13	amod	13:amod	_
 13	legs	leg	NOUN	NNS	Number=Plur	8	obl	8:obl:with	Entity=90)2)|SpaceAfter=No
 14	,	,	PUNCT	,	_	8	punct	8:punct	_
 15	kept	keep	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	Discourse=same-unit_m:68->65:2
-16	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	17	nmod:poss	17:nmod:poss	Entity=(abstract-91-new-2-sgl(person-2-giv:act-1-ana)
+16	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	17	nmod:poss	17:nmod:poss	Entity=(91-abstract-new-2-sgl(2-person-giv:act-1-ana)
 17	gaze	gaze	NOUN	NN	Number=Sing	15	obj	15:obj|18:nsubj:pass:xsubj|20:nsubj:xsubj	Entity=91)
 18	lowered	lower	VERB	VBN	Tense=Past|VerbForm=Part	15	xcomp	15:xcomp	_
 19	and	and	CCONJ	CC	_	20	cc	20:cc	_
 20	fixed	fix	VERB	VBN	Tense=Past|VerbForm=Part	18	conj	15:xcomp|18:conj:and	_
 21	between	between	ADP	IN	_	23	case	23:case	_
-22	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	Entity=(object-92-new-2-sgl
+22	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	Entity=(92-object-new-2-sgl
 23	ears	ear	NOUN	NNS	Number=Plur	20	obl	20:obl:between	_
 24	of	of	ADP	IN	_	27	case	27:case	_
-25	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	27	nmod:poss	27:nmod:poss	Entity=(animal-78-giv:inact-3-coref(person-2-giv:act-1-ana)
+25	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	27	nmod:poss	27:nmod:poss	Entity=(78-animal-giv:inact-3-coref(2-person-giv:act-1-ana)
 26	plodding	plod	VERB	VBG	VerbForm=Ger	27	amod	27:amod	_
 27	mule	mule	NOUN	NN	Number=Sing	23	nmod	23:nmod:of	Entity=78)92)|SpaceAfter=No
 28	.	.	PUNCT	.	_	15	punct	15:punct	_
@@ -675,68 +680,68 @@
 # sent_id = GUM_fiction_lunre-22
 # s_type = decl
 # text = He was not yellow, but very pale brown, the color of raw cashews; he had silver hair, worn cropped close to the skull so that it resembled a cap.
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	4	nsubj	4:nsubj|9:nsubj	Discourse=antithesis:69->70:0|Entity=(person-2-giv:act-1-ana)
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	4	nsubj	4:nsubj|9:nsubj	Discourse=adversative-antithesis:69->70:0|Entity=(2-person-giv:act-1-ana)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	4	cop	4:cop	_
 3	not	not	PART	RB	Polarity=Neg	4	advmod	4:advmod	_
 4	yellow	yellow	ADJ	JJ	Degree=Pos	0	root	0:root	SpaceAfter=No
 5	,	,	PUNCT	,	_	9	punct	9:punct	_
-6	but	but	CCONJ	CC	_	9	cc	9:cc	Discourse=elaboration:70->65:3
+6	but	but	CCONJ	CC	_	9	cc	9:cc	Discourse=elaboration-additional:70->65:3
 7	very	very	ADV	RB	_	8	advmod	8:advmod	_
 8	pale	pale	ADJ	JJ	Degree=Pos	9	amod	9:amod	_
 9	brown	brown	ADJ	JJ	Degree=Pos	4	conj	4:conj:but	SpaceAfter=No
 10	,	,	PUNCT	,	_	12	punct	12:punct	_
-11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(abstract-93-new-2-sgl
+11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(93-abstract-new-2-sgl
 12	color	color	NOUN	NN	Number=Sing	9	appos	9:appos	_
 13	of	of	ADP	IN	_	15	case	15:case	_
-14	raw	raw	ADJ	JJ	Degree=Pos	15	amod	15:amod	Entity=(plant-94-new-2-sgl
+14	raw	raw	ADJ	JJ	Degree=Pos	15	amod	15:amod	Entity=(94-plant-new-2-sgl
 15	cashews	cashew	NOUN	NNS	Number=Plur	12	nmod	12:nmod:of	Entity=94)93)|SpaceAfter=No
 16	;	;	PUNCT	:	_	18	punct	18:punct	_
-17	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	18	nsubj	18:nsubj	Discourse=joint_m:71->70:1|Entity=(person-2-giv:act-1-ana)
+17	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	18	nsubj	18:nsubj	Discourse=joint-list_m:71->70:1|Entity=(2-person-giv:act-1-ana)
 18	had	have	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	4	parataxis	4:parataxis	_
-19	silver	silver	ADJ	JJ	Degree=Pos	20	amod	20:amod	Entity=(object-95-new-2-coref
+19	silver	silver	ADJ	JJ	Degree=Pos	20	amod	20:amod	Entity=(95-object-new-2-coref
 20	hair	hair	NOUN	NN	Number=Sing	18	obj	18:obj	SpaceAfter=No
 21	,	,	PUNCT	,	_	22	punct	22:punct	_
-22	worn	wear	VERB	VBN	Tense=Past|VerbForm=Part	20	acl	20:acl	Discourse=elaboration:72->71:0
-23	cropped	crop	VERB	VBN	Tense=Past|VerbForm=Part	22	xcomp	22:xcomp	Discourse=manner:73->72:0
+22	worn	wear	VERB	VBN	Tense=Past|VerbForm=Part	20	acl	20:acl	Discourse=elaboration-attribute:72->71:0
+23	cropped	crop	VERB	VBN	Tense=Past|VerbForm=Part	22	xcomp	22:xcomp	Discourse=mode-manner:73->72:0
 24	close	close	ADV	RB	Degree=Pos	23	advmod	23:advmod	_
 25	to	to	ADP	IN	_	27	case	27:case	_
-26	the	the	DET	DT	Definite=Def|PronType=Art	27	det	27:det	Entity=(object-96-new-2-sgl
+26	the	the	DET	DT	Definite=Def|PronType=Art	27	det	27:det	Entity=(96-object-new-2-sgl
 27	skull	skull	NOUN	NN	Number=Sing	24	nmod	24:nmod:to	Entity=96)
-28	so	so	SCONJ	IN	_	31	mark	31:mark	Discourse=evaluation:74->71:1
+28	so	so	SCONJ	IN	_	31	mark	31:mark	Discourse=evaluation-comment:74->71:1
 29	that	that	ADP	IN	_	28	fixed	28:fixed	_
-30	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	31	nsubj	31:nsubj|33:nsubj:xsubj	Entity=(object-95-giv:act-1-ana)
+30	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	31	nsubj	31:nsubj|33:nsubj:xsubj	Entity=(95-object-giv:act-1-ana)
 31	resembled	resemble	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	23	advcl	23:advcl:so_that	_
-32	a	a	DET	DT	Definite=Ind|PronType=Art	33	det	33:det	Entity=(object-97-new-2-sgl
+32	a	a	DET	DT	Definite=Ind|PronType=Art	33	det	33:det	Entity=(97-object-new-2-sgl
 33	cap	cap	NOUN	NN	Number=Sing	31	xcomp	31:xcomp	Entity=97)95)|SpaceAfter=No
 34	.	.	PUNCT	.	_	4	punct	4:punct	_
 
 # sent_id = GUM_fiction_lunre-23
 # s_type = decl
 # text = He was not the leaf-collecting doctor, but an altogether strange man, with silver eyebrows in his smooth face and long fine-knuckled hands.
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	8	nsubj	8:nsubj|14:nsubj	Discourse=antithesis:75->76:0|Entity=(person-2-giv:act-1-ana)
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	8	nsubj	8:nsubj|14:nsubj	Discourse=adversative-antithesis:75->76:0|Entity=(2-person-giv:act-1-ana)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	8	cop	8:cop	_
 3	not	not	PART	RB	Polarity=Neg	8	advmod	8:advmod	_
-4	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(person-55-giv:inact-5-coref
+4	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(55-person-giv:inact-5-coref
 5	leaf	leaf	NOUN	NN	Number=Sing	7	compound	7:compound	SpaceAfter=No|XML=<w>
 6	-	-	PUNCT	HYPH	_	5	punct	5:punct	SpaceAfter=No
 7	collecting	collect	VERB	VBG	VerbForm=Ger	8	amod	8:amod	XML=</w>
 8	doctor	doctor	NOUN	NN	Number=Sing	0	root	0:root	Entity=55)|SpaceAfter=No
 9	,	,	PUNCT	,	_	14	punct	14:punct	_
-10	but	but	CCONJ	CC	_	14	cc	14:cc	Discourse=joint_m:76->70:1
-11	an	a	DET	DT	Definite=Ind|PronType=Art	14	det	14:det	Entity=(person-2-giv:act-4-coref
+10	but	but	CCONJ	CC	_	14	cc	14:cc	Discourse=joint-list_m:76->70:1
+11	an	a	DET	DT	Definite=Ind|PronType=Art	14	det	14:det	Entity=(2-person-giv:act-4-coref
 12	altogether	altogether	ADV	RB	Degree=Pos	13	advmod	13:advmod	_
 13	strange	strange	ADJ	JJ	Degree=Pos	14	amod	14:amod	_
 14	man	man	NOUN	NN	Number=Sing	8	conj	8:conj:but	Entity=2)|SpaceAfter=No
 15	,	,	PUNCT	,	_	18	punct	18:punct	_
 16	with	with	ADP	IN	_	18	case	18:case	_
-17	silver	silver	ADJ	JJ	Degree=Pos	18	amod	18:amod	Entity=(object-98-new-2-sgl
+17	silver	silver	ADJ	JJ	Degree=Pos	18	amod	18:amod	Entity=(98-object-new-2-sgl
 18	eyebrows	eyebrow	NOUN	NNS	Number=Plur	8	nmod	8:nmod:with	_
 19	in	in	ADP	IN	_	22	case	22:case	_
-20	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	22	nmod:poss	22:nmod:poss	Entity=(object-99-new-3-sgl(person-2-giv:act-1-ana)
+20	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	22	nmod:poss	22:nmod:poss	Entity=(99-object-new-3-sgl(2-person-giv:act-1-ana)
 21	smooth	smooth	ADJ	JJ	Degree=Pos	22	amod	22:amod	_
 22	face	face	NOUN	NN	Number=Sing	18	nmod	18:nmod:in	Entity=99)98)
 23	and	and	CCONJ	CC	_	28	cc	28:cc	_
-24	long	long	ADJ	JJ	Degree=Pos	28	amod	28:amod	Entity=(object-100-new-5-sgl
+24	long	long	ADJ	JJ	Degree=Pos	28	amod	28:amod	Entity=(100-object-new-5-sgl
 25	fine	fine	ADJ	JJ	Degree=Pos	27	compound	27:compound	SpaceAfter=No|XML=<w>
 26	-	-	PUNCT	HYPH	_	25	punct	25:punct	SpaceAfter=No
 27	knuckled	knuckled	ADJ	JJ	Degree=Pos	28	amod	28:amod	XML=</w>
@@ -746,115 +751,116 @@
 # sent_id = GUM_fiction_lunre-24
 # s_type = decl
 # text = As he dismounted in front of the house I heard my mother whispering: “Protect us, God with the Black-and-White Tail, from that which is not of this earth.”
-1	As	as	SCONJ	IN	_	3	mark	3:mark	Discourse=circumstance:77->78:0
-2	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	Entity=(person-2-giv:act-1-ana)
+1	As	as	SCONJ	IN	_	3	mark	3:mark	Discourse=context-circumstance:77->78:0
+2	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	Entity=(2-person-giv:act-1-ana)
 3	dismounted	dismount	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Polarity=Neg|Tense=Past|VerbForm=Fin	10	advcl	10:advcl:as	_
 4	in	in	ADP	IN	_	5	case	5:case	_
 5	front	front	NOUN	NN	Number=Sing	3	obl	3:obl:in	_
 6	of	of	ADP	IN	_	8	case	8:case	_
-7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(place-21-giv:inact-2-coref
+7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(21-place-giv:inact-2-coref
 8	house	house	NOUN	NN	Number=Sing	5	nmod	5:nmod:of	Entity=21)
-9	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	10	nsubj	10:nsubj	Discourse=attribution:78->79:0|Entity=(person-5-giv:inact-1-ana)
+9	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	10	nsubj	10:nsubj	Discourse=attribution-positive:78->79:0|Entity=(5-person-giv:inact-1-ana)
 10	heard	hear	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	_
-11	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	12	nmod:poss	12:nmod:poss	Entity=(person-29-giv:inact-2-coref(person-5-giv:act-1-ana)
-12	mother	mother	NOUN	NN	Number=Sing	10	obj	10:obj|13:nsubj:xsubj	Entity=29)
-13	whispering	whisper	VERB	VBG	VerbForm=Ger	10	xcomp	10:xcomp	SpaceAfter=No
+11	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	12	nmod:poss	12:nmod:poss	Entity=(29-person-giv:inact-2-coref(5-person-giv:act-1-ana)
+12	mother	mother	NOUN	NN	Number=Sing	13	nsubj	13:nsubj	Entity=29)
+13	whispering	whisper	VERB	VBG	VerbForm=Ger	10	ccomp	10:ccomp	SpaceAfter=No
 14	:	:	PUNCT	:	_	16	punct	16:punct	_
-15	“	''	PUNCT	``	_	16	punct	16:punct	Discourse=sequence_m:79->16:2|SpaceAfter=No|XML=<sp who:::"#Mother">
+15	“	''	PUNCT	``	_	16	punct	16:punct	Discourse=joint-sequence_m:79->16:2|SpaceAfter=No|XML=<sp who:::"#Mother">
 16	Protect	protect	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	13	ccomp	13:ccomp	_
-17	us	we	PRON	PRP	Case=Acc|Number=Plur|Person=1|PronType=Prs	16	obj	16:obj	Entity=(person-26-giv:inact-1-ana)|SpaceAfter=No
+17	us	we	PRON	PRP	Case=Acc|Number=Plur|Person=1|PronType=Prs	16	obj	16:obj	Entity=(26-person-giv:inact-1-ana)|SpaceAfter=No
 18	,	,	PUNCT	,	_	19	punct	19:punct	_
-19	God	God	PROPN	NNP	Number=Sing	16	vocative	16:vocative	Entity=(person-101-new-1,4,8,9-sgl
+19	God	God	PROPN	NNP	Number=Sing	16	vocative	16:vocative	Entity=(101-person-new-1,4,8,9-sgl
 20	with	with	ADP	IN	_	27	case	27:case	_
-21	the	the	DET	DT	Definite=Def|PronType=Art	27	det	27:det	Entity=(object-102-new-2,6,7-sgl
+21	the	the	DET	DT	Definite=Def|PronType=Art	27	det	27:det	Entity=(102-object-new-2,6,7-sgl
 22	Black	Black	ADJ	NNP	Degree=Pos	27	amod	27:amod	SpaceAfter=No|XML=<w>
-23	-	-	PUNCT	HYPH	_	26	punct	26:punct	SpaceAfter=No
+23	-	-	PUNCT	HYPH	_	24	punct	24:punct	SpaceAfter=No
 24	and	and	CCONJ	CC	_	26	cc	26:cc	SpaceAfter=No
 25	-	-	PUNCT	HYPH	_	24	punct	24:punct	SpaceAfter=No
 26	White	White	PROPN	NNP	Number=Sing	22	conj	22:conj:and|27:compound	XML=</w>
 27	Tail	Tail	PROPN	NNP	Number=Sing	19	nmod	19:nmod:with	Entity=102)101)|SpaceAfter=No
 28	,	,	PUNCT	,	_	30	punct	30:punct	_
 29	from	from	ADP	IN	_	30	case	30:case	_
-30	that	that	PRON	DT	Number=Sing|PronType=Dem	16	obl	16:obl:from|33:nsubj	Entity=(abstract-103-new-1-sgl
-31	which	which	PRON	WDT	PronType=Rel	33	nsubj	30:ref	_
-32	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	33	cop	33:cop	_
-33	not	not	PART	RB	Polarity=Neg	30	acl:relcl	30:acl:relcl	_
+30	that	that	PRON	DT	Number=Sing|PronType=Dem	16	obl	16:obl:from|36:nsubj	Entity=(103-abstract-new-1-sgl
+31	which	which	PRON	WDT	PronType=Rel	36	nsubj	30:ref	_
+32	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	36	cop	36:cop	_
+33	not	not	PART	RB	Polarity=Neg	36	advmod	36:advmod	_
 34	of	of	ADP	IN	_	36	case	36:case	_
-35	this	this	DET	DT	Number=Sing|PronType=Dem	36	det	36:det	Entity=(place-104-new-2-sgl
-36	earth	earth	NOUN	NN	Number=Sing	33	nmod	33:nmod:of	Entity=104)103)|SpaceAfter=No
+35	this	this	DET	DT	Number=Sing|PronType=Dem	36	det	36:det	Entity=(104-place-new-2-sgl
+36	earth	earth	NOUN	NN	Number=Sing	30	acl:relcl	30:acl:relcl	Entity=104)103)|SpaceAfter=No
 37	.	.	PUNCT	.	_	16	punct	16:punct	SpaceAfter=No
 38	”	''	PUNCT	''	_	16	punct	16:punct	XML=</sp>
 
 # sent_id = GUM_fiction_lunre-25
 # s_type = decl
 # text = My father dismounted from his mule and strutted toward us, grinning.
-# newpar = p (4 s)
-1	My	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=sequence_m:80->16:2|Entity=(person-4-giv:inact-2-coref(person-5-giv:act-1-ana)
+# newpar
+# newpar_block = p (4 s)
+1	My	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=joint-sequence_m:80->16:2|Entity=(4-person-giv:inact-2-coref(5-person-giv:act-1-ana)
 2	father	father	NOUN	NN	Number=Sing	3	nsubj	3:nsubj|8:nsubj	Entity=4)
 3	dismounted	dismount	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Polarity=Neg|Tense=Past|VerbForm=Fin	0	root	0:root	_
 4	from	from	ADP	IN	_	6	case	6:case	_
-5	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(animal-78-giv:inact-2-coref(person-4-giv:act-1-ana)
+5	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(78-animal-giv:inact-2-coref(4-person-giv:act-1-ana)
 6	mule	mule	NOUN	NN	Number=Sing	3	obl	3:obl:from	Entity=78)
-7	and	and	CCONJ	CC	_	8	cc	8:cc	Discourse=sequence_m:81->80:0
+7	and	and	CCONJ	CC	_	8	cc	8:cc	Discourse=joint-sequence_m:81->80:0
 8	strutted	strut	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	conj	3:conj:and	_
 9	toward	toward	ADP	IN	_	10	case	10:case	_
-10	us	we	PRON	PRP	Case=Acc|Number=Plur|Person=1|PronType=Prs	8	obl	8:obl:toward	Entity=(person-26-giv:act-1-ana)|SpaceAfter=No
+10	us	we	PRON	PRP	Case=Acc|Number=Plur|Person=1|PronType=Prs	8	obl	8:obl:toward	Entity=(26-person-giv:act-1-ana)|SpaceAfter=No
 11	,	,	PUNCT	,	_	12	punct	12:punct	_
-12	grinning	grin	VERB	VBG	VerbForm=Ger	8	advcl	8:advcl	Discourse=manner:82->81:0|SpaceAfter=No
+12	grinning	grin	VERB	VBG	VerbForm=Ger	8	advcl	8:advcl	Discourse=mode-manner:82->81:0|SpaceAfter=No
 13	.	.	PUNCT	.	_	3	punct	3:punct	_
 
 # sent_id = GUM_fiction_lunre-26
 # s_type = decl
 # text = I thought I caught an odor off him, of fish, sea-sickness and sweat.
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	2:nsubj	Discourse=attribution:83->84:0|Entity=(person-5-giv:act-1-ana)
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	2:nsubj	Discourse=attribution-positive:83->84:0|Entity=(5-person-giv:act-1-ana)
 2	thought	think	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	_
-3	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Discourse=sequence_m:84->16:2|Entity=(person-5-giv:act-1-ana)
+3	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Discourse=joint-sequence_m:84->16:2|Entity=(5-person-giv:act-1-ana)
 4	caught	catch	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	2	ccomp	2:ccomp	_
-5	an	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	Entity=(abstract-105-new-4-sgl
+5	an	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	Entity=(105-abstract-new-4-sgl
 6	odor	odor	NOUN	NN	Number=Sing	4	obj	4:obj	_
 7	off	off	ADP	IN	_	8	case	8:case	_
-8	him	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	4	obl	4:obl:off	Entity=(person-4-giv:act-1-ana)|SpaceAfter=No
-9	,	,	PUNCT	,	_	11	punct	11:punct	_
+8	him	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	4	obl	4:obl:off	Entity=(4-person-giv:act-1-ana)|SpaceAfter=No
+9	,	,	PUNCT	,	_	8	punct	8:punct	_
 10	of	of	ADP	IN	_	11	case	11:case	_
-11	fish	fish	NOUN	NN	Number=Sing	6	nmod	6:nmod:of	Entity=(animal-106-new-1-sgl)|SpaceAfter=No
-12	,	,	PUNCT	,	_	15	punct	15:punct	_
-13	sea	sea	NOUN	NN	Number=Sing	15	compound	15:compound	Entity=(event-107-new-3-sgl|SpaceAfter=No|XML=<w>
+11	fish	fish	NOUN	NN	Number=Sing	6	nmod	6:nmod:of	Entity=(106-animal-new-1-sgl)|SpaceAfter=No
+12	,	,	PUNCT	,	_	13	punct	13:punct	_
+13	sea	sea	NOUN	NN	Number=Sing	15	compound	15:compound	Entity=(107-event-new-3-sgl|SpaceAfter=No|XML=<w>
 14	-	-	PUNCT	HYPH	_	13	punct	13:punct	SpaceAfter=No
 15	sickness	sickness	NOUN	NN	Number=Sing	11	conj	6:nmod:of|11:conj:and	Entity=107)|XML=</w>
 16	and	and	CCONJ	CC	_	17	cc	17:cc	_
-17	sweat	sweat	NOUN	NN	Number=Sing	11	conj	6:nmod:of|11:conj:and	Entity=(substance-108-new-1-sgl)105)|SpaceAfter=No
+17	sweat	sweat	NOUN	NN	Number=Sing	11	conj	6:nmod:of|11:conj:and	Entity=(108-substance-new-1-sgl)105)|SpaceAfter=No
 18	.	.	PUNCT	.	_	2	punct	2:punct	_
 
 # sent_id = GUM_fiction_lunre-27
 # s_type = decl
 # text = We knelt and stared down at the bald ground, murmuring ritual greetings, until he touched the tops of our heads with the palm of his fleshy hand.
-1	We	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	2	nsubj	2:nsubj|4:nsubj	Discourse=sequence_m:85->16:2|Entity=(person-26-giv:inact-1-ana)
+1	We	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	2	nsubj	2:nsubj|4:nsubj	Discourse=joint-sequence_m:85->16:2|Entity=(26-person-giv:inact-1-ana)
 2	knelt	kneel	VERB	VBD	Mood=Ind|Number=Plur|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	_
-3	and	and	CCONJ	CC	_	4	cc	4:cc	Discourse=sequence_m:86->85:0
+3	and	and	CCONJ	CC	_	4	cc	4:cc	Discourse=joint-sequence_m:86->85:0
 4	stared	stare	VERB	VBD	Mood=Ind|Number=Plur|Person=1|Tense=Past|VerbForm=Fin	2	conj	2:conj:and	_
 5	down	down	ADV	RB	Degree=Pos	4	advmod	4:advmod	_
 6	at	at	ADP	IN	_	9	case	9:case	_
-7	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Entity=(place-109-new-3-sgl
+7	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Entity=(109-place-new-3-sgl
 8	bald	bald	ADJ	JJ	Degree=Pos	9	amod	9:amod	_
 9	ground	ground	NOUN	NN	Number=Sing	4	obl	4:obl:at	Entity=109)|SpaceAfter=No
 10	,	,	PUNCT	,	_	11	punct	11:punct	_
-11	murmuring	murmur	VERB	VBG	VerbForm=Ger	4	advcl	4:advcl	Discourse=sequence_m:87->85:0
-12	ritual	ritual	NOUN	NN	Number=Sing	13	compound	13:compound	Entity=(abstract-110-new-2-sgl
+11	murmuring	murmur	VERB	VBG	VerbForm=Ger	4	advcl	4:advcl	Discourse=joint-sequence_m:87->85:0
+12	ritual	ritual	NOUN	NN	Number=Sing	13	compound	13:compound	Entity=(110-abstract-new-2-sgl
 13	greetings	greeting	NOUN	NNS	Number=Plur	11	obj	11:obj	Entity=110)|SpaceAfter=No
 14	,	,	PUNCT	,	_	17	punct	17:punct	_
-15	until	until	SCONJ	IN	_	17	mark	17:mark	Discourse=sequence_m:88->85:0
-16	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	17	nsubj	17:nsubj	Entity=(person-4-giv:act-1-ana)
+15	until	until	SCONJ	IN	_	17	mark	17:mark	Discourse=joint-sequence_m:88->85:0
+16	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	17	nsubj	17:nsubj	Entity=(4-person-giv:act-1-ana)
 17	touched	touch	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	11	advcl	11:advcl:until	_
-18	the	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	Entity=(object-111-new-2-sgl
+18	the	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	Entity=(111-object-new-2-sgl
 19	tops	top	NOUN	NNS	Number=Plur	17	obj	17:obj	_
 20	of	of	ADP	IN	_	22	case	22:case	_
-21	our	our	PRON	PRP$	Number=Plur|Person=1|Poss=Yes|PronType=Prs	22	nmod:poss	22:nmod:poss	Entity=(object-112-new-2-sgl(person-26-giv:act-1-ana)
+21	our	our	PRON	PRP$	Number=Plur|Person=1|Poss=Yes|PronType=Prs	22	nmod:poss	22:nmod:poss	Entity=(112-object-new-2-sgl(26-person-giv:act-1-ana)
 22	heads	head	NOUN	NNS	Number=Plur	19	nmod	19:nmod:of	Entity=112)111)
 23	with	with	ADP	IN	_	25	case	25:case	_
-24	the	the	DET	DT	Definite=Def|PronType=Art	25	det	25:det	Entity=(object-113-new-2-sgl
+24	the	the	DET	DT	Definite=Def|PronType=Art	25	det	25:det	Entity=(113-object-new-2-sgl
 25	palm	palm	NOUN	NN	Number=Sing	17	obl	17:obl:with	_
 26	of	of	ADP	IN	_	29	case	29:case	_
-27	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	29	nmod:poss	29:nmod:poss	Entity=(object-114-new-3-sgl(person-4-giv:act-1-ana)
+27	his	his	PRON	PRP$	Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	29	nmod:poss	29:nmod:poss	Entity=(114-object-new-3-sgl(4-person-giv:act-1-ana)
 28	fleshy	fleshy	ADJ	JJ	Degree=Pos	29	amod	29:amod	_
 29	hand	hand	NOUN	NN	Number=Sing	25	nmod	25:nmod:of	Entity=114)113)|SpaceAfter=No
 30	.	.	PUNCT	.	_	2	punct	2:punct	_
@@ -862,31 +868,31 @@
 # sent_id = GUM_fiction_lunre-28
 # s_type = decl
 # text = Then we stood, unable to keep from staring at the stranger, who faced us awkwardly, half-smiling, taller than any man there.
-1	Then	then	ADV	RB	PronType=Dem	3	advmod	3:advmod	Discourse=sequence_m:89->16:2
-2	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	3	nsubj	3:nsubj	Entity=(person-26-giv:act-1-ana)
+1	Then	then	ADV	RB	PronType=Dem	3	advmod	3:advmod	Discourse=joint-sequence_m:89->16:2
+2	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	3	nsubj	3:nsubj	Entity=(26-person-giv:act-1-ana)
 3	stood	stand	VERB	VBD	Mood=Ind|Number=Plur|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	SpaceAfter=No
 4	,	,	PUNCT	,	_	5	punct	5:punct	_
-5	unable	unable	ADJ	JJ	Degree=Pos|Polarity=Neg	3	advcl	3:advcl	Discourse=manner:90->89:0
+5	unable	unable	ADJ	JJ	Degree=Pos|Polarity=Neg	3	advcl	3:advcl	Discourse=mode-manner:90->89:0
 6	to	to	PART	TO	_	7	mark	7:mark	_
 7	keep	keep	VERB	VB	VerbForm=Inf	5	xcomp	5:xcomp	_
 8	from	from	SCONJ	IN	_	9	mark	9:mark	_
 9	staring	stare	VERB	VBG	VerbForm=Ger	7	advcl	7:advcl:from	_
 10	at	at	ADP	IN	_	12	case	12:case	_
-11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(person-2-giv:inact-2-coref
+11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(2-person-giv:inact-2-coref
 12	stranger	stranger	NOUN	NN	Number=Sing	9	obl	9:obl:at|15:nsubj	SpaceAfter=No
 13	,	,	PUNCT	,	_	15	punct	15:punct	_
-14	who	who	PRON	WP	PronType=Rel	15	nsubj	12:ref	Discourse=elaboration:91->90:0
+14	who	who	PRON	WP	PronType=Rel	15	nsubj	12:ref	Discourse=elaboration-attribute:91->90:0
 15	faced	face	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	12	acl:relcl	12:acl:relcl	_
-16	us	we	PRON	PRP	Case=Acc|Number=Plur|Person=1|PronType=Prs	15	obj	15:obj	Entity=(person-26-giv:act-1-ana)
+16	us	we	PRON	PRP	Case=Acc|Number=Plur|Person=1|PronType=Prs	15	obj	15:obj	Entity=(26-person-giv:act-1-ana)
 17	awkwardly	awkwardly	ADV	RB	Degree=Pos	15	advmod	15:advmod	SpaceAfter=No
-18	,	,	PUNCT	,	_	21	punct	21:punct	_
-19	half	half	NOUN	NN	Number=Sing|NumType=Frac	21	compound	21:compound	Discourse=manner:92->91:0|SpaceAfter=No|XML=<w>
+18	,	,	PUNCT	,	_	19	punct	19:punct	_
+19	half	half	NOUN	NN	Number=Sing|NumType=Frac	21	compound	21:compound	Discourse=mode-manner:92->91:0|SpaceAfter=No|XML=<w>
 20	-	-	PUNCT	HYPH	_	19	punct	19:punct	SpaceAfter=No
 21	smiling	smile	VERB	VBG	VerbForm=Ger	15	advcl	15:advcl	SpaceAfter=No|XML=</w>
 22	,	,	PUNCT	,	_	23	punct	23:punct	_
 23	taller	tall	ADJ	JJR	Degree=Cmp	21	conj	15:advcl|21:conj	Discourse=same-unit_m:93->91:1
 24	than	than	ADP	IN	_	26	case	26:case	_
-25	any	any	DET	DT	_	26	det	26:det	Entity=(person-115-new-2-sgl
+25	any	any	DET	DT	PronType=Ind	26	det	26:det	Entity=(115-person-new-2-sgl
 26	man	man	NOUN	NN	Number=Sing	23	obl	23:obl:than	_
 27	there	there	ADV	RB	PronType=Dem	26	advmod	26:advmod	Entity=115)2)|SpaceAfter=No
 28	.	.	PUNCT	.	_	3	punct	3:punct	_

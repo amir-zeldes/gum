@@ -66,13 +66,13 @@
 15	noticed	_	_	_	_	12	ccomp	_	_
 16	the	_	_	_	_	17	det	_	_
 17	people	_	_	_	_	15	obj	_	_
-18	and	_	_	_	_	15	cc	_	_
+18	and	_	_	_	_	22	cc	_	_
 19	a	_	_	_	_	20	det	_	_
 20	warship	_	_	_	_	22	nsubj:pass	_	_
 21	was	_	_	_	_	22	aux:pass	_	_
-22	deployed	_	_	_	_	15	ccomp	_	_
+22	deployed	_	_	_	_	15	conj	_	_
 23	to	_	_	_	_	24	mark	_	_
-24	retrieve	_	_	_	_	22	xcomp	_	_
+24	retrieve	_	_	_	_	22	advcl	_	_
 25	them	_	_	_	_	24	obj	_	_
 26	.	_	_	_	_	12	punct	_	_
 
@@ -195,18 +195,20 @@
 15	around	_	_	_	_	14	advmod	_	_
 16	twice	_	_	_	_	14	advmod	_	_
 17	,	_	_	_	_	19	punct	_	_
+17.1	turned	turn	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	_	_	14:parataxis	CopyOf=14
 18	toward	_	_	_	_	19	case	_	_
-19	Malaysia	_	_	_	_	14	obl	_	_
+19	Malaysia	_	_	_	_	14	parataxis	_	_
 20	by	_	_	_	_	22	case	_	_
 21	Indonesian	_	_	_	_	22	amod	_	_
-22	navy	_	_	_	_	19	nmod	_	_
-23	and	_	_	_	_	26	cc	_	_
-24	then	_	_	_	_	26	advmod	_	_
+22	navy	_	_	_	_	19	orphan	17.1:obl:by	_
+23	and	_	_	_	_	26	cc	24.1:cc	_
+24	then	_	_	_	_	26	orphan	24.1:advmod	_
+24.1	turned	turn	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	_	_	17.1:conj:and	CopyOf=14
 25	toward	_	_	_	_	26	case	_	_
-26	Indonesia	_	_	_	_	18	conj	_	_
+26	Indonesia	_	_	_	_	19	conj	24.1:obl:toward	_
 27	by	_	_	_	_	29	case	_	_
 28	Malaysian	_	_	_	_	29	amod	_	_
-29	navy	_	_	_	_	26	nmod	_	_
+29	navy	_	_	_	_	26	orphan	24.1:obl:by	_
 30	.	_	_	_	_	14	punct	_	_
 
 1	Discussing	_	_	_	_	16	advcl	_	_

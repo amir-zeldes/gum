@@ -9,22 +9,25 @@
 # sent_id = GUM_fiction_pixies-1
 # s_type = frag
 # text = Daisy
-# newpar = head (1 s)
-1	Daisy	Daisy	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=preparation:1->7:10
+# newpar
+# newpar_block = head (1 s)
+1	Daisy	Daisy	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=organization-heading:1->7:10
 
 # sent_id = GUM_fiction_pixies-2
 # s_type = frag
 # text = by Andrew Willett
-# newpar = p (1 s)
-1	by	by	ADP	IN	_	2	case	2:case	Discourse=attribution:2->7:9|XML=<hi rend:::"bold">
+# newpar
+# newpar_block = p (1 s)
+1	by	by	ADP	IN	_	2	case	2:case	Discourse=attribution-positive:2->7:9|XML=<hi rend:::"bold">
 2	Andrew	Andrew	PROPN	NNP	Number=Sing	0	root	0:root	_
 3	Willett	Willett	PROPN	NNP	Number=Sing	2	flat	2:flat	XML=</hi>
 
 # sent_id = GUM_fiction_pixies-3
 # s_type = decl
 # text = It was Sunday in snowy Manhattan.
-# newpar = p (2 s)
-1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	Discourse=circumstance:3->4:1
+# newpar
+# newpar_block = p (2 s)
+1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	Discourse=context-circumstance:3->4:1
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	cop	3:cop	_
 3	Sunday	Sunday	PROPN	NNP	Number=Sing	0	root	0:root	_
 4	in	in	ADP	IN	_	6	case	6:case	_
@@ -35,13 +38,13 @@
 # sent_id = GUM_fiction_pixies-4
 # s_type = decl
 # text = Jenna was in the tub, and I was doing the Times crossword, listening to the clang of the radiators and the swish of the taxis on the slush outside, when my coffee-scented reverie was broken by a loud squawk from the bathroom, and a splash, and a flesh-upon-cold-tile sort of thump.
-1	Jenna	Jenna	PROPN	NNP	Number=Sing	5	nsubj	5:nsubj	Discourse=circumstance:4->7:1|Entity=(1)
+1	Jenna	Jenna	PROPN	NNP	Number=Sing	5	nsubj	5:nsubj	Discourse=context-circumstance:4->7:1|Entity=(1)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	5	cop	5:cop	_
 3	in	in	ADP	IN	_	5	case	5:case	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	Entity=(2
 5	tub	tub	NOUN	NN	Number=Sing	0	root	0:root	Entity=2)|SpaceAfter=No
 6	,	,	PUNCT	,	_	10	punct	10:punct	_
-7	and	and	CCONJ	CC	_	10	cc	10:cc	Discourse=joint_m:5->4:0
+7	and	and	CCONJ	CC	_	10	cc	10:cc	Discourse=joint-list_m:5->4:0
 8	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	10	nsubj	10:nsubj	Entity=(3)
 9	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	10	aux	10:aux	_
 10	doing	do	VERB	VBG	Tense=Pres|VerbForm=Part	5	conj	5:conj:and	_
@@ -49,7 +52,7 @@
 12	Times	Times	PROPN	NNP	Number=Sing	13	compound	13:compound	_
 13	crossword	crossword	NOUN	NN	Number=Sing	10	obj	10:obj	SpaceAfter=No
 14	,	,	PUNCT	,	_	15	punct	15:punct	_
-15	listening	listen	VERB	VBG	VerbForm=Ger	10	advcl	10:advcl	Discourse=circumstance:6->5:0
+15	listening	listen	VERB	VBG	VerbForm=Ger	10	advcl	10:advcl	Discourse=context-circumstance:6->5:0
 16	to	to	ADP	IN	_	18	case	18:case	_
 17	the	the	DET	DT	Definite=Def|PronType=Art	18	det	18:det	_
 18	clang	clang	NOUN	NN	Number=Sing	15	obl	15:obl:to	_
@@ -66,7 +69,7 @@
 29	the	the	DET	DT	Definite=Def|PronType=Art	30	det	30:det	_
 30	slush	slush	NOUN	NN	Number=Sing	24	nmod	24:nmod:on	_
 31	outside	outside	ADV	RB	Degree=Pos	24	advmod	24:advmod	SpaceAfter=No
-32	,	,	PUNCT	,	_	40	punct	40:punct	_
+32	,	,	PUNCT	,	_	33	punct	33:punct	_
 33	when	when	SCONJ	WRB	PronType=Int	40	mark	40:mark	Discourse=ROOT:7:0
 34	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	38	nmod:poss	38:nmod:poss	Entity=(3)
 35	coffee	coffee	NOUN	NN	Number=Sing	37	compound	37:compound	SpaceAfter=No|XML=<w>
@@ -78,25 +81,25 @@
 41	by	by	ADP	IN	_	44	case	44:case	_
 42	a	a	DET	DT	Definite=Ind|PronType=Art	44	det	44:det	_
 43	loud	loud	ADJ	JJ	Degree=Pos	44	amod	44:amod	_
-44	squawk	squawk	NOUN	NN	Number=Sing	40	obl	40:obl:by	_
+44	squawk	squawk	NOUN	NN	Number=Sing	40	obl:agent	40:obl:agent	_
 45	from	from	ADP	IN	_	47	case	47:case	_
 46	the	the	DET	DT	Definite=Def|PronType=Art	47	det	47:det	Entity=(4
 47	bathroom	bathroom	NOUN	NN	Number=Sing	44	nmod	44:nmod:from	Entity=4)|SpaceAfter=No
 48	,	,	PUNCT	,	_	51	punct	51:punct	_
 49	and	and	CCONJ	CC	_	51	cc	51:cc	_
 50	a	a	DET	DT	Definite=Ind|PronType=Art	51	det	51:det	_
-51	splash	splash	NOUN	NN	Number=Sing	44	conj	40:obl:by|44:conj:and	SpaceAfter=No
-52	,	,	PUNCT	,	_	62	punct	62:punct	_
+51	splash	splash	NOUN	NN	Number=Sing	44	conj	40:obl:agent|44:conj:and	SpaceAfter=No
+52	,	,	PUNCT	,	_	53	punct	53:punct	_
 53	and	and	CCONJ	CC	_	62	cc	62:cc	_
 54	a	a	DET	DT	Definite=Ind|PronType=Art	62	det	62:det	_
 55	flesh	flesh	NOUN	NN	Number=Sing	62	compound	62:compound	SpaceAfter=No|XML=<w>
-56	-	-	PUNCT	HYPH	_	61	punct	61:punct	SpaceAfter=No
+56	-	-	PUNCT	HYPH	_	57	punct	57:punct	SpaceAfter=No
 57	upon	upon	ADP	IN	_	61	case	61:case	SpaceAfter=No
 58	-	-	PUNCT	HYPH	_	57	punct	57:punct	SpaceAfter=No
 59	cold	cold	ADJ	JJ	Degree=Pos	61	amod	61:amod	SpaceAfter=No
 60	-	-	PUNCT	HYPH	_	59	punct	59:punct	SpaceAfter=No
 61	tile	tile	NOUN	NN	Number=Sing	55	nmod	55:nmod:upon	XML=</w>
-62	sort	sort	NOUN	NN	Number=Sing	44	conj	40:obl:by|44:conj:and	_
+62	sort	sort	NOUN	NN	Number=Sing	44	conj	40:obl:agent|44:conj:and	_
 63	of	of	ADP	IN	_	64	case	64:case	_
 64	thump	thump	NOUN	NN	Number=Sing	62	nmod	62:nmod:of	SpaceAfter=No
 65	.	.	PUNCT	.	_	5	punct	5:punct	_
@@ -105,8 +108,9 @@
 # s_type = imp
 # speaker = Jenna
 # text = “Go away!
-# newpar = sp who:::"#Jenna" (3 s) | p (3 s)
-1	“	''	PUNCT	``	_	2	punct	2:punct	Discourse=elaboration:8->7:0|SpaceAfter=No
+# newpar
+# newpar_block = sp who:::"#Jenna" (3 s) | p (3 s)
+1	“	''	PUNCT	``	_	2	punct	2:punct	Discourse=elaboration-additional:8->7:0|SpaceAfter=No
 2	Go	go	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	_
 3	away	away	ADV	RB	Degree=Pos	2	advmod	2:advmod	SpaceAfter=No
 4	!	!	PUNCT	.	_	2	punct	2:punct	_
@@ -115,14 +119,14 @@
 # s_type = imp
 # speaker = Jenna
 # text = Shoo!
-1	Shoo	shoo	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=restatement_m:9->8:0|SpaceAfter=No
+1	Shoo	shoo	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=restatement-repetition_m:9->8:0|SpaceAfter=No
 2	!	!	PUNCT	.	_	1	punct	1:punct	_
 
 # sent_id = GUM_fiction_pixies-7
 # s_type = imp
 # speaker = Jenna
 # text = Get out of my bathroom!”
-1	Get	get	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=restatement_m:10->8:0
+1	Get	get	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=restatement-repetition_m:10->8:0
 2	out	out	ADP	IN	_	5	case	5:case	_
 3	of	of	ADP	IN	_	2	fixed	2:fixed	_
 4	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	5	nmod:poss	5:nmod:poss	Entity=(4(1)
@@ -133,13 +137,14 @@
 # sent_id = GUM_fiction_pixies-8
 # s_type = decl
 # text = I threw down my pen and dashed down the hall.
-# newpar = p (3 s)
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	2:nsubj|7:nsubj	Discourse=result:11->7:2|Entity=(3)
+# newpar
+# newpar_block = p (3 s)
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	2:nsubj|7:nsubj	Discourse=causal-result:11->7:2|Entity=(3)
 2	threw	throw	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	down	down	ADP	RP	_	2	compound:prt	2:compound:prt	_
 4	my	my	PRON	PRP$	Number=Sing|Person=1|Poss=Yes|PronType=Prs	5	nmod:poss	5:nmod:poss	Entity=(3)
 5	pen	pen	NOUN	NN	Number=Sing	2	obj	2:obj	_
-6	and	and	CCONJ	CC	_	7	cc	7:cc	Discourse=sequence_m:12->11:0
+6	and	and	CCONJ	CC	_	7	cc	7:cc	Discourse=joint-sequence_m:12->11:0
 7	dashed	dash	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	2	conj	2:conj:and	_
 8	down	down	ADP	IN	_	10	case	10:case	_
 9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	_
@@ -149,7 +154,7 @@
 # sent_id = GUM_fiction_pixies-9
 # s_type = decl
 # text = Jenna was picking herself up off the floor of the bathroom.
-1	Jenna	Jenna	PROPN	NNP	Number=Sing	3	nsubj	3:nsubj	Discourse=circumstance:13->15:3|Entity=(1)
+1	Jenna	Jenna	PROPN	NNP	Number=Sing	3	nsubj	3:nsubj	Discourse=context-circumstance:13->15:3|Entity=(1)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	aux	3:aux	_
 3	picking	pick	VERB	VBG	Tense=Pres|VerbForm=Part	0	root	0:root	_
 4	herself	herself	PRON	PRP	Case=Acc|Gender=Fem|Number=Sing|Person=3|PronType=Prs|Reflex=Yes	3	obj	3:obj	Entity=(1)
@@ -165,7 +170,7 @@
 # sent_id = GUM_fiction_pixies-10
 # s_type = decl
 # text = In the bathtub, a bar of soap was gaily chasing a nylon scrubby thing around the surface of the water.
-1	In	in	ADP	IN	_	3	case	3:case	Discourse=joint_m:14->13:0
+1	In	in	ADP	IN	_	3	case	3:case	Discourse=joint-list_m:14->13:0
 2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Entity=(2
 3	bathtub	bathtub	NOUN	NN	Number=Sing	11	obl	11:obl:in	Entity=2)|SpaceAfter=No
 4	,	,	PUNCT	,	_	3	punct	3:punct	_
@@ -192,16 +197,17 @@
 # s_type = decl
 # speaker = Jenna
 # text = “Damned pixies!” Jenna said, smacking the bathtub’s drain lever.
-# newpar = p (5 s)
-1	“	''	PUNCT	``	_	3	punct	3:punct	Discourse=sequence_m:15->7:3|SpaceAfter=No|XML=<sp who:::"#Jenna">
+# newpar
+# newpar_block = p (5 s)
+1	“	''	PUNCT	``	_	3	punct	3:punct	Discourse=joint-sequence_m:15->7:3|SpaceAfter=No|XML=<sp who:::"#Jenna">
 2	Damned	damned	ADJ	JJ	Degree=Pos	3	amod	3:amod	Entity=(7
 3	pixies	pixie	NOUN	NNS	Number=Plur	0	root	0:root	Entity=7)|SpaceAfter=No|XML=<hi rend:::"italic"></hi>
 4	!	!	PUNCT	.	_	3	punct	3:punct	SpaceAfter=No
 5	”	''	PUNCT	''	_	3	punct	3:punct	XML=</sp>
-6	Jenna	Jenna	PROPN	NNP	Number=Sing	7	nsubj	7:nsubj	Discourse=attribution:16->15:0|Entity=(1)
+6	Jenna	Jenna	PROPN	NNP	Number=Sing	7	nsubj	7:nsubj	Discourse=attribution-positive:16->15:0|Entity=(1)
 7	said	say	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	parataxis	3:parataxis	SpaceAfter=No
 8	,	,	PUNCT	,	_	9	punct	9:punct	_
-9	smacking	smack	VERB	VBG	VerbForm=Ger	7	advcl	7:advcl	Discourse=elaboration:17->16:0
+9	smacking	smack	VERB	VBG	VerbForm=Ger	7	advcl	7:advcl	Discourse=elaboration-additional:17->16:0
 10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	11:det	Entity=(2
 11-12	bathtub’s	_	_	_	_	_	_	_	_
 11	bathtub	bathtub	NOUN	NN	Number=Sing	14	nmod:poss	14:nmod:poss	_
@@ -214,8 +220,9 @@
 # s_type = frag
 # speaker = Jenna
 # text = “Again!
-# newpar = sp who:::"#Jenna" (2 s)
-1	“	''	PUNCT	``	_	2	punct	2:punct	Discourse=elaboration:18->15:1|SpaceAfter=No
+# newpar
+# newpar_block = sp who:::"#Jenna" (2 s)
+1	“	''	PUNCT	``	_	2	punct	2:punct	Discourse=elaboration-additional:18->15:1|SpaceAfter=No
 2	Again	again	ADV	RB	Degree=Pos	0	root	0:root	SpaceAfter=No|XML=<hi rend:::"italic">
 3	!	!	PUNCT	.	_	2	punct	2:punct	XML=</hi>
 
@@ -223,7 +230,7 @@
 # s_type = decl
 # speaker = Jenna
 # text = I am so tired of these things!”
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Discourse=evaluation:19->15:2|Entity=(1)
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Discourse=evaluation-comment:19->15:2|Entity=(1)
 2	am	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	4	cop	4:cop	_
 3	so	so	ADV	RB	_	4	advmod	4:advmod	_
 4	tired	tired	ADJ	JJ	Degree=Pos	0	root	0:root	XML=<hi rend:::"italic"></hi>
@@ -236,7 +243,7 @@
 # sent_id = GUM_fiction_pixies-14
 # s_type = decl
 # text = A piteous squeak came from the scrubby thing as the water began to swirl down the drain.
-1	A	a	DET	DT	Definite=Ind|PronType=Art	3	det	3:det	Discourse=sequence_m:20->7:3
+1	A	a	DET	DT	Definite=Ind|PronType=Art	3	det	3:det	Discourse=joint-sequence_m:20->7:3
 2	piteous	piteous	ADJ	JJ	Degree=Pos	3	amod	3:amod	_
 3	squeak	squeak	NOUN	NN	Number=Sing	4	nsubj	4:nsubj	_
 4	came	come	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
@@ -244,7 +251,7 @@
 6	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(5
 7	scrubby	scrubby	ADJ	JJ	Degree=Pos	8	amod	8:amod	_
 8	thing	thing	NOUN	NN	Number=Sing	4	obl	4:obl:from	Entity=5)
-9	as	as	SCONJ	IN	_	12	mark	12:mark	Discourse=circumstance:21->20:0
+9	as	as	SCONJ	IN	_	12	mark	12:mark	Discourse=context-circumstance:21->20:0
 10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	11:det	Entity=(6
 11	water	water	NOUN	NN	Number=Sing	12	nsubj	12:nsubj|14:nsubj:xsubj	Entity=6)
 12	began	begin	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	4	advcl	4:advcl:as	_
@@ -258,7 +265,7 @@
 # sent_id = GUM_fiction_pixies-15
 # s_type = decl
 # text = A translucent little head poked out from behind a pot of organic-sugarcane exfoliating body polish, and looked at me with exaggerated puppy eyes and a trembling lower lip.
-1	A	a	DET	DT	Definite=Ind|PronType=Art	4	det	4:det	Discourse=sequence_m:22->20:1
+1	A	a	DET	DT	Definite=Ind|PronType=Art	4	det	4:det	Discourse=joint-sequence_m:22->20:1
 2	translucent	translucent	ADJ	JJ	Degree=Pos	4	amod	4:amod	_
 3	little	little	ADJ	JJ	Degree=Pos	4	amod	4:amod	_
 4	head	head	NOUN	NN	Number=Sing	5	nsubj	5:nsubj|20:nsubj	_
@@ -276,7 +283,7 @@
 16	body	body	NOUN	NN	Number=Sing	17	compound	17:compound	_
 17	polish	polish	NOUN	NN	Number=Sing	10	nmod	10:nmod:of	SpaceAfter=No
 18	,	,	PUNCT	,	_	20	punct	20:punct	_
-19	and	and	CCONJ	CC	_	20	cc	20:cc	Discourse=sequence_m:23->20:1
+19	and	and	CCONJ	CC	_	20	cc	20:cc	Discourse=joint-sequence_m:23->20:1
 20	looked	look	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	5	conj	5:conj:and	_
 21	at	at	ADP	IN	_	22	case	22:case	_
 22	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	20	obl	20:obl:at	Entity=(3)
@@ -296,14 +303,15 @@
 # s_type = decl
 # speaker = Robert
 # text = “Sorry, kids,” I said to the bathtub.
-# newpar = p (6 s)
-1	“	''	PUNCT	``	_	2	punct	2:punct	Discourse=evaluation:24->20:2|SpaceAfter=No|XML=<sp who:::"#Robert" whom:::"#Pixies">
+# newpar
+# newpar_block = p (6 s)
+1	“	''	PUNCT	``	_	2	punct	2:punct	Discourse=evaluation-comment:24->20:2|SpaceAfter=No|XML=<sp who:::"#Robert" whom:::"#Pixies">
 2	Sorry	sorry	ADJ	JJ	Degree=Pos	0	root	0:root	SpaceAfter=No
 3	,	,	PUNCT	,	_	4	punct	4:punct	_
 4	kids	kid	NOUN	NNS	Number=Plur	2	vocative	2:vocative	Entity=(8)|SpaceAfter=No
 5	,	,	PUNCT	,	_	2	punct	2:punct	SpaceAfter=No
 6	”	''	PUNCT	''	_	2	punct	2:punct	XML=</sp>
-7	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	8	nsubj	8:nsubj	Discourse=attribution:25->24:0|Entity=(3)
+7	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	8	nsubj	8:nsubj	Discourse=attribution-positive:25->24:0|Entity=(3)
 8	said	say	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	2	parataxis	2:parataxis	_
 9	to	to	ADP	IN	_	11	case	11:case	_
 10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	11:det	Entity=(2
@@ -315,7 +323,7 @@
 # s_type = decl
 # speaker = Jenna
 # text = “Don’t humor them, dammit,” Jenna said, and stomped, still naked, still wet, toward the phone in the kitchen.
-1	“	''	PUNCT	``	_	4	punct	4:punct	Discourse=contrast_m:26->24:1|SpaceAfter=No|XML=<sp who:::"#Jenna" whom:::"#Robert">
+1	“	''	PUNCT	``	_	4	punct	4:punct	Discourse=evaluation-comment:26->24:1|SpaceAfter=No|XML=<sp who:::"#Jenna" whom:::"#Robert">
 2-3	Don’t	_	_	_	_	_	_	_	_
 2	Do	do	AUX	VB	VerbForm=Inf	4	aux	4:aux	_
 3	n’t	not	PART	RB	Polarity=Neg	4	advmod	4:advmod	_
@@ -325,16 +333,16 @@
 7	dammit	dammit	INTJ	UH	_	4	discourse	4:discourse	SpaceAfter=No
 8	,	,	PUNCT	,	_	4	punct	4:punct	SpaceAfter=No
 9	”	''	PUNCT	''	_	4	punct	4:punct	XML=</sp>
-10	Jenna	Jenna	PROPN	NNP	Number=Sing	11	nsubj	11:nsubj|14:nsubj	Discourse=attribution:27->26:0|Entity=(1
+10	Jenna	Jenna	PROPN	NNP	Number=Sing	11	nsubj	11:nsubj|14:nsubj	Discourse=attribution-positive:27->26:0|Entity=(1
 11	said	say	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	4	parataxis	4:parataxis	SpaceAfter=No
 12	,	,	PUNCT	,	_	14	punct	14:punct	_
-13	and	and	CCONJ	CC	_	14	cc	14:cc	Discourse=sequence_m:28->7:3
+13	and	and	CCONJ	CC	_	14	cc	14:cc	Discourse=joint-sequence_m:28->7:3
 14	stomped	stomp	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	11	conj	11:conj:and	SpaceAfter=No
 15	,	,	PUNCT	,	_	14	punct	14:punct	_
-16	still	still	ADV	RB	Degree=Pos	17	advmod	17:advmod	Discourse=manner:29->28:0
+16	still	still	ADV	RB	Degree=Pos	17	advmod	17:advmod	Discourse=mode-manner:29->28:0
 17	naked	naked	ADJ	JJ	Degree=Pos	10	acl	10:acl	SpaceAfter=No
-18	,	,	PUNCT	,	_	20	punct	20:punct	_
-19	still	still	ADV	RB	Degree=Pos	20	advmod	20:advmod	Discourse=joint_m:30->29:0
+18	,	,	PUNCT	,	_	17	punct	17:punct	_
+19	still	still	ADV	RB	Degree=Pos	20	advmod	20:advmod	Discourse=joint-list_m:30->29:0
 20	wet	wet	ADJ	JJ	Degree=Pos	10	acl	10:acl	Entity=1)|SpaceAfter=No
 21	,	,	PUNCT	,	_	24	punct	24:punct	_
 22	toward	toward	ADP	IN	_	24	case	24:case	Discourse=same-unit_m:31->28:1
@@ -349,7 +357,7 @@
 # s_type = multiple
 # text = She’d be irritated by her own wet footprints on the battered wood of the hallway floor later, but right now she had blood on her mind.
 1-2	She’d	_	_	_	_	_	_	_	_
-1	She	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	4	nsubj:pass	4:nsubj:pass	Discourse=concession:32->33:1|Entity=(1)
+1	She	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	4	nsubj:pass	4:nsubj:pass	Discourse=adversative-concession:32->33:1|Entity=(1)
 2	’d	will	AUX	MD	VerbForm=Fin	4	aux	4:aux	_
 3	be	be	AUX	VB	VerbForm=Inf	4	aux:pass	4:aux:pass	_
 4	irritated	irritate	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
@@ -357,7 +365,7 @@
 6	her	her	PRON	PRP$	Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	9	nmod:poss	9:nmod:poss	Entity=(1)
 7	own	own	ADJ	JJ	Degree=Pos	9	amod	9:amod	_
 8	wet	wet	ADJ	JJ	Degree=Pos	9	amod	9:amod	_
-9	footprints	footprint	NOUN	NNS	Number=Plur	4	obl	4:obl:by	_
+9	footprints	footprint	NOUN	NNS	Number=Plur	4	obl:agent	4:obl:agent	_
 10	on	on	ADP	IN	_	13	case	13:case	_
 11	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	_
 12	battered	batter	VERB	VBN	Tense=Past|VerbForm=Part	13	amod	13:amod	_
@@ -368,7 +376,7 @@
 17	floor	floor	NOUN	NN	Number=Sing	13	nmod	13:nmod:of	_
 18	later	late	ADV	RBR	Degree=Cmp	4	advmod	4:advmod	SpaceAfter=No
 19	,	,	PUNCT	,	_	24	punct	24:punct	_
-20	but	but	CCONJ	CC	_	24	cc	24:cc	Discourse=background:33->28:2
+20	but	but	CCONJ	CC	_	24	cc	24:cc	Discourse=context-background:33->28:2
 21	right	right	ADV	RB	Degree=Pos	22	advmod	22:advmod	_
 22	now	now	ADV	RB	_	24	advmod	24:advmod	_
 23	she	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	24	nsubj	24:nsubj	Entity=(1)
@@ -382,20 +390,20 @@
 # sent_id = GUM_fiction_pixies-19
 # s_type = frag
 # text = Or water.
-1	Or	or	CCONJ	CC	_	2	cc	2:cc	Discourse=contrast_m:34->33:0
+1	Or	or	CCONJ	CC	_	2	cc	2:cc	Discourse=joint-disjunction_m:34->33:0
 2	water	water	NOUN	NN	Number=Sing	0	root	0:root	SpaceAfter=No
 3	.	.	PUNCT	.	_	2	punct	2:punct	_
 
 # sent_id = GUM_fiction_pixies-20
 # s_type = frag
 # text = Ichor.
-1	Ichor	ichor	NOUN	NN	Number=Sing	0	root	0:root	Discourse=contrast_m:35->33:0|SpaceAfter=No
+1	Ichor	ichor	NOUN	NN	Number=Sing	0	root	0:root	Discourse=joint-disjunction_m:35->33:0|SpaceAfter=No
 2	.	.	PUNCT	.	_	1	punct	1:punct	_
 
 # sent_id = GUM_fiction_pixies-21
 # s_type = frag
 # text = Whatever it is that the common Manhattan water-pixie uses for blood.
-1	Whatever	whatever	PRON	WDT	PronType=Rel	0	root	0:root|11:obj	Discourse=contrast_m:36->33:0
+1	Whatever	whatever	PRON	WDT	PronType=Rel	0	root	0:root|11:obj	Discourse=joint-disjunction_m:36->33:0
 2	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	1	nsubj	1:nsubj	_
 3	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	1	cop	1:cop	_
 4	that	that	PRON	WDT	PronType=Rel	11	obj	1:ref	_
@@ -413,13 +421,14 @@
 # sent_id = GUM_fiction_pixies-22
 # s_type = sub
 # text = I couldn’t say I blamed her.
-# newpar = p (3 s)
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Discourse=attribution:37->38:0|Entity=(3)
+# newpar
+# newpar_block = p (3 s)
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Discourse=attribution-negative:37->38:0|Entity=(3)
 2-3	couldn’t	_	_	_	_	_	_	_	_
 2	could	could	AUX	MD	VerbForm=Fin	4	aux	4:aux	_
 3	n’t	not	PART	RB	Polarity=Neg	4	advmod	4:advmod	_
 4	say	say	VERB	VB	VerbForm=Inf	0	root	0:root	_
-5	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	6	nsubj	6:nsubj	Discourse=evaluation:38->33:2|Entity=(3)
+5	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	6	nsubj	6:nsubj	Discourse=evaluation-comment:38->33:2|Entity=(3)
 6	blamed	blame	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	4	ccomp	4:ccomp	_
 7	her	she	PRON	PRP	Case=Acc|Gender=Fem|Number=Sing|Person=3|PronType=Prs	6	obj	6:obj	Entity=(1)|SpaceAfter=No
 8	.	.	PUNCT	.	_	4	punct	4:punct	_
@@ -427,7 +436,7 @@
 # sent_id = GUM_fiction_pixies-23
 # s_type = decl
 # text = She got the brunt of the pixies’ odd sense of humor much more than I did, because she’s the one who likes to take baths.
-1	She	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=justify:39->38:1|Entity=(1)
+1	She	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=explanation-justify:39->38:1|Entity=(1)
 2	got	get	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	_
 4	brunt	brunt	NOUN	NN	Number=Sing	2	obj	2:obj	_
@@ -442,17 +451,17 @@
 12	humor	humor	NOUN	NN	Number=Sing	10	nmod	10:nmod:of	_
 13	much	much	ADV	RB	Degree=Pos	14	advmod	14:advmod	_
 14	more	more	ADV	RBR	Degree=Cmp	2	advmod	2:advmod	_
-15	than	than	SCONJ	IN	_	17	mark	17:mark	Discourse=antithesis:40->39:0
+15	than	than	SCONJ	IN	_	17	mark	17:mark	Discourse=adversative-antithesis:40->39:0
 16	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	17	nsubj	17:nsubj	Entity=(3)
 17	did	do	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	14	advcl	14:advcl:than	SpaceAfter=No
 18	,	,	PUNCT	,	_	23	punct	23:punct	_
-19	because	because	SCONJ	IN	_	23	mark	23:mark	Discourse=cause:41->39:1
+19	because	because	SCONJ	IN	_	23	mark	23:mark	Discourse=causal-cause:41->39:1
 20-21	she’s	_	_	_	_	_	_	_	_
 20	she	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	23	nsubj	23:nsubj	Entity=(1)
 21	’s	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	23	cop	23:cop	_
 22	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	_
 23	one	one	NOUN	NN	Number=Sing	2	advcl	2:advcl:because|25:nsubj	_
-24	who	who	PRON	WP	PronType=Rel	25	nsubj	23:ref	Discourse=elaboration:42->41:0
+24	who	who	PRON	WP	PronType=Rel	25	nsubj	23:ref	Discourse=elaboration-attribute:42->41:0
 25	likes	like	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	23	acl:relcl	23:acl:relcl	_
 26	to	to	PART	TO	_	27	mark	27:mark	_
 27	take	take	VERB	VB	VerbForm=Inf	25	xcomp	25:xcomp	_
@@ -462,14 +471,14 @@
 # sent_id = GUM_fiction_pixies-24
 # s_type = decl
 # text = Although I will say that a pixie hiding in the sink among the dirty soup bowls makes doing the dishes an adventure.
-1	Although	although	SCONJ	IN	_	4	mark	4:mark	Discourse=contrast_m:43->38:2
-2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Discourse=attribution:44->45:2|Entity=(3)
+1	Although	although	SCONJ	IN	_	4	mark	4:mark	Discourse=adversative-contrast_m:43->38:2
+2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Discourse=attribution-positive:44->45:2|Entity=(3)
 3	will	will	AUX	MD	VerbForm=Fin	4	aux	4:aux	_
 4	say	say	VERB	VB	VerbForm=Inf	0	root	0:root	_
 5	that	that	SCONJ	IN	_	17	mark	17:mark	Discourse=same-unit_m:45->43:0
 6	a	a	DET	DT	Definite=Ind|PronType=Art	7	det	7:det	_
 7	pixie	pixie	NOUN	NN	Number=Sing	17	nsubj	17:nsubj|18:nsubj:xsubj|22:nsubj:xsubj	_
-8	hiding	hide	VERB	VBG	VerbForm=Ger	7	acl	7:acl	Discourse=elaboration:46->45:0
+8	hiding	hide	VERB	VBG	VerbForm=Ger	7	acl	7:acl	Discourse=elaboration-attribute:46->45:0
 9	in	in	ADP	IN	_	11	case	11:case	_
 10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	11:det	_
 11	sink	sink	NOUN	NN	Number=Sing	8	obl	8:obl:in	_
@@ -491,8 +500,9 @@
 # s_type = q
 # speaker = Jenna
 # text = “Ramon?
-# newpar = sp who:::"#Jenna" whom:::"#Ramon" (12 s) | p (12 s)
-1	“	''	PUNCT	``	_	2	punct	2:punct	Discourse=preparation:48->52:7|SpaceAfter=No
+# newpar
+# newpar_block = sp who:::"#Jenna" whom:::"#Ramon" (12 s) | p (12 s)
+1	“	''	PUNCT	``	_	2	punct	2:punct	Discourse=organization-preparation:48->52:7|SpaceAfter=No
 2	Ramon	Ramon	PROPN	NNP	Number=Sing	0	root	0:root	Entity=(11)|SpaceAfter=No
 3	?	?	PUNCT	.	_	2	punct	2:punct	_
 
@@ -501,7 +511,7 @@
 # s_type = intj
 # speaker = Jenna
 # text = Hi.
-1	Hi	hi	INTJ	UH	_	0	root	0:root	Discourse=preparation:49->52:6|SpaceAfter=No
+1	Hi	hi	INTJ	UH	_	0	root	0:root	Discourse=organization-phatic:49->52:6|SpaceAfter=No
 2	.	.	PUNCT	.	_	1	punct	1:punct	_
 
 # sent_id = GUM_fiction_pixies-27
@@ -510,7 +520,7 @@
 # speaker = Jenna
 # text = It’s Jenna McMasters in 5C.
 1-2	It’s	_	_	_	_	_	_	_	_
-1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	Discourse=background:50->52:5
+1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	Discourse=context-background:50->52:5
 2	’s	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	cop	3:cop	_
 3	Jenna	Jenna	PROPN	NNP	Number=Sing	0	root	0:root	_
 4	McMasters	McMasters	PROPN	NNP	Number=Sing	3	flat	3:flat	_
@@ -523,7 +533,7 @@
 # s_type = decl
 # speaker = Jenna
 # text = Ramon, the pixies are out of control.
-1	Ramon	Ramon	PROPN	NNP	Number=Sing	6	vocative	6:vocative	Discourse=motivation:51->52:0|Entity=(11)|SpaceAfter=No
+1	Ramon	Ramon	PROPN	NNP	Number=Sing	6	vocative	6:vocative	Discourse=explanation-motivation:51->52:0|Entity=(11)|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	1:punct	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	Entity=(10
 4	pixies	pixie	NOUN	NNS	Number=Plur	6	nsubj	6:nsubj	Entity=10)
@@ -539,7 +549,7 @@
 # speaker = Jenna
 # text = You’ve got to do something about —
 1-2	You’ve	_	_	_	_	_	_	_	_
-1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj|5:nsubj:xsubj	Discourse=sequence_m:52->7:3|Entity=(11)
+1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj|5:nsubj:xsubj	Discourse=joint-sequence_m:52->7:3|Entity=(11)
 2	’ve	have	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	3	aux	3:aux	_
 3	got	get	VERB	VBN	Tense=Past|VerbForm=Part	0	root	0:root	_
 4	to	to	PART	TO	_	5	mark	5:mark	_
@@ -553,7 +563,7 @@
 # s_type = decl
 # speaker = Jenna
 # text = yes, I know —
-1	yes	yes	INTJ	UH	_	4	discourse	4:discourse	Discourse=concession:53->54:0|SpaceAfter=No
+1	yes	yes	INTJ	UH	_	4	discourse	4:discourse	Discourse=adversative-concession:53->54:0|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	1:punct	_
 3	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Entity=(1)
 4	know	know	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	0	root	0:root	_
@@ -564,7 +574,7 @@
 # s_type = decl
 # speaker = Jenna
 # text = Ramon, the equinox isn’t for weeks and weeks.
-1	Ramon	Ramon	PROPN	NNP	Number=Sing	8	vocative	8:vocative	Discourse=concession:54->52:1|Entity=(11)|SpaceAfter=No
+1	Ramon	Ramon	PROPN	NNP	Number=Sing	8	vocative	8:vocative	Discourse=adversative-concession:54->52:1|Entity=(11)|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	1:punct	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	_
 4	equinox	equinox	NOUN	NN	Number=Sing	8	nsubj	8:nsubj|10:nsubj	_
@@ -582,7 +592,7 @@
 # s_type = decl
 # speaker = Jenna
 # text = Really, we need you to do something sooner ...
-1	Really	really	ADV	RB	Degree=Pos	4	advmod	4:advmod	Discourse=restatement_m:55->52:2|SpaceAfter=No
+1	Really	really	ADV	RB	Degree=Pos	4	advmod	4:advmod	Discourse=restatement-repetition_m:55->52:2|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	1:punct	_
 3	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	4	nsubj	4:nsubj	Entity=(12)
 4	need	need	VERB	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	0	root	0:root	_
@@ -598,7 +608,7 @@
 # s_type = decl
 # speaker = Jenna
 # text = Well, I’m just not ready to wait that long.
-1	Well	well	INTJ	UH	_	7	discourse	7:discourse	Discourse=cause:56->57:0|SpaceAfter=No
+1	Well	well	INTJ	UH	_	7	discourse	7:discourse	Discourse=causal-cause:56->57:0|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	1:punct	_
 3-4	I’m	_	_	_	_	_	_	_	_
 3	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	7	nsubj	7:nsubj|9:nsubj:xsubj	Entity=(1)
@@ -617,7 +627,7 @@
 # s_type = sub
 # speaker = Jenna
 # text = We may have to try something on our own, then.
-1	We	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	3	nsubj	3:nsubj|5:nsubj:xsubj	Discourse=antithesis:57->55:0|Entity=(12)
+1	We	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	3	nsubj	3:nsubj|5:nsubj:xsubj	Discourse=adversative-antithesis:57->55:0|Entity=(12)
 2	may	may	AUX	MD	VerbForm=Fin	3	aux	3:aux	_
 3	have	have	VERB	VB	VerbForm=Inf	0	root	0:root	_
 4	to	to	PART	TO	_	5	mark	5:mark	_
@@ -635,7 +645,7 @@
 # s_type = intj
 # speaker = Jenna
 # text = Goodbye, Ramon.
-1	Goodbye	goodbye	NOUN	NN	Number=Sing	0	root	0:root	Discourse=joint_m:58->52:3|SpaceAfter=No
+1	Goodbye	goodbye	NOUN	NN	Number=Sing	0	root	0:root	Discourse=organization-phatic:58->52:3|SpaceAfter=No
 2	,	,	PUNCT	,	_	3	punct	3:punct	_
 3	Ramon	Ramon	PROPN	NNP	Number=Sing	1	vocative	1:vocative	Entity=(11)|SpaceAfter=No
 4	.	.	PUNCT	.	_	1	punct	1:punct	_
@@ -646,7 +656,7 @@
 # speaker = Jenna
 # text = You’ve been a huge goddamn help.”
 1-2	You’ve	_	_	_	_	_	_	_	_
-1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	7	nsubj	7:nsubj	Discourse=evaluation:59->52:4|Entity=(11)
+1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	7	nsubj	7:nsubj	Discourse=evaluation-comment:59->52:4|Entity=(11)
 2	’ve	have	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	7	aux	7:aux	_
 3	been	be	AUX	VBN	Tense=Past|VerbForm=Part	7	cop	7:cop	_
 4	a	a	DET	DT	Definite=Ind|PronType=Art	7	det	7:det	_
@@ -659,8 +669,9 @@
 # sent_id = GUM_fiction_pixies-37
 # s_type = decl
 # text = She hung up the phone.
-# newpar = p (1 s)
-1	She	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=sequence_m:60->52:8|Entity=(1)
+# newpar
+# newpar_block = p (1 s)
+1	She	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=joint-sequence_m:60->52:8|Entity=(1)
 2	hung	hang	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	up	up	ADP	RP	_	2	compound:prt	2:compound:prt	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	Entity=(9
@@ -672,8 +683,9 @@
 # s_type = decl
 # speaker = Jenna
 # text = “Man, he’s useless,” she said.
-# newpar = p (1 s)
-1	“	''	PUNCT	``	_	6	punct	6:punct	Discourse=evaluation:61->52:9|SpaceAfter=No|XML=<sp who:::"#Jenna" whom:::"#Robert">
+# newpar
+# newpar_block = p (1 s)
+1	“	''	PUNCT	``	_	6	punct	6:punct	Discourse=evaluation-comment:61->52:9|SpaceAfter=No|XML=<sp who:::"#Jenna" whom:::"#Robert">
 2	Man	man	NOUN	NN	Number=Sing	6	discourse	6:discourse	SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	2:punct	_
 4-5	he’s	_	_	_	_	_	_	_	_
@@ -682,7 +694,7 @@
 6	useless	useless	ADJ	JJ	Degree=Pos	10	ccomp	10:ccomp	SpaceAfter=No
 7	,	,	PUNCT	,	_	6	punct	6:punct	SpaceAfter=No
 8	”	''	PUNCT	''	_	6	punct	6:punct	XML=</sp>
-9	she	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	10	nsubj	10:nsubj	Discourse=attribution:62->61:0|Entity=(1)
+9	she	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	10	nsubj	10:nsubj	Discourse=attribution-positive:62->61:0|Entity=(1)
 10	said	say	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	SpaceAfter=No
 11	.	.	PUNCT	.	_	10	punct	10:punct	_
 
@@ -691,15 +703,16 @@
 # s_type = decl
 # speaker = Robert
 # text = “On the other hand,” I said, “he’s the first super we’ve had who keeps the boiler, the door buzzers, and the electrical system in perfect working order.”
-# newpar = p (5 s)
-1	“	''	PUNCT	``	_	5	punct	5:punct	Discourse=contrast_m:63->61:1|SpaceAfter=No|XML=<sp who:::"#Robert" whom:::"#Jenna">
+# newpar
+# newpar_block = p (5 s)
+1	“	''	PUNCT	``	_	5	punct	5:punct	Discourse=adversative-contrast_m:63->61:1|SpaceAfter=No|XML=<sp who:::"#Robert" whom:::"#Jenna">
 2	On	on	ADP	IN	_	5	case	5:case	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	_
 4	other	other	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
 5	hand	hand	NOUN	NN	Number=Sing	16	obl	16:obl:on	SpaceAfter=No
 6	,	,	PUNCT	,	_	5	punct	5:punct	SpaceAfter=No
 7	”	''	PUNCT	''	_	5	punct	5:punct	XML=</sp>
-8	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	9	nsubj	9:nsubj	Discourse=attribution:64->63:0|Entity=(3)
+8	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	9	nsubj	9:nsubj	Discourse=attribution-positive:64->63:0|Entity=(3)
 9	said	say	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	16	parataxis	16:parataxis	SpaceAfter=No
 10	,	,	PUNCT	,	_	9	punct	9:punct	_
 11	“	''	PUNCT	``	_	16	punct	16:punct	Discourse=same-unit_m:65->63:1|SpaceAfter=No|XML=<sp who:::"#Robert" whom:::"#Jenna">
@@ -713,7 +726,7 @@
 17	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	19	nsubj	19:nsubj	Entity=(12)
 18	’ve	have	AUX	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	19	aux	19:aux	_
 19	had	have	VERB	VBN	Tense=Past|VerbForm=Part	16	acl:relcl	16:acl:relcl	_
-20	who	who	PRON	WP	PronType=Rel	21	nsubj	16:ref	Discourse=elaboration:66->65:0
+20	who	who	PRON	WP	PronType=Rel	21	nsubj	16:ref	Discourse=elaboration-attribute:66->65:0
 21	keeps	keep	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	16	acl:relcl	16:acl:relcl	_
 22	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	_
 23	boiler	boiler	NOUN	NN	Number=Sing	21	obj	21:obj|36:nsubj:xsubj	SpaceAfter=No
@@ -736,17 +749,17 @@
 # sent_id = GUM_fiction_pixies-40
 # s_type = decl
 # text = I took the robe I’d brought from the bathroom and wrapped it around her shoulders.
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	2:nsubj|12:nsubj	Discourse=sequence_m:67->7:3|Entity=(3)
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	2:nsubj|12:nsubj	Discourse=joint-sequence_m:67->7:3|Entity=(3)
 2	took	take	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	Entity=(13
 4	robe	robe	NOUN	NN	Number=Sing	2	obj	2:obj	_
-5	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	7	nsubj	7:nsubj	Discourse=background:68->67:0|Entity=(3)|SpaceAfter=No
+5	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	7	nsubj	7:nsubj	Discourse=context-background:68->67:0|Entity=(3)|SpaceAfter=No
 6	’d	have	AUX	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	7	aux	7:aux	_
 7	brought	bring	VERB	VBN	Tense=Past|VerbForm=Part	4	acl:relcl	4:acl:relcl	_
 8	from	from	ADP	IN	_	10	case	10:case	_
 9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	Entity=(4
 10	bathroom	bathroom	NOUN	NN	Number=Sing	7	obl	7:obl:from	Entity=4)13)
-11	and	and	CCONJ	CC	_	12	cc	12:cc	Discourse=sequence_m:69->67:1
+11	and	and	CCONJ	CC	_	12	cc	12:cc	Discourse=joint-sequence_m:69->67:1
 12	wrapped	wrap	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	2	conj	2:conj:and	_
 13	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	12	obj	12:obj	Entity=(13)
 14	around	around	ADP	IN	_	16	case	16:case	_
@@ -759,12 +772,13 @@
 # s_type = wh
 # speaker = Robert
 # text = “What is it they say in yoga class?
-# newpar = sp who:::"#Robert" whom:::"#Jenna" (3 s)
-1	“	''	PUNCT	``	_	2	punct	2:punct	Discourse=preparation:70->72:1|SpaceAfter=No
+# newpar
+# newpar_block = sp who:::"#Robert" whom:::"#Jenna" (3 s)
+1	“	''	PUNCT	``	_	2	punct	2:punct	Discourse=organization-preparation:70->72:1|SpaceAfter=No
 2	What	what	PRON	WP	PronType=Rel	0	root	0:root	_
 3	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	2	cop	2:cop	_
 4	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	_
-5	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	6	nsubj	6:nsubj	Discourse=attribution:71->70:0
+5	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	6	nsubj	6:nsubj	Discourse=attribution-positive:71->70:0
 6	say	say	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	2	acl:relcl	2:acl:relcl	_
 7	in	in	ADP	IN	_	9	case	9:case	_
 8	yoga	yoga	NOUN	NN	Number=Sing	9	compound	9:compound	_
@@ -776,7 +790,7 @@
 # s_type = imp
 # speaker = Robert
 # text = Take a deep cleansing breath.
-1	Take	take	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=sequence_m:72->67:1
+1	Take	take	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=joint-other_m:72->67:2
 2	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	5:det	_
 3	deep	deep	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
 4	cleansing	cleanse	VERB	VBG	VerbForm=Ger	5	amod	5:amod	_
@@ -788,7 +802,7 @@
 # s_type = imp
 # speaker = Robert
 # text = Spiral out from your navel center, and stuff.”
-1	Spiral	spiral	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=sequence_m:73->72:0
+1	Spiral	spiral	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=joint-sequence_m:73->72:0
 2	out	out	ADP	RP	_	1	compound:prt	1:compound:prt	_
 3	from	from	ADP	IN	_	6	case	6:case	_
 4	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(1)
@@ -805,8 +819,9 @@
 # s_type = decl
 # speaker = Jenna
 # text = “Robert, this sort of thing never happened in San Francisco.”
-# newpar = sp who:::"#Jenna" whom:::"#Robert" (1 s) | p (1 s)
-1	“	''	PUNCT	``	_	9	punct	9:punct	Discourse=background:74->7:4|SpaceAfter=No
+# newpar
+# newpar_block = sp who:::"#Jenna" whom:::"#Robert" (1 s) | p (1 s)
+1	“	''	PUNCT	``	_	9	punct	9:punct	Discourse=context-background:74->7:4|SpaceAfter=No
 2	Robert	Robert	PROPN	NNP	Number=Sing	9	vocative	9:vocative	Entity=(3)|SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	2:punct	_
 4	this	this	DET	DT	Number=Sing|PronType=Dem	5	det	5:det	_
@@ -826,12 +841,13 @@
 # s_type = decl
 # speaker = Robert
 # text = “No,” I said.
-# newpar = p (3 s)
-1	“	''	PUNCT	``	_	2	punct	2:punct	Discourse=restatement:75->74:0|SpaceAfter=No|XML=<sp who:::"#Robert" whom:::"#Jenna">
+# newpar
+# newpar_block = p (3 s)
+1	“	''	PUNCT	``	_	2	punct	2:punct	Discourse=restatement-partial:75->74:0|SpaceAfter=No|XML=<sp who:::"#Robert" whom:::"#Jenna">
 2	No	no	INTJ	UH	Polarity=Neg	6	discourse	6:discourse	SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	2:punct	SpaceAfter=No
 4	”	''	PUNCT	''	_	2	punct	2:punct	XML=</sp>
-5	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	6	nsubj	6:nsubj	Discourse=attribution:76->75:0|Entity=(3)
+5	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	6	nsubj	6:nsubj	Discourse=attribution-positive:76->75:0|Entity=(3)
 6	said	say	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	SpaceAfter=No
 7	.	.	PUNCT	.	_	6	punct	6:punct	_
 
@@ -840,8 +856,9 @@
 # s_type = decl
 # speaker = Robert
 # text = “In San Francisco we got earthquakes, and there were wood sprites in Golden Gate Park.
-# newpar = sp who:::"#Robert" whom:::"#Jenna" (2 s)
-1	“	''	PUNCT	``	_	6	punct	6:punct	Discourse=contrast_m:77->74:1|SpaceAfter=No
+# newpar
+# newpar_block = sp who:::"#Robert" whom:::"#Jenna" (2 s)
+1	“	''	PUNCT	``	_	6	punct	6:punct	Discourse=adversative-contrast_m:77->74:1|SpaceAfter=No
 2	In	in	ADP	IN	_	3	case	3:case	_
 3	San	San	PROPN	NNP	Number=Sing	6	obl	6:obl:in	Entity=(14
 4	Francisco	Francisco	PROPN	NNP	Number=Sing	3	flat	3:flat	Entity=14)
@@ -849,8 +866,8 @@
 6	got	get	VERB	VBD	Mood=Ind|Number=Plur|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	_
 7	earthquakes	earthquake	NOUN	NNS	Number=Plur	6	obj	6:obj	SpaceAfter=No
 8	,	,	PUNCT	,	_	11	punct	11:punct	_
-9	and	and	CCONJ	CC	_	11	cc	11:cc	Discourse=joint_m:78->77:0
-10	there	there	PRON	EX	_	11	expl	11:expl	_
+9	and	and	CCONJ	CC	_	11	cc	11:cc	Discourse=joint-list_m:78->77:0
+10	there	there	PRON	EX	PronType=Dem	11	expl	11:expl	_
 11	were	be	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	6	conj	6:conj:and	_
 12	wood	wood	NOUN	NN	Number=Sing	13	compound	13:compound	_
 13	sprites	sprite	NOUN	NNS	Number=Plur	11	nsubj	11:nsubj	_
@@ -865,7 +882,7 @@
 # s_type = intj
 # speaker = Robert
 # text = Welcome to New York.”
-1	Welcome	welcome	INTJ	UH	_	0	root	0:root	Discourse=evaluation:79->74:2
+1	Welcome	welcome	INTJ	UH	_	0	root	0:root	Discourse=evaluation-comment:79->74:2
 2	to	to	ADP	IN	_	3	case	3:case	_
 3	New	New	PROPN	NNP	Number=Sing	1	obl	1:obl:to	_
 4	York	York	PROPN	NNP	Number=Sing	3	flat	3:flat	SpaceAfter=No
@@ -877,15 +894,16 @@
 # s_type = decl
 # speaker = Jenna
 # text = “I keep trying to tell myself that this is cool.
-# newpar = sp who:::"#Jenna" whom:::"#Robert" (2 s) | p (2 s)
-1	“	''	PUNCT	``	_	3	punct	3:punct	Discourse=attribution:80->81:0|SpaceAfter=No
+# newpar
+# newpar_block = sp who:::"#Jenna" whom:::"#Robert" (2 s) | p (2 s)
+1	“	''	PUNCT	``	_	3	punct	3:punct	Discourse=attribution-positive:80->81:0|SpaceAfter=No
 2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	3:nsubj|4:nsubj:xsubj|6:nsubj:xsubj	Entity=(1)
 3	keep	keep	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 4	trying	try	VERB	VBG	VerbForm=Ger	3	xcomp	3:xcomp	_
 5	to	to	PART	TO	_	6	mark	6:mark	_
 6	tell	tell	VERB	VB	VerbForm=Inf	4	xcomp	4:xcomp	_
 7	myself	myself	PRON	PRP	Case=Acc|Number=Sing|Person=1|Poss=Yes|PronType=Prs|Reflex=Yes	6	iobj	6:iobj	Entity=(1)
-8	that	that	SCONJ	IN	_	11	mark	11:mark	Discourse=evaluation:81->7:5
+8	that	that	SCONJ	IN	_	11	mark	11:mark	Discourse=evaluation-comment:81->7:5
 9	this	this	PRON	DT	Number=Sing|PronType=Dem	11	nsubj	11:nsubj	_
 10	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	11	cop	11:cop	_
 11	cool	cool	ADJ	JJ	Degree=Pos	6	ccomp	6:ccomp	SpaceAfter=No
@@ -896,7 +914,7 @@
 # s_type = decl
 # speaker = Jenna
 # text = But then they come at me on a Sunday morning, when I have no work to do and I’m trying to relax and I’m naked, and I just lose it ....”
-1	But	but	CCONJ	CC	_	4	cc	4:cc	Discourse=contrast_m:82->81:1
+1	But	but	CCONJ	CC	_	4	cc	4:cc	Discourse=adversative-contrast_m:82->81:1
 2	then	then	ADV	RB	PronType=Dem	4	advmod	4:advmod	_
 3	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	4	nsubj	4:nsubj	Entity=(10)
 4	come	come	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
@@ -907,27 +925,27 @@
 9	Sunday	Sunday	PROPN	NNP	Number=Sing	10	compound	10:compound	_
 10	morning	morning	NOUN	NN	Number=Sing	4	obl	4:obl:on	SpaceAfter=No
 11	,	,	PUNCT	,	_	14	punct	14:punct	_
-12	when	when	SCONJ	WRB	PronType=Int	14	mark	14:mark	Discourse=circumstance:83->82:0
+12	when	when	SCONJ	WRB	PronType=Int	14	mark	14:mark	Discourse=context-circumstance:83->82:0
 13	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	14	nsubj	14:nsubj	Entity=(1)
 14	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	4	advcl	4:advcl:when	_
-15	no	no	DET	DT	Polarity=Neg	16	det	16:det	_
+15	no	no	DET	DT	Polarity=Neg|PronType=Art	16	det	16:det	_
 16	work	work	NOUN	NN	Number=Sing	14	obj	14:obj	_
 17	to	to	PART	TO	_	18	mark	18:mark	_
 18	do	do	VERB	VB	VerbForm=Inf	16	acl	16:acl:to	_
-19	and	and	CCONJ	CC	_	22	cc	22:cc	Discourse=joint_m:84->83:0
+19	and	and	CCONJ	CC	_	22	cc	22:cc	Discourse=joint-list_m:84->83:0
 20-21	I’m	_	_	_	_	_	_	_	_
 20	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	22	nsubj	22:nsubj|24:nsubj:xsubj	Entity=(1)
 21	’m	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	22	aux	22:aux	_
 22	trying	try	VERB	VBG	Tense=Pres|VerbForm=Part	14	conj	4:advcl:when|14:conj:and	_
 23	to	to	PART	TO	_	24	mark	24:mark	_
 24	relax	relax	VERB	VB	VerbForm=Inf	22	xcomp	22:xcomp	_
-25	and	and	CCONJ	CC	_	28	cc	28:cc	Discourse=joint_m:85->83:0
+25	and	and	CCONJ	CC	_	28	cc	28:cc	Discourse=joint-list_m:85->83:0
 26-27	I’m	_	_	_	_	_	_	_	_
-26	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	28	nsubj:pass	28:nsubj:pass	Entity=(1)
-27	’m	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	28	aux:pass	28:aux:pass	_
+26	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	28	nsubj	28:nsubj	Entity=(1)
+27	’m	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	28	cop	28:cop	_
 28	naked	naked	ADJ	JJ	Degree=Pos	14	conj	4:advcl:when|14:conj:and	SpaceAfter=No
 29	,	,	PUNCT	,	_	33	punct	33:punct	_
-30	and	and	CCONJ	CC	_	33	cc	33:cc	Discourse=result:86->82:1
+30	and	and	CCONJ	CC	_	33	cc	33:cc	Discourse=causal-result:86->82:1
 31	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	33	nsubj	33:nsubj	Entity=(1)
 32	just	just	ADV	RB	_	33	advmod	33:advmod	_
 33	lose	lose	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	4	conj	4:conj:and	_
@@ -941,8 +959,9 @@
 # s_type = decl
 # speaker = Robert
 # text = “And you take it out on the super,” I said.
-# newpar = p (1 s)
-1	“	''	PUNCT	``	_	4	punct	4:punct	Discourse=result:87->86:0|SpaceAfter=No|XML=<sp who:::"#Robert" whom:::"#Jenna">
+# newpar
+# newpar_block = p (1 s)
+1	“	''	PUNCT	``	_	4	punct	4:punct	Discourse=causal-result:87->86:0|SpaceAfter=No|XML=<sp who:::"#Robert" whom:::"#Jenna">
 2	And	and	CCONJ	CC	_	4	cc	4:cc	_
 3	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	4	nsubj	4:nsubj	Entity=(1)
 4	take	take	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	13	ccomp	13:ccomp	_
@@ -953,7 +972,7 @@
 9	super	super	NOUN	NN	Number=Sing	4	obl	4:obl:on	Entity=11)|SpaceAfter=No
 10	,	,	PUNCT	,	_	4	punct	4:punct	SpaceAfter=No
 11	”	''	PUNCT	''	_	4	punct	4:punct	XML=</sp>
-12	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	13	nsubj	13:nsubj	Discourse=attribution:88->87:0|Entity=(3)
+12	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	13	nsubj	13:nsubj	Discourse=attribution-positive:88->87:0|Entity=(3)
 13	said	say	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	SpaceAfter=No
 14	.	.	PUNCT	.	_	13	punct	13:punct	_
 
@@ -962,8 +981,9 @@
 # s_type = decl
 # speaker = Jenna
 # text = “And now I’m gonna have a bruise on my butt, too,” she said.
-# newpar = p (1 s)
-1	“	''	PUNCT	``	_	6	punct	6:punct	Discourse=result:89->7:6|SpaceAfter=No|XML=<sp who:::"#Jenna" whom:::"#Robert">
+# newpar
+# newpar_block = p (1 s)
+1	“	''	PUNCT	``	_	6	punct	6:punct	Discourse=causal-result:89->7:6|SpaceAfter=No|XML=<sp who:::"#Jenna" whom:::"#Robert">
 2	And	and	CCONJ	CC	_	6	cc	6:cc	_
 3	now	now	ADV	RB	_	6	advmod	6:advmod	_
 4-5	I’m	_	_	_	_	_	_	_	_
@@ -982,7 +1002,7 @@
 15	too	too	ADV	RB	Degree=Pos	6	advmod	6:advmod	SpaceAfter=No
 16	,	,	PUNCT	,	_	6	punct	6:punct	SpaceAfter=No
 17	”	''	PUNCT	''	_	6	punct	6:punct	XML=</sp>
-18	she	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	19	nsubj	19:nsubj	Discourse=attribution:90->89:0|Entity=(1)
+18	she	she	PRON	PRP	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	19	nsubj	19:nsubj	Discourse=attribution-positive:90->89:0|Entity=(1)
 19	said	say	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	SpaceAfter=No
 20	.	.	PUNCT	.	_	19	punct	19:punct	_
 
@@ -991,8 +1011,9 @@
 # s_type = decl
 # speaker = Robert
 # text = “Well, that’s karma for you.
-# newpar = sp who:::"#Robert" whom:::"#Jenna" (2 s) | p (2 s)
-1	“	''	PUNCT	``	_	6	punct	6:punct	Discourse=evaluation:91->89:1|SpaceAfter=No
+# newpar
+# newpar_block = sp who:::"#Robert" whom:::"#Jenna" (2 s) | p (2 s)
+1	“	''	PUNCT	``	_	6	punct	6:punct	Discourse=evaluation-comment:91->89:1|SpaceAfter=No
 2	Well	well	INTJ	UH	_	6	discourse	6:discourse	SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	2:punct	_
 4-5	that’s	_	_	_	_	_	_	_	_
@@ -1008,21 +1029,21 @@
 # s_type = multiple
 # speaker = Robert
 # text = Now stretch out on the couch, and I’ll bring you coffee and rub your feet.”
-1	Now	now	ADV	RB	_	2	advmod	2:advmod	Discourse=sequence_m:92->7:7
+1	Now	now	ADV	RB	_	2	advmod	2:advmod	Discourse=joint-sequence_m:92->7:7
 2	stretch	stretch	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	_
 3	out	out	ADP	RP	_	2	compound:prt	2:compound:prt	_
 4	on	on	ADP	IN	_	6	case	6:case	_
 5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	_
 6	couch	couch	NOUN	NN	Number=Sing	2	obl	2:obl:on	SpaceAfter=No
 7	,	,	PUNCT	,	_	11	punct	11:punct	_
-8	and	and	CCONJ	CC	_	11	cc	11:cc	Discourse=sequence_m:93->92:0
+8	and	and	CCONJ	CC	_	11	cc	11:cc	Discourse=joint-sequence_m:93->92:0
 9-10	I’ll	_	_	_	_	_	_	_	_
 9	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	11	nsubj	11:nsubj|15:nsubj	Entity=(3)
 10	’ll	will	AUX	MD	VerbForm=Fin	11	aux	11:aux|15:aux	_
 11	bring	bring	VERB	VB	VerbForm=Inf	2	conj	2:conj:and	_
 12	you	you	PRON	PRP	Case=Acc|Number=Sing|Person=2|PronType=Prs	11	iobj	11:iobj	Entity=(1)
 13	coffee	coffee	NOUN	NN	Number=Sing	11	obj	11:obj	_
-14	and	and	CCONJ	CC	_	15	cc	15:cc	Discourse=sequence_m:94->92:0
+14	and	and	CCONJ	CC	_	15	cc	15:cc	Discourse=joint-sequence_m:94->92:0
 15	rub	rub	VERB	VB	VerbForm=Inf	11	conj	2:conj|11:conj:and	_
 16	your	your	PRON	PRP$	Person=2|Poss=Yes|PronType=Prs	17	nmod:poss	17:nmod:poss	Entity=(1)
 17	feet	foot	NOUN	NNS	Number=Plur	15	obj	15:obj	SpaceAfter=No
@@ -1032,8 +1053,9 @@
 # sent_id = GUM_fiction_pixies-54
 # s_type = decl
 # text = Jenna smiled.
-# newpar = p (2 s)
-1	Jenna	Jenna	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=evaluation:95->92:1|Entity=(1)
+# newpar
+# newpar_block = p (2 s)
+1	Jenna	Jenna	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=evaluation-comment:95->92:1|Entity=(1)
 2	smiled	smile	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	SpaceAfter=No
 3	.	.	PUNCT	.	_	2	punct	2:punct	_
 
@@ -1042,14 +1064,15 @@
 # s_type = other
 # speaker = Jenna
 # text = “Just make sure there are no pixies in the coffee pot, is all I ask.”
-# newpar = sp who:::"#Jenna" whom:::"#Robert" (1 s)
-1	“	''	PUNCT	``	_	15	punct	15:punct	Discourse=elaboration:96->92:2|SpaceAfter=No
+# newpar
+# newpar_block = sp who:::"#Jenna" whom:::"#Robert" (1 s)
+1	“	''	PUNCT	``	_	15	punct	15:punct	Discourse=elaboration-additional:96->92:2|SpaceAfter=No
 2	Just	just	ADV	RB	_	3	advmod	3:advmod	_
 3	make	make	VERB	VB	VerbForm=Inf	15	csubj	15:csubj	_
 4	sure	sure	ADJ	JJ	Degree=Pos	3	xcomp	3:xcomp	_
-5	there	there	PRON	EX	_	6	expl	6:expl	_
+5	there	there	PRON	EX	PronType=Dem	6	expl	6:expl	_
 6	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	4	ccomp	4:ccomp	_
-7	no	no	DET	DT	Polarity=Neg	8	det	8:det	_
+7	no	no	DET	DT	Polarity=Neg|PronType=Art	8	det	8:det	_
 8	pixies	pixie	NOUN	NNS	Number=Plur	6	nsubj	6:nsubj	_
 9	in	in	ADP	IN	_	12	case	12:case	_
 10	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	_
@@ -1057,7 +1080,7 @@
 12	pot	pot	NOUN	NN	Number=Sing	6	obl	6:obl:in	SpaceAfter=No
 13	,	,	PUNCT	,	_	3	punct	3:punct	_
 14	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	15	cop	15:cop	_
-15	all	all	DET	DT	_	0	root	0:root	_
+15	all	all	DET	DT	PronType=Tot	0	root	0:root	_
 16	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	17	nsubj	17:nsubj	Entity=(1)
 17	ask	ask	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	15	acl:relcl	15:acl:relcl	SpaceAfter=No
 18	.	.	PUNCT	.	_	15	punct	15:punct	SpaceAfter=No
@@ -1066,14 +1089,15 @@
 # sent_id = GUM_fiction_pixies-56
 # s_type = intj
 # text = Ugh.
-# newpar = p (3 s)
-1	Ugh	ugh	INTJ	UH	_	0	root	0:root	Discourse=evaluation:97->96:0|SpaceAfter=No
+# newpar
+# newpar_block = p (3 s)
+1	Ugh	ugh	INTJ	UH	_	0	root	0:root	Discourse=evaluation-comment:97->96:0|SpaceAfter=No
 2	.	.	PUNCT	.	_	1	punct	1:punct	_
 
 # sent_id = GUM_fiction_pixies-57
 # s_type = other
 # text = That was our previous Sunday morning adventure: most unpleasant, and marked by the death of a new French-press pot.
-1	That	that	PRON	DT	Number=Sing|PronType=Dem	7	nsubj	7:nsubj	Discourse=background:98->97:0
+1	That	that	PRON	DT	Number=Sing|PronType=Dem	7	nsubj	7:nsubj	Discourse=context-background:98->97:0
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	7	cop	7:cop	_
 3	our	our	PRON	PRP$	Number=Plur|Person=1|Poss=Yes|PronType=Prs	7	nmod:poss	7:nmod:poss	Entity=(12)
 4	previous	previous	ADJ	JJ	Degree=Pos	7	amod	7:amod	_
@@ -1081,10 +1105,10 @@
 6	morning	morning	NOUN	NN	Number=Sing	7	compound	7:compound	_
 7	adventure	adventure	NOUN	NN	Number=Sing	0	root	0:root	SpaceAfter=No
 8	:	:	PUNCT	:	_	10	punct	10:punct	_
-9	most	most	ADV	RBS	Degree=Sup	10	advmod	10:advmod	Discourse=evaluation:99->98:0
+9	most	most	ADV	RBS	Degree=Sup	10	advmod	10:advmod	Discourse=evaluation-comment:99->98:0
 10	unpleasant	unpleasant	ADJ	JJ	Degree=Pos|Polarity=Neg	7	parataxis	7:parataxis	SpaceAfter=No
 11	,	,	PUNCT	,	_	13	punct	13:punct	_
-12	and	and	CCONJ	CC	_	13	cc	13:cc	Discourse=evidence:100->99:0
+12	and	and	CCONJ	CC	_	13	cc	13:cc	Discourse=explanation-evidence:100->99:0
 13	marked	mark	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	10	conj	10:conj:and	_
 14	by	by	ADP	IN	_	16	case	16:case	_
 15	the	the	DET	DT	Definite=Def|PronType=Art	16	det	16:det	_
@@ -1101,9 +1125,9 @@
 # sent_id = GUM_fiction_pixies-58
 # s_type = decl
 # text = I realized that I, too, hated the pixies.
-1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	2:nsubj	Discourse=attribution:101->102:0|Entity=(3)
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	2:nsubj	Discourse=attribution-positive:101->102:0|Entity=(3)
 2	realized	realize	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	_
-3	that	that	SCONJ	IN	_	8	mark	8:mark	Discourse=justify:102->103:1
+3	that	that	SCONJ	IN	_	8	mark	8:mark	Discourse=explanation-justify:102->103:1
 4	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	8	nsubj	8:nsubj	Entity=(3)|SpaceAfter=No
 5	,	,	PUNCT	,	_	4	punct	4:punct	_
 6	too	too	ADV	RB	Degree=Pos	8	advmod	8:advmod	SpaceAfter=No
@@ -1118,15 +1142,16 @@
 # s_type = decl
 # speaker = Robert
 # text = “We need a plan,” I said.
-# newpar = p (1 s)
-1	“	''	PUNCT	``	_	3	punct	3:punct	Discourse=result:103->7:8|SpaceAfter=No|XML=<sp who:::"#Robert" whom:::"#Jenna">
+# newpar
+# newpar_block = p (1 s)
+1	“	''	PUNCT	``	_	3	punct	3:punct	Discourse=causal-result:103->7:8|SpaceAfter=No|XML=<sp who:::"#Robert" whom:::"#Jenna">
 2	We	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	3	nsubj	3:nsubj	Entity=(12)
 3	need	need	VERB	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	9	ccomp	9:ccomp	_
 4	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	5:det	_
 5	plan	plan	NOUN	NN	Number=Sing	3	obj	3:obj	SpaceAfter=No
 6	,	,	PUNCT	,	_	3	punct	3:punct	SpaceAfter=No
 7	”	''	PUNCT	''	_	3	punct	3:punct	XML=</sp>
-8	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	9	nsubj	9:nsubj	Discourse=attribution:104->103:0|Entity=(3)
+8	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	9	nsubj	9:nsubj	Discourse=attribution-positive:104->103:0|Entity=(3)
 9	said	say	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	SpaceAfter=No
 10	.	.	PUNCT	.	_	9	punct	9:punct	_
 
