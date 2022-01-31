@@ -1408,5 +1408,7 @@ def add_xml_to_conllu(gum_target, reddit=False, ontogum=False):
 				with_tags = "\n\n".join([xml_tagged_conllu[d] for d in docnames])
 
 		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
+			# Separate newpar and newpar_blocks
+			with_tags = with_tags.replace("# newpar ", "# newpar\n# newpar_block ")
 			f.write(with_tags.strip() + "\n\n")
 
