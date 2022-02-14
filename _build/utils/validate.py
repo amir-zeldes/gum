@@ -769,6 +769,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func in ["iobj","obj"] and parent_lemma in ["become","remain","stay"]:
 		print("WARN: verb '"+parent_lemma+"' should take xcomp not "+func+" argument" + inname)
 
+	if "obj" in child_funcs and "ccomp" in child_funcs:
+		print("WARN: token has both obj and ccomp children" + inname)
+
 	if func in ["nmod:tmod","nmod:npmod","obl:tmod","obl:npmod"] and "case" in child_funcs:
 		print("WARN: function " + func +  " should not have 'case' dependents" + inname)
 
