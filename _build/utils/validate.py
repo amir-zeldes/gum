@@ -20,8 +20,8 @@ class Markable:
 		self.infstat = ""
 		self.antecedent = ""
 		self.coref_type = ""
-		self.anaphor = ""
-		self.anaphor_type =""
+		self.anaphor = []
+		self.anaphor_type = []
 
 class rstNode:
 	def __init__(self):
@@ -434,13 +434,14 @@ def validate_annos(gum_source, reddit=False):
 		coref_lines = io.open(coref_file,encoding="utf8").read().replace("\r", "").split("\n")
 
 		markables = {}
-		antecedents = {}
+		antecedents = defaultdict(list)
 		single_tok_ids = False
 
 		for line in coref_lines:
 			if "\t" in line:  # Token
 				fields = line.strip().split("\t")
 				entity_str, infstat_str, identity_str, coref_str, src_str = fields[-5:]
+
 				if entity_str != "" and entity_str != "_":  # Entity annotation found
 					entities = entity_str.split("|")
 					infstats = infstat_str.split("|")
@@ -473,12 +474,20 @@ def validate_annos(gum_source, reddit=False):
 						if id not in markables:
 							markables[id] = Markable()
 							markables[id].start = tok_id
-							markables[id].anaphor = src
-							markables[id].anaphor_type = coref
+							markables[id].anaphor.append(src)
+							markables[id].anaphor_type.append(coref)
 						markables[id].entity = entity
 						markables[id].infstat = infstat
 						markables[id].text += " " + text
 						markables[id].end = tok_id
+
+					# second pass: add the missing coref relation
+					if srcs != ['_']:
+						for coref, src in zip(corefs, srcs):
+							candidate_id = src.strip(']').split('_')[-1]
+							if candidate_id != "0" and src not in markables[candidate_id].anaphor:
+								markables[candidate_id].anaphor.append(src)
+								markables[candidate_id].anaphor_type.append(coref)
 
 		# Ensure single token markables are given a tok_id-style identifier if the document uses this convention
 		mark_ids = list(markables.keys())
@@ -492,28 +501,43 @@ def validate_annos(gum_source, reddit=False):
 		for mark_id in markables:
 			mark = markables[mark_id]
 			mark.text = mark.text.strip()
-			src = mark.anaphor
-			src_tok = re.sub(r'\[.*', '', src)
-			if "[" in src:
-				target = re.search(r'_([0-9]+)\]', src).group(1)
-				if target == mark_id:
-					if "[0_" in src:  # source is single token markable
-						antecedents[src_tok] = mark_id
-					else:  # source is a multi-token markable
-						src_id = re.search(r'\[([0-9]+)_', src).group(1)
-						antecedents[src_id] = mark_id
-			else:  # source and target are single tokens
-				antecedents[src_tok] = mark_id
+			srcs = mark.anaphor
+			for src in srcs:
+				src_tok = re.sub(r'\[.*', '', src)
+				if "[" in src:
+					target = re.search(r'_([0-9]+)\]', src).group(1)
+					if target == mark_id:
+						if "[0_" in src:  # source is single token markable
+							for m in markables:
+								if markables[m].start == src_tok:
+									antecedents[m].append(mark_id)
+									break
+						else:  # source is a multi-token markable
+							src_id = re.search(r'\[([0-9]+)_', src).group(1)
+							# if src_id in antecedents:
+							# 	raise ValueError(f'The entity {src_id} has multiple antecedents {antecedents[src_id]} and {mark_id}.')
+							antecedents[src_id].append(mark_id)
+				else:  # source and target are single tokens
+					antecedents[src_tok].append(mark_id)
 
 		for anaphor in antecedents:
 			if anaphor != "_":
-				try:
-					markables[anaphor].antecedent = markables[antecedents[anaphor]]
-					markables[anaphor].coref_type = markables[antecedents[anaphor]].anaphor_type
-				except KeyError as e:
-					sys.stderr.write("Exception in " + docname + ": KeyError\n")
-					markables[anaphor].antecedent = markables[antecedents[anaphor]]
-					markables[anaphor].coref_type = markables[antecedents[anaphor]].anaphor_type
+				for mark_id in antecedents[anaphor]:
+					if mark_id == '109':
+						a = 1
+					try:
+						markables[anaphor].antecedent = markables[mark_id]
+						for i, src in enumerate(markables[mark_id].anaphor):
+							if f'[{anaphor}_' in src:
+								markables[anaphor].coref_type = markables[mark_id].anaphor_type[i]
+					except KeyError as e:
+						sys.stderr.write("Exception in " + docname + ": KeyError\n")
+						markables[anaphor].antecedent = markables[mark_id]
+						for i, src in enumerate(markables[mark_id].anaphor):
+							if f'[{anaphor}_' in src:
+								markables[anaphor].coref_type = markables[mark_id].anaphor_type[i]
+							elif '[0_' in src and anaphor in src:
+								markables[anaphor].coref_type = markables[antecedents[anaphor]].anaphor_type[i]
 
 		for mark_id in markables:
 			# Flag entity type clashes but skip giv/new since they are set automatically
@@ -768,9 +792,6 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if func in ["iobj","obj"] and parent_lemma in ["become","remain","stay"]:
 		print("WARN: verb '"+parent_lemma+"' should take xcomp not "+func+" argument" + inname)
-
-	if "obj" in child_funcs and "ccomp" in child_funcs:
-		print("WARN: token has both obj and ccomp children" + inname)
 
 	if func in ["nmod:tmod","nmod:npmod","obl:tmod","obl:npmod"] and "case" in child_funcs:
 		print("WARN: function " + func +  " should not have 'case' dependents" + inname)
