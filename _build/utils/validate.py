@@ -819,6 +819,15 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func == "xcomp" and parent_lemma in ["see","hear","notice"]:  # find
 		print("WARN: deprel "+func+" should not be used with perception verb lemma '"+lemma+"' (should this be nsubj+ccomp?)" + inname)
 
+	if "obj" in child_funcs and "ccomp" in child_funcs:
+		print("WARN: token has both obj and ccomp children" + inname)
+
+	if func == "acl" and (pos.endswith("G") or pos.endswith("N")) and parent_id == id + 1:  # premodifier V.G/N should be amod not acl
+		print("WARN: back-pointing " + func + " for adjacent premodifier (should be amod?) in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
+
+	if func.endswith("tmod") and pos.startswith("RB"):
+		print("WARN: adverbs should not be tmod" + inname)
+
 
 	#if func == "advmod" and lemma in ["where","when"] and parent_func == "acl:relcl":
 	#	print("WARN: lemma "+lemma+" should not be func '"+func+"' when it is the child of a '" + parent_func + "'" + inname)
