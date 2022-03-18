@@ -41,14 +41,19 @@ def fix_rst(gum_source, gum_target, reddit=False):
 
 
 def validate_rsd(rsd_line, linenum, docname):
-	inname = " in document " + docname + " on line " + str(linenum)
+	inname = " in document " + docname + " on line " + str(linenum) + "\n"
 	if re.search(r'\b[Tt]o\b[^\n]+head_pos=V.\|[^\n]+head_func=acl\|[^\n]+elaboration-attr', rsd_line) is not None:
 		if "\tthat" not in rsd_line and "\tabout" not in rsd_line and "\tyou " not in rsd_line:  # check for that-clause embedding to-, or about PP
 			sys.stderr.write("! adnominal infinitive clause should be purpose-attribute not elaboration-attribute" + inname)
 	if re.search(r'(\bn.t\b[^\n]+)attribution-positive_r', rsd_line) is not None:
 		if "surprised" not in rsd_line:
 			sys.stderr.write("! suspicious attribution-positive_r with negation" + inname)
-
+	if "\t" in rsd_line:
+		fields = rsd_line.split("\t")
+		if int(fields[0]) < int(fields[6]) and (fields[7] in ["elaboration-attribute_r","purpose-attribute_r","elaboration-additional_r","restatement_partial_r"]):
+			sys.stderr.write("! invalid left to right relation " + fields[7] + inname)
+		elif int(fields[0]) > int(fields[6]) and (fields[7] in ["organization-preparation_r","organization-heading_r","topic-question_r"]):
+			sys.stderr.write("! invalid right to left relation " + fields[7] + inname)
 
 def fix_file(filename,tt_file,gum_source,outdir):
 
@@ -112,7 +117,7 @@ def fix_file(filename,tt_file,gum_source,outdir):
 	# Make rsd version
 	rsd = make_rsd(out_data,gum_source,as_text=True,docname=os.path.basename(rst_file_name.replace(".rs3","")))
 	for l, line in enumerate(rsd.split("\n")):
-		validate_rsd(line, l, docname)
+		validate_rsd(line, l+1, docname)
 
 	with io.open(outdir.replace("rstweb","dependencies") + docname + ".rsd",'w',encoding="utf8",newline="\n") as f:
 		f.write(rsd)
