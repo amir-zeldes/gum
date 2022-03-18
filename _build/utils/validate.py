@@ -394,7 +394,7 @@ def validate_annos(gum_source, reddit=False):
 		non_lemma_combos = [("PP","her"),("MD","wo"),("PP","us"),("DT","an")]
 		lemma_pos_combos = {"which":"WDT"}
 		non_cap_lemmas = ["There","How","Why","Where","When"]
-		IN_not_like_lemma = ["vs", "vs.", "v", "ca", "that", "then", "a", "fro", "too", "til"]  # incl. known typos
+		IN_not_like_lemma = ["vs", "vs.", "v", "ca", "that", "then", "a", "fro", "too", "til", "wether"]  # incl. known typos
 
 		prev_tok = ""
 		prev_pos = ""
@@ -686,9 +686,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print("WARN: tag POS must have function case" + inname)
 
 	if pos in ["VVG","VVN","VVD"] and lemma == tok:
-		# check cases where VVN form is same as tok ('know' and 'notice' are recorded typos, l- is a disfluency)
+		# check cases where VVN form is same as tok ('know' and 'notice' etc. are recorded typos, l- is a disfluency)
 		if tok not in ["shed","put","read","become","come","cut","hit","split","cast","set","hurt","run","broadcast","knit",
-					   "undercut","spread","shut","upset","burst","bit","let","l-","g-","know","notice","reach"]:
+					   "undercut","spread","shut","upset","burst","bit","let","l-","g-","know","notice","reach","raise"]:
 			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
 	if pos == "NPS" and tok == lemma and tok.endswith("s"):
@@ -828,6 +828,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func.endswith("tmod") and pos.startswith("RB"):
 		print("WARN: adverbs should not be tmod" + inname)
 
+	if pos == "EX" and func not in ["expl","reparandum"]:
+		print("WARN: existential 'there' tagged EX should not be " + func + inname)
 
 	#if func == "advmod" and lemma in ["where","when"] and parent_func == "acl:relcl":
 	#	print("WARN: lemma "+lemma+" should not be func '"+func+"' when it is the child of a '" + parent_func + "'" + inname)
