@@ -23,6 +23,10 @@ The corpus is created as part of the course LING-367 (Computational Corpus Lingu
 
 For one of the twelve text types in this corpus, reddit forum discussions, plain text data is not supplied. To obtain this data, please run `_build/process_reddit.py`, then `run _build/build_gum.py`. This, and all data, is provided with absolutely no warranty; users agree to use the data under the license with which it is provided, and reddit data is subject to reddit's terms and conditions. See [README_reddit.md](README_reddit.md) for more details.
 
+## Train / dev / test splits
+
+Two documents from each genre are reserved for testing and devlopment (24 test documents, 24 dev documents). See [splits.md](splits.md) for the official training, development and testing partitions.
+
 ## Citing
 
 To cite this corpus in general, please refer to the following article, or see different citations for specific aspects below:
