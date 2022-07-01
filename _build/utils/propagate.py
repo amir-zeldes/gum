@@ -50,10 +50,11 @@ class Args:
 
 class Entity:
 
-	def __init__(self, ent_id, type, infstat, identity):
+	def __init__(self, ent_id, type, infstat, centering, identity):
 		self.id = ent_id
 		self.type = type
 		self.infstat = infstat
+		self.centering = centering
 		self.tokens = []
 		self.identity = identity
 		self.line_tokens = []
@@ -63,7 +64,7 @@ class Entity:
 	def __repr__(self):
 		tok_nums = [int(x) for x in self.tokens]
 		tok_range = str(min(tok_nums)) + "-" + str(max(tok_nums))
-		return "ent " + self.id + ": " + self.type + "|" + self.infstat + " (" + tok_range + ")"
+		return "ent " + self.id + ": " + self.type + "|" + self.infstat + "|" + self.centering + " (" + tok_range + ")"
 
 	def assign_tok_nums(self):
 		self.tok_nums = [int(x) for x in self.tokens]
@@ -343,7 +344,7 @@ def fix_card_lemma(wordform,lemma):
 	return lemma
 
 
-def enrich_dep(gum_source, tmp, reddit=False):
+def enrich_dep(gum_source, gum_target, tmp, reddit=False):
 
 	pre_annotated = defaultdict(lambda: defaultdict(dict))  # Placeholder for explicit annotations in src/dep/
 	no_space_after_strings = {"(","[","{"}
@@ -367,16 +368,20 @@ def enrich_dep(gum_source, tmp, reddit=False):
 		sys.stdout.write("\t+ " + " "*70 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(depfiles)) + ":\t+ " + docname + ".conllu\r")
 		current_stype = ""
+		current_transition = ""
 		current_speaker = ""
 		current_addressee = ""
-		current_sic = False
+		current_sic = None
 		current_w = False
 		output = ""
 		stype_by_token = {}
+		transition_by_token = {}
 		speaker_by_token = {}
 		addressee_by_token = {}
 		space_after_by_token = defaultdict(lambda: True)
-		sic_by_token = defaultdict(lambda: False)
+		sic_by_token = defaultdict(lambda : None)
+		multi_sic = defaultdict(lambda : False)
+		sic_len = 0
 
 		# Dictionaries to hold token annotations from XML
 		wordforms = {}
@@ -385,13 +390,14 @@ def enrich_dep(gum_source, tmp, reddit=False):
 
 		tok_num = 0
 
-		xmlfile = depfile.replace("dep" + os.sep,"xml" + os.sep).replace("conllu","xml")
+		xmlfile = gum_target + "xml" + os.sep + docname + ".xml"
 		xml_lines = io.open(xmlfile,encoding="utf8").read().replace("\r","").split("\n")
 		in_w_tag = False
 		for line in xml_lines:
 			if line.startswith("<"):  # XML tag
 				if line.startswith("<s type="):
 					current_stype = re.match(r'<s type="([^"]+)"',line).group(1)
+					current_transition = re.search(r'transition="([^"]+)"',line).group(1)
 				elif line.startswith("<sp who="):
 					current_speaker = re.search(r' who="([^"]+)"', line).group(1).replace("#","")
 					if "whom=" in line:
@@ -404,16 +410,24 @@ def enrich_dep(gum_source, tmp, reddit=False):
 				elif line.startswith("</w>"):
 					in_w_tag = False
 					space_after_by_token[tok_num] = True  # Most recent token is normally followed by space
-				elif line.startswith("<sic>"):
-					current_sic = True
+				elif line.startswith("<sic"):
+					if 'ana="' in line:
+						current_sic = re.search(r' ana="([^"]*)"', line).group(1)
+					else:
+						current_sic = None
 				elif line.startswith("</sic>"):
-					current_sic = False
+					current_sic = None
+					sic_len = 0
 			elif len(line)>0:  # Token
 				fields = line.split("\t")
 				word = fields[0].replace("`","'").replace("‘","'").replace("’","'")
 				word = word.replace('“','"').replace("”",'"')
 				word_pos = fields[1].replace('"',"''")
 				tok_num += 1
+				if current_sic is not None:
+					sic_len += 1
+				if sic_len > 1:
+					multi_sic[tok_num] = True
 				if word in no_space_after_strings:
 					space_after_by_token[tok_num] = False
 				if word in no_space_before_strings:
@@ -425,6 +439,7 @@ def enrich_dep(gum_source, tmp, reddit=False):
 				if in_w_tag:
 					space_after_by_token[tok_num] = False
 				stype_by_token[tok_num] = current_stype
+				transition_by_token[tok_num] = current_transition
 				speaker_by_token[tok_num] = current_speaker
 				addressee_by_token[tok_num] = current_addressee
 				sic_by_token[tok_num] = current_sic
@@ -467,8 +482,14 @@ def enrich_dep(gum_source, tmp, reddit=False):
 				feats = fields[5].split() if fields[5] != "_" else []
 				if not space_after_by_token[tok_num]:
 					misc.append("SpaceAfter=No")
-				if sic_by_token[tok_num]:
+				if sic_by_token[tok_num] is not None:
 					feats.append("Typo=Yes")
+					if multi_sic[tok_num]:
+						misc.append("CorrectForm=_")  # Trailing token of a sic whose correction is already added
+					else:
+						misc.append("CorrectForm=" + sic_by_token[tok_num])
+						if "SpaceAfter=No" in misc and sic_by_token[tok_num].endswith(" "):
+							misc.append("CorrectSpaceAfter=Yes")
 				fields[-1] = "|".join(misc) if len(misc) > 0 else "_"
 				fields[5] = "|".join(sorted(feats)) if len(feats) > 0 else "_"
 				line = "\t".join(fields)
@@ -476,6 +497,8 @@ def enrich_dep(gum_source, tmp, reddit=False):
 				# Check for annotations
 				if len(stype_by_token[tok_num]) > 0:
 					output += "# s_type = " + stype_by_token[tok_num] + "\n"
+				if len(transition_by_token[tok_num]) > 0:
+					output += "# transition = " + transition_by_token[tok_num] + "\n"
 				if len(speaker_by_token[tok_num]) > 0:
 					output += "# speaker = " + speaker_by_token[tok_num] + "\n"
 				if len(addressee_by_token[tok_num]) > 0:
@@ -580,16 +603,18 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 				fields = line.split("\t")
 				line_tok_id = fields[0]
 				tok_num_to_tsv_id[tok_id] = line_tok_id
-				entity_string, infstat_string,identity_string, coref_type_string, coref_link_string = fields[3:8]
+				entity_string, infstat_string,identity_string, centering_string, coref_type_string, coref_link_string = fields[3:9]
 				if entity_string != "_":
 					entities = entity_string.split("|")
 					infstats = infstat_string.split("|")
 					identities = identity_string.split("|")
+					centerings = centering_string.split("|")
 					if coref_type_string != "_":
 						coref_types = coref_type_string.split("|")
 						coref_links = coref_link_string.split("|")
 					for i, entity in enumerate(entities):
 						infstat = infstats[i]
+						centering = centerings[i]
 						# Make sure all entities are numbered
 						if "[" not in entity:  # Single token entity with no ID
 							entity += "["+str(int_max_entity)+"]"
@@ -598,6 +623,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 						entity_id = entity[entity.find("[")+1:-1]
 						entity = entity[:entity.find("[")]
 						infstat = infstat[:infstat.find("[")]
+						centering = centering[:centering.find("[")]
 						match_ident = "_"
 						for ident in identities:
 							if "[" not in ident:
@@ -608,7 +634,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 							if ident_id == entity_id:
 								match_ident = ident[:ident.find("[")]
 						if entity_id not in entity_dict:
-							entity_dict[entity_id] = Entity(entity_id,entity,infstat,match_ident)
+							entity_dict[entity_id] = Entity(entity_id,entity,infstat,centering,match_ident)
 						entity_dict[entity_id].tokens.append(str(tok_id))
 						entity_dict[entity_id].line_tokens.append(line_tok_id)
 
@@ -715,7 +741,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 
 		# Add metadata and global declaration
 		lines = processed_lines.split("\n")
-		header = ["# global.Entity = GRP-etype-infstat-minspan-link-identity"]
+		header = ["# global.Entity = GRP-etype-infstat-centering-minspan-link-identity"]
 		meta = get_meta(docname,gum_target)
 		header.append("# meta::dateCollected = " + meta["dateCollected"])
 		header.append("# meta::dateCreated = " + meta["dateCreated"])
@@ -813,6 +839,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 
 		# Remove invalid enhanced dependencies
 		negatived = re.sub(r'(nmod|obl):(de|en|a)(?=[\|\t])',r'\1',negatived)
+		negatived = re.sub(r'((nmod|obl):([a-z]+))_(?=[\|\t])',r'\1',negatived)  # no trailing underscores
 		negatived = re.sub(r'(conj):(as_well)(?=[\|\t])',r'\1:as_well_as',negatived)
 
 		# Add upos to target/xml/
@@ -873,7 +900,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 	sys.__stdout__.write("o Enriched dependencies in " + str(len(depfiles)) + " documents" + " " *20)
 
 
-def enrich_xml(gum_source, gum_target, add_claws=False, reddit=False, warn=False):
+def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=False, warn=False):
 	xml_source = gum_source + "xml" + os.sep
 	xml_target = gum_target + "xml" + os.sep
 
@@ -932,6 +959,8 @@ def enrich_xml(gum_source, gum_target, add_claws=False, reddit=False, warn=False
 			tokens = list((line.split("\t")[0]) for line in xml_lines if "\t" in line)
 			claws = get_claws("\n".join(tokens))
 
+		sent_num = 0
+		centering = centering_data[docname.replace(".xml","")]
 		for line in xml_lines:
 			if "\t" in line:  # Token
 				tok_num += 1
@@ -943,7 +972,8 @@ def enrich_xml(gum_source, gum_target, add_claws=False, reddit=False, warn=False
 					claws_tag = adjudicate_claws(claws_tag,fields[1],fields[0],func)
 					fields.append(claws_tag)
 				else:
-					fields = fields[:-1] # Just delete last column to re-generate func from conllu
+					if len(fields) > 3:
+						fields = fields[:-1] # Just delete last column to re-generate func from conllu
 				fields.append(func)
 				# Convert TO to IN for prepositional 'to'
 				if fields[1] == "TO" and fields[-1] == "case":
@@ -951,6 +981,9 @@ def enrich_xml(gum_source, gum_target, add_claws=False, reddit=False, warn=False
 				# Pure digits should receive the number as a lemma
 				fields[2] = fix_card_lemma(fields[0],fields[2])
 				line = "\t".join(fields)
+			elif line.startswith("<s "):
+				line = line.replace(">",f' transition="{centering[sent_num+1]}">')
+				sent_num += 1
 			output += line + "\n"
 
 		output = output.strip() + "\n"
@@ -1058,22 +1091,36 @@ def get_rsd_spans(gum_target):
 
 	rsd_spans = defaultdict(dict)
 	rsd_files = glob(gum_target + "rst" + os.sep + "dependencies" + os.sep + "*.rsd")
+	depths = defaultdict(dict)
 	for file_ in rsd_files:
 		doc = os.path.basename(file_).replace(".rsd","")
 		lines = io.open(file_,encoding="utf8").read().split("\n")
 		tok_num = 0
+		parents = defaultdict(list)
+		rels = {}
 		for line in lines:
 			if "\t" in line:
 				fields = line.split("\t")
 				#edu_id, toks, dist, depth, domain = fields[0:5]
 				edu_id, toks, dist = fields[0:3]
 				head, rsd_rel = fields[6:8]
+				parents[edu_id] = head
 				#rsd_rel = rsd_rel.replace("_m","").replace("_r","")
 				rsd_rel = rsd_rel.replace("_r","")
+				rels[edu_id] = rsd_rel
 				rsd_spans[doc][tok_num] = (edu_id, rsd_rel, head, dist)#, depth, domain)
 				tok_num += toks.strip().count(" ") + 1
 
-	return rsd_spans
+		for unit in parents:
+			parent = unit
+			depth = 0
+			while parent != "0":
+				if not rels[parent].endswith("_m"):  # Multinucs do not affect depth
+					depth += 1
+				parent = parents[parent]
+			depths[doc][unit] = depth
+
+	return rsd_spans, depths
 
 
 def add_rsd_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8):
@@ -1100,7 +1147,7 @@ def add_rsd_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8):
 
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
-	rsd_spans = get_rsd_spans(gum_target)
+	rsd_spans, depths = get_rsd_spans(gum_target)
 
 	if not ontogum:
 		files = glob(gum_target + "dep" + os.sep + "*.conllu")
@@ -1117,6 +1164,8 @@ def add_rsd_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8):
 
 		output = []
 		toknum = 0
+		snum = 0
+		sents2depths = defaultdict(set)
 		for line in lines:
 			if line.startswith("# newdoc"):
 				doc = line.strip().split()[-1]
@@ -1134,8 +1183,31 @@ def add_rsd_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8):
 							misc = add_feat(fields[-1],"Discourse=" + relname + ":"+rsd_data[0]+"->"+rsd_data[2] + ":" + rsd_data[3]) #+ ":" + rsd_data[4] + ":" + rsd_data[5])
 						fields[-1] = misc
 						line = "\t".join(fields)
+						depth = depths[doc][rsd_data[0]]
+						sents2depths[snum].add(depth)
 					toknum += 1
+			elif len(line.strip()) == 0:
+				snum += 1
 			output.append(line)
+
+		min_depths = {}
+		for snum in sents2depths:
+			min_depths[snum] = min(sents2depths[snum])
+		unique_depths = sorted(list(set(min_depths.values())))
+		depth_mapping = {}
+		for i, val in enumerate(unique_depths):
+			depth_mapping[val] = str(i+1)
+
+		with_sent_prominence = []
+		snum = 0
+		for line in output:
+			if "# s_type" in line:
+				d = depth_mapping[min_depths[snum]]
+				with_sent_prominence.append("# s_prominence = " + d)
+			elif line == "":
+				snum += 1
+			with_sent_prominence.append(line)
+		output = with_sent_prominence
 
 		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
 			f.write("\n".join(output).strip() + "\n\n")

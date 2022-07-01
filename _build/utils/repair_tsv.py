@@ -44,16 +44,18 @@ def fix_tsv(gum_source, gum_target, reddit=False, genitive_s=False):
 		os.makedirs(outdir)
 
 	conllua_data = {}
+	centering_data = {}
 	for docnum, filename in enumerate(file_list):
 		docname = ntpath.basename(filename).replace(".tsv","")
 		tt_file = filename.replace(".tsv", ".xml").replace("tsv","xml")
 		sys.stdout.write("\t+ " + " "*60 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Adjusting borders for " + docname + "\r")
-		conllua_doc = fix_file(filename,tt_file,outdir,genitive_s=genitive_s)
+		conllua_doc, centering_transitions_doc = fix_file(filename,tt_file,outdir,genitive_s=genitive_s)
 		conllua_data[docname] = conllua_doc
+		centering_data[docname] = centering_transitions_doc
 
 	print("o Adjusted " + str(len(file_list)) + " WebAnno TSV files" + " " * 40)
-	return conllua_data
+	return conllua_data, centering_data
 
 
 def make_ontogum(gum_target, reddit=False):
@@ -616,12 +618,30 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 	# Get all child dependency functions per token
 	child_funcs = defaultdict(set)
 	child_lower_toks = defaultdict(set)
+	parents = {}
 	for tok in parsed_lines:
 		if tok["func"] != "root":
 			sent_offset = tok["abs_id"] - int(tok["id_in_sent"])
 			abs_parent = int(tok["dep_parent"]) + sent_offset
+			parents[tok["abs_id"]] = abs_parent if tok["dep_parent"] != "0" else 0
 			child_funcs[abs_parent].add(tok["func"])
 			child_lower_toks[abs_parent].add(tok["token"].lower())
+		else:
+			parents[tok["abs_id"]] = 0
+
+
+	# Compute all token depths in their sentence dependency graphs
+	depths = {}
+	for tok in parents:
+		if parents[tok] == 0:
+			depths[tok] = 0
+		else:
+			par = parents[tok]
+			depth = 0
+			while par != 0:
+				par = parents[par]
+				depth += 1
+			depths[tok] = depth
 
 	# Get all entities
 	for tid, dct in enumerate(parsed_lines):
@@ -635,6 +655,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 					entities[e["id"]] = {"start":tid, "end":tid,"length":1, "func": dct["func"], "pos": dct["pos"],
 									 "infstat": e["infstat"], "type":e["type"], "identity": e["identity"], "relations": [],
 									 "head_tok_abs_id": dct["abs_id"], "head_tok_parent_abs_id" : 0, "group":None,
+									 "sid": dct["token_id"].split("-")[0],
 									 "toks":[(int(dct["id_in_sent"]),int(dct["dep_parent"]),dct["pos"],dct["func"],dct["token"],dct["abs_id"])]}
 				if "relations" in dct:
 					for rel in dct["relations"]:
@@ -656,6 +677,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 				entities[e_id]["head_tok_abs_id"] = tok[-1]
 				entities[e_id]["child_funcs"] = child_funcs[tok[-1]]
 				entities[e_id]["child_lower_toks"] = child_lower_toks[tok[-1]]
+				entities[e_id]["depth"] = depths[entities[e_id]["head_tok_abs_id"]]
 				# abs parent
 				if tok[1] == 0:
 					entities[e_id]["head_tok_parent_abs_id"] = 0
@@ -828,6 +850,18 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 			#	pass  # pronoun
 			ent["identity"] = group_identities[ent["group"]]
 
+	# Second pass on identities, for early mentions whose group got an identity later
+	for e_id in entities:
+		ent = entities[e_id]
+		if ent["group"] in group_identities:
+			ent["identity"] = group_identities[ent["group"]]
+
+
+	# Add Centering Theory annotations
+	if "Byron" in webanno_tsv:
+		a=4
+	entities, centering_transitions = add_centering(entities)
+
 	# Create opener and closer data for later conllu-a serialization
 	opener_lists = defaultdict(list)
 	closer_lists = defaultdict(list)
@@ -840,13 +874,14 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 		etype = ent["type"]
 		coref_type = ent["coref_type"]
 		infstat = ent["infstat"]
+		centering = ent["cf_rank"]
 		identity = "-" + ent["identity"] if ent["identity"] != "_" else ""
 		min_ids = get_min(ent["toks"])
 		if ent["group"] not in group_mapping:
 			group_mapping[ent["group"]] = max_mapped_group
 			max_mapped_group += 1
 		group = group_mapping[ent["group"]]
-		starter = f'({etype}-{group}-{infstat}-{min_ids}-{coref_type}{identity}'
+		starter = f'({etype}-{group}-{infstat}-{centering}-{min_ids}-{coref_type}{identity}'
 		if start == end:
 			starter += ")"
 		opener_lists[start].append(starter)
@@ -883,6 +918,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 			idents = []
 			types = []
 			edges = []
+			centers = []
 			for i in range(len(infs)):
 				if infs[i] == "_":
 					continue
@@ -897,6 +933,8 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 					e_id = single_tok_mappings[fields[0]]
 				ents[i] = entities[e_id]["type"] + "[" + str(e_id) + "]"
 				infs[i] = entities[e_id]["infstat"] + "[" + str(e_id) + "]"
+				centers.append(entities[e_id]["cf_rank"])
+				centers[i] += "[" + str(e_id) + "]"
 				if entities[e_id]["identity"] != "_":
 					idents.append(entities[e_id]["identity"] + "[" + str(e_id) + "]")
 				if e_id in dest2rel:
@@ -913,15 +951,17 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 			infs = "|".join(infs)
 			ents = "|".join(ents)
 			idents = "|".join(idents) if len(idents) > 0 else "_"
+			centers = "|".join(centers) if len(centers) > 0 else "_"
 			fields[3] = ents
 			fields[4] = infs
 			fields[5] = idents
+			fields.insert(6, centers)
 			fields[-3] = types
 			fields[-2] = edges
 			line = "\t".join(fields)
 			adjusted.append(line)
 
-	return "\n".join(adjusted), conllua_data
+	return "\n".join(adjusted), conllua_data, centering_transitions
 
 
 def fix_file(filename, tt_file, outdir, genitive_s=False):
@@ -970,7 +1010,8 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 		tsv = open(filename)
 	else:
 		tsv = io.open(filename,encoding="utf8")
-	lines = tsv.read().replace("\r","").split("\n")
+	tsv_contents = tsv.read().replace("\r","")
+	lines = tsv_contents.split("\n")
 
 	out_lines = OrderedDict()
 	id_mapping = {}
@@ -984,7 +1025,9 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 
 	for line in lines:
 		line_num += 1
-		if "\t" not in line: # not a token
+		if "T_SP=webanno.custom.Referent" in line:
+			out_lines[line_num] = '#T_SP=webanno.custom.Referent|entity|infstat|identity|centering'
+		elif "\t" not in line: # not a token
 			out_lines[line_num] = line
 		elif len(line) == 0: # sentence break (if text has already started)
 			id_offset = 0
@@ -1188,14 +1231,171 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 	output += "\n".join(out_lines) + "\n"
 	parsed_lines, entity_mappings, single_tok_mappings = fix_genitive_s(output, tt_file, warn_only=True, string_input=True)
 
-	output, conllua_data = adjust_edges(output, parsed_lines, entity_mappings, single_tok_mappings)
+	output, conllua_data, centering_transitions = adjust_edges(output, parsed_lines, entity_mappings, single_tok_mappings)
+	centering_doc_data = defaultdict(lambda: "no-ent")
+
+	# Set missing transitions
+	sent_count = tsv_contents.count('#Text=')
+	for i in range(sent_count):
+		s = i+1
+		if s not in centering_transitions:  # Sentence with no entities
+			if s == 1:
+				centering_transitions[s] = "null"  # Text begins with an entity-less sentence
+			else:
+				if centering_transitions[s-1] in ["zero","null"]:
+					centering_transitions[s] = "null"
+				else:
+					centering_transitions[s] = "zero"
+
+	centering_doc_data.update(centering_transitions)
 
 	outfile.write(output)
 	outfile.close()
 	outtemp.write(output)
 	outtemp.close()
 
-	return conllua_data
+	return conllua_data, centering_doc_data
+
+
+def add_centering(entities):
+	def salience(ent):
+		# First prioritize pronouns
+		pron = 0 if ent["pos"].startswith("P") or (ent["length"] == 1 and ent["toks"][0][4].lower() in ["this","that","those","these","all"]) else 1
+		# Next prioritize items giv > acc > new
+		infstat = 0 if ent["infstat"] == "giv:act" else 1
+		if ent["infstat"].startswith("acc"):
+			infstat = 2
+		elif ent["infstat"].startswith("new"):
+			infstat = 3
+		# Next prioritize subj > obj > other > compound
+		func = 0 if "subj" in ent["func"] else 1
+		if func == 1 and ent["func"] not in ["obj","ccomp"]:
+			func = 2
+			if ent["func"].startswith("compound"):
+				func = 3
+			elif ent["func"].startswith("expl"):
+				func = 4
+		# Next prioritize def nps > names > indefs
+		np_form = 0
+		if pron == 1:
+			if ent["pos"].startswith("N"):
+				if ent["toks"][0][4].lower() in ["the","this","that","those","these","all","every"]:
+					np_form = 1
+				elif "P" in ent["pos"]:
+					np_form = 2  # Proper name
+				else:
+					np_form = 3
+			else:
+				np_form = 4
+		# Next prioritize people
+		person = 1
+		if ent["type"] == "person":
+			person = 0
+		vec = [infstat, pron, func, np_form, person]
+		# Break ties by linear order
+		vec += [ent["start"], -ent["end"]]
+		return vec
+
+	ents_by_sent = defaultdict(list)
+	for e in entities:
+		ent = entities[e]
+		ents_by_sent[ent["sid"]].append(ent)
+		ent["in_prev_sent"] = False
+		ent["in_next_sent"] = False
+		if ent["sid"] != "1":
+			if any([e["group"] == ent["group"] for e in ents_by_sent[str(int(ent["sid"])-1)]]):
+				ent["in_prev_sent"] = True
+
+	last_sent = str(max([int(entities[e]["sid"]) for e in entities]))
+	dump_out = []
+	for e in entities:
+		ent = entities[e]
+		if ent["sid"] != last_sent:
+			if any([e["group"] == ent["group"] for e in ents_by_sent[str(int(ent["sid"])+1)]]):
+				ent["in_next_sent"] = True
+		# position, length, func, pos, infstat, etype, depth, in_prev, in_next
+		feats = [ent["toks"][0][0],ent["length"],ent["func"],ent["pos"],ent["infstat"],ent["type"],ent["depth"],ent["in_prev_sent"],ent["in_next_sent"]]
+		feats = [str(f) for f in feats]
+		dump_out.append("\t".join(feats))
+	dump_ents = False
+	if dump_ents:
+		with open("dump_ents.tab",'a',encoding="utf8",newline="\n") as f:
+			f.write("\n".join(dump_out) + "\n")
+
+	transitions = {}
+	prev_cb = None
+	prev_snum = -1
+	prev_cb_assigned = False
+	for sent in sorted(list(ents_by_sent.keys()),key=lambda x: int(x)):
+		if len(ents_by_sent[sent]) == 0:
+			continue
+		seen_groups = {}
+		min_rank = 1
+		ordered = sorted(ents_by_sent[sent],key=lambda x: salience(x))
+		cb_assigned = False
+		sent_cb = None
+		snum = int(ordered[0]["sid"])
+		if snum != prev_snum + 1:
+			prev_cb = None
+		prev_snum = snum
+		for o, ent in enumerate(ordered):
+			ent["cb"] = False
+			if snum != 1 and not cb_assigned: # no Cb in first sentence
+				if ent["in_prev_sent"]: # Take top rank if it is giv:act
+					ent["cb"] = True
+					cb_assigned = True
+					sent_cb = ent
+			if ent["group"] in seen_groups:
+				ent["cf_rank"] = seen_groups[ent["group"]]  # other mentions of same group get their top ranking
+			else:
+				ent["cf_rank"] = min_rank
+				seen_groups[ent["group"]] = min_rank
+				min_rank += 1
+			cb_string = ""
+			if ent["cb"]:
+				cb_string = "*"
+			elif sent_cb is not None:
+				if sent_cb["group"] == ent["group"]:
+					cb_string = "*"  # Other mention of sent_cb entity also marked as Cb
+			ent["cf_rank"] = "cf" + str(ent["cf_rank"]) + cb_string
+
+		# Determine Centering transition type
+		if snum == 1:
+			transitions[snum] = "establishment"
+		else:
+			cb_is_cp = False
+			if sent_cb is not None:
+				if sent_cb["cf_rank"] == "cf1*":
+					cb_is_cp = True
+			cb_not_prev_cb = True
+			if sent_cb is not None:
+				if prev_cb is not None:
+					if prev_cb["group"] == sent_cb["group"]:
+						cb_not_prev_cb = False
+
+			if not prev_cb_assigned and cb_assigned:  # Prev sent had no Cb, but this one does - establishment
+				transition = "establishment"
+			else:
+				if cb_is_cp:
+					if cb_not_prev_cb:
+						transition = "smooth-shift"
+					else:
+						transition = "continue"
+				else:
+					if cb_not_prev_cb and cb_assigned:
+						transition = "rough-shift"
+					else:
+						if cb_assigned and prev_cb_assigned:  # Cb stayed the same, but is now not Cp
+							transition = "retain"
+						elif prev_cb_assigned and not cb_assigned:  # Current sent has no Cb, zero
+							transition = "zero"
+						else: # Current and prev had no Cb, null  #elif not prev_cb_assigned and not cb_assigned:
+							transition = "null"
+			transitions[snum] = transition
+		prev_cb = sent_cb
+		prev_cb_assigned = cb_assigned
+
+	return entities, transitions
 
 
 if __name__ == "__main__":
