@@ -283,6 +283,8 @@ def validate_lemmas(lemma_dict, lemma_docs):
 	for tok, pos in sorted(list(iterkeys(lemma_dict))):
 		if len(lemma_dict[(tok,pos)]) > 1:
 			for i, lem in enumerate(sorted(lemma_dict[(tok,pos)],key=lambda x:lemma_dict[(tok,pos)][x],reverse=True)):
+				if lem == "_":
+					continue
 				docs = ", ".join(list(lemma_docs[(tok,pos,lem)]))
 				if i == 0:
 					majority = lem
@@ -394,7 +396,6 @@ def validate_annos(gum_source, reddit=False):
 		non_lemma_combos = [("PP","her"),("MD","wo"),("PP","us"),("DT","an")]
 		lemma_pos_combos = {"which":"WDT"}
 		non_cap_lemmas = ["There","How","Why","Where","When"]
-		IN_not_like_lemma = ["vs", "vs.", "v", "ca", "that", "then", "a", "fro", "too", "til", "wether"]  # incl. known typos
 
 		prev_tok = ""
 		prev_pos = ""
@@ -412,8 +413,6 @@ def validate_annos(gum_source, reddit=False):
 					print("WARN: invalid lemma " + lemma + " in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
 				elif (pos,lemma.lower()) in non_lemma_combos:
 					print("WARN: invalid lemma " + lemma + " for POS "+pos+" in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
-				elif pos == "IN" and tok.lower() not in IN_not_like_lemma and lemma != tok.lower():
-						print("WARN: pos IN should have lemma identical to lower cased token in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
 				elif lemma in lemma_pos_combos:
 					if pos != lemma_pos_combos[lemma]:
 						print("WARN: invalid pos " + pos + " for lemma "+lemma+" in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
@@ -691,12 +690,12 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 					   "undercut","spread","shut","upset","burst","bit","let","l-","g-","know","notice","reach","raise"]:
 			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
-	if pos == "NPS" and tok == lemma and tok.endswith("s"):
+	if pos == "NPS" and tok == lemma and tok.endswith("s") and func != "goeswith":
 		if tok not in ["Netherlands","Analytics","Olympics","Commons","Paralympics","Vans",
 					   "Andes","Forties","Philippines"]:
 			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
-	if pos == "NNS" and tok.lower() == lemma.lower() and lemma.endswith("s"):
+	if pos == "NNS" and tok.lower() == lemma.lower() and lemma.endswith("s") and func != "goeswith":
 		if lemma not in ["surroundings","energetics","politics","jeans","clothes","electronics","means","feces",
 						 "biceps","triceps","news","species","economics","arrears","glasses","thanks","series"]:
 			if re.match(r"[0-9]+'?s",lemma) is None:  # 1920s, 80s
@@ -761,9 +760,22 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 			tok in ["him","her","me","us","you"] and func=="obj":
 		print("WARN: person object of ditransitive expected to be iobj, not obj" + inname)
 
-	if func == "aux" and lemma != "be" and lemma != "have" and lemma !="do" and pos!="MD" and pos!="TO":
+	if func == "aux" and lemma.lower() != "be" and lemma.lower() != "have" and lemma.lower() !="do" and pos!="MD" and pos!="TO":
 		print("WARN: aux must be modal, 'be,' 'have,' or 'do'" + inname)
 
+	if func == "xcomp" and pos in ["VBP","VVP","VHP","VVZ","VBZ","VHZ","VVD","VBD","VHD"]:
+		if parent_lemma not in ["=","seem"]:
+			print("WARN: xcomp verb should be infinitive, not tag " + pos + inname)
+
+	if func == "xcomp" and pos in ["VV","VB","VH"] and parent_pos.startswith("N"):
+		print("WARN: infinitive child of a noun should be acl not xcomp" + inname)
+
+	if func =="xcomp" and parent_lemma == "be":
+		print("WARN: verb lemma 'be' should not have xcomp child" + inname)
+
+	IN_not_like_lemma = ["vs", "vs.", "v", "ca", "that", "then", "a", "fro", "too", "til", "wether"]  # incl. known typos
+	if pos == "IN" and tok.lower() not in IN_not_like_lemma and lemma != tok.lower() and func != "goeswith" and "goeswith" not in child_funcs:
+		print("WARN: pos IN should have lemma identical to lower cased token" + inname)
 	if pos == "DT" and lemma == "an":
 		print("WARN: lemma of 'an' should be 'a'" + inname)
 
@@ -771,9 +783,22 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print(str(id) + docname)
 		print("WARN: non-ASCII character in lemma" + inname)
 
-	if pos == "POS" and lemma != "'s":
+	if pos == "POS" and lemma != "'s" and func != "goeswith":
 		print(str(id) + docname)
 		print("WARN: tag POS must have lemma " +'"'+ "'s" + '"' + inname)
+
+	if func == "goeswith" and lemma != "_":
+		print("WARN: deprel goeswith must have lemma '_'" + inname)
+
+	if func == "obj" and "case" in child_funcs and not (pos == "NP" and any([x in children for x in ["'s","’s"]])):
+		print("WARN: obj should not have child case" + inname + str(children))
+
+	if func == "ccomp" and "mark" in child_funcs and not any([x in children for x in ["that","That","whether","if","Whether","If","wether","a"]]):
+		if not ((lemma == "lie" and "once" in children) or  (lemma=="find" and ("see" in children or "associate" in children))):  # Exceptions
+			print("WARN: ccomp should not have child mark" + inname)
+
+	if func == "acl:relcl" and pos in ["VB","VV","VH"] and "to" in children and "cop" not in child_funcs and "aux" not in child_funcs:
+		print("WARN: infinitive with tag " + pos + " should be acl not acl:relcl" + inname)
 
 	if pos in ["VBG","VVG","VHG"] and "det" in child_funcs:
 		# Exceptions for phrasal compound in GUM_reddit_card and nominalization in GUM_academic_exposure
