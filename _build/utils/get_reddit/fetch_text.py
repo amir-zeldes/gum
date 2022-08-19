@@ -213,7 +213,7 @@ docs = {
 
 def get_proxy_data():
 	out_posts = {}
-	tab_delim = requests.get("https://corpling.uis.georgetown.edu/gum/fetch_text_proxy.py").text
+	tab_delim = requests.get("https://gucorpling.org/gum/fetch_text_proxy.py").text
 	for line in tab_delim.split("\n"):
 		if "\t" in line:
 			post, text = line.split("\t")
