@@ -20,8 +20,8 @@ class Markable:
 		self.infstat = ""
 		self.antecedent = ""
 		self.coref_type = ""
-		self.anaphor = ""
-		self.anaphor_type =""
+		self.anaphor = []
+		self.anaphor_type = []
 
 class rstNode:
 	def __init__(self):
@@ -283,6 +283,8 @@ def validate_lemmas(lemma_dict, lemma_docs):
 	for tok, pos in sorted(list(iterkeys(lemma_dict))):
 		if len(lemma_dict[(tok,pos)]) > 1:
 			for i, lem in enumerate(sorted(lemma_dict[(tok,pos)],key=lambda x:lemma_dict[(tok,pos)][x],reverse=True)):
+				if lem == "_":
+					continue
 				docs = ", ".join(list(lemma_docs[(tok,pos,lem)]))
 				if i == 0:
 					majority = lem
@@ -394,7 +396,6 @@ def validate_annos(gum_source, reddit=False):
 		non_lemma_combos = [("PP","her"),("MD","wo"),("PP","us"),("DT","an")]
 		lemma_pos_combos = {"which":"WDT"}
 		non_cap_lemmas = ["There","How","Why","Where","When"]
-		IN_not_like_lemma = ["vs", "vs.", "v", "ca", "that", "then", "a", "fro", "too", "til"]  # incl. known typos
 
 		prev_tok = ""
 		prev_pos = ""
@@ -412,8 +413,6 @@ def validate_annos(gum_source, reddit=False):
 					print("WARN: invalid lemma " + lemma + " in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
 				elif (pos,lemma.lower()) in non_lemma_combos:
 					print("WARN: invalid lemma " + lemma + " for POS "+pos+" in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
-				elif pos == "IN" and tok.lower() not in IN_not_like_lemma and lemma != tok.lower():
-						print("WARN: pos IN should have lemma identical to lower cased token in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
 				elif lemma in lemma_pos_combos:
 					if pos != lemma_pos_combos[lemma]:
 						print("WARN: invalid pos " + pos + " for lemma "+lemma+" in " + docname + " @ line " + str(i) + " (token: " + tok + ")")
@@ -434,13 +433,14 @@ def validate_annos(gum_source, reddit=False):
 		coref_lines = io.open(coref_file,encoding="utf8").read().replace("\r", "").split("\n")
 
 		markables = {}
-		antecedents = {}
+		antecedents = defaultdict(list)
 		single_tok_ids = False
 
 		for line in coref_lines:
 			if "\t" in line:  # Token
 				fields = line.strip().split("\t")
 				entity_str, infstat_str, identity_str, coref_str, src_str = fields[-5:]
+
 				if entity_str != "" and entity_str != "_":  # Entity annotation found
 					entities = entity_str.split("|")
 					infstats = infstat_str.split("|")
@@ -473,12 +473,20 @@ def validate_annos(gum_source, reddit=False):
 						if id not in markables:
 							markables[id] = Markable()
 							markables[id].start = tok_id
-							markables[id].anaphor = src
-							markables[id].anaphor_type = coref
+							markables[id].anaphor.append(src)
+							markables[id].anaphor_type.append(coref)
 						markables[id].entity = entity
 						markables[id].infstat = infstat
 						markables[id].text += " " + text
 						markables[id].end = tok_id
+
+					# second pass: add the missing coref relation
+					if srcs != ['_']:
+						for coref, src in zip(corefs, srcs):
+							candidate_id = src.strip(']').split('_')[-1]
+							if candidate_id != "0" and src not in markables[candidate_id].anaphor:
+								markables[candidate_id].anaphor.append(src)
+								markables[candidate_id].anaphor_type.append(coref)
 
 		# Ensure single token markables are given a tok_id-style identifier if the document uses this convention
 		mark_ids = list(markables.keys())
@@ -492,28 +500,43 @@ def validate_annos(gum_source, reddit=False):
 		for mark_id in markables:
 			mark = markables[mark_id]
 			mark.text = mark.text.strip()
-			src = mark.anaphor
-			src_tok = re.sub(r'\[.*', '', src)
-			if "[" in src:
-				target = re.search(r'_([0-9]+)\]', src).group(1)
-				if target == mark_id:
-					if "[0_" in src:  # source is single token markable
-						antecedents[src_tok] = mark_id
-					else:  # source is a multi-token markable
-						src_id = re.search(r'\[([0-9]+)_', src).group(1)
-						antecedents[src_id] = mark_id
-			else:  # source and target are single tokens
-				antecedents[src_tok] = mark_id
+			srcs = mark.anaphor
+			for src in srcs:
+				src_tok = re.sub(r'\[.*', '', src)
+				if "[" in src:
+					target = re.search(r'_([0-9]+)\]', src).group(1)
+					if target == mark_id:
+						if "[0_" in src:  # source is single token markable
+							for m in markables:
+								if markables[m].start == src_tok:
+									antecedents[m].append(mark_id)
+									break
+						else:  # source is a multi-token markable
+							src_id = re.search(r'\[([0-9]+)_', src).group(1)
+							# if src_id in antecedents:
+							# 	raise ValueError(f'The entity {src_id} has multiple antecedents {antecedents[src_id]} and {mark_id}.')
+							antecedents[src_id].append(mark_id)
+				else:  # source and target are single tokens
+					antecedents[src_tok].append(mark_id)
 
 		for anaphor in antecedents:
 			if anaphor != "_":
-				try:
-					markables[anaphor].antecedent = markables[antecedents[anaphor]]
-					markables[anaphor].coref_type = markables[antecedents[anaphor]].anaphor_type
-				except KeyError as e:
-					sys.stderr.write("Exception in " + docname + ": KeyError\n")
-					markables[anaphor].antecedent = markables[antecedents[anaphor]]
-					markables[anaphor].coref_type = markables[antecedents[anaphor]].anaphor_type
+				for mark_id in antecedents[anaphor]:
+					if mark_id == '109':
+						a = 1
+					try:
+						markables[anaphor].antecedent = markables[mark_id]
+						for i, src in enumerate(markables[mark_id].anaphor):
+							if f'[{anaphor}_' in src:
+								markables[anaphor].coref_type = markables[mark_id].anaphor_type[i]
+					except KeyError as e:
+						sys.stderr.write("Exception in " + docname + ": KeyError\n")
+						markables[anaphor].antecedent = markables[mark_id]
+						for i, src in enumerate(markables[mark_id].anaphor):
+							if f'[{anaphor}_' in src:
+								markables[anaphor].coref_type = markables[mark_id].anaphor_type[i]
+							elif '[0_' in src and anaphor in src:
+								markables[anaphor].coref_type = markables[antecedents[anaphor]].anaphor_type[i]
 
 		for mark_id in markables:
 			# Flag entity type clashes but skip giv/new since they are set automatically
@@ -662,17 +685,17 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print("WARN: tag POS must have function case" + inname)
 
 	if pos in ["VVG","VVN","VVD"] and lemma == tok:
-		# check cases where VVN form is same as tok ('know' and 'notice' are recorded typos, l- is a disfluency)
+		# check cases where VVN form is same as tok ('know' and 'notice' etc. are recorded typos, l- is a disfluency)
 		if tok not in ["shed","put","read","become","come","cut","hit","split","cast","set","hurt","run","broadcast","knit",
-					   "undercut","spread","shut","upset","burst","bit","let","l-","g-","know","notice","reach"]:
+					   "undercut","spread","shut","upset","burst","bit","let","l-","g-","know","notice","reach","raise"]:
 			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
-	if pos == "NPS" and tok == lemma and tok.endswith("s"):
+	if pos == "NPS" and tok == lemma and tok.endswith("s") and func != "goeswith":
 		if tok not in ["Netherlands","Analytics","Olympics","Commons","Paralympics","Vans",
 					   "Andes","Forties","Philippines"]:
 			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
-	if pos == "NNS" and tok.lower() == lemma.lower() and lemma.endswith("s"):
+	if pos == "NNS" and tok.lower() == lemma.lower() and lemma.endswith("s") and func != "goeswith":
 		if lemma not in ["surroundings","energetics","politics","jeans","clothes","electronics","means","feces",
 						 "biceps","triceps","news","species","economics","arrears","glasses","thanks","series"]:
 			if re.match(r"[0-9]+'?s",lemma) is None:  # 1920s, 80s
@@ -737,9 +760,22 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 			tok in ["him","her","me","us","you"] and func=="obj":
 		print("WARN: person object of ditransitive expected to be iobj, not obj" + inname)
 
-	if func == "aux" and lemma != "be" and lemma != "have" and lemma !="do" and pos!="MD" and pos!="TO":
+	if func == "aux" and lemma.lower() != "be" and lemma.lower() != "have" and lemma.lower() !="do" and pos!="MD" and pos!="TO":
 		print("WARN: aux must be modal, 'be,' 'have,' or 'do'" + inname)
 
+	if func == "xcomp" and pos in ["VBP","VVP","VHP","VVZ","VBZ","VHZ","VVD","VBD","VHD"]:
+		if parent_lemma not in ["=","seem"]:
+			print("WARN: xcomp verb should be infinitive, not tag " + pos + inname)
+
+	if func == "xcomp" and pos in ["VV","VB","VH"] and parent_pos.startswith("N"):
+		print("WARN: infinitive child of a noun should be acl not xcomp" + inname)
+
+	if func =="xcomp" and parent_lemma == "be":
+		print("WARN: verb lemma 'be' should not have xcomp child" + inname)
+
+	IN_not_like_lemma = ["vs", "vs.", "v", "ca", "that", "then", "a", "fro", "too", "til", "wether"]  # incl. known typos
+	if pos == "IN" and tok.lower() not in IN_not_like_lemma and lemma != tok.lower() and func != "goeswith" and "goeswith" not in child_funcs:
+		print("WARN: pos IN should have lemma identical to lower cased token" + inname)
 	if pos == "DT" and lemma == "an":
 		print("WARN: lemma of 'an' should be 'a'" + inname)
 
@@ -747,9 +783,22 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print(str(id) + docname)
 		print("WARN: non-ASCII character in lemma" + inname)
 
-	if pos == "POS" and lemma != "'s":
+	if pos == "POS" and lemma != "'s" and func != "goeswith":
 		print(str(id) + docname)
 		print("WARN: tag POS must have lemma " +'"'+ "'s" + '"' + inname)
+
+	if func == "goeswith" and lemma != "_":
+		print("WARN: deprel goeswith must have lemma '_'" + inname)
+
+	if func == "obj" and "case" in child_funcs and not (pos == "NP" and any([x in children for x in ["'s","’s"]])):
+		print("WARN: obj should not have child case" + inname + str(children))
+
+	if func == "ccomp" and "mark" in child_funcs and not any([x in children for x in ["that","That","whether","if","Whether","If","wether","a"]]):
+		if not ((lemma == "lie" and "once" in children) or  (lemma=="find" and ("see" in children or "associate" in children))):  # Exceptions
+			print("WARN: ccomp should not have child mark" + inname)
+
+	if func == "acl:relcl" and pos in ["VB","VV","VH"] and "to" in children and "cop" not in child_funcs and "aux" not in child_funcs:
+		print("WARN: infinitive with tag " + pos + " should be acl not acl:relcl" + inname)
 
 	if pos in ["VBG","VVG","VHG"] and "det" in child_funcs:
 		# Exceptions for phrasal compound in GUM_reddit_card and nominalization in GUM_academic_exposure
@@ -795,6 +844,17 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func == "xcomp" and parent_lemma in ["see","hear","notice"]:  # find
 		print("WARN: deprel "+func+" should not be used with perception verb lemma '"+lemma+"' (should this be nsubj+ccomp?)" + inname)
 
+	if "obj" in child_funcs and "ccomp" in child_funcs:
+		print("WARN: token has both obj and ccomp children" + inname)
+
+	if func == "acl" and (pos.endswith("G") or pos.endswith("N")) and parent_id == id + 1:  # premodifier V.G/N should be amod not acl
+		print("WARN: back-pointing " + func + " for adjacent premodifier (should be amod?) in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
+
+	if func.endswith("tmod") and pos.startswith("RB"):
+		print("WARN: adverbs should not be tmod" + inname)
+
+	if pos == "EX" and func not in ["expl","reparandum"]:
+		print("WARN: existential 'there' tagged EX should not be " + func + inname)
 
 	#if func == "advmod" and lemma in ["where","when"] and parent_func == "acl:relcl":
 	#	print("WARN: lemma "+lemma+" should not be func '"+func+"' when it is the child of a '" + parent_func + "'" + inname)

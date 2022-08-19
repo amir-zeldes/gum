@@ -174,7 +174,7 @@
     <xs:complexType mixed="true">
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element ref="add"/>
- <xs:element ref="row"/>
+        <xs:element ref="row"/>
         <xs:element ref="figure"/>
         <xs:element ref="hi"/>
         <xs:element ref="sp"/>
@@ -192,7 +192,7 @@
         <xs:element ref="sic"/>
         <xs:element ref="time"/>
       </xs:choice>
-      <xs:attribute name="type"> <!--use="required"-->
+      <xs:attribute name="type" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:enumeration value="decl"/>
@@ -254,6 +254,7 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="incident"/>
          <xs:element minOccurs="0" maxOccurs="unbounded" ref="w"/>
       </xs:sequence>
+      <xs:attribute name="ana" type="xs:string"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="w">

@@ -14,7 +14,7 @@ Alternatively, if you can't use praw/bigquery, the script `_build/process_reddit
 
 ## Rebuilding the corpus with reddit data
 
-To compile all projected annotations and produce all formats not included in `_build/src/`, you will need to run the GUM build bot: `python _build/build_gum.py`. This process is described in detail at https://corpling.uis.georgetown.edu/gum/build.html, but summarized instructions follow.
+To compile all projected annotations and produce all formats not included in `_build/src/`, you will need to run the GUM build bot: `python _build/build_gum.py`. This process is described in detail at https://gucorpling.org/gum/build.html, but summarized instructions follow.
 
 At a minumum, you can run `python _build/build_gum.py` with no options. This will produce basic formats in `_build/target/`, but skip generating fresh constituent parses, CLAWS5 tags and the Universal Dependencies version of the dependency data. To include these you will need:
 

@@ -41,7 +41,10 @@ def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False):
 					#	elements[tok_col] = elements[tok_col].replace("&amp;","&").replace("&","&amp;")
 					if lemma_col is not None:
 						if elements[lemma_col] == '_':
-							elements[lemma_col] = elements[tok_col]
+							if not (elements[tok_col] in ["hearing","hind"] and "_card" in f_path):  # Check known goeswith cases
+								elements[lemma_col] = elements[tok_col]
+							else:
+								elements[lemma_col] = "_"
 						elif elements[lemma_col] == "*LOWER*":
 							elements[lemma_col] = elements[tok_col].lower()
 					try:
