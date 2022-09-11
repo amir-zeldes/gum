@@ -866,13 +866,13 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 				 ("at","least"),("because","of"),("due","to"),("had","better"),("'d","better"),("in","between"), ("per", "se"),
 				 ("in","case"),("in","of"), ("in","order"),("instead","of"), ("kind","of"),("less","than"),("let","alone"),
 				 ("more","than"),("not","to"),("not","mention"),("of","course"),("prior","to"),("rather","than"),("so","as"),
-				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("that","is"), ("up","to"),("whether","or"),
-				 ("whether","not"),("depend","on"),("out","of"),("off","of"),("long","than"),("on","board"),("as","of"),("depend","upon"),
+				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("that","is"), ("up","to"),("depend","on"),
+				 ("out","of"),("off","of"),("long","than"),("on","board"),("as","of"),("depend","upon"),
 				 ("that","be"),("just","about"),("vice","versa"),("as","such"),("next","to"),("close","to"),("one","another"),
 				 ("de","facto"),("each","other"), ("as","many")}
 
-	# Ad hoc listing of triple mwe parts - All in all, in order for
-	mwe_pairs.update({("all","in"),("all","all"),("in","for")})
+	# Ad hoc listing of triple mwe parts - All in all, in order for, whether or not
+	mwe_pairs.update({("all","in"),("all","all"),("in","for"),("whether","or"),("whether","not")})
 
 	if func == "fixed":
 		if (parent_lemma.lower(), lemma.lower()) not in mwe_pairs:
