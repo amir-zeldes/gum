@@ -836,13 +836,13 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if pos in ["VBD","VVD","VHD","VBP","VVP","VHP"] and "aux" in child_funcs:
 		print(str(id) + docname)
-		print("WARN: tag "+pos+" should not have auxiliaries 'aux' " + inname)
+		print("WARN: tag "+pos+" should not have auxiliaries 'aux'" + inname)
 
 	if lemma == "not" and func not in ["advmod","root","parataxis","reparandum","advcl","conj","orphan"]:
 		print("WARN: deprel "+func+" should not be used with lemma '"+lemma+"'" + inname)
 
 	if func == "xcomp" and parent_lemma in ["see","hear","notice"]:  # find
-		print("WARN: deprel "+func+" should not be used with perception verb lemma '"+lemma+"' (should this be nsubj+ccomp?)" + inname)
+		print("WARN: deprel "+func+" should not be used with perception verb lemma '"+parent_lemma+"' (should this be nsubj+ccomp?)" + inname)
 
 	if "obj" in child_funcs and "ccomp" in child_funcs:
 		print("WARN: token has both obj and ccomp children" + inname)
@@ -860,7 +860,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	#	print("WARN: lemma "+lemma+" should not be func '"+func+"' when it is the child of a '" + parent_func + "'" + inname)
 
 	if (sent_position == "first" and pos == "''") or (sent_position == "last" and pos=="``"):
-		print("WARN: incorrect quotation mark tag " + pos + " at "+sent_position+" position in sentence " + inname)
+		print("WARN: incorrect quotation mark tag " + pos + " at "+sent_position+" position in sentence" + inname)
 
 	mwe_pairs = {("accord", "to"), ("all","but"), ("as","if"), ("as", "well"), ("as", "as"), ("as","in"), ("all","of"), ("as","oppose"),("as","to"),
 				 ("at","least"),("because","of"),("due","to"),("had","better"),("'d","better"),("in","between"), ("per", "se"),
@@ -886,7 +886,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 			print("WARN: mistagged fixed expression" + inname)
 
 	if tok == "rather" and "fixed" in child_funcs and func not in ["cc","mark"]:
-		print("WARN: 'rather than' fixed expression must be cc or mark " + inname)
+		print("WARN: 'rather than' fixed expression must be cc or mark" + inname)
 
 	if s_type == "imp" or s_type == "frag" or s_type == "ger" or s_type == "inf":
 		if func == "root" and "nsubj" in child_funcs:
