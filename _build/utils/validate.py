@@ -854,8 +854,24 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func.endswith("tmod") and pos.startswith("RB"):
 		print("WARN: adverbs should not be tmod" + inname)
 
-	if pos == "EX" and func not in ["expl","reparandum"]:
-		print("WARN: existential 'there' tagged EX should not be " + func + inname)
+	"""
+	Existential construction
+	X.xpos=EX <=> X.deprel=expl & X.lemma=there
+	"""
+	if func!="reparandum":
+		_ex_tag = (pos=="EX")
+		_expl_there = (func=="expl" and lemma=="there")
+		if _ex_tag != _expl_there:
+			print("WARN: 'there' with " + pos + inname)
+		if lemma=="there" and not _ex_tag and 'nsubj' in func:
+			print("WARN: subject 'there' not tagged as EX/expl" + inname)
+
+	"""
+	(Pre)determiner 'what'
+	X[lemma=what,xpos=WDT] <=> X[lemma=what,deprel=det|det:predet]
+	"""
+	if lemma=="what" and ((pos=="WDT") != (func in ["det", "det:predet"])):
+		print("WARN: what/WDT should correspond with det or det:predet" + inname)
 
 	#if func == "advmod" and lemma in ["where","when"] and parent_func == "acl:relcl":
 	#	print("WARN: lemma "+lemma+" should not be func '"+func+"' when it is the child of a '" + parent_func + "'" + inname)
