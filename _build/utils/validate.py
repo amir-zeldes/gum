@@ -275,11 +275,18 @@ def validate_src(gum_source, reddit=False):
 	validate_lemmas(lemma_dict,lemma_docs)
 	sys.stdout.write("\r" + " "*70)
 
-def validate_lemmas(lemma_dict, lemma_docs):
+def validate_lemmas(lemma_dict, lemma_docs, use_neaten=False):
+	"""
+	use_neaten adds validations implemented by @nschneid motivated by EWT-specific tokens
+	"""
+
 	exceptions = [("Democratic","JJ","Democratic"),("Water","NP","Waters"),("Sun","NP","Sunday"),("a","IN","of"),
 		      ("a","IN","as"),("car","NN","card"),("lay","VV","lay"),("that","IN","than"),
-		      ("da","NNP","Danish"),("Jan","NNP","Jan"),("Jan","NNP","January"),
+		      ("da","NNP","Danish")]
+	if use_neaten:
+		exceptions += [("Jan","NNP","Jan"),("Jan","NNP","January"),
 		      ("'s","VBZ","have"),("’s","VBZ","have"),("`s","VBZ","have"),("'d","VBD","do"),("'d","VBD","have")]
+
 	suspicious_types = 0
 	for tok, pos in sorted(list(iterkeys(lemma_dict))):
 		if len(lemma_dict[(tok,pos)]) > 1:
@@ -839,6 +846,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print(str(id) + docname)
 		print("WARN: tag "+pos+" should not have auxiliaries 'aux'" + inname)
 
+	# 'amod' promotion for EWT "those affluent and those not"
 	if lemma == "not" and func not in ["advmod","root","ccomp","amod","parataxis","reparandum","advcl","conj","orphan","fixed"]:
 		print("WARN: deprel "+func+" should not be used with lemma '"+lemma+"'" + inname)
 
