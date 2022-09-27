@@ -277,8 +277,9 @@ def validate_src(gum_source, reddit=False):
 
 def validate_lemmas(lemma_dict, lemma_docs):
 	exceptions = [("Democratic","JJ","Democratic"),("Water","NP","Waters"),("Sun","NP","Sunday"),("a","IN","of"),
-				  ("a","IN","as"),("car","NN","card"),("lay","VV","lay"),("that","IN","than"),
-				  ("da","NP","Danish")]
+		      ("a","IN","as"),("car","NN","card"),("lay","VV","lay"),("that","IN","than"),
+		      ("da","NNP","Danish"),("Jan","NNP","Jan"),("Jan","NNP","January"),
+		      ("'s","VBZ","have"),("’s","VBZ","have"),("`s","VBZ","have"),("'d","VBD","do"),("'d","VBD","have")]
 	suspicious_types = 0
 	for tok, pos in sorted(list(iterkeys(lemma_dict))):
 		if len(lemma_dict[(tok,pos)]) > 1:
@@ -686,8 +687,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if pos in ["VVG","VVN","VVD"] and lemma == tok:
 		# check cases where VVN form is same as tok ('know' and 'notice' etc. are recorded typos, l- is a disfluency)
-		if tok not in ["shed","put","read","become","come","cut","hit","split","cast","set","hurt","run","broadcast","knit",
-					   "undercut","spread","shut","upset","burst","bit","let","l-","g-","know","notice","reach","raise"]:
+		if tok not in ["shed","put","read","become","come","overcome","cut","pre-cut","hit","split","cast","set","hurt","run","overrun","outrun","broadcast","knit",
+			       "undercut","spread","shut","upset","burst","bit","bid","outbid","let","l-","g-","know","notice","reach","raise","beat","forecast"]:
 			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
 	if pos == "NPS" and tok == lemma and tok.endswith("s") and func != "goeswith":
@@ -704,11 +705,11 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if pos == "IN" and func=="compound:prt":
 		print("WARN: function " + func + " should have pos RP, not IN" + inname)
 
-	if pos == "CC" and func not in ["cc","cc:preconj","conj","reparandum","root","dep"]:
+	if pos == "CC" and func not in ["cc","cc:preconj","conj","reparandum","root","dep"] and not (parent_lemma=="whether" and func=="fixed"):
 		if not ("languages" in inname and tok == "and"):  # metalinguistic discussion in whow_languages
 			print("WARN: pos " + pos + " should normally have function cc or cc:preconj, not " + func + inname)
 
-	if pos == "RP" and func not in ["compound:prt","root","conj","ccomp"] or pos != "RP" and func=="compound:prt":
+	if pos == "RP" and func not in ["compound:prt","conj"] or pos != "RP" and func=="compound:prt":
 		print("WARN: pos " + pos + " should not normally have function " + func + inname)
 
 	if pos != "CC" and func in ["cc","cc:preconj"]:
@@ -809,7 +810,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if parent_lemma == "let" and func=="ccomp":
 		print("WARN: verb 'let' should take xcomp clausal object, not ccomp" + inname)
 
-	if pos == "MD" and lemma not in ["can","must","will","shall","would","could","may","might","ought","should"]:
+	if pos == "MD" and lemma not in ["can","must","will","shall","would","could","may","might","ought","should"] and func != "goeswith":
 		print("WARN: lemma '"+lemma+"' is not a known modal verb for tag MD" + inname)
 
 	if lemma == "like" and pos == "UH" and func not in ["discourse","conj","reparandum"]:
@@ -838,7 +839,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print(str(id) + docname)
 		print("WARN: tag "+pos+" should not have auxiliaries 'aux'" + inname)
 
-	if lemma == "not" and func not in ["advmod","root","parataxis","reparandum","advcl","conj","orphan"]:
+	if lemma == "not" and func not in ["advmod","root","ccomp","amod","parataxis","reparandum","advcl","conj","orphan","fixed"]:
 		print("WARN: deprel "+func+" should not be used with lemma '"+lemma+"'" + inname)
 
 	if func == "xcomp" and parent_lemma in ["see","hear","notice"]:  # find
@@ -853,8 +854,24 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func.endswith("tmod") and pos.startswith("RB"):
 		print("WARN: adverbs should not be tmod" + inname)
 
-	if pos == "EX" and func not in ["expl","reparandum"]:
-		print("WARN: existential 'there' tagged EX should not be " + func + inname)
+	"""
+	Existential construction
+	X.xpos=EX <=> X.deprel=expl & X.lemma=there
+	"""
+	if func!="reparandum":
+		_ex_tag = (pos=="EX")
+		_expl_there = (func=="expl" and lemma=="there")
+		if _ex_tag != _expl_there:
+			print("WARN: 'there' with " + pos + inname)
+		if lemma=="there" and not _ex_tag and 'nsubj' in func:
+			print("WARN: subject 'there' not tagged as EX/expl" + inname)
+
+	"""
+	(Pre)determiner 'what'
+	X[lemma=what,xpos=WDT] <=> X[lemma=what,deprel=det|det:predet]
+	"""
+	if lemma=="what" and ((pos=="WDT") != (func in ["det", "det:predet"])):
+		print("WARN: what/WDT should correspond with det or det:predet" + inname)
 
 	#if func == "advmod" and lemma in ["where","when"] and parent_func == "acl:relcl":
 	#	print("WARN: lemma "+lemma+" should not be func '"+func+"' when it is the child of a '" + parent_func + "'" + inname)
