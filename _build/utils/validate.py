@@ -676,6 +676,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func == "amod" and pos in ["VBD","VVD","VHD"]:
 		print("WARN: finite past verb labeled amod " + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
+	if func in ["amod", "det"] and parent_lemma == "one" and parent_pos == "CD":
+		print("WARN: 'one' with " + func + " dependent should be NN/NOUN not CD/NUM in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
+		
 	if func in ['fixed','goeswith','flat', 'conj'] and id < parent_id:
 		print("WARN: back-pointing func " + func + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
@@ -942,7 +945,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 						print("WARN: q root may not have wh child " + wh + inname)
 
 	suspicious_pos_tok = [("*","DT","only","RB"),
-						  ("*","JJ","one","CD")]
+			      ("*","JJ","one","CD"),    # may be redundant with new amod-dependent-of-'one' check
+			      ("no","DT","one","CD")]
 
 	for w1, pos1, w2, pos2 in suspicious_pos_tok:
 		if w1 == prev_tok or w1 == "*":
