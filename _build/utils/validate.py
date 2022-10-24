@@ -944,9 +944,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 							not (tok =="Know" and wh=="when"):  # Listed exceptions in GUM_reddit_bobby, GUM_conversation_christmas, GUM_vlog_covid
 						print("WARN: q root may not have wh child " + wh + inname)
 
-	suspicious_pos_tok = [("*","DT","only","RB"),
-			      ("*","JJ","one","CD"),    # may be redundant with new amod-dependent-of-'one' check
-			      ("no","DT","one","CD")]
+	suspicious_pos_tok = [("*","DT","only","RB")]
 
 	for w1, pos1, w2, pos2 in suspicious_pos_tok:
 		if w1 == prev_tok or w1 == "*":
