@@ -399,7 +399,7 @@ def validate_annos(gum_source, reddit=False):
 		tagset = ["CC","CD","DT","EX","FW","IN","IN/that","JJ","JJR","JJS","LS","MD","NN","NNS","NP","NPS","PDT","POS",
 				  "PP","PP$","RB","RBR","RBS","RP","SENT","SYM","TO","UH","VB","VBD","VBG","VBN","VBP","VBZ","VH","VHD",
 				  "VHG","VHN","VHP","VHZ","VV","VVD","VVG","VVN","VVP","VVZ","WDT","WP","WP$","WRB","``","''","(",")",
-				  ",",":","HYPH"]
+				  ",",":","HYPH","$"]
 		non_lemmas = ["them","me","him","n't"]
 		non_lemma_combos = [("PP","her"),("MD","wo"),("PP","us"),("DT","an")]
 		lemma_pos_combos = {"which":"WDT"}
@@ -678,7 +678,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if func in ["amod", "det"] and parent_lemma == "one" and parent_pos == "CD":
 		print("WARN: 'one' with " + func + " dependent should be NN/NOUN not CD/NUM in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
-		
+
 	if func in ['fixed','goeswith','flat', 'conj'] and id < parent_id:
 		print("WARN: back-pointing func " + func + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
@@ -699,7 +699,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		# check cases where VVN form is same as tok ('know' and 'notice' etc. are recorded typos, l- is a disfluency)
 		if tok not in ["shed","put","read","become","come","overcome","cut","pre-cut","hit","split","cast","set","hurt","run","overrun","outrun","broadcast","knit",
 			       "undercut","spread","shut","upset","burst","bit","bid","outbid","let","l-","g-","know","notice","reach","raise","beat","forecast"]:
-			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
+			if not tok =="recommend" and "languages" in inname:
+				print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
 	if pos == "NPS" and tok == lemma and tok.endswith("s") and func != "goeswith":
 		if tok not in ["Netherlands","Analytics","Olympics","Commons","Paralympics","Vans",
@@ -897,7 +898,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("that","is"), ("up","to"),("depend","on"),
 				 ("out","of"),("off","of"),("long","than"),("on","board"),("as","of"),("depend","upon"),
 				 ("that","be"),("just","about"),("vice","versa"),("as","such"),("next","to"),("close","to"),("one","another"),
-				 ("de","facto"),("each","other"), ("as","many")}
+				 ("de","facto"),("each","other"), ("as","many"), ("in","that")}
 
 	# Ad hoc listing of triple mwe parts - All in all, in order for, whether or not
 	mwe_pairs.update({("all","in"),("all","all"),("in","for"),("whether","or"),("whether","not")})
@@ -945,7 +946,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 						print("WARN: q root may not have wh child " + wh + inname)
 
 	suspicious_pos_tok = [("*","DT","only","RB"),
-			      ("no","RB","matter","RB")]
+						  ("no", "RB", "matter", "RB")]
 
 	for w1, pos1, w2, pos2 in suspicious_pos_tok:
 		if w1 == prev_tok or w1 == "*":
