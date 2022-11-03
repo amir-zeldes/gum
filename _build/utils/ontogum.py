@@ -44,6 +44,7 @@ class Coref(object):
         self.verb_head_aux = list()
         self.sent = list()
         self.num = bool()
+        self.proper = bool()
 
 
 def coref_(fields: list) -> dict:
@@ -401,9 +402,12 @@ def process_doc(dep_doc, coref_doc):
                     head_range = [dep_doc[x][0] for x in range(int(i), int(i)+span_len) if len(dep_doc[x]) == 10]
                     starting_heads_id = head_range[0]
                     head_of_the_phrase = ''
+                    doc[entity].proper = True
 
                     # loop each word in the head to find the head_func/head_pos/if_cop_in_dep for the entity
                     for row in heads:
+                        if 'NNP' not in row[4] and doc[entity].proper:
+                            doc[entity].proper = False
 
                         # if find the ROOT
                         if row[6] == '0':
@@ -770,6 +774,8 @@ class Convert(object):
             if _coref.appos:
                 continue
             if _coref.next and _coref.next != '0' and _coref.next in self.doc.keys() and self.doc[_coref.next].definite == False:
+                if _coref.proper:   # do not separate the chain when the antecedent is a proper noun
+                    continue
                 """
                 WARNING: This is not a valid operation but avoids some annotation errors
                 """
@@ -1368,9 +1374,6 @@ def to_conll(docname, doc, converted_tsv_article, dep_sents):
         cur_line = str(count) + '\t' + token + '\t'
         count += 1
         coref_part = ''
-
-        if line_id == '20-11':
-            a = 1
 
         if fields[3] == '_':
             cur_line += '_\n'
