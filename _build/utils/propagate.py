@@ -743,12 +743,15 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		lines = processed_lines.split("\n")
 		header = ["# global.Entity = GRP-etype-infstat-centering-minspan-link-identity"]
 		meta = get_meta(docname,gum_target)
+		header.append("# meta::author = "+ meta["author"])
 		header.append("# meta::dateCollected = " + meta["dateCollected"])
 		header.append("# meta::dateCreated = " + meta["dateCreated"])
 		header.append("# meta::dateModified = " + meta["dateModified"])
 		#header.append("# meta::shortTitle = " + meta["shortTitle"])
+		header.append("# meta::genre = "+ meta["type"])
 		header.append("# meta::sourceURL = " + meta["sourceURL"])
 		header.append("# meta::speakerCount = " + meta["speakerCount"])
+		header.append("# meta::summary = "+ meta["summary"])
 		header.append("# meta::title = "+ meta["title"])
 		processed_lines = [lines[0]] + header + lines[1:]
 		processed_lines = "\n".join(processed_lines)
