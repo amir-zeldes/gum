@@ -1,109 +1,109 @@
-1	Design of Mutation Operators	7	_	_	pos1=NN|head_tok=design|head_pos=NN|parent_pos=_|sid=1|stype=frag|len=4|head_func=root|heading=heading	6	organization-heading_r	_	_
-2	for Testing Geographic Information Systems	0	_	_	pos1=IN|head_tok=test|head_pos=VVG|parent_pos=NNS|sid=1|stype=frag|len=5|head_func=acl|subord=LEFT|heading=heading	1	purpose-attribute_r	_	_
-3	Suilen H. Alvarado Laboratorio de Bases de Datos Campus de Elviña , Centro de investigación CITIC , Universidade da Coruña , 15071 A Coruña , Spain ; s.hernandez@udc.es	6	_	_	pos1=NP|head_tok=Suilen|head_pos=NP|parent_pos=_|sid=2|stype=other|len=28|head_func=root|para=para	6	attribution-positive_r	_	_
-4	Presented at the 2nd XoveTIC Congress , A Coruña , Spain , 5 – 6 September 2019 .	5	_	_	pos1=VVN|head_tok=present|head_pos=VVN|parent_pos=_|sid=3|stype=other|len=18|head_func=root|date	6	context-circumstance_r	_	_
-5	Abstract :	3	_	_	pos1=NN|head_tok=abstract|head_pos=NN|parent_pos=_|sid=4|stype=frag|len=2|head_func=root|para=para	6	organization-heading_r	_	_
-6	In this article , we propose the definition of specific mutation operators	0	_	_	pos1=IN|head_tok=propose|head_pos=VVP|parent_pos=_|sid=5|stype=decl|len=12|head_func=root	0	ROOT	_	_
-7	for testing Geographic Information Systems .	0	_	_	pos1=IN|head_tok=test|head_pos=VVG|parent_pos=VVP|sid=5|stype=decl|len=6|head_func=advcl|subord=LEFT	6	purpose-goal_r	_	_
-8	We describe the process	1	_	_	pos1=PP|head_tok=describe|head_pos=VVP|parent_pos=_|sid=6|stype=decl|len=4|head_func=root	6	elaboration-additional_r	_	_
-9	for applying the operators	0	_	_	pos1=IN|head_tok=apply|head_pos=VVG|parent_pos=NN|sid=6|stype=decl|len=4|head_func=acl|subord=LEFT	8	purpose-attribute_r	_	_
-10	and generating mutants ,	0	_	_	pos1=CC|head_tok=generate|head_pos=VVG|parent_pos=VVG|sid=6|stype=decl|len=4|head_func=conj|subord=RIGHT	9	joint-list_m	_	_
-11	and present a case study	1	_	_	pos1=CC|head_tok=present|head_pos=VVP|parent_pos=VVP|sid=6|stype=decl|len=5|head_func=conj|subord=LEFT	8	joint-sequence_m	_	_
-12	where these mutation operators are applied to two real - world applications .	0	_	_	pos1=WRB|head_tok=apply|head_pos=VVN|parent_pos=NN|sid=6|stype=decl|len=13|head_func=acl:relcl|subord=LEFT	11	elaboration-attribute_r	_	_
-13	Keywords :	0	_	_	pos1=NNS|head_tok=keyword|head_pos=NNS|parent_pos=NNS|sid=7|stype=other|len=2|head_func=nsubj|subord=RIGHT|para=para	14	organization-heading_r	_	_
-14	mutation operators ; geographic information systems ; mutation testing	2	_	_	pos1=NN|head_tok=operator|head_pos=NNS|parent_pos=_|sid=7|stype=other|len=9|head_func=root	6	restatement-partial_r	_	_
-15	1. Introduction	6	_	_	pos1=LS|head_tok=introduction|head_pos=NN|parent_pos=_|sid=8|stype=frag|len=2|head_func=root|heading=heading	31	organization-heading_r	_	_
-16	Mutation - based testing	5	_	_	pos1=NN|head_tok=testing|head_pos=NN|parent_pos=NN|sid=9|stype=decl|len=4|head_func=nsubj|subord=RIGHT|para=para	31	context-background_r	_	_
-17	[ 1 ]	0	_	_	pos1=(|head_tok=1|head_pos=CD|parent_pos=NN|sid=9|stype=decl|len=3|head_func=appos|subord=LEFT	16	explanation-evidence_r	_	_
-18	is a test technique	1	_	_	pos1=VBZ|head_tok=technique|head_pos=NN|parent_pos=_|sid=9|stype=decl|len=4|head_func=root	16	same-unit_m	_	_
-19	that involves artificially introducing errors into a System Under Test	2	_	_	pos1=WDT|head_tok=involve|head_pos=VVZ|parent_pos=NN|sid=9|stype=decl|len=10|head_func=acl:relcl|subord=LEFT	16	elaboration-attribute_r	_	_
-20	( SUT ) .	0	_	_	pos1=(|head_tok=SUT|head_pos=NN|parent_pos=NN|sid=9|stype=decl|len=4|head_func=appos|subord=LEFT	19	restatement-partial_r	_	_
-21	A mutant is a copy of the system	3	_	_	pos1=DT|head_tok=copy|head_pos=NN|parent_pos=_|sid=10|stype=decl|len=8|head_func=root	16	context-background_r	_	_
-22	in which a change has been done	0	_	_	pos1=IN|head_tok=do|head_pos=VVN|parent_pos=NN|sid=10|stype=decl|len=7|head_func=acl:relcl|subord=LEFT	21	elaboration-attribute_r	_	_
-23	that , in most cases , will lead to a behaviour different	0	_	_	pos1=WDT|head_tok=lead|head_pos=VV|parent_pos=NN|sid=10|stype=decl|len=12|head_func=acl:relcl|subord=LEFT	22	elaboration-attribute_r	_	_
-24	than expected .	0	_	_	pos1=IN|head_tok=expect|head_pos=VVN|parent_pos=JJ|sid=10|stype=decl|len=3|head_func=obl|subord=LEFT	23	adversative-antithesis_r	_	_
-25	The different mutants are generated automatically by the application of mutation operators .	1	_	_	pos1=DT|head_tok=generate|head_pos=VVN|parent_pos=_|sid=11|stype=decl|len=13|head_func=root	21	elaboration-additional_r	_	_
-26	In the state of the art , we have found mutation operators , both general purpose and specific to different technologies , languages and paradigms	1	_	_	pos1=IN|head_tok=find|head_pos=VVN|parent_pos=_|sid=12|stype=decl|len=25|head_func=root	28	adversative-concession_r	_	_
-27	[ 2 – 9 ] .	0	_	_	pos1=(|head_tok=2|head_pos=CD|parent_pos=VVN|sid=12|stype=decl|len=6|head_func=dep|subord=LEFT	26	explanation-evidence_r	_	_
-28	However , these operators are not adequate	4	_	_	pos1=RB|head_tok=adequate|head_pos=JJ|parent_pos=_|sid=13|stype=decl|len=7|head_func=root	31	explanation-justify_r	_	_
-29	when trying to test software features	0	_	_	pos1=WRB|head_tok=try|head_pos=VVG|parent_pos=JJ|sid=13|stype=decl|len=6|head_func=advcl|subord=LEFT	28	contingency-condition_r	_	_
-30	associated with specific domains .	0	_	_	pos1=VVN|head_tok=associate|head_pos=VVN|parent_pos=NNS|sid=13|stype=decl|len=5|head_func=acl|subord=LEFT	29	elaboration-attribute_r	_	_
-31	In this article , we propose mutation operators specific to the domain of Geographic Information Systems	4	_	_	pos1=IN|head_tok=system|head_pos=NN|parent_pos=NNS|sid=14|stype=decl|len=16|head_func=compound|subord=RIGHT	6	elaboration-additional_r	_	_
-32	( GIS )	0	_	_	pos1=(|head_tok=GIS|head_pos=NNS|parent_pos=NN|sid=14|stype=decl|len=3|head_func=appos|subord=LEFT	31	restatement-partial_r	_	_
-33	applications .	1	_	_	pos1=NNS|head_tok=application|head_pos=NNS|parent_pos=NN|sid=14|stype=decl|len=2|head_func=nmod|subord=LEFT	31	same-unit_m	_	_
-34	These operators reproduce programming errors	2	_	_	pos1=DT|head_tok=reproduce|head_pos=VVP|parent_pos=_|sid=15|stype=decl|len=5|head_func=root	31	elaboration-additional_r	_	_
-35	that are litely to occur during the development of this type of applications .	0	_	_	pos1=WDT|head_tok=occur|head_pos=VV|parent_pos=NNS|sid=15|stype=decl|len=14|head_func=acl:relcl|subord=LEFT	34	adversative-antithesis_r	_	_
-36	In addition , we present the implementation of these operators	3	_	_	pos1=IN|head_tok=present|head_pos=VVP|parent_pos=_|sid=16|stype=decl|len=10|head_func=root	31	joint-list_m	_	_
-37	and as proof of concept we apply these operators to two real - world GIS applications	3	_	_	pos1=CC|head_tok=apply|head_pos=VVP|parent_pos=VVP|sid=16|stype=decl|len=16|head_func=conj|subord=LEFT	31	joint-list_m	_	_
-38	and we generate the mutants .	0	_	_	pos1=CC|head_tok=generate|head_pos=VVP|parent_pos=VVP|sid=16|stype=decl|len=6|head_func=conj|subord=LEFT	37	joint-list_m	_	_
-39	2. Mutation Operators for GIS	4	_	_	pos1=LS|head_tok=Operator|head_pos=NPS|parent_pos=_|sid=17|stype=frag|len=5|head_func=root|heading=heading	46	organization-heading_r	_	_
-40	As a previous step	0	_	_	pos1=IN|head_tok=step|head_pos=NN|parent_pos=VVD|sid=18|stype=decl|len=4|head_func=obl|subord=RIGHT|para=para	46	context-background_r	_	_
-41	to designing the mutation operators ,	0	_	_	pos1=IN|head_tok=design|head_pos=VVG|parent_pos=NN|sid=18|stype=decl|len=6|head_func=acl|subord=LEFT	40	elaboration-attribute_r	_	_
-42	we analyzed the main technologies	1	_	_	pos1=PP|head_tok=analyze|head_pos=VVD|parent_pos=_|sid=18|stype=decl|len=5|head_func=root	40	same-unit_m	_	_
-43	used specifically in the development of GIS ,	0	_	_	pos1=VVN|head_tok=use|head_pos=VVN|parent_pos=NNS|sid=18|stype=decl|len=8|head_func=acl|subord=RIGHT	42	elaboration-attribute_r	_	_
-44	and we identified typical errors	2	_	_	pos1=CC|head_tok=identify|head_pos=VVD|parent_pos=VVD|sid=18|stype=decl|len=5|head_func=conj|subord=LEFT	40	joint-list_m	_	_
-45	a programmer can introduce during the development .	0	_	_	pos1=DT|head_tok=introduce|head_pos=VV|parent_pos=NNS|sid=18|stype=decl|len=8|head_func=acl:relcl|subord=LEFT	44	elaboration-attribute_r	_	_
-46	These errors were formalized into mutation operators .	7	_	_	pos1=DT|head_tok=formalize|head_pos=VVN|parent_pos=_|sid=19|stype=decl|len=8|head_func=root	31	joint-other_m	_	_
-47	In order to apply these operators to a SUT ,	0	_	_	pos1=IN|head_tok=apply|head_pos=VV|parent_pos=VVP|sid=20|stype=decl|len=10|head_func=advcl|subord=RIGHT	48	purpose-goal_r	_	_
-48	we rely on Java reflection and aspect - oriented programming .	1	_	_	pos1=PP|head_tok=rely|head_pos=VVP|parent_pos=_|sid=20|stype=decl|len=11|head_func=root	46	mode-means_r	_	_
-49	Reflection allows us to obtain the list of classes and methods of the SUT ,	1	_	_	pos1=NN|head_tok=allow|head_pos=VVZ|parent_pos=_|sid=21|stype=decl|len=15|head_func=root|subord=RIGHT	48	explanation-justify_r	_	_
-50	so the user can decide the methods	0	_	_	pos1=IN|head_tok=decide|head_pos=VV|parent_pos=VVZ|sid=21|stype=decl|len=7|head_func=advcl|subord=LEFT	49	purpose-goal_r	_	_
-51	to wish the operators will be applied .	0	_	_	pos1=TO|head_tok=wish|head_pos=VV|parent_pos=NNS|sid=21|stype=decl|len=8|head_func=acl|subord=LEFT	50	purpose-attribute_r	_	_
-52	Later , we capture information about the methods of the SUT	2	_	_	pos1=RBR|head_tok=capture|head_pos=VVP|parent_pos=_|sid=22|stype=decl|len=11|head_func=root	46	joint-sequence_m	_	_
-53	to be mutated , together with the information of the mutation operators	0	_	_	pos1=TO|head_tok=information|head_pos=NN|parent_pos=NN|sid=22|stype=decl|len=12|head_func=nmod|subord=LEFT	52	purpose-goal_r	_	_
-54	that were already defined .	0	_	_	pos1=WDT|head_tok=define|head_pos=VVN|parent_pos=NNS|sid=22|stype=decl|len=5|head_func=acl:relcl|subord=LEFT	53	elaboration-attribute_r	_	_
-55	From these data , we generate the mutation operator , in the form of on aspect ,	2	_	_	pos1=IN|head_tok=generate|head_pos=VVP|parent_pos=_|sid=23|stype=decl|len=17|head_func=root|subord=RIGHT	46	joint-sequence_m	_	_
-56	which will then be possible to interweave with the SUT	0	_	_	pos1=WDT|head_tok=possible|head_pos=JJ|parent_pos=NN|sid=23|stype=decl|len=10|head_func=acl:relcl|subord=LEFT	55	elaboration-attribute_r	_	_
-57	which generates a mutant of the SUT .	0	_	_	pos1=WDT|head_tok=generate|head_pos=VVZ|parent_pos=VV|sid=23|stype=decl|len=8|head_func=acl:relcl|subord=LEFT	56	elaboration-additional_r	_	_
-58	Next , we describe the definition of two operators and two cases of application on real - world GIS applications .	3	_	_	pos1=RB|head_tok=describe|head_pos=VVP|parent_pos=_|sid=24|stype=decl|len=21|head_func=root	46	elaboration-additional_r	_	_
-59	ChangeCoordSys Operator	5	_	_	pos1=NP|head_tok=Operator|head_pos=NP|parent_pos=_|sid=25|stype=frag|len=2|head_func=root|para=para	61	organization-preparation_r	_	_
-60	( Listing 1 ) :	0	_	_	pos1=(|head_tok=Listing|head_pos=NP|parent_pos=NP|sid=25|stype=frag|len=5|head_func=dep|subord=LEFT	59	restatement-partial_r	_	_
-61	It exchanges the coordinate system of a geometry ,	0	_	_	pos1=PP|head_tok=exchange|head_pos=VVZ|parent_pos=_|sid=26|stype=decl|len=9|head_func=root|subord=RIGHT	58	elaboration-additional_r	_	_
-62	so it does not match the coordinate system	0	_	_	pos1=IN|head_tok=match|head_pos=VV|parent_pos=VVZ|sid=26|stype=decl|len=8|head_func=advcl|subord=LEFT	61	causal-result_r	_	_
-63	that is being used in the user interface .	0	_	_	pos1=WDT|head_tok=use|head_pos=VVN|parent_pos=NN|sid=26|stype=decl|len=9|head_func=acl:relcl|subord=LEFT	62	elaboration-attribute_r	_	_
-64	It simulates the error	1	_	_	pos1=PP|head_tok=simulate|head_pos=VVZ|parent_pos=_|sid=27|stype=decl|len=4|head_func=root	61	purpose-goal_r	_	_
-65	of not checking that the coordinate system is correct .	0	_	_	pos1=IN|head_tok=check|head_pos=VVG|parent_pos=NN|sid=27|stype=decl|len=10|head_func=acl|subord=LEFT	64	elaboration-attribute_r	_	_
-66	The error is introduced	2	_	_	pos1=DT|head_tok=introduce|head_pos=VVN|parent_pos=_|sid=28|stype=decl|len=4|head_func=root	61	elaboration-additional_r	_	_
-67	by directly modifying the coordinate system of geometry	0	_	_	pos1=IN|head_tok=modify|head_pos=VVG|parent_pos=VVN|sid=28|stype=decl|len=8|head_func=advcl|subord=LEFT	66	mode-means_r	_	_
-68	when recovering the wrapping of the figure .	0	_	_	pos1=WRB|head_tok=recover|head_pos=VVG|parent_pos=VVN|sid=28|stype=decl|len=8|head_func=advcl|subord=LEFT	67	context-circumstance_r	_	_
-69	Listing 1 :	0	_	_	pos1=NP|head_tok=Listing|head_pos=NP|parent_pos=_|sid=29|stype=other|len=3|head_func=root|subord=RIGHT|caption=caption|caption	70	organization-heading_r	_	_
-70	A simplified definition of the ChangeCoordSys Operator .	3	_	_	pos1=DT|head_tok=definition|head_pos=NN|parent_pos=NP|sid=29|stype=other|len=8|head_func=appos|subord=LEFT|caption=caption|caption	61	elaboration-additional_r	_	_
-71	This operator was applied to a mobile technology GIS application .	1	_	_	pos1=DT|head_tok=apply|head_pos=VVN|parent_pos=_|sid=30|stype=decl|len=11|head_func=root|para=para	76	context-background_r	_	_
-72	This application allows registering places of interest for the user .	0	_	_	pos1=DT|head_tok=allow|head_pos=VVZ|parent_pos=_|sid=31|stype=decl|len=11|head_func=root	71	elaboration-additional_r	_	_
-73	These areas of interest are called Geofences .	0	_	_	pos1=DT|head_tok=call|head_pos=VVN|parent_pos=_|sid=32|stype=decl|len=8|head_func=root	72	elaboration-additional_r	_	_
-74	A Geofence is determined by a geographical location	0	_	_	pos1=DT|head_tok=determine|head_pos=VVN|parent_pos=_|sid=33|stype=decl|len=8|head_func=root	73	elaboration-additional_r	_	_
-75	expressed in terms of latitude , longitude , and a radius around that location .	0	_	_	pos1=VVN|head_tok=express|head_pos=VVN|parent_pos=NN|sid=33|stype=decl|len=15|head_func=acl|subord=LEFT	74	elaboration-attribute_r	_	_
-76	By creating a Geofence with an erroneous location from its central location ,	4	_	_	pos1=IN|head_tok=create|head_pos=VVG|parent_pos=VV|sid=34|stype=decl|len=13|head_func=advcl|subord=RIGHT	61	elaboration-additional_r	_	_
-77	the device will receive incorrect location notifications .	0	_	_	pos1=DT|head_tok=receive|head_pos=VV|parent_pos=_|sid=34|stype=decl|len=8|head_func=root	76	purpose-goal_r	_	_
-78	As a result , the user will see in the application ’s map viewer the Geofences drawn in erroneous zones	2	_	_	pos1=IN|head_tok=see|head_pos=VV|parent_pos=_|sid=35|stype=decl|len=20|head_func=root	76	causal-result_r	_	_
-79	( Figure 1 ) .	0	_	_	pos1=(|head_tok=Figure|head_pos=NP|parent_pos=VV|sid=35|stype=decl|len=5|head_func=dep|subord=LEFT	78	explanation-evidence_r	_	_
-80	Figure 1 .	0	_	_	pos1=NP|head_tok=Figure|head_pos=NP|parent_pos=_|sid=36|stype=other|len=3|head_func=root|caption=caption|caption	81	organization-heading_r	_	_
-81	Original and mutant application .	1	_	_	pos1=JJ|head_tok=original|head_pos=JJ|parent_pos=NP|sid=36|stype=other|len=5|head_func=appos|subord=LEFT|caption=caption|caption	78	elaboration-additional_r	_	_
-82	BooleanPolygonConstraint Operator	3	_	_	pos1=NP|head_tok=Operator|head_pos=NP|parent_pos=_|sid=37|stype=frag|len=2|head_func=root|para=para	84	organization-preparation_r	_	_
-83	( Listing 2 ) :	0	_	_	pos1=(|head_tok=Listing|head_pos=NP|parent_pos=NP|sid=37|stype=frag|len=5|head_func=appos|subord=LEFT	82	restatement-partial_r	_	_
-84	It introduces errors in the processing of geometries ,	6	_	_	pos1=PP|head_tok=introduce|head_pos=VVZ|parent_pos=_|sid=38|stype=decl|len=9|head_func=root|subord=RIGHT	61	joint-other_m	_	_
-85	manipulating the result of the operations	0	_	_	pos1=VVG|head_tok=manipulate|head_pos=VVG|parent_pos=VVZ|sid=38|stype=decl|len=6|head_func=advcl|subord=LEFT	84	causal-result_r	_	_
-86	that carry out the verification of different topological restrictions between geometries , such as intersects , covers or overlap .	0	_	_	pos1=WDT|head_tok=carry|head_pos=VVP|parent_pos=NNS|sid=38|stype=decl|len=20|head_func=acl:relcl|subord=LEFT	85	elaboration-attribute_r	_	_
-87	Listing 2 :	0	_	_	pos1=NP|head_tok=Listing|head_pos=NP|parent_pos=_|sid=39|stype=other|len=3|head_func=root|subord=RIGHT|caption=caption|caption	88	organization-heading_r	_	_
-88	A simplified definition of the BooleanPolygonConstraint Operator .	1	_	_	pos1=DT|head_tok=definition|head_pos=NN|parent_pos=NP|sid=39|stype=other|len=8|head_func=appos|subord=LEFT|caption=caption|caption	84	elaboration-additional_r	_	_
-89	To test this operator	1	_	_	pos1=TO|head_tok=test|head_pos=VV|parent_pos=VVN|sid=40|stype=decl|len=4|head_func=advcl|subord=RIGHT|para=para	90	purpose-goal_r	_	_
-90	it was applied to a land reparcelling system .	2	_	_	pos1=PP|head_tok=apply|head_pos=VVN|parent_pos=_|sid=40|stype=decl|len=9|head_func=root	84	joint-other_m	_	_
-91	The objective of the land reparcelling is to reunify the lands of an owner	0	_	_	pos1=DT|head_tok=reunify|head_pos=VV|parent_pos=_|sid=41|stype=decl|len=14|head_func=root	90	elaboration-additional_r	_	_
-92	to facilitate their exploitation .	0	_	_	pos1=TO|head_tok=facilitate|head_pos=VV|parent_pos=VV|sid=41|stype=decl|len=5|head_func=advcl|subord=LEFT	91	purpose-goal_r	_	_
-93	In this application , the result of the operation between two polygons has been affected .	3	_	_	pos1=IN|head_tok=affect|head_pos=VVN|parent_pos=_|sid=42|stype=decl|len=16|head_func=root	94	organization-preparation_r	_	_
-94	This error causes the incorrect display of the resulting geometry	2	_	_	pos1=DT|head_tok=cause|head_pos=VVZ|parent_pos=_|sid=43|stype=decl|len=10|head_func=root	84	joint-other_m	_	_
-95	that should be drawn in the user interface after the operation	0	_	_	pos1=WDT|head_tok=draw|head_pos=VVN|parent_pos=NN|sid=43|stype=decl|len=11|head_func=acl:relcl|subord=LEFT	94	elaboration-attribute_r	_	_
-96	applied to the two initial geometries	0	_	_	pos1=VVN|head_tok=apply|head_pos=VVN|parent_pos=NN|sid=43|stype=decl|len=6|head_func=acl|subord=LEFT	95	elaboration-attribute_r	_	_
-97	( Figure 2 ) .	1	_	_	pos1=(|head_tok=Figure|head_pos=NP|parent_pos=VVZ|sid=43|stype=decl|len=5|head_func=dep|subord=LEFT	94	explanation-evidence_r	_	_
-98	Figure 2 .	0	_	_	pos1=NP|head_tok=Figure|head_pos=NP|parent_pos=_|sid=44|stype=other|len=3|head_func=root|caption=caption|caption	99	organization-heading_r	_	_
-99	Original and mutant application .	2	_	_	pos1=JJ|head_tok=original|head_pos=JJ|parent_pos=NP|sid=44|stype=other|len=5|head_func=appos|subord=LEFT|caption=caption|caption	94	context-background_r	_	_
-100	3. Conclusions	4	_	_	pos1=LS|head_tok=conclusion|head_pos=NNS|parent_pos=_|sid=45|stype=frag|len=2|head_func=root|heading=heading	104	organization-heading_r	_	_
-101	In existing proposals , we can find both generic and specific mutation operators .	1	_	_	pos1=IN|head_tok=find|head_pos=VV|parent_pos=_|sid=46|stype=decl|len=14|head_func=root|para=para	102	adversative-antithesis_r	_	_
-102	However , these are not adequate	1	_	_	pos1=RB|head_tok=adequate|head_pos=JJ|parent_pos=_|sid=47|stype=decl|len=6|head_func=root	104	explanation-justify_r	_	_
-103	to cover errors in particular domains .	0	_	_	pos1=TO|head_tok=cover|head_pos=VV|parent_pos=JJ|sid=47|stype=decl|len=7|head_func=advcl|subord=LEFT	102	purpose-goal_r	_	_
-104	We have defined new operators specific to the GIS domain and a way	7	_	_	pos1=PP|head_tok=define|head_pos=VVN|parent_pos=_|sid=48|stype=decl|len=13|head_func=root	31	joint-other_m	_	_
-105	to apply them to a SUT .	0	_	_	pos1=TO|head_tok=apply|head_pos=VV|parent_pos=NN|sid=48|stype=decl|len=7|head_func=acl|subord=LEFT	104	purpose-attribute_r	_	_
-106	In addition , we have tested the operators	2	_	_	pos1=IN|head_tok=test|head_pos=VVN|parent_pos=_|sid=49|stype=decl|len=8|head_func=root	104	joint-list_m	_	_
-107	defined in two GIS applications .	0	_	_	pos1=VVN|head_tok=define|head_pos=VVN|parent_pos=NNS|sid=49|stype=decl|len=6|head_func=acl|subord=LEFT	106	elaboration-attribute_r	_	_
-108	As future work , we intend to extend this approach to other domains ,	3	_	_	pos1=IN|head_tok=intend|head_pos=VVP|parent_pos=_|sid=50|stype=decl|len=14|head_func=root|subord=RIGHT	104	joint-other_m	_	_
-109	as well as to use the developed operators for the automatic improvement of sets of test cases .	0	_	_	pos1=RB|head_tok=use|head_pos=VV|parent_pos=VV|sid=50|stype=decl|len=18|head_func=conj|subord=LEFT	108	joint-list_m	_	_
+1	Design of Mutation Operators	7	_	_	pos1=NN|head_tok=design|head_pos=NN|head_id=1|parent_pos=_|sid=1|stype=frag|len=4|head_func=root|heading=heading	6	organization-heading_r	_	_
+2	for Testing Geographic Information Systems	0	_	_	pos1=IN|head_tok=test|head_pos=VVG|head_id=6|parent_pos=NNS|sid=1|stype=frag|len=5|head_func=acl|subord=LEFT|heading=heading	1	purpose-attribute_r	_	_
+3	Suilen H. Alvarado Laboratorio de Bases de Datos Campus de Elviña , Centro de investigación CITIC , Universidade da Coruña , 15071 A Coruña , Spain ; s.hernandez@udc.es	6	_	_	pos1=NP|head_tok=Suilen|head_pos=NP|head_id=10|parent_pos=_|sid=2|stype=other|len=28|head_func=root|para=para	6	attribution-positive_r	_	_
+4	Presented at the 2nd XoveTIC Congress , A Coruña , Spain , 5 – 6 September 2019 .	5	_	_	pos1=VVN|head_tok=present|head_pos=VVN|head_id=38|parent_pos=_|sid=3|stype=other|len=18|head_func=root|date	6	context-circumstance_r	_	_
+5	Abstract :	3	_	_	pos1=NN|head_tok=abstract|head_pos=NN|head_id=56|parent_pos=_|sid=4|stype=frag|len=2|head_func=root|para=para	6	organization-heading_r	_	_
+6	In this article , we propose the definition of specific mutation operators	0	_	_	pos1=IN|head_tok=propose|head_pos=VVP|head_id=63|parent_pos=_|sid=5|stype=decl|len=12|head_func=root	0	ROOT	_	_
+7	for testing Geographic Information Systems .	0	_	_	pos1=IN|head_tok=test|head_pos=VVG|head_id=71|parent_pos=VVP|sid=5|stype=decl|len=6|head_func=advcl|subord=LEFT	6	purpose-goal_r	_	_
+8	We describe the process	1	_	_	pos1=PP|head_tok=describe|head_pos=VVP|head_id=77|parent_pos=_|sid=6|stype=decl|len=4|head_func=root	6	elaboration-additional_r	_	_
+9	for applying the operators	0	_	_	pos1=IN|head_tok=apply|head_pos=VVG|head_id=81|parent_pos=NN|sid=6|stype=decl|len=4|head_func=acl|subord=LEFT	8	purpose-attribute_r	_	_
+10	and generating mutants ,	0	_	_	pos1=CC|head_tok=generate|head_pos=VVG|head_id=85|parent_pos=VVG|sid=6|stype=decl|len=4|head_func=conj|subord=RIGHT	9	joint-list_m	_	_
+11	and present a case study	1	_	_	pos1=CC|head_tok=present|head_pos=VVP|head_id=89|parent_pos=VVP|sid=6|stype=decl|len=5|head_func=conj|subord=LEFT	8	joint-sequence_m	_	_
+12	where these mutation operators are applied to two real - world applications .	0	_	_	pos1=WRB|head_tok=apply|head_pos=VVN|head_id=98|parent_pos=NN|sid=6|stype=decl|len=13|head_func=acl:relcl|subord=LEFT	11	elaboration-attribute_r	_	_
+13	Keywords :	0	_	_	pos1=NNS|head_tok=keyword|head_pos=NNS|head_id=106|parent_pos=NNS|sid=7|stype=other|len=2|head_func=nsubj|subord=RIGHT|para=para	14	organization-heading_r	_	_
+14	mutation operators ; geographic information systems ; mutation testing	2	_	_	pos1=NN|head_tok=operator|head_pos=NNS|head_id=109|parent_pos=_|sid=7|stype=other|len=9|head_func=root	6	restatement-partial_r	_	_
+15	1. Introduction	6	_	_	pos1=LS|head_tok=introduction|head_pos=NN|head_id=118|parent_pos=_|sid=8|stype=frag|len=2|head_func=root|heading=heading	31	organization-heading_r	_	_
+16	Mutation - based testing	5	_	_	pos1=NN|head_tok=testing|head_pos=NN|head_id=122|parent_pos=NN|sid=9|stype=decl|len=4|head_func=nsubj|subord=RIGHT|para=para	31	context-background_r	_	_
+17	[ 1 ]	0	_	_	pos1=(|head_tok=1|head_pos=CD|head_id=124|parent_pos=NN|sid=9|stype=decl|len=3|head_func=appos|subord=LEFT	16	explanation-evidence_r	_	_
+18	is a test technique	1	_	_	pos1=VBZ|head_tok=technique|head_pos=NN|head_id=129|parent_pos=_|sid=9|stype=decl|len=4|head_func=root	16	same-unit_m	_	_
+19	that involves artificially introducing errors into a System Under Test	2	_	_	pos1=WDT|head_tok=involve|head_pos=VVZ|head_id=131|parent_pos=NN|sid=9|stype=decl|len=10|head_func=acl:relcl|subord=LEFT	16	elaboration-attribute_r	_	_
+20	( SUT ) .	0	_	_	pos1=(|head_tok=SUT|head_pos=NN|head_id=141|parent_pos=NN|sid=9|stype=decl|len=4|head_func=appos|subord=LEFT	19	restatement-partial_r	_	_
+21	A mutant is a copy of the system	3	_	_	pos1=DT|head_tok=copy|head_pos=NN|head_id=148|parent_pos=_|sid=10|stype=decl|len=8|head_func=root	16	context-background_r	_	_
+22	in which a change has been done	0	_	_	pos1=IN|head_tok=do|head_pos=VVN|head_id=158|parent_pos=NN|sid=10|stype=decl|len=7|head_func=acl:relcl|subord=LEFT	21	elaboration-attribute_r	_	_
+23	that , in most cases , will lead to a behaviour different	0	_	_	pos1=WDT|head_tok=lead|head_pos=VV|head_id=166|parent_pos=NN|sid=10|stype=decl|len=12|head_func=acl:relcl|subord=LEFT	22	elaboration-attribute_r	_	_
+24	than expected .	0	_	_	pos1=IN|head_tok=expect|head_pos=VVN|head_id=172|parent_pos=JJ|sid=10|stype=decl|len=3|head_func=obl|subord=LEFT	23	adversative-antithesis_r	_	_
+25	The different mutants are generated automatically by the application of mutation operators .	1	_	_	pos1=DT|head_tok=generate|head_pos=VVN|head_id=178|parent_pos=_|sid=11|stype=decl|len=13|head_func=root	21	elaboration-additional_r	_	_
+26	In the state of the art , we have found mutation operators , both general purpose and specific to different technologies , languages and paradigms	1	_	_	pos1=IN|head_tok=find|head_pos=VVN|head_id=196|parent_pos=_|sid=12|stype=decl|len=25|head_func=root	28	adversative-concession_r	_	_
+27	[ 2 – 9 ] .	0	_	_	pos1=(|head_tok=2|head_pos=CD|head_id=213|parent_pos=VVN|sid=12|stype=decl|len=6|head_func=dep|subord=LEFT	26	explanation-evidence_r	_	_
+28	However , these operators are not adequate	4	_	_	pos1=RB|head_tok=adequate|head_pos=JJ|head_id=224|parent_pos=_|sid=13|stype=decl|len=7|head_func=root	31	explanation-justify_r	_	_
+29	when trying to test software features	0	_	_	pos1=WRB|head_tok=try|head_pos=VVG|head_id=226|parent_pos=JJ|sid=13|stype=decl|len=6|head_func=advcl|subord=LEFT	28	contingency-condition_r	_	_
+30	associated with specific domains .	0	_	_	pos1=VVN|head_tok=associate|head_pos=VVN|head_id=231|parent_pos=NNS|sid=13|stype=decl|len=5|head_func=acl|subord=LEFT	29	elaboration-attribute_r	_	_
+31	In this article , we propose mutation operators specific to the domain of Geographic Information Systems	4	_	_	pos1=IN|head_tok=system|head_pos=NN|head_id=251|parent_pos=NNS|sid=14|stype=decl|len=16|head_func=compound|subord=RIGHT	6	elaboration-additional_r	_	_
+32	( GIS )	0	_	_	pos1=(|head_tok=GIS|head_pos=NNS|head_id=253|parent_pos=NN|sid=14|stype=decl|len=3|head_func=appos|subord=LEFT	31	restatement-partial_r	_	_
+33	applications .	1	_	_	pos1=NNS|head_tok=application|head_pos=NNS|head_id=255|parent_pos=NN|sid=14|stype=decl|len=2|head_func=nmod|subord=LEFT	31	same-unit_m	_	_
+34	These operators reproduce programming errors	2	_	_	pos1=DT|head_tok=reproduce|head_pos=VVP|head_id=259|parent_pos=_|sid=15|stype=decl|len=5|head_func=root	31	elaboration-additional_r	_	_
+35	that are litely to occur during the development of this type of applications .	0	_	_	pos1=WDT|head_tok=likely|head_pos=RB|head_id=264|parent_pos=NNS|sid=15|stype=decl|len=14|head_func=acl:relcl|subord=LEFT	34	adversative-antithesis_r	_	_
+36	In addition , we present the implementation of these operators	3	_	_	pos1=IN|head_tok=present|head_pos=VVP|head_id=280|parent_pos=_|sid=16|stype=decl|len=10|head_func=root	31	joint-list_m	_	_
+37	and as proof of concept we apply these operators to two real - world GIS applications	3	_	_	pos1=CC|head_tok=apply|head_pos=VVP|head_id=292|parent_pos=VVP|sid=16|stype=decl|len=16|head_func=conj|subord=LEFT	31	joint-list_m	_	_
+38	and we generate the mutants .	0	_	_	pos1=CC|head_tok=generate|head_pos=VVP|head_id=304|parent_pos=VVP|sid=16|stype=decl|len=6|head_func=conj|subord=LEFT	37	joint-list_m	_	_
+39	2. Mutation Operators for GIS	4	_	_	pos1=LS|head_tok=Operator|head_pos=NPS|head_id=310|parent_pos=_|sid=17|stype=frag|len=5|head_func=root|heading=heading	46	organization-heading_r	_	_
+40	As a previous step	0	_	_	pos1=IN|head_tok=step|head_pos=NN|head_id=316|parent_pos=VVD|sid=18|stype=decl|len=4|head_func=obl|subord=RIGHT|para=para	46	context-background_r	_	_
+41	to designing the mutation operators ,	0	_	_	pos1=IN|head_tok=design|head_pos=VVG|head_id=318|parent_pos=NN|sid=18|stype=decl|len=6|head_func=acl|subord=LEFT	40	elaboration-attribute_r	_	_
+42	we analyzed the main technologies	1	_	_	pos1=PP|head_tok=analyze|head_pos=VVD|head_id=324|parent_pos=_|sid=18|stype=decl|len=5|head_func=root	40	same-unit_m	_	_
+43	used specifically in the development of GIS ,	0	_	_	pos1=VVN|head_tok=use|head_pos=VVN|head_id=328|parent_pos=NNS|sid=18|stype=decl|len=8|head_func=acl|subord=RIGHT	42	elaboration-attribute_r	_	_
+44	and we identified typical errors	2	_	_	pos1=CC|head_tok=identify|head_pos=VVD|head_id=338|parent_pos=VVD|sid=18|stype=decl|len=5|head_func=conj|subord=LEFT	40	joint-list_m	_	_
+45	a programmer can introduce during the development .	0	_	_	pos1=DT|head_tok=introduce|head_pos=VV|head_id=344|parent_pos=NNS|sid=18|stype=decl|len=8|head_func=acl:relcl|subord=LEFT	44	elaboration-attribute_r	_	_
+46	These errors were formalized into mutation operators .	7	_	_	pos1=DT|head_tok=formalize|head_pos=VVN|head_id=352|parent_pos=_|sid=19|stype=decl|len=8|head_func=root	31	joint-other_m	_	_
+47	In order to apply these operators to a SUT ,	0	_	_	pos1=IN|head_tok=apply|head_pos=VV|head_id=360|parent_pos=VVP|sid=20|stype=decl|len=10|head_func=advcl|subord=RIGHT	48	purpose-goal_r	_	_
+48	we rely on Java reflection and aspect - oriented programming .	1	_	_	pos1=PP|head_tok=rely|head_pos=VVP|head_id=368|parent_pos=_|sid=20|stype=decl|len=11|head_func=root	46	mode-means_r	_	_
+49	Reflection allows us to obtain the list of classes and methods of the SUT ,	1	_	_	pos1=NN|head_tok=allow|head_pos=VVZ|head_id=379|parent_pos=_|sid=21|stype=decl|len=15|head_func=root|subord=RIGHT	48	explanation-justify_r	_	_
+50	so the user can decide the methods	0	_	_	pos1=IN|head_tok=decide|head_pos=VV|head_id=397|parent_pos=VVZ|sid=21|stype=decl|len=7|head_func=advcl|subord=LEFT	49	purpose-goal_r	_	_
+51	to wish the operators will be applied .	0	_	_	pos1=IN|head_tok=apply|head_pos=VVN|head_id=406|parent_pos=NNS|sid=21|stype=decl|len=8|head_func=acl:relcl|subord=LEFT	50	purpose-attribute_r	_	_
+52	Later , we capture information about the methods of the SUT	2	_	_	pos1=RBR|head_tok=capture|head_pos=VVP|head_id=411|parent_pos=_|sid=22|stype=decl|len=11|head_func=root	46	joint-sequence_m	_	_
+53	to be mutated , together with the information of the mutation operators	0	_	_	pos1=TO|head_tok=information|head_pos=NN|head_id=426|parent_pos=NN|sid=22|stype=decl|len=12|head_func=nmod|subord=LEFT	52	purpose-goal_r	_	_
+54	that were already defined .	0	_	_	pos1=WDT|head_tok=define|head_pos=VVN|head_id=434|parent_pos=NNS|sid=22|stype=decl|len=5|head_func=acl:relcl|subord=LEFT	53	elaboration-attribute_r	_	_
+55	From these data , we generate the mutation operator , in the form of on aspect ,	2	_	_	pos1=IN|head_tok=generate|head_pos=VVP|head_id=441|parent_pos=_|sid=23|stype=decl|len=17|head_func=root|subord=RIGHT	46	joint-sequence_m	_	_
+56	which will then be possible to interweave with the SUT	0	_	_	pos1=WDT|head_tok=possible|head_pos=JJ|head_id=457|parent_pos=NN|sid=23|stype=decl|len=10|head_func=acl:relcl|subord=LEFT	55	elaboration-attribute_r	_	_
+57	which generates a mutant of the SUT .	0	_	_	pos1=WDT|head_tok=generate|head_pos=VVZ|head_id=464|parent_pos=VV|sid=23|stype=decl|len=8|head_func=advcl:relcl|subord=LEFT	56	elaboration-additional_r	_	_
+58	Next , we describe the definition of two operators and two cases of application on real - world GIS applications .	3	_	_	pos1=RB|head_tok=describe|head_pos=VVP|head_id=474|parent_pos=_|sid=24|stype=decl|len=21|head_func=root	46	elaboration-additional_r	_	_
+59	ChangeCoordSys Operator	5	_	_	pos1=NP|head_tok=Operator|head_pos=NP|head_id=493|parent_pos=_|sid=25|stype=frag|len=2|head_func=root|para=para	61	organization-preparation_r	_	_
+60	( Listing 1 ) :	0	_	_	pos1=(|head_tok=Listing|head_pos=NP|head_id=495|parent_pos=NP|sid=25|stype=frag|len=5|head_func=dep|subord=LEFT	59	restatement-partial_r	_	_
+61	It exchanges the coordinate system of a geometry ,	0	_	_	pos1=PP|head_tok=exchange|head_pos=VVZ|head_id=500|parent_pos=_|sid=26|stype=decl|len=9|head_func=root|subord=RIGHT	58	elaboration-additional_r	_	_
+62	so it does not match the coordinate system	0	_	_	pos1=IN|head_tok=match|head_pos=VV|head_id=512|parent_pos=VVZ|sid=26|stype=decl|len=8|head_func=advcl|subord=LEFT	61	causal-result_r	_	_
+63	that is being used in the user interface .	0	_	_	pos1=WDT|head_tok=use|head_pos=VVN|head_id=519|parent_pos=NN|sid=26|stype=decl|len=9|head_func=acl:relcl|subord=LEFT	62	elaboration-attribute_r	_	_
+64	It simulates the error	1	_	_	pos1=PP|head_tok=simulate|head_pos=VVZ|head_id=526|parent_pos=_|sid=27|stype=decl|len=4|head_func=root	61	purpose-goal_r	_	_
+65	of not checking that the coordinate system is correct .	0	_	_	pos1=IN|head_tok=check|head_pos=VVG|head_id=531|parent_pos=NN|sid=27|stype=decl|len=10|head_func=acl|subord=LEFT	64	elaboration-attribute_r	_	_
+66	The error is introduced	2	_	_	pos1=DT|head_tok=introduce|head_pos=VVN|head_id=542|parent_pos=_|sid=28|stype=decl|len=4|head_func=root	61	elaboration-additional_r	_	_
+67	by directly modifying the coordinate system of geometry	0	_	_	pos1=IN|head_tok=modify|head_pos=VVG|head_id=545|parent_pos=VVN|sid=28|stype=decl|len=8|head_func=advcl|subord=LEFT	66	mode-means_r	_	_
+68	when recovering the wrapping of the figure .	0	_	_	pos1=WRB|head_tok=recover|head_pos=VVG|head_id=552|parent_pos=VVN|sid=28|stype=decl|len=8|head_func=advcl|subord=LEFT	67	context-circumstance_r	_	_
+69	Listing 1 :	0	_	_	pos1=NP|head_tok=Listing|head_pos=NP|head_id=559|parent_pos=_|sid=29|stype=other|len=3|head_func=root|subord=RIGHT|caption=caption|caption	70	organization-heading_r	_	_
+70	A simplified definition of the ChangeCoordSys Operator .	3	_	_	pos1=DT|head_tok=definition|head_pos=NN|head_id=564|parent_pos=NP|sid=29|stype=other|len=8|head_func=appos|subord=LEFT|caption=caption|caption	61	elaboration-additional_r	_	_
+71	This operator was applied to a mobile technology GIS application .	1	_	_	pos1=DT|head_tok=apply|head_pos=VVN|head_id=573|parent_pos=_|sid=30|stype=decl|len=11|head_func=root|para=para	76	context-background_r	_	_
+72	This application allows registering places of interest for the user .	0	_	_	pos1=DT|head_tok=allow|head_pos=VVZ|head_id=583|parent_pos=_|sid=31|stype=decl|len=11|head_func=root	71	elaboration-additional_r	_	_
+73	These areas of interest are called Geofences .	0	_	_	pos1=DT|head_tok=call|head_pos=VVN|head_id=597|parent_pos=_|sid=32|stype=decl|len=8|head_func=root	72	elaboration-additional_r	_	_
+74	A Geofence is determined by a geographical location	0	_	_	pos1=DT|head_tok=determine|head_pos=VVN|head_id=603|parent_pos=_|sid=33|stype=decl|len=8|head_func=root	73	elaboration-additional_r	_	_
+75	expressed in terms of latitude , longitude , and a radius around that location .	0	_	_	pos1=VVN|head_tok=express|head_pos=VVN|head_id=608|parent_pos=NN|sid=33|stype=decl|len=15|head_func=acl|subord=LEFT	74	elaboration-attribute_r	_	_
+76	By creating a Geofence with an erroneous location from its central location ,	4	_	_	pos1=IN|head_tok=create|head_pos=VVG|head_id=624|parent_pos=VV|sid=34|stype=decl|len=13|head_func=advcl|subord=RIGHT	61	elaboration-additional_r	_	_
+77	the device will receive incorrect location notifications .	0	_	_	pos1=DT|head_tok=receive|head_pos=VV|head_id=639|parent_pos=_|sid=34|stype=decl|len=8|head_func=root	76	purpose-goal_r	_	_
+78	As a result , the user will see in the application ’s map viewer the Geofences drawn in erroneous zones	2	_	_	pos1=IN|head_tok=see|head_pos=VV|head_id=651|parent_pos=_|sid=35|stype=decl|len=20|head_func=root	76	causal-result_r	_	_
+79	( Figure 1 ) .	0	_	_	pos1=(|head_tok=Figure|head_pos=NP|head_id=665|parent_pos=VV|sid=35|stype=decl|len=5|head_func=dep|subord=LEFT	78	explanation-evidence_r	_	_
+80	Figure 1 .	0	_	_	pos1=NP|head_tok=Figure|head_pos=NP|head_id=669|parent_pos=_|sid=36|stype=other|len=3|head_func=root|caption=caption|caption	81	organization-heading_r	_	_
+81	Original and mutant application .	1	_	_	pos1=JJ|head_tok=original|head_pos=JJ|head_id=672|parent_pos=NP|sid=36|stype=other|len=5|head_func=appos|subord=LEFT|caption=caption|caption	78	elaboration-additional_r	_	_
+82	BooleanPolygonConstraint Operator	3	_	_	pos1=NP|head_tok=Operator|head_pos=NP|head_id=678|parent_pos=_|sid=37|stype=frag|len=2|head_func=root|para=para	84	organization-preparation_r	_	_
+83	( Listing 2 ) :	0	_	_	pos1=(|head_tok=Listing|head_pos=NP|head_id=680|parent_pos=NP|sid=37|stype=frag|len=5|head_func=appos|subord=LEFT	82	restatement-partial_r	_	_
+84	It introduces errors in the processing of geometries ,	6	_	_	pos1=PP|head_tok=introduce|head_pos=VVZ|head_id=685|parent_pos=_|sid=38|stype=decl|len=9|head_func=root|subord=RIGHT	61	joint-other_m	_	_
+85	manipulating the result of the operations	0	_	_	pos1=VVG|head_tok=manipulate|head_pos=VVG|head_id=693|parent_pos=VVZ|sid=38|stype=decl|len=6|head_func=advcl|subord=LEFT	84	causal-result_r	_	_
+86	that carry out the verification of different topological restrictions between geometries , such as intersects , covers or overlap .	0	_	_	pos1=WDT|head_tok=carry|head_pos=VVP|head_id=700|parent_pos=NNS|sid=38|stype=decl|len=20|head_func=acl:relcl|subord=LEFT	85	elaboration-attribute_r	_	_
+87	Listing 2 :	0	_	_	pos1=NP|head_tok=Listing|head_pos=NP|head_id=719|parent_pos=_|sid=39|stype=other|len=3|head_func=root|subord=RIGHT|caption=caption|caption	88	organization-heading_r	_	_
+88	A simplified definition of the BooleanPolygonConstraint Operator .	1	_	_	pos1=DT|head_tok=definition|head_pos=NN|head_id=724|parent_pos=NP|sid=39|stype=other|len=8|head_func=appos|subord=LEFT|caption=caption|caption	84	elaboration-additional_r	_	_
+89	To test this operator	1	_	_	pos1=TO|head_tok=test|head_pos=VV|head_id=731|parent_pos=VVN|sid=40|stype=decl|len=4|head_func=advcl|subord=RIGHT|para=para	90	purpose-goal_r	_	_
+90	it was applied to a land reparcelling system .	2	_	_	pos1=PP|head_tok=apply|head_pos=VVN|head_id=736|parent_pos=_|sid=40|stype=decl|len=9|head_func=root	84	joint-other_m	_	_
+91	The objective of the land reparcelling is to reunify the lands of an owner	0	_	_	pos1=DT|head_tok=reunify|head_pos=VV|head_id=751|parent_pos=_|sid=41|stype=decl|len=14|head_func=root	90	elaboration-additional_r	_	_
+92	to facilitate their exploitation .	0	_	_	pos1=TO|head_tok=facilitate|head_pos=VV|head_id=758|parent_pos=VV|sid=41|stype=decl|len=5|head_func=advcl|subord=LEFT	91	purpose-goal_r	_	_
+93	In this application , the result of the operation between two polygons has been affected .	3	_	_	pos1=IN|head_tok=affect|head_pos=VVN|head_id=776|parent_pos=_|sid=42|stype=decl|len=16|head_func=root	94	organization-preparation_r	_	_
+94	This error causes the incorrect display of the resulting geometry	2	_	_	pos1=DT|head_tok=cause|head_pos=VVZ|head_id=780|parent_pos=_|sid=43|stype=decl|len=10|head_func=root	84	joint-other_m	_	_
+95	that should be drawn in the user interface after the operation	0	_	_	pos1=WDT|head_tok=draw|head_pos=VVN|head_id=791|parent_pos=NN|sid=43|stype=decl|len=11|head_func=acl:relcl|subord=LEFT	94	elaboration-attribute_r	_	_
+96	applied to the two initial geometries	0	_	_	pos1=VVN|head_tok=apply|head_pos=VVN|head_id=799|parent_pos=NN|sid=43|stype=decl|len=6|head_func=acl|subord=LEFT	95	elaboration-attribute_r	_	_
+97	( Figure 2 ) .	1	_	_	pos1=(|head_tok=Figure|head_pos=NP|head_id=806|parent_pos=VVZ|sid=43|stype=decl|len=5|head_func=dep|subord=LEFT	94	explanation-evidence_r	_	_
+98	Figure 2 .	0	_	_	pos1=NP|head_tok=Figure|head_pos=NP|head_id=810|parent_pos=_|sid=44|stype=other|len=3|head_func=root|caption=caption|caption	99	organization-heading_r	_	_
+99	Original and mutant application .	2	_	_	pos1=JJ|head_tok=original|head_pos=JJ|head_id=813|parent_pos=NP|sid=44|stype=other|len=5|head_func=appos|subord=LEFT|caption=caption|caption	94	context-background_r	_	_
+100	3. Conclusions	4	_	_	pos1=LS|head_tok=conclusion|head_pos=NNS|head_id=819|parent_pos=_|sid=45|stype=frag|len=2|head_func=root|heading=heading	104	organization-heading_r	_	_
+101	In existing proposals , we can find both generic and specific mutation operators .	1	_	_	pos1=IN|head_tok=find|head_pos=VV|head_id=826|parent_pos=_|sid=46|stype=decl|len=14|head_func=root|para=para	102	adversative-antithesis_r	_	_
+102	However , these are not adequate	1	_	_	pos1=RB|head_tok=adequate|head_pos=JJ|head_id=839|parent_pos=_|sid=47|stype=decl|len=6|head_func=root	104	explanation-justify_r	_	_
+103	to cover errors in particular domains .	0	_	_	pos1=TO|head_tok=cover|head_pos=VV|head_id=841|parent_pos=JJ|sid=47|stype=decl|len=7|head_func=advcl|subord=LEFT	102	purpose-goal_r	_	_
+104	We have defined new operators specific to the GIS domain and a way	7	_	_	pos1=PP|head_tok=define|head_pos=VVN|head_id=849|parent_pos=_|sid=48|stype=decl|len=13|head_func=root	31	joint-other_m	_	_
+105	to apply them to a SUT .	0	_	_	pos1=TO|head_tok=apply|head_pos=VV|head_id=861|parent_pos=NN|sid=48|stype=decl|len=7|head_func=acl|subord=LEFT	104	purpose-attribute_r	_	_
+106	In addition , we have tested the operators	2	_	_	pos1=IN|head_tok=test|head_pos=VVN|head_id=872|parent_pos=_|sid=49|stype=decl|len=8|head_func=root	104	joint-list_m	_	_
+107	defined in two GIS applications .	0	_	_	pos1=VVN|head_tok=define|head_pos=VVN|head_id=875|parent_pos=NNS|sid=49|stype=decl|len=6|head_func=acl|subord=LEFT	106	elaboration-attribute_r	_	_
+108	As future work , we intend to extend this approach to other domains ,	3	_	_	pos1=IN|head_tok=intend|head_pos=VVP|head_id=886|parent_pos=_|sid=50|stype=decl|len=14|head_func=root|subord=RIGHT	104	joint-other_m	_	_
+109	as well as to use the developed operators for the automatic improvement of sets of test cases .	0	_	_	pos1=RB|head_tok=use|head_pos=VV|head_id=899|parent_pos=VV|sid=50|stype=decl|len=18|head_func=conj|subord=LEFT	108	joint-list_m	_	_

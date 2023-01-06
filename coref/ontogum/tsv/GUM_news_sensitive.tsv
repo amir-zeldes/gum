@@ -1,700 +1,700 @@
 #FORMAT=WebAnno TSV 3.2
-#T_SP=webanno.custom.Referent|entity|infstat|identity
+#T_SP=webanno.custom.Referent|entity|infstat|identity|centering
 #T_RL=webanno.custom.Coref|type|BT_webanno.custom.Referent
 
 
 #Text=Sensitive Canadian document found on rainy streets
-1-1	0-9	Sensitive	_	_	_	_	_
-1-2	10-18	Canadian	_	_	_	_	_
-1-3	19-27	document	_	_	_	_	_
-1-4	28-33	found	_	_	_	_	_
-1-5	34-36	on	_	_	_	_	_
-1-6	37-42	rainy	_	_	_	_	_
-1-7	43-50	streets	_	_	_	_	_
+1-1	0-9	Sensitive	_	_	_	cf3[1]|cf1[2]	_	_
+1-2	10-18	Canadian	_	_	_	cf3[1]|cf1[2]	_	_
+1-3	19-27	document	_	_	_	cf3[1]|cf1[2]	_	_
+1-4	28-33	found	_	_	_	cf3[1]	_	_
+1-5	34-36	on	_	_	_	cf3[1]	_	_
+1-6	37-42	rainy	_	_	_	cf3[1]|cf2[3]	_	_
+1-7	43-50	streets	_	_	_	cf3[1]|cf2[3]	_	_
 
 #Text=Friday , August 15 , 2008
-2-1	51-57	Friday	time[262]	acc:com[262]	_	coref	3-21[19_262]
-2-2	58-59	,	time[262]	acc:com[262]	_	_	_
-2-3	60-66	August	time[262]	acc:com[262]	_	_	_
-2-4	67-69	15	time[262]	acc:com[262]	_	_	_
-2-5	70-71	,	time[262]	acc:com[262]	_	_	_
-2-6	72-76	2008	time[262]	acc:com[262]	_	_	_
+2-1	51-57	Friday	time[262]	acc:com[262]	_	cf1[4]	coref	3-21[19_262]
+2-2	58-59	,	time[262]	acc:com[262]	_	_	_	_
+2-3	60-66	August	time[262]	acc:com[262]	_	cf1[6]	_	_
+2-4	67-69	15	time[262]	acc:com[262]	_	cf1[6]	_	_
+2-5	70-71	,	time[262]	acc:com[262]	_	cf1[6]	_	_
+2-6	72-76	2008	time[262]	acc:com[262]	_	cf1[6]|cf2[7]	_	_
 
 #Text=A sensitive Environment Canada document was found wet on an Ottawa street by someone who gave it to the CBC today .
-3-1	77-78	A	object[10]	giv:inact[10]	_	ana	3-17[16_10]
-3-2	79-88	sensitive	object[10]	giv:inact[10]	_	_	_
-3-3	89-100	Environment	object[10]|organization[11]	giv:inact[10]|new[11]	Environment_and_Climate_Change_Canada[11]	coref	10-1[63_11]
-3-4	101-107	Canada	object[10]|organization[11]	giv:inact[10]|new[11]	Environment_and_Climate_Change_Canada[11]	_	_
-3-5	108-116	document	object[10]	giv:inact[10]	_	_	_
-3-6	117-120	was	_	_	_	_	_
-3-7	121-126	found	_	_	_	_	_
-3-8	127-130	wet	_	_	_	_	_
-3-9	131-133	on	_	_	_	_	_
-3-10	134-136	an	place[12]	giv:inact[12]	_	coref	4-9[23_12]
-3-11	137-143	Ottawa	place[12]|place[13]	giv:inact[12]|new[13]	Ottawa[13]	coref	15-5[113_13]
-3-12	144-150	street	place[12]	giv:inact[12]	_	_	_
-3-13	151-153	by	_	_	_	_	_
-3-14	154-161	someone	_	_	_	_	_
-3-15	162-165	who	_	_	_	_	_
-3-16	166-170	gave	_	_	_	_	_
-3-17	171-173	it	object[16]	giv:act[16]	_	coref	4-1[22_16]
-3-18	174-176	to	_	_	_	_	_
-3-19	177-180	the	organization[18]	acc:com[18]	Canadian_Broadcasting_Corporation[18]	coref	13-7[99_18]
-3-20	181-184	CBC	organization[18]	acc:com[18]	Canadian_Broadcasting_Corporation[18]	_	_
-3-21	185-190	today	time[19]	acc:com[19]	_	_	_
-3-22	191-192	.	_	_	_	_	_
+3-1	77-78	A	object[10]	giv:inact[10]	_	cf3[9]|cf1[10]	ana	3-17[16_10]
+3-2	79-88	sensitive	object[10]	giv:inact[10]	_	cf3[9]|cf1[10]	_	_
+3-3	89-100	Environment	object[10]|organization[11]	giv:inact[10]|new[11]	Environment_and_Climate_Change_Canada[11]	cf3[9]|cf1[10]|cf7[11]	coref	10-1[63_11]
+3-4	101-107	Canada	object[10]|organization[11]	giv:inact[10]|new[11]	Environment_and_Climate_Change_Canada[11]	cf3[9]|cf1[10]|cf7[11]	_	_
+3-5	108-116	document	object[10]	giv:inact[10]	_	cf3[9]|cf1[10]	_	_
+3-6	117-120	was	_	_	_	cf3[9]	_	_
+3-7	121-126	found	_	_	_	cf3[9]	_	_
+3-8	127-130	wet	_	_	_	cf3[9]	_	_
+3-9	131-133	on	_	_	_	cf3[9]	_	_
+3-10	134-136	an	place[12]	giv:inact[12]	_	cf3[9]|cf2[12]	coref	4-9[23_12]
+3-11	137-143	Ottawa	place[12]|place[13]	giv:inact[12]|new[13]	Ottawa[13]	cf3[9]|cf2[12]|cf8[13]	coref	15-5[113_13]
+3-12	144-150	street	place[12]	giv:inact[12]	_	cf3[9]|cf2[12]	_	_
+3-13	151-153	by	_	_	_	cf3[9]	_	_
+3-14	154-161	someone	_	_	_	cf3[9]|cf6[15]	_	_
+3-15	162-165	who	_	_	_	cf3[9]|cf6[15]	_	_
+3-16	166-170	gave	_	_	_	cf3[9]|cf6[15]	_	_
+3-17	171-173	it	object[16]	giv:act[16]	_	cf3[9]|cf6[15]|cf1[16]	coref	4-1[22_16]
+3-18	174-176	to	_	_	_	cf3[9]|cf6[15]	_	_
+3-19	177-180	the	organization[18]	acc:com[18]	Canadian_Broadcasting_Corporation[18]	cf3[9]|cf6[15]|cf4[18]	coref	13-7[99_18]
+3-20	181-184	CBC	organization[18]	acc:com[18]	Canadian_Broadcasting_Corporation[18]	cf3[9]|cf6[15]|cf4[18]	_	_
+3-21	185-190	today	time[19]	acc:com[19]	_	cf3[9]|cf6[15]|cf5*[19]	_	_
+3-22	191-192	.	_	_	_	cf3[9]	_	_
 
 #Text=The 131 - page document was found on Castlefrank Road in Kanata , Ontario in a rain - stained , tire - marked brown envelope by a passerby .
-4-1	193-196	The	object[22]	giv:act[22]	_	coref	5-1[29_22]
-4-2	197-200	131	object[22]	giv:act[22]	_	_	_
-4-3	201-202	-	object[22]	giv:act[22]	_	_	_
-4-4	203-207	page	object[22]	giv:act[22]	_	_	_
-4-5	208-216	document	object[22]	giv:act[22]	_	_	_
-4-6	217-220	was	_	_	_	_	_
-4-7	221-226	found	_	_	_	_	_
-4-8	227-229	on	_	_	_	_	_
-4-9	230-241	Castlefrank	place[23]	giv:act[23]	_	coref	11-27[82_23]
-4-10	242-246	Road	place[23]	giv:act[23]	_	_	_
-4-11	247-249	in	place[23]	giv:act[23]	_	_	_
-4-12	250-256	Kanata	place[23]	giv:act[23]	_	_	_
-4-13	257-258	,	place[23]	giv:act[23]	_	_	_
-4-14	259-266	Ontario	place[23]	giv:act[23]	_	_	_
-4-15	267-269	in	_	_	_	_	_
-4-16	270-271	a	_	_	_	_	_
-4-17	272-276	rain	_	_	_	_	_
-4-18	277-278	-	_	_	_	_	_
-4-19	279-286	stained	_	_	_	_	_
-4-20	287-288	,	_	_	_	_	_
-4-21	289-293	tire	_	_	_	_	_
-4-22	294-295	-	_	_	_	_	_
-4-23	296-302	marked	_	_	_	_	_
-4-24	303-308	brown	_	_	_	_	_
-4-25	309-317	envelope	_	_	_	_	_
-4-26	318-320	by	_	_	_	_	_
-4-27	321-322	a	_	_	_	_	_
-4-28	323-331	passerby	_	_	_	_	_
-4-29	332-333	.	_	_	_	_	_
+4-1	193-196	The	object[22]	giv:act[22]	_	cf4[21]|cf1*[22]	coref	5-1[29_22]
+4-2	197-200	131	object[22]	giv:act[22]	_	cf4[21]|cf1*[22]	_	_
+4-3	201-202	-	object[22]	giv:act[22]	_	cf4[21]|cf1*[22]	_	_
+4-4	203-207	page	object[22]	giv:act[22]	_	cf4[21]|cf1*[22]	_	_
+4-5	208-216	document	object[22]	giv:act[22]	_	cf4[21]|cf1*[22]	_	_
+4-6	217-220	was	_	_	_	cf4[21]	_	_
+4-7	221-226	found	_	_	_	cf4[21]	_	_
+4-8	227-229	on	_	_	_	cf4[21]	_	_
+4-9	230-241	Castlefrank	place[23]	giv:act[23]	_	cf4[21]|cf2[23]	coref	11-27[82_23]
+4-10	242-246	Road	place[23]	giv:act[23]	_	cf4[21]|cf2[23]	_	_
+4-11	247-249	in	place[23]	giv:act[23]	_	cf4[21]|cf2[23]	_	_
+4-12	250-256	Kanata	place[23]	giv:act[23]	_	cf4[21]|cf2[23]|cf5[24]	_	_
+4-13	257-258	,	place[23]	giv:act[23]	_	cf4[21]|cf2[23]|cf5[24]	_	_
+4-14	259-266	Ontario	place[23]	giv:act[23]	_	cf4[21]|cf2[23]|cf5[24]|cf6[25]	_	_
+4-15	267-269	in	_	_	_	cf4[21]	_	_
+4-16	270-271	a	_	_	_	cf4[21]|cf7[27]	_	_
+4-17	272-276	rain	_	_	_	cf4[21]|cf7[27]	_	_
+4-18	277-278	-	_	_	_	cf4[21]|cf7[27]	_	_
+4-19	279-286	stained	_	_	_	cf4[21]|cf7[27]	_	_
+4-20	287-288	,	_	_	_	cf4[21]|cf7[27]	_	_
+4-21	289-293	tire	_	_	_	cf4[21]|cf7[27]	_	_
+4-22	294-295	-	_	_	_	cf4[21]|cf7[27]	_	_
+4-23	296-302	marked	_	_	_	cf4[21]|cf7[27]	_	_
+4-24	303-308	brown	_	_	_	cf4[21]|cf7[27]	_	_
+4-25	309-317	envelope	_	_	_	cf4[21]|cf7[27]	_	_
+4-26	318-320	by	_	_	_	cf4[21]	_	_
+4-27	321-322	a	_	_	_	cf4[21]|cf3[28]	_	_
+4-28	323-331	passerby	_	_	_	cf4[21]|cf3[28]	_	_
+4-29	332-333	.	_	_	_	_	_	_
 
 #Text=The document which had the stamp Protected B on every page detailed various security vulnerabilities of the NEMISIS database which is used by officers to track and prosecute environmental law - breakers .
-5-1	334-337	The	object[29]	giv:act[29]	_	coref	8-4[53_29]
-5-2	338-346	document	object[29]	giv:act[29]	_	_	_
-5-3	347-352	which	object[29]	giv:act[29]	_	_	_
-5-4	353-356	had	object[29]	giv:act[29]	_	_	_
-5-5	357-360	the	object[29]	giv:act[29]	_	_	_
-5-6	361-366	stamp	object[29]	giv:act[29]	_	_	_
-5-7	367-376	Protected	object[29]|abstract[31]	giv:act[29]|new[31]	_	coref	9-1[60_31]
-5-8	377-378	B	object[29]|abstract[31]	giv:act[29]|new[31]	_	_	_
-5-9	379-381	on	object[29]	giv:act[29]	_	_	_
-5-10	382-387	every	object[29]	giv:act[29]	_	_	_
-5-11	388-392	page	object[29]	giv:act[29]	_	_	_
-5-12	393-401	detailed	_	_	_	_	_
-5-13	402-409	various	_	_	_	_	_
-5-14	410-418	security	_	_	_	_	_
-5-15	419-434	vulnerabilities	_	_	_	_	_
-5-16	435-437	of	_	_	_	_	_
-5-17	438-441	the	abstract[36]	new[36]	_	coref	6-7[43_36]
-5-18	442-449	NEMISIS	abstract[36]	new[36]	_	_	_
-5-19	450-458	database	abstract[36]	new[36]	_	_	_
-5-20	459-464	which	abstract[36]	new[36]	_	_	_
-5-21	465-467	is	abstract[36]	new[36]	_	_	_
-5-22	468-472	used	abstract[36]	new[36]	_	_	_
-5-23	473-475	by	abstract[36]	new[36]	_	_	_
-5-24	476-484	officers	abstract[36]	new[36]	_	_	_
-5-25	485-487	to	abstract[36]	new[36]	_	_	_
-5-26	488-493	track	abstract[36]	new[36]	_	_	_
-5-27	494-497	and	abstract[36]	new[36]	_	_	_
-5-28	498-507	prosecute	abstract[36]	new[36]	_	_	_
-5-29	508-521	environmental	abstract[36]|person[39]	new[36]|new[39]	_	coref	6-27[48_39]
-5-30	522-525	law	abstract[36]|person[39]	new[36]|new[39]	_	_	_
-5-31	526-527	-	abstract[36]|person[39]	new[36]|new[39]	_	_	_
-5-32	528-536	breakers	abstract[36]|person[39]	new[36]|new[39]	_	_	_
-5-33	537-538	.	_	_	_	_	_
+5-1	334-337	The	object[29]	giv:act[29]	_	cf1*[29]	coref	8-4[53_29]
+5-2	338-346	document	object[29]	giv:act[29]	_	cf1*[29]	_	_
+5-3	347-352	which	object[29]	giv:act[29]	_	cf1*[29]	_	_
+5-4	353-356	had	object[29]	giv:act[29]	_	cf1*[29]	_	_
+5-5	357-360	the	object[29]	giv:act[29]	_	cf1*[29]|cf3[30]	_	_
+5-6	361-366	stamp	object[29]	giv:act[29]	_	cf1*[29]|cf3[30]	_	_
+5-7	367-376	Protected	object[29]|abstract[31]	giv:act[29]|new[31]	_	cf1*[29]|cf3[30]|cf7[31]	coref	9-1[60_31]
+5-8	377-378	B	object[29]|abstract[31]	giv:act[29]|new[31]	_	cf1*[29]|cf3[30]|cf7[31]	_	_
+5-9	379-381	on	object[29]	giv:act[29]	_	cf1*[29]	_	_
+5-10	382-387	every	object[29]	giv:act[29]	_	cf1*[29]|cf2[32]	_	_
+5-11	388-392	page	object[29]	giv:act[29]	_	cf1*[29]|cf2[32]	_	_
+5-12	393-401	detailed	_	_	_	_	_	_
+5-13	402-409	various	_	_	_	cf5[33]	_	_
+5-14	410-418	security	_	_	_	cf5[33]|cf9[34]	_	_
+5-15	419-434	vulnerabilities	_	_	_	cf5[33]	_	_
+5-16	435-437	of	_	_	_	cf5[33]	_	_
+5-17	438-441	the	abstract[36]	new[36]	_	cf5[33]|cf6[36]	coref	6-7[43_36]
+5-18	442-449	NEMISIS	abstract[36]	new[36]	_	cf5[33]|cf6[36]	_	_
+5-19	450-458	database	abstract[36]	new[36]	_	cf5[33]|cf6[36]	_	_
+5-20	459-464	which	abstract[36]	new[36]	_	cf5[33]|cf6[36]	_	_
+5-21	465-467	is	abstract[36]	new[36]	_	cf5[33]|cf6[36]	_	_
+5-22	468-472	used	abstract[36]	new[36]	_	cf5[33]|cf6[36]	_	_
+5-23	473-475	by	abstract[36]	new[36]	_	cf5[33]|cf6[36]	_	_
+5-24	476-484	officers	abstract[36]	new[36]	_	cf5[33]|cf6[36]|cf8[37]	_	_
+5-25	485-487	to	abstract[36]	new[36]	_	cf5[33]|cf6[36]	_	_
+5-26	488-493	track	abstract[36]	new[36]	_	cf5[33]|cf6[36]	_	_
+5-27	494-497	and	abstract[36]	new[36]	_	cf5[33]|cf6[36]	_	_
+5-28	498-507	prosecute	abstract[36]	new[36]	_	cf5[33]|cf6[36]	_	_
+5-29	508-521	environmental	abstract[36]|person[39]	new[36]|new[39]	_	cf5[33]|cf6[36]|cf4[39]	coref	6-27[48_39]
+5-30	522-525	law	abstract[36]|person[39]	new[36]|new[39]	_	cf5[33]|cf6[36]|cf4[39]	_	_
+5-31	526-527	-	abstract[36]|person[39]	new[36]|new[39]	_	cf5[33]|cf6[36]|cf4[39]	_	_
+5-32	528-536	breakers	abstract[36]|person[39]	new[36]|new[39]	_	cf5[33]|cf6[36]|cf4[39]	_	_
+5-33	537-538	.	_	_	_	_	_	_
 
 #Text=If someone were able to shut the system down , or hack inside and delete or corrupt the information , it could affect the prosecution of the lawbreakers .
-6-1	539-541	If	_	_	_	_	_
-6-2	542-549	someone	_	_	_	_	_
-6-3	550-554	were	event[256]	new[256]	_	disc	6-21[45_256]
-6-4	555-559	able	_	_	_	_	_
-6-5	560-562	to	_	_	_	_	_
-6-6	563-567	shut	_	_	_	_	_
-6-7	568-571	the	abstract[43]	giv:act[43]	_	coref	7-1[49_43]
-6-8	572-578	system	abstract[43]	giv:act[43]	_	_	_
-6-9	579-583	down	_	_	_	_	_
-6-10	584-585	,	_	_	_	_	_
-6-11	586-588	or	_	_	_	_	_
-6-12	589-593	hack	_	_	_	_	_
-6-13	594-600	inside	_	_	_	_	_
-6-14	601-604	and	_	_	_	_	_
-6-15	605-611	delete	_	_	_	_	_
-6-16	612-614	or	_	_	_	_	_
-6-17	615-622	corrupt	_	_	_	_	_
-6-18	623-626	the	_	_	_	_	_
-6-19	627-638	information	_	_	_	_	_
-6-20	639-640	,	_	_	_	_	_
-6-21	641-643	it	event[45]	giv:act[45]	_	_	_
-6-22	644-649	could	_	_	_	_	_
-6-23	650-656	affect	_	_	_	_	_
-6-24	657-660	the	_	_	_	_	_
-6-25	661-672	prosecution	_	_	_	_	_
-6-26	673-675	of	_	_	_	_	_
-6-27	676-679	the	person[48]	giv:act[48]	_	_	_
-6-28	680-691	lawbreakers	person[48]	giv:act[48]	_	_	_
-6-29	692-693	.	_	_	_	_	_
+6-1	539-541	If	_	_	_	_	_	_
+6-2	542-549	someone	_	_	_	cf1[40]|cf5[41]	_	_
+6-3	550-554	were	event[256]	new[256]	_	cf1[40]	disc	6-21[45_256]
+6-4	555-559	able	_	_	_	cf1[40]	_	_
+6-5	560-562	to	_	_	_	cf1[40]	_	_
+6-6	563-567	shut	_	_	_	cf1[40]	_	_
+6-7	568-571	the	abstract[43]	giv:act[43]	_	cf1[40]|cf2*[43]	coref	7-1[49_43]
+6-8	572-578	system	abstract[43]	giv:act[43]	_	cf1[40]|cf2*[43]	_	_
+6-9	579-583	down	_	_	_	cf1[40]	_	_
+6-10	584-585	,	_	_	_	cf1[40]	_	_
+6-11	586-588	or	_	_	_	cf1[40]	_	_
+6-12	589-593	hack	_	_	_	cf1[40]	_	_
+6-13	594-600	inside	_	_	_	cf1[40]	_	_
+6-14	601-604	and	_	_	_	cf1[40]	_	_
+6-15	605-611	delete	_	_	_	cf1[40]	_	_
+6-16	612-614	or	_	_	_	cf1[40]	_	_
+6-17	615-622	corrupt	_	_	_	cf1[40]	_	_
+6-18	623-626	the	_	_	_	cf1[40]|cf4[44]	_	_
+6-19	627-638	information	_	_	_	cf1[40]|cf4[44]	_	_
+6-20	639-640	,	_	_	_	_	_	_
+6-21	641-643	it	event[45]	giv:act[45]	_	cf1[45]	_	_
+6-22	644-649	could	_	_	_	_	_	_
+6-23	650-656	affect	_	_	_	_	_	_
+6-24	657-660	the	_	_	_	cf6[47]	_	_
+6-25	661-672	prosecution	_	_	_	cf6[47]	_	_
+6-26	673-675	of	_	_	_	cf6[47]	_	_
+6-27	676-679	the	person[48]	giv:act[48]	_	cf6[47]|cf3[48]	_	_
+6-28	680-691	lawbreakers	person[48]	giv:act[48]	_	cf6[47]|cf3[48]	_	_
+6-29	692-693	.	_	_	_	_	_	_
 
 #Text=The database was unveiled in 1999 as the National Enforcement Management Information System and Intelligence System .
-7-1	694-697	The	abstract[49]	giv:act[49]	_	coref	7-8[52_49]
-7-2	698-706	database	abstract[49]	giv:act[49]	_	_	_
-7-3	707-710	was	_	_	_	_	_
-7-4	711-719	unveiled	_	_	_	_	_
-7-5	720-722	in	_	_	_	_	_
-7-6	723-727	1999	_	_	_	_	_
-7-7	728-730	as	_	_	_	_	_
-7-8	731-734	the	abstract[52]	giv:act[52]	_	coref	8-10[54_52]
-7-9	735-743	National	abstract[52]	giv:act[52]	_	_	_
-7-10	744-755	Enforcement	abstract[52]	giv:act[52]	_	_	_
-7-11	756-766	Management	abstract[52]	giv:act[52]	_	_	_
-7-12	767-778	Information	abstract[52]	giv:act[52]	_	_	_
-7-13	779-785	System	abstract[52]	giv:act[52]	_	_	_
-7-14	786-789	and	abstract[52]	giv:act[52]	_	_	_
-7-15	790-802	Intelligence	abstract[52]	giv:act[52]	_	_	_
-7-16	803-809	System	abstract[52]	giv:act[52]	_	_	_
-7-17	810-811	.	_	_	_	_	_
+7-1	694-697	The	abstract[49]	giv:act[49]	_	cf1*[49]	coref	7-8[52_49]
+7-2	698-706	database	abstract[49]	giv:act[49]	_	cf1*[49]	_	_
+7-3	707-710	was	_	_	_	_	_	_
+7-4	711-719	unveiled	_	_	_	_	_	_
+7-5	720-722	in	_	_	_	_	_	_
+7-6	723-727	1999	_	_	_	cf2[50]	_	_
+7-7	728-730	as	_	_	_	_	_	_
+7-8	731-734	the	abstract[52]	giv:act[52]	_	cf1*[52]	coref	8-10[54_52]
+7-9	735-743	National	abstract[52]	giv:act[52]	_	cf1*[52]	_	_
+7-10	744-755	Enforcement	abstract[52]	giv:act[52]	_	cf1*[52]	_	_
+7-11	756-766	Management	abstract[52]	giv:act[52]	_	cf1*[52]	_	_
+7-12	767-778	Information	abstract[52]	giv:act[52]	_	cf1*[52]	_	_
+7-13	779-785	System	abstract[52]	giv:act[52]	_	cf1*[52]	_	_
+7-14	786-789	and	abstract[52]	giv:act[52]	_	cf1*[52]	_	_
+7-15	790-802	Intelligence	abstract[52]	giv:act[52]	_	cf1*[52]	_	_
+7-16	803-809	System	abstract[52]	giv:act[52]	_	cf1*[52]	_	_
+7-17	810-811	.	_	_	_	_	_	_
 
 #Text=However , on the document , it referred to the database as National Enforcement and Emergency Management Information System and Intelligence System , adding the words " and Emergency " to the name .
-8-1	812-819	However	_	_	_	_	_
-8-2	820-821	,	_	_	_	_	_
-8-3	822-824	on	_	_	_	_	_
-8-4	825-828	the	object[53]	giv:inact[53]	_	coref	11-10[78_53]
-8-5	829-837	document	object[53]	giv:inact[53]	_	_	_
-8-6	838-839	,	_	_	_	_	_
-8-7	840-842	it	_	_	_	_	_
-8-8	843-851	referred	_	_	_	_	_
-8-9	852-854	to	_	_	_	_	_
-8-10	855-858	the	abstract[54]	giv:act[54]	_	coref	8-13[55_54]
-8-11	859-867	database	abstract[54]	giv:act[54]	_	_	_
-8-12	868-870	as	_	_	_	_	_
-8-13	871-879	National	abstract[55]	giv:act[55]	_	_	_
-8-14	880-891	Enforcement	abstract[55]	giv:act[55]	_	_	_
-8-15	892-895	and	abstract[55]	giv:act[55]	_	_	_
-8-16	896-905	Emergency	abstract[55]	giv:act[55]	_	_	_
-8-17	906-916	Management	abstract[55]	giv:act[55]	_	_	_
-8-18	917-928	Information	abstract[55]	giv:act[55]	_	_	_
-8-19	929-935	System	abstract[55]	giv:act[55]	_	_	_
-8-20	936-939	and	abstract[55]	giv:act[55]	_	_	_
-8-21	940-952	Intelligence	abstract[55]	giv:act[55]	_	_	_
-8-22	953-959	System	abstract[55]	giv:act[55]	_	_	_
-8-23	960-961	,	_	_	_	_	_
-8-24	962-968	adding	_	_	_	_	_
-8-25	969-972	the	_	_	_	_	_
-8-26	973-978	words	_	_	_	_	_
-8-27	979-980	"	_	_	_	_	_
-8-28	981-984	and	_	_	_	_	_
-8-29	985-994	Emergency	_	_	_	_	_
-8-30	995-996	"	_	_	_	_	_
-8-31	997-999	to	_	_	_	_	_
-8-32	1000-1003	the	_	_	_	_	_
-8-33	1004-1008	name	_	_	_	_	_
-8-34	1009-1010	.	_	_	_	_	_
+8-1	812-819	However	_	_	_	_	_	_
+8-2	820-821	,	_	_	_	_	_	_
+8-3	822-824	on	_	_	_	_	_	_
+8-4	825-828	the	object[53]	giv:inact[53]	_	cf3[53]	coref	11-10[78_53]
+8-5	829-837	document	object[53]	giv:inact[53]	_	cf3[53]	_	_
+8-6	838-839	,	_	_	_	_	_	_
+8-7	840-842	it	_	_	_	_	_	_
+8-8	843-851	referred	_	_	_	_	_	_
+8-9	852-854	to	_	_	_	_	_	_
+8-10	855-858	the	abstract[54]	giv:act[54]	_	cf1*[54]	coref	8-13[55_54]
+8-11	859-867	database	abstract[54]	giv:act[54]	_	cf1*[54]	_	_
+8-12	868-870	as	_	_	_	_	_	_
+8-13	871-879	National	abstract[55]	giv:act[55]	_	cf1*[55]	_	_
+8-14	880-891	Enforcement	abstract[55]	giv:act[55]	_	cf1*[55]	_	_
+8-15	892-895	and	abstract[55]	giv:act[55]	_	cf1*[55]	_	_
+8-16	896-905	Emergency	abstract[55]	giv:act[55]	_	cf1*[55]	_	_
+8-17	906-916	Management	abstract[55]	giv:act[55]	_	cf1*[55]	_	_
+8-18	917-928	Information	abstract[55]	giv:act[55]	_	cf1*[55]	_	_
+8-19	929-935	System	abstract[55]	giv:act[55]	_	cf1*[55]	_	_
+8-20	936-939	and	abstract[55]	giv:act[55]	_	cf1*[55]	_	_
+8-21	940-952	Intelligence	abstract[55]	giv:act[55]	_	cf1*[55]	_	_
+8-22	953-959	System	abstract[55]	giv:act[55]	_	cf1*[55]	_	_
+8-23	960-961	,	_	_	_	_	_	_
+8-24	962-968	adding	_	_	_	_	_	_
+8-25	969-972	the	_	_	_	cf2[56]	_	_
+8-26	973-978	words	_	_	_	cf2[56]	_	_
+8-27	979-980	"	_	_	_	_	_	_
+8-28	981-984	and	_	_	_	cf2[57]	_	_
+8-29	985-994	Emergency	_	_	_	cf2[57]	_	_
+8-30	995-996	"	_	_	_	_	_	_
+8-31	997-999	to	_	_	_	_	_	_
+8-32	1000-1003	the	_	_	_	cf4[58]	_	_
+8-33	1004-1008	name	_	_	_	cf4[58]	_	_
+8-34	1009-1010	.	_	_	_	_	_	_
 
 #Text=Protection B documents are the second lowest grade of classified government documents .
-9-1	1011-1021	Protection	object[59]|abstract[60]	acc:inf[59]|giv:inact[60]	_	ana	10-7[64_59]
-9-2	1022-1023	B	object[59]|abstract[60]	acc:inf[59]|giv:inact[60]	_	_	_
-9-3	1024-1033	documents	object[59]	acc:inf[59]	_	_	_
-9-4	1034-1037	are	_	_	_	_	_
-9-5	1038-1041	the	_	_	_	_	_
-9-6	1042-1048	second	_	_	_	_	_
-9-7	1049-1055	lowest	_	_	_	_	_
-9-8	1056-1061	grade	_	_	_	_	_
-9-9	1062-1064	of	_	_	_	_	_
-9-10	1065-1075	classified	_	_	_	_	_
-9-11	1076-1086	government	_	_	_	_	_
-9-12	1087-1096	documents	_	_	_	_	_
-9-13	1097-1098	.	_	_	_	_	_
+9-1	1011-1021	Protection	object[59]|abstract[60]	acc:inf[59]|giv:inact[60]	_	cf1[59]|cf2[60]	ana	10-7[64_59]
+9-2	1022-1023	B	object[59]|abstract[60]	acc:inf[59]|giv:inact[60]	_	cf1[59]|cf2[60]	_	_
+9-3	1024-1033	documents	object[59]	acc:inf[59]	_	cf1[59]	_	_
+9-4	1034-1037	are	_	_	_	_	_	_
+9-5	1038-1041	the	_	_	_	cf1[61]	_	_
+9-6	1042-1048	second	_	_	_	cf1[61]	_	_
+9-7	1049-1055	lowest	_	_	_	cf1[61]	_	_
+9-8	1056-1061	grade	_	_	_	cf1[61]	_	_
+9-9	1062-1064	of	_	_	_	cf1[61]	_	_
+9-10	1065-1075	classified	_	_	_	cf1[61]	_	_
+9-11	1076-1086	government	_	_	_	cf1[61]	_	_
+9-12	1087-1096	documents	_	_	_	cf1[61]	_	_
+9-13	1097-1098	.	_	_	_	_	_	_
 
 #Text=Environment Canada spokesperson Julie Hahn said they apply to letters of complaint , criticism or injury , research or scientific notes and findings that do n`t have any conclusion , and Treasury Board letters , agendas and minutes that do n`t deal with subjects of national interest .
-10-1	1099-1110	Environment	organization[63]	giv:inact[63]	Environment_and_Climate_Change_Canada[63]	coref	11-1[74_63]
-10-2	1111-1117	Canada	organization[63]	giv:inact[63]	Environment_and_Climate_Change_Canada[63]	_	_
-10-3	1118-1130	spokesperson	_	_	_	_	_
-10-4	1131-1136	Julie	_	_	_	_	_
-10-5	1137-1141	Hahn	_	_	_	_	_
-10-6	1142-1146	said	_	_	_	_	_
-10-7	1147-1151	they	object[64]	giv:act[64]	_	_	_
-10-8	1152-1157	apply	_	_	_	_	_
-10-9	1158-1160	to	_	_	_	_	_
-10-10	1161-1168	letters	_	_	_	_	_
-10-11	1169-1171	of	_	_	_	_	_
-10-12	1172-1181	complaint	_	_	_	_	_
-10-13	1182-1183	,	_	_	_	_	_
-10-14	1184-1193	criticism	_	_	_	_	_
-10-15	1194-1196	or	_	_	_	_	_
-10-16	1197-1203	injury	_	_	_	_	_
-10-17	1204-1205	,	_	_	_	_	_
-10-18	1206-1214	research	_	_	_	_	_
-10-19	1215-1217	or	_	_	_	_	_
-10-20	1218-1228	scientific	_	_	_	_	_
-10-21	1229-1234	notes	_	_	_	_	_
-10-22	1235-1238	and	_	_	_	_	_
-10-23	1239-1247	findings	_	_	_	_	_
-10-24	1248-1252	that	_	_	_	_	_
-10-25	1253-1255	do	_	_	_	_	_
-10-26	1256-1259	n`t	_	_	_	_	_
-10-27	1260-1264	have	_	_	_	_	_
-10-28	1265-1268	any	_	_	_	_	_
-10-29	1269-1279	conclusion	_	_	_	_	_
-10-30	1280-1281	,	_	_	_	_	_
-10-31	1282-1285	and	_	_	_	_	_
-10-32	1286-1294	Treasury	_	_	_	_	_
-10-33	1295-1300	Board	_	_	_	_	_
-10-34	1301-1308	letters	_	_	_	_	_
-10-35	1309-1310	,	_	_	_	_	_
-10-36	1311-1318	agendas	_	_	_	_	_
-10-37	1319-1322	and	_	_	_	_	_
-10-38	1323-1330	minutes	_	_	_	_	_
-10-39	1331-1335	that	_	_	_	_	_
-10-40	1336-1338	do	_	_	_	_	_
-10-41	1339-1342	n`t	_	_	_	_	_
-10-42	1343-1347	deal	_	_	_	_	_
-10-43	1348-1352	with	_	_	_	_	_
-10-44	1353-1361	subjects	_	_	_	_	_
-10-45	1362-1364	of	_	_	_	_	_
-10-46	1365-1373	national	_	_	_	_	_
-10-47	1374-1382	interest	_	_	_	_	_
-10-48	1383-1384	.	_	_	_	_	_
+10-1	1099-1110	Environment	organization[63]	giv:inact[63]	Environment_and_Climate_Change_Canada[63]	cf3[62]|cf2[63]	coref	11-1[74_63]
+10-2	1111-1117	Canada	organization[63]	giv:inact[63]	Environment_and_Climate_Change_Canada[63]	cf3[62]|cf2[63]	_	_
+10-3	1118-1130	spokesperson	_	_	_	cf3[62]	_	_
+10-4	1131-1136	Julie	_	_	_	cf3[62]	_	_
+10-5	1137-1141	Hahn	_	_	_	cf3[62]	_	_
+10-6	1142-1146	said	_	_	_	_	_	_
+10-7	1147-1151	they	object[64]	giv:act[64]	_	cf1*[64]	_	_
+10-8	1152-1157	apply	_	_	_	_	_	_
+10-9	1158-1160	to	_	_	_	_	_	_
+10-10	1161-1168	letters	_	_	_	cf5[66]	_	_
+10-11	1169-1171	of	_	_	_	cf5[66]	_	_
+10-12	1172-1181	complaint	_	_	_	cf5[66]	_	_
+10-13	1182-1183	,	_	_	_	cf5[66]	_	_
+10-14	1184-1193	criticism	_	_	_	cf5[66]	_	_
+10-15	1194-1196	or	_	_	_	cf5[66]	_	_
+10-16	1197-1203	injury	_	_	_	cf5[66]	_	_
+10-17	1204-1205	,	_	_	_	_	_	_
+10-18	1206-1214	research	_	_	_	cf6[67]	_	_
+10-19	1215-1217	or	_	_	_	cf6[67]	_	_
+10-20	1218-1228	scientific	_	_	_	cf6[67]	_	_
+10-21	1229-1234	notes	_	_	_	cf6[67]	_	_
+10-22	1235-1238	and	_	_	_	cf6[67]	_	_
+10-23	1239-1247	findings	_	_	_	cf6[67]	_	_
+10-24	1248-1252	that	_	_	_	cf6[67]	_	_
+10-25	1253-1255	do	_	_	_	cf6[67]	_	_
+10-26	1256-1259	n`t	_	_	_	cf6[67]	_	_
+10-27	1260-1264	have	_	_	_	cf6[67]	_	_
+10-28	1265-1268	any	_	_	_	cf6[67]|cf4[68]	_	_
+10-29	1269-1279	conclusion	_	_	_	cf6[67]|cf4[68]	_	_
+10-30	1280-1281	,	_	_	_	_	_	_
+10-31	1282-1285	and	_	_	_	_	_	_
+10-32	1286-1294	Treasury	_	_	_	cf7[69]|cf10[70]	_	_
+10-33	1295-1300	Board	_	_	_	cf7[69]|cf10[70]	_	_
+10-34	1301-1308	letters	_	_	_	cf7[69]	_	_
+10-35	1309-1310	,	_	_	_	cf7[69]	_	_
+10-36	1311-1318	agendas	_	_	_	cf7[69]	_	_
+10-37	1319-1322	and	_	_	_	cf7[69]	_	_
+10-38	1323-1330	minutes	_	_	_	cf7[69]	_	_
+10-39	1331-1335	that	_	_	_	cf7[69]	_	_
+10-40	1336-1338	do	_	_	_	cf7[69]	_	_
+10-41	1339-1342	n`t	_	_	_	cf7[69]	_	_
+10-42	1343-1347	deal	_	_	_	cf7[69]	_	_
+10-43	1348-1352	with	_	_	_	cf7[69]	_	_
+10-44	1353-1361	subjects	_	_	_	cf7[69]|cf8[71]	_	_
+10-45	1362-1364	of	_	_	_	cf7[69]|cf8[71]	_	_
+10-46	1365-1373	national	_	_	_	cf7[69]|cf8[71]|cf9[72]	_	_
+10-47	1374-1382	interest	_	_	_	cf7[69]|cf8[71]|cf9[72]	_	_
+10-48	1383-1384	.	_	_	_	_	_	_
 
 #Text=Environment Minister John Baird has asked government officials how such documents that are supposed to be stored in " approved security cabinets " wound up on the street .
-11-1	1385-1396	Environment	person[73]|organization[74]	new[73]|giv:act[74]	John_Baird_%28Canadian_politician%29[73]|Environment_and_Climate_Change_Canada[74]	coref|ana	13-1[98_74]|12-2[83_73]
-11-2	1397-1405	Minister	person[73]	new[73]	John_Baird_%28Canadian_politician%29[73]	_	_
-11-3	1406-1410	John	person[73]	new[73]	John_Baird_%28Canadian_politician%29[73]	_	_
-11-4	1411-1416	Baird	person[73]	new[73]	John_Baird_%28Canadian_politician%29[73]	_	_
-11-5	1417-1420	has	_	_	_	_	_
-11-6	1421-1426	asked	_	_	_	_	_
-11-7	1427-1437	government	_	_	_	_	_
-11-8	1438-1447	officials	_	_	_	_	_
-11-9	1448-1451	how	_	_	_	_	_
-11-10	1452-1456	such	object[78]	giv:inact[78]	_	ana	12-9[87_78]
-11-11	1457-1466	documents	object[78]	giv:inact[78]	_	_	_
-11-12	1467-1471	that	object[78]	giv:inact[78]	_	_	_
-11-13	1472-1475	are	object[78]	giv:inact[78]	_	_	_
-11-14	1476-1484	supposed	object[78]	giv:inact[78]	_	_	_
-11-15	1485-1487	to	object[78]	giv:inact[78]	_	_	_
-11-16	1488-1490	be	object[78]	giv:inact[78]	_	_	_
-11-17	1491-1497	stored	object[78]	giv:inact[78]	_	_	_
-11-18	1498-1500	in	object[78]	giv:inact[78]	_	_	_
-11-19	1501-1502	"	object[78]	giv:inact[78]	_	_	_
-11-20	1503-1511	approved	object[78]	giv:inact[78]	_	_	_
-11-21	1512-1520	security	object[78]	giv:inact[78]	_	_	_
-11-22	1521-1529	cabinets	object[78]	giv:inact[78]	_	_	_
-11-23	1530-1531	"	object[78]	giv:inact[78]	_	_	_
-11-24	1532-1537	wound	event[257]	giv:inact[257]	_	disc	13-14[101_257]
-11-25	1538-1540	up	_	_	_	_	_
-11-26	1541-1543	on	_	_	_	_	_
-11-27	1544-1547	the	place[82]	giv:inact[82]	_	_	_
-11-28	1548-1554	street	place[82]	giv:inact[82]	_	_	_
-11-29	1555-1556	.	_	_	_	_	_
+11-1	1385-1396	Environment	person[73]|organization[74]	new[73]|giv:act[74]	John_Baird_%28Canadian_politician%29[73]|Environment_and_Climate_Change_Canada[74]	cf6[73]|cf1*[74]	ana|coref	12-2[83_73]|13-1[98_74]
+11-2	1397-1405	Minister	person[73]	new[73]	John_Baird_%28Canadian_politician%29[73]	cf6[73]	_	_
+11-3	1406-1410	John	person[73]	new[73]	John_Baird_%28Canadian_politician%29[73]	cf6[73]	_	_
+11-4	1411-1416	Baird	person[73]	new[73]	John_Baird_%28Canadian_politician%29[73]	cf6[73]	_	_
+11-5	1417-1420	has	_	_	_	_	_	_
+11-6	1421-1426	asked	_	_	_	_	_	_
+11-7	1427-1437	government	_	_	_	cf7[76]	_	_
+11-8	1438-1447	officials	_	_	_	cf7[76]	_	_
+11-9	1448-1451	how	_	_	_	_	_	_
+11-10	1452-1456	such	object[78]	giv:inact[78]	_	cf4[77]|cf2[78]	ana	12-9[87_78]
+11-11	1457-1466	documents	object[78]	giv:inact[78]	_	cf4[77]|cf2[78]	_	_
+11-12	1467-1471	that	object[78]	giv:inact[78]	_	cf4[77]|cf2[78]	_	_
+11-13	1472-1475	are	object[78]	giv:inact[78]	_	cf4[77]|cf2[78]	_	_
+11-14	1476-1484	supposed	object[78]	giv:inact[78]	_	cf4[77]|cf2[78]	_	_
+11-15	1485-1487	to	object[78]	giv:inact[78]	_	cf4[77]|cf2[78]	_	_
+11-16	1488-1490	be	object[78]	giv:inact[78]	_	cf4[77]|cf2[78]	_	_
+11-17	1491-1497	stored	object[78]	giv:inact[78]	_	cf4[77]|cf2[78]	_	_
+11-18	1498-1500	in	object[78]	giv:inact[78]	_	cf4[77]|cf2[78]	_	_
+11-19	1501-1502	"	object[78]	giv:inact[78]	_	cf4[77]|cf2[78]	_	_
+11-20	1503-1511	approved	object[78]	giv:inact[78]	_	cf4[77]|cf2[78]|cf8[79]	_	_
+11-21	1512-1520	security	object[78]	giv:inact[78]	_	cf4[77]|cf2[78]|cf8[79]|cf5[80]	_	_
+11-22	1521-1529	cabinets	object[78]	giv:inact[78]	_	cf4[77]|cf2[78]|cf8[79]	_	_
+11-23	1530-1531	"	object[78]	giv:inact[78]	_	cf4[77]|cf2[78]	_	_
+11-24	1532-1537	wound	event[257]	giv:inact[257]	_	cf4[77]	disc	13-14[101_257]
+11-25	1538-1540	up	_	_	_	cf4[77]	_	_
+11-26	1541-1543	on	_	_	_	cf4[77]	_	_
+11-27	1544-1547	the	place[82]	giv:inact[82]	_	cf4[77]|cf3[82]	_	_
+11-28	1548-1554	street	place[82]	giv:inact[82]	_	cf4[77]|cf3[82]	_	_
+11-29	1555-1556	.	_	_	_	_	_	_
 
 #Text=" I 'm told two things : that it 's neither classified nor secret and that it 's stuff that could be available under access to information , " Baird said .
-12-1	1557-1558	"	_	_	_	_	_
-12-2	1559-1560	I	person[83]	giv:act[83]	John_Baird_%28Canadian_politician%29[83]	coref	12-30[94_83]
-12-3	1561-1563	'm	_	_	_	_	_
-12-4	1564-1568	told	_	_	_	_	_
-12-5	1569-1572	two	_	_	_	_	_
-12-6	1573-1579	things	_	_	_	_	_
-12-7	1580-1581	:	_	_	_	_	_
-12-8	1582-1586	that	_	_	_	_	_
-12-9	1587-1589	it	object[87]	giv:act[87]	_	ana	12-17[90_87]
-12-10	1590-1592	's	_	_	_	_	_
-12-11	1593-1600	neither	_	_	_	_	_
-12-12	1601-1611	classified	_	_	_	_	_
-12-13	1612-1615	nor	_	_	_	_	_
-12-14	1616-1622	secret	_	_	_	_	_
-12-15	1623-1626	and	_	_	_	_	_
-12-16	1627-1631	that	_	_	_	_	_
-12-17	1632-1634	it	object[90]	giv:act[90]	_	coref	14-21[109_90]
-12-18	1635-1637	's	_	_	_	_	_
-12-19	1638-1643	stuff	_	_	_	_	_
-12-20	1644-1648	that	_	_	_	_	_
-12-21	1649-1654	could	_	_	_	_	_
-12-22	1655-1657	be	_	_	_	_	_
-12-23	1658-1667	available	_	_	_	_	_
-12-24	1668-1673	under	_	_	_	_	_
-12-25	1674-1680	access	_	_	_	_	_
-12-26	1681-1683	to	_	_	_	_	_
-12-27	1684-1695	information	_	_	_	_	_
-12-28	1696-1697	,	_	_	_	_	_
-12-29	1698-1699	"	_	_	_	_	_
-12-30	1700-1705	Baird	person[94]	giv:act[94]	John_Baird_%28Canadian_politician%29[94]	_	_
-12-31	1706-1710	said	_	_	_	_	_
-12-32	1711-1712	.	_	_	_	_	_
+12-1	1557-1558	"	_	_	_	_	_	_
+12-2	1559-1560	I	person[83]	giv:act[83]	John_Baird_%28Canadian_politician%29[83]	cf1*[83]	coref	12-30[94_83]
+12-3	1561-1563	'm	_	_	_	_	_	_
+12-4	1564-1568	told	_	_	_	_	_	_
+12-5	1569-1572	two	_	_	_	cf5[85]	_	_
+12-6	1573-1579	things	_	_	_	cf5[85]	_	_
+12-7	1580-1581	:	_	_	_	_	_	_
+12-8	1582-1586	that	_	_	_	_	_	_
+12-9	1587-1589	it	object[87]	giv:act[87]	_	cf4[86]|cf2[87]	ana	12-17[90_87]
+12-10	1590-1592	's	_	_	_	cf4[86]	_	_
+12-11	1593-1600	neither	_	_	_	cf4[86]	_	_
+12-12	1601-1611	classified	_	_	_	cf4[86]	_	_
+12-13	1612-1615	nor	_	_	_	cf4[86]	_	_
+12-14	1616-1622	secret	_	_	_	cf4[86]	_	_
+12-15	1623-1626	and	_	_	_	_	_	_
+12-16	1627-1631	that	_	_	_	_	_	_
+12-17	1632-1634	it	object[90]	giv:act[90]	_	cf3[89]|cf2[90]	coref	14-21[109_90]
+12-18	1635-1637	's	_	_	_	cf3[89]	_	_
+12-19	1638-1643	stuff	_	_	_	cf3[89]|cf2[92]	_	_
+12-20	1644-1648	that	_	_	_	cf3[89]|cf2[92]	_	_
+12-21	1649-1654	could	_	_	_	cf3[89]|cf2[92]	_	_
+12-22	1655-1657	be	_	_	_	cf3[89]|cf2[92]	_	_
+12-23	1658-1667	available	_	_	_	cf3[89]|cf2[92]	_	_
+12-24	1668-1673	under	_	_	_	cf3[89]|cf2[92]	_	_
+12-25	1674-1680	access	_	_	_	cf3[89]|cf2[92]	_	_
+12-26	1681-1683	to	_	_	_	cf3[89]|cf2[92]	_	_
+12-27	1684-1695	information	_	_	_	cf3[89]|cf2[92]|cf6[93]	_	_
+12-28	1696-1697	,	_	_	_	_	_	_
+12-29	1698-1699	"	_	_	_	_	_	_
+12-30	1700-1705	Baird	person[94]	giv:act[94]	John_Baird_%28Canadian_politician%29[94]	cf1*[94]	_	_
+12-31	1706-1710	said	_	_	_	_	_	_
+12-32	1711-1712	.	_	_	_	_	_	_
 
 #Text=Environment Canada spokeswoman Sujata Raisinghani told CBC News the department will look into the incident .
-13-1	1713-1724	Environment	person[97]|organization[98]	new[97]|giv:inact[98]	Environment_and_Climate_Change_Canada[98]	ana|coref	14-9[105_97]|13-9[100_98]
-13-2	1725-1731	Canada	person[97]|organization[98]	new[97]|giv:inact[98]	Environment_and_Climate_Change_Canada[98]	_	_
-13-3	1732-1743	spokeswoman	person[97]	new[97]	_	_	_
-13-4	1744-1750	Sujata	person[97]	new[97]	_	_	_
-13-5	1751-1762	Raisinghani	person[97]	new[97]	_	_	_
-13-6	1763-1767	told	_	_	_	_	_
-13-7	1768-1771	CBC	organization[99]	giv:inact[99]	Canadian_Broadcasting_Corporation[99]	coref	23-12[174_99]
-13-8	1772-1776	News	organization[99]	giv:inact[99]	Canadian_Broadcasting_Corporation[99]	_	_
-13-9	1777-1780	the	organization[100]	giv:act[100]	Environment_and_Climate_Change_Canada[100]	ana	14-2[102_100]
-13-10	1781-1791	department	organization[100]	giv:act[100]	Environment_and_Climate_Change_Canada[100]	_	_
-13-11	1792-1796	will	_	_	_	_	_
-13-12	1797-1801	look	_	_	_	_	_
-13-13	1802-1806	into	_	_	_	_	_
-13-14	1807-1810	the	event[101]	giv:inact[101]	_	_	_
-13-15	1811-1819	incident	event[101]	giv:inact[101]	_	_	_
-13-16	1820-1821	.	_	_	_	_	_
+13-1	1713-1724	Environment	person[97]|organization[98]	new[97]|giv:inact[98]	Environment_and_Climate_Change_Canada[98]	cf4[97]|cf1[98]	ana|coref	14-9[105_97]|13-9[100_98]
+13-2	1725-1731	Canada	person[97]|organization[98]	new[97]|giv:inact[98]	Environment_and_Climate_Change_Canada[98]	cf4[97]|cf1[98]	_	_
+13-3	1732-1743	spokeswoman	person[97]	new[97]	_	cf4[97]	_	_
+13-4	1744-1750	Sujata	person[97]	new[97]	_	cf4[97]	_	_
+13-5	1751-1762	Raisinghani	person[97]	new[97]	_	cf4[97]	_	_
+13-6	1763-1767	told	_	_	_	_	_	_
+13-7	1768-1771	CBC	organization[99]	giv:inact[99]	Canadian_Broadcasting_Corporation[99]	cf3[99]	coref	23-12[174_99]
+13-8	1772-1776	News	organization[99]	giv:inact[99]	Canadian_Broadcasting_Corporation[99]	cf3[99]	_	_
+13-9	1777-1780	the	organization[100]	giv:act[100]	Environment_and_Climate_Change_Canada[100]	cf1[100]	ana	14-2[102_100]
+13-10	1781-1791	department	organization[100]	giv:act[100]	Environment_and_Climate_Change_Canada[100]	cf1[100]	_	_
+13-11	1792-1796	will	_	_	_	_	_	_
+13-12	1797-1801	look	_	_	_	_	_	_
+13-13	1802-1806	into	_	_	_	_	_	_
+13-14	1807-1810	the	event[101]	giv:inact[101]	_	cf2[101]	_	_
+13-15	1811-1819	incident	event[101]	giv:inact[101]	_	cf2[101]	_	_
+13-16	1820-1821	.	_	_	_	_	_	_
 
 #Text=" We take document security seriously , " she said , but refused to give any more details about how the papers came to be on a road .
-14-1	1822-1823	"	_	_	_	_	_
-14-2	1824-1826	We	organization[102]	giv:act[102]	Environment_and_Climate_Change_Canada[102]	coref	25-2[192_102]
-14-3	1827-1831	take	_	_	_	_	_
-14-4	1832-1840	document	_	_	_	_	_
-14-5	1841-1849	security	_	_	_	_	_
-14-6	1850-1859	seriously	_	_	_	_	_
-14-7	1860-1861	,	_	_	_	_	_
-14-8	1862-1863	"	_	_	_	_	_
-14-9	1864-1867	she	person[105]	giv:act[105]	_	_	_
-14-10	1868-1872	said	_	_	_	_	_
-14-11	1873-1874	,	_	_	_	_	_
-14-12	1875-1878	but	_	_	_	_	_
-14-13	1879-1886	refused	_	_	_	_	_
-14-14	1887-1889	to	_	_	_	_	_
-14-15	1890-1894	give	_	_	_	_	_
-14-16	1895-1898	any	_	_	_	_	_
-14-17	1899-1903	more	_	_	_	_	_
-14-18	1904-1911	details	_	_	_	_	_
-14-19	1912-1917	about	_	_	_	_	_
-14-20	1918-1921	how	_	_	_	_	_
-14-21	1922-1925	the	object[109]	giv:inact[109]	_	_	_
-14-22	1926-1932	papers	object[109]	giv:inact[109]	_	_	_
-14-23	1933-1937	came	_	_	_	_	_
-14-24	1938-1940	to	_	_	_	_	_
-14-25	1941-1943	be	_	_	_	_	_
-14-26	1944-1946	on	_	_	_	_	_
-14-27	1947-1948	a	place[110]	giv:inact[110]	_	coref	17-11[136_110]
-14-28	1949-1953	road	place[110]	giv:inact[110]	_	_	_
-14-29	1954-1955	.	_	_	_	_	_
+14-1	1822-1823	"	_	_	_	_	_	_
+14-2	1824-1826	We	organization[102]	giv:act[102]	Environment_and_Climate_Change_Canada[102]	cf2[102]	coref	25-2[192_102]
+14-3	1827-1831	take	_	_	_	_	_	_
+14-4	1832-1840	document	_	_	_	cf5[104]	_	_
+14-5	1841-1849	security	_	_	_	cf5[104]	_	_
+14-6	1850-1859	seriously	_	_	_	_	_	_
+14-7	1860-1861	,	_	_	_	_	_	_
+14-8	1862-1863	"	_	_	_	_	_	_
+14-9	1864-1867	she	person[105]	giv:act[105]	_	cf1*[105]	_	_
+14-10	1868-1872	said	_	_	_	_	_	_
+14-11	1873-1874	,	_	_	_	_	_	_
+14-12	1875-1878	but	_	_	_	_	_	_
+14-13	1879-1886	refused	_	_	_	_	_	_
+14-14	1887-1889	to	_	_	_	_	_	_
+14-15	1890-1894	give	_	_	_	_	_	_
+14-16	1895-1898	any	_	_	_	cf7[107]	_	_
+14-17	1899-1903	more	_	_	_	cf7[107]	_	_
+14-18	1904-1911	details	_	_	_	cf7[107]	_	_
+14-19	1912-1917	about	_	_	_	cf7[107]	_	_
+14-20	1918-1921	how	_	_	_	cf7[107]	_	_
+14-21	1922-1925	the	object[109]	giv:inact[109]	_	cf7[107]|cf3[108]|cf4[109]	_	_
+14-22	1926-1932	papers	object[109]	giv:inact[109]	_	cf7[107]|cf3[108]|cf4[109]	_	_
+14-23	1933-1937	came	_	_	_	cf7[107]|cf3[108]	_	_
+14-24	1938-1940	to	_	_	_	cf7[107]|cf3[108]	_	_
+14-25	1941-1943	be	_	_	_	cf7[107]|cf3[108]	_	_
+14-26	1944-1946	on	_	_	_	cf7[107]|cf3[108]	_	_
+14-27	1947-1948	a	place[110]	giv:inact[110]	_	cf7[107]|cf3[108]|cf6[110]	coref	17-11[136_110]
+14-28	1949-1953	road	place[110]	giv:inact[110]	_	cf7[107]|cf3[108]|cf6[110]	_	_
+14-29	1954-1955	.	_	_	_	_	_	_
 
 #Text=Paul Dewar , an Ottawa New Democrat MP , said the combined security lapses raise serious questions about the government 's ability to secure sensitive documents .
-15-1	1956-1960	Paul	person[266]	new[266]	_	coref	16-1[122_266]
-15-2	1961-1966	Dewar	person[266]	new[266]	_	_	_
-15-3	1967-1968	,	person[266]	new[266]	_	_	_
-15-4	1969-1971	an	person[266]	new[266]	_	_	_
-15-5	1972-1978	Ottawa	place[113]|person[266]	giv:inact[113]|new[266]	Ottawa[113]	_	_
-15-6	1979-1982	New	person[266]	new[266]	_	_	_
-15-7	1983-1991	Democrat	person[266]	new[266]	_	_	_
-15-8	1992-1994	MP	person[266]	new[266]	_	_	_
-15-9	1995-1996	,	_	_	_	_	_
-15-10	1997-2001	said	_	_	_	_	_
-15-11	2002-2005	the	_	_	_	_	_
-15-12	2006-2014	combined	_	_	_	_	_
-15-13	2015-2023	security	_	_	_	_	_
-15-14	2024-2030	lapses	_	_	_	_	_
-15-15	2031-2036	raise	_	_	_	_	_
-15-16	2037-2044	serious	_	_	_	_	_
-15-17	2045-2054	questions	_	_	_	_	_
-15-18	2055-2060	about	_	_	_	_	_
-15-19	2061-2064	the	organization[119]	acc:com[119]	_	coref	16-6[125_119]
-15-20	2065-2075	government	organization[119]	acc:com[119]	_	_	_
-15-21	2076-2078	's	organization[119]	acc:com[119]	_	_	_
-15-22	2079-2086	ability	_	_	_	_	_
-15-23	2087-2089	to	_	_	_	_	_
-15-24	2090-2096	secure	_	_	_	_	_
-15-25	2097-2106	sensitive	_	_	_	_	_
-15-26	2107-2116	documents	_	_	_	_	_
-15-27	2117-2118	.	_	_	_	_	_
+15-1	1956-1960	Paul	person[266]	new[266]	_	cf1[111]	coref	16-1[122_266]
+15-2	1961-1966	Dewar	person[266]	new[266]	_	cf1[111]	_	_
+15-3	1967-1968	,	person[266]	new[266]	_	_	_	_
+15-4	1969-1971	an	person[266]	new[266]	_	cf1[112]	_	_
+15-5	1972-1978	Ottawa	place[113]|person[266]	giv:inact[113]|new[266]	Ottawa[113]	cf1[112]|cf3[113]	_	_
+15-6	1979-1982	New	person[266]	new[266]	_	cf1[112]	_	_
+15-7	1983-1991	Democrat	person[266]	new[266]	_	cf1[112]	_	_
+15-8	1992-1994	MP	person[266]	new[266]	_	cf1[112]	_	_
+15-9	1995-1996	,	_	_	_	_	_	_
+15-10	1997-2001	said	_	_	_	_	_	_
+15-11	2002-2005	the	_	_	_	cf4[115]	_	_
+15-12	2006-2014	combined	_	_	_	cf4[115]	_	_
+15-13	2015-2023	security	_	_	_	cf4[115]|cf2*[116]	_	_
+15-14	2024-2030	lapses	_	_	_	cf4[115]	_	_
+15-15	2031-2036	raise	_	_	_	_	_	_
+15-16	2037-2044	serious	_	_	_	cf7[118]	_	_
+15-17	2045-2054	questions	_	_	_	cf7[118]	_	_
+15-18	2055-2060	about	_	_	_	cf7[118]	_	_
+15-19	2061-2064	the	organization[119]	acc:com[119]	_	cf7[118]|cf6[119]	coref	16-6[125_119]
+15-20	2065-2075	government	organization[119]	acc:com[119]	_	cf7[118]|cf6[119]	_	_
+15-21	2076-2078	's	organization[119]	acc:com[119]	_	cf7[118]|cf6[119]	_	_
+15-22	2079-2086	ability	_	_	_	cf7[118]|cf8[120]	_	_
+15-23	2087-2089	to	_	_	_	cf7[118]|cf8[120]	_	_
+15-24	2090-2096	secure	_	_	_	cf7[118]|cf8[120]	_	_
+15-25	2097-2106	sensitive	_	_	_	cf7[118]|cf8[120]|cf5[121]	_	_
+15-26	2107-2116	documents	_	_	_	cf7[118]|cf8[120]|cf5[121]	_	_
+15-27	2117-2118	.	_	_	_	_	_	_
 
 #Text=Dewar says that bureaucrats of the Conservative government have complained to him about document security to the point that they ca n`t share the information with their own colleagues .
-16-1	2119-2124	Dewar	person[122]	giv:act[122]	Paul_Dewar[122]	ana	16-12[126_122]
-16-2	2125-2129	says	_	_	_	_	_
-16-3	2130-2134	that	_	_	_	_	_
-16-4	2135-2146	bureaucrats	person[124]	acc:inf[124]	_	ana	16-20[130_124]
-16-5	2147-2149	of	person[124]	acc:inf[124]	_	_	_
-16-6	2150-2153	the	person[124]|organization[125]	acc:inf[124]|giv:act[125]	_	coref	17-14[138_125]
-16-7	2154-2166	Conservative	person[124]|organization[125]	acc:inf[124]|giv:act[125]	_	_	_
-16-8	2167-2177	government	person[124]|organization[125]	acc:inf[124]|giv:act[125]	_	_	_
-16-9	2178-2182	have	_	_	_	_	_
-16-10	2183-2193	complained	_	_	_	_	_
-16-11	2194-2196	to	_	_	_	_	_
-16-12	2197-2200	him	person[126]	giv:act[126]	Paul_Dewar[126]	coref	18-28[146_126]
-16-13	2201-2206	about	_	_	_	_	_
-16-14	2207-2215	document	_	_	_	_	_
-16-15	2216-2224	security	_	_	_	_	_
-16-16	2225-2227	to	_	_	_	_	_
-16-17	2228-2231	the	_	_	_	_	_
-16-18	2232-2237	point	_	_	_	_	_
-16-19	2238-2242	that	_	_	_	_	_
-16-20	2243-2247	they	person[130]	giv:act[130]	_	_	_
-16-21	2248-2250	ca	_	_	_	_	_
-16-22	2251-2254	n`t	_	_	_	_	_
-16-23	2255-2260	share	_	_	_	_	_
-16-24	2261-2264	the	_	_	_	_	_
-16-25	2265-2276	information	_	_	_	_	_
-16-26	2277-2281	with	_	_	_	_	_
-16-27	2282-2287	their	_	_	_	_	_
-16-28	2288-2291	own	_	_	_	_	_
-16-29	2292-2302	colleagues	_	_	_	_	_
-16-30	2303-2304	.	_	_	_	_	_
+16-1	2119-2124	Dewar	person[122]	giv:act[122]	Paul_Dewar[122]	cf2*[122]	ana	16-12[126_122]
+16-2	2125-2129	says	_	_	_	_	_	_
+16-3	2130-2134	that	_	_	_	_	_	_
+16-4	2135-2146	bureaucrats	person[124]	acc:inf[124]	_	cf1[124]	ana	16-20[130_124]
+16-5	2147-2149	of	person[124]	acc:inf[124]	_	cf1[124]	_	_
+16-6	2150-2153	the	person[124]|organization[125]	acc:inf[124]|giv:act[125]	_	cf1[124]|cf3[125]	coref	17-14[138_125]
+16-7	2154-2166	Conservative	person[124]|organization[125]	acc:inf[124]|giv:act[125]	_	cf1[124]|cf3[125]	_	_
+16-8	2167-2177	government	person[124]|organization[125]	acc:inf[124]|giv:act[125]	_	cf1[124]|cf3[125]	_	_
+16-9	2178-2182	have	_	_	_	_	_	_
+16-10	2183-2193	complained	_	_	_	_	_	_
+16-11	2194-2196	to	_	_	_	_	_	_
+16-12	2197-2200	him	person[126]	giv:act[126]	Paul_Dewar[126]	cf2*[126]	coref	18-28[146_126]
+16-13	2201-2206	about	_	_	_	_	_	_
+16-14	2207-2215	document	_	_	_	cf4[128]	_	_
+16-15	2216-2224	security	_	_	_	cf4[128]	_	_
+16-16	2225-2227	to	_	_	_	_	_	_
+16-17	2228-2231	the	_	_	_	cf6[129]	_	_
+16-18	2232-2237	point	_	_	_	cf6[129]	_	_
+16-19	2238-2242	that	_	_	_	cf6[129]	_	_
+16-20	2243-2247	they	person[130]	giv:act[130]	_	cf6[129]|cf1[130]	_	_
+16-21	2248-2250	ca	_	_	_	cf6[129]	_	_
+16-22	2251-2254	n`t	_	_	_	cf6[129]	_	_
+16-23	2255-2260	share	_	_	_	cf6[129]	_	_
+16-24	2261-2264	the	_	_	_	cf6[129]|cf5[132]	_	_
+16-25	2265-2276	information	_	_	_	cf6[129]|cf5[132]	_	_
+16-26	2277-2281	with	_	_	_	cf6[129]	_	_
+16-27	2282-2287	their	_	_	_	cf6[129]|cf7[133]	_	_
+16-28	2288-2291	own	_	_	_	cf6[129]|cf7[133]	_	_
+16-29	2292-2302	colleagues	_	_	_	cf6[129]|cf7[133]	_	_
+16-30	2303-2304	.	_	_	_	_	_	_
 
 #Text=However , when a government document has been found on the streets , the government then says it was n't particularly sensitive .
-17-1	2305-2312	However	_	_	_	_	_
-17-2	2313-2314	,	_	_	_	_	_
-17-3	2315-2319	when	_	_	_	_	_
-17-4	2320-2321	a	object[135]	giv:inact[135]	_	ana	17-18[139_135]
-17-5	2322-2332	government	object[135]	giv:inact[135]	_	_	_
-17-6	2333-2341	document	object[135]	giv:inact[135]	_	_	_
-17-7	2342-2345	has	_	_	_	_	_
-17-8	2346-2350	been	event[259]	giv:inact[259]	_	disc	19-1[148_259]
-17-9	2351-2356	found	_	_	_	_	_
-17-10	2357-2359	on	_	_	_	_	_
-17-11	2360-2363	the	place[136]	giv:inact[136]	_	_	_
-17-12	2364-2371	streets	place[136]	giv:inact[136]	_	_	_
-17-13	2372-2373	,	_	_	_	_	_
-17-14	2374-2377	the	organization[138]	giv:act[138]	_	coref	18-2[141_138]
-17-15	2378-2388	government	organization[138]	giv:act[138]	_	_	_
-17-16	2389-2393	then	_	_	_	_	_
-17-17	2394-2398	says	_	_	_	_	_
-17-18	2399-2401	it	object[139]	giv:act[139]	_	_	_
-17-19	2402-2405	was	_	_	_	_	_
-17-20	2406-2409	n't	_	_	_	_	_
-17-21	2410-2422	particularly	_	_	_	_	_
-17-22	2423-2432	sensitive	_	_	_	_	_
-17-23	2433-2434	.	_	_	_	_	_
+17-1	2305-2312	However	_	_	_	_	_	_
+17-2	2313-2314	,	_	_	_	_	_	_
+17-3	2315-2319	when	_	_	_	_	_	_
+17-4	2320-2321	a	object[135]	giv:inact[135]	_	cf4[134]|cf1[135]	ana	17-18[139_135]
+17-5	2322-2332	government	object[135]	giv:inact[135]	_	cf4[134]|cf1[135]	_	_
+17-6	2333-2341	document	object[135]	giv:inact[135]	_	cf4[134]|cf1[135]	_	_
+17-7	2342-2345	has	_	_	_	cf4[134]	_	_
+17-8	2346-2350	been	event[259]	giv:inact[259]	_	cf4[134]	disc	19-1[148_259]
+17-9	2351-2356	found	_	_	_	cf4[134]	_	_
+17-10	2357-2359	on	_	_	_	cf4[134]	_	_
+17-11	2360-2363	the	place[136]	giv:inact[136]	_	cf4[134]|cf3[136]	_	_
+17-12	2364-2371	streets	place[136]	giv:inact[136]	_	cf4[134]|cf3[136]	_	_
+17-13	2372-2373	,	_	_	_	_	_	_
+17-14	2374-2377	the	organization[138]	giv:act[138]	_	cf5[137]|cf2*[138]	coref	18-2[141_138]
+17-15	2378-2388	government	organization[138]	giv:act[138]	_	cf5[137]|cf2*[138]	_	_
+17-16	2389-2393	then	_	_	_	cf5[137]	_	_
+17-17	2394-2398	says	_	_	_	cf5[137]	_	_
+17-18	2399-2401	it	object[139]	giv:act[139]	_	cf5[137]|cf1[139]	_	_
+17-19	2402-2405	was	_	_	_	cf5[137]	_	_
+17-20	2406-2409	n't	_	_	_	cf5[137]	_	_
+17-21	2410-2422	particularly	_	_	_	cf5[137]	_	_
+17-22	2423-2432	sensitive	_	_	_	cf5[137]	_	_
+17-23	2433-2434	.	_	_	_	_	_	_
 
 #Text=" This government is so consumed with control of information and secrecy yet they do n't seem to be able to get the fundamentals right , " Dewar said .
-18-1	2435-2436	"	_	_	_	_	_
-18-2	2437-2441	This	organization[141]	giv:act[141]	_	ana	18-14[143_141]
-18-3	2442-2452	government	organization[141]	giv:act[141]	_	_	_
-18-4	2453-2455	is	_	_	_	_	_
-18-5	2456-2458	so	_	_	_	_	_
-18-6	2459-2467	consumed	_	_	_	_	_
-18-7	2468-2472	with	_	_	_	_	_
-18-8	2473-2480	control	_	_	_	_	_
-18-9	2481-2483	of	_	_	_	_	_
-18-10	2484-2495	information	_	_	_	_	_
-18-11	2496-2499	and	_	_	_	_	_
-18-12	2500-2507	secrecy	_	_	_	_	_
-18-13	2508-2511	yet	_	_	_	_	_
-18-14	2512-2516	they	organization[143]	giv:act[143]	_	_	_
-18-15	2517-2519	do	_	_	_	_	_
-18-16	2520-2523	n't	_	_	_	_	_
-18-17	2524-2528	seem	_	_	_	_	_
-18-18	2529-2531	to	_	_	_	_	_
-18-19	2532-2534	be	_	_	_	_	_
-18-20	2535-2539	able	_	_	_	_	_
-18-21	2540-2542	to	_	_	_	_	_
-18-22	2543-2546	get	_	_	_	_	_
-18-23	2547-2550	the	_	_	_	_	_
-18-24	2551-2563	fundamentals	_	_	_	_	_
-18-25	2564-2569	right	_	_	_	_	_
-18-26	2570-2571	,	_	_	_	_	_
-18-27	2572-2573	"	_	_	_	_	_
-18-28	2574-2579	Dewar	person[146]	giv:inact[146]	Paul_Dewar[146]	coref	27-2[202_146]
-18-29	2580-2584	said	_	_	_	_	_
-18-30	2585-2586	.	_	_	_	_	_
+18-1	2435-2436	"	_	_	_	_	_	_
+18-2	2437-2441	This	organization[141]	giv:act[141]	_	cf1*[141]	ana	18-14[143_141]
+18-3	2442-2452	government	organization[141]	giv:act[141]	_	cf1*[141]	_	_
+18-4	2453-2455	is	_	_	_	_	_	_
+18-5	2456-2458	so	_	_	_	_	_	_
+18-6	2459-2467	consumed	_	_	_	_	_	_
+18-7	2468-2472	with	_	_	_	_	_	_
+18-8	2473-2480	control	_	_	_	cf3[142]	_	_
+18-9	2481-2483	of	_	_	_	cf3[142]	_	_
+18-10	2484-2495	information	_	_	_	cf3[142]	_	_
+18-11	2496-2499	and	_	_	_	cf3[142]	_	_
+18-12	2500-2507	secrecy	_	_	_	cf3[142]	_	_
+18-13	2508-2511	yet	_	_	_	_	_	_
+18-14	2512-2516	they	organization[143]	giv:act[143]	_	cf1*[143]	_	_
+18-15	2517-2519	do	_	_	_	_	_	_
+18-16	2520-2523	n't	_	_	_	_	_	_
+18-17	2524-2528	seem	_	_	_	_	_	_
+18-18	2529-2531	to	_	_	_	_	_	_
+18-19	2532-2534	be	_	_	_	_	_	_
+18-20	2535-2539	able	_	_	_	_	_	_
+18-21	2540-2542	to	_	_	_	_	_	_
+18-22	2543-2546	get	_	_	_	_	_	_
+18-23	2547-2550	the	_	_	_	cf4[145]	_	_
+18-24	2551-2563	fundamentals	_	_	_	cf4[145]	_	_
+18-25	2564-2569	right	_	_	_	_	_	_
+18-26	2570-2571	,	_	_	_	_	_	_
+18-27	2572-2573	"	_	_	_	_	_	_
+18-28	2574-2579	Dewar	person[146]	giv:inact[146]	Paul_Dewar[146]	cf2[146]	coref	27-2[202_146]
+18-29	2580-2584	said	_	_	_	_	_	_
+18-30	2585-2586	.	_	_	_	_	_	_
 
 #Text=The incident is a reminiscent of two other incidents .
-19-1	2587-2590	The	event[148]	giv:inact[148]	_	_	_
-19-2	2591-2599	incident	event[148]	giv:inact[148]	_	_	_
-19-3	2600-2602	is	_	_	_	_	_
-19-4	2603-2604	a	_	_	_	_	_
-19-5	2605-2616	reminiscent	_	_	_	_	_
-19-6	2617-2619	of	_	_	_	_	_
-19-7	2620-2623	two	_	_	_	_	_
-19-8	2624-2629	other	_	_	_	_	_
-19-9	2630-2639	incidents	_	_	_	_	_
-19-10	2640-2641	.	_	_	_	_	_
+19-1	2587-2590	The	event[148]	giv:inact[148]	_	cf1[148]	_	_
+19-2	2591-2599	incident	event[148]	giv:inact[148]	_	cf1[148]	_	_
+19-3	2600-2602	is	_	_	_	_	_	_
+19-4	2603-2604	a	_	_	_	_	_	_
+19-5	2605-2616	reminiscent	_	_	_	_	_	_
+19-6	2617-2619	of	_	_	_	_	_	_
+19-7	2620-2623	two	_	_	_	cf2[149]	_	_
+19-8	2624-2629	other	_	_	_	cf2[149]	_	_
+19-9	2630-2639	incidents	_	_	_	cf2[149]	_	_
+19-10	2640-2641	.	_	_	_	_	_	_
 
 #Text=In March , a bundle of blueprints for a new headquarters for the military 's counterterrorism unit were found stuffed in the trash on a downtown street .
-20-1	2642-2644	In	_	_	_	_	_
-20-2	2645-2650	March	_	_	_	_	_
-20-3	2651-2652	,	_	_	_	_	_
-20-4	2653-2654	a	_	_	_	_	_
-20-5	2655-2661	bundle	_	_	_	_	_
-20-6	2662-2664	of	_	_	_	_	_
-20-7	2665-2675	blueprints	_	_	_	_	_
-20-8	2676-2679	for	_	_	_	_	_
-20-9	2680-2681	a	_	_	_	_	_
-20-10	2682-2685	new	_	_	_	_	_
-20-11	2686-2698	headquarters	_	_	_	_	_
-20-12	2699-2702	for	_	_	_	_	_
-20-13	2703-2706	the	_	_	_	_	_
-20-14	2707-2715	military	_	_	_	_	_
-20-15	2716-2718	's	_	_	_	_	_
-20-16	2719-2735	counterterrorism	_	_	_	_	_
-20-17	2736-2740	unit	_	_	_	_	_
-20-18	2741-2745	were	_	_	_	_	_
-20-19	2746-2751	found	_	_	_	_	_
-20-20	2752-2759	stuffed	_	_	_	_	_
-20-21	2760-2762	in	_	_	_	_	_
-20-22	2763-2766	the	_	_	_	_	_
-20-23	2767-2772	trash	_	_	_	_	_
-20-24	2773-2775	on	_	_	_	_	_
-20-25	2776-2777	a	_	_	_	_	_
-20-26	2778-2786	downtown	_	_	_	_	_
-20-27	2787-2793	street	_	_	_	_	_
-20-28	2794-2795	.	_	_	_	_	_
+20-1	2642-2644	In	_	_	_	_	_	_
+20-2	2645-2650	March	_	_	_	cf1[150]	_	_
+20-3	2651-2652	,	_	_	_	_	_	_
+20-4	2653-2654	a	_	_	_	cf2[152]|cf3[153]	_	_
+20-5	2655-2661	bundle	_	_	_	cf2[152]|cf3[153]	_	_
+20-6	2662-2664	of	_	_	_	cf2[152]|cf3[153]	_	_
+20-7	2665-2675	blueprints	_	_	_	cf2[152]|cf3[153]	_	_
+20-8	2676-2679	for	_	_	_	cf2[152]|cf3[153]	_	_
+20-9	2680-2681	a	_	_	_	cf2[152]|cf3[153]	_	_
+20-10	2682-2685	new	_	_	_	cf2[152]|cf3[153]	_	_
+20-11	2686-2698	headquarters	_	_	_	cf2[152]|cf3[153]	_	_
+20-12	2699-2702	for	_	_	_	cf2[152]|cf3[153]	_	_
+20-13	2703-2706	the	_	_	_	cf2[152]|cf3[153]	_	_
+20-14	2707-2715	military	_	_	_	cf2[152]|cf3[153]	_	_
+20-15	2716-2718	's	_	_	_	cf2[152]|cf3[153]	_	_
+20-16	2719-2735	counterterrorism	_	_	_	cf2[152]|cf3[153]	_	_
+20-17	2736-2740	unit	_	_	_	cf2[152]|cf3[153]	_	_
+20-18	2741-2745	were	_	_	_	cf2[152]	_	_
+20-19	2746-2751	found	_	_	_	cf2[152]	_	_
+20-20	2752-2759	stuffed	_	_	_	cf2[152]	_	_
+20-21	2760-2762	in	_	_	_	cf2[152]	_	_
+20-22	2763-2766	the	_	_	_	cf2[152]|cf4[154]	_	_
+20-23	2767-2772	trash	_	_	_	cf2[152]|cf4[154]	_	_
+20-24	2773-2775	on	_	_	_	cf2[152]|cf4[154]	_	_
+20-25	2776-2777	a	_	_	_	cf2[152]|cf4[154]|cf5[155]	_	_
+20-26	2778-2786	downtown	_	_	_	cf2[152]|cf4[154]|cf5[155]	_	_
+20-27	2787-2793	street	_	_	_	cf2[152]|cf4[154]|cf5[155]	_	_
+20-28	2794-2795	.	_	_	_	_	_	_
 
 #Text=In May , Maxime Bernier was forced to resign as Foreign Affairs minister after it became known that he left sensitive documents at the apartment of his then - girlfriend Julie Couillard who had ties to the Hells Angels biker gang .
-21-1	2796-2798	In	_	_	_	_	_
-21-2	2799-2802	May	_	_	_	_	_
-21-3	2803-2804	,	_	_	_	_	_
-21-4	2805-2811	Maxime	person[158]	new[158]	Maxime_Bernier[158]	ana	21-19[164_158]
-21-5	2812-2819	Bernier	person[158]	new[158]	Maxime_Bernier[158]	_	_
-21-6	2820-2823	was	_	_	_	_	_
-21-7	2824-2830	forced	_	_	_	_	_
-21-8	2831-2833	to	_	_	_	_	_
-21-9	2834-2840	resign	_	_	_	_	_
-21-10	2841-2843	as	_	_	_	_	_
-21-11	2844-2851	Foreign	_	_	_	_	_
-21-12	2852-2859	Affairs	_	_	_	_	_
-21-13	2860-2868	minister	_	_	_	_	_
-21-14	2869-2874	after	_	_	_	_	_
-21-15	2875-2877	it	_	_	_	_	_
-21-16	2878-2884	became	_	_	_	_	_
-21-17	2885-2890	known	_	_	_	_	_
-21-18	2891-2895	that	_	_	_	_	_
-21-19	2896-2898	he	person[164]	giv:act[164]	Maxime_Bernier[164]	_	_
-21-20	2899-2903	left	_	_	_	_	_
-21-21	2904-2913	sensitive	_	_	_	_	_
-21-22	2914-2923	documents	_	_	_	_	_
-21-23	2924-2926	at	_	_	_	_	_
-21-24	2927-2930	the	_	_	_	_	_
-21-25	2931-2940	apartment	_	_	_	_	_
-21-26	2941-2943	of	_	_	_	_	_
-21-27	2944-2947	his	_	_	_	_	_
-21-28	2948-2952	then	_	_	_	_	_
-21-29	2953-2954	-	_	_	_	_	_
-21-30	2955-2965	girlfriend	_	_	_	_	_
-21-31	2966-2971	Julie	_	_	_	_	_
-21-32	2972-2981	Couillard	_	_	_	_	_
-21-33	2982-2985	who	_	_	_	_	_
-21-34	2986-2989	had	_	_	_	_	_
-21-35	2990-2994	ties	_	_	_	_	_
-21-36	2995-2997	to	_	_	_	_	_
-21-37	2998-3001	the	_	_	_	_	_
-21-38	3002-3007	Hells	_	_	_	_	_
-21-39	3008-3014	Angels	_	_	_	_	_
-21-40	3015-3020	biker	_	_	_	_	_
-21-41	3021-3025	gang	_	_	_	_	_
-21-42	3026-3027	.	_	_	_	_	_
+21-1	2796-2798	In	_	_	_	_	_	_
+21-2	2799-2802	May	_	_	_	cf4[156]	_	_
+21-3	2803-2804	,	_	_	_	_	_	_
+21-4	2805-2811	Maxime	person[158]	new[158]	Maxime_Bernier[158]	cf1[158]	ana	21-19[164_158]
+21-5	2812-2819	Bernier	person[158]	new[158]	Maxime_Bernier[158]	cf1[158]	_	_
+21-6	2820-2823	was	_	_	_	_	_	_
+21-7	2824-2830	forced	_	_	_	_	_	_
+21-8	2831-2833	to	_	_	_	_	_	_
+21-9	2834-2840	resign	_	_	_	_	_	_
+21-10	2841-2843	as	_	_	_	_	_	_
+21-11	2844-2851	Foreign	_	_	_	cf7[159]	_	_
+21-12	2852-2859	Affairs	_	_	_	cf7[159]	_	_
+21-13	2860-2868	minister	_	_	_	cf7[159]	_	_
+21-14	2869-2874	after	_	_	_	_	_	_
+21-15	2875-2877	it	_	_	_	cf2[160]	_	_
+21-16	2878-2884	became	_	_	_	_	_	_
+21-17	2885-2890	known	_	_	_	_	_	_
+21-18	2891-2895	that	_	_	_	cf2[162]	_	_
+21-19	2896-2898	he	person[164]	giv:act[164]	Maxime_Bernier[164]	cf2[162]|cf5[163]|cf1[164]	_	_
+21-20	2899-2903	left	_	_	_	cf2[162]|cf5[163]	_	_
+21-21	2904-2913	sensitive	_	_	_	cf2[162]|cf5[163]|cf3[166]	_	_
+21-22	2914-2923	documents	_	_	_	cf2[162]|cf5[163]|cf3[166]	_	_
+21-23	2924-2926	at	_	_	_	cf2[162]|cf5[163]	_	_
+21-24	2927-2930	the	_	_	_	cf2[162]|cf5[163]	_	_
+21-25	2931-2940	apartment	_	_	_	cf2[162]|cf5[163]	_	_
+21-26	2941-2943	of	_	_	_	cf2[162]|cf5[163]	_	_
+21-27	2944-2947	his	_	_	_	cf2[162]|cf5[163]|cf8[167]	_	_
+21-28	2948-2952	then	_	_	_	cf2[162]|cf5[163]|cf8[167]	_	_
+21-29	2953-2954	-	_	_	_	cf2[162]|cf5[163]|cf8[167]	_	_
+21-30	2955-2965	girlfriend	_	_	_	cf2[162]|cf5[163]|cf8[167]	_	_
+21-31	2966-2971	Julie	_	_	_	cf2[162]|cf5[163]|cf8[167]	_	_
+21-32	2972-2981	Couillard	_	_	_	cf2[162]|cf5[163]|cf8[167]	_	_
+21-33	2982-2985	who	_	_	_	cf2[162]|cf5[163]|cf8[167]	_	_
+21-34	2986-2989	had	_	_	_	cf2[162]|cf5[163]|cf8[167]	_	_
+21-35	2990-2994	ties	_	_	_	cf2[162]|cf5[163]|cf8[167]	_	_
+21-36	2995-2997	to	_	_	_	cf2[162]|cf5[163]|cf8[167]	_	_
+21-37	2998-3001	the	_	_	_	cf2[162]|cf5[163]|cf8[167]|cf6[168]	_	_
+21-38	3002-3007	Hells	_	_	_	cf2[162]|cf5[163]|cf8[167]|cf6[168]	_	_
+21-39	3008-3014	Angels	_	_	_	cf2[162]|cf5[163]|cf8[167]|cf6[168]	_	_
+21-40	3015-3020	biker	_	_	_	cf2[162]|cf5[163]|cf8[167]|cf6[168]	_	_
+21-41	3021-3025	gang	_	_	_	cf2[162]|cf5[163]|cf8[167]|cf6[168]	_	_
+21-42	3026-3027	.	_	_	_	_	_	_
 
 #Text=Sources
-22-1	3028-3035	Sources	_	_	_	_	_
+22-1	3028-3035	Sources	_	_	_	cf1[169]	_	_
 
 #Text=" Sensitive government document found on rainy Ottawa street " — CBC.ca , August 15 , 2008
-23-1	3036-3037	"	_	_	_	_	_
-23-2	3038-3047	Sensitive	_	_	_	_	_
-23-3	3048-3058	government	_	_	_	_	_
-23-4	3059-3067	document	_	_	_	_	_
-23-5	3068-3073	found	_	_	_	_	_
-23-6	3074-3076	on	_	_	_	_	_
-23-7	3077-3082	rainy	_	_	_	_	_
-23-8	3083-3089	Ottawa	_	_	_	_	_
-23-9	3090-3096	street	_	_	_	_	_
-23-10	3097-3098	"	_	_	_	_	_
-23-11	3099-3100	—	_	_	_	_	_
-23-12	3101-3107	CBC.ca	organization[174]	giv:inact[174]	Canadian_Broadcasting_Corporation[174]	_	_
-23-13	3108-3109	,	_	_	_	_	_
-23-14	3110-3116	August	_	_	_	_	_
-23-15	3117-3119	15	_	_	_	_	_
-23-16	3120-3121	,	_	_	_	_	_
-23-17	3122-3126	2008	_	_	_	_	_
+23-1	3036-3037	"	_	_	_	_	_	_
+23-2	3038-3047	Sensitive	_	_	_	cf4[171]|cf1[172]	_	_
+23-3	3048-3058	government	_	_	_	cf4[171]|cf1[172]	_	_
+23-4	3059-3067	document	_	_	_	cf4[171]|cf1[172]	_	_
+23-5	3068-3073	found	_	_	_	cf4[171]	_	_
+23-6	3074-3076	on	_	_	_	cf4[171]	_	_
+23-7	3077-3082	rainy	_	_	_	cf4[171]|cf3[173]	_	_
+23-8	3083-3089	Ottawa	_	_	_	cf4[171]|cf3[173]	_	_
+23-9	3090-3096	street	_	_	_	cf4[171]|cf3[173]	_	_
+23-10	3097-3098	"	_	_	_	_	_	_
+23-11	3099-3100	—	_	_	_	_	_	_
+23-12	3101-3107	CBC.ca	organization[174]	giv:inact[174]	Canadian_Broadcasting_Corporation[174]	cf2[174]	_	_
+23-13	3108-3109	,	_	_	_	_	_	_
+23-14	3110-3116	August	_	_	_	cf5[176]	_	_
+23-15	3117-3119	15	_	_	_	cf5[176]	_	_
+23-16	3120-3121	,	_	_	_	cf5[176]	_	_
+23-17	3122-3126	2008	_	_	_	cf5[176]|cf6[177]	_	_
 
 #Text=" Document found on street not secret , say feds " — The Canadian Press , August 15 , 2008
-24-1	3127-3128	"	_	_	_	_	_
-24-2	3129-3137	Document	_	_	_	_	_
-24-3	3138-3143	found	_	_	_	_	_
-24-4	3144-3146	on	_	_	_	_	_
-24-5	3147-3153	street	_	_	_	_	_
-24-6	3154-3157	not	_	_	_	_	_
-24-7	3158-3164	secret	_	_	_	_	_
-24-8	3165-3166	,	_	_	_	_	_
-24-9	3167-3170	say	_	_	_	_	_
-24-10	3171-3175	feds	_	_	_	_	_
-24-11	3176-3177	"	_	_	_	_	_
-24-12	3178-3179	—	_	_	_	_	_
-24-13	3180-3183	The	_	_	_	_	_
-24-14	3184-3192	Canadian	_	_	_	_	_
-24-15	3193-3198	Press	_	_	_	_	_
-24-16	3199-3200	,	_	_	_	_	_
-24-17	3201-3207	August	_	_	_	_	_
-24-18	3208-3210	15	_	_	_	_	_
-24-19	3211-3212	,	_	_	_	_	_
-24-20	3213-3217	2008	_	_	_	_	_
+24-1	3127-3128	"	_	_	_	_	_	_
+24-2	3129-3137	Document	_	_	_	cf6[179]|cf1*[180]	_	_
+24-3	3138-3143	found	_	_	_	cf6[179]	_	_
+24-4	3144-3146	on	_	_	_	cf6[179]	_	_
+24-5	3147-3153	street	_	_	_	cf6[179]|cf2[181]	_	_
+24-6	3154-3157	not	_	_	_	cf6[179]	_	_
+24-7	3158-3164	secret	_	_	_	cf6[179]	_	_
+24-8	3165-3166	,	_	_	_	cf6[179]	_	_
+24-9	3167-3170	say	_	_	_	cf6[179]	_	_
+24-10	3171-3175	feds	_	_	_	cf6[179]|cf5[182]	_	_
+24-11	3176-3177	"	_	_	_	_	_	_
+24-12	3178-3179	—	_	_	_	_	_	_
+24-13	3180-3183	The	_	_	_	cf7[186]	_	_
+24-14	3184-3192	Canadian	_	_	_	cf7[186]	_	_
+24-15	3193-3198	Press	_	_	_	cf7[186]	_	_
+24-16	3199-3200	,	_	_	_	_	_	_
+24-17	3201-3207	August	_	_	_	cf3[187]	_	_
+24-18	3208-3210	15	_	_	_	cf3[187]	_	_
+24-19	3211-3212	,	_	_	_	cf3[187]	_	_
+24-20	3213-3217	2008	_	_	_	cf3[187]|cf4[188]	_	_
 
 #Text=" Environment Canada security report found on street " — Toronto Star , August 15 , 2008
-25-1	3218-3219	"	_	_	_	_	_
-25-2	3220-3231	Environment	organization[192]	giv:inact[192]	Environment_and_Climate_Change_Canada[192]	coref	34-1[221_192]
-25-3	3232-3238	Canada	organization[192]	giv:inact[192]	Environment_and_Climate_Change_Canada[192]	_	_
-25-4	3239-3247	security	_	_	_	_	_
-25-5	3248-3254	report	_	_	_	_	_
-25-6	3255-3260	found	_	_	_	_	_
-25-7	3261-3263	on	_	_	_	_	_
-25-8	3264-3270	street	_	_	_	_	_
-25-9	3271-3272	"	_	_	_	_	_
-25-10	3273-3274	—	_	_	_	_	_
-25-11	3275-3282	Toronto	_	_	_	_	_
-25-12	3283-3287	Star	_	_	_	_	_
-25-13	3288-3289	,	_	_	_	_	_
-25-14	3290-3296	August	_	_	_	_	_
-25-15	3297-3299	15	_	_	_	_	_
-25-16	3300-3301	,	_	_	_	_	_
-25-17	3302-3306	2008	_	_	_	_	_
+25-1	3218-3219	"	_	_	_	_	_	_
+25-2	3220-3231	Environment	organization[192]	giv:inact[192]	Environment_and_Climate_Change_Canada[192]	cf5[190]|cf1*[191]|cf6[192]	coref	34-1[221_192]
+25-3	3232-3238	Canada	organization[192]	giv:inact[192]	Environment_and_Climate_Change_Canada[192]	cf5[190]|cf1*[191]|cf6[192]	_	_
+25-4	3239-3247	security	_	_	_	cf5[190]|cf1*[191]	_	_
+25-5	3248-3254	report	_	_	_	cf5[190]|cf1*[191]	_	_
+25-6	3255-3260	found	_	_	_	cf5[190]	_	_
+25-7	3261-3263	on	_	_	_	cf5[190]	_	_
+25-8	3264-3270	street	_	_	_	cf5[190]|cf2[193]	_	_
+25-9	3271-3272	"	_	_	_	_	_	_
+25-10	3273-3274	—	_	_	_	_	_	_
+25-11	3275-3282	Toronto	_	_	_	cf7[195]|cf8[196]	_	_
+25-12	3283-3287	Star	_	_	_	cf7[195]	_	_
+25-13	3288-3289	,	_	_	_	_	_	_
+25-14	3290-3296	August	_	_	_	cf3[198]	_	_
+25-15	3297-3299	15	_	_	_	cf3[198]	_	_
+25-16	3300-3301	,	_	_	_	cf3[198]	_	_
+25-17	3302-3306	2008	_	_	_	cf3[198]|cf4[199]	_	_
 
 #Text=Peter Zimonjic .
-26-1	3307-3312	Peter	_	_	_	_	_
-26-2	3313-3321	Zimonjic	_	_	_	_	_
-26-3	3322-3323	.	_	_	_	_	_
+26-1	3307-3312	Peter	_	_	_	cf1[201]	_	_
+26-2	3313-3321	Zimonjic	_	_	_	cf1[201]	_	_
+26-3	3322-3323	.	_	_	_	_	_	_
 
 #Text=" MP calls for probe into misplaced documents " — Edmonton Sun , August 16 , 2008
-27-1	3324-3325	"	_	_	_	_	_
-27-2	3326-3328	MP	person[202]	giv:inact[202]	Paul_Dewar[202]	_	_
-27-3	3329-3334	calls	_	_	_	_	_
-27-4	3335-3338	for	_	_	_	_	_
-27-5	3339-3344	probe	_	_	_	_	_
-27-6	3345-3349	into	_	_	_	_	_
-27-7	3350-3359	misplaced	_	_	_	_	_
-27-8	3360-3369	documents	_	_	_	_	_
-27-9	3370-3371	"	_	_	_	_	_
-27-10	3372-3373	—	_	_	_	_	_
-27-11	3374-3382	Edmonton	_	_	_	_	_
-27-12	3383-3386	Sun	_	_	_	_	_
-27-13	3387-3388	,	_	_	_	_	_
-27-14	3389-3395	August	_	_	_	_	_
-27-15	3396-3398	16	_	_	_	_	_
-27-16	3399-3400	,	_	_	_	_	_
-27-17	3401-3405	2008	_	_	_	_	_
+27-1	3324-3325	"	_	_	_	_	_	_
+27-2	3326-3328	MP	person[202]	giv:inact[202]	Paul_Dewar[202]	cf1[202]	_	_
+27-3	3329-3334	calls	_	_	_	_	_	_
+27-4	3335-3338	for	_	_	_	_	_	_
+27-5	3339-3344	probe	_	_	_	cf5[204]	_	_
+27-6	3345-3349	into	_	_	_	cf5[204]	_	_
+27-7	3350-3359	misplaced	_	_	_	cf5[204]|cf2[205]	_	_
+27-8	3360-3369	documents	_	_	_	cf5[204]|cf2[205]	_	_
+27-9	3370-3371	"	_	_	_	_	_	_
+27-10	3372-3373	—	_	_	_	_	_	_
+27-11	3374-3382	Edmonton	_	_	_	cf4[206]	_	_
+27-12	3383-3386	Sun	_	_	_	cf4[206]	_	_
+27-13	3387-3388	,	_	_	_	_	_	_
+27-14	3389-3395	August	_	_	_	cf6[207]	_	_
+27-15	3396-3398	16	_	_	_	cf6[207]	_	_
+27-16	3399-3400	,	_	_	_	cf6[207]	_	_
+27-17	3401-3405	2008	_	_	_	cf6[207]|cf3[208]	_	_
 
 #Text=Categories :
-28-1	3406-3416	Categories	_	_	_	_	_
-28-2	3417-3418	:	_	_	_	_	_
+28-1	3406-3416	Categories	_	_	_	cf1[209]	_	_
+28-2	3417-3418	:	_	_	_	_	_	_
 
 #Text=August 15 , 2008
-29-1	3419-3425	August	_	_	_	_	_
-29-2	3426-3428	15	_	_	_	_	_
-29-3	3429-3430	,	_	_	_	_	_
-29-4	3431-3435	2008	_	_	_	_	_
+29-1	3419-3425	August	_	_	_	cf1[212]	_	_
+29-2	3426-3428	15	_	_	_	cf1[212]	_	_
+29-3	3429-3430	,	_	_	_	cf1[212]	_	_
+29-4	3431-3435	2008	_	_	_	cf1[212]|cf2[213]	_	_
 
 #Text=Canada
-30-1	3436-3442	Canada	_	_	_	_	_
+30-1	3436-3442	Canada	_	_	_	cf1[214]	_	_
 
 #Text=Published
-31-1	3443-3452	Published	_	_	_	_	_
+31-1	3443-3452	Published	_	_	_	cf1[215]	_	_
 
 #Text=North America
-32-1	3453-3458	North	_	_	_	_	_
-32-2	3459-3466	America	_	_	_	_	_
+32-1	3453-3458	North	_	_	_	cf1[219]	_	_
+32-2	3459-3466	America	_	_	_	cf1[219]	_	_
 
 #Text=Politics and conflicts
-33-1	3467-3475	Politics	_	_	_	_	_
-33-2	3476-3479	and	_	_	_	_	_
-33-3	3480-3489	conflicts	_	_	_	_	_
+33-1	3467-3475	Politics	_	_	_	cf1[220]	_	_
+33-2	3476-3479	and	_	_	_	cf1[220]	_	_
+33-3	3480-3489	conflicts	_	_	_	cf1[220]	_	_
 
 #Text=Environment Canada
-34-1	3490-3501	Environment	organization[221]	giv:inact[221]	Environment_and_Climate_Change_Canada[221]	_	_
-34-2	3502-3508	Canada	organization[221]	giv:inact[221]	Environment_and_Climate_Change_Canada[221]	_	_
+34-1	3490-3501	Environment	organization[221]	giv:inact[221]	Environment_and_Climate_Change_Canada[221]	cf1[221]	_	_
+34-2	3502-3508	Canada	organization[221]	giv:inact[221]	Environment_and_Climate_Change_Canada[221]	cf1[221]	_	_
 
 #Text=Archived
-35-1	3509-3517	Archived	_	_	_	_	_
+35-1	3509-3517	Archived	_	_	_	cf1[222]	_	_
 
