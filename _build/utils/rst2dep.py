@@ -86,6 +86,7 @@ class NODE:
                     head_word = "head_tok="+tok.lemma.replace("=","&eq;")
                     head_func = "head_func="+tok.func
                     head_pos = "head_pos="+tok.pos
+                    head_id = "head_id="+str(tok.abs_id)
                     head_parent_pos = "parent_pos=" + tok.parent.pos if tok.parent is not None else "parent_pos=_"
                 if tok.pos in ["PRP", "PP"]:
                     pro = "pro"
@@ -112,7 +113,7 @@ class NODE:
                 self.heading = "date=date"
             if self.subord in ["LEFT","RIGHT"]:
                 self.subord = "subord=" + self.subord
-            feats = "|".join(feat for feat in [first_pos, head_word, head_pos, head_parent_pos, sent_id, "stype="+self.s_type, "len="+str(len(self.tokens)), head_func, self.subord, self.heading, self.caption, self.para, self.item, self.date] if feat != "_")
+            feats = "|".join(feat for feat in [first_pos, head_word, head_pos, head_id, head_parent_pos, sent_id, "stype="+self.s_type, "len="+str(len(self.tokens)), head_func, self.subord, self.heading, self.caption, self.para, self.item, self.date] if feat != "_")
             if len(feats)==0:
                 feats = "_"
         else:
