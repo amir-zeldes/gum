@@ -377,6 +377,7 @@ def enrich_dep(gum_source, gum_target, tmp, reddit=False):
 		stype_by_token = {}
 		transition_by_token = {}
 		speaker_by_token = {}
+		foreign_by_token = {}
 		addressee_by_token = {}
 		space_after_by_token = defaultdict(lambda: True)
 		sic_by_token = defaultdict(lambda : None)
@@ -393,6 +394,7 @@ def enrich_dep(gum_source, gum_target, tmp, reddit=False):
 		xmlfile = gum_target + "xml" + os.sep + docname + ".xml"
 		xml_lines = io.open(xmlfile,encoding="utf8").read().replace("\r","").split("\n")
 		in_w_tag = False
+		in_foreign = False
 		for line in xml_lines:
 			if line.startswith("<"):  # XML tag
 				if line.startswith("<s type="):
@@ -410,6 +412,11 @@ def enrich_dep(gum_source, gum_target, tmp, reddit=False):
 				elif line.startswith("</w>"):
 					in_w_tag = False
 					space_after_by_token[tok_num] = True  # Most recent token is normally followed by space
+				elif line.startswith("<foreign"):
+					in_foreign = True
+					#foreign_by_token[tok_num] = True
+				elif line.startswith("</foreign"):
+					in_foreign = False
 				elif line.startswith("<sic"):
 					if 'ana="' in line:
 						current_sic = re.search(r' ana="([^"]*)"', line).group(1)
@@ -438,6 +445,8 @@ def enrich_dep(gum_source, gum_target, tmp, reddit=False):
 					space_after_by_token[tok_num-1] = False
 				if in_w_tag:
 					space_after_by_token[tok_num] = False
+				if in_foreign:
+					foreign_by_token[tok_num] = True
 				stype_by_token[tok_num] = current_stype
 				transition_by_token[tok_num] = current_transition
 				speaker_by_token[tok_num] = current_speaker
@@ -490,6 +499,8 @@ def enrich_dep(gum_source, gum_target, tmp, reddit=False):
 						misc.append("CorrectForm=" + sic_by_token[tok_num])
 						if "SpaceAfter=No" in misc and sic_by_token[tok_num].endswith(" "):
 							misc.append("CorrectSpaceAfter=Yes")
+				if tok_num in foreign_by_token:
+					feats.append("Foreign=Yes")
 				fields[-1] = "|".join(misc) if len(misc) > 0 else "_"
 				fields[5] = "|".join(sorted(feats)) if len(feats) > 0 else "_"
 				line = "\t".join(fields)
@@ -667,7 +678,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		sent_len = 0
 		line_id = -1
 		coref_line_and_ent = []
-		coref_line_and_ent_last_in_sent = {}
+		morph_store = []  # Retrains original contents of FEATS field
 
 		counter = 0
 		for line in conll_lines:
@@ -680,6 +691,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 					sent_len += 1
 					field_cache[tok_num] = fields
 					tok_num += 1
+					morph_store.append(fields[5])
 					doc_toks.append(fields[1])
 					doc_lemmas.append(fields[2])
 					if fields[7] == "neg" or is_neg_lemma(fields[2],fields[3]):
@@ -730,6 +742,19 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		with io.open(tmp + "entidep" + os.sep + docname + ".conllu",'w',encoding="utf8", newline="\n") as f:
 			f.write(processed_lines)
 
+		# Restore contents of FEATS field
+		toknum = 0
+		tmplines = []
+		for line in processed_lines.split("\n"):
+			if "\t" in line:
+				fields = line.split("\t")
+				if not ("." in fields[0] or "-" in fields[0]):
+					fields[5] = morph_store[toknum]
+					line = "\t".join(fields)
+					toknum += 1
+			tmplines.append(line)
+		processed_lines = "\n".join(tmplines).strip() + "\n"
+
 		# UPOS
 		depedit = DepEdit(config_file="utils" + os.sep + "upos.ini")
 		uposed = depedit.run_depedit(processed_lines,filename=docname,sent_id=True,docname=True)
@@ -755,10 +780,6 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		header.append("# meta::title = "+ meta["title"])
 		processed_lines = [lines[0]] + header + lines[1:]
 		processed_lines = "\n".join(processed_lines)
-
-		#depedit = DepEdit(config_file="utils" + os.sep + "fix_flat.ini")
-		#processed_lines = depedit.run_depedit(processed_lines,filename=docname)
-
 
 		if PY2:
 			punct_fixed = processed_lines
@@ -845,7 +866,16 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		negatived = re.sub(r'((nmod|obl):([a-z]+))_(?=[\|\t])',r'\1',negatived)  # no trailing underscores
 		negatived = re.sub(r'(conj):(as_well)(?=[\|\t])',r'\1:as_well_as',negatived)
 
-		# Add upos to target/xml/
+		# Collect nsubj:outer for xml
+		final_funcs = []
+		for line in negatived.split("\n"):
+			if "\t" in line:
+				fields = line.split("\t")
+				if "." in fields[0] or "-" in fields[0]:
+					continue
+				final_funcs.append(fields[7])
+
+		# Add upos and nsubj:outer to target/xml/
 		xml_lines = io.open(gum_target + "xml" + os.sep + docname + ".xml",encoding="utf8").read().split("\n")
 		toknum = 0
 		output = []
@@ -854,8 +884,10 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 				fields = line.split("\t")
 				fields.append(fields[-1])
 				fields[-2] = upos_list[toknum]
-				toknum += 1
 				line = "\t".join(fields)
+				if ":outer" in final_funcs[toknum]:
+					line = re.sub(r'\t[nc]subj','\t'+ final_funcs[toknum],line)
+				toknum += 1
 			output.append(line)
 		with io.open(gum_target + "xml" + os.sep + docname + ".xml",'w',encoding="utf8",newline="\n") as f:
 			f.write("\n".join(output))
