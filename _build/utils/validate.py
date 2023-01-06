@@ -282,7 +282,8 @@ def validate_lemmas(lemma_dict, lemma_docs, use_neaten=False):
 
 	exceptions = [("Democratic","JJ","Democratic"),("Water","NP","Waters"),("Sun","NP","Sunday"),("a","IN","of"),
 		      ("a","IN","as"),("car","NN","card"),("lay","VV","lay"),("that","IN","than"),
-		      ("da","NNP","Danish")]
+		      ("da","NP","Danish"),("all","RB","alright"),("All","RB","alright"),("any","RB","anymore"),
+			  ("before","RB","beforehand"),("any","RB","any")]
 	if use_neaten:
 		exceptions += [("Jan","NNP","Jan"),("Jan","NNP","January"),
 		      ("'s","VBZ","have"),("’s","VBZ","have"),("`s","VBZ","have"),("'d","VBD","do"),("'d","VBD","have")]
@@ -682,7 +683,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func in ['fixed','goeswith','flat', 'conj'] and id < parent_id:
 		print("WARN: back-pointing func " + func + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
-	if func in ['cc:preconj','cc','nmod:poss'] and id > parent_id:
+	if func in ['cc:preconj','cc','nmod:poss','reparandum'] and id > parent_id:
 		if tok not in ["mia"]:
 			print("WARN: forward-pointing func " + func + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
@@ -806,7 +807,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print("WARN: obj should not have child case" + inname + str(children))
 
 	if func == "ccomp" and "mark" in child_funcs and not any([x in children for x in ["that","That","whether","if","Whether","If","wether","a"]]):
-		if not ((lemma == "lie" and "once" in children) or  (lemma=="find" and ("see" in children or "associate" in children))):  # Exceptions
+		if not ((lemma == "lie" and "once" in children) or (lemma=="find" and ("see" in children or "associate" in children)) \
+				or (lemma=="look" and "directly" in children)):  # Exceptions
 			print("WARN: ccomp should not have child mark" + inname)
 
 	if func == "acl:relcl" and pos in ["VB","VV","VH"] and "to" in children and "cop" not in child_funcs and "aux" not in child_funcs:
