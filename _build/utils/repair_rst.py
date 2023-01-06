@@ -43,7 +43,8 @@ def fix_rst(gum_source, gum_target, reddit=False):
 def validate_rsd(rsd_line, linenum, docname):
 	inname = " in document " + docname + " on line " + str(linenum) + "\n"
 	if re.search(r'\b[Tt]o\b[^\n]+head_pos=V.\|[^\n]+head_func=acl\|[^\n]+elaboration-attr', rsd_line) is not None:
-		if "\tthat" not in rsd_line and "\tabout" not in rsd_line and "\tyou " not in rsd_line:  # check for that-clause embedding to-, or about PP
+		if "\tthat" not in rsd_line and "\tabout" not in rsd_line and "\tyou " not in rsd_line and \
+			'\tto expect "' not in rsd_line and "\tto consider" not in rsd_line:  # check for that-clause embedding to-, or about PP
 			sys.stderr.write("! adnominal infinitive clause should be purpose-attribute not elaboration-attribute" + inname)
 	if re.search(r'(\bn.t\b[^\n]+)attribution-positive_r', rsd_line) is not None:
 		if "surprised" not in rsd_line:
@@ -54,6 +55,8 @@ def validate_rsd(rsd_line, linenum, docname):
 			sys.stderr.write("! invalid left to right relation " + fields[7] + inname)
 		elif int(fields[0]) > int(fields[6]) and (fields[7] in ["organization-preparation_r","organization-heading_r","topic-question_r"]):
 			sys.stderr.write("! invalid right to left relation " + fields[7] + inname)
+		if re.search(r'^\( ((19|20)[0-9][0-9] ([–-] )?)+\)',fields[1]) is not None and fields[7] != "context-circumstance_r":
+			sys.stderr.write("! suspicious parenthetical year EDU with rsd relation " + fields[7] + inname)
 
 def fix_file(filename,tt_file,gum_source,outdir):
 

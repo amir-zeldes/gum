@@ -39,6 +39,7 @@ parser.add_argument("-n",dest="no_pepper",action="store_true",help="No pepper co
 parser.add_argument("-i",dest="increment_version",action="store",help="A new version number to assign",default="DEVELOP")
 parser.add_argument("--pepper_only",action="store_true", help="Just rerun pepper on generated targets")
 parser.add_argument("--skip_ptb_labels",action="store_true", help="Skip projecting function labels to PTB trees")
+parser.add_argument("--skip_ontogum",action="store_true", help="Skip building OntoGUM version of coref data")
 
 options = parser.parse_args()
 
@@ -194,20 +195,6 @@ def const_parse(gum_source, warn_slash_tokens=False, reddit=False, only_parse_di
 #proof(gum_source)
 
 if not options.pepper_only:
-	# Add annotations to dep/:
-	#   * fresh token strings, POS tags and lemmas from xml/
-	#   * generates vanilla tags in CPOS column from POS
-	#   * creates speaker and s_type comments from xml/
-	# Returns pre_annotated, a dictionary giving pre-annotated fields in src/dep/ which overwrite annotation values
-	print("\nEnriching Dependencies:\n" + "="*23)
-	pre_annotated = enrich_dep(gum_source, pepper_tmp, reddit)
-
-	# Add annotations to xml/:
-	#   * add CLAWS tags in fourth column
-	#   * add fifth column after lemma containing tok_func from dep/
-	print("\n\nEnriching XML files:\n" + "="*23)
-	enrich_xml(gum_source, gum_target, add_claws=options.claws, reddit=reddit)
-
 	# Token and sentence border adjustments
 	print("\nAdjusting token and sentence borders:\n" + "="*37)
 	# Adjust tsv/ files:
@@ -216,12 +203,27 @@ if not options.pepper_only:
 	#   * find instances of "'s" that are not included in any immediately preceding
 	#     markables and merge them into those markables if genitive_s is True
 	#   * return conllu-a style bracket informatio to add entity data to conllu files later
-	conllua_data = fix_tsv(gum_source, gum_target, reddit=reddit)
+	conllua_data, centering_data = fix_tsv(gum_source, gum_target, reddit=reddit)
 
 	# Adjust rst/ files:
 	#   * refresh token strings in case of inconsistency
 	#   * note that segment borders are not automatically adjusted around xml/ <s> elements
 	fix_rst(gum_source, gum_target, reddit=reddit)
+
+	# Add annotations to xml/:
+	#   * add CLAWS tags in fourth column
+	#   * add fifth column after lemma containing tok_func from dep/
+	#   * add Centering Theory transition types to sentences
+	print("\n\nEnriching XML files:\n" + "="*23)
+	enrich_xml(gum_source, gum_target, centering_data, add_claws=options.claws, reddit=reddit)
+
+	# Add annotations to dep/:
+	#   * fresh token strings, POS tags and lemmas from xml/
+	#   * generates vanilla tags in CPOS column from POS
+	#   * creates speaker, s_type and centering transition comments from xml/
+	# Returns pre_annotated, a dictionary giving pre-annotated fields in src/dep/ which overwrite annotation values
+	print("\nEnriching Dependencies:\n" + "="*23)
+	pre_annotated = enrich_dep(gum_source, gum_target, pepper_tmp, reddit)
 
 	# Create fresh constituent parses in const/ if desired
 	# (either reparse or use dep2const conversion, e.g. https://github.com/ikekonglp/PAD)
@@ -245,9 +247,10 @@ if not options.pepper_only:
 	print("\nCompiling Universal Dependencies version:\n" + "=" * 40)
 	compile_ud(pepper_tmp, gum_target, pre_annotated, reddit=reddit)
 
-	# Create OntoGUM data (OntoNotes schema version of coref annotations)
-	print("\n\nCreating alternate OntoGUM version of coref annotations:\n" + "="*37)
-	make_ontogum(gum_target, reddit=reddit)
+	if not options.skip_ontogum:
+		# Create OntoGUM data (OntoNotes schema version of coref annotations)
+		print("\n\nCreating alternate OntoGUM version of coref annotations:\n" + "="*37)
+		make_ontogum(gum_target, reddit=reddit)
 
 	# Add labels to PTB trees
 	if not options.skip_ptb_labels:
@@ -329,10 +332,11 @@ else:
 from utils.propagate import add_entities_to_conllu, add_rsd_to_conllu, add_bridging_to_conllu, add_xml_to_conllu
 
 add_entities_to_conllu(gum_target, reddit=reddit, ontogum=False, conllua_data=conllua_data)
-if options.no_pepper:
-	sys.__stdout__.write("\ni Not adding entity information to UD parses in OntoGUM version since Pepper conversion was skipped\n")
-else:
-	add_entities_to_conllu(gum_target,reddit=reddit,ontogum=True)
+if not options.skip_ontogum:
+	if options.no_pepper:
+		sys.__stdout__.write("\ni Not adding entity information to UD parses in OntoGUM version since Pepper conversion was skipped\n")
+	else:
+		add_entities_to_conllu(gum_target,reddit=reddit,ontogum=True)
 add_bridging_to_conllu(gum_target,reddit=reddit)
 
 sys.__stdout__.write("\no Added entities, coreference and bridging to UD parses\n")

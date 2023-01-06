@@ -1,1109 +1,1109 @@
 #FORMAT=WebAnno TSV 3.2
-#T_SP=webanno.custom.Referent|entity|infstat|identity
+#T_SP=webanno.custom.Referent|entity|infstat|identity|centering
 #T_RL=webanno.custom.Coref|type|BT_webanno.custom.Referent
 
 
 #Text=Jeanne Moreau
-1-1	0-6	Jeanne	person[1]	new[1]	Jeanne_Moreau[1]	coref	2-1[2_1]
-1-2	7-13	Moreau	person[1]	new[1]	Jeanne_Moreau[1]	_	_
+1-1	0-6	Jeanne	person[1]	new[1]	Jeanne_Moreau[1]	cf1[1]	coref	2-1[2_1]
+1-2	7-13	Moreau	person[1]	new[1]	Jeanne_Moreau[1]	cf1[1]	_	_
 
 #Text=Jeanne Moreau
-2-1	14-20	Jeanne	person[2]	giv:act[2]	Jeanne_Moreau[2]	coref	3-1[3_2]
-2-2	21-27	Moreau	person[2]	giv:act[2]	Jeanne_Moreau[2]	_	_
+2-1	14-20	Jeanne	person[2]	giv:act[2]	Jeanne_Moreau[2]	cf1*[2]	coref	3-1[3_2]
+2-2	21-27	Moreau	person[2]	giv:act[2]	Jeanne_Moreau[2]	cf1*[2]	_	_
 
 #Text=Moreau in 1958
-3-1	28-34	Moreau	person[3]	giv:act[3]	Jeanne_Moreau[3]	coref	12-1[79_3]
-3-2	35-37	in	person[3]	giv:act[3]	Jeanne_Moreau[3]	_	_
-3-3	38-42	1958	person[3]	giv:act[3]	Jeanne_Moreau[3]	_	_
+3-1	28-34	Moreau	person[3]	giv:act[3]	Jeanne_Moreau[3]	cf1*[3]	coref	12-1[79_3]
+3-2	35-37	in	person[3]	giv:act[3]	Jeanne_Moreau[3]	cf1*[3]	_	_
+3-3	38-42	1958	person[3]	giv:act[3]	Jeanne_Moreau[3]	cf1*[3]|cf2[4]	_	_
 
 #Text=Born 23 January 1928 Paris , France
-4-1	43-47	Born	_	_	_	_	_
-4-2	48-50	23	_	_	_	_	_
-4-3	51-58	January	time[8]	new[8]	_	coref	12-13[83_8]
-4-4	59-63	1928	time[8]	new[8]	_	_	_
-4-5	64-69	Paris	place[12]	new[12]	Paris[12]	coref	5-9[24_12]
-4-6	70-71	,	place[12]	new[12]	Paris[12]	_	_
-4-7	72-78	France	place[12]|place[13]	new[12]|new[13]	Paris[12]|France[13]	coref	5-11[25_13]
+4-1	43-47	Born	_	_	_	_	_	_
+4-2	48-50	23	_	_	_	cf3[7]	_	_
+4-3	51-58	January	time[8]	new[8]	_	cf3[7]|cf4[8]	coref	12-13[83_8]
+4-4	59-63	1928	time[8]	new[8]	_	cf3[7]|cf4[8]|cf5[9]	_	_
+4-5	64-69	Paris	place[12]	new[12]	Paris[12]	cf1[12]	coref	5-9[24_12]
+4-6	70-71	,	place[12]	new[12]	Paris[12]	cf1[12]	_	_
+4-7	72-78	France	place[12]|place[13]	new[12]|new[13]	Paris[12]|France[13]	cf1[12]|cf2[13]	coref	5-11[25_13]
 
 #Text=Died 31 July 2017 ( aged 89 ) Paris , France
-5-1	79-83	Died	_	_	_	_	_
-5-2	84-86	31	_	_	_	_	_
-5-3	87-91	July	time[17]	new[17]	_	coref	12-17[88_17]
-5-4	92-96	2017	time[17]	new[17]	_	_	_
-5-5	97-98	(	_	_	_	_	_
-5-6	99-103	aged	_	_	_	_	_
-5-7	104-106	89	_	_	_	_	_
-5-8	107-108	)	_	_	_	_	_
-5-9	109-114	Paris	place[24]	giv:act[24]	Paris[24]	coref	6-6[33_24]
-5-10	115-116	,	place[24]	giv:act[24]	Paris[24]	_	_
-5-11	117-123	France	place[24]|place[25]	giv:act[24]|giv:act[25]	Paris[24]|France[25]	coref	6-8[34_25]
+5-1	79-83	Died	_	_	_	_	_	_
+5-2	84-86	31	_	_	_	cf3[16]	_	_
+5-3	87-91	July	time[17]	new[17]	_	cf3[16]|cf4[17]	coref	12-17[88_17]
+5-4	92-96	2017	time[17]	new[17]	_	cf3[16]|cf4[17]|cf5[18]	_	_
+5-5	97-98	(	_	_	_	_	_	_
+5-6	99-103	aged	_	_	_	_	_	_
+5-7	104-106	89	_	_	_	cf6[19]	_	_
+5-8	107-108	)	_	_	_	_	_	_
+5-9	109-114	Paris	place[24]	giv:act[24]	Paris[24]	cf1*[24]	coref	6-6[33_24]
+5-10	115-116	,	place[24]	giv:act[24]	Paris[24]	cf1*[24]	_	_
+5-11	117-123	France	place[24]|place[25]	giv:act[24]|giv:act[25]	Paris[24]|France[25]	cf1*[24]|cf2[25]	coref	6-8[34_25]
 
 #Text=Resting place Montmartre Cemetery , Paris , France
-6-1	124-131	Resting	place[28]	new[28]	_	coref	6-3[29_28]
-6-2	132-137	place	place[28]	new[28]	_	_	_
-6-3	138-148	Montmartre	place[29]	giv:act[29]	Montmartre_Cemetery[29]	_	_
-6-4	149-157	Cemetery	place[29]	giv:act[29]	Montmartre_Cemetery[29]	_	_
-6-5	158-159	,	place[29]	giv:act[29]	Montmartre_Cemetery[29]	_	_
-6-6	160-165	Paris	place[29]|place[33]	giv:act[29]|giv:act[33]	Montmartre_Cemetery[29]|Paris[33]	coref	20-5[237_33]
-6-7	166-167	,	place[29]|place[33]	giv:act[29]|giv:act[33]	Montmartre_Cemetery[29]|Paris[33]	_	_
-6-8	168-174	France	place[29]|place[33]|place[34]	giv:act[29]|giv:act[33]|giv:act[34]	Montmartre_Cemetery[29]|Paris[33]|France[34]	coref	29-21[372_34]
+6-1	124-131	Resting	place[28]	new[28]	Montmartre_Cemetery[28]	cf1[28]	coref	6-3[29_28]
+6-2	132-137	place	place[28]	new[28]	Montmartre_Cemetery[28]	cf1[28]	_	_
+6-3	138-148	Montmartre	place[29]	giv:act[29]	Montmartre_Cemetery[29]	cf1[29]|cf4[30]	_	_
+6-4	149-157	Cemetery	place[29]	giv:act[29]	Montmartre_Cemetery[29]	cf1[29]	_	_
+6-5	158-159	,	place[29]	giv:act[29]	Montmartre_Cemetery[29]	cf1[29]	_	_
+6-6	160-165	Paris	place[29]|place[33]	giv:act[29]|giv:act[33]	Montmartre_Cemetery[29]|Paris[33]	cf1[29]|cf2*[33]	coref	20-5[237_33]
+6-7	166-167	,	place[29]|place[33]	giv:act[29]|giv:act[33]	Montmartre_Cemetery[29]|Paris[33]	cf1[29]|cf2*[33]	_	_
+6-8	168-174	France	place[29]|place[33]|place[34]	giv:act[29]|giv:act[33]|giv:act[34]	Montmartre_Cemetery[29]|Paris[33]|France[34]	cf1[29]|cf2*[33]|cf3[34]	coref	29-21[372_34]
 
 #Text=Alma mater Conservatoire de Paris
-7-1	175-179	Alma	organization[37]	new[37]	_	coref	7-3[38_37]
-7-2	180-185	mater	organization[37]	new[37]	_	_	_
-7-3	186-199	Conservatoire	organization[38]	giv:act[38]	Conservatoire_de_Paris[38]	_	_
-7-4	200-202	de	organization[38]	giv:act[38]	Conservatoire_de_Paris[38]	_	_
-7-5	203-208	Paris	organization[38]	giv:act[38]	Conservatoire_de_Paris[38]	_	_
+7-1	175-179	Alma	organization[37]	new[37]	Conservatoire_de_Paris[37]	cf1[37]	coref	7-3[38_37]
+7-2	180-185	mater	organization[37]	new[37]	Conservatoire_de_Paris[37]	cf1[37]	_	_
+7-3	186-199	Conservatoire	organization[38]	giv:act[38]	Conservatoire_de_Paris[38]	cf1[38]	_	_
+7-4	200-202	de	organization[38]	giv:act[38]	Conservatoire_de_Paris[38]	cf1[38]	_	_
+7-5	203-208	Paris	organization[38]	giv:act[38]	Conservatoire_de_Paris[38]	cf1[38]	_	_
 
 #Text=Occupation Actress , screenwriter , film director
-8-1	209-219	Occupation	_	_	_	_	_
-8-2	220-227	Actress	_	_	_	_	_
-8-3	228-229	,	_	_	_	_	_
-8-4	230-242	screenwriter	_	_	_	_	_
-8-5	243-244	,	_	_	_	_	_
-8-6	245-249	film	_	_	_	_	_
-8-7	250-258	director	_	_	_	_	_
+8-1	209-219	Occupation	_	_	_	cf1[39]	_	_
+8-2	220-227	Actress	_	_	_	cf1[42]|cf2[43]	_	_
+8-3	228-229	,	_	_	_	cf1[42]	_	_
+8-4	230-242	screenwriter	_	_	_	cf1[42]|cf3[44]	_	_
+8-5	243-244	,	_	_	_	cf1[42]	_	_
+8-6	245-249	film	_	_	_	cf1[42]|cf4[49]	_	_
+8-7	250-258	director	_	_	_	cf1[42]|cf4[49]	_	_
 
 #Text=Years active 1947 – 2012
-9-1	259-264	Years	_	_	_	_	_
-9-2	265-271	active	_	_	_	_	_
-9-3	272-276	1947	_	_	_	_	_
-9-4	277-278	–	_	_	_	_	_
-9-5	279-283	2012	_	_	_	_	_
+9-1	259-264	Years	_	_	_	cf1[50]	_	_
+9-2	265-271	active	_	_	_	cf1[50]	_	_
+9-3	272-276	1947	_	_	_	cf1[51]|cf2[52]	_	_
+9-4	277-278	–	_	_	_	cf1[51]	_	_
+9-5	279-283	2012	_	_	_	cf1[51]|cf3[53]	_	_
 
 #Text=Spouse(s) Jean - Louis Richard ( m. 1949 ; div. 1964 ) William Friedkin ( m. 1977 ; div. 1979 )
-10-1	284-293	Spouse(s)	_	_	_	_	_
-10-2	294-298	Jean	_	_	_	_	_
-10-3	299-300	-	_	_	_	_	_
-10-4	301-306	Louis	_	_	_	_	_
-10-5	307-314	Richard	_	_	_	_	_
-10-6	315-316	(	_	_	_	_	_
-10-7	317-319	m.	_	_	_	_	_
-10-8	320-324	1949	_	_	_	_	_
-10-9	325-326	;	_	_	_	_	_
-10-10	327-331	div.	_	_	_	_	_
-10-11	332-336	1964	_	_	_	_	_
-10-12	337-338	)	_	_	_	_	_
-10-13	339-346	William	_	_	_	_	_
-10-14	347-355	Friedkin	_	_	_	_	_
-10-15	356-357	(	_	_	_	_	_
-10-16	358-360	m.	_	_	_	_	_
-10-17	361-365	1977	_	_	_	_	_
-10-18	366-367	;	_	_	_	_	_
-10-19	368-372	div.	_	_	_	_	_
-10-20	373-377	1979	_	_	_	_	_
-10-21	378-379	)	_	_	_	_	_
+10-1	284-293	Spouse(s)	_	_	_	cf3[54]	_	_
+10-2	294-298	Jean	_	_	_	cf1[61]	_	_
+10-3	299-300	-	_	_	_	cf1[61]	_	_
+10-4	301-306	Louis	_	_	_	cf1[61]	_	_
+10-5	307-314	Richard	_	_	_	cf1[61]	_	_
+10-6	315-316	(	_	_	_	_	_	_
+10-7	317-319	m.	_	_	_	_	_	_
+10-8	320-324	1949	_	_	_	cf4[62]	_	_
+10-9	325-326	;	_	_	_	_	_	_
+10-10	327-331	div.	_	_	_	_	_	_
+10-11	332-336	1964	_	_	_	cf5[63]	_	_
+10-12	337-338	)	_	_	_	_	_	_
+10-13	339-346	William	_	_	_	cf2[68]	_	_
+10-14	347-355	Friedkin	_	_	_	cf2[68]	_	_
+10-15	356-357	(	_	_	_	_	_	_
+10-16	358-360	m.	_	_	_	_	_	_
+10-17	361-365	1977	_	_	_	cf6[69]	_	_
+10-18	366-367	;	_	_	_	_	_	_
+10-19	368-372	div.	_	_	_	_	_	_
+10-20	373-377	1979	_	_	_	cf7[70]	_	_
+10-21	378-379	)	_	_	_	_	_	_
 
 #Text=Children Jérôme Richard
-11-1	380-388	Children	person[71]	new[71]	_	coref	11-2[78_71]
-11-2	389-395	Jérôme	person[78]	giv:act[78]	_	_	_
-11-3	396-403	Richard	person[78]	giv:act[78]	_	_	_
+11-1	380-388	Children	person[71]	new[71]	_	cf1[71]	coref	11-2[78_71]
+11-2	389-395	Jérôme	person[78]	giv:act[78]	_	cf1[78]	_	_
+11-3	396-403	Richard	person[78]	giv:act[78]	_	cf1[78]	_	_
 
 #Text=Jeanne Moreau ( French pronunciation : [ ʒan mɔʁo ] ; 23 January 1928 – 31 July 2017 ) was a French actress , singer , screenwriter and director .
-12-1	404-410	Jeanne	person[79]	giv:inact[79]	Jeanne_Moreau[79]	coref	12-7[81_79]
-12-2	411-417	Moreau	person[79]	giv:inact[79]	Jeanne_Moreau[79]	_	_
-12-3	418-419	(	_	_	_	_	_
-12-4	420-426	French	_	_	_	_	_
-12-5	427-440	pronunciation	_	_	_	_	_
-12-6	441-442	:	_	_	_	_	_
-12-7	443-444	[	person[81]	giv:act[81]	Jeanne_Moreau[81]	ana	13-1[93_81]
-12-8	445-448	ʒan	person[81]	giv:act[81]	Jeanne_Moreau[81]	_	_
-12-9	449-453	mɔʁo	person[81]	giv:act[81]	Jeanne_Moreau[81]	_	_
-12-10	454-455	]	person[81]	giv:act[81]	Jeanne_Moreau[81]	_	_
-12-11	456-457	;	_	_	_	_	_
-12-12	458-460	23	_	_	_	_	_
-12-13	461-468	January	time[83]	giv:inact[83]	_	_	_
-12-14	469-473	1928	time[83]	giv:inact[83]	_	_	_
-12-15	474-475	–	_	_	_	_	_
-12-16	476-478	31	_	_	_	_	_
-12-17	479-483	July	time[88]	giv:inact[88]	_	_	_
-12-18	484-488	2017	time[88]	giv:inact[88]	_	_	_
-12-19	489-490	)	_	_	_	_	_
-12-20	491-494	was	_	_	_	_	_
-12-21	495-496	a	_	_	_	_	_
-12-22	497-503	French	_	_	_	_	_
-12-23	504-511	actress	_	_	_	_	_
-12-24	512-513	,	_	_	_	_	_
-12-25	514-520	singer	_	_	_	_	_
-12-26	521-522	,	_	_	_	_	_
-12-27	523-535	screenwriter	_	_	_	_	_
-12-28	536-539	and	_	_	_	_	_
-12-29	540-548	director	_	_	_	_	_
-12-30	549-550	.	_	_	_	_	_
+12-1	404-410	Jeanne	person[79]	giv:inact[79]	Jeanne_Moreau[79]	cf1[79]	coref	12-7[81_79]
+12-2	411-417	Moreau	person[79]	giv:inact[79]	Jeanne_Moreau[79]	cf1[79]	_	_
+12-3	418-419	(	_	_	_	_	_	_
+12-4	420-426	French	_	_	_	cf8[80]	_	_
+12-5	427-440	pronunciation	_	_	_	cf8[80]	_	_
+12-6	441-442	:	_	_	_	_	_	_
+12-7	443-444	[	person[81]	giv:act[81]	Jeanne_Moreau[81]	cf1[81]	ana	13-1[93_81]
+12-8	445-448	ʒan	person[81]	giv:act[81]	Jeanne_Moreau[81]	cf1[81]	_	_
+12-9	449-453	mɔʁo	person[81]	giv:act[81]	Jeanne_Moreau[81]	cf1[81]	_	_
+12-10	454-455	]	person[81]	giv:act[81]	Jeanne_Moreau[81]	cf1[81]	_	_
+12-11	456-457	;	_	_	_	_	_	_
+12-12	458-460	23	_	_	_	cf2[82]	_	_
+12-13	461-468	January	time[83]	giv:inact[83]	_	cf2[82]|cf3[83]	_	_
+12-14	469-473	1928	time[83]	giv:inact[83]	_	cf2[82]|cf3[83]|cf4[84]	_	_
+12-15	474-475	–	_	_	_	_	_	_
+12-16	476-478	31	_	_	_	cf5[87]	_	_
+12-17	479-483	July	time[88]	giv:inact[88]	_	cf5[87]|cf6[88]	_	_
+12-18	484-488	2017	time[88]	giv:inact[88]	_	cf5[87]|cf6[88]|cf7[89]	_	_
+12-19	489-490	)	_	_	_	_	_	_
+12-20	491-494	was	_	_	_	_	_	_
+12-21	495-496	a	_	_	_	cf1[92]	_	_
+12-22	497-503	French	_	_	_	cf1[92]	_	_
+12-23	504-511	actress	_	_	_	cf1[92]	_	_
+12-24	512-513	,	_	_	_	cf1[92]	_	_
+12-25	514-520	singer	_	_	_	cf1[92]	_	_
+12-26	521-522	,	_	_	_	cf1[92]	_	_
+12-27	523-535	screenwriter	_	_	_	cf1[92]	_	_
+12-28	536-539	and	_	_	_	cf1[92]	_	_
+12-29	540-548	director	_	_	_	cf1[92]	_	_
+12-30	549-550	.	_	_	_	_	_	_
 
 #Text=She won the Cannes Film Festival Award for Best Actress for Seven Days ... Seven Nights ( 1960 ) , the BAFTA Award for Best Foreign Actress for Viva Maria ! ( 1965 ) , and the César Award for Best Actress for The Old Lady Who Walked in the Sea ( 1992 ) .
-13-1	551-554	She	person[93]	giv:act[93]	Jeanne_Moreau[93]	ana	14-1[126_93]
-13-2	555-558	won	_	_	_	_	_
-13-3	559-562	the	_	_	_	_	_
-13-4	563-569	Cannes	place[98]	new[98]	Cannes[98]	coref	14-18[141_98]
-13-5	570-574	Film	_	_	_	_	_
-13-6	575-583	Festival	_	_	_	_	_
-13-7	584-589	Award	_	_	_	_	_
-13-8	590-593	for	_	_	_	_	_
-13-9	594-598	Best	_	_	_	_	_
-13-10	599-606	Actress	_	_	_	_	_
-13-11	607-610	for	_	_	_	_	_
-13-12	611-616	Seven	_	_	_	_	_
-13-13	617-621	Days	_	_	_	_	_
-13-14	622-625	...	_	_	_	_	_
-13-15	626-631	Seven	_	_	_	_	_
-13-16	632-638	Nights	_	_	_	_	_
-13-17	639-640	(	_	_	_	_	_
-13-18	641-645	1960	_	_	_	_	_
-13-19	646-647	)	_	_	_	_	_
-13-20	648-649	,	_	_	_	_	_
-13-21	650-653	the	_	_	_	_	_
-13-22	654-659	BAFTA	organization[109]	new[109]	British_Academy_of_Film_and_Television_Arts[109]	coref	14-13[134_109]
-13-23	660-665	Award	_	_	_	_	_
-13-24	666-669	for	_	_	_	_	_
-13-25	670-674	Best	_	_	_	_	_
-13-26	675-682	Foreign	_	_	_	_	_
-13-27	683-690	Actress	_	_	_	_	_
-13-28	691-694	for	_	_	_	_	_
-13-29	695-699	Viva	_	_	_	_	_
-13-30	700-705	Maria	_	_	_	_	_
-13-31	706-707	!	_	_	_	_	_
-13-32	708-709	(	_	_	_	_	_
-13-33	710-714	1965	_	_	_	_	_
-13-34	715-716	)	_	_	_	_	_
-13-35	717-718	,	_	_	_	_	_
-13-36	719-722	and	_	_	_	_	_
-13-37	723-726	the	_	_	_	_	_
-13-38	727-732	César	person[118]	new[118]	César_Baldaccini[118]	coref	14-24[148_118]
-13-39	733-738	Award	_	_	_	_	_
-13-40	739-742	for	_	_	_	_	_
-13-41	743-747	Best	_	_	_	_	_
-13-42	748-755	Actress	_	_	_	_	_
-13-43	756-759	for	_	_	_	_	_
-13-44	760-763	The	_	_	_	_	_
-13-45	764-767	Old	_	_	_	_	_
-13-46	768-772	Lady	_	_	_	_	_
-13-47	773-776	Who	_	_	_	_	_
-13-48	777-783	Walked	_	_	_	_	_
-13-49	784-786	in	_	_	_	_	_
-13-50	787-790	the	_	_	_	_	_
-13-51	791-794	Sea	_	_	_	_	_
-13-52	795-796	(	_	_	_	_	_
-13-53	797-801	1992	_	_	_	_	_
-13-54	802-803	)	_	_	_	_	_
-13-55	804-805	.	_	_	_	_	_
+13-1	551-554	She	person[93]	giv:act[93]	Jeanne_Moreau[93]	cf1*[93]	ana	14-1[126_93]
+13-2	555-558	won	_	_	_	_	_	_
+13-3	559-562	the	_	_	_	cf2[96]	_	_
+13-4	563-569	Cannes	place[98]	new[98]	Cannes[98]	cf2[96]|cf19[97]|cf20[98]	coref	14-18[141_98]
+13-5	570-574	Film	_	_	_	cf2[96]|cf19[97]	_	_
+13-6	575-583	Festival	_	_	_	cf2[96]|cf19[97]	_	_
+13-7	584-589	Award	_	_	_	cf2[96]	_	_
+13-8	590-593	for	_	_	_	cf2[96]	_	_
+13-9	594-598	Best	_	_	_	cf2[96]|cf12[101]	_	_
+13-10	599-606	Actress	_	_	_	cf2[96]|cf12[101]	_	_
+13-11	607-610	for	_	_	_	_	_	_
+13-12	611-616	Seven	_	_	_	cf8[102]|cf9[103]	_	_
+13-13	617-621	Days	_	_	_	cf8[102]|cf9[103]	_	_
+13-14	622-625	...	_	_	_	cf8[102]	_	_
+13-15	626-631	Seven	_	_	_	cf8[102]|cf10[104]	_	_
+13-16	632-638	Nights	_	_	_	cf8[102]|cf10[104]	_	_
+13-17	639-640	(	_	_	_	cf8[102]	_	_
+13-18	641-645	1960	_	_	_	cf8[102]|cf15[105]	_	_
+13-19	646-647	)	_	_	_	cf8[102]	_	_
+13-20	648-649	,	_	_	_	_	_	_
+13-21	650-653	the	_	_	_	cf4[108]	_	_
+13-22	654-659	BAFTA	organization[109]	new[109]	British_Academy_of_Film_and_Television_Arts[109]	cf4[108]|cf21[109]	coref	14-13[134_109]
+13-23	660-665	Award	_	_	_	cf4[108]	_	_
+13-24	666-669	for	_	_	_	cf4[108]	_	_
+13-25	670-674	Best	_	_	_	cf4[108]|cf13[112]	_	_
+13-26	675-682	Foreign	_	_	_	cf4[108]|cf13[112]	_	_
+13-27	683-690	Actress	_	_	_	cf4[108]|cf13[112]	_	_
+13-28	691-694	for	_	_	_	cf4[108]	_	_
+13-29	695-699	Viva	_	_	_	cf4[108]|cf11[113]	_	_
+13-30	700-705	Maria	_	_	_	cf4[108]|cf11[113]	_	_
+13-31	706-707	!	_	_	_	cf4[108]|cf11[113]	_	_
+13-32	708-709	(	_	_	_	cf4[108]|cf11[113]	_	_
+13-33	710-714	1965	_	_	_	cf4[108]|cf11[113]|cf16[114]	_	_
+13-34	715-716	)	_	_	_	cf4[108]|cf11[113]	_	_
+13-35	717-718	,	_	_	_	_	_	_
+13-36	719-722	and	_	_	_	_	_	_
+13-37	723-726	the	_	_	_	cf5[117]	_	_
+13-38	727-732	César	person[118]	new[118]	César_Baldaccini[118]	cf5[117]|cf18[118]	coref	14-24[148_118]
+13-39	733-738	Award	_	_	_	cf5[117]	_	_
+13-40	739-742	for	_	_	_	cf5[117]	_	_
+13-41	743-747	Best	_	_	_	cf5[117]|cf14[121]	_	_
+13-42	748-755	Actress	_	_	_	cf5[117]|cf14[121]	_	_
+13-43	756-759	for	_	_	_	_	_	_
+13-44	760-763	The	_	_	_	cf6[122]|cf3[123]	_	_
+13-45	764-767	Old	_	_	_	cf6[122]|cf3[123]	_	_
+13-46	768-772	Lady	_	_	_	cf6[122]|cf3[123]	_	_
+13-47	773-776	Who	_	_	_	cf6[122]|cf3[123]	_	_
+13-48	777-783	Walked	_	_	_	cf6[122]|cf3[123]	_	_
+13-49	784-786	in	_	_	_	cf6[122]|cf3[123]	_	_
+13-50	787-790	the	_	_	_	cf6[122]|cf3[123]|cf7[124]	_	_
+13-51	791-794	Sea	_	_	_	cf6[122]|cf3[123]|cf7[124]	_	_
+13-52	795-796	(	_	_	_	cf6[122]	_	_
+13-53	797-801	1992	_	_	_	cf6[122]|cf17[125]	_	_
+13-54	802-803	)	_	_	_	cf6[122]	_	_
+13-55	804-805	.	_	_	_	_	_	_
 
 #Text=She was also the recipient of several lifetime awards , including a BAFTA Fellowship in 1996 , Cannes Golden Palm in 2003 and César Award in 2008 .
-14-1	806-809	She	person[126]	giv:act[126]	Jeanne_Moreau[126]	coref	15-1[150_126]
-14-2	810-813	was	_	_	_	_	_
-14-3	814-818	also	_	_	_	_	_
-14-4	819-822	the	_	_	_	_	_
-14-5	823-832	recipient	_	_	_	_	_
-14-6	833-835	of	_	_	_	_	_
-14-7	836-843	several	_	_	_	_	_
-14-8	844-852	lifetime	_	_	_	_	_
-14-9	853-859	awards	_	_	_	_	_
-14-10	860-861	,	_	_	_	_	_
-14-11	862-871	including	_	_	_	_	_
-14-12	872-873	a	_	_	_	_	_
-14-13	874-879	BAFTA	organization[134]	giv:act[134]	British_Academy_of_Film_and_Television_Arts[134]	_	_
-14-14	880-890	Fellowship	_	_	_	_	_
-14-15	891-893	in	_	_	_	_	_
-14-16	894-898	1996	_	_	_	_	_
-14-17	899-900	,	_	_	_	_	_
-14-18	901-907	Cannes	place[141]	giv:act[141]	Cannes[141]	_	_
-14-19	908-914	Golden	_	_	_	_	_
-14-20	915-919	Palm	_	_	_	_	_
-14-21	920-922	in	_	_	_	_	_
-14-22	923-927	2003	_	_	_	_	_
-14-23	928-931	and	_	_	_	_	_
-14-24	932-937	César	person[148]	giv:act[148]	César_Baldaccini[148]	_	_
-14-25	938-943	Award	_	_	_	_	_
-14-26	944-946	in	_	_	_	_	_
-14-27	947-951	2008	_	_	_	_	_
-14-28	952-953	.	_	_	_	_	_
+14-1	806-809	She	person[126]	giv:act[126]	Jeanne_Moreau[126]	cf1*[126]	coref	15-1[150_126]
+14-2	810-813	was	_	_	_	_	_	_
+14-3	814-818	also	_	_	_	_	_	_
+14-4	819-822	the	_	_	_	cf1*[131]	_	_
+14-5	823-832	recipient	_	_	_	cf1*[131]	_	_
+14-6	833-835	of	_	_	_	cf1*[131]	_	_
+14-7	836-843	several	_	_	_	cf1*[131]|cf8[132]	_	_
+14-8	844-852	lifetime	_	_	_	cf1*[131]|cf8[132]	_	_
+14-9	853-859	awards	_	_	_	cf1*[131]|cf8[132]	_	_
+14-10	860-861	,	_	_	_	cf1*[131]|cf8[132]	_	_
+14-11	862-871	including	_	_	_	cf1*[131]|cf8[132]	_	_
+14-12	872-873	a	_	_	_	cf1*[131]|cf8[132]|cf5[133]	_	_
+14-13	874-879	BAFTA	organization[134]	giv:act[134]	British_Academy_of_Film_and_Television_Arts[134]	cf1*[131]|cf8[132]|cf5[133]|cf3[134]	_	_
+14-14	880-890	Fellowship	_	_	_	cf1*[131]|cf8[132]|cf5[133]	_	_
+14-15	891-893	in	_	_	_	cf1*[131]|cf8[132]	_	_
+14-16	894-898	1996	_	_	_	cf1*[131]|cf8[132]|cf9[135]	_	_
+14-17	899-900	,	_	_	_	cf1*[131]|cf8[132]	_	_
+14-18	901-907	Cannes	place[141]	giv:act[141]	Cannes[141]	cf1*[131]|cf8[132]|cf6[140]|cf4[141]	_	_
+14-19	908-914	Golden	_	_	_	cf1*[131]|cf8[132]|cf6[140]	_	_
+14-20	915-919	Palm	_	_	_	cf1*[131]|cf8[132]|cf6[140]	_	_
+14-21	920-922	in	_	_	_	cf1*[131]|cf8[132]	_	_
+14-22	923-927	2003	_	_	_	cf1*[131]|cf8[132]|cf10[142]	_	_
+14-23	928-931	and	_	_	_	cf1*[131]|cf8[132]	_	_
+14-24	932-937	César	person[148]	giv:act[148]	César_Baldaccini[148]	cf1*[131]|cf8[132]|cf7[147]|cf2[148]	_	_
+14-25	938-943	Award	_	_	_	cf1*[131]|cf8[132]|cf7[147]	_	_
+14-26	944-946	in	_	_	_	cf1*[131]|cf8[132]|cf7[147]	_	_
+14-27	947-951	2008	_	_	_	cf1*[131]|cf8[132]|cf7[147]|cf11[149]	_	_
+14-28	952-953	.	_	_	_	_	_	_
 
 #Text=Moreau made her theatrical debut in 1947 , and established herself as one of the leading actresses of the Comédie - Française .
-15-1	954-960	Moreau	person[150]	giv:act[150]	Jeanne_Moreau[150]	ana	15-3[158_150]
-15-2	961-965	made	_	_	_	_	_
-15-3	966-969	her	event[157]|person[158]	new[157]|giv:act[158]	Jeanne_Moreau[158]	coref|ana	31-6[398_157]|15-11[160_158]
-15-4	970-980	theatrical	event[157]	new[157]	_	_	_
-15-5	981-986	debut	event[157]	new[157]	_	_	_
-15-6	987-989	in	_	_	_	_	_
-15-7	990-994	1947	_	_	_	_	_
-15-8	995-996	,	_	_	_	_	_
-15-9	997-1000	and	_	_	_	_	_
-15-10	1001-1012	established	_	_	_	_	_
-15-11	1013-1020	herself	person[160]	giv:act[160]	Jeanne_Moreau[160]	coref	15-13[167_160]
-15-12	1021-1023	as	_	_	_	_	_
-15-13	1024-1027	one	person[167]	giv:act[167]	Jeanne_Moreau[167]	ana	16-1[169_167]
-15-14	1028-1030	of	person[167]	giv:act[167]	Jeanne_Moreau[167]	_	_
-15-15	1031-1034	the	person[167]	giv:act[167]	Jeanne_Moreau[167]	_	_
-15-16	1035-1042	leading	person[167]	giv:act[167]	Jeanne_Moreau[167]	_	_
-15-17	1043-1052	actresses	person[167]	giv:act[167]	Jeanne_Moreau[167]	_	_
-15-18	1053-1055	of	person[167]	giv:act[167]	Jeanne_Moreau[167]	_	_
-15-19	1056-1059	the	person[167]|organization[168]	giv:act[167]|new[168]	Jeanne_Moreau[167]|Comédie%2DFrançaise[168]	coref	32-4[409_168]
-15-20	1060-1067	Comédie	person[167]|organization[168]	giv:act[167]|new[168]	Jeanne_Moreau[167]|Comédie%2DFrançaise[168]	_	_
-15-21	1068-1069	-	person[167]|organization[168]	giv:act[167]|new[168]	Jeanne_Moreau[167]|Comédie%2DFrançaise[168]	_	_
-15-22	1070-1079	Française	person[167]|organization[168]	giv:act[167]|new[168]	Jeanne_Moreau[167]|Comédie%2DFrançaise[168]	_	_
-15-23	1080-1081	.	_	_	_	_	_
+15-1	954-960	Moreau	person[150]	giv:act[150]	Jeanne_Moreau[150]	cf1*[150]	ana	15-3[158_150]
+15-2	961-965	made	_	_	_	_	_	_
+15-3	966-969	her	event[157]|person[158]	new[157]|giv:act[158]	Jeanne_Moreau[158]	cf2[157]|cf1*[158]	coref|ana	31-6[398_157]|15-11[160_158]
+15-4	970-980	theatrical	event[157]	new[157]	_	cf2[157]	_	_
+15-5	981-986	debut	event[157]	new[157]	_	cf2[157]	_	_
+15-6	987-989	in	_	_	_	_	_	_
+15-7	990-994	1947	_	_	_	cf4[159]	_	_
+15-8	995-996	,	_	_	_	_	_	_
+15-9	997-1000	and	_	_	_	_	_	_
+15-10	1001-1012	established	_	_	_	_	_	_
+15-11	1013-1020	herself	person[160]	giv:act[160]	Jeanne_Moreau[160]	cf1*[160]	coref	15-13[167_160]
+15-12	1021-1023	as	_	_	_	_	_	_
+15-13	1024-1027	one	person[167]	giv:act[167]	Jeanne_Moreau[167]	cf1*[167]	ana	16-1[169_167]
+15-14	1028-1030	of	person[167]	giv:act[167]	Jeanne_Moreau[167]	cf1*[167]	_	_
+15-15	1031-1034	the	person[167]	giv:act[167]	Jeanne_Moreau[167]	cf1*[167]	_	_
+15-16	1035-1042	leading	person[167]	giv:act[167]	Jeanne_Moreau[167]	cf1*[167]	_	_
+15-17	1043-1052	actresses	person[167]	giv:act[167]	Jeanne_Moreau[167]	cf1*[167]	_	_
+15-18	1053-1055	of	person[167]	giv:act[167]	Jeanne_Moreau[167]	cf1*[167]	_	_
+15-19	1056-1059	the	person[167]|organization[168]	giv:act[167]|new[168]	Jeanne_Moreau[167]|Comédie%2DFrançaise[168]	cf1*[167]|cf3[168]	coref	32-4[409_168]
+15-20	1060-1067	Comédie	person[167]|organization[168]	giv:act[167]|new[168]	Jeanne_Moreau[167]|Comédie%2DFrançaise[168]	cf1*[167]|cf3[168]	_	_
+15-21	1068-1069	-	person[167]|organization[168]	giv:act[167]|new[168]	Jeanne_Moreau[167]|Comédie%2DFrançaise[168]	cf1*[167]|cf3[168]	_	_
+15-22	1070-1079	Française	person[167]|organization[168]	giv:act[167]|new[168]	Jeanne_Moreau[167]|Comédie%2DFrançaise[168]	cf1*[167]|cf3[168]	_	_
+15-23	1080-1081	.	_	_	_	_	_	_
 
 #Text=She began playing small roles in films in 1949 , with impressive performances in the Fernandel vehicle Meurtres ? ( Three Sinners , 1950 ) and alongside Jean Gabin as a showgirl / gangster 's moll in the film Touchez pas au grisbi ( 1954 ) .
-16-1	1082-1085	She	person[169]	giv:act[169]	Jeanne_Moreau[169]	ana	17-1[196_169]
-16-2	1086-1091	began	_	_	_	_	_
-16-3	1092-1099	playing	_	_	_	_	_
-16-4	1100-1105	small	_	_	_	_	_
-16-5	1106-1111	roles	_	_	_	_	_
-16-6	1112-1114	in	_	_	_	_	_
-16-7	1115-1120	films	_	_	_	_	_
-16-8	1121-1123	in	_	_	_	_	_
-16-9	1124-1128	1949	_	_	_	_	_
-16-10	1129-1130	,	_	_	_	_	_
-16-11	1131-1135	with	_	_	_	_	_
-16-12	1136-1146	impressive	_	_	_	_	_
-16-13	1147-1159	performances	_	_	_	_	_
-16-14	1160-1162	in	_	_	_	_	_
-16-15	1163-1166	the	_	_	_	_	_
-16-16	1167-1176	Fernandel	_	_	_	_	_
-16-17	1177-1184	vehicle	_	_	_	_	_
-16-18	1185-1193	Meurtres	_	_	_	_	_
-16-19	1194-1195	?	_	_	_	_	_
-16-20	1196-1197	(	_	_	_	_	_
-16-21	1198-1203	Three	_	_	_	_	_
-16-22	1204-1211	Sinners	_	_	_	_	_
-16-23	1212-1213	,	_	_	_	_	_
-16-24	1214-1218	1950	_	_	_	_	_
-16-25	1219-1220	)	_	_	_	_	_
-16-26	1221-1224	and	_	_	_	_	_
-16-27	1225-1234	alongside	_	_	_	_	_
-16-28	1235-1239	Jean	_	_	_	_	_
-16-29	1240-1245	Gabin	_	_	_	_	_
-16-30	1246-1248	as	_	_	_	_	_
-16-31	1249-1250	a	_	_	_	_	_
-16-32	1251-1259	showgirl	_	_	_	_	_
-16-33	1260-1261	/	_	_	_	_	_
-16-34	1262-1270	gangster	_	_	_	_	_
-16-35	1271-1273	's	_	_	_	_	_
-16-36	1274-1278	moll	_	_	_	_	_
-16-37	1279-1281	in	_	_	_	_	_
-16-38	1282-1285	the	_	_	_	_	_
-16-39	1286-1290	film	_	_	_	_	_
-16-40	1291-1298	Touchez	_	_	_	_	_
-16-41	1299-1302	pas	_	_	_	_	_
-16-42	1303-1305	au	_	_	_	_	_
-16-43	1306-1312	grisbi	_	_	_	_	_
-16-44	1313-1314	(	_	_	_	_	_
-16-45	1315-1319	1954	_	_	_	_	_
-16-46	1320-1321	)	_	_	_	_	_
-16-47	1322-1323	.	_	_	_	_	_
+16-1	1082-1085	She	person[169]	giv:act[169]	Jeanne_Moreau[169]	cf1*[169]	ana	17-1[196_169]
+16-2	1086-1091	began	_	_	_	_	_	_
+16-3	1092-1099	playing	_	_	_	_	_	_
+16-4	1100-1105	small	_	_	_	cf5[172]	_	_
+16-5	1106-1111	roles	_	_	_	cf5[172]	_	_
+16-6	1112-1114	in	_	_	_	_	_	_
+16-7	1115-1120	films	_	_	_	cf10[173]	_	_
+16-8	1121-1123	in	_	_	_	_	_	_
+16-9	1124-1128	1949	_	_	_	cf4[174]	_	_
+16-10	1129-1130	,	_	_	_	_	_	_
+16-11	1131-1135	with	_	_	_	_	_	_
+16-12	1136-1146	impressive	_	_	_	cf11[179]	_	_
+16-13	1147-1159	performances	_	_	_	cf11[179]	_	_
+16-14	1160-1162	in	_	_	_	cf11[179]	_	_
+16-15	1163-1166	the	_	_	_	cf11[179]|cf2[180]	_	_
+16-16	1167-1176	Fernandel	_	_	_	cf11[179]|cf2[180]|cf14[181]	_	_
+16-17	1177-1184	vehicle	_	_	_	cf11[179]|cf2[180]	_	_
+16-18	1185-1193	Meurtres	_	_	_	cf11[179]|cf2[184]	_	_
+16-19	1194-1195	?	_	_	_	cf11[179]|cf2[184]	_	_
+16-20	1196-1197	(	_	_	_	cf11[179]	_	_
+16-21	1198-1203	Three	_	_	_	cf11[179]|cf2[185]|cf6[186]	_	_
+16-22	1204-1211	Sinners	_	_	_	cf11[179]|cf2[185]|cf6[186]	_	_
+16-23	1212-1213	,	_	_	_	cf11[179]|cf2[185]	_	_
+16-24	1214-1218	1950	_	_	_	cf11[179]|cf2[185]|cf12[187]	_	_
+16-25	1219-1220	)	_	_	_	cf11[179]	_	_
+16-26	1221-1224	and	_	_	_	_	_	_
+16-27	1225-1234	alongside	_	_	_	_	_	_
+16-28	1235-1239	Jean	_	_	_	cf7[190]	_	_
+16-29	1240-1245	Gabin	_	_	_	cf7[190]	_	_
+16-30	1246-1248	as	_	_	_	_	_	_
+16-31	1249-1250	a	_	_	_	cf8[191]	_	_
+16-32	1251-1259	showgirl	_	_	_	cf8[191]	_	_
+16-33	1260-1261	/	_	_	_	cf8[191]	_	_
+16-34	1262-1270	gangster	_	_	_	cf8[191]|cf9[192]	_	_
+16-35	1271-1273	's	_	_	_	cf8[191]|cf9[192]	_	_
+16-36	1274-1278	moll	_	_	_	cf8[191]	_	_
+16-37	1279-1281	in	_	_	_	_	_	_
+16-38	1282-1285	the	_	_	_	cf3[193]	_	_
+16-39	1286-1290	film	_	_	_	cf3[193]	_	_
+16-40	1291-1298	Touchez	_	_	_	cf3[194]	_	_
+16-41	1299-1302	pas	_	_	_	cf3[194]	_	_
+16-42	1303-1305	au	_	_	_	cf3[194]	_	_
+16-43	1306-1312	grisbi	_	_	_	cf3[194]	_	_
+16-44	1313-1314	(	_	_	_	cf3[194]	_	_
+16-45	1315-1319	1954	_	_	_	cf3[194]|cf13[195]	_	_
+16-46	1320-1321	)	_	_	_	cf3[194]	_	_
+16-47	1322-1323	.	_	_	_	_	_	_
 
 #Text=She achieved prominence as the star of Elevator to the Gallows ( 1958 ) , directed by Louis Malle , and Jules et Jim ( 1962 ) , directed by François Truffaut .
-17-1	1324-1327	She	person[196]	giv:act[196]	Jeanne_Moreau[196]	coref	17-5[204_196]
-17-2	1328-1336	achieved	_	_	_	_	_
-17-3	1337-1347	prominence	_	_	_	_	_
-17-4	1348-1350	as	_	_	_	_	_
-17-5	1351-1354	the	person[204]	giv:act[204]	Jeanne_Moreau[204]	coref	18-7[224_204]
-17-6	1355-1359	star	person[204]	giv:act[204]	Jeanne_Moreau[204]	_	_
-17-7	1360-1362	of	person[204]	giv:act[204]	Jeanne_Moreau[204]	_	_
-17-8	1363-1371	Elevator	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|new[206]	Jeanne_Moreau[204]|Elevator_to_the_Gallows[206]	coref|coref	35-1[470_205]|35-1[471_206]
-17-9	1372-1374	to	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|new[206]	Jeanne_Moreau[204]|Elevator_to_the_Gallows[206]	_	_
-17-10	1375-1378	the	person[204]|abstract[205]|object[206]|place[207]	giv:act[204]|new[205]|new[206]|new[207]	Jeanne_Moreau[204]|Elevator_to_the_Gallows[206]|Gallows[207]	coref	35-3[472_207]
-17-11	1379-1386	Gallows	person[204]|abstract[205]|object[206]|place[207]	giv:act[204]|new[205]|new[206]|new[207]	Jeanne_Moreau[204]|Elevator_to_the_Gallows[206]|Gallows[207]	_	_
-17-12	1387-1388	(	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|giv:act[206]	Jeanne_Moreau[204]	_	_
-17-13	1389-1393	1958	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|giv:act[206]	Jeanne_Moreau[204]	_	_
-17-14	1394-1395	)	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|giv:act[206]	Jeanne_Moreau[204]	_	_
-17-15	1396-1397	,	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|giv:act[206]	Jeanne_Moreau[204]	_	_
-17-16	1398-1406	directed	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|giv:act[206]	Jeanne_Moreau[204]	_	_
-17-17	1407-1409	by	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|giv:act[206]	Jeanne_Moreau[204]	_	_
-17-18	1410-1415	Louis	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|giv:act[206]	Jeanne_Moreau[204]	_	_
-17-19	1416-1421	Malle	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|giv:act[206]	Jeanne_Moreau[204]	_	_
-17-20	1422-1423	,	person[204]	giv:act[204]	Jeanne_Moreau[204]	_	_
-17-21	1424-1427	and	person[204]	giv:act[204]	Jeanne_Moreau[204]	_	_
-17-22	1428-1433	Jules	person[204]|person[213]	giv:act[204]|new[213]	Jeanne_Moreau[204]	coref	37-7[499_213]
-17-23	1434-1436	et	person[204]|person[213]	giv:act[204]|giv:act[213]	Jeanne_Moreau[204]	_	_
-17-24	1437-1440	Jim	person[204]|person[214]|person[213]	giv:act[204]|new[214]|giv:act[213]	Jeanne_Moreau[204]	coref	37-9[500_214]
-17-25	1441-1442	(	person[204]|person[213]	giv:act[204]|giv:act[213]	Jeanne_Moreau[204]	_	_
-17-26	1443-1447	1962	person[204]|person[213]	giv:act[204]|giv:act[213]	Jeanne_Moreau[204]	_	_
-17-27	1448-1449	)	person[204]|person[213]	giv:act[204]|giv:act[213]	Jeanne_Moreau[204]	_	_
-17-28	1450-1451	,	person[204]|person[213]	giv:act[204]|giv:act[213]	Jeanne_Moreau[204]	_	_
-17-29	1452-1460	directed	person[204]|person[213]	giv:act[204]|giv:act[213]	Jeanne_Moreau[204]	_	_
-17-30	1461-1463	by	person[204]|person[213]	giv:act[204]|giv:act[213]	Jeanne_Moreau[204]	_	_
-17-31	1464-1472	François	person[204]|person[222]|person[213]	giv:act[204]|new[222]|giv:act[213]	Jeanne_Moreau[204]|François_Truffaut[222]	coref	37-1[496_222]
-17-32	1473-1481	Truffaut	person[204]|person[222]|person[213]	giv:act[204]|new[222]|giv:act[213]	Jeanne_Moreau[204]|François_Truffaut[222]	_	_
-17-33	1482-1483	.	_	_	_	_	_
+17-1	1324-1327	She	person[196]	giv:act[196]	Jeanne_Moreau[196]	cf1*[196]	coref	17-5[204_196]
+17-2	1328-1336	achieved	_	_	_	_	_	_
+17-3	1337-1347	prominence	_	_	_	cf3[197]	_	_
+17-4	1348-1350	as	_	_	_	_	_	_
+17-5	1351-1354	the	person[204]	giv:act[204]	Jeanne_Moreau[204]	cf1*[204]	coref	18-7[224_204]
+17-6	1355-1359	star	person[204]	giv:act[204]	Jeanne_Moreau[204]	cf1*[204]	_	_
+17-7	1360-1362	of	person[204]	giv:act[204]	Jeanne_Moreau[204]	cf1*[204]	_	_
+17-8	1363-1371	Elevator	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|new[206]	Jeanne_Moreau[204]|Elevator_to_the_Gallows[206]	cf1*[204]|cf9[205]|cf10[206]	coref|coref	35-1[470_205]|35-1[471_206]
+17-9	1372-1374	to	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|new[206]	Jeanne_Moreau[204]|Elevator_to_the_Gallows[206]	cf1*[204]|cf9[205]|cf10[206]	_	_
+17-10	1375-1378	the	person[204]|abstract[205]|object[206]|place[207]	giv:act[204]|new[205]|new[206]|new[207]	Jeanne_Moreau[204]|Elevator_to_the_Gallows[206]|Gallows[207]	cf1*[204]|cf9[205]|cf10[206]|cf4[207]	coref	35-3[472_207]
+17-11	1379-1386	Gallows	person[204]|abstract[205]|object[206]|place[207]	giv:act[204]|new[205]|new[206]|new[207]	Jeanne_Moreau[204]|Elevator_to_the_Gallows[206]|Gallows[207]	cf1*[204]|cf9[205]|cf10[206]|cf4[207]	_	_
+17-12	1387-1388	(	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|giv:act[206]	Jeanne_Moreau[204]	cf1*[204]|cf9[205]	_	_
+17-13	1389-1393	1958	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|giv:act[206]	Jeanne_Moreau[204]	cf1*[204]|cf9[205]|cf2[208]	_	_
+17-14	1394-1395	)	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|giv:act[206]	Jeanne_Moreau[204]	cf1*[204]|cf9[205]	_	_
+17-15	1396-1397	,	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|giv:act[206]	Jeanne_Moreau[204]	cf1*[204]|cf9[205]	_	_
+17-16	1398-1406	directed	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|giv:act[206]	Jeanne_Moreau[204]	cf1*[204]|cf9[205]	_	_
+17-17	1407-1409	by	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|giv:act[206]	Jeanne_Moreau[204]	cf1*[204]|cf9[205]	_	_
+17-18	1410-1415	Louis	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|giv:act[206]	Jeanne_Moreau[204]	cf1*[204]|cf9[205]|cf5[211]	_	_
+17-19	1416-1421	Malle	person[204]|abstract[205]|object[206]	giv:act[204]|new[205]|giv:act[206]	Jeanne_Moreau[204]	cf1*[204]|cf9[205]|cf5[211]	_	_
+17-20	1422-1423	,	person[204]	giv:act[204]	Jeanne_Moreau[204]	cf1*[204]	_	_
+17-21	1424-1427	and	person[204]	giv:act[204]	Jeanne_Moreau[204]	cf1*[204]	_	_
+17-22	1428-1433	Jules	person[204]|person[213]	giv:act[204]|new[213]	Jeanne_Moreau[204]	cf1*[204]|cf11[212]|cf6[213]	coref	37-7[499_213]
+17-23	1434-1436	et	person[204]|person[213]	giv:act[204]|giv:act[213]	Jeanne_Moreau[204]	cf1*[204]|cf11[212]	_	_
+17-24	1437-1440	Jim	person[204]|person[214]|person[213]	giv:act[204]|new[214]|giv:act[213]	Jeanne_Moreau[204]	cf1*[204]|cf11[212]|cf7[214]	coref	37-9[500_214]
+17-25	1441-1442	(	person[204]|person[213]	giv:act[204]|giv:act[213]	Jeanne_Moreau[204]	cf1*[204]|cf11[212]	_	_
+17-26	1443-1447	1962	person[204]|person[213]	giv:act[204]|giv:act[213]	Jeanne_Moreau[204]	cf1*[204]|cf11[212]|cf12[215]	_	_
+17-27	1448-1449	)	person[204]|person[213]	giv:act[204]|giv:act[213]	Jeanne_Moreau[204]	cf1*[204]|cf11[212]	_	_
+17-28	1450-1451	,	person[204]|person[213]	giv:act[204]|giv:act[213]	Jeanne_Moreau[204]	cf1*[204]|cf11[212]	_	_
+17-29	1452-1460	directed	person[204]|person[213]	giv:act[204]|giv:act[213]	Jeanne_Moreau[204]	cf1*[204]|cf11[212]	_	_
+17-30	1461-1463	by	person[204]|person[213]	giv:act[204]|giv:act[213]	Jeanne_Moreau[204]	cf1*[204]|cf11[212]	_	_
+17-31	1464-1472	François	person[204]|person[222]|person[213]	giv:act[204]|new[222]|giv:act[213]	Jeanne_Moreau[204]|François_Truffaut[222]	cf1*[204]|cf11[212]|cf8[222]	coref	37-1[496_222]
+17-32	1473-1481	Truffaut	person[204]|person[222]|person[213]	giv:act[204]|new[222]|giv:act[213]	Jeanne_Moreau[204]|François_Truffaut[222]	cf1*[204]|cf11[212]|cf8[222]	_	_
+17-33	1482-1483	.	_	_	_	_	_	_
 
 #Text=Most prolific during the 1960s , Moreau continued to appear in films into her 80s .
-18-1	1484-1488	Most	person[224]	giv:act[224]	_	ana	18-14[231_224]
-18-2	1489-1497	prolific	person[224]	giv:act[224]	_	_	_
-18-3	1498-1504	during	person[224]	giv:act[224]	_	_	_
-18-4	1505-1508	the	person[224]	giv:act[224]	_	_	_
-18-5	1509-1514	1960s	person[224]	giv:act[224]	_	_	_
-18-6	1515-1516	,	person[224]	giv:act[224]	_	_	_
-18-7	1517-1523	Moreau	person[224]	giv:act[224]	Jeanne_Moreau[224]	_	_
-18-8	1524-1533	continued	_	_	_	_	_
-18-9	1534-1536	to	_	_	_	_	_
-18-10	1537-1543	appear	_	_	_	_	_
-18-11	1544-1546	in	_	_	_	_	_
-18-12	1547-1552	films	_	_	_	_	_
-18-13	1553-1557	into	_	_	_	_	_
-18-14	1558-1561	her	person[231]	giv:act[231]	Jeanne_Moreau[231]	coref	20-1[236_231]
-18-15	1562-1565	80s	_	_	_	_	_
-18-16	1566-1567	.	_	_	_	_	_
+18-1	1484-1488	Most	person[224]	giv:act[224]	_	_	ana	18-14[231_224]
+18-2	1489-1497	prolific	person[224]	giv:act[224]	_	_	_	_
+18-3	1498-1504	during	person[224]	giv:act[224]	_	_	_	_
+18-4	1505-1508	the	person[224]	giv:act[224]	_	cf2[223]	_	_
+18-5	1509-1514	1960s	person[224]	giv:act[224]	_	cf2[223]	_	_
+18-6	1515-1516	,	person[224]	giv:act[224]	_	_	_	_
+18-7	1517-1523	Moreau	person[224]	giv:act[224]	Jeanne_Moreau[224]	cf1*[224]	_	_
+18-8	1524-1533	continued	_	_	_	_	_	_
+18-9	1534-1536	to	_	_	_	_	_	_
+18-10	1537-1543	appear	_	_	_	_	_	_
+18-11	1544-1546	in	_	_	_	_	_	_
+18-12	1547-1552	films	_	_	_	cf3[225]	_	_
+18-13	1553-1557	into	_	_	_	_	_	_
+18-14	1558-1561	her	person[231]	giv:act[231]	Jeanne_Moreau[231]	cf4[230]|cf1*[231]	coref	20-1[236_231]
+18-15	1562-1565	80s	_	_	_	cf4[230]	_	_
+18-16	1566-1567	.	_	_	_	_	_	_
 
 #Text=Early life and education
-19-1	1568-1573	Early	_	_	_	_	_
-19-2	1574-1578	life	_	_	_	_	_
-19-3	1579-1582	and	_	_	_	_	_
-19-4	1583-1592	education	_	_	_	_	_
+19-1	1568-1573	Early	_	_	_	cf1[234]	_	_
+19-2	1574-1578	life	_	_	_	cf1[234]	_	_
+19-3	1579-1582	and	_	_	_	_	_	_
+19-4	1583-1592	education	_	_	_	cf2[235]	_	_
 
 #Text=Moreau was born in Paris , the daughter of Katherine ( née Buckley ) , a dancer who performed at the Folies Bergère ( d. 1990 ) , and Anatole - Désiré Moreau , a restaurateur ( d. 1975 ) . [ 1 ] [ 2 ]
-20-1	1593-1599	Moreau	person[236]	giv:inact[236]	Jeanne_Moreau[236]	coref	20-7[244_236]
-20-2	1600-1603	was	_	_	_	_	_
-20-3	1604-1608	born	_	_	_	_	_
-20-4	1609-1611	in	_	_	_	_	_
-20-5	1612-1617	Paris	place[237]	giv:inact[237]	Paris[237]	coref	26-19[335_237]
-20-6	1618-1619	,	_	_	_	_	_
-20-7	1620-1623	the	person[244]	giv:act[244]	Jeanne_Moreau[244]	coref	21-1[266_244]
-20-8	1624-1632	daughter	person[244]	giv:act[244]	Jeanne_Moreau[244]	_	_
-20-9	1633-1635	of	person[244]	giv:act[244]	Jeanne_Moreau[244]	_	_
-20-10	1636-1645	Katherine	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	coref	21-7[267_665]
-20-11	1646-1647	(	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	_	_
-20-12	1648-1651	née	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	_	_
-20-13	1652-1659	Buckley	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	_	_
-20-14	1660-1661	)	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	_	_
-20-15	1662-1663	,	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	_	_
-20-16	1664-1665	a	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	_	_
-20-17	1666-1672	dancer	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	_	_
-20-18	1673-1676	who	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	_	_
-20-19	1677-1686	performed	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	_	_
-20-20	1687-1689	at	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	_	_
-20-21	1690-1693	the	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	_	_
-20-22	1694-1700	Folies	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	_	_
-20-23	1701-1708	Bergère	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	_	_
-20-24	1709-1710	(	person[244]	giv:act[244]	Jeanne_Moreau[244]	_	_
-20-25	1711-1713	d.	person[244]	giv:act[244]	Jeanne_Moreau[244]	_	_
-20-26	1714-1718	1990	person[244]	giv:act[244]	Jeanne_Moreau[244]	_	_
-20-27	1719-1720	)	person[244]	giv:act[244]	Jeanne_Moreau[244]	_	_
-20-28	1721-1722	,	person[244]	giv:act[244]	Jeanne_Moreau[244]	_	_
-20-29	1723-1726	and	person[244]	giv:act[244]	Jeanne_Moreau[244]	_	_
-20-30	1727-1734	Anatole	person[244]|person[667]	giv:act[244]|giv:act[667]	Jeanne_Moreau[244]	coref	21-1[265_667]
-20-31	1735-1736	-	person[244]|person[667]	giv:act[244]|giv:act[667]	Jeanne_Moreau[244]	_	_
-20-32	1737-1743	Désiré	person[244]|person[667]	giv:act[244]|giv:act[667]	Jeanne_Moreau[244]	_	_
-20-33	1744-1750	Moreau	person[244]|person[667]	giv:act[244]|giv:act[667]	Jeanne_Moreau[244]	_	_
-20-34	1751-1752	,	person[244]|person[667]	giv:act[244]|giv:act[667]	Jeanne_Moreau[244]	_	_
-20-35	1753-1754	a	person[244]|person[667]	giv:act[244]|giv:act[667]	Jeanne_Moreau[244]	_	_
-20-36	1755-1767	restaurateur	person[244]|person[667]	giv:act[244]|giv:act[667]	Jeanne_Moreau[244]	_	_
-20-37	1768-1769	(	person[244]	giv:act[244]	Jeanne_Moreau[244]	_	_
-20-38	1770-1772	d.	person[244]	giv:act[244]	Jeanne_Moreau[244]	_	_
-20-39	1773-1777	1975	person[244]	giv:act[244]	Jeanne_Moreau[244]	_	_
-20-40	1778-1779	)	person[244]	giv:act[244]	Jeanne_Moreau[244]	_	_
-20-41	1780-1781	.	_	_	_	_	_
-20-42	1782-1783	[	_	_	_	_	_
-20-43	1784-1785	1	_	_	_	_	_
-20-44	1786-1787	]	_	_	_	_	_
-20-45	1788-1789	[	_	_	_	_	_
-20-46	1790-1791	2	_	_	_	_	_
-20-47	1792-1793	]	_	_	_	_	_
+20-1	1593-1599	Moreau	person[236]	giv:inact[236]	Jeanne_Moreau[236]	cf1[236]	coref	20-7[244_236]
+20-2	1600-1603	was	_	_	_	_	_	_
+20-3	1604-1608	born	_	_	_	_	_	_
+20-4	1609-1611	in	_	_	_	_	_	_
+20-5	1612-1617	Paris	place[237]	giv:inact[237]	Paris[237]	cf4[237]	coref	26-19[335_237]
+20-6	1618-1619	,	_	_	_	_	_	_
+20-7	1620-1623	the	person[244]	giv:act[244]	Jeanne_Moreau[244]	cf1[244]	coref	21-1[266_244]
+20-8	1624-1632	daughter	person[244]	giv:act[244]	Jeanne_Moreau[244]	cf1[244]	_	_
+20-9	1633-1635	of	person[244]	giv:act[244]	Jeanne_Moreau[244]	cf1[244]	_	_
+20-10	1636-1645	Katherine	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	cf1[244]|cf2[245]	coref	21-7[267_665]
+20-11	1646-1647	(	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	cf1[244]|cf2[245]	_	_
+20-12	1648-1651	née	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	cf1[244]|cf2[245]	_	_
+20-13	1652-1659	Buckley	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	cf1[244]|cf2[245]|cf6[246]	_	_
+20-14	1660-1661	)	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	cf1[244]|cf2[245]	_	_
+20-15	1662-1663	,	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	cf1[244]	_	_
+20-16	1664-1665	a	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	cf1[244]|cf2[249]	_	_
+20-17	1666-1672	dancer	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	cf1[244]|cf2[249]	_	_
+20-18	1673-1676	who	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	cf1[244]|cf2[249]	_	_
+20-19	1677-1686	performed	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	cf1[244]|cf2[249]	_	_
+20-20	1687-1689	at	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	cf1[244]|cf2[249]	_	_
+20-21	1690-1693	the	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	cf1[244]|cf2[249]|cf5[250]	_	_
+20-22	1694-1700	Folies	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	cf1[244]|cf2[249]|cf5[250]	_	_
+20-23	1701-1708	Bergère	person[244]|person[665]	giv:act[244]|giv:act[665]	Jeanne_Moreau[244]	cf1[244]|cf2[249]|cf5[250]	_	_
+20-24	1709-1710	(	person[244]	giv:act[244]	Jeanne_Moreau[244]	cf1[244]	_	_
+20-25	1711-1713	d.	person[244]	giv:act[244]	Jeanne_Moreau[244]	cf1[244]	_	_
+20-26	1714-1718	1990	person[244]	giv:act[244]	Jeanne_Moreau[244]	cf1[244]|cf7[251]	_	_
+20-27	1719-1720	)	person[244]	giv:act[244]	Jeanne_Moreau[244]	cf1[244]	_	_
+20-28	1721-1722	,	person[244]	giv:act[244]	Jeanne_Moreau[244]	cf1[244]	_	_
+20-29	1723-1726	and	person[244]	giv:act[244]	Jeanne_Moreau[244]	cf1[244]	_	_
+20-30	1727-1734	Anatole	person[244]|person[667]	giv:act[244]|giv:act[667]	Jeanne_Moreau[244]	cf1[244]|cf3[254]	coref	21-1[265_667]
+20-31	1735-1736	-	person[244]|person[667]	giv:act[244]|giv:act[667]	Jeanne_Moreau[244]	cf1[244]|cf3[254]	_	_
+20-32	1737-1743	Désiré	person[244]|person[667]	giv:act[244]|giv:act[667]	Jeanne_Moreau[244]	cf1[244]|cf3[254]	_	_
+20-33	1744-1750	Moreau	person[244]|person[667]	giv:act[244]|giv:act[667]	Jeanne_Moreau[244]	cf1[244]|cf3[254]	_	_
+20-34	1751-1752	,	person[244]|person[667]	giv:act[244]|giv:act[667]	Jeanne_Moreau[244]	cf1[244]	_	_
+20-35	1753-1754	a	person[244]|person[667]	giv:act[244]|giv:act[667]	Jeanne_Moreau[244]	cf1[244]|cf3[255]	_	_
+20-36	1755-1767	restaurateur	person[244]|person[667]	giv:act[244]|giv:act[667]	Jeanne_Moreau[244]	cf1[244]|cf3[255]	_	_
+20-37	1768-1769	(	person[244]	giv:act[244]	Jeanne_Moreau[244]	cf1[244]	_	_
+20-38	1770-1772	d.	person[244]	giv:act[244]	Jeanne_Moreau[244]	cf1[244]	_	_
+20-39	1773-1777	1975	person[244]	giv:act[244]	Jeanne_Moreau[244]	cf1[244]|cf8[256]	_	_
+20-40	1778-1779	)	person[244]	giv:act[244]	Jeanne_Moreau[244]	cf1[244]	_	_
+20-41	1780-1781	.	_	_	_	_	_	_
+20-42	1782-1783	[	_	_	_	_	_	_
+20-43	1784-1785	1	_	_	_	cf9[257]	_	_
+20-44	1786-1787	]	_	_	_	_	_	_
+20-45	1788-1789	[	_	_	_	_	_	_
+20-46	1790-1791	2	_	_	_	cf10[258]	_	_
+20-47	1792-1793	]	_	_	_	_	_	_
 
 #Text=Moreau 's father was French ; her mother was English , a native of Oldham , Lancashire , England [ 3 ] and of part Irish descent . [ 2 ] [ 4 ] [ 5 ]
-21-1	1794-1800	Moreau	person[265]|person[266]	giv:act[265]|giv:act[266]	Jeanne_Moreau[266]	ana	21-7[268_266]
-21-2	1801-1803	's	person[265]|person[266]	giv:act[265]|giv:act[266]	Jeanne_Moreau[266]	_	_
-21-3	1804-1810	father	person[265]	giv:act[265]	_	_	_
-21-4	1811-1814	was	_	_	_	_	_
-21-5	1815-1821	French	_	_	_	_	_
-21-6	1822-1823	;	_	_	_	_	_
-21-7	1824-1827	her	person[267]|person[268]	giv:act[267]|giv:act[268]	Jeanne_Moreau[268]	coref	22-1[291_268]
-21-8	1828-1834	mother	person[267]	giv:act[267]	_	_	_
-21-9	1835-1838	was	_	_	_	_	_
-21-10	1839-1846	English	_	_	_	_	_
-21-11	1847-1848	,	_	_	_	_	_
-21-12	1849-1850	a	person[271]	giv:act[271]	_	coref	22-7[669_271]
-21-13	1851-1857	native	person[271]	giv:act[271]	_	_	_
-21-14	1858-1860	of	person[271]	giv:act[271]	_	_	_
-21-15	1861-1867	Oldham	person[271]	giv:act[271]	_	_	_
-21-16	1868-1869	,	person[271]	giv:act[271]	_	_	_
-21-17	1870-1880	Lancashire	person[271]	giv:act[271]	_	_	_
-21-18	1881-1882	,	person[271]	giv:act[271]	_	_	_
-21-19	1883-1890	England	person[271]|place[274]	giv:act[271]|new[274]	England[274]	coref	29-25[373_274]
-21-20	1891-1892	[	_	_	_	_	_
-21-21	1893-1894	3	_	_	_	_	_
-21-22	1895-1896	]	_	_	_	_	_
-21-23	1897-1900	and	_	_	_	_	_
-21-24	1901-1903	of	_	_	_	_	_
-21-25	1904-1908	part	_	_	_	_	_
-21-26	1909-1914	Irish	_	_	_	_	_
-21-27	1915-1922	descent	_	_	_	_	_
-21-28	1923-1924	.	_	_	_	_	_
-21-29	1925-1926	[	_	_	_	_	_
-21-30	1927-1928	2	_	_	_	_	_
-21-31	1929-1930	]	_	_	_	_	_
-21-32	1931-1932	[	_	_	_	_	_
-21-33	1933-1934	4	_	_	_	_	_
-21-34	1935-1936	]	_	_	_	_	_
-21-35	1937-1938	[	_	_	_	_	_
-21-36	1939-1940	5	_	_	_	_	_
-21-37	1941-1942	]	_	_	_	_	_
+21-1	1794-1800	Moreau	person[265]|person[266]	giv:act[265]|giv:act[266]	Jeanne_Moreau[266]	cf2[265]|cf1*[266]	ana	21-7[268_266]
+21-2	1801-1803	's	person[265]|person[266]	giv:act[265]|giv:act[266]	Jeanne_Moreau[266]	cf2[265]|cf1*[266]	_	_
+21-3	1804-1810	father	person[265]	giv:act[265]	_	cf2[265]	_	_
+21-4	1811-1814	was	_	_	_	_	_	_
+21-5	1815-1821	French	_	_	_	_	_	_
+21-6	1822-1823	;	_	_	_	_	_	_
+21-7	1824-1827	her	person[267]|person[268]	giv:act[267]|giv:act[268]	Jeanne_Moreau[268]	cf3[267]|cf1*[268]	coref	22-1[291_268]
+21-8	1828-1834	mother	person[267]	giv:act[267]	_	cf3[267]	_	_
+21-9	1835-1838	was	_	_	_	_	_	_
+21-10	1839-1846	English	_	_	_	_	_	_
+21-11	1847-1848	,	_	_	_	_	_	_
+21-12	1849-1850	a	person[271]	giv:act[271]	_	cf3[271]	coref	22-7[669_271]
+21-13	1851-1857	native	person[271]	giv:act[271]	_	cf3[271]	_	_
+21-14	1858-1860	of	person[271]	giv:act[271]	_	cf3[271]	_	_
+21-15	1861-1867	Oldham	person[271]	giv:act[271]	_	cf3[271]|cf5[272]	_	_
+21-16	1868-1869	,	person[271]	giv:act[271]	_	cf3[271]|cf5[272]	_	_
+21-17	1870-1880	Lancashire	person[271]	giv:act[271]	_	cf3[271]|cf5[272]|cf6[273]	_	_
+21-18	1881-1882	,	person[271]	giv:act[271]	_	cf3[271]|cf5[272]|cf6[273]	_	_
+21-19	1883-1890	England	person[271]|place[274]	giv:act[271]|new[274]	England[274]	cf3[271]|cf5[272]|cf6[273]|cf7[274]	coref	29-25[373_274]
+21-20	1891-1892	[	_	_	_	_	_	_
+21-21	1893-1894	3	_	_	_	cf9[275]	_	_
+21-22	1895-1896	]	_	_	_	_	_	_
+21-23	1897-1900	and	_	_	_	_	_	_
+21-24	1901-1903	of	_	_	_	_	_	_
+21-25	1904-1908	part	_	_	_	cf8[280]	_	_
+21-26	1909-1914	Irish	_	_	_	cf8[280]	_	_
+21-27	1915-1922	descent	_	_	_	cf8[280]	_	_
+21-28	1923-1924	.	_	_	_	_	_	_
+21-29	1925-1926	[	_	_	_	_	_	_
+21-30	1927-1928	2	_	_	_	cf4[281]	_	_
+21-31	1929-1930	]	_	_	_	_	_	_
+21-32	1931-1932	[	_	_	_	_	_	_
+21-33	1933-1934	4	_	_	_	cf10[282]	_	_
+21-34	1935-1936	]	_	_	_	_	_	_
+21-35	1937-1938	[	_	_	_	_	_	_
+21-36	1939-1940	5	_	_	_	cf11[283]	_	_
+21-37	1941-1942	]	_	_	_	_	_	_
 
 #Text=Moreau 's father was Catholic and her mother , originally a Protestant , converted to Catholicism upon marriage . [ 2 ]
-22-1	1943-1949	Moreau	person[291]	giv:act[291]	Jeanne_Moreau[291]	ana	22-7[293_291]
-22-2	1950-1952	's	person[291]	giv:act[291]	Jeanne_Moreau[291]	_	_
-22-3	1953-1959	father	_	_	_	_	_
-22-4	1960-1963	was	_	_	_	_	_
-22-5	1964-1972	Catholic	_	_	_	_	_
-22-6	1973-1976	and	_	_	_	_	_
-22-7	1977-1980	her	person[293]|person[669]	giv:act[293]|giv:act[669]	Jeanne_Moreau[293]	coref|coref	23-2[306_293]|26-16[333_669]
-22-8	1981-1987	mother	person[669]	giv:act[669]	_	_	_
-22-9	1988-1989	,	person[669]	giv:act[669]	_	_	_
-22-10	1990-2000	originally	person[669]	giv:act[669]	_	_	_
-22-11	2001-2002	a	person[669]	giv:act[669]	_	_	_
-22-12	2003-2013	Protestant	person[669]	giv:act[669]	_	_	_
-22-13	2014-2015	,	_	_	_	_	_
-22-14	2016-2025	converted	_	_	_	_	_
-22-15	2026-2028	to	_	_	_	_	_
-22-16	2029-2040	Catholicism	_	_	_	_	_
-22-17	2041-2045	upon	_	_	_	_	_
-22-18	2046-2054	marriage	_	_	_	_	_
-22-19	2055-2056	.	_	_	_	_	_
-22-20	2057-2058	[	_	_	_	_	_
-22-21	2059-2060	2	_	_	_	_	_
-22-22	2061-2062	]	_	_	_	_	_
+22-1	1943-1949	Moreau	person[291]	giv:act[291]	Jeanne_Moreau[291]	cf2[290]|cf1*[291]	ana	22-7[293_291]
+22-2	1950-1952	's	person[291]	giv:act[291]	Jeanne_Moreau[291]	cf2[290]|cf1*[291]	_	_
+22-3	1953-1959	father	_	_	_	cf2[290]	_	_
+22-4	1960-1963	was	_	_	_	_	_	_
+22-5	1964-1972	Catholic	_	_	_	_	_	_
+22-6	1973-1976	and	_	_	_	_	_	_
+22-7	1977-1980	her	person[293]|person[669]	giv:act[293]|giv:act[669]	Jeanne_Moreau[293]	cf3[292]|cf1*[293]	coref|coref	26-16[333_669]|23-2[306_293]
+22-8	1981-1987	mother	person[669]	giv:act[669]	_	cf3[292]	_	_
+22-9	1988-1989	,	person[669]	giv:act[669]	_	_	_	_
+22-10	1990-2000	originally	person[669]	giv:act[669]	_	cf3[296]	_	_
+22-11	2001-2002	a	person[669]	giv:act[669]	_	cf3[296]	_	_
+22-12	2003-2013	Protestant	person[669]	giv:act[669]	_	cf3[296]	_	_
+22-13	2014-2015	,	_	_	_	_	_	_
+22-14	2016-2025	converted	_	_	_	_	_	_
+22-15	2026-2028	to	_	_	_	_	_	_
+22-16	2029-2040	Catholicism	_	_	_	cf5[297]	_	_
+22-17	2041-2045	upon	_	_	_	_	_	_
+22-18	2046-2054	marriage	_	_	_	cf6[298]	_	_
+22-19	2055-2056	.	_	_	_	_	_	_
+22-20	2057-2058	[	_	_	_	_	_	_
+22-21	2059-2060	2	_	_	_	cf4[299]	_	_
+22-22	2061-2062	]	_	_	_	_	_	_
 
 #Text=When a young girl , " the family moved south to Vichy , spending vacations at the paternal ancestral village of Mazirat , a town of 30 houses in a valley in the Allier .
-23-1	2063-2067	When	_	_	_	_	_
-23-2	2068-2069	a	person[306]	giv:act[306]	Jeanne_Moreau[306]	coref	24-8[320_306]
-23-3	2070-2075	young	person[306]	giv:act[306]	Jeanne_Moreau[306]	_	_
-23-4	2076-2080	girl	person[306]	giv:act[306]	Jeanne_Moreau[306]	_	_
-23-5	2081-2082	,	_	_	_	_	_
-23-6	2083-2084	"	_	_	_	_	_
-23-7	2085-2088	the	person[307]	acc:inf[307]	_	coref	26-7[329_307]
-23-8	2089-2095	family	person[307]	acc:inf[307]	_	_	_
-23-9	2096-2101	moved	_	_	_	_	_
-23-10	2102-2107	south	_	_	_	_	_
-23-11	2108-2110	to	_	_	_	_	_
-23-12	2111-2116	Vichy	_	_	_	_	_
-23-13	2117-2118	,	_	_	_	_	_
-23-14	2119-2127	spending	_	_	_	_	_
-23-15	2128-2137	vacations	_	_	_	_	_
-23-16	2138-2140	at	_	_	_	_	_
-23-17	2141-2144	the	place[671]	new[671]	_	coref	24-5[319_671]
-23-18	2145-2153	paternal	place[671]	new[671]	_	_	_
-23-19	2154-2163	ancestral	place[671]	new[671]	_	_	_
-23-20	2164-2171	village	place[671]	new[671]	_	_	_
-23-21	2172-2174	of	place[671]	new[671]	_	_	_
-23-22	2175-2182	Mazirat	place[671]	new[671]	_	_	_
-23-23	2183-2184	,	place[671]	new[671]	_	_	_
-23-24	2185-2186	a	place[671]	new[671]	_	_	_
-23-25	2187-2191	town	place[671]	new[671]	_	_	_
-23-26	2192-2194	of	place[671]	new[671]	_	_	_
-23-27	2195-2197	30	place[671]	new[671]	_	_	_
-23-28	2198-2204	houses	place[671]	new[671]	_	_	_
-23-29	2205-2207	in	place[671]	new[671]	_	_	_
-23-30	2208-2209	a	place[671]	new[671]	_	_	_
-23-31	2210-2216	valley	place[671]	new[671]	_	_	_
-23-32	2217-2219	in	place[671]	new[671]	_	_	_
-23-33	2220-2223	the	place[671]	new[671]	_	_	_
-23-34	2224-2230	Allier	place[671]	new[671]	_	_	_
-23-35	2231-2232	.	_	_	_	_	_
+23-1	2063-2067	When	_	_	_	_	_	_
+23-2	2068-2069	a	person[306]	giv:act[306]	Jeanne_Moreau[306]	cf1*[306]	coref	24-8[320_306]
+23-3	2070-2075	young	person[306]	giv:act[306]	Jeanne_Moreau[306]	cf1*[306]	_	_
+23-4	2076-2080	girl	person[306]	giv:act[306]	Jeanne_Moreau[306]	cf1*[306]	_	_
+23-5	2081-2082	,	_	_	_	_	_	_
+23-6	2083-2084	"	_	_	_	_	_	_
+23-7	2085-2088	the	person[307]	acc:inf[307]	_	cf3[307]	coref	26-7[329_307]
+23-8	2089-2095	family	person[307]	acc:inf[307]	_	cf3[307]	_	_
+23-9	2096-2101	moved	_	_	_	_	_	_
+23-10	2102-2107	south	_	_	_	_	_	_
+23-11	2108-2110	to	_	_	_	_	_	_
+23-12	2111-2116	Vichy	_	_	_	cf6[308]	_	_
+23-13	2117-2118	,	_	_	_	_	_	_
+23-14	2119-2127	spending	_	_	_	_	_	_
+23-15	2128-2137	vacations	_	_	_	cf4[309]	_	_
+23-16	2138-2140	at	_	_	_	_	_	_
+23-17	2141-2144	the	place[671]	new[671]	_	cf2[314]	coref	24-5[319_671]
+23-18	2145-2153	paternal	place[671]	new[671]	_	cf2[314]	_	_
+23-19	2154-2163	ancestral	place[671]	new[671]	_	cf2[314]	_	_
+23-20	2164-2171	village	place[671]	new[671]	_	cf2[314]	_	_
+23-21	2172-2174	of	place[671]	new[671]	_	cf2[314]	_	_
+23-22	2175-2182	Mazirat	place[671]	new[671]	_	cf2[314]	_	_
+23-23	2183-2184	,	place[671]	new[671]	_	_	_	_
+23-24	2185-2186	a	place[671]	new[671]	_	cf2[315]	_	_
+23-25	2187-2191	town	place[671]	new[671]	_	cf2[315]	_	_
+23-26	2192-2194	of	place[671]	new[671]	_	cf2[315]	_	_
+23-27	2195-2197	30	place[671]	new[671]	_	cf2[315]|cf7[316]	_	_
+23-28	2198-2204	houses	place[671]	new[671]	_	cf2[315]|cf7[316]	_	_
+23-29	2205-2207	in	place[671]	new[671]	_	cf2[315]	_	_
+23-30	2208-2209	a	place[671]	new[671]	_	cf2[315]|cf8[317]	_	_
+23-31	2210-2216	valley	place[671]	new[671]	_	cf2[315]|cf8[317]	_	_
+23-32	2217-2219	in	place[671]	new[671]	_	cf2[315]|cf8[317]	_	_
+23-33	2220-2223	the	place[671]	new[671]	_	cf2[315]|cf8[317]|cf5[318]	_	_
+23-34	2224-2230	Allier	place[671]	new[671]	_	cf2[315]|cf8[317]|cf5[318]	_	_
+23-35	2231-2232	.	_	_	_	_	_	_
 
 #Text=" It was wonderful there " , Moreau said .
-24-1	2233-2234	"	_	_	_	_	_
-24-2	2235-2237	It	_	_	_	_	_
-24-3	2238-2241	was	_	_	_	_	_
-24-4	2242-2251	wonderful	_	_	_	_	_
-24-5	2252-2257	there	place[319]	giv:act[319]	Mazirat[319]	_	_
-24-6	2258-2259	"	_	_	_	_	_
-24-7	2260-2261	,	_	_	_	_	_
-24-8	2262-2268	Moreau	person[320]	giv:act[320]	Jeanne_Moreau[320]	coref	26-13[330_320]
-24-9	2269-2273	said	_	_	_	_	_
-24-10	2274-2275	.	_	_	_	_	_
+24-1	2233-2234	"	_	_	_	_	_	_
+24-2	2235-2237	It	_	_	_	_	_	_
+24-3	2238-2241	was	_	_	_	_	_	_
+24-4	2242-2251	wonderful	_	_	_	_	_	_
+24-5	2252-2257	there	place[319]	giv:act[319]	Mazirat[319]	cf2[319]	_	_
+24-6	2258-2259	"	_	_	_	_	_	_
+24-7	2260-2261	,	_	_	_	_	_	_
+24-8	2262-2268	Moreau	person[320]	giv:act[320]	Jeanne_Moreau[320]	cf1*[320]	coref	26-13[330_320]
+24-9	2269-2273	said	_	_	_	_	_	_
+24-10	2274-2275	.	_	_	_	_	_	_
 
 #Text=" Every tombstone in the cemetery was for a Moreau " .
-25-1	2276-2277	"	_	_	_	_	_
-25-2	2278-2283	Every	_	_	_	_	_
-25-3	2284-2293	tombstone	_	_	_	_	_
-25-4	2294-2296	in	_	_	_	_	_
-25-5	2297-2300	the	_	_	_	_	_
-25-6	2301-2309	cemetery	_	_	_	_	_
-25-7	2310-2313	was	_	_	_	_	_
-25-8	2314-2317	for	_	_	_	_	_
-25-9	2318-2319	a	_	_	_	_	_
-25-10	2320-2326	Moreau	_	_	_	_	_
-25-11	2327-2328	"	_	_	_	_	_
-25-12	2329-2330	.	_	_	_	_	_
+25-1	2276-2277	"	_	_	_	_	_	_
+25-2	2278-2283	Every	_	_	_	cf2[325]	_	_
+25-3	2284-2293	tombstone	_	_	_	cf2[325]	_	_
+25-4	2294-2296	in	_	_	_	cf2[325]	_	_
+25-5	2297-2300	the	_	_	_	cf2[325]|cf1[326]	_	_
+25-6	2301-2309	cemetery	_	_	_	cf2[325]|cf1[326]	_	_
+25-7	2310-2313	was	_	_	_	_	_	_
+25-8	2314-2317	for	_	_	_	_	_	_
+25-9	2318-2319	a	_	_	_	cf3[327]	_	_
+25-10	2320-2326	Moreau	_	_	_	cf3[327]	_	_
+25-11	2327-2328	"	_	_	_	_	_	_
+25-12	2329-2330	.	_	_	_	_	_	_
 
 #Text=During the World War II , the family was split , and Moreau lived with her mother in Paris .
-26-1	2331-2337	During	_	_	_	_	_
-26-2	2338-2341	the	_	_	_	_	_
-26-3	2342-2347	World	_	_	_	_	_
-26-4	2348-2351	War	_	_	_	_	_
-26-5	2352-2354	II	_	_	_	_	_
-26-6	2355-2356	,	_	_	_	_	_
-26-7	2357-2360	the	person[329]	giv:inact[329]	_	_	_
-26-8	2361-2367	family	person[329]	giv:inact[329]	_	_	_
-26-9	2368-2371	was	_	_	_	_	_
-26-10	2372-2377	split	_	_	_	_	_
-26-11	2378-2379	,	_	_	_	_	_
-26-12	2380-2383	and	_	_	_	_	_
-26-13	2384-2390	Moreau	person[330]	giv:inact[330]	Jeanne_Moreau[330]	ana	26-16[334_330]
-26-14	2391-2396	lived	_	_	_	_	_
-26-15	2397-2401	with	_	_	_	_	_
-26-16	2402-2405	her	person[333]|person[334]	giv:inact[333]|giv:act[334]	Jeanne_Moreau[334]	coref|coref	27-1[336_334]|29-12[367_333]
-26-17	2406-2412	mother	person[333]	giv:inact[333]	_	_	_
-26-18	2413-2415	in	_	_	_	_	_
-26-19	2416-2421	Paris	place[335]	giv:inact[335]	Paris[335]	_	_
-26-20	2422-2423	.	_	_	_	_	_
+26-1	2331-2337	During	_	_	_	_	_	_
+26-2	2338-2341	the	_	_	_	cf5[328]	_	_
+26-3	2342-2347	World	_	_	_	cf5[328]	_	_
+26-4	2348-2351	War	_	_	_	cf5[328]	_	_
+26-5	2352-2354	II	_	_	_	cf5[328]	_	_
+26-6	2355-2356	,	_	_	_	_	_	_
+26-7	2357-2360	the	person[329]	giv:inact[329]	_	cf2[329]	_	_
+26-8	2361-2367	family	person[329]	giv:inact[329]	_	cf2[329]	_	_
+26-9	2368-2371	was	_	_	_	_	_	_
+26-10	2372-2377	split	_	_	_	_	_	_
+26-11	2378-2379	,	_	_	_	_	_	_
+26-12	2380-2383	and	_	_	_	_	_	_
+26-13	2384-2390	Moreau	person[330]	giv:inact[330]	Jeanne_Moreau[330]	cf1[330]	ana	26-16[334_330]
+26-14	2391-2396	lived	_	_	_	_	_	_
+26-15	2397-2401	with	_	_	_	_	_	_
+26-16	2402-2405	her	person[333]|person[334]	giv:inact[333]|giv:act[334]	Jeanne_Moreau[334]	cf4[333]|cf1[334]	coref|coref	27-1[336_334]|29-12[367_333]
+26-17	2406-2412	mother	person[333]	giv:inact[333]	_	cf4[333]	_	_
+26-18	2413-2415	in	_	_	_	_	_	_
+26-19	2416-2421	Paris	place[335]	giv:inact[335]	Paris[335]	cf3[335]	_	_
+26-20	2422-2423	.	_	_	_	_	_	_
 
 #Text=Moreau ultimately lost interest in school at age 16 , and after attending a performance of Jean Anouilh 's Antigone , found her calling as an actor .
-27-1	2424-2430	Moreau	person[336]	giv:act[336]	Jeanne_Moreau[336]	ana	27-23[351_336]
-27-2	2431-2441	ultimately	_	_	_	_	_
-27-3	2442-2446	lost	_	_	_	_	_
-27-4	2447-2455	interest	_	_	_	_	_
-27-5	2456-2458	in	_	_	_	_	_
-27-6	2459-2465	school	_	_	_	_	_
-27-7	2466-2468	at	_	_	_	_	_
-27-8	2469-2472	age	_	_	_	_	_
-27-9	2473-2475	16	_	_	_	_	_
-27-10	2476-2477	,	_	_	_	_	_
-27-11	2478-2481	and	_	_	_	_	_
-27-12	2482-2487	after	_	_	_	_	_
-27-13	2488-2497	attending	_	_	_	_	_
-27-14	2498-2499	a	_	_	_	_	_
-27-15	2500-2511	performance	_	_	_	_	_
-27-16	2512-2514	of	_	_	_	_	_
-27-17	2515-2519	Jean	_	_	_	_	_
-27-18	2520-2527	Anouilh	_	_	_	_	_
-27-19	2528-2530	's	_	_	_	_	_
-27-20	2531-2539	Antigone	_	_	_	_	_
-27-21	2540-2541	,	_	_	_	_	_
-27-22	2542-2547	found	_	_	_	_	_
-27-23	2548-2551	her	person[351]	giv:act[351]	Jeanne_Moreau[351]	ana	28-1[355_351]
-27-24	2552-2559	calling	_	_	_	_	_
-27-25	2560-2562	as	_	_	_	_	_
-27-26	2563-2565	an	_	_	_	_	_
-27-27	2566-2571	actor	_	_	_	_	_
-27-28	2572-2573	.	_	_	_	_	_
+27-1	2424-2430	Moreau	person[336]	giv:act[336]	Jeanne_Moreau[336]	cf1*[336]	ana	27-23[351_336]
+27-2	2431-2441	ultimately	_	_	_	_	_	_
+27-3	2442-2446	lost	_	_	_	_	_	_
+27-4	2447-2455	interest	_	_	_	_	_	_
+27-5	2456-2458	in	_	_	_	_	_	_
+27-6	2459-2465	school	_	_	_	cf7[337]	_	_
+27-7	2466-2468	at	_	_	_	_	_	_
+27-8	2469-2472	age	_	_	_	cf8[346]	_	_
+27-9	2473-2475	16	_	_	_	cf8[346]	_	_
+27-10	2476-2477	,	_	_	_	_	_	_
+27-11	2478-2481	and	_	_	_	_	_	_
+27-12	2482-2487	after	_	_	_	_	_	_
+27-13	2488-2497	attending	_	_	_	_	_	_
+27-14	2498-2499	a	_	_	_	cf2[347]	_	_
+27-15	2500-2511	performance	_	_	_	cf2[347]	_	_
+27-16	2512-2514	of	_	_	_	cf2[347]	_	_
+27-17	2515-2519	Jean	_	_	_	cf2[347]|cf5[348]|cf4[349]	_	_
+27-18	2520-2527	Anouilh	_	_	_	cf2[347]|cf5[348]|cf4[349]	_	_
+27-19	2528-2530	's	_	_	_	cf2[347]|cf5[348]|cf4[349]	_	_
+27-20	2531-2539	Antigone	_	_	_	cf2[347]|cf5[348]	_	_
+27-21	2540-2541	,	_	_	_	_	_	_
+27-22	2542-2547	found	_	_	_	_	_	_
+27-23	2548-2551	her	person[351]	giv:act[351]	Jeanne_Moreau[351]	cf3[350]|cf1*[351]	ana	28-1[355_351]
+27-24	2552-2559	calling	_	_	_	cf3[350]	_	_
+27-25	2560-2562	as	_	_	_	cf3[350]	_	_
+27-26	2563-2565	an	_	_	_	cf3[350]|cf6[354]	_	_
+27-27	2566-2571	actor	_	_	_	cf3[350]|cf6[354]	_	_
+27-28	2572-2573	.	_	_	_	_	_	_
 
 #Text=She later studied at the Conservatoire de Paris .
-28-1	2574-2577	She	person[355]	giv:act[355]	Jeanne_Moreau[355]	ana	29-1[360_355]
-28-2	2578-2583	later	_	_	_	_	_
-28-3	2584-2591	studied	_	_	_	_	_
-28-4	2592-2594	at	_	_	_	_	_
-28-5	2595-2598	the	organization[358]	new[358]	Conservatoire_de_Paris[358]	coref	29-9[366_358]
-28-6	2599-2612	Conservatoire	organization[358]	new[358]	Conservatoire_de_Paris[358]	_	_
-28-7	2613-2615	de	organization[358]	new[358]	Conservatoire_de_Paris[358]	_	_
-28-8	2616-2621	Paris	organization[358]	new[358]	Conservatoire_de_Paris[358]	_	_
-28-9	2622-2623	.	_	_	_	_	_
+28-1	2574-2577	She	person[355]	giv:act[355]	Jeanne_Moreau[355]	cf1*[355]	ana	29-1[360_355]
+28-2	2578-2583	later	_	_	_	_	_	_
+28-3	2584-2591	studied	_	_	_	_	_	_
+28-4	2592-2594	at	_	_	_	_	_	_
+28-5	2595-2598	the	organization[358]	new[358]	Conservatoire_de_Paris[358]	cf2[358]	coref	29-9[366_358]
+28-6	2599-2612	Conservatoire	organization[358]	new[358]	Conservatoire_de_Paris[358]	cf2[358]	_	_
+28-7	2613-2615	de	organization[358]	new[358]	Conservatoire_de_Paris[358]	cf2[358]	_	_
+28-8	2616-2621	Paris	organization[358]	new[358]	Conservatoire_de_Paris[358]	cf2[358]	_	_
+28-9	2622-2623	.	_	_	_	_	_	_
 
 #Text=Her parents separated permanently while Moreau was at the conservatory and her mother , " after 24 difficult years in France , returned to England with Jeanne 's [ 6 ] sister , Michelle . " [ 6 ]
-29-1	2624-2627	Her	person[360]	giv:act[360]	Jeanne_Moreau[360]	coref	29-6[361_360]
-29-2	2628-2635	parents	_	_	_	_	_
-29-3	2636-2645	separated	_	_	_	_	_
-29-4	2646-2657	permanently	_	_	_	_	_
-29-5	2658-2663	while	_	_	_	_	_
-29-6	2664-2670	Moreau	person[361]	giv:act[361]	Jeanne_Moreau[361]	ana	29-12[368_361]
-29-7	2671-2674	was	_	_	_	_	_
-29-8	2675-2677	at	_	_	_	_	_
-29-9	2678-2681	the	organization[366]	giv:act[366]	Conservatoire_de_Paris[366]	_	_
-29-10	2682-2694	conservatory	organization[366]	giv:act[366]	Conservatoire_de_Paris[366]	_	_
-29-11	2695-2698	and	_	_	_	_	_
-29-12	2699-2702	her	person[367]|person[368]	giv:inact[367]|giv:act[368]	Jeanne_Moreau[368]	coref	29-27[379_368]
-29-13	2703-2709	mother	person[367]	giv:inact[367]	_	_	_
-29-14	2710-2711	,	_	_	_	_	_
-29-15	2712-2713	"	_	_	_	_	_
-29-16	2714-2719	after	_	_	_	_	_
-29-17	2720-2722	24	_	_	_	_	_
-29-18	2723-2732	difficult	_	_	_	_	_
-29-19	2733-2738	years	_	_	_	_	_
-29-20	2739-2741	in	_	_	_	_	_
-29-21	2742-2748	France	place[372]	giv:inact[372]	France[372]	_	_
-29-22	2749-2750	,	_	_	_	_	_
-29-23	2751-2759	returned	_	_	_	_	_
-29-24	2760-2762	to	_	_	_	_	_
-29-25	2763-2770	England	place[373]	giv:inact[373]	England[373]	_	_
-29-26	2771-2775	with	_	_	_	_	_
-29-27	2776-2782	Jeanne	person[379]	giv:act[379]	Jeanne_Moreau[379]	coref	31-4[385_379]
-29-28	2783-2785	's	person[379]	giv:act[379]	Jeanne_Moreau[379]	_	_
-29-29	2786-2787	[	_	_	_	_	_
-29-30	2788-2789	6	_	_	_	_	_
-29-31	2790-2791	]	_	_	_	_	_
-29-32	2792-2798	sister	_	_	_	_	_
-29-33	2799-2800	,	_	_	_	_	_
-29-34	2801-2809	Michelle	_	_	_	_	_
-29-35	2810-2811	.	_	_	_	_	_
-29-36	2812-2813	"	_	_	_	_	_
-29-37	2814-2815	[	_	_	_	_	_
-29-38	2816-2817	6	_	_	_	_	_
-29-39	2818-2819	]	_	_	_	_	_
+29-1	2624-2627	Her	person[360]	giv:act[360]	Jeanne_Moreau[360]	cf8[359]|cf1*[360]	coref	29-6[361_360]
+29-2	2628-2635	parents	_	_	_	cf8[359]	_	_
+29-3	2636-2645	separated	_	_	_	_	_	_
+29-4	2646-2657	permanently	_	_	_	_	_	_
+29-5	2658-2663	while	_	_	_	_	_	_
+29-6	2664-2670	Moreau	person[361]	giv:act[361]	Jeanne_Moreau[361]	cf1*[361]	ana	29-12[368_361]
+29-7	2671-2674	was	_	_	_	_	_	_
+29-8	2675-2677	at	_	_	_	_	_	_
+29-9	2678-2681	the	organization[366]	giv:act[366]	Conservatoire_de_Paris[366]	cf2[366]	_	_
+29-10	2682-2694	conservatory	organization[366]	giv:act[366]	Conservatoire_de_Paris[366]	cf2[366]	_	_
+29-11	2695-2698	and	_	_	_	_	_	_
+29-12	2699-2702	her	person[367]|person[368]	giv:inact[367]|giv:act[368]	Jeanne_Moreau[368]	cf5[367]|cf1*[368]	coref	29-27[379_368]
+29-13	2703-2709	mother	person[367]	giv:inact[367]	_	cf5[367]	_	_
+29-14	2710-2711	,	_	_	_	_	_	_
+29-15	2712-2713	"	_	_	_	_	_	_
+29-16	2714-2719	after	_	_	_	_	_	_
+29-17	2720-2722	24	_	_	_	cf9[371]	_	_
+29-18	2723-2732	difficult	_	_	_	cf9[371]	_	_
+29-19	2733-2738	years	_	_	_	cf9[371]	_	_
+29-20	2739-2741	in	_	_	_	cf9[371]	_	_
+29-21	2742-2748	France	place[372]	giv:inact[372]	France[372]	cf9[371]|cf6[372]	_	_
+29-22	2749-2750	,	_	_	_	_	_	_
+29-23	2751-2759	returned	_	_	_	_	_	_
+29-24	2760-2762	to	_	_	_	_	_	_
+29-25	2763-2770	England	place[373]	giv:inact[373]	England[373]	cf7[373]	_	_
+29-26	2771-2775	with	_	_	_	_	_	_
+29-27	2776-2782	Jeanne	person[379]	giv:act[379]	Jeanne_Moreau[379]	cf3[378]|cf1*[379]	coref	31-4[385_379]
+29-28	2783-2785	's	person[379]	giv:act[379]	Jeanne_Moreau[379]	cf3[378]|cf1*[379]	_	_
+29-29	2786-2787	[	_	_	_	cf3[378]	_	_
+29-30	2788-2789	6	_	_	_	cf3[378]|cf4[380]	_	_
+29-31	2790-2791	]	_	_	_	cf3[378]	_	_
+29-32	2792-2798	sister	_	_	_	cf3[378]	_	_
+29-33	2799-2800	,	_	_	_	_	_	_
+29-34	2801-2809	Michelle	_	_	_	cf3[381]	_	_
+29-35	2810-2811	.	_	_	_	_	_	_
+29-36	2812-2813	"	_	_	_	_	_	_
+29-37	2814-2815	[	_	_	_	_	_	_
+29-38	2816-2817	6	_	_	_	cf4[382]	_	_
+29-39	2818-2819	]	_	_	_	_	_	_
 
 #Text=Career
-30-1	2820-2826	Career	_	_	_	_	_
+30-1	2820-2826	Career	_	_	_	cf1[383]	_	_
 
 #Text=In 1947 , Moreau made her theatrical debut at the Avignon Festival .
-31-1	2827-2829	In	_	_	_	_	_
-31-2	2830-2834	1947	_	_	_	_	_
-31-3	2835-2836	,	_	_	_	_	_
-31-4	2837-2843	Moreau	person[385]	giv:inact[385]	Jeanne_Moreau[385]	ana	31-6[399_385]
-31-5	2844-2848	made	_	_	_	_	_
-31-6	2849-2852	her	event[398]|person[399]	giv:inact[398]|giv:act[399]	Jeanne_Moreau[399]	ana	32-1[404_399]
-31-7	2853-2863	theatrical	event[398]	giv:inact[398]	_	_	_
-31-8	2864-2869	debut	event[398]	giv:inact[398]	_	_	_
-31-9	2870-2872	at	_	_	_	_	_
-31-10	2873-2876	the	_	_	_	_	_
-31-11	2877-2884	Avignon	_	_	_	_	_
-31-12	2885-2893	Festival	_	_	_	_	_
-31-13	2894-2895	.	_	_	_	_	_
+31-1	2827-2829	In	_	_	_	_	_	_
+31-2	2830-2834	1947	_	_	_	cf3[384]	_	_
+31-3	2835-2836	,	_	_	_	_	_	_
+31-4	2837-2843	Moreau	person[385]	giv:inact[385]	Jeanne_Moreau[385]	cf1[385]	ana	31-6[399_385]
+31-5	2844-2848	made	_	_	_	_	_	_
+31-6	2849-2852	her	event[398]|person[399]	giv:inact[398]|giv:act[399]	Jeanne_Moreau[399]	cf2[398]|cf1[399]	ana	32-1[404_399]
+31-7	2853-2863	theatrical	event[398]	giv:inact[398]	_	cf2[398]	_	_
+31-8	2864-2869	debut	event[398]	giv:inact[398]	_	cf2[398]	_	_
+31-9	2870-2872	at	_	_	_	_	_	_
+31-10	2873-2876	the	_	_	_	cf4[402]	_	_
+31-11	2877-2884	Avignon	_	_	_	cf4[402]|cf5[403]	_	_
+31-12	2885-2893	Festival	_	_	_	cf4[402]	_	_
+31-13	2894-2895	.	_	_	_	_	_	_
 
 #Text=She debuted at the Comédie - Française in Ivan Turgenev 's A Month in the Country [ 6 ] and , by her 20s , was already one of leading actresses in the theatre 's troupe . [ 2 ]
-32-1	2896-2899	She	person[404]	giv:act[404]	Jeanne_Moreau[404]	ana	32-23[417_404]
-32-2	2900-2907	debuted	_	_	_	_	_
-32-3	2908-2910	at	_	_	_	_	_
-32-4	2911-2914	the	organization[409]	giv:inact[409]	Comédie%2DFrançaise[409]	coref	32-33[423_409]
-32-5	2915-2922	Comédie	organization[409]	giv:inact[409]	Comédie%2DFrançaise[409]	_	_
-32-6	2923-2924	-	organization[409]	giv:inact[409]	Comédie%2DFrançaise[409]	_	_
-32-7	2925-2934	Française	organization[409]	giv:inact[409]	Comédie%2DFrançaise[409]	_	_
-32-8	2935-2937	in	_	_	_	_	_
-32-9	2938-2942	Ivan	_	_	_	_	_
-32-10	2943-2951	Turgenev	_	_	_	_	_
-32-11	2952-2954	's	_	_	_	_	_
-32-12	2955-2956	A	_	_	_	_	_
-32-13	2957-2962	Month	_	_	_	_	_
-32-14	2963-2965	in	_	_	_	_	_
-32-15	2966-2969	the	_	_	_	_	_
-32-16	2970-2977	Country	_	_	_	_	_
-32-17	2978-2979	[	_	_	_	_	_
-32-18	2980-2981	6	_	_	_	_	_
-32-19	2982-2983	]	_	_	_	_	_
-32-20	2984-2987	and	_	_	_	_	_
-32-21	2988-2989	,	_	_	_	_	_
-32-22	2990-2992	by	_	_	_	_	_
-32-23	2993-2996	her	person[417]	giv:act[417]	Jeanne_Moreau[417]	ana	33-4[426_417]
-32-24	2997-3000	20s	_	_	_	_	_
-32-25	3001-3002	,	_	_	_	_	_
-32-26	3003-3006	was	_	_	_	_	_
-32-27	3007-3014	already	_	_	_	_	_
-32-28	3015-3018	one	_	_	_	_	_
-32-29	3019-3021	of	_	_	_	_	_
-32-30	3022-3029	leading	_	_	_	_	_
-32-31	3030-3039	actresses	_	_	_	_	_
-32-32	3040-3042	in	_	_	_	_	_
-32-33	3043-3046	the	organization[423]	giv:act[423]	Comédie%2DFrançaise[423]	_	_
-32-34	3047-3054	theatre	organization[423]	giv:act[423]	Comédie%2DFrançaise[423]	_	_
-32-35	3055-3057	's	organization[423]	giv:act[423]	Comédie%2DFrançaise[423]	_	_
-32-36	3058-3064	troupe	_	_	_	_	_
-32-37	3065-3066	.	_	_	_	_	_
-32-38	3067-3068	[	_	_	_	_	_
-32-39	3069-3070	2	_	_	_	_	_
-32-40	3071-3072	]	_	_	_	_	_
+32-1	2896-2899	She	person[404]	giv:act[404]	Jeanne_Moreau[404]	cf1*[404]	ana	32-23[417_404]
+32-2	2900-2907	debuted	_	_	_	_	_	_
+32-3	2908-2910	at	_	_	_	_	_	_
+32-4	2911-2914	the	organization[409]	giv:inact[409]	Comédie%2DFrançaise[409]	cf2[409]	coref	32-33[423_409]
+32-5	2915-2922	Comédie	organization[409]	giv:inact[409]	Comédie%2DFrançaise[409]	cf2[409]	_	_
+32-6	2923-2924	-	organization[409]	giv:inact[409]	Comédie%2DFrançaise[409]	cf2[409]	_	_
+32-7	2925-2934	Française	organization[409]	giv:inact[409]	Comédie%2DFrançaise[409]	cf2[409]	_	_
+32-8	2935-2937	in	_	_	_	_	_	_
+32-9	2938-2942	Ivan	_	_	_	cf8[410]|cf7[411]	_	_
+32-10	2943-2951	Turgenev	_	_	_	cf8[410]|cf7[411]	_	_
+32-11	2952-2954	's	_	_	_	cf8[410]|cf7[411]	_	_
+32-12	2955-2956	A	_	_	_	cf8[410]	_	_
+32-13	2957-2962	Month	_	_	_	cf8[410]	_	_
+32-14	2963-2965	in	_	_	_	cf8[410]	_	_
+32-15	2966-2969	the	_	_	_	cf8[410]|cf5[412]	_	_
+32-16	2970-2977	Country	_	_	_	cf8[410]|cf5[412]	_	_
+32-17	2978-2979	[	_	_	_	_	_	_
+32-18	2980-2981	6	_	_	_	cf3[413]	_	_
+32-19	2982-2983	]	_	_	_	_	_	_
+32-20	2984-2987	and	_	_	_	_	_	_
+32-21	2988-2989	,	_	_	_	_	_	_
+32-22	2990-2992	by	_	_	_	_	_	_
+32-23	2993-2996	her	person[417]	giv:act[417]	Jeanne_Moreau[417]	cf10[416]|cf1*[417]	ana	33-4[426_417]
+32-24	2997-3000	20s	_	_	_	cf10[416]	_	_
+32-25	3001-3002	,	_	_	_	_	_	_
+32-26	3003-3006	was	_	_	_	_	_	_
+32-27	3007-3014	already	_	_	_	_	_	_
+32-28	3015-3018	one	_	_	_	cf1*[420]	_	_
+32-29	3019-3021	of	_	_	_	cf1*[420]	_	_
+32-30	3022-3029	leading	_	_	_	cf1*[420]|cf9[421]	_	_
+32-31	3030-3039	actresses	_	_	_	cf1*[420]|cf9[421]	_	_
+32-32	3040-3042	in	_	_	_	cf1*[420]|cf9[421]	_	_
+32-33	3043-3046	the	organization[423]	giv:act[423]	Comédie%2DFrançaise[423]	cf1*[420]|cf9[421]|cf6[422]|cf2[423]	_	_
+32-34	3047-3054	theatre	organization[423]	giv:act[423]	Comédie%2DFrançaise[423]	cf1*[420]|cf9[421]|cf6[422]|cf2[423]	_	_
+32-35	3055-3057	's	organization[423]	giv:act[423]	Comédie%2DFrançaise[423]	cf1*[420]|cf9[421]|cf6[422]|cf2[423]	_	_
+32-36	3058-3064	troupe	_	_	_	cf1*[420]|cf9[421]|cf6[422]	_	_
+32-37	3065-3066	.	_	_	_	_	_	_
+32-38	3067-3068	[	_	_	_	_	_	_
+32-39	3069-3070	2	_	_	_	cf4[424]	_	_
+32-40	3071-3072	]	_	_	_	_	_	_
 
 #Text=After 1949 , she began appearing in films with small parts but continued primarily active in the theatre for several years — a year at the Théâtre National Populaire opposite among others Gérard Philipe and Robert Hirsch , then a breakout two years in dual roles in The Dazzling Hour by Anna Bonacci , then Jean Cocteau 's La Machine Infernale and others before another two - year run , this time in Shaw 's Pygmalion . [ 6 ]
-33-1	3073-3078	After	_	_	_	_	_
-33-2	3079-3083	1949	_	_	_	_	_
-33-3	3084-3085	,	_	_	_	_	_
-33-4	3086-3089	she	person[426]	giv:act[426]	Jeanne_Moreau[426]	ana	34-13[465_426]
-33-5	3090-3095	began	_	_	_	_	_
-33-6	3096-3105	appearing	_	_	_	_	_
-33-7	3106-3108	in	_	_	_	_	_
-33-8	3109-3114	films	_	_	_	_	_
-33-9	3115-3119	with	_	_	_	_	_
-33-10	3120-3125	small	_	_	_	_	_
-33-11	3126-3131	parts	_	_	_	_	_
-33-12	3132-3135	but	_	_	_	_	_
-33-13	3136-3145	continued	_	_	_	_	_
-33-14	3146-3155	primarily	_	_	_	_	_
-33-15	3156-3162	active	_	_	_	_	_
-33-16	3163-3165	in	_	_	_	_	_
-33-17	3166-3169	the	_	_	_	_	_
-33-18	3170-3177	theatre	_	_	_	_	_
-33-19	3178-3181	for	_	_	_	_	_
-33-20	3182-3189	several	_	_	_	_	_
-33-21	3190-3195	years	_	_	_	_	_
-33-22	3196-3197	—	_	_	_	_	_
-33-23	3198-3199	a	_	_	_	_	_
-33-24	3200-3204	year	_	_	_	_	_
-33-25	3205-3207	at	_	_	_	_	_
-33-26	3208-3211	the	_	_	_	_	_
-33-27	3212-3219	Théâtre	_	_	_	_	_
-33-28	3220-3228	National	_	_	_	_	_
-33-29	3229-3238	Populaire	_	_	_	_	_
-33-30	3239-3247	opposite	_	_	_	_	_
-33-31	3248-3253	among	_	_	_	_	_
-33-32	3254-3260	others	_	_	_	_	_
-33-33	3261-3267	Gérard	_	_	_	_	_
-33-34	3268-3275	Philipe	_	_	_	_	_
-33-35	3276-3279	and	_	_	_	_	_
-33-36	3280-3286	Robert	_	_	_	_	_
-33-37	3287-3293	Hirsch	_	_	_	_	_
-33-38	3294-3295	,	_	_	_	_	_
-33-39	3296-3300	then	_	_	_	_	_
-33-40	3301-3302	a	_	_	_	_	_
-33-41	3303-3311	breakout	_	_	_	_	_
-33-42	3312-3315	two	_	_	_	_	_
-33-43	3316-3321	years	_	_	_	_	_
-33-44	3322-3324	in	_	_	_	_	_
-33-45	3325-3329	dual	_	_	_	_	_
-33-46	3330-3335	roles	_	_	_	_	_
-33-47	3336-3338	in	_	_	_	_	_
-33-48	3339-3342	The	_	_	_	_	_
-33-49	3343-3351	Dazzling	_	_	_	_	_
-33-50	3352-3356	Hour	_	_	_	_	_
-33-51	3357-3359	by	_	_	_	_	_
-33-52	3360-3364	Anna	_	_	_	_	_
-33-53	3365-3372	Bonacci	_	_	_	_	_
-33-54	3373-3374	,	_	_	_	_	_
-33-55	3375-3379	then	_	_	_	_	_
-33-56	3380-3384	Jean	_	_	_	_	_
-33-57	3385-3392	Cocteau	_	_	_	_	_
-33-58	3393-3395	's	_	_	_	_	_
-33-59	3396-3398	La	_	_	_	_	_
-33-60	3399-3406	Machine	_	_	_	_	_
-33-61	3407-3416	Infernale	_	_	_	_	_
-33-62	3417-3420	and	_	_	_	_	_
-33-63	3421-3427	others	_	_	_	_	_
-33-64	3428-3434	before	_	_	_	_	_
-33-65	3435-3442	another	time[456]	new[456]	_	coref	33-71[457_456]
-33-66	3443-3446	two	time[456]	new[456]	_	_	_
-33-67	3447-3448	-	time[456]	new[456]	_	_	_
-33-68	3449-3453	year	time[456]	new[456]	_	_	_
-33-69	3454-3457	run	time[456]	new[456]	_	_	_
-33-70	3458-3459	,	_	_	_	_	_
-33-71	3460-3464	this	time[457]	giv:act[457]	_	_	_
-33-72	3465-3469	time	time[457]	giv:act[457]	_	_	_
-33-73	3470-3472	in	_	_	_	_	_
-33-74	3473-3477	Shaw	_	_	_	_	_
-33-75	3478-3480	's	_	_	_	_	_
-33-76	3481-3490	Pygmalion	_	_	_	_	_
-33-77	3491-3492	.	_	_	_	_	_
-33-78	3493-3494	[	_	_	_	_	_
-33-79	3495-3496	6	_	_	_	_	_
-33-80	3497-3498	]	_	_	_	_	_
+33-1	3073-3078	After	_	_	_	_	_	_
+33-2	3079-3083	1949	_	_	_	cf5[425]	_	_
+33-3	3084-3085	,	_	_	_	_	_	_
+33-4	3086-3089	she	person[426]	giv:act[426]	Jeanne_Moreau[426]	cf1*[426]	ana	34-13[465_426]
+33-5	3090-3095	began	_	_	_	_	_	_
+33-6	3096-3105	appearing	_	_	_	_	_	_
+33-7	3106-3108	in	_	_	_	_	_	_
+33-8	3109-3114	films	_	_	_	cf17[427]	_	_
+33-9	3115-3119	with	_	_	_	_	_	_
+33-10	3120-3125	small	_	_	_	cf18[436]	_	_
+33-11	3126-3131	parts	_	_	_	cf18[436]	_	_
+33-12	3132-3135	but	_	_	_	_	_	_
+33-13	3136-3145	continued	_	_	_	_	_	_
+33-14	3146-3155	primarily	_	_	_	_	_	_
+33-15	3156-3162	active	_	_	_	_	_	_
+33-16	3163-3165	in	_	_	_	_	_	_
+33-17	3166-3169	the	_	_	_	cf6[437]	_	_
+33-18	3170-3177	theatre	_	_	_	cf6[437]	_	_
+33-19	3178-3181	for	_	_	_	_	_	_
+33-20	3182-3189	several	_	_	_	cf3[438]	_	_
+33-21	3190-3195	years	_	_	_	cf3[438]	_	_
+33-22	3196-3197	—	_	_	_	_	_	_
+33-23	3198-3199	a	_	_	_	cf3[439]|cf19[440]	_	_
+33-24	3200-3204	year	_	_	_	cf3[439]|cf19[440]	_	_
+33-25	3205-3207	at	_	_	_	cf3[439]|cf19[440]	_	_
+33-26	3208-3211	the	_	_	_	cf3[439]|cf19[440]|cf7[441]	_	_
+33-27	3212-3219	Théâtre	_	_	_	cf3[439]|cf19[440]|cf7[441]	_	_
+33-28	3220-3228	National	_	_	_	cf3[439]|cf19[440]|cf7[441]	_	_
+33-29	3229-3238	Populaire	_	_	_	cf3[439]|cf19[440]|cf7[441]	_	_
+33-30	3239-3247	opposite	_	_	_	cf3[439]|cf19[440]	_	_
+33-31	3248-3253	among	_	_	_	cf3[439]|cf19[440]	_	_
+33-32	3254-3260	others	_	_	_	cf3[439]|cf19[440]|cf16[442]	_	_
+33-33	3261-3267	Gérard	_	_	_	cf3[439]|cf19[440]|cf9[445]	_	_
+33-34	3268-3275	Philipe	_	_	_	cf3[439]|cf19[440]|cf9[445]	_	_
+33-35	3276-3279	and	_	_	_	cf3[439]|cf19[440]	_	_
+33-36	3280-3286	Robert	_	_	_	cf3[439]|cf19[440]|cf10[446]	_	_
+33-37	3287-3293	Hirsch	_	_	_	cf3[439]|cf19[440]|cf10[446]	_	_
+33-38	3294-3295	,	_	_	_	cf3[439]	_	_
+33-39	3296-3300	then	_	_	_	cf3[439]	_	_
+33-40	3301-3302	a	_	_	_	cf3[439]|cf20[447]	_	_
+33-41	3303-3311	breakout	_	_	_	cf3[439]|cf20[447]	_	_
+33-42	3312-3315	two	_	_	_	cf3[439]|cf20[447]	_	_
+33-43	3316-3321	years	_	_	_	cf3[439]|cf20[447]	_	_
+33-44	3322-3324	in	_	_	_	cf3[439]|cf20[447]	_	_
+33-45	3325-3329	dual	_	_	_	cf3[439]|cf20[447]|cf21[448]	_	_
+33-46	3330-3335	roles	_	_	_	cf3[439]|cf20[447]|cf21[448]	_	_
+33-47	3336-3338	in	_	_	_	cf3[439]|cf20[447]|cf21[448]	_	_
+33-48	3339-3342	The	_	_	_	cf3[439]|cf20[447]|cf21[448]|cf8[449]	_	_
+33-49	3343-3351	Dazzling	_	_	_	cf3[439]|cf20[447]|cf21[448]|cf8[449]	_	_
+33-50	3352-3356	Hour	_	_	_	cf3[439]|cf20[447]|cf21[448]|cf8[449]	_	_
+33-51	3357-3359	by	_	_	_	cf3[439]|cf20[447]|cf21[448]|cf8[449]	_	_
+33-52	3360-3364	Anna	_	_	_	cf3[439]|cf20[447]|cf21[448]|cf8[449]|cf11[450]	_	_
+33-53	3365-3372	Bonacci	_	_	_	cf3[439]|cf20[447]|cf21[448]|cf8[449]|cf11[450]	_	_
+33-54	3373-3374	,	_	_	_	cf3[439]	_	_
+33-55	3375-3379	then	_	_	_	cf3[439]	_	_
+33-56	3380-3384	Jean	_	_	_	cf3[439]|cf14[451]|cf12[452]	_	_
+33-57	3385-3392	Cocteau	_	_	_	cf3[439]|cf14[451]|cf12[452]	_	_
+33-58	3393-3395	's	_	_	_	cf3[439]|cf14[451]|cf12[452]	_	_
+33-59	3396-3398	La	_	_	_	cf3[439]|cf14[451]	_	_
+33-60	3399-3406	Machine	_	_	_	cf3[439]|cf14[451]	_	_
+33-61	3407-3416	Infernale	_	_	_	cf3[439]|cf14[451]	_	_
+33-62	3417-3420	and	_	_	_	cf3[439]	_	_
+33-63	3421-3427	others	_	_	_	cf3[439]|cf22[453]	_	_
+33-64	3428-3434	before	_	_	_	cf3[439]	_	_
+33-65	3435-3442	another	time[456]	new[456]	_	cf3[439]|cf2[456]	coref	33-71[457_456]
+33-66	3443-3446	two	time[456]	new[456]	_	cf3[439]|cf2[456]	_	_
+33-67	3447-3448	-	time[456]	new[456]	_	cf3[439]|cf2[456]	_	_
+33-68	3449-3453	year	time[456]	new[456]	_	cf3[439]|cf2[456]	_	_
+33-69	3454-3457	run	time[456]	new[456]	_	cf3[439]|cf2[456]	_	_
+33-70	3458-3459	,	_	_	_	cf3[439]	_	_
+33-71	3460-3464	this	time[457]	giv:act[457]	_	cf3[439]|cf2[457]	_	_
+33-72	3465-3469	time	time[457]	giv:act[457]	_	cf3[439]|cf2[457]	_	_
+33-73	3470-3472	in	_	_	_	cf3[439]	_	_
+33-74	3473-3477	Shaw	_	_	_	cf3[439]|cf15[458]|cf13[459]	_	_
+33-75	3478-3480	's	_	_	_	cf3[439]|cf15[458]|cf13[459]	_	_
+33-76	3481-3490	Pygmalion	_	_	_	cf3[439]|cf15[458]	_	_
+33-77	3491-3492	.	_	_	_	_	_	_
+33-78	3493-3494	[	_	_	_	_	_	_
+33-79	3495-3496	6	_	_	_	cf4[460]	_	_
+33-80	3497-3498	]	_	_	_	_	_	_
 
 #Text=From the late 1950s , after appearing in several successful films , she began to work with the emerging generation of French film - makers .
-34-1	3499-3503	From	_	_	_	_	_
-34-2	3504-3507	the	_	_	_	_	_
-34-3	3508-3512	late	_	_	_	_	_
-34-4	3513-3518	1950s	_	_	_	_	_
-34-5	3519-3520	,	_	_	_	_	_
-34-6	3521-3526	after	_	_	_	_	_
-34-7	3527-3536	appearing	_	_	_	_	_
-34-8	3537-3539	in	_	_	_	_	_
-34-9	3540-3547	several	_	_	_	_	_
-34-10	3548-3558	successful	_	_	_	_	_
-34-11	3559-3564	films	_	_	_	_	_
-34-12	3565-3566	,	_	_	_	_	_
-34-13	3567-3570	she	person[465]	giv:act[465]	Jeanne_Moreau[465]	coref	36-1[482_465]
-34-14	3571-3576	began	_	_	_	_	_
-34-15	3577-3579	to	_	_	_	_	_
-34-16	3580-3584	work	_	_	_	_	_
-34-17	3585-3589	with	_	_	_	_	_
-34-18	3590-3593	the	_	_	_	_	_
-34-19	3594-3602	emerging	_	_	_	_	_
-34-20	3603-3613	generation	_	_	_	_	_
-34-21	3614-3616	of	_	_	_	_	_
-34-22	3617-3623	French	_	_	_	_	_
-34-23	3624-3628	film	_	_	_	_	_
-34-24	3629-3630	-	_	_	_	_	_
-34-25	3631-3637	makers	_	_	_	_	_
-34-26	3638-3639	.	_	_	_	_	_
+34-1	3499-3503	From	_	_	_	_	_	_
+34-2	3504-3507	the	_	_	_	cf3[463]	_	_
+34-3	3508-3512	late	_	_	_	cf3[463]	_	_
+34-4	3513-3518	1950s	_	_	_	cf3[463]	_	_
+34-5	3519-3520	,	_	_	_	_	_	_
+34-6	3521-3526	after	_	_	_	_	_	_
+34-7	3527-3536	appearing	_	_	_	_	_	_
+34-8	3537-3539	in	_	_	_	_	_	_
+34-9	3540-3547	several	_	_	_	cf5[464]	_	_
+34-10	3548-3558	successful	_	_	_	cf5[464]	_	_
+34-11	3559-3564	films	_	_	_	cf5[464]	_	_
+34-12	3565-3566	,	_	_	_	_	_	_
+34-13	3567-3570	she	person[465]	giv:act[465]	Jeanne_Moreau[465]	cf1*[465]	coref	36-1[482_465]
+34-14	3571-3576	began	_	_	_	_	_	_
+34-15	3577-3579	to	_	_	_	_	_	_
+34-16	3580-3584	work	_	_	_	_	_	_
+34-17	3585-3589	with	_	_	_	_	_	_
+34-18	3590-3593	the	_	_	_	cf2[468]	_	_
+34-19	3594-3602	emerging	_	_	_	cf2[468]	_	_
+34-20	3603-3613	generation	_	_	_	cf2[468]	_	_
+34-21	3614-3616	of	_	_	_	cf2[468]	_	_
+34-22	3617-3623	French	_	_	_	cf2[468]|cf4[469]	_	_
+34-23	3624-3628	film	_	_	_	cf2[468]|cf4[469]	_	_
+34-24	3629-3630	-	_	_	_	cf2[468]|cf4[469]	_	_
+34-25	3631-3637	makers	_	_	_	cf2[468]|cf4[469]	_	_
+34-26	3638-3639	.	_	_	_	_	_	_
 
 #Text=Elevator to the Gallows ( 1958 ) with first - time director Louis Malle was followed by Malle 's The Lovers ( Les Amants , 1959 ) . [ 7 ]
-35-1	3640-3648	Elevator	abstract[470]|object[471]	giv:inact[470]|giv:inact[471]	Elevator_to_the_Gallows[471]	_	_
-35-2	3649-3651	to	abstract[470]|object[471]	giv:inact[470]|giv:inact[471]	Elevator_to_the_Gallows[471]	_	_
-35-3	3652-3655	the	abstract[470]|object[471]|place[472]	giv:inact[470]|giv:inact[471]|giv:inact[472]	Elevator_to_the_Gallows[471]|Gallows[472]	_	_
-35-4	3656-3663	Gallows	abstract[470]|object[471]|place[472]	giv:inact[470]|giv:inact[471]|giv:inact[472]	Elevator_to_the_Gallows[471]|Gallows[472]	_	_
-35-5	3664-3665	(	abstract[470]	giv:inact[470]	_	_	_
-35-6	3666-3670	1958	abstract[470]	giv:inact[470]	_	_	_
-35-7	3671-3672	)	abstract[470]	giv:inact[470]	_	_	_
-35-8	3673-3677	with	_	_	_	_	_
-35-9	3678-3683	first	person[476]	giv:inact[476]	Louis_Malle[476]	coref	35-18[478_476]
-35-10	3684-3685	-	person[476]	giv:inact[476]	Louis_Malle[476]	_	_
-35-11	3686-3690	time	person[476]	giv:inact[476]	Louis_Malle[476]	_	_
-35-12	3691-3699	director	person[476]	giv:inact[476]	Louis_Malle[476]	_	_
-35-13	3700-3705	Louis	person[476]	giv:inact[476]	Louis_Malle[476]	_	_
-35-14	3706-3711	Malle	person[476]	giv:inact[476]	Louis_Malle[476]	_	_
-35-15	3712-3715	was	_	_	_	_	_
-35-16	3716-3724	followed	_	_	_	_	_
-35-17	3725-3727	by	_	_	_	_	_
-35-18	3728-3733	Malle	person[478]	giv:act[478]	Louis_Malle[478]	_	_
-35-19	3734-3736	's	person[478]	giv:act[478]	Louis_Malle[478]	_	_
-35-20	3737-3740	The	_	_	_	_	_
-35-21	3741-3747	Lovers	_	_	_	_	_
-35-22	3748-3749	(	_	_	_	_	_
-35-23	3750-3753	Les	_	_	_	_	_
-35-24	3754-3760	Amants	_	_	_	_	_
-35-25	3761-3762	,	_	_	_	_	_
-35-26	3763-3767	1959	_	_	_	_	_
-35-27	3768-3769	)	_	_	_	_	_
-35-28	3770-3771	.	_	_	_	_	_
-35-29	3772-3773	[	_	_	_	_	_
-35-30	3774-3775	7	_	_	_	_	_
-35-31	3776-3777	]	_	_	_	_	_
+35-1	3640-3648	Elevator	abstract[470]|object[471]	giv:inact[470]|giv:inact[471]	Elevator_to_the_Gallows[471]	cf3[470]|cf4[471]	_	_
+35-2	3649-3651	to	abstract[470]|object[471]	giv:inact[470]|giv:inact[471]	Elevator_to_the_Gallows[471]	cf3[470]|cf4[471]	_	_
+35-3	3652-3655	the	abstract[470]|object[471]|place[472]	giv:inact[470]|giv:inact[471]|giv:inact[472]	Elevator_to_the_Gallows[471]|Gallows[472]	cf3[470]|cf4[471]|cf5[472]	_	_
+35-4	3656-3663	Gallows	abstract[470]|object[471]|place[472]	giv:inact[470]|giv:inact[471]|giv:inact[472]	Elevator_to_the_Gallows[471]|Gallows[472]	cf3[470]|cf4[471]|cf5[472]	_	_
+35-5	3664-3665	(	abstract[470]	giv:inact[470]	_	cf3[470]	_	_
+35-6	3666-3670	1958	abstract[470]	giv:inact[470]	_	cf3[470]|cf6[473]	_	_
+35-7	3671-3672	)	abstract[470]	giv:inact[470]	_	cf3[470]	_	_
+35-8	3673-3677	with	_	_	_	_	_	_
+35-9	3678-3683	first	person[476]	giv:inact[476]	Louis_Malle[476]	cf1[476]	coref	35-18[478_476]
+35-10	3684-3685	-	person[476]	giv:inact[476]	Louis_Malle[476]	cf1[476]	_	_
+35-11	3686-3690	time	person[476]	giv:inact[476]	Louis_Malle[476]	cf1[476]	_	_
+35-12	3691-3699	director	person[476]	giv:inact[476]	Louis_Malle[476]	cf1[476]	_	_
+35-13	3700-3705	Louis	person[476]	giv:inact[476]	Louis_Malle[476]	cf1[476]	_	_
+35-14	3706-3711	Malle	person[476]	giv:inact[476]	Louis_Malle[476]	cf1[476]	_	_
+35-15	3712-3715	was	_	_	_	_	_	_
+35-16	3716-3724	followed	_	_	_	_	_	_
+35-17	3725-3727	by	_	_	_	_	_	_
+35-18	3728-3733	Malle	person[478]	giv:act[478]	Louis_Malle[478]	cf2[477]|cf1[478]	_	_
+35-19	3734-3736	's	person[478]	giv:act[478]	Louis_Malle[478]	cf2[477]|cf1[478]	_	_
+35-20	3737-3740	The	_	_	_	cf2[477]	_	_
+35-21	3741-3747	Lovers	_	_	_	cf2[477]	_	_
+35-22	3748-3749	(	_	_	_	_	_	_
+35-23	3750-3753	Les	_	_	_	cf2[479]	_	_
+35-24	3754-3760	Amants	_	_	_	cf2[479]	_	_
+35-25	3761-3762	,	_	_	_	cf2[479]	_	_
+35-26	3763-3767	1959	_	_	_	cf2[479]|cf7[480]	_	_
+35-27	3768-3769	)	_	_	_	_	_	_
+35-28	3770-3771	.	_	_	_	_	_	_
+35-29	3772-3773	[	_	_	_	_	_	_
+35-30	3774-3775	7	_	_	_	cf8[481]	_	_
+35-31	3776-3777	]	_	_	_	_	_	_
 
 #Text=Moreau went on to work with many of the best known New Wave and avant - garde directors . [ 2 ]
-36-1	3778-3784	Moreau	person[482]	giv:inact[482]	Jeanne_Moreau[482]	ana	37-14[509_482]
-36-2	3785-3789	went	_	_	_	_	_
-36-3	3790-3792	on	_	_	_	_	_
-36-4	3793-3795	to	_	_	_	_	_
-36-5	3796-3800	work	_	_	_	_	_
-36-6	3801-3805	with	_	_	_	_	_
-36-7	3806-3810	many	_	_	_	_	_
-36-8	3811-3813	of	_	_	_	_	_
-36-9	3814-3817	the	_	_	_	_	_
-36-10	3818-3822	best	_	_	_	_	_
-36-11	3823-3828	known	_	_	_	_	_
-36-12	3829-3832	New	abstract[491]	new[491]	French_New_Wave[491]	coref	37-4[497_491]
-36-13	3833-3837	Wave	abstract[491]	new[491]	French_New_Wave[491]	_	_
-36-14	3838-3841	and	_	_	_	_	_
-36-15	3842-3847	avant	_	_	_	_	_
-36-16	3848-3849	-	_	_	_	_	_
-36-17	3850-3855	garde	_	_	_	_	_
-36-18	3856-3865	directors	_	_	_	_	_
-36-19	3866-3867	.	_	_	_	_	_
-36-20	3868-3869	[	_	_	_	_	_
-36-21	3870-3871	2	_	_	_	_	_
-36-22	3872-3873	]	_	_	_	_	_
+36-1	3778-3784	Moreau	person[482]	giv:inact[482]	Jeanne_Moreau[482]	cf1[482]	ana	37-14[509_482]
+36-2	3785-3789	went	_	_	_	_	_	_
+36-3	3790-3792	on	_	_	_	_	_	_
+36-4	3793-3795	to	_	_	_	_	_	_
+36-5	3796-3800	work	_	_	_	_	_	_
+36-6	3801-3805	with	_	_	_	_	_	_
+36-7	3806-3810	many	_	_	_	cf4[489]	_	_
+36-8	3811-3813	of	_	_	_	cf4[489]	_	_
+36-9	3814-3817	the	_	_	_	cf4[489]|cf3[490]	_	_
+36-10	3818-3822	best	_	_	_	cf4[489]|cf3[490]	_	_
+36-11	3823-3828	known	_	_	_	cf4[489]|cf3[490]	_	_
+36-12	3829-3832	New	abstract[491]	new[491]	French_New_Wave[491]	cf4[489]|cf3[490]|cf5[491]	coref	37-4[497_491]
+36-13	3833-3837	Wave	abstract[491]	new[491]	French_New_Wave[491]	cf4[489]|cf3[490]|cf5[491]	_	_
+36-14	3838-3841	and	_	_	_	cf4[489]|cf3[490]	_	_
+36-15	3842-3847	avant	_	_	_	cf4[489]|cf3[490]	_	_
+36-16	3848-3849	-	_	_	_	cf4[489]|cf3[490]	_	_
+36-17	3850-3855	garde	_	_	_	cf4[489]|cf3[490]	_	_
+36-18	3856-3865	directors	_	_	_	cf4[489]|cf3[490]	_	_
+36-19	3866-3867	.	_	_	_	_	_	_
+36-20	3868-3869	[	_	_	_	_	_	_
+36-21	3870-3871	2	_	_	_	cf2[492]	_	_
+36-22	3872-3873	]	_	_	_	_	_	_
 
 #Text=François Truffaut 's New Wave film Jules et Jim ( 1962 ) , her biggest success internationally , is centered on her magnetic starring role . [ 2 ]
-37-1	3874-3882	François	person[496]|abstract[679]	giv:inact[496]|giv:inact[679]	François_Truffaut[496]	coref	37-14[508_679]
-37-2	3883-3891	Truffaut	person[496]|abstract[679]	giv:inact[496]|giv:inact[679]	François_Truffaut[496]	_	_
-37-3	3892-3894	's	person[496]|abstract[679]	giv:inact[496]|giv:inact[679]	François_Truffaut[496]	_	_
-37-4	3895-3898	New	abstract[497]|abstract[679]	giv:act[497]|giv:inact[679]	French_New_Wave[497]	_	_
-37-5	3899-3903	Wave	abstract[497]|abstract[679]	giv:act[497]|giv:inact[679]	French_New_Wave[497]	_	_
-37-6	3904-3908	film	abstract[679]	giv:inact[679]	_	_	_
-37-7	3909-3914	Jules	person[499]|abstract[679]	giv:inact[499]|giv:inact[679]	_	_	_
-37-8	3915-3917	et	abstract[679]	giv:inact[679]	_	_	_
-37-9	3918-3921	Jim	person[500]|abstract[679]	giv:inact[500]|giv:inact[679]	_	_	_
-37-10	3922-3923	(	abstract[679]	giv:inact[679]	_	_	_
-37-11	3924-3928	1962	abstract[679]	giv:inact[679]	_	_	_
-37-12	3929-3930	)	abstract[679]	giv:inact[679]	_	_	_
-37-13	3931-3932	,	_	_	_	_	_
-37-14	3933-3936	her	abstract[508]|person[509]	giv:act[508]|giv:act[509]	Jules_and_Jim[508]|Jeanne_Moreau[509]	ana	37-22[513_509]
-37-15	3937-3944	biggest	abstract[508]	giv:act[508]	Jules_and_Jim[508]	_	_
-37-16	3945-3952	success	abstract[508]	giv:act[508]	Jules_and_Jim[508]	_	_
-37-17	3953-3968	internationally	abstract[508]	giv:act[508]	Jules_and_Jim[508]	_	_
-37-18	3969-3970	,	_	_	_	_	_
-37-19	3971-3973	is	_	_	_	_	_
-37-20	3974-3982	centered	_	_	_	_	_
-37-21	3983-3985	on	_	_	_	_	_
-37-22	3986-3989	her	person[513]	giv:act[513]	Jeanne_Moreau[513]	ana	38-1[515_513]
-37-23	3990-3998	magnetic	_	_	_	_	_
-37-24	3999-4007	starring	_	_	_	_	_
-37-25	4008-4012	role	_	_	_	_	_
-37-26	4013-4014	.	_	_	_	_	_
-37-27	4015-4016	[	_	_	_	_	_
-37-28	4017-4018	2	_	_	_	_	_
-37-29	4019-4020	]	_	_	_	_	_
+37-1	3874-3882	François	person[496]|abstract[679]	giv:inact[496]|giv:inact[679]	François_Truffaut[496]	cf2[495]|cf5[496]	coref	37-14[508_679]
+37-2	3883-3891	Truffaut	person[496]|abstract[679]	giv:inact[496]|giv:inact[679]	François_Truffaut[496]	cf2[495]|cf5[496]	_	_
+37-3	3892-3894	's	person[496]|abstract[679]	giv:inact[496]|giv:inact[679]	François_Truffaut[496]	cf2[495]|cf5[496]	_	_
+37-4	3895-3898	New	abstract[497]|abstract[679]	giv:act[497]|giv:inact[679]	French_New_Wave[497]	cf2[495]|cf4[497]	_	_
+37-5	3899-3903	Wave	abstract[497]|abstract[679]	giv:act[497]|giv:inact[679]	French_New_Wave[497]	cf2[495]|cf4[497]	_	_
+37-6	3904-3908	film	abstract[679]	giv:inact[679]	_	cf2[495]	_	_
+37-7	3909-3914	Jules	person[499]|abstract[679]	giv:inact[499]|giv:inact[679]	_	cf2[498]|cf6[499]	_	_
+37-8	3915-3917	et	abstract[679]	giv:inact[679]	_	cf2[498]	_	_
+37-9	3918-3921	Jim	person[500]|abstract[679]	giv:inact[500]|giv:inact[679]	_	cf2[498]|cf7[500]	_	_
+37-10	3922-3923	(	abstract[679]	giv:inact[679]	_	cf2[498]	_	_
+37-11	3924-3928	1962	abstract[679]	giv:inact[679]	_	cf2[498]|cf8[501]	_	_
+37-12	3929-3930	)	abstract[679]	giv:inact[679]	_	cf2[498]	_	_
+37-13	3931-3932	,	_	_	_	_	_	_
+37-14	3933-3936	her	abstract[508]|person[509]	giv:act[508]|giv:act[509]	Jules_and_Jim[508]|Jeanne_Moreau[509]	cf2[508]|cf1*[509]	ana	37-22[513_509]
+37-15	3937-3944	biggest	abstract[508]	giv:act[508]	Jules_and_Jim[508]	cf2[508]	_	_
+37-16	3945-3952	success	abstract[508]	giv:act[508]	Jules_and_Jim[508]	cf2[508]	_	_
+37-17	3953-3968	internationally	abstract[508]	giv:act[508]	Jules_and_Jim[508]	cf2[508]	_	_
+37-18	3969-3970	,	_	_	_	_	_	_
+37-19	3971-3973	is	_	_	_	_	_	_
+37-20	3974-3982	centered	_	_	_	_	_	_
+37-21	3983-3985	on	_	_	_	_	_	_
+37-22	3986-3989	her	person[513]	giv:act[513]	Jeanne_Moreau[513]	cf9[512]|cf1*[513]	ana	38-1[515_513]
+37-23	3990-3998	magnetic	_	_	_	cf9[512]	_	_
+37-24	3999-4007	starring	_	_	_	cf9[512]	_	_
+37-25	4008-4012	role	_	_	_	cf9[512]	_	_
+37-26	4013-4014	.	_	_	_	_	_	_
+37-27	4015-4016	[	_	_	_	_	_	_
+37-28	4017-4018	2	_	_	_	cf3[514]	_	_
+37-29	4019-4020	]	_	_	_	_	_	_
 
 #Text=She also worked with a number of other notable directors such as Michelangelo Antonioni ( La notte and Beyond the Clouds ) , Orson Welles ( The Trial , Chimes at Midnight and The Immortal Story ) , Luis Buñuel ( Diary of a Chambermaid ) , Elia Kazan ( The Last Tycoon ) , Rainer Werner Fassbinder ( Querelle ) , Wim Wenders ( Until the End of the World ) , Carl Foreman ( Champion and The Victors ) , and Manoel de Oliveira ( Gebo et l' Ombre ) .
-38-1	4021-4024	She	person[515]	giv:act[515]	Jeanne_Moreau[515]	ana	39-4[555_515]
-38-2	4025-4029	also	_	_	_	_	_
-38-3	4030-4036	worked	_	_	_	_	_
-38-4	4037-4041	with	_	_	_	_	_
-38-5	4042-4043	a	_	_	_	_	_
-38-6	4044-4050	number	_	_	_	_	_
-38-7	4051-4053	of	_	_	_	_	_
-38-8	4054-4059	other	_	_	_	_	_
-38-9	4060-4067	notable	_	_	_	_	_
-38-10	4068-4077	directors	_	_	_	_	_
-38-11	4078-4082	such	_	_	_	_	_
-38-12	4083-4085	as	_	_	_	_	_
-38-13	4086-4098	Michelangelo	_	_	_	_	_
-38-14	4099-4108	Antonioni	_	_	_	_	_
-38-15	4109-4110	(	_	_	_	_	_
-38-16	4111-4113	La	_	_	_	_	_
-38-17	4114-4119	notte	_	_	_	_	_
-38-18	4120-4123	and	_	_	_	_	_
-38-19	4124-4130	Beyond	_	_	_	_	_
-38-20	4131-4134	the	_	_	_	_	_
-38-21	4135-4141	Clouds	_	_	_	_	_
-38-22	4142-4143	)	_	_	_	_	_
-38-23	4144-4145	,	_	_	_	_	_
-38-24	4146-4151	Orson	_	_	_	_	_
-38-25	4152-4158	Welles	_	_	_	_	_
-38-26	4159-4160	(	_	_	_	_	_
-38-27	4161-4164	The	_	_	_	_	_
-38-28	4165-4170	Trial	_	_	_	_	_
-38-29	4171-4172	,	_	_	_	_	_
-38-30	4173-4179	Chimes	_	_	_	_	_
-38-31	4180-4182	at	_	_	_	_	_
-38-32	4183-4191	Midnight	_	_	_	_	_
-38-33	4192-4195	and	_	_	_	_	_
-38-34	4196-4199	The	_	_	_	_	_
-38-35	4200-4208	Immortal	_	_	_	_	_
-38-36	4209-4214	Story	_	_	_	_	_
-38-37	4215-4216	)	_	_	_	_	_
-38-38	4217-4218	,	_	_	_	_	_
-38-39	4219-4223	Luis	_	_	_	_	_
-38-40	4224-4230	Buñuel	_	_	_	_	_
-38-41	4231-4232	(	_	_	_	_	_
-38-42	4233-4238	Diary	_	_	_	_	_
-38-43	4239-4241	of	_	_	_	_	_
-38-44	4242-4243	a	_	_	_	_	_
-38-45	4244-4255	Chambermaid	_	_	_	_	_
-38-46	4256-4257	)	_	_	_	_	_
-38-47	4258-4259	,	_	_	_	_	_
-38-48	4260-4264	Elia	_	_	_	_	_
-38-49	4265-4270	Kazan	_	_	_	_	_
-38-50	4271-4272	(	_	_	_	_	_
-38-51	4273-4276	The	_	_	_	_	_
-38-52	4277-4281	Last	_	_	_	_	_
-38-53	4282-4288	Tycoon	_	_	_	_	_
-38-54	4289-4290	)	_	_	_	_	_
-38-55	4291-4292	,	_	_	_	_	_
-38-56	4293-4299	Rainer	_	_	_	_	_
-38-57	4300-4306	Werner	_	_	_	_	_
-38-58	4307-4317	Fassbinder	_	_	_	_	_
-38-59	4318-4319	(	_	_	_	_	_
-38-60	4320-4328	Querelle	_	_	_	_	_
-38-61	4329-4330	)	_	_	_	_	_
-38-62	4331-4332	,	_	_	_	_	_
-38-63	4333-4336	Wim	_	_	_	_	_
-38-64	4337-4344	Wenders	_	_	_	_	_
-38-65	4345-4346	(	_	_	_	_	_
-38-66	4347-4352	Until	_	_	_	_	_
-38-67	4353-4356	the	_	_	_	_	_
-38-68	4357-4360	End	_	_	_	_	_
-38-69	4361-4363	of	_	_	_	_	_
-38-70	4364-4367	the	_	_	_	_	_
-38-71	4368-4373	World	_	_	_	_	_
-38-72	4374-4375	)	_	_	_	_	_
-38-73	4376-4377	,	_	_	_	_	_
-38-74	4378-4382	Carl	_	_	_	_	_
-38-75	4383-4390	Foreman	_	_	_	_	_
-38-76	4391-4392	(	_	_	_	_	_
-38-77	4393-4401	Champion	_	_	_	_	_
-38-78	4402-4405	and	_	_	_	_	_
-38-79	4406-4409	The	_	_	_	_	_
-38-80	4410-4417	Victors	_	_	_	_	_
-38-81	4418-4419	)	_	_	_	_	_
-38-82	4420-4421	,	_	_	_	_	_
-38-83	4422-4425	and	_	_	_	_	_
-38-84	4426-4432	Manoel	_	_	_	_	_
-38-85	4433-4435	de	_	_	_	_	_
-38-86	4436-4444	Oliveira	_	_	_	_	_
-38-87	4445-4446	(	_	_	_	_	_
-38-88	4447-4451	Gebo	_	_	_	_	_
-38-89	4452-4454	et	_	_	_	_	_
-38-90	4455-4457	l'	_	_	_	_	_
-38-91	4458-4463	Ombre	_	_	_	_	_
-38-92	4464-4465	)	_	_	_	_	_
-38-93	4466-4467	.	_	_	_	_	_
+38-1	4021-4024	She	person[515]	giv:act[515]	Jeanne_Moreau[515]	cf1*[515]	ana	39-4[555_515]
+38-2	4025-4029	also	_	_	_	_	_	_
+38-3	4030-4036	worked	_	_	_	_	_	_
+38-4	4037-4041	with	_	_	_	_	_	_
+38-5	4042-4043	a	_	_	_	cf26[522]	_	_
+38-6	4044-4050	number	_	_	_	cf26[522]	_	_
+38-7	4051-4053	of	_	_	_	cf26[522]	_	_
+38-8	4054-4059	other	_	_	_	cf26[522]	_	_
+38-9	4060-4067	notable	_	_	_	cf26[522]	_	_
+38-10	4068-4077	directors	_	_	_	cf26[522]	_	_
+38-11	4078-4082	such	_	_	_	cf26[522]	_	_
+38-12	4083-4085	as	_	_	_	cf26[522]	_	_
+38-13	4086-4098	Michelangelo	_	_	_	cf26[522]|cf9[523]	_	_
+38-14	4099-4108	Antonioni	_	_	_	cf26[522]|cf9[523]	_	_
+38-15	4109-4110	(	_	_	_	cf26[522]	_	_
+38-16	4111-4113	La	_	_	_	cf26[522]|cf18[524]	_	_
+38-17	4114-4119	notte	_	_	_	cf26[522]|cf18[524]	_	_
+38-18	4120-4123	and	_	_	_	cf26[522]	_	_
+38-19	4124-4130	Beyond	_	_	_	cf26[522]|cf19[525]	_	_
+38-20	4131-4134	the	_	_	_	cf26[522]|cf19[525]|cf2[526]	_	_
+38-21	4135-4141	Clouds	_	_	_	cf26[522]|cf19[525]|cf2[526]	_	_
+38-22	4142-4143	)	_	_	_	cf26[522]	_	_
+38-23	4144-4145	,	_	_	_	cf26[522]	_	_
+38-24	4146-4151	Orson	_	_	_	cf26[522]|cf10[527]	_	_
+38-25	4152-4158	Welles	_	_	_	cf26[522]|cf10[527]	_	_
+38-26	4159-4160	(	_	_	_	cf26[522]	_	_
+38-27	4161-4164	The	_	_	_	cf26[522]|cf3[528]	_	_
+38-28	4165-4170	Trial	_	_	_	cf26[522]|cf3[528]	_	_
+38-29	4171-4172	,	_	_	_	cf26[522]	_	_
+38-30	4173-4179	Chimes	_	_	_	cf26[522]|cf20[529]	_	_
+38-31	4180-4182	at	_	_	_	cf26[522]|cf20[529]	_	_
+38-32	4183-4191	Midnight	_	_	_	cf26[522]|cf20[529]|cf21[530]	_	_
+38-33	4192-4195	and	_	_	_	cf26[522]	_	_
+38-34	4196-4199	The	_	_	_	cf26[522]|cf4[533]	_	_
+38-35	4200-4208	Immortal	_	_	_	cf26[522]|cf4[533]	_	_
+38-36	4209-4214	Story	_	_	_	cf26[522]|cf4[533]	_	_
+38-37	4215-4216	)	_	_	_	cf26[522]	_	_
+38-38	4217-4218	,	_	_	_	cf26[522]	_	_
+38-39	4219-4223	Luis	_	_	_	cf26[522]|cf11[534]	_	_
+38-40	4224-4230	Buñuel	_	_	_	cf26[522]|cf11[534]	_	_
+38-41	4231-4232	(	_	_	_	cf26[522]	_	_
+38-42	4233-4238	Diary	_	_	_	cf26[522]|cf22[535]	_	_
+38-43	4239-4241	of	_	_	_	cf26[522]|cf22[535]	_	_
+38-44	4242-4243	a	_	_	_	cf26[522]|cf22[535]|cf12[536]	_	_
+38-45	4244-4255	Chambermaid	_	_	_	cf26[522]|cf22[535]|cf12[536]	_	_
+38-46	4256-4257	)	_	_	_	cf26[522]	_	_
+38-47	4258-4259	,	_	_	_	cf26[522]	_	_
+38-48	4260-4264	Elia	_	_	_	cf26[522]|cf13[537]	_	_
+38-49	4265-4270	Kazan	_	_	_	cf26[522]|cf13[537]	_	_
+38-50	4271-4272	(	_	_	_	cf26[522]	_	_
+38-51	4273-4276	The	_	_	_	cf26[522]|cf5[538]	_	_
+38-52	4277-4281	Last	_	_	_	cf26[522]|cf5[538]	_	_
+38-53	4282-4288	Tycoon	_	_	_	cf26[522]|cf5[538]	_	_
+38-54	4289-4290	)	_	_	_	cf26[522]	_	_
+38-55	4291-4292	,	_	_	_	cf26[522]	_	_
+38-56	4293-4299	Rainer	_	_	_	cf26[522]|cf14[539]	_	_
+38-57	4300-4306	Werner	_	_	_	cf26[522]|cf14[539]	_	_
+38-58	4307-4317	Fassbinder	_	_	_	cf26[522]|cf14[539]	_	_
+38-59	4318-4319	(	_	_	_	cf26[522]	_	_
+38-60	4320-4328	Querelle	_	_	_	cf26[522]|cf23[540]	_	_
+38-61	4329-4330	)	_	_	_	cf26[522]	_	_
+38-62	4331-4332	,	_	_	_	cf26[522]	_	_
+38-63	4333-4336	Wim	_	_	_	cf26[522]|cf15[543]	_	_
+38-64	4337-4344	Wenders	_	_	_	cf26[522]|cf15[543]	_	_
+38-65	4345-4346	(	_	_	_	cf26[522]	_	_
+38-66	4347-4352	Until	_	_	_	cf26[522]|cf27[544]	_	_
+38-67	4353-4356	the	_	_	_	cf26[522]|cf27[544]|cf6[545]	_	_
+38-68	4357-4360	End	_	_	_	cf26[522]|cf27[544]|cf6[545]	_	_
+38-69	4361-4363	of	_	_	_	cf26[522]|cf27[544]|cf6[545]	_	_
+38-70	4364-4367	the	_	_	_	cf26[522]|cf27[544]|cf6[545]|cf7[546]	_	_
+38-71	4368-4373	World	_	_	_	cf26[522]|cf27[544]|cf6[545]|cf7[546]	_	_
+38-72	4374-4375	)	_	_	_	cf26[522]	_	_
+38-73	4376-4377	,	_	_	_	cf26[522]	_	_
+38-74	4378-4382	Carl	_	_	_	cf26[522]|cf16[547]	_	_
+38-75	4383-4390	Foreman	_	_	_	cf26[522]|cf16[547]	_	_
+38-76	4391-4392	(	_	_	_	cf26[522]	_	_
+38-77	4393-4401	Champion	_	_	_	cf26[522]|cf24[548]	_	_
+38-78	4402-4405	and	_	_	_	cf26[522]	_	_
+38-79	4406-4409	The	_	_	_	cf26[522]|cf8[551]	_	_
+38-80	4410-4417	Victors	_	_	_	cf26[522]|cf8[551]	_	_
+38-81	4418-4419	)	_	_	_	cf26[522]	_	_
+38-82	4420-4421	,	_	_	_	cf26[522]	_	_
+38-83	4422-4425	and	_	_	_	cf26[522]	_	_
+38-84	4426-4432	Manoel	_	_	_	cf26[522]|cf17[552]	_	_
+38-85	4433-4435	de	_	_	_	cf26[522]|cf17[552]	_	_
+38-86	4436-4444	Oliveira	_	_	_	cf26[522]|cf17[552]	_	_
+38-87	4445-4446	(	_	_	_	_	_	_
+38-88	4447-4451	Gebo	_	_	_	cf25[553]	_	_
+38-89	4452-4454	et	_	_	_	cf25[553]	_	_
+38-90	4455-4457	l'	_	_	_	cf25[553]	_	_
+38-91	4458-4463	Ombre	_	_	_	cf25[553]	_	_
+38-92	4464-4465	)	_	_	_	_	_	_
+38-93	4466-4467	.	_	_	_	_	_	_
 
 #Text=In 1983 , she was head of the jury at the 33rd Berlin International Film Festival . [ 8 ]
-39-1	4468-4470	In	_	_	_	_	_
-39-2	4471-4475	1983	_	_	_	_	_
-39-3	4476-4477	,	_	_	_	_	_
-39-4	4478-4481	she	person[555]	giv:act[555]	Jeanne_Moreau[555]	ana	40-4[566_555]
-39-5	4482-4485	was	_	_	_	_	_
-39-6	4486-4490	head	_	_	_	_	_
-39-7	4491-4493	of	_	_	_	_	_
-39-8	4494-4497	the	_	_	_	_	_
-39-9	4498-4502	jury	_	_	_	_	_
-39-10	4503-4505	at	_	_	_	_	_
-39-11	4506-4509	the	_	_	_	_	_
-39-12	4510-4514	33rd	_	_	_	_	_
-39-13	4515-4521	Berlin	_	_	_	_	_
-39-14	4522-4535	International	_	_	_	_	_
-39-15	4536-4540	Film	_	_	_	_	_
-39-16	4541-4549	Festival	_	_	_	_	_
-39-17	4550-4551	.	_	_	_	_	_
-39-18	4552-4553	[	_	_	_	_	_
-39-19	4554-4555	8	_	_	_	_	_
-39-20	4556-4557	]	_	_	_	_	_
+39-1	4468-4470	In	_	_	_	_	_	_
+39-2	4471-4475	1983	_	_	_	cf4[554]	_	_
+39-3	4476-4477	,	_	_	_	_	_	_
+39-4	4478-4481	she	person[555]	giv:act[555]	Jeanne_Moreau[555]	cf1*[555]	ana	40-4[566_555]
+39-5	4482-4485	was	_	_	_	_	_	_
+39-6	4486-4490	head	_	_	_	cf1*[560]	_	_
+39-7	4491-4493	of	_	_	_	cf1*[560]	_	_
+39-8	4494-4497	the	_	_	_	cf1*[560]|cf2[561]	_	_
+39-9	4498-4502	jury	_	_	_	cf1*[560]|cf2[561]	_	_
+39-10	4503-4505	at	_	_	_	cf1*[560]	_	_
+39-11	4506-4509	the	_	_	_	cf1*[560]|cf3[562]	_	_
+39-12	4510-4514	33rd	_	_	_	cf1*[560]|cf3[562]	_	_
+39-13	4515-4521	Berlin	_	_	_	cf1*[560]|cf3[562]|cf6[563]	_	_
+39-14	4522-4535	International	_	_	_	cf1*[560]|cf3[562]	_	_
+39-15	4536-4540	Film	_	_	_	cf1*[560]|cf3[562]	_	_
+39-16	4541-4549	Festival	_	_	_	cf1*[560]|cf3[562]	_	_
+39-17	4550-4551	.	_	_	_	_	_	_
+39-18	4552-4553	[	_	_	_	_	_	_
+39-19	4554-4555	8	_	_	_	cf5[564]	_	_
+39-20	4556-4557	]	_	_	_	_	_	_
 
 #Text=In 2005 , she was awarded with the Stanislavsky Award at the 27th Moscow International Film Festival . [ 9 ]
-40-1	4558-4560	In	_	_	_	_	_
-40-2	4561-4565	2005	_	_	_	_	_
-40-3	4566-4567	,	_	_	_	_	_
-40-4	4568-4571	she	person[566]	giv:act[566]	Jeanne_Moreau[566]	coref	41-1[582_566]
-40-5	4572-4575	was	_	_	_	_	_
-40-6	4576-4583	awarded	_	_	_	_	_
-40-7	4584-4588	with	_	_	_	_	_
-40-8	4589-4592	the	_	_	_	_	_
-40-9	4593-4605	Stanislavsky	_	_	_	_	_
-40-10	4606-4611	Award	_	_	_	_	_
-40-11	4612-4614	at	_	_	_	_	_
-40-12	4615-4618	the	_	_	_	_	_
-40-13	4619-4623	27th	_	_	_	_	_
-40-14	4624-4630	Moscow	_	_	_	_	_
-40-15	4631-4644	International	_	_	_	_	_
-40-16	4645-4649	Film	_	_	_	_	_
-40-17	4650-4658	Festival	_	_	_	_	_
-40-18	4659-4660	.	_	_	_	_	_
-40-19	4661-4662	[	_	_	_	_	_
-40-20	4663-4664	9	_	_	_	_	_
-40-21	4665-4666	]	_	_	_	_	_
+40-1	4558-4560	In	_	_	_	_	_	_
+40-2	4561-4565	2005	_	_	_	cf4[565]	_	_
+40-3	4566-4567	,	_	_	_	_	_	_
+40-4	4568-4571	she	person[566]	giv:act[566]	Jeanne_Moreau[566]	cf1*[566]	coref	41-1[582_566]
+40-5	4572-4575	was	_	_	_	_	_	_
+40-6	4576-4583	awarded	_	_	_	_	_	_
+40-7	4584-4588	with	_	_	_	_	_	_
+40-8	4589-4592	the	_	_	_	cf2[575]	_	_
+40-9	4593-4605	Stanislavsky	_	_	_	cf2[575]|cf6[576]	_	_
+40-10	4606-4611	Award	_	_	_	cf2[575]	_	_
+40-11	4612-4614	at	_	_	_	_	_	_
+40-12	4615-4618	the	_	_	_	cf3[579]	_	_
+40-13	4619-4623	27th	_	_	_	cf3[579]	_	_
+40-14	4624-4630	Moscow	_	_	_	cf3[579]|cf7[580]	_	_
+40-15	4631-4644	International	_	_	_	cf3[579]	_	_
+40-16	4645-4649	Film	_	_	_	cf3[579]	_	_
+40-17	4650-4658	Festival	_	_	_	cf3[579]	_	_
+40-18	4659-4660	.	_	_	_	_	_	_
+40-19	4661-4662	[	_	_	_	_	_	_
+40-20	4663-4664	9	_	_	_	cf5[581]	_	_
+40-21	4665-4666	]	_	_	_	_	_	_
 
 #Text=Moreau was also a vocalist .
-41-1	4667-4673	Moreau	person[582]	giv:act[582]	Jeanne_Moreau[582]	ana	42-1[590_582]
-41-2	4674-4677	was	_	_	_	_	_
-41-3	4678-4682	also	_	_	_	_	_
-41-4	4683-4684	a	_	_	_	_	_
-41-5	4685-4693	vocalist	_	_	_	_	_
-41-6	4694-4695	.	_	_	_	_	_
+41-1	4667-4673	Moreau	person[582]	giv:act[582]	Jeanne_Moreau[582]	cf1*[582]	ana	42-1[590_582]
+41-2	4674-4677	was	_	_	_	_	_	_
+41-3	4678-4682	also	_	_	_	_	_	_
+41-4	4683-4684	a	_	_	_	cf1*[589]	_	_
+41-5	4685-4693	vocalist	_	_	_	cf1*[589]	_	_
+41-6	4694-4695	.	_	_	_	_	_	_
 
 #Text=She released several albums and once performed with Frank Sinatra at Carnegie Hall in 1984 . [ 2 ]
-42-1	4696-4699	She	person[590]	giv:act[590]	Jeanne_Moreau[590]	coref	43-6[600_590]
-42-2	4700-4708	released	_	_	_	_	_
-42-3	4709-4716	several	_	_	_	_	_
-42-4	4717-4723	albums	_	_	_	_	_
-42-5	4724-4727	and	_	_	_	_	_
-42-6	4728-4732	once	_	_	_	_	_
-42-7	4733-4742	performed	_	_	_	_	_
-42-8	4743-4747	with	_	_	_	_	_
-42-9	4748-4753	Frank	_	_	_	_	_
-42-10	4754-4761	Sinatra	_	_	_	_	_
-42-11	4762-4764	at	_	_	_	_	_
-42-12	4765-4773	Carnegie	_	_	_	_	_
-42-13	4774-4778	Hall	_	_	_	_	_
-42-14	4779-4781	in	_	_	_	_	_
-42-15	4782-4786	1984	_	_	_	_	_
-42-16	4787-4788	.	_	_	_	_	_
-42-17	4789-4790	[	_	_	_	_	_
-42-18	4791-4792	2	_	_	_	_	_
-42-19	4793-4794	]	_	_	_	_	_
+42-1	4696-4699	She	person[590]	giv:act[590]	Jeanne_Moreau[590]	cf1*[590]	coref	43-6[600_590]
+42-2	4700-4708	released	_	_	_	_	_	_
+42-3	4709-4716	several	_	_	_	cf3[593]	_	_
+42-4	4717-4723	albums	_	_	_	cf3[593]	_	_
+42-5	4724-4727	and	_	_	_	_	_	_
+42-6	4728-4732	once	_	_	_	_	_	_
+42-7	4733-4742	performed	_	_	_	_	_	_
+42-8	4743-4747	with	_	_	_	_	_	_
+42-9	4748-4753	Frank	_	_	_	cf4[594]	_	_
+42-10	4754-4761	Sinatra	_	_	_	cf4[594]	_	_
+42-11	4762-4764	at	_	_	_	_	_	_
+42-12	4765-4773	Carnegie	_	_	_	cf5[595]|cf7[596]	_	_
+42-13	4774-4778	Hall	_	_	_	cf5[595]	_	_
+42-14	4779-4781	in	_	_	_	_	_	_
+42-15	4782-4786	1984	_	_	_	cf6[597]	_	_
+42-16	4787-4788	.	_	_	_	_	_	_
+42-17	4789-4790	[	_	_	_	_	_	_
+42-18	4791-4792	2	_	_	_	cf2[598]	_	_
+42-19	4793-4794	]	_	_	_	_	_	_
 
 #Text=In addition to acting , Moreau worked behind the camera as a writer , director and producer . [ 2 ]
-43-1	4795-4797	In	_	_	_	_	_
-43-2	4798-4806	addition	_	_	_	_	_
-43-3	4807-4809	to	_	_	_	_	_
-43-4	4810-4816	acting	_	_	_	_	_
-43-5	4817-4818	,	_	_	_	_	_
-43-6	4819-4825	Moreau	person[600]	giv:act[600]	Jeanne_Moreau[600]	_	_
-43-7	4826-4832	worked	_	_	_	_	_
-43-8	4833-4839	behind	_	_	_	_	_
-43-9	4840-4843	the	_	_	_	_	_
-43-10	4844-4850	camera	_	_	_	_	_
-43-11	4851-4853	as	_	_	_	_	_
-43-12	4854-4855	a	person[612]	giv:act[612]	Jeanne_Moreau[612]	ana	44-1[617_612]
-43-13	4856-4862	writer	person[612]	giv:act[612]	Jeanne_Moreau[612]	_	_
-43-14	4863-4864	,	person[612]	giv:act[612]	Jeanne_Moreau[612]	_	_
-43-15	4865-4873	director	person[612]	giv:act[612]	Jeanne_Moreau[612]	_	_
-43-16	4874-4877	and	person[612]	giv:act[612]	Jeanne_Moreau[612]	_	_
-43-17	4878-4886	producer	person[612]	giv:act[612]	Jeanne_Moreau[612]	_	_
-43-18	4887-4888	.	_	_	_	_	_
-43-19	4889-4890	[	_	_	_	_	_
-43-20	4891-4892	2	_	_	_	_	_
-43-21	4893-4894	]	_	_	_	_	_
+43-1	4795-4797	In	_	_	_	_	_	_
+43-2	4798-4806	addition	_	_	_	_	_	_
+43-3	4807-4809	to	_	_	_	_	_	_
+43-4	4810-4816	acting	_	_	_	cf4[599]	_	_
+43-5	4817-4818	,	_	_	_	_	_	_
+43-6	4819-4825	Moreau	person[600]	giv:act[600]	Jeanne_Moreau[600]	cf1*[600]	_	_
+43-7	4826-4832	worked	_	_	_	_	_	_
+43-8	4833-4839	behind	_	_	_	_	_	_
+43-9	4840-4843	the	_	_	_	cf3[611]	_	_
+43-10	4844-4850	camera	_	_	_	cf3[611]	_	_
+43-11	4851-4853	as	_	_	_	_	_	_
+43-12	4854-4855	a	person[612]	giv:act[612]	Jeanne_Moreau[612]	cf1*[612]	ana	44-1[617_612]
+43-13	4856-4862	writer	person[612]	giv:act[612]	Jeanne_Moreau[612]	cf1*[612]	_	_
+43-14	4863-4864	,	person[612]	giv:act[612]	Jeanne_Moreau[612]	cf1*[612]	_	_
+43-15	4865-4873	director	person[612]	giv:act[612]	Jeanne_Moreau[612]	cf1*[612]	_	_
+43-16	4874-4877	and	person[612]	giv:act[612]	Jeanne_Moreau[612]	cf1*[612]	_	_
+43-17	4878-4886	producer	person[612]	giv:act[612]	Jeanne_Moreau[612]	cf1*[612]	_	_
+43-18	4887-4888	.	_	_	_	_	_	_
+43-19	4889-4890	[	_	_	_	_	_	_
+43-20	4891-4892	2	_	_	_	cf2[613]	_	_
+43-21	4893-4894	]	_	_	_	_	_	_
 
 #Text=Her accomplishments were the subject of the film Calling the Shots ( 1988 ) by Janis Cole and Holly Dale . [ citation needed ]
-44-1	4895-4898	Her	person[617]	giv:act[617]	Jeanne_Moreau[617]	_	_
-44-2	4899-4914	accomplishments	_	_	_	_	_
-44-3	4915-4919	were	_	_	_	_	_
-44-4	4920-4923	the	_	_	_	_	_
-44-5	4924-4931	subject	_	_	_	_	_
-44-6	4932-4934	of	_	_	_	_	_
-44-7	4935-4938	the	_	_	_	_	_
-44-8	4939-4943	film	_	_	_	_	_
-44-9	4944-4951	Calling	_	_	_	_	_
-44-10	4952-4955	the	_	_	_	_	_
-44-11	4956-4961	Shots	_	_	_	_	_
-44-12	4962-4963	(	_	_	_	_	_
-44-13	4964-4968	1988	_	_	_	_	_
-44-14	4969-4970	)	_	_	_	_	_
-44-15	4971-4973	by	_	_	_	_	_
-44-16	4974-4979	Janis	_	_	_	_	_
-44-17	4980-4984	Cole	_	_	_	_	_
-44-18	4985-4988	and	_	_	_	_	_
-44-19	4989-4994	Holly	_	_	_	_	_
-44-20	4995-4999	Dale	_	_	_	_	_
-44-21	5000-5001	.	_	_	_	_	_
-44-22	5002-5003	[	_	_	_	_	_
-44-23	5004-5012	citation	_	_	_	_	_
-44-24	5013-5019	needed	_	_	_	_	_
-44-25	5020-5021	]	_	_	_	_	_
+44-1	4895-4898	Her	person[617]	giv:act[617]	Jeanne_Moreau[617]	cf2[616]|cf1*[617]	_	_
+44-2	4899-4914	accomplishments	_	_	_	cf2[616]	_	_
+44-3	4915-4919	were	_	_	_	_	_	_
+44-4	4920-4923	the	_	_	_	cf2[620]	_	_
+44-5	4924-4931	subject	_	_	_	cf2[620]	_	_
+44-6	4932-4934	of	_	_	_	cf2[620]	_	_
+44-7	4935-4938	the	_	_	_	cf2[620]|cf3[621]	_	_
+44-8	4939-4943	film	_	_	_	cf2[620]|cf3[621]	_	_
+44-9	4944-4951	Calling	_	_	_	cf2[620]|cf3[621]|cf3[622]	_	_
+44-10	4952-4955	the	_	_	_	cf2[620]|cf3[621]|cf3[622]	_	_
+44-11	4956-4961	Shots	_	_	_	cf2[620]|cf3[621]|cf3[622]	_	_
+44-12	4962-4963	(	_	_	_	cf2[620]|cf3[621]|cf3[622]	_	_
+44-13	4964-4968	1988	_	_	_	cf2[620]|cf3[621]|cf3[622]|cf7[623]	_	_
+44-14	4969-4970	)	_	_	_	cf2[620]|cf3[621]|cf3[622]	_	_
+44-15	4971-4973	by	_	_	_	cf2[620]|cf3[621]	_	_
+44-16	4974-4979	Janis	_	_	_	cf2[620]|cf3[621]|cf4[626]	_	_
+44-17	4980-4984	Cole	_	_	_	cf2[620]|cf3[621]|cf4[626]	_	_
+44-18	4985-4988	and	_	_	_	cf2[620]|cf3[621]	_	_
+44-19	4989-4994	Holly	_	_	_	cf2[620]|cf3[621]|cf5[627]	_	_
+44-20	4995-4999	Dale	_	_	_	cf2[620]|cf3[621]|cf5[627]	_	_
+44-21	5000-5001	.	_	_	_	_	_	_
+44-22	5002-5003	[	_	_	_	_	_	_
+44-23	5004-5012	citation	_	_	_	cf6[628]	_	_
+44-24	5013-5019	needed	_	_	_	_	_	_
+44-25	5020-5021	]	_	_	_	_	_	_
 

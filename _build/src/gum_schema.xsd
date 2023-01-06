@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd" />
   <xs:element name="text">
     <xs:complexType>
       <xs:choice maxOccurs="unbounded">
@@ -33,7 +34,12 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
-	  
+    <xs:attribute name="summary" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
       <xs:attribute name="dateCollected" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -107,6 +113,7 @@
       <xs:choice maxOccurs="unbounded">
         <xs:element  minOccurs="0" maxOccurs="unbounded" ref="s"/>
         <xs:element  minOccurs="0" maxOccurs="unbounded" ref="hi"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="foreign"/>
       </xs:choice>
       <xs:attribute name="rend" type="xs:string"/>
     </xs:complexType>
@@ -139,6 +146,7 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="quote"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="w"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="hi"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="foreign"/>
       </xs:choice>
       <xs:attribute name="who" use="required">
         <xs:simpleType>
@@ -176,6 +184,7 @@
         <xs:element ref="add"/>
         <xs:element ref="row"/>
         <xs:element ref="figure"/>
+        <xs:element ref="foreign"/>
         <xs:element ref="hi"/>
         <xs:element ref="sp"/>
         <xs:element ref="q"/>
@@ -285,6 +294,7 @@
         <xs:element ref="add"/>
         <xs:element ref="q"/>
         <xs:element ref="date"/>
+        <xs:element ref="foreign"/>
         <xs:element ref="p"/>
         <xs:element ref="w"/>
         <xs:element ref="ref"/>
@@ -307,6 +317,7 @@
   <xs:element name="caption">
     <xs:complexType mixed="true">
       <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="foreign"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="quote"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="hi"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="s"/>
@@ -425,6 +436,7 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="ref"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="date"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="figure"/>
+         <xs:element minOccurs="0" maxOccurs="unbounded" ref="foreign"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="incident"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="w"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="lg"/>
@@ -434,6 +446,24 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="sic"/>
       </xs:sequence>
       <xs:attribute name="rend" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="foreign">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ref"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="figure"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="incident"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="w"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="lg"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="s"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="caption"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="q"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="sic"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="date"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="hi"/>
+      </xs:sequence>
+      <xs:attribute ref="xml:lang" use="required" />
     </xs:complexType>
   </xs:element>
   <xs:element name="q">
