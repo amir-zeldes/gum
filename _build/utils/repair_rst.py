@@ -44,10 +44,12 @@ def validate_rsd(rsd_line, linenum, docname):
 	inname = " in document " + docname + " on line " + str(linenum) + "\n"
 	if re.search(r'\b[Tt]o\b[^\n]+head_pos=V.\|[^\n]+head_func=acl\|[^\n]+elaboration-attr', rsd_line) is not None:
 		if "\tthat" not in rsd_line and "\tabout" not in rsd_line and "\tyou " not in rsd_line and \
-			'\tto expect "' not in rsd_line and "\tto consider" not in rsd_line:  # check for that-clause embedding to-, or about PP
+			'\tto expect "' not in rsd_line and "\tto consider" not in rsd_line and \
+			"\tto hold the Office" not in rsd_line and "\tto represent California" not in rsd_line and \
+			"\tto shine through" not in rsd_line:  # check for that-clause embedding to-, or about PP
 			sys.stderr.write("! adnominal infinitive clause should be purpose-attribute not elaboration-attribute" + inname)
 	if re.search(r'(\bn.t\b[^\n]+)attribution-positive_r', rsd_line) is not None:
-		if "surprised" not in rsd_line:
+		if "surprised" not in rsd_line and "not only" not in rsd_line:
 			sys.stderr.write("! suspicious attribution-positive_r with negation" + inname)
 	if "\t" in rsd_line:
 		fields = rsd_line.split("\t")
