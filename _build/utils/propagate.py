@@ -50,10 +50,11 @@ class Args:
 
 class Entity:
 
-	def __init__(self, ent_id, type, infstat, centering, identity):
+	def __init__(self, ent_id, type, infstat, salience, centering, identity):
 		self.id = ent_id
 		self.type = type
 		self.infstat = infstat
+		self.salience = salience
 		self.centering = centering
 		self.tokens = []
 		self.identity = identity
@@ -614,10 +615,11 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 				fields = line.split("\t")
 				line_tok_id = fields[0]
 				tok_num_to_tsv_id[tok_id] = line_tok_id
-				entity_string, infstat_string,identity_string, centering_string, coref_type_string, coref_link_string = fields[3:9]
+				entity_string, infstat_string,salience_string, identity_string, centering_string, coref_type_string, coref_link_string = fields[3:10]
 				if entity_string != "_":
 					entities = entity_string.split("|")
 					infstats = infstat_string.split("|")
+					saliences = salience_string.split("|")
 					identities = identity_string.split("|")
 					centerings = centering_string.split("|")
 					if coref_type_string != "_":
@@ -625,6 +627,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 						coref_links = coref_link_string.split("|")
 					for i, entity in enumerate(entities):
 						infstat = infstats[i]
+						salience = saliences[i]
 						centering = centerings[i]
 						# Make sure all entities are numbered
 						if "[" not in entity:  # Single token entity with no ID
@@ -634,6 +637,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 						entity_id = entity[entity.find("[")+1:-1]
 						entity = entity[:entity.find("[")]
 						infstat = infstat[:infstat.find("[")]
+						salience = infstat[:salience.find("[")]
 						centering = centering[:centering.find("[")]
 						match_ident = "_"
 						for ident in identities:
@@ -645,7 +649,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 							if ident_id == entity_id:
 								match_ident = ident[:ident.find("[")]
 						if entity_id not in entity_dict:
-							entity_dict[entity_id] = Entity(entity_id,entity,infstat,centering,match_ident)
+							entity_dict[entity_id] = Entity(entity_id,entity,infstat,salience,centering,match_ident)
 						entity_dict[entity_id].tokens.append(str(tok_id))
 						entity_dict[entity_id].line_tokens.append(line_tok_id)
 

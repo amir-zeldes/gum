@@ -260,6 +260,8 @@ def update_conllu_file(conllu_filepath, updated_conllu_filepath, sentence_level_
 						tag_string = tag['text'] + ' (' + tag_span + ' s)'
 
 					if("newpar" in conllu_data[sentence_index].metadata):
+						if conllu_data[sentence_index].metadata["newpar"] is None:
+							conllu_data[sentence_index].metadata["newpar"] = ""
 						conllu_data[sentence_index].metadata["newpar"] += " | " + tag_string
 					else:	
 						conllu_data[sentence_index].metadata["newpar"] = tag_string
