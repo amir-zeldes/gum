@@ -127,6 +127,9 @@ def fix_file(filename,tt_file,gum_source,outdir):
 	with io.open(outdir.replace("rstweb","dependencies") + docname + ".rsd",'w',encoding="utf8",newline="\n") as f:
 		f.write(rsd)
 
+	# Unescape XML
+	out_data = out_data.replace("&gt;", ">").replace("&lt;", "<").replace("&amp;", "&")
+
 	# Make binary dis version
 	dis = rst2dis(out_data, binarize=True)
 	with io.open(outdir.replace("rstweb","lisp_binary") + docname+".dis",'w',encoding="utf8",newline="\n") as f:
