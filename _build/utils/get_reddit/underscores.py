@@ -48,7 +48,10 @@ def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False, docs
 							restored.append(text_tokens.pop(0))
 						else:
 							restored.append(c)
-					fout.write("".join(restored)+"\n")
+					restored = "".join(restored)
+					if unescape_xml:
+						restored = restored.replace("&gt;", ">").replace("&lt;", "<").replace("&amp;", "&")
+					fout.write(restored+"\n")
 				elif "\t" in line:
 					elements = line.split('\t')
 					if not (len(elements) == 10 and len(elements[-1]) >0 and ("." in elements[0] or "-" in elements[0])):
@@ -74,7 +77,10 @@ def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False, docs
 							elements[1] = docs2tokens_copy[docname][0]
 							elements[1] += docs2tokens_copy[docname][1]
 					try:
-						fout.write('\t'.join(elements)+"\n")
+						line = '\t'.join(elements)
+						if unescape_xml:
+							line = line.replace("&gt;", ">").replace("&lt;", "<").replace("&amp;", "&")
+						fout.write(line+"\n")
 					except Exception as e:
 						a=4
 				else:

@@ -495,7 +495,7 @@ if __name__ == "__main__":
 		make_underscores(script_dir + "coref" + os.sep + "gum" + os.sep + "conll" + os.sep, 1)
 		make_underscores(script_dir + "coref" + os.sep + "ontogum" + os.sep + "conll" + os.sep, 1)
 		make_underscores(script_dir + "coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep, 1)
-		make_underscores(script_dir + "dep" + os.sep, 1)
+		make_underscores(script_dir + "dep" + os.sep, 1, lemma_col=2)
 		make_underscores_rst(script_dir + "rst" + os.sep + "rstweb" + os.sep)
 		make_underscores_rst(script_dir + "rst" + os.sep + "dependencies" + os.sep, extension="rsd", edu_regex=r"^([^\t\n]+\t)([^\t\n]+)(\t[^\n]+)")
 		make_underscores_rst(script_dir + "rst" + os.sep + "lisp_binary" + os.sep, extension="dis", edu_regex=r"^([^\n]+text _!)(.*?)(_![^\n]+)")
@@ -519,113 +519,4 @@ if __name__ == "__main__":
 		make_text_rst(script_dir + "rst" + os.sep + "lisp_nary" + os.sep, text_dict, unescape_xml=True, extension="dis", edu_regex=r"^([^\n]+text _!)(.*?)(_![^\n]+)")
 		make_text_const(script_dir + "const" + os.sep, text_dict)
 		restore_disrpt(script_dir + "rst" + os.sep + "disrpt" + os.sep, text_dict)
-
-		if False:
-
-			files = glob(script_dir + os.sep + "dep" + os.sep + "*_reddit_*.conllu")
-
-			for file_ in files:
-				next_doc = False
-				doc = os.path.basename(file_).replace(".conllu","")
-				if doc not in docs2chars:
-					sys.stderr.write("ERR: Could not find text data for document " + doc + "! Skipping...\n")
-					continue
-
-				text = docs2chars[doc]
-				with io.open(file_,encoding="utf8") as f:
-					lines = f.read().split("\n")
-				output = []
-				sents = []
-				sent = ""
-				word_len = 0
-				skip = 0
-				no_space_next = False
-				skip_space = False
-				for line in lines:
-					if "\t" in line:
-						fields = line.split("\t")
-						if "-" not in fields[0] and "." not in fields[0]:  # Token
-							# Process MISC field
-							misc_annos = fields[-1].split("|")
-							out_misc = []
-							for anno in misc_annos:
-								if anno.startswith("Len="):
-									word_len = int(anno.split('=')[1])
-								elif anno.startswith("Lem="):
-									lemma_rule = anno.split('=')[1]
-								else:
-									out_misc.append(anno)
-							if word_len == 0:  # There was no Len annotation, documents are already restored?
-								sys.stderr.write("ERR: Missing word length information in doc " + doc + ". Has text been restored already? Skipping...\n")
-								next_doc = True
-								break
-							if len(out_misc) == 0:
-								out_misc = ["_"]
-							fields[-1] = "|".join(sorted(out_misc))
-
-							# Reconstruct word and lemma
-							word = text[:word_len]
-							text = text[word_len:]
-							fields[1] = word
-							if lemma_rule == "*LOWER*":
-								fields[2] = word.lower()
-							elif lemma_rule == "_":
-								fields[2] = word
-							else:
-								fields[2] = lemma_rule
-							if fields[7] == "goeswith":
-								fields[2] = "_"  # No lemma for goeswith token
-							if fields[0] == "1" and sent != "":  # New sentence
-								sents.append(sent.strip())
-								sent = ""
-							sent += word
-							if skip > 0:
-								skip -= 1
-								if skip == 0 and no_space_next:
-									skip_space = True
-							else:
-								skip_space = False
-							if "SpaceAfter=No" not in fields[-1] and not skip_space and skip == 0:
-								sent += " "
-								no_space_next = False
-								skip_space = False
-							line = "\t".join(fields)
-							docs2tokens[doc].append(fields[1])
-							docs2lemmas[doc].append(fields[2])
-						elif "-" in fields[0]:
-							misc_annos = fields[-1].split("|")
-							out_misc = []
-							for anno in misc_annos:
-								if anno.startswith("Len="):
-									word_len = int(anno.split('=')[1])
-								else:
-									out_misc.append(anno)
-							fields[1] = text[:word_len]
-							fields[-1] = "|".join(out_misc) if len(out_misc) > 0 else "_"
-							line = "\t".join(fields)
-							skip = 2
-							if "SpaceAfter=No" in fields[-1]:
-								no_space_next = True
-
-					output.append(line)
-
-				if next_doc:
-					continue
-
-				sents.append(sent.strip())
-				no_sent_text = "\n".join(output)
-
-				out_sents = []
-				raw_sents = no_sent_text.split("\n\n")
-				for i,sent in enumerate(raw_sents):
-					if i<len(sents):
-						sent = re.sub(r'# text = [^\n]+','# text = ' + sents[i], sent)
-					out_sents.append(sent)
-
-				out_conll = "\n\n".join(out_sents)
-
-				with io.open(file_,'w',encoding="utf8",newline="\n") as f:
-					f.write(out_conll)
-
-
 
