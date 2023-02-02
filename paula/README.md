@@ -1,0 +1,3 @@
+# GUM corpus - PAULA XML version (without Reddit)
+
+The zip file in this directory contains a complete version of all annotations in [PAULA standoff XML](https://github.com/korpling/paula-xml). However note that this version of the corpus does not include the Reddit subcorpus of GUM. To compile a PAULA version of the entire corpus including the Reddit subcorpus, please see [README_reddit.md](https://github.com/amir-zeldes/gum/blob/master/README_reddit.md).

@@ -1,4 +1,6 @@
 import os, glob, re, io, sys
+from collections import defaultdict
+from copy import deepcopy
 
 PY3 = sys.version_info[0] == 3
 
@@ -10,16 +12,21 @@ def deunderscoring(src_folder, textdic):
 	make_text_const(src_folder + "const" + os.sep, textdic)
 
 
-def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False):
+def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False, docs2lemmas=None, docs2tokens=None):
 	files_to_process = glob.glob(folder + "GUM_reddit*")
 	print("o Processing " + str(len(files_to_process)) + " files in " + folder + "...")
 
+	lemma_dict = defaultdict(list)
+	token_dict = defaultdict(list)
+	docs2tokens_copy = deepcopy(docs2tokens)
+	docs2lemmas_copy = deepcopy(docs2lemmas)
 	for f_path in files_to_process:
 
 		with io.open(f_path, 'r', encoding='utf-8') as fin:
 			in_lines = fin.read().replace("\r","").split("\n")
 
-		tokens = textdic[os.path.basename(f_path)[:os.path.basename(f_path).find(".")]]
+		docname = os.path.basename(f_path)[:os.path.basename(f_path).find(".")]
+		tokens = textdic[docname]
 		if unescape_xml:
 			tokens = tokens.replace("&gt;",">").replace("&lt;","<").replace("&amp;","&")
 		else:
@@ -27,26 +34,45 @@ def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False):
 				tokens = tokens.replace("&","&amp;")
 			tokens = tokens.replace(">","&gt;").replace("<","&lt;")
 		if not PY3:
-			tokens = tokens.decode("utf8")
+				tokens = tokens.decode("utf8")
 
+		text_tokens = list(tokens)
 		with io.open(f_path, 'w', encoding='utf-8', newline="\n") as fout:
 			for i, line in enumerate(in_lines):
 				if line.startswith('<'):
 					fout.write(line+"\n")
+				elif line.startswith("#") and "Text=" in line or "text =" in line:
+					restored = [line.split("=",1)[0] + "="]
+					for c in line.split("=",1)[1]:
+						if c != " ":
+							restored.append(text_tokens.pop(0))
+						else:
+							restored.append(c)
+					fout.write("".join(restored)+"\n")
 				elif "\t" in line:
 					elements = line.split('\t')
-					elements[tok_col] = tokens[:len(elements[tok_col])]
-					tokens = tokens[len(elements[tok_col]):]
-					#if not unescape_xml:
-					#	elements[tok_col] = elements[tok_col].replace("&amp;","&").replace("&","&amp;")
-					if lemma_col is not None:
-						if elements[lemma_col] == '_':
-							if not (elements[tok_col] in ["hearing","hind"] and "_card" in f_path):  # Check known goeswith cases
-								elements[lemma_col] = elements[tok_col]
-							else:
-								elements[lemma_col] = "_"
-						elif elements[lemma_col] == "*LOWER*":
-							elements[lemma_col] = elements[tok_col].lower()
+					if not (len(elements) == 10 and len(elements[-1]) >0 and ("." in elements[0] or "-" in elements[0])):
+						elements[tok_col] = tokens[:len(elements[tok_col])]
+						token_dict[docname].append(elements[tok_col])
+						tokens = tokens[len(elements[tok_col]):]
+						#if not unescape_xml:
+						#	elements[tok_col] = elements[tok_col].replace("&amp;","&").replace("&","&amp;")
+						if lemma_col is not None:
+							if elements[lemma_col] == '_':
+								if not (elements[tok_col] in ["hearing","hind"] and "_card" in f_path):  # Check known goeswith cases
+									elements[lemma_col] = elements[tok_col]
+								else:
+									elements[lemma_col] = "_"
+							elif elements[lemma_col] == "*LOWER*":
+								elements[lemma_col] = elements[tok_col].lower()
+							lemma_dict[docname].append(elements[lemma_col])
+					if docs2lemmas is not None:  # Reconstruct lemmas for conllu
+						if "." not in elements[0] and "-" not in elements[0]:
+							elements[2] = docs2lemmas_copy[docname].pop(0)
+							docs2tokens_copy[docname].pop(0)
+						elif "-" in elements[0]:  # Conllu MWT
+							elements[1] = docs2tokens_copy[docname][0]
+							elements[1] += docs2tokens_copy[docname][1]
 					try:
 						fout.write('\t'.join(elements)+"\n")
 					except Exception as e:
@@ -58,10 +84,11 @@ def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False):
 							fout.write("\n")
 						else:
 							fout.write(unicode("\n"))
+	return lemma_dict, token_dict
 
 
-def make_text_rst(folder, textdic):
-	files_to_process = glob.glob(folder + "GUM_reddit*.rs3")
+def make_text_rst(folder, textdic, unescape_xml=False, extension="rs3", edu_regex=r'(.*<segment[^>]*>)(.*)(</segment>)'):
+	files_to_process = glob.glob(folder + "GUM_reddit*." + extension)
 	print("o Processing " + str(len(files_to_process)) + " files in "+folder+"...")
 
 	# Delete tokens in .xml files
@@ -70,10 +97,12 @@ def make_text_rst(folder, textdic):
 		tokens = textdic[os.path.basename(f_path)[:os.path.basename(f_path).find(".")]]
 		if not PY3:
 			tokens = tokens.decode("utf8")
-		if "&" in tokens and not "&amp;" in tokens and not "_ring" in f_path:  # Some bigquery entries have no &amp;
-			tokens = tokens.replace("&","&amp;")
-		tokens = tokens.replace(">","&gt;").replace("<","&lt;")  # Reddit API does not escape lt/gt, but does escape &amp;
-
+		if unescape_xml:
+			tokens = tokens.replace("&gt;",">").replace("&lt;","<").replace("&amp;","&")
+		else:
+			if "&" in tokens and not "&amp;" in tokens and not "_ring" in f_path:  # Some bigquery entries have no &amp;
+				tokens = tokens.replace("&", "&amp;")
+			tokens = tokens.replace(">", "&gt;").replace("<","&lt;")  # Reddit API does not escape lt/gt, but does escape &amp;
 
 		with io.open(f_path, 'r', encoding='utf-8') as fin:
 			in_lines = fin.read().replace("\r","").split("\n")
@@ -81,10 +110,10 @@ def make_text_rst(folder, textdic):
 		with io.open(f_path, 'w', encoding='utf-8', newline="\n") as fout:
 			cursor = 0
 			for i, line in enumerate(in_lines):
-				if "<segment" not in line:
+				if re.search(edu_regex,line) is None:
 					fout.write(line + "\n")
 				else:
-					m = re.search(r'(.*<segment[^>]*>)(.*)(</segment>)',line)
+					m = re.search(edu_regex,line)
 					pre = m.group(1)
 					seg = m.group(2)
 					post = m.group(3)
@@ -113,8 +142,8 @@ def underscoring(src_folder):
 	make_underscores_const(src_folder + "const" + os.sep)
 
 
-def make_underscores_rst(folder):
-	files_to_process = glob.glob(folder + "GUM_reddit*.rs3")
+def make_underscores_rst(folder, extension="rs3", edu_regex=r'(.*<segment[^>]*>)(.*)(</segment>)'):
+	files_to_process = glob.glob(folder + "GUM_reddit*." + extension)
 	print("o Processing " + str(len(files_to_process)) + " files in "+folder+"...")
 
 	# Delete tokens in .xml files
@@ -125,10 +154,10 @@ def make_underscores_rst(folder):
 
 		with io.open(f_path, 'w', encoding='utf-8', newline="\n") as fout:
 			for i, line in enumerate(in_lines):
-				if "<segment" not in line:
+				if re.search(edu_regex,line) is None:
 					fout.write(line + "\n")
 				else:
-					m = re.search(r'(.*<segment[^>]*>)(.*)(</segment>)',line)
+					m = re.search(edu_regex,line)
 					pre = m.group(1)
 					seg = m.group(2)
 					post = m.group(3)
@@ -156,11 +185,12 @@ def make_underscores(folder, tok_col, lemma_col=None):
 			for i, line in enumerate(in_lines):
 				if line.startswith('<'):
 					fout.write(line + "\n")
-				elif line.startswith("#Text="):
+				elif line.startswith("#Text=") or line.startswith("# text ="):
+					underscored_text = line.split("=",1)[0] + "=" + re.sub(r'[^\s]','_',line.split("=",1)[1])
 					if PY3:
-						fout.write("#Text=_" + "\n")
+						fout.write(underscored_text + "\n")
 					else:
-						fout.write(unicode("#Text=_" + "\n"))
+						fout.write(unicode(underscored_text + "\n"))
 				elif "\t" in line:
 					#line = line.replace("&amp;","&")
 					elements = line.split('\t')
