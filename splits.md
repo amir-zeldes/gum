@@ -91,8 +91,13 @@ The standard train / dev / test splits are used for the corpus:
   * GUM_conversation_atoms
   * GUM_conversation_blacksmithing
   * GUM_conversation_christmas
+  * GUM_conversation_court
   * GUM_conversation_erasmus
   * GUM_conversation_family
+  * GUM_conversation_gossip
+  * GUM_conversation_scientist
+  * GUM_conversation_vet
+  * GUM_conversation_zero
   * GUM_fiction_claus
   * GUM_fiction_error
   * GUM_fiction_frankenstein
@@ -157,23 +162,38 @@ The standard train / dev / test splits are used for the corpus:
   * GUM_reddit_stroke
   * GUM_reddit_superman
   * GUM_speech_albania
+  * GUM_speech_data
   * GUM_speech_destiny
+  * GUM_speech_floyd
+  * GUM_speech_humanitarian
+  * GUM_speech_maiden
   * GUM_speech_nixon
   * GUM_speech_remarks
   * GUM_speech_school
+  * GUM_speech_telescope
   * GUM_speech_trump
+  * GUM_textbook_alamo
+  * GUM_textbook_anthropology
+  * GUM_textbook_artwork
   * GUM_textbook_cognition
+  * GUM_textbook_entrepreneurship
   * GUM_textbook_evoethics
   * GUM_textbook_grit
   * GUM_textbook_history
   * GUM_textbook_sociology
   * GUM_textbook_spacetime
+  * GUM_textbook_stats
+  * GUM_vlog_appearance
   * GUM_vlog_college
   * GUM_vlog_covid
+  * GUM_vlog_exams
   * GUM_vlog_hair
   * GUM_vlog_hiking
   * GUM_vlog_lipstick
+  * GUM_vlog_mermaid
+  * GUM_vlog_pizzeria
   * GUM_vlog_pregnant
+  * GUM_vlog_wine
   * GUM_voyage_chatham
   * GUM_voyage_cleveland
   * GUM_voyage_cuba
