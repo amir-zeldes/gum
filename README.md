@@ -21,7 +21,7 @@ The corpus is created as part of the course LING-367 (Computational Corpus Lingu
 
 ## A note about Reddit data
 
-For one of the twelve text types in this corpus, Reddit forum discussions, plain text data is not supplied, and you will find 🚩**underscores**🚩 in place of word forms in documents from this data (files named `GUM_reddit_*`). To obtain this data, please run `python get_text.py`, which will allow you to reconstruct the text in these files. This, and all data, is provided with absolutely no warranty; users agree to use the data under the license with which it is provided, and Reddit data is subject to Reddit's terms and conditions. See [README_reddit.md](README_reddit.md) for more details.
+For one of the twelve text types in this corpus, Reddit forum discussions, plain text data is not supplied, and you will find ❗**underscores**❗ in place of word forms in documents from this data (files named `GUM_reddit_*`). To obtain this data, please run `python get_text.py`, which will allow you to reconstruct the text in these files. This, and all data, is provided with absolutely no warranty; users agree to use the data under the license with which it is provided, and Reddit data is subject to Reddit's terms and conditions. See [README_reddit.md](README_reddit.md) for more details.
 
 Note that the `get_text.py` script only regenerates the files named `GUM_reddit_*` in each folder, and will not create full versions of the data in `PAULA/` and `annis/`. If you require PAULA XML or searchable ANNIS data containing these documents, you will need to recompile the corpus from the source files under `_build/src/`. To do this, run `_build/process_reddit.py`, then run `_build/build_gum.py`. 
 
