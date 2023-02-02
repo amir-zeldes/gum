@@ -523,7 +523,8 @@ def enrich_dep(gum_source, gum_target, tmp, reddit=False):
 					if multi_sic[tok_num]:
 						misc.append("CorrectForm=_")  # Trailing token of a sic whose correction is already added
 					else:
-						misc.append("CorrectForm=" + sic_by_token[tok_num])
+						if not (sic_by_token[tok_num].endswith(" ") and sic_by_token[tok_num].strip() == fields[1]):
+							misc.append("CorrectForm=" + sic_by_token[tok_num])
 						if "SpaceAfter=No" in misc and sic_by_token[tok_num].endswith(" "):
 							misc.append("CorrectSpaceAfter=Yes")
 				if tok_num in foreign_by_token:
