@@ -45,17 +45,19 @@ def fix_tsv(gum_source, gum_target, reddit=False, genitive_s=False):
 
 	conllua_data = {}
 	centering_data = {}
+	salience_data = {}
 	for docnum, filename in enumerate(file_list):
 		docname = ntpath.basename(filename).replace(".tsv","")
 		tt_file = filename.replace(".tsv", ".xml").replace("tsv","xml")
 		sys.stdout.write("\t+ " + " "*60 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Adjusting borders for " + docname + "\r")
-		conllua_doc, centering_transitions_doc = fix_file(filename,tt_file,outdir,genitive_s=genitive_s)
+		conllua_doc, centering_transitions_doc, group_saliences = fix_file(filename,tt_file,outdir,genitive_s=genitive_s)
+		salience_data[docname] = group_saliences
 		conllua_data[docname] = conllua_doc
 		centering_data[docname] = centering_transitions_doc
 
 	print("o Adjusted " + str(len(file_list)) + " WebAnno TSV files" + " " * 40)
-	return conllua_data, centering_data
+	return conllua_data, centering_data, salience_data
 
 
 def make_ontogum(gum_target, reddit=False):
@@ -566,7 +568,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 	:param ent_mappings: maps entity numbers like [320]
 	:param single_tok_mappings: maps single token entities identified by their tok ID, like 13-1 (sent. 13, tok 1)
 	:param single_coref_type: if True only use coref and bridge in output, do not distinguish ana, cata, pred, disc and appos types
-	:return: adjusted webanno tsv output, per-token conllu_data for conllu-a bracket representation in MISC field
+	:return: adjusted webanno tsv output, per-token conllu_data for conllu-a bracket representation in MISC field, dictionary of coref groups to salience values
 	"""
 
 	def has_bridging(rels):
@@ -873,6 +875,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 	opener_lists = defaultdict(list)
 	closer_lists = defaultdict(list)
 	group_mapping = {}
+	mapped_saliences = {}
 	max_mapped_group = 1
 	for e_id in sorted(entities, key=lambda x: (entities[x]["start"],-entities[x]["end"])):
 		ent = entities[e_id]
@@ -888,6 +891,8 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 			group_mapping[ent["group"]] = max_mapped_group
 			max_mapped_group += 1
 		group = group_mapping[ent["group"]]
+		if ent["salience"] == "sal":
+			mapped_saliences[group] = "sal"
 		starter = f'({etype}-{group}-{infstat}-{centering}-{min_ids}-{coref_type}{identity}'
 		if start == end:
 			starter += ")"
@@ -974,7 +979,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 			line = "\t".join(fields)
 			adjusted.append(line)
 
-	return "\n".join(adjusted), conllua_data, centering_transitions
+	return "\n".join(adjusted), conllua_data, centering_transitions, mapped_saliences
 
 
 def fix_file(filename, tt_file, outdir, genitive_s=False):
@@ -1244,7 +1249,7 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 	output += "\n".join(out_lines) + "\n"
 	parsed_lines, entity_mappings, single_tok_mappings = fix_genitive_s(output, tt_file, warn_only=True, string_input=True)
 
-	output, conllua_data, centering_transitions = adjust_edges(output, parsed_lines, entity_mappings, single_tok_mappings)
+	output, conllua_data, centering_transitions, group_saliences = adjust_edges(output, parsed_lines, entity_mappings, single_tok_mappings)
 	centering_doc_data = defaultdict(lambda: "no-ent")
 
 	# Set missing transitions
@@ -1267,7 +1272,7 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 	outtemp.write(output)
 	outtemp.close()
 
-	return conllua_data, centering_doc_data
+	return conllua_data, centering_doc_data, group_saliences
 
 
 def add_centering(entities):

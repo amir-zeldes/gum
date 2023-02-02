@@ -809,7 +809,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if func == "ccomp" and "mark" in child_funcs and not any([x in children for x in ["that","That","whether","if","Whether","If","wether","a"]]):
 		if not ((lemma == "lie" and "once" in children) or (lemma=="find" and ("see" in children or "associate" in children)) \
-				or (lemma=="look" and "directly" in children)):  # Exceptions
+				or (lemma=="look" and "directly" in children) or (lemma=="make" and "to" in children)):  # Exceptions
 			print("WARN: ccomp should not have child mark" + inname)
 
 	if func == "acl:relcl" and pos in ["VB","VV","VH"] and "to" in children and "cop" not in child_funcs and "aux" not in child_funcs:

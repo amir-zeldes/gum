@@ -29,9 +29,9 @@ for filename in os.listdir(tsv_dir):
     for line in lines:
         if '\t' not in line: continue
         fields = line.split('\t')
-        if fields[5] == '_':
+        if fields[6] == '_':
             continue
-        titles = fields[5].split('|')
+        titles = fields[6].split('|')
         for title in titles:
             title = title.split('[')[0]
             search = title.replace("%2D","-").replace("%2C",",").replace("%29",")").replace("%28","(")
@@ -59,10 +59,10 @@ with io.open('wiki_map.tab', 'w', encoding='utf8', newline="\n") as f:
     f.write('#FormattedTitle\tURLTitle\tWikidataID\tDateUpdated\n')
     for k, t in seen.items():
         if not t:
-            # print(k)
+            print(k)
             not_found += 1
         if k in match:
             f.write(f'{k}\t{match[k]}\t{t}\t{time}\n')
         else:
             f.write(f'{k}\t{k}\t{t}\t{time}\n')
-# print(f'{not_found} titles are not found in wiki db.')
+print(f'{not_found} titles are not found in wiki db.')
