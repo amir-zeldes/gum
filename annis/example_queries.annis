@@ -1,9 +1,0 @@
-pos="RB" _=_ claws5="ORD"	Search for adverbs according to the Penn tagset that are ordinals according to the CLAWS5 tagset
-head _l_ pos=/V.*/ ->dep[func="obj"] tok	Search for headings beginning with a transitive verb
-entity ->bridge entity & #1 ->head lemma="one"	Find cases of "one"-anaphora
-s_type _i_ identity="United_Nations" ^* entity="place" _=_ identity!="United_Nations" & #1 _i_ #4	Find places mentioned in the same sentence as the United Nations
-infstat="giv:act" ->coref[type="coref"] entity="person"	Search for actively given persons who are referred to by a coreferent lexical NP
-cat="VP" >[func="MNR"] cat="ADVP"	Find a VP modified by a manner ADVP
-s_type="decl" _i_ sic	Search for errors and disfluencies within declarative sentences
-rst:kind >[relname="explanation-evidence"] rst:kind & meta::type="interview"	Search for rhetorical evidence relations in interviews
-subord="RIGHT" _=_ rsd_rel="adeversative-concession_r" ->rsd head_pos="VERB"	Find concessions subordinated by a clause to the right, modifying a verbal nucleus

@@ -280,10 +280,10 @@ def validate_lemmas(lemma_dict, lemma_docs, use_neaten=False):
 	use_neaten adds validations implemented by @nschneid motivated by EWT-specific tokens
 	"""
 
-	exceptions = [("Democratic","JJ","Democratic"),("Water","NP","Waters"),("Sun","NP","Sunday"),("a","IN","of"),
+	exceptions = [("Democratic","JJ","democratic"),("Water","NP","Waters"),("Sun","NP","Sunday"),("a","IN","of"),
 		      ("a","IN","as"),("car","NN","card"),("lay","VV","lay"),("that","IN","than"),
 		      ("da","NP","Danish"),("all","RB","alright"),("All","RB","alright"),("any","RB","anymore"),
-			  ("before","RB","beforehand"),("any","RB","any")]
+			  ("before","RB","beforehand"),("any","RB","any"),("Black","JJ","black"),("wait","NN","wait")]
 	if use_neaten:
 		exceptions += [("Jan","NNP","Jan"),("Jan","NNP","January"),
 		      ("'s","VBZ","have"),("’s","VBZ","have"),("`s","VBZ","have"),("'d","VBD","do"),("'d","VBD","have")]
@@ -448,11 +448,12 @@ def validate_annos(gum_source, reddit=False):
 		for line in coref_lines:
 			if "\t" in line:  # Token
 				fields = line.strip().split("\t")
-				entity_str, infstat_str, identity_str, coref_str, src_str = fields[-5:]
+				entity_str, infstat_str, salience_str, identity_str, coref_str, src_str = fields[-6:]
 
 				if entity_str != "" and entity_str != "_":  # Entity annotation found
 					entities = entity_str.split("|")
 					infstats = infstat_str.split("|")
+					saliences = salience_str.split("|")
 					corefs = coref_str.split("|")
 					srcs = src_str.split("|")
 					tok_id = fields[0]
@@ -460,6 +461,7 @@ def validate_annos(gum_source, reddit=False):
 					for i, entity in enumerate(entities):
 						try:
 							infstat = infstats[i]
+							salience = saliences[i]
 						except:
 							print("ERROR: " + docname)
 							print("no infstat for entity: " + str(entity))
@@ -478,6 +480,7 @@ def validate_annos(gum_source, reddit=False):
 							id = re.search(r'\[([0-9]+)\]',entity).group(1)
 							entity = re.sub(r'\[[^\]]+\]',"",entity)
 							infstat = re.sub(r'\[[^\]]+\]',"",infstat)
+							salience = re.sub(r'\[[^\]]+\]',"",salience)
 							coref = re.sub(r'\[[^\]]+\]', "", coref)
 						if id not in markables:
 							markables[id] = Markable()
@@ -486,6 +489,7 @@ def validate_annos(gum_source, reddit=False):
 							markables[id].anaphor_type.append(coref)
 						markables[id].entity = entity
 						markables[id].infstat = infstat
+						markables[id].salience = salience
 						markables[id].text += " " + text
 						markables[id].end = tok_id
 
@@ -662,16 +666,12 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	inname = " in " + docname + " @ token " + str(id) + " (" + parent + " -> " + tok + ")"
 
 	if re.search(r"VH.*", pos) is not None and lemma != "have":
-		print(str(id) + docname)
 		print("WARN: VH.* must be 'have' & not lemma " + lemma + inname)
 	if re.search(r"VB.*", pos) is not None and lemma != "be":
-		print(str(id) + docname)
 		print("WARN: VB.* must be 'be' & not lemma " + lemma + inname)
 	if re.search(r"VV.*", pos) is not None and lemma == "be":
-		print(str(id) + docname)
 		print("WARN: VV.* must not be 'be'" + inname)
 	if re.search(r"VV.*", pos) is not None and lemma == "have":
-		print(str(id) + docname)
 		print("WARN: VV.* must not be 'have'" + inname)
 
 	if func == "amod" and pos in ["VBD","VVD","VHD"]:
@@ -705,12 +705,13 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if pos == "NPS" and tok == lemma and tok.endswith("s") and func != "goeswith":
 		if tok not in ["Netherlands","Analytics","Olympics","Commons","Paralympics","Vans",
-					   "Andes","Forties","Philippines"]:
+					   "Andes","Forties","Philippines","Maldives"]:
 			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
 	if pos == "NNS" and tok.lower() == lemma.lower() and lemma.endswith("s") and func != "goeswith":
 		if lemma not in ["surroundings","energetics","politics","jeans","clothes","electronics","means","feces",
-						 "biceps","triceps","news","species","economics","arrears","glasses","thanks","series"]:
+						 "biceps","triceps","news","species","economics","arrears","glasses","thanks","series",
+						 "aesthetics"]:
 			if re.match(r"[0-9]+'?s",lemma) is None:  # 1920s, 80s
 				print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
@@ -808,7 +809,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if func == "ccomp" and "mark" in child_funcs and not any([x in children for x in ["that","That","whether","if","Whether","If","wether","a"]]):
 		if not ((lemma == "lie" and "once" in children) or (lemma=="find" and ("see" in children or "associate" in children)) \
-				or (lemma=="look" and "directly" in children)):  # Exceptions
+				or (lemma=="look" and "directly" in children) or (lemma=="make" and "to" in children)):  # Exceptions
 			print("WARN: ccomp should not have child mark" + inname)
 
 	if func == "acl:relcl" and pos in ["VB","VV","VH"] and "to" in children and "cop" not in child_funcs and "aux" not in child_funcs:
@@ -821,7 +822,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 			print("WARN: tag "+pos+" should not have a determinder 'det'" + inname)
 
 	if parent_lemma == "let" and func=="ccomp":
-		print("WARN: verb 'let' should take xcomp clausal object, not ccomp" + inname)
+		if "maiden" not in inname:  # Known expl exceptions in speech_maiden
+			print("WARN: verb 'let' should take xcomp clausal object, not ccomp" + inname)
 
 	if pos == "MD" and lemma not in ["can","must","will","shall","would","could","may","might","ought","should"] and func != "goeswith":
 		print("WARN: lemma '"+lemma+"' is not a known modal verb for tag MD" + inname)
@@ -836,7 +838,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print("WARN: function " + func +  " should not have 'case' dependents" + inname)
 
 	if func in ["aux:pass","nsubj:pass"] and parent_pos not in ["VVN","VBN","VHN"]:
-		if not (("stardust" in docname and parent_lemma == "would") or parent_lemma == "Rated"):
+		if not (("stardust" in docname and parent_lemma == "would") or parent_lemma == "Rated" or parent_func == "reparandum"):
 			print("WARN: function " + func + " should not be the child of pos " + parent_pos + inname)
 
 	if func == "obl:agent" and (parent_pos not in ["VBN","VHN","VVN"] or "by" not in children):
@@ -849,7 +851,6 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print("WARN: a token cannot have both a *subj relation and obl:agent" + inname)
 
 	if pos in ["VBD","VVD","VHD","VBP","VVP","VHP"] and "aux" in child_funcs:
-		print(str(id) + docname)
 		print("WARN: tag "+pos+" should not have auxiliaries 'aux'" + inname)
 
 	# 'amod' promotion for EWT "those affluent and those not"
@@ -900,7 +901,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("that","is"), ("up","to"),("depend","on"),
 				 ("out","of"),("off","of"),("long","than"),("on","board"),("as","of"),("depend","upon"),
 				 ("that","be"),("just","about"),("vice","versa"),("as","such"),("next","to"),("close","to"),("one","another"),
-				 ("de","facto"),("each","other"), ("as","many"), ("in","that")}
+				 ("de","facto"),("each","other"), ("as","many"), ("in","that"), ("few","than")}
 
 	# Ad hoc listing of triple mwe parts - All in all, in order for, whether or not
 	mwe_pairs.update({("all","in"),("all","all"),("in","for"),("whether","or"),("whether","not")})
@@ -944,8 +945,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 			if wh in temp_wh:
 				if not any([c.lower()=="do" or c.lower()=="did" for c in children]):
 					if not (tok == "Remember" and wh == "when") and not (tok=="know" and wh=="what") and \
-							not (tok =="Know" and wh=="when"):  # Listed exceptions in GUM_reddit_bobby, GUM_conversation_christmas, GUM_vlog_covid
-						print("WARN: q root may not have wh child " + wh + inname)
+						not (tok =="Know" and wh=="when"):  # Listed exceptions in GUM_reddit_bobby, GUM_conversation_christmas, GUM_vlog_covid
+						if not "_wine" in inname and lemma == "remember":  # known unmarked pro-drop polar question in GUM_vlog_wine
+							print("WARN: q root may not have wh child " + wh + inname)
 
 	suspicious_pos_tok = [("*","DT","only","RB"),
 						  ("no", "RB", "matter", "RB")]

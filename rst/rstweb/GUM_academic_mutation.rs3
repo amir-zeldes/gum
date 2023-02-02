@@ -70,7 +70,7 @@
 		<segment id="32" parent="31" relname="restatement-partial">( GIS )</segment>
 		<segment id="33" parent="143" relname="same-unit">applications .</segment>
 		<segment id="34" parent="145" relname="span">These operators reproduce programming errors</segment>
-		<segment id="35" parent="34" relname="adversative-antithesis">that are litely to occur during the development of this type of applications .</segment>
+		<segment id="35" parent="34" relname="elaboration-attribute">that are litely to occur during the development of this type of applications .</segment>
 		<segment id="36" parent="140" relname="joint-list">In addition , we present the implementation of these operators</segment>
 		<segment id="37" parent="146" relname="joint-list">and as proof of concept we apply these operators to two real - world GIS applications</segment>
 		<segment id="38" parent="146" relname="joint-list">and we generate the mutants .</segment>
@@ -86,65 +86,65 @@
 		<segment id="48" parent="157" relname="span">we rely on Java reflection and aspect - oriented programming .</segment>
 		<segment id="49" parent="159" relname="span">Reflection allows us to obtain the list of classes and methods of the SUT ,</segment>
 		<segment id="50" parent="160" relname="span">so the user can decide the methods</segment>
-		<segment id="51" parent="50" relname="purpose-attribute">to wish the operators will be applied .</segment>
+		<segment id="51" parent="50" relname="elaboration-attribute">to wish the operators will be applied .</segment>
 		<segment id="52" parent="161" relname="span">Later , we capture information about the methods of the SUT</segment>
-		<segment id="53" parent="162" relname="span">to be mutated , together with the information of the mutation operators</segment>
-		<segment id="54" parent="53" relname="elaboration-attribute">that were already defined .</segment>
-		<segment id="55" parent="163" relname="span">From these data , we generate the mutation operator , in the form of on aspect ,</segment>
-		<segment id="56" parent="164" relname="span">which will then be possible to interweave with the SUT</segment>
-		<segment id="57" parent="56" relname="elaboration-additional">which generates a mutant of the SUT .</segment>
-		<segment id="58" parent="165" relname="span">Next , we describe the definition of two operators and two cases of application on real - world GIS applications .</segment>
-		<segment id="59" parent="166" relname="span">ChangeCoordSys Operator</segment>
-		<segment id="60" parent="59" relname="restatement-partial">( Listing 1 ) :</segment>
-		<segment id="61" parent="170" relname="span">It exchanges the coordinate system of a geometry ,</segment>
-		<segment id="62" parent="174" relname="span">so it does not match the coordinate system</segment>
-		<segment id="63" parent="62" relname="elaboration-attribute">that is being used in the user interface .</segment>
-		<segment id="64" parent="175" relname="span">It simulates the error</segment>
-		<segment id="65" parent="64" relname="elaboration-attribute">of not checking that the coordinate system is correct .</segment>
-		<segment id="66" parent="176" relname="span">The error is introduced</segment>
-		<segment id="67" parent="177" relname="span">by directly modifying the coordinate system of geometry</segment>
-		<segment id="68" parent="67" relname="context-circumstance">when recovering the wrapping of the figure .</segment>
-		<segment id="69" parent="70" relname="organization-heading">Listing 1 :</segment>
-		<segment id="70" parent="178" relname="span">A simplified definition of the ChangeCoordSys Operator .</segment>
-		<segment id="71" parent="179" relname="span">This operator was applied to a mobile technology GIS application .</segment>
-		<segment id="72" parent="183" relname="span">This application allows registering places of interest for the user .</segment>
-		<segment id="73" parent="184" relname="span">These areas of interest are called Geofences .</segment>
-		<segment id="74" parent="185" relname="span">A Geofence is determined by a geographical location</segment>
-		<segment id="75" parent="74" relname="elaboration-attribute">expressed in terms of latitude , longitude , and a radius around that location .</segment>
-		<segment id="76" parent="180" relname="span">By creating a Geofence with an erroneous location from its central location ,</segment>
-		<segment id="77" parent="76" relname="purpose-goal">the device will receive incorrect location notifications .</segment>
-		<segment id="78" parent="186" relname="span">As a result , the user will see in the application ’s map viewer the Geofences drawn in erroneous zones</segment>
-		<segment id="79" parent="78" relname="explanation-evidence">( Figure 1 ) .</segment>
-		<segment id="80" parent="81" relname="organization-heading">Figure 1 .</segment>
-		<segment id="81" parent="188" relname="span">Original and mutant application .</segment>
-		<segment id="82" parent="189" relname="span">BooleanPolygonConstraint Operator</segment>
-		<segment id="83" parent="82" relname="restatement-partial">( Listing 2 ) :</segment>
-		<segment id="84" parent="192" relname="span">It introduces errors in the processing of geometries ,</segment>
-		<segment id="85" parent="194" relname="span">manipulating the result of the operations</segment>
-		<segment id="86" parent="85" relname="elaboration-attribute">that carry out the verification of different topological restrictions between geometries , such as intersects , covers or overlap .</segment>
-		<segment id="87" parent="88" relname="organization-heading">Listing 2 :</segment>
-		<segment id="88" parent="195" relname="span">A simplified definition of the BooleanPolygonConstraint Operator .</segment>
-		<segment id="89" parent="196" relname="purpose-goal">To test this operator</segment>
-		<segment id="90" parent="196" relname="span">it was applied to a land reparcelling system .</segment>
-		<segment id="91" parent="198" relname="span">The objective of the land reparcelling is to reunify the lands of an owner</segment>
-		<segment id="92" parent="91" relname="purpose-goal">to facilitate their exploitation .</segment>
-		<segment id="93" parent="199" relname="organization-preparation">In this application , the result of the operation between two polygons has been affected .</segment>
-		<segment id="94" parent="201" relname="span">This error causes the incorrect display of the resulting geometry</segment>
-		<segment id="95" parent="203" relname="span">that should be drawn in the user interface after the operation</segment>
-		<segment id="96" parent="95" relname="elaboration-attribute">applied to the two initial geometries</segment>
-		<segment id="97" parent="201" relname="explanation-evidence">( Figure 2 ) .</segment>
-		<segment id="98" parent="99" relname="organization-heading">Figure 2 .</segment>
-		<segment id="99" parent="204" relname="span">Original and mutant application .</segment>
-		<segment id="100" parent="205" relname="organization-heading">3. Conclusions</segment>
-		<segment id="101" parent="207" relname="adversative-antithesis">In existing proposals , we can find both generic and specific mutation operators .</segment>
-		<segment id="102" parent="207" relname="span">However , these are not adequate</segment>
-		<segment id="103" parent="102" relname="purpose-goal">to cover errors in particular domains .</segment>
-		<segment id="104" parent="209" relname="span">We have defined new operators specific to the GIS domain and a way</segment>
-		<segment id="105" parent="104" relname="purpose-attribute">to apply them to a SUT .</segment>
-		<segment id="106" parent="212" relname="span">In addition , we have tested the operators</segment>
-		<segment id="107" parent="106" relname="elaboration-attribute">defined in two GIS applications .</segment>
-		<segment id="108" parent="213" relname="joint-list">As future work , we intend to extend this approach to other domains ,</segment>
-		<segment id="109" parent="213" relname="joint-list">as well as to use the developed operators for the automatic improvement of sets of test cases .</segment>
+		<segment id="53" parent="52" relname="purpose-attribute">to be mutated ,</segment>
+		<segment id="54" parent="163" relname="span">together with the information of the mutation operators</segment>
+		<segment id="55" parent="54" relname="elaboration-attribute">that were already defined .</segment>
+		<segment id="56" parent="164" relname="span">From these data , we generate the mutation operator , in the form of on aspect ,</segment>
+		<segment id="57" parent="165" relname="span">which will then be possible to interweave with the SUT</segment>
+		<segment id="58" parent="57" relname="elaboration-additional">which generates a mutant of the SUT .</segment>
+		<segment id="59" parent="166" relname="span">Next , we describe the definition of two operators and two cases of application on real - world GIS applications .</segment>
+		<segment id="60" parent="167" relname="span">ChangeCoordSys Operator</segment>
+		<segment id="61" parent="60" relname="restatement-partial">( Listing 1 ) :</segment>
+		<segment id="62" parent="171" relname="span">It exchanges the coordinate system of a geometry ,</segment>
+		<segment id="63" parent="175" relname="span">so it does not match the coordinate system</segment>
+		<segment id="64" parent="63" relname="elaboration-attribute">that is being used in the user interface .</segment>
+		<segment id="65" parent="176" relname="span">It simulates the error</segment>
+		<segment id="66" parent="65" relname="elaboration-attribute">of not checking that the coordinate system is correct .</segment>
+		<segment id="67" parent="177" relname="span">The error is introduced</segment>
+		<segment id="68" parent="178" relname="span">by directly modifying the coordinate system of geometry</segment>
+		<segment id="69" parent="68" relname="context-circumstance">when recovering the wrapping of the figure .</segment>
+		<segment id="70" parent="71" relname="organization-heading">Listing 1 :</segment>
+		<segment id="71" parent="179" relname="span">A simplified definition of the ChangeCoordSys Operator .</segment>
+		<segment id="72" parent="180" relname="span">This operator was applied to a mobile technology GIS application .</segment>
+		<segment id="73" parent="184" relname="span">This application allows registering places of interest for the user .</segment>
+		<segment id="74" parent="185" relname="span">These areas of interest are called Geofences .</segment>
+		<segment id="75" parent="186" relname="span">A Geofence is determined by a geographical location</segment>
+		<segment id="76" parent="75" relname="elaboration-attribute">expressed in terms of latitude , longitude , and a radius around that location .</segment>
+		<segment id="77" parent="181" relname="span">By creating a Geofence with an erroneous location from its central location ,</segment>
+		<segment id="78" parent="77" relname="purpose-goal">the device will receive incorrect location notifications .</segment>
+		<segment id="79" parent="187" relname="span">As a result , the user will see in the application ’s map viewer the Geofences drawn in erroneous zones</segment>
+		<segment id="80" parent="79" relname="explanation-evidence">( Figure 1 ) .</segment>
+		<segment id="81" parent="82" relname="organization-heading">Figure 1 .</segment>
+		<segment id="82" parent="189" relname="span">Original and mutant application .</segment>
+		<segment id="83" parent="190" relname="span">BooleanPolygonConstraint Operator</segment>
+		<segment id="84" parent="83" relname="restatement-partial">( Listing 2 ) :</segment>
+		<segment id="85" parent="193" relname="span">It introduces errors in the processing of geometries ,</segment>
+		<segment id="86" parent="195" relname="span">manipulating the result of the operations</segment>
+		<segment id="87" parent="86" relname="elaboration-attribute">that carry out the verification of different topological restrictions between geometries , such as intersects , covers or overlap .</segment>
+		<segment id="88" parent="89" relname="organization-heading">Listing 2 :</segment>
+		<segment id="89" parent="196" relname="span">A simplified definition of the BooleanPolygonConstraint Operator .</segment>
+		<segment id="90" parent="197" relname="purpose-goal">To test this operator</segment>
+		<segment id="91" parent="197" relname="span">it was applied to a land reparcelling system .</segment>
+		<segment id="92" parent="199" relname="span">The objective of the land reparcelling is to reunify the lands of an owner</segment>
+		<segment id="93" parent="92" relname="purpose-goal">to facilitate their exploitation .</segment>
+		<segment id="94" parent="200" relname="context-background">In this application , the result of the operation between two polygons has been affected .</segment>
+		<segment id="95" parent="202" relname="span">This error causes the incorrect display of the resulting geometry</segment>
+		<segment id="96" parent="204" relname="span">that should be drawn in the user interface after the operation</segment>
+		<segment id="97" parent="96" relname="elaboration-attribute">applied to the two initial geometries</segment>
+		<segment id="98" parent="202" relname="explanation-evidence">( Figure 2 ) .</segment>
+		<segment id="99" parent="100" relname="organization-heading">Figure 2 .</segment>
+		<segment id="100" parent="205" relname="span">Original and mutant application .</segment>
+		<segment id="101" parent="206" relname="organization-heading">3. Conclusions</segment>
+		<segment id="102" parent="208" relname="adversative-antithesis">In existing proposals , we can find both generic and specific mutation operators .</segment>
+		<segment id="103" parent="208" relname="span">However , these are not adequate</segment>
+		<segment id="104" parent="103" relname="purpose-goal">to cover errors in particular domains .</segment>
+		<segment id="105" parent="210" relname="span">We have defined new operators specific to the GIS domain and a way</segment>
+		<segment id="106" parent="105" relname="purpose-attribute">to apply them to a SUT .</segment>
+		<segment id="107" parent="213" relname="span">In addition , we have tested the operators</segment>
+		<segment id="108" parent="107" relname="elaboration-attribute">defined in two GIS applications .</segment>
+		<segment id="109" parent="206" relname="joint-other">As future work , we intend to extend this approach to other domains , as well as to use the developed operators for the automatic improvement of sets of test cases .</segment>
 		<group id="110" type="span" parent="111" relname="organization-heading"/>
 		<group id="111" type="span" parent="112" relname="span"/>
 		<group id="112" type="span"/>
@@ -196,59 +196,59 @@
 		<group id="158" type="span" parent="152" relname="mode-means"/>
 		<group id="159" type="span" parent="157" relname="explanation-justify"/>
 		<group id="160" type="span" parent="49" relname="purpose-goal"/>
-		<group id="161" type="span" parent="154" relname="joint-sequence"/>
-		<group id="162" type="span" parent="52" relname="purpose-goal"/>
-		<group id="163" type="span" parent="154" relname="joint-sequence"/>
-		<group id="164" type="span" parent="55" relname="elaboration-attribute"/>
-		<group id="165" type="span" parent="154" relname="elaboration-additional"/>
-		<group id="166" type="span" parent="167" relname="organization-preparation"/>
-		<group id="167" type="span" parent="168" relname="span"/>
-		<group id="168" type="span" parent="169" relname="joint-other"/>
-		<group id="169" type="multinuc" parent="58" relname="elaboration-additional"/>
-		<group id="170" type="span" parent="171" relname="span"/>
+		<group id="161" type="span" parent="162" relname="same-unit"/>
+		<group id="162" type="multinuc" parent="154" relname="joint-sequence"/>
+		<group id="163" type="span" parent="162" relname="same-unit"/>
+		<group id="164" type="span" parent="154" relname="joint-sequence"/>
+		<group id="165" type="span" parent="56" relname="elaboration-attribute"/>
+		<group id="166" type="span" parent="154" relname="elaboration-additional"/>
+		<group id="167" type="span" parent="168" relname="organization-preparation"/>
+		<group id="168" type="span" parent="169" relname="span"/>
+		<group id="169" type="span" parent="170" relname="joint-other"/>
+		<group id="170" type="multinuc" parent="59" relname="elaboration-additional"/>
 		<group id="171" type="span" parent="172" relname="span"/>
 		<group id="172" type="span" parent="173" relname="span"/>
-		<group id="173" type="span" parent="167" relname="span"/>
-		<group id="174" type="span" parent="61" relname="causal-result"/>
-		<group id="175" type="span" parent="170" relname="purpose-goal"/>
-		<group id="176" type="span" parent="171" relname="elaboration-additional"/>
-		<group id="177" type="span" parent="66" relname="mode-means"/>
-		<group id="178" type="span" parent="172" relname="elaboration-additional"/>
-		<group id="179" type="span" parent="180" relname="context-background"/>
-		<group id="180" type="span" parent="181" relname="span"/>
+		<group id="173" type="span" parent="174" relname="span"/>
+		<group id="174" type="span" parent="168" relname="span"/>
+		<group id="175" type="span" parent="62" relname="causal-result"/>
+		<group id="176" type="span" parent="171" relname="purpose-goal"/>
+		<group id="177" type="span" parent="172" relname="elaboration-additional"/>
+		<group id="178" type="span" parent="67" relname="mode-means"/>
+		<group id="179" type="span" parent="173" relname="elaboration-additional"/>
+		<group id="180" type="span" parent="181" relname="context-background"/>
 		<group id="181" type="span" parent="182" relname="span"/>
-		<group id="182" type="span" parent="173" relname="elaboration-additional"/>
-		<group id="183" type="span" parent="71" relname="elaboration-additional"/>
+		<group id="182" type="span" parent="183" relname="span"/>
+		<group id="183" type="span" parent="174" relname="elaboration-additional"/>
 		<group id="184" type="span" parent="72" relname="elaboration-additional"/>
 		<group id="185" type="span" parent="73" relname="elaboration-additional"/>
-		<group id="186" type="span" parent="187" relname="span"/>
-		<group id="187" type="span" parent="181" relname="causal-result"/>
-		<group id="188" type="span" parent="186" relname="elaboration-additional"/>
-		<group id="189" type="span" parent="190" relname="organization-preparation"/>
-		<group id="190" type="multinuc" parent="191" relname="span"/>
-		<group id="191" type="span" parent="169" relname="joint-other"/>
-		<group id="192" type="span" parent="193" relname="span"/>
-		<group id="193" type="span" parent="190" relname="joint-other"/>
-		<group id="194" type="span" parent="84" relname="causal-result"/>
-		<group id="195" type="span" parent="192" relname="elaboration-additional"/>
-		<group id="196" type="span" parent="197" relname="span"/>
-		<group id="197" type="span" parent="190" relname="joint-other"/>
-		<group id="198" type="span" parent="90" relname="elaboration-additional"/>
-		<group id="199" type="span" parent="200" relname="span"/>
-		<group id="200" type="span" parent="190" relname="joint-other"/>
-		<group id="201" type="span" parent="202" relname="span"/>
-		<group id="202" type="span" parent="199" relname="span"/>
-		<group id="203" type="span" parent="94" relname="elaboration-attribute"/>
-		<group id="204" type="span" parent="202" relname="context-background"/>
-		<group id="205" type="multinuc" parent="206" relname="span"/>
-		<group id="206" type="span" parent="126" relname="joint-other"/>
-		<group id="207" type="span" parent="208" relname="span"/>
-		<group id="208" type="span" parent="209" relname="explanation-justify"/>
-		<group id="209" type="span" parent="210" relname="span"/>
-		<group id="210" type="span" parent="211" relname="joint-list"/>
-		<group id="211" type="multinuc" parent="205" relname="joint-other"/>
-		<group id="212" type="span" parent="211" relname="joint-list"/>
-		<group id="213" type="multinuc" parent="205" relname="joint-other"/>
+		<group id="186" type="span" parent="74" relname="elaboration-additional"/>
+		<group id="187" type="span" parent="188" relname="span"/>
+		<group id="188" type="span" parent="182" relname="causal-result"/>
+		<group id="189" type="span" parent="187" relname="elaboration-additional"/>
+		<group id="190" type="span" parent="191" relname="organization-preparation"/>
+		<group id="191" type="multinuc" parent="192" relname="span"/>
+		<group id="192" type="span" parent="170" relname="joint-other"/>
+		<group id="193" type="span" parent="194" relname="span"/>
+		<group id="194" type="span" parent="191" relname="joint-other"/>
+		<group id="195" type="span" parent="85" relname="causal-result"/>
+		<group id="196" type="span" parent="193" relname="elaboration-additional"/>
+		<group id="197" type="span" parent="198" relname="span"/>
+		<group id="198" type="span" parent="191" relname="joint-other"/>
+		<group id="199" type="span" parent="91" relname="elaboration-additional"/>
+		<group id="200" type="span" parent="201" relname="span"/>
+		<group id="201" type="span" parent="191" relname="joint-other"/>
+		<group id="202" type="span" parent="203" relname="span"/>
+		<group id="203" type="span" parent="200" relname="span"/>
+		<group id="204" type="span" parent="95" relname="elaboration-attribute"/>
+		<group id="205" type="span" parent="203" relname="context-background"/>
+		<group id="206" type="multinuc" parent="207" relname="span"/>
+		<group id="207" type="span" parent="126" relname="joint-other"/>
+		<group id="208" type="span" parent="209" relname="span"/>
+		<group id="209" type="span" parent="210" relname="explanation-justify"/>
+		<group id="210" type="span" parent="211" relname="span"/>
+		<group id="211" type="span" parent="212" relname="joint-list"/>
+		<group id="212" type="multinuc" parent="206" relname="joint-other"/>
+		<group id="213" type="span" parent="212" relname="joint-list"/>
 	</body>
 </rst>
 

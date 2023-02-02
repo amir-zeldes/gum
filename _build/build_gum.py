@@ -5,6 +5,7 @@ import os, shutil, sys, io, re
 from glob import glob
 from argparse import ArgumentParser
 from utils.pepper_runner import run_pepper
+from utils.make_rst_rel_data import main as make_disrpt
 import datetime
 import ntpath, platform
 
@@ -203,7 +204,7 @@ if not options.pepper_only:
 	#   * find instances of "'s" that are not included in any immediately preceding
 	#     markables and merge them into those markables if genitive_s is True
 	#   * return conllu-a style bracket informatio to add entity data to conllu files later
-	conllua_data, centering_data = fix_tsv(gum_source, gum_target, reddit=reddit)
+	conllua_data, centering_data, salience_data = fix_tsv(gum_source, gum_target, reddit=reddit)
 
 	# Adjust rst/ files:
 	#   * refresh token strings in case of inconsistency
@@ -275,6 +276,7 @@ if not options.pepper_only:
 	sys.stdout.write("\n")
 else:
 	conllua_data = None
+	salience_data = None
 	sys.stderr.write("i Pepper only conversion, entities in conllu-a data will be generated from Pepper output (no infsat or min IDs)\n")
 
 ## Step 3: merge and convert source formats to target formats
@@ -331,7 +333,7 @@ else:
 ## Step 4: propagate entity types, coref, discourse relations and XML annotations into conllu dep files
 from utils.propagate import add_entities_to_conllu, add_rsd_to_conllu, add_bridging_to_conllu, add_xml_to_conllu
 
-add_entities_to_conllu(gum_target, reddit=reddit, ontogum=False, conllua_data=conllua_data)
+add_entities_to_conllu(gum_target, reddit=reddit, ontogum=False, conllua_data=conllua_data, salience_data=salience_data)
 if not options.skip_ontogum:
 	if options.no_pepper:
 		sys.__stdout__.write("\ni Not adding entity information to UD parses in OntoGUM version since Pepper conversion was skipped\n")
@@ -347,3 +349,7 @@ add_xml_to_conllu(gum_target,reddit=reddit)
 add_xml_to_conllu(gum_target,reddit=reddit,ontogum=True)
 
 sys.__stdout__.write("\no Added discourse relations and XML tags to UD parses\n")
+
+make_disrpt(reddit=reddit)
+
+sys.__stdout__.write("\no Created DISRPT shared task discourse relation formats in target rst/disrpt/\n")

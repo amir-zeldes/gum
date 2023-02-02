@@ -42,6 +42,32 @@ ud_edep_deped.quiet = True
 
 efuncs = set(["acl","acl:relcl","advcl","advmod","amod","appos","aux","aux:pass","case","cc","cc:preconj","ccomp","compound","compound:prt","conj","cop","csubj","csubj:pass","csubj:xsubj","dep","det","det:predet","discourse","dislocated","expl","fixed","flat","goeswith","iobj","list","mark","nmod","nmod:npmod","nmod:poss","nmod:tmod","nsubj","nsubj:pass","nsubj:xsubj","nummod","obj","obl","obl:npmod","obl:tmod","orphan","parataxis","punct","ref","reparandum","root","vocative","xcomp"])
 
+ud_dev = ["GUM_interview_cyclone", "GUM_interview_gaming",
+		  "GUM_news_iodine", "GUM_news_homeopathic",
+		  "GUM_voyage_athens", "GUM_voyage_coron",
+		  "GUM_whow_joke", "GUM_whow_overalls",
+		  "GUM_bio_byron", "GUM_bio_emperor",
+		  "GUM_fiction_lunre", "GUM_fiction_beast",
+		  "GUM_academic_exposure", "GUM_academic_librarians",
+		  "GUM_reddit_macroeconomics", "GUM_reddit_pandas",  # Reddit
+		  "GUM_speech_impeachment", "GUM_textbook_labor",
+		  "GUM_vlog_radiology", "GUM_conversation_grounded",
+		  "GUM_textbook_governments", "GUM_vlog_portland",
+		  "GUM_conversation_risk", "GUM_speech_inauguration"]
+ud_test = ["GUM_interview_libertarian", "GUM_interview_hill",
+		   "GUM_news_nasa", "GUM_news_sensitive",
+		   "GUM_voyage_oakland", "GUM_voyage_vavau",
+		   "GUM_whow_mice", "GUM_whow_cactus",
+		   "GUM_fiction_falling", "GUM_fiction_teeth",
+		   "GUM_bio_jespersen", "GUM_bio_dvorak",
+		   "GUM_academic_eegimaa", "GUM_academic_discrimination",
+		   "GUM_reddit_escape", "GUM_reddit_monsters",  # Reddit
+		   "GUM_speech_austria", "GUM_textbook_chemistry",
+		   "GUM_vlog_studying", "GUM_conversation_retirement",
+		   "GUM_textbook_union", "GUM_vlog_london",
+		   "GUM_conversation_lambada", "GUM_speech_newzealand"]
+
+
 class Args:
 
 	def __init__(self):
@@ -50,10 +76,11 @@ class Args:
 
 class Entity:
 
-	def __init__(self, ent_id, type, infstat, centering, identity):
+	def __init__(self, ent_id, type, infstat, salience, centering, identity):
 		self.id = ent_id
 		self.type = type
 		self.infstat = infstat
+		self.salience = salience
 		self.centering = centering
 		self.tokens = []
 		self.identity = identity
@@ -547,32 +574,6 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		print("      Punctuation behavior in the UD data relies on udapi ")
 		print("      which does not support Python 2. All punctuation will be attached to sentence roots.\n")
 
-	ud_dev = ["GUM_interview_cyclone", "GUM_interview_gaming",
-			  "GUM_news_iodine", "GUM_news_homeopathic",
-			  "GUM_voyage_athens", "GUM_voyage_coron",
-			  "GUM_whow_joke", "GUM_whow_overalls",
-			  "GUM_bio_byron", "GUM_bio_emperor",
-			  "GUM_fiction_lunre", "GUM_fiction_beast",
-			  "GUM_academic_exposure", "GUM_academic_librarians",
-			  #"GUM_reddit_macroeconomics", "GUM_reddit_pandas",
-			  "GUM_speech_impeachment", "GUM_textbook_labor",
-			  "GUM_vlog_radiology", "GUM_conversation_grounded",
-			  "GUM_textbook_governments", "GUM_vlog_portland",
-			  "GUM_conversation_risk", "GUM_speech_inauguration"]
-	ud_test = ["GUM_interview_libertarian", "GUM_interview_hill",
-			   "GUM_news_nasa", "GUM_news_sensitive",
-			   "GUM_voyage_oakland", "GUM_voyage_vavau",
-			   "GUM_whow_mice", "GUM_whow_cactus",
-			   "GUM_fiction_falling", "GUM_fiction_teeth",
-			   "GUM_bio_jespersen", "GUM_bio_dvorak",
-			   "GUM_academic_eegimaa", "GUM_academic_discrimination",
-			   #"GUM_reddit_escape", "GUM_reddit_monsters",
-			   "GUM_speech_austria", "GUM_textbook_chemistry",
-			   "GUM_vlog_studying", "GUM_conversation_retirement",
-			   "GUM_textbook_union", "GUM_vlog_london",
-			   "GUM_conversation_lambada", "GUM_speech_newzealand"]
-
-
 	train_string, dev_string, test_string = "", "", ""
 
 	dep_source = tmp + "dep" + os.sep + "tmp" + os.sep
@@ -614,10 +615,11 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 				fields = line.split("\t")
 				line_tok_id = fields[0]
 				tok_num_to_tsv_id[tok_id] = line_tok_id
-				entity_string, infstat_string,identity_string, centering_string, coref_type_string, coref_link_string = fields[3:9]
+				entity_string, infstat_string,salience_string, identity_string, centering_string, coref_type_string, coref_link_string = fields[3:10]
 				if entity_string != "_":
 					entities = entity_string.split("|")
 					infstats = infstat_string.split("|")
+					saliences = salience_string.split("|")
 					identities = identity_string.split("|")
 					centerings = centering_string.split("|")
 					if coref_type_string != "_":
@@ -625,6 +627,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 						coref_links = coref_link_string.split("|")
 					for i, entity in enumerate(entities):
 						infstat = infstats[i]
+						salience = saliences[i]
 						centering = centerings[i]
 						# Make sure all entities are numbered
 						if "[" not in entity:  # Single token entity with no ID
@@ -634,6 +637,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 						entity_id = entity[entity.find("[")+1:-1]
 						entity = entity[:entity.find("[")]
 						infstat = infstat[:infstat.find("[")]
+						salience = infstat[:salience.find("[")]
 						centering = centering[:centering.find("[")]
 						match_ident = "_"
 						for ident in identities:
@@ -645,7 +649,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 							if ident_id == entity_id:
 								match_ident = ident[:ident.find("[")]
 						if entity_id not in entity_dict:
-							entity_dict[entity_id] = Entity(entity_id,entity,infstat,centering,match_ident)
+							entity_dict[entity_id] = Entity(entity_id,entity,infstat,salience,centering,match_ident)
 						entity_dict[entity_id].tokens.append(str(tok_id))
 						entity_dict[entity_id].line_tokens.append(line_tok_id)
 
@@ -916,9 +920,9 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		with io.open(dep_merge_dir + docname + ".conll10",'w',encoding="utf8", newline="\n") as f:
 			f.write(output)
 
-		if docname in ud_dev:
+		if docname in ud_dev and "reddit_" not in docname:
 			dev_string += output
-		elif docname in ud_test:
+		elif docname in ud_test and "reddit_" not in docname:
 			test_string += output
 		elif "reddit_" not in docname:  # Exclude reddit data from UD release
 			train_string += output
@@ -1248,13 +1252,15 @@ def add_rsd_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8):
 			f.write("\n".join(output).strip() + "\n\n")
 
 
-def add_entities_to_conllu(gum_target,reddit=False,ontogum=False,conllua_data=None):
+def add_entities_to_conllu(gum_target,reddit=False,ontogum=False,conllua_data=None,salience_data=None):
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
 	if conllua_data is None:
 		entity_doc = get_coref_ids(gum_target,ontogum=ontogum)
 	else:
 		entity_doc = conllua_data
+	if salience_data is None:
+		salience_data = {}
 
 	files = glob(gum_target + "dep" + os.sep + "*.conllu")
 	files += glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
@@ -1305,8 +1311,14 @@ def add_entities_to_conllu(gum_target,reddit=False,ontogum=False,conllua_data=No
 			with io.open(onto_conllu + os.path.basename(file_), 'w', encoding="utf8", newline="\n") as f:
 				f.write("\n".join(output).strip() + "\n\n")
 		else:
+			output = "\n".join(output)
+			if salience_data is not None:
+				salient_entities = sorted(list(set([int(k) for k in salience_data[doc] if salience_data[doc][k] == "sal"])))
+				salient_entities = ", ".join([str(x) for x in salient_entities])
+				salient_entities = "# meta::salientEntities = " + salient_entities
+				output = output.replace("# meta::sourceURL",salient_entities + "\n" + "# meta::sourceURL")
 			with io.open(file_,'w',encoding="utf8",newline="\n") as f:
-				f.write("\n".join(output).strip() + "\n\n")
+				f.write(output.strip() + "\n\n")
 
 
 def get_bridging(webannotsv):

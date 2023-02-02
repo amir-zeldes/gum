@@ -226,7 +226,7 @@
       <xs:attribute name="who" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="#([A-Z][a-z]*)+(,#([A-Z][a-z]*)+)*"/>
+            <xs:pattern value="(#([A-Z][a-z]*)+(,#([A-Z][a-z]*)+)*|env)"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -273,6 +273,7 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="ref"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="q"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="sic"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="date"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>

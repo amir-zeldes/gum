@@ -45,17 +45,19 @@ def fix_tsv(gum_source, gum_target, reddit=False, genitive_s=False):
 
 	conllua_data = {}
 	centering_data = {}
+	salience_data = {}
 	for docnum, filename in enumerate(file_list):
 		docname = ntpath.basename(filename).replace(".tsv","")
 		tt_file = filename.replace(".tsv", ".xml").replace("tsv","xml")
 		sys.stdout.write("\t+ " + " "*60 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Adjusting borders for " + docname + "\r")
-		conllua_doc, centering_transitions_doc = fix_file(filename,tt_file,outdir,genitive_s=genitive_s)
+		conllua_doc, centering_transitions_doc, group_saliences = fix_file(filename,tt_file,outdir,genitive_s=genitive_s)
+		salience_data[docname] = group_saliences
 		conllua_data[docname] = conllua_doc
 		centering_data[docname] = centering_transitions_doc
 
 	print("o Adjusted " + str(len(file_list)) + " WebAnno TSV files" + " " * 40)
-	return conllua_data, centering_data
+	return conllua_data, centering_data, salience_data
 
 
 def make_ontogum(gum_target, reddit=False):
@@ -214,8 +216,9 @@ def serialize_tsv_lines(lines, parsed_lines, tsv_path, outdir, as_string=False):
 			cols = line.split("\t")
 			cols[3] = format_entities(parsed_lines[i]['entities'])
 			cols[4] = format_attr(parsed_lines[i]['entities'],attr="infstat")
-			cols[5] = format_attr(parsed_lines[i]['entities'],attr="identity")
-			cols[5] = cols[5].replace(" ","_").replace("(","%28").replace(")","%29").replace(",","%2C").replace("-","%2D")
+			cols[5] = format_attr(parsed_lines[i]['entities'],attr="salience")
+			cols[6] = format_attr(parsed_lines[i]['entities'],attr="identity")
+			cols[6] = cols[6].replace(" ","_").replace("(","%28").replace(")","%29").replace(",","%2C").replace("-","%2D")
 			cols[-2] = format_relations(parsed_lines[i]['relations'])
 			if as_string:
 				output.append("\t".join(cols))
@@ -256,12 +259,14 @@ def parse_tsv_line(line):
 	if line[3]:
 		# parse something like "person[3]" or "person"
 		information_statuses = line[4].split("|")
-		identities = line[5].split("|") if line[5] is not None else [None for i, _ in enumerate(information_statuses)]
+		saliences = line[5].split("|")
+		identities = line[6].split("|") if line[6] is not None else [None for i, _ in enumerate(information_statuses)]
 		for i, entity in enumerate(line[3].split("|")):
 			entity_type, entity_id = extract_from_bracket(entity)
 			entity_id = int(entity_id) if entity_id else None
 
 			entity_infstat, _ = extract_from_bracket(information_statuses[i])
+			entity_salience, _ = extract_from_bracket(saliences[i])
 			ident_field = "_"
 			for ident_anno in identities:  # See if an identity anno corresponds to the currently processed entity ID
 				if ident_anno is not None:
@@ -272,7 +277,7 @@ def parse_tsv_line(line):
 				if int(ident_id) == entity_id:
 					ident_field = entity_identity
 					break
-			entities.append({'id': entity_id, 'type': entity_type, 'infstat': entity_infstat, "identity": ident_field})
+			entities.append({'id': entity_id, 'type': entity_type, 'infstat': entity_infstat, "salience":entity_salience, "identity": ident_field})
 
 			# assumption: there should be at most one single-token entity on any given line
 			assert not (entity_id is None and already_seen_single_tok_entity)
@@ -280,11 +285,11 @@ def parse_tsv_line(line):
 				already_seen_single_tok_entity = True
 
 	relations = []
-	if line[7]:
-		rel_types = line[6].split("|")
+	if line[8]:
+		rel_types = line[7].split("|")
 		# parse something like "5-1[20_10]",
 		# i.e. "this line is where entity 10 begins, and it is related to entity 20 beginning at token 5-1
-		for i, relation in enumerate(line[7].split("|")):
+		for i, relation in enumerate(line[8].split("|")):
 			src_token, src_dest = extract_from_bracket(relation)
 			if src_dest:
 				src, dest = src_dest.split("_")
@@ -563,7 +568,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 	:param ent_mappings: maps entity numbers like [320]
 	:param single_tok_mappings: maps single token entities identified by their tok ID, like 13-1 (sent. 13, tok 1)
 	:param single_coref_type: if True only use coref and bridge in output, do not distinguish ana, cata, pred, disc and appos types
-	:return: adjusted webanno tsv output, per-token conllu_data for conllu-a bracket representation in MISC field
+	:return: adjusted webanno tsv output, per-token conllu_data for conllu-a bracket representation in MISC field, dictionary of coref groups to salience values
 	"""
 
 	def has_bridging(rels):
@@ -653,7 +658,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 					entities[e["id"]]["length"] += 1
 				else:
 					entities[e["id"]] = {"start":tid, "end":tid,"length":1, "func": dct["func"], "pos": dct["pos"],
-									 "infstat": e["infstat"], "type":e["type"], "identity": e["identity"], "relations": [],
+									 "infstat": e["infstat"], "salience": e["salience"], "type":e["type"], "identity": e["identity"], "relations": [],
 									 "head_tok_abs_id": dct["abs_id"], "head_tok_parent_abs_id" : 0, "group":None,
 									 "sid": dct["token_id"].split("-")[0],
 									 "toks":[(int(dct["id_in_sent"]),int(dct["dep_parent"]),dct["pos"],dct["func"],dct["token"],dct["abs_id"])]}
@@ -824,6 +829,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 					entities[rel["dest"]]["group"] = ent["group"]
 
 	group_identities = {}
+	group_saliences = defaultdict(lambda :"nonsal")
 	for e_id in entities:
 		ent = entities[e_id]
 		if ent["infstat"] == "split":
@@ -844,6 +850,8 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 					sys.stderr.write("Multiple entity conflict in doc "+ webanno_tsv[webanno_tsv.find("Text"): webanno_tsv.find("Text") + 20]+"\n"+
 									 group_identities[ent["group"]] + "<>" + ent["identity"] + "\n")
 			group_identities[ent["group"]] = ent["identity"]
+		if ent["salience"] == "sal":
+			group_saliences[ent["group"]] = "sal"
 		elif ent["group"] in group_identities:
 			#continue
 			#if ent["pos"][0] == "P":
@@ -855,10 +863,11 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 		ent = entities[e_id]
 		if ent["group"] in group_identities:
 			ent["identity"] = group_identities[ent["group"]]
-
+		if ent["group"] in group_saliences:
+			ent["salience"] = group_saliences[ent["group"]]
 
 	# Add Centering Theory annotations
-	if "Byron" in webanno_tsv:
+	if "REDACTED" in webanno_tsv:
 		a=4
 	entities, centering_transitions = add_centering(entities)
 
@@ -866,6 +875,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 	opener_lists = defaultdict(list)
 	closer_lists = defaultdict(list)
 	group_mapping = {}
+	mapped_saliences = {}
 	max_mapped_group = 1
 	for e_id in sorted(entities, key=lambda x: (entities[x]["start"],-entities[x]["end"])):
 		ent = entities[e_id]
@@ -881,6 +891,8 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 			group_mapping[ent["group"]] = max_mapped_group
 			max_mapped_group += 1
 		group = group_mapping[ent["group"]]
+		if ent["salience"] == "sal":
+			mapped_saliences[group] = "sal"
 		starter = f'({etype}-{group}-{infstat}-{centering}-{min_ids}-{coref_type}{identity}'
 		if start == end:
 			starter += ")"
@@ -910,11 +922,14 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 		if "\t" not in line:
 			adjusted.append(line)
 		else:
+			if "45-16	" in line:
+				a=4
 			fields = line.split("\t")
 			counter +=1
-			ents, infs, idents, types, edges = fields[3:8]
+			ents, infs, sals, idents, types, edges = fields[3:9]
 			ents = ents.split("|")
 			infs = infs.split("|")
+			sals = sals.split("|")
 			idents = []
 			types = []
 			edges = []
@@ -933,6 +948,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 					e_id = single_tok_mappings[fields[0]]
 				ents[i] = entities[e_id]["type"] + "[" + str(e_id) + "]"
 				infs[i] = entities[e_id]["infstat"] + "[" + str(e_id) + "]"
+				sals[i] = entities[e_id]["salience"] + "[" + str(e_id) + "]"
 				centers.append(entities[e_id]["cf_rank"])
 				centers[i] += "[" + str(e_id) + "]"
 				if entities[e_id]["identity"] != "_":
@@ -949,19 +965,21 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 			types = "_" if len(types) == 0 else "|".join(types)
 			edges = "_" if len(edges) == 0 else "|".join(edges)
 			infs = "|".join(infs)
+			sals = "|".join(sals)
 			ents = "|".join(ents)
 			idents = "|".join(idents) if len(idents) > 0 else "_"
-			centers = "|".join(centers) if len(centers) > 0 else "_"
+			centers = "|".join(centers)# if len(centers) > 0 else "_"
 			fields[3] = ents
 			fields[4] = infs
-			fields[5] = idents
-			fields.insert(6, centers)
+			fields[5] = sals
+			fields[6] = idents
+			fields.insert(7, centers)
 			fields[-3] = types
 			fields[-2] = edges
 			line = "\t".join(fields)
 			adjusted.append(line)
 
-	return "\n".join(adjusted), conllua_data, centering_transitions
+	return "\n".join(adjusted), conllua_data, centering_transitions, mapped_saliences
 
 
 def fix_file(filename, tt_file, outdir, genitive_s=False):
@@ -1026,7 +1044,7 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 	for line in lines:
 		line_num += 1
 		if "T_SP=webanno.custom.Referent" in line:
-			out_lines[line_num] = '#T_SP=webanno.custom.Referent|entity|infstat|identity|centering'
+			out_lines[line_num] = '#T_SP=webanno.custom.Referent|entity|infstat|salience|identity|centering'
 		elif "\t" not in line: # not a token
 			out_lines[line_num] = line
 		elif len(line) == 0: # sentence break (if text has already started)
@@ -1231,7 +1249,7 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 	output += "\n".join(out_lines) + "\n"
 	parsed_lines, entity_mappings, single_tok_mappings = fix_genitive_s(output, tt_file, warn_only=True, string_input=True)
 
-	output, conllua_data, centering_transitions = adjust_edges(output, parsed_lines, entity_mappings, single_tok_mappings)
+	output, conllua_data, centering_transitions, group_saliences = adjust_edges(output, parsed_lines, entity_mappings, single_tok_mappings)
 	centering_doc_data = defaultdict(lambda: "no-ent")
 
 	# Set missing transitions
@@ -1254,7 +1272,7 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 	outtemp.write(output)
 	outtemp.close()
 
-	return conllua_data, centering_doc_data
+	return conllua_data, centering_doc_data, group_saliences
 
 
 def add_centering(entities):
@@ -1326,7 +1344,9 @@ def add_centering(entities):
 	prev_cb = None
 	prev_snum = -1
 	prev_cb_assigned = False
-	for sent in sorted(list(ents_by_sent.keys()),key=lambda x: int(x)):
+	for snum, sent in enumerate(sorted(list(ents_by_sent.keys()),key=lambda x: int(x))):
+		if snum == 44:
+			a=4
 		if len(ents_by_sent[sent]) == 0:
 			continue
 		seen_groups = {}
