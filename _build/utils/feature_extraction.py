@@ -38,7 +38,7 @@ def get_tok_info(docname,corpus_root):
 	try:
 		lines = open(conll_file).read().replace("\r","").split("\n")
 	except:
-		lines = open(conll_file.replace(".conll10",".conllu")).read().replace("\r","").split("\n")
+		lines = open(conll_file.replace(".conll10",".conllu"), encoding="utf8").read().replace("\r","").split("\n")
 	offset = sent_toks = 0
 	toks_by_abs_id = {}
 	sid = 1
@@ -73,7 +73,7 @@ def get_tok_info(docname,corpus_root):
 	s_type = "_"
 	para = "_"
 	item = "_"
-	for line in open(xml_file).read().replace("\r", "").split("\n"):
+	for line in open(xml_file, encoding='utf8').read().replace("\r", "").split("\n"):
 		if "<s type=" in line:
 			m = re.search(r'<s type="([^"]+)"',line)
 			s_type = m.group(1)

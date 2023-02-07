@@ -304,10 +304,11 @@ else:
 	if not os.path.exists(gum_target + "coref" + os.sep + "conll" + os.sep):
 		os.makedirs(gum_target + "coref" + os.sep + "conll" + os.sep)
 
+	pepper_path = build_dir + os.sep + "utils" + os.sep + "pepper" + os.sep + "merge_gum.pepperparams"
 	try:
-		pepper_params = io.open("utils" + os.sep + "pepper" + os.sep + "merge_gum.pepperparams", encoding="utf8").read().replace("\r","")
+		pepper_params = io.open(pepper_path, encoding="utf8").read().replace("\r","")
 	except:
-		sys.__stdout__.write("x Can't find pepper template at: "+"utils" + os.sep + "pepper" + os.sep + "merge_gum.pepperparams"+"\n  Aborting...")
+		sys.__stdout__.write("x Can't find pepper template at: " + pepper_path + "\n  Aborting...")
 		sys.exit()
 
 	# Inject gum_target in pepper_params and replace os.sep with URI slash

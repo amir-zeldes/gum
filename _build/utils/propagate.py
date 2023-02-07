@@ -35,7 +35,8 @@ ud_morph_deped = DepEdit(utils_abs_path + os.sep + "ud_morph.ini")
 ud_morph_deped.quiet = True
 # depedit script to fix known projective punctuation issues
 # note that this script also introduces some post editing to morphology, such as passive Voice
-punct_depedit = DepEdit(config_file="utils" + os.sep + "projectivize_punct.ini")
+
+punct_depedit = DepEdit(config_file=utils_abs_path + os.sep + "projectivize_punct.ini")
 punct_depedit.quiet = True
 ud_edep_deped = DepEdit(utils_abs_path + os.sep + "eng_enhance.ini")
 ud_edep_deped.quiet = True
@@ -761,7 +762,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		processed_lines = "\n".join(tmplines).strip() + "\n"
 
 		# UPOS
-		depedit = DepEdit(config_file="utils" + os.sep + "upos.ini")
+		depedit = DepEdit(config_file=utils_abs_path + os.sep + "upos.ini")
 		uposed = depedit.run_depedit(processed_lines,filename=docname,sent_id=True,docname=True)
 		uposed = re.sub(r'ent_head=[a-z]+\|infstat=[a-z:]+\|?','',uposed)
 		if "infstat=" in uposed:
@@ -1482,7 +1483,7 @@ def add_bridging_to_conllu(gum_target,reddit=False):
 	bigfiles = glob(gum_target + "dep" + os.sep + "*.conllu")
 
 	for file_ in bigfiles:
-		docs = re.findall("# newdoc id ?= ?(GUM_[^\n]+)",io.open(file_).read())
+		docs = re.findall("# newdoc id ?= ?(GUM_[^\n]+)",io.open(file_, encoding="utf8").read())
 
 		output = []
 		for doc in docs:
