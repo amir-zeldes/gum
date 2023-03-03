@@ -801,6 +801,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print(str(id) + docname)
 		print("WARN: tag POS must have lemma " +'"'+ "'s" + '"' + inname)
 
+	if (parent_pos.startswith("RB") or parent_pos.startswith("JJ")) and func == "nmod":
+		print("WARN: nmod child of " + parent_pos + ' should be obl' + inname)
+
 	if func == "goeswith" and lemma != "_":
 		print("WARN: deprel goeswith must have lemma '_'" + inname)
 
