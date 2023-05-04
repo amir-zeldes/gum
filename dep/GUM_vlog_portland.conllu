@@ -227,8 +227,8 @@
 1	So	so	INTJ	UH	_	16	discourse	16:discourse	Discourse=context-background:16->22:3
 2	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	Entity=(23-event-new-cf4-3-coref
 3	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	4	amod	4:amod	_
-4	thing	thing	NOUN	NN	Number=Sing	16	nsubj	16:nsubj	_
-5	that	that	PRON	WDT	PronType=Rel	9	obj	9:obj	Discourse=elaboration-attribute:17->16:0
+4	thing	thing	NOUN	NN	Number=Sing	16	nsubj	9:obj|16:nsubj	_
+5	that	that	PRON	WDT	PronType=Rel	9	obj	4:ref	Discourse=elaboration-attribute:17->16:0
 6	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	7	nsubj	7:nsubj	Entity=(3-person-giv:act-cf1*-1-ana)
 7	recommend	recommend	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	4	acl:relcl	4:acl:relcl	_
 8	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	9	nsubj	9:nsubj	Entity=(24-person-acc:com-cf3-1-ana)
@@ -480,7 +480,7 @@
 3	this	this	PRON	DT	Number=Sing|PronType=Dem	6	nsubj	6:nsubj	Entity=(41-event-giv:act-cf2-1-coref)
 4	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	6:cop	_
 5	not	not	PART	RB	Polarity=Neg	6	advmod	6:advmod	_
-6	something	something	NOUN	NN	Number=Sing	0	root	0:root|9:obj	Entity=(46-abstract-new-cf5-1-sgl
+6	something	something	PRON	NN	Number=Sing|PronType=Ind	0	root	0:root|9:obj	Entity=(46-abstract-new-cf5-1-sgl
 7	that	that	PRON	WDT	PronType=Rel	9	obj	6:ref	Discourse=elaboration-attribute:41->40:0
 8	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	9	nsubj	9:nsubj	Entity=(24-person-giv:act-cf1*-1-ana)
 9	want	want	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	6	acl:relcl	6:acl:relcl	_
@@ -503,7 +503,7 @@
 25	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	28	nsubj	28:nsubj	Entity=(41-event-giv:act-cf2-1-ana)
 26	's	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	28	cop	28:cop	_
 27	definitely	definitely	ADV	RB	Degree=Pos	28	advmod	28:advmod	_
-28	something	something	NOUN	NN	Number=Sing	6	conj	6:conj:but	Entity=(41-event-giv:act-cf2-1-pred
+28	something	something	PRON	NN	Number=Sing|PronType=Ind	6	conj	6:conj:but	Entity=(41-event-giv:act-cf2-1-pred
 29	to	to	PART	TO	_	30	mark	30:mark	Discourse=purpose-attribute:44->43:0
 30	consider	consider	VERB	VB	VerbForm=Inf	28	acl	28:acl:to	_
 31	if	if	SCONJ	IN	_	34	mark	34:mark	Discourse=contingency-condition:45->43:1
@@ -1103,11 +1103,11 @@
 29	really	really	ADV	RB	Degree=Pos	30	advmod	30:advmod	_
 30	cool	cool	ADJ	JJ	Degree=Pos	32	amod	32:amod	_
 31	like	like	INTJ	UH	_	32	discourse	32:discourse	_
-32	overlook	overlook	NOUN	NN	Number=Sing	27	obj	27:obj	_
+32	overlook	overlook	NOUN	NN	Number=Sing	27	obj	27:obj|40:obj	_
 33	of	of	ADP	IN	_	35	case	35:case	_
 34	the	the	DET	DT	Definite=Def|PronType=Art	35	det	35:det	Entity=(8-place-giv:inact-cf6-2-coref-Portland%2C_Oregon
 35	city	city	NOUN	NN	Number=Sing	32	nmod	32:nmod:of	Entity=8)
-36	that	that	PRON	WDT	PronType=Rel	40	obj	40:obj	Discourse=elaboration-additional:104->103:0
+36	that	that	PRON	WDT	PronType=Rel	40	obj	32:ref	Discourse=elaboration-additional:104->103:0
 37	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	39	nsubj	39:nsubj|40:nsubj:xsubj	Entity=(24-person-giv:act-cf1-1-ana)
 38	can	can	AUX	MD	VerbForm=Fin	39	aux	39:aux	_
 39	go	go	VERB	VB	VerbForm=Inf	32	acl:relcl	32:acl:relcl	_
@@ -1499,7 +1499,7 @@
 16	people	person	NOUN	NNS	Number=Plur	4	obl:agent	4:obl:agent|18:nsubj	_
 17	who	who	PRON	WP	PronType=Rel	18	nsubj	16:ref	Discourse=attribution-positive:145->146:0
 18	asked	ask	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	16	acl:relcl	16:acl:relcl	_
-19	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	18	obj	18:obj	Entity=(3-person-giv:act-cf1*-1-ana)
+19	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	18	iobj	18:iobj	Entity=(3-person-giv:act-cf1*-1-ana)
 20	if	if	SCONJ	IN	_	22	mark	22:mark	Discourse=elaboration-attribute:146->144:0
 21	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	22	nsubj	22:nsubj	Entity=(3-person-giv:act-cf1*-1-ana)
 22	did	do	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	18	advcl	18:advcl:if	_
