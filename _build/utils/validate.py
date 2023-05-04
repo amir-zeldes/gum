@@ -400,7 +400,7 @@ def validate_annos(gum_source, reddit=False):
 		tagset = ["CC","CD","DT","EX","FW","IN","IN/that","JJ","JJR","JJS","LS","MD","NN","NNS","NP","NPS","PDT","POS",
 				  "PP","PP$","RB","RBR","RBS","RP","SENT","SYM","TO","UH","VB","VBD","VBG","VBN","VBP","VBZ","VH","VHD",
 				  "VHG","VHN","VHP","VHZ","VV","VVD","VVG","VVN","VVP","VVZ","WDT","WP","WP$","WRB","``","''","(",")",
-				  ",",":","HYPH","$"]
+				  ",",":","HYPH","$","GW"]
 		non_lemmas = ["them","me","him","n't"]
 		non_lemma_combos = [("PP","her"),("MD","wo"),("PP","us"),("DT","an")]
 		lemma_pos_combos = {"which":"WDT"}
@@ -444,10 +444,13 @@ def validate_annos(gum_source, reddit=False):
 		markables = {}
 		antecedents = defaultdict(list)
 		single_tok_ids = False
+		tid2abs = {}
+		toknum = 0
 
 		for line in coref_lines:
 			if "\t" in line:  # Token
 				fields = line.strip().split("\t")
+				toknum += 1
 				entity_str, infstat_str, salience_str, identity_str, coref_str, src_str = fields[-6:]
 
 				if entity_str != "" and entity_str != "_":  # Entity annotation found
@@ -458,6 +461,7 @@ def validate_annos(gum_source, reddit=False):
 					srcs = src_str.split("|")
 					tok_id = fields[0]
 					text = fields[2]
+					tid2abs[tok_id] = toknum
 					for i, entity in enumerate(entities):
 						try:
 							infstat = infstats[i]
@@ -513,6 +517,17 @@ def validate_annos(gum_source, reddit=False):
 		for mark_id in markables:
 			mark = markables[mark_id]
 			mark.text = mark.text.strip()
+			# Add markable head functions
+			start_token = tid2abs[mark.start]
+			end_token = tid2abs[mark.end]
+			for i in range(mark.text.count(" ")+1):
+				if parent_ids[start_token+i] < start_token or parent_ids[start_token+i] > end_token or parent_ids[start_token+i] == 0:  # Entity head?
+					if funcs[start_token+i] != "punct":
+						mark.func = funcs[start_token+i]
+			if mark.func.endswith("tmod") and mark.entity != "time":
+				print("! WARN: markable " + mark.text + " at " +docname + " token " + str(toknum) + " is " + \
+					  mark.entity + " but has head deprel " + mark.func)
+
 			srcs = mark.anaphor
 			for src in srcs:
 				src_tok = re.sub(r'\[.*', '', src)
@@ -601,7 +616,7 @@ def validate_annos(gum_source, reddit=False):
 		rsd1 = make_rsd(rst_xml, "", as_text=True)
 		generated_rs3 = rsd2rs3(rsd1)
 		rsd2 = make_rsd(generated_rs3, "", as_text=True)
-		if rsd1 != rsd2:
+		if re.sub('\t[a-z][^\s]+\n',r'\t_\n',rsd1) != rsd2:
 			sys.stderr.write("! RST file " + docname + " not identical in rsd<>rs3 round-trip conversion; possible broken hierarchy!\n")
 
 
@@ -679,6 +694,11 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if func in ["amod", "det"] and parent_lemma == "one" and parent_pos == "CD":
 		print("WARN: 'one' with " + func + " dependent should be NN/NOUN not CD/NUM in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
+
+	if lemma != tok:
+		if re.search(r'.*[a-z]+[A-Z]+.*',lemma) is not None:
+			if lemma + "s" != tok: # plurals like YouTubers
+				print("WARN: suspicious capitalization in lemma " + lemma + " for token " + tok + inname)
 
 	if func in ['fixed','goeswith','flat', 'conj'] and id < parent_id:
 		print("WARN: back-pointing func " + func + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
@@ -822,7 +842,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		# Exceptions for phrasal compound in GUM_reddit_card and nominalization in GUM_academic_exposure
 		if tok != "prioritizing" and tok != "following":
 			print(str(id) + docname)
-			print("WARN: tag "+pos+" should not have a determinder 'det'" + inname)
+			print("WARN: tag "+pos+" should not have a determiner 'det'" + inname)
 
 	if parent_lemma == "let" and func=="ccomp":
 		if "maiden" not in inname:  # Known expl exceptions in speech_maiden
@@ -904,7 +924,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("that","is"), ("up","to"),("depend","on"),
 				 ("out","of"),("off","of"),("long","than"),("on","board"),("as","of"),("depend","upon"),
 				 ("that","be"),("just","about"),("vice","versa"),("as","such"),("next","to"),("close","to"),("one","another"),
-				 ("de","facto"),("each","other"), ("as","many"), ("in","that"), ("few","than")}
+				 ("de","facto"),("each","other"), ("as","many"), ("in","that"), ("few","than"), ("as","for"), ("as","though")}
 
 	# Ad hoc listing of triple mwe parts - All in all, in order for, whether or not
 	mwe_pairs.update({("all","in"),("all","all"),("in","for"),("whether","or"),("whether","not")})
