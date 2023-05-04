@@ -330,6 +330,9 @@ else:
 	out = run_pepper(pepper_params,options.verbose_pepper)
 	sys.__stdout__.write(out + "\n")
 
+if options.pepper_only:
+	quit()
+
 ## Step 4: propagate entity types, coref, discourse relations and XML annotations into conllu dep files
 from utils.propagate import add_entities_to_conllu, add_rsd_to_conllu, add_bridging_to_conllu, add_xml_to_conllu
 
