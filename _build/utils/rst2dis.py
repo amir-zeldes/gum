@@ -237,9 +237,10 @@ def rst2dis(rs3_string, remove_unary=True, binarize=True):
 			u = units[uid]
 			if len(u.children)==1:
 				u.unary = True
-				u.children[0].parent = u.parent
-				units[u.parent].children.append(u.children[0])
-				units[u.parent].children.remove(u)
+				if u.parent != 0:
+					u.children[0].parent = u.parent
+					units[u.parent].children.append(u.children[0])
+					units[u.parent].children.remove(u)
 
 
 		units = dict((uid,u) for uid,u in iteritems(units) if not units[uid].unary)
