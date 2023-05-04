@@ -9,7 +9,7 @@ depedit_precprocess = """{$tmpadv}=/now|earlier|ago|still|recently|already|curre
 {$datverb}=/sell|give|send|pay|award|offer|owe|provide|lend|make|issue|lease|bring|allocate|pass|present|deal|grant|write|deliver|transfer|extend|tender|supply|guarantee|call|cede|deny/
 {$bnfverb}=/provide|make|buy|build|create|design|arrange|gather|leave|print|manufacture|do|fix|earn|open|pick|win|store|order|draft/
 {$gumcleftsubj}=/Burns|Barbara|noggins|girls|coyotes|Senate|Olmec/
-text=/{$gumcleftsubj}/;func=/cop/;func=/nsubj|expl/&lemma=/it/;func=/acl:relcl/\t#1>#2;#1>#3;#1>#4\t#3:func=cleft
+text=/{$gumcleftsubj}/;func=/cop/;func=/nsubj|expl/&lemma=/it/;func=/a(dv)?cl:relcl/\t#1>#2;#1>#3;#1>#4\t#3:func=cleft
 xpos=/V.G/;func=/nsubj/\t#1>#2\t#1:func2=hassubj
 xpos=/V.G/&func2=/(.*)/;func=/mark/\t#1>#2\t#1:func2=hasmark$1
 xpos=/V.G/&func=/csubj/;func2!=/.*hassubj.*/\t#1>#2\t#1:func=nomsbj
@@ -17,7 +17,7 @@ xpos=/V.G/&func2!=/.*hassubj.*/&func!=/nomsbj/;func=/mark/\t#1>#2\t#1:func=nom
 xpos=/V.G/&func=/advcl/&func2!=/.*hasmark.*/&func2!=/.*hassubj.*/\tnone\t#1:func=vbgadv
 func=/advcl|nom/;func=/mark/&lemma=/when|while/\t#1>#2\t#2:func=stmp
 text=/.*/;func=/cop/\t#1>#2\t#1:func=prd
-text=/.*/;func=/obj/;func=/xcomp/\t#1>#2;#1>#3\t#3>#2;#2:func=nsubj;#3:func=prd
+text=/.*/;func=/i?obj/;func=/xcomp/\t#1>#2;#1>#3\t#3>#2;#2:func=nsubj;#3:func=prd
 xpos=/JJ.*/&func=/xcomp/\tnone\t#1:func=prd
 func=/advcl/;xpos=/TO/\t#1>#2\t#2:func=mark_prp
 func=/advcl/;func=/mark/\t#1>#2\t#2:func=mark_adv
