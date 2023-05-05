@@ -258,9 +258,10 @@ if not options.pepper_only:
 		print("\n\nAdding function labels to PTB constituent trees:\n" + "=" * 40)
 		from utils.label_trees import add_ptb_labels
 	ptb_files = sorted(glob(gum_source + "const" + os.sep + "*.ptb"))
+	entidep_files = sorted(glob(pepper_tmp + "entidep" + os.sep + "*.conllu"))
 	if not reddit:
 		ptb_files = [f for f in ptb_files if "_reddit" not in f]
-	entidep_files = sorted(glob(pepper_tmp + "entidep" + os.sep + "*.conllu"))
+		entidep_files = [f for f in entidep_files if "_reddit" not in f]
 	for i, ptb_file in enumerate(ptb_files):
 		docname = os.path.basename(ptb_file)
 		entidep_file = entidep_files[i]
@@ -326,6 +327,13 @@ else:
 	meta_out = io.open(pepper_tmp + "xml" + os.sep + "GUM" + os.sep + "GUM.meta",'w')
 	meta_out.write(meta)
 	meta_out.close()
+
+	# Remove reddit tmp files if not included in build
+	if not reddit:
+		sys.__stdout__.write("\ni Deleting reddit files under " + pepper_tmp + "**\n")
+		reddit_tmp = glob(pepper_tmp + "**\\GUM_reddit*",recursive=True)
+		for f in reddit_tmp:
+			os.remove(f)
 
 	out = run_pepper(pepper_params,options.verbose_pepper)
 	sys.__stdout__.write(out + "\n")
