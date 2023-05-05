@@ -209,7 +209,7 @@
 5	told	tell	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	16	advcl	16:advcl:as	_
 6	The	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(48-organization-acc:com-cf4-2,3-coref-HuffPost|XML=<ref>
 7	Huffington	Huffington	PROPN	NNP	Number=Sing	8	compound	8:compound	_
-8	Post	Post	PROPN	NNP	Number=Sing	5	obj	5:obj	Entity=48)|SpaceAfter=No|XML=</ref>
+8	Post	Post	PROPN	NNP	Number=Sing	5	iobj	5:iobj	Entity=48)|SpaceAfter=No|XML=</ref>
 9	,	,	PUNCT	,	_	5	punct	5:punct	_
 10	"	''	PUNCT	``	_	5	punct	5:punct	Discourse=explanation-evidence:13->14:0|SpaceAfter=No
 11	The	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	Entity=(49-abstract-acc:com-cf2-3-sgl
@@ -545,7 +545,7 @@
 # text = The U.S. Environmental Protection Agency says some crops may have higher yields with increased levels of carbon dioxide.
 1	The	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	Discourse=attribution-positive:42->43:0|Entity=(94-organization-new-cf3-2,3,4,5-sgl-United_States_Environmental_Protection_Agency
 2	U.S.	U.S.	PROPN	NNP	Abbr=Yes|Number=Sing	5	compound	5:compound	Entity=(15-place-giv:inact-cf2-1-coref-United_States)|XML=<ref>
-3	Environmental	Environmental	PROPN	NNP	Number=Sing	4	compound	4:compound	_
+3	Environmental	Environmental	ADJ	NNP	Degree=Pos|Number=Sing	4	compound	4:compound	_
 4	Protection	Protection	PROPN	NNP	Number=Sing	5	compound	5:compound	_
 5	Agency	Agency	PROPN	NNP	Number=Sing	6	nsubj	6:nsubj	Entity=94)|XML=</ref>
 6	says	say	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
@@ -652,7 +652,7 @@
 # text = Ozone is something that we understand the causes of, and the steps that need to be taken to improve air quality."
 1	Ozone	ozone	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	Discourse=elaboration-additional:50->49:0|Entity=(5-substance-giv:inact-cf2-1-coref)
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	cop	3:cop	_
-3	something	something	NOUN	NN	Number=Sing	0	root	0:root	Entity=(5-substance-giv:act-cf2-1-pred
+3	something	something	PRON	NN	Number=Sing|PronType=Ind	0	root	0:root	Entity=(5-substance-giv:act-cf2-1-pred
 4	that	that	ADP	IN	_	8	nmod	8:nmod:of	Discourse=elaboration-attribute:51->50:0
 5	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	6	nsubj	6:nsubj	Entity=(110-person-acc:com-cf4-1-sgl)
 6	understand	understand	VERB	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	3	acl:relcl	3:acl:relcl	_
@@ -662,8 +662,8 @@
 10	,	,	PUNCT	,	_	13	punct	13:punct	_
 11	and	and	CCONJ	CC	_	13	cc	13:cc	_
 12	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	Entity=(112-abstract-new-cf5-2-sgl
-13	steps	step	NOUN	NNS	Number=Plur	8	conj	6:obj|8:conj:and	_
-14	that	that	PRON	WDT	PronType=Rel	18	nsubj:pass	18:nsubj:pass	Discourse=elaboration-attribute:52->51:0
+13	steps	step	NOUN	NNS	Number=Plur	8	conj	6:obj|8:conj:and|18:nsubj:pass	_
+14	that	that	PRON	WDT	PronType=Rel	18	nsubj:pass	13:ref	Discourse=elaboration-attribute:52->51:0
 15	need	need	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	13	acl:relcl	13:acl:relcl	_
 16	to	to	PART	TO	_	18	mark	18:mark	_
 17	be	be	AUX	VB	VerbForm=Inf	18	aux:pass	18:aux:pass	_
@@ -687,7 +687,7 @@
 3	told	tell	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	12	advcl	12:advcl:as	_
 4	The	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(48-organization-giv:inact-cf2-2,3-coref-HuffPost|XML=<ref>
 5	Huffington	Huffington	PROPN	NNP	Number=Sing	6	compound	6:compound	_
-6	Post	Post	PROPN	NNP	Number=Sing	3	obj	3:obj	Entity=48)|SpaceAfter=No|XML=</ref>
+6	Post	Post	PROPN	NNP	Number=Sing	3	iobj	3:iobj	Entity=48)|SpaceAfter=No|XML=</ref>
 7	,	,	PUNCT	,	_	3	punct	3:punct	_
 8	US	US	PROPN	NNP	Abbr=Yes|Number=Sing	10	compound	10:compound	Bridge=5<113|Discourse=adversative-concession:55->49:1|Entity=(113-substance-acc:inf-cf4-3-coref(15-place-giv:inact-cf3-1-coref-United_States)
 9	surface	surface	NOUN	NN	Number=Sing	10	compound	10:compound	_
@@ -797,13 +797,13 @@
 8	Foundation	Foundation	PROPN	NNP	Number=Sing	4	obl:agent	4:obl:agent	Entity=132)|SpaceAfter=No|XML=</ref>
 9	,	,	PUNCT	,	_	13	punct	13:punct	_
 10	US	US	PROPN	NNP	Abbr=Yes|Number=Sing	13	compound	13:compound	Entity=(134-organization-acc:com-cf3-1,2,3,4-sgl-National_Science_Foundation(15-place-giv:act-cf1*-1-coref-United_States)|XML=<ref>
-11	National	National	PROPN	NNP	Number=Sing	12	compound	12:compound	_
+11	National	National	ADJ	NNP	Degree=Pos|Number=Sing	12	compound	12:compound	_
 12	Science	Science	PROPN	NNP	Number=Sing	13	compound	13:compound	Entity=(135-abstract-new-cf7-1-sgl)
 13	Foundation	Foundation	PROPN	NNP	Number=Sing	8	conj	4:obl:agent|8:conj:and	Entity=134)|SpaceAfter=No|XML=</ref>
 14	,	,	PUNCT	,	_	19	punct	19:punct	_
 15	and	and	CCONJ	CC	_	19	cc	19:cc	_
 16	US	US	PROPN	NNP	Abbr=Yes|Number=Sing	19	compound	19:compound	Entity=(136-organization-acc:com-cf4-1,2,3,4-sgl-National_Park_Service(15-place-giv:act-cf1*-1-coref-United_States)|XML=<ref>
-17	National	National	PROPN	NNP	Number=Sing	18	compound	18:compound	Entity=(137-place-new-cf8-1,2-sgl
+17	National	National	ADJ	NNP	Degree=Pos|Number=Sing	18	compound	18:compound	Entity=(137-place-new-cf8-1,2-sgl
 18	Park	Park	PROPN	NNP	Number=Sing	19	compound	19:compound	Entity=137)
 19	Service	Service	PROPN	NNP	Number=Sing	8	conj	4:obl:agent|8:conj:and	Entity=136)|SpaceAfter=No|XML=</ref>
 20	.	.	PUNCT	.	_	4	punct	4:punct	_

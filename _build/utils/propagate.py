@@ -515,7 +515,7 @@ def enrich_dep(gum_source, gum_target, tmp, reddit=False):
 				fields[3] = tt_pos
 				fields[4] = vanilla_pos
 				misc = []
-				feats = fields[5].split() if fields[5] != "_" else []
+				feats = fields[5].split("|") if fields[5] != "_" else []
 				if not space_after_by_token[tok_num]:
 					misc.append("SpaceAfter=No")
 				if sic_by_token[tok_num] is not None:

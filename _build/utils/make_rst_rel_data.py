@@ -362,6 +362,8 @@ def make_rels(rsd_data, conll_data, dev_set, test_set, corpus="eng.rst.gum"):
                             raise IOError("no rel map "+mapped_rel)
                         elif mapped_rel == "ROOT":
                             raise IOError("found ROOT entry in " +corpus + ": "+docname)
+                elif "-" in mapped_rel and "same-unit" not in mapped_rel.lower():
+                    mapped_rel = mapped_rel.split("-")[0]
                 if corpus.startswith("fas."):
                     mapped_rel = mapped_rel.lower()
                 output.append("\t".join([docname,arg1_toks,arg2_toks,arg1_txt,arg2_txt,s1_toks,s2_toks,arg1_sent,arg2_sent,direction,rels[edu_id],mapped_rel]))
