@@ -707,8 +707,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		if tok not in ["mia"]:
 			print("WARN: forward-pointing func " + func + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
-	if func == "auxpass" and lemma != "be" and lemma != "get":
-		print("WARN: auxpass must be 'be' or 'get'" + inname)
+	if func == "aux:pass" and lemma != "be" and lemma != "get":
+		print("WARN: aux:pass must be 'be' or 'get'" + inname)
 
 	if lemma == "'s" and pos != "POS":
 		print("WARN: possessive 's must be tagged POS" + inname)
@@ -785,9 +785,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if pos.startswith("NN") and func=="amod":
 		print("WARN: tag "+ pos + " should not be " + func + inname)
 
-	be_funcs = ["cop", "aux", "root", "csubj", "auxpass", "rcmod", "ccomp", "advcl", "conj","xcomp","parataxis","vmod","pcomp"]
+	be_funcs = ["cop", "aux", "root", "csubj", "aux:pass", "acl:relcl", "ccomp", "advcl", "conj","xcomp","parataxis"]
 	if lemma == "be" and func not in be_funcs:
-		if not parent_lemma == "that" and func == "fixed":  # Exception for 'that is' as mwe
+		if not (parent_lemma == "that" and func == "fixed"):  # Exception for 'that is' as mwe
 			print("WARN: invalid dependency of lemma 'be' > " + func + inname)
 
 	if parent_lemma in ["tell","show","give","pay","teach","owe","text","write"] and \
