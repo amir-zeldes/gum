@@ -3,8 +3,9 @@
 
 import re,sys,platform
 import ntpath, os, io
-from .rst2dep import make_rsd
+from rst2dep import make_rsd
 from .rst2dis import rst2dis
+from collections import defaultdict
 from glob import glob
 
 PY2 = sys.version_info[0] < 3
@@ -26,18 +27,40 @@ def fix_rst(gum_source, gum_target, reddit=False):
 
 	file_list = []
 	files_ = glob(gum_source + "rst" + os.sep + "*.rs3")
+	files_ += glob(gum_source + "rst" + os.sep + "*.rs4")  # Accept rs3 or rs4 extension
 	for file_ in files_:
 		if not reddit and "reddit_" in file_:
 			continue
 		file_list.append(file_)
 
+	conns_by_doc = defaultdict(dict)
 	for docnum, filename in enumerate(file_list):
-		tt_file = filename.replace(".rs3", ".xml").replace("rst","xml")
+		docname = os.path.basename(filename).replace(".rs3","").replace(".rs4","")
+		tt_file = filename.replace(".rs3", ".xml").replace(".rs4", ".xml").replace("rst","xml")
 		sys.stdout.write("\t+ " + " "*70 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Adjusting borders for " + ntpath.basename(filename) + "\r")
 		fix_file(filename,tt_file,gum_source,gum_target + "rst" + os.sep + "rstweb" + os.sep)
+		conn_data = get_conn_data(filename)
+		conns_by_doc[docname] = conn_data
 
 	print("o Adjusted " + str(len(file_list)) + " RST files" + " " * 70)
+	return conns_by_doc
+
+
+def get_conn_data(filename):
+	lines = open(filename).read().replace("\r","").split("\n")
+	conn_data = defaultdict(str)
+	for line in lines:
+		if '<signal source="' in line and (' type="dm"' in line or ' type="orphan"' in line):
+			tokens = re.search(r' tokens="([0-9,]*)"',line).group(1)
+			tokens = sorted(tokens.split(","),key=lambda x: int(x))
+			for i, tok in enumerate(tokens):
+				if i == 0:
+					conn_data[int(tok)] = "B"
+				else:
+					if conn_data[int(tok)] != "B":
+						conn_data[int(tok)] = "I"
+	return conn_data
 
 
 def validate_rsd(rsd_line, linenum, docname):
@@ -59,6 +82,31 @@ def validate_rsd(rsd_line, linenum, docname):
 			sys.stderr.write("! invalid right to left relation " + fields[7] + inname)
 		if re.search(r'^\( ((19|20)[0-9][0-9] ([–-] )?)+\)',fields[1]) is not None and fields[7] != "context-circumstance_r":
 			sys.stderr.write("! suspicious parenthetical year EDU with rsd relation " + fields[7] + inname)
+
+def validate_rstpp(rs3,docname):
+	lines = rs3.split("\n")
+	secedges = set([])
+	signal_sources = set([])
+	for i,line in enumerate(lines):
+		if re.search(r'<signal source="[0-9]+-[0-9]+".*"dm"',line) is not None:
+			sys.stderr.write("! Found dm signal for secondary RST++ relation on line "+str(i+1)+" of "+docname+"\n")
+		if re.search(r'<signal source="[0-9]+".*"orphan"',line) is not None:
+			sys.stderr.write("! Found orphan signal for primary RST++ relation on line "+str(i+1)+" of "+docname+"\n")
+		if 'lexical_chain2' in line:
+			sys.stderr.write("! Found unnormalized signal lexical_chain2 on line " + str(i + 1) + " of " + docname + "\n")
+		if '<secedge ' in line:
+			secedge_id = re.search(r' id="([0-9]+-[0-9]+)"',line).group(1)
+			if secedge_id in secedges:
+				sys.stderr.write("! Found duplicate RST++ secondary edge on line " + str(i + 1) + " of " + docname + "\n")
+			else:
+				secedges.add(secedge_id)
+		if '<signal source' in line:
+			signal_sources.add(re.search(r' source="([0-9-]+)"',line).group(1))
+
+	for e in secedges:
+		if e not in signal_sources:
+			sys.stderr.write("! Found secondary RST++ relation with no signal for edge "+str(e)+" in "+docname+"\n")
+
 
 def fix_file(filename,tt_file,gum_source,outdir):
 
@@ -117,10 +165,11 @@ def fix_file(filename,tt_file,gum_source,outdir):
 	with io.open(outdir + rst_file_name,'w',encoding="utf8",newline="\n") as f:
 		f.write(out_data)
 
-	docname = os.path.basename(rst_file_name).replace(".rs3","")
+	docname = os.path.basename(rst_file_name).replace(".rs3","").replace(".rs4","")
 
 	# Make rsd version
-	rsd = make_rsd(out_data,gum_source,as_text=True,docname=os.path.basename(rst_file_name.replace(".rs3","")))
+	rsd = make_rsd(out_data,gum_source,as_text=True,docname=os.path.basename(rst_file_name.replace(".rs3","").replace(".rs4","")))
+	validate_rstpp(out_data,docname)
 	for l, line in enumerate(rsd.split("\n")):
 		validate_rsd(line, l+1, docname)
 
@@ -157,6 +206,6 @@ if __name__ == "__main__":
 		os.makedirs(outdir)
 
 	for filename in file_list:
-		tt_file = filename.replace(".rs3", ".xml")
+		tt_file = filename.replace(".rs3", ".xml").replace(".rs4", ".xml")
 		fix_file(filename,tt_file,outdir)
 
