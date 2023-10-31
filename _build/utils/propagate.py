@@ -40,7 +40,7 @@ punct_depedit.quiet = True
 ud_edep_deped = DepEdit(utils_abs_path + os.sep + "eng_enhance.ini")
 ud_edep_deped.quiet = True
 
-efuncs = set(["acl","acl:relcl","advcl","advmod","amod","appos","aux","aux:pass","case","cc","cc:preconj","ccomp","compound","compound:prt","conj","cop","csubj","csubj:pass","csubj:xsubj","dep","det","det:predet","discourse","dislocated","expl","fixed","flat","goeswith","iobj","list","mark","nmod","nmod:npmod","nmod:poss","nmod:tmod","nsubj","nsubj:pass","nsubj:xsubj","nummod","obj","obl","obl:npmod","obl:tmod","orphan","parataxis","punct","ref","reparandum","root","vocative","xcomp"])
+efuncs = set(["acl","acl:relcl","advcl","advcl:relcl","advmod","amod","appos","aux","aux:pass","case","cc","cc:preconj","ccomp","compound","compound:prt","conj","cop","csubj","csubj:pass","csubj:xsubj","dep","det","det:predet","discourse","dislocated","expl","fixed","flat","goeswith","iobj","list","mark","nmod","nmod:npmod","nmod:poss","nmod:tmod","nsubj","nsubj:pass","nsubj:xsubj","nummod","obj","obl","obl:npmod","obl:tmod","orphan","parataxis","punct","ref","reparandum","root","vocative","xcomp"])
 
 ud_dev = ["GUM_interview_cyclone", "GUM_interview_gaming",
 		  "GUM_news_iodine", "GUM_news_homeopathic",
