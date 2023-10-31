@@ -207,5 +207,5 @@ if __name__ == "__main__":
 
 	for filename in file_list:
 		tt_file = filename.replace(".rs3", ".xml").replace(".rs4", ".xml")
-		fix_file(filename,tt_file,outdir)
+		fix_file(filename,tt_file,".." + os.sep + ".." + os.sep + "src" + os.sep,outdir)
 
