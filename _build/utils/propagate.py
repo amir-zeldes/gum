@@ -39,6 +39,8 @@ punct_depedit = DepEdit(config_file="utils" + os.sep + "projectivize_punct.ini")
 punct_depedit.quiet = True
 ud_edep_deped = DepEdit(utils_abs_path + os.sep + "eng_enhance.ini")
 ud_edep_deped.quiet = True
+cxg_deped = DepEdit(utils_abs_path + os.sep + "en_cxn.ini")
+cxg_deped.quiet = True
 
 efuncs = set(["acl","acl:relcl","advcl","advcl:relcl","advmod","amod","appos","aux","aux:pass","case","cc","cc:preconj","ccomp","compound","compound:prt","conj","cop","csubj","csubj:pass","csubj:xsubj","dep","det","det:predet","discourse","dislocated","expl","fixed","flat","goeswith","iobj","list","mark","nmod","nmod:npmod","nmod:poss","nmod:tmod","nsubj","nsubj:pass","nsubj:xsubj","nummod","obj","obl","obl:npmod","obl:tmod","orphan","parataxis","punct","ref","reparandum","root","vocative","xcomp"])
 
@@ -913,6 +915,9 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		output = "\n".join(output).strip() + "\n\n"
 
 		validate_enhanced(output, docname)
+
+		# Add CxG constructions
+		output = cxg_deped.run_depedit(output).strip() + "\n\n"
 
 		# Directory with dependency output
 		with io.open(dep_target + docname + ".conllu",'w',encoding="utf8", newline="\n") as f:
