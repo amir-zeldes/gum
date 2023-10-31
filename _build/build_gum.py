@@ -41,6 +41,8 @@ parser.add_argument("-i",dest="increment_version",action="store",help="A new ver
 parser.add_argument("--pepper_only",action="store_true", help="Just rerun pepper on generated targets")
 parser.add_argument("--skip_ptb_labels",action="store_true", help="Skip projecting function labels to PTB trees")
 parser.add_argument("--skip_ontogum",action="store_true", help="Skip building OntoGUM version of coref data")
+parser.add_argument("--no_secedges",action="store_true", help="No RST++ secedges in conllu")
+parser.add_argument("--no_signals",action="store_true", help="No RST++ signals in conllu")
 
 options = parser.parse_args()
 
@@ -95,7 +97,7 @@ validate_src(gum_source, reddit=reddit)
 ######################################
 ## Step 2: propagate annotations
 ######################################
-from utils.propagate import enrich_dep, enrich_xml, compile_ud, tt2vanilla
+from utils.propagate import enrich_dep, enrich_xml, compile_ud, tt2vanilla, fix_gw_tags
 from utils.repair_tsv import fix_tsv, make_ontogum
 from utils.repair_rst import fix_rst
 
@@ -195,6 +197,7 @@ def const_parse(gum_source, warn_slash_tokens=False, reddit=False, only_parse_di
 # Check and potentially correct POS tags and lemmas based on pooled annotations
 #proof(gum_source)
 
+conn_data = {}
 if not options.pepper_only:
 	# Token and sentence border adjustments
 	print("\nAdjusting token and sentence borders:\n" + "="*37)
@@ -209,7 +212,7 @@ if not options.pepper_only:
 	# Adjust rst/ files:
 	#   * refresh token strings in case of inconsistency
 	#   * note that segment borders are not automatically adjusted around xml/ <s> elements
-	fix_rst(gum_source, gum_target, reddit=reddit)
+	conn_data = fix_rst(gum_source, gum_target, reddit=reddit)
 
 	# Add annotations to xml/:
 	#   * add CLAWS tags in fourth column
@@ -247,6 +250,8 @@ if not options.pepper_only:
 	#   * UD morphology generation relies on parses already existing in <target>/const/
 	print("\nCompiling Universal Dependencies version:\n" + "=" * 40)
 	compile_ud(pepper_tmp, gum_target, pre_annotated, reddit=reddit)
+
+	fix_gw_tags(gum_target, reddit=reddit)
 
 	if not options.skip_ontogum:
 		# Create OntoGUM data (OntoNotes schema version of coref annotations)
@@ -288,7 +293,7 @@ else:
 
 	# Create Pepper staging erea in utils/pepper/tmp/
 	dirs = [('xml','xml','xml','', ''),('dep','ud','conllu','', os.sep + "ud" + os.sep + "not-to-release"),
-			('rst'+os.sep+'rstweb','rst','rs3','',''),('rst'+os.sep+'dependencies','rsd','rsd','',''),
+			('rst'+os.sep+'rstweb','rst','rs[34]','',''),('rst'+os.sep+'dependencies','rsd','rsd','',''),
 			('tsv','tsv','tsv','coref' + os.sep,''),('const','const','ptb','','')]
 	for dir in dirs:
 		files = []
@@ -354,13 +359,15 @@ add_bridging_to_conllu(gum_target,reddit=reddit)
 
 sys.__stdout__.write("\no Added entities, coreference and bridging to UD parses\n")
 
-add_rsd_to_conllu(gum_target,reddit=reddit)
-add_rsd_to_conllu(gum_target,reddit=reddit,ontogum=True)
+add_rsd_to_conllu(gum_target,reddit=reddit,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
+if not options.skip_ontogum:
+	add_rsd_to_conllu(gum_target,reddit=reddit,ontogum=True,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
 add_xml_to_conllu(gum_target,reddit=reddit)
-add_xml_to_conllu(gum_target,reddit=reddit,ontogum=True)
+if not options.skip_ontogum:
+	add_xml_to_conllu(gum_target,reddit=reddit,ontogum=True)
 
 sys.__stdout__.write("\no Added discourse relations and XML tags to UD parses\n")
 
-make_disrpt(reddit=reddit)
+make_disrpt(conn_data,reddit=reddit)
 
 sys.__stdout__.write("\no Created DISRPT shared task discourse relation formats in target rst/disrpt/\n")
