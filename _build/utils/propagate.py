@@ -37,11 +37,12 @@ except:
 		print("      Please install it (e.g. pip3 install udapi)")
 
 utils_abs_path = os.path.dirname(os.path.realpath(__file__))
+upos_depedit = DepEdit(config_file=utils_abs_path + os.sep + "upos.ini")
+upos_depedit.quiet = True
 ud_morph_deped = DepEdit(utils_abs_path + os.sep + "ud_morph.ini")
 ud_morph_deped.quiet = True
 # depedit script to fix known projective punctuation issues
-# note that this script also introduces some post editing to morphology, such as passive Voice
-punct_depedit = DepEdit(config_file="utils" + os.sep + "projectivize_punct.ini")
+punct_depedit = DepEdit(config_file=utils_abs_path + os.sep + "projectivize_punct.ini")
 punct_depedit.quiet = True
 ud_edep_deped = DepEdit(utils_abs_path + os.sep + "eng_enhance.ini")
 ud_edep_deped.quiet = True
@@ -584,7 +585,7 @@ def enrich_dep(gum_source, gum_target, tmp, reddit=False):
 	return pre_annotated
 
 
-def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
+def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 	def get_meta(docname,gum_target):
 		with io.open(gum_target + "xml" + os.sep + docname + ".xml", encoding="utf8") as f:
 			meta_line = f.read().split("\n")[0]
@@ -605,7 +606,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 	dep_target = gum_target + "dep" + os.sep + "not-to-release" + os.sep
 	if not os.path.isdir(dep_target):
 		os.makedirs(dep_target)
-	dep_merge_dir = tmp + "dep" + os.sep + "ud" + os.sep + "GUM" + os.sep
+	dep_merge_dir = tmp + "dep" + os.sep + "ud" + os.sep + corpus + os.sep
 	if not os.path.isdir(dep_merge_dir):
 		os.makedirs(dep_merge_dir)
 	entidep_dir = tmp + "entidep" + os.sep	
@@ -627,7 +628,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		sys.stdout.write("\t+ " + " "*70 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(depfiles)) + ":\t+ " + docname + "\r")
 
-		entity_file = tmp + "tsv" + os.sep + "GUM" + os.sep + docname + ".tsv"
+		entity_file = tmp + "tsv" + os.sep + corpus + os.sep + docname + ".tsv"
 		tsv_lines = io.open(entity_file,encoding="utf8").read().replace("\r","").split("\n")
 		int_max_entity = 10000
 		tok_id = 0
@@ -785,8 +786,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		processed_lines = "\n".join(tmplines).strip() + "\n"
 
 		# UPOS
-		depedit = DepEdit(config_file="utils" + os.sep + "upos.ini")
-		uposed = depedit.run_depedit(processed_lines,filename=docname,sent_id=True,docname=True)
+		uposed = upos_depedit.run_depedit(processed_lines,filename=docname,sent_id=True,docname=True)
 		uposed = re.sub(r'ent_head=[a-z]+\|infstat=[a-z:]+\|?','',uposed)
 		if "infstat=" in uposed:
 			sys.__stdout__.write("o WARN: invalid entity annotation from tsv for document " + docname)
@@ -805,7 +805,8 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		header.append("# meta::genre = "+ meta["type"])
 		header.append("# meta::sourceURL = " + meta["sourceURL"])
 		header.append("# meta::speakerCount = " + meta["speakerCount"])
-		header.append("# meta::summary = "+ meta["summary"])
+		if 'summary' in meta:
+			header.append("# meta::summary = "+ meta["summary"])
 		if 'summary2' in meta:
 			header.append("# meta::summary2 = " + meta["summary2"])
 		header.append("# meta::title = "+ meta["title"])
@@ -953,7 +954,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		# Directory with dependency output
 		with io.open(dep_target + docname + ".conllu",'w',encoding="utf8", newline="\n") as f:
 			f.write(output)
-		# Directory for SaltNPepper merging, must be nested in a directory 'GUM'
+		# Directory for SaltNPepper merging, must be nested in a directory 'GUM'/'GENTLE'
 		with io.open(dep_merge_dir + docname + ".conll10",'w',encoding="utf8", newline="\n") as f:
 			f.write(output)
 
@@ -1073,9 +1074,9 @@ def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=F
 		output = output.strip() + "\n"
 
 		if PY2:
-			outfile = open(xml_target + docname, 'wb')
+			outfile = open(xml_target + docname + ".xml", 'wb')
 		else:
-			outfile = io.open(xml_target + docname,'w',encoding="utf8",newline="\n")
+			outfile = io.open(xml_target + docname + ".xml",'w',encoding="utf8",newline="\n")
 		outfile.write(output)
 		outfile.close()
 
@@ -1193,7 +1194,7 @@ def get_coref_ids(gum_target, ontogum=False):
 	if ontogum:
 		conll_coref = glob(gum_target + "coref" + os.sep + "ontogum" + os.sep + "conll" + os.sep + "*.conll")
 	else:
-		conll_coref = glob(gum_target + "coref" + os.sep + "conll" + os.sep + "GUM" + os.sep + "*.conll")
+		conll_coref = glob(gum_target + "coref" + os.sep + "conll" + os.sep + corpus + os.sep + "*.conll")
 	for file_ in conll_coref:
 		doc = os.path.basename(file_).replace(".conll","")
 		lines = io.open(file_,encoding="utf8").read().split("\n")
@@ -1554,7 +1555,7 @@ def merge_bridge_conllu(conllu, webannotsv):
 	return "\n".join(output).strip() + "\n\n"
 
 
-def add_bridging_to_conllu(gum_target,reddit=False):
+def add_bridging_to_conllu(gum_target,reddit=False,corpus="GUM"):
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
 
@@ -1582,7 +1583,7 @@ def add_bridging_to_conllu(gum_target,reddit=False):
 	bigfiles = glob(gum_target + "dep" + os.sep + "*.conllu")
 
 	for file_ in bigfiles:
-		docs = re.findall("# newdoc id ?= ?(GUM_[^\n]+)",io.open(file_).read())
+		docs = re.findall("# newdoc id ?= ?("+corpus+"_[^\n]+)",io.open(file_).read())
 
 		output = []
 		for doc in docs:
@@ -1592,7 +1593,7 @@ def add_bridging_to_conllu(gum_target,reddit=False):
 			f.write("".join(output).strip() + "\n\n")
 
 
-def add_xml_to_conllu(gum_target, reddit=False, ontogum=False):
+def add_xml_to_conllu(gum_target, reddit=False, ontogum=False, corpus="GUM"):
 	xml_data = {}
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
@@ -1601,8 +1602,8 @@ def add_xml_to_conllu(gum_target, reddit=False, ontogum=False):
 		xml_data[os.path.basename(file_).replace(".xml","")] = io.open(file_,encoding="utf8").read()
 
 	if ontogum:
-		files = glob(gum_target+"coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep + "GUM*.conllu")
-		files += glob(gum_target+"coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep + "en_gum-ud*.conllu")
+		files = glob(gum_target+"coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep + corpus + "*.conllu")
+		files += glob(gum_target+"coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep + "en_"+corpus.lower()+"-ud*.conllu")
 	else:
 		files = glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
 		files += glob(gum_target + "dep" + os.sep + "*.conllu")
@@ -1623,7 +1624,7 @@ def add_xml_to_conllu(gum_target, reddit=False, ontogum=False):
 				docs = f.read().split("# newdoc id")
 				for doc in docs[1:]:
 					doc = "# newdoc id" + doc
-					docname = re.search(r'# newdoc id = (GUM_[^\s]+)',doc).group(1)
+					docname = re.search(r'# newdoc id = ('+corpus+r'_[^\s]+)',doc).group(1)
 					docnames.append(docname)
 				with_tags = "\n\n".join([xml_tagged_conllu[d] for d in docnames])
 
