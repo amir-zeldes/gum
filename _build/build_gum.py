@@ -43,9 +43,11 @@ parser.add_argument("--skip_ptb_labels",action="store_true", help="Skip projecti
 parser.add_argument("--skip_ontogum",action="store_true", help="Skip building OntoGUM version of coref data")
 parser.add_argument("--no_secedges",action="store_true", help="No RST++ secedges in conllu")
 parser.add_argument("--no_signals",action="store_true", help="No RST++ signals in conllu")
+parser.add_argument("--corpus_name",action="store", default="GUM", help="Corpus name / document prefix")
 
 options = parser.parse_args()
 
+corpus_name = options.corpus_name
 build_dir = os.path.dirname(os.path.realpath(__file__))
 pepper_home = build_dir + os.sep + "utils" + os.sep + "pepper" + os.sep
 pepper_tmp = pepper_home + "tmp" + os.sep
@@ -249,7 +251,7 @@ if not options.pepper_only:
 	#   * udapi does not support Python 2, meaning punctuation will be attached to the root if using Python 2
 	#   * UD morphology generation relies on parses already existing in <target>/const/
 	print("\nCompiling Universal Dependencies version:\n" + "=" * 40)
-	compile_ud(pepper_tmp, gum_target, pre_annotated, reddit=reddit)
+	compile_ud(pepper_tmp, gum_target, pre_annotated, reddit=reddit, corpus=corpus_name)
 
 	fix_gw_tags(gum_target, reddit=reddit)
 
@@ -353,18 +355,19 @@ add_entities_to_conllu(gum_target, reddit=reddit, ontogum=False, conllua_data=co
 if not options.skip_ontogum:
 	if options.no_pepper:
 		sys.__stdout__.write("\ni Not adding entity information to UD parses in OntoGUM version since Pepper conversion was skipped\n")
+		add_entities_to_conllu(gum_target,reddit=reddit,ontogum=True)
 	else:
 		add_entities_to_conllu(gum_target,reddit=reddit,ontogum=True)
-add_bridging_to_conllu(gum_target,reddit=reddit)
+add_bridging_to_conllu(gum_target,reddit=reddit,corpus=corpus_name)
 
 sys.__stdout__.write("\no Added entities, coreference and bridging to UD parses\n")
 
 add_rsd_to_conllu(gum_target,reddit=reddit,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
 if not options.skip_ontogum:
 	add_rsd_to_conllu(gum_target,reddit=reddit,ontogum=True,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
-add_xml_to_conllu(gum_target,reddit=reddit)
+add_xml_to_conllu(gum_target,reddit=reddit,corpus=corpus_name)
 if not options.skip_ontogum:
-	add_xml_to_conllu(gum_target,reddit=reddit,ontogum=True)
+	add_xml_to_conllu(gum_target,reddit=reddit,ontogum=True,corpus=corpus_name)
 
 sys.__stdout__.write("\no Added discourse relations and XML tags to UD parses\n")
 
