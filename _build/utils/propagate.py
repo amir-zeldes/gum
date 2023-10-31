@@ -15,6 +15,12 @@ from collections import defaultdict, OrderedDict
 
 PY2 = sys.version_info[0] < 3
 
+class keydict(dict):
+	def __missing__(self, key):
+		# Returns all consonants in first 5 characters of the key
+		val = "".join([c for c in key[:5] if c not in ["a","e","i","o","u"]])
+		self[key] = val
+		return val
 
 try:
 	from StringIO import StringIO
@@ -72,6 +78,16 @@ ud_test = ["GUM_interview_libertarian", "GUM_interview_hill",
 		   "GUM_textbook_union", "GUM_vlog_london",
 		   "GUM_conversation_lambada", "GUM_speech_newzealand"]
 
+sigtypes = {"semantic": "sem", "syntactic": "syn", "graphical": "grf", "morphological": "mrf",
+			"numerical": "num", "reference": "ref", "lexical": "lex", "dm": "dm", "orphan": "orp", "unsure": "nsr"}
+subtypes = keydict()
+subtypes.update({"alternate_expression": "altlex", "indicative_word": "indwd", "indicative_phrase": "indph",
+				 "attribution_source": "atsrc", "lexical_chain": "lxchn", "meronymy": "mrnym",
+				 "subject_auxiliary_inversion": "sbinv", "synonymy": "synym", "antonymy": "antnm",
+				 "infinitival_clause": "inf","relative_clause":"relcl","propositional_reference":"prop",
+				 "present_participial_clause":"pres","semicolon":"semcol","same_count":"count","colon":"col",
+				 "items_in_sequence":"seq","demonstrative_reference":"dem","general_word":"gnrl",
+				 "interrupted_matrix_clause":"intrp"})
 
 class Args:
 
@@ -1208,12 +1224,12 @@ def get_rsd_spans(gum_target):
 				fields = line.split("\t")
 				#edu_id, toks, dist, depth, domain = fields[0:5]
 				edu_id, toks, dist = fields[0:3]
-				head, rsd_rel = fields[6:8]
+				head, rsd_rel, secedges, signals = fields[6:]
 				parents[edu_id] = head
 				#rsd_rel = rsd_rel.replace("_m","").replace("_r","")
 				rsd_rel = rsd_rel.replace("_r","")
 				rels[edu_id] = rsd_rel
-				rsd_spans[doc][tok_num] = (edu_id, rsd_rel, head, dist)#, depth, domain)
+				rsd_spans[doc][tok_num] = (edu_id, rsd_rel, head, dist, secedges, signals)#, depth, domain)
 				tok_num += toks.strip().count(" ") + 1
 
 		for unit in parents:
@@ -1228,7 +1244,8 @@ def get_rsd_spans(gum_target):
 	return rsd_spans, depths
 
 
-def add_rsd_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8):
+def add_rsd_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8, output_signals=True, output_secedges=True):
+
 	def convert_rel(rel, version=8):
 		if version < 7:
 			if "disjunction" in rel:
@@ -1249,6 +1266,15 @@ def add_rsd_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8):
 			elif "list" in rel:
 				return "joint_m"
 		return rel
+
+	def abbreviate_signals(signal_string):
+		if signal_string == "_":
+			return "_"
+		parts = signal_string.replace("|","-").split("-",2)
+		if parts[0] not in ["dm","orphan"]:
+			parts[1] = subtypes[parts[1]]
+		parts[0] = sigtypes[parts[0]]
+		return "-".join(parts)
 
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
@@ -1281,11 +1307,18 @@ def add_rsd_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8):
 				if not "-" in fields[0] and not "." in fields[0]:  # Regular token, not an ellipsis token or supertok
 					if toknum in rsd_spans[doc]:
 						rsd_data = rsd_spans[doc][toknum]
+						sig_data = ":" + "+".join([abbreviate_signals(sig) for sig in rsd_data[5].split(";")]) if output_signals else ""
 						relname = convert_rel(rsd_data[1],version=relation_set)
 						if rsd_data[2] == "0":  # ROOT
-							misc = add_feat(fields[-1],"Discourse=" + relname + ":" + rsd_data[0] + ":" + rsd_data[3]) #+ ":" + rsd_data[4] + ":" + rsd_data[5])
+							disc = "Discourse=" + relname + ":" + rsd_data[0] + ":" + rsd_data[3]
 						else:
-							misc = add_feat(fields[-1],"Discourse=" + relname + ":"+rsd_data[0]+"->"+rsd_data[2] + ":" + rsd_data[3]) #+ ":" + rsd_data[4] + ":" + rsd_data[5])
+							disc = "Discourse=" + relname + ":"+rsd_data[0]+"->"+rsd_data[2] + ":" + rsd_data[3] + sig_data
+						if rsd_data[4] != "_" and output_secedges:  # Secedges found
+							for secedge in rsd_data[4].split("|"):
+								secparts = secedge.split(":")
+								sig_data = ":" + "+".join([abbreviate_signals(sig) for sig in secparts[-1].split(";")]) if output_signals else ""
+								disc += ";" + secparts[1] + rsd_data[0] + "->" + secparts[0] + ":" + secparts[2] + ":" + secparts[3] + sig_data
+						misc = add_feat(fields[-1], disc)
 						fields[-1] = misc
 						line = "\t".join(fields)
 						depth = depths[doc][rsd_data[0]]
@@ -1363,9 +1396,9 @@ def add_entities_to_conllu(gum_target,reddit=False,ontogum=False,conllua_data=No
 
 						misc = add_feat(misc,"Entity="+entity_data)
 					fields[-1] = misc
-					if "-giv-" in misc or "-acc-" in misc:
-						sys.stderr.write("! WARN: Entity with unsub-typed infstat at token " + str(toknum) + " in " + doc + "\n")
 					line = "\t".join(fields)
+					if "-giv-cf" in misc or "-acc-cf" in misc:
+						sys.stderr.write("! WARN: Entity with unsub-typed infstat at token " + str(toknum) + " in " + doc + ": " +line+ "\n")
 					toknum += 1
 			if "# global.Entity" in line and ontogum:
 				line = '# global.Entity = GRP'  # OntoGUM only has coref IDs
