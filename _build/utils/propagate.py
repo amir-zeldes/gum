@@ -44,6 +44,9 @@ cxg_deped.quiet = True
 
 efuncs = set(["acl","acl:relcl","advcl","advcl:relcl","advmod","amod","appos","aux","aux:pass","case","cc","cc:preconj","ccomp","compound","compound:prt","conj","cop","csubj","csubj:pass","csubj:xsubj","dep","det","det:predet","discourse","dislocated","expl","fixed","flat","goeswith","iobj","list","mark","nmod","nmod:npmod","nmod:poss","nmod:tmod","nsubj","nsubj:pass","nsubj:xsubj","nummod","obj","obl","obl:npmod","obl:tmod","orphan","parataxis","punct","ref","reparandum","root","vocative","xcomp"])
 
+mseg_lookup = open(utils_abs_path + os.sep + "mseg.tab",encoding="utf8").read().strip().split("\n")
+mseg_lookup = {tuple(l.split("\t")[:-1]):l.split("\t")[-1] for l in mseg_lookup}
+
 ud_dev = ["GUM_interview_cyclone", "GUM_interview_gaming",
 		  "GUM_news_iodine", "GUM_news_homeopathic",
 		  "GUM_voyage_athens", "GUM_voyage_coron",
@@ -285,6 +288,9 @@ def add_feat(field,feat):
 		return feat
 	else:
 		attrs = field.split("|")
+		if "=" in feat:
+			featname = feat.split("=")[0]
+			attrs = [a for a in attrs if not a.startswith(featname+"=")]
 		attrs.append(feat)
 		return "|".join(sorted(list(set(attrs))))
 
@@ -882,15 +888,20 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 					continue
 				final_funcs.append(fields[7])
 
-		# Add upos and nsubj:outer to target/xml/
+		# Add upos, mseg and nsubj:outer to target/xml/
 		xml_lines = io.open(gum_target + "xml" + os.sep + docname + ".xml",encoding="utf8").read().split("\n")
 		toknum = 0
 		output = []
+		msegs = {}
 		for line in xml_lines:
 			if "\t" in line:
 				fields = line.split("\t")
 				fields.append(fields[-1])
 				fields[-2] = upos_list[toknum]
+				mseg = mseg_lookup[(fields[0],fields[1])] if (fields[0],fields[1]) in mseg_lookup else "_"
+				if mseg != "_":
+					msegs[toknum] = mseg
+				fields.append(mseg)
 				line = "\t".join(fields)
 				if ":outer" in final_funcs[toknum]:
 					line = re.sub(r'\t[nc]subj','\t'+ final_funcs[toknum],line)
@@ -909,6 +920,8 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 					if tok_num in pre_annotated[docname]:
 						for index in pre_annotated[docname][tok_num]:
 							fields[index] = pre_annotated[docname][tok_num][index]
+					if tok_num in msegs:
+						fields[-1] = add_feat(fields[-1],"MSeg=" + msegs[tok_num])
 					tok_num +=1
 				line = "\t".join(fields)
 			output.append(line)
