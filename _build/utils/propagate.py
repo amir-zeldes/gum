@@ -1025,7 +1025,8 @@ def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=F
 			claws = get_claws("\n".join(tokens))
 
 		sent_num = 0
-		centering = centering_data[docname.replace(".xml","")]
+		centering = centering_data[docname]
+		stored_goeswith_pos = ""
 		for line in xml_lines:
 			if "\t" in line:  # Token
 				tok_num += 1
@@ -1065,6 +1066,43 @@ def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=F
 	if add_claws:
 		print("o Retrieved fresh CLAWS5 tags" + " " * 70 + "\r")
 	print("o Enriched xml in " + str(len(xmlfiles)) + " documents" + " " *20)
+
+
+def fix_gw_tags(gum_target, reddit=True):
+
+	xmlfiles = []
+	files_ = glob(gum_target + "xml" + os.sep + "*.xml")
+	for file_ in files_:
+		if not reddit and "reddit_" in file_:
+			continue
+		xmlfiles.append(file_)
+
+	for docnum, xmlfile in enumerate(xmlfiles):
+		lines = io.open(xmlfile,encoding="utf8").read().split("\n")
+		output = []
+		stored_goeswith_pos = ""
+		funcs = [l.split("\t")[5] for l in lines if "\t" in l]
+		tok_num = 0
+		for line in lines:
+			if "\t" in line:
+				fields = line.split("\t")
+				# Replace goeswith tags with GW
+				if stored_goeswith_pos != "":
+					fields[1] = stored_goeswith_pos
+					stored_goeswith_pos = ""
+				if funcs[tok_num] != "goeswith":
+					stored_goeswith_pos = ""
+				if tok_num < len(funcs) - 1:
+					if funcs[tok_num + 1] == "goeswith":
+						if stored_goeswith_pos == "":
+							stored_goeswith_pos = fields[1]
+						fields[1] = "GW"
+				tok_num += 1
+				line = "\t".join(fields)
+			output.append(line)
+		with open(xmlfile,'w',encoding="utf8",newline="\n") as f:
+			f.write("\n".join(output))
+
 
 """
 def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
