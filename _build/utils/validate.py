@@ -766,7 +766,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print("WARN: pos " + pos + " should not normally have function 'discourse'" + inname)
 
 	if pos == "VVG" and "case" in child_funcs:
-		print("WARN: pos " + pos + " should not normally have child function 'case'" + inname)
+		if tok != "following":  # Exception for promoted 'the following'
+			print("WARN: pos " + pos + " should not normally have child function 'case'" + inname)
 
 	if pos.startswith("V") and any([f.startswith("nmod") for f in child_funcs]):
 		print("WARN: pos " + pos + " should not normally have child function 'nmod.*'" + inname)
@@ -796,10 +797,12 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if (pos.startswith("NN") or pos == "DT") and func=="amod":
 		print("WARN: tag "+ pos + " should not be " + func + inname)
 
-	be_funcs = ["cop", "aux", "root", "csubj", "aux:pass", "acl:relcl", "ccomp", "advcl", "conj","xcomp","parataxis"]
+	be_funcs = ["cop", "aux", "root", "csubj", "aux:pass", "acl:relcl", "ccomp", "advcl", "conj","xcomp","parataxis","reparandum"]
 	if lemma == "be" and func not in be_funcs:
-		if not (parent_lemma == "that" and func == "fixed"):  # Exception for 'that is' as mwe
-			print("WARN: invalid dependency of lemma 'be' > " + func + inname)
+		if "expl" not in child_funcs:
+			if not (parent_lemma == "that" and func == "fixed"):  # Exception for 'that is' as mwe
+				pass
+				#print("WARN: invalid dependency "+func+" of lemma 'be' > " + func + inname)
 
 	if parent_lemma in ["tell","show","give","pay","teach","owe","text","write"] and \
 			tok in ["him","her","me","us","you"] and func=="obj":
