@@ -790,6 +790,8 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False):
 		header.append("# meta::sourceURL = " + meta["sourceURL"])
 		header.append("# meta::speakerCount = " + meta["speakerCount"])
 		header.append("# meta::summary = "+ meta["summary"])
+		if 'summary2' in meta:
+			header.append("# meta::summary2 = " + meta["summary2"])
 		header.append("# meta::title = "+ meta["title"])
 		processed_lines = [lines[0]] + header + lines[1:]
 		processed_lines = "\n".join(processed_lines)
@@ -972,7 +974,12 @@ def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=F
 	for docnum, xmlfile in enumerate(xmlfiles):
 		if "_all" in xmlfile:
 			continue
-		docname = ntpath.basename(xmlfile)
+		docname = ntpath.basename(xmlfile.replace(".xml",""))
+		partition_meta = ' partition="train"'
+		if docname in ud_dev:
+			partition_meta = ' partition="dev"'
+		elif docname in ud_test:
+			partition_meta = ' partition="test"'
 		output = ""
 		sys.stdout.write("\t+ " + " "*70 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(xmlfiles)) + ":\t+ " + docname + "\r")
@@ -1033,7 +1040,7 @@ def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=F
 					if len(fields) > 3:
 						fields = fields[:-1] # Just delete last column to re-generate func from conllu
 				fields.append(func)
-				# Convert TO to IN for prepositional 'to'
+				# Convert 'TO' to 'IN' for prepositional 'to'
 				if fields[1] == "TO" and fields[-1] == "case":
 					fields[1] = "IN"
 				# Pure digits should receive the number as a lemma
@@ -1042,6 +1049,8 @@ def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=F
 			elif line.startswith("<s "):
 				line = line.replace(">",f' transition="{centering[sent_num+1]}">')
 				sent_num += 1
+			elif line.startswith('<meta ') and ' partition=' not in line:
+				line = line.replace(' id="' + docname + '"',' id="' + docname + '"' + partition_meta)
 			output += line + "\n"
 
 		output = output.strip() + "\n"
@@ -1264,6 +1273,8 @@ def add_rsd_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8):
 				with_sent_prominence.append("# s_prominence = " + d)
 			elif line == "":
 				snum += 1
+			elif line.startswith("# s_prominence ="):  # Remove old prominence
+				continue
 			with_sent_prominence.append(line)
 		output = with_sent_prominence
 
