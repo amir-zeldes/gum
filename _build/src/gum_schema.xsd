@@ -40,6 +40,12 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
+    <xs:attribute name="summary2" use="optional">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
       <xs:attribute name="dateCollected" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -284,10 +290,13 @@
   </xs:element>-->
   <xs:element name="time">
     <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="w"/>
+      </xs:choice>
       <xs:attribute name="when" type="xs:string"/>
       <xs:attribute name="from" type="xs:time"/>
       <xs:attribute name="to" type="xs:time"/>
-    </xs:complexType>
+  </xs:complexType>
   </xs:element>
   <xs:element name="quote">
     <xs:complexType mixed="true">
