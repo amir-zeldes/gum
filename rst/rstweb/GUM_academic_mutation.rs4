@@ -1,0 +1,425 @@
+<rst>
+	<header>
+		<relations>
+			<rel name="adversative-antithesis" type="rst"/>
+			<rel name="adversative-concession" type="rst"/>
+			<rel name="adversative-contrast" type="multinuc"/>
+			<rel name="attribution-negative" type="rst"/>
+			<rel name="attribution-positive" type="rst"/>
+			<rel name="causal-cause" type="rst"/>
+			<rel name="causal-result" type="rst"/>
+			<rel name="context-background" type="rst"/>
+			<rel name="context-circumstance" type="rst"/>
+			<rel name="contingency-condition" type="rst"/>
+			<rel name="elaboration-additional" type="rst"/>
+			<rel name="elaboration-attribute" type="rst"/>
+			<rel name="evaluation-comment" type="rst"/>
+			<rel name="explanation-evidence" type="rst"/>
+			<rel name="explanation-justify" type="rst"/>
+			<rel name="explanation-motivation" type="rst"/>
+			<rel name="joint-disjunction" type="multinuc"/>
+			<rel name="joint-list" type="multinuc"/>
+			<rel name="joint-other" type="multinuc"/>
+			<rel name="joint-sequence" type="multinuc"/>
+			<rel name="mode-manner" type="rst"/>
+			<rel name="mode-means" type="rst"/>
+			<rel name="organization-heading" type="rst"/>
+			<rel name="organization-phatic" type="rst"/>
+			<rel name="organization-preparation" type="rst"/>
+			<rel name="purpose-attribute" type="rst"/>
+			<rel name="purpose-goal" type="rst"/>
+			<rel name="restatement-partial" type="rst"/>
+			<rel name="restatement-repetition" type="multinuc"/>
+			<rel name="same-unit" type="multinuc"/>
+			<rel name="topic-question" type="rst"/>
+			<rel name="topic-solutionhood" type="rst"/>
+		</relations>
+		<sigtypes>
+			<sig type="dm" subtypes="dm"/>
+			<sig type="genre" subtypes="layout"/>
+			<sig type="graphical" subtypes="colon;dash;items_in_sequence;parentheses;question_mark;quotation_marks;semicolon"/>
+			<sig type="lexical" subtypes="alternate_expression;indicative_phrase;indicative_word"/>
+			<sig type="morphological" subtypes="mood;tense"/>
+			<sig type="numerical" subtypes="same_count"/>
+			<sig type="orphan" subtypes="orphan"/>
+			<sig type="reference" subtypes="comparative_reference;demonstrative_reference;personal_reference;propositional_reference"/>
+			<sig type="semantic" subtypes="antonymy;attribution_source;lexical_chain;meronymy;negation;repetition;synonymy"/>
+			<sig type="syntactic" subtypes="infinitival_clause;interrupted_matrix_clause;modified_head;nominal_modifier;parallel_syntactic_construction;past_participial_clause;present_participial_clause;relative_clause;reported_speech;subject_auxiliary_inversion"/>
+			<sig type="unsure" subtypes="unsure"/>
+		</sigtypes>
+	</header>
+	<body>
+		<segment id="1" parent="110" relname="span">Design of Mutation Operators</segment>
+		<segment id="2" parent="1" relname="purpose-attribute">for Testing Geographic Information Systems</segment>
+		<segment id="3" parent="113" relname="attribution-positive">Suilen H. Alvarado Laboratorio de Bases de Datos Campus de Elviña , Centro de investigación CITIC , Universidade da Coruña , 15071 A Coruña , Spain ; s.hernandez@udc.es</segment>
+		<segment id="4" parent="114" relname="context-circumstance">Presented at the 2nd XoveTIC Congress , A Coruña , Spain , 5 – 6 September 2019 .</segment>
+		<segment id="5" parent="115" relname="organization-heading">Abstract :</segment>
+		<segment id="6" parent="117" relname="span">In this article , we propose the definition of specific mutation operators</segment>
+		<segment id="7" parent="6" relname="purpose-goal">for testing Geographic Information Systems .</segment>
+		<segment id="8" parent="119" relname="span">We describe the process</segment>
+		<segment id="9" parent="121" relname="joint-list">for applying the operators</segment>
+		<segment id="10" parent="121" relname="joint-list">and generating mutants ,</segment>
+		<segment id="11" parent="122" relname="span">and present a case study</segment>
+		<segment id="12" parent="11" relname="elaboration-attribute">where these mutation operators are applied to two real - world applications .</segment>
+		<segment id="13" parent="14" relname="organization-heading">Keywords :</segment>
+		<segment id="14" parent="123" relname="span">mutation operators ; geographic information systems ; mutation testing</segment>
+		<segment id="15" parent="124" relname="organization-heading">1. Introduction</segment>
+		<segment id="16" parent="127" relname="span">Mutation - based testing</segment>
+		<segment id="17" parent="16" relname="explanation-evidence">[ 1 ]</segment>
+		<segment id="18" parent="128" relname="same-unit">is a test technique</segment>
+		<segment id="19" parent="132" relname="span">that involves artificially introducing errors into a System Under Test</segment>
+		<segment id="20" parent="19" relname="restatement-partial">( SUT ) .</segment>
+		<segment id="21" parent="133" relname="span">A mutant is a copy of the system</segment>
+		<segment id="22" parent="135" relname="span">in which a change has been done</segment>
+		<segment id="23" parent="136" relname="span">that , in most cases , will lead to a behaviour different</segment>
+		<segment id="24" parent="23" relname="adversative-antithesis">than expected .</segment>
+		<segment id="25" parent="133" relname="elaboration-additional">The different mutants are generated automatically by the application of mutation operators .</segment>
+		<segment id="26" parent="137" relname="span">In the state of the art , we have found mutation operators , both general purpose and specific to different technologies , languages and paradigms</segment>
+		<segment id="27" parent="26" relname="explanation-evidence">[ 2 – 9 ] .</segment>
+		<segment id="28" parent="138" relname="span">However , these operators are not adequate</segment>
+		<segment id="29" parent="141" relname="span">when trying to test software features</segment>
+		<segment id="30" parent="29" relname="elaboration-attribute">associated with specific domains .</segment>
+		<segment id="31" parent="142" relname="span">In this article , we propose mutation operators specific to the domain of Geographic Information Systems</segment>
+		<segment id="32" parent="31" relname="restatement-partial">( GIS )</segment>
+		<segment id="33" parent="143" relname="same-unit">applications .</segment>
+		<segment id="34" parent="145" relname="span">These operators reproduce programming errors</segment>
+		<segment id="35" parent="34" relname="elaboration-attribute">that are litely to occur during the development of this type of applications .</segment>
+		<segment id="36" parent="140" relname="joint-list">In addition , we present the implementation of these operators</segment>
+		<segment id="37" parent="146" relname="joint-list">and as proof of concept we apply these operators to two real - world GIS applications</segment>
+		<segment id="38" parent="146" relname="joint-list">and we generate the mutants .</segment>
+		<segment id="39" parent="147" relname="organization-heading">2. Mutation Operators for GIS</segment>
+		<segment id="40" parent="149" relname="span">As a previous step</segment>
+		<segment id="41" parent="40" relname="elaboration-attribute">to designing the mutation operators ,</segment>
+		<segment id="42" parent="155" relname="span">we analyzed the main technologies</segment>
+		<segment id="43" parent="42" relname="elaboration-attribute">used specifically in the development of GIS ,</segment>
+		<segment id="44" parent="156" relname="span">and we identified typical errors</segment>
+		<segment id="45" parent="44" relname="elaboration-attribute">a programmer can introduce during the development .</segment>
+		<segment id="46" parent="152" relname="span">These errors were formalized into mutation operators .</segment>
+		<segment id="47" parent="48" relname="purpose-goal">In order to apply these operators to a SUT ,</segment>
+		<segment id="48" parent="157" relname="span">we rely on Java reflection and aspect - oriented programming .</segment>
+		<segment id="49" parent="159" relname="span">Reflection allows us to obtain the list of classes and methods of the SUT ,</segment>
+		<segment id="50" parent="160" relname="span">so the user can decide the methods</segment>
+		<segment id="51" parent="50" relname="elaboration-attribute">to wish the operators will be applied .</segment>
+		<segment id="52" parent="161" relname="span">Later , we capture information about the methods of the SUT</segment>
+		<segment id="53" parent="52" relname="purpose-attribute">to be mutated ,</segment>
+		<segment id="54" parent="163" relname="span">together with the information of the mutation operators</segment>
+		<segment id="55" parent="54" relname="elaboration-attribute">that were already defined .</segment>
+		<segment id="56" parent="164" relname="span">From these data , we generate the mutation operator , in the form of on aspect ,</segment>
+		<segment id="57" parent="165" relname="span">which will then be possible to interweave with the SUT</segment>
+		<segment id="58" parent="57" relname="elaboration-additional">which generates a mutant of the SUT .</segment>
+		<segment id="59" parent="166" relname="span">Next , we describe the definition of two operators and two cases of application on real - world GIS applications .</segment>
+		<segment id="60" parent="167" relname="span">ChangeCoordSys Operator</segment>
+		<segment id="61" parent="60" relname="restatement-partial">( Listing 1 ) :</segment>
+		<segment id="62" parent="171" relname="span">It exchanges the coordinate system of a geometry ,</segment>
+		<segment id="63" parent="175" relname="span">so it does not match the coordinate system</segment>
+		<segment id="64" parent="63" relname="elaboration-attribute">that is being used in the user interface .</segment>
+		<segment id="65" parent="176" relname="span">It simulates the error</segment>
+		<segment id="66" parent="65" relname="elaboration-attribute">of not checking that the coordinate system is correct .</segment>
+		<segment id="67" parent="177" relname="span">The error is introduced</segment>
+		<segment id="68" parent="178" relname="span">by directly modifying the coordinate system of geometry</segment>
+		<segment id="69" parent="68" relname="context-circumstance">when recovering the wrapping of the figure .</segment>
+		<segment id="70" parent="71" relname="organization-heading">Listing 1 :</segment>
+		<segment id="71" parent="179" relname="span">A simplified definition of the ChangeCoordSys Operator .</segment>
+		<segment id="72" parent="180" relname="span">This operator was applied to a mobile technology GIS application .</segment>
+		<segment id="73" parent="184" relname="span">This application allows registering places of interest for the user .</segment>
+		<segment id="74" parent="185" relname="span">These areas of interest are called Geofences .</segment>
+		<segment id="75" parent="186" relname="span">A Geofence is determined by a geographical location</segment>
+		<segment id="76" parent="75" relname="elaboration-attribute">expressed in terms of latitude , longitude , and a radius around that location .</segment>
+		<segment id="77" parent="181" relname="span">By creating a Geofence with an erroneous location from its central location ,</segment>
+		<segment id="78" parent="77" relname="purpose-goal">the device will receive incorrect location notifications .</segment>
+		<segment id="79" parent="187" relname="span">As a result , the user will see in the application ’s map viewer the Geofences drawn in erroneous zones</segment>
+		<segment id="80" parent="79" relname="explanation-evidence">( Figure 1 ) .</segment>
+		<segment id="81" parent="82" relname="organization-heading">Figure 1 .</segment>
+		<segment id="82" parent="189" relname="span">Original and mutant application .</segment>
+		<segment id="83" parent="190" relname="span">BooleanPolygonConstraint Operator</segment>
+		<segment id="84" parent="83" relname="restatement-partial">( Listing 2 ) :</segment>
+		<segment id="85" parent="193" relname="span">It introduces errors in the processing of geometries ,</segment>
+		<segment id="86" parent="195" relname="span">manipulating the result of the operations</segment>
+		<segment id="87" parent="86" relname="elaboration-attribute">that carry out the verification of different topological restrictions between geometries , such as intersects , covers or overlap .</segment>
+		<segment id="88" parent="89" relname="organization-heading">Listing 2 :</segment>
+		<segment id="89" parent="196" relname="span">A simplified definition of the BooleanPolygonConstraint Operator .</segment>
+		<segment id="90" parent="197" relname="purpose-goal">To test this operator</segment>
+		<segment id="91" parent="197" relname="span">it was applied to a land reparcelling system .</segment>
+		<segment id="92" parent="199" relname="span">The objective of the land reparcelling is to reunify the lands of an owner</segment>
+		<segment id="93" parent="92" relname="purpose-goal">to facilitate their exploitation .</segment>
+		<segment id="94" parent="200" relname="context-background">In this application , the result of the operation between two polygons has been affected .</segment>
+		<segment id="95" parent="202" relname="span">This error causes the incorrect display of the resulting geometry</segment>
+		<segment id="96" parent="204" relname="span">that should be drawn in the user interface after the operation</segment>
+		<segment id="97" parent="96" relname="elaboration-attribute">applied to the two initial geometries</segment>
+		<segment id="98" parent="202" relname="explanation-evidence">( Figure 2 ) .</segment>
+		<segment id="99" parent="100" relname="organization-heading">Figure 2 .</segment>
+		<segment id="100" parent="205" relname="span">Original and mutant application .</segment>
+		<segment id="101" parent="206" relname="organization-heading">3. Conclusions</segment>
+		<segment id="102" parent="208" relname="adversative-antithesis">In existing proposals , we can find both generic and specific mutation operators .</segment>
+		<segment id="103" parent="208" relname="span">However , these are not adequate</segment>
+		<segment id="104" parent="103" relname="purpose-goal">to cover errors in particular domains .</segment>
+		<segment id="105" parent="210" relname="span">We have defined new operators specific to the GIS domain and a way</segment>
+		<segment id="106" parent="105" relname="purpose-attribute">to apply them to a SUT .</segment>
+		<segment id="107" parent="213" relname="span">In addition , we have tested the operators</segment>
+		<segment id="108" parent="107" relname="elaboration-attribute">defined in two GIS applications .</segment>
+		<segment id="109" parent="206" relname="joint-other">As future work , we intend to extend this approach to other domains , as well as to use the developed operators for the automatic improvement of sets of test cases .</segment>
+		<group id="110" type="span" parent="111" relname="organization-heading"/>
+		<group id="111" type="span" parent="112" relname="span"/>
+		<group id="112" type="span"/>
+		<group id="113" type="span" parent="111" relname="span"/>
+		<group id="114" type="span" parent="113" relname="span"/>
+		<group id="115" type="span" parent="116" relname="span"/>
+		<group id="116" type="span" parent="114" relname="span"/>
+		<group id="117" type="span" parent="118" relname="span"/>
+		<group id="118" type="span" parent="115" relname="span"/>
+		<group id="119" type="span" parent="120" relname="joint-sequence"/>
+		<group id="120" type="multinuc" parent="117" relname="elaboration-additional"/>
+		<group id="121" type="multinuc" parent="8" relname="purpose-attribute"/>
+		<group id="122" type="span" parent="120" relname="joint-sequence"/>
+		<group id="123" type="span" parent="118" relname="restatement-partial"/>
+		<group id="124" type="span" parent="125" relname="span"/>
+		<group id="125" type="span" parent="126" relname="joint-other"/>
+		<group id="126" type="multinuc" parent="116" relname="elaboration-additional"/>
+		<group id="127" type="span" parent="128" relname="same-unit"/>
+		<group id="128" type="multinuc" parent="129" relname="span"/>
+		<group id="129" type="span" parent="130" relname="span"/>
+		<group id="130" type="span" parent="131" relname="context-background"/>
+		<group id="131" type="span" parent="124" relname="span"/>
+		<group id="132" type="span" parent="128" relname="elaboration-attribute"/>
+		<group id="133" type="span" parent="134" relname="span"/>
+		<group id="134" type="span" parent="129" relname="context-background"/>
+		<group id="135" type="span" parent="21" relname="elaboration-attribute"/>
+		<group id="136" type="span" parent="22" relname="elaboration-attribute"/>
+		<group id="137" type="span" parent="138" relname="adversative-concession"/>
+		<group id="138" type="span" parent="139" relname="span"/>
+		<group id="139" type="span" parent="140" relname="explanation-justify"/>
+		<group id="140" type="multinuc" parent="131" relname="span"/>
+		<group id="141" type="span" parent="28" relname="contingency-condition"/>
+		<group id="142" type="span" parent="143" relname="same-unit"/>
+		<group id="143" type="multinuc" parent="144" relname="span"/>
+		<group id="144" type="span" parent="140" relname="joint-list"/>
+		<group id="145" type="span" parent="143" relname="elaboration-additional"/>
+		<group id="146" type="multinuc" parent="140" relname="joint-list"/>
+		<group id="147" type="span" parent="148" relname="span"/>
+		<group id="148" type="span" parent="126" relname="joint-other"/>
+		<group id="149" type="span" parent="150" relname="same-unit"/>
+		<group id="150" type="multinuc" parent="151" relname="joint-list"/>
+		<group id="151" type="multinuc" parent="46" relname="context-background"/>
+		<group id="152" type="span" parent="153" relname="span"/>
+		<group id="153" type="span" parent="154" relname="joint-sequence"/>
+		<group id="154" type="multinuc" parent="147" relname="span"/>
+		<group id="155" type="span" parent="150" relname="same-unit"/>
+		<group id="156" type="span" parent="151" relname="joint-list"/>
+		<group id="157" type="span" parent="158" relname="span"/>
+		<group id="158" type="span" parent="152" relname="mode-means"/>
+		<group id="159" type="span" parent="157" relname="explanation-justify"/>
+		<group id="160" type="span" parent="49" relname="purpose-goal"/>
+		<group id="161" type="span" parent="162" relname="same-unit"/>
+		<group id="162" type="multinuc" parent="154" relname="joint-sequence"/>
+		<group id="163" type="span" parent="162" relname="same-unit"/>
+		<group id="164" type="span" parent="154" relname="joint-sequence"/>
+		<group id="165" type="span" parent="56" relname="elaboration-attribute"/>
+		<group id="166" type="span" parent="154" relname="elaboration-additional"/>
+		<group id="167" type="span" parent="168" relname="organization-preparation"/>
+		<group id="168" type="span" parent="169" relname="span"/>
+		<group id="169" type="span" parent="170" relname="joint-other"/>
+		<group id="170" type="multinuc" parent="59" relname="elaboration-additional"/>
+		<group id="171" type="span" parent="172" relname="span"/>
+		<group id="172" type="span" parent="173" relname="span"/>
+		<group id="173" type="span" parent="174" relname="span"/>
+		<group id="174" type="span" parent="168" relname="span"/>
+		<group id="175" type="span" parent="62" relname="causal-result"/>
+		<group id="176" type="span" parent="171" relname="purpose-goal"/>
+		<group id="177" type="span" parent="172" relname="elaboration-additional"/>
+		<group id="178" type="span" parent="67" relname="mode-means"/>
+		<group id="179" type="span" parent="173" relname="elaboration-additional"/>
+		<group id="180" type="span" parent="181" relname="context-background"/>
+		<group id="181" type="span" parent="182" relname="span"/>
+		<group id="182" type="span" parent="183" relname="span"/>
+		<group id="183" type="span" parent="174" relname="elaboration-additional"/>
+		<group id="184" type="span" parent="72" relname="elaboration-additional"/>
+		<group id="185" type="span" parent="73" relname="elaboration-additional"/>
+		<group id="186" type="span" parent="74" relname="elaboration-additional"/>
+		<group id="187" type="span" parent="188" relname="span"/>
+		<group id="188" type="span" parent="182" relname="causal-result"/>
+		<group id="189" type="span" parent="187" relname="elaboration-additional"/>
+		<group id="190" type="span" parent="191" relname="organization-preparation"/>
+		<group id="191" type="multinuc" parent="192" relname="span"/>
+		<group id="192" type="span" parent="170" relname="joint-other"/>
+		<group id="193" type="span" parent="194" relname="span"/>
+		<group id="194" type="span" parent="191" relname="joint-other"/>
+		<group id="195" type="span" parent="85" relname="causal-result"/>
+		<group id="196" type="span" parent="193" relname="elaboration-additional"/>
+		<group id="197" type="span" parent="198" relname="span"/>
+		<group id="198" type="span" parent="191" relname="joint-other"/>
+		<group id="199" type="span" parent="91" relname="elaboration-additional"/>
+		<group id="200" type="span" parent="201" relname="span"/>
+		<group id="201" type="span" parent="191" relname="joint-other"/>
+		<group id="202" type="span" parent="203" relname="span"/>
+		<group id="203" type="span" parent="200" relname="span"/>
+		<group id="204" type="span" parent="95" relname="elaboration-attribute"/>
+		<group id="205" type="span" parent="203" relname="context-background"/>
+		<group id="206" type="multinuc" parent="207" relname="span"/>
+		<group id="207" type="span" parent="126" relname="joint-other"/>
+		<group id="208" type="span" parent="209" relname="span"/>
+		<group id="209" type="span" parent="210" relname="explanation-justify"/>
+		<group id="210" type="span" parent="211" relname="span"/>
+		<group id="211" type="span" parent="212" relname="joint-list"/>
+		<group id="212" type="multinuc" parent="206" relname="joint-other"/>
+		<group id="213" type="span" parent="212" relname="joint-list"/>
+		<secedges>
+			<secedge id="57-56" source="57" target="56" relname="joint-sequence"/>
+			<secedge id="77-78" source="77" target="78" relname="mode-means"/>
+			<secedge id="166-154" source="166" target="154" relname="joint-sequence"/>
+		</secedges>
+		<signals>
+			<signal source="2" type="syntactic" subtype="modified_head" tokens="4"/>
+			<signal source="2" type="dm" subtype="dm" tokens="5"/>
+			<signal source="2" type="syntactic" subtype="nominal_modifier" tokens="6"/>
+			<signal source="3" type="semantic" subtype="attribution_source" tokens="10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37"/>
+			<signal source="4" type="lexical" subtype="indicative_phrase" tokens="50,51,52,53,54"/>
+			<signal source="5" type="graphical" subtype="layout" tokens=""/>
+			<signal source="7" type="dm" subtype="dm" tokens="70"/>
+			<signal source="10" type="dm" subtype="dm" tokens="84"/>
+			<signal source="12" type="syntactic" subtype="modified_head" tokens="92"/>
+			<signal source="12" type="syntactic" subtype="relative_clause" tokens="93,98"/>
+			<signal source="13" type="graphical" subtype="layout" tokens=""/>
+			<signal source="13" type="semantic" subtype="synonymy" tokens="106,108,109,110,111,112,113,114,115,116"/>
+			<signal source="15" type="graphical" subtype="layout" tokens=""/>
+			<signal source="15" type="graphical" subtype="items_in_sequence" tokens="117"/>
+			<signal source="17" type="graphical" subtype="parentheses" tokens="123,125"/>
+			<signal source="20" type="semantic" subtype="synonymy" tokens="136,137,138,139,141"/>
+			<signal source="20" type="graphical" subtype="parentheses" tokens="140,142"/>
+			<signal source="24" type="dm" subtype="dm" tokens="171"/>
+			<signal source="25" type="semantic" subtype="meronymy" tokens="147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,174,175,176"/>
+			<signal source="27" type="graphical" subtype="parentheses" tokens="212,216"/>
+			<signal source="30" type="syntactic" subtype="modified_head" tokens="230"/>
+			<signal source="30" type="syntactic" subtype="nominal_modifier" tokens="231"/>
+			<signal source="32" type="semantic" subtype="synonymy" tokens="249,250,251,253"/>
+			<signal source="32" type="graphical" subtype="parentheses" tokens="252,254"/>
+			<signal source="35" type="syntactic" subtype="modified_head" tokens="261"/>
+			<signal source="35" type="syntactic" subtype="relative_clause" tokens="262,264"/>
+			<signal source="36" type="dm" subtype="dm" tokens="276,277"/>
+			<signal source="38" type="dm" subtype="dm" tokens="302"/>
+			<signal source="39" type="graphical" subtype="layout" tokens=""/>
+			<signal source="39" type="graphical" subtype="items_in_sequence" tokens="308"/>
+			<signal source="39" type="semantic" subtype="repetition" tokens="309,354"/>
+			<signal source="41" type="syntactic" subtype="modified_head" tokens="316"/>
+			<signal source="41" type="syntactic" subtype="nominal_modifier" tokens="317,318"/>
+			<signal source="43" type="syntactic" subtype="modified_head" tokens="327"/>
+			<signal source="43" type="syntactic" subtype="nominal_modifier" tokens="328"/>
+			<signal source="45" type="syntactic" subtype="modified_head" tokens="340"/>
+			<signal source="45" type="syntactic" subtype="relative_clause" tokens="344"/>
+			<signal source="47" type="dm" subtype="dm" tokens="357,358"/>
+			<signal source="47" type="syntactic" subtype="infinitival_clause" tokens="359"/>
+			<signal source="51" type="syntactic" subtype="modified_head" tokens="399"/>
+			<signal source="51" type="syntactic" subtype="relative_clause" tokens="401,406"/>
+			<signal source="53" type="syntactic" subtype="modified_head" tokens="418"/>
+			<signal source="53" type="syntactic" subtype="infinitival_clause" tokens="419"/>
+			<signal source="55" type="syntactic" subtype="modified_head" tokens="430"/>
+			<signal source="55" type="syntactic" subtype="relative_clause" tokens="431,434"/>
+			<signal source="57-56" type="morphological" subtype="tense" tokens="441,454"/>
+			<signal source="57-56" type="orphan" subtype="orphan" tokens="455"/>
+			<signal source="58" type="semantic" subtype="repetition" tokens="461,462,468,469"/>
+			<signal source="58" type="syntactic" subtype="relative_clause" tokens="463,464"/>
+			<signal source="61" type="graphical" subtype="parentheses" tokens="494,497"/>
+			<signal source="64" type="syntactic" subtype="modified_head" tokens="515"/>
+			<signal source="64" type="syntactic" subtype="relative_clause" tokens="516,519"/>
+			<signal source="66" type="syntactic" subtype="modified_head" tokens="528"/>
+			<signal source="66" type="syntactic" subtype="nominal_modifier" tokens="529,531"/>
+			<signal source="69" type="dm" subtype="dm" tokens="551"/>
+			<signal source="69" type="syntactic" subtype="present_participial_clause" tokens="552"/>
+			<signal source="70" type="graphical" subtype="layout" tokens=""/>
+			<signal source="70" type="semantic" subtype="synonymy" tokens="559,560,562,563,564,565,566,567,568"/>
+			<signal source="76" type="syntactic" subtype="modified_head" tokens="607"/>
+			<signal source="76" type="syntactic" subtype="nominal_modifier" tokens="608"/>
+			<signal source="77-78" type="orphan" subtype="orphan" tokens="623"/>
+			<signal source="77-78" type="syntactic" subtype="present_participial_clause" tokens="624"/>
+			<signal source="81" type="graphical" subtype="layout" tokens=""/>
+			<signal source="84" type="graphical" subtype="parentheses" tokens="679,682"/>
+			<signal source="87" type="syntactic" subtype="modified_head" tokens="698"/>
+			<signal source="87" type="syntactic" subtype="relative_clause" tokens="699,700"/>
+			<signal source="88" type="graphical" subtype="layout" tokens=""/>
+			<signal source="88" type="semantic" subtype="synonymy" tokens="719,720,722,723,724,725,726,727,728"/>
+			<signal source="90" type="syntactic" subtype="infinitival_clause" tokens="730"/>
+			<signal source="93" type="syntactic" subtype="infinitival_clause" tokens="757"/>
+			<signal source="94" type="semantic" subtype="meronymy" tokens="763,764,793,794,795"/>
+			<signal source="94" type="reference" subtype="demonstrative_reference" tokens="766,767,768,769,770,771,772,773,778,779"/>
+			<signal source="94" type="semantic" subtype="repetition" tokens="769,770,771,772,773,797,798,799,800,801,802,803,804"/>
+			<signal source="94" type="semantic" subtype="synonymy" tokens="772,773,801,802,803,804"/>
+			<signal source="97" type="syntactic" subtype="modified_head" tokens="798"/>
+			<signal source="97" type="syntactic" subtype="nominal_modifier" tokens="799"/>
+			<signal source="99" type="graphical" subtype="layout" tokens=""/>
+			<signal source="101" type="graphical" subtype="layout" tokens=""/>
+			<signal source="101" type="graphical" subtype="items_in_sequence" tokens="818"/>
+			<signal source="102" type="dm" subtype="dm" tokens="834"/>
+			<signal source="104" type="syntactic" subtype="infinitival_clause" tokens="840"/>
+			<signal source="106" type="syntactic" subtype="modified_head" tokens="859"/>
+			<signal source="106" type="syntactic" subtype="infinitival_clause" tokens="860"/>
+			<signal source="108" type="syntactic" subtype="modified_head" tokens="874"/>
+			<signal source="108" type="syntactic" subtype="nominal_modifier" tokens="875"/>
+			<signal source="110" type="graphical" subtype="layout" tokens=""/>
+			<signal source="110" type="semantic" subtype="lexical_chain" tokens="3,68"/>
+			<signal source="110" type="semantic" subtype="lexical_chain" tokens="4,69"/>
+			<signal source="110" type="semantic" subtype="lexical_chain" tokens="6,71"/>
+			<signal source="110" type="semantic" subtype="repetition" tokens="7,8,9,72,73,74"/>
+			<signal source="120" type="reference" subtype="personal_reference" tokens="62,76"/>
+			<signal source="120" type="reference" subtype="demonstrative_reference" tokens="67,68,69,94,95,96"/>
+			<signal source="120" type="semantic" subtype="repetition" tokens="68,95"/>
+			<signal source="121" type="syntactic" subtype="modified_head" tokens="79"/>
+			<signal source="121" type="dm" subtype="dm" tokens="80"/>
+			<signal source="121" type="syntactic" subtype="nominal_modifier" tokens="81"/>
+			<signal source="122" type="dm" subtype="dm" tokens="88"/>
+			<signal source="123" type="semantic" subtype="repetition" tokens="68,108"/>
+			<signal source="123" type="semantic" subtype="lexical_chain" tokens="69,109"/>
+			<signal source="123" type="semantic" subtype="repetition" tokens="72,73,74,111,112,113"/>
+			<signal source="126" type="reference" subtype="demonstrative_reference" tokens="59,60,237,238"/>
+			<signal source="126" type="reference" subtype="personal_reference" tokens="62,240"/>
+			<signal source="126" type="reference" subtype="propositional_reference" tokens="64,65,66,67,68,69,70,71,72,73,74,242,243,244,245,246,247,248,249,250,251,252,253,254,255"/>
+			<signal source="126" type="semantic" subtype="repetition" tokens="68,242"/>
+			<signal source="126" type="semantic" subtype="repetition" tokens="72,73,74,249,250,251"/>
+			<signal source="132" type="syntactic" subtype="modified_head" tokens="129"/>
+			<signal source="132" type="syntactic" subtype="relative_clause" tokens="130,131"/>
+			<signal source="134" type="semantic" subtype="repetition" tokens="136,137,138,139,150,151"/>
+			<signal source="135" type="syntactic" subtype="modified_head" tokens="148"/>
+			<signal source="135" type="syntactic" subtype="relative_clause" tokens="153,158"/>
+			<signal source="136" type="syntactic" subtype="modified_head" tokens="155"/>
+			<signal source="136" type="syntactic" subtype="relative_clause" tokens="159,166"/>
+			<signal source="136" type="syntactic" subtype="past_participial_clause" tokens="172"/>
+			<signal source="137" type="dm" subtype="dm" tokens="218"/>
+			<signal source="141" type="dm" subtype="dm" tokens="225"/>
+			<signal source="145" type="reference" subtype="demonstrative_reference" tokens="242,243,244,245,246,247,248,249,250,251,252,253,254,255,257,258"/>
+			<signal source="146" type="dm" subtype="dm" tokens="286"/>
+			<signal source="151" type="lexical" subtype="indicative_word" tokens="315"/>
+			<signal source="151" type="semantic" subtype="repetition" tokens="320,354"/>
+			<signal source="151" type="reference" subtype="demonstrative_reference" tokens="339,340,341,342,343,344,345,346,347,349,350"/>
+			<signal source="156" type="dm" subtype="dm" tokens="336"/>
+			<signal source="160" type="dm" subtype="dm" tokens="393"/>
+			<signal source="162" type="dm" subtype="dm" tokens="408"/>
+			<signal source="165" type="syntactic" subtype="modified_head" tokens="451"/>
+			<signal source="165" type="syntactic" subtype="relative_clause" tokens="453,457"/>
+			<signal source="166-154" type="orphan" subtype="orphan" tokens="471"/>
+			<signal source="167" type="reference" subtype="personal_reference" tokens="492,493,499"/>
+			<signal source="167" type="graphical" subtype="colon" tokens="498"/>
+			<signal source="170" type="numerical" subtype="same_count" tokens="478,481"/>
+			<signal source="175" type="dm" subtype="dm" tokens="508"/>
+			<signal source="177" type="semantic" subtype="repetition" tokens="501,502,503,504,505,506,546,547,548,549,550"/>
+			<signal source="177" type="semantic" subtype="repetition" tokens="505,506,550"/>
+			<signal source="178" type="dm" subtype="dm" tokens="543"/>
+			<signal source="178" type="syntactic" subtype="present_participial_clause" tokens="545"/>
+			<signal source="179" type="semantic" subtype="synonymy" tokens="499,566,567,568"/>
+			<signal source="184" type="reference" subtype="demonstrative_reference" tokens="575,576,577,578,579,581,582"/>
+			<signal source="184" type="semantic" subtype="lexical_chain" tokens="578,585"/>
+			<signal source="185" type="reference" subtype="demonstrative_reference" tokens="585,586,587,592,593,594,595"/>
+			<signal source="186" type="semantic" subtype="lexical_chain" tokens="593,598,601,607"/>
+			<signal source="188" type="dm" subtype="dm" tokens="644,645,646"/>
+			<signal source="189" type="semantic" subtype="repetition" tokens="665,666,669,670"/>
+			<signal source="190" type="reference" subtype="personal_reference" tokens="677,678,684"/>
+			<signal source="190" type="graphical" subtype="colon" tokens="683"/>
+			<signal source="195" type="syntactic" subtype="present_participial_clause" tokens="693"/>
+			<signal source="195" type="lexical" subtype="indicative_word" tokens="695"/>
+			<signal source="196" type="semantic" subtype="synonymy" tokens="684,726,727,728"/>
+			<signal source="199" type="reference" subtype="propositional_reference" tokens="739,740,746,747,748"/>
+			<signal source="199" type="semantic" subtype="repetition" tokens="739,747"/>
+			<signal source="204" type="syntactic" subtype="modified_head" tokens="787"/>
+			<signal source="204" type="syntactic" subtype="relative_clause" tokens="788,791"/>
+			<signal source="205" type="semantic" subtype="repetition" tokens="806,807,810,811"/>
+			<signal source="213" type="dm" subtype="dm" tokens="867,868"/>
+		</signals>
+	</body>
+</rst>
