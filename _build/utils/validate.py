@@ -227,18 +227,10 @@ def validate_src(gum_source, reddit=False):
 			with io.open(gum_source + filepath,encoding="utf8") as this_file:
 	
 				if sentence_dirs[d][0] == 'xml':
-					try:
-						tree = ET.parse(gum_source + filepath)
-					except Exception as e:
-						sys.stderr.write("Can't parse XML file: " + filepath+"\n")
-						sys.stderr.write(str(e))
-						sys.exit(0)
-					root = tree.getroot()
-					for s in root.iter('s'):
-						sent_length = count_tokens(s)
-	
-						file_sent_lengths.append(sent_length)
-	
+					xml_string = open(gum_source + filepath).read()
+					sents = xml_string.split("</s>")[:-1]
+					for s in sents:
+						file_sent_lengths.append(int(s.count("\t") / 2))
 				elif sentence_dirs[d][0] == 'dep':
 					file_text = this_file.read().strip() + "\n\n"
 					sentences = file_text.split('\n\n')
@@ -737,7 +729,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if pos == "NNS" and tok.lower() == lemma.lower() and lemma.endswith("s") and func != "goeswith":
 		if lemma not in ["surroundings","energetics","politics","jeans","clothes","electronics","means","feces",
-						 "biceps","triceps","news","species","economics","arrears","glasses","thanks","series",
+						 "biceps","triceps","news","species","economics","arrears","glasses","thanks","series","ergonomics",
 						 "aesthetics","twenties","thirties","fourties","fifties","sixties","seventies","eighties","nineties"]:
 			if re.match(r"[0-9]+'?s",lemma) is None:  # 1920s, 80s
 				print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
@@ -752,8 +744,11 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if pos == "RP" and func not in ["compound:prt","conj"] or pos != "RP" and func=="compound:prt":
 		print("WARN: pos " + pos + " should not normally have function " + func + inname)
 
+	if pos.startswith("IN") and lemma == "that" and func not in ["mark","fixed","conj","reparandum","ccomp"]:
+		print("WARN: lemma " + lemma + " with pos " + pos + " should not normally have function " + func + inname)
+
 	if pos != "CC" and func in ["cc","cc:preconj"]:
-		if lemma not in ["/","rather","as","et","+","let","only","-"]:
+		if lemma not in ["/","rather","as","et","+","let","only","-","∪","∩","∖"]:
 			print("WARN: function " + func + " should normally have pos CC, not " + pos + inname)
 
 	if pos == "VVG" and "very" in children:
@@ -821,7 +816,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func =="xcomp" and parent_lemma == "be":
 		print("WARN: verb lemma 'be' should not have xcomp child" + inname)
 
-	IN_not_like_lemma = ["vs", "vs.", "v", "ca", "that", "then", "a", "fro", "too", "til", "wether"]  # incl. known typos
+	IN_not_like_lemma = ["vs", "vs.", "v", "v.", "o'er", "ca", "that", "then", "a", "fro", "too", "til", "wether"]  # incl. known typos
 	if pos == "IN" and tok.lower() not in IN_not_like_lemma and lemma != tok.lower() and func != "goeswith" and "goeswith" not in child_funcs:
 		print("WARN: pos IN should have lemma identical to lower cased token" + inname)
 	if pos == "DT":
@@ -856,8 +851,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print("WARN: infinitive with tag " + pos + " should be acl not acl:relcl" + inname)
 
 	if pos in ["VBG","VVG","VHG"] and "det" in child_funcs:
-		# Exceptions for phrasal compound in GUM_reddit_card and nominalization in GUM_academic_exposure
-		if tok != "prioritizing" and tok != "following":
+		# Exceptions for phrasal compound in GUM_reddit_card and nominalization in GUM_academic_exposure, GENTLE_dictionary_next
+		if tok != "prioritizing" and tok not in ["following","coming"]:
 			print(str(id) + docname)
 			print("WARN: tag "+pos+" should not have a determiner 'det'" + inname)
 
@@ -938,7 +933,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 				 ("at","least"),("because","of"),("due","to"),("had","better"),("'d","better"),("in","between"), ("per", "se"),
 				 ("in","case"),("in","of"), ("in","order"),("instead","of"), ("kind","of"),("less","than"),("let","alone"),
 				 ("more","than"),("not","to"),("not","mention"),("of","course"),("prior","to"),("rather","than"),("so","as"),
-				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("that","is"), ("up","to"),("depend","on"),
+				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("such","that"),("that","is"), ("up","to"),("depend","on"),
 				 ("out","of"),("off","of"),("long","than"),("on","board"),("as","of"),("depend","upon"),
 				 ("that","be"),("just","about"),("vice","versa"),("as","such"),("next","to"),("close","to"),("one","another"),
 				 ("de","facto"),("each","other"), ("as","many"), ("in","that"), ("few","than"), ("as","for"), ("as","though")}
