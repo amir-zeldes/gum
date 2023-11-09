@@ -960,24 +960,25 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 
 		if docname in ud_dev and "reddit_" not in docname:
 			dev_string += output
-		elif docname in ud_test and "reddit_" not in docname:
+		elif corpus == "GENTLE" or (docname in ud_test and "reddit_" not in docname):
 			test_string += output
 		elif "reddit_" not in docname:  # Exclude reddit data from UD release
 			train_string += output
 
 
 	train_split_target = dep_target + ".." + os.sep
-	with io.open(train_split_target + "en_gum-ud-train.conllu",'w',encoding="utf8", newline="\n") as f:
-		f.write(train_string.strip())
-	with io.open(train_split_target + "en_gum-ud-dev.conllu",'w',encoding="utf8", newline="\n") as f:
-		f.write(dev_string.strip())
-	with io.open(train_split_target + "en_gum-ud-test.conllu",'w',encoding="utf8", newline="\n") as f:
+	if corpus != "GENTLE":
+		with io.open(train_split_target + "en_"+corpus.lower()+"-ud-train.conllu",'w',encoding="utf8", newline="\n") as f:
+			f.write(train_string.strip())
+		with io.open(train_split_target + "en_"+corpus.lower()+"-ud-dev.conllu",'w',encoding="utf8", newline="\n") as f:
+			f.write(dev_string.strip())
+	with io.open(train_split_target + "en_"+corpus.lower()+"-ud-test.conllu",'w',encoding="utf8", newline="\n") as f:
 		f.write(test_string.strip())
 
 	sys.__stdout__.write("o Enriched dependencies in " + str(len(depfiles)) + " documents" + " " *20)
 
 
-def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=False, warn=False):
+def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=False, warn=False, corpus="GUM"):
 	xml_source = gum_source + "xml" + os.sep
 	xml_target = gum_target + "xml" + os.sep
 
@@ -990,12 +991,13 @@ def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=F
 
 	for docnum, xmlfile in enumerate(xmlfiles):
 		if "_all" in xmlfile:
-			continue
+			print("found _all file!")
+			quit()
 		docname = ntpath.basename(xmlfile.replace(".xml",""))
 		partition_meta = ' partition="train"'
 		if docname in ud_dev:
 			partition_meta = ' partition="dev"'
-		elif docname in ud_test:
+		elif docname in ud_test or corpus == "GENTLE":
 			partition_meta = ' partition="test"'
 		output = ""
 		sys.stdout.write("\t+ " + " "*70 + "\r")
@@ -1067,7 +1069,7 @@ def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=F
 			elif line.startswith("<s "):
 				line = line.replace(">",f' transition="{centering[sent_num+1]}">')
 				sent_num += 1
-			elif line.startswith('<meta ') and ' partition=' not in line:
+			elif line.startswith('<text ') and ' partition=' not in line:
 				line = line.replace(' id="' + docname + '"',' id="' + docname + '"' + partition_meta)
 			output += line + "\n"
 
@@ -1315,10 +1317,10 @@ def add_rsd_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8, o
 						else:
 							disc = "Discourse=" + relname + ":"+rsd_data[0]+"->"+rsd_data[2] + ":" + rsd_data[3] + sig_data
 						if rsd_data[4] != "_" and output_secedges:  # Secedges found
-							for secedge in rsd_data[4].split("|"):
+							for secedge in sorted(rsd_data[4].split("|")):
 								secparts = secedge.split(":")
-								sig_data = ":" + "+".join([abbreviate_signals(sig) for sig in secparts[-1].split(";")]) if output_signals else ""
-								disc += ";" + secparts[1] + rsd_data[0] + "->" + secparts[0] + ":" + secparts[2] + ":" + secparts[3] + sig_data
+								sig_data = ":" + "+".join(sorted([abbreviate_signals(sig) for sig in secparts[-1].split(";")])) if output_signals else ""
+								disc += ";" + secparts[1] + ":" + rsd_data[0] + "->" + secparts[0] + ":" + secparts[2] + ":" + secparts[3] + sig_data
 						misc = add_feat(fields[-1], disc)
 						fields[-1] = misc
 						line = "\t".join(fields)
@@ -1415,10 +1417,11 @@ def add_entities_to_conllu(gum_target,reddit=False,ontogum=False,conllua_data=No
 		else:
 			output = "\n".join(output)
 			if salience_data is not None:
-				salient_entities = sorted(list(set([int(k) for k in salience_data[doc] if salience_data[doc][k] == "sal"])))
-				salient_entities = ", ".join([str(x) for x in salient_entities])
-				salient_entities = "# meta::salientEntities = " + salient_entities
-				output = output.replace("# meta::sourceURL",salient_entities + "\n" + "# meta::sourceURL")
+				if doc in salience_data:
+					salient_entities = sorted(list(set([int(k) for k in salience_data[doc] if salience_data[doc][k] == "sal"])))
+					salient_entities = ", ".join([str(x) for x in salient_entities])
+					salient_entities = "# meta::salientEntities = " + salient_entities
+					output = output.replace("# meta::sourceURL",salient_entities + "\n" + "# meta::sourceURL")
 			with io.open(file_,'w',encoding="utf8",newline="\n") as f:
 				f.write(output.strip() + "\n\n")
 
@@ -1614,7 +1617,7 @@ def add_xml_to_conllu(gum_target, reddit=False, ontogum=False, corpus="GUM"):
 	xml_tagged_conllu = {}
 	for file_ in files:
 		with io.open(file_,encoding="utf8") as f:
-			if "en_gum-ud" not in file_:
+			if "en_"+corpus.lower()+"-ud" not in file_:
 				docname = os.path.basename(file_).replace(".conllu", "")
 				conllu = f.read()
 				with_tags = add_xml(conllu,xml_data[docname])

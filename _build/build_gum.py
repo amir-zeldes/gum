@@ -221,7 +221,7 @@ if not options.pepper_only:
 	#   * add fifth column after lemma containing tok_func from dep/
 	#   * add Centering Theory transition types to sentences
 	print("\n\nEnriching XML files:\n" + "="*23)
-	enrich_xml(gum_source, gum_target, centering_data, add_claws=options.claws, reddit=reddit)
+	enrich_xml(gum_source, gum_target, centering_data, add_claws=options.claws, reddit=reddit, corpus=corpus_name)
 
 	# Add annotations to dep/:
 	#   * fresh token strings, POS tags and lemmas from xml/
