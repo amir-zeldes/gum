@@ -100,14 +100,14 @@ The corpus is downloadable in multiple formats. Not all formats contain all anno
 **NB: Reddit data in top folders does not inclulde the base text forms - consult README_reddit.md to add it**
 
   * _build/ - The [GUM build bot](https://gucorpling.org/gum/build.html) and utilities for data merging and validation
-  * annis/ - The entire merged corpus, with all annotations, as a relANNIS 3.3 corpus dump, importable into [ANNIS](http://corpus-tools.org/annis)
+  * annis/ - The entire merged corpus (excl. Reddit), with all annotations, as a relANNIS 3.3 corpus dump, importable into [ANNIS](http://corpus-tools.org/annis)
   * const/ - Constituent trees with function labels and PTB POS tags in the PTB bracketing format (automatic parser output from gold POS with functions projected from gold dependencies)
   * coref/ - Entity and coreference annotation in two formats: 
     * conll/ - CoNLL shared task tabular format (with Wikification but no bridging or split antecedent annotations)
     * tsv/ - WebAnno .tsv format, including entity type, salience and information status annotations, Wikification, bridging, split antecedent and singleton entities
     * ontogum/ - alternative version of coreference annotation in CoNLL, tsv and CoNLL-U formats following OntoNotes guidelines (see Zhu et al. 2021)
   * dep/ - Dependency trees using Universal Dependencies, enriched with metadata, summaries, sentence types, speaker information,  enhanced dependencies, entities, information status, salience, centering, coreference, bridging, Wikification, XML markup, morphological tags/segmentation, CxG constructions, discourse relations/connectives/signals, and Universal POS tags according to the UD standard
-  * paula/ - The entire merged corpus in standoff [PAULA XML](https://github.com/korpling/paula-xml), with all annotations
+  * paula/ - The entire merged corpus (excl. Reddit) in standoff [PAULA XML](https://github.com/korpling/paula-xml), with all annotations
   * rst/ - Enhanced Rhetorical Structure Theory (RST++) analyses
     * rstweb/ - full .rs4 format data as used by RSTTool and rstWeb, with secondary edges + relation signals (recommended)
     * lisp_nary/ - n-ary lisp trees (.dis format) 
