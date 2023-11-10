@@ -93,7 +93,7 @@ def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False, docs
 	return lemma_dict, token_dict
 
 
-def make_text_rst(folder, textdic, unescape_xml=False, extension="rs3", edu_regex=r'(.*<segment[^>]*>)(.*)(</segment>)'):
+def make_text_rst(folder, textdic, unescape_xml=False, extension="rs[34]", edu_regex=r'(.*<segment[^>]*>)(.*)(</segment>)'):
 	files_to_process = glob.glob(folder + "GUM_reddit*." + extension)
 	print("o Processing " + str(len(files_to_process)) + " files in "+folder+"...")
 
@@ -148,7 +148,7 @@ def underscoring(src_folder):
 	make_underscores_const(src_folder + "const" + os.sep)
 
 
-def make_underscores_rst(folder, extension="rs3", edu_regex=r'(.*<segment[^>]*>)(.*)(</segment>)'):
+def make_underscores_rst(folder, extension="rs[34]", edu_regex=r'(.*<segment[^>]*>)(.*)(</segment>)'):
 	files_to_process = glob.glob(folder + "GUM_reddit*." + extension)
 	print("o Processing " + str(len(files_to_process)) + " files in "+folder+"...")
 

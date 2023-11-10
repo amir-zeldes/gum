@@ -8,8 +8,7 @@ import xml.etree.ElementTree as ET
 import io
 from collections import defaultdict
 from six import iterkeys
-from utils.rst2dep import make_rsd
-from utils.dep2rst import rsd2rs3
+from rst2dep import make_rsd, rsd2rs3
 
 class Markable:
 	def __init__(self):
@@ -107,7 +106,8 @@ def validate_src(gum_source, reddit=False):
 
 	lemma_dict = defaultdict(lambda : defaultdict(int))  # collects tok+pos -> lemmas -> count  for consistency checks
 	lemma_docs = defaultdict(set)
-	dirs = [('xml', 'xml'), ('dep', 'conllu'), ('rst', 'rs3'), ('tsv', 'tsv')]
+	rst_extension = "rs4" if os.path.exists(gum_source + "rst" + os.sep + "GUM_academic_art.rs4") else "rs3"
+	dirs = [('xml', 'xml'), ('dep', 'conllu'), ('rst', rst_extension), ('tsv', 'tsv')]
 
 	# check that each dir has same # and names of files (except extensions)
 	file_lists = []
@@ -227,18 +227,10 @@ def validate_src(gum_source, reddit=False):
 			with io.open(gum_source + filepath,encoding="utf8") as this_file:
 	
 				if sentence_dirs[d][0] == 'xml':
-					try:
-						tree = ET.parse(gum_source + filepath)
-					except Exception as e:
-						sys.stderr.write("Can't parse XML file: " + filepath+"\n")
-						sys.stderr.write(str(e))
-						sys.exit(0)
-					root = tree.getroot()
-					for s in root.iter('s'):
-						sent_length = count_tokens(s)
-	
-						file_sent_lengths.append(sent_length)
-	
+					xml_string = open(gum_source + filepath).read()
+					sents = xml_string.split("</s>")[:-1]
+					for s in sents:
+						file_sent_lengths.append(int(s.count("\t") / 2))
 				elif sentence_dirs[d][0] == 'dep':
 					file_text = this_file.read().strip() + "\n\n"
 					sentences = file_text.split('\n\n')
@@ -525,8 +517,9 @@ def validate_annos(gum_source, reddit=False):
 					if funcs[start_token+i] != "punct":
 						mark.func = funcs[start_token+i]
 			if mark.func.endswith("tmod") and mark.entity != "time":
-				print("! WARN: markable " + mark.text + " at " +docname + " token " + str(toknum) + " is " + \
-					  mark.entity + " but has head deprel " + mark.func)
+				if not (mark.entity == "event" and "time" in mark.text):
+					print("! WARN: markable " + mark.text + " at " +docname + " token " + str(toknum) + " is " + \
+						  mark.entity + " but has head deprel " + mark.func)
 
 			srcs = mark.anaphor
 			for src in srcs:
@@ -572,7 +565,10 @@ def validate_annos(gum_source, reddit=False):
 
 		# Validate RST data
 		rst_file = xmlfile.replace("xml" + os.sep, "rst" + os.sep).replace("xml", "rs3")
-		rst_xml = io.open(rst_file,encoding="utf8").read().replace("\r", "")
+		try:
+			rst_xml = io.open(rst_file,encoding="utf8").read().replace("\r", "")
+		except:
+			rst_xml = io.open(rst_file.replace("rs3","rs4"),encoding="utf8").read().replace("\r", "")
 		rst_lines = rst_xml.split("\n")
 
 		nodes = {}
@@ -614,9 +610,10 @@ def validate_annos(gum_source, reddit=False):
 
 		# Run round-trip conversion to dependencies and back - valid, ordered hierarchy should produce same rs3<>rsd
 		rsd1 = make_rsd(rst_xml, "", as_text=True)
+		rsd1 = re.sub('\t[^\t]+\t[^\t]+\n',r'\t_\t_\n',rsd1)
 		generated_rs3 = rsd2rs3(rsd1)
 		rsd2 = make_rsd(generated_rs3, "", as_text=True)
-		if re.sub('\t[a-z][^\s]+\n',r'\t_\n',rsd1) != rsd2:
+		if rsd1 != rsd2:
 			sys.stderr.write("! RST file " + docname + " not identical in rsd<>rs3 round-trip conversion; possible broken hierarchy!\n")
 
 
@@ -699,6 +696,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		if re.search(r'.*[a-z]+[A-Z]+.*',lemma) is not None:
 			if lemma + "s" != tok: # plurals like YouTubers
 				print("WARN: suspicious capitalization in lemma " + lemma + " for token " + tok + inname)
+		elif pos in ["VBP","VB"] and lemma != "be":
+			print("WARN: suspicious lemma should be identical to tok for lemma " + lemma + " with pos "+pos+" and token " + tok + inname)
 
 	if func in ['fixed','goeswith','flat', 'conj'] and id < parent_id:
 		print("WARN: back-pointing func " + func + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
@@ -707,8 +706,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		if tok not in ["mia"]:
 			print("WARN: forward-pointing func " + func + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
-	if func == "auxpass" and lemma != "be" and lemma != "get":
-		print("WARN: auxpass must be 'be' or 'get'" + inname)
+	if func == "aux:pass" and lemma != "be" and lemma != "get":
+		print("WARN: aux:pass must be 'be' or 'get'" + inname)
 
 	if lemma == "'s" and pos != "POS":
 		print("WARN: possessive 's must be tagged POS" + inname)
@@ -730,8 +729,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if pos == "NNS" and tok.lower() == lemma.lower() and lemma.endswith("s") and func != "goeswith":
 		if lemma not in ["surroundings","energetics","politics","jeans","clothes","electronics","means","feces",
-						 "biceps","triceps","news","species","economics","arrears","glasses","thanks","series",
-						 "aesthetics"]:
+						 "biceps","triceps","news","species","economics","arrears","glasses","thanks","series","ergonomics",
+						 "aesthetics","twenties","thirties","fourties","fifties","sixties","seventies","eighties","nineties"]:
 			if re.match(r"[0-9]+'?s",lemma) is None:  # 1920s, 80s
 				print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
@@ -745,8 +744,11 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if pos == "RP" and func not in ["compound:prt","conj"] or pos != "RP" and func=="compound:prt":
 		print("WARN: pos " + pos + " should not normally have function " + func + inname)
 
+	if pos.startswith("IN") and lemma == "that" and func not in ["mark","fixed","conj","reparandum","ccomp"]:
+		print("WARN: lemma " + lemma + " with pos " + pos + " should not normally have function " + func + inname)
+
 	if pos != "CC" and func in ["cc","cc:preconj"]:
-		if lemma not in ["/","rather","as","et","+","let","only","-"]:
+		if lemma not in ["/","rather","as","et","+","let","only","-","∪","∩","∖"]:
 			print("WARN: function " + func + " should normally have pos CC, not " + pos + inname)
 
 	if pos == "VVG" and "very" in children:
@@ -759,7 +761,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print("WARN: pos " + pos + " should not normally have function 'discourse'" + inname)
 
 	if pos == "VVG" and "case" in child_funcs:
-		print("WARN: pos " + pos + " should not normally have child function 'case'" + inname)
+		if tok != "following":  # Exception for promoted 'the following'
+			print("WARN: pos " + pos + " should not normally have child function 'case'" + inname)
 
 	if pos.startswith("V") and any([f.startswith("nmod") for f in child_funcs]):
 		print("WARN: pos " + pos + " should not normally have child function 'nmod.*'" + inname)
@@ -778,17 +781,23 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		if tok not in ["losing"]:
 			print("WARN: gerund compound modifier should be tagged as NN not VVG" + inname)
 
-	if pos == "VVG" and func in ["obj","nsubj","iobj","nmod","obl"]:
+	if pos in ["VBG","VHG","VVG"] and func in ["obj","nsubj","iobj","nmod","obl"]:
 		if not tok == "following" and func=="obj":  # Exception nominalized "the following"
 			print("WARN: gerund should not have noun argument structure function " + func + inname)
 
-	if pos.startswith("NN") and func=="amod":
+	if lemma in ["between",'like','of','than','with'] and pos == "RB":
+		if parent_lemma != "sink": # Sank zombie-like/RB is legitimate
+			print("WARN: lemma " +lemma+ " not have RB tag" + inname)
+
+	if (pos.startswith("NN") or pos == "DT") and func=="amod":
 		print("WARN: tag "+ pos + " should not be " + func + inname)
 
-	be_funcs = ["cop", "aux", "root", "csubj", "auxpass", "rcmod", "ccomp", "advcl", "conj","xcomp","parataxis","vmod","pcomp"]
+	be_funcs = ["cop", "aux", "root", "csubj", "aux:pass", "acl:relcl", "ccomp", "advcl", "conj","xcomp","parataxis","reparandum"]
 	if lemma == "be" and func not in be_funcs:
-		if not parent_lemma == "that" and func == "fixed":  # Exception for 'that is' as mwe
-			print("WARN: invalid dependency of lemma 'be' > " + func + inname)
+		if "expl" not in child_funcs:
+			if not (parent_lemma == "that" and func == "fixed"):  # Exception for 'that is' as mwe
+				pass
+				#print("WARN: invalid dependency "+func+" of lemma 'be' > " + func + inname)
 
 	if parent_lemma in ["tell","show","give","pay","teach","owe","text","write"] and \
 			tok in ["him","her","me","us","you"] and func=="obj":
@@ -807,11 +816,14 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func =="xcomp" and parent_lemma == "be":
 		print("WARN: verb lemma 'be' should not have xcomp child" + inname)
 
-	IN_not_like_lemma = ["vs", "vs.", "v", "ca", "that", "then", "a", "fro", "too", "til", "wether"]  # incl. known typos
+	IN_not_like_lemma = ["vs", "vs.", "v", "v.", "o'er", "ca", "that", "then", "a", "fro", "too", "til", "wether"]  # incl. known typos
 	if pos == "IN" and tok.lower() not in IN_not_like_lemma and lemma != tok.lower() and func != "goeswith" and "goeswith" not in child_funcs:
 		print("WARN: pos IN should have lemma identical to lower cased token" + inname)
-	if pos == "DT" and lemma == "an":
-		print("WARN: lemma of 'an' should be 'a'" + inname)
+	if pos == "DT":
+		if lemma == "an":
+			print("WARN: lemma of 'an' should be 'a'" + inname)
+		if lemma not in ["the","a","this","that","all","some","no","any","every","another","each","both","either","neither","yonder","_"]:
+			print("WARN: unknown determiner lemma "+lemma+" for POS DT" + inname)
 
 	if re.search(r"“|”|n’t|n`t|[’`](s|ve|d|ll|m|re|t)", lemma, re.IGNORECASE) is not None:
 		print(str(id) + docname)
@@ -839,8 +851,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print("WARN: infinitive with tag " + pos + " should be acl not acl:relcl" + inname)
 
 	if pos in ["VBG","VVG","VHG"] and "det" in child_funcs:
-		# Exceptions for phrasal compound in GUM_reddit_card and nominalization in GUM_academic_exposure
-		if tok != "prioritizing" and tok != "following":
+		# Exceptions for phrasal compound in GUM_reddit_card and nominalization in GUM_academic_exposure, GENTLE_dictionary_next
+		if tok != "prioritizing" and tok not in ["following","coming"]:
 			print(str(id) + docname)
 			print("WARN: tag "+pos+" should not have a determiner 'det'" + inname)
 
@@ -880,8 +892,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if lemma == "not" and func not in ["advmod","root","ccomp","amod","parataxis","reparandum","advcl","conj","orphan","fixed"]:
 		print("WARN: deprel "+func+" should not be used with lemma '"+lemma+"'" + inname)
 
-	if func == "xcomp" and parent_lemma in ["see","hear","notice"]:  # find
-		print("WARN: deprel "+func+" should not be used with perception verb lemma '"+parent_lemma+"' (should this be nsubj+ccomp?)" + inname)
+	#if func == "xcomp" and parent_lemma in ["see","hear","notice"]:  # find
+	#	print("WARN: deprel "+func+" should not be used with perception verb lemma '"+parent_lemma+"' (should this be nsubj+ccomp?)" + inname)
 
 	if "obj" in child_funcs and "ccomp" in child_funcs:
 		print("WARN: token has both obj and ccomp children" + inname)
@@ -921,7 +933,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 				 ("at","least"),("because","of"),("due","to"),("had","better"),("'d","better"),("in","between"), ("per", "se"),
 				 ("in","case"),("in","of"), ("in","order"),("instead","of"), ("kind","of"),("less","than"),("let","alone"),
 				 ("more","than"),("not","to"),("not","mention"),("of","course"),("prior","to"),("rather","than"),("so","as"),
-				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("that","is"), ("up","to"),("depend","on"),
+				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("such","that"),("that","is"), ("up","to"),("depend","on"),
 				 ("out","of"),("off","of"),("long","than"),("on","board"),("as","of"),("depend","upon"),
 				 ("that","be"),("just","about"),("vice","versa"),("as","such"),("next","to"),("close","to"),("one","another"),
 				 ("de","facto"),("each","other"), ("as","many"), ("in","that"), ("few","than"), ("as","for"), ("as","though")}

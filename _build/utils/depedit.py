@@ -22,7 +22,7 @@ from glob import glob
 import io
 from six import iteritems, iterkeys
 
-__version__ = "3.2.1.0"
+__version__ = "3.3.0.0"
 
 ALIASES = {"form":"text","upostag":"pos","xpostag":"cpos","feats":"morph","deprel":"func","deps":"head2","misc":"func2",
            "xpos": "cpos","upos":"pos"}
@@ -122,7 +122,7 @@ class Sentence:
         others = [k for k in sorted_keys if not k.startswith("meta::") and not k.startswith("global.") and k != "text"]
         text = ["text"] if "text" in sorted_keys else []
         sorted_keys = newdoc_anno + global_specs + meta + sent_id + sorted(others) + text
-        return ["# " + key.strip() + " = " + anno_dict[key].strip() for key in sorted_keys]
+        return ["# " + key.strip() + " = " + anno_dict[key].strip() if len(anno_dict[key].strip())>0 else "# " + key.strip() for key in sorted_keys]
 
 
 class Transformation:
@@ -233,7 +233,7 @@ class Transformation:
 
 
 class DefinitionMatcher:
-    __slots__ = ['def_text','def_index','groups','defs','sent_def']
+    __slots__ = ['def_text','def_index','groups','defs','sent_def','priority']
 
     def __init__(self, def_text, def_index):
         self.def_text = escape(def_text, "&", "/")
@@ -241,6 +241,7 @@ class DefinitionMatcher:
         self.groups = []
         self.defs = []
         self.sent_def = False
+        self.priority = 5  # Minimum priority
         if def_text.startswith("#S:"):
             self.sent_def = True
 
@@ -248,10 +249,7 @@ class DefinitionMatcher:
         for def_item in def_items:
             def_item = def_item.replace("%%%%%", "&")
             criterion = def_item.split("=", 1)[0]
-            try:
-                negative_criterion = (criterion[-1] == "!")
-            except:
-                a=4
+            negative_criterion = (criterion[-1] == "!")
             if negative_criterion:
                 criterion = criterion[:-1]
 
@@ -264,7 +262,10 @@ class DefinitionMatcher:
                 def_value += "$"
             if "^(?i)" in def_value:
                 def_value = def_value.replace("^(?i)","(?i)^")  # ensure case insensitive flag is initial
-            self.defs.append(Definition(criterion, def_value, negative_criterion))
+            definition = Definition(criterion, def_value, negative_criterion)
+            self.defs.append(definition)
+            if definition.selectivity < self.priority:
+                self.priority = definition.selectivity
 
     def __repr__(self):
         return "#" + str(self.def_index) + ": " + self.def_text
@@ -299,7 +300,7 @@ class DefinitionMatcher:
 
 
 class Definition:
-    __slots__ = ['value','match_type','compiled_re','match_func','negative','criterion']
+    __slots__ = ['value','match_type','selectivity','compiled_re','match_func','negative','criterion']
 
     def __init__(self, criterion, value, negative=False):
         # Handle conllu criterion aliases:
@@ -312,24 +313,35 @@ class Definition:
         self.compiled_re = None
         self.match_func = None
         self.negative = negative
+        self.selectivity = 0
         self.set_match_type(criterion)
 
     def set_match_type(self, criterion):
         value = self.value[1:-1]
         if self.value == "^.*$" and not self.negative:
             self.match_func = self.return_true
+            self.match_type = "return_true"
+            self.selectivity = 5  # Minimum selectivity
         elif re.escape(value) == value:  # No regex operators within expression
             if criterion in ["edep","edom"]:
                 self.match_func = self.return_not_in if self.negative else self.return_in
+                self.match_type = "return_not_in" if self.negative else "return_in"
+                self.selectivity = 2
             else:
                 self.match_func = self.return_exact_negative if self.negative else self.return_exact
+                self.match_type = "return_exact_negative" if self.negative else "return_exact"
+                self.selectivity = 1
             self.value = value
         else:  # regex
             self.compiled_re = re.compile(self.value)
             if criterion in ["edep","edom"]:
                 self.match_func = self.return_regex_not_in if self.negative else self.return_regex_in
+                self.match_type = "return_regex_not_in" if self.negative else "return_regex_in"
+                self.selectivity = 4
             else:
                 self.match_func = self.return_regex_negative if self.negative else self.return_regex
+                self.match_type = "return_regex_negative" if self.negative else "return_regex"
+                self.selectivity = 3
 
     @staticmethod
     def return_exact(definition, test_val):
@@ -453,15 +465,21 @@ class DepEdit:
                     print("# Rule " + str(i+1) + ": " + str(transformation)+'\n',end="")
 
             node_matches = defaultdict(list)
-            for def_matcher in transformation.definitions:
+            for def_matcher in sorted(transformation.definitions,key=lambda x: x.priority):
+                found = False
                 for token in conll_tokens:
                     if not token.is_super_tok and def_matcher.match(token):
+                        found = True
                         if def_matcher.sent_def:
                             if len(node_matches[def_matcher.def_index])==0:  # Only add a sentence anno definition once
                                 node_matches[def_matcher.def_index] = [Match(def_matcher.def_index, token, def_matcher.groups)]
                                 node_matches[def_matcher.def_index][0].sent_def = True
                         else:
                             node_matches[def_matcher.def_index].append(Match(def_matcher.def_index, token, def_matcher.groups))
+                if not found:
+                    break  # Some required node has no matches, stop processing this rule
+            if len(node_matches) == 0:
+                continue  # No mode matches for this rule, continue to next rule
             result_sets = []
             for relation in transformation.relations:
                 if not self.matches_relation(node_matches, relation, result_sets):
@@ -820,10 +838,7 @@ class DepEdit:
             # Push up all tokens after insertion point by len(subtoks)-1
             split_offset += len(subtoks)-1
             for tok in conll_tokens:
-                try:
-                    float(tok.id)
-                except:
-                    a=4
+                float(tok.id)
                 if tok.is_super_tok:
                     start, end = tok.id.split("-")
                     start = float(start)
@@ -958,8 +973,6 @@ class DepEdit:
                                                      str(transformation) + "\n")
                                 else:  # There is an edge waiting for a label
                                     # Get first edge with None label (FIFO)
-                                    if prop == "edep" and add_val:
-                                        a=4
                                     try:
                                         index = [i for i, dep in enumerate(result[node_position].edep) if dep[-1] is None][0]
                                     except IndexError:  # All are filled, overwrite top of stack
@@ -1196,7 +1209,7 @@ class DepEdit:
                 sentlength = supertok_length = 0
             if myline.startswith("#"):  # Preserve comment lines unless kill requested
                 if self.kill not in ["comments", "both"] and "=" not in myline:
-                    output_lines.append(myline.strip())
+                    current_sentence.input_annotations[myline[1:].strip()] = ""
                 if "=" in myline:
                     key, val = myline[1:].split("=",1)
                     current_sentence.input_annotations[key.strip()] = val.strip()
@@ -1270,6 +1283,7 @@ def main():
                         help="Remove supertokens or commments from output")
     parser.add_argument('-q', '--quiet', action="store_true", dest="quiet", help="Do not output warnings and messages")
     parser.add_argument('--stepwise', action="store_true", help="Output sentence repeatedly after each step (useful for debugging)")
+    parser.add_argument('--time', action="store_true", help="Print time taken to process file(s)")
     group = parser.add_argument_group('Batch mode options')
     group.add_argument('-o', '--outdir', action="store", dest="outdir", default="",
                        help="Output directory in batch mode")
@@ -1330,4 +1344,11 @@ def main():
 
 
 if __name__ == "__main__":
+    if "--time" in sys.argv:
+        import time
+        start_time = time.time()
+
     main()
+
+    if "--time" in sys.argv:
+        sys.stderr.write("--- %s seconds ---" % (time.time() - start_time))

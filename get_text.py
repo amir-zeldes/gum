@@ -222,7 +222,7 @@ def get_proxy_data():
 	try:
 		# Try fetching from corpling server
 		raise ConnectionError
-		tab_delim = requests.get("https://corpling.uis.georgetown.edu/gum/fetch_text_proxy.py").text
+		tab_delim = requests.get("https://gucorpling.org/gum/fetch_text_proxy.py").text
 	except ConnectionError:
 		# Fall back to mirror on coptic-dictionary.org
 		tab_delim = requests.get("https://coptic-dictionary.org/gum/fetch_text_proxy.py").text
@@ -437,7 +437,7 @@ def run_fetch():
 				print("Retrieving reddit data by proxy...")
 				cache_dict = get_proxy_data()
 				out_docs = get_no_space_strings(cache_dict, overwrite_cache=True)
-				return out_docs, cache_dict
+				return out_docs
 			else:
 				print("Aborting")
 				sys.exit()
@@ -469,7 +469,7 @@ def run_fetch():
 					print("Retrieving reddit data by proxy...")
 					cache_dict = get_proxy_data()
 					out_docs = get_no_space_strings(cache_dict, overwrite_cache=True)
-					return out_docs, cache_dict
+					return out_docs
 				else:
 					print("Aborting")
 					sys.exit()

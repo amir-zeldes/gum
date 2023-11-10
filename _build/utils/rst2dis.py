@@ -290,7 +290,7 @@ if __name__ == "__main__":
 	for file_ in files:
 		rs3 = io.open(file_,encoding="utf8").read()
 		dis = rst2dis(rs3)
-		outfile = os.path.basename(file_).replace(".rs3","") + ".dis"
+		outfile = os.path.basename(file_).replace(".rs3","").replace(".rs4","") + ".dis"
 
 		with io.open(outfile,'w',encoding="utf8",newline="\n") as f:
 			f.write(dis)

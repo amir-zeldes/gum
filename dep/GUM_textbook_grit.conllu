@@ -17,10 +17,10 @@
 # text = 2.2 The Motivated Learner
 # newpar
 # newpar_block = head (1 s)
-1	2.2	2.2	X	LS	_	4	dep	4:dep	Discourse=organization-heading:1->38:9
+1	2.2	2.2	X	LS	_	4	dep	4:dep	Discourse=organization-heading:1->38:9:grf-ly-+grf-seq-1
 2	The	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	Entity=(1-person-new-cf1-3-sgl
-3	Motivated	motivate	VERB	VBN	Tense=Past|VerbForm=Part	4	amod	4:amod	_
-4	Learner	learner	NOUN	NN	Number=Sing	0	root	0:root	Entity=1)
+3	Motivated	motivate	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	4	amod	4:amod	MSeg=Motiv-at-ed
+4	Learner	learner	NOUN	NN	Number=Sing	0	root	0:root	Entity=1)|MSeg=Learn-er
 
 # sent_id = GUM_textbook_grit-2
 # s_prominence = 5
@@ -29,8 +29,8 @@
 # text = Questions to consider:
 # newpar
 # newpar_block = head (1 s)
-1	Questions	question	NOUN	NNS	Number=Plur	0	root	0:root	Discourse=organization-heading:2->4:1|Entity=(2-abstract-new-cf1-1-sgl
-2	to	to	PART	TO	_	3	mark	3:mark	Discourse=purpose-attribute:3->2:0
+1	Questions	question	NOUN	NNS	Number=Plur	0	root	0:root	Discourse=organization-heading:2->4:1:grf-ly-|Entity=(2-abstract-new-cf1-1-sgl|MSeg=Question-s
+2	to	to	PART	TO	_	3	mark	3:mark	Discourse=purpose-attribute:3->2:0:syn-mdf-5+syn-inf-6
 3	consider	consider	VERB	VB	VerbForm=Inf	1	acl	1:acl:to	Entity=2)|SpaceAfter=No
 4	:	:	PUNCT	:	_	1	punct	1:punct	_
 
@@ -41,15 +41,15 @@
 # text = How do different types of motivation affect my learning?
 # newpar
 # newpar_block = list type:::"unordered" (4 s) | item (1 s)
-1	How	how	ADV	WRB	PronType=Int	7	advmod	7:advmod	Discourse=topic-question:4->11:4
+1	How	how	ADV	WRB	PronType=Int	7	advmod	7:advmod	Discourse=topic-question:4->11:4:lex-indwd-9+syn-sbinv-10+grf-qst-18
 2	do	do	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	7	aux	7:aux	_
-3	different	different	ADJ	JJ	Degree=Pos	4	amod	4:amod	Entity=(3-abstract-new-cf2-2-sgl
-4	types	type	NOUN	NNS	Number=Plur	7	nsubj	7:nsubj	_
+3	different	different	ADJ	JJ	Degree=Pos	4	amod	4:amod	Entity=(3-abstract-new-cf2-2-sgl|MSeg=differ-ent
+4	types	type	NOUN	NNS	Number=Plur	7	nsubj	7:nsubj	MSeg=type-s
 5	of	of	ADP	IN	_	6	case	6:case	_
-6	motivation	motivation	NOUN	NN	Number=Sing	4	nmod	4:nmod:of	Entity=(4-abstract-new-cf4-1-coref)3)
-7	affect	affect	VERB	VB	VerbForm=Inf	0	root	0:root	_
+6	motivation	motivation	NOUN	NN	Number=Sing	4	nmod	4:nmod:of	Entity=(4-abstract-new-cf4-1-coref)3)|MSeg=motiv-at-ion
+7	affect	affect	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Interrogative-Wh
 8	my	my	PRON	PRP$	Case=Gen|Number=Sing|Person=1|Poss=Yes|PronType=Prs	9	nmod:poss	9:nmod:poss	Entity=(5-abstract-new-cf3-2-coref(6-person-acc:com-cf1-1-ana)
-9	learning	learning	NOUN	NN	Number=Sing	7	obj	7:obj	Entity=5)|SpaceAfter=No
+9	learning	learning	NOUN	NN	Number=Sing	7	obj	7:obj	Entity=5)|MSeg=learn-ing|SpaceAfter=No
 10	?	?	PUNCT	.	_	7	punct	7:punct	_
 
 # sent_id = GUM_textbook_grit-4
@@ -59,9 +59,9 @@
 # text = What is resilience and grit?
 # newpar
 # newpar_block = item (1 s)
-1	What	what	PRON	WP	PronType=Int	0	root	0:root	Discourse=joint-list_m:5->4:0
+1	What	what	PRON	WP	PronType=Int	0	root	0:root	Cxn=Interrogative-Wh|Discourse=joint-list_m:5->4:0:grf-seq-
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	1	cop	1:cop	_
-3	resilience	resilience	NOUN	NN	Number=Sing	1	nsubj	1:nsubj	Entity=(7-abstract-new-cf1-1-coref)
+3	resilience	resilience	NOUN	NN	Number=Sing	1	nsubj	1:nsubj	Entity=(7-abstract-new-cf1-1-coref)|MSeg=resili-ence
 4	and	and	CCONJ	CC	_	5	cc	5:cc	_
 5	grit	grit	NOUN	NN	Number=Sing	3	conj	1:nsubj|3:conj:and	Entity=(8-abstract-new-cf2-1-coref)|SpaceAfter=No
 6	?	?	PUNCT	.	_	1	punct	1:punct	_
@@ -73,21 +73,21 @@
 # text = How can I apply the Uses and Gratification Theory to make decisions about my learning?
 # newpar
 # newpar_block = item (1 s)
-1	How	how	ADV	WRB	PronType=Int	4	advmod	4:advmod	Discourse=joint-list_m:6->4:0
+1	How	how	ADV	WRB	PronType=Int	4	advmod	4:advmod	Discourse=joint-list_m:6->4:0:grf-seq-
 2	can	can	AUX	MD	VerbForm=Fin	4	aux	4:aux	_
 3	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Entity=(6-person-giv:inact-cf1-1-ana)
-4	apply	apply	VERB	VB	VerbForm=Inf	0	root	0:root	_
+4	apply	apply	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Interrogative-Wh|MSeg=appl-y
 5	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Entity=(9-abstract-new-cf3-2,4,5-sgl-Uses_and_gratifications_theory
-6	Uses	Use	PROPN	NNPS	Number=Plur	9	compound	9:compound	_
+6	Uses	Use	PROPN	NNPS	Number=Plur	9	compound	9:compound	MSeg=Use-s
 7	and	and	CCONJ	CC	_	8	cc	8:cc	_
-8	Gratification	Gratification	PROPN	NNP	Number=Sing	6	conj	6:conj:and|9:compound	_
+8	Gratification	Gratification	PROPN	NNP	Number=Sing	6	conj	6:conj:and|9:compound	MSeg=Grat-ification
 9	Theory	Theory	PROPN	NNP	Number=Sing	4	obj	4:obj	Entity=9)
-10	to	to	PART	TO	_	11	mark	11:mark	Discourse=purpose-goal:7->6:0
+10	to	to	PART	TO	_	11	mark	11:mark	Discourse=purpose-goal:7->6:0:syn-inf-34
 11	make	make	VERB	VB	VerbForm=Inf	4	advcl	4:advcl:to	_
-12	decisions	decision	NOUN	NNS	Number=Plur	11	obj	11:obj	Entity=(10-abstract-new-cf4-1-sgl
+12	decisions	decision	NOUN	NNS	Number=Plur	11	obj	11:obj	Entity=(10-abstract-new-cf4-1-sgl|MSeg=decis-ion-s
 13	about	about	ADP	IN	_	15	case	15:case	_
 14	my	my	PRON	PRP$	Case=Gen|Number=Sing|Person=1|Poss=Yes|PronType=Prs	15	nmod:poss	15:nmod:poss	Entity=(5-abstract-giv:inact-cf2-2-coref(6-person-giv:act-cf1-1-ana)
-15	learning	learning	NOUN	NN	Number=Sing	12	nmod	12:nmod:about	Entity=5)10)|SpaceAfter=No
+15	learning	learning	NOUN	NN	Number=Sing	12	nmod	12:nmod:about	Entity=5)10)|MSeg=learn-ing|SpaceAfter=No
 16	?	?	PUNCT	.	_	4	punct	4:punct	_
 
 # sent_id = GUM_textbook_grit-6
@@ -97,15 +97,15 @@
 # text = How do I prevent negative bias from hindering learning?
 # newpar
 # newpar_block = item (1 s)
-1	How	how	ADV	WRB	PronType=Int	4	advmod	4:advmod	Discourse=joint-list_m:8->4:0
+1	How	how	ADV	WRB	PronType=Int	4	advmod	4:advmod	Discourse=joint-list_m:8->4:0:grf-seq-
 2	do	do	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	4	aux	4:aux	_
 3	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
-4	prevent	prevent	VERB	VB	VerbForm=Inf	0	root	0:root	_
+4	prevent	prevent	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Interrogative-Wh
 5	negative	negative	ADJ	JJ	Degree=Pos	6	amod	6:amod	Entity=(11-abstract-new-cf2-2-sgl
 6	bias	bias	NOUN	NN	Number=Sing	4	obj	4:obj	Entity=11)
 7	from	from	SCONJ	IN	_	8	mark	8:mark	_
-8	hindering	hinder	VERB	VBG	VerbForm=Ger	4	advcl	4:advcl:from	_
-9	learning	learning	NOUN	NN	Number=Sing	8	obj	8:obj	Entity=(12-abstract-new-cf3-1-coref)|SpaceAfter=No
+8	hindering	hinder	VERB	VBG	VerbForm=Ger	4	advcl	4:advcl:from	MSeg=hinder-ing
+9	learning	learning	NOUN	NN	Number=Sing	8	obj	8:obj	Entity=(12-abstract-new-cf3-1-coref)|MSeg=learn-ing|SpaceAfter=No
 10	?	?	PUNCT	.	_	4	punct	4:punct	_
 
 # sent_id = GUM_textbook_grit-7
@@ -115,7 +115,7 @@
 # text = In this section, you will continue to increase your ability as an informed learner.
 # newpar
 # newpar_block = p (3 s)
-1	In	in	ADP	IN	_	3	case	3:case	Discourse=organization-preparation:9->11:2
+1	In	in	ADP	IN	_	3	case	3:case	Discourse=organization-preparation:9->11:2:ref-prs-55,68
 2	this	this	DET	DT	Number=Sing|PronType=Dem	3	det	3:det	Entity=(13-abstract-acc:com-cf2-2-coref
 3	section	section	NOUN	NN	Number=Sing	7	obl	7:obl:in	Entity=13)|SpaceAfter=No
 4	,	,	PUNCT	,	_	3	punct	3:punct	_
@@ -125,11 +125,11 @@
 8	to	to	PART	TO	_	9	mark	9:mark	_
 9	increase	increase	VERB	VB	VerbForm=Inf	7	xcomp	7:xcomp	_
 10	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	11	nmod:poss	11:nmod:poss	Entity=(14-abstract-new-cf3-2-sgl(6-person-giv:act-cf1*-1-ana)
-11	ability	ability	NOUN	NN	Number=Sing	9	obj	9:obj	Entity=14)
+11	ability	ability	NOUN	NN	Number=Sing	9	obj	9:obj	Entity=14)|MSeg=abil-ity
 12	as	as	ADP	IN	_	15	case	15:case	_
 13	an	a	DET	DT	Definite=Ind|PronType=Art	15	det	15:det	Entity=(6-person-giv:act-cf1*-3-pred
-14	informed	inform	VERB	VBN	Tense=Past|VerbForm=Part	15	amod	15:amod	_
-15	learner	learner	NOUN	NN	Number=Sing	11	obl	11:obl:as	Entity=6)|SpaceAfter=No
+14	informed	inform	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	15	amod	15:amod	MSeg=in-form-ed
+15	learner	learner	NOUN	NN	Number=Sing	11	obl	11:obl:as	Entity=6)|MSeg=learn-er|SpaceAfter=No
 16	.	.	PUNCT	.	_	7	punct	7:punct	_
 
 # sent_id = GUM_textbook_grit-8
@@ -137,37 +137,37 @@
 # s_type = decl
 # transition = continue
 # text = Here you will explore how much of an influence motivation has on learning, as well as how to use motivation to purposefully take an active role in any learning activity.
-1	Here	here	ADV	RB	PronType=Dem	4	advmod	4:advmod	Discourse=attribution-positive:10->11:1
+1	Here	here	ADV	RB	PronType=Dem	4	advmod	4:advmod	Discourse=attribution-positive:10->11:1:sem-atsrc-55
 2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	4	nsubj	4:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 3	will	will	AUX	MD	VerbForm=Fin	4	aux	4:aux	_
 4	explore	explore	VERB	VB	VerbForm=Inf	0	root	0:root	_
-5	how	how	ADV	WRB	PronType=Int	6	advmod	6:advmod	Discourse=organization-preparation:11->22:2
+5	how	how	ADV	WRB	PronType=Rel	6	advmod	6:advmod	Discourse=organization-preparation:11->22:2:sem-rpt-76,167+sem-rpt-79,177
 6	much	much	ADJ	JJ	Degree=Pos	4	obj	4:obj	_
 7	of	of	ADP	IN	_	9	case	9:case	_
 8	an	a	DET	DT	Definite=Ind|PronType=Art	9	det	9:det	Entity=(15-abstract-new-cf5-2-sgl
 9	influence	influence	NOUN	NN	Number=Sing	6	obl	6:obl:of	Entity=15)
-10	motivation	motivation	NOUN	NN	Number=Sing	11	nsubj	11:nsubj	Entity=(4-abstract-giv:inact-cf2-1-coref)
-11	has	have	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	acl:relcl	6:acl:relcl	_
+10	motivation	motivation	NOUN	NN	Number=Sing	11	nsubj	11:nsubj	Entity=(4-abstract-giv:inact-cf2-1-coref)|MSeg=motiv-at-ion
+11	has	have	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	acl:relcl	6:acl:relcl	MSeg=ha-s
 12	on	on	ADP	IN	_	13	case	13:case	_
-13	learning	learning	NOUN	NN	Number=Sing	11	obl	11:obl:on	Entity=(12-abstract-giv:inact-cf3-1-coref)|SpaceAfter=No
+13	learning	learning	NOUN	NN	Number=Sing	11	obl	11:obl:on	Entity=(12-abstract-giv:inact-cf3-1-coref)|MSeg=learn-ing|SpaceAfter=No
 14	,	,	PUNCT	,	_	18	punct	18:punct	_
-15	as	as	ADV	RB	_	18	cc	18:cc	Discourse=joint-list_m:12->11:0
+15	as	as	ADV	RB	_	18	cc	18:cc	Discourse=joint-list_m:12->11:0:dm-as well as-81-83
 16	well	well	ADV	RB	Degree=Pos	15	fixed	15:fixed	_
 17	as	as	ADP	IN	_	15	fixed	15:fixed	_
 18	how	how	ADV	WRB	PronType=Int	6	conj	4:obj|6:conj:as_well_as	_
 19	to	to	PART	TO	_	20	mark	20:mark	_
 20	use	use	VERB	VB	VerbForm=Inf	18	acl	18:acl:to	_
-21	motivation	motivation	NOUN	NN	Number=Sing	20	obj	20:obj	Entity=(4-abstract-giv:act-cf2-1-coref)
-22	to	to	PART	TO	_	24	mark	24:mark	Discourse=purpose-goal:13->12:0
-23	purposefully	purposefully	ADV	RB	Degree=Pos	24	advmod	24:advmod	_
+21	motivation	motivation	NOUN	NN	Number=Sing	20	obj	20:obj	Entity=(4-abstract-giv:act-cf2-1-coref)|MSeg=motiv-at-ion
+22	to	to	PART	TO	_	24	mark	24:mark	Discourse=purpose-goal:13->12:0:syn-inf-88
+23	purposefully	purposefully	ADV	RB	Degree=Pos	24	advmod	24:advmod	MSeg=purpose-ful-ly
 24	take	take	VERB	VB	VerbForm=Inf	20	advcl	20:advcl:to	_
 25	an	a	DET	DT	Definite=Ind|PronType=Art	27	det	27:det	Entity=(16-abstract-new-cf4-3-sgl
-26	active	active	ADJ	JJ	Degree=Pos	27	amod	27:amod	_
+26	active	active	ADJ	JJ	Degree=Pos	27	amod	27:amod	MSeg=act-ive
 27	role	role	NOUN	NN	Number=Sing	24	obj	24:obj	_
 28	in	in	ADP	IN	_	31	case	31:case	_
 29	any	any	DET	DT	PronType=Ind	31	det	31:det	Entity=(17-abstract-new-cf6-3-coref
-30	learning	learning	NOUN	NN	Number=Sing	31	compound	31:compound	_
-31	activity	activity	NOUN	NN	Number=Sing	27	nmod	27:nmod:in	Entity=17)16)|SpaceAfter=No
+30	learning	learning	NOUN	NN	Number=Sing	31	compound	31:compound	MSeg=learn-ing
+31	activity	activity	NOUN	NN	Number=Sing	27	nmod	27:nmod:in	Entity=17)16)|MSeg=activ-ity|SpaceAfter=No
 32	.	.	PUNCT	.	_	4	punct	4:punct	_
 
 # sent_id = GUM_textbook_grit-9
@@ -175,33 +175,33 @@
 # s_type = decl
 # transition = continue
 # text = Rather than passively attempting to absorb new information, you will learn how to make conscious decisions about the methods of learning you will use (based on what you intend to do with the information), how you will select and use learning materials that are appropriate for your needs, and how persistent you will be in the learning activity.
-1	Rather	rather	ADV	RB	_	4	mark	4:mark	Discourse=adversative-antithesis:14->16:4
+1	Rather	rather	ADV	RB	_	4	mark	4:mark	Discourse=adversative-antithesis:14->16:4:dm-rather than-99-100|MSeg=Rath-er
 2	than	than	ADP	IN	_	1	fixed	1:fixed	_
-3	passively	passively	ADV	RB	Degree=Pos	4	advmod	4:advmod	_
-4	attempting	attempt	VERB	VBG	VerbForm=Ger	12	advcl	12:advcl:rather_than	_
+3	passively	passively	ADV	RB	Degree=Pos	4	advmod	4:advmod	MSeg=passive-ly
+4	attempting	attempt	VERB	VBG	VerbForm=Ger	12	advcl	12:advcl:rather_than	MSeg=attempt-ing
 5	to	to	PART	TO	_	6	mark	6:mark	_
 6	absorb	absorb	VERB	VB	VerbForm=Inf	4	xcomp	4:xcomp	_
 7	new	new	ADJ	JJ	Degree=Pos	8	amod	8:amod	Entity=(18-abstract-new-cf2-2-coref
-8	information	information	NOUN	NN	Number=Sing	6	obj	6:obj	Entity=18)|SpaceAfter=No
+8	information	information	NOUN	NN	Number=Sing	6	obj	6:obj	Entity=18)|MSeg=in-form-ation|SpaceAfter=No
 9	,	,	PUNCT	,	_	4	punct	4:punct	_
-10	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	12	nsubj	12:nsubj	Discourse=attribution-positive:15->16:3|Entity=(6-person-giv:act-cf1*-1-ana)
+10	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	12	nsubj	12:nsubj	Discourse=attribution-positive:15->16:3:sem-atsrc-108+lex-indwd-110|Entity=(6-person-giv:act-cf1*-1-ana)
 11	will	will	AUX	MD	VerbForm=Fin	12	aux	12:aux	_
 12	learn	learn	VERB	VB	VerbForm=Inf	0	root	0:root	_
-13	how	how	ADV	WRB	PronType=Int	12	obj	12:obj	Discourse=elaboration-additional:16->11:3
+13	how	how	ADV	WRB	PronType=Int	12	obj	12:obj	Discourse=elaboration-additional:16->11:3:ref-prs-68,108+sem-rpt-95-97,159-161+grf-prn-124,135
 14	to	to	PART	TO	_	15	mark	15:mark	_
 15	make	make	VERB	VB	VerbForm=Inf	13	acl	13:acl:to	_
 16	conscious	conscious	ADJ	JJ	Degree=Pos	17	amod	17:amod	Entity=(19-abstract-new-cf4-2-sgl
-17	decisions	decision	NOUN	NNS	Number=Plur	15	obj	15:obj	_
+17	decisions	decision	NOUN	NNS	Number=Plur	15	obj	15:obj	MSeg=decis-ion-s
 18	about	about	ADP	IN	_	20	case	20:case	_
 19	the	the	DET	DT	Definite=Def|PronType=Art	20	det	20:det	Entity=(20-abstract-new-cf6-2-sgl
-20	methods	method	NOUN	NNS	Number=Plur	17	nmod	17:nmod:about	_
+20	methods	method	NOUN	NNS	Number=Plur	17	nmod	17:nmod:about	MSeg=method-s
 21	of	of	ADP	IN	_	22	case	22:case	_
-22	learning	learning	NOUN	NN	Number=Sing	20	nmod	20:nmod:of	_
-23	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	25	nsubj	25:nsubj	Discourse=elaboration-attribute:17->16:0|Entity=(6-person-giv:act-cf1*-1-ana)
+22	learning	learning	NOUN	NN	Number=Sing	20	nmod	20:nmod:of	MSeg=learn-ing
+23	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	25	nsubj	25:nsubj	Discourse=elaboration-attribute:17->16:0:syn-mdf-118+syn-relcl-123|Entity=(6-person-giv:act-cf1*-1-ana)
 24	will	will	AUX	MD	VerbForm=Fin	25	aux	25:aux	_
 25	use	use	VERB	VB	VerbForm=Inf	20	acl:relcl	20:acl:relcl	Entity=20)19)
-26	(	(	PUNCT	-LRB-	_	27	punct	27:punct	Discourse=mode-means:18->16:1|SpaceAfter=No
-27	based	base	VERB	VBN	Tense=Past|VerbForm=Part	15	advcl	15:advcl	_
+26	(	(	PUNCT	-LRB-	_	27	punct	27:punct	Discourse=mode-means:18->16:1:syn-pst_-125+lex-altlex-125-126|SpaceAfter=No
+27	based	base	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	15	advcl	15:advcl	MSeg=bas-ed
 28	on	on	ADP	IN	_	29	case	29:case	_
 29	what	what	PRON	WP	PronType=Rel	27	obl	27:obl:on	_
 30	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	31	nsubj	31:nsubj|33:nsubj:xsubj	Entity=(6-person-giv:act-cf1*-1-ana)
@@ -210,34 +210,34 @@
 33	do	do	VERB	VB	VerbForm=Inf	31	xcomp	31:xcomp	_
 34	with	with	ADP	IN	_	36	case	36:case	_
 35	the	the	DET	DT	Definite=Def|PronType=Art	36	det	36:det	Entity=(18-abstract-giv:act-cf2-2-coref
-36	information	information	NOUN	NN	Number=Sing	33	obl	33:obl:with	Entity=18)|SpaceAfter=No
+36	information	information	NOUN	NN	Number=Sing	33	obl	33:obl:with	Entity=18)|MSeg=in-form-ation|SpaceAfter=No
 37	)	)	PUNCT	-RRB-	_	27	punct	27:punct	SpaceAfter=No
 38	,	,	PUNCT	,	_	39	punct	39:punct	_
-39	how	how	ADV	WRB	PronType=Rel	13	conj	12:obj|13:conj:and	Discourse=joint-list_m:19->16:2
+39	how	how	ADV	WRB	PronType=Rel	13	conj	12:obj|13:conj:and	Discourse=joint-list_m:19->16:2:_
 40	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	42	nsubj	42:nsubj|44:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 41	will	will	AUX	MD	VerbForm=Fin	42	aux	42:aux|44:aux	_
 42	select	select	VERB	VB	VerbForm=Inf	39	advcl:relcl	39:advcl:relcl	_
 43	and	and	CCONJ	CC	_	44	cc	44:cc	_
 44	use	use	VERB	VB	VerbForm=Inf	42	conj	39:advcl:relcl|42:conj:and	_
-45	learning	learning	NOUN	NN	Number=Sing	46	compound	46:compound	Entity=(21-abstract-new-cf5-2-sgl
-46	materials	material	NOUN	NNS	Number=Plur	42	obj	42:obj|44:obj|49:nsubj	_
-47	that	that	PRON	WDT	PronType=Rel	49	nsubj	46:ref	Discourse=elaboration-attribute:20->19:0
+45	learning	learning	NOUN	NN	Number=Sing	46	compound	46:compound	Entity=(21-abstract-new-cf5-2-sgl|MSeg=learn-ing
+46	materials	material	NOUN	NNS	Number=Plur	42	obj	42:obj|44:obj|49:nsubj	MSeg=material-s
+47	that	that	PRON	WDT	PronType=Rel	49	nsubj	46:ref	Discourse=elaboration-attribute:20->19:0:syn-mdf-144+syn-relcl-145,147
 48	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	49	cop	49:cop	_
-49	appropriate	appropriate	ADJ	JJ	Degree=Pos	46	acl:relcl	46:acl:relcl	_
+49	appropriate	appropriate	ADJ	JJ	Degree=Pos	46	acl:relcl	46:acl:relcl	MSeg=appropriate
 50	for	for	ADP	IN	_	52	case	52:case	_
 51	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	52	nmod:poss	52:nmod:poss	Entity=(22-abstract-new-cf7-2-coref(6-person-giv:act-cf1*-1-ana)
-52	needs	need	NOUN	NNS	Number=Plur	49	obl	49:obl:for	Entity=22)21)|SpaceAfter=No
+52	needs	need	NOUN	NNS	Number=Plur	49	obl	49:obl:for	Entity=22)21)|MSeg=need-s|SpaceAfter=No
 53	,	,	PUNCT	,	_	56	punct	56:punct	_
-54	and	and	CCONJ	CC	_	56	cc	56:cc	Discourse=joint-list_m:21->16:2
-55	how	how	ADV	WRB	PronType=Int	56	advmod	56:advmod	_
-56	persistent	persistent	ADJ	JJ	Degree=Pos	13	conj	12:obj|13:conj:and	_
+54	and	and	CCONJ	CC	_	56	cc	56:cc	Discourse=joint-list_m:21->16:2:dm-and-152
+55	how	how	ADV	WRB	PronType=Rel	56	advmod	56:advmod	_
+56	persistent	persistent	ADJ	JJ	Degree=Pos	13	conj	12:obj|13:conj:and	MSeg=persist-ent
 57	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	59	nsubj	59:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 58	will	will	AUX	MD	VerbForm=Fin	59	aux	59:aux	_
-59	be	be	VERB	VB	VerbForm=Inf	56	advcl:relcl	56:advcl:relcl	_
+59	be	be	AUX	VB	VerbForm=Inf	56	advcl:relcl	56:advcl:relcl	_
 60	in	in	ADP	IN	_	63	case	63:case	_
 61	the	the	DET	DT	Definite=Def|PronType=Art	63	det	63:det	Entity=(17-abstract-giv:act-cf3-3-coref
-62	learning	learning	NOUN	NN	Number=Sing	63	compound	63:compound	_
-63	activity	activity	NOUN	NN	Number=Sing	56	obl	56:obl:in	Entity=17)|SpaceAfter=No
+62	learning	learning	NOUN	NN	Number=Sing	63	compound	63:compound	MSeg=learn-ing
+63	activity	activity	NOUN	NN	Number=Sing	56	obl	56:obl:in	Entity=17)|MSeg=activ-ity|SpaceAfter=No
 64	.	.	PUNCT	.	_	12	punct	12:punct	_
 
 # sent_id = GUM_textbook_grit-10
@@ -247,21 +247,21 @@
 # text = There are three main motivation concepts that have been found to directly relate to learning.
 # newpar
 # newpar_block = p (3 s)
-1	There	there	PRON	EX	PronType=Dem	2	expl	2:expl	Discourse=context-background:22->38:8
-2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+1	There	there	PRON	EX	PronType=Dem	2	expl	2:expl	Discourse=context-background:22->38:8:_
+2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
 3	three	three	NUM	CD	NumForm=Word|NumType=Card	6	nummod	6:nummod	Entity=(23-abstract-new-cf3-4-coref
 4	main	main	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
-5	motivation	motivation	NOUN	NN	Number=Sing	6	nmod	6:nmod	Entity=(4-abstract-giv:inact-cf1-1-coref)
-6	concepts	concept	NOUN	NNS	Number=Plur	2	nsubj	2:nsubj|10:nsubj:pass	_
-7	that	that	PRON	WDT	PronType=Rel	10	nsubj:pass	6:ref	Discourse=elaboration-attribute:23->22:0
+5	motivation	motivation	NOUN	NN	Number=Sing	6	compound	6:compound	Entity=(4-abstract-giv:inact-cf2-1-coref)|MSeg=motiv-at-ion
+6	concepts	concept	NOUN	NNS	Number=Plur	2	nsubj	2:nsubj|10:nsubj:pass	MSeg=concept-s
+7	that	that	PRON	WDT	PronType=Rel	10	nsubj:pass	6:ref	Discourse=elaboration-attribute:23->22:0:syn-mdf-168+syn-relcl-169,172
 8	have	have	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	10	aux	10:aux	_
 9	been	be	AUX	VBN	Tense=Past|VerbForm=Part	10	aux:pass	10:aux:pass	_
 10	found	find	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	6	acl:relcl	6:acl:relcl	_
 11	to	to	PART	TO	_	13	mark	13:mark	_
-12	directly	directly	ADV	RB	Degree=Pos	13	advmod	13:advmod	_
+12	directly	directly	ADV	RB	Degree=Pos	13	advmod	13:advmod	MSeg=direct-ly
 13	relate	relate	VERB	VB	VerbForm=Inf	10	xcomp	10:xcomp	_
 14	to	to	ADP	IN	_	15	case	15:case	_
-15	learning	learning	NOUN	NN	Number=Sing	13	obl	13:obl:to	Entity=(12-abstract-giv:inact-cf2-1-coref)23)|SpaceAfter=No
+15	learning	learning	NOUN	NN	Number=Sing	13	obl	13:obl:to	Entity=(12-abstract-giv:inact-cf1-1-coref)23)|MSeg=learn-ing|SpaceAfter=No
 16	.	.	PUNCT	.	_	2	punct	2:punct	_
 
 # sent_id = GUM_textbook_grit-11
@@ -269,20 +269,20 @@
 # s_type = decl
 # transition = establishment
 # text = Each of these has been proven to mean the difference between success and failure.
-1	Each	each	DET	DT	PronType=Tot	6	nsubj:pass	6:nsubj:pass|8:nsubj:xsubj	Discourse=evaluation-comment:24->22:1|Entity=(24-abstract-new-cf2-1-ana
+1	Each	each	DET	DT	PronType=Tot	6	nsubj:pass	6:nsubj:pass|8:nsubj:xsubj	Discourse=evaluation-comment:24->22:1:lex-indwd-186|Entity=(24-abstract-new-cf2-1-ana
 2	of	of	ADP	IN	_	3	case	3:case	_
 3	these	this	PRON	DT	Number=Plur|PronType=Dem	1	nmod	1:nmod:of	Entity=(23-abstract-giv:act-cf1*-1-ana)24)
-4	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	aux	6:aux	_
+4	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	aux	6:aux	MSeg=ha-s
 5	been	be	AUX	VBN	Tense=Past|VerbForm=Part	6	aux:pass	6:aux:pass	_
-6	proven	prove	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
+6	proven	prove	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	MSeg=prove-n
 7	to	to	PART	TO	_	8	mark	8:mark	_
 8	mean	mean	VERB	VB	VerbForm=Inf	6	xcomp	6:xcomp	_
 9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	Entity=(25-abstract-new-cf3-2-sgl
-10	difference	difference	NOUN	NN	Number=Sing	8	obj	8:obj	_
-11	between	between	ADP	IN	_	12	case	12:case	_
+10	difference	difference	NOUN	NN	Number=Sing	8	obj	8:obj	MSeg=differ-ence
+11	between	between	ADP	IN	_	12	case	12:case	MSeg=be-tween
 12	success	success	NOUN	NN	Number=Sing	10	nmod	10:nmod:between	Entity=(26-event-new-cf4-1-sgl)
 13	and	and	CCONJ	CC	_	14	cc	14:cc	_
-14	failure	failure	NOUN	NN	Number=Sing	12	conj	10:nmod:between|12:conj:and	Entity=(27-event-new-cf5-1-sgl)25)|SpaceAfter=No
+14	failure	failure	NOUN	NN	Number=Sing	12	conj	10:nmod:between|12:conj:and	Entity=(27-event-new-cf5-1-sgl)25)|MSeg=fail-ure|SpaceAfter=No
 15	.	.	PUNCT	.	_	6	punct	6:punct	_
 
 # sent_id = GUM_textbook_grit-12
@@ -290,10 +290,10 @@
 # s_type = decl
 # transition = retain
 # text = You will find that each of these is a strong tool that will enable you to engage with learning material in a way that not only suits your needs, but also gives you ownership over your own learning processes.
-1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Discourse=attribution-positive:25->26:1|Entity=(6-person-giv:inact-cf1-1-ana)
+1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Discourse=attribution-positive:25->26:1:sem-atsrc-194+lex-indwd-196+syn-rpr-197|Entity=(6-person-giv:inact-cf1-1-ana)
 2	will	will	AUX	MD	VerbForm=Fin	3	aux	3:aux	_
 3	find	find	VERB	VB	VerbForm=Inf	0	root	0:root	_
-4	that	that	SCONJ	IN	_	11	mark	11:mark	Discourse=joint-list_m:26->24:0
+4	that	that	SCONJ	IN	_	11	mark	11:mark	Discourse=joint-list_m:26->24:0:_
 5	each	each	DET	DT	PronType=Tot	11	nsubj	11:nsubj	Entity=(24-abstract-giv:act-cf3-1-ana
 6	of	of	ADP	IN	_	7	case	7:case	_
 7	these	this	PRON	DT	Number=Plur|PronType=Dem	5	nmod	5:nmod:of	Entity=(23-abstract-giv:act-cf2*-1-ana)24)
@@ -301,35 +301,35 @@
 9	a	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	Entity=(24-abstract-giv:act-cf3-3-coref
 10	strong	strong	ADJ	JJ	Degree=Pos	11	amod	11:amod	_
 11	tool	tool	NOUN	NN	Number=Sing	3	ccomp	3:ccomp|14:nsubj	_
-12	that	that	PRON	WDT	PronType=Rel	14	nsubj	11:ref	Discourse=elaboration-attribute:27->26:0
+12	that	that	PRON	WDT	PronType=Rel	14	nsubj	11:ref	Discourse=elaboration-attribute:27->26:0:syn-mdf-204+syn-relcl-205,207
 13	will	will	AUX	MD	VerbForm=Fin	14	aux	14:aux	_
-14	enable	enable	VERB	VB	VerbForm=Inf	11	acl:relcl	11:acl:relcl	_
+14	enable	enable	VERB	VB	VerbForm=Inf	11	acl:relcl	11:acl:relcl	MSeg=en-able
 15	you	you	PRON	PRP	Case=Acc|Number=Sing|Person=2|PronType=Prs	14	obj	14:obj|17:nsubj:xsubj	Entity=(6-person-giv:act-cf1-1-ana)
 16	to	to	PART	TO	_	17	mark	17:mark	_
-17	engage	engage	VERB	VB	VerbForm=Inf	14	xcomp	14:xcomp	Entity=24)
+17	engage	engage	VERB	VB	VerbForm=Inf	14	xcomp	14:xcomp	Entity=24)|MSeg=en-gage
 18	with	with	ADP	IN	_	20	case	20:case	_
-19	learning	learning	NOUN	NN	Number=Sing	20	compound	20:compound	Entity=(28-abstract-new-cf6-2-sgl
+19	learning	learning	NOUN	NN	Number=Sing	20	compound	20:compound	Entity=(28-abstract-new-cf6-2-sgl|MSeg=learn-ing
 20	material	material	NOUN	NN	Number=Sing	17	obl	17:obl:with	Entity=28)
 21	in	in	ADP	IN	_	23	case	23:case	_
 22	a	a	DET	DT	Definite=Ind|PronType=Art	23	det	23:det	Entity=(29-abstract-new-cf7-2-sgl
 23	way	way	NOUN	NN	Number=Sing	17	obl	17:obl:in|27:nsubj	_
-24	that	that	PRON	WDT	PronType=Rel	27	nsubj	23:ref	Discourse=elaboration-attribute:28->27:0
+24	that	that	PRON	WDT	PronType=Rel	27	nsubj	23:ref	Discourse=elaboration-attribute:28->27:0:syn-mdf-216+syn-relcl-217,220
 25	not	not	PART	RB	Polarity=Neg	26	advmod	26:advmod	_
 26	only	only	ADV	RB	_	27	advmod	27:advmod	_
-27	suits	suit	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	23	acl:relcl	23:acl:relcl	_
+27	suits	suit	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	23	acl:relcl	23:acl:relcl	MSeg=suit-s
 28	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	29	nmod:poss	29:nmod:poss	Entity=(22-abstract-giv:inact-cf4-2-coref(6-person-giv:act-cf1-1-ana)
-29	needs	need	NOUN	NNS	Number=Plur	27	obj	27:obj	Entity=22)|SpaceAfter=No
+29	needs	need	NOUN	NNS	Number=Plur	27	obj	27:obj	Entity=22)|MSeg=need-s|SpaceAfter=No
 30	,	,	PUNCT	,	_	33	punct	33:punct	_
-31	but	but	CCONJ	CC	_	33	cc	33:cc	Discourse=joint-list_m:29->28:0
+31	but	but	CCONJ	CC	_	33	cc	33:cc	Discourse=joint-list_m:29->28:0:dm-not only but also-218-219,224-225
 32	also	also	ADV	RB	_	33	advmod	33:advmod	_
-33	gives	give	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	27	conj	23:acl:relcl|27:conj:but	_
+33	gives	give	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	27	conj	23:acl:relcl|27:conj:but	Cxn=Ditransitive|MSeg=give-s
 34	you	you	PRON	PRP	Case=Acc|Number=Sing|Person=2|PronType=Prs	33	iobj	33:iobj	Entity=(6-person-giv:act-cf1-1-ana)
-35	ownership	ownership	NOUN	NN	Number=Sing	33	obj	33:obj	Entity=(30-abstract-new-cf5-1-sgl
+35	ownership	ownership	NOUN	NN	Number=Sing	33	obj	33:obj	Entity=(30-abstract-new-cf5-1-sgl|MSeg=own-er-ship
 36	over	over	ADP	IN	_	40	case	40:case	_
 37	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	40	nmod:poss	40:nmod:poss	Entity=(31-abstract-new-cf8-4-sgl(6-person-giv:act-cf1-1-ana)
 38	own	own	ADJ	JJ	Degree=Pos	40	amod	40:amod	_
-39	learning	learning	NOUN	NN	Number=Sing	40	compound	40:compound	_
-40	processes	process	NOUN	NNS	Number=Plur	35	nmod	35:nmod:over	Entity=31)30)29)|SpaceAfter=No
+39	learning	learning	NOUN	NN	Number=Sing	40	compound	40:compound	MSeg=learn-ing
+40	processes	process	NOUN	NNS	Number=Plur	35	nmod	35:nmod:over	Entity=31)30)29)|MSeg=processe-s|SpaceAfter=No
 41	.	.	PUNCT	.	_	3	punct	3:punct	_
 
 # sent_id = GUM_textbook_grit-13
@@ -339,7 +339,7 @@
 # text = Resilience and Grit
 # newpar
 # newpar_block = head (1 s)
-1	Resilience	resilience	NOUN	NN	Number=Sing	0	root	0:root	Discourse=organization-heading:30->38:6|Entity=(7-abstract-giv:inact-cf1-1-coref)
+1	Resilience	resilience	NOUN	NN	Number=Sing	0	root	0:root	Discourse=organization-heading:30->38:6:grf-ly-+sem-rpt-237,310|Entity=(7-abstract-giv:inact-cf1-1-coref)|MSeg=Resili-ence
 2	and	and	CCONJ	CC	_	3	cc	3:cc	_
 3	Grit	grit	NOUN	NN	Number=Sing	1	conj	1:conj:and	Entity=(8-abstract-giv:inact-cf2-1-coref)
 
@@ -350,7 +350,7 @@
 # text = While much of this chapter will cover very specific aspects about the act of learning, in this section, we will present different information that may at first seem unrelated.
 # newpar
 # newpar_block = p (2 s)
-1	While	while	SCONJ	IN	_	7	mark	7:mark	Discourse=adversative-concession:31->32:1
+1	While	while	SCONJ	IN	_	7	mark	7:mark	Discourse=adversative-concession:31->32:1:dm-while-238
 2	much	much	ADJ	JJ	Degree=Pos	7	nsubj	7:nsubj	_
 3	of	of	ADP	IN	_	5	case	5:case	_
 4	this	this	DET	DT	Number=Sing|PronType=Dem	5	det	5:det	Entity=(32-abstract-acc:com-cf4-2-sgl
@@ -358,29 +358,29 @@
 6	will	will	AUX	MD	VerbForm=Fin	7	aux	7:aux	_
 7	cover	cover	VERB	VB	VerbForm=Inf	23	advcl	23:advcl:while	_
 8	very	very	ADV	RB	_	9	advmod	9:advmod	Entity=(33-abstract-new-cf5-3-sgl
-9	specific	specific	ADJ	JJ	Degree=Pos	10	amod	10:amod	_
-10	aspects	aspect	NOUN	NNS	Number=Plur	7	obj	7:obj	_
+9	specific	specific	ADJ	JJ	Degree=Pos	10	amod	10:amod	MSeg=specif-ic
+10	aspects	aspect	NOUN	NNS	Number=Plur	7	obj	7:obj	MSeg=aspect-s
 11	about	about	ADP	IN	_	13	case	13:case	_
 12	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	Entity=(12-abstract-giv:inact-cf1-2-coref
 13	act	act	NOUN	NN	Number=Sing	10	nmod	10:nmod:about	_
 14	of	of	ADP	IN	_	15	case	15:case	_
-15	learning	learning	NOUN	NN	Number=Sing	13	nmod	13:nmod:of	Entity=12)33)|SpaceAfter=No
+15	learning	learning	NOUN	NN	Number=Sing	13	nmod	13:nmod:of	Entity=12)33)|MSeg=learn-ing|SpaceAfter=No
 16	,	,	PUNCT	,	_	7	punct	7:punct	_
-17	in	in	ADP	IN	_	19	case	19:case	Discourse=organization-preparation:32->38:5
+17	in	in	ADP	IN	_	19	case	19:case	Discourse=organization-preparation:32->38:5:_
 18	this	this	DET	DT	Number=Sing|PronType=Dem	19	det	19:det	Entity=(13-abstract-giv:inact-cf2-2-coref
 19	section	section	NOUN	NN	Number=Sing	23	obl	23:obl:in	Entity=13)|SpaceAfter=No
 20	,	,	PUNCT	,	_	19	punct	19:punct	_
 21	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	23	nsubj	23:nsubj	Entity=(34-person-acc:com-cf3-1-ana)
 22	will	will	AUX	MD	VerbForm=Fin	23	aux	23:aux	_
 23	present	present	VERB	VB	VerbForm=Inf	0	root	0:root	_
-24	different	different	ADJ	JJ	Degree=Pos	25	amod	25:amod	Entity=(35-abstract-new-cf6-2-sgl
-25	information	information	NOUN	NN	Number=Sing	23	obj	23:obj|30:nsubj	_
-26	that	that	PRON	WDT	PronType=Rel	30	nsubj	25:ref	Discourse=elaboration-attribute:33->32:0
+24	different	different	ADJ	JJ	Degree=Pos	25	amod	25:amod	Entity=(35-abstract-new-cf6-2-sgl|MSeg=differ-ent
+25	information	information	NOUN	NN	Number=Sing	23	obj	23:obj|30:nsubj	MSeg=in-form-ation
+26	that	that	PRON	WDT	PronType=Rel	30	nsubj	25:ref	Discourse=elaboration-attribute:33->32:0:syn-mdf-262+syn-relcl-263,267
 27	may	may	AUX	MD	VerbForm=Fin	30	aux	30:aux	_
 28	at	at	ADP	IN	_	29	case	29:case	_
-29	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	30	obl	30:obl:at	_
+29	first	first	ADJ	JJ	Degree=Pos|NumForm=Word|NumType=Ord	30	obl	30:obl:at	_
 30	seem	seem	VERB	VB	VerbForm=Inf	25	acl:relcl	25:acl:relcl	_
-31	unrelated	unrelated	ADJ	JJ	Degree=Pos|Polarity=Neg	30	xcomp	30:xcomp	Entity=35)|SpaceAfter=No
+31	unrelated	unrelated	ADJ	JJ	Degree=Pos|Polarity=Neg	30	xcomp	30:xcomp	Entity=35)|MSeg=un-relat-ed|SpaceAfter=No
 32	.	.	PUNCT	.	_	23	punct	23:punct	_
 
 # sent_id = GUM_textbook_grit-15
@@ -388,7 +388,7 @@
 # s_type = multiple
 # transition = null
 # text = Some people would consider it more of a personal outlook than a learning practice, and yet it has a significant influence on the ability to learn.
-1	Some	some	DET	DT	PronType=Ind	2	det	2:det	Discourse=context-background:34->38:2|Entity=(36-person-new-cf2-2-sgl
+1	Some	some	DET	DT	PronType=Ind	2	det	2:det	Discourse=context-background:34->38:2:sem-synym-274,310|Entity=(36-person-new-cf2-2-sgl
 2	people	person	NOUN	NNS	Number=Plur	4	nsubj	4:nsubj	Entity=36)
 3	would	would	AUX	MD	Number=Plur|Person=3|VerbForm=Fin	4	aux	4:aux	_
 4	consider	consider	VERB	VB	VerbForm=Inf	0	root	0:root	_
@@ -396,24 +396,24 @@
 6	more	more	ADJ	JJR	Degree=Cmp	4	xcomp	4:xcomp	_
 7	of	of	ADP	IN	_	10	case	10:case	_
 8	a	a	DET	DT	Definite=Ind|PronType=Art	10	det	10:det	Entity=(37-abstract-new-cf5-3-sgl
-9	personal	personal	ADJ	JJ	Degree=Pos	10	amod	10:amod	_
-10	outlook	outlook	NOUN	NN	Number=Sing	6	obl	6:obl:of	Entity=37)
+9	personal	personal	ADJ	JJ	Degree=Pos	10	amod	10:amod	MSeg=person-al
+10	outlook	outlook	NOUN	NN	Number=Sing	6	obl	6:obl:of	Entity=37)|MSeg=out-look
 11	than	than	ADP	IN	_	14	case	14:case	_
 12	a	a	DET	DT	Definite=Ind|PronType=Art	14	det	14:det	Entity=(38-abstract-new-cf6-3-sgl
-13	learning	learning	NOUN	NN	Number=Sing	14	compound	14:compound	_
+13	learning	learning	NOUN	NN	Number=Sing	14	compound	14:compound	MSeg=learn-ing
 14	practice	practice	NOUN	NN	Number=Sing	6	obl	6:obl:than	Entity=38)|SpaceAfter=No
 15	,	,	PUNCT	,	_	19	punct	19:punct	_
-16	and	and	CCONJ	CC	_	19	cc	19:cc	Discourse=adversative-contrast_m:35->34:0
+16	and	and	CCONJ	CC	_	19	cc	19:cc	Discourse=adversative-contrast_m:35->34:0:dm-and-285+dm-yet-286
 17	yet	yet	ADV	RB	_	19	advmod	19:advmod	_
 18	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	19	nsubj	19:nsubj	Entity=(8-abstract-giv:act-cf1-1-ana)
-19	has	have	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	conj	4:conj:and	_
+19	has	have	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	conj	4:conj:and	MSeg=ha-s
 20	a	a	DET	DT	Definite=Ind|PronType=Art	22	det	22:det	Entity=(39-abstract-new-cf3-3-sgl
-21	significant	significant	ADJ	JJ	Degree=Pos	22	amod	22:amod	_
+21	significant	significant	ADJ	JJ	Degree=Pos	22	amod	22:amod	MSeg=signific-ant
 22	influence	influence	NOUN	NN	Number=Sing	19	obj	19:obj	_
 23	on	on	ADP	IN	_	25	case	25:case	_
 24	the	the	DET	DT	Definite=Def|PronType=Art	25	det	25:det	Entity=(40-abstract-new-cf4-2-sgl
-25	ability	ability	NOUN	NN	Number=Sing	22	nmod	22:nmod:on	_
-26	to	to	PART	TO	_	27	mark	27:mark	Discourse=purpose-attribute:36->35:0
+25	ability	ability	NOUN	NN	Number=Sing	22	nmod	22:nmod:on	MSeg=abil-ity
+26	to	to	PART	TO	_	27	mark	27:mark	Discourse=purpose-attribute:36->35:0:syn-mdf-294+syn-inf-295
 27	learn	learn	VERB	VB	VerbForm=Inf	25	acl	25:acl:to	Entity=40)39)|SpaceAfter=No
 28	.	.	PUNCT	.	_	4	punct	4:punct	_
 
@@ -424,17 +424,17 @@
 # text = What we are talking about here is called grit or resilience.
 # newpar
 # newpar_block = p (4 s)
-1	What	what	PRON	WP	PronType=Rel	8	nsubj:pass	8:nsubj:pass|9:nsubj:xsubj|11:nsubj:xsubj	Discourse=organization-preparation:37->38:0|Entity=(8-abstract-giv:act-cf1*-1-coref
+1	What	what	PRON	WP	PronType=Rel	8	nsubj:pass	8:nsubj:pass|9:nsubj:xsubj|11:nsubj:xsubj	Discourse=organization-preparation:37->38:0:sem-synym-298-303,310|Entity=(8-abstract-giv:act-cf1*-1-coref
 2	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	4	nsubj	4:nsubj	Entity=(34-person-giv:inact-cf2-1-ana)
 3	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	4	aux	4:aux	_
-4	talking	talk	VERB	VBG	Tense=Pres|VerbForm=Part	1	acl:relcl	1:acl:relcl	_
+4	talking	talk	VERB	VBG	Tense=Pres|VerbForm=Part	1	acl:relcl	1:acl:relcl	MSeg=talk-ing
 5	about	about	ADP	IN	_	4	obl	4:obl	_
 6	here	here	ADV	RB	PronType=Dem	4	advmod	4:advmod	Entity=8)
 7	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	8	aux:pass	8:aux:pass	_
-8	called	call	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
+8	called	call	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	MSeg=call-ed
 9	grit	grit	NOUN	NN	Number=Sing	8	xcomp	8:xcomp	Entity=(8-abstract-giv:act-cf1*-1-coref)
 10	or	or	CCONJ	CC	_	11	cc	11:cc	_
-11	resilience	resilience	NOUN	NN	Number=Sing	9	conj	8:xcomp|9:conj:or	Entity=(7-abstract-giv:inact-cf3-1-coref)|SpaceAfter=No
+11	resilience	resilience	NOUN	NN	Number=Sing	9	conj	8:xcomp|9:conj:or	Entity=(7-abstract-giv:inact-cf3-1-coref)|MSeg=resili-ence|SpaceAfter=No
 12	.	.	PUNCT	.	_	8	punct	8:punct	_
 
 # sent_id = GUM_textbook_grit-17
@@ -445,11 +445,11 @@
 1	Grit	grit	NOUN	NN	Number=Sing	4	nsubj:pass	4:nsubj:pass	Discourse=ROOT:38:0|Entity=(8-abstract-giv:act-cf1*-1-coref)
 2	can	can	AUX	MD	VerbForm=Fin	4	aux	4:aux	_
 3	be	be	AUX	VB	VerbForm=Inf	4	aux:pass	4:aux:pass	_
-4	defined	define	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
+4	defined	define	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	MSeg=defin-ed
 5	as	as	ADP	IN	_	7	case	7:case	_
-6	personal	personal	ADJ	JJ	Degree=Pos	7	amod	7:amod	Entity=(8-abstract-giv:act-cf1*-2-pred
-7	perseverance	perseverance	NOUN	NN	Number=Sing	4	obl	4:obl:as	_
-8	toward	toward	ADP	IN	_	10	case	10:case	_
+6	personal	personal	ADJ	JJ	Degree=Pos	7	amod	7:amod	Entity=(8-abstract-giv:act-cf1*-2-pred|MSeg=person-al
+7	perseverance	perseverance	NOUN	NN	Number=Sing	4	obl	4:obl:as	MSeg=persever-ance
+8	toward	toward	ADP	IN	_	10	case	10:case	MSeg=to-ward
 9	a	a	DET	DT	Definite=Ind|PronType=Art	10	det	10:det	Entity=(41-abstract-new-cf2-2-sgl
 10	task	task	NOUN	NN	Number=Sing	7	nmod	7:nmod:toward	Entity=41)
 11	or	or	CCONJ	CC	_	12	cc	12:cc	_
@@ -461,8 +461,8 @@
 # s_type = decl
 # transition = continue
 # text = In learning, it can be thought of as a trait that drives a person to keep trying until they succeed.
-1	In	in	ADP	IN	_	2	case	2:case	Discourse=elaboration-additional:39->38:1
-2	learning	learning	NOUN	NN	Number=Sing	7	obl	7:obl:in	Entity=(12-abstract-giv:inact-cf2-1-coref)|SpaceAfter=No
+1	In	in	ADP	IN	_	2	case	2:case	Discourse=elaboration-additional:39->38:1:ref-prs-310,326
+2	learning	learning	NOUN	NN	Number=Sing	7	obl	7:obl:in	Entity=(12-abstract-giv:inact-cf2-1-coref)|MSeg=learn-ing|SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	2:punct	_
 4	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	7	nsubj:pass	7:nsubj:pass	Entity=(8-abstract-giv:act-cf1*-1-ana)
 5	can	can	AUX	MD	VerbForm=Fin	7	aux	7:aux	_
@@ -472,16 +472,16 @@
 9	as	as	ADP	IN	_	11	case	11:case	_
 10	a	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	Entity=(43-abstract-new-cf4-2-sgl
 11	trait	trait	NOUN	NN	Number=Sing	7	obl	7:obl:as|13:nsubj	_
-12	that	that	PRON	WDT	PronType=Rel	13	nsubj	11:ref	Discourse=elaboration-attribute:40->39:0
-13	drives	drive	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	11	acl:relcl	11:acl:relcl	_
+12	that	that	PRON	WDT	PronType=Rel	13	nsubj	11:ref	Discourse=elaboration-attribute:40->39:0:syn-mdf-333+syn-relcl-334-335
+13	drives	drive	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	11	acl:relcl	11:acl:relcl	MSeg=drive-s
 14	a	a	DET	DT	Definite=Ind|PronType=Art	15	det	15:det	Entity=(44-person-new-cf3-2-coref
 15	person	person	NOUN	NN	Number=Sing	13	obj	13:obj|17:nsubj:xsubj	Entity=44)
 16	to	to	PART	TO	_	17	mark	17:mark	_
 17	keep	keep	VERB	VB	VerbForm=Inf	13	xcomp	13:xcomp	_
-18	trying	try	VERB	VBG	VerbForm=Ger	17	xcomp	17:xcomp	_
-19	until	until	SCONJ	IN	_	21	mark	21:mark	Discourse=context-circumstance:41->40:0
+18	trying	try	VERB	VBG	VerbForm=Ger	17	xcomp	17:xcomp	MSeg=try-ing
+19	until	until	SCONJ	IN	_	21	mark	21:mark	Discourse=context-circumstance:41->40:0:dm-until-341|MSeg=un-til
 20	they	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	21	nsubj	21:nsubj	Entity=(44-person-acc:com-cf3-1-ana)
-21	succeed	succeed	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	17	advcl	17:advcl:until	Entity=43)|SpaceAfter=No
+21	succeed	succeed	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	17	advcl	17:advcl:until	Entity=43)|MSeg=succe-ed|SpaceAfter=No
 22	.	.	PUNCT	.	_	7	punct	7:punct	_
 
 # sent_id = GUM_textbook_grit-19
@@ -489,30 +489,30 @@
 # s_type = decl
 # transition = continue
 # text = It is not tied to talent or ability, but is simply a tendency to not give up until something is finished or accomplished.
-1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	4	nsubj:pass	4:nsubj:pass	Discourse=adversative-antithesis:42->43:1|Entity=(8-abstract-giv:act-cf1*-1-ana)
+1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	4	nsubj:pass	4:nsubj:pass	Discourse=adversative-antithesis:42->43:1:dm-but-354|Entity=(8-abstract-giv:act-cf1*-1-ana)
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	aux:pass	4:aux:pass	_
 3	not	not	PART	RB	Polarity=Neg	4	advmod	4:advmod	_
-4	tied	tie	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
+4	tied	tie	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	MSeg=ti-ed
 5	to	to	ADP	IN	_	6	case	6:case	_
 6	talent	talent	NOUN	NN	Number=Sing	4	obl	4:obl:to	Entity=(45-abstract-new-cf3-1-coref)
 7	or	or	CCONJ	CC	_	8	cc	8:cc	_
-8	ability	ability	NOUN	NN	Number=Sing	6	conj	4:obl:to|6:conj:or	Entity=(46-abstract-new-cf4-1-sgl)|SpaceAfter=No
+8	ability	ability	NOUN	NN	Number=Sing	6	conj	4:obl:to|6:conj:or	Entity=(46-abstract-new-cf4-1-sgl)|MSeg=abil-ity|SpaceAfter=No
 9	,	,	PUNCT	,	_	14	punct	14:punct	_
-10	but	but	CCONJ	CC	_	14	cc	14:cc	Discourse=restatement-repetition_m:43->39:1
+10	but	but	CCONJ	CC	_	14	cc	14:cc	Discourse=restatement-repetition_m:43->39:1:ref-prs-326,345
 11	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	14	cop	14:cop	_
-12	simply	simply	ADV	RB	Degree=Pos	14	advmod	14:advmod	_
+12	simply	simply	ADV	RB	Degree=Pos	14	advmod	14:advmod	MSeg=simp-ly
 13	a	a	DET	DT	Definite=Ind|PronType=Art	14	det	14:det	Entity=(8-abstract-giv:act-cf1*-2-coref
-14	tendency	tendency	NOUN	NN	Number=Sing	4	conj	4:conj:but	_
-15	to	to	PART	TO	_	17	mark	17:mark	Discourse=purpose-attribute:44->43:0
+14	tendency	tendency	NOUN	NN	Number=Sing	4	conj	4:conj:but	MSeg=tend-ency
+15	to	to	PART	TO	_	17	mark	17:mark	Discourse=purpose-attribute:44->43:0:syn-mdf-358+syn-inf-359
 16	not	not	PART	RB	Polarity=Neg	17	advmod	17:advmod	_
 17	give	give	VERB	VB	VerbForm=Inf	14	acl	14:acl:to	_
 18	up	up	ADP	RP	_	17	compound:prt	17:compound:prt	_
-19	until	until	SCONJ	IN	_	22	mark	22:mark	Discourse=context-circumstance:45->44:0
+19	until	until	SCONJ	IN	_	22	mark	22:mark	Discourse=context-circumstance:45->44:0:dm-until-363|MSeg=un-til
 20	something	something	PRON	NN	Number=Sing|PronType=Ind	22	nsubj:pass	22:nsubj:pass|24:nsubj:pass	Entity=(47-abstract-new-cf2-1-sgl)
 21	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	22	aux:pass	22:aux:pass|24:aux:pass	_
-22	finished	finish	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	17	advcl	17:advcl:until	_
+22	finished	finish	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	17	advcl	17:advcl:until	MSeg=finish-ed
 23	or	or	CCONJ	CC	_	24	cc	24:cc	_
-24	accomplished	accomplish	VERB	VBN	Tense=Past|VerbForm=Part	22	conj	17:advcl:until|22:conj:or	SpaceAfter=No
+24	accomplished	accomplish	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	22	conj	17:advcl:until|22:conj:or	MSeg=accomplish-ed|SpaceAfter=No
 25	.	.	PUNCT	.	_	4	punct	4:punct	Entity=8)
 
 # sent_id = GUM_textbook_grit-20
@@ -522,7 +522,7 @@
 # text = Figure 2.3
 # newpar
 # newpar_block = figure rend:::"Picture of Will Reynolds running" (3 s) | caption (3 s)
-1	Figure	Figure	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=organization-heading:46->47:0|Entity=(48-abstract-new-cf1-1-sgl|XML=<hi rend:::"bold">
+1	Figure	Figure	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=organization-heading:46->47:0:grf-ly-|Entity=(48-abstract-new-cf1-1-sgl|XML=<hi rend:::"bold">
 2	2.3	2.3	NUM	CD	NumForm=Digit|NumType=Frac	1	dep	1:dep	Entity=48)|XML=</hi>
 
 # sent_id = GUM_textbook_grit-21
@@ -530,8 +530,8 @@
 # s_type = decl
 # transition = null
 # text = U.S. Army veteran and captain of the U.S. Invictus team, Will Reynolds, races to the finish line.
-1	U.S.	U.S.	PROPN	NNP	Abbr=Yes|Number=Sing	2	compound	2:compound	Discourse=context-background:47->38:3|Entity=(49-person-new-cf1-1,3,5-coref(50-organization-new-cf5-1,2-sgl-United_States_Army(51-place-new-cf2-1-coref-United_States)
-2	Army	Army	PROPN	NNP	Number=Sing	3	compound	3:compound	Entity=50)
+1	U.S.	U.S.	PROPN	NNP	Abbr=Yes|Number=Sing	2	compound	2:compound	Discourse=context-background:47->38:3:_|Entity=(49-person-new-cf1-1,3,5-coref(50-organization-new-cf5-1,2-sgl-United_States_Army(51-place-new-cf2-1-coref-United_States)
+2	Army	Army	PROPN	NNP	Number=Sing	3	compound	3:compound	Entity=50)|MSeg=Arm-y
 3	veteran	veteran	NOUN	NN	Number=Sing	15	nsubj	15:nsubj	_
 4	and	and	CCONJ	CC	_	5	cc	5:cc	_
 5	captain	captain	NOUN	NN	Number=Sing	3	conj	3:conj:and|15:nsubj	_
@@ -544,7 +544,7 @@
 12	Will	Will	PROPN	NNP	Number=Sing	3	appos	3:appos	Entity=(49-person-giv:act-cf1-1,2-appos
 13	Reynolds	Reynold	PROPN	NNP	Number=Sing	12	flat	12:flat	Entity=49)|SpaceAfter=No
 14	,	,	PUNCT	,	_	3	punct	3:punct	_
-15	races	race	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+15	races	race	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	MSeg=race-s
 16	to	to	ADP	IN	_	19	case	19:case	_
 17	the	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	Entity=(53-place-new-cf4-3-sgl
 18	finish	finish	NOUN	NN	Number=Sing	19	compound	19:compound	_
@@ -556,18 +556,18 @@
 # s_type = other
 # transition = null
 # text = (Credit: DoD News / Flickr / Attribution 2.0 Generic (CC-BY 2.0))
-1	(	(	PUNCT	-LRB-	_	2	punct	2:punct	Discourse=organization-preparation:48->49:1|SpaceAfter=No
+1	(	(	PUNCT	-LRB-	_	2	punct	2:punct	Discourse=organization-preparation:48->49:1:grf-col-394|SpaceAfter=No
 2	Credit	credit	NOUN	NN	Number=Sing	0	root	0:root	Entity=(54-abstract-new-cf4-1-sgl)|SpaceAfter=No
 3	:	:	PUNCT	:	_	5	punct	5:punct	_
-4	DoD	DoD	PROPN	NNP	Number=Sing	5	compound	5:compound	Discourse=attribution-positive:49->47:1|Entity=(55-organization-new-cf2-1,2-sgl-DoD_News_Channel(56-organization-new-cf5-1-sgl-United_States_Department_of_Defense)
-5	News	News	PROPN	NNP	Number=Sing	2	dep	2:dep	Entity=55)
+4	DoD	DoD	PROPN	NNP	Number=Sing	5	compound	5:compound	Discourse=attribution-positive:49->47:1:sem-atsrc-395-398|Entity=(55-organization-new-cf2-1,2-sgl-DoD_News_Channel(56-organization-new-cf5-1-sgl-United_States_Department_of_Defense)
+5	News	News	PROPN	NNP	Number=Sing	2	dep	2:dep	Entity=55)|MSeg=New-s
 6	/	/	PUNCT	SYM	_	7	punct	7:punct	_
 7	Flickr	Flickr	PROPN	NNP	Number=Sing	5	list	5:list	Entity=(57-organization-new-cf3-1-sgl-Flickr)
 8	/	/	PUNCT	SYM	_	9	punct	9:punct	_
-9	Attribution	Attribution	PROPN	NNP	Number=Sing	5	list	5:list	Entity=(58-abstract-new-cf1-1,3-coref
+9	Attribution	Attribution	PROPN	NNP	Number=Sing	5	list	5:list	Entity=(58-abstract-new-cf1-1,3-coref|MSeg=Attribut-ion
 10	2.0	2.0	NUM	CD	NumForm=Digit|NumType=Frac	9	dep	9:dep	_
 11	Generic	Generic	ADJ	NNP	Degree=Pos|Number=Sing	9	amod	9:amod	Entity=58)
-12	(	(	PUNCT	-LRB-	_	13	punct	13:punct	Discourse=restatement-partial:50->49:0|SpaceAfter=No
+12	(	(	PUNCT	-LRB-	_	13	punct	13:punct	Discourse=restatement-partial:50->49:0:sem-synym-400-402,404-405+grf-prn-403,406|SpaceAfter=No
 13	CC-BY	CC-BY	PROPN	NNP	Number=Sing	9	appos	9:appos	Entity=(58-abstract-giv:act-cf1-1-appos
 14	2.0	2.0	NUM	CD	NumForm=Digit|NumType=Frac	13	dep	13:dep	Entity=58)|SpaceAfter=No
 15	)	)	PUNCT	-RRB-	_	13	punct	13:punct	SpaceAfter=No
@@ -580,21 +580,21 @@
 # text = The study showed that grit and perseverance were better predictors of academic success and achievement than talent or IQ.
 # newpar
 # newpar_block = p (1 s)
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=attribution-positive:51->52:0|Entity=(59-abstract-new-cf4-2-coref|XML=<hi rend:::"bold">
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=attribution-positive:51->52:0:sem-atsrc-408-409+lex-indwd-410+syn-rpr-411-412,415-416,420,424|Entity=(59-abstract-new-cf4-2-coref|XML=<hi rend:::"bold">
 2	study	study	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	Entity=59)
-3	showed	show	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
-4	that	that	SCONJ	IN	_	10	mark	10:mark	Discourse=context-background:52->53:3
+3	showed	show	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=show-ed
+4	that	that	SCONJ	IN	_	10	mark	10:mark	Discourse=context-background:52->53:3:ref-dem-412,428-430
 5	grit	grit	NOUN	NN	Number=Sing	10	nsubj	10:nsubj	Entity=(60-abstract-new-cf1-1,3-coref(8-abstract-giv:inact-cf2-1-coref)
 6	and	and	CCONJ	CC	_	7	cc	7:cc	_
-7	perseverance	perseverance	NOUN	NN	Number=Sing	5	conj	5:conj:and|10:nsubj	Entity=(61-abstract-new-cf5-1-coref)60)
+7	perseverance	perseverance	NOUN	NN	Number=Sing	5	conj	5:conj:and|10:nsubj	Entity=(61-abstract-new-cf5-1-coref)60)|MSeg=persever-ance
 8	were	be	AUX	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	10	cop	10:cop	_
-9	better	good	ADJ	JJR	Degree=Cmp	10	amod	10:amod	Entity=(60-abstract-giv:act-cf1-2-coref
-10	predictors	predictor	NOUN	NNS	Number=Plur	3	ccomp	3:ccomp	_
+9	better	good	ADJ	JJR	Degree=Cmp	10	amod	10:amod	Entity=(60-abstract-giv:act-cf1-2-coref|MSeg=bett-er
+10	predictors	predictor	NOUN	NNS	Number=Plur	3	ccomp	3:ccomp	MSeg=predict-or-s
 11	of	of	ADP	IN	_	13	case	13:case	_
-12	academic	academic	ADJ	JJ	Degree=Pos	13	amod	13:amod	Entity=(62-abstract-new-cf6-2-coref
+12	academic	academic	ADJ	JJ	Degree=Pos	13	amod	13:amod	Entity=(62-abstract-new-cf6-2-coref|MSeg=academ-ic
 13	success	success	NOUN	NN	Number=Sing	10	nmod	10:nmod:of	Entity=62)
 14	and	and	CCONJ	CC	_	15	cc	15:cc	_
-15	achievement	achievement	NOUN	NN	Number=Sing	13	conj	10:nmod:of|13:conj:and	Entity=(63-abstract-new-cf7-1-coref)
+15	achievement	achievement	NOUN	NN	Number=Sing	13	conj	10:nmod:of|13:conj:and	Entity=(63-abstract-new-cf7-1-coref)|MSeg=achieve-ment
 16	than	than	ADP	IN	_	17	case	17:case	_
 17	talent	talent	NOUN	NN	Number=Sing	10	obl	10:obl:than	Entity=(45-abstract-giv:inact-cf3-1-coref)
 18	or	or	CCONJ	CC	_	19	cc	19:cc	_
@@ -608,38 +608,38 @@
 # text = This personality trait was defined as “grit” by the psychologist Angela Duckworth. 1
 # newpar
 # newpar_block = p (4 s)
-1	This	this	DET	DT	Number=Sing|PronType=Dem	3	det	3:det	Discourse=elaboration-additional:53->38:4|Entity=(8-abstract-giv:act-cf1*-3-coref
-2	personality	personality	NOUN	NN	Number=Sing	3	compound	3:compound	Entity=(65-abstract-new-cf3-1-sgl)
+1	This	this	DET	DT	Number=Sing|PronType=Dem	3	det	3:det	Discourse=elaboration-additional:53->38:4:ref-dem-310,428-430|Entity=(8-abstract-giv:act-cf1*-3-coref
+2	personality	personality	NOUN	NN	Number=Sing	3	compound	3:compound	Entity=(65-abstract-new-cf3-1-sgl)|MSeg=person-al-ity
 3	trait	trait	NOUN	NN	Number=Sing	5	nsubj:pass	5:nsubj:pass	Entity=8)
 4	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	5	aux:pass	5:aux:pass	_
-5	defined	define	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
+5	defined	define	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	MSeg=defin-ed
 6	as	as	ADP	IN	_	8	case	8:case	_
 7	“	''	PUNCT	``	_	8	punct	8:punct	SpaceAfter=No|XML=<q>
 8	grit	grit	NOUN	NN	Number=Sing	5	obl	5:obl:as	Entity=(8-abstract-giv:act-cf1*-1-pred)|SpaceAfter=No
 9	”	''	PUNCT	''	_	8	punct	8:punct	XML=</q>
 10	by	by	ADP	IN	_	12	case	12:case	_
 11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(66-person-new-cf2-2-coref-Angela_Duckworth
-12	psychologist	psychologist	NOUN	NN	Number=Sing	5	obl:agent	5:obl:agent	Entity=66)
+12	psychologist	psychologist	NOUN	NN	Number=Sing	5	obl:agent	5:obl:agent	Entity=66)|MSeg=psycholog-ist
 13	Angela	Angela	PROPN	NNP	Number=Sing	12	appos	12:appos	Entity=(66-person-giv:act-cf2-1,2-appos-Angela_Duckworth
 14	Duckworth	Duckworth	PROPN	NNP	Number=Sing	13	flat	13:flat	Entity=66)|SpaceAfter=No
 15	.	.	PUNCT	.	_	5	punct	5:punct	_
-16	1	1	NUM	CD	NumForm=Digit|NumType=Card	5	dep	5:dep	Discourse=explanation-evidence:54->53:0|XML=<ref></ref>
+16	1	1	NUM	CD	NumForm=Digit|NumType=Card	5	dep	5:dep	Discourse=explanation-evidence:54->53:0:_|XML=<ref></ref>
 
 # sent_id = GUM_textbook_grit-25
 # s_prominence = 3
 # s_type = decl
 # transition = smooth-shift
 # text = In a 2007 study Duckworth and colleagues found that individuals with high grit were able to maintain motivation in learning tasks despite failures.
-1	In	in	ADP	IN	_	4	case	4:case	Discourse=attribution-positive:55->56:1
+1	In	in	ADP	IN	_	4	case	4:case	Discourse=attribution-positive:55->56:1:sem-atsrc-448,450+lex-indwd-451+syn-rpr-452
 2	a	a	DET	DT	Definite=Ind|PronType=Art	4	det	4:det	Entity=(59-abstract-giv:inact-cf3-3-coref
 3	2007	2007	NUM	CD	NumForm=Digit|NumType=Card	4	compound	4:compound	Entity=(67-time-new-cf10-1-coref)|XML=<date when:::"2007"></date>
 4	study	study	NOUN	NN	Number=Sing	8	obl	8:obl:in	Entity=59)
 5	Duckworth	Duckworth	PROPN	NNP	Number=Sing	8	nsubj	8:nsubj	Entity=(68-abstract-new-cf4-1,3-sgl(66-person-giv:act-cf1*-1-coref-Angela_Duckworth)
 6	and	and	CCONJ	CC	_	7	cc	7:cc	_
-7	colleagues	colleague	NOUN	NNS	Number=Plur	5	conj	5:conj:and|8:nsubj	Entity=(69-person-new-cf6-1-coref)68)
+7	colleagues	colleague	NOUN	NNS	Number=Plur	5	conj	5:conj:and|8:nsubj	Entity=(69-person-new-cf6-1-coref)68)|MSeg=colleague-s
 8	found	find	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
-9	that	that	SCONJ	IN	_	15	mark	15:mark	Discourse=elaboration-additional:56->53:1
-10	individuals	individual	NOUN	NNS	Number=Plur	15	nsubj	15:nsubj|17:nsubj:xsubj	Entity=(70-person-new-cf5-1-sgl
+9	that	that	SCONJ	IN	_	15	mark	15:mark	Discourse=elaboration-additional:56->53:1:sem-lxchn-435,456+sem-synym-438-439,448
+10	individuals	individual	NOUN	NNS	Number=Plur	15	nsubj	15:nsubj|17:nsubj:xsubj	Entity=(70-person-new-cf5-1-sgl|MSeg=individual-s
 11	with	with	ADP	IN	_	13	case	13:case	_
 12	high	high	ADJ	JJ	Degree=Pos	13	amod	13:amod	Entity=(71-abstract-new-cf7-2-sgl
 13	grit	grit	NOUN	NN	Number=Sing	10	nmod	10:nmod:with	Entity=71)70)
@@ -647,12 +647,12 @@
 15	able	able	ADJ	JJ	Degree=Pos	8	ccomp	8:ccomp	_
 16	to	to	PART	TO	_	17	mark	17:mark	_
 17	maintain	maintain	VERB	VB	VerbForm=Inf	15	xcomp	15:xcomp	_
-18	motivation	motivation	NOUN	NN	Number=Sing	17	obj	17:obj	Entity=(4-abstract-giv:inact-cf2-1-coref)
+18	motivation	motivation	NOUN	NN	Number=Sing	17	obj	17:obj	Entity=(4-abstract-giv:inact-cf2-1-coref)|MSeg=motiv-at-ion
 19	in	in	ADP	IN	_	21	case	21:case	_
-20	learning	learning	NOUN	NN	Number=Sing	21	compound	21:compound	Entity=(72-abstract-new-cf8-2-sgl
-21	tasks	task	NOUN	NNS	Number=Plur	18	nmod	18:nmod:in	Entity=72)
-22	despite	despite	ADP	IN	_	23	case	23:case	Discourse=adversative-concession:57->56:0
-23	failures	failure	NOUN	NNS	Number=Plur	17	obl	17:obl:despite	Entity=(73-event-new-cf9-1-sgl)|SpaceAfter=No
+20	learning	learning	NOUN	NN	Number=Sing	21	compound	21:compound	Entity=(72-abstract-new-cf8-2-sgl|MSeg=learn-ing
+21	tasks	task	NOUN	NNS	Number=Plur	18	nmod	18:nmod:in	Entity=72)|MSeg=task-s
+22	despite	despite	ADP	IN	_	23	case	23:case	Discourse=adversative-concession:57->56:0:dm-despite-465|MSeg=de-spite
+23	failures	failure	NOUN	NNS	Number=Plur	17	obl	17:obl:despite	Entity=(73-event-new-cf9-1-sgl)|MSeg=fail-ure-s|SpaceAfter=No
 24	.	.	PUNCT	.	_	8	punct	8:punct	_
 
 # sent_id = GUM_textbook_grit-26
@@ -660,44 +660,44 @@
 # s_type = decl
 # transition = smooth-shift
 # text = The study examined a cross section of learning environments, such as GPA scores in Ivy League universities, dropout rates at West Point, rankings in the National Spelling Bee, and general educational attainment for adults.
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=context-background:58->56:2|Entity=(59-abstract-giv:act-cf1*-2-coref
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=context-background:58->56:2:sem-rpt-445-447,468-469|Entity=(59-abstract-giv:act-cf1*-2-coref
 2	study	study	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	Entity=59)
-3	examined	examine	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
+3	examined	examine	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=examin-ed
 4	a	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	Entity=(74-abstract-new-cf2-3,13,20,26,27-sgl
 5	cross	cross	NOUN	NN	Number=Sing	6	compound	6:compound	_
 6	section	section	NOUN	NN	Number=Sing	3	obj	3:obj	_
 7	of	of	ADP	IN	_	9	case	9:case	_
-8	learning	learning	NOUN	NN	Number=Sing	9	compound	9:compound	Entity=(75-abstract-new-cf6-2-sgl
-9	environments	environment	NOUN	NNS	Number=Plur	6	nmod	6:nmod:of	Entity=75)|SpaceAfter=No
+8	learning	learning	NOUN	NN	Number=Sing	9	compound	9:compound	Entity=(75-abstract-new-cf6-2-sgl|MSeg=learn-ing
+9	environments	environment	NOUN	NNS	Number=Plur	6	nmod	6:nmod:of	Entity=75)|MSeg=environ-ment-s|SpaceAfter=No
 10	,	,	PUNCT	,	_	14	punct	14:punct	_
 11	such	such	ADJ	JJ	Degree=Pos	14	case	14:case	_
 12	as	as	ADP	IN	_	11	fixed	11:fixed	_
 13	GPA	GPA	NOUN	NN	Number=Sing	14	compound	14:compound	Entity=(76-abstract-new-cf7-2,4-sgl
-14	scores	score	NOUN	NNS	Number=Plur	9	nmod	9:nmod:such_as	_
+14	scores	score	NOUN	NNS	Number=Plur	9	nmod	9:nmod:such_as	MSeg=score-s
 15	in	in	ADP	IN	_	18	case	18:case	_
 16	Ivy	Ivy	PROPN	NNP	Number=Sing	17	compound	17:compound	Entity=(77-organization-new-cf8-1,3-sgl(78-organization-new-cf12-1,2-sgl-Ivy_League
 17	League	League	PROPN	NNP	Number=Sing	18	compound	18:compound	Entity=78)
-18	universities	university	NOUN	NNS	Number=Plur	14	nmod	14:nmod:in	Entity=77)76)|SpaceAfter=No
+18	universities	university	NOUN	NNS	Number=Plur	14	nmod	14:nmod:in	Entity=77)76)|MSeg=universitie-s|SpaceAfter=No
 19	,	,	PUNCT	,	_	21	punct	21:punct	_
 20	dropout	dropout	NOUN	NN	Number=Sing	21	compound	21:compound	Entity=(79-abstract-new-cf9-2,4-sgl(80-event-new-cf13-1-sgl)
-21	rates	rate	NOUN	NNS	Number=Plur	14	conj	9:nmod:such_as|14:conj:and	_
+21	rates	rate	NOUN	NNS	Number=Plur	14	conj	9:nmod:such_as|14:conj:and	MSeg=rate-s
 22	at	at	ADP	IN	_	24	case	24:case	_
 23	West	West	PROPN	NNP	Number=Sing	24	compound	24:compound	Entity=(81-organization-new-cf4-1,2-sgl-United_States_Military_Academy
 24	Point	Point	PROPN	NNP	Number=Sing	21	nmod	21:nmod:at	Entity=81)79)|SpaceAfter=No
 25	,	,	PUNCT	,	_	26	punct	26:punct	_
-26	rankings	ranking	NOUN	NNS	Number=Plur	14	conj	9:nmod:such_as|14:conj:and	Entity=(82-abstract-new-cf10-1,4,5-sgl
+26	rankings	ranking	NOUN	NNS	Number=Plur	14	conj	9:nmod:such_as|14:conj:and	Entity=(82-abstract-new-cf10-1,4,5-sgl|MSeg=rank-ing-s
 27	in	in	ADP	IN	_	31	case	31:case	_
 28	the	the	DET	DT	Definite=Def|PronType=Art	31	det	31:det	Entity=(83-event-new-cf3-2,3,4-sgl-Scripps_National_Spelling_Bee
-29	National	National	ADJ	NNP	Degree=Pos|Number=Sing	31	amod	31:amod	_
-30	Spelling	Spelling	PROPN	NNP	Number=Sing	31	compound	31:compound	_
+29	National	National	ADJ	NNP	Degree=Pos|Number=Sing	31	amod	31:amod	MSeg=Nation-al
+30	Spelling	Spelling	PROPN	NNP	Number=Sing	31	compound	31:compound	MSeg=Spell-ing
 31	Bee	Bee	PROPN	NNP	Number=Sing	26	nmod	26:nmod:in	Entity=83)82)|SpaceAfter=No
 32	,	,	PUNCT	,	_	36	punct	36:punct	_
 33	and	and	CCONJ	CC	_	36	cc	36:cc	_
-34	general	general	ADJ	JJ	Degree=Pos	36	amod	36:amod	Entity=(84-abstract-new-cf11-3-sgl
-35	educational	educational	ADJ	JJ	Degree=Pos	36	amod	36:amod	_
-36	attainment	attainment	NOUN	NN	Number=Sing	14	conj	9:nmod:such_as|14:conj:and	_
+34	general	general	ADJ	JJ	Degree=Pos	36	amod	36:amod	Entity=(84-abstract-new-cf11-3-sgl|MSeg=general
+35	educational	educational	ADJ	JJ	Degree=Pos	36	amod	36:amod	MSeg=educat-ion-al
+36	attainment	attainment	NOUN	NN	Number=Sing	14	conj	9:nmod:such_as|14:conj:and	MSeg=attain-ment
 37	for	for	ADP	IN	_	38	case	38:case	_
-38	adults	adult	NOUN	NNS	Number=Plur	36	nmod	36:nmod:for	Entity=(85-person-new-cf5-1-sgl)84)74)|SpaceAfter=No
+38	adults	adult	NOUN	NNS	Number=Plur	36	nmod	36:nmod:for	Entity=(85-person-new-cf5-1-sgl)84)74)|MSeg=adult-s|SpaceAfter=No
 39	.	.	PUNCT	.	_	3	punct	3:punct	_
 
 # sent_id = GUM_textbook_grit-27
@@ -705,23 +705,23 @@
 # s_type = decl
 # transition = zero
 # text = What the results showed was that grit and perseverance were better predictors of academic success and achievement than talent or IQ.
-1	What	what	PRON	WP	PronType=Rel	12	nsubj:outer	12:nsubj:outer	Discourse=joint-list_m:59->56:3
+1	What	what	PRON	WP	PronType=Rel	12	nsubj:outer	12:nsubj:outer	Discourse=joint-list_m:59->56:3:_
 2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Bridge=59<86|Entity=(86-abstract-acc:inf-cf8-2-sgl
-3	results	result	NOUN	NNS	Number=Plur	4	nsubj	4:nsubj	Entity=86)
-4	showed	show	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	1	acl:relcl	1:acl:relcl	_
+3	results	result	NOUN	NNS	Number=Plur	4	nsubj	4:nsubj	Entity=86)|MSeg=result-s
+4	showed	show	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	1	acl:relcl	1:acl:relcl	MSeg=show-ed
 5	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	12	cop	12:cop	_
 6	that	that	SCONJ	IN	_	12	mark	12:mark	_
 7	grit	grit	NOUN	NN	Number=Sing	12	nsubj	12:nsubj	Entity=(60-abstract-giv:inact-cf2-1,3-coref(8-abstract-giv:inact-cf1-1-coref)
 8	and	and	CCONJ	CC	_	9	cc	9:cc	_
-9	perseverance	perseverance	NOUN	NN	Number=Sing	7	conj	7:conj:and|12:nsubj	Entity=(61-abstract-giv:inact-cf3-1-coref)60)
+9	perseverance	perseverance	NOUN	NN	Number=Sing	7	conj	7:conj:and|12:nsubj	Entity=(61-abstract-giv:inact-cf3-1-coref)60)|MSeg=persever-ance
 10	were	be	AUX	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	12	cop	12:cop	_
-11	better	good	ADJ	JJR	Degree=Cmp	12	amod	12:amod	Entity=(8-abstract-giv:act-cf1-2-coref
-12	predictors	predictor	NOUN	NNS	Number=Plur	0	root	0:root	_
+11	better	good	ADJ	JJR	Degree=Cmp	12	amod	12:amod	Entity=(8-abstract-giv:act-cf1-2-coref|MSeg=bett-er
+12	predictors	predictor	NOUN	NNS	Number=Plur	0	root	0:root	MSeg=predict-or-s
 13	of	of	ADP	IN	_	15	case	15:case	_
-14	academic	academic	ADJ	JJ	Degree=Pos	15	amod	15:amod	Entity=(62-abstract-giv:inact-cf4-2-coref
+14	academic	academic	ADJ	JJ	Degree=Pos	15	amod	15:amod	Entity=(62-abstract-giv:inact-cf4-2-coref|MSeg=academ-ic
 15	success	success	NOUN	NN	Number=Sing	12	nmod	12:nmod:of	Entity=62)
 16	and	and	CCONJ	CC	_	17	cc	17:cc	_
-17	achievement	achievement	NOUN	NN	Number=Sing	15	conj	12:nmod:of|15:conj:and	Entity=(63-abstract-giv:inact-cf5-1-coref)
+17	achievement	achievement	NOUN	NN	Number=Sing	15	conj	12:nmod:of|15:conj:and	Entity=(63-abstract-giv:inact-cf5-1-coref)|MSeg=achieve-ment
 18	than	than	ADP	IN	_	19	case	19:case	_
 19	talent	talent	NOUN	NN	Number=Sing	12	obl	12:obl:than	Entity=(45-abstract-giv:inact-cf6-1-coref)
 20	or	or	CCONJ	CC	_	21	cc	21:cc	_
@@ -735,12 +735,12 @@
 # text = Duckworth, A. L.; Peterson, C.; Matthews, M. D.; Kelly, D. R. (June 2007). "Grit: Perseverance and passion for long-term goals".
 # newpar
 # newpar_block = p (2 s) | note place:::"foot" n:::"1" (2 s)
-1	Duckworth	Duckworth	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=attribution-positive:60->62:3|Entity=(59-abstract-giv:inact-cf1-1,3,4,6,8,10,12,13,15,17,18,20-coref(66-person-giv:inact-cf4-1,3,4-coref-Angela_Duckworth|SpaceAfter=No
+1	Duckworth	Duckworth	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=attribution-positive:60->62:3:sem-atsrc-529-546+grf-qt-552,563|Entity=(59-abstract-giv:inact-cf1-1,3,4,6,8,10,12,13,15,17,18,20-coref(66-person-giv:inact-cf4-1,3,4-coref-Angela_Duckworth|SpaceAfter=No
 2	,	,	PUNCT	,	_	3	punct	3:punct	_
 3	A.	A.	PROPN	NNP	Number=Sing	1	flat	1:flat	_
 4	L.	L.	PROPN	NNP	Number=Sing	3	flat	3:flat	Entity=66)|SpaceAfter=No
 5	;	;	PUNCT	:	_	6	punct	6:punct	_
-6	Peterson	Peterson	PROPN	NNP	Number=Sing	1	conj	1:conj	Entity=(69-person-giv:inact-cf5-3,7,8,10,12,13-coref(87-person-new-cf7-1,3-sgl-Christopher_Peterson_%28psychologist%29|SpaceAfter=No
+6	Peterson	Peterson	PROPN	NNP	Number=Sing	1	conj	1:conj	Entity=(69-person-giv:inact-cf5-3,7,8,10,12,13-coref(87-person-new-cf7-1,3-sgl-Christopher_Peterson_%28psychologist%29|MSeg=Pet-er-son|SpaceAfter=No
 7	,	,	PUNCT	,	_	8	punct	8:punct	_
 8	C.	C.	PROPN	NNP	Number=Sing	6	flat	6:flat	Entity=87)|SpaceAfter=No
 9	;	;	PUNCT	:	_	10	punct	10:punct	_
@@ -753,22 +753,22 @@
 16	,	,	PUNCT	,	_	17	punct	17:punct	_
 17	D.	D.	PROPN	NNP	Number=Sing	15	flat	15:flat	_
 18	R.	R.	PROPN	NNP	Number=Sing	17	flat	17:flat	Entity=89)69)
-19	(	(	PUNCT	-LRB-	_	20	punct	20:punct	Discourse=context-circumstance:61->62:2|SpaceAfter=No
+19	(	(	PUNCT	-LRB-	_	20	punct	20:punct	Discourse=context-circumstance:61->62:2:lex-indph-548-549|SpaceAfter=No
 20	June	June	PROPN	NNP	Number=Sing	1	nmod:tmod	1:nmod:tmod	Entity=(90-time-new-cf10-1-sgl|XML=<date when:::"2007-06">
 21	2007	2007	NUM	CD	NumForm=Digit|NumType=Card	20	nmod:tmod	20:nmod:tmod	Entity=(67-time-giv:inact-cf6-1-coref)90)|SpaceAfter=No|XML=</date>
 22	)	)	PUNCT	-RRB-	_	20	punct	20:punct	Entity=59)|SpaceAfter=No
 23	.	.	PUNCT	.	_	1	punct	1:punct	_
-24	"	''	PUNCT	``	_	25	punct	25:punct	Discourse=explanation-evidence:62->53:2|Entity=(59-abstract-giv:act-cf1-2-coref|SpaceAfter=No
+24	"	''	PUNCT	``	_	25	punct	25:punct	Discourse=explanation-evidence:62->53:2:_|Entity=(59-abstract-giv:act-cf1-2-coref|SpaceAfter=No
 25	Grit	grit	NOUN	NN	Number=Sing	1	list	1:list	Entity=(8-abstract-giv:act-cf2*-1-coref)|SpaceAfter=No
 26	:	:	PUNCT	:	_	27	punct	27:punct	_
-27	Perseverance	perseverance	NOUN	NN	Number=Sing	25	appos	25:appos	Entity=(61-abstract-giv:act-cf3-1-coref)
+27	Perseverance	perseverance	NOUN	NN	Number=Sing	25	appos	25:appos	Entity=(61-abstract-giv:act-cf3-1-coref)|MSeg=Persever-ance
 28	and	and	CCONJ	CC	_	29	cc	29:cc	_
 29	passion	passion	NOUN	NN	Number=Sing	27	conj	25:appos|27:conj:and	Entity=(91-abstract-new-cf11-1-sgl)
 30	for	for	ADP	IN	_	34	case	34:case	_
 31	long	long	ADJ	JJ	Degree=Pos	33	amod	33:amod	Entity=(92-abstract-new-cf12-4-sgl|SpaceAfter=No|XML=<w>
 32	-	-	PUNCT	HYPH	_	31	punct	31:punct	SpaceAfter=No
 33	term	term	NOUN	NN	Number=Sing	34	compound	34:compound	XML=</w>
-34	goals	goal	NOUN	NNS	Number=Plur	27	nmod	27:nmod:for	Entity=92)|SpaceAfter=No
+34	goals	goal	NOUN	NNS	Number=Plur	27	nmod	27:nmod:for	Entity=92)|MSeg=goal-s|SpaceAfter=No
 35	"	''	PUNCT	''	_	25	punct	25:punct	SpaceAfter=No
 36	.	.	PUNCT	.	_	1	punct	1:punct	Entity=59)
 
@@ -777,25 +777,25 @@
 # s_type = other
 # transition = zero
 # text = Journal of Personality and Social Psychology. 92 (6): 1087–1101. doi:10.1037/0022-3514.92.6.1087. PMID 17547490.
-1	Journal	Journal	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=attribution-positive:63->62:0|Entity=(93-organization-new-cf1-1,6-sgl-Journal_of_Personality_and_Social_Psychology
+1	Journal	Journal	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=attribution-positive:63->62:0:sem-atsrc-565-585|Entity=(93-organization-new-cf1-1,6-sgl-Journal_of_Personality_and_Social_Psychology
 2	of	of	ADP	IN	_	6	case	6:case	_
-3	Personality	Personality	PROPN	NNP	Number=Sing	6	compound	6:compound	Entity=(94-abstract-new-cf9-1-sgl)
+3	Personality	Personality	PROPN	NNP	Number=Sing	6	compound	6:compound	Entity=(94-abstract-new-cf9-1-sgl)|MSeg=Person-al-ity
 4	and	and	CCONJ	CC	_	5	cc	5:cc	_
 5	Social	Social	PROPN	NNP	Number=Sing	3	conj	3:conj:and|6:compound	Entity=(95-abstract-new-cf2-2-sgl
 6	Psychology	Psychology	PROPN	NNP	Number=Sing	1	nmod	1:nmod:of	Entity=95)93)|SpaceAfter=No
 7	.	.	PUNCT	.	_	1	punct	1:punct	_
-8	92	92	NUM	CD	NumForm=Digit|NumType=Card	1	dep	1:dep	Discourse=elaboration-additional:64->63:0|Entity=(96-abstract-new-cf5-1-sgl(97-abstract-new-cf6-1-sgl)
-9	(	(	PUNCT	-LRB-	_	10	punct	10:punct	Discourse=elaboration-additional:65->64:0|SpaceAfter=No
+8	92	92	NUM	CD	NumForm=Digit|NumType=Card	1	dep	1:dep	Discourse=elaboration-additional:64->63:0:_|Entity=(96-abstract-new-cf5-1-sgl(97-abstract-new-cf6-1-sgl)
+9	(	(	PUNCT	-LRB-	_	10	punct	10:punct	Discourse=elaboration-additional:65->64:0:grf-prn-573,575|SpaceAfter=No
 10	6	6	NUM	CD	NumForm=Digit|NumType=Card	8	dep	8:dep	SpaceAfter=No
 11	)	)	PUNCT	-RRB-	_	10	punct	10:punct	Entity=96)|SpaceAfter=No
 12	:	:	PUNCT	:	_	13	punct	13:punct	_
-13	1087	1087	NUM	CD	NumForm=Digit|NumType=Card	8	appos	8:appos	Discourse=elaboration-additional:66->65:0|Entity=(98-abstract-new-cf7-1-sgl)|SpaceAfter=No|XML=<w>
+13	1087	1087	NUM	CD	NumForm=Digit|NumType=Card	8	appos	8:appos	Discourse=elaboration-additional:66->65:0:grf-col-576|Entity=(98-abstract-new-cf7-1-sgl)|SpaceAfter=No|XML=<w>
 14	–	-	SYM	SYM	_	15	case	15:case	SpaceAfter=No
 15	1101	1101	NUM	CD	NumForm=Digit|NumType=Card	13	nmod	13:nmod:to	Entity=(99-abstract-new-cf8-1-sgl)|SpaceAfter=No|XML=</w>
 16	.	.	PUNCT	.	_	1	punct	1:punct	_
-17	doi:10.1037/0022-3514.92.6.1087	doi:10.1037/0022-3514.92.6.1087	PROPN	NNP	Number=Sing	1	list	1:list	Discourse=elaboration-additional:67->62:1|Entity=(100-abstract-new-cf3-1-sgl)|SpaceAfter=No
+17	doi:10.1037/0022-3514.92.6.1087	doi:10.1037/0022-3514.92.6.1087	PROPN	NNP	Number=Sing	1	list	1:list	Discourse=elaboration-additional:67->62:1:_|Entity=(100-abstract-new-cf3-1-sgl)|SpaceAfter=No
 18	.	.	PUNCT	.	_	1	punct	1:punct	_
-19	PMID	PMID	PROPN	NNP	Number=Sing	1	list	1:list	Discourse=joint-list_m:68->67:0|Entity=(101-abstract-new-cf4-1-sgl
+19	PMID	PMID	PROPN	NNP	Number=Sing	1	list	1:list	Discourse=joint-list_m:68->67:0:_|Entity=(101-abstract-new-cf4-1-sgl
 20	17547490	17547490	NUM	CD	NumForm=Digit|NumType=Card	19	dep	19:dep	Entity=101)|SpaceAfter=No
 21	.	.	PUNCT	.	_	1	punct	1:punct	_
 
@@ -806,7 +806,7 @@
 # text = Applying Grit
 # newpar
 # newpar_block = head (1 s)
-1	Applying	apply	VERB	VBG	VerbForm=Ger	0	root	0:root	Discourse=organization-heading:69->70:3
+1	Applying	apply	VERB	VBG	VerbForm=Ger	0	root	0:root	Discourse=organization-heading:69->70:3:grf-ly-+sem-rpt-587,591|MSeg=Appl-y-ing
 2	Grit	grit	NOUN	NN	Number=Sing	1	obj	1:obj	Entity=(8-abstract-giv:inact-cf1-1-coref)
 
 # sent_id = GUM_textbook_grit-31
@@ -816,21 +816,21 @@
 # text = The concept of grit is an easy one to dismiss as something taken for granted.
 # newpar
 # newpar_block = p (2 s)
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=joint-other_m:70->38:7|Entity=(102-abstract-new-cf2-2-coref
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=joint-other_m:70->38:7:_|Entity=(102-abstract-new-cf2-2-coref
 2	concept	concept	NOUN	NN	Number=Sing	8	nsubj	8:nsubj	_
 3	of	of	ADP	IN	_	4	case	4:case	_
 4	grit	grit	NOUN	NN	Number=Sing	2	nmod	2:nmod:of	Entity=(8-abstract-giv:act-cf1*-1-coref)102)
 5	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	8	cop	8:cop	_
 6	an	a	DET	DT	Definite=Ind|PronType=Art	8	det	8:det	Entity=(102-abstract-giv:act-cf2-3-pred
-7	easy	easy	ADJ	JJ	Degree=Pos	8	amod	8:amod	_
+7	easy	easy	ADJ	JJ	Degree=Pos	8	amod	8:amod	MSeg=eas-y
 8	one	one	NOUN	NN	Number=Sing	0	root	0:root	_
-9	to	to	PART	TO	_	10	mark	10:mark	Discourse=purpose-attribute:71->70:0
+9	to	to	PART	TO	_	10	mark	10:mark	Discourse=purpose-attribute:71->70:0:syn-mdf-595+syn-inf-596
 10	dismiss	dismiss	VERB	VB	VerbForm=Inf	8	acl	8:acl:to	_
 11	as	as	ADP	IN	_	12	case	12:case	_
 12	something	something	PRON	NN	Number=Sing|PronType=Ind	10	obl	10:obl:as	Entity=(103-abstract-new-cf3-1-sgl
-13	taken	take	VERB	VBN	Tense=Past|VerbForm=Part	12	acl	12:acl	Discourse=elaboration-attribute:72->71:0
+13	taken	take	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	12	acl	12:acl	Discourse=elaboration-attribute:72->71:0:syn-mdf-599+syn-nmn-600|MSeg=tak-en
 14	for	for	ADP	IN	_	15	case	15:case	_
-15	granted	grant	VERB	VBN	Tense=Past|VerbForm=Part	13	obl	13:obl:for	Entity=103)102)|SpaceAfter=No
+15	granted	grant	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	13	obl	13:obl:for	Entity=103)102)|MSeg=grant-ed|SpaceAfter=No
 16	.	.	PUNCT	.	_	8	punct	8:punct	_
 
 # sent_id = GUM_textbook_grit-32
@@ -838,7 +838,7 @@
 # s_type = multiple
 # transition = retain
 # text = In our culture, we have a number of sayings and aphorisms that capture the essence of grit: “If at first you do not succeed, try, try again,” or the famous quote by Thomas Edison: “Genius is one percent inspiration, ninety-nine percent perspiration.”
-1	In	in	ADP	IN	_	3	case	3:case	Discourse=organization-preparation:73->76:3
+1	In	in	ADP	IN	_	3	case	3:case	Discourse=organization-preparation:73->76:3:grf-col-622
 2	our	our	PRON	PRP$	Case=Gen|Number=Plur|Person=1|Poss=Yes|PronType=Prs	3	nmod:poss	3:nmod:poss	Entity=(104-abstract-new-cf9-2-sgl(34-person-giv:inact-cf1-1-ana)
 3	culture	culture	NOUN	NN	Number=Sing	6	obl	6:obl:in	Entity=104)|SpaceAfter=No
 4	,	,	PUNCT	,	_	3	punct	3:punct	_
@@ -847,51 +847,51 @@
 7	a	a	DET	DT	Definite=Ind|PronType=Art	8	det	8:det	Entity=(105-abstract-new-cf7-2-sgl
 8	number	number	NOUN	NN	Number=Sing	6	obj	6:obj	_
 9	of	of	ADP	IN	_	10	case	10:case	_
-10	sayings	saying	NOUN	NNS	Number=Plur	8	nmod	8:nmod:of|14:nsubj	Entity=(106-abstract-new-cf10-1-sgl)
+10	sayings	saying	NOUN	NNS	Number=Plur	8	nmod	8:nmod:of|14:nsubj	Entity=(106-abstract-new-cf10-1-sgl)|MSeg=say-ing-s
 11	and	and	CCONJ	CC	_	12	cc	12:cc	_
-12	aphorisms	aphorism	NOUN	NNS	Number=Plur	10	conj	8:nmod:of|10:conj:and	Entity=(107-abstract-new-cf11-1-sgl)
-13	that	that	PRON	WDT	PronType=Rel	14	nsubj	10:ref	Discourse=elaboration-attribute:74->73:0
+12	aphorisms	aphorism	NOUN	NNS	Number=Plur	10	conj	8:nmod:of|10:conj:and	Entity=(107-abstract-new-cf11-1-sgl)|MSeg=aphorism-s
+13	that	that	PRON	WDT	PronType=Rel	14	nsubj	10:ref	Discourse=elaboration-attribute:74->73:0:syn-mdf-613+syn-relcl-616-617
 14	capture	capture	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	10	acl:relcl	10:acl:relcl	_
 15	the	the	DET	DT	Definite=Def|PronType=Art	16	det	16:det	Entity=(108-abstract-new-cf6-2-sgl
 16	essence	essence	NOUN	NN	Number=Sing	14	obj	14:obj	_
 17	of	of	ADP	IN	_	18	case	18:case	_
 18	grit	grit	NOUN	NN	Number=Sing	16	nmod	16:nmod:of	Entity=(8-abstract-giv:act-cf2*-1-coref)108)105)|SpaceAfter=No
 19	:	:	PUNCT	:	_	6	punct	6:punct	_
-20	“	''	PUNCT	``	_	29	punct	29:punct	Discourse=contingency-condition:75->76:1|SpaceAfter=No|XML=<quote>
+20	“	''	PUNCT	``	_	29	punct	29:punct	Discourse=contingency-condition:75->76:1:dm-if-624|SpaceAfter=No|XML=<quote>
 21	If	if	SCONJ	IN	_	27	mark	27:mark	_
 22	at	at	ADP	IN	_	23	case	23:case	_
-23	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	27	obl	27:obl:at	_
+23	first	first	ADJ	JJ	Degree=Pos|NumForm=Word|NumType=Ord	27	obl	27:obl:at	_
 24	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	27	nsubj	27:nsubj	Entity=(109-person-acc:com-cf5-1-sgl)
 25	do	do	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	27	aux	27:aux	_
 26	not	not	PART	RB	Polarity=Neg	27	advmod	27:advmod	_
-27	succeed	succeed	VERB	VB	VerbForm=Inf	29	advcl	29:advcl:if	SpaceAfter=No
+27	succeed	succeed	VERB	VB	VerbForm=Inf	29	advcl	29:advcl:if	Cxn=Condition-Realistic|MSeg=succe-ed|SpaceAfter=No
 28	,	,	PUNCT	,	_	27	punct	27:punct	_
-29	try	try	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	6	parataxis	6:parataxis	Discourse=joint-other_m:76->70:1|SpaceAfter=No
+29	try	try	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	6	parataxis	6:parataxis	Discourse=joint-other_m:76->70:1:_|SpaceAfter=No
 30	,	,	PUNCT	,	_	31	punct	31:punct	_
-31	try	try	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	29	parataxis	29:parataxis	Discourse=restatement-repetition_m:77->76:0
+31	try	try	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	29	parataxis	29:parataxis	Discourse=restatement-repetition_m:77->76:0:sem-lxchn-632,634
 32	again	again	ADV	RB	Degree=Pos	31	advmod	31:advmod	SpaceAfter=No
 33	,	,	PUNCT	,	_	29	punct	29:punct	SpaceAfter=No
 34	”	''	PUNCT	''	_	29	punct	29:punct	XML=</quote>
-35	or	or	CCONJ	CC	_	38	cc	38:cc	Discourse=attribution-positive:78->79:0
+35	or	or	CCONJ	CC	_	38	cc	38:cc	Discourse=attribution-positive:78->79:0:lex-indwd-641+sem-atsrc-643-644+grf-qt-646,659
 36	the	the	DET	DT	Definite=Def|PronType=Art	38	det	38:det	Entity=(110-abstract-new-cf3-3,6-coref
-37	famous	famous	ADJ	JJ	Degree=Pos	38	amod	38:amod	_
+37	famous	famous	ADJ	JJ	Degree=Pos	38	amod	38:amod	MSeg=fam-ous
 38	quote	quote	NOUN	NN	Number=Sing	29	conj	29:conj:or	_
 39	by	by	ADP	IN	_	40	case	40:case	_
 40	Thomas	Thomas	PROPN	NNP	Number=Sing	38	nmod	38:nmod:by	Entity=(111-person-new-cf8-1,2-sgl-Thomas_Edison
 41	Edison	Edison	PROPN	NNP	Number=Sing	40	flat	40:flat	Entity=111)110)|SpaceAfter=No
 42	:	:	PUNCT	:	_	48	punct	48:punct	_
-43	“	''	PUNCT	``	_	48	punct	48:punct	Discourse=joint-disjunction_m:79->76:2|SpaceAfter=No|XML=<quote>
+43	“	''	PUNCT	``	_	48	punct	48:punct	Discourse=joint-disjunction_m:79->76:2:dm-or-638|SpaceAfter=No|XML=<quote>
 44	Genius	genius	NOUN	NN	Number=Sing	48	nsubj	48:nsubj|54:nsubj	Entity=(110-abstract-giv:act-cf3-5,11-pred(112-abstract-new-cf4-1-coref)
 45	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	48	cop	48:cop	_
 46	one	one	NUM	CD	NumForm=Word|NumType=Card	47	nummod	47:nummod	Entity=(112-abstract-giv:act-cf4-3,9-pred(113-abstract-new-cf12-2-sgl
 47	percent	percent	NOUN	NN	Number=Sing	48	nmod:npmod	48:nmod:npmod	Entity=113)
-48	inspiration	inspiration	NOUN	NN	Number=Sing	38	appos	38:appos	Entity=(114-abstract-new-cf13-1-sgl)|SpaceAfter=No
+48	inspiration	inspiration	NOUN	NN	Number=Sing	38	appos	38:appos	Entity=(114-abstract-new-cf13-1-sgl)|MSeg=inspir-ation|SpaceAfter=No
 49	,	,	PUNCT	,	_	50	punct	50:punct	_
-50	ninety	ninety	NUM	CD	NumForm=Word|NumType=Card	52	compound	52:compound	Entity=(115-abstract-new-cf14-4-sgl|SpaceAfter=No|XML=<w>
+50	ninety	ninety	NUM	CD	NumForm=Word|NumType=Card	52	compound	52:compound	Entity=(115-abstract-new-cf14-4-sgl|MSeg=nine-ty|SpaceAfter=No|XML=<w>
 51	-	-	PUNCT	HYPH	_	50	punct	50:punct	SpaceAfter=No
 52	nine	nine	NUM	CD	NumForm=Word|NumType=Card	53	nummod	53:nummod	XML=</w>
 53	percent	percent	NOUN	NN	Number=Sing	54	nmod:npmod	54:nmod:npmod	Entity=115)
-54	perspiration	perspiration	NOUN	NN	Number=Sing	48	conj	38:appos|48:conj	Entity=(116-substance-new-cf15-1-sgl)112)110)|SpaceAfter=No
+54	perspiration	perspiration	NOUN	NN	Number=Sing	48	conj	38:appos|48:conj	Entity=(116-substance-new-cf15-1-sgl)112)110)|MSeg=perspir-ation|SpaceAfter=No
 55	.	.	PUNCT	.	_	48	punct	48:punct	SpaceAfter=No
 56	”	''	PUNCT	''	_	48	punct	48:punct	XML=</quote>
 
@@ -902,20 +902,20 @@
 # text = The problem is we all understand the concept, but actually applying it takes work.
 # newpar
 # newpar_block = p (2 s)
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=adversative-concession:80->81:0|Entity=(117-abstract-new-cf3-2-sgl
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=adversative-concession:80->81:0:dm-but-669|Entity=(117-abstract-new-cf3-2-sgl
 2	problem	problem	NOUN	NN	Number=Sing	6	nsubj:outer	6:nsubj:outer	Entity=117)
 3	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	6:cop	_
 4	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	6	nsubj	6:nsubj	Entity=(34-person-giv:act-cf1*-1-ana
-5	all	all	DET	DT	PronType=Tot	4	det	4:det	Entity=34)
-6	understand	understand	VERB	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+5	all	all	DET	DT	PronType=Ind	4	det	4:det	Entity=34)
+6	understand	understand	VERB	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	0	root	0:root	MSeg=under-stand
 7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(102-abstract-giv:inact-cf2-2-coref
 8	concept	concept	NOUN	NN	Number=Sing	6	obj	6:obj	Entity=102)|SpaceAfter=No
 9	,	,	PUNCT	,	_	14	punct	14:punct	_
-10	but	but	CCONJ	CC	_	14	cc	14:cc	Discourse=joint-other_m:81->70:1
-11	actually	actually	ADV	RB	Degree=Pos	12	advmod	12:advmod	_
-12	applying	apply	VERB	VBG	VerbForm=Ger	14	csubj	14:csubj	_
+10	but	but	CCONJ	CC	_	14	cc	14:cc	Discourse=joint-other_m:81->70:1:_
+11	actually	actually	ADV	RB	Degree=Pos	12	advmod	12:advmod	MSeg=act-ual-ly
+12	applying	apply	VERB	VBG	VerbForm=Ger	14	csubj	14:csubj	MSeg=appl-y-ing
 13	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	12	obj	12:obj	Entity=(102-abstract-giv:act-cf2-1-ana)
-14	takes	take	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	conj	6:conj:but	_
+14	takes	take	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	conj	6:conj:but	MSeg=take-s
 15	work	work	NOUN	NN	Number=Sing	14	obj	14:obj	Entity=(118-abstract-new-cf4-1-sgl)|SpaceAfter=No
 16	.	.	PUNCT	.	_	6	punct	6:punct	_
 
@@ -924,20 +924,20 @@
 # s_type = sub
 # transition = continue
 # text = If the task we are trying to complete is a difficult one, it can take a lot of work.
-1	If	if	SCONJ	IN	_	12	mark	12:mark	Discourse=contingency-condition:82->85:0
+1	If	if	SCONJ	IN	_	12	mark	12:mark	Discourse=contingency-condition:82->85:0:dm-if-676
 2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Entity=(119-abstract-new-cf2-2-coref
 3	task	task	NOUN	NN	Number=Sing	12	nsubj	12:nsubj	_
-4	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	6	nsubj	6:nsubj|8:nsubj:xsubj	Discourse=elaboration-attribute:83->82:0|Entity=(34-person-giv:act-cf1*-1-ana)
+4	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	6	nsubj	6:nsubj|8:nsubj:xsubj	Discourse=elaboration-attribute:83->82:0:syn-mdf-678+syn-relcl-681|Entity=(34-person-giv:act-cf1*-1-ana)
 5	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	6	aux	6:aux	_
-6	trying	try	VERB	VBG	Tense=Pres|VerbForm=Part	3	acl:relcl	3:acl:relcl	_
+6	trying	try	VERB	VBG	Tense=Pres|VerbForm=Part	3	acl:relcl	3:acl:relcl	MSeg=try-ing
 7	to	to	PART	TO	_	8	mark	8:mark	_
 8	complete	complete	VERB	VB	VerbForm=Inf	6	xcomp	6:xcomp	Entity=119)
-9	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	12	cop	12:cop	Discourse=same-unit_m:84->82:1
+9	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	12	cop	12:cop	Discourse=same-unit_m:84->82:1:_
 10	a	a	DET	DT	Definite=Ind|PronType=Art	12	det	12:det	Entity=(119-abstract-giv:act-cf2-3-pred
 11	difficult	difficult	ADJ	JJ	Degree=Pos	12	amod	12:amod	_
-12	one	one	NOUN	NN	Number=Sing	16	advcl	16:advcl:if	Entity=119)|SpaceAfter=No
+12	one	one	NOUN	NN	Number=Sing	16	advcl	16:advcl:if	Cxn=Condition-Realistic|Entity=119)|SpaceAfter=No
 13	,	,	PUNCT	,	_	12	punct	12:punct	_
-14	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	16	nsubj	16:nsubj	Discourse=explanation-justify:85->81:1|Entity=(119-abstract-giv:act-cf2-1-ana)
+14	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	16	nsubj	16:nsubj	Discourse=explanation-justify:85->81:1:_|Entity=(119-abstract-giv:act-cf2-1-ana)
 15	can	can	AUX	MD	VerbForm=Fin	16	aux	16:aux	_
 16	take	take	VERB	VB	VerbForm=Inf	0	root	0:root	_
 17	a	a	DET	DT	Definite=Ind|PronType=Art	18	det	18:det	Entity=(120-abstract-new-cf3-2-sgl
@@ -953,20 +953,20 @@
 # text = The first step in applying grit is to adopt an attitude that looks directly to the end goal as the only acceptable outcome.
 # newpar
 # newpar_block = p (9 s)
-1	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Discourse=joint-other_m:86->70:2|Entity=(121-event-new-cf1-3-coref
-2	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	3	amod	3:amod	_
+1	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Discourse=joint-other_m:86->70:2:_|Entity=(121-event-new-cf1-3-coref
+2	first	first	ADJ	JJ	Degree=Pos|NumForm=Word|NumType=Ord	3	amod	3:amod	_
 3	step	step	NOUN	NN	Number=Sing	9	nsubj:outer	9:nsubj:outer	_
-4	in	in	SCONJ	IN	_	5	mark	5:mark	Discourse=elaboration-attribute:87->86:0
-5	applying	apply	VERB	VBG	VerbForm=Ger	3	acl	3:acl:in	_
+4	in	in	SCONJ	IN	_	5	mark	5:mark	Discourse=elaboration-attribute:87->86:0:syn-mdf-699+syn-nmn-700-701
+5	applying	apply	VERB	VBG	VerbForm=Ger	3	acl	3:acl:in	MSeg=appl-y-ing
 6	grit	grit	NOUN	NN	Number=Sing	5	obj	5:obj	Entity=(8-abstract-giv:inact-cf2-1-coref)121)
-7	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	9	cop	9:cop	Discourse=same-unit_m:88->86:1
+7	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	9	cop	9:cop	Discourse=same-unit_m:88->86:1:_
 8	to	to	PART	TO	_	9	mark	9:mark	Entity=(121-event-giv:act-cf1-2-coref
-9	adopt	adopt	VERB	VB	VerbForm=Inf	0	root	0:root	_
+9	adopt	adopt	VERB	VB	VerbForm=Inf	0	root	0:root	MSeg=ad-opt
 10	an	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	Entity=(122-abstract-new-cf3-2-coref
 11	attitude	attitude	NOUN	NN	Number=Sing	9	obj	9:obj|13:nsubj	_
-12	that	that	PRON	WDT	PronType=Rel	13	nsubj	11:ref	Discourse=elaboration-attribute:89->88:0
-13	looks	look	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	11	acl:relcl	11:acl:relcl	_
-14	directly	directly	ADV	RB	Degree=Pos	13	advmod	13:advmod	_
+12	that	that	PRON	WDT	PronType=Rel	13	nsubj	11:ref	Discourse=elaboration-attribute:89->88:0:syn-mdf-707+syn-relcl-708-709
+13	looks	look	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	11	acl:relcl	11:acl:relcl	MSeg=look-s
+14	directly	directly	ADV	RB	Degree=Pos	13	advmod	13:advmod	MSeg=direct-ly
 15	to	to	ADP	IN	_	18	case	18:case	_
 16	the	the	DET	DT	Definite=Def|PronType=Art	18	det	18:det	Entity=(123-abstract-new-cf4-3-coref
 17	end	end	NOUN	NN	Number=Sing	18	compound	18:compound	_
@@ -974,8 +974,8 @@
 19	as	as	ADP	IN	_	23	case	23:case	_
 20	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	Entity=(124-abstract-new-cf5-4-sgl
 21	only	only	ADJ	JJ	Degree=Pos	23	amod	23:amod	_
-22	acceptable	acceptable	ADJ	JJ	Degree=Pos	23	amod	23:amod	_
-23	outcome	outcome	NOUN	NN	Number=Sing	13	obl	13:obl:as	Entity=124)122)121)|SpaceAfter=No
+22	acceptable	acceptable	ADJ	JJ	Degree=Pos	23	amod	23:amod	MSeg=accept-able
+23	outcome	outcome	NOUN	NN	Number=Sing	13	obl	13:obl:as	Entity=124)122)121)|MSeg=out-come|SpaceAfter=No
 24	.	.	PUNCT	.	_	9	punct	9:punct	_
 
 # sent_id = GUM_textbook_grit-36
@@ -983,25 +983,25 @@
 # s_type = decl
 # transition = establishment
 # text = With this attitude comes an acceptance that you may not succeed on the first attempt — or the nineteenth attempt.
-1	With	with	ADP	IN	_	3	case	3:case	Discourse=explanation-justify:90->86:2
+1	With	with	ADP	IN	_	3	case	3:case	Discourse=explanation-justify:90->86:2:_
 2	this	this	DET	DT	Number=Sing|PronType=Dem	3	det	3:det	Entity=(122-abstract-giv:act-cf1*-2-coref
 3	attitude	attitude	NOUN	NN	Number=Sing	4	obl	4:obl:with	Entity=122)
-4	comes	come	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+4	comes	come	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	MSeg=come-s
 5	an	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	Entity=(125-abstract-new-cf5-2-sgl
-6	acceptance	acceptance	NOUN	NN	Number=Sing	4	obj	4:obj	_
-7	that	that	SCONJ	IN	_	11	mark	11:mark	Discourse=elaboration-attribute:91->90:0
+6	acceptance	acceptance	NOUN	NN	Number=Sing	4	obj	4:obj	MSeg=accept-ance
+7	that	that	SCONJ	IN	_	11	mark	11:mark	Discourse=elaboration-attribute:91->90:0:syn-mdf-726+syn-nmn-727,731
 8	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	11	nsubj	11:nsubj	Entity=(6-person-giv:inact-cf2-1-ana)
 9	may	may	AUX	MD	VerbForm=Fin	11	aux	11:aux	_
 10	not	not	PART	RB	Polarity=Neg	11	advmod	11:advmod	_
-11	succeed	succeed	VERB	VB	VerbForm=Inf	6	acl	6:acl:that	_
+11	succeed	succeed	VERB	VB	VerbForm=Inf	6	acl	6:acl:that	MSeg=succe-ed
 12	on	on	ADP	IN	_	15	case	15:case	_
 13	the	the	DET	DT	Definite=Def|PronType=Art	15	det	15:det	Bridge=123<126|Entity=(126-event-acc:inf-cf3-3-coref
-14	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	15	amod	15:amod	_
+14	first	first	ADJ	JJ	Degree=Pos|NumForm=Word|NumType=Ord	15	amod	15:amod	_
 15	attempt	attempt	NOUN	NN	Number=Sing	11	obl	11:obl:on	Entity=126)
 16	—	—	PUNCT	:	_	20	punct	20:punct	_
 17	or	or	CCONJ	CC	_	20	cc	20:cc	_
 18	the	the	DET	DT	Definite=Def|PronType=Art	20	det	20:det	Bridge=126<127|Entity=(127-event-acc:inf-cf4-3-sgl
-19	nineteenth	nineteenth	ADJ	JJ	Degree=Pos	20	amod	20:amod	_
+19	nineteenth	nineteenth	ADJ	JJ	Degree=Pos	20	amod	20:amod	MSeg=nine-teen-th
 20	attempt	attempt	NOUN	NN	Number=Sing	15	conj	11:obl:on|15:conj:or	Entity=127)125)|SpaceAfter=No
 21	.	.	PUNCT	.	_	4	punct	4:punct	_
 
@@ -1010,30 +1010,30 @@
 # s_type = decl
 # transition = smooth-shift
 # text = Failed attempts are viewed as merely part of the process and seen as a very useful way to gain knowledge that moves you toward success.
-1	Failed	fail	VERB	VBN	Tense=Past|VerbForm=Part	2	amod	2:amod	Discourse=elaboration-additional:92->90:1|Entity=(128-event-new-cf2-2-sgl
-2	attempts	attempt	NOUN	NNS	Number=Plur	4	nsubj:pass	4:nsubj:pass|12:nsubj:pass	Entity=128)
+1	Failed	fail	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	2	amod	2:amod	Discourse=elaboration-additional:92->90:1:ref-prs-728,764|Entity=(128-event-new-cf2-2-sgl|MSeg=Fail-ed
+2	attempts	attempt	NOUN	NNS	Number=Plur	4	nsubj:pass	4:nsubj:pass|12:nsubj:pass	Entity=128)|MSeg=attempt-s
 3	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	4	aux:pass	4:aux:pass|12:aux:pass	_
-4	viewed	view	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
+4	viewed	view	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	MSeg=view-ed
 5	as	as	ADP	IN	_	7	case	7:case	_
-6	merely	merely	ADV	RB	_	7	advmod	7:advmod	Entity=(129-abstract-new-cf5-2-sgl
+6	merely	merely	ADV	RB	_	7	advmod	7:advmod	Entity=(129-abstract-new-cf5-2-sgl|MSeg=mere-ly
 7	part	part	NOUN	NN	Number=Sing	4	obl	4:obl:as	_
 8	of	of	ADP	IN	_	10	case	10:case	_
 9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	Entity=(130-abstract-new-cf4-2-sgl
 10	process	process	NOUN	NN	Number=Sing	7	nmod	7:nmod:of	Entity=130)129)
-11	and	and	CCONJ	CC	_	12	cc	12:cc	Discourse=joint-list_m:93->92:0
-12	seen	see	VERB	VBN	Tense=Past|VerbForm=Part	4	conj	4:conj:and	_
+11	and	and	CCONJ	CC	_	12	cc	12:cc	Discourse=joint-list_m:93->92:0:dm-and-752
+12	seen	see	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	4	conj	4:conj:and	MSeg=see-n
 13	as	as	ADP	IN	_	17	case	17:case	_
 14	a	a	DET	DT	Definite=Ind|PronType=Art	17	det	17:det	Entity=(131-abstract-new-cf6-4-sgl
 15	very	very	ADV	RB	_	16	advmod	16:advmod	_
-16	useful	useful	ADJ	JJ	Degree=Pos	17	amod	17:amod	_
+16	useful	useful	ADJ	JJ	Degree=Pos	17	amod	17:amod	MSeg=use-ful
 17	way	way	NOUN	NN	Number=Sing	12	obl	12:obl:as	_
-18	to	to	PART	TO	_	19	mark	19:mark	Discourse=purpose-attribute:94->93:0
+18	to	to	PART	TO	_	19	mark	19:mark	Discourse=purpose-attribute:94->93:0:syn-mdf-758+syn-inf-759
 19	gain	gain	VERB	VB	VerbForm=Inf	17	acl	17:acl:to	_
 20	knowledge	knowledge	NOUN	NN	Number=Sing	19	obj	19:obj|22:nsubj	Entity=(132-abstract-new-cf3-1-sgl
-21	that	that	PRON	WDT	PronType=Rel	22	nsubj	20:ref	Discourse=elaboration-additional:95->94:0
-22	moves	move	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	20	acl:relcl	20:acl:relcl	_
+21	that	that	PRON	WDT	PronType=Rel	22	nsubj	20:ref	Discourse=elaboration-additional:95->94:0:syn-relcl-762-763
+22	moves	move	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	20	acl:relcl	20:acl:relcl	MSeg=move-s
 23	you	you	PRON	PRP	Case=Acc|Number=Sing|Person=2|PronType=Prs	22	obj	22:obj	Entity=(6-person-giv:act-cf1*-1-ana)
-24	toward	toward	ADP	IN	_	25	case	25:case	_
+24	toward	toward	ADP	IN	_	25	case	25:case	MSeg=to-ward
 25	success	success	NOUN	NN	Number=Sing	22	obl	22:obl:toward	Entity=(133-event-new-cf7-1-sgl)132)131)|SpaceAfter=No
 26	.	.	PUNCT	.	_	4	punct	4:punct	_
 
@@ -1042,13 +1042,13 @@
 # s_type = sub
 # transition = zero
 # text = An example of this would be studying for an exam.
-1	An	a	DET	DT	Definite=Ind|PronType=Art	2	det	2:det	Discourse=organization-preparation:96->97:4|Entity=(134-abstract-new-cf1-2-coref
+1	An	a	DET	DT	Definite=Ind|PronType=Art	2	det	2:det	Discourse=organization-preparation:96->97:4:sem-lxchn-774,784+sem-rpt-776-777,795-796|Entity=(134-abstract-new-cf1-2-coref
 2	example	example	NOUN	NN	Number=Sing	7	nsubj:outer	7:nsubj:outer	_
 3	of	of	ADP	IN	_	4	case	4:case	_
 4	this	this	PRON	DT	Number=Sing|PronType=Dem	2	nmod	2:nmod:of	Entity=134)
 5	would	would	AUX	MD	VerbForm=Fin	7	aux	7:aux	_
 6	be	be	AUX	VB	VerbForm=Inf	7	cop	7:cop	_
-7	studying	study	VERB	VBG	VerbForm=Ger	0	root	0:root	Entity=(134-abstract-giv:act-cf1-1-disc
+7	studying	study	VERB	VBG	VerbForm=Ger	0	root	0:root	Entity=(134-abstract-giv:act-cf1-1-disc|MSeg=study-ing
 8	for	for	ADP	IN	_	10	case	10:case	_
 9	an	a	DET	DT	Definite=Ind|PronType=Art	10	det	10:det	Entity=(135-event-new-cf2-2-coref
 10	exam	exam	NOUN	NN	Number=Sing	7	obl	7:obl:for	Entity=135)134)|SpaceAfter=No
@@ -1059,21 +1059,21 @@
 # s_type = decl
 # transition = establishment
 # text = In your first attempt at studying you simply reread the chapters of your textbook covered in the exam.
-1	In	in	ADP	IN	_	4	case	4:case	Discourse=elaboration-additional:97->86:3
+1	In	in	ADP	IN	_	4	case	4:case	Discourse=elaboration-additional:97->86:3:_
 2	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	4	nmod:poss	4:nmod:poss	Entity=(136-event-new-cf4-3-coref(6-person-giv:inact-cf1-1-ana)
-3	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	4	amod	4:amod	_
+3	first	first	ADJ	JJ	Degree=Pos|NumForm=Word|NumType=Ord	4	amod	4:amod	_
 4	attempt	attempt	NOUN	NN	Number=Sing	9	obl	9:obl:in	_
-5	at	at	SCONJ	IN	_	6	mark	6:mark	Discourse=elaboration-attribute:98->97:0
-6	studying	study	VERB	VBG	VerbForm=Ger	4	acl	4:acl:at	Entity=136)
-7	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	9	nsubj	9:nsubj	Discourse=same-unit_m:99->97:1|Entity=(137-event-new-cf6-3-disc(6-person-giv:act-cf1-1-ana)
-8	simply	simply	ADV	RB	Degree=Pos	9	advmod	9:advmod	_
-9	reread	reread	VERB	VB	VerbForm=Inf	0	root	0:root	_
+5	at	at	SCONJ	IN	_	6	mark	6:mark	Discourse=elaboration-attribute:98->97:0:syn-mdf-782+syn-nmn-783-784
+6	studying	study	VERB	VBG	VerbForm=Ger	4	acl	4:acl:at	Entity=136)|MSeg=study-ing
+7	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	9	nsubj	9:nsubj	Discourse=same-unit_m:99->97:1:_|Entity=(137-event-new-cf6-3-disc(6-person-giv:act-cf1-1-ana)
+8	simply	simply	ADV	RB	Degree=Pos	9	advmod	9:advmod	MSeg=simp-ly
+9	reread	reread	VERB	VB	VerbForm=Inf	0	root	0:root	MSeg=re-read
 10	the	the	DET	DT	Definite=Def|PronType=Art	11	det	11:det	Entity=(138-abstract-new-cf3-2-coref
-11	chapters	chapter	NOUN	NNS	Number=Plur	9	obj	9:obj	_
+11	chapters	chapter	NOUN	NNS	Number=Plur	9	obj	9:obj	MSeg=chapter-s
 12	of	of	ADP	IN	_	14	case	14:case	_
 13	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	14	nmod:poss	14:nmod:poss	Entity=(139-abstract-new-cf5-2-sgl(6-person-giv:act-cf1-1-ana)
 14	textbook	textbook	NOUN	NN	Number=Sing	11	nmod	11:nmod:of	Entity=139)
-15	covered	cover	VERB	VBN	Tense=Past|VerbForm=Part	11	acl	11:acl	Discourse=elaboration-attribute:100->99:0
+15	covered	cover	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	11	acl	11:acl	Discourse=elaboration-attribute:100->99:0:syn-mdf-789+syn-nmn-793|MSeg=cover-ed
 16	in	in	ADP	IN	_	18	case	18:case	_
 17	the	the	DET	DT	Definite=Def|PronType=Art	18	det	18:det	Entity=(135-event-giv:act-cf2*-2-coref
 18	exam	exam	NOUN	NN	Number=Sing	15	obl	15:obl:in	Entity=135)138)137)|SpaceAfter=No
@@ -1084,33 +1084,33 @@
 # s_type = decl
 # transition = smooth-shift
 # text = You find that while this reinforces some of the knowledge you have gained, it does not ensure you have all the information you will need to do well on the test.
-1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	2	nsubj	2:nsubj	Discourse=attribution-positive:101->102:1|Entity=(6-person-giv:act-cf1*-1-ana)
+1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	2	nsubj	2:nsubj	Discourse=attribution-positive:101->102:1:sem-atsrc-798+lex-indwd-799+syn-rpr-800,803,812-814,817|Entity=(6-person-giv:act-cf1*-1-ana)
 2	find	find	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	0	root	0:root	_
-3	that	that	SCONJ	IN	_	18	mark	18:mark	Discourse=causal-result:102->97:2
-4	while	while	SCONJ	IN	_	6	mark	6:mark	Discourse=adversative-concession:103->106:2
+3	that	that	SCONJ	IN	_	18	mark	18:mark	Discourse=causal-result:102->97:2:_
+4	while	while	SCONJ	IN	_	6	mark	6:mark	Discourse=adversative-concession:103->106:2:dm-while-801
 5	this	this	PRON	DT	Number=Sing|PronType=Dem	6	nsubj	6:nsubj	Entity=(137-event-giv:act-cf2-1-coref)
-6	reinforces	reinforce	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	18	advcl	18:advcl:while	_
+6	reinforces	reinforce	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	18	advcl	18:advcl:while	MSeg=re-inforce-s
 7	some	some	DET	DT	PronType=Ind	6	obj	6:obj	Entity=(140-abstract-new-cf5-1-sgl
 8	of	of	ADP	IN	_	10	case	10:case	_
 9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	Entity=(141-abstract-new-cf6-2-sgl
 10	knowledge	knowledge	NOUN	NN	Number=Sing	7	nmod	7:nmod:of	_
-11	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	13	nsubj	13:nsubj	Discourse=elaboration-attribute:104->103:0|Entity=(6-person-giv:act-cf1*-1-ana)
+11	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	13	nsubj	13:nsubj	Discourse=elaboration-attribute:104->103:0:syn-mdf-807+syn-relcl-810|Entity=(6-person-giv:act-cf1*-1-ana)
 12	have	have	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	13	aux	13:aux	_
-13	gained	gain	VERB	VBN	Tense=Past|VerbForm=Part	10	acl:relcl	10:acl:relcl	Entity=141)140)|SpaceAfter=No
+13	gained	gain	VERB	VBN	Tense=Past|VerbForm=Part	10	acl:relcl	10:acl:relcl	Entity=141)140)|MSeg=gain-ed|SpaceAfter=No
 14	,	,	PUNCT	,	_	6	punct	6:punct	_
-15	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	18	nsubj	18:nsubj	Discourse=attribution-negative:105->106:1|Entity=(137-event-giv:act-cf2-1-ana)
-16	does	do	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	18	aux	18:aux	_
+15	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	18	nsubj	18:nsubj	Discourse=attribution-negative:105->106:1:sem-atsrc-812+sem-ngt-814+lex-indwd-815|Entity=(137-event-giv:act-cf2-1-ana)
+16	does	do	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	18	aux	18:aux	MSeg=doe-s
 17	not	not	PART	RB	Polarity=Neg	18	advmod	18:advmod	_
-18	ensure	ensure	VERB	VB	VerbForm=Inf	2	ccomp	2:ccomp	_
-19	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	20	nsubj	20:nsubj	Discourse=same-unit_m:106->102:0|Entity=(6-person-giv:act-cf1*-1-ana)
+18	ensure	ensure	VERB	VB	VerbForm=Inf	2	ccomp	2:ccomp	MSeg=en-sure
+19	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	20	nsubj	20:nsubj	Discourse=same-unit_m:106->102:0:_|Entity=(6-person-giv:act-cf1*-1-ana)
 20	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	18	ccomp	18:ccomp	_
 21	all	all	DET	PDT	PronType=Tot	23	det:predet	23:det:predet	Entity=(142-abstract-new-cf4-3-sgl
 22	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	_
-23	information	information	NOUN	NN	Number=Sing	20	obj	20:obj	_
-24	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	26	nsubj	26:nsubj	Discourse=elaboration-attribute:107->106:0|Entity=(6-person-giv:act-cf1*-1-ana)
+23	information	information	NOUN	NN	Number=Sing	20	obj	20:obj	MSeg=in-form-ation
+24	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	26	nsubj	26:nsubj	Discourse=elaboration-attribute:107->106:0:syn-mdf-820+syn-relcl-823|Entity=(6-person-giv:act-cf1*-1-ana)
 25	will	will	AUX	MD	VerbForm=Fin	26	aux	26:aux	_
 26	need	need	VERB	VB	VerbForm=Inf	23	acl:relcl	23:acl:relcl	Entity=142)
-27	to	to	PART	TO	_	28	mark	28:mark	Discourse=purpose-goal:108->107:0
+27	to	to	PART	TO	_	28	mark	28:mark	Discourse=purpose-goal:108->107:0:syn-inf-824
 28	do	do	VERB	VB	VerbForm=Inf	26	advcl	26:advcl:to	_
 29	well	well	ADV	RB	Degree=Pos	28	advmod	28:advmod	_
 30	on	on	ADP	IN	_	32	case	32:case	_
@@ -1123,30 +1123,30 @@
 # s_type = decl
 # transition = continue
 # text = You know that if you simply read the chapters yet again, there is no guarantee you are going to be any more successful.
-1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	2	nsubj	2:nsubj	Discourse=attribution-positive:109->110:1|Entity=(6-person-giv:act-cf1*-1-ana)
+1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	2	nsubj	2:nsubj	Discourse=attribution-positive:109->110:1:sem-atsrc-831+lex-indwd-832+syn-rpr-833-834|Entity=(6-person-giv:act-cf1*-1-ana)
 2	know	know	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	0	root	0:root	_
-3	that	that	SCONJ	IN	_	14	mark	14:mark	Discourse=topic-solutionhood:110->115:2
-4	if	if	SCONJ	IN	_	7	mark	7:mark	Discourse=contingency-condition:111->112:1
+3	that	that	SCONJ	IN	_	14	mark	14:mark	Discourse=topic-solutionhood:110->115:2:_
+4	if	if	SCONJ	IN	_	7	mark	7:mark	Discourse=contingency-condition:111->112:1:dm-if-834
 5	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	7	nsubj	7:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
-6	simply	simply	ADV	RB	Degree=Pos	7	advmod	7:advmod	_
-7	read	read	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	14	advcl	14:advcl:if	_
+6	simply	simply	ADV	RB	Degree=Pos	7	advmod	7:advmod	MSeg=simp-ly
+7	read	read	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	14	advcl	14:advcl:if	Cxn=Condition-Realistic
 8	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Entity=(138-abstract-giv:inact-cf2-2-coref
-9	chapters	chapter	NOUN	NNS	Number=Plur	7	obj	7:obj	Entity=138)
+9	chapters	chapter	NOUN	NNS	Number=Plur	7	obj	7:obj	Entity=138)|MSeg=chapter-s
 10	yet	yet	ADV	RB	_	11	advmod	11:advmod	_
 11	again	again	ADV	RB	Degree=Pos	7	advmod	7:advmod	SpaceAfter=No
 12	,	,	PUNCT	,	_	7	punct	7:punct	_
-13	there	there	PRON	EX	PronType=Dem	14	expl	14:expl	Discourse=same-unit_m:112->110:0
-14	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	2	ccomp	2:ccomp	_
-15	no	no	DET	DT	Polarity=Neg|PronType=Art	16	det	16:det	Entity=(143-abstract-new-cf3-2-sgl
+13	there	there	PRON	EX	PronType=Dem	14	expl	14:expl	Discourse=same-unit_m:112->110:0:_
+14	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	2	ccomp	2:ccomp	Cxn=Existential-There
+15	no	no	DET	DT	Polarity=Neg|PronType=Neg	16	det	16:det	Entity=(143-abstract-new-cf3-2-sgl
 16	guarantee	guarantee	NOUN	NN	Number=Sing	14	nsubj	14:nsubj	_
-17	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	19	nsubj	19:nsubj|24:nsubj:xsubj	Discourse=elaboration-attribute:113->112:0|Entity=(6-person-giv:act-cf1*-1-ana)
+17	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	19	nsubj	19:nsubj|24:nsubj:xsubj	Discourse=elaboration-attribute:113->112:0:syn-mdf-846+syn-nmn-849|Entity=(6-person-giv:act-cf1*-1-ana)
 18	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	19	aux	19:aux	_
-19	going	go	VERB	VBG	Tense=Pres|VerbForm=Part	16	acl	16:acl	_
+19	going	go	VERB	VBG	Tense=Pres|VerbForm=Part	16	acl	16:acl	MSeg=go-ing
 20	to	to	PART	TO	_	24	mark	24:mark	_
 21	be	be	AUX	VB	VerbForm=Inf	24	cop	24:cop	_
 22	any	any	ADV	RB	Degree=Pos	23	advmod	23:advmod	_
 23	more	more	ADV	RBR	Degree=Cmp	24	advmod	24:advmod	_
-24	successful	successful	ADJ	JJ	Degree=Pos	19	xcomp	19:xcomp	Entity=143)|SpaceAfter=No
+24	successful	successful	ADJ	JJ	Degree=Pos	19	xcomp	19:xcomp	Entity=143)|MSeg=success-ful|SpaceAfter=No
 25	.	.	PUNCT	.	_	2	punct	2:punct	_
 
 # sent_id = GUM_textbook_grit-42
@@ -1154,15 +1154,15 @@
 # s_type = decl
 # transition = continue
 # text = You determine that you need to find a different approach.
-1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	2	nsubj	2:nsubj	Discourse=attribution-positive:114->115:0|Entity=(6-person-giv:act-cf1*-1-ana)
+1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	2	nsubj	2:nsubj	Discourse=attribution-positive:114->115:0:sem-atsrc-856+lex-indwd-857+syn-rpr-858|Entity=(6-person-giv:act-cf1*-1-ana)
 2	determine	determine	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	0	root	0:root	_
-3	that	that	SCONJ	IN	_	5	mark	5:mark	Discourse=causal-result:115->102:2
+3	that	that	SCONJ	IN	_	5	mark	5:mark	Discourse=causal-result:115->102:2:_
 4	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	5	nsubj	5:nsubj|7:nsubj:xsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 5	need	need	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	2	ccomp	2:ccomp	_
 6	to	to	PART	TO	_	7	mark	7:mark	_
 7	find	find	VERB	VB	VerbForm=Inf	5	xcomp	5:xcomp	_
 8	a	a	DET	DT	Definite=Ind|PronType=Art	10	det	10:det	Entity=(144-abstract-new-cf2-3-coref
-9	different	different	ADJ	JJ	Degree=Pos	10	amod	10:amod	_
+9	different	different	ADJ	JJ	Degree=Pos	10	amod	10:amod	MSeg=differ-ent
 10	approach	approach	NOUN	NN	Number=Sing	7	obj	7:obj	Entity=144)|SpaceAfter=No
 11	.	.	PUNCT	.	_	2	punct	2:punct	_
 
@@ -1171,20 +1171,20 @@
 # s_type = decl
 # transition = continue
 # text = In other words, your first attempt was not a complete failure, but it did not achieve the end goal, so you try again with a different method.
-1	In	in	ADP	IN	_	3	case	3:case	Discourse=causal-cause:116->118:0
+1	In	in	ADP	IN	_	3	case	3:case	Discourse=causal-cause:116->118:0:dm-so-889
 2	other	other	ADJ	JJ	Degree=Pos	3	amod	3:amod	_
-3	words	word	NOUN	NNS	Number=Plur	12	obl	12:obl:in	SpaceAfter=No
+3	words	word	NOUN	NNS	Number=Plur	12	obl	12:obl:in	MSeg=word-s|SpaceAfter=No
 4	,	,	PUNCT	,	_	3	punct	3:punct	_
 5	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	7	nmod:poss	7:nmod:poss	Entity=(136-event-giv:inact-cf2-3-coref(6-person-giv:act-cf1*-1-ana)
-6	first	first	ADJ	JJ	Degree=Pos|NumType=Ord	7	amod	7:amod	_
+6	first	first	ADJ	JJ	Degree=Pos|NumForm=Word|NumType=Ord	7	amod	7:amod	_
 7	attempt	attempt	NOUN	NN	Number=Sing	12	nsubj	12:nsubj	Entity=136)
 8	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	12	cop	12:cop	_
 9	not	not	PART	RB	Polarity=Neg	12	advmod	12:advmod	_
 10	a	a	DET	DT	Definite=Ind|PronType=Art	12	det	12:det	Entity=(145-event-new-cf5-3-sgl
 11	complete	complete	ADJ	JJ	Degree=Pos	12	amod	12:amod	_
-12	failure	failure	NOUN	NN	Number=Sing	0	root	0:root	Entity=145)|SpaceAfter=No
+12	failure	failure	NOUN	NN	Number=Sing	0	root	0:root	Entity=145)|MSeg=fail-ure|SpaceAfter=No
 13	,	,	PUNCT	,	_	18	punct	18:punct	_
-14	but	but	CCONJ	CC	_	18	cc	18:cc	Discourse=adversative-contrast_m:117->116:0
+14	but	but	CCONJ	CC	_	18	cc	18:cc	Discourse=adversative-contrast_m:117->116:0:dm-but-880
 15	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	18	nsubj	18:nsubj	Entity=(136-event-giv:act-cf2-1-ana)
 16	did	do	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	18	aux	18:aux	_
 17	not	not	PART	RB	Polarity=Neg	18	advmod	18:advmod	_
@@ -1193,13 +1193,13 @@
 20	end	end	NOUN	NN	Number=Sing	21	compound	21:compound	_
 21	goal	goal	NOUN	NN	Number=Sing	18	obj	18:obj	Entity=123)|SpaceAfter=No
 22	,	,	PUNCT	,	_	25	punct	25:punct	_
-23	so	so	ADV	RB	_	25	advmod	25:advmod	Discourse=restatement-repetition_m:118->115:1
+23	so	so	ADV	RB	_	25	advmod	25:advmod	Discourse=restatement-repetition_m:118->115:1:ref-prs-856,859,871,890+sem-synym-863-865,894-896+sem-lxchn-864,895+dm-in other words-867-869
 24	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	25	nsubj	25:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 25	try	try	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	12	parataxis	12:parataxis	_
 26	again	again	ADV	RB	Degree=Pos	25	advmod	25:advmod	_
 27	with	with	ADP	IN	_	30	case	30:case	_
 28	a	a	DET	DT	Definite=Ind|PronType=Art	30	det	30:det	Entity=(144-abstract-giv:act-cf3-3-coref
-29	different	different	ADJ	JJ	Degree=Pos	30	amod	30:amod	_
+29	different	different	ADJ	JJ	Degree=Pos	30	amod	30:amod	MSeg=differ-ent
 30	method	method	NOUN	NN	Number=Sing	25	obl	25:obl:with	Entity=144)|SpaceAfter=No
 31	.	.	PUNCT	.	_	12	punct	12:punct	_
 
@@ -1210,9 +1210,9 @@
 # text = On your second try, you copy down all of the main points onto a piece of paper using the section headlines from the chapters.
 # newpar
 # newpar_block = p (4 s)
-1	On	on	ADP	IN	_	4	case	4:case	Discourse=joint-sequence_m:119->97:3
+1	On	on	ADP	IN	_	4	case	4:case	Discourse=joint-sequence_m:119->97:3:_
 2	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	4	nmod:poss	4:nmod:poss	Entity=(146-event-new-cf5-3-sgl(6-person-giv:act-cf1*-1-ana)
-3	second	second	ADJ	JJ	Degree=Pos|NumType=Ord	4	amod	4:amod	_
+3	second	second	ADJ	JJ	Degree=Pos|NumForm=Word|NumType=Ord	4	amod	4:amod	_
 4	try	try	NOUN	NN	Number=Sing	7	obl	7:obl:on	Entity=146)|SpaceAfter=No
 5	,	,	PUNCT	,	_	4	punct	4:punct	_
 6	you	you	PRON	PRP	Case=Nom|Number=Plur|Person=2|PronType=Prs	7	nsubj	7:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
@@ -1222,19 +1222,19 @@
 10	of	of	ADP	IN	_	13	case	13:case	_
 11	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	_
 12	main	main	ADJ	JJ	Degree=Pos	13	amod	13:amod	_
-13	points	point	NOUN	NNS	Number=Plur	9	nmod	9:nmod:of	Entity=147)
-14	onto	onto	ADP	IN	_	16	case	16:case	_
+13	points	point	NOUN	NNS	Number=Plur	9	nmod	9:nmod:of	Entity=147)|MSeg=point-s
+14	onto	onto	ADP	IN	_	16	case	16:case	MSeg=on-to
 15	a	a	DET	DT	Definite=Ind|PronType=Art	16	det	16:det	Entity=(148-object-new-cf6-2-sgl
 16	piece	piece	NOUN	NN	Number=Sing	7	obl	7:obl:onto	_
 17	of	of	ADP	IN	_	18	case	18:case	_
 18	paper	paper	NOUN	NN	Number=Sing	16	nmod	16:nmod:of	Entity=(149-substance-new-cf7-1-sgl)148)
-19	using	use	VERB	VBG	VerbForm=Ger	7	advcl	7:advcl	Discourse=mode-means:120->119:0
+19	using	use	VERB	VBG	VerbForm=Ger	7	advcl	7:advcl	Discourse=mode-means:120->119:0:lex-indwd-916+syn-pres-916|MSeg=us-ing
 20	the	the	DET	DT	Definite=Def|PronType=Art	22	det	22:det	Entity=(150-abstract-new-cf4-3-sgl
 21	section	section	NOUN	NN	Number=Sing	22	compound	22:compound	Entity=(151-abstract-new-cf8-1-sgl)
-22	headlines	headline	NOUN	NNS	Number=Plur	19	obj	19:obj	_
+22	headlines	headline	NOUN	NNS	Number=Plur	19	obj	19:obj	MSeg=headline-s
 23	from	from	ADP	IN	_	25	case	25:case	_
 24	the	the	DET	DT	Definite=Def|PronType=Art	25	det	25:det	Entity=(138-abstract-giv:inact-cf2-2-coref
-25	chapters	chapter	NOUN	NNS	Number=Plur	22	nmod	22:nmod:from	Entity=138)150)|SpaceAfter=No
+25	chapters	chapter	NOUN	NNS	Number=Plur	22	nmod	22:nmod:from	Entity=138)150)|MSeg=chapter-s|SpaceAfter=No
 26	.	.	PUNCT	.	_	7	punct	7:punct	_
 
 # sent_id = GUM_textbook_grit-45
@@ -1242,7 +1242,7 @@
 # s_type = decl
 # transition = continue
 # text = After a short break you come back to your list and write down a summary of what you know about each item on your list.
-1	After	after	ADP	IN	_	4	case	4:case	Discourse=joint-sequence_m:121->119:1
+1	After	after	ADP	IN	_	4	case	4:case	Discourse=joint-sequence_m:121->119:1:_
 2	a	a	DET	DT	Definite=Ind|PronType=Art	4	det	4:det	Entity=(152-time-new-cf4-3-sgl
 3	short	short	ADJ	JJ	Degree=Pos	4	amod	4:amod	_
 4	break	break	NOUN	NN	Number=Sing	6	obl	6:obl:after	Entity=152)
@@ -1252,7 +1252,7 @@
 8	to	to	ADP	IN	_	10	case	10:case	_
 9	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	10	nmod:poss	10:nmod:poss	Entity=(154-abstract-new-cf2-2-coref(6-person-giv:act-cf1*-1-ana)
 10	list	list	NOUN	NN	Number=Sing	6	obl	6:obl:to	Entity=154)
-11	and	and	CCONJ	CC	_	12	cc	12:cc	Discourse=joint-list_m:122->121:0
+11	and	and	CCONJ	CC	_	12	cc	12:cc	Discourse=joint-list_m:122->121:0:sem-lxchn-933,945+dm-and-934
 12	write	write	VERB	VB	VerbForm=Inf	6	conj	6:conj:and	_
 13	down	down	ADP	RP	_	12	compound:prt	12:compound:prt	_
 14	a	a	DET	DT	Definite=Ind|PronType=Art	15	det	15:det	Entity=(155-abstract-new-cf3-2-coref
@@ -1262,7 +1262,7 @@
 18	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	19	nsubj	19:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 19	know	know	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	17	acl:relcl	17:acl:relcl	_
 20	about	about	ADP	IN	_	22	case	22:case	_
-21	each	each	DET	DT	PronType=Tot	22	det	22:det	Entity=(156-abstract-new-cf5-2-sgl
+21	each	each	DET	DT	PronType=Ind	22	det	22:det	Entity=(156-abstract-new-cf5-2-sgl
 22	item	item	NOUN	NN	Number=Sing	19	obl	19:obl:about	_
 23	on	on	ADP	IN	_	25	case	25:case	_
 24	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	25	nmod:poss	25:nmod:poss	Entity=(154-abstract-giv:act-cf2-2-coref(6-person-giv:act-cf1*-1-ana)
@@ -1274,42 +1274,42 @@
 # s_type = decl
 # transition = continue
 # text = This accomplishes two things: first, you are able to immediately spot areas where you need to learn more, and second, you can check your summaries against the text to make certain what you know is correct and adequate.
-1	This	this	PRON	DT	Number=Sing|PronType=Dem	2	nsubj	2:nsubj	Discourse=organization-preparation:123->124:2|Entity=(153-event-giv:act-cf2-1-coref)
-2	accomplishes	accomplish	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
+1	This	this	PRON	DT	Number=Sing|PronType=Dem	2	nsubj	2:nsubj	Discourse=organization-preparation:123->124:2:num-count-952+sem-synym-952-953,955-991+grf-col-954|Entity=(153-event-giv:act-cf2-1-coref)
+2	accomplishes	accomplish	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	MSeg=accomplishe-s
 3	two	two	NUM	CD	NumForm=Word|NumType=Card	4	nummod	4:nummod	Entity=(157-abstract-new-cf3-2-coref
-4	things	thing	NOUN	NNS	Number=Plur	2	obj	2:obj	Entity=157)|SpaceAfter=No
+4	things	thing	NOUN	NNS	Number=Plur	2	obj	2:obj	Entity=157)|MSeg=thing-s|SpaceAfter=No
 5	:	:	PUNCT	:	_	6	punct	6:punct	_
-6	first	first	ADV	RB	Degree=Pos|NumType=Ord	10	advmod	10:advmod	Discourse=causal-result:124->119:2|Entity=(157-abstract-giv:act-cf3-5,22-coref|SpaceAfter=No
+6	first	first	ADV	RB	Degree=Pos|NumForm=Word|NumType=Ord	10	advmod	10:advmod	Discourse=causal-result:124->119:2:_|Entity=(157-abstract-giv:act-cf3-5,22-coref|SpaceAfter=No
 7	,	,	PUNCT	,	_	6	punct	6:punct	_
 8	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	10	nsubj	10:nsubj|13:nsubj:xsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 9	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	10	cop	10:cop	_
 10	able	able	ADJ	JJ	Degree=Pos	2	parataxis	2:parataxis	_
 11	to	to	PART	TO	_	13	mark	13:mark	_
-12	immediately	immediately	ADV	RB	Degree=Pos	13	advmod	13:advmod	_
+12	immediately	immediately	ADV	RB	Degree=Pos	13	advmod	13:advmod	MSeg=im-mediate-ly
 13	spot	spot	VERB	VB	VerbForm=Inf	10	xcomp	10:xcomp	_
-14	areas	area	NOUN	NNS	Number=Plur	13	obj	13:obj	Entity=(158-abstract-new-cf6-1-sgl
-15	where	where	ADV	WRB	PronType=Rel	17	advmod	17:advmod	Discourse=elaboration-attribute:125->124:0
+14	areas	area	NOUN	NNS	Number=Plur	13	obj	13:obj|17:obl	Entity=(158-abstract-new-cf6-1-sgl|MSeg=area-s
+15	where	where	ADV	WRB	PronType=Rel	17	advmod	14:ref|17:advmod	Discourse=elaboration-attribute:125->124:0:syn-mdf-963+syn-relcl-964,966
 16	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	17	nsubj	17:nsubj|19:nsubj:xsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 17	need	need	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	14	acl:relcl	14:acl:relcl	_
 18	to	to	PART	TO	_	19	mark	19:mark	_
 19	learn	learn	VERB	VB	VerbForm=Inf	17	xcomp	17:xcomp	_
 20	more	more	ADJ	JJR	Degree=Cmp	19	obj	19:obj	Entity=158)|SpaceAfter=No
 21	,	,	PUNCT	,	_	22	punct	22:punct	_
-22	and	and	CCONJ	CC	_	27	cc	27:cc	Discourse=joint-list_m:126->124:1
-23	second	second	ADV	RB	Degree=Pos|NumType=Ord	27	advmod	27:advmod	SpaceAfter=No
+22	and	and	CCONJ	CC	_	27	cc	27:cc	Discourse=joint-list_m:126->124:1:dm-and-971
+23	second	second	ADV	RB	Degree=Pos|NumForm=Word|NumType=Ord	27	advmod	27:advmod	SpaceAfter=No
 24	,	,	PUNCT	,	_	23	punct	23:punct	_
 25	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	27	nsubj	27:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 26	can	can	AUX	MD	VerbForm=Fin	27	aux	27:aux	_
 27	check	check	VERB	VB	VerbForm=Inf	10	conj	10:conj:and	_
 28	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	29	nmod:poss	29:nmod:poss	Bridge=155<159|Entity=(159-abstract-acc:inf-cf4-2-sgl(6-person-giv:act-cf1*-1-ana)
 29	summaries	summary	NOUN	NNS	Number=Plur	27	obj	27:obj	Entity=159)
-30	against	against	ADP	IN	_	32	case	32:case	_
+30	against	against	ADP	IN	_	32	case	32:case	MSeg=a-gainst
 31	the	the	DET	DT	Definite=Def|PronType=Art	32	det	32:det	Bridge=138<160|Entity=(160-abstract-acc:inf-cf5-2-sgl
 32	text	text	NOUN	NN	Number=Sing	27	obl	27:obl:against	Entity=160)
-33	to	to	PART	TO	_	34	mark	34:mark	Discourse=attribution-positive:127->128:0
+33	to	to	PART	TO	_	34	mark	34:mark	Discourse=attribution-positive:127->128:0:sem-atsrc-965
 34	make	make	VERB	VB	VerbForm=Inf	27	advcl	27:advcl:to	_
 35	certain	certain	ADJ	JJ	Degree=Pos	34	xcomp	34:xcomp	_
-36	what	what	PRON	WP	PronType=Rel	40	nsubj	40:nsubj|42:nsubj	Discourse=purpose-goal:128->126:0
+36	what	what	PRON	WP	PronType=Rel	40	nsubj	40:nsubj|42:nsubj	Discourse=purpose-goal:128->126:0:syn-inf-982
 37	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	38	nsubj	38:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 38	know	know	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	36	acl:relcl	36:acl:relcl	_
 39	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	40	cop	40:cop	_
@@ -1323,24 +1323,24 @@
 # s_type = decl
 # transition = continue
 # text = In this example, while you may not have yet achieved complete success, you will have learned what you need to do next.
-1	In	in	ADP	IN	_	3	case	3:case	Discourse=joint-other_m:129->124:3
+1	In	in	ADP	IN	_	3	case	3:case	Discourse=joint-other_m:129->124:3:_
 2	this	this	DET	DT	Number=Sing|PronType=Dem	3	det	3:det	Entity=(134-abstract-giv:inact-cf2-2-coref
 3	example	example	NOUN	NN	Number=Sing	18	obl	18:obl:in	Entity=134)|SpaceAfter=No
 4	,	,	PUNCT	,	_	3	punct	3:punct	_
-5	while	while	SCONJ	IN	_	11	mark	11:mark	Discourse=adversative-concession:130->131:0
+5	while	while	SCONJ	IN	_	11	mark	11:mark	Discourse=adversative-concession:130->131:0:dm-while-997+lex-indwd-999+lex-indwd-1002
 6	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	11	nsubj	11:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 7	may	may	AUX	MD	VerbForm=Fin	11	aux	11:aux	_
 8	not	not	PART	RB	Polarity=Neg	11	advmod	11:advmod	_
 9	have	have	AUX	VB	VerbForm=Inf	11	aux	11:aux	_
 10	yet	yet	ADV	RB	_	11	advmod	11:advmod	_
-11	achieved	achieve	VERB	VBN	Tense=Past|VerbForm=Part	18	advcl	18:advcl:while	_
+11	achieved	achieve	VERB	VBN	Tense=Past|VerbForm=Part	18	advcl	18:advcl:while	MSeg=achiev-ed
 12	complete	complete	ADJ	JJ	Degree=Pos	13	amod	13:amod	Entity=(161-event-new-cf3-2-sgl
 13	success	success	NOUN	NN	Number=Sing	11	obj	11:obj	Entity=161)|SpaceAfter=No
 14	,	,	PUNCT	,	_	11	punct	11:punct	_
-15	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	18	nsubj	18:nsubj	Discourse=same-unit_m:131->129:0|Entity=(6-person-giv:act-cf1*-1-ana)
+15	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	18	nsubj	18:nsubj	Discourse=same-unit_m:131->129:0:_|Entity=(6-person-giv:act-cf1*-1-ana)
 16	will	will	AUX	MD	VerbForm=Fin	18	aux	18:aux	_
 17	have	have	AUX	VB	VerbForm=Inf	18	aux	18:aux	_
-18	learned	learn	VERB	VBN	Tense=Past|VerbForm=Part	0	root	0:root	_
+18	learned	learn	VERB	VBN	Tense=Past|VerbForm=Part	0	root	0:root	MSeg=learn-ed
 19	what	what	PRON	WP	PronType=Rel	18	obj	18:obj	_
 20	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	21	nsubj	21:nsubj|23:nsubj:xsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 21	need	need	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	19	acl:relcl	19:acl:relcl	_
@@ -1356,7 +1356,7 @@
 # text = In true grit fashion, for your next try, you study those items on your list where you found you needed a bit more information, and then you go through your list again.
 # newpar
 # newpar_block = p (3 s)
-1	In	in	ADP	IN	_	4	case	4:case	Discourse=joint-sequence_m:132->97:3
+1	In	in	ADP	IN	_	4	case	4:case	Discourse=joint-sequence_m:132->97:3:_
 2	true	true	ADJ	JJ	Degree=Pos	4	amod	4:amod	Entity=(162-abstract-new-cf6-3-sgl
 3	grit	grit	NOUN	NN	Number=Sing	4	compound	4:compound	Entity=(8-abstract-giv:inact-cf3-1-coref)
 4	fashion	fashion	NOUN	NN	Number=Sing	12	obl	12:obl:in	Entity=162)|SpaceAfter=No
@@ -1369,21 +1369,21 @@
 11	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	12	nsubj	12:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 12	study	study	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 13	those	that	DET	DT	Number=Plur|PronType=Dem	14	det	14:det	Entity=(164-abstract-new-cf4-2-sgl
-14	items	item	NOUN	NNS	Number=Plur	12	obj	12:obj	_
+14	items	item	NOUN	NNS	Number=Plur	12	obj	12:obj|20:obl	MSeg=item-s
 15	on	on	ADP	IN	_	17	case	17:case	_
 16	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	17	nmod:poss	17:nmod:poss	Entity=(154-abstract-giv:inact-cf2-2-coref(6-person-giv:act-cf1*-1-ana)
 17	list	list	NOUN	NN	Number=Sing	14	nmod	14:nmod:on	Entity=154)
-18	where	where	ADV	WRB	PronType=Rel	20	advmod	20:advmod	Discourse=attribution-positive:133->134:0
+18	where	where	ADV	WRB	PronType=Rel	20	advmod	14:ref|20:advmod	Discourse=attribution-positive:133->134:0:sem-atsrc-1036+lex-indwd-1037
 19	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	20	nsubj	20:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 20	found	find	VERB	VBD	Mood=Ind|Number=Sing|Person=2|Tense=Past|VerbForm=Fin	14	acl:relcl	14:acl:relcl	_
-21	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	22	nsubj	22:nsubj	Discourse=elaboration-attribute:134->132:0|Entity=(6-person-giv:act-cf1*-1-ana)
-22	needed	need	VERB	VBD	Mood=Ind|Number=Sing|Person=2|Tense=Past|VerbForm=Fin	20	ccomp	20:ccomp	_
+21	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	22	nsubj	22:nsubj	Discourse=elaboration-attribute:134->132:0:syn-mdf-1031+syn-relcl-1035|Entity=(6-person-giv:act-cf1*-1-ana)
+22	needed	need	VERB	VBD	Mood=Ind|Number=Sing|Person=2|Tense=Past|VerbForm=Fin	20	ccomp	20:ccomp	MSeg=need-ed
 23	a	a	DET	DT	Definite=Ind|PronType=Art	24	det	24:det	Entity=(165-abstract-new-cf5-4-sgl
 24	bit	bit	NOUN	NN	Number=Sing	25	obl:npmod	25:obl:npmod	_
 25	more	more	ADJ	JJR	Degree=Cmp	26	amod	26:amod	_
-26	information	information	NOUN	NN	Number=Sing	22	obj	22:obj	Entity=165)164)|SpaceAfter=No
+26	information	information	NOUN	NN	Number=Sing	22	obj	22:obj	Entity=165)164)|MSeg=in-form-ation|SpaceAfter=No
 27	,	,	PUNCT	,	_	31	punct	31:punct	_
-28	and	and	CCONJ	CC	_	31	cc	31:cc	Discourse=joint-sequence_m:135->132:1
+28	and	and	CCONJ	CC	_	31	cc	31:cc	Discourse=joint-sequence_m:135->132:1:dm-and-1045+dm-then-1046+lex-indwd-1052
 29	then	then	ADV	RB	PronType=Dem	31	advmod	31:advmod	_
 30	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	31	nsubj	31:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 31	go	go	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	12	conj	12:conj:and	_
@@ -1398,7 +1398,7 @@
 # s_type = decl
 # transition = continue
 # text = This time you are able to write down summaries of all the important points, and you are confident you have the knowledge you need to do well on the exam.
-1	This	this	DET	DT	Number=Sing|PronType=Dem	2	det	2:det	Discourse=causal-result:136->132:2|Entity=(163-event-acc:com-cf4-2-coref
+1	This	this	DET	DT	Number=Sing|PronType=Dem	2	det	2:det	Discourse=causal-result:136->132:2:_|Entity=(163-event-acc:com-cf4-2-coref
 2	time	time	NOUN	NN	Number=Sing	5	obl:tmod	5:obl:tmod	Entity=163)
 3	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	5	nsubj	5:nsubj|7:nsubj:xsubj	Entity=(166-abstract-new-cf7-3,17-disc(6-person-giv:act-cf1*-1-ana)
 4	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	5	cop	5:cop	_
@@ -1410,20 +1410,20 @@
 10	of	of	ADP	IN	_	14	case	14:case	_
 11	all	all	DET	PDT	PronType=Tot	14	det:predet	14:det:predet	Entity=(147-abstract-giv:inact-cf2-4-coref
 12	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	_
-13	important	important	ADJ	JJ	Degree=Pos	14	amod	14:amod	_
-14	points	point	NOUN	NNS	Number=Plur	9	nmod	9:nmod:of	Entity=147)167)|SpaceAfter=No
+13	important	important	ADJ	JJ	Degree=Pos	14	amod	14:amod	MSeg=import-ant
+14	points	point	NOUN	NNS	Number=Plur	9	nmod	9:nmod:of	Entity=147)167)|MSeg=point-s|SpaceAfter=No
 15	,	,	PUNCT	,	_	19	punct	19:punct	_
-16	and	and	CCONJ	CC	_	19	cc	19:cc	Discourse=attribution-positive:137->138:1
+16	and	and	CCONJ	CC	_	19	cc	19:cc	Discourse=attribution-positive:137->138:1:sem-atsrc-1056
 17	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	19	nsubj	19:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 18	are	be	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	19	cop	19:cop	_
 19	confident	confident	ADJ	JJ	Degree=Pos	5	conj	5:conj:and	_
-20	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	21	nsubj	21:nsubj	Discourse=joint-list_m:138->136:0|Entity=(6-person-giv:act-cf1*-1-ana)
+20	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	21	nsubj	21:nsubj	Discourse=joint-list_m:138->136:0:dm-and-1069|Entity=(6-person-giv:act-cf1*-1-ana)
 21	have	have	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	19	ccomp	19:ccomp	_
 22	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	Entity=(168-abstract-new-cf5-2-sgl
 23	knowledge	knowledge	NOUN	NN	Number=Sing	21	obj	21:obj	_
-24	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	25	nsubj	25:nsubj	Discourse=elaboration-attribute:139->138:0|Entity=(6-person-giv:act-cf1*-1-ana)
+24	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	25	nsubj	25:nsubj	Discourse=elaboration-attribute:139->138:0:syn-mdf-1076+syn-relcl-1078|Entity=(6-person-giv:act-cf1*-1-ana)
 25	need	need	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	23	acl:relcl	23:acl:relcl	_
-26	to	to	PART	TO	_	27	mark	27:mark	Discourse=purpose-goal:140->139:0
+26	to	to	PART	TO	_	27	mark	27:mark	Discourse=purpose-goal:140->139:0:syn-inf-1079
 27	do	do	VERB	VB	VerbForm=Inf	25	advcl	25:advcl:to	_
 28	well	well	ADV	RB	Degree=Pos	27	advmod	27:advmod	_
 29	on	on	ADP	IN	_	31	case	31:case	_
@@ -1436,7 +1436,7 @@
 # s_type = decl
 # transition = continue
 # text = After this, you still do not stop, but instead you change your approach to use other methods that keep what you have learned fresh in your mind.
-1	After	after	ADP	IN	_	2	case	2:case	Discourse=adversative-antithesis:141->142:1
+1	After	after	ADP	IN	_	2	case	2:case	Discourse=adversative-antithesis:141->142:1:dm-but-1095+dm-instead-1096
 2	this	this	PRON	DT	Number=Sing|PronType=Dem	8	obl	8:obl:after	Entity=(166-abstract-giv:act-cf2-1-coref)|SpaceAfter=No
 3	,	,	PUNCT	,	_	2	punct	2:punct	_
 4	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	8	nsubj	8:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
@@ -1445,22 +1445,22 @@
 7	not	not	PART	RB	Polarity=Neg	8	advmod	8:advmod	_
 8	stop	stop	VERB	VB	VerbForm=Inf	0	root	0:root	SpaceAfter=No
 9	,	,	PUNCT	,	_	13	punct	13:punct	_
-10	but	but	CCONJ	CC	_	13	cc	13:cc	Discourse=joint-sequence_m:142->97:3
-11	instead	instead	ADV	RB	_	13	advmod	13:advmod	_
+10	but	but	CCONJ	CC	_	13	cc	13:cc	Discourse=joint-sequence_m:142->97:3:_
+11	instead	instead	ADV	RB	_	13	advmod	13:advmod	MSeg=in-stead
 12	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	13	nsubj	13:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 13	change	change	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	8	conj	8:conj:but	_
 14	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	15	nmod:poss	15:nmod:poss	Entity=(169-abstract-new-cf3-2-sgl(6-person-giv:act-cf1*-1-ana)
 15	approach	approach	NOUN	NN	Number=Sing	13	obj	13:obj	Entity=169)
-16	to	to	PART	TO	_	17	mark	17:mark	Discourse=purpose-goal:143->142:0
+16	to	to	PART	TO	_	17	mark	17:mark	Discourse=purpose-goal:143->142:0:syn-inf-1101
 17	use	use	VERB	VB	VerbForm=Inf	13	advcl	13:advcl:to	_
 18	other	other	ADJ	JJ	Degree=Pos	19	amod	19:amod	Entity=(170-abstract-new-cf4-2-sgl
-19	methods	method	NOUN	NNS	Number=Plur	17	obj	17:obj|21:nsubj	_
-20	that	that	PRON	WDT	PronType=Rel	21	nsubj	19:ref	Discourse=elaboration-attribute:144->143:0
+19	methods	method	NOUN	NNS	Number=Plur	17	obj	17:obj|21:nsubj	MSeg=method-s
+20	that	that	PRON	WDT	PronType=Rel	21	nsubj	19:ref	Discourse=elaboration-attribute:144->143:0:syn-mdf-1104+syn-relcl-1105-1107,1110
 21	keep	keep	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	19	acl:relcl	19:acl:relcl	_
 22	what	what	PRON	WP	PronType=Rel	21	obj	19:ref	_
 23	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	25	nsubj	25:nsubj	Entity=(6-person-giv:act-cf1*-1-ana)
 24	have	have	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	25	aux	25:aux	_
-25	learned	learn	VERB	VBN	Tense=Past|VerbForm=Part	22	acl:relcl	22:acl:relcl	_
+25	learned	learn	VERB	VBN	Tense=Past|VerbForm=Part	22	acl:relcl	22:acl:relcl	MSeg=learn-ed
 26	fresh	fresh	ADJ	JJ	Degree=Pos	21	xcomp	21:xcomp	_
 27	in	in	ADP	IN	_	29	case	29:case	_
 28	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	29	nmod:poss	29:nmod:poss	Entity=(171-abstract-new-cf5-2-sgl(6-person-giv:act-cf1*-1-ana)

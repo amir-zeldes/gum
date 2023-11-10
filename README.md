@@ -17,7 +17,7 @@ This repository contains release versions of the Georgetown University Multilaye
   * textbooks
   * vlogs
 
-The corpus is created as part of the course LING-367 (Computational Corpus Linguistics) at Georgetown University. For more details see: https://gucorpling.org/gum.
+The corpus is created as part of the course LING-4427 (Computational Corpus Linguistics) at Georgetown University. For more details see: https://gucorpling.org/gum.
 
 ## A note about Reddit data
 
@@ -76,6 +76,21 @@ If you are using the OntoNotes schema version of the coreference annotations (a.
   address   = {Bangkok, Thailand}
 ```
 
+For papers focusing on named entities or entity linking (Wikification), please cite this paper instead:
+
+```
+@inproceedings{lin-zeldes-2021-wikigum,
+    title = {{W}iki{GUM}: Exhaustive Entity Linking for Wikification in 12 Genres},
+    author = {Jessica Lin and Amir Zeldes},
+    booktitle = {Proceedings of The Joint 15th Linguistic Annotation Workshop (LAW) and 
+                 3rd Designing Meaning Representations (DMR) Workshop (LAW-DMR 2021)},
+    year = {2021},
+    address = {Punta Cana, Dominican Republic},
+    url = {https://aclanthology.org/2021.law-1.18},
+    pages = {170--175},
+}
+```
+
 For a full list of contributors please see [the corpus website](https://gucorpling.org/gum).
 
 ## Directories
@@ -85,18 +100,18 @@ The corpus is downloadable in multiple formats. Not all formats contain all anno
 **NB: Reddit data in top folders does not inclulde the base text forms - consult README_reddit.md to add it**
 
   * _build/ - The [GUM build bot](https://gucorpling.org/gum/build.html) and utilities for data merging and validation
-  * annis/ - The entire merged corpus, with all annotations, as a relANNIS 3.3 corpus dump, importable into [ANNIS](http://corpus-tools.org/annis)
+  * annis/ - The entire merged corpus (excl. Reddit), with all annotations, as a relANNIS 3.3 corpus dump, importable into [ANNIS](http://corpus-tools.org/annis)
   * const/ - Constituent trees with function labels and PTB POS tags in the PTB bracketing format (automatic parser output from gold POS with functions projected from gold dependencies)
   * coref/ - Entity and coreference annotation in two formats: 
     * conll/ - CoNLL shared task tabular format (with Wikification but no bridging or split antecedent annotations)
     * tsv/ - WebAnno .tsv format, including entity type, salience and information status annotations, Wikification, bridging, split antecedent and singleton entities
     * ontogum/ - alternative version of coreference annotation in CoNLL, tsv and CoNLL-U formats following OntoNotes guidelines (see Zhu et al. 2021)
-  * dep/ - Dependency trees using Universal Dependencies, enriched with metadata, summaries, sentence types, speaker information,  enhanced dependencies, entities, information status, salience, centering, coreference, bridging, Wikification, XML markup, morphological tags and Universal POS tags according to the UD standard
-  * paula/ - The entire merged corpus in standoff [PAULA XML](https://github.com/korpling/paula-xml), with all annotations
-  * rst/ - Rhetorical Structure Theory analyses
-    * rstweb/ - full .rs3 format data as used by RSTTool and rstWeb (recommended)
+  * dep/ - Dependency trees using Universal Dependencies, enriched with metadata, summaries, sentence types, speaker information,  enhanced dependencies, entities, information status, salience, centering, coreference, bridging, Wikification, XML markup, morphological tags/segmentation, CxG constructions, discourse relations/connectives/signals, and Universal POS tags according to the UD standard
+  * paula/ - The entire merged corpus (excl. Reddit) in standoff [PAULA XML](https://github.com/korpling/paula-xml), with all annotations
+  * rst/ - Enhanced Rhetorical Structure Theory (RST++) analyses
+    * rstweb/ - full .rs4 format data as used by RSTTool and rstWeb, with secondary edges + relation signals (recommended)
     * lisp_nary/ - n-ary lisp trees (.dis format) 
     * lisp_binary/ - binarized lisp trees (.dis format) 
     * dependencies/ - a converted RST dependency representation (.rsd format)
-    * disrpt/ - plain segmentation and relation-per-line data formats following the DISRPT shared task specification
-  * xml/ - vertical XML representations with 1 token or tag per line, metadata, summaries and tab delimited lemmas and POS tags (extended VVZ style, vanilla, UPOS and CLAWS5, as well as dependency functions), compatible with the IMS Corpus Workbench (a.k.a. TreeTagger format).
+    * disrpt/ - plain segmentation, connective detection and relation-per-line data formats following the DISRPT shared task specification
+  * xml/ - vertical XML representations with 1 token or tag per line, metadata, summaries and tab delimited lemmas, morphological segmentation and POS tags (extended VVZ style, vanilla, UPOS and CLAWS5, as well as dependency functions), compatible with the IMS Corpus Workbench (a.k.a. TreeTagger format).
