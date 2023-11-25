@@ -737,6 +737,13 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if pos == "IN" and func=="compound:prt":
 		print("WARN: function " + func + " should have pos RP, not IN" + inname)
 
+	if tok.lower() in ["yours","mine","hers","theirs","ours"] and (pos == "PP$" or pos == "PRP$" or lemma in ["yours","mine","hers","theirs","ours"]):
+		print("WARN: substitutive possessive pronoun  "+tok+"/"+pos+"/"+lemma+" should have pos=PP and the plain possessive lemma" + inname)
+
+	if pos in ["VBN","VVN","VHN"] and ("nsubj" in child_funcs or "csubj" in child_funcs) and lemma != "get" and \
+			("aux:pass" not in child_funcs and "aux" not in child_funcs and "cop" not in child_funcs and "compound" not in child_funcs):
+		print("WARN: passive verb tagged VBN without perfect auxiliary should have :pass subject, not regular subj" + inname)
+
 	if pos == "CC" and func not in ["cc","cc:preconj","conj","reparandum","root","dep"] and not (parent_lemma=="whether" and func=="fixed"):
 		if not ("languages" in inname and tok == "and"):  # metalinguistic discussion in whow_languages
 			print("WARN: pos " + pos + " should normally have function cc or cc:preconj, not " + func + inname)
