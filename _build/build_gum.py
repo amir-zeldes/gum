@@ -371,6 +371,6 @@ if not options.skip_ontogum:
 
 sys.__stdout__.write("\no Added discourse relations and XML tags to UD parses\n")
 
-make_disrpt(conn_data,reddit=reddit)
+make_disrpt(conn_data,reddit=reddit,corpus="gum")
 
 sys.__stdout__.write("\no Created DISRPT shared task discourse relation formats in target rst/disrpt/\n")
