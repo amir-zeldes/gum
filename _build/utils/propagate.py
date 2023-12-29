@@ -918,6 +918,8 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 				fields.append(fields[-1])
 				fields[-2] = upos_list[toknum]
 				mseg = mseg_lookup[(fields[0],fields[1])] if (fields[0],fields[1]) in mseg_lookup else "_"
+				if "-" not in mseg:
+					msef = "_"
 				if mseg != "_":
 					msegs[toknum] = mseg
 				fields.append(mseg)
