@@ -728,8 +728,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
 	if pos == "NNS" and tok.lower() == lemma.lower() and lemma.endswith("s") and func != "goeswith":
-		if lemma not in ["surroundings","energetics","politics","jeans","clothes","electronics","means","feces",
-						 "biceps","triceps","news","species","economics","arrears","glasses","thanks","series","ergonomics",
+		if lemma not in ["surroundings","energetics","mechanics","politics","jeans","pants","trousers","clothes","electronics","means","feces","remains",
+						 "biceps","triceps","news","species","economics","arrears","glasses","thanks","series","ergonomics","sunglasses",
 						 "aesthetics","twenties","thirties","fourties","fifties","sixties","seventies","eighties","nineties"]:
 			if re.match(r"[0-9]+'?s",lemma) is None:  # 1920s, 80s
 				print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
