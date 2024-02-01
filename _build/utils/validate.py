@@ -724,7 +724,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if pos == "NPS" and tok == lemma and tok.endswith("s") and func != "goeswith":
 		if tok not in ["Netherlands","Analytics","Olympics","Commons","Paralympics","Vans",
-					   "Andes","Forties","Philippines","Maldives"]:
+					   "Andes","Forties","Philippines","Maldives", "Politics"]:
 			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
 	if pos == "NNS" and tok.lower() == lemma.lower() and lemma.endswith("s") and func != "goeswith":
@@ -883,7 +883,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		if not (("stardust" in docname and parent_lemma == "would") or parent_lemma == "Rated" or parent_func == "reparandum"):
 			print("WARN: function " + func + " should not be the child of pos " + parent_pos + inname)
 
-	if func == "obl:agent" and (parent_pos not in ["VBN","VHN","VVN"] or "by" not in children):
+	if func == "obl:agent" and (parent_pos not in ["VBN","VHN","VVN"] or not any(x in children for x in ["by", "BY"])):
 		print("WARN: function " + func +  " must by child of V.N with a 'by' dependent" + parent_pos + inname)
 
 	if child_funcs.count("obl:agent") > 1:
