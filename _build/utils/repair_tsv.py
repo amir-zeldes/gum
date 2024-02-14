@@ -922,8 +922,6 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 		if "\t" not in line:
 			adjusted.append(line)
 		else:
-			if "45-16	" in line:
-				a=4
 			fields = line.split("\t")
 			counter +=1
 			ents, infs, sals, idents, types, edges = fields[3:9]
@@ -968,7 +966,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 			sals = "|".join(sals)
 			ents = "|".join(ents)
 			idents = "|".join(idents) if len(idents) > 0 else "_"
-			centers = "|".join(centers)# if len(centers) > 0 else "_"
+			centers = "|".join(centers) if len(centers) > 0 else "_"
 			fields[3] = ents
 			fields[4] = infs
 			fields[5] = sals
