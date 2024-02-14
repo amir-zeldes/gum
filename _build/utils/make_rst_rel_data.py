@@ -402,7 +402,7 @@ def make_rels(rsd_data, conll_data, dev_set, test_set, corpus="eng.rst.gum"):
     return dev, train, test
 
 
-def infuse_conns(non_conned, conns_bio):
+def infuse_conns(non_conned, conns_bio, all_dms=False):
     def add_feat(field, feat):
         if field == "_":
             return feat
@@ -430,11 +430,12 @@ def infuse_conns(non_conned, conns_bio):
             toknum += 1
             if fields[1]== "rather":
                 a=4
-            if "Conn=No" in fields[-1]:
-                fields[-1] = fields[-1].replace("Conn=No|","").replace("Conn=No","")
+            if "Conn=No" in fields[-1] and (not all_dms or toknum not in conns_bio):
+                if not all_dms:
+                    in_conn = False
                 if fields[-1] == "":
                     fields[-1] = "_"
-                in_conn = False
+                fields[-1] = fields[-1].replace("Conn=No|", "").replace("Conn=No", "")
             else:
                 if toknum in conns_bio:
                     if conns_bio[toknum] == "B" or in_conn and conns_bio != "":  # Prevent I without B
@@ -503,7 +504,7 @@ def main(conn_data, make_tok_files=True, reddit=False, corpus="gum"):
 
         for docname in sorted(conll_data):
             non_conned = no_conn_deped.run_depedit(conll_data[docname].strip() + "\n\n")
-            non_conned = infuse_conns(non_conned, conn_data[docname])
+            non_conned = infuse_conns(non_conned, conn_data[docname], all_dms=False)
             if docname in dev_set:
                 pdtb_dev += non_conned.strip() + "\n\n"
             elif docname in test_set:
