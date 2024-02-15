@@ -65,7 +65,9 @@ ud_dev = ["GUM_interview_cyclone", "GUM_interview_gaming",
 		  "GUM_speech_impeachment", "GUM_textbook_labor",
 		  "GUM_vlog_radiology", "GUM_conversation_grounded",
 		  "GUM_textbook_governments", "GUM_vlog_portland",
-		  "GUM_conversation_risk", "GUM_speech_inauguration"]
+		  "GUM_conversation_risk", "GUM_speech_inauguration",
+		  "GUM_court_loan","GUM_essay_evolved",
+		  "GUM_letter_arendt","GUM_podcast_wrestling"]
 ud_test = ["GUM_interview_libertarian", "GUM_interview_hill",
 		   "GUM_news_nasa", "GUM_news_sensitive",
 		   "GUM_voyage_oakland", "GUM_voyage_vavau",
@@ -77,7 +79,9 @@ ud_test = ["GUM_interview_libertarian", "GUM_interview_hill",
 		   "GUM_speech_austria", "GUM_textbook_chemistry",
 		   "GUM_vlog_studying", "GUM_conversation_retirement",
 		   "GUM_textbook_union", "GUM_vlog_london",
-		   "GUM_conversation_lambada", "GUM_speech_newzealand"]
+		   "GUM_conversation_lambada", "GUM_speech_newzealand",
+		   "GUM_court_mitigation","GUM_essay_fear",
+		   "GUM_letter_mandela","GUM_podcast_bezos"]
 
 sigtypes = {"semantic": "sem", "syntactic": "syn", "graphical": "grf", "morphological": "mrf",
 			"numerical": "num", "reference": "ref", "lexical": "lex", "dm": "dm", "orphan": "orp", "unsure": "nsr"}
@@ -123,6 +127,22 @@ class Entity:
 	def get_length(self):
 		return self.end - self.start + 1
 
+
+def resolve_mseg(word, pos, lemma, mseg_lookup):
+	if (word, pos) in mseg_lookup:
+		return mseg_lookup[(word, pos)]
+	elif "-" not in word:
+		if pos in ["NPS","NNS"]:
+			if lemma.lower()[:-1]==word.lower() and word.lower()[-1] == "s":  # Regular unlisted plural
+				return word[:-1] + "-" + word[-1]
+		elif pos == "VVG" and word.lower().endswith("ing"):
+			return word[:-3] + "-" + word[-3:]
+		elif pos in ["VVN","VVD"] and word.lower().endswith("ed"):
+			return word[:-2] + "-" + word[-2:]
+		elif pos in ["JJR","RBR"] and word.lower().endswith("er"):
+			return word[:-2] + "-" + word[-2:]
+
+	return "_"
 
 def fix_punct(conllu_string):
 	def preserve_ellipsis_tokens(conllu):
@@ -372,6 +392,7 @@ def tt2vanilla(tag,token):
 			tag = "-RRB-"
 	return tag
 
+
 def fix_card_lemma(wordform,lemma):
 	if lemma == "@card@" and re.match(r'[0-9,]+$',wordform):
 		lemma = wordform.replace(",","")
@@ -507,11 +528,25 @@ def enrich_dep(gum_source, gum_target, tmp, reddit=False):
 				wordforms[tok_num], pos[tok_num], lemmas[tok_num] = fields[:3]
 
 		conll_lines = io.open(depfile,encoding="utf8").read().replace("\r","").split("\n")
-		tok_num = 0
+		tok_num = 1
+		in_sent = False
 		for line in conll_lines:
 			if "# speaker" in line or "# s_type" in line or "# addressee" in line:
 				# Ignore old speaker and s_type annotations in favor of fresh ones
 				continue
+			if (line.startswith("1\t") and not in_sent) or line.startswith("0.1\t"):  # First token in sentence
+				in_sent = True
+				# Check for annotations
+				if len(stype_by_token[tok_num]) > 0:
+					output += "# s_type = " + stype_by_token[tok_num] + "\n"
+				if len(transition_by_token[tok_num]) > 0:
+					output += "# transition = " + transition_by_token[tok_num] + "\n"
+				if len(speaker_by_token[tok_num]) > 0:
+					output += "# speaker = " + speaker_by_token[tok_num] + "\n"
+				if len(addressee_by_token[tok_num]) > 0:
+					output += "# addressee = " + addressee_by_token[tok_num] + "\n"
+			elif line.strip() == "":
+				in_sent = False
 			if "\t" in line:  # Token
 				fields = line.split("\t")
 				if "." in fields[0]:  # Ignore ellipsis token
@@ -519,8 +554,7 @@ def enrich_dep(gum_source, gum_target, tmp, reddit=False):
 					continue
 				for index in [2,3,4,5,8,9]:
 					if fields[index] != "_":
-						pre_annotated[docname][tok_num][index] = fields[index]
-				tok_num += 1
+						pre_annotated[docname][tok_num-1][index] = fields[index]
 				wordform = wordforms[tok_num]
 				lemma = lemmas[tok_num]
 				# De-escape XML escapes
@@ -557,16 +591,8 @@ def enrich_dep(gum_source, gum_target, tmp, reddit=False):
 				fields[-1] = "|".join(misc) if len(misc) > 0 else "_"
 				fields[5] = "|".join(sorted(feats)) if len(feats) > 0 else "_"
 				line = "\t".join(fields)
-			if line.startswith("1\t"):  # First token in sentence
-				# Check for annotations
-				if len(stype_by_token[tok_num]) > 0:
-					output += "# s_type = " + stype_by_token[tok_num] + "\n"
-				if len(transition_by_token[tok_num]) > 0:
-					output += "# transition = " + transition_by_token[tok_num] + "\n"
-				if len(speaker_by_token[tok_num]) > 0:
-					output += "# speaker = " + speaker_by_token[tok_num] + "\n"
-				if len(addressee_by_token[tok_num]) > 0:
-					output += "# addressee = " + addressee_by_token[tok_num] + "\n"
+				tok_num += 1
+
 			output += line + "\n"
 
 		output = output.strip() + "\n" + "\n"
@@ -613,7 +639,6 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 	if not os.path.isdir(entidep_dir):
 		os.makedirs(entidep_dir)
 	
-
 	depfiles = []
 	files_ = glob(dep_source + "*.conllu")
 	for file_ in files_:
@@ -917,7 +942,9 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 				fields = line.split("\t")
 				fields.append(fields[-1])
 				fields[-2] = upos_list[toknum]
-				mseg = mseg_lookup[(fields[0],fields[1])] if (fields[0],fields[1]) in mseg_lookup else "_"
+				mseg = resolve_mseg(fields[0],fields[1],fields[2],mseg_lookup)
+				if "-" not in mseg:
+					mseg = "_"
 				if mseg != "_":
 					msegs[toknum] = mseg
 				fields.append(mseg)

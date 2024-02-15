@@ -38,6 +38,7 @@ def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False, docs
 
 		text_tokens = list(tokens)
 		with io.open(f_path, 'w', encoding='utf-8', newline="\n") as fout:
+			last_pos = ""
 			for i, line in enumerate(in_lines):
 				if line.startswith('<'):
 					fout.write(line+"\n")
@@ -64,11 +65,16 @@ def make_text(folder, textdic, tok_col, lemma_col=None, unescape_xml=False, docs
 							if elements[lemma_col] == '_':
 								if not (elements[tok_col] in ["hearing","hind"] and "_card" in f_path):  # Check known goeswith cases
 									elements[lemma_col] = elements[tok_col]
+									if len(elements) < 10:
+										if last_pos == "GW":
+											elements[lemma_col] = "_"
 								else:
 									elements[lemma_col] = "_"
 							elif elements[lemma_col] == "*LOWER*":
 								elements[lemma_col] = elements[tok_col].lower()
 							lemma_dict[docname].append(elements[lemma_col])
+					if len(elements) < 10:
+						last_pos = elements[1]
 					if docs2lemmas is not None:  # Reconstruct lemmas for conllu
 						if "." not in elements[0] and "-" not in elements[0]:
 							elements[2] = docs2lemmas_copy[docname].pop(0)

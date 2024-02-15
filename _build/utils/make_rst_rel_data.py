@@ -402,7 +402,7 @@ def make_rels(rsd_data, conll_data, dev_set, test_set, corpus="eng.rst.gum"):
     return dev, train, test
 
 
-def infuse_conns(non_conned, conns_bio):
+def infuse_conns(non_conned, conns_bio, all_dms=False):
     def add_feat(field, feat):
         if field == "_":
             return feat
@@ -430,11 +430,12 @@ def infuse_conns(non_conned, conns_bio):
             toknum += 1
             if fields[1]== "rather":
                 a=4
-            if "Conn=No" in fields[-1]:
-                fields[-1] = fields[-1].replace("Conn=No|","").replace("Conn=No","")
+            if "Conn=No" in fields[-1] and (not all_dms or toknum not in conns_bio):
+                if not all_dms:
+                    in_conn = False
                 if fields[-1] == "":
                     fields[-1] = "_"
-                in_conn = False
+                fields[-1] = fields[-1].replace("Conn=No|", "").replace("Conn=No", "")
             else:
                 if toknum in conns_bio:
                     if conns_bio[toknum] == "B" or in_conn and conns_bio != "":  # Prevent I without B
@@ -448,7 +449,7 @@ def infuse_conns(non_conned, conns_bio):
             output.append(line)
     return "\n".join(output) + "\n"
 
-def main(conn_data, make_tok_files=True, reddit=False):
+def main(conn_data, make_tok_files=True, reddit=False, corpus="gum"):
     utils_abs_path = os.path.dirname(os.path.realpath(__file__)) + os.sep
 
     no_conn_deped = DepEdit(config_file=utils_abs_path + "non_connectives.ini")
@@ -456,7 +457,7 @@ def main(conn_data, make_tok_files=True, reddit=False):
     dev_set = gum_dev
     test_set = gum_test
 
-    corpus = "eng.rst.gum"
+    corpus = "eng.rst." + corpus
     target_dir = os.path.dirname(os.path.realpath(__file__)) + os.sep + ".." +os.sep + "target" + os.sep
     conllu_dir = target_dir + "dep" + os.sep + "not-to-release" + os.sep
     rsd_dir = target_dir + "rst" + os.sep + "dependencies" + os.sep
@@ -477,60 +478,64 @@ def main(conn_data, make_tok_files=True, reddit=False):
         for docname in conll_data:
             if docname in dev_set:
                 plain_dev += make_plain(conll_data[docname].strip() + "\n\n")
-            elif docname in test_set:
+            elif docname in test_set or "gentle" in corpus:
                 plain_test += make_plain(conll_data[docname].strip() + "\n\n")
             else:
                 plain_train += make_plain(conll_data[docname].strip() + "\n\n")
-        with io.open(disrpt_dir + corpus + "_dev.tok", 'w', encoding="utf8", newline="\n") as f:
-            f.write(plain_dev)
+        if "gentle" not in corpus:
+            with io.open(disrpt_dir + corpus + "_dev.tok", 'w', encoding="utf8", newline="\n") as f:
+                f.write(plain_dev)
+            with io.open(disrpt_dir + corpus + "_train.tok", 'w', encoding="utf8", newline="\n") as f:
+                f.write(plain_train)
         with io.open(disrpt_dir + corpus + "_test.tok", 'w', encoding="utf8", newline="\n") as f:
             f.write(plain_test)
-        with io.open(disrpt_dir + corpus + "_train.tok", 'w', encoding="utf8", newline="\n") as f:
-            f.write(plain_train)
 
-    with io.open(disrpt_dir + corpus + "_dev.rels",'w',encoding="utf8",newline="\n") as f:
-        f.write(dev)
+    if "gentle" not in corpus:
+        with io.open(disrpt_dir + corpus + "_dev.rels",'w',encoding="utf8",newline="\n") as f:
+            f.write(dev)
+        with io.open(disrpt_dir + corpus + "_train.rels", 'w', encoding="utf8", newline="\n") as f:
+            f.write(train)
     with io.open(disrpt_dir + corpus + "_test.rels",'w',encoding="utf8",newline="\n") as f:
         f.write(test)
-    with io.open(disrpt_dir + corpus + "_train.rels", 'w', encoding="utf8", newline="\n") as f:
-        f.write(train)
 
-    # Make PDTB style connective files
-    pdtb_dev = pdtb_test = pdtb_train = ""
+    if "gentle" not in corpus:
+        # Make PDTB style connective files
+        pdtb_dev = pdtb_test = pdtb_train = ""
 
-    for docname in sorted(conll_data):
-        non_conned = no_conn_deped.run_depedit(conll_data[docname].strip() + "\n\n")
-        non_conned = infuse_conns(non_conned, conn_data[docname])
-        if docname in dev_set:
-            pdtb_dev += non_conned.strip() + "\n\n"
-        elif docname in test_set:
-            pdtb_test += non_conned.strip() + "\n\n"
-        else:
-            pdtb_train += non_conned.strip() + "\n\n"
+        for docname in sorted(conll_data):
+            non_conned = no_conn_deped.run_depedit(conll_data[docname].strip() + "\n\n")
+            non_conned = infuse_conns(non_conned, conn_data[docname], all_dms=False)
+            if docname in dev_set:
+                pdtb_dev += non_conned.strip() + "\n\n"
+            elif docname in test_set:
+                pdtb_test += non_conned.strip() + "\n\n"
+            else:
+                pdtb_train += non_conned.strip() + "\n\n"
 
-    with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_dev.conllu",'w',encoding="utf8",newline="\n") as f:
-        f.write(pdtb_dev)
-    with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_test.conllu",'w',encoding="utf8",newline="\n") as f:
-        f.write(pdtb_test)
-    with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_train.conllu", 'w', encoding="utf8", newline="\n") as f:
-        f.write(pdtb_train)
+        with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_dev.conllu",'w',encoding="utf8",newline="\n") as f:
+            f.write(pdtb_dev)
+        with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_test.conllu",'w',encoding="utf8",newline="\n") as f:
+            f.write(pdtb_test)
+        with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_train.conllu", 'w', encoding="utf8", newline="\n") as f:
+            f.write(pdtb_train)
 
-    if make_tok_files:
-        plain_dev = make_plain(pdtb_dev.strip() + "\n\n")
-        plain_test = make_plain(pdtb_test.strip() + "\n\n")
-        plain_train = make_plain(pdtb_train.strip() + "\n\n")
-        with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_dev.tok", 'w', encoding="utf8", newline="\n") as f:
-            f.write(plain_dev)
-        with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_test.tok", 'w', encoding="utf8", newline="\n") as f:
-            f.write(plain_test)
-        with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_train.tok", 'w', encoding="utf8", newline="\n") as f:
-            f.write(plain_train)
+        if make_tok_files:
+            plain_dev = make_plain(pdtb_dev.strip() + "\n\n")
+            plain_test = make_plain(pdtb_test.strip() + "\n\n")
+            plain_train = make_plain(pdtb_train.strip() + "\n\n")
+            with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_dev.tok", 'w', encoding="utf8", newline="\n") as f:
+                f.write(plain_dev)
+            with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_test.tok", 'w', encoding="utf8", newline="\n") as f:
+                f.write(plain_test)
+            with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_train.tok", 'w', encoding="utf8", newline="\n") as f:
+                f.write(plain_train)
 
 if __name__ == "__main__":
 
     p = ArgumentParser()
     p.add_argument("-p","--plain",action="store_true",help="also write plain .tok files")
     p.add_argument("-r","--reddit",action="store_true",help="include reddit files")
+    p.add_argument("-c","--corpus",action="store",default="gum",choices=["gum","gentle"],help="corpus name")
     opts = p.parse_args()
 
-    main(make_tok_files=opts.plain,reddit=opts.reddit)
+    main(make_tok_files=opts.plain,reddit=opts.reddit,corpus=opts.corpus)

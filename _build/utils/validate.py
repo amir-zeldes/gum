@@ -275,7 +275,8 @@ def validate_lemmas(lemma_dict, lemma_docs, use_neaten=False):
 	exceptions = [("Democratic","JJ","democratic"),("Water","NP","Waters"),("Sun","NP","Sunday"),("a","IN","of"),
 		      ("a","IN","as"),("car","NN","card"),("lay","VV","lay"),("that","IN","than"),
 		      ("da","NP","Danish"),("all","RB","alright"),("All","RB","alright"),("any","RB","anymore"),
-			  ("before","RB","beforehand"),("any","RB","any"),("Black","JJ","black"),("wait","NN","wait")]
+			  ("before","RB","beforehand"),("any","RB","any"),("Black","JJ","black"),("wait","NN","wait"),
+				  ("Middle","JJ","Middle"),("R","NP","Be"),("better","JJR","well"),("set","VVD","sit")]  # Middle Eastern, Toys R Us, feel better
 	if use_neaten:
 		exceptions += [("Jan","NNP","Jan"),("Jan","NNP","January"),
 		      ("'s","VBZ","have"),("’s","VBZ","have"),("`s","VBZ","have"),("'d","VBD","do"),("'d","VBD","have")]
@@ -290,7 +291,7 @@ def validate_lemmas(lemma_dict, lemma_docs, use_neaten=False):
 				if i == 0:
 					majority = lem
 				else:
-					if (tok,pos,lem) not in exceptions:  # known exceptions
+					if (tok,pos,lem) not in exceptions and pos != "GW":  # known exceptions
 						suspicious_types += 1
 						sys.stderr.write("! rare lemma " + lem + " for " + tok + "/" + pos + " in " + docs +
 									 " (majority: " + majority + ")\n")
@@ -724,18 +725,26 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if pos == "NPS" and tok == lemma and tok.endswith("s") and func != "goeswith":
 		if tok not in ["Netherlands","Analytics","Olympics","Commons","Paralympics","Vans",
-					   "Andes","Forties","Philippines","Maldives"]:
+					   "Andes","Forties","Philippines","Maldives", "Politics"]:
 			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
 	if pos == "NNS" and tok.lower() == lemma.lower() and lemma.endswith("s") and func != "goeswith":
-		if lemma not in ["surroundings","energetics","politics","jeans","clothes","electronics","means","feces",
-						 "biceps","triceps","news","species","economics","arrears","glasses","thanks","series","ergonomics",
+		if lemma not in ["surroundings","energetics","mechanics","politics","jeans","pants","trousers","clothes","electronics","means","feces","remains",
+						 "biceps","triceps","news","species","economics","arrears","glasses","thanks","series","ergonomics","sunglasses",
 						 "aesthetics","twenties","thirties","fourties","fifties","sixties","seventies","eighties","nineties"]:
 			if re.match(r"[0-9]+'?s",lemma) is None:  # 1920s, 80s
 				print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
 	if pos == "IN" and func=="compound:prt":
 		print("WARN: function " + func + " should have pos RP, not IN" + inname)
+
+	if tok.lower() in ["yours","mine","hers","theirs","ours"] and (pos == "PP$" or pos == "PRP$" or lemma in ["yours","mine","hers","theirs","ours"]):
+		print("WARN: substitutive possessive pronoun  "+tok+"/"+pos+"/"+lemma+" should have pos=PP and the plain possessive lemma" + inname)
+
+	if pos in ["VBN","VVN","VHN"] and ("nsubj" in child_funcs or "csubj" in child_funcs) and lemma != "get" and \
+			("aux:pass" not in child_funcs and "aux" not in child_funcs and "cop" not in child_funcs and "compound" not in child_funcs):
+		if not (("gossip" in inname or "hiking" in inname) and lemma == "see"):  # Known non-standard cases, e.g. 'I seen it'
+			print("WARN: passive verb tagged VBN without perfect auxiliary should have :pass subject, not regular subj" + inname)
 
 	if pos == "CC" and func not in ["cc","cc:preconj","conj","reparandum","root","dep"] and not (parent_lemma=="whether" and func=="fixed"):
 		if not ("languages" in inname and tok == "and"):  # metalinguistic discussion in whow_languages
@@ -816,9 +825,10 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func =="xcomp" and parent_lemma == "be":
 		print("WARN: verb lemma 'be' should not have xcomp child" + inname)
 
-	IN_not_like_lemma = ["vs", "vs.", "v", "v.", "o'er", "ca", "that", "then", "a", "fro", "too", "til", "wether"]  # incl. known typos
-	if pos == "IN" and tok.lower() not in IN_not_like_lemma and lemma != tok.lower() and func != "goeswith" and "goeswith" not in child_funcs:
-		print("WARN: pos IN should have lemma identical to lower cased token" + inname)
+	IN_not_like_lemma = ["vs", "vs.", "v", "v.", "o'er", "ca", "that", "then", "a", "fro", "too", "til", "wether", "ta","ok", # incl. known typos
+						 "nananananananananananananananananana","ro-","c-","cap-"]
+	if pos in ["IN","UH"] and tok.lower() not in IN_not_like_lemma and lemma != tok.lower() and func != "goeswith" and "goeswith" not in child_funcs:
+		print("WARN: pos "+pos+" should have lemma identical to lower cased token" + inname)
 	if pos == "DT":
 		if lemma == "an":
 			print("WARN: lemma of 'an' should be 'a'" + inname)
@@ -844,7 +854,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if func == "ccomp" and "mark" in child_funcs and not any([x in children for x in ["that","That","whether","if","Whether","If","wether","a"]]):
 		if not ((lemma == "lie" and "once" in children) or (lemma=="find" and ("see" in children or "associate" in children)) \
-				or (lemma=="look" and "directly" in children) or (lemma=="make" and "to" in children)):  # Exceptions
+				or (lemma=="look" and "directly" in children) or (lemma=="make" and "to" in children) or (lemma=="pass" and "as" in children)):  # Exceptions
 			print("WARN: ccomp should not have child mark" + inname)
 
 	if func == "acl:relcl" and pos in ["VB","VV","VH"] and "to" in children and "cop" not in child_funcs and "aux" not in child_funcs:
@@ -872,11 +882,11 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func in ["nmod:tmod","nmod:npmod","obl:tmod","obl:npmod"] and "case" in child_funcs:
 		print("WARN: function " + func +  " should not have 'case' dependents" + inname)
 
-	if func in ["aux:pass","nsubj:pass"] and parent_pos not in ["VVN","VBN","VHN"]:
+	if func in ["aux:pass","nsubj:pass"] and parent_pos not in ["VVN","VBN","VHN","GW"]:
 		if not (("stardust" in docname and parent_lemma == "would") or parent_lemma == "Rated" or parent_func == "reparandum"):
 			print("WARN: function " + func + " should not be the child of pos " + parent_pos + inname)
 
-	if func == "obl:agent" and (parent_pos not in ["VBN","VHN","VVN"] or "by" not in children):
+	if func == "obl:agent" and (parent_pos not in ["VBN","VHN","VVN"] or not any(x in children for x in ["by", "BY"])):
 		print("WARN: function " + func +  " must by child of V.N with a 'by' dependent" + parent_pos + inname)
 
 	if child_funcs.count("obl:agent") > 1:
@@ -886,7 +896,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print("WARN: a token cannot have both a *subj relation and obl:agent" + inname)
 
 	if pos in ["VBD","VVD","VHD","VBP","VVP","VHP"] and "aux" in child_funcs:
-		print("WARN: tag "+pos+" should not have auxiliaries 'aux'" + inname)
+		if not (lemma=="try" and "bobby" in inname):  # Known error
+			print("WARN: tag "+pos+" should not have auxiliaries 'aux'" + inname)
 
 	# 'amod' promotion for EWT "those affluent and those not"
 	if lemma == "not" and func not in ["advmod","root","ccomp","amod","parataxis","reparandum","advcl","conj","orphan","fixed"]:

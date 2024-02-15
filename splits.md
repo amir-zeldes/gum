@@ -10,12 +10,16 @@ The standard train / dev / test splits are used for the corpus:
   * GUM_bio_emperor
   * GUM_conversation_grounded
   * GUM_conversation_risk
+  * GUM_court_loan
+  * GUM_essay_evolved
   * GUM_fiction_beast
   * GUM_fiction_lunre
   * GUM_interview_cyclone
   * GUM_interview_gaming
+  * GUM_letter_arendt
   * GUM_news_homeopathic
   * GUM_news_iodine
+  * GUM_podcast_wrestling
   * GUM_reddit_macroeconomics
   * GUM_reddit_pandas
   * GUM_speech_impeachment
@@ -37,12 +41,16 @@ The standard train / dev / test splits are used for the corpus:
   * GUM_bio_jespersen
   * GUM_conversation_lambada
   * GUM_conversation_retirement
+  * GUM_court_mitigation
+  * GUM_essay_fear
   * GUM_fiction_falling
   * GUM_fiction_teeth
   * GUM_interview_hill
   * GUM_interview_libertarian
+  * GUM_letter_mandela
   * GUM_news_nasa
   * GUM_news_sensitive
+  * GUM_podcast_bezos
   * GUM_reddit_escape
   * GUM_reddit_monsters
   * GUM_speech_austria
@@ -91,13 +99,20 @@ The standard train / dev / test splits are used for the corpus:
   * GUM_conversation_atoms
   * GUM_conversation_blacksmithing
   * GUM_conversation_christmas
-  * GUM_conversation_court
   * GUM_conversation_erasmus
   * GUM_conversation_family
   * GUM_conversation_gossip
   * GUM_conversation_scientist
+  * GUM_conversation_toys
   * GUM_conversation_vet
   * GUM_conversation_zero
+  * GUM_court_carpet
+  * GUM_court_equality
+  * GUM_court_fire
+  * GUM_court_prince
+  * GUM_essay_distraction
+  * GUM_essay_dividends
+  * GUM_essay_sexlife
   * GUM_fiction_claus
   * GUM_fiction_error
   * GUM_fiction_frankenstein
@@ -128,6 +143,10 @@ The standard train / dev / test splits are used for the corpus:
   * GUM_interview_peres
   * GUM_interview_shalev
   * GUM_interview_stardust
+  * GUM_letter_flood
+  * GUM_letter_gorbachev
+  * GUM_letter_roomers
+  * GUM_letter_zora
   * GUM_news_afghan
   * GUM_news_asylum
   * GUM_news_clock
@@ -147,6 +166,9 @@ The standard train / dev / test splits are used for the corpus:
   * GUM_news_warhol
   * GUM_news_warming
   * GUM_news_worship
+  * GUM_podcast_addiction
+  * GUM_podcast_brave
+  * GUM_podcast_collaboration
   * GUM_reddit_bobby
   * GUM_reddit_callout
   * GUM_reddit_card

@@ -17,7 +17,7 @@
       <xs:attribute name="id" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="GUM_(bio|academic|reddit|fiction|news|whow|voyage|interview|conversation|speech|textbook|vlog)_[a-z]+[0-9]?"/>
+            <xs:pattern value="GUM_(bio|academic|reddit|fiction|news|whow|voyage|interview|conversation|speech|textbook|vlog|court|essay|letter|podcast)_[a-z]+[0-9]?"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -109,6 +109,10 @@
             <xs:enumeration value="speech"/>
             <xs:enumeration value="textbook"/>
             <xs:enumeration value="vlog"/>
+            <xs:enumeration value="court"/>
+            <xs:enumeration value="essay"/>
+            <xs:enumeration value="letter"/>
+            <xs:enumeration value="podcast"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -232,7 +236,7 @@
       <xs:attribute name="who" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="(#([A-Z][a-z]*)+(,#([A-Z][a-z]*)+)*|env)"/>
+            <xs:pattern value="(#([A-Za-z0-9_][A-Za-z0-9_-]*)+(,#([A-Za-z0-9_][A-Za-z0-9_-]*)+)*|env)"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -268,6 +272,7 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="ref"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="incident"/>
          <xs:element minOccurs="0" maxOccurs="unbounded" ref="w"/>
+         <xs:element minOccurs="0" maxOccurs="unbounded" ref="hi"/>
       </xs:sequence>
       <xs:attribute name="ana" type="xs:string"/>
     </xs:complexType>
@@ -292,6 +297,7 @@
     <xs:complexType mixed="true">
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element ref="w"/>
+		<xs:element ref="sic"/>
       </xs:choice>
       <xs:attribute name="when" type="xs:string"/>
       <xs:attribute name="from" type="xs:time"/>
@@ -494,6 +500,7 @@
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element ref="add"/>
         <xs:element ref="w"/>
+        <xs:element ref="q"/>
         <xs:element ref="hi"/>
         <xs:element ref="sic"/>
         <xs:element ref="date"/>

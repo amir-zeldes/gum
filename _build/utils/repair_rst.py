@@ -6,6 +6,7 @@ import ntpath, os, io
 from rst2dep import make_rsd
 from .rst2dis import rst2dis
 from collections import defaultdict
+from .non_dm_signals import update_signals
 from glob import glob
 
 PY2 = sys.version_info[0] < 3
@@ -72,7 +73,8 @@ def validate_rsd(rsd_line, linenum, docname):
 			"\tto shine through" not in rsd_line:  # check for that-clause embedding to-, or about PP
 			sys.stderr.write("! adnominal infinitive clause should be purpose-attribute not elaboration-attribute" + inname)
 	if re.search(r'(\bn.t\b[^\n]+)attribution-positive_r', rsd_line) is not None:
-		if "surprised" not in rsd_line and "not only" not in rsd_line:
+		if ("surprised" not in rsd_line and "not only" not in rsd_line) and "n't also deny" not in rsd_line and \
+			not ("n't think" in rsd_line and "veronique" in docname):
 			sys.stderr.write("! suspicious attribution-positive_r with negation" + inname)
 	if "\t" in rsd_line:
 		fields = rsd_line.split("\t")
@@ -83,8 +85,9 @@ def validate_rsd(rsd_line, linenum, docname):
 		if re.search(r'^\( ((19|20)[0-9][0-9] ([–-] )?)+\)',fields[1]) is not None and fields[7] != "context-circumstance_r":
 			sys.stderr.write("! suspicious parenthetical year EDU with rsd relation " + fields[7] + inname)
 
-def validate_rstpp(rs3,docname):
-	lines = rs3.split("\n")
+
+def validate_rstpp(rs4,docname):
+	lines = rs4.split("\n")
 	secedges = set([])
 	signal_sources = set([])
 	for i,line in enumerate(lines):
@@ -108,13 +111,11 @@ def validate_rstpp(rs3,docname):
 			sys.stderr.write("! Found secondary RST++ relation with no signal for edge "+str(e)+" in "+docname+"\n")
 
 
-def fix_file(filename,tt_file,gum_source,outdir):
+def fix_file(filename, tt_file, gum_source, outdir):
 
 	# Get reference tokens
 	rst_file_name = ntpath.basename(filename)
 	tokens = []
-
-	last_good_token = ""
 
 	if PY2:
 		tt = open(tt_file)
@@ -145,7 +146,7 @@ def fix_file(filename,tt_file,gum_source,outdir):
 	for line in lines:
 		line_num += 1
 
-		if not "<segment" in line:
+		if "<segment" not in line:
 			out_data += line + "\n"
 		else:
 			if line.count("<") != 2 or line.count(">") != 2:
@@ -169,7 +170,7 @@ def fix_file(filename,tt_file,gum_source,outdir):
 
 	# Make rsd version
 	rsd = make_rsd(out_data,gum_source,as_text=True,docname=os.path.basename(rst_file_name.replace(".rs3","").replace(".rs4","")))
-	validate_rstpp(out_data,docname)
+
 	for l, line in enumerate(rsd.split("\n")):
 		validate_rsd(line, l+1, docname)
 
@@ -190,6 +191,26 @@ def fix_file(filename,tt_file,gum_source,outdir):
 		f.write(dis)
 
 
+def update_non_dm_signals(gum_source, gum_target, reddit=False):
+	gold_rs4_dir = gum_source + "rst" + os.sep
+	gold_rs4_files = glob(gold_rs4_dir + "*.rs4")
+	gold_target_dir = gum_target + "rst" + os.sep + "rstweb" + os.sep
+
+	if not reddit:
+		gold_rs4_files = [f for f in gold_rs4_files if "reddit_" not in f]
+
+	for docnum, file_ in enumerate(gold_rs4_files):
+		docname = os.path.basename(file_).replace(".rs4","")
+		sys.stdout.write("\t+ " + " " * 70 + "\r")
+		sys.stdout.write(" " + str(docnum + 1) + "/" + str(len(gold_rs4_files)) + ":\t+ " + docname + "\r")
+		gold_rs4 = open(file_).read()
+		gold_rs4 = update_signals(gold_rs4, docname, xml_root=gum_source)
+		with open(gold_target_dir + docname + ".rs4",'w',encoding="utf8",newline="\n") as f:
+			f.write(gold_rs4)
+		validate_rstpp(gold_rs4, docname)
+	print("o Updated signals in " + str(len(gold_rs4_files)) + " RST files" + " " * 70)
+
+
 if __name__ == "__main__":
 	if platform.system() == "Windows":
 		import os, msvcrt
@@ -207,5 +228,5 @@ if __name__ == "__main__":
 
 	for filename in file_list:
 		tt_file = filename.replace(".rs3", ".xml").replace(".rs4", ".xml")
-		fix_file(filename,tt_file,".." + os.sep + ".." + os.sep + "src" + os.sep,outdir)
+		fix_file(filename, tt_file, ".." + os.sep + ".." + os.sep + "src" + os.sep, outdir)
 
