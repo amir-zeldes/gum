@@ -101,7 +101,7 @@ validate_src(gum_source, reddit=reddit)
 ######################################
 from utils.propagate import enrich_dep, enrich_xml, compile_ud, tt2vanilla, fix_gw_tags
 from utils.repair_tsv import fix_tsv, make_ontogum
-from utils.repair_rst import fix_rst
+from utils.repair_rst import fix_rst, update_non_dm_signals
 
 
 # Moved from propagate.py to facilitate lazy loading of the Cython dependencies
@@ -115,7 +115,7 @@ def const_parse(gum_source, warn_slash_tokens=False, reddit=False, only_parse_di
 			return True
 		else:
 			for i, sent in enumerate(ptb_trees):
-				ptb_tags = re.findall(r"\(([^()\s]+) [^()\s]+\)",sent)
+				ptb_tags = re.findall(r"\(([^()\s]+)\s+[^()\s]+\)",sent)
 				xml_tags = [l.split("\t")[:2] for l in xml_sents[i].split("\n") if "\t" in l]
 				vanilla_tags = [tt2vanilla(tag,token) for token, tag in xml_tags]
 				if len(vanilla_tags) != len(ptb_tags):
@@ -143,7 +143,11 @@ def const_parse(gum_source, warn_slash_tokens=False, reddit=False, only_parse_di
 	for file_ in files_:
 		if not reddit and "reddit_" in file_:
 			continue
-		changed = check_diff(io.open(file_,encoding="utf8").read(), io.open(file_.replace(".xml",".ptb").replace("xml","const"),encoding="utf8").read(), os.path.basename(file_))
+		try:
+			changed = check_diff(io.open(file_,encoding="utf8").read(), io.open(file_.replace(".xml",".ptb").replace("xml","const"),encoding="utf8").read(), os.path.basename(file_))
+		except FileNotFoundError:  # No parse exists, create it
+			sys.stderr.write("! " + os.path.basename(file_) + ": no parse found - flagging for parse\n")
+			changed = True
 		if not changed:
 			continue
 		xmlfiles.append(file_)
@@ -241,7 +245,7 @@ if not options.pepper_only:
 		if not os.path.exists(gum_source + "const"):
 			sys.stdout.write("x const/ directory missing in target but parsing was set to false! Aborting merge...\n")
 			sys.exit()
-		elif len(glob(gum_source + "const" + os.sep + "*.ptb")) != len(glob(gum_target + "xml" + os.sep + "*.xml")):
+		elif len(glob(gum_source + "const" + os.sep + "*.ptb")) != len(glob(gum_source + "xml" + os.sep + "*.xml")):
 			sys.stdout.write("x parsing was set to false but xml/ and const/ contain different amounts of files! Aborting...\n")
 			sys.exit()
 
@@ -374,3 +378,9 @@ sys.__stdout__.write("\no Added discourse relations and XML tags to UD parses\n"
 make_disrpt(conn_data,reddit=reddit,corpus="gum")
 
 sys.__stdout__.write("\no Created DISRPT shared task discourse relation formats in target rst/disrpt/\n")
+
+## Step 5: Refresh automatic portion of non-DM signals in RST files
+
+sys.__stdout__.write("\no Adding fresh non-DM signals to RST files:\n" + "=" * 37 + "\n")
+update_non_dm_signals(gum_source, gum_target, reddit=reddit)
+
