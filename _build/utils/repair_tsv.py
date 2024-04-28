@@ -550,7 +550,7 @@ def fix_genitive_s(tsv_path, xml_path, warn_only=True, outdir=None, string_input
 ### end genitive s fix
 
 
-def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, single_coref_type=False):
+def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, filename, single_coref_type=False):
 	"""
 	Fix webanno TSV in several ways:
 	  * All edges pointing back from a pronoun receive type 'ana'
@@ -900,6 +900,35 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 		if start != end:
 			closer_lists[end].append(str(group) + ")")
 
+		# Validate that entity spans are constituents
+		outside_head = []
+		token_indexes = []
+		token_heads = []
+		for token in ent["toks"]:
+			token_indexes.append(token[0])
+			token_heads.append(token[1])
+		for i in range(len(ent["toks"])):
+			outside_head.append(0)
+			if token_heads[i] not in token_indexes and token_heads[i] is not None:
+				outside_head[i] = 1
+		if sum(outside_head) > 1:
+			print("WARN: entity " + str(e_id) + " is not a constituent: ")
+			print("\tDocument: " + filename.split("/")[-1])
+			ent_str = ""
+			for j, tok in enumerate(ent["toks"]):
+				if outside_head[j] == 1:
+					ent_str += "[[" + tok[4] + "]]" + " "
+				else:
+					ent_str += tok[4] + " "
+			ent_str = ent_str[:-1]
+			print("\tEntity Span: " + ent_str)
+			sent_text = ""
+			for tok in parsed_lines:
+				if tok["token_id"].split("-")[0] == ent["sid"]:
+					sent_text += tok["token"] + " "
+			sent_text = sent_text[:-1]
+			print("\tSentence Context: " + sent_text + "\n")
+
 	conllua_data = []
 	for i in range(len(tokens)):
 		if i+1 in opener_lists or i+1 in closer_lists:
@@ -1247,7 +1276,7 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 	output += "\n".join(out_lines) + "\n"
 	parsed_lines, entity_mappings, single_tok_mappings = fix_genitive_s(output, tt_file, warn_only=True, string_input=True)
 
-	output, conllua_data, centering_transitions, group_saliences = adjust_edges(output, parsed_lines, entity_mappings, single_tok_mappings)
+	output, conllua_data, centering_transitions, group_saliences = adjust_edges(output, parsed_lines, entity_mappings, single_tok_mappings, filename)
 	centering_doc_data = defaultdict(lambda: "no-ent")
 
 	# Set missing transitions
