@@ -37,7 +37,7 @@ Two documents from each completed genre are reserved for testing and devlopment,
 
 ## Citing
 
-To cite this corpus in general, please refer to the following article, or see different citations for specific aspects below:
+The best paper to cite depends on the data you are using. To cite the corpus in general, please refer to the following article (but note that the corpus has changed and grown a lot in the time since); otherwise see different citations for specific aspects below:
 
 Zeldes, Amir (2017) "The GUM Corpus: Creating Multilayer Resources in the Classroom". Language Resources and Evaluation 51(3), 581–612. 
 
@@ -65,6 +65,20 @@ If you are using the **Reddit** subset of GUM in particular, please use this cit
   booktitle = {Proceedings of the 12th Web as Corpus Workshop (WAC-XII)},
   pages     = {50--56},
   year      = {2020},
+}
+```
+
+For papers focusing on the discourse relations, discourse markers or other discourse signal annotations, please cite [the eRST paper](https://arxiv.org/abs/2403.13560):
+
+```
+@misc{ZeldesEtAl2024,
+      title={{eRST}: A Signaled Graph Theory of Discourse Relations and Organization}, 
+      author={Amir Zeldes and Tatsuya Aoyama and Yang Janet Liu and Siyao Peng and Debopam Das and Luke Gessler},
+      year={2024},
+      eprint={2403.13560},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2403.13560}
 }
 ```
 
