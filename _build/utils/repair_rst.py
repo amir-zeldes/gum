@@ -86,11 +86,22 @@ def validate_rsd(rsd_line, linenum, docname):
 			sys.stderr.write("! suspicious parenthetical year EDU with rsd relation " + fields[7] + inname)
 
 
-def validate_rstpp(rs4,docname):
+def validate_rstpp(rs4,docname,sig_stats):
 	lines = rs4.split("\n")
+	tokens = []
 	secedges = set([])
 	signal_sources = set([])
+	id2rel = defaultdict(str)
+	collapse_dm = {"and ... and ... and":"and","and ... and":"and","and and":"and","but ... but":"but",
+				   "when ... when":"when","so ... so":"so","then ... then":"then","them":"then", #typo
+				   "cause ... cause ... cause":"cause","also ... also":"also", "for for":"for"}
 	for i,line in enumerate(lines):
+		if '<segment' in line:
+			tokens += line.split(">")[1].split("<")[0].split(" ")
+		if 'relname=' in line:
+			rel_id = re.search(r' id="([0-9-]+)"',line).group(1)
+			rel_name = re.search(r' relname="([^"]+)"',line).group(1)
+			id2rel[rel_id] = rel_name
 		if re.search(r'<signal source="[0-9]+-[0-9]+".*"dm"',line) is not None:
 			sys.stderr.write("! Found dm signal for secondary RST++ relation on line "+str(i+1)+" of "+docname+"\n")
 		if re.search(r'<signal source="[0-9]+".*"orphan"',line) is not None:
@@ -104,12 +115,37 @@ def validate_rstpp(rs4,docname):
 			else:
 				secedges.add(secedge_id)
 		if '<signal source' in line:
-			signal_sources.add(re.search(r' source="([0-9-]+)"',line).group(1))
+			m = re.search(r' source="([0-9-]+)" type="([^"]+)" subtype="([^"]+)" tokens="([^"]*)"',line)
+			src = m.group(1)
+			sig_type = m.group(2)
+			subtype = m.group(3)
+			sig_tokens = sorted([int(x)-1 for x in m.group(4).split(",")]) if m.group(4) != "" else []
+
+			signal_sources.add(src)
+			rel_name = id2rel[src]
+			if subtype in ["dm","orphan","alternate_expression"]:
+				sig_string = ""
+				prev = sig_tokens[0]-1
+				for t in sig_tokens:
+					if t != prev+1:
+						sig_string += "... "
+					sig_string += tokens[t] + " "
+					prev = t
+				sig_string = sig_string.lower().strip()
+				if sig_string in collapse_dm:
+					sig_string = collapse_dm[sig_string]
+				if subtype == "alternate_expression":
+					sig_stats["altlex2rel"][sig_string][rel_name] += 1
+					sig_stats["rel2altlex"][rel_name][sig_string] += 1
+				else:
+					sig_stats["dm2rel"][sig_string][rel_name] += 1
+					sig_stats["rel2dm"][rel_name][sig_string] += 1
 
 	for e in secedges:
 		if e not in signal_sources:
 			sys.stderr.write("! Found secondary RST++ relation with no signal for edge "+str(e)+" in "+docname+"\n")
 
+	return sig_stats
 
 def fix_file(filename, tt_file, gum_source, outdir):
 
@@ -199,6 +235,7 @@ def update_non_dm_signals(gum_source, gum_target, reddit=False):
 	if not reddit:
 		gold_rs4_files = [f for f in gold_rs4_files if "reddit_" not in f]
 
+	sig_stats = defaultdict(lambda : defaultdict(lambda : defaultdict(int)))
 	for docnum, file_ in enumerate(gold_rs4_files):
 		docname = os.path.basename(file_).replace(".rs4","")
 		sys.stdout.write("\t+ " + " " * 70 + "\r")
@@ -207,8 +244,46 @@ def update_non_dm_signals(gum_source, gum_target, reddit=False):
 		gold_rs4 = update_signals(gold_rs4, docname, xml_root=gum_source)
 		with open(gold_target_dir + docname + ".rs4",'w',encoding="utf8",newline="\n") as f:
 			f.write(gold_rs4)
-		validate_rstpp(gold_rs4, docname)
+		sig_stats = validate_rstpp(gold_rs4, docname, sig_stats)
 	print("o Updated signals in " + str(len(gold_rs4_files)) + " RST files" + " " * 70)
+
+	dm2rel = ["\t".join(["dm","freq","senses"])]
+	for dm in sig_stats["dm2rel"]:
+		row = [dm,str(sum([sig_stats["dm2rel"][dm][rel] for rel in sig_stats["dm2rel"][dm]]))]
+		per_rel_stats = []
+		for relname in sorted(sig_stats["dm2rel"][dm], key=lambda x: sig_stats["dm2rel"][dm][x], reverse=True):
+			per_rel_stats.append(relname + " (" + str(sig_stats["dm2rel"][dm][relname]) + ")")
+		row.append(", ".join(per_rel_stats))
+		dm2rel.append("\t".join(row))
+	altlex2rel = ["\t".join(["altlex","freq","senses"])]
+	for dm in sig_stats["altlex2rel"]:
+		row = [dm,str(sum([sig_stats["altlex2rel"][dm][rel] for rel in sig_stats["altlex2rel"][dm]]))]
+		per_rel_stats = []
+		for relname in sorted(sig_stats["altlex2rel"][dm], key=lambda x: sig_stats["altlex2rel"][dm][x], reverse=True):
+			per_rel_stats.append(relname + " (" + str(sig_stats["altlex2rel"][dm][relname]) + ")")
+		row.append(", ".join(per_rel_stats))
+		altlex2rel.append("\t".join(row))
+	rel2dm = ["\t".join(["rel","freq","dms"])]
+	for rel in sig_stats["rel2dm"]:
+		row = [rel,str(sum([sig_stats["rel2dm"][rel][dm] for dm in sig_stats["rel2dm"][rel]]))]
+		row.append(", ".join([dm + " (" + str(sig_stats["rel2dm"][rel][dm]) + ")" for dm in sorted(sig_stats["rel2dm"][rel], key=lambda x: sig_stats["rel2dm"][rel][x], reverse=True)]))
+		rel2dm.append("\t".join(row))
+	rel2altlex = ["\t".join(["rel","freq","altlexes"])]
+	for rel in sig_stats["rel2altlex"]:
+		row = [rel,str(sum([sig_stats["rel2altlex"][rel][dm] for dm in sig_stats["rel2altlex"][rel]]))]
+		row.append(", ".join([dm + " (" + str(sig_stats["rel2altlex"][rel][dm]) + ")" for dm in sorted(sig_stats["rel2altlex"][rel], key=lambda x: sig_stats["rel2altlex"][rel][x], reverse=True)]))
+		rel2altlex.append("\t".join(row))
+
+	if not os.path.exists(gum_target + "rst" + os.sep + "stats"):
+		os.makedirs(gum_target + "rst" + os.sep + "stats")
+	with open(gum_target + "rst" + os.sep + "stats" + os.sep + "dm2rel.tab",'w',encoding="utf8",newline="\n") as f:
+		f.write("\n".join([dm2rel[0]] + sorted(dm2rel[1:])) + "\n")
+	with open(gum_target + "rst" + os.sep + "stats" + os.sep + "altlex2rel.tab",'w',encoding="utf8",newline="\n") as f:
+		f.write("\n".join([altlex2rel[0]] + sorted(altlex2rel[1:])) + "\n")
+	with open(gum_target + "rst" + os.sep + "stats" + os.sep + "rel2dm.tab",'w',encoding="utf8",newline="\n") as f:
+		f.write("\n".join([rel2dm[0]] + sorted(rel2dm[1:])) + "\n")
+	with open(gum_target + "rst" + os.sep + "stats" + os.sep + "rel2altlex.tab",'w',encoding="utf8",newline="\n") as f:
+		f.write("\n".join([rel2altlex[0]] + sorted(rel2altlex[1:])) + "\n")
 
 
 if __name__ == "__main__":
