@@ -816,7 +816,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if func =="mark":
 		if parent_func not in ["ccomp","xcomp","csubj","acl","advcl","root","conj","parataxis","orphan","appos","reparandum","dislocated","acl:relcl","csubj:pass","advcl:relcl"]:
-			if not (lemma, parent_lemma) in [("To", "Write")]:
+			if not (lemma, parent_lemma) in [("to", "Write")]:
 				print("WARN: mark should not have parent function '"+parent_func+"'" + inname)
 
 	be_funcs = ["cop", "aux", "root", "csubj", "aux:pass", "acl:relcl", "ccomp", "advcl", "conj","xcomp","parataxis","reparandum"]
