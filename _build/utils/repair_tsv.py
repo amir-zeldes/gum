@@ -912,22 +912,34 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, f
 			if token_heads[i] not in token_indexes and token_heads[i] is not None:
 				outside_head[i] = 1
 		if sum(outside_head) > 1:
-			print("WARN: entity " + str(e_id) + " is not a constituent: ")
-			print("\tDocument: " + filename.split("/")[-1])
+			#print("\tDocument: " + filename.split("/")[-1])
 			ent_str = ""
 			for j, tok in enumerate(ent["toks"]):
 				if outside_head[j] == 1:
-					ent_str += "[[" + tok[4] + "]]" + " "
+					ent_str += "*" + tok[4] + "*" + " "
 				else:
 					ent_str += tok[4] + " "
-			ent_str = ent_str[:-1]
-			print("\tEntity Span: " + ent_str)
-			sent_text = ""
-			for tok in parsed_lines:
+			ent_str = "[" + ent_str[:-1] + "]"
+			#print("\tEntity Span: " + ent_str)
+			start_context = parsed_lines[max(ent["start"] - 5, 0):ent["start"]]
+			end_context = parsed_lines[ent["end"] + 1:min(ent["end"] + 6, len(parsed_lines))]
+			combined_text = ""
+			for tok in start_context:
 				if tok["token_id"].split("-")[0] == ent["sid"]:
-					sent_text += tok["token"] + " "
-			sent_text = sent_text[:-1]
-			print("\tSentence Context: " + sent_text + "\n")
+					combined_text += tok["token"] + " "
+			combined_text += ent_str + " "
+			for tok in end_context:
+				if tok["token_id"].split("-")[0] == ent["sid"]:
+					combined_text += tok["token"] + " "
+			combined_text = combined_text[:-1]
+			#print("Combined:", combined_text)
+			print("WARN: non-constituent entity (" + filename.split("/")[-1] + "): " + combined_text)
+			#sent_text = ""
+			#for tok in parsed_lines:
+			#	if tok["token_id"].split("-")[0] == ent["sid"]:
+			#		sent_text += tok["token"] + " "
+			#sent_text = sent_text[:-1]
+			#print("\tSentence Context: " + sent_text + "\n")
 
 	conllua_data = []
 	for i in range(len(tokens)):
