@@ -6,10 +6,11 @@ import torch.nn.init as init
 
 
 use_cuda = torch.cuda.is_available()
+#use_cuda = False
 if use_cuda:
     torch_t = torch.cuda
     def from_numpy(ndarray):
-        if float(sys.version[:3]) <= 3.6:
+        if float(sys.version[:3]) <= 3.6 and float(sys.version[:3]) > 3.1:
             return eval('torch.from_numpy(ndarray).pin_memory().cuda(async=True)')
         else:
             return torch.from_numpy(ndarray).pin_memory().cuda(non_blocking=True)
@@ -32,7 +33,7 @@ ROOT = "<START>"
 Sub_Head = "<H>"
 No_Head = "<N>"
 
-DTYPE = torch.uint8 if float(sys.version[:3]) < 3.7 else torch.bool
+DTYPE = torch.uint8 if float(sys.version[:3]) < 3.7 and float(sys.version[:3]) > 3.1 else torch.bool
 
 TAG_UNK = "UNK"
 
