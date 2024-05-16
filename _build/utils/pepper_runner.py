@@ -3,6 +3,7 @@ from .nlp_helper import exec_via_temp
 import platform
 
 PY2 = sys.version_info[0] < 3
+PY3_v = sys.version_info[1]
 
 def compress_pepper_out(pepper_msg,full_log=False):
 	empty_spans = 0
@@ -91,6 +92,8 @@ def run_pepper(pepper_params,full_log=False):
 	threads.append(t)
 	t.start()
 	spinner = "/"
+	if PY3_v >= 9:
+		t.isAlive = t.is_alive
 	while t.isAlive():
 		spinner = cycle_spinner(spinner)
 		sys.__stdout__.write("Pepper is working... " + spinner + "\r")
