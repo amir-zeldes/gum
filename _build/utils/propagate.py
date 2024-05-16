@@ -202,6 +202,8 @@ def validate_upos(conllu, docname):
 def validate_cxn(conllu, docname):
 	for l, line in enumerate(conllu.split("\n")):
 		if "Cxn=" in line:
+			if line.count("Cxn=") > 1:
+				sys.stderr.write("! WARN: multiple Cxn= entries on line " + str(l) + " in doc " + docname + ": " + line + "\n")
 			misc = line.split("\t")[-1]
 			cxn = [m for m in misc.split("|") if m.startswith("Cxn=")][0]
 			constructions = cxn.split("=")[1].split(",")

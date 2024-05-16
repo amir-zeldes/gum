@@ -22,7 +22,7 @@ from glob import glob
 import io
 from six import iteritems, iterkeys
 
-__version__ = "3.4.0.1"
+__version__ = "3.4.0.2"
 
 ALIASES = {"form":"text","upostag":"pos","xpostag":"cpos","feats":"morph","deprel":"func","deps":"head2","misc":"func2",
            "xpos": "cpos","upos":"pos"}
@@ -1001,7 +1001,10 @@ class DepEdit:
                                         if this_key not in new_vals_keys:  # Else this needs to be overwritten
                                             kv.append(ov)
                                         else:
-                                            kv.append(this_key + "=" + ",".join(sorted(list(new_vals_keys[this_key].union(set(this_val.split(",")))))))
+                                            new_vals_keys[this_key].update(set(this_val.split(",")))
+                                    if len(new_vals_keys) > 0:
+                                        for this_key in new_vals_keys:
+                                            kv.append(this_key + "=" + ",".join(sorted(new_vals_keys[this_key])))
                                     value = "|".join(sorted(kv,key=lambda x:x.lower()))
                                 else:
                                     value = "|".join(new_vals)
