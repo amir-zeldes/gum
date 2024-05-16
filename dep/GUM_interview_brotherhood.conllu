@@ -109,11 +109,11 @@
 4	have	have	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	7	aux	7:aux	_
 5	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	7	nsubj:pass	7:nsubj:pass	Entity=(2-person-giv:act-cf1*-1-ana)
 6	been	be	AUX	VBN	Tense=Past|VerbForm=Part	7	aux:pass	7:aux:pass	_
-7	involved	involve	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	Cxn=Interrogative-Wh|MSeg=involv-ed
+7	involved	involve	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	Cxn=Interrogative-WHInfo-Direct|MSeg=involv-ed
 8	in	in	SCONJ	IN	_	9	mark	9:mark	Discourse=elaboration-additional:6->5:0:syn-pres-66
-9	performing	perform	VERB	VBG	VerbForm=Ger	7	advcl	7:advcl:in	MSeg=perform-ing
+9	performing	perform	VERB	VBG	Tense=Pres|VerbForm=Part	7	advcl	7:advcl:in	MSeg=perform-ing
 10	/	/	SYM	SYM	_	11	cc	11:cc	_
-11	studying	study	VERB	VBG	VerbForm=Ger	9	conj	7:advcl:in|9:conj:slash	MSeg=study-ing
+11	studying	study	VERB	VBG	Tense=Pres|VerbForm=Part	9	conj	7:advcl:in|9:conj:slash	MSeg=study-ing
 12	magic	magic	NOUN	NN	Number=Sing	9	obj	9:obj|11:obj	Entity=(8-abstract-giv:act-cf2-1-coref-Magic_%28illusion%29)|SpaceAfter=No
 13	?	?	PUNCT	.	_	7	punct	7:punct	_
 
@@ -319,7 +319,7 @@
 # text = Do you think magic is alive as a viable form of entertainment today?
 1	Do	do	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	3	aux	3:aux	Discourse=attribution-positive:26->27:0:sem-atsrc-212+lex-indwd-213
 2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Entity=(2-person-giv:inact-cf2-1-ana)
-3	think	think	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Interrogative-Polar
+3	think	think	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Interrogative-Polar-Direct
 4	magic	magic	NOUN	NN	Number=Sing	6	nsubj	6:nsubj	Discourse=topic-question:27->28:1:syn-sbinv-211+grf-qst-224|Entity=(8-abstract-giv:act-cf1*-1-coref-Magic_%28illusion%29)
 5	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	6:cop	_
 6	alive	alive	ADJ	JJ	Degree=Pos	3	ccomp	3:ccomp	MSeg=a-live
@@ -350,7 +350,7 @@
 # transition = zero
 # text = There are more magicians working today than ever before.
 1	There	there	PRON	EX	PronType=Dem	2	expl	2:expl	Discourse=elaboration-additional:29->28:0:_
-2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-There
+2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-CopPred-ThereExpl
 3	more	more	ADJ	JJR	Degree=Cmp	4	amod	4:amod	Entity=(39-person-new-cf2-2-sgl
 4	magicians	magician	NOUN	NNS	Number=Plur	2	nsubj	2:nsubj	Entity=39)|MSeg=magic-ian-s
 5	working	work	VERB	VBG	VerbForm=Ger	4	acl	4:acl	Discourse=elaboration-attribute:30->29:0:syn-mdf-230+syn-nmn-231|MSeg=work-ing
@@ -367,9 +367,9 @@
 # transition = null
 # text = There will always be an audience for good magicians doing good magic.
 1	There	there	PRON	EX	PronType=Dem	4	expl	4:expl	Discourse=causal-cause:32->29:2:_
-2	will	will	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	4	aux	4:aux	_
+2	will	will	AUX	MD	VerbForm=Fin	4	aux	4:aux	_
 3	always	always	ADV	RB	_	4	advmod	4:advmod	_
-4	be	be	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Existential-There
+4	be	be	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Existential-CopPred-ThereExpl
 5	an	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	_
 6	audience	audience	NOUN	NN	Number=Sing	4	nsubj	4:nsubj	_
 7	for	for	ADP	IN	_	9	case	9:case	_
@@ -391,7 +391,7 @@
 1	Has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	aux	4:aux|6:aux	Discourse=topic-question:34->35:1:syn-sbinv-250+grf-qst-257|MSeg=Ha-s
 2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Entity=(42-abstract-new-cf2-2-coref
 3	internet	internet	NOUN	NN	Number=Sing	4	nsubj	4:nsubj|6:nsubj	Entity=42)|MSeg=inter-net
-4	helped	help	VERB	VBN	Tense=Past|VerbForm=Part	0	root	0:root	Cxn=Interrogative-Polar|Entity=(43-event-new-cf3-1,3-disc|MSeg=help-ed
+4	helped	help	VERB	VBN	Tense=Past|VerbForm=Part	0	root	0:root	Cxn=Interrogative-Polar-Direct|Entity=(43-event-new-cf3-1,3-disc|MSeg=help-ed
 5	or	or	CCONJ	CC	_	6	cc	6:cc	_
 6	hurt	hurt	VERB	VBN	Tense=Past|VerbForm=Part	4	conj	4:conj:or	_
 7	magic	magic	NOUN	NN	Number=Sing	4	obj	4:obj|6:obj	Entity=(8-abstract-giv:inact-cf1-1-coref-Magic_%28illusion%29)43)|SpaceAfter=No
@@ -526,7 +526,7 @@
 # transition = zero
 # text = Anyone can become a monkey; it takes serious study to become a magician.
 1	Anyone	anyone	PRON	NN	Number=Sing|PronType=Ind	3	nsubj	3:nsubj|5:nsubj:xsubj	Discourse=restatement-partial:46->44:1:_|Entity=(59-person-new-cf3-1-sgl)|MSeg=Any-one
-2	can	can	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	3	aux	3:aux	_
+2	can	can	AUX	MD	VerbForm=Fin	3	aux	3:aux	_
 3	become	become	VERB	VB	VerbForm=Inf	0	root	0:root	MSeg=be-come
 4	a	a	DET	DT	Definite=Ind|PronType=Art	5	det	5:det	Entity=(60-animal-new-cf5-2-sgl
 5	monkey	monkey	NOUN	NN	Number=Sing	3	xcomp	3:xcomp	Entity=60)|SpaceAfter=No
@@ -551,7 +551,7 @@
 # newpar_block = sp who:::"#Wikinews" (1 s) | p (1 s)
 1	Do	do	AUX	VB	VerbForm=Inf	3	aux	3:aux	Discourse=topic-question:49->50:1:syn-sbinv-364+grf-qst-372
 2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Entity=(2-person-giv:inact-cf1-1-ana)
-3	travel	travel	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Interrogative-Polar
+3	travel	travel	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Interrogative-Polar-Direct
 4	much	much	ADV	RB	Degree=Pos	3	advmod	3:advmod	_
 5	in	in	ADP	IN	_	8	case	8:case	_
 6	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	8	nmod:poss	8:nmod:poss	Bridge=2<64|Entity=(64-abstract-acc:inf-cf2-3-sgl(2-person-giv:act-cf1-1-ana)
@@ -662,13 +662,13 @@
 10	next	next	ADJ	JJ	Degree=Pos	11	amod	11:amod	Entity=(86-time-acc:com-cf3-2-coref|XML=<date when:::"2013-11">
 11	month	month	NOUN	NN	Number=Sing	3	obl:tmod	3:obl:tmod	Entity=86)|MSeg=mon-th|SpaceAfter=No|XML=</date>
 12	,	,	PUNCT	,	_	13	punct	13:punct	_
-12.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Ger	_	_	3:conj	CopyOf=3
+12.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Part	_	_	3:conj	CopyOf=3
 12.2	to	to	ADP	IN	_	_	_	13:case	CopyOf=4
 13	Italy	Italy	PROPN	NNP	Number=Sing	3	conj	12.1:obl:to	Discourse=joint-sequence_m:54->53:0:lex-indph-451-452+lex-indwd-456|Entity=(87-place-new-cf14-1-sgl-Italy)
 14	in	in	ADP	IN	_	15	case	15:case	_
 15	November	November	PROPN	NNP	Number=Sing	13	orphan	12.1:obl:in	Entity=(86-time-giv:act-cf3-1-coref)|SpaceAfter=No|XML=<date when:::"2013-11"></date>
 16	,	,	PUNCT	,	_	19	punct	19:punct	_
-16.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Ger	_	_	3:conj	CopyOf=3
+16.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Part	_	_	3:conj	CopyOf=3
 17	back	back	ADV	RB	Degree=Pos	19	advmod	19:advmod	Discourse=joint-sequence_m:55->53:0:lex-indwd-463
 18	to	to	ADP	IN	_	19	case	19:case	_
 19	Las	Las	PROPN	NNP	Number=Sing	3	conj	16.1:obl:to	Entity=(72-place-giv:act-cf2-1,2-coref-Las_Vegas
@@ -676,13 +676,13 @@
 21	in	in	ADP	IN	_	22	case	22:case	_
 22	December	December	PROPN	NNP	Number=Sing	19	orphan	16.1:obl:in	Entity=(88-time-acc:com-cf7-1-sgl)|SpaceAfter=No|XML=<date when:::"2013-12"></date>
 23	,	,	PUNCT	,	_	24	punct	24:punct	_
-23.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Ger	_	_	3:conj	CopyOf=3
+23.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Part	_	_	3:conj	CopyOf=3
 23.2	to	to	ADP	IN	_	_	_	24:case	CopyOf=4
 24	Mexico	Mexico	PROPN	NNP	Number=Sing	3	conj	23.1:obl:to	Discourse=joint-sequence_m:56->53:0:lex-indwd-467|Entity=(89-place-new-cf15-1-sgl-Mexico)
 25	in	in	ADP	IN	_	26	case	26:case	_
 26	January	January	PROPN	NNP	Number=Sing	24	orphan	23.1:obl:in	Entity=(90-time-acc:com-cf8-1-sgl)|SpaceAfter=No|XML=<date when:::"2014-01"></date>
 27	,	,	PUNCT	,	_	28	punct	28:punct	_
-27.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Ger	_	_	3:conj	CopyOf=3
+27.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Part	_	_	3:conj	CopyOf=3
 27.2	to	to	ADP	IN	_	_	_	28:case	CopyOf=4
 28	Magi	Magi	PROPN	NNP	Number=Sing	30	compound	27.1:obl:to	Discourse=joint-sequence_m:57->53:0:lex-indwd-473|Entity=(91-event-new-cf16-1,3-sgl|SpaceAfter=No|XML=<w>
 29	-	-	PUNCT	HYPH	_	28	punct	28:punct	SpaceAfter=No
@@ -690,7 +690,7 @@
 31	in	in	ADP	IN	_	32	case	32:case	_
 32	February	February	PROPN	NNP	Number=Sing	30	orphan	27.1:obl:in	Entity=(92-time-acc:com-cf9-1-sgl)|SpaceAfter=No|XML=<date when:::"2014-02"></date>
 33	,	,	PUNCT	,	_	36	punct	36:punct	_
-33.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Ger	_	_	3:conj	CopyOf=3
+33.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Part	_	_	3:conj	CopyOf=3
 33.2	to	to	ADP	IN	_	_	_	36:case	CopyOf=4
 34	the	the	DET	DT	Definite=Def|PronType=Art	36	det	36:det	Discourse=joint-sequence_m:58->53:0:lex-indwd-476+lex-indwd-483|Entity=(93-event-new-cf11-2,3,5-sgl
 35	Winter	Winter	PROPN	NNP	Number=Sing	36	compound	36:compound	Entity=(94-time-new-cf20-1-sgl)|XML=<date from:::"--12" to:::"--03"></date>
@@ -702,7 +702,7 @@
 41	in	in	ADP	IN	_	42	case	42:case	_
 42	March	March	PROPN	NNP	Number=Sing	36	orphan	33.1:obl:in	Entity=(96-time-acc:com-cf5-1-coref)|SpaceAfter=No|XML=<date when:::"2014-03"></date>
 43	,	,	PUNCT	,	_	46	punct	46:punct	_
-43.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Ger	_	_	3:conj	CopyOf=3
+43.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Part	_	_	3:conj	CopyOf=3
 43.2	to	to	ADP	IN	_	_	_	46:case	CopyOf=4
 44	Eureka	Eureka	PROPN	NNP	Number=Sing	46	compound	46:compound	Discourse=joint-sequence_m:59->53:0:lex-indwd-491|Entity=(97-event-new-cf18-1,2,3,5-sgl(69-place-giv:act-cf6-1,2-coref-Eureka_Springs%2C_Arkansas
 45	Springs	Springs	PROPN	NNP	Number=Sing	44	flat	44:flat	Entity=69)
@@ -713,7 +713,7 @@
 50	March	March	PROPN	NNP	Number=Sing	46	orphan	43.1:obl:in	Entity=(96-time-giv:act-cf5-1-coref)|SpaceAfter=No|XML=<date when:::"2014-03"></date>
 51	,	,	PUNCT	,	_	54	punct	54:punct	_
 52	and	and	CCONJ	CC	_	54	cc	52.1:cc	Discourse=joint-sequence_m:60->53:0:dm-and-493+lex-indwd-497
-52.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Ger	_	_	3:conj	CopyOf=3
+52.1	going	go	VERB	VBG	Tense=Pres|VerbForm=Part	_	_	3:conj	CopyOf=3
 52.2	to	to	ADP	IN	_	_	_	54:case	CopyOf=4
 53	the	the	DET	DT	Definite=Def|PronType=Art	54	det	54:det	Entity=(98-event-new-cf12-2-sgl
 54	FFFF	FFFF	PROPN	NNP	Abbr=Yes|Number=Sing	3	conj	52.1:obl:to	Entity=98)

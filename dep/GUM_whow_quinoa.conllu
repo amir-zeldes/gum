@@ -84,7 +84,7 @@
 4	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Bridge=3<7|Entity=(7-person-acc:inf-cf1-3-sgl-Sapa_Inca
 5	Inca	Inca	PROPN	NNP	Number=Sing	6	compound	6:compound	_
 6	emperor	emperor	NOUN	NN	Number=Sing	8	nsubj	8:nsubj	Entity=7)
-7	would	would	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	8	aux	8:aux	_
+7	would	would	AUX	MD	VerbForm=Fin	8	aux	8:aux	_
 8	sow	sow	VERB	VB	VerbForm=Inf	0	root	0:root	_
 9	the	the	DET	DT	Definite=Def|PronType=Art	11	det	11:det	Bridge=1<8|Entity=(8-plant-acc:inf-cf2-3-sgl
 10	first	first	ADJ	JJ	Degree=Pos|NumForm=Word|NumType=Ord	11	amod	11:amod	_
@@ -92,7 +92,7 @@
 12	of	of	ADP	IN	_	14	case	14:case	_
 13	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	Entity=(9-time-new-cf4-2-sgl
 14	season	season	NOUN	NN	Number=Sing	11	nmod	11:nmod:of	Entity=9)8)
-15	using	use	VERB	VBG	VerbForm=Ger	8	advcl	8:advcl	Discourse=mode-means:7->6:0:lex-indwd-56+syn-pres-56|MSeg=us-ing
+15	using	use	VERB	VBG	Tense=Pres|VerbForm=Part	8	advcl	8:advcl	Discourse=mode-means:7->6:0:lex-indwd-56+syn-pres-56|MSeg=us-ing
 16	"	''	PUNCT	``	_	18	punct	18:punct	SpaceAfter=No|XML=<q>
 17	golden	golden	ADJ	JJ	Degree=Pos	18	amod	18:amod	Entity=(10-object-new-cf3-2-sgl|MSeg=gold-en
 18	implements	implement	NOUN	NNS	Number=Plur	15	obj	15:obj	Entity=10)|MSeg=implement-s|SpaceAfter=No
@@ -250,13 +250,13 @@
 # text = You can skip this step if you have purchased pre-rinsed quinoa in a box.
 1	You	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Discourse=adversative-concession:22->21:0:_|Entity=(28-person-acc:com-cf1-1-ana)
 2	can	can	AUX	MD	VerbForm=Fin	3	aux	3:aux	_
-3	skip	skip	VERB	VB	VerbForm=Inf	0	root	0:root	_
+3	skip	skip	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Conditional-UnspecifiedEpistemic-NoInversion
 4	this	this	DET	DT	Number=Sing|PronType=Dem	5	det	5:det	Entity=(26-event-giv:act-cf2*-2-coref
 5	step	step	NOUN	NN	Number=Sing	3	obj	3:obj	Entity=26)
 6	if	if	SCONJ	IN	_	9	mark	9:mark	Discourse=contingency-condition:23->22:0:dm-if-143
 7	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	9	nsubj	9:nsubj	Entity=(28-person-giv:act-cf1-1-ana)
 8	have	have	AUX	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	9	aux	9:aux	_
-9	purchased	purchase	VERB	VBN	Tense=Past|VerbForm=Part	3	advcl	3:advcl:if	Cxn=Condition-Realis|MSeg=purchas-ed
+9	purchased	purchase	VERB	VBN	Tense=Past|VerbForm=Part	3	advcl	3:advcl:if	MSeg=purchas-ed
 10	pre-rinsed	pre-rinsed	ADJ	JJ	Degree=Pos	11	amod	11:amod	Entity=(29-substance-new-cf3-2-coref|MSeg=pre-rins-ed
 11	quinoa	quinoa	NOUN	NN	Number=Sing	9	obj	9:obj	_
 12	in	in	ADP	IN	_	14	case	14:case	_
@@ -308,7 +308,7 @@
 13	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	Entity=(19-substance-giv:act-cf1*-2-coref
 14	grains	grain	NOUN	NNS	Number=Plur	11	nmod	11:nmod:of	Entity=19)35)|MSeg=grain-s
 15	which	which	PRON	WDT	PronType=Rel	16	nsubj	8:ref	Discourse=elaboration-attribute:28->27:0:syn-mdf-178+syn-relcl-185-186+syn-pst_-194
-16	impart	impart	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	8	acl:relcl	8:acl:relcl	_
+16	impart	impart	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	8	acl:relcl	8:acl:relcl	Cxn=Conditional-UnspecifiedEpistemic-Reduced
 17	a	a	DET	DT	Definite=Ind|PronType=Art	19	det	19:det	Entity=(36-abstract-new-cf5-3-sgl
 18	bitter	bitter	ADJ	JJ	Degree=Pos	19	amod	19:amod	MSeg=bitt-er
 19	flavor	flavor	NOUN	NN	Number=Sing	16	obj	16:obj	Entity=36)
@@ -316,7 +316,7 @@
 21	quinoa	quinoa	NOUN	NN	Number=Sing	16	obl	16:obl:to	Entity=(11-substance-giv:inact-cf2-1-coref)
 22	if	if	SCONJ	IN	_	24	mark	24:mark	Discourse=contingency-condition:29->28:0:dm-if-192
 23	not	not	PART	RB	Polarity=Neg	24	advmod	24:advmod	_
-24	removed	remove	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	16	advcl	16:advcl:if	Cxn=Condition-Reduced|Entity=34)|MSeg=re-mov-ed|SpaceAfter=No
+24	removed	remove	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	16	advcl	16:advcl:if	Entity=34)|MSeg=re-mov-ed|SpaceAfter=No
 25	.	.	PUNCT	.	_	3	punct	3:punct	_
 
 # sent_id = GUM_whow_quinoa-17
@@ -490,7 +490,7 @@
 2	to	to	PART	TO	_	3	mark	3:mark	_
 3	ensure	ensure	VERB	VB	VerbForm=Inf	1	xcomp	1:xcomp	MSeg=en-sure
 4	there	there	PRON	EX	PronType=Dem	5	expl	5:expl	_
-5	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	ccomp	3:ccomp	Cxn=Existential-There
+5	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	ccomp	3:ccomp	Cxn=Existential-CopPred-ThereExpl
 6	an	a	DET	DT	Definite=Ind|PronType=Art	9	det	9:det	Entity=(50-abstract-new-cf2-4-sgl
 7	al	al	X	FW	_	9	amod	9:amod	XML=<hi rend:::"italic">
 8	dente	dente	X	FW	_	7	flat	7:flat	XML=</hi>
@@ -513,7 +513,7 @@
 # transition = zero
 # text = Quinoa will continue cooking for a bit even after you take it off the heat.
 1	Quinoa	quinoa	NOUN	NN	Number=Sing	3	nsubj	3:nsubj|4:nsubj:xsubj	Discourse=explanation-motivation:45->44:0:mrf-md-303|Entity=(19-substance-giv:inact-cf1-1-coref)
-2	will	will	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	3	aux	3:aux	_
+2	will	will	AUX	MD	VerbForm=Fin	3	aux	3:aux	_
 3	continue	continue	VERB	VB	VerbForm=Inf	0	root	0:root	_
 4	cooking	cook	VERB	VBG	VerbForm=Ger	3	xcomp	3:xcomp	MSeg=cook-ing
 5	for	for	ADP	IN	_	7	case	7:case	_
@@ -598,7 +598,7 @@
 # text = The quinoa should look light and fluffy, and you should be able to see the germ separating from the seed.
 1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=causal-result:56->54:1:_|Entity=(19-substance-giv:inact-cf2-2-coref
 2	quinoa	quinoa	NOUN	NN	Number=Sing	4	nsubj	4:nsubj|5:nsubj:xsubj|7:nsubj:xsubj	Entity=19)
-3	should	should	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	4	aux	4:aux	_
+3	should	should	AUX	MD	VerbForm=Fin	4	aux	4:aux	_
 4	look	look	VERB	VB	VerbForm=Inf	0	root	0:root	_
 5	light	light	ADJ	JJ	Degree=Pos	4	xcomp	4:xcomp	_
 6	and	and	CCONJ	CC	_	7	cc	7:cc	_
@@ -671,7 +671,7 @@
 2	-	-	PUNCT	HYPH	_	1	punct	1:punct	SpaceAfter=No
 3	fry	fry	NOUN	NN	Number=Sing	0	root	0:root	Entity=63)|SpaceAfter=No|XML=</w>
 4	,	,	PUNCT	,	_	5	punct	5:punct	_
-5	using	use	VERB	VBG	VerbForm=Ger	3	advcl	3:advcl	Discourse=mode-means:64->63:0:lex-indwd-426+syn-pres-426|MSeg=us-ing
+5	using	use	VERB	VBG	Tense=Pres|VerbForm=Part	3	advcl	3:advcl	Discourse=mode-means:64->63:0:lex-indwd-426+syn-pres-426|MSeg=us-ing
 6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	Entity=(19-substance-giv:inact-cf1-2-coref
 7	quinoa	quinoa	NOUN	NN	Number=Sing	5	obj	5:obj	Entity=19)
 8	as	as	ADP	IN	_	10	case	10:case	_
@@ -775,7 +775,7 @@
 # text = If you bought packaged quinoa, this step isn't always necessary, but it's better to be safe than sorry.
 1	If	if	SCONJ	IN	_	3	mark	3:mark	Discourse=contingency-condition:73->74:0:dm-if-474
 2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Entity=(28-person-giv:inact-cf2-1-ana)
-3	bought	buy	VERB	VBD	Mood=Ind|Number=Sing|Person=2|Tense=Past|VerbForm=Fin	12	advcl	12:advcl:if	Cxn=Condition-Realis
+3	bought	buy	VERB	VBD	Mood=Ind|Number=Sing|Person=2|Tense=Past|VerbForm=Fin	12	advcl	12:advcl:if	_
 4	packaged	packaged	ADJ	JJ	Degree=Pos	5	amod	5:amod	Entity=(29-substance-giv:inact-cf3-2-coref|MSeg=packag-ed
 5	quinoa	quinoa	NOUN	NN	Number=Sing	3	obj	3:obj	Entity=29)|SpaceAfter=No
 6	,	,	PUNCT	,	_	3	punct	3:punct	_
@@ -785,7 +785,7 @@
 9	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	12	cop	12:cop	_
 10	n't	not	PART	RB	Polarity=Neg	12	advmod	12:advmod	_
 11	always	always	ADV	RB	_	12	advmod	12:advmod	_
-12	necessary	necessary	ADJ	JJ	Degree=Pos	0	root	0:root	MSeg=necess-ary|SpaceAfter=No
+12	necessary	necessary	ADJ	JJ	Degree=Pos	0	root	0:root	Cxn=Conditional-UnspecifiedEpistemic-NoInversion|MSeg=necess-ary|SpaceAfter=No
 13	,	,	PUNCT	,	_	17	punct	17:punct	_
 14	but	but	CCONJ	CC	_	17	cc	17:cc	Discourse=adversative-contrast_m:75->74:1:dm-but-487
 15-16	it's	_	_	_	_	_	_	_	_
@@ -826,7 +826,7 @@
 6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	Entity=(19-substance-giv:act-cf1*-2-coref
 7	quinoa	quinoa	NOUN	NN	Number=Sing	5	obj	5:obj	Entity=19)
 8	before	before	SCONJ	IN	_	9	mark	9:mark	Discourse=context-circumstance:79->78:0:dm-before-510+syn-pres-511
-9	placing	place	VERB	VBG	VerbForm=Ger	5	advcl	5:advcl:before	MSeg=plac-ing
+9	placing	place	VERB	VBG	Tense=Pres|VerbForm=Part	5	advcl	5:advcl:before	MSeg=plac-ing
 10	in	in	ADP	IN	_	13	case	13:case	_
 11	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	Entity=(69-object-giv:act-cf2-3-coref
 12	rice	rice	NOUN	NN	Number=Sing	13	compound	13:compound	Entity=(14-substance-giv:act-cf4-1-coref)
@@ -914,7 +914,7 @@
 1	Some	some	DET	DT	PronType=Ind	3	det	3:det	Bridge=69<82|Discourse=context-background:84->85:1:sem-mrnym-562-564,586-588+sem-rpt-563,587|Entity=(82-object-acc:inf-cf2-3-sgl
 2	rice	rice	NOUN	NN	Number=Sing	3	compound	3:compound	Entity=(14-substance-giv:inact-cf1-1-coref)
 3	cooker	cooker	NOUN	NN	Number=Sing	5	nsubj	5:nsubj	Entity=82)|MSeg=cook-er
-4	will	will	AUX	MD	Number=Sing|Person=3|VerbForm=Fin	5	aux	5:aux	_
+4	will	will	AUX	MD	VerbForm=Fin	5	aux	5:aux	_
 5	have	have	VERB	VB	VerbForm=Inf	0	root	0:root	_
 6	different	different	ADJ	JJ	Degree=Pos	7	amod	7:amod	Entity=(83-abstract-new-cf4-2-coref|MSeg=differ-ent
 7	settings	setting	NOUN	NNS	Number=Plur	5	obj	5:obj	Entity=83)|MSeg=sett-ing-s
@@ -933,7 +933,7 @@
 # s_type = imp
 # transition = establishment
 # text = Try the "white rice" option if your rice cooker gives you several options.
-1	Try	try	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=elaboration-additional:85->83:0:sem-lxchn-556,564
+1	Try	try	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Cxn=Conditional-UnspecifiedEpistemic-NoInversion|Discourse=elaboration-additional:85->83:0:sem-lxchn-556,564
 2	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	Entity=(85-abstract-new-cf5-6-coref
 3	"	''	PUNCT	``	_	5	punct	5:punct	SpaceAfter=No|XML=<q>
 4	white	white	ADJ	JJ	Degree=Pos	5	amod	5:amod	Entity=(86-substance-new-cf6-2-sgl
@@ -944,7 +944,7 @@
 9	your	your	PRON	PRP$	Case=Gen|Number=Sing|Person=2|Poss=Yes|PronType=Prs	11	nmod:poss	11:nmod:poss	Bridge=69<87|Entity=(87-object-acc:inf-cf3-3-sgl(28-person-giv:inact-cf1-1-ana)
 10	rice	rice	NOUN	NN	Number=Sing	11	compound	11:compound	Entity=(14-substance-giv:act-cf2*-1-coref)
 11	cooker	cooker	NOUN	NN	Number=Sing	12	nsubj	12:nsubj	Entity=87)|MSeg=cook-er
-12	gives	give	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	1	advcl	1:advcl:if	Cxn=Condition-Realis|MSeg=give-s
+12	gives	give	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	1	advcl	1:advcl:if	Cxn=Ditransitive|MSeg=give-s
 13	you	you	PRON	PRP	Case=Acc|Number=Sing|Person=2|PronType=Prs	12	iobj	12:iobj	Entity=(28-person-giv:act-cf1-1-ana)
 14	several	several	ADJ	JJ	Degree=Pos	15	amod	15:amod	Bridge=85<88|Entity=(88-abstract-acc:inf-cf4-2-sgl
 15	options	option	NOUN	NNS	Number=Plur	12	obj	12:obj	Entity=88)|MSeg=opt-ion-s|SpaceAfter=No
@@ -1152,7 +1152,7 @@
 7	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(98-object-giv:inact-cf2-2-coref
 8	saucepan	saucepan	NOUN	NN	Number=Sing	1	obl	1:obl:to	Entity=98)|SpaceAfter=No
 9	,	,	PUNCT	,	_	10	punct	10:punct	_
-10	stirring	stir	VERB	VBG	VerbForm=Ger	1	advcl	1:advcl	Discourse=elaboration-additional:104->103:0:syn-pres-717|MSeg=stirr-ing
+10	stirring	stir	VERB	VBG	Tense=Pres|VerbForm=Part	1	advcl	1:advcl	Discourse=elaboration-additional:104->103:0:syn-pres-717|MSeg=stirr-ing
 11	until	until	SCONJ	IN	_	13	mark	13:mark	Discourse=context-circumstance:105->104:0:dm-until-718+syn-pst_-720|MSeg=un-til
 12	completely	completely	ADV	RB	Degree=Pos	13	advmod	13:advmod	MSeg=complete-ly
 13	incorporated	incorporate	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	10	advcl	10:advcl:until	Entity=106)|MSeg=in-corporat-ed|SpaceAfter=No
@@ -1298,7 +1298,7 @@
 7	baking	baking	NOUN	NN	Number=Sing	8	compound	8:compound	MSeg=bak-ing
 8	dish	dish	NOUN	NN	Number=Sing	1	obl	1:obl:from	Entity=112)|SpaceAfter=No
 9	,	,	PUNCT	,	_	10	punct	10:punct	_
-10	add	add	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	1	conj	1:conj:or	Discourse=joint-sequence_m:117->116:0:grf-seq-
+10	add	add	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	1	conj	1:conj:and	Discourse=joint-sequence_m:117->116:0:grf-seq-
 11	cheese	cheese	NOUN	NN	Number=Sing	10	obj	10:obj	Entity=(116-substance-new-cf3-1-sgl)
 12	or	or	CCONJ	CC	_	14	cc	14:cc	_
 13	other	other	ADJ	JJ	Degree=Pos	14	amod	14:amod	Entity=(117-substance-new-cf4-2-sgl
