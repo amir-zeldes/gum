@@ -17,7 +17,7 @@
 # text = 1 The Americas, Europe, and Africa Before 1492
 # newpar
 # newpar_block = head (1 s)
-1	1	1	X	LS	_	3	dep	3:dep	Discourse=organization-heading:1->77:10:grf-ly-+grf-seq-1
+1	1	1	X	LS	_	3	discourse	3:discourse	Discourse=organization-heading:1->77:10:grf-ly-+grf-seq-1
 2	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Entity=(1-place-new-cf1-2-coref-Americas
 3	Americas	America	PROPN	NNPS	Number=Plur	0	root	0:root	Entity=1)|MSeg=America-s|SpaceAfter=No
 4	,	,	PUNCT	,	_	5	punct	5:punct	_
@@ -35,7 +35,7 @@
 # text = 1.1 The Americas
 # newpar
 # newpar_block = head (1 s)
-1	1.1	1.1	X	LS	_	3	dep	3:dep	Discourse=organization-heading:2->77:9:grf-ly-+grf-seq-11
+1	1.1	1.1	X	LS	_	3	discourse	3:discourse	Discourse=organization-heading:2->77:9:grf-ly-+grf-seq-11
 2	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Entity=(1-place-giv:act-cf1*-2-coref-Americas
 3	Americas	America	PROPN	NNPS	Number=Plur	0	root	0:root	Entity=1)|MSeg=America-s
 
@@ -180,7 +180,7 @@
 13	a	a	DET	DT	Definite=Ind|PronType=Art	15	det	15:det	Entity=(27-place-new-cf1-4,8,9-disc-Bering_Strait
 14	land	land	NOUN	NN	Number=Sing	15	compound	15:compound	_
 15	bridge	bridge	NOUN	NN	Number=Sing	16	nsubj	16:nsubj|25:obj	_
-16	existed	exist	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	ccomp	3:ccomp	Cxn=Existential-Exist|MSeg=exist-ed
+16	existed	exist	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	ccomp	3:ccomp	Cxn=Existential-ExistPred-NoExpl|MSeg=exist-ed
 17	between	between	ADP	IN	_	18	case	18:case	MSeg=be-tween
 18	Asia	Asia	PROPN	NNP	Number=Sing	16	obl	16:obl:between	Entity=(28-place-new-cf4-1-coref-Asia)
 19	and	and	CCONJ	CC	_	21	cc	21:cc	_
@@ -291,7 +291,7 @@
 # transition = zero
 # text = Continually moving southward, the settlers eventually populated both North and South America, creating unique cultures that ranged from the highly complex and urban Aztec civilization in what is now Mexico City to the woodland tribes of eastern North America.
 1	Continually	continually	ADV	RB	Degree=Pos	2	advmod	2:advmod	Discourse=mode-manner:22->23:1:syn-pres-177|MSeg=Continu-al-ly
-2	moving	move	VERB	VBG	VerbForm=Ger	8	advcl	8:advcl	MSeg=mov-ing
+2	moving	move	VERB	VBG	Tense=Pres|VerbForm=Part	8	advcl	8:advcl	MSeg=mov-ing
 3	southward	southward	ADV	RB	Degree=Pos	2	advmod	2:advmod	MSeg=south-ward|SpaceAfter=No
 4	,	,	PUNCT	,	_	2	punct	2:punct	_
 5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Discourse=joint-sequence_m:23->14:3:lex-indwd-206|Entity=(38-person-giv:inact-cf1-2-coref
@@ -304,7 +304,7 @@
 12	South	South	PROPN	NNP	Number=Sing	10	conj	10:conj:and|13:compound	Entity=(47-place-new-cf3-2-coref-South_America
 13	America	America	PROPN	NNP	Number=Sing	8	obj	8:obj	Entity=47)|SpaceAfter=No
 14	,	,	PUNCT	,	_	15	punct	15:punct	_
-15	creating	create	VERB	VBG	VerbForm=Ger	8	advcl	8:advcl	Discourse=causal-result:24->23:0:syn-pres-190|MSeg=creat-ing
+15	creating	create	VERB	VBG	Tense=Pres|VerbForm=Part	8	advcl	8:advcl	Discourse=causal-result:24->23:0:syn-pres-190|MSeg=creat-ing
 16	unique	unique	ADJ	JJ	Degree=Pos	17	amod	17:amod	_
 17	cultures	culture	NOUN	NNS	Number=Plur	15	obj	15:obj|19:nsubj|27:nmod:in	MSeg=culture-s
 18	that	that	PRON	WDT	PronType=Rel	19	nsubj	17:ref	Discourse=elaboration-attribute:25->24:0:syn-mdf-192+syn-relcl-193-194,204,207
@@ -359,7 +359,7 @@
 19	coast	coast	NOUN	NN	Number=Sing	16	obl	16:obl:down	Entity=55)
 20	by	by	ADP	IN	_	21	case	21:case	_
 21	water	water	NOUN	NN	Number=Sing	16	obl	16:obl:by	Entity=(57-substance-new-cf5-1-sgl)
-22	as	as	ADV	RB	_	26	cc	26:cc	_
+22	as	as	ADV	RB	_	26	cc	26:cc	ExtPos=CCONJ
 23	well	well	ADV	RB	Degree=Pos	22	fixed	22:fixed	_
 24	as	as	ADP	IN	_	22	fixed	22:fixed	_
 25	by	by	ADP	IN	_	26	case	26:case	_
@@ -390,7 +390,7 @@
 17	and	and	CCONJ	CC	_	18	cc	18:cc	_
 18	animals	animal	NOUN	NNS	Number=Plur	16	conj	14:nmod:of|16:conj:and	Entity=(64-animal-new-cf7-1-sgl)62)|MSeg=animal-s|SpaceAfter=No
 19	,	,	PUNCT	,	_	20	punct	20:punct	_
-20	adding	add	VERB	VBG	VerbForm=Ger	12	advcl	12:advcl	Discourse=causal-result:30->29:0:syn-pres-264|MSeg=add-ing
+20	adding	add	VERB	VBG	Tense=Pres|VerbForm=Part	12	advcl	12:advcl	Discourse=causal-result:30->29:0:syn-pres-264|MSeg=add-ing
 21	agriculture	agriculture	NOUN	NN	Number=Sing	20	obj	20:obj	Entity=(65-abstract-new-cf1-1-coref)
 22	as	as	ADP	IN	_	24	case	24:case	_
 23	a	a	DET	DT	Definite=Ind|PronType=Art	24	det	24:det	Entity=(65-abstract-giv:act-cf1-2-pred
@@ -440,7 +440,7 @@
 29	of	of	ADP	IN	_	30	case	30:case	_
 30	life	life	NOUN	NN	Number=Sing	28	nmod	28:nmod:of	Entity=(76-abstract-new-cf7-1-sgl)75)|SpaceAfter=No
 31	,	,	PUNCT	,	_	32	punct	32:punct	_
-32	building	build	VERB	VBG	VerbForm=Ger	24	advcl	24:advcl	Discourse=elaboration-additional:35->34:0:sem-lxchn-303,310+syn-pres-308|MSeg=build-ing
+32	building	build	VERB	VBG	Tense=Pres|VerbForm=Part	24	advcl	24:advcl	Discourse=elaboration-additional:35->34:0:sem-lxchn-303,310+syn-pres-308|MSeg=build-ing
 33	permanent	permanent	ADJ	JJ	Degree=Pos	34	amod	34:amod	Entity=(77-place-new-cf5-2-sgl
 34	settlements	settlement	NOUN	NNS	Number=Plur	32	obj	32:obj	Entity=77)72)|MSeg=settle-ment-s|SpaceAfter=No
 35	.	.	PUNCT	.	_	18	punct	18:punct	_
@@ -458,9 +458,9 @@
 6	this	this	PRON	DT	Number=Sing|PronType=Dem	8	nsubj	8:nsubj	Entity=(72-event-giv:act-cf1*-1-coref)
 7	more	more	ADV	RBR	Degree=Cmp	8	advmod	8:advmod	_
 8	obvious	obvious	ADJ	JJ	Degree=Pos	0	root	0:root	_
-9	than	than	SCONJ	IN	_	11	mark	11:mark	_
+9	than	than	ADP	IN	_	11	case	11:case	_
 10	in	in	ADP	IN	_	11	case	11:case	_
-11	Mesoamerica	Mesoamerica	PROPN	NNP	Number=Sing	8	obl	8:obl:in	Entity=(79-place-new-cf3-1-coref-Mesoamerica)|MSeg=Meso-america
+11	Mesoamerica	Mesoamerica	PROPN	NNP	Number=Sing	8	obl	8:obl:than_in	Entity=(79-place-new-cf3-1-coref-Mesoamerica)|MSeg=Meso-america
 12	(	(	PUNCT	-LRB-	_	13	punct	13:punct	Discourse=explanation-evidence:37->36:0:_|SpaceAfter=No
 13	Figure	Figure	PROPN	NNP	Number=Sing	8	dep	8:dep	Entity=(80-abstract-new-cf4-1-coref|XML=<ref>
 14	1.3	1.3	NUM	CD	NumForm=Digit|NumType=Frac	13	dep	13:dep	Entity=80)|SpaceAfter=No|XML=</ref>
@@ -824,7 +824,7 @@
 # text = Flourishing along the hot Gulf Coast of Mexico from about 1200 to about 400 BCE, the Olmec produced a number of major works of art, architecture, pottery, and sculpture.
 # newpar
 # newpar_block = p (8 s)
-1	Flourishing	flourish	VERB	VBG	VerbForm=Ger	19	advcl	19:advcl	Discourse=context-circumstance:78->79:0:syn-pres-594+lex-indwd-604+lex-indph-607-608|MSeg=Flourish-ing
+1	Flourishing	flourish	VERB	VBG	Tense=Pres|VerbForm=Part	19	advcl	19:advcl	Discourse=context-circumstance:78->79:0:syn-pres-594+lex-indwd-604+lex-indph-607-608|MSeg=Flourish-ing
 2	along	along	ADP	IN	_	6	case	6:case	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(143-place-new-cf3-3,4,6-coref-Gulf_Coast_of_Mexico
 4	hot	hot	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
@@ -1054,7 +1054,7 @@
 9	throughout	throughout	ADP	IN	_	10	case	10:case	_
 10	Mesoamerica	Mesoamerica	PROPN	NNP	Number=Sing	4	obl	4:obl:throughout	Entity=(79-place-giv:inact-cf2-1-coref-Mesoamerica)|MSeg=Meso-america|SpaceAfter=No
 11	,	,	PUNCT	,	_	12	punct	12:punct	_
-12	giving	give	VERB	VBG	VerbForm=Ger	4	advcl	4:advcl	Discourse=causal-result:100->99:0:syn-pres-782|MSeg=giv-ing
+12	giving	give	VERB	VBG	Tense=Pres|VerbForm=Part	4	advcl	4:advcl	Discourse=causal-result:100->99:0:syn-pres-782|MSeg=giv-ing
 13	rise	rise	NOUN	NN	Number=Sing	12	obj	12:obj	_
 14	to	to	ADP	IN	_	17	case	17:case	_
 15	an	a	DET	DT	Definite=Ind|PronType=Art	17	det	17:det	Entity=(180-person-new-cf4-3-sgl
@@ -1096,7 +1096,7 @@
 17	and	and	CCONJ	CC	_	19	cc	19:cc	Discourse=joint-list_m:104->103:0:dm-and-807
 18	could	could	AUX	MD	VerbForm=Fin	19	aux	19:aux	_
 19	weigh	weigh	VERB	VB	VerbForm=Inf	9	conj	7:acl:relcl|9:conj:and	_
-20	up	up	ADP	IN	_	22	advmod	22:advmod	_
+20	up	up	ADP	IN	_	22	advmod	22:advmod	ExtPos=ADV
 21	to	to	ADP	IN	_	20	fixed	20:fixed	_
 22	fifty	fifty	NUM	CD	NumForm=Word|NumType=Card	23	nummod	23:nummod	Entity=(185-abstract-new-cf6-2-sgl
 23	tons	ton	NOUN	NNS	Number=Plur	19	obl:npmod	19:obl:npmod	Entity=185)182)|MSeg=ton-s|SpaceAfter=No
@@ -1199,7 +1199,7 @@
 10	and	and	CCONJ	CC	_	11	cc	11:cc	_
 11	home	home	NOUN	NN	Number=Sing	1	conj	1:conj:and|27:advcl	Entity=(194-place-giv:act-cf1*-1-coref-Teotihuacan
 12	to	to	ADP	IN	_	16	case	16:case	_
-13	more	more	ADV	RBR	Degree=Cmp	15	advmod	15:advmod	Entity=(199-person-new-cf6-4-sgl
+13	more	more	ADV	RBR	Degree=Cmp	15	advmod	15:advmod	Entity=(199-person-new-cf6-4-sgl|ExtPos=ADV
 14	than	than	ADP	IN	_	13	fixed	13:fixed	_
 15	100,000	100000	NUM	CD	NumForm=Digit|NumType=Card	16	nummod	16:nummod	_
 16	people	person	NOUN	NNS	Number=Plur	11	nmod	11:nmod:to	Entity=199)
@@ -1298,10 +1298,10 @@
 11	multiple	multiple	ADJ	JJ	Degree=Pos	12	amod	12:amod	Entity=(215-person-new-cf3-2-sgl
 12	families	family	NOUN	NNS	Number=Plur	9	nmod	9:nmod:for	Entity=215)214)|SpaceAfter=No
 13	,	,	PUNCT	,	_	21	punct	21:punct	_
-14	as	as	ADV	RB	_	21	cc	21:cc	_
+14	as	as	ADV	RB	_	21	cc	21:cc	ExtPos=CCONJ
 15	well	well	ADV	RB	Degree=Pos	14	fixed	14:fixed	_
 16	as	as	ADP	IN	_	14	fixed	14:fixed	_
-17	more	more	ADV	RBR	Degree=Cmp	20	advmod	20:advmod	Entity=(216-place-new-cf4-5-coref
+17	more	more	ADV	RBR	Degree=Cmp	20	advmod	20:advmod	Entity=(216-place-new-cf4-5-coref|ExtPos=ADV
 18	than	than	ADP	IN	_	17	fixed	17:fixed	_
 19	a	a	DET	DT	Definite=Ind|PronType=Art	20	det	20:det	_
 20	hundred	hundred	NUM	CD	NumForm=Word|NumType=Card	21	nummod	21:nummod	_
@@ -1441,7 +1441,7 @@
 # s_type = decl
 # transition = continue
 # text = Flourishing from roughly 2000 BCE to 900 CE in what is now Mexico, Belize, Honduras, and Guatemala, the Maya perfected the calendar and written language the Olmec had begun.
-1	Flourishing	flourish	VERB	VBG	VerbForm=Ger	24	advcl	24:advcl	Discourse=context-background:129->130:1:_|MSeg=Flourish-ing
+1	Flourishing	flourish	VERB	VBG	Tense=Pres|VerbForm=Part	24	advcl	24:advcl	Discourse=context-background:129->130:1:_|MSeg=Flourish-ing
 2	from	from	ADP	IN	_	4	case	4:case	_
 3	roughly	roughly	ADV	RB	Degree=Pos	4	advmod	4:advmod	Entity=(233-time-new-cf10-2-sgl|MSeg=rough-ly
 4	2000	2000	NUM	CD	NumForm=Digit|NumType=Card	1	obl	1:obl:from	XML=<date when:::"-2000">
@@ -1538,7 +1538,7 @@
 26	trade	trade	NOUN	NN	Number=Sing	27	compound	27:compound	Entity=(244-abstract-giv:act-cf2-1-coref)
 27	routes	route	NOUN	NNS	Number=Plur	10	obl	10:obl:along	Entity=251)|MSeg=route-s|SpaceAfter=No
 28	,	,	PUNCT	,	_	27	punct	27:punct	_
-29	as	as	ADV	RB	_	32	cc	32:cc	_
+29	as	as	ADV	RB	_	32	cc	32:cc	ExtPos=CCONJ
 30	well	well	ADV	RB	Degree=Pos	29	fixed	29:fixed	_
 31	as	as	ADP	IN	_	29	fixed	29:fixed	_
 32	temples	temple	NOUN	NNS	Number=Plur	14	conj	10:obj|14:conj:as_well_as	Entity=(252-place-new-cf12-1-sgl)|MSeg=temple-s|SpaceAfter=No
@@ -1655,7 +1655,7 @@
 # transition = null
 # text = When counting the top platform, the total number of stairs is three hundred and sixty-five, the number of days in a year.
 1	When	when	ADV	WRB	PronType=Int	2	advmod	2:advmod	Discourse=contingency-condition:149->150:0:dm-when-1231
-2	counting	count	VERB	VBG	VerbForm=Ger	14	advcl	14:advcl:when	MSeg=count-ing
+2	counting	count	VERB	VBG	Tense=Pres|VerbForm=Part	14	advcl	14:advcl:when	Cxn=AdverbialWHClause-Reduced-Active|MSeg=count-ing
 3	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	Entity=(272-object-new-cf2-3-sgl
 4	top	top	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
 5	platform	platform	NOUN	NN	Number=Sing	2	obj	2:obj	Entity=272)|SpaceAfter=No
@@ -1858,21 +1858,21 @@
 # text = 1. Which of the following Indian peoples built homes in cliff dwellings that still exist?
 # newpar
 # newpar_block = list type:::"ordered" (10 s) | item n:::"1" (5 s)
-1	1.	1.	X	LS	_	8	dep	8:dep	Discourse=topic-question:170->172:1:grf-qst-1378|XML=<ref></ref>
+1	1.	1.	X	LS	_	8	discourse	8:discourse	Discourse=topic-question:170->172:1:grf-qst-1378|XML=<ref></ref>
 2	Which	which	PRON	WDT	PronType=Int	8	nsubj	8:nsubj	_
 3	of	of	ADP	IN	_	7	case	7:case	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	Entity=(297-person-new-cf2-4-coref
 5	following	follow	VERB	VBG	VerbForm=Ger	7	amod	7:amod	MSeg=follow-ing
 6	Indian	Indian	ADJ	JJ	Degree=Pos	7	amod	7:amod	MSeg=Indi-an
 7	peoples	people	NOUN	NNS	Number=Plur	2	nmod	2:nmod:of	Entity=297)|MSeg=people-s
-8	built	build	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	Cxn=Interrogative-Declarative
+8	built	build	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	Cxn=Interrogative-Polar-DeclarativeDirect
 9	homes	home	NOUN	NNS	Number=Plur	8	obj	8:obj	Entity=(298-place-new-cf1-1-sgl)|MSeg=home-s
 10	in	in	ADP	IN	_	12	case	12:case	_
 11	cliff	cliff	NOUN	NN	Number=Sing	12	compound	12:compound	Entity=(299-place-new-cf3-2-sgl(300-place-new-cf4-1-sgl)
 12	dwellings	dwelling	NOUN	NNS	Number=Plur	8	obl	8:obl:in|15:nsubj	MSeg=dwell-ing-s
 13	that	that	PRON	WDT	PronType=Rel	15	nsubj	12:ref	Discourse=elaboration-attribute:171->170:0:syn-mdf-1374+syn-relcl-1375,1377
 14	still	still	ADV	RB	Degree=Pos	15	advmod	15:advmod	_
-15	exist	exist	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	12	acl:relcl	12:acl:relcl	Cxn=Existential-Exist|Entity=299)|SpaceAfter=No
+15	exist	exist	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	12	acl:relcl	12:acl:relcl	Cxn=Existential-ExistPred-NoExpl|Entity=299)|SpaceAfter=No
 16	?	?	PUNCT	.	_	8	punct	8:punct	_
 
 # sent_id = GUM_textbook_history-74
@@ -1882,7 +1882,7 @@
 # text = A. Anasazi
 # newpar
 # newpar_block = list type:::"ordered" (4 s) | item n:::"1" (1 s)
-1	A.	A.	X	LS	_	2	dep	2:dep	Discourse=joint-other_m:172->77:6:_
+1	A.	A.	X	LS	_	2	discourse	2:discourse	Discourse=joint-other_m:172->77:6:_
 2	Anasazi	Anasazi	PROPN	NNP	Number=Sing	0	root	0:root	Bridge=297<301|Entity=(301-person-acc:inf-cf1-1-coref-Ancestral_Puebloans)
 
 # sent_id = GUM_textbook_history-75
@@ -1892,7 +1892,7 @@
 # text = B. Cherokee
 # newpar
 # newpar_block = item n:::"2" (1 s)
-1	B.	B.	X	LS	_	2	dep	2:dep	Discourse=joint-disjunction_m:173->172:0:grf-seq-1379,1381
+1	B.	B.	X	LS	_	2	discourse	2:discourse	Discourse=joint-disjunction_m:173->172:0:grf-seq-1379,1381
 2	Cherokee	Cherokee	PROPN	NNP	Number=Sing	0	root	0:root	Bridge=301<302|Entity=(302-person-acc:inf-cf1-1-coref-Cherokee)
 
 # sent_id = GUM_textbook_history-76
@@ -1902,7 +1902,7 @@
 # text = C. Aztec
 # newpar
 # newpar_block = item n:::"3" (1 s)
-1	C.	C.	X	LS	_	2	dep	2:dep	Discourse=joint-disjunction_m:174->172:0:grf-seq-1383
+1	C.	C.	X	LS	_	2	discourse	2:discourse	Discourse=joint-disjunction_m:174->172:0:grf-seq-1383
 2	Aztec	Aztec	PROPN	NNP	Number=Sing	0	root	0:root	Entity=(172-person-giv:inact-cf1-1-coref-Aztecs)
 
 # sent_id = GUM_textbook_history-77
@@ -1912,7 +1912,7 @@
 # text = D. Inca
 # newpar
 # newpar_block = item n:::"4" (1 s)
-1	D.	D.	X	LS	_	2	dep	2:dep	Discourse=joint-disjunction_m:175->172:0:grf-seq-1385
+1	D.	D.	X	LS	_	2	discourse	2:discourse	Discourse=joint-disjunction_m:175->172:0:grf-seq-1385
 2	Inca	Inca	PROPN	NNP	Number=Sing	0	root	0:root	Bridge=302<303|Entity=(303-person-acc:inf-cf1-1-sgl)
 
 # sent_id = GUM_textbook_history-78
@@ -1922,10 +1922,10 @@
 # text = 2. Which culture developed the first writing system in the Western Hemisphere?
 # newpar
 # newpar_block = item (5 s)
-1	2.	2.	X	LS	_	4	dep	4:dep	Discourse=topic-question:176->177:1:lex-indwd-1388+grf-qst-1399
+1	2.	2.	X	LS	_	4	discourse	4:discourse	Discourse=topic-question:176->177:1:lex-indwd-1388+grf-qst-1399
 2	Which	which	DET	WDT	PronType=Int	3	det	3:det	_
 3	culture	culture	NOUN	NN	Number=Sing	4	nsubj	4:nsubj	_
-4	developed	develop	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	Cxn=Interrogative-Wh|MSeg=develop-ed
+4	developed	develop	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	Cxn=Interrogative-WHInfo-Direct|MSeg=develop-ed
 5	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Entity=(121-abstract-giv:inact-cf1-4,7-coref
 6	first	first	ADJ	JJ	Degree=Pos|NumForm=Word|NumType=Ord	8	amod	8:amod	_
 7	writing	writing	NOUN	NN	Number=Sing	8	compound	8:compound	Entity=(304-abstract-new-cf3-1-sgl)|MSeg=writ-ing
@@ -1943,7 +1943,7 @@
 # text = A. Inca
 # newpar
 # newpar_block = list type:::"ordered" (4 s) | item n:::"1" (1 s)
-1	A.	A.	X	LS	_	2	dep	2:dep	Discourse=joint-list_m:177->172:2:_
+1	A.	A.	X	LS	_	2	discourse	2:discourse	Discourse=joint-list_m:177->172:2:_
 2	Inca	Inca	PROPN	NNP	Number=Sing	0	root	0:root	Entity=(305-abstract-new-cf1-1-sgl-Inca_society)
 
 # sent_id = GUM_textbook_history-80
@@ -1953,7 +1953,7 @@
 # text = B. Maya
 # newpar
 # newpar_block = item n:::"2" (1 s)
-1	B.	B.	X	LS	_	2	dep	2:dep	Discourse=joint-disjunction_m:178->177:0:grf-seq-1400,1402
+1	B.	B.	X	LS	_	2	discourse	2:discourse	Discourse=joint-disjunction_m:178->177:0:grf-seq-1400,1402
 2	Maya	Maya	PROPN	NNP	Number=Sing	0	root	0:root	Entity=(230-abstract-giv:inact-cf1-1-coref-Maya_society)
 
 # sent_id = GUM_textbook_history-81
@@ -1963,7 +1963,7 @@
 # text = C. Olmec
 # newpar
 # newpar_block = item n:::"3" (1 s)
-1	C.	C.	X	LS	_	2	dep	2:dep	Discourse=joint-disjunction_m:179->177:0:grf-seq-1404
+1	C.	C.	X	LS	_	2	discourse	2:discourse	Discourse=joint-disjunction_m:179->177:0:grf-seq-1404
 2	Olmec	Olmec	PROPN	NNP	Number=Sing	0	root	0:root	Entity=(142-abstract-giv:inact-cf1-1-coref)
 
 # sent_id = GUM_textbook_history-82
@@ -1973,6 +1973,6 @@
 # text = D. Pueblo
 # newpar
 # newpar_block = item n:::"4" (1 s)
-1	D.	D.	X	LS	_	2	dep	2:dep	Discourse=joint-disjunction_m:180->177:0:grf-seq-1406
+1	D.	D.	X	LS	_	2	discourse	2:discourse	Discourse=joint-disjunction_m:180->177:0:grf-seq-1406
 2	Pueblo	Pueblo	PROPN	NNP	Number=Sing	0	root	0:root	Entity=(306-abstract-new-cf1-1-sgl)
 

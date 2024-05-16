@@ -199,6 +199,18 @@ def validate_upos(conllu, docname):
 		if "so\tSCONJ\tRB" in line:
 			sys.stderr.write("invalid xpos + upos comibation on line " + str(l) + " in doc " + docname + ": " + line + "\n")
 
+def validate_cxn(conllu, docname):
+	for l, line in enumerate(conllu.split("\n")):
+		if "Cxn=" in line:
+			if line.count("Cxn=") > 1:
+				sys.stderr.write("! WARN: multiple Cxn= entries on line " + str(l) + " in doc " + docname + ": " + line + "\n")
+			misc = line.split("\t")[-1]
+			cxn = [m for m in misc.split("|") if m.startswith("Cxn=")][0]
+			constructions = cxn.split("=")[1].split(",")
+			firsts = [x.split("-")[0] for x in constructions]
+			if len(set(firsts)) < len(firsts):
+				sys.stderr.write("! WARN: duplicate Cxn first level entry on line " + str(l) + " in doc " + docname + ": " + line + "\n")
+
 def validate_enhanced(conllu, docname):
 	def get_descendants(parent,children_dict,seen,snum,docname, rev=0):
 		my_descendants = []
@@ -977,6 +989,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 
 		# Add CxG constructions
 		output = cxg_deped.run_depedit(output).strip() + "\n\n"
+		validate_cxn(output, docname)
 
 		# Directory with dependency output
 		with io.open(dep_target + docname + ".conllu",'w',encoding="utf8", newline="\n") as f:

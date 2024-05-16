@@ -742,9 +742,10 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print("WARN: substitutive possessive pronoun  "+tok+"/"+pos+"/"+lemma+" should have pos=PP and the plain possessive lemma" + inname)
 
 	if pos in ["VBN","VVN","VHN"] and ("nsubj" in child_funcs or "csubj" in child_funcs) and lemma != "get" and \
-			("aux:pass" not in child_funcs and "aux" not in child_funcs and "cop" not in child_funcs and "compound" not in child_funcs):
+			("aux:pass" not in child_funcs and "aux" not in child_funcs not in child_funcs and "compound" not in child_funcs):
 		if not (("gossip" in inname or "hiking" in inname) and lemma == "see"):  # Known non-standard cases, e.g. 'I seen it'
-			print("WARN: passive verb tagged VBN without perfect auxiliary should have :pass subject, not regular subj" + inname)
+			if not any([x in children for x in ["well","self","tailor"]]):
+				print("WARN: passive verb tagged VBN without perfect auxiliary should have :pass subject, not regular subj" + inname)
 
 	if pos == "CC" and func not in ["cc","cc:preconj","conj","reparandum","root","dep"] and not (parent_lemma=="whether" and func=="fixed"):
 		if not ("languages" in inname and tok == "and"):  # metalinguistic discussion in whow_languages
@@ -800,6 +801,23 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if (pos.startswith("NN") or pos == "DT") and func=="amod":
 		print("WARN: tag "+ pos + " should not be " + func + inname)
+
+	if func in ["amod","flat"]:
+		if "det" in child_funcs:
+			det_idx = [i for i, x in enumerate(child_funcs) if x == "det"]
+			det = children[det_idx[0]]
+			if not (det, lemma) in [("All","Silver"),("the","Great")]:
+				print("WARN: "+func+" should not have det child '"+det+"'" + inname)
+		if "case" in child_funcs:
+			case_idx = [i for i, x in enumerate(child_funcs) if x == "case"]
+			case = children[case_idx[0]]
+			if not (case, lemma) in [("on","line")]:
+				print("WARN: "+func+" should not have det child '"+case+"'" + inname)
+
+	if func =="mark":
+		if parent_func not in ["ccomp","xcomp","csubj","acl","advcl","root","conj","parataxis","orphan","appos","reparandum","dislocated","acl:relcl","csubj:pass","advcl:relcl"]:
+			if not (lemma, parent_lemma) in [("to", "Write")]:
+				print("WARN: mark should not have parent function '"+parent_func+"'" + inname)
 
 	be_funcs = ["cop", "aux", "root", "csubj", "aux:pass", "acl:relcl", "ccomp", "advcl", "conj","xcomp","parataxis","reparandum"]
 	if lemma == "be" and func not in be_funcs:

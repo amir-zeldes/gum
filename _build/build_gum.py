@@ -317,7 +317,7 @@ else:
 		os.makedirs(gum_target + "coref" + os.sep + "conll" + os.sep)
 
 	try:
-		pepper_params = io.open("utils" + os.sep + "pepper" + os.sep + "merge_gum.pepperparams", encoding="utf8").read().replace("\r","")
+		pepper_params = io.open(pepper_home + "merge_gum.pepperparams", encoding="utf8").read().replace("\r","")
 	except:
 		sys.__stdout__.write("x Can't find pepper template at: "+"utils" + os.sep + "pepper" + os.sep + "merge_gum.pepperparams"+"\n  Aborting...")
 		sys.exit()

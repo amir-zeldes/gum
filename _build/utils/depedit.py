@@ -22,7 +22,7 @@ from glob import glob
 import io
 from six import iteritems, iterkeys
 
-__version__ = "3.3.0.0"
+__version__ = "3.4.0.2"
 
 ALIASES = {"form":"text","upostag":"pos","xpostag":"cpos","feats":"morph","deprel":"func","deps":"head2","misc":"func2",
            "xpos": "cpos","upos":"pos"}
@@ -85,6 +85,9 @@ class ParsedToken:
 
     def __repr__(self):
         return str(self.text) + " (" + str(self.pos) + "/" + str(self.lemma) + ") " + "<-" + str(self.func)
+
+    def __deepcopy__(self, memo):
+        return self
 
 
 class Sentence:
@@ -169,6 +172,7 @@ class Transformation:
             orig_action = orig_action.replace(":" + source + "=", ":" + target + "=")
             orig_action = orig_action.replace(":" + source + "+=", ":" + target + "+=")
             orig_action = orig_action.replace(":" + source + "-=", ":" + target + "-=")
+            orig_action = orig_action.replace(":" + source + ",=", ":" + target + ",=")
         return orig_action
 
     @staticmethod
@@ -200,6 +204,7 @@ class Transformation:
             node = escape(definition.def_text, "&", "/")
             criteria = (_crit.replace("%%%%%", "&") for _crit in node.split("&"))
             for criterion in criteria:
+                criterion = escape(criterion, "=", "/")
                 if re.match(r"(text|pos|cpos|lemma|morph|storage[23]?|edom|func|head|func2|head2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc|edep|ehead)!?=/[^/=]*/", criterion) is None:
                     if re.match(r"position!?=/(first|last|mid)/", criterion) is None:
                         if re.match(r"#S:[A-Za-z_]+!?=/[^/\t]+/",criterion) is None:
@@ -221,7 +226,7 @@ class Transformation:
         for action in self.actions:
             commands = action.split(";")
             for command in commands:  # Node action
-                if re.match(r"(#[0-9]+([>~]|><)#[0-9]+|#[0-9]+:(func|lemma|text|pos|cpos|morph|storage[23]?|edom|head|head2|func2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc|edep|ehead|split)[\+-]?=[^;]*)$", command) is None:
+                if re.match(r"(#[0-9]+([>~]|><)#[0-9]+|#[0-9]+:(func|lemma|text|pos|cpos|morph|storage[23]?|edom|head|head2|func2|num|form|upos|upostag|xpos|xpostag|feats|deprel|deps|misc|edep|ehead|split)[\+,-]?=[^;]*)$", command) is None:
                     if re.match(r"#S:[A-Za-z_]+=[A-Za-z_]+$|last$|once$", command) is None:  # Sentence annotation action or quit
                         report += "Column 3 invalid action definition: " + command + " and the action was " + action
                         if "#" not in action:
@@ -394,6 +399,19 @@ class Match:
 
     def __repr__(self):
         return "#" + str(self.def_index) + ": " + str(self.token)
+
+    def __copy__(self):
+        return self
+
+    def __deepcopy__(self, memo):
+        # Return a deep copy of the object without copying the object reference
+        cls = self.__class__
+        result = cls.__new__(cls)
+        memo[id(self)] = result
+        for k in self.__slots__:
+            v = self.__getattribute__(k)
+            setattr(result, k, deepcopy(v, memo))
+        return result
 
 
 class DepEdit:
@@ -732,7 +750,7 @@ class DepEdit:
             return False
 
     @staticmethod
-    def merge_bins(bin1, bin2):
+    def merge_bins(bin1, bin2_orig):
         """
         Merge bins we know are compatible, e.g. bin1 has #1+#2 and bin2 has #2+#3
 
@@ -740,6 +758,7 @@ class DepEdit:
         :param bin2: a bin dictionary mapping indices to tokens, a list of relations 'rels' and matcher objects 'matchers'
         :return: the merged bin with data from both input bins
         """
+        bin2 = deepcopy(bin2_orig)
         for matcher in bin1["matchers"]:
             skip = False
             for matcher2 in bin2["matchers"]:
@@ -903,11 +922,15 @@ class DepEdit:
                             value = action[action.find("=") + 1:].strip()
                             add_val = False
                             subtract_val = False
+                            concat_val = False
                             if prop.endswith("+"):  # Add annotation, e.g. feats+=...
                                 add_val = True
                                 prop = prop[:-1]
                             elif prop.endswith("-"):  # Remove annotation, e.g. feats-=...
                                 subtract_val = True
+                                prop = prop[:-1]
+                            elif prop.endswith(","):  # Add to existing values, separated by , and alphabetized, e.g. Cxn=X,Y,Z
+                                concat_val = True
                                 prop = prop[:-1]
                             group_num_matches = re.findall(r"(\$[0-9]+[LU]?)", value)
                             if group_num_matches is not None:
@@ -964,6 +987,28 @@ class DepEdit:
                                         value = "_"
                                 else:
                                     value = "_"
+                            elif concat_val:
+                                old_val = getattr(result[node_position],prop)
+                                new_vals = sorted(value.split("|"))
+                                new_vals_keys = defaultdict(set)
+                                for pair in new_vals:
+                                    this_key, this_val = pair.split("=")
+                                    new_vals_keys[this_key].add(this_val)
+                                if old_val != "_" and isinstance(old_val,str):  # Some values already exist
+                                    kv = []
+                                    for ov in sorted(old_val.split("|")+new_vals):
+                                        this_key, this_val = ov.split("=")
+                                        if this_key not in new_vals_keys:  # Else this needs to be overwritten
+                                            kv.append(ov)
+                                        else:
+                                            new_vals_keys[this_key].update(set(this_val.split(",")))
+                                    if len(new_vals_keys) > 0:
+                                        for this_key in new_vals_keys:
+                                            kv.append(this_key + "=" + ",".join(sorted(new_vals_keys[this_key])))
+                                    value = "|".join(sorted(kv,key=lambda x:x.lower()))
+                                else:
+                                    value = "|".join(new_vals)
+
                             if prop == "edep":
                                 if value == "":  # Set empty edep
                                     result[node_position].edep = []

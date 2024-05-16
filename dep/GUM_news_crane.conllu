@@ -17,7 +17,7 @@
 # text = At least 107 killed in Mecca crane collapse
 # newpar
 # newpar_block = head rend:::"bold" (1 s)
-1	At	at	ADP	IN	_	3	advmod	3:advmod	Discourse=organization-heading:1->4:9:grf-ly-+sem-rpt-3,39+sem-lxchn-4,38+sem-rpt-6,33-34+sem-rpt-7,28-29
+1	At	at	ADP	IN	_	3	advmod	3:advmod	Discourse=organization-heading:1->4:9:grf-ly-+sem-rpt-3,39+sem-lxchn-4,38+sem-rpt-6,33-34+sem-rpt-7,28-29|ExtPos=ADV
 2	least	least	ADJ	JJS	Degree=Sup	1	fixed	1:fixed	_
 3	107	107	NUM	CD	NumForm=Digit|NumType=Card	4	nsubj:pass	4:nsubj:pass	Entity=(1-person-new-cf1-1-coref)
 4	killed	kill	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	MSeg=kill-ed
@@ -80,20 +80,20 @@
 12	Grand	Grand	ADJ	NNP	Degree=Pos	13	amod	13:amod	XML=<ref>
 13	Mosque	Mosque	PROPN	NNP	Number=Sing	8	obl	8:obl:into	Entity=8)|SpaceAfter=No|XML=</ref>
 14	,	,	PUNCT	,	_	15	punct	15:punct	_
-15	killing	kill	VERB	VBG	VerbForm=Ger	8	advcl	8:advcl	Discourse=causal-result:5->4:0:syn-pres-38|MSeg=kill-ing
+15	killing	kill	VERB	VBG	Tense=Pres|VerbForm=Part	8	advcl	8:advcl	Discourse=causal-result:5->4:0:syn-pres-38|MSeg=kill-ing
 16	107	107	NUM	CD	NumForm=Digit|NumType=Card	15	obj	15:obj	Entity=(1-person-giv:inact-cf3-1-coref)
 17	or	or	CCONJ	CC	_	18	cc	18:cc	_
 18	more	more	ADJ	JJR	Degree=Cmp	16	conj	15:obj|16:conj:or	_
 19	and	and	CCONJ	CC	_	20	cc	20:cc	_
-20	wounding	wound	VERB	VBG	VerbForm=Ger	15	conj	8:advcl|15:conj:and	MSeg=wound-ing
+20	wounding	wound	VERB	VBG	Tense=Pres|VerbForm=Part	15	conj	8:advcl|15:conj:and	MSeg=wound-ing
 21	238	238	NUM	CD	NumForm=Digit|NumType=Card	20	obj	20:obj	Entity=(13-person-new-cf7-1-coref)10)|SpaceAfter=No
 22	,	,	PUNCT	,	_	30	punct	30:punct	_
-23	according	accord	VERB	VBG	VerbForm=Ger	30	case	30:case	Discourse=attribution-positive:6->4:1:lex-indph-46-47+sem-atsrc-48-53|MSeg=accord-ing
+23	according	accord	VERB	VBG	Tense=Pres|VerbForm=Part	30	case	30:case	Discourse=attribution-positive:6->4:1:lex-indph-46-47+sem-atsrc-48-53|ExtPos=ADP|MSeg=accord-ing
 24	to	to	ADP	IN	_	23	fixed	23:fixed	_
 25	Saudi	Saudi	ADJ	NNP	Degree=Pos	26	amod	26:amod	Entity=(14-organization-new-cf8-1,4,5,6-coref(15-place-new-cf9-1,2-sgl-Saudi_Arabia|XML=<ref>
 26-27	Arabia's	_	_	_	_	_	_	_	_
 26	Arabia	Arabia	PROPN	NNP	Number=Sing	30	nmod:poss	30:nmod:poss	MSeg=Arab-ia|XML=</ref>
-27	's	's	PART	POS	_	25	case	25:case	Entity=15)
+27	's	's	PART	POS	_	26	case	26:case	Entity=15)
 28	Civil	Civil	ADJ	NNP	Degree=Pos	29	amod	29:amod	_
 29	Defense	Defense	PROPN	NNP	Number=Sing	30	compound	30:compound	_
 30	Authority	Authority	PROPN	NNP	Number=Sing	15	obl	15:obl:according_to	Entity=14)|SpaceAfter=No
@@ -141,7 +141,7 @@
 33	hospital	hospital	NOUN	NN	Number=Sing	31	obl	31:obl:to	Entity=(18-place-new-cf8-1-sgl)|SpaceAfter=No
 34	.	.	PUNCT	.	_	31	punct	31:punct	_
 35	There	there	PRON	EX	PronType=Dem	36	expl	36:expl	Discourse=joint-list_m:11->8:2:_
-36	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	31	parataxis	31:parataxis	Cxn=Existential-There
+36	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	31	parataxis	31:parataxis	Cxn=Existential-CopPred-ThereExpl
 37	no	no	DET	DT	Polarity=Neg|PronType=Neg	38	det	38:det	Entity=(19-person-new-cf6-2-sgl
 38	casualties	casualty	NOUN	NNS	Number=Plur	36	nsubj	36:nsubj	Entity=19)
 39	left	leave	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	38	acl	38:acl	_
@@ -231,7 +231,7 @@
 1	"	''	PUNCT	``	_	13	punct	13:punct	Discourse=contingency-condition:19->20:0:syn-sbinv-150+mrf-md-157;joint-sequence:19->18:0:0:orp-later-155|SpaceAfter=No|XML=<quote>
 2	Had	have	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	4	aux	4:aux	_
 3	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	4	nsubj	4:nsubj	Entity=(10-event-giv:act-cf1*-1-ana)
-4	happened	happen	VERB	VBN	Tense=Past|VerbForm=Part	13	advcl	13:advcl	Cxn=Condition-Irrealis-Inverted|MSeg=happen-ed
+4	happened	happen	VERB	VBN	Tense=Past|VerbForm=Part	13	advcl	13:advcl	MSeg=happen-ed
 5	an	a	DET	DT	Definite=Ind|PronType=Art	6	det	6:det	Entity=(27-time-acc:com-cf3-2-sgl
 6	hour	hour	NOUN	NN	Number=Sing	7	obl:tmod	7:obl:tmod	Entity=27)
 7	later	late	ADV	RBR	Degree=Cmp	4	advmod	4:advmod	MSeg=lat-er
@@ -240,7 +240,7 @@
 10	have	have	AUX	VB	VerbForm=Inf	13	aux	13:aux	_
 11	been	be	AUX	VBN	Tense=Past|VerbForm=Part	13	cop	13:cop	_
 12	much	much	ADV	RB	Degree=Pos	13	advmod	13:advmod	_
-13	worse	bad	ADJ	JJR	Degree=Cmp	29	ccomp	29:ccomp	SpaceAfter=No
+13	worse	bad	ADJ	JJR	Degree=Cmp	29	ccomp	29:ccomp	Cxn=Conditional-NegativeEpistemic-SubjVerbInversion|SpaceAfter=No
 14	,	,	PUNCT	,	_	13	punct	13:punct	SpaceAfter=No
 15	"	''	PUNCT	''	_	13	punct	13:punct	XML=</quote>
 16	Khaled	Khaled	PROPN	NNP	Number=Sing	29	nsubj	29:nsubj	Discourse=attribution-positive:21->20:1:grf-qt-149,163+sem-atsrc-164-167+lex-indwd-177|Entity=(28-person-new-cf2-1,2,4-coref-Khaled_Al_Maeena
@@ -267,7 +267,7 @@
 1	"	''	PUNCT	``	_	14	punct	14:punct	Discourse=contingency-condition:22->24:1:syn-sbinv-180+mrf-md-196|SpaceAfter=No|XML=<quote>
 2	Had	have	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	4	aux	4:aux	_
 3	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	4	nsubj	4:nsubj	Entity=(10-event-giv:act-cf2-1-ana)
-4	happened	happen	VERB	VBN	Tense=Past|VerbForm=Part	24	advcl	24:advcl	Cxn=Condition-Irrealis-Inverted|MSeg=happen-ed
+4	happened	happen	VERB	VBN	Tense=Past|VerbForm=Part	24	advcl	24:advcl	MSeg=happen-ed
 5	five	five	NUM	CD	NumForm=Word|NumType=Card	6	nummod	6:nummod	Entity=(30-time-new-cf5-2-sgl
 6	hours	hour	NOUN	NNS	Number=Plur	7	obl:tmod	7:obl:tmod	Entity=30)|MSeg=hour-s
 7	earlier	early	ADV	RBR	Degree=Cmp	4	advmod	4:advmod	MSeg=earli-er
@@ -284,10 +284,10 @@
 18	would	would	AUX	MD	VerbForm=Fin	24	aux	24:aux	_
 19	have	have	AUX	VB	VerbForm=Inf	24	aux	24:aux	_
 20	been	be	AUX	VBN	Tense=Past|VerbForm=Part	24	cop	24:cop	_
-21	more	more	ADV	RBR	Degree=Cmp	24	advmod	24:advmod	_
+21	more	more	ADV	RBR	Degree=Cmp	24	advmod	24:advmod	ExtPos=ADV
 22	than	than	ADP	IN	_	21	fixed	21:fixed	_
 23	a	a	DET	DT	Definite=Ind|PronType=Art	24	det	24:det	Entity=(33-person-new-cf4-2-sgl
-24	thousand	thousand	NUM	CD	NumForm=Word|NumType=Card	14	ccomp	14:ccomp	Entity=33)|SpaceAfter=No
+24	thousand	thousand	NUM	CD	NumForm=Word|NumType=Card	14	ccomp	14:ccomp	Cxn=Conditional-NegativeEpistemic-SubjVerbInversion|Entity=33)|SpaceAfter=No
 25	.	.	PUNCT	.	_	14	punct	14:punct	SpaceAfter=No
 26	"	''	PUNCT	''	_	14	punct	14:punct	XML=</quote>
 
@@ -370,7 +370,7 @@
 # text = Construction was underway at the mosque in order to enlarge the mosque and improve crowd control, which has been a recurring problem during Mecca's pilgrimages.
 1	Construction	construction	NOUN	NN	Number=Sing	3	nsubj	3:nsubj	Discourse=context-background:29->4:6:sem-synym-33-36,266-267+sem-rpt-33-34,286-287|Entity=(42-event-new-cf5-1-sgl)|MSeg=Construct-ion
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	cop	3:cop	_
-3	underway	underway	ADJ	JJ	Degree=Pos|Polarity=Neg	0	root	0:root	MSeg=under-way
+3	underway	underway	ADJ	JJ	Degree=Pos	0	root	0:root	MSeg=under-way
 4	at	at	ADP	IN	_	6	case	6:case	_
 5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(8-place-giv:inact-cf1-2-coref-Masjid_al%2DHaram
 6	mosque	mosque	NOUN	NN	Number=Sing	3	obl	3:obl:at	Entity=8)

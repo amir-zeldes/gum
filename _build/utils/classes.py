@@ -30,7 +30,11 @@ class DEFINITION:
             else:
                 if not (self.value.startswith("(") and self.value.endswith(")")):
                     self.value = "(" + self.value + ")"
-                self.compiled_re = re.compile("^"+self.value+"$")
+                if self.value.startswith("(?i)"):
+                    self.value = self.value[4:]
+                    self.compiled_re = re.compile("^" + self.value + "$", re.IGNORECASE)
+                else:
+                    self.compiled_re = re.compile("^"+self.value+"$")
             self.match_func = self.return_regex_negative if self.negative else self.return_regex
             self.match_type = "regex"
 
