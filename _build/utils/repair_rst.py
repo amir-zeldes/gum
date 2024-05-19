@@ -12,7 +12,7 @@ from glob import glob
 PY2 = sys.version_info[0] < 3
 
 
-def fix_rst(gum_source, gum_target, reddit=False):
+def fix_rst(gum_source, gum_target, reddit=False, rsd_algorithm="li"):
 	outdir = gum_target + "rst" + os.sep + "rstweb" + os.sep
 	if not os.path.exists(outdir):
 		os.makedirs(outdir)
@@ -40,7 +40,7 @@ def fix_rst(gum_source, gum_target, reddit=False):
 		tt_file = filename.replace(".rs3", ".xml").replace(".rs4", ".xml").replace("rst","xml")
 		sys.stdout.write("\t+ " + " "*70 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Adjusting borders for " + ntpath.basename(filename) + "\r")
-		fix_file(filename,tt_file,gum_source,gum_target + "rst" + os.sep + "rstweb" + os.sep)
+		fix_file(filename,tt_file,gum_source,gum_target + "rst" + os.sep + "rstweb" + os.sep, rsd_algorithm=rsd_algorithm)
 		conn_data = get_conn_data(filename)
 		conns_by_doc[docname] = conn_data
 
@@ -95,6 +95,7 @@ def validate_rstpp(rs4,docname,sig_stats):
 	collapse_dm = {"and ... and ... and":"and","and ... and":"and","and and":"and","but ... but":"but",
 				   "when ... when":"when","so ... so":"so","then ... then":"then","them":"then", #typo
 				   "cause ... cause ... cause":"cause","also ... also":"also", "for for":"for"}
+	dm_sig_toks = set([])  # DM signals tokens should not be used by multiple nodes
 	for i,line in enumerate(lines):
 		if '<segment' in line:
 			tokens += line.split(">")[1].split("<")[0].split(" ")
@@ -120,7 +121,11 @@ def validate_rstpp(rs4,docname,sig_stats):
 			sig_type = m.group(2)
 			subtype = m.group(3)
 			sig_tokens = sorted([int(x)-1 for x in m.group(4).split(",")]) if m.group(4) != "" else []
-
+			if sig_type in ["dm","orphan"]:
+				if any([t in dm_sig_toks for t in sig_tokens]):
+					signal_text = " ".join([tokens[t] for t in sig_tokens])
+					sys.stderr.write("! Found dm/orphan signal tokens used by multiple nodes in "+docname+": "+str([t+1 for t in sig_tokens])+" (" + signal_text + ")\n")
+				dm_sig_toks.update(sig_tokens)
 			signal_sources.add(src)
 			rel_name = id2rel[src]
 			if subtype in ["dm","orphan","alternate_expression"]:
@@ -147,7 +152,7 @@ def validate_rstpp(rs4,docname,sig_stats):
 
 	return sig_stats
 
-def fix_file(filename, tt_file, gum_source, outdir):
+def fix_file(filename, tt_file, gum_source, outdir, rsd_algorithm="li"):
 
 	# Get reference tokens
 	rst_file_name = ntpath.basename(filename)
@@ -205,7 +210,9 @@ def fix_file(filename, tt_file, gum_source, outdir):
 	docname = os.path.basename(rst_file_name).replace(".rs3","").replace(".rs4","")
 
 	# Make rsd version
-	rsd = make_rsd(out_data,gum_source,as_text=True,docname=os.path.basename(rst_file_name.replace(".rs3","").replace(".rs4","")))
+	keep_same_unit = True if rsd_algorithm == "chain" else False
+	rsd = make_rsd(out_data,gum_source,as_text=True, algorithm=rsd_algorithm, keep_same_unit=keep_same_unit,
+				   docname=os.path.basename(rst_file_name.replace(".rs3","").replace(".rs4","")))
 
 	for l, line in enumerate(rsd.split("\n")):
 		validate_rsd(line, l+1, docname)

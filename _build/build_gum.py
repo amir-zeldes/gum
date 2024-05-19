@@ -38,7 +38,10 @@ parser.add_argument("-c",dest="claws",action="store_true",help="Whether to reass
 parser.add_argument("-v",dest="verbose_pepper",action="store_true",help="Whether to print verbose pepper output")
 parser.add_argument("-n",dest="no_pepper",action="store_true",help="No pepper conversion, just validation and file fixing")
 parser.add_argument("-i",dest="increment_version",action="store",help="A new version number to assign",default="DEVELOP")
+parser.add_argument("--rsd_algorithm",choices=["li","hirao","chain"],action="store",help="Discourse dependency conversion algorithm",default="li")
+parser.add_argument("--disrpt_outmode",choices=["standoff","standoff_key","compact"],help="DISRPT rels format output style",default="standoff")
 parser.add_argument("--pepper_only",action="store_true", help="Just rerun pepper on generated targets")
+parser.add_argument("--discourse_only",action="store_true", help="Just rerun discourse relation output formats generation")
 parser.add_argument("--skip_ptb_labels",action="store_true", help="Skip projecting function labels to PTB trees")
 parser.add_argument("--skip_ontogum",action="store_true", help="Skip building OntoGUM version of coref data")
 parser.add_argument("--no_secedges",action="store_true", help="No RST++ secedges in conllu")
@@ -204,7 +207,7 @@ def const_parse(gum_source, warn_slash_tokens=False, reddit=False, only_parse_di
 #proof(gum_source)
 
 conn_data = {}
-if not options.pepper_only:
+if not options.pepper_only and not options.discourse_only:
 	# Token and sentence border adjustments
 	print("\nAdjusting token and sentence borders:\n" + "="*37)
 	# Adjust tsv/ files:
@@ -215,11 +218,13 @@ if not options.pepper_only:
 	#   * return conllu-a style bracket informatio to add entity data to conllu files later
 	conllua_data, centering_data, salience_data = fix_tsv(gum_source, gum_target, reddit=reddit)
 
+if not options.pepper_only:
 	# Adjust rst/ files:
 	#   * refresh token strings in case of inconsistency
 	#   * note that segment borders are not automatically adjusted around xml/ <s> elements
-	conn_data = fix_rst(gum_source, gum_target, reddit=reddit)
+	conn_data = fix_rst(gum_source, gum_target, reddit=reddit, rsd_algorithm=options.rsd_algorithm)
 
+if not options.pepper_only and not options.discourse_only:
 	# Add annotations to xml/:
 	#   * add CLAWS tags in fourth column
 	#   * add fifth column after lemma containing tok_func from dep/
@@ -292,7 +297,7 @@ else:
 	sys.stderr.write("i Pepper only conversion, entities in conllu-a data will be generated from Pepper output (no infsat or min IDs)\n")
 
 ## Step 3: merge and convert source formats to target formats
-if options.no_pepper:
+if options.no_pepper or options.discourse_only:
 	sys.__stdout__.write("\ni Skipping Pepper conversion\n")
 else:
 	sys.__stdout__.write("\nStarting pepper conversion:\n" + "="*30 + "\n")
@@ -355,27 +360,31 @@ if options.pepper_only:
 ## Step 4: propagate entity types, coref, discourse relations and XML annotations into conllu dep files
 from utils.propagate import add_entities_to_conllu, add_rsd_to_conllu, add_bridging_to_conllu, add_xml_to_conllu
 
-add_entities_to_conllu(gum_target, reddit=reddit, ontogum=False, conllua_data=conllua_data, salience_data=salience_data)
-if not options.skip_ontogum:
-	if options.no_pepper:
-		sys.__stdout__.write("\ni Not adding entity information to UD parses in OntoGUM version since Pepper conversion was skipped\n")
-		add_entities_to_conllu(gum_target,reddit=reddit,ontogum=True)
-	else:
-		add_entities_to_conllu(gum_target,reddit=reddit,ontogum=True)
-add_bridging_to_conllu(gum_target,reddit=reddit,corpus=corpus_name)
+if not options.discourse_only:
+	add_entities_to_conllu(gum_target, reddit=reddit, ontogum=False, conllua_data=conllua_data, salience_data=salience_data)
+	if not options.skip_ontogum:
+		if options.no_pepper:
+			sys.__stdout__.write("\ni Not adding entity information to UD parses in OntoGUM version since Pepper conversion was skipped\n")
+			add_entities_to_conllu(gum_target,reddit=reddit,ontogum=True)
+		else:
+			add_entities_to_conllu(gum_target,reddit=reddit,ontogum=True)
+	add_bridging_to_conllu(gum_target,reddit=reddit,corpus=corpus_name)
 
-sys.__stdout__.write("\no Added entities, coreference and bridging to UD parses\n")
+	sys.__stdout__.write("\no Added entities, coreference and bridging to UD parses\n")
 
 add_rsd_to_conllu(gum_target,reddit=reddit,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
 if not options.skip_ontogum:
 	add_rsd_to_conllu(gum_target,reddit=reddit,ontogum=True,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
-add_xml_to_conllu(gum_target,reddit=reddit,corpus=corpus_name)
-if not options.skip_ontogum:
-	add_xml_to_conllu(gum_target,reddit=reddit,ontogum=True,corpus=corpus_name)
 
-sys.__stdout__.write("\no Added discourse relations and XML tags to UD parses\n")
+if not options.discourse_only:
+	add_xml_to_conllu(gum_target,reddit=reddit,corpus=corpus_name)
+	if not options.skip_ontogum:
+		add_xml_to_conllu(gum_target,reddit=reddit,ontogum=True,corpus=corpus_name)
+	sys.__stdout__.write("\no Added discourse relations and XML tags to UD parses\n")
+else:
+	sys.__stdout__.write("\no Added discourse relations to UD parses\n")
 
-make_disrpt(conn_data,reddit=reddit,corpus="gum")
+make_disrpt(conn_data,reddit=reddit,corpus="gum",outmode=options.disrpt_outmode)
 
 sys.__stdout__.write("\no Created DISRPT shared task discourse relation formats in target rst/disrpt/\n")
 
