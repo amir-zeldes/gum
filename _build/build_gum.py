@@ -31,15 +31,15 @@ def setup_directories(gum_source, gum_target):
 
 
 parser = ArgumentParser()
-parser.add_argument("-t",dest="target",action="store",help="GUM build target directory", default=None)
-parser.add_argument("-s",dest="source",action="store",help="GUM build source directory", default=None)
+parser.add_argument("-t",dest="target",action="store",help="Build target directory", default=None)
+parser.add_argument("-s",dest="source",action="store",help="Build source directory", default=None)
 parser.add_argument("-p",dest="parse",action="store_true",help="Whether to reparse constituents")
 parser.add_argument("-c",dest="claws",action="store_true",help="Whether to reassign claws5 tags")
 parser.add_argument("-v",dest="verbose_pepper",action="store_true",help="Whether to print verbose pepper output")
 parser.add_argument("-n",dest="no_pepper",action="store_true",help="No pepper conversion, just validation and file fixing")
 parser.add_argument("-i",dest="increment_version",action="store",help="A new version number to assign",default="DEVELOP")
 parser.add_argument("--rsd_algorithm",choices=["li","hirao","chain"],action="store",help="Discourse dependency conversion algorithm",default="li")
-parser.add_argument("--disrpt_outmode",choices=["standoff","standoff_key","compact"],help="DISRPT rels format output style",default="standoff")
+parser.add_argument("--disrpt_outmode",choices=["standoff","standoff_reltype","standoff_key","compact"],help="DISRPT rels format output style",default="standoff")
 parser.add_argument("--pepper_only",action="store_true", help="Just rerun pepper on generated targets")
 parser.add_argument("--discourse_only",action="store_true", help="Just rerun discourse relation output formats generation")
 parser.add_argument("--skip_ptb_labels",action="store_true", help="Skip projecting function labels to PTB trees")
@@ -81,7 +81,7 @@ print("Validating files...")
 print("="*20 + "\n")
 
 reddit = check_reddit(gum_source)
-if not reddit:
+if not reddit and options.corpus_name != "GENTLE":
 	print("Could not find restored tokens in reddit documents.")
 	print("Abort conversion or continue without reddit? (You can restore reddit tokens using process_reddit.py)")
 	try:
@@ -314,10 +314,10 @@ else:
 			if not reddit and "reddit_" in file_:
 				continue
 			files.append(file_)
-		if not os.path.exists(pepper_tmp + out_dir_name + os.sep + "GUM" + os.sep):
-			os.makedirs(pepper_tmp + out_dir_name + os.sep + "GUM" + os.sep)
+		if not os.path.exists(pepper_tmp + out_dir_name + os.sep + corpus_name + os.sep):
+			os.makedirs(pepper_tmp + out_dir_name + os.sep + corpus_name + os.sep)
 		for file_ in files:
-			shutil.copy(file_, pepper_tmp + out_dir_name + os.sep + "GUM" + os.sep)
+			shutil.copy(file_, pepper_tmp + out_dir_name + os.sep + corpus_name + os.sep)
 	if not os.path.exists(gum_target + "coref" + os.sep + "conll" + os.sep):
 		os.makedirs(gum_target + "coref" + os.sep + "conll" + os.sep)
 
@@ -340,7 +340,7 @@ else:
 	meta = io.open(pepper_home + "meta_template.meta", encoding="utf8").read().replace("\r","")
 	meta = meta.replace("**gum_version**",options.increment_version)
 	meta = meta.replace("**build_date**",build_date)
-	meta_out = io.open(pepper_tmp + "xml" + os.sep + "GUM" + os.sep + "GUM.meta",'w')
+	meta_out = io.open(pepper_tmp + "xml" + os.sep + corpus_name + os.sep + corpus_name + ".meta",'w')
 	meta_out.write(meta)
 	meta_out.close()
 
@@ -384,7 +384,7 @@ if not options.discourse_only:
 else:
 	sys.__stdout__.write("\no Added discourse relations to UD parses\n")
 
-make_disrpt(conn_data,reddit=reddit,corpus="gum",outmode=options.disrpt_outmode)
+make_disrpt(conn_data,reddit=reddit,corpus=corpus_name.lower(),outmode=options.disrpt_outmode)
 
 sys.__stdout__.write("\no Created DISRPT shared task discourse relation formats in target rst/disrpt/\n")
 
