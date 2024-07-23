@@ -9,7 +9,7 @@ Users need a copy of the LDC distribution of an underlying resource to restore t
 
 __author__ = "Amir Zeldes"
 __license__ = "Apache 2.0"
-__version__ = "2.0.0"
+__version__ = "2.1.0"
 
 import io, re, os, sys
 from glob import glob
@@ -43,7 +43,7 @@ def underscore_files(filenames):
 				for l, line in enumerate(lines):
 					line = line.strip()
 					if "\t" in line and l > 0:
-						doc, unit1_toks, unit2_toks, unit1_txt, unit2_txt, s1_toks, s2_toks, unit1_sent, unit2_sent, direction, orig_label, label = line.split("\t")
+						doc, unit1_toks, unit2_toks, unit1_txt, unit2_txt, s1_toks, s2_toks, unit1_sent, unit2_sent, direction, rel_type, orig_label, label = line.split("\t")
 						if "GUM" in doc and "reddit" not in doc:
 							output.append(line)
 							continue
@@ -51,7 +51,7 @@ def underscore_files(filenames):
 						unit2_txt = underscore_rel_field(unit2_txt)
 						unit1_sent = underscore_rel_field(unit1_sent)
 						unit2_sent = underscore_rel_field(unit2_sent)
-						fields = doc, unit1_toks, unit2_toks, unit1_txt, unit2_txt, s1_toks, s2_toks, unit1_sent, unit2_sent, direction, orig_label, label
+						fields = doc, unit1_toks, unit2_toks, unit1_txt, unit2_txt, s1_toks, s2_toks, unit1_sent, unit2_sent, direction, rel_type, orig_label, label
 						line = "\t".join(fields)
 					output.append(line)
 			else:
@@ -132,7 +132,7 @@ def restore_docs(path_to_underscores,text_dict):
 					if "GUM_" in docname and "reddit" not in docname:  # Only Reddit documents need reconstruction in GUM
 						output.append(line)
 						continue
-					doc, unit1_toks, unit2_toks, unit1_txt, unit2_txt, s1_toks, s2_toks, unit1_sent, unit2_sent, direction, orig_label, label = line.split("\t")
+					doc, unit1_toks, unit2_toks, unit1_txt, unit2_txt, s1_toks, s2_toks, unit1_sent, unit2_sent, direction, rel_type, orig_label, label = line.split("\t")
 					underscore_len += unit1_txt.count("_") + unit2_txt.count("_") + unit1_sent.count("_") + unit2_sent.count("_")
 					if underscore_len == 0:
 						#sys.stderr.write("! Non-underscored file detected - " + os.path.basename(file_) + "\n")
@@ -145,7 +145,7 @@ def restore_docs(path_to_underscores,text_dict):
 					plain = unit1_txt + unit2_txt + unit1_sent + unit2_sent
 					plain = plain.replace("<*>","").replace(" ","")
 					doc_len += len(plain)
-					fields = doc, unit1_toks, unit2_toks, unit1_txt, unit2_txt, s1_toks, s2_toks, unit1_sent, unit2_sent, direction, orig_label, label
+					fields = doc, unit1_toks, unit2_toks, unit1_txt, unit2_txt, s1_toks, s2_toks, unit1_sent, unit2_sent, direction, rel_type, orig_label, label
 					line = "\t".join(fields)
 					if doc_len != underscore_len and len(violation_rows) == 0:
 						violation_rows.append(str(l) + ": " + line)
