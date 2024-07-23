@@ -106,7 +106,7 @@ def validate_src(gum_source, reddit=False):
 
 	lemma_dict = defaultdict(lambda : defaultdict(int))  # collects tok+pos -> lemmas -> count  for consistency checks
 	lemma_docs = defaultdict(set)
-	rst_extension = "rs4" if os.path.exists(gum_source + "rst" + os.sep + "GUM_academic_art.rs4") else "rs3"
+	rst_extension = "rs4" if (os.path.exists(gum_source + "rst" + os.sep + "GUM_academic_art.rs4") or os.path.exists(gum_source + "rst" + os.sep + "GENTLE_poetry_raven.rs4")) else "rs3"
 	dirs = [('xml', 'xml'), ('dep', 'conllu'), ('rst', rst_extension), ('tsv', 'tsv')]
 
 	# check that each dir has same # and names of files (except extensions)
@@ -395,7 +395,7 @@ def validate_annos(gum_source, reddit=False):
 				  "VHG","VHN","VHP","VHZ","VV","VVD","VVG","VVN","VVP","VVZ","WDT","WP","WP$","WRB","``","''","(",")",
 				  ",",":","HYPH","$","GW"]
 		non_lemmas = ["them","me","him","n't"]
-		non_lemma_combos = [("PP","her"),("MD","wo"),("PP","us"),("DT","an")]
+		non_lemma_combos = [("MD","wo"),("PP","us"),("DT","an")]
 		lemma_pos_combos = {"which":"WDT"}
 		non_cap_lemmas = ["There","How","Why","Where","When"]
 
@@ -877,6 +877,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if func == "acl:relcl" and pos in ["VB","VV","VH"] and "to" in children and "cop" not in child_funcs and "aux" not in child_funcs:
 		print("WARN: infinitive with tag " + pos + " should be acl not acl:relcl" + inname)
+
+	if pos in ["VB","VV","VH"] and ("nsubj" in child_funcs or "nsubj:pass" in child_funcs or "csubj" in child_funcs):
+		print("WARN: infinitive verb should not have subject " + inname)
 
 	if pos in ["VBG","VVG","VHG"] and "det" in child_funcs:
 		# Exceptions for phrasal compound in GUM_reddit_card and nominalization in GUM_academic_exposure, GENTLE_dictionary_next
