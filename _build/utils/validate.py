@@ -313,21 +313,44 @@ def validate_annos(gum_source, reddit=False):
 		if "_all" in xmlfile:
 			continue
 		docname = ntpath.basename(xmlfile)
-		output = ""
+
+		xml_lines = io.open(xmlfile, encoding="utf8").read().replace("\r", "").split("\n")
+		tok_num = 0
+
+		postags = {}
+		lemmas = {}
+		sent_types = {}
+		sent_positions = defaultdict(lambda: "_")
+		s_type = ""
+		new_sent = True
+		for line in xml_lines:
+			if "\t" in line:  # Token
+				tok_num += 1
+				_, postags[tok_num], lemmas[tok_num] = line.split("\t")
+				sent_types[tok_num] = s_type
+				if new_sent:
+					sent_positions[tok_num] = "first"
+					new_sent = False
+			else:
+				m = re.search(r's type="([^"]+)"', line)
+				if m is not None:
+					s_type = m.group(1)
+					new_sent = True
+					if len(sent_positions) > 0:
+						sent_positions[tok_num] = "last"
+		sent_positions[tok_num] = "last"
+
 		sys.stdout.write("\t+ " + " " * 70 + "\r")
 		sys.stdout.write(" " + str(docnum + 1) + "/" + str(len(xmlfiles)) + ":\t+ " + docname + "\r")
 
 		# Dictionaries to hold token annotations from conllu data
 		funcs = {}
-		postags = {}
 		tokens = {}
 		parent_ids = {}
-		lemmas = {}
-		sent_types = {}
-		sent_positions = defaultdict(lambda: "_")
 		parents = {}
 		children = defaultdict(list)
 		child_funcs = defaultdict(list)
+		child_pos = defaultdict(list)
 		tok_num = 0
 
 		depfile = xmlfile.replace("xml" + os.sep, "dep" + os.sep).replace("xml", "conllu")
@@ -353,6 +376,7 @@ def validate_annos(gum_source, reddit=False):
 						parent_ids[tok_num] = int(fields[6]) + sent_start
 						children[int(fields[6]) + sent_start].append(fields[1])
 						child_funcs[int(fields[6]) + sent_start].append(fields[7])
+						child_pos[int(fields[6]) + sent_start].append(postags[tok_num])
 					else:
 						parent_ids[tok_num] = 0
 					tokens[tok_num] = fields[1]
@@ -364,28 +388,6 @@ def validate_annos(gum_source, reddit=False):
 				parents[i] = "ROOT"
 			else:
 				parents[i] = tokens[parent_ids[i]]
-
-		xml_lines = io.open(xmlfile, encoding="utf8").read().replace("\r", "").split("\n")
-		tok_num = 0
-
-		s_type = ""
-		new_sent = True
-		for line in xml_lines:
-			if "\t" in line:  # Token
-				tok_num += 1
-				_, postags[tok_num], lemmas[tok_num] = line.split("\t")
-				sent_types[tok_num] = s_type
-				if new_sent:
-					sent_positions[tok_num] = "first"
-					new_sent = False
-			else:
-				m = re.search(r's type="([^"]+)"', line)
-				if m is not None:
-					s_type = m.group(1)
-					new_sent = True
-					if len(sent_positions) > 0:
-						sent_positions[tok_num] = "last"
-		sent_positions[tok_num] = "last"
 
 		tok_num = 0
 
@@ -425,7 +427,7 @@ def validate_annos(gum_source, reddit=False):
 				parent_func = funcs[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
 				parent_pos = postags[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
 				flag_dep_warnings(tok_num, tok, pos, lemma, func, parent_string, parent_lemma, parent_id,
-								  children[tok_num], child_funcs[tok_num], sent_types[tok_num], docname,
+								  children[tok_num], child_funcs[tok_num], child_pos[tok_num], sent_types[tok_num], docname,
 								  prev_tok, prev_pos, sent_positions[tok_num], parent_func, parent_pos)
 				prev_pos = pos
 				prev_tok = tok
@@ -673,7 +675,7 @@ def truncate(text):
 	return " ".join(words)
 
 
-def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id, children, child_funcs, s_type,
+def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id, children, child_funcs, child_pos, s_type,
 					  docname, prev_tok, prev_pos, sent_position, parent_func, parent_pos):
 	# Shorthand for printing errors
 	inname = " in " + docname + " @ token " + str(id) + " (" + parent + " -> " + tok + ")"
@@ -743,7 +745,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if pos in ["VBN","VVN","VHN"] and ("nsubj" in child_funcs or "csubj" in child_funcs) and lemma != "get" and \
 			("aux:pass" not in child_funcs and "aux" not in child_funcs not in child_funcs and "compound" not in child_funcs):
-		if not (("gossip" in inname or "hiking" in inname) and lemma == "see"):  # Known non-standard cases, e.g. 'I seen it'
+		if not (("gossip" in inname or "hiking" in inname) and lemma == "see") and not ("trust" in inname and lemma=="trust"):  # Known non-standard cases, e.g. 'I seen it'
 			if not any([x in children for x in ["well","self","tailor"]]):
 				print("WARN: passive verb tagged VBN without perfect auxiliary should have :pass subject, not regular subj" + inname)
 
@@ -878,7 +880,10 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func == "acl:relcl" and pos in ["VB","VV","VH"] and "to" in children and "cop" not in child_funcs and "aux" not in child_funcs:
 		print("WARN: infinitive with tag " + pos + " should be acl not acl:relcl" + inname)
 
-	if pos in ["VB","VV","VH"] and ("nsubj" in child_funcs or "nsubj:pass" in child_funcs or "csubj" in child_funcs):
+	if pos in ["VB","VV","VH"] and ("nsubj" in child_funcs or "nsubj:pass" in child_funcs or "csubj" in child_funcs) and \
+			("MD" not in child_pos) and not any([x in [k.lower() for k in children] for x in ["do","did","does","for","better"]])\
+			and not "cop" in child_funcs \
+			and not lemma == "be" and not (lemma=="believe" and "malik" in docname):  # Strong raised existential: there appears to be X; and known exceptions
 		print("WARN: infinitive verb should not have subject " + inname)
 
 	if pos in ["VBG","VVG","VHG"] and "det" in child_funcs:
