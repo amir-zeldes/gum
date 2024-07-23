@@ -39,7 +39,10 @@ ellipsis_marker = "<*>"
 rel_mapping = defaultdict(dict)
 rel_mapping["eng.rst.rstdt"] = {"attribution":"attribution","attribution-e":"attribution","attribution-n":"attribution","attribution-negative":"attribution","background":"background","background-e":"background","circumstance":"background","circumstance-e":"background","cause":"cause","cause-result":"cause","result":"cause","result-e":"cause","consequence":"cause","consequence-n-e":"cause","consequence-n":"cause","consequence-s-e":"cause","consequence-s":"cause","comparison":"comparison","comparison-e":"comparison","preference":"comparison","preference-e":"comparison","analogy":"comparison","analogy-e":"comparison","proportion":"comparison","condition":"condition","condition-e":"condition","hypothetical":"condition","contingency":"condition","otherwise":"condition","contrast":"contrast","concession":"contrast","concession-e":"contrast","antithesis":"contrast","antithesis-e":"contrast","elaboration-additional":"elaboration","elaboration-additional-e":"elaboration","elaboration-general-specific-e":"elaboration","elaboration-general-specific":"elaboration","elaboration-part-whole":"elaboration","elaboration-part-whole-e":"elaboration","elaboration-process-step":"elaboration","elaboration-process-step-e":"elaboration","elaboration-object-attribute-e":"elaboration","elaboration-object-attribute":"elaboration","elaboration-set-member":"elaboration","elaboration-set-member-e":"elaboration","example":"elaboration","example-e":"elaboration","definition":"elaboration","definition-e":"elaboration","purpose":"enablement","purpose-e":"enablement","enablement":"enablement","enablement-e":"enablement","evaluation":"evaluation","evaluation-n":"evaluation","evaluation-s-e":"evaluation","evaluation-s":"evaluation","interpretation-n":"evaluation","interpretation-s-e":"evaluation","interpretation-s":"evaluation","interpretation":"evaluation","conclusion":"evaluation","comment":"evaluation","comment-e":"evaluation","evidence":"explanation","evidence-e":"explanation","explanation-argumentative":"explanation","explanation-argumentative-e":"explanation","reason":"explanation","reason-e":"explanation","list":"joint","disjunction":"joint","manner":"manner-means","manner-e":"manner-means","means":"manner-means","means-e":"manner-means","problem-solution":"topic-comment","problem-solution-n":"topic-comment","problem-solution-s":"topic-comment","question-answer":"topic-comment","question-answer-n":"topic-comment","question-answer-s":"topic-comment","statement-response":"topic-comment","statement-response-n":"topic-comment","statement-response-s":"topic-comment","topic-comment":"topic-comment","comment-topic":"topic-comment","rhetorical-question":"topic-comment","summary":"summary","summary-n":"summary","summary-s":"summary","restatement":"summary","restatement-e":"summary","temporal-before":"temporal","temporal-before-e":"temporal","temporal-after":"temporal","temporal-after-e":"temporal","temporal-same-time":"temporal","temporal-same-time-e":"temporal","sequence":"temporal","inverted-sequence":"temporal","topic-shift":"topic-change","topic-drift":"topic-change","textualorganization":"textual-organization"}
 
-from .propagate import ud_test as gum_test, ud_dev as gum_dev
+try:
+    from .propagate import ud_test as gum_test, ud_dev as gum_dev
+except ImportError:
+    from propagate import ud_test as gum_test, ud_dev as gum_dev
 
 
 def get_rsd(dir_path, chars2toks, toks_by_doc, conll_data, add_missing_tokens=False, reddit=True):
@@ -153,7 +156,7 @@ def format_range(tok_ids):
     return ",".join(formatted)
 
 
-def format_text(arg1_toks, toks):
+def format_text(arg1_toks, toks, mwts=None):
     last = arg1_toks[0] - 1
     output = []
     for tid in sorted(arg1_toks):
@@ -161,7 +164,24 @@ def format_text(arg1_toks, toks):
             output.append(ellipsis_marker)
         output.append(toks[tid])
         last = tid
-    return " ".join(output)
+    output = " ".join(output)
+    if mwts is not None:  # remove space after MWT internal tokens
+        tok_strings = output.split()
+        output = ""
+        idx = 0
+        for tok in tok_strings:
+            if tok == "<*>":
+                output += "<*> "
+            else:
+                output += tok
+                argtok = arg1_toks[idx]
+                is_in_mwt = False
+                if argtok in mwts:
+                    is_in_mwt = mwts[argtok]
+                if not is_in_mwt:
+                    output += " "
+                idx += 1
+    return output.strip()
 
 
 def format_sent(arg1_sid, sents):
@@ -177,10 +197,14 @@ def format_sent(arg1_sid, sents):
     return " ".join(output)
 
 
-def make_rels(rsd_data, conll_data, dev_set, test_set, corpus="eng.rst.gum", include_secedges=True, outmode="standoff"):
+def make_rels(rsd_data, conll_data, dev_set, test_set, corpus="eng.erst.gum", include_secedges=True, outmode="standoff",
+              coarse_rels=False, dedup=True):
     if outmode == "standoff":
         header = ["doc", "unit1_toks", "unit2_toks", "unit1_txt", "unit2_txt", "s1_toks", "s2_toks", "unit1_sent",
                   "unit2_sent", "dir", "orig_label", "label"]
+    elif outmode == "standoff_reltype":
+        header = ["doc", "unit1_toks", "unit2_toks", "unit1_txt", "unit2_txt", "u1_raw", "u2_raw", "s1_toks", "s2_toks", "unit1_sent",
+                    "unit2_sent", "dir", "rel_type", "orig_label", "label"]
     elif outmode == "standoff_key":
         header = ["doc", "unit1_toks", "unit2_toks", "unit1_txt", "unit2_txt", "s1_toks", "s2_toks", "unit1_sent",
                   "unit2_sent", "dir", "rel_key", "label"]
@@ -193,6 +217,8 @@ def make_rels(rsd_data, conll_data, dev_set, test_set, corpus="eng.rst.gum", inc
     train = ["\t".join(header)]
 
     for i, docname in enumerate(rsd_data):
+        seen_keys = set([])
+
         sent_map = {}
         toks = {}
         sents = conll_data[docname].split("\n\n")
@@ -201,13 +227,21 @@ def make_rels(rsd_data, conll_data, dev_set, test_set, corpus="eng.rst.gum", inc
         toknum = 0
         s_starts = {}
         s_ends = {}
+        mwts = {}  # Track MWT internal tokens (excluding last)
 
         for sent in sents:
             lines = sent.split("\n")
             for line in lines:
                 if "\t" in line:
                     fields = line.split("\t")
+                    if toknum not in mwts:
+                        mwts[toknum] = False
                     if "-" in fields[0] or "." in fields[0]:
+                        if "-" in fields[0]:
+                            start, end = fields[0].split("-")
+                            length = int(end) - int(start)
+                            for i in range(length):
+                                mwts[toknum+i] = True
                         continue
                     if fields[0] == "1":
                         s_starts[snum] = toknum
@@ -224,6 +258,7 @@ def make_rels(rsd_data, conll_data, dev_set, test_set, corpus="eng.rst.gum", inc
         tok_map = {}
         offset = 0
         rels = defaultdict(list)
+        rel_sigtypes = defaultdict(list)
         for line in rsd_lines:
             if "\t" in line:
                 fields = line.split("\t")
@@ -238,12 +273,20 @@ def make_rels(rsd_data, conll_data, dev_set, test_set, corpus="eng.rst.gum", inc
                     continue
                 parents[edu_id].append(edu_parent)
                 rels[edu_id].append(relname)
+                if 'dm-' in fields[-1]:
+                    rel_sigtypes[edu_id].append("explicit")
+                else:
+                    rel_sigtypes[edu_id].append("implicit")
                 if fields[8] != "_" and include_secedges:
                     secedges = fields[8].split("|")
                     for edge in secedges:
                         sec_parent, sec_rel = edge.split(":")[:2]
                         parents[edu_id].append(sec_parent)
                         rels[edu_id].append(sec_rel)
+                        if "orphan-" in edge:
+                            rel_sigtypes[edu_id].append("explicit")  # orphan DM secedge
+                        else:
+                            rel_sigtypes[edu_id].append("implicit")  # e.g. syntactic secedge
 
         # reattach all children of a parent which is itself same-unit to that parent's primary parent
         for edu_id in parents:
@@ -278,6 +321,7 @@ def make_rels(rsd_data, conll_data, dev_set, test_set, corpus="eng.rst.gum", inc
         for edu_id in parents:
             for i, parent_id in enumerate(parents[edu_id]):
                 rel = rels[edu_id][i]
+                rel_type = rel_sigtypes[edu_id][i]
                 rel_key = edu_id + "-" + parent_id + "-" + rel
                 if rel.lower().startswith("same"):
                     continue  # Skip the actual same-unit relation
@@ -366,8 +410,10 @@ def make_rels(rsd_data, conll_data, dev_set, test_set, corpus="eng.rst.gum", inc
                             component_toks = list(range(tok_map[component][0], tok_map[component][1]+1))
                             arg2_toks += component_toks
                     arg1_txt = format_text(arg1_toks,toks)
+                    arg1_raw_txt = format_text(arg1_toks,toks,mwts)
                     arg1_sent = format_sent(arg1_sid,sents)
                     arg2_txt = format_text(arg2_toks,toks)
+                    arg2_raw_txt = format_text(arg2_toks,toks,mwts)
                     arg2_sent = format_sent(arg2_sid,sents)
                     arg1_toks = format_range(arg1_toks)
                     arg2_toks = format_range(arg2_toks)
@@ -389,8 +435,17 @@ def make_rels(rsd_data, conll_data, dev_set, test_set, corpus="eng.rst.gum", inc
                         mapped_rel = mapped_rel.split("-")[0]
                     if corpus.startswith("fas."):
                         mapped_rel = mapped_rel.lower()
+                    if not coarse_rels:
+                        mapped_rel = rel
+                    disrpt_key = docname + "-" + arg1_toks + "-" + arg2_toks
+                    if dedup and disrpt_key in seen_keys:
+                        continue
+                    else:
+                        seen_keys.add(disrpt_key)
                     if outmode == "standoff_key":
                         output.append("\t".join([docname, arg1_toks, arg2_toks, arg1_txt, arg2_txt, s1_toks, s2_toks, arg1_sent, arg2_sent, direction, rel_key, mapped_rel]))
+                    elif outmode == "standoff_reltype":
+                        output.append("\t".join([docname, arg1_toks, arg2_toks, arg1_txt, arg2_txt, arg1_raw_txt, arg2_raw_txt, s1_toks, s2_toks, arg1_sent, arg2_sent, direction, rel_type, rel, mapped_rel]))
                     else:
                         output.append("\t".join([docname,arg1_toks,arg2_toks,arg1_txt,arg2_txt,s1_toks,s2_toks,arg1_sent,arg2_sent,direction,rel,mapped_rel]))
                 else:
@@ -439,18 +494,12 @@ def infuse_conns(non_conned, conns_bio, all_dms=False):
     output = []
     in_conn = False
     for line in non_conned.split("\n"):
-        if "Dillard" in line:
-            a=4
-        if "soon" in line:
-            a=4
         if "\t" in line:
             fields = line.split("\t")
             if "-" in fields[0] or "." in fields[0]:
                 output.append(line)
                 continue
             toknum += 1
-            if fields[1]== "rather":
-                a=4
             if "Conn=No" in fields[-1] and (not all_dms or toknum not in conns_bio):
                 if not all_dms:
                     in_conn = False
@@ -464,22 +513,53 @@ def infuse_conns(non_conned, conns_bio, all_dms=False):
                         in_conn = True
                 else:
                     in_conn = False
+            if fields[-1] == "":
+                fields[-1] = "_"
             line = "\t".join(fields)
             output.append(line)
         else:
             output.append(line)
     return "\n".join(output) + "\n"
 
-def main(conn_data, make_tok_files=True, reddit=False, corpus="gum", outmode="standoff"):
+
+def disrpt_conllu(conllu):
+    def add_misc(misc, feat):
+        if misc == "_":
+            return feat
+        else:
+            featname = feat.split("=")[0]
+            attrs = misc.split("|")
+            attrs = [a for a in attrs if not a.startswith(featname + "=")]
+            attrs.append(feat)
+            return "|".join(sorted(list(set(attrs))))
+
+    lines = conllu.split("\n")
+    output = []
+    for line in lines:
+        if "\t" in line and 'Discourse=' in line:
+            fields = line.split("\t")
+            fields[-1] = add_misc(fields[-1], "Seg=B-Seg")
+            line = "\t".join(fields)
+
+        output.append(line)
+
+    return "\n".join(output)
+
+
+def main(conn_data, make_tok_files=True, reddit=False, corpus="gum", outmode="standoff", make_conllu=True):
     utils_abs_path = os.path.dirname(os.path.realpath(__file__)) + os.sep
 
     no_conn_deped = DepEdit(config_file=utils_abs_path + "non_connectives.ini")
 
-    dev_set = gum_dev
-    test_set = gum_test
+    if "gentle" in corpus.lower():
+        dev_set = []
+        test_set = ["GENTLE_dictionary_next","GENTLE_dictionary_school","GENTLE_dictionary_trust","GENTLE_esports_fifa","GENTLE_esports_fortnite","GENTLE_legal_abortion","GENTLE_legal_service","GENTLE_medical_anemia","GENTLE_medical_hiv","GENTLE_medical_screw","GENTLE_medical_transplant","GENTLE_poetry_annabel","GENTLE_poetry_death","GENTLE_poetry_flower","GENTLE_poetry_raven","GENTLE_poetry_road","GENTLE_proof_five","GENTLE_proof_square","GENTLE_proof_wosets","GENTLE_syllabus_opensource","GENTLE_syllabus_techtonica","GENTLE_threat_bolin","GENTLE_threat_dillard","GENTLE_threat_kelly","GENTLE_threat_malik","GENTLE_threat_white"]
+    else:
+        dev_set = gum_dev
+        test_set = gum_test
 
-    corpus = "eng.rst." + corpus
-    target_dir = os.path.dirname(os.path.realpath(__file__)) + os.sep + ".." +os.sep + "target" + os.sep
+    corpus = "eng.erst." + corpus if corpus in ["gum","gentle"] else "eng.rst." + corpus
+    target_dir = os.path.dirname(os.path.realpath(__file__)) + os.sep + ".." + os.sep + "target" + os.sep
     conllu_dir = target_dir + "dep" + os.sep + "not-to-release" + os.sep
     rsd_dir = target_dir + "rst" + os.sep + "dependencies" + os.sep
     disrpt_dir = target_dir + "rst" + os.sep + "disrpt" + os.sep
@@ -492,24 +572,35 @@ def main(conn_data, make_tok_files=True, reddit=False, corpus="gum", outmode="st
 
     dev, train, test = make_rels(rsd_data, conll_data, dev_set, test_set, corpus=corpus, outmode=outmode)
 
+
     if make_tok_files:
-        plain_dev = ""
-        plain_test = ""
-        plain_train = ""
+        plain_dev = plain_test = plain_train = ""
+        conllu_dev = conllu_test = conllu_train = ""
         for docname in conll_data:
             if docname in dev_set:
                 plain_dev += make_plain(conll_data[docname].strip() + "\n\n")
+                conllu_dev += disrpt_conllu(conll_data[docname].strip())
             elif docname in test_set or "gentle" in corpus:
                 plain_test += make_plain(conll_data[docname].strip() + "\n\n")
+                conllu_test += disrpt_conllu(conll_data[docname].strip())
             else:
                 plain_train += make_plain(conll_data[docname].strip() + "\n\n")
+                conllu_train += disrpt_conllu(conll_data[docname].strip())
         if "gentle" not in corpus:
             with io.open(disrpt_dir + corpus + "_dev.tok", 'w', encoding="utf8", newline="\n") as f:
                 f.write(plain_dev)
             with io.open(disrpt_dir + corpus + "_train.tok", 'w', encoding="utf8", newline="\n") as f:
                 f.write(plain_train)
+            if make_conllu:
+                with io.open(disrpt_dir + corpus + "_dev.conllu", 'w', encoding="utf8", newline="\n") as f:
+                    f.write(conllu_dev)
+                with io.open(disrpt_dir + corpus + "_train.conllu", 'w', encoding="utf8", newline="\n") as f:
+                    f.write(conllu_train)
         with io.open(disrpt_dir + corpus + "_test.tok", 'w', encoding="utf8", newline="\n") as f:
             f.write(plain_test)
+        if make_conllu:
+            with io.open(disrpt_dir + corpus + "_test.conllu", 'w', encoding="utf8", newline="\n") as f:
+                f.write(conllu_test)
 
     if "gentle" not in corpus:
         with io.open(disrpt_dir + corpus + "_dev.rels",'w',encoding="utf8",newline="\n") as f:
@@ -519,37 +610,37 @@ def main(conn_data, make_tok_files=True, reddit=False, corpus="gum", outmode="st
     with io.open(disrpt_dir + corpus + "_test.rels",'w',encoding="utf8",newline="\n") as f:
         f.write(test)
 
-    if "gentle" not in corpus:
-        # Make PDTB style connective files
-        pdtb_dev = pdtb_test = pdtb_train = ""
+    # Make PDTB style connective files
+    pdtb_dev = pdtb_test = pdtb_train = ""
 
-        for docname in sorted(conll_data):
-            non_conned = no_conn_deped.run_depedit(conll_data[docname].strip() + "\n\n")
-            non_conned = infuse_conns(non_conned, conn_data[docname], all_dms=False)
-            if docname in dev_set:
-                pdtb_dev += non_conned.strip() + "\n\n"
-            elif docname in test_set:
-                pdtb_test += non_conned.strip() + "\n\n"
-            else:
-                pdtb_train += non_conned.strip() + "\n\n"
+    for docname in sorted(conll_data):
+        non_conned = no_conn_deped.run_depedit(conll_data[docname].strip() + "\n\n")
+        non_conned = infuse_conns(non_conned, conn_data[docname], all_dms=False)
+        if docname in dev_set:
+            pdtb_dev += non_conned.strip() + "\n\n"
+        elif docname in test_set:
+            pdtb_test += non_conned.strip() + "\n\n"
+        else:
+            pdtb_train += non_conned.strip() + "\n\n"
 
-        with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_dev.conllu",'w',encoding="utf8",newline="\n") as f:
-            f.write(pdtb_dev)
-        with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_test.conllu",'w',encoding="utf8",newline="\n") as f:
-            f.write(pdtb_test)
-        with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_train.conllu", 'w', encoding="utf8", newline="\n") as f:
-            f.write(pdtb_train)
+    with io.open(disrpt_dir + corpus.replace("erst.","rst.").replace("rst","pdtb") + "_dev.conllu",'w',encoding="utf8",newline="\n") as f:
+        f.write(pdtb_dev)
+    with io.open(disrpt_dir + corpus.replace("erst.","rst.").replace("rst","pdtb") + "_test.conllu",'w',encoding="utf8",newline="\n") as f:
+        f.write(pdtb_test)
+    with io.open(disrpt_dir + corpus.replace("erst.","rst.").replace("rst","pdtb") + "_train.conllu", 'w', encoding="utf8", newline="\n") as f:
+        f.write(pdtb_train)
 
-        if make_tok_files:
-            plain_dev = make_plain(pdtb_dev.strip() + "\n\n")
-            plain_test = make_plain(pdtb_test.strip() + "\n\n")
-            plain_train = make_plain(pdtb_train.strip() + "\n\n")
-            with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_dev.tok", 'w', encoding="utf8", newline="\n") as f:
-                f.write(plain_dev)
-            with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_test.tok", 'w', encoding="utf8", newline="\n") as f:
-                f.write(plain_test)
-            with io.open(disrpt_dir + corpus.replace("rst","pdtb") + "_train.tok", 'w', encoding="utf8", newline="\n") as f:
-                f.write(plain_train)
+    if make_tok_files:
+        plain_dev = make_plain(pdtb_dev.strip() + "\n\n")
+        plain_test = make_plain(pdtb_test.strip() + "\n\n")
+        plain_train = make_plain(pdtb_train.strip() + "\n\n")
+        with io.open(disrpt_dir + corpus.replace("erst.","rst.").replace("rst","pdtb") + "_dev.tok", 'w', encoding="utf8", newline="\n") as f:
+            f.write(plain_dev)
+        with io.open(disrpt_dir + corpus.replace("erst.","rst.").replace("rst","pdtb") + "_test.tok", 'w', encoding="utf8", newline="\n") as f:
+            f.write(plain_test)
+        with io.open(disrpt_dir + corpus.replace("erst.","rst.").replace("rst","pdtb") + "_train.tok", 'w', encoding="utf8", newline="\n") as f:
+            f.write(plain_train)
+
 
 if __name__ == "__main__":
 
@@ -559,4 +650,4 @@ if __name__ == "__main__":
     p.add_argument("-c","--corpus",action="store",default="gum",choices=["gum","gentle"],help="corpus name")
     opts = p.parse_args()
 
-    main(make_tok_files=opts.plain,reddit=opts.reddit,corpus=opts.corpus)
+    main(defaultdict(list),make_tok_files=opts.plain,reddit=opts.reddit,corpus=opts.corpus)
