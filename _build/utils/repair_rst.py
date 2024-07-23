@@ -70,11 +70,11 @@ def validate_rsd(rsd_line, linenum, docname):
 		if "\tthat" not in rsd_line and "\tabout" not in rsd_line and "\tyou " not in rsd_line and \
 			'\tto expect "' not in rsd_line and "\tto consider" not in rsd_line and \
 			"\tto hold the Office" not in rsd_line and "\tto represent California" not in rsd_line and \
-			"\tto shine through" not in rsd_line:  # check for that-clause embedding to-, or about PP
+			"\tto shine through" not in rsd_line and "\tto go down in this match" not in rsd_line:  # check for that-clause embedding to-, or about PP
 			sys.stderr.write("! adnominal infinitive clause should be purpose-attribute not elaboration-attribute" + inname)
 	if re.search(r'(\bn.t\b[^\n]+)attribution-positive_r', rsd_line) is not None:
 		if ("surprised" not in rsd_line and "not only" not in rsd_line) and "n't also deny" not in rsd_line and \
-			not ("n't think" in rsd_line and "veronique" in docname):
+			not ("n't think" in rsd_line and "veronique" in docname) and not ("agreeing" in rsd_line and "raven" in docname):
 			sys.stderr.write("! suspicious attribution-positive_r with negation" + inname)
 	if "\t" in rsd_line:
 		fields = rsd_line.split("\t")
