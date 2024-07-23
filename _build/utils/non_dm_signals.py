@@ -160,8 +160,8 @@ def get_cached_signals(gold_rs4, signal_list, docname):
 
     # These signal types are always cached
     dms = [l for l in gold_rs4.split("\n") if ('type="dm"' in l or 'type="orphan"' in l or 'type="unsure"' in l
-                                               or 'subtype="relative_conjunction"' in l or 'subtype="parallel' in l)
-                                               and "<signal" in l]
+                                               or 'subtype="relative_conjunction"' in l or 'subtype="parallel' in l
+                                               or 'subtype="negation') and "<signal" in l]
     signal_list = [e for e in signal_list if e.attrib["subtype"] not in ["dm","orphan","unsure","relative_conjunction","parallel_syntactic_construction"]]
     secedges = [l for l in gold_rs4.split("\n") if 'secedge ' in l]
     for dm in dms:
