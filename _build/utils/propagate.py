@@ -5,9 +5,14 @@
 # v1.0.2
 
 from glob import glob
-from .nlp_helper import get_claws, adjudicate_claws, ud_morph
-from .add_xml_annotations import add_xml
-from .depedit import DepEdit
+try:
+	from .nlp_helper import get_claws, adjudicate_claws, ud_morph
+	from .add_xml_annotations import add_xml
+	from .depedit import DepEdit
+except:
+	from nlp_helper import get_claws, adjudicate_claws, ud_morph
+	from add_xml_annotations import add_xml
+	from depedit import DepEdit
 import os, re, sys, io
 import ntpath
 from collections import defaultdict, OrderedDict
