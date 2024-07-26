@@ -49,7 +49,7 @@ tense_pos = {"VBP":"Pres","VBZ":"Pres","VBD":"Past","MD":"Fut"}
 multinuc_rels = ["adversative-contrast","joint-list","restatement-repetition","joint-other","joint-disjunction","joint-sequence","same-unit"]
 
 mention_allowed_functions = set(["nsubj","nsubj:pass","nsubj:outer","obj","iobj","nmod:poss","root","nmod","obl",
-                                 "obl:tmod","obl:npmod","appos","conj"])  # TODO: resolve conj to parent deprel and disallow conj
+                                 "obl:tmod","obl:npmod","obl:unmarked","appos","conj"])  # TODO: resolve conj to parent deprel and disallow conj
 clause_funcs = set(["root","parataxis","xcomp","conj","ccomp","csubj","csubj:pass","advcl","acl","acl:relcl","advcl:relcl"])
 
 # Note some of these are AltLex (e.g. so+is)

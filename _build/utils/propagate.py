@@ -54,7 +54,7 @@ ud_edep_deped.quiet = True
 cxg_deped = DepEdit(utils_abs_path + os.sep + "en_cxn.ini")
 cxg_deped.quiet = True
 
-efuncs = set(["acl","acl:relcl","advcl","advcl:relcl","advmod","amod","appos","aux","aux:pass","case","cc","cc:preconj","ccomp","compound","compound:prt","conj","cop","csubj","csubj:pass","csubj:xsubj","dep","det","det:predet","discourse","dislocated","expl","fixed","flat","goeswith","iobj","list","mark","nmod","nmod:npmod","nmod:poss","nmod:tmod","nsubj","nsubj:pass","nsubj:xsubj","nummod","obj","obl","obl:npmod","obl:tmod","orphan","parataxis","punct","ref","reparandum","root","vocative","xcomp"])
+efuncs = set(["acl","acl:relcl","advcl","advcl:relcl","advmod","amod","appos","aux","aux:pass","case","cc","cc:preconj","ccomp","compound","compound:prt","conj","cop","csubj","csubj:pass","csubj:xsubj","dep","det","det:predet","discourse","dislocated","expl","fixed","flat","goeswith","iobj","list","mark","nmod","nmod:unmarked","nmod:poss","nsubj","nsubj:pass","nsubj:xsubj","nummod","obj","obl","obl:unmarked","orphan","parataxis","punct","ref","reparandum","root","vocative","xcomp"])
 
 mseg_lookup = open(utils_abs_path + os.sep + "mseg.tab",encoding="utf8").read().strip().split("\n")
 mseg_lookup = {tuple(l.split("\t")[:-1]):l.split("\t")[-1] for l in mseg_lookup}

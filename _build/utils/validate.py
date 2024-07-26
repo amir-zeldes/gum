@@ -519,7 +519,7 @@ def validate_annos(gum_source, reddit=False):
 				if parent_ids[start_token+i] < start_token or parent_ids[start_token+i] > end_token or parent_ids[start_token+i] == 0:  # Entity head?
 					if funcs[start_token+i] != "punct":
 						mark.func = funcs[start_token+i]
-			if mark.func.endswith("tmod") and mark.entity != "time":
+			if mark.func.endswith("tmod") and mark.entity != "time":  # NB this will never trigger in :unmarked annotation style, but we could simulate this with the tmod lemmas from label_trees.py
 				if not (mark.entity == "event" and "time" in mark.text):
 					print("! WARN: markable " + mark.text + " at " +docname + " token " + str(toknum) + " is " + \
 						  mark.entity + " but has head deprel " + mark.func)
@@ -905,7 +905,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func in ["iobj","obj"] and parent_lemma in ["become","remain","stay"]:
 		print("WARN: verb '"+parent_lemma+"' should take xcomp not "+func+" argument" + inname)
 
-	if func in ["nmod:tmod","nmod:npmod","obl:tmod","obl:npmod"] and "case" in child_funcs:
+	if func in ["nmod:tmod","nmod:npmod","obl:tmod","obl:npmod","nmod:unmarked","obl:unmarked"] and "case" in child_funcs:
 		print("WARN: function " + func +  " should not have 'case' dependents" + inname)
 
 	if func in ["aux:pass","nsubj:pass"] and parent_pos not in ["VVN","VBN","VHN","GW"]:
@@ -938,8 +938,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func == "acl" and (pos.endswith("G") or pos.endswith("N")) and parent_id == id + 1:  # premodifier V.G/N should be amod not acl
 		print("WARN: back-pointing " + func + " for adjacent premodifier (should be amod?) in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
-	if func.endswith("tmod") and pos.startswith("RB"):
-		print("WARN: adverbs should not be tmod" + inname)
+	if func.endswith("tmod") or func.endswith("unmarked") and pos.startswith("RB"):
+		print("WARN: adverbs should not be " +func + inname)
 
 	"""
 	Existential construction
