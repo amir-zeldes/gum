@@ -345,6 +345,7 @@ def validate_annos(gum_source, reddit=False):
 
 		# Dictionaries to hold token annotations from conllu data
 		funcs = {}
+		pre_morphs = {}  # Manual morph annotations
 		tokens = {}
 		parent_ids = {}
 		parents = {}
@@ -369,6 +370,7 @@ def validate_annos(gum_source, reddit=False):
 					tok_num += 1
 					fields = line.split("\t")
 					funcs[tok_num] = fields[7]
+					pre_morphs[tok_num] = fields[5]
 					if fields[6] != "0":  # Root token
 						if fields[6] == "_":
 							print("Invalid head '_' at line " + str(r) + " in " + depfile)
@@ -407,6 +409,7 @@ def validate_annos(gum_source, reddit=False):
 			if "\t" in line:  # Token
 				tok_num += 1
 				func = funcs[tok_num]
+				pre_morph = pre_morphs[tok_num]
 				fields = line.split("\t")
 				tok, pos, lemma = fields[0:3]
 				if pos not in tagset:
@@ -428,7 +431,7 @@ def validate_annos(gum_source, reddit=False):
 				parent_pos = postags[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
 				flag_dep_warnings(tok_num, tok, pos, lemma, func, parent_string, parent_lemma, parent_id,
 								  children[tok_num], child_funcs[tok_num], child_pos[tok_num], sent_types[tok_num], docname,
-								  prev_tok, prev_pos, sent_positions[tok_num], parent_func, parent_pos)
+								  prev_tok, prev_pos, sent_positions[tok_num], parent_func, parent_pos, pre_morph)
 				prev_pos = pos
 				prev_tok = tok
 
@@ -676,9 +679,12 @@ def truncate(text):
 
 
 def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id, children, child_funcs, child_pos, s_type,
-					  docname, prev_tok, prev_pos, sent_position, parent_func, parent_pos):
+					  docname, prev_tok, prev_pos, sent_position, parent_func, parent_pos, pre_morph):
 	# Shorthand for printing errors
 	inname = " in " + docname + " @ token " + str(id) + " (" + parent + " -> " + tok + ")"
+
+	if "." in docname:
+		docname = docname.split(".")[0]
 
 	if re.search(r"VH.*", pos) is not None and lemma != "have":
 		print("WARN: VH.* must be 'have' & not lemma " + lemma + inname)
@@ -881,10 +887,13 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print("WARN: infinitive with tag " + pos + " should be acl not acl:relcl" + inname)
 
 	if pos in ["VB","VV","VH"] and ("nsubj" in child_funcs or "nsubj:pass" in child_funcs or "csubj" in child_funcs) and \
-			("MD" not in child_pos) and not any([x in [k.lower() for k in children] for x in ["do","did","does","for","better"]])\
+			("MD" not in child_pos) and not any([x in [k.lower() for k in children] for x in ["do","did","does","for","better","'d"]])\
 			and not "cop" in child_funcs \
 			and not lemma == "be" and not (lemma=="believe" and "malik" in docname):  # Strong raised existential: there appears to be X; and known exceptions
-		print("WARN: infinitive verb should not have subject " + inname)
+		if docname not in ["GUM_conversation_grounded","GUM_vlog_lipstick"]:  # Known exception
+			if not ("that" in children and func in ["ccomp","csubj"]):  # Subjunctive clause
+				if "Mood=Sub" not in pre_morph:
+					print("WARN: infinitive verb should not have subject " + inname)
 
 	if pos in ["VBG","VVG","VHG"] and "det" in child_funcs:
 		# Exceptions for phrasal compound in GUM_reddit_card and nominalization in GUM_academic_exposure, GENTLE_dictionary_next
