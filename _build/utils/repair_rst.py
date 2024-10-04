@@ -60,7 +60,10 @@ def get_conn_data(filename):
 					conn_data[int(tok)] = "B"
 				else:
 					if conn_data[int(tok)] != "B":
-						conn_data[int(tok)] = "I"
+						if conn_data[int(tok)-1] != "":
+							conn_data[int(tok)] = "I"
+						else:
+							conn_data[int(tok)] = "B"
 	return conn_data
 
 
@@ -86,7 +89,7 @@ def validate_rsd(rsd_line, linenum, docname):
 			sys.stderr.write("! suspicious parenthetical year EDU with rsd relation " + fields[7] + inname)
 
 
-def validate_rstpp(rs4,docname,sig_stats):
+def validate_erst(rs4,docname,sig_stats):
 	lines = rs4.split("\n")
 	tokens = []
 	secedges = set([])
@@ -104,15 +107,15 @@ def validate_rstpp(rs4,docname,sig_stats):
 			rel_name = re.search(r' relname="([^"]+)"',line).group(1)
 			id2rel[rel_id] = rel_name
 		if re.search(r'<signal source="[0-9]+-[0-9]+".*"dm"',line) is not None:
-			sys.stderr.write("! Found dm signal for secondary RST++ relation on line "+str(i+1)+" of "+docname+"\n")
+			sys.stderr.write("! Found dm signal for secondary eRST relation on line "+str(i+1)+" of "+docname+"\n")
 		if re.search(r'<signal source="[0-9]+".*"orphan"',line) is not None:
-			sys.stderr.write("! Found orphan signal for primary RST++ relation on line "+str(i+1)+" of "+docname+"\n")
+			sys.stderr.write("! Found orphan signal for primary eRST relation on line "+str(i+1)+" of "+docname+"\n")
 		if 'lexical_chain2' in line:
 			sys.stderr.write("! Found unnormalized signal lexical_chain2 on line " + str(i + 1) + " of " + docname + "\n")
 		if '<secedge ' in line:
 			secedge_id = re.search(r' id="([0-9]+-[0-9]+)"',line).group(1)
 			if secedge_id in secedges:
-				sys.stderr.write("! Found duplicate RST++ secondary edge on line " + str(i + 1) + " of " + docname + "\n")
+				sys.stderr.write("! Found duplicate eRST secondary edge on line " + str(i + 1) + " of " + docname + "\n")
 			else:
 				secedges.add(secedge_id)
 		if '<signal source' in line:
@@ -148,7 +151,7 @@ def validate_rstpp(rs4,docname,sig_stats):
 
 	for e in secedges:
 		if e not in signal_sources:
-			sys.stderr.write("! Found secondary RST++ relation with no signal for edge "+str(e)+" in "+docname+"\n")
+			sys.stderr.write("! Found secondary eRST relation with no signal for edge "+str(e)+" in "+docname+"\n")
 
 	return sig_stats
 
@@ -234,7 +237,7 @@ def fix_file(filename, tt_file, gum_source, outdir, rsd_algorithm="li"):
 		f.write(dis)
 
 
-def update_non_dm_signals(gum_source, gum_target, reddit=False):
+def update_non_dm_signals(gum_source, gum_target, reddit=False, rsd_algorithm="li"):
 	gold_rs4_dir = gum_source + "rst" + os.sep
 	gold_rs4_files = glob(gold_rs4_dir + "*.rs4")
 	gold_target_dir = gum_target + "rst" + os.sep + "rstweb" + os.sep
@@ -251,7 +254,11 @@ def update_non_dm_signals(gum_source, gum_target, reddit=False):
 		gold_rs4 = update_signals(gold_rs4, docname, xml_root=gum_source)
 		with open(gold_target_dir + docname + ".rs4",'w',encoding="utf8",newline="\n") as f:
 			f.write(gold_rs4)
-		sig_stats = validate_rstpp(gold_rs4, docname, sig_stats)
+		updated_rsd = make_rsd(gold_rs4, gum_source, as_text=True, algorithm=rsd_algorithm, docname=docname)
+		with open(gold_target_dir.replace("rstweb","dependencies") + docname + ".rsd",'w',encoding="utf8",newline="\n") as f:
+			f.write(updated_rsd)
+		sig_stats = validate_erst(gold_rs4, docname, sig_stats)
+
 	print("o Updated signals in " + str(len(gold_rs4_files)) + " RST files" + " " * 70)
 
 	dm2rel = ["\t".join(["dm","freq","senses"])]
