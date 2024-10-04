@@ -133,12 +133,24 @@ class Entity:
 		return self.end - self.start + 1
 
 
+def abbreviate_signals(signal_string):
+	if signal_string == "_":
+		return "_"
+	parts = signal_string.replace("|", "-").split("-", 2)
+	if parts[0] not in ["dm", "orphan"]:
+		parts[1] = subtypes[parts[1]]
+	parts[0] = sigtypes[parts[0]]
+	return "-".join(parts)
+
+
 def resolve_mseg(word, pos, lemma, mseg_lookup):
 	if (word, pos) in mseg_lookup:
 		return mseg_lookup[(word, pos)]
 	elif "-" not in word:
 		if pos in ["NPS","NNS"]:
-			if lemma.lower()[:-1]==word.lower() and word.lower()[-1] == "s":  # Regular unlisted plural
+			if word.lower()[:-1] == lemma.lower() and word.lower()[-1] == "s":  # Regular unlisted plural
+				return word[:-1] + "-" + word[-1]
+			elif lemma.lower()[:-1] + "ies" == word.lower():  # Regular unlisted plural - y -> ies
 				return word[:-1] + "-" + word[-1]
 		elif pos == "VVG" and word.lower().endswith("ing"):
 			return word[:-3] + "-" + word[-3:]
@@ -1292,7 +1304,28 @@ def get_rsd_spans(gum_target):
 	return rsd_spans, depths
 
 
-def add_rsd_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8, output_signals=True, output_secedges=True):
+def get_pdtb_data(gum_target):
+	pdtb_data = defaultdict(dict)
+	pdtb_files = glob(gum_target + "rst" + os.sep + "gdtb" + os.sep + "pdtb" + os.sep + "gold" + os.sep + "00" + os.sep + "*")
+	for file_ in pdtb_files:
+		docname = os.path.basename(file_).split(".")[0]
+		lines = io.open(file_,encoding="utf8").read().split("\n")
+		for line in lines:
+			if "|" in line:
+				fields = line.split("|")
+				reltype = fields[0]
+				conn_str = fields[7] if fields[7] != "" else "_"
+				label = fields[8]
+				prov = fields[32]
+				start, conn_toks, arg1, arg2 = prov.split(":")[-1].split(";")
+				start = int(start)-1
+				# Make a label like 'Explicit:Temporal.Synchronous:when:13:8-12:14-16
+				pdtb_data[docname][start] = ":".join([reltype,label,conn_str,conn_toks,arg1,arg2])
+
+	return pdtb_data
+
+
+def add_rsd_and_pdtb_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8, output_signals=True, output_secedges=True):
 
 	def convert_rel(rel, version=8):
 		if version < 7:
@@ -1315,18 +1348,10 @@ def add_rsd_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8, o
 				return "joint_m"
 		return rel
 
-	def abbreviate_signals(signal_string):
-		if signal_string == "_":
-			return "_"
-		parts = signal_string.replace("|","-").split("-",2)
-		if parts[0] not in ["dm","orphan"]:
-			parts[1] = subtypes[parts[1]]
-		parts[0] = sigtypes[parts[0]]
-		return "-".join(parts)
-
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
 	rsd_spans, depths = get_rsd_spans(gum_target)
+	pdtb_data = get_pdtb_data(gum_target)
 
 	if not ontogum:
 		files = glob(gum_target + "dep" + os.sep + "*.conllu")
@@ -1368,9 +1393,14 @@ def add_rsd_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8, o
 								disc += ";" + secparts[1] + ":" + rsd_data[0] + "->" + secparts[0] + ":" + secparts[2] + ":" + secparts[3] + sig_data
 						misc = add_feat(fields[-1], disc)
 						fields[-1] = misc
-						line = "\t".join(fields)
 						depth = depths[doc][rsd_data[0]]
 						sents2depths[snum].add(depth)
+					if toknum in pdtb_data[doc]:
+						pdtb = pdtb_data[doc][toknum]
+						misc = add_feat(fields[-1], "PDTB=" + pdtb)
+						fields[-1] = misc
+
+					line = "\t".join(fields)
 					toknum += 1
 			elif len(line.strip()) == 0:
 				snum += 1
