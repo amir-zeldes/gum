@@ -4,6 +4,7 @@ from collections import defaultdict
 from argparse import ArgumentParser
 from depedit import DepEdit
 
+
 def make_plain(conllu):
     tok_num = 1
     output = []
@@ -558,7 +559,7 @@ def main(conn_data, make_tok_files=True, reddit=False, corpus="gum", outmode="st
         dev_set = gum_dev
         test_set = gum_test
 
-    corpus = "eng.erst." + corpus if corpus in ["gum","gentle"] else "eng.rst." + corpus
+    corpus = "eng.erst." + corpus
     target_dir = os.path.dirname(os.path.realpath(__file__)) + os.sep + ".." + os.sep + "target" + os.sep
     conllu_dir = target_dir + "dep" + os.sep + "not-to-release" + os.sep
     rsd_dir = target_dir + "rst" + os.sep + "dependencies" + os.sep
@@ -572,20 +573,19 @@ def main(conn_data, make_tok_files=True, reddit=False, corpus="gum", outmode="st
 
     dev, train, test = make_rels(rsd_data, conll_data, dev_set, test_set, corpus=corpus, outmode=outmode)
 
-
     if make_tok_files:
         plain_dev = plain_test = plain_train = ""
         conllu_dev = conllu_test = conllu_train = ""
         for docname in conll_data:
             if docname in dev_set:
                 plain_dev += make_plain(conll_data[docname].strip() + "\n\n")
-                conllu_dev += disrpt_conllu(conll_data[docname].strip())
+                conllu_dev += disrpt_conllu(conll_data[docname].strip() + "\n\n")
             elif docname in test_set or "gentle" in corpus:
                 plain_test += make_plain(conll_data[docname].strip() + "\n\n")
-                conllu_test += disrpt_conllu(conll_data[docname].strip())
+                conllu_test += disrpt_conllu(conll_data[docname].strip() + "\n\n")
             else:
                 plain_train += make_plain(conll_data[docname].strip() + "\n\n")
-                conllu_train += disrpt_conllu(conll_data[docname].strip())
+                conllu_train += disrpt_conllu(conll_data[docname].strip() + "\n\n")
         if "gentle" not in corpus:
             with io.open(disrpt_dir + corpus + "_dev.tok", 'w', encoding="utf8", newline="\n") as f:
                 f.write(plain_dev)
@@ -623,23 +623,25 @@ def main(conn_data, make_tok_files=True, reddit=False, corpus="gum", outmode="st
         else:
             pdtb_train += non_conned.strip() + "\n\n"
 
-    with io.open(disrpt_dir + corpus.replace("erst.","rst.").replace("rst","pdtb") + "_dev.conllu",'w',encoding="utf8",newline="\n") as f:
-        f.write(pdtb_dev)
+    if "gentle" not in corpus:
+        with io.open(disrpt_dir + corpus.replace("erst.","rst.").replace("rst","pdtb") + "_dev.conllu",'w',encoding="utf8",newline="\n") as f:
+            f.write(pdtb_dev)
+        with io.open(disrpt_dir + corpus.replace("erst.","rst.").replace("rst","pdtb") + "_train.conllu", 'w', encoding="utf8", newline="\n") as f:
+            f.write(pdtb_train)
     with io.open(disrpt_dir + corpus.replace("erst.","rst.").replace("rst","pdtb") + "_test.conllu",'w',encoding="utf8",newline="\n") as f:
         f.write(pdtb_test)
-    with io.open(disrpt_dir + corpus.replace("erst.","rst.").replace("rst","pdtb") + "_train.conllu", 'w', encoding="utf8", newline="\n") as f:
-        f.write(pdtb_train)
 
     if make_tok_files:
         plain_dev = make_plain(pdtb_dev.strip() + "\n\n")
         plain_test = make_plain(pdtb_test.strip() + "\n\n")
         plain_train = make_plain(pdtb_train.strip() + "\n\n")
-        with io.open(disrpt_dir + corpus.replace("erst.","rst.").replace("rst","pdtb") + "_dev.tok", 'w', encoding="utf8", newline="\n") as f:
-            f.write(plain_dev)
+        if "gentle" not in corpus:
+            with io.open(disrpt_dir + corpus.replace("erst.","rst.").replace("rst","pdtb") + "_dev.tok", 'w', encoding="utf8", newline="\n") as f:
+                f.write(plain_dev)
+            with io.open(disrpt_dir + corpus.replace("erst.","rst.").replace("rst","pdtb") + "_train.tok", 'w', encoding="utf8", newline="\n") as f:
+                f.write(plain_train)
         with io.open(disrpt_dir + corpus.replace("erst.","rst.").replace("rst","pdtb") + "_test.tok", 'w', encoding="utf8", newline="\n") as f:
             f.write(plain_test)
-        with io.open(disrpt_dir + corpus.replace("erst.","rst.").replace("rst","pdtb") + "_train.tok", 'w', encoding="utf8", newline="\n") as f:
-            f.write(plain_train)
 
 
 if __name__ == "__main__":
