@@ -133,11 +133,12 @@ for line in same_count_data.strip().split("\n"):
     same_count[docname.strip()].add(expression.strip())
 
 
-def make_signal(rst_node_id, maintype, subtype, tokens):
+def make_signal(rst_node_id, maintype, subtype, tokens, status=''):
     elem = ET.Element('signal', attrib={'source': rst_node_id,
                                  'type': maintype,
                                  'subtype': subtype,
-                                 'tokens': str(tokens)})
+                                 'tokens': str(tokens),
+                                    'status': status})
     return elem
 
 
@@ -156,21 +157,34 @@ def clean_xml(xml):
 
 
 def get_cached_signals(gold_rs4, signal_list, docname):
-    # Get DMs and secedges from cached gold rstpp file if it exists, otherwise return the current signal list
+    def make_candidate(signal_line):
+        sigtype = re.search(r' type="([^"]+)"',signal_line).group(1)
+        sigsubtype = re.search(r' subtype="([^"]+)"',signal_line).group(1)
+        source = re.search(r' source="([^"]+)"',signal_line).group(1)
+        tokens = re.search(r' tokens="([^"]*)"',signal_line).group(1)
+        tokens = tuple([int(x)-1 for x in tokens.split(",")]) if len(tokens) > 0 else ""
+        candidate = (tokens, '.*','.*','.*', sigtype, sigsubtype, "nid:" + source)
+        return candidate
+
+    # Get DMs and secedges from cached gold eRST file if it exists, otherwise return the current signal list
 
     # These signal types are always cached
-    dms = [l for l in gold_rs4.split("\n") if ('type="dm"' in l or 'type="orphan"' in l or 'type="unsure"' in l
-                                               or 'subtype="relative_conjunction"' in l or 'subtype="parallel' in l
-                                               or 'subtype="negation') and "<signal" in l]
-    signal_list = [e for e in signal_list if e.attrib["subtype"] not in ["dm","orphan","unsure","relative_conjunction","parallel_syntactic_construction"]]
+    dms = [l for l in gold_rs4.split("\n") if "<signal" in l and ('type="dm"' in l or 'type="orphan"' in l or 'type="unsure"' in l or 'subtype="relative_conjunction"' in l or 'subtype="parallel' in l or 'subtype="negation' in l)]
+    non_dm_gold_lines = [l for l in gold_rs4.split("\n") if "<signal" in l and 'status="gold"' in l and not ('type="dm"' in l or 'type="orphan"' in l or 'type="unsure"' in l or 'subtype="relative_conjunction"' in l or 'subtype="parallel' in l or 'subtype="negation' in l)]
+    signal_list = [e for e in signal_list if e.attrib["subtype"] not in ["dm","orphan","unsure","relative_conjunction","parallel_syntactic_construction", "negation"]]
     secedges = [l for l in gold_rs4.split("\n") if 'secedge ' in l]
     for dm in dms:
         sigtype = re.search(r' type="([^"]+)"',dm).group(1)
         sigsubtype = re.search(r' subtype="([^"]+)"',dm).group(1)
         source = re.search(r' source="([^"]+)"',dm).group(1)
         tokens = re.search(r' tokens="([^"]*)"',dm).group(1)
-        signal = ET.Element('signal', attrib={'source': source, 'type': sigtype, 'subtype': sigsubtype, 'tokens': tokens})
+        status = "gold" if 'status' not in dm else re.search(r' status="([^"]+)"',dm).group(1)
+        signal = ET.Element('signal', attrib={'source': source, 'type': sigtype, 'subtype': sigsubtype, 'tokens': tokens, 'status': status})
         signal_list.append(signal)
+
+    non_dm_gold = []
+    for line in non_dm_gold_lines:
+        non_dm_gold.append(make_candidate(line))
 
     # Always keep cached secedges
     edges = []
@@ -188,7 +202,7 @@ def get_cached_signals(gold_rs4, signal_list, docname):
     else:
         eblock = None
 
-    return signal_list, eblock
+    return signal_list, non_dm_gold, eblock
 
 
 def conllu_stale(target_conllu, docname):
@@ -236,7 +250,7 @@ def rm_ellipsis(conllu):
     return "\n".join(output)
 
 
-def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, use_depedit_cache=False,
+def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, non_dm_gold, use_depedit_cache=False,
                        secedges=None,signal_cache=True):
     legacy_mode = False
 
@@ -443,8 +457,6 @@ def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, use_dep
 
     for nid in nodes:
         node = nodes[nid]
-        sis_head_edus = None
-        target_head_edus = target_descendents = None
         if node.relname != "span":
             head_edus = [node2head_edu[node.id]]
             descendents = node2descendent_edus[node.id]
@@ -455,10 +467,10 @@ def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, use_dep
             if node.relname.endswith("_m"):
                 if "same-unit" in node.relname:
                     continue
-                else: # multinuc
+                else:  # multinuc
                     sisters = node2multinuc_children[node.parent]
                     leftmost_sisters.add(sorted(list(sisters),key=lambda x:nodes[x].left)[0])
-                    sis_head_edus = [node2head_edu[s] for s in sisters if s not in descendents]
+                    sis_head_edus = [node2head_edu[s] for s in sisters if node2head_edu[s] not in descendents]
                     for sis in sis_head_edus:
                         if sis in main2same_unit:
                             for sameunit in main2same_unit[sis]:
@@ -629,7 +641,7 @@ def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, use_dep
                         abs_head = toknum + int(head) - int(fields[0])
                         xsubj_map[abs_head] = toknum
 
-    signal_tokens = []
+    signal_tokens = non_dm_gold
 
     signals = []
 
@@ -875,7 +887,7 @@ def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, use_dep
                 toknum = toknum[-1]
             else:
                 toknum = toknum[0]
-        elif subtype in ["layout","items_in_sequence"]:  # Signal with no specific associated tokens
+        elif subtype in ["layout","items_in_sequence"] or toknum == "":  # Signal with no specific associated tokens
             if not (pos_tags[toknum] == "LS" and subtype == "items_in_sequence"):
                 tokspan = ""
             else:
@@ -888,7 +900,7 @@ def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, use_dep
 
         if location.startswith("nid:"):  # Exact instruction from resource
             nid = location.split(":")[1]
-            signals.append(make_signal(nid, maintype, subtype, tokspan))
+            signals.append(make_signal(nid, maintype, subtype, tokspan, status="gold"))
             continue
 
         # Go through all relations, sorted from least source domain covered EDUs to most
@@ -920,8 +932,9 @@ def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, use_dep
                 domain = "all"
                 if signal_cache:
                     subtype = "lexical_chain"
+            paired = False if "lexical_chain" not in subtype else True
             if rel.match(tup[0], toknum, match_rel, edu_headfunc, domain=domain, force_sent=force, invert=invert,
-                         discontinuous_single=discont, same_sent=same_sent, max_span=max_span):
+                         discontinuous_single=discont, same_sent=same_sent, max_span=max_span, paired=paired):
                 nid = rel.nid
                 if location == "xsubj":
                     location = "initial"
@@ -1001,8 +1014,6 @@ def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, use_dep
                   ("reference","comparative_reference")]
     for sig in signals:
         src = sig.attrib["source"]
-        if "-" in src:
-            a=4  # Secedge
         maintype = sig.attrib["type"]
         if signal_cache:  # In uncached runs we distinguish lexical signal origins
             sig.attrib["subtype"] = sig.attrib["subtype"].replace("2","").replace("indicative_word_pair","lexical_chain")
@@ -1087,7 +1098,9 @@ def update_signals(gold_rs4, docname, xml_root=None, rerun_depedit=False, no_cac
                 child.append(sigtypes_xml)
 
     signal_list = []
-    signal_list, secedges = get_cached_signals(gold_rs4, signal_list, docname)
+    signal_list, non_dm_gold, secedges = get_cached_signals(gold_rs4, signal_list, docname)
+    if no_cache:
+        non_dm_gold = []
 
     nofile = False
     target_conllu = open(CONLLU_TARGET + docname + ".conllu").read()
@@ -1109,7 +1122,7 @@ def update_signals(gold_rs4, docname, xml_root=None, rerun_depedit=False, no_cac
     connective_idx = set([int(t) - 1 for tokens in connective_idx for t in tokens])
     secedge_list = [x.attrib for x in secedges] if secedges is not None else None
     genre = docname.split("_")[1]  # Get genre, since some signals only apply to spoken/written data types
-    non_dm_signals, relations = get_non_dm_signals(conllu_data, gold_rs4, rsd, EDU2rel, genre, connective_idx,
+    non_dm_signals, relations = get_non_dm_signals(conllu_data, gold_rs4, rsd, EDU2rel, genre, connective_idx, non_dm_gold,
                                                      secedges=secedge_list, signal_cache=not no_cache)
 
     signal_list += list(set(non_dm_signals))
@@ -1131,11 +1144,15 @@ def update_signals(gold_rs4, docname, xml_root=None, rerun_depedit=False, no_cac
                         signal_type = str(signal.get('type'))
                         subtype = str(signal.get('subtype'))
                         tokens = str(signal.get('tokens'))
+                        status = str(signal.get('status', ''))
                         if tokens != "":
                             # sort as integers
                             sorted_tokens = sorted([int(t) for t in tokens.split(',')])
                             tokens = ','.join([str(t) for t in sorted_tokens])
-                        signal = ET.Element('signal', attrib={'source': pointer, 'type': signal_type, 'subtype': subtype, 'tokens': tokens})
+                        if status == '':
+                            signal = ET.Element('signal', attrib={'source': pointer, 'type': signal_type, 'subtype': subtype, 'tokens': tokens})
+                        else:
+                            signal = ET.Element('signal', attrib={'source': pointer, 'type': signal_type, 'subtype': subtype, 'tokens': tokens, 'status': status})
                         gc.append(signal)
 
     ET.indent(tree, '    ')
