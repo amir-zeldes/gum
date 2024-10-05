@@ -1305,7 +1305,7 @@ def get_rsd_spans(gum_target):
 
 
 def get_pdtb_data(gum_target):
-	pdtb_data = defaultdict(dict)
+	pdtb_data = defaultdict(lambda :defaultdict(set))
 	pdtb_files = glob(gum_target + "rst" + os.sep + "gdtb" + os.sep + "pdtb" + os.sep + "gold" + os.sep + "00" + os.sep + "*")
 	for file_ in pdtb_files:
 		docname = os.path.basename(file_).split(".")[0]
@@ -1320,7 +1320,7 @@ def get_pdtb_data(gum_target):
 				start, conn_toks, arg1, arg2 = prov.split(":")[-1].split(";")
 				start = int(start)-1
 				# Make a label like 'Explicit:Temporal.Synchronous:when:13:8-12:14-16
-				pdtb_data[docname][start] = ":".join([reltype,label,conn_str,conn_toks,arg1,arg2])
+				pdtb_data[docname][start].add(":".join([reltype,label,conn_str,conn_toks,arg1,arg2]))
 
 	return pdtb_data
 
@@ -1396,7 +1396,7 @@ def add_rsd_and_pdtb_to_conllu(gum_target, reddit=False, ontogum=False, relation
 						depth = depths[doc][rsd_data[0]]
 						sents2depths[snum].add(depth)
 					if toknum in pdtb_data[doc]:
-						pdtb = pdtb_data[doc][toknum]
+						pdtb = ";".join(sorted(list(pdtb_data[doc][toknum])))
 						misc = add_feat(fields[-1], "PDTB=" + pdtb)
 						fields[-1] = misc
 
