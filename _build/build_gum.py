@@ -39,13 +39,13 @@ parser.add_argument("-v",dest="verbose_pepper",action="store_true",help="Whether
 parser.add_argument("-n",dest="no_pepper",action="store_true",help="No pepper conversion, just validation and file fixing")
 parser.add_argument("-i",dest="increment_version",action="store",help="A new version number to assign",default="DEVELOP")
 parser.add_argument("--rsd_algorithm",choices=["li","hirao","chain"],action="store",help="Discourse dependency conversion algorithm",default="li")
-parser.add_argument("--disrpt_outmode",choices=["standoff","standoff_reltype","standoff_key","compact"],help="DISRPT rels format output style",default="standoff")
+parser.add_argument("--disrpt_outmode",choices=["standoff","standoff_reltype","standoff_key","compact"],help="DISRPT rels format output style",default="standoff_reltype")
 parser.add_argument("--pepper_only",action="store_true", help="Just rerun pepper on generated targets")
 parser.add_argument("--discourse_only",action="store_true", help="Just rerun discourse relation output formats generation")
 parser.add_argument("--skip_ptb_labels",action="store_true", help="Skip projecting function labels to PTB trees")
 parser.add_argument("--skip_ontogum",action="store_true", help="Skip building OntoGUM version of coref data")
-parser.add_argument("--no_secedges",action="store_true", help="No RST++ secedges in conllu")
-parser.add_argument("--no_signals",action="store_true", help="No RST++ signals in conllu")
+parser.add_argument("--no_secedges",action="store_true", help="No eRST secedges in conllu")
+parser.add_argument("--no_signals",action="store_true", help="No eRST signals in conllu")
 parser.add_argument("--corpus_name",action="store", default="GUM", help="Corpus name / document prefix")
 
 options = parser.parse_args()
@@ -358,7 +358,7 @@ if options.pepper_only:
 	quit()
 
 ## Step 4: propagate entity types, coref, discourse relations and XML annotations into conllu dep files
-from utils.propagate import add_entities_to_conllu, add_rsd_to_conllu, add_bridging_to_conllu, add_xml_to_conllu
+from utils.propagate import add_entities_to_conllu, add_rsd_and_pdtb_to_conllu, add_bridging_to_conllu, add_xml_to_conllu
 
 if not options.discourse_only:
 	add_entities_to_conllu(gum_target, reddit=reddit, ontogum=False, conllua_data=conllua_data, salience_data=salience_data)
@@ -372,24 +372,31 @@ if not options.discourse_only:
 
 	sys.__stdout__.write("\no Added entities, coreference and bridging to UD parses\n")
 
-add_rsd_to_conllu(gum_target,reddit=reddit,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
+add_rsd_and_pdtb_to_conllu(gum_target,reddit=reddit,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
 if not options.skip_ontogum:
-	add_rsd_to_conllu(gum_target,reddit=reddit,ontogum=True,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
+	add_rsd_and_pdtb_to_conllu(gum_target,reddit=reddit,ontogum=True,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
 
 if not options.discourse_only:
 	add_xml_to_conllu(gum_target,reddit=reddit,corpus=corpus_name)
 	if not options.skip_ontogum:
 		add_xml_to_conllu(gum_target,reddit=reddit,ontogum=True,corpus=corpus_name)
-	sys.__stdout__.write("\no Added discourse relations and XML tags to UD parses\n")
+	sys.__stdout__.write("\no Added eRST + PDTB discourse relations and XML tags to UD parses\n")
 else:
-	sys.__stdout__.write("\no Added discourse relations to UD parses\n")
+	sys.__stdout__.write("\no Added eRST + PDTB discourse relations to UD parses\n")
 
+## Step 5: Refresh automatic portion of non-DM signals in RST files
+sys.__stdout__.write("\no Adding fresh non-DM signals to RST files:\n" + "=" * 37 + "\n")
+update_non_dm_signals(gum_source, gum_target, reddit=reddit)
+
+# TODO:
+#  remove duplicate call to add_rsd_and_pdtb_to_conllu, currently needed because it is both an input of and possibly
+#  modified by output of update_non_dm_signals
+add_rsd_and_pdtb_to_conllu(gum_target,reddit=reddit,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
+if not options.skip_ontogum:
+	add_rsd_and_pdtb_to_conllu(gum_target,reddit=reddit,ontogum=True,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
+
+# TODO: also add PDTB framework rels output to DISRPT outs
 make_disrpt(conn_data,reddit=reddit,corpus=corpus_name.lower(),outmode=options.disrpt_outmode)
 
 sys.__stdout__.write("\no Created DISRPT shared task discourse relation formats in target rst/disrpt/\n")
-
-## Step 5: Refresh automatic portion of non-DM signals in RST files
-
-sys.__stdout__.write("\no Adding fresh non-DM signals to RST files:\n" + "=" * 37 + "\n")
-update_non_dm_signals(gum_source, gum_target, reddit=reddit)
 
