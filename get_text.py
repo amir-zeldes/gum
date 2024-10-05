@@ -4,7 +4,9 @@ from argparse import ArgumentParser
 from collections import defaultdict
 from glob import glob
 from requests.exceptions import ConnectionError
-from _build.utils.get_reddit.underscores import make_text, make_text_const, make_text_rst, make_underscores, make_underscores_rst, make_underscores_const
+from _build.utils.get_reddit.underscores import (make_text, make_text_const, make_text_rst, make_underscores,
+												 make_underscores_rst, make_underscores_const, make_underscores_raw,
+												 make_text_raw)
 from _build.utils.get_reddit.underscores_disrpt import underscore_files as underscore_disrpt, restore_docs as restore_disrpt
 
 PY3 = sys.version_info[0] == 3
@@ -501,6 +503,8 @@ if __name__ == "__main__":
 		make_underscores_rst(script_dir + "rst" + os.sep + "lisp_binary" + os.sep, extension="dis", edu_regex=r"^([^\n]+text _!)(.*?)(_![^\n]+)")
 		make_underscores_rst(script_dir + "rst" + os.sep + "lisp_nary" + os.sep, extension="dis", edu_regex=r"^([^\n]+text _!)(.*?)(_![^\n]+)")
 		underscore_disrpt(script_dir + "rst" + os.sep + "disrpt" + os.sep)
+		underscore_disrpt(script_dir + "rst" + os.sep + "gdtb" + os.sep + "disrpt" + os.sep)
+		make_underscores_raw(script_dir + "rst" + os.sep + "gdtb" + os.sep + "pdtb" + os.sep + "raw" + os.sep + "00" + os.sep)
 		make_underscores_const(script_dir + "const" + os.sep)
 	else:
 		text_dict = run_fetch()
@@ -517,6 +521,7 @@ if __name__ == "__main__":
 		make_text_rst(script_dir + "rst" + os.sep + "dependencies" + os.sep, text_dict, unescape_xml=True, extension="rsd", edu_regex=r"^([^\t\n]+\t)([^\t\n]+)(\t[^\n]+)")
 		make_text_rst(script_dir + "rst" + os.sep + "lisp_binary" + os.sep, text_dict, unescape_xml=True, extension="dis", edu_regex=r"^([^\n]+text _!)(.*?)(_![^\n]+)")
 		make_text_rst(script_dir + "rst" + os.sep + "lisp_nary" + os.sep, text_dict, unescape_xml=True, extension="dis", edu_regex=r"^([^\n]+text _!)(.*?)(_![^\n]+)")
-		make_text_const(script_dir + "const" + os.sep, text_dict)
 		restore_disrpt(script_dir + "rst" + os.sep + "disrpt" + os.sep, text_dict)
-
+		restore_disrpt(script_dir + "rst" + os.sep + "gdtb" + os.sep + "disrpt" + os.sep, text_dict)
+		make_text_raw(script_dir + "rst" + os.sep + "gdtb" + os.sep + "pdtb" + os.sep + "raw" + os.sep + "00" + os.sep, text_dict)
+		make_text_const(script_dir + "const" + os.sep, text_dict)
