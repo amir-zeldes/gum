@@ -219,7 +219,7 @@
 12	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	14	nsubj	14:nsubj	Entity=(7)
 13	've	have	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	14	aux	14:aux	_
 14	finished	finish	VERB	VBN	Tense=Past|VerbForm=Part	2	conj	2:conj:but	MSeg=finish-ed
-15	now	now	ADV	RB	Polarity=Neg	14	advmod	14:advmod	_
+15	now	now	ADV	RB	_	14	advmod	14:advmod	_
 16	five	five	NUM	CD	NumForm=Word|NumType=Card	17	nummod	17:nummod	_
 17	chapters	chapter	NOUN	NNS	Number=Plur	14	obj	14:obj	MSeg=chapter-s|SpaceAfter=No
 18	.	.	PUNCT	.	_	2	punct	2:punct	_
@@ -372,21 +372,21 @@
 # transition = continue
 # text = He told me that Dean Acheson told him that Harry Truman denied Spain Marshall Plan aid because Truman was a Protestant.
 1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=attribution-positive:38->40:2:sem-atsrc-271+lex-indwd-272+syn-rpr-274-275,278-279,282|Entity=(10)|PDTB=Implicit:Expansion.Conjunction:and:_:233-270:271-292
-2	told	tell	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	Cxn=Ditransitive|MSeg=tol-d
-3	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	2	iobj	2:iobj	Entity=(7)
+2	told	tell	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	Cxn=Ditransitive|CxnElt=DitrV|MSeg=tol-d
+3	me	I	PRON	PRP	Case=Acc|Number=Sing|Person=1|PronType=Prs	2	iobj	2:iobj	CxnElt=DitrRec|Entity=(7)
 4	that	that	SCONJ	IN	_	7	mark	7:mark	Discourse=attribution-positive:39->40:1:sem-atsrc-275-276+lex-indwd-277
 5	Dean	Dean	PROPN	NNP	Number=Sing	7	nsubj	7:nsubj	_
 6	Acheson	Acheson	PROPN	NNP	Number=Sing	5	flat	5:flat	_
-7	told	tell	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	2	ccomp	2:ccomp	Cxn=Ditransitive|MSeg=tol-d
-8	him	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs|Typo=Yes	7	iobj	7:iobj	CorrectForm=him that|Entity=(10)|XML=<sic ana:::"him that"></sic>
+7	told	tell	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	2	ccomp	2:ccomp	Cxn=Ditransitive|CxnElt=DitrTheme,DitrV|MSeg=tol-d
+8	him	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs|Typo=Yes	7	iobj	7:iobj	CorrectForm=him that|CxnElt=DitrRec|Entity=(10)|XML=<sic ana:::"him that"></sic>
 9	that	that	SCONJ	IN	_	12	mark	12:mark	Discourse=joint-list_m:40->35:0:_
 10	Harry	Harry	PROPN	NNP	Number=Sing	12	nsubj	12:nsubj	Entity=(13
 11	Truman	Truman	PROPN	NNP	Number=Sing	10	flat	10:flat	Entity=13)
-12	denied	deny	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	7	ccomp	7:ccomp	Cxn=Ditransitive|MSeg=deni-ed
-13	Spain	Spain	PROPN	NNP	Number=Sing	12	iobj	12:iobj	Entity=(11)
+12	denied	deny	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	7	ccomp	7:ccomp	Cxn=Ditransitive|CxnElt=DitrTheme,DitrV|MSeg=deni-ed
+13	Spain	Spain	PROPN	NNP	Number=Sing	12	iobj	12:iobj	CxnElt=DitrRec|Entity=(11)
 14	Marshall	Marshall	PROPN	NNP	Number=Sing	15	compound	15:compound	Entity=(14(15)
 15	Plan	Plan	PROPN	NNP	Number=Sing	16	compound	16:compound	Entity=14)
-16	aid	aid	NOUN	NN	Number=Sing	12	obj	12:obj	_
+16	aid	aid	NOUN	NN	Number=Sing	12	obj	12:obj	CxnElt=DitrTheme
 17	because	because	SCONJ	IN	_	21	mark	21:mark	Discourse=causal-cause:41->40:0:dm-because-287|MSeg=be-cause|PDTB=Explicit:Contingency.Cause.Reason:because:287:279-286:288-292
 18	Truman	Truman	PROPN	NNP	Number=Sing	21	nsubj	21:nsubj	Entity=(13)
 19	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	21	cop	21:cop	_
@@ -455,7 +455,7 @@
 1	Is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	cop	4:cop	Discourse=evaluation-comment:49->40:4:_
 2	n't	not	PART	RB	Polarity=Neg	4	advmod	4:advmod	Negation=Yes
 3	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	4	expl	4:expl	_
-4	marvelous	marvelous	ADJ	JJ	Degree=Pos	0	root	0:root	Cxn=Interrogative-Polar-Direct
+4	marvelous	marvelous	ADJ	JJ	Degree=Pos	0	root	0:root	Cxn=Interrogative-Polar-Direct|CxnElt=Clause
 5	how	how	ADV	WRB	PronType=Rel	4	nsubj	4:nsubj	_
 6	wars	war	NOUN	NNS	Number=Plur	16	nsubj:pass	16:nsubj:pass|18:nsubj:xsubj	Entity=(17)|MSeg=war-s|SpaceAfter=No
 7	,	,	PUNCT	,	_	6	punct	6:punct	_
@@ -496,7 +496,7 @@
 13	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	advcl	5:advcl:as	Cxn=Existential-CopPred-ThereExpl
 14	n't	not	PART	RB	Polarity=Neg	13	advmod	13:advmod	Negation=Yes
 15	such	such	ADJ	JJ	_	16	amod	16:amod	_
-16	news	news	NOUN	NN	Number=Sing	13	nsubj	13:nsubj	MSeg=new-s
+16	news	news	NOUN	NN	Number=Sing	13	nsubj	13:nsubj	CxnElt=Pivot|MSeg=new-s
 17	except	except	ADP	IN	_	18	case	18:case	_
 18	that	that	PRON	DT	Number=Sing|PronType=Dem	16	nmod	16:nmod:except	_
 19	of	of	ADP	IN	_	24	case	24:case	_
@@ -520,7 +520,7 @@
 5	that	that	SCONJ	IN	_	7	mark	7:mark	_
 6	there	there	PRON	EX	PronType=Dem	7	expl	7:expl	_
 7	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	1	ccomp	1:ccomp	Cxn=Existential-CopPred-ThereExpl
-8	none	none	NOUN	NN	Number=Sing	7	nsubj	7:nsubj	Negation=Yes
+8	none	none	NOUN	NN	Number=Sing	7	nsubj	7:nsubj	CxnElt=Pivot|Negation=Yes
 9	of	of	ADP	IN	_	12	case	12:case	_
 10	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(19
 11	hectic	hectic	ADJ	JJ	Degree=Pos	12	amod	12:amod	_
@@ -654,7 +654,7 @@
 # transition = continue
 # text = What's happening in New York willhappen in some other cities around the world, I am convinced: Milan or Rome, Paris, Jakarta, and so forth.
 1-2	What's	_	_	_	_	_	_	_	_
-1	What	what	PRON	WP	PronType=Rel	19	obj	8:nsubj:xsubj|19:obj	Discourse=explanation-justify:65->62:1:_|PDTB=Implicit:Contingency.Cause.Reason:because:_:460-502:503-534
+1	What	what	PRON	WP	PronType=Rel	19	obj	8:nsubj:xsubj|19:obj	CxnElt=DitrTheme|Discourse=explanation-justify:65->62:1:_|PDTB=Implicit:Contingency.Cause.Reason:because:_:460-502:503-534
 2	's	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	aux	3:aux	_
 3	happening	happen	VERB	VBG	Tense=Pres|VerbForm=Part	1	acl:relcl	1:acl:relcl	MSeg=happ-en-ing
 4	in	in	ADP	IN	_	5	case	5:case	_
@@ -670,9 +670,9 @@
 14	the	the	DET	DT	Definite=Def|PronType=Art	15	det	15:det	_
 15	world	world	NOUN	NN	Number=Sing	12	nmod	12:nmod:around	SpaceAfter=No
 16	,	,	PUNCT	,	_	8	punct	8:punct	_
-17	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	19	nsubj:pass	19:nsubj:pass	Discourse=attribution-positive:66->65:0:sem-atsrc-519+lex-indwd-521|Entity=(7)
+17	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	19	nsubj:pass	19:nsubj:pass	CxnElt=DitrRec|Discourse=attribution-positive:66->65:0:sem-atsrc-519+lex-indwd-521|Entity=(7)
 18	am	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	19	aux:pass	19:aux:pass	_
-19	convinced	convince	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	Cxn=Ditransitive|MSeg=convinc-ed|SpaceAfter=No
+19	convinced	convince	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	Cxn=Ditransitive|CxnElt=DitrV|MSeg=convinc-ed|SpaceAfter=No
 20	:	:	PUNCT	:	_	21	punct	21:punct	_
 21	Milan	Milan	PROPN	NNP	Number=Sing	19	parataxis	19:parataxis	Discourse=elaboration-additional:67->65:1:grf-col-522
 22	or	or	CCONJ	CC	_	23	cc	23:cc	_
@@ -720,7 +720,7 @@
 # text = Will you go to Israel at the end of your stay?
 1	Will	will	AUX	MD	VerbForm=Fin	3	aux	3:aux	Discourse=joint-other_m:70->3:2:_|PDTB=Implicit:Expansion.Conjunction:also:_:535-552:553-564
 2	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	3	nsubj	3:nsubj	Entity=(1)
-3	go	go	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Interrogative-Polar-Direct
+3	go	go	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Interrogative-Polar-Direct|CxnElt=Clause
 4	to	to	ADP	IN	_	5	case	5:case	_
 5	Israel	Israel	PROPN	NNP	Number=Sing	3	obl	3:obl:to	_
 6	at	at	ADP	IN	_	8	case	8:case	_
@@ -736,10 +736,10 @@
 # s_type = wh
 # transition = zero
 # text = What are the dates of Aberdeen?
-1	What	what	PRON	WP	PronType=Int	4	nsubj	4:nsubj	Discourse=joint-other_m:71->70:0:_|PDTB=Implicit:Expansion.Conjunction:and:_:553-564:565-571
+1	What	what	PRON	WP	PronType=Int	4	nsubj	4:nsubj	CxnElt=WHWord|Discourse=joint-other_m:71->70:0:_|PDTB=Implicit:Expansion.Conjunction:and:_:553-564:565-571
 2	are	be	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	4	cop	4:cop	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	_
-4	dates	date	NOUN	NNS	Number=Plur	0	root	0:root	Cxn=Interrogative-WHInfo-Direct|MSeg=date-s
+4	dates	date	NOUN	NNS	Number=Plur	0	root	0:root	Cxn=Interrogative-WHInfo-Direct|CxnElt=Clause|MSeg=date-s
 5	of	of	ADP	IN	_	6	case	6:case	_
 6	Aberdeen	Aberdeen	PROPN	NNP	Number=Sing	4	nmod	4:nmod:of	Entity=(22)|SpaceAfter=No
 7	?	?	PUNCT	.	_	4	punct	4:punct	_
@@ -749,9 +749,9 @@
 # s_type = q
 # transition = null
 # text = Is there anything you need?
-1	Is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-CopPred-ThereExpl,Interrogative-Polar-Direct|Discourse=joint-other_m:72->70:0:_|PDTB=Implicit:Expansion.Conjunction:and:_:565-571:572-577
+1	Is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-CopPred-ThereExpl,Interrogative-Polar-Direct|CxnElt=Clause|Discourse=joint-other_m:72->70:0:_|PDTB=Implicit:Expansion.Conjunction:and:_:565-571:572-577
 2	there	there	PRON	EX	PronType=Dem	1	expl	1:expl	_
-3	anything	anything	PRON	NN	Number=Sing|PronType=Ind	1	nsubj	1:nsubj	MSeg=any-thing
+3	anything	anything	PRON	NN	Number=Sing|PronType=Ind	1	nsubj	1:nsubj	CxnElt=Pivot|MSeg=any-thing
 4	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	5	nsubj	5:nsubj	Entity=(1)
 5	need	need	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	3	acl:relcl	3:acl:relcl	SpaceAfter=No
 6	?	?	PUNCT	.	_	1	punct	1:punct	_
@@ -779,13 +779,13 @@
 12	,	,	PUNCT	,	_	16	punct	16:punct	_
 13	and	and	CCONJ	CC	_	16	cc	16:cc	Discourse=attribution-positive:75->76:0:sem-atsrc-591+lex-indwd-593+grf-qt-599,602|PDTB=Explicit:Expansion.Level-of-detail.Arg2-as-detail:and:590:578-589:591-623
 14-15	he's	_	_	_	_	_	_	_	_
-14	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	16	nsubj:pass	16:nsubj:pass	Entity=(23)
+14	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	16	nsubj:pass	16:nsubj:pass	CxnElt=DitrRec|Entity=(23)
 15	's	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	16	aux:pass	16:aux:pass	_
-16	convinced	convince	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	3	conj	3:conj:and	Cxn=Ditransitive|MSeg=convinc-ed
+16	convinced	convince	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	3	conj	3:conj:and	Cxn=Ditransitive|CxnElt=DitrV|MSeg=convinc-ed
 17	that	that	SCONJ	IN	_	20	mark	20:mark	Discourse=elaboration-additional:76->73:1:ref-prs-578,595+ref-prs-581-582,591+dm-and-590
 18	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	20	nsubj	20:nsubj	Entity=(7)
 19	just	just	ADV	RB	_	20	advmod	20:advmod	_
-20	missed	miss	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	16	ccomp	16:ccomp|27:csubj	MSeg=miss-ed
+20	missed	miss	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	16	ccomp	16:ccomp|27:csubj	CxnElt=DitrTheme|MSeg=miss-ed
 21	an	a	DET	DT	Definite=Ind|PronType=Art	23	det	23:det	_
 22	"	''	PUNCT	``	_	23	punct	23:punct	SpaceAfter=No|XML=<q>
 23	episode	episode	NOUN	NN	Number=Sing	20	obj	20:obj	SpaceAfter=No
@@ -822,7 +822,7 @@
 2	feel	feel	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 3	quite	quite	ADV	RB	_	4	advmod	4:advmod	_
 4	well	well	ADV	RB	Degree=Pos	2	advmod	2:advmod	_
-5	now	now	ADV	RB	Polarity=Neg	2	advmod	2:advmod	_
+5	now	now	ADV	RB	_	2	advmod	2:advmod	_
 6	and	and	CCONJ	CC	_	9	cc	9:cc	Discourse=joint-list_m:82->81:0:dm-and-629|PDTB=Explicit:Expansion.Conjunction:and:629:624-628:630-634
 7	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	9	nsubj	9:nsubj	Entity=(7)
 8	am	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	9	aux	9:aux	_
@@ -849,14 +849,14 @@
 1-2	I've	_	_	_	_	_	_	_	_
 1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	3:nsubj	Discourse=attribution-positive:84->85:1:sem-atsrc-640+lex-indwd-642+syn-rpr-645|Entity=(7)|PDTB=Implicit:Expansion.Conjunction:and:_:635-639:640-665
 2	've	have	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	3	aux	3:aux	_
-3	promised	promise	VERB	VBN	Tense=Past|VerbForm=Part	0	root	0:root	Cxn=Ditransitive|MSeg=promis-ed
-4	Dr.	Dr.	PROPN	NNP	Abbr=Yes|Number=Sing	3	iobj	3:iobj	Entity=(23
+3	promised	promise	VERB	VBN	Tense=Past|VerbForm=Part	0	root	0:root	Cxn=Ditransitive|CxnElt=DitrV|MSeg=promis-ed
+4	Dr.	Dr.	PROPN	NNP	Abbr=Yes|Number=Sing	3	iobj	3:iobj	CxnElt=DitrRec|Entity=(23
 5	Steiner	Steiner	PROPN	NNP	Number=Sing	4	flat	4:flat	Entity=23)
 6	that	that	SCONJ	IN	_	10	mark	10:mark	Discourse=joint-list_m:85->83:0:_
 7	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	10	nsubj	10:nsubj	Entity=(7)
 8	will	will	AUX	MD	VerbForm=Fin	10	aux	10:aux	_
 9	not	not	PART	RB	Polarity=Neg	10	advmod	10:advmod	Negation=Yes
-10	travel	travel	VERB	VB	VerbForm=Inf	3	ccomp	3:ccomp	_
+10	travel	travel	VERB	VB	VerbForm=Inf	3	ccomp	3:ccomp	CxnElt=DitrTheme
 11	at	at	ADP	IN	_	12	case	12:case	_
 12	all	all	DET	DT	PronType=Tot	10	obl	10:obl:at	SpaceAfter=No
 13	,	,	PUNCT	,	_	19	punct	19:punct	_
@@ -997,14 +997,14 @@
 # text = How does The Life of the Mind proceed?
 # newpar
 # newpar_block = p (5 s)
-1	How	how	ADV	WRB	PronType=Int	8	advmod	8:advmod	Discourse=joint-other_m:98->3:2:_
+1	How	how	ADV	WRB	PronType=Int	8	advmod	8:advmod	CxnElt=WHWord|Discourse=joint-other_m:98->3:2:_
 2	does	do	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	8	aux	8:aux	MSeg=doe-s
 3	The	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	XML=<hi rend:::"underline">
 4	Life	Life	PROPN	NNP	Number=Sing	8	nsubj	8:nsubj	_
 5	of	of	ADP	IN	_	7	case	7:case	_
 6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	_
 7	Mind	Mind	PROPN	NNP	Number=Sing	4	nmod	4:nmod:of	XML=</hi>
-8	proceed	proceed	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Interrogative-WHInfo-Direct|MSeg=proce-ed|SpaceAfter=No
+8	proceed	proceed	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Interrogative-WHInfo-Direct|CxnElt=Clause|MSeg=proce-ed|SpaceAfter=No
 9	?	?	PUNCT	.	_	8	punct	8:punct	_
 
 # sent_id = GUM_letter_arendt-35
@@ -1058,9 +1058,9 @@
 3	Martha	Martha	PROPN	NNP	Number=Sing	6	nsubj	6:nsubj	Entity=(5)
 4	and	and	CCONJ	CC	_	5	cc	5:cc	_
 5	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	conj	3:conj:and|6:nsubj	Entity=2)(7)
-6	send	send	VERB	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Ditransitive
-7	you	you	PRON	PRP	Case=Acc|Number=Sing|Person=2|PronType=Prs	6	iobj	6:iobj	Entity=(1)
-8	love	love	NOUN	NN	Number=Sing	6	obj	6:obj	_
+6	send	send	VERB	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Ditransitive|CxnElt=DitrV
+7	you	you	PRON	PRP	Case=Acc|Number=Sing|Person=2|PronType=Prs	6	iobj	6:iobj	CxnElt=DitrRec|Entity=(1)
+8	love	love	NOUN	NN	Number=Sing	6	obj	6:obj	CxnElt=DitrTheme
 9	and	and	CCONJ	CC	_	10	cc	10:cc	_
 10	greetings	greeting	NOUN	NNS	Number=Plur	8	conj	6:obj|8:conj:and	MSeg=greet-ing-s
 11	and	and	CCONJ	CC	_	13	cc	13:cc	Discourse=attribution-positive:106->107:0:sem-atsrc-796+lex-indwd-797+syn-rpr-798|PDTB=Explicit:Expansion.Conjunction:and:795:785-794:796-808

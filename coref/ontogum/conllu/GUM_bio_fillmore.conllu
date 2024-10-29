@@ -18,7 +18,7 @@
 # newpar
 # newpar_block = head (1 s)
 1	Charles	Charles	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=organization-heading:1->2:4:grf-ly-+sem-rpt-1-6|Entity=(1
-2	J.	J.	PROPN	NNP	Number=Sing	1	flat	1:flat	_
+2	J.	J.	PROPN	NNP	Abbr=Yes|Number=Sing	1	flat	1:flat	_
 3	Fillmore	Fillmore	PROPN	NNP	Number=Sing	1	flat	1:flat	Entity=1)
 
 # sent_id = GUM_bio_fillmore-2
@@ -29,7 +29,7 @@
 # newpar
 # newpar_block = p (4 s)
 1	Charles	Charles	PROPN	NNP	Number=Sing	18	nsubj	18:nsubj|20:nsubj	Discourse=ROOT:2:0|Entity=(1
-2	J.	J.	PROPN	NNP	Number=Sing	1	flat	1:flat	_
+2	J.	J.	PROPN	NNP	Abbr=Yes|Number=Sing	1	flat	1:flat	_
 3	Fillmore	Fillmore	PROPN	NNP	Number=Sing	1	flat	1:flat	Entity=1)
 4	(	(	PUNCT	-LRB-	_	6	punct	6:punct	Discourse=context-circumstance:3->2:0:lex-indph-8-11+lex-indph-13-16|SpaceAfter=No
 5	August	August	PROPN	NNP	Number=Sing	6	compound	6:compound	XML=<date when:::"1929-08-09">
@@ -252,9 +252,9 @@
 22	wave	wave	NOUN	NN	Number=Sing	23	compound	23:compound	XML=</w>
 23	radio	radio	NOUN	NN	Number=Sing	18	nmod	18:nmod:on	_
 24	and	and	CCONJ	CC	_	25	cc	25:cc	Discourse=joint-list_m:19->18:0:dm-and-172|PDTB=Explicit:Expansion.Conjunction:and:172:161-171:173-176
-25	taught	teach	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	15	conj	11:acl:relcl|15:conj:and	Cxn=Ditransitive
-26	himself	himself	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs|Reflex=Yes	25	iobj	25:iobj	Entity=(1)|MSeg=him-self
-27	Japanese	Japanese	PROPN	NNP	Number=Sing	25	obj	25:obj	MSeg=Japan-ese|SpaceAfter=No
+25	taught	teach	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	15	conj	11:acl:relcl|15:conj:and	Cxn=Ditransitive|CxnElt=DitrV
+26	himself	himself	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs|Reflex=Yes	25	iobj	25:iobj	CxnElt=DitrRec|Entity=(1)|MSeg=him-self
+27	Japanese	Japanese	PROPN	NNP	Number=Sing	25	obj	25:obj	CxnElt=DitrTheme|MSeg=Japan-ese|SpaceAfter=No
 28	.	.	PUNCT	.	_	2	punct	2:punct	_
 29	[	[	PUNCT	-LRB-	_	30	punct	30:punct	Discourse=explanation-evidence:20->17:1:grf-prn-177,179|SpaceAfter=No|XML=<ref>
 30	2	2	NUM	CD	NumForm=Digit|NumType=Card	2	dep	2:dep	SpaceAfter=No
@@ -951,8 +951,8 @@
 36	The	the	DET	DT	Definite=Def|PronType=Art	37	det	37:det	Discourse=elaboration-additional:75->74:0:grf-col-723+lex-altlex-727-728
 37	Case	Case	PROPN	NNP	Number=Sing	34	appos	34:appos	_
 38	of	of	ADP	IN	_	39	case	39:case	_
-39	Let	Let	VERB	NNP	Number=Sing	37	nmod	37:nmod:of	Entity=(24
-40	Alone	Alone	ADJ	NNP	Number=Sing	39	fixed	39:fixed	Entity=24)|MSeg=A-lone|SpaceAfter=No
+39	Let	Let	VERB	NNP	Mood=Imp|Person=2|VerbForm=Fin	37	nmod	37:nmod:of	Entity=(24
+40	Alone	Alone	ADJ	NNP	Degree=Pos	39	fixed	39:fixed	Entity=24)|MSeg=A-lone|SpaceAfter=No
 41	"	''	PUNCT	''	_	29	punct	29:punct	SpaceAfter=No|XML=</q>
 42	.	.	PUNCT	.	_	20	punct	20:punct	_
 
@@ -976,7 +976,7 @@
 13	on	on	ADP	IN	_	19	case	19:case	_
 14	the	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	Entity=(24
 15	'	'	PUNCT	``	_	16	punct	16:punct	SpaceAfter=No|XML=<q>
-16	let	let	VERB	VB	VerbForm=Inf	19	compound	19:compound	_
+16	let	let	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	19	compound	19:compound	_
 17	alone	alone	ADJ	JJ	Degree=Pos	16	fixed	16:fixed	MSeg=a-lone|SpaceAfter=No
 18	'	'	PUNCT	''	_	16	punct	16:punct	XML=</q>
 19	construction	construction	NOUN	NN	Number=Sing	12	obl	12:obl:on	Entity=24)|MSeg=construct-ion|SpaceAfter=No
@@ -1026,7 +1026,7 @@
 # newpar_block = p (4 s)
 1	Fillmore	Fillmore	PROPN	NNP	Number=Sing	5	nsubj:pass	5:nsubj:pass	Discourse=joint-other_m:80->17:5:_|Entity=(1)
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	aux:pass	5:aux:pass	_
-3	now	now	ADV	RB	Polarity=Neg	5	advmod	5:advmod	_
+3	now	now	ADV	RB	_	5	advmod	5:advmod	_
 4	widely	widely	ADV	RB	Degree=Pos	5	advmod	5:advmod	MSeg=wide-ly
 5	recognized	recognize	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	MSeg=recogn-iz-ed
 6	as	as	ADP	IN	_	7	case	7:case	_
@@ -1134,8 +1134,8 @@
 18	Johnson	Johnson	PROPN	NNP	Number=Sing	17	flat	17:flat	MSeg=John-son|SpaceAfter=No|XML=</ref>
 19	,	,	PUNCT	,	_	20	punct	20:punct	_
 20	Miriam	Miriam	PROPN	NNP	Number=Sing	11	conj	8:nmod:including|11:conj:and	XML=<ref>
-21	R.	R.	PROPN	NNP	Number=Sing	20	flat	20:flat	_
-22	L.	L.	PROPN	NNP	Number=Sing	20	flat	20:flat	_
+21	R.	R.	PROPN	NNP	Abbr=Yes|Number=Sing	20	flat	20:flat	_
+22	L.	L.	PROPN	NNP	Abbr=Yes|Number=Sing	20	flat	20:flat	_
 23	Petruck	Petruck	PROPN	NNP	Number=Sing	20	flat	20:flat	SpaceAfter=No|XML=</ref>
 24	,	,	PUNCT	,	_	25	punct	25:punct	_
 25	Len	Len	PROPN	NNP	Number=Sing	11	conj	8:nmod:including|11:conj:and	XML=<ref>
