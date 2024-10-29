@@ -739,7 +739,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if pos == "NNS" and tok.lower() == lemma.lower() and lemma.endswith("s") and func != "goeswith":
 		if lemma not in ["surroundings","energetics","mechanics","politics","jeans","pants","trousers","clothes","electronics","means","feces","remains",
 						 "biceps","triceps","news","species","economics","arrears","glasses","thanks","series","ergonomics","sunglasses",
-						 "aesthetics","twenties","thirties","fourties","fifties","sixties","seventies","eighties","nineties"]:
+						 "aesthetics","twenties","thirties","fourties","fifties","sixties","seventies","eighties","nineties","slacks"]:
 			if re.match(r"[0-9]+'?s",lemma) is None:  # 1920s, 80s
 				print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
@@ -764,6 +764,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if pos.startswith("IN") and lemma == "that" and func not in ["mark","fixed","conj","reparandum","ccomp"]:
 		print("WARN: lemma " + lemma + " with pos " + pos + " should not normally have function " + func + inname)
+
+	if pos == "IN" and func == "advmod" and lemma in ["though"]:
+		print("WARN: pos " + pos + " should not normally have function advmod for lemma " + lemma + inname)
 
 	if pos != "CC" and func in ["cc","cc:preconj"]:
 		if lemma not in ["/","rather","as","et","+","let","only","-","∪","∩","∖"]:
