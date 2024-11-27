@@ -31,11 +31,12 @@ func=/nmod|obl/;func=/case/&lemma=/into|towards?|onto/\t#1>#2\t#2:func=ppdir
 morph=/.*place.*/&func=/nmod|obl/;func=/case/&lemma!=/of/\t#1>#2\t#2:func=pploc
 morph=/.*time.*/&func=/prd/;func=/case/\t#1>#2\t#2:func=pptmp
 morph=/.*place.*/&func=/prd/;func=/case/&lemma!=/of/\t#1>#2\t#2:func=pploc
-func=/(obl|nmod):npmod/;func=/nummod/\t#1>#2\t#1:func=ext
-lemma=/{$extverb}/&xpos=/V.*/;func=/obl/;lemma=/by/&func=/case/\t#1>#2>#3\t#3:func=ppext
 lemma=/{$datverb}/&xpos=/V.*/;func=/obl/;lemma=/to/&func=/case/\t#1>#2>#3\t#3:func=ppdat
 lemma=/{$bnfverb}/&xpos=/V.*/;func=/obl/;lemma=/for/&func=/case/\t#1>#2>#3\t#3:func=ppbnf
 lemma=/do/;lemma=/so/&func=/advmod/\t#1>#2\t#2:func=prd
+func=/(nmod|obl):unmarked/&lemma=/^([0-9]|[0-9][0-9]|[0-9][0-9][0-9]|(1|2)[0-9][0-9][0-9]|[12]?[0-9]:[0-5][0-9]|30th|a\.m\.|AD|afternoon|age|April|August|autumn|b\.i\.d\.|century|couple|day|decade|EDT|evening|fall|February|five|Friday|GMT|hour|hundred|January|July|June|length|life|March|match|matter|May|minute|moment|Monday|month|morning|next|night|number|oclock|October|p\.m\.|period|pm|q\.d\.|q\.o\.d\.|quarter|rest|Saturday|season|second|semester|September|spring|Su|summer|Summer|Sunday|that|thing|Thursday|tide|time|today|Today|tomorrow|tonight|Tuesday|Wednesday|week|weekday|weekend|while|winter|year|yesterday)$/\tnone\t#1:func=$1:tmod
+func=/(obl|nmod):(npmod|unmarked)/;func=/nummod/\t#1>#2\t#1:func=ext
+lemma=/{$extverb}/&xpos=/V.*/;func=/obl/;lemma=/by/&func=/case/\t#1>#2>#3\t#3:func=ppext
 """
 
 d = DepEdit()
@@ -49,6 +50,8 @@ mapping = {("NP","nsubj"):"NP-SBJ", ("NP","nsubj:pass"):"NP-SBJ", ("NP","obl:age
            ("NP","cleft"):"NP-CLF",
            ("NP","obl:npmod"):"NP-ADV",
            ("NP", "nmod:npmod"): "NP-ADV",
+           ("NP","obl:unmarked"):"NP-ADV",
+           ("NP", "nmod:unmarked"): "NP-ADV",
            ("NP", "ext"): "NP-EXT",
            ("PP", "ppext"): "PP-EXT",
            ("PP", "ppdat"): "PP-DTV",

@@ -106,7 +106,7 @@ def validate_src(gum_source, reddit=False):
 
 	lemma_dict = defaultdict(lambda : defaultdict(int))  # collects tok+pos -> lemmas -> count  for consistency checks
 	lemma_docs = defaultdict(set)
-	rst_extension = "rs4" if os.path.exists(gum_source + "rst" + os.sep + "GUM_academic_art.rs4") else "rs3"
+	rst_extension = "rs4" if (os.path.exists(gum_source + "rst" + os.sep + "GUM_academic_art.rs4") or os.path.exists(gum_source + "rst" + os.sep + "GENTLE_poetry_raven.rs4")) else "rs3"
 	dirs = [('xml', 'xml'), ('dep', 'conllu'), ('rst', rst_extension), ('tsv', 'tsv')]
 
 	# check that each dir has same # and names of files (except extensions)
@@ -313,61 +313,14 @@ def validate_annos(gum_source, reddit=False):
 		if "_all" in xmlfile:
 			continue
 		docname = ntpath.basename(xmlfile)
-		output = ""
-		sys.stdout.write("\t+ " + " " * 70 + "\r")
-		sys.stdout.write(" " + str(docnum + 1) + "/" + str(len(xmlfiles)) + ":\t+ " + docname + "\r")
-
-		# Dictionaries to hold token annotations from conllu data
-		funcs = {}
-		postags = {}
-		tokens = {}
-		parent_ids = {}
-		lemmas = {}
-		sent_types = {}
-		sent_positions = defaultdict(lambda: "_")
-		parents = {}
-		children = defaultdict(list)
-		child_funcs = defaultdict(list)
-		tok_num = 0
-
-		depfile = xmlfile.replace("xml" + os.sep, "dep" + os.sep).replace("xml", "conllu")
-		dep_lines = io.open(depfile,encoding="utf8").read().replace("\r", "").split("\n")
-		line_num = 0
-		sent_start = 0
-		for r, line in enumerate(dep_lines):
-			line_num += 1
-			if "\t" in line:  # token line
-				if line.count("\t") != 9:
-					# Shouldn't be possible, since file validation is already complete
-					pass
-				elif "." in line.split("\t")[0]:  # Ignore ellipsis tokens
-					pass
-				else:
-					tok_num += 1
-					fields = line.split("\t")
-					funcs[tok_num] = fields[7]
-					if fields[6] != "0":  # Root token
-						if fields[6] == "_":
-							print("Invalid head '_' at line " + str(r) + " in " + depfile)
-							sys.exit()
-						parent_ids[tok_num] = int(fields[6]) + sent_start
-						children[int(fields[6]) + sent_start].append(fields[1])
-						child_funcs[int(fields[6]) + sent_start].append(fields[7])
-					else:
-						parent_ids[tok_num] = 0
-					tokens[tok_num] = fields[1]
-			elif len(line) == 0:
-				sent_start = tok_num
-
-		for i in range(1, len(tokens) + 1, 1):
-			if parent_ids[i] == 0:
-				parents[i] = "ROOT"
-			else:
-				parents[i] = tokens[parent_ids[i]]
 
 		xml_lines = io.open(xmlfile, encoding="utf8").read().replace("\r", "").split("\n")
 		tok_num = 0
 
+		postags = {}
+		lemmas = {}
+		sent_types = {}
+		sent_positions = defaultdict(lambda: "_")
 		s_type = ""
 		new_sent = True
 		for line in xml_lines:
@@ -387,6 +340,57 @@ def validate_annos(gum_source, reddit=False):
 						sent_positions[tok_num] = "last"
 		sent_positions[tok_num] = "last"
 
+		sys.stdout.write("\t+ " + " " * 70 + "\r")
+		sys.stdout.write(" " + str(docnum + 1) + "/" + str(len(xmlfiles)) + ":\t+ " + docname + "\r")
+
+		# Dictionaries to hold token annotations from conllu data
+		funcs = {}
+		pre_morphs = {}  # Manual morph annotations
+		tokens = {}
+		parent_ids = {}
+		parents = {}
+		children = defaultdict(list)
+		child_funcs = defaultdict(list)
+		child_pos = defaultdict(list)
+		tok_num = 0
+
+		depfile = xmlfile.replace("xml" + os.sep, "dep" + os.sep).replace("xml", "conllu")
+		dep_lines = io.open(depfile,encoding="utf8").read().replace("\r", "").split("\n")
+		line_num = 0
+		sent_start = 0
+		for r, line in enumerate(dep_lines):
+			line_num += 1
+			if "\t" in line:  # token line
+				if line.count("\t") != 9:
+					# Shouldn't be possible, since file validation is already complete
+					pass
+				elif "." in line.split("\t")[0]:  # Ignore ellipsis tokens
+					pass
+				else:
+					tok_num += 1
+					fields = line.split("\t")
+					funcs[tok_num] = fields[7]
+					pre_morphs[tok_num] = fields[5]
+					if fields[6] != "0":  # Root token
+						if fields[6] == "_":
+							print("Invalid head '_' at line " + str(r) + " in " + depfile)
+							sys.exit()
+						parent_ids[tok_num] = int(fields[6]) + sent_start
+						children[int(fields[6]) + sent_start].append(fields[1])
+						child_funcs[int(fields[6]) + sent_start].append(fields[7])
+						child_pos[int(fields[6]) + sent_start].append(postags[tok_num])
+					else:
+						parent_ids[tok_num] = 0
+					tokens[tok_num] = fields[1]
+			elif len(line) == 0:
+				sent_start = tok_num
+
+		for i in range(1, len(tokens) + 1, 1):
+			if parent_ids[i] == 0:
+				parents[i] = "ROOT"
+			else:
+				parents[i] = tokens[parent_ids[i]]
+
 		tok_num = 0
 
 		# Extended PTB (TT/AMALGAM) tagset with HYPH
@@ -395,7 +399,7 @@ def validate_annos(gum_source, reddit=False):
 				  "VHG","VHN","VHP","VHZ","VV","VVD","VVG","VVN","VVP","VVZ","WDT","WP","WP$","WRB","``","''","(",")",
 				  ",",":","HYPH","$","GW"]
 		non_lemmas = ["them","me","him","n't"]
-		non_lemma_combos = [("PP","her"),("MD","wo"),("PP","us"),("DT","an")]
+		non_lemma_combos = [("MD","wo"),("PP","us"),("DT","an")]
 		lemma_pos_combos = {"which":"WDT"}
 		non_cap_lemmas = ["There","How","Why","Where","When"]
 
@@ -405,6 +409,7 @@ def validate_annos(gum_source, reddit=False):
 			if "\t" in line:  # Token
 				tok_num += 1
 				func = funcs[tok_num]
+				pre_morph = pre_morphs[tok_num]
 				fields = line.split("\t")
 				tok, pos, lemma = fields[0:3]
 				if pos not in tagset:
@@ -425,8 +430,8 @@ def validate_annos(gum_source, reddit=False):
 				parent_func = funcs[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
 				parent_pos = postags[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
 				flag_dep_warnings(tok_num, tok, pos, lemma, func, parent_string, parent_lemma, parent_id,
-								  children[tok_num], child_funcs[tok_num], sent_types[tok_num], docname,
-								  prev_tok, prev_pos, sent_positions[tok_num], parent_func, parent_pos)
+								  children[tok_num], child_funcs[tok_num], child_pos[tok_num], sent_types[tok_num], docname,
+								  prev_tok, prev_pos, sent_positions[tok_num], parent_func, parent_pos, pre_morph)
 				prev_pos = pos
 				prev_tok = tok
 
@@ -517,7 +522,7 @@ def validate_annos(gum_source, reddit=False):
 				if parent_ids[start_token+i] < start_token or parent_ids[start_token+i] > end_token or parent_ids[start_token+i] == 0:  # Entity head?
 					if funcs[start_token+i] != "punct":
 						mark.func = funcs[start_token+i]
-			if mark.func.endswith("tmod") and mark.entity != "time":
+			if mark.func.endswith("tmod") and mark.entity != "time":  # NB this will never trigger in :unmarked annotation style, but we could simulate this with the tmod lemmas from label_trees.py
 				if not (mark.entity == "event" and "time" in mark.text):
 					print("! WARN: markable " + mark.text + " at " +docname + " token " + str(toknum) + " is " + \
 						  mark.entity + " but has head deprel " + mark.func)
@@ -673,10 +678,13 @@ def truncate(text):
 	return " ".join(words)
 
 
-def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id, children, child_funcs, s_type,
-					  docname, prev_tok, prev_pos, sent_position, parent_func, parent_pos):
+def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id, children, child_funcs, child_pos, s_type,
+					  docname, prev_tok, prev_pos, sent_position, parent_func, parent_pos, pre_morph):
 	# Shorthand for printing errors
 	inname = " in " + docname + " @ token " + str(id) + " (" + parent + " -> " + tok + ")"
+
+	if "." in docname:
+		docname = docname.split(".")[0]
 
 	if re.search(r"VH.*", pos) is not None and lemma != "have":
 		print("WARN: VH.* must be 'have' & not lemma " + lemma + inname)
@@ -731,7 +739,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if pos == "NNS" and tok.lower() == lemma.lower() and lemma.endswith("s") and func != "goeswith":
 		if lemma not in ["surroundings","energetics","mechanics","politics","jeans","pants","trousers","clothes","electronics","means","feces","remains",
 						 "biceps","triceps","news","species","economics","arrears","glasses","thanks","series","ergonomics","sunglasses",
-						 "aesthetics","twenties","thirties","fourties","fifties","sixties","seventies","eighties","nineties"]:
+						 "aesthetics","twenties","thirties","fourties","fifties","sixties","seventies","eighties","nineties","slacks"]:
 			if re.match(r"[0-9]+'?s",lemma) is None:  # 1920s, 80s
 				print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
@@ -743,7 +751,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if pos in ["VBN","VVN","VHN"] and ("nsubj" in child_funcs or "csubj" in child_funcs) and lemma != "get" and \
 			("aux:pass" not in child_funcs and "aux" not in child_funcs not in child_funcs and "compound" not in child_funcs):
-		if not (("gossip" in inname or "hiking" in inname) and lemma == "see"):  # Known non-standard cases, e.g. 'I seen it'
+		if not (("gossip" in inname or "hiking" in inname) and lemma == "see") and not ("trust" in inname and lemma=="trust"):  # Known non-standard cases, e.g. 'I seen it'
 			if not any([x in children for x in ["well","self","tailor"]]):
 				print("WARN: passive verb tagged VBN without perfect auxiliary should have :pass subject, not regular subj" + inname)
 
@@ -756,6 +764,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if pos.startswith("IN") and lemma == "that" and func not in ["mark","fixed","conj","reparandum","ccomp"]:
 		print("WARN: lemma " + lemma + " with pos " + pos + " should not normally have function " + func + inname)
+
+	if pos == "IN" and func == "advmod" and lemma in ["though"]:
+		print("WARN: pos " + pos + " should not normally have function advmod for lemma " + lemma + inname)
 
 	if pos != "CC" and func in ["cc","cc:preconj"]:
 		if lemma not in ["/","rather","as","et","+","let","only","-","∪","∩","∖"]:
@@ -878,6 +889,15 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func == "acl:relcl" and pos in ["VB","VV","VH"] and "to" in children and "cop" not in child_funcs and "aux" not in child_funcs:
 		print("WARN: infinitive with tag " + pos + " should be acl not acl:relcl" + inname)
 
+	if pos in ["VB","VV","VH"] and ("nsubj" in child_funcs or "nsubj:pass" in child_funcs or "csubj" in child_funcs) and \
+			("MD" not in child_pos) and not any([x in [k.lower() for k in children] for x in ["do","did","does","for","better","'d"]])\
+			and not "cop" in child_funcs \
+			and not lemma == "be" and not (lemma=="believe" and "malik" in docname):  # Strong raised existential: there appears to be X; and known exceptions
+		if docname not in ["GUM_conversation_grounded","GUM_vlog_lipstick"]:  # Known exception
+			if not ("that" in children and func in ["ccomp","csubj"]):  # Subjunctive clause
+				if "Mood=Sub" not in pre_morph:
+					print("WARN: infinitive verb should not have subject " + inname)
+
 	if pos in ["VBG","VVG","VHG"] and "det" in child_funcs:
 		# Exceptions for phrasal compound in GUM_reddit_card and nominalization in GUM_academic_exposure, GENTLE_dictionary_next
 		if tok != "prioritizing" and tok not in ["following","coming"]:
@@ -897,7 +917,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func in ["iobj","obj"] and parent_lemma in ["become","remain","stay"]:
 		print("WARN: verb '"+parent_lemma+"' should take xcomp not "+func+" argument" + inname)
 
-	if func in ["nmod:tmod","nmod:npmod","obl:tmod","obl:npmod"] and "case" in child_funcs:
+	if func in ["nmod:tmod","nmod:npmod","obl:tmod","obl:npmod","nmod:unmarked","obl:unmarked"] and "case" in child_funcs:
 		print("WARN: function " + func +  " should not have 'case' dependents" + inname)
 
 	if func in ["aux:pass","nsubj:pass"] and parent_pos not in ["VVN","VBN","VHN","GW"]:
@@ -930,8 +950,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func == "acl" and (pos.endswith("G") or pos.endswith("N")) and parent_id == id + 1:  # premodifier V.G/N should be amod not acl
 		print("WARN: back-pointing " + func + " for adjacent premodifier (should be amod?) in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
 
-	if func.endswith("tmod") and pos.startswith("RB"):
-		print("WARN: adverbs should not be tmod" + inname)
+	if func.endswith("tmod") or func.endswith("unmarked") and pos.startswith("RB"):
+		print("WARN: adverbs should not be " +func + inname)
 
 	"""
 	Existential construction

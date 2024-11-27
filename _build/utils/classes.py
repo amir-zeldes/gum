@@ -224,6 +224,7 @@ class RELATION:
         self.source["head"] = tuple(sorted(list(self.source["head"])))
         self.target["head"] = tuple(sorted(list(self.target["head"])))
         self.source["all"] = (min(self.source["all"]),max(self.source["all"]))
+        self.target["all_with_gaps"] = self.target["all"]
         self.target["all"] = (min(self.target["all"]),max(self.target["all"]))
         if self.target["all"][0] < self.source["all"][0]:  # LTR relation, exclude tokens before end of target
             self.source["head_fullsent"] = (max(self.target["all"])+1, max(self.source["head_sent"]))
@@ -246,7 +247,7 @@ class RELATION:
             self.location = "initial"
 
     def match(self, tokspan, toknum, relname, func, force_sent=False, invert=False, domain="head_sent",
-              discontinuous_single=False, same_sent=False, max_span=None):
+              discontinuous_single=False, same_sent=False, max_span=None, paired=False):
 
         if relname != "_":
             if re.search(relname,self.relname) is None:
@@ -273,6 +274,12 @@ class RELATION:
             if self.target["head_sent"] != self.source["head_sent"]:# and domain!="head_fullsent":
                 if not (domain == "head_fullsent" and self.target[domain] == self.source[domain]):
                     return False
+
+        # Check paired signals like lexical chains span both source and target
+        if paired:
+            if not (any([self.source["all"][0] <= t <= self.source["all"][1] for t in tokspan]) and
+                    any([t in self.target["all_with_gaps"] for t in tokspan])):
+                return False
 
         if contiguous:
             if domain == "head":

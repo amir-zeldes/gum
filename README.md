@@ -126,10 +126,11 @@ The corpus is downloadable in multiple formats. Not all formats contain all anno
     * ontogum/ - alternative version of coreference annotation in CoNLL, tsv and CoNLL-U formats following OntoNotes guidelines (see Zhu et al. 2021)
   * dep/ - Dependency trees using Universal Dependencies, enriched with metadata, summaries, sentence types, speaker information,  enhanced dependencies, entities, information status, salience, centering, coreference, bridging, Wikification, XML markup, morphological tags/segmentation, CxG constructions, discourse relations/connectives/signals, and Universal POS tags according to the UD standard
   * paula/ - The entire merged corpus (excl. Reddit) in standoff [PAULA XML](https://github.com/korpling/paula-xml), with all annotations
-  * rst/ - Enhanced Rhetorical Structure Theory (eRST) analyses
+  * rst/ - Enhanced Rhetorical Structure Theory (eRST) analyses and other discourse relation annotations
     * rstweb/ - full .rs4 format data as used by RSTTool and rstWeb, with secondary edges + relation signals (recommended)
-    * lisp_nary/ - n-ary lisp trees (.dis format) 
-    * lisp_binary/ - binarized lisp trees (.dis format) 
-    * dependencies/ - a converted RST dependency representation (.rsd format)
+    * lisp_nary/ - n-ary basic RST lisp trees (.dis format) 
+    * lisp_binary/ - binarized basic RST lisp trees (.dis format) 
+    * dependencies/ - a converted eRST dependency representation with secondary edges in a separate column (.rsd format)
     * disrpt/ - plain segmentation, connective detection and relation-per-line data formats following the DISRPT shared task specification
+    * gdtb/ - shallow discourse relations following PDTB v3 guidelines in two formats: PDTB pipes and DISRPT .rels
   * xml/ - vertical XML representations with 1 token or tag per line, metadata, summaries and tab delimited lemmas, morphological segmentation and POS tags (extended VVZ style, vanilla, UPOS and CLAWS5, as well as dependency functions), compatible with the IMS Corpus Workbench (a.k.a. TreeTagger format).

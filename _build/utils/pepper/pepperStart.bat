@@ -16,4 +16,4 @@
 @REM
 @REM
 @REM mode con:cols=121
-java -Xmx2048m -cp lib/*;plugins/*; -Dfile.encoding=UTF-8 -Dlogback.configurationFile=./conf/logback.xml org.corpus_tools.pepper.cli.PepperStarter %1 %2
+java -Xmx4096m -cp lib/*;plugins/*; -Dfile.encoding=UTF-8 -Dlogback.configurationFile=./conf/logback.xml org.corpus_tools.pepper.cli.PepperStarter %1 %2

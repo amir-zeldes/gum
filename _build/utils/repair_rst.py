@@ -12,7 +12,7 @@ from glob import glob
 PY2 = sys.version_info[0] < 3
 
 
-def fix_rst(gum_source, gum_target, reddit=False):
+def fix_rst(gum_source, gum_target, reddit=False, rsd_algorithm="li"):
 	outdir = gum_target + "rst" + os.sep + "rstweb" + os.sep
 	if not os.path.exists(outdir):
 		os.makedirs(outdir)
@@ -40,7 +40,7 @@ def fix_rst(gum_source, gum_target, reddit=False):
 		tt_file = filename.replace(".rs3", ".xml").replace(".rs4", ".xml").replace("rst","xml")
 		sys.stdout.write("\t+ " + " "*70 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(file_list)) + ":\t+ Adjusting borders for " + ntpath.basename(filename) + "\r")
-		fix_file(filename,tt_file,gum_source,gum_target + "rst" + os.sep + "rstweb" + os.sep)
+		fix_file(filename,tt_file,gum_source,gum_target + "rst" + os.sep + "rstweb" + os.sep, rsd_algorithm=rsd_algorithm)
 		conn_data = get_conn_data(filename)
 		conns_by_doc[docname] = conn_data
 
@@ -60,7 +60,10 @@ def get_conn_data(filename):
 					conn_data[int(tok)] = "B"
 				else:
 					if conn_data[int(tok)] != "B":
-						conn_data[int(tok)] = "I"
+						if conn_data[int(tok)-1] != "":
+							conn_data[int(tok)] = "I"
+						else:
+							conn_data[int(tok)] = "B"
 	return conn_data
 
 
@@ -70,11 +73,11 @@ def validate_rsd(rsd_line, linenum, docname):
 		if "\tthat" not in rsd_line and "\tabout" not in rsd_line and "\tyou " not in rsd_line and \
 			'\tto expect "' not in rsd_line and "\tto consider" not in rsd_line and \
 			"\tto hold the Office" not in rsd_line and "\tto represent California" not in rsd_line and \
-			"\tto shine through" not in rsd_line:  # check for that-clause embedding to-, or about PP
+			"\tto shine through" not in rsd_line and "\tto go down in this match" not in rsd_line:  # check for that-clause embedding to-, or about PP
 			sys.stderr.write("! adnominal infinitive clause should be purpose-attribute not elaboration-attribute" + inname)
 	if re.search(r'(\bn.t\b[^\n]+)attribution-positive_r', rsd_line) is not None:
 		if ("surprised" not in rsd_line and "not only" not in rsd_line) and "n't also deny" not in rsd_line and \
-			not ("n't think" in rsd_line and "veronique" in docname):
+			not ("n't think" in rsd_line and "veronique" in docname) and not ("agreeing" in rsd_line and "raven" in docname):
 			sys.stderr.write("! suspicious attribution-positive_r with negation" + inname)
 	if "\t" in rsd_line:
 		fields = rsd_line.split("\t")
@@ -86,7 +89,7 @@ def validate_rsd(rsd_line, linenum, docname):
 			sys.stderr.write("! suspicious parenthetical year EDU with rsd relation " + fields[7] + inname)
 
 
-def validate_rstpp(rs4,docname,sig_stats):
+def validate_erst(rs4,docname,sig_stats):
 	lines = rs4.split("\n")
 	tokens = []
 	secedges = set([])
@@ -95,6 +98,7 @@ def validate_rstpp(rs4,docname,sig_stats):
 	collapse_dm = {"and ... and ... and":"and","and ... and":"and","and and":"and","but ... but":"but",
 				   "when ... when":"when","so ... so":"so","then ... then":"then","them":"then", #typo
 				   "cause ... cause ... cause":"cause","also ... also":"also", "for for":"for"}
+	dm_sig_toks = set([])  # DM signals tokens should not be used by multiple nodes
 	for i,line in enumerate(lines):
 		if '<segment' in line:
 			tokens += line.split(">")[1].split("<")[0].split(" ")
@@ -103,15 +107,15 @@ def validate_rstpp(rs4,docname,sig_stats):
 			rel_name = re.search(r' relname="([^"]+)"',line).group(1)
 			id2rel[rel_id] = rel_name
 		if re.search(r'<signal source="[0-9]+-[0-9]+".*"dm"',line) is not None:
-			sys.stderr.write("! Found dm signal for secondary RST++ relation on line "+str(i+1)+" of "+docname+"\n")
+			sys.stderr.write("! Found dm signal for secondary eRST relation on line "+str(i+1)+" of "+docname+"\n")
 		if re.search(r'<signal source="[0-9]+".*"orphan"',line) is not None:
-			sys.stderr.write("! Found orphan signal for primary RST++ relation on line "+str(i+1)+" of "+docname+"\n")
+			sys.stderr.write("! Found orphan signal for primary eRST relation on line "+str(i+1)+" of "+docname+"\n")
 		if 'lexical_chain2' in line:
 			sys.stderr.write("! Found unnormalized signal lexical_chain2 on line " + str(i + 1) + " of " + docname + "\n")
 		if '<secedge ' in line:
 			secedge_id = re.search(r' id="([0-9]+-[0-9]+)"',line).group(1)
 			if secedge_id in secedges:
-				sys.stderr.write("! Found duplicate RST++ secondary edge on line " + str(i + 1) + " of " + docname + "\n")
+				sys.stderr.write("! Found duplicate eRST secondary edge on line " + str(i + 1) + " of " + docname + "\n")
 			else:
 				secedges.add(secedge_id)
 		if '<signal source' in line:
@@ -120,7 +124,11 @@ def validate_rstpp(rs4,docname,sig_stats):
 			sig_type = m.group(2)
 			subtype = m.group(3)
 			sig_tokens = sorted([int(x)-1 for x in m.group(4).split(",")]) if m.group(4) != "" else []
-
+			if sig_type in ["dm","orphan"]:
+				if any([t in dm_sig_toks for t in sig_tokens]):
+					signal_text = " ".join([tokens[t] for t in sig_tokens])
+					sys.stderr.write("! Found dm/orphan signal tokens used by multiple nodes in "+docname+": "+str([t+1 for t in sig_tokens])+" (" + signal_text + ")\n")
+				dm_sig_toks.update(sig_tokens)
 			signal_sources.add(src)
 			rel_name = id2rel[src]
 			if subtype in ["dm","orphan","alternate_expression"]:
@@ -143,11 +151,11 @@ def validate_rstpp(rs4,docname,sig_stats):
 
 	for e in secedges:
 		if e not in signal_sources:
-			sys.stderr.write("! Found secondary RST++ relation with no signal for edge "+str(e)+" in "+docname+"\n")
+			sys.stderr.write("! Found secondary eRST relation with no signal for edge "+str(e)+" in "+docname+"\n")
 
 	return sig_stats
 
-def fix_file(filename, tt_file, gum_source, outdir):
+def fix_file(filename, tt_file, gum_source, outdir, rsd_algorithm="li"):
 
 	# Get reference tokens
 	rst_file_name = ntpath.basename(filename)
@@ -205,7 +213,9 @@ def fix_file(filename, tt_file, gum_source, outdir):
 	docname = os.path.basename(rst_file_name).replace(".rs3","").replace(".rs4","")
 
 	# Make rsd version
-	rsd = make_rsd(out_data,gum_source,as_text=True,docname=os.path.basename(rst_file_name.replace(".rs3","").replace(".rs4","")))
+	keep_same_unit = True if rsd_algorithm == "chain" else False
+	rsd = make_rsd(out_data,gum_source,as_text=True, algorithm=rsd_algorithm, keep_same_unit=keep_same_unit,
+				   docname=os.path.basename(rst_file_name.replace(".rs3","").replace(".rs4","")))
 
 	for l, line in enumerate(rsd.split("\n")):
 		validate_rsd(line, l+1, docname)
@@ -227,7 +237,7 @@ def fix_file(filename, tt_file, gum_source, outdir):
 		f.write(dis)
 
 
-def update_non_dm_signals(gum_source, gum_target, reddit=False):
+def update_non_dm_signals(gum_source, gum_target, reddit=False, rsd_algorithm="li"):
 	gold_rs4_dir = gum_source + "rst" + os.sep
 	gold_rs4_files = glob(gold_rs4_dir + "*.rs4")
 	gold_target_dir = gum_target + "rst" + os.sep + "rstweb" + os.sep
@@ -244,7 +254,11 @@ def update_non_dm_signals(gum_source, gum_target, reddit=False):
 		gold_rs4 = update_signals(gold_rs4, docname, xml_root=gum_source)
 		with open(gold_target_dir + docname + ".rs4",'w',encoding="utf8",newline="\n") as f:
 			f.write(gold_rs4)
-		sig_stats = validate_rstpp(gold_rs4, docname, sig_stats)
+		updated_rsd = make_rsd(gold_rs4, gum_source, as_text=True, algorithm=rsd_algorithm, docname=docname)
+		with open(gold_target_dir.replace("rstweb","dependencies") + docname + ".rsd",'w',encoding="utf8",newline="\n") as f:
+			f.write(updated_rsd)
+		sig_stats = validate_erst(gold_rs4, docname, sig_stats)
+
 	print("o Updated signals in " + str(len(gold_rs4_files)) + " RST files" + " " * 70)
 
 	dm2rel = ["\t".join(["dm","freq","senses"])]

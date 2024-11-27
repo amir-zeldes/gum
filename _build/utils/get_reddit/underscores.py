@@ -304,3 +304,47 @@ def make_text_const(const_path, textdic):
 				out_lines.append(" ".join(out_units))
 
 			fout.write("\n".join(out_lines) + "\n")
+
+
+def make_underscores_raw(raw_dir):
+	"""
+	Underscore plain text files with a single long line representing all tokens in the document, separated by spaces.
+	"""
+
+	files = glob.glob(raw_dir + "GUM_reddit*")
+	print("o Processing " + str(len(files)) + " files in "+raw_dir+"...")
+	for file_ in files:
+		with io.open(file_, 'r', encoding='utf-8') as fin:
+			text = fin.read().strip()
+		text = re.sub(r'[^\s]','_',text)
+		with io.open(file_, 'w', encoding='utf-8', newline="\n") as fout:
+			fout.write(text)
+
+
+def make_text_raw(raw_dir, textdic):
+	"""
+	Reconstruct raw text files from the raw text in the textdic dictionary which has no spaces. Assign tokens the
+	necessary number of characters to match the length of space-separated underscores.
+	"""
+
+	files = glob.glob(raw_dir + "GUM_reddit*")
+	print("o Processing " + str(len(files)) + " files in "+raw_dir+"...")
+	for file_ in files:
+		docname = os.path.basename(file_)
+		tokens = textdic[docname]
+		tokens = tokens.replace("&gt;", ">").replace("&lt;", "<").replace("&amp;", "&")
+		if not PY3:
+			tokens = tokens.decode("utf8")
+		cursor = 0
+
+		underscored_data = open(file_,encoding="utf8").read().strip()
+		out_data = []
+		for c in underscored_data:
+			if c == "_":
+				out_data.append(tokens[cursor])
+				cursor += 1
+			else:
+				out_data.append(c)
+		out_data = "".join(out_data)
+		with io.open(file_, 'w', encoding='utf-8', newline="\n") as fout:
+			fout.write(out_data)

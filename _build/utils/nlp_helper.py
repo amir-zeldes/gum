@@ -5,7 +5,10 @@ import platform
 import tempfile
 import subprocess
 import os, re, sys
-from .paths import tt_path, parser_path, core_nlp_path
+try:
+	from .paths import tt_path, parser_path, core_nlp_path
+except:
+	from paths import tt_path, parser_path, core_nlp_path
 
 PY2 = sys.version_info[0] < 3
 

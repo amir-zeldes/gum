@@ -5,7 +5,7 @@
 # meta::dateCreated = 2001-12-19
 # meta::dateModified = 2017-07-10
 # meta::genre = bio
-# meta::salientEntities = 1, 2, 8, 9, 21, 109, 110, 111, 112, 113
+# meta::salientEntities = 1, 2, 9, 10, 22, 109, 110, 111, 112, 113
 # meta::sourceURL = https://en.wikipedia.org/wiki/Otto_Jespersen
 # meta::speakerCount = 0
 # meta::summary = Otto Jespersen was an early 20th Century Danish linguist teaching in Copenhagen, who specialized in the grammar of the English language and authored several influential books such as "Language: Its Nature, Development and Origin" (1922).
@@ -43,13 +43,13 @@
 13	ˈjɛsb̥ɐsn̩	ˈjɛsb̥ɐsn̩	PROPN	NNP	Number=Sing	12	flat	12:flat	Entity=1)|SpaceAfter=No|XML=</ref>
 14	]	]	PUNCT	-RRB-	_	12	punct	12:punct	SpaceAfter=No
 15	;	;	PUNCT	:	_	16	punct	16:punct	_
-16	16	16	NUM	CD	NumForm=Digit|NumType=Card	1	nmod:tmod	1:nmod:tmod	Discourse=joint-other_m:5->4:1:grf-semcol-17|XML=<date when:::"1860-07-16">
+16	16	16	NUM	CD	NumForm=Digit|NumType=Card	1	nmod:unmarked	1:nmod:unmarked	Discourse=joint-other_m:5->4:1:grf-semcol-17|XML=<date when:::"1860-07-16">
 17	July	July	PROPN	NNP	Number=Sing	16	compound	16:compound	_
-18	1860	1860	NUM	CD	NumForm=Digit|NumType=Card	17	nmod:tmod	17:nmod:tmod	XML=</date>
+18	1860	1860	NUM	CD	NumForm=Digit|NumType=Card	17	nmod:unmarked	17:nmod:unmarked	XML=</date>
 19	–	-	SYM	SYM	_	20	case	20:case	_
 20	30	30	NUM	CD	NumForm=Digit|NumType=Card	16	nmod	16:nmod:to	XML=<date when:::"1943-04-30">
 21	April	April	PROPN	NNP	Number=Sing	20	compound	20:compound	_
-22	1943	1943	NUM	CD	NumForm=Digit|NumType=Card	21	nmod:tmod	21:nmod:tmod	SpaceAfter=No|XML=</date>
+22	1943	1943	NUM	CD	NumForm=Digit|NumType=Card	21	nmod:unmarked	21:nmod:unmarked	SpaceAfter=No|XML=</date>
 23	)	)	PUNCT	-RRB-	_	16	punct	16:punct	_
 24	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	27	cop	27:cop	Discourse=same-unit_m:6->2:1:_
 25	a	a	DET	DT	Definite=Ind|PronType=Art	27	det	27:det	_
@@ -98,7 +98,7 @@
 # s_type = decl
 # transition = establishment
 # text = He was inspired by the work of Danish philologist Rasmus Rask as a boy, and with the help of Rask's grammars taught himself some Icelandic, Italian, and Spanish.
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj:pass	3:nsubj:pass|24:nsubj:pass	Discourse=joint-sequence_m:10->9:0:_|Entity=(1)
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj:pass	3:nsubj:pass|24:nsubj:pass	Discourse=joint-sequence_m:10->9:0:_|Entity=(1)|PDTB=Implicit:Expansion.Conjunction:and:_:42-50:51-83
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	aux:pass	3:aux:pass	_
 3	inspired	inspire	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	MSeg=inspir-ed
 4	by	by	ADP	IN	_	6	case	6:case	_
@@ -110,10 +110,10 @@
 10	Rasmus	Rasmus	PROPN	NNP	Number=Sing	9	flat	9:flat	XML=<ref>
 11	Rask	Rask	PROPN	NNP	Number=Sing	9	flat	9:flat	Entity=4)|XML=</ref>
 12	as	as	ADP	IN	_	14	case	14:case	_
-13	a	a	DET	DT	Definite=Ind|PronType=Art	14	det	14:det	_
-14	boy	boy	NOUN	NN	Number=Sing	3	obl	3:obl:as	SpaceAfter=No
+13	a	a	DET	DT	Definite=Ind|PronType=Art	14	det	14:det	Entity=(5
+14	boy	boy	NOUN	NN	Number=Sing	3	obl	3:obl:as	Entity=5)|SpaceAfter=No
 15	,	,	PUNCT	,	_	24	punct	24:punct	_
-16	and	and	CCONJ	CC	_	24	cc	24:cc	Discourse=joint-list_m:11->10:0:dm-and-66
+16	and	and	CCONJ	CC	_	24	cc	24:cc	Discourse=joint-list_m:11->10:0:dm-and-66|PDTB=Explicit:Expansion.Conjunction:and:66:51-65:67-83
 17	with	with	ADP	IN	_	19	case	19:case	_
 18	the	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	_
 19	help	help	NOUN	NN	Number=Sing	24	obl	24:obl:with	_
@@ -122,10 +122,10 @@
 21	Rask	Rask	PROPN	NNP	Number=Sing	23	nmod:poss	23:nmod:poss	Entity=(4
 22	's	's	PART	POS	_	21	case	21:case	Entity=4)
 23	grammars	grammar	NOUN	NNS	Number=Plur	19	nmod	19:nmod:of	MSeg=grammar-s
-24	taught	teach	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	conj	3:conj:and	Cxn=Ditransitive
-25	himself	himself	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs|Reflex=Yes	24	iobj	24:iobj	Entity=(1)|MSeg=him-self
+24	taught	teach	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	conj	3:conj:and	Cxn=Ditransitive|CxnElt=DitrV
+25	himself	himself	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs|Reflex=Yes	24	iobj	24:iobj	CxnElt=DitrRec|Entity=(5)|MSeg=him-self
 26	some	some	DET	DT	PronType=Ind	27	det	27:det	_
-27	Icelandic	Icelandic	PROPN	NNP	Number=Sing	24	obj	24:obj	MSeg=Iceland-ic|SpaceAfter=No
+27	Icelandic	Icelandic	PROPN	NNP	Number=Sing	24	obj	24:obj	CxnElt=DitrTheme|MSeg=Iceland-ic|SpaceAfter=No
 28	,	,	PUNCT	,	_	29	punct	29:punct	_
 29	Italian	Italian	PROPN	NNP	Number=Sing	27	conj	24:obj|27:conj:and	MSeg=Ital-ian|SpaceAfter=No
 30	,	,	PUNCT	,	_	32	punct	32:punct	_
@@ -138,26 +138,26 @@
 # s_type = decl
 # transition = continue
 # text = He entered the University of Copenhagen in 1877 when he was 17, initially studying law but not forgetting his language studies.
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=joint-sequence_m:12->9:0:_|Entity=(1)
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=joint-sequence_m:12->9:0:_|Entity=(5)|PDTB=Implicit:Temporal.Asynchronous.Precedence:then:_:51-83:84-106
 2	entered	enter	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=enter-ed
-3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	Entity=(5
+3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	Entity=(6
 4	University	University	PROPN	NNP	Number=Sing	2	obj	2:obj	MSeg=Univers-ity|XML=<ref>
 5	of	of	ADP	IN	_	6	case	6:case	_
-6	Copenhagen	Copenhagen	PROPN	NNP	Number=Sing	4	nmod	4:nmod:of	Entity=5)(6)|XML=</ref>
+6	Copenhagen	Copenhagen	PROPN	NNP	Number=Sing	4	nmod	4:nmod:of	Entity=6)(7)|XML=</ref>
 7	in	in	ADP	IN	_	8	case	8:case	_
 8	1877	1877	NUM	CD	NumForm=Digit|NumType=Card	2	obl	2:obl:in	XML=<date when:::"1877"></date>
-9	when	when	ADV	WRB	PronType=Int	12	advmod	12:advmod	Discourse=context-circumstance:13->12:0:dm-when-92
-10	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	12	nsubj	12:nsubj	Entity=(1)
+9	when	when	ADV	WRB	PronType=Int	12	advmod	12:advmod	Discourse=context-circumstance:13->12:0:dm-when-92|PDTB=Explicit:Temporal.Synchronous:when:92:84-91:93-96
+10	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	12	nsubj	12:nsubj	Entity=(5)
 11	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	12	cop	12:cop	_
 12	17	17	NUM	CD	NumForm=Digit|NumType=Card	2	advcl	2:advcl:when	SpaceAfter=No
 13	,	,	PUNCT	,	_	15	punct	15:punct	_
 14	initially	initially	ADV	RB	Degree=Pos	15	advmod	15:advmod	Discourse=adversative-concession:14->15:0:dm-but-100|MSeg=initial-ly
 15	studying	study	VERB	VBG	VerbForm=Ger	12	acl	12:acl	MSeg=study-ing
 16	law	law	NOUN	NN	Number=Sing	15	obj	15:obj	_
-17	but	but	CCONJ	CC	_	19	cc	19:cc	Discourse=elaboration-additional:15->12:1:ref-prs-84,103
-18	not	not	PART	RB	Polarity=Neg	19	advmod	19:advmod	_
+17	but	but	CCONJ	CC	_	19	cc	19:cc	Discourse=elaboration-additional:15->12:1:ref-prs-84,103|PDTB=Explicit:Comparison.Concession.Arg2-as-denier:but:100:97-99:101-106
+18	not	not	PART	RB	Polarity=Neg	19	advmod	19:advmod	Negation=Yes
 19	forgetting	forget	VERB	VBG	VerbForm=Ger	15	conj	12:acl|15:conj:but	MSeg=for-gett-ing
-20	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	22	nmod:poss	22:nmod:poss	Entity=(1)
+20	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	22	nmod:poss	22:nmod:poss	Entity=(5)
 21	language	language	NOUN	NN	Number=Sing	22	compound	22:compound	_
 22	studies	study	NOUN	NNS	Number=Plur	19	obj	19:obj	MSeg=studie-s|SpaceAfter=No
 23	.	.	PUNCT	.	_	2	punct	2:punct	_
@@ -167,21 +167,21 @@
 # s_type = decl
 # transition = continue
 # text = In 1881 he shifted his focus completely to languages, and in 1887 earned his master's degree in French, with English and Latin as his secondary languages.
-1	In	in	ADP	IN	_	2	case	2:case	Discourse=joint-sequence_m:16->12:2:lex-indwd-91+lex-indwd-108
+1	In	in	ADP	IN	_	2	case	2:case	Discourse=joint-sequence_m:16->12:2:lex-indwd-91+lex-indwd-108|PDTB=Implicit:Temporal.Asynchronous.Precedence:then:_:84-106:107-136
 2	1881	1881	NUM	CD	NumForm=Digit|NumType=Card	4	obl	4:obl:in	XML=<date when:::"1881"></date>
-3	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	4	nsubj	4:nsubj|14:nsubj	Entity=(1)
+3	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	4	nsubj	4:nsubj|14:nsubj	Entity=(5)
 4	shifted	shift	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=shift-ed
-5	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(1)
+5	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(5)
 6	focus	focus	NOUN	NN	Number=Sing	4	obj	4:obj	_
 7	completely	completely	ADV	RB	Degree=Pos	4	advmod	4:advmod	MSeg=complete-ly
 8	to	to	ADP	IN	_	9	case	9:case	_
 9	languages	language	NOUN	NNS	Number=Plur	4	obl	4:obl:to	MSeg=language-s|SpaceAfter=No
 10	,	,	PUNCT	,	_	14	punct	14:punct	_
-11	and	and	CCONJ	CC	_	14	cc	14:cc	Discourse=joint-sequence_m:17->12:2:dm-and-117+lex-indwd-119
+11	and	and	CCONJ	CC	_	14	cc	14:cc	Discourse=joint-sequence_m:17->12:2:dm-and-117+lex-indwd-119|PDTB=Explicit:Expansion.Conjunction:and:117:107-116:118-136;Implicit:Temporal.Asynchronous.Precedence:then:_:107-116:117-136
 12	in	in	ADP	IN	_	13	case	13:case	_
 13	1887	1887	NUM	CD	NumForm=Digit|NumType=Card	14	obl	14:obl:in	XML=<date when:::"1887"></date>
 14	earned	earn	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	4	conj	4:conj:and	MSeg=earn-ed
-15	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	18	nmod:poss	18:nmod:poss	Entity=(1)
+15	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	18	nmod:poss	18:nmod:poss	Entity=(5)
 16-17	master's	_	_	_	_	_	_	_	_
 16	master	master	NOUN	NN	Number=Sing	18	compound	18:compound	MSeg=mast-er
 17	's	's	PART	POS	_	16	case	16:case	_
@@ -190,13 +190,13 @@
 20	French	French	PROPN	NNP	Number=Sing	18	nmod	18:nmod:in	SpaceAfter=No|XML=<ref></ref>
 21	,	,	PUNCT	,	_	23	punct	23:punct	_
 22	with	with	ADP	IN	_	23	case	23:case	_
-23	English	English	PROPN	NNP	Number=Sing	18	nmod	18:nmod:with	Entity=(7(3)|MSeg=Engl-ish
+23	English	English	PROPN	NNP	Number=Sing	18	nmod	18:nmod:with	Entity=(8(3)|MSeg=Engl-ish
 24	and	and	CCONJ	CC	_	25	cc	25:cc	_
-25	Latin	Latin	PROPN	NNP	Number=Sing	23	conj	18:nmod:with|23:conj:and	Entity=7)|XML=<ref></ref>
+25	Latin	Latin	PROPN	NNP	Number=Sing	23	conj	18:nmod:with|23:conj:and	Entity=8)|XML=<ref></ref>
 26	as	as	ADP	IN	_	29	case	29:case	_
-27	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	29	nmod:poss	29:nmod:poss	Entity=(7(1)
+27	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	29	nmod:poss	29:nmod:poss	Entity=(8(5)
 28	secondary	secondary	ADJ	JJ	Degree=Pos	29	amod	29:amod	MSeg=second-ary
-29	languages	language	NOUN	NNS	Number=Plur	23	nmod	23:nmod:as	Entity=7)|MSeg=language-s|SpaceAfter=No
+29	languages	language	NOUN	NNS	Number=Plur	23	nmod	23:nmod:as	Entity=8)|MSeg=language-s|SpaceAfter=No
 30	.	.	PUNCT	.	_	4	punct	4:punct	_
 
 # sent_id = GUM_bio_jespersen-8
@@ -204,11 +204,11 @@
 # s_type = decl
 # transition = continue
 # text = He supported himself during his studies through part-time work as a schoolteacher and as a shorthand reporter in the Danish parliament.
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=elaboration-additional:18->12:3:ref-prs-84,137|Entity=(1)
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=elaboration-additional:18->12:3:ref-prs-84,137|Entity=(5)|PDTB=EntRel:EntRel:_:_:107-136:137-160
 2	supported	support	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=support-ed
-3	himself	himself	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs|Reflex=Yes	2	obj	2:obj	Entity=(1)|MSeg=him-self
+3	himself	himself	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs|Reflex=Yes	2	obj	2:obj	Entity=(5)|MSeg=him-self
 4	during	during	ADP	IN	_	6	case	6:case	MSeg=dur-ing
-5	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(1)
+5	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(5)
 6	studies	study	NOUN	NNS	Number=Plur	2	obl	2:obl:during	MSeg=studie-s
 7	through	through	ADP	IN	_	11	case	11:case	_
 8	part	part	NOUN	NN	Number=Sing	10	compound	10:compound	SpaceAfter=No|XML=<w>
@@ -216,13 +216,13 @@
 10	time	time	NOUN	NN	Number=Sing	11	compound	11:compound	XML=</w>
 11	work	work	NOUN	NN	Number=Sing	2	obl	2:obl:through	_
 12	as	as	ADP	IN	_	14	case	14:case	_
-13	a	a	DET	DT	Definite=Ind|PronType=Art	14	det	14:det	Entity=(8
-14	schoolteacher	schoolteacher	NOUN	NN	Number=Sing	11	nmod	11:nmod:as	Entity=8)|MSeg=school-teach-er
+13	a	a	DET	DT	Definite=Ind|PronType=Art	14	det	14:det	Entity=(9
+14	schoolteacher	schoolteacher	NOUN	NN	Number=Sing	11	nmod	11:nmod:as	Entity=9)|MSeg=school-teach-er
 15	and	and	CCONJ	CC	_	19	cc	19:cc	_
 16	as	as	ADP	IN	_	19	case	19:case	_
-17	a	a	DET	DT	Definite=Ind|PronType=Art	19	det	19:det	Entity=(8
-18	shorthand	shorthand	NOUN	NN	Number=Sing	19	compound	19:compound	_
-19	reporter	reporter	NOUN	NN	Number=Sing	14	conj	11:nmod:as|14:conj:and	Entity=8)|MSeg=report-er
+17	a	a	DET	DT	Definite=Ind|PronType=Art	19	det	19:det	Entity=(9
+18	shorthand	shorthand	NOUN	NN	Number=Sing	19	compound	19:compound	MSeg=short-hand
+19	reporter	reporter	NOUN	NN	Number=Sing	14	conj	11:nmod:as|14:conj:and	Entity=9)|MSeg=report-er
 20	in	in	ADP	IN	_	23	case	23:case	_
 21	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	_
 22	Danish	Danish	ADJ	JJ	Degree=Pos	23	amod	23:amod	MSeg=Dan-ish
@@ -239,7 +239,7 @@
 3	–	-	SYM	SYM	_	4	case	4:case	_
 4	1888	1888	NUM	CD	NumForm=Digit|NumType=Card	2	nmod	2:nmod:to	SpaceAfter=No|XML=<date when:::"1888"></date>
 5	,	,	PUNCT	,	_	2	punct	2:punct	_
-6	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	7	nsubj	7:nsubj	Entity=(8)
+6	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	7	nsubj	7:nsubj	Entity=(9)
 7	traveled	travel	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=travel-ed
 8	to	to	ADP	IN	_	9	case	9:case	_
 9	England	England	PROPN	NNP	Number=Sing	7	obl	7:obl:to	SpaceAfter=No
@@ -256,7 +256,7 @@
 20	and	and	CCONJ	CC	_	21	cc	21:cc	_
 21	Paul	Paul	PROPN	NNP	Number=Sing	18	conj	16:nmod:like|18:conj:and	XML=<ref>
 22	Passy	Passy	PROPN	NNP	Number=Sing	21	flat	21:flat	XML=</ref>
-23	and	and	CCONJ	CC	_	24	cc	24:cc	Discourse=joint-list_m:21->20:0:dm-and-183
+23	and	and	CCONJ	CC	_	24	cc	24:cc	Discourse=joint-list_m:21->20:0:dm-and-183|PDTB=Explicit:Expansion.Conjunction:and:183:175-182:184-191
 24	attending	attend	VERB	VBG	Tense=Pres|VerbForm=Part	15	conj	7:advcl|15:conj:and	MSeg=at-tend-ing
 25	lectures	lecture	NOUN	NNS	Number=Plur	24	obj	24:obj	MSeg=lecture-s
 26	at	at	ADP	IN	_	27	case	27:case	_
@@ -271,34 +271,34 @@
 # s_type = decl
 # transition = continue
 # text = Following the advice of his mentor Vilhelm Thomsen, he returned to Copenhagen in August 1888 and began work on his doctoral dissertation on the English case system.
-1	Following	follow	VERB	VBG	Tense=Pres|VerbForm=Part	11	advcl	11:advcl	Discourse=causal-cause:22->23:1:_|MSeg=Follow-ing
+1	Following	follow	VERB	VBG	Tense=Pres|VerbForm=Part	11	advcl	11:advcl	Discourse=causal-cause:22->23:1:_|MSeg=Follow-ing|PDTB=Implicit:Contingency.Cause.Reason:as a result of:_:201-220:192-200;Implicit:Temporal.Asynchronous.Precedence:then:_:161-191:192-220
 2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	_
 3	advice	advice	NOUN	NN	Number=Sing	1	obj	1:obj	_
 4	of	of	ADP	IN	_	6	case	6:case	_
-5	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(8)
+5	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(9)
 6	mentor	mentor	NOUN	NN	Number=Sing	3	nmod	3:nmod:of	_
 7	Vilhelm	Vilhelm	PROPN	NNP	Number=Sing	6	appos	6:appos	XML=<ref>
 8	Thomsen	Thomsen	PROPN	NNP	Number=Sing	7	flat	7:flat	SpaceAfter=No|XML=</ref>
 9	,	,	PUNCT	,	_	1	punct	1:punct	_
-10	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	11	nsubj	11:nsubj|18:nsubj	Discourse=joint-sequence_m:23->9:0:_|Entity=(8)
+10	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	11	nsubj	11:nsubj|18:nsubj	Discourse=joint-sequence_m:23->9:0:_|Entity=(9)
 11	returned	return	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=return-ed
 12	to	to	ADP	IN	_	13	case	13:case	_
-13	Copenhagen	Copenhagen	PROPN	NNP	Number=Sing	11	obl	11:obl:to	Entity=(6)
+13	Copenhagen	Copenhagen	PROPN	NNP	Number=Sing	11	obl	11:obl:to	Entity=(7)
 14	in	in	ADP	IN	_	15	case	15:case	_
 15	August	August	PROPN	NNP	Number=Sing	11	obl	11:obl:in	XML=<date when:::"1888-08">
-16	1888	1888	NUM	CD	NumForm=Digit|NumType=Card	15	nmod:tmod	15:nmod:tmod	XML=</date>
-17	and	and	CCONJ	CC	_	18	cc	18:cc	Discourse=joint-sequence_m:24->23:0:lex-indph-206-207+dm-and-208
+16	1888	1888	NUM	CD	NumForm=Digit|NumType=Card	15	nmod:unmarked	15:nmod:unmarked	XML=</date>
+17	and	and	CCONJ	CC	_	18	cc	18:cc	Discourse=joint-sequence_m:24->23:0:lex-indph-206-207+dm-and-208|PDTB=Explicit:Expansion.Conjunction:and:208:201-207:209-220;Implicit:Temporal.Asynchronous.Precedence:then:_:201-207:208-220
 18	began	begin	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	11	conj	11:conj:and	_
 19	work	work	NOUN	NN	Number=Sing	18	obj	18:obj	_
 20	on	on	ADP	IN	_	23	case	23:case	_
-21	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	23	nmod:poss	23:nmod:poss	Entity=(9(8)
+21	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	23	nmod:poss	23:nmod:poss	Entity=(10(9)
 22	doctoral	doctoral	ADJ	JJ	Degree=Pos	23	amod	23:amod	MSeg=doctor-al
 23	dissertation	dissertation	NOUN	NN	Number=Sing	19	nmod	19:nmod:on	MSeg=dissertat-ion
 24	on	on	ADP	IN	_	28	case	28:case	_
 25	the	the	DET	DT	Definite=Def|PronType=Art	28	det	28:det	_
 26	English	English	ADJ	JJ	Degree=Pos	28	amod	28:amod	MSeg=Engl-ish
 27	case	case	NOUN	NN	Number=Sing	28	compound	28:compound	XML=<ref></ref>
-28	system	system	NOUN	NN	Number=Sing	23	nmod	23:nmod:on	Entity=9)|SpaceAfter=No
+28	system	system	NOUN	NN	Number=Sing	23	nmod	23:nmod:on	Entity=10)|SpaceAfter=No
 29	.	.	PUNCT	.	_	11	punct	11:punct	_
 
 # sent_id = GUM_bio_jespersen-11
@@ -306,11 +306,11 @@
 # s_type = decl
 # transition = continue
 # text = He successfully defended his dissertation in 1891.
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	Discourse=joint-sequence_m:25->9:0:lex-indwd-227|Entity=(8)
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	Discourse=joint-sequence_m:25->9:0:lex-indwd-227|Entity=(9)|PDTB=Implicit:Temporal.Asynchronous.Precedence:then:_:192-220:221-228
 2	successfully	successfully	ADV	RB	Degree=Pos	3	advmod	3:advmod	MSeg=success-ful-ly
 3	defended	defend	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=defend-ed
-4	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	5	nmod:poss	5:nmod:poss	Entity=(9(8)
-5	dissertation	dissertation	NOUN	NN	Number=Sing	3	obj	3:obj	Entity=9)|MSeg=dissertat-ion
+4	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	5	nmod:poss	5:nmod:poss	Entity=(10(9)
+5	dissertation	dissertation	NOUN	NN	Number=Sing	3	obj	3:obj	Entity=10)|MSeg=dissertat-ion
 6	in	in	ADP	IN	_	7	case	7:case	_
 7	1891	1891	NUM	CD	NumForm=Digit|NumType=Card	3	obl	3:obl:in	SpaceAfter=No|XML=<date when:::"1891"></date>
 8	.	.	PUNCT	.	_	3	punct	3:punct	_
@@ -334,29 +334,29 @@
 # text = Jespersen was a professor of English at the University of Copenhagen from 1893 to 1925, and served as Rector of the university in 1920 – 21.
 # newpar
 # newpar_block = p (2 s)
-1	Jespersen	Jespersen	PROPN	NNP	Number=Sing	4	nsubj	4:nsubj|18:nsubj	Discourse=context-background:27->31:6:ref-prs-233,290|Entity=(8)
+1	Jespersen	Jespersen	PROPN	NNP	Number=Sing	4	nsubj	4:nsubj|18:nsubj	Discourse=context-background:27->31:6:ref-prs-233,290|Entity=(9)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	4	cop	4:cop	_
 3	a	a	DET	DT	Definite=Ind|PronType=Art	4	det	4:det	_
 4	professor	professor	NOUN	NN	Number=Sing	0	root	0:root	MSeg=profess-or
 5	of	of	ADP	IN	_	6	case	6:case	_
 6	English	English	PROPN	NNP	Number=Sing	4	nmod	4:nmod:of	Entity=(3)|MSeg=Engl-ish
 7	at	at	ADP	IN	_	9	case	9:case	_
-8	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Entity=(5
+8	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	Entity=(6
 9	University	University	PROPN	NNP	Number=Sing	4	nmod	4:nmod:at	MSeg=Univers-ity
 10	of	of	ADP	IN	_	11	case	11:case	_
-11	Copenhagen	Copenhagen	PROPN	NNP	Number=Sing	9	nmod	9:nmod:of	Entity=5)(6)
+11	Copenhagen	Copenhagen	PROPN	NNP	Number=Sing	9	nmod	9:nmod:of	Entity=6)(7)
 12	from	from	ADP	IN	_	13	case	13:case	_
 13	1893	1893	NUM	CD	NumForm=Digit|NumType=Card	4	nmod	4:nmod:from	XML=<date when:::"1893"></date>
 14	to	to	ADP	IN	_	15	case	15:case	_
 15	1925	1925	NUM	CD	NumForm=Digit|NumType=Card	4	nmod	4:nmod:to	SpaceAfter=No|XML=<date when:::"1925"></date>
 16	,	,	PUNCT	,	_	18	punct	18:punct	_
-17	and	and	CCONJ	CC	_	18	cc	18:cc	Discourse=joint-list_m:28->27:0:sem-lxchn-236,255+dm-and-249
+17	and	and	CCONJ	CC	_	18	cc	18:cc	Discourse=joint-list_m:28->27:0:sem-lxchn-236,255+dm-and-249|PDTB=Explicit:Expansion.Conjunction:and:249:233-248:250-260
 18	served	serve	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	4	conj	4:conj:and	MSeg=serv-ed
 19	as	as	ADP	IN	_	20	case	20:case	_
-20	Rector	Rector	PROPN	NNP	Number=Sing	18	obl	18:obl:as	Entity=(8
+20	Rector	Rector	PROPN	NNP	Number=Sing	18	obl	18:obl:as	Entity=(9
 21	of	of	ADP	IN	_	23	case	23:case	_
-22	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	Entity=(5
-23	university	university	NOUN	NN	Number=Sing	20	nmod	20:nmod:of	Entity=5)8)|MSeg=univers-ity
+22	the	the	DET	DT	Definite=Def|PronType=Art	23	det	23:det	Entity=(6
+23	university	university	NOUN	NN	Number=Sing	20	nmod	20:nmod:of	Entity=6)9)|MSeg=univers-ity
 24	in	in	ADP	IN	_	25	case	25:case	_
 25	1920	1920	NUM	CD	NumForm=Digit|NumType=Card	18	obl	18:obl:in	XML=<date when:::"1920"></date>
 26	–	-	SYM	SYM	_	27	case	27:case	_
@@ -368,7 +368,7 @@
 # s_type = decl
 # transition = establishment
 # text = His early work focused primarily on language teaching reform and on phonetics, but he is best known for his later work on syntax and on language development.
-1	His	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	3	nmod:poss	3:nmod:poss	Discourse=adversative-concession:29->30:0:dm-but-274|Entity=(8)
+1	His	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	3	nmod:poss	3:nmod:poss	Discourse=adversative-concession:29->30:0:dm-but-274|Entity=(9)|PDTB=EntRel:EntRel:_:_:233-260:261-289
 2	early	early	ADJ	JJ	Degree=Pos	3	amod	3:amod	_
 3	work	work	NOUN	NN	Number=Sing	4	nsubj	4:nsubj	_
 4	focused	focus	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=focus-ed
@@ -376,22 +376,22 @@
 6	on	on	ADP	IN	_	9	case	9:case	_
 7	language	language	NOUN	NN	Number=Sing	8	compound	8:compound	_
 8	teaching	teaching	NOUN	NN	Number=Sing	9	compound	9:compound	MSeg=teach-ing
-9	reform	reform	NOUN	NN	Number=Sing	4	obl	4:obl:on	_
+9	reform	reform	NOUN	NN	Number=Sing	4	obl	4:obl:on	MSeg=re-form
 10	and	and	CCONJ	CC	_	12	cc	12:cc	_
 11	on	on	ADP	IN	_	12	case	12:case	_
 12	phonetics	phonetics	NOUN	NN	Number=Sing	9	conj	4:obl:on|9:conj:and	MSeg=phonet-ic-s|SpaceAfter=No
 13	,	,	PUNCT	,	_	18	punct	18:punct	_
-14	but	but	CCONJ	CC	_	18	cc	18:cc	Discourse=organization-preparation:30->31:2:ref-prs-261,290
-15	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	18	nsubj:pass	18:nsubj:pass	Entity=(8)
+14	but	but	CCONJ	CC	_	18	cc	18:cc	Discourse=organization-preparation:30->31:2:ref-prs-261,290|PDTB=Explicit:Comparison.Concession.Arg2-as-denier:but:274:261-273:275-289
+15	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	18	nsubj:pass	18:nsubj:pass	Entity=(9)
 16	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	18	aux:pass	18:aux:pass	_
 17	best	well	ADV	RBS	Degree=Sup	18	advmod	18:advmod	MSeg=be-st
 18	known	know	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	4	conj	4:conj:but	MSeg=know-n
 19	for	for	ADP	IN	_	22	case	22:case	_
-20	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	22	nmod:poss	22:nmod:poss	Entity=(8)
+20	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	22	nmod:poss	22:nmod:poss	Entity=(9)
 21	later	late	ADJ	JJR	Degree=Cmp	22	amod	22:amod	MSeg=lat-er
 22	work	work	NOUN	NN	Number=Sing	18	obl	18:obl:for	_
 23	on	on	ADP	IN	_	24	case	24:case	_
-24	syntax	syntax	NOUN	NN	Number=Sing	22	nmod	22:nmod:on	Entity=(10)
+24	syntax	syntax	NOUN	NN	Number=Sing	22	nmod	22:nmod:on	Entity=(11)
 25	and	and	CCONJ	CC	_	28	cc	28:cc	_
 26	on	on	ADP	IN	_	28	case	28:case	_
 27	language	language	NOUN	NN	Number=Sing	28	compound	28:compound	_
@@ -405,14 +405,14 @@
 # text = He advanced the theories of Rank and Nexus in Danish in two papers: Sprogets logik (1913) and De to hovedarter af grammatiske forbindelser (1921).
 # newpar
 # newpar_block = p (5 s)
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=joint-other_m:31->9:2:_|Entity=(8)
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=joint-other_m:31->9:2:_|Entity=(9)|PDTB=Implicit:Expansion.Level-of-detail.Arg2-as-detail:in particular:_:261-289:290-319
 2	advanced	advance	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=advanc-ed
 3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	_
-4	theories	theory	NOUN	NNS	Number=Plur	2	obj	2:obj	_
+4	theories	theory	NOUN	NNS	Number=Plur	2	obj	2:obj	MSeg=theorie-s
 5	of	of	ADP	IN	_	6	case	6:case	_
-6	Rank	Rank	PROPN	NNP	Number=Sing	4	nmod	4:nmod:of	Entity=(11)
+6	Rank	Rank	PROPN	NNP	Number=Sing	4	nmod	4:nmod:of	Entity=(12)
 7	and	and	CCONJ	CC	_	8	cc	8:cc	_
-8	Nexus	Nexus	PROPN	NNP	Number=Sing	6	conj	4:nmod:of|6:conj:and	Entity=(12)
+8	Nexus	Nexus	PROPN	NNP	Number=Sing	6	conj	4:nmod:of|6:conj:and	Entity=(13)
 9	in	in	ADP	IN	_	10	case	10:case	_
 10	Danish	Danish	PROPN	NNP	Number=Sing	4	nmod	4:nmod:in	Entity=(2)|MSeg=Dan-ish
 11	in	in	ADP	IN	_	13	case	13:case	_
@@ -422,7 +422,7 @@
 15	Sprogets	Sprogets	X	FW	Foreign=Yes	16	compound	16:compound	Discourse=elaboration-additional:32->31:0:num-count-301+sem-synym-301-302,304-318+grf-col-303+grf-prn-306,308,316,318|XML=<hi rend:::"italic"><foreign xml:lang:::"dan">
 16	logik	logik	X	FW	Foreign=Yes	13	appos	13:appos	XML=</foreign></hi>
 17	(	(	PUNCT	-LRB-	_	18	punct	18:punct	Discourse=context-circumstance:33->32:0:lex-indwd-307|SpaceAfter=No
-18	1913	1913	NUM	CD	NumForm=Digit|NumType=Card	16	nmod:tmod	16:nmod:tmod	SpaceAfter=No|XML=<date when:::"1913"></date>
+18	1913	1913	NUM	CD	NumForm=Digit|NumType=Card	16	nmod:unmarked	16:nmod:unmarked	SpaceAfter=No|XML=<date when:::"1913"></date>
 19	)	)	PUNCT	-RRB-	_	18	punct	18:punct	_
 20	and	and	CCONJ	CC	_	26	cc	26:cc	Discourse=same-unit_m:34->32:1:_
 21	De	De	X	FW	Foreign=Yes	26	compound	26:compound	XML=<hi rend:::"italic"><foreign xml:lang:::"dan">
@@ -432,7 +432,7 @@
 25	grammatiske	grammatiske	X	FW	Foreign=Yes	26	compound	26:compound	_
 26	forbindelser	forbindelser	X	FW	Foreign=Yes	16	conj	13:appos|16:conj:and	XML=</foreign></hi>
 27	(	(	PUNCT	-LRB-	_	28	punct	28:punct	Discourse=context-circumstance:35->34:0:lex-indwd-317|SpaceAfter=No
-28	1921	1921	NUM	CD	NumForm=Digit|NumType=Card	26	nmod:tmod	26:nmod:tmod	SpaceAfter=No|XML=<date when:::"1921"></date>
+28	1921	1921	NUM	CD	NumForm=Digit|NumType=Card	26	nmod:unmarked	26:nmod:unmarked	SpaceAfter=No|XML=<date when:::"1921"></date>
 29	)	)	PUNCT	-RRB-	_	28	punct	28:punct	SpaceAfter=No
 30	.	.	PUNCT	.	_	2	punct	2:punct	_
 
@@ -441,7 +441,7 @@
 # s_type = decl
 # transition = retain
 # text = Jespersen in this theory of ranks removes the parts of speech from the syntax, and differentiates between primaries, secondaries, and tertiaries; e.g. in "well honed phrase," "phrase" is a primary, this being defined by a secondary, "honed", which again is defined by a tertiary "well".
-1	Jespersen	Jespersen	PROPN	NNP	Number=Sing	7	nsubj	7:nsubj|17:nsubj	Discourse=elaboration-additional:36->31:1:sem-synym-290,320+sem-mrnym-292-299,322-325|Entity=(8)
+1	Jespersen	Jespersen	PROPN	NNP	Number=Sing	7	nsubj	7:nsubj|17:nsubj	Discourse=elaboration-additional:36->31:1:sem-synym-290,320+sem-mrnym-292-299,322-325|Entity=(9)|PDTB=Implicit:Expansion.Level-of-detail.Arg2-as-detail:specifically:_:290-319:320-381
 2	in	in	ADP	IN	_	4	case	4:case	_
 3	this	this	DET	DT	Number=Sing|PronType=Dem	4	det	4:det	_
 4	theory	theory	NOUN	NN	Number=Sing	7	obl	7:obl:in	_
@@ -453,10 +453,10 @@
 10	of	of	ADP	IN	_	11	case	11:case	_
 11	speech	speech	NOUN	NN	Number=Sing	9	nmod	9:nmod:of	_
 12	from	from	ADP	IN	_	14	case	14:case	_
-13	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	Entity=(10
-14	syntax	syntax	NOUN	NN	Number=Sing	7	obl	7:obl:from	Entity=10)|SpaceAfter=No
+13	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	Entity=(11
+14	syntax	syntax	NOUN	NN	Number=Sing	7	obl	7:obl:from	Entity=11)|SpaceAfter=No
 15	,	,	PUNCT	,	_	17	punct	17:punct	_
-16	and	and	CCONJ	CC	_	17	cc	17:cc	Discourse=joint-list_m:37->36:0:dm-and-335+grf-semcol-344
+16	and	and	CCONJ	CC	_	17	cc	17:cc	Discourse=joint-list_m:37->36:0:dm-and-335+grf-semcol-344|PDTB=Explicit:Expansion.Conjunction:and:335:320-334:336-381
 17	differentiates	differentiate	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	7	conj	7:conj:and	MSeg=differenti-ate-s
 18	between	between	ADP	IN	_	19	case	19:case	MSeg=be-tween
 19	primaries	primary	NOUN	NNS	Number=Plur	17	obl	17:obl:between	MSeg=prim-arie-s|SpaceAfter=No
@@ -464,7 +464,7 @@
 21	secondaries	secondary	NOUN	NNS	Number=Plur	19	conj	17:obl:between|19:conj:and	MSeg=second-arie-s|SpaceAfter=No
 22	,	,	PUNCT	,	_	24	punct	24:punct	_
 23	and	and	CCONJ	CC	_	24	cc	24:cc	_
-24	tertiaries	tertiary	NOUN	NNS	Number=Plur	19	conj	17:obl:between|19:conj:and	SpaceAfter=No
+24	tertiaries	tertiary	NOUN	NNS	Number=Plur	19	conj	17:obl:between|19:conj:and	MSeg=tertiarie-s|SpaceAfter=No
 25	;	;	PUNCT	:	_	26	punct	26:punct	_
 26	e.g.	e.g.	ADV	FW	Abbr=Yes	39	advmod	39:advmod	Discourse=elaboration-additional:38->37:0:sem-lxchn-338,358+lex-indwd-345
 27	in	in	ADP	IN	_	31	case	31:case	_
@@ -475,13 +475,13 @@
 32	,	,	PUNCT	,	_	31	punct	31:punct	SpaceAfter=No
 33	"	''	PUNCT	''	_	31	punct	31:punct	XML=</q>
 34	"	''	PUNCT	``	_	35	punct	35:punct	SpaceAfter=No|XML=<q>
-35	phrase	phrase	NOUN	NN	Number=Sing	39	nsubj	39:nsubj	Entity=(13)|SpaceAfter=No
+35	phrase	phrase	NOUN	NN	Number=Sing	39	nsubj	39:nsubj	Entity=(14)|SpaceAfter=No
 36	"	''	PUNCT	''	_	35	punct	35:punct	XML=</q>
 37	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	39	cop	39:cop	_
 38	a	a	DET	DT	Definite=Ind|PronType=Art	39	det	39:det	_
 39	primary	primary	NOUN	NN	Number=Sing	7	parataxis	7:parataxis	MSeg=prim-ary|SpaceAfter=No
 40	,	,	PUNCT	,	_	43	punct	43:punct	_
-41	this	this	PRON	DT	Number=Sing|PronType=Dem	43	nsubj:pass	43:nsubj:pass	Discourse=elaboration-attribute:39->38:0:syn-mdf-358+syn-nmn-362|Entity=(13)
+41	this	this	PRON	DT	Number=Sing|PronType=Dem	43	nsubj:pass	43:nsubj:pass	Discourse=elaboration-attribute:39->38:0:syn-mdf-358+syn-nmn-362|Entity=(14)
 42	being	be	AUX	VBG	Tense=Pres|VerbForm=Part	43	aux:pass	43:aux:pass	MSeg=be-ing
 43	defined	define	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	39	acl	39:acl	MSeg=defin-ed
 44	by	by	ADP	IN	_	46	case	46:case	_
@@ -493,7 +493,7 @@
 50	"	''	PUNCT	''	_	49	punct	49:punct	SpaceAfter=No|XML=</q>
 51	,	,	PUNCT	,	_	55	punct	55:punct	_
 52	which	which	PRON	WDT	PronType=Rel	55	nsubj:pass	46:ref	Discourse=elaboration-attribute:40->39:0:syn-mdf-365+syn-relcl-371,374
-53	again	again	ADV	RB	Degree=Pos	55	advmod	55:advmod	_
+53	again	again	ADV	RB	Degree=Pos	55	advmod	55:advmod	PDTB=AltLex:Expansion.Conjunction:again:372:360-370:371,373-381
 54	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	55	aux:pass	55:aux:pass	_
 55	defined	define	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	46	acl:relcl	46:acl:relcl	MSeg=defin-ed
 56	by	by	ADP	IN	_	58	case	58:case	_
@@ -509,9 +509,9 @@
 # s_type = decl
 # transition = zero
 # text = The term Nexus is applied to sentences, structures similar to sentences and sentences in formation, in which two concepts are expressed in one unit; e.g., it rained, he ran indoors.
-1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=joint-other_m:41->31:3:grf-semcol-408|Entity=(12
+1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=joint-other_m:41->31:3:grf-semcol-408|Entity=(13
 2	term	term	NOUN	NN	Number=Sing	5	nsubj:pass	5:nsubj:pass	_
-3	Nexus	Nexus	PROPN	NNP	Number=Sing	2	appos	2:appos	Entity=12)|XML=<hi rend:::"italic"></hi>
+3	Nexus	Nexus	PROPN	NNP	Number=Sing	2	appos	2:appos	Entity=13)|XML=<hi rend:::"italic"></hi>
 4	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	aux:pass	5:aux:pass	_
 5	applied	apply	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	MSeg=appl-i-ed
 6	to	to	ADP	IN	_	7	case	7:case	_
@@ -551,14 +551,14 @@
 # s_type = decl
 # transition = establishment
 # text = This term is qualified by a further concept called a junction which represents one idea, expressed by means of two or more elements, whereas a nexus combines two ideas.
-1	This	this	DET	DT	Number=Sing|PronType=Dem	2	det	2:det	Discourse=elaboration-additional:45->41:2:ref-dem-382-384,418-419+lex-indwd-424|Entity=(12
-2	term	term	NOUN	NN	Number=Sing	4	nsubj:pass	4:nsubj:pass	Entity=12)
+1	This	this	DET	DT	Number=Sing|PronType=Dem	2	det	2:det	Discourse=elaboration-additional:45->41:2:ref-dem-382-384,418-419+lex-indwd-424|Entity=(13
+2	term	term	NOUN	NN	Number=Sing	4	nsubj:pass	4:nsubj:pass	Entity=13)
 3	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	aux:pass	4:aux:pass	_
 4	qualified	qualify	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	MSeg=qual-ifi-ed
 5	by	by	ADP	IN	_	8	case	8:case	_
 6	a	a	DET	DT	Definite=Ind|PronType=Art	8	det	8:det	_
-7	further	further	ADJ	JJR	Degree=Cmp	8	amod	8:amod	MSeg=furth-er
-8	concept	concept	NOUN	NN	Number=Sing	4	obl:agent	4:obl:agent|13:nsubj	_
+7	further	further	ADJ	JJR	Degree=Cmp	8	amod	8:amod	MSeg=furth-er|PDTB=AltLex:Expansion.Conjunction:further:424:382-417:418-423,425-449
+8	concept	concept	NOUN	NN	Number=Sing	4	obl:agent	4:obl:agent|13:nsubj	MSeg=concep-t
 9	called	call	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	8	acl:relcl	8:acl:relcl	Discourse=elaboration-attribute:46->45:0:syn-mdf-425+syn-relcl-426|MSeg=call-ed
 10	a	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	_
 11	junction	junction	NOUN	NN	Number=Sing	9	xcomp	9:xcomp	MSeg=junc-tion|XML=<hi rend:::"italic"></hi>
@@ -576,7 +576,7 @@
 23	more	more	ADJ	JJR	Degree=Cmp	21	conj	21:conj:or|24:nummod	_
 24	elements	element	NOUN	NNS	Number=Plur	19	nmod	19:nmod:of	MSeg=element-s|SpaceAfter=No
 25	,	,	PUNCT	,	_	29	punct	29:punct	_
-26	whereas	whereas	SCONJ	IN	_	29	mark	29:mark	Discourse=adversative-antithesis:49->45:1:dm-whereas-443
+26	whereas	whereas	SCONJ	IN	_	29	mark	29:mark	Discourse=adversative-antithesis:49->45:1:dm-whereas-443|MSeg=where-as|PDTB=Explicit:Comparison.Contrast:whereas:443:418-442:444-449
 27	a	a	DET	DT	Definite=Ind|PronType=Art	28	det	28:det	_
 28	nexus	nexus	NOUN	NN	Number=Sing	29	nsubj	29:nsubj	_
 29	combines	combine	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	advcl	4:advcl:whereas	MSeg=combine-s
@@ -591,15 +591,15 @@
 # text = Junction and nexus proved valuable in bringing the concept of context to the forefront of the attention of the world of linguistics.
 1	Junction	junction	NOUN	NN	Number=Sing	4	nsubj	4:nsubj|5:nsubj:xsubj	Discourse=evaluation-comment:50->31:4:lex-indwd-454|MSeg=Junc-tion
 2	and	and	CCONJ	CC	_	3	cc	3:cc	_
-3	nexus	nexus	NOUN	NN	Number=Sing	1	conj	1:conj:and|4:nsubj|5:nsubj:xsubj	Entity=(14)
+3	nexus	nexus	NOUN	NN	Number=Sing	1	conj	1:conj:and|4:nsubj|5:nsubj:xsubj	Entity=(15)
 4	proved	prove	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=prov-ed
 5	valuable	valuable	ADJ	JJ	Degree=Pos	4	xcomp	4:xcomp	MSeg=valu-able
 6	in	in	SCONJ	IN	_	7	mark	7:mark	Discourse=elaboration-additional:51->50:0:syn-pres-456
 7	bringing	bring	VERB	VBG	Tense=Pres|VerbForm=Part	4	advcl	4:advcl:in	MSeg=bring-ing
 8	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	_
-9	concept	concept	NOUN	NN	Number=Sing	7	obj	7:obj	_
+9	concept	concept	NOUN	NN	Number=Sing	7	obj	7:obj	MSeg=concep-t
 10	of	of	ADP	IN	_	11	case	11:case	_
-11	context	context	NOUN	NN	Number=Sing	9	nmod	9:nmod:of	_
+11	context	context	NOUN	NN	Number=Sing	9	nmod	9:nmod:of	MSeg=con-text
 12	to	to	ADP	IN	_	14	case	14:case	_
 13	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	_
 14	forefront	forefront	NOUN	NN	Number=Sing	7	obl	7:obl:to	MSeg=fore-front
@@ -620,7 +620,7 @@
 # text = He was most widely recognized for some of his books.
 # newpar
 # newpar_block = p (7 s)
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	5	nsubj:pass	5:nsubj:pass	Discourse=joint-other_m:52->31:5:_|Entity=(8)
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	5	nsubj:pass	5:nsubj:pass	Discourse=joint-other_m:52->31:5:_|Entity=(9)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	5	aux:pass	5:aux:pass	_
 3	most	most	ADV	RBS	Degree=Sup	4	advmod	4:advmod	_
 4	widely	widely	ADV	RB	Degree=Pos	5	advmod	5:advmod	MSeg=wide-ly
@@ -628,7 +628,7 @@
 6	for	for	ADP	IN	_	7	case	7:case	_
 7	some	some	DET	DT	PronType=Ind	5	obl	5:obl:for	_
 8	of	of	ADP	IN	_	10	case	10:case	_
-9	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	10	nmod:poss	10:nmod:poss	Entity=(8)
+9	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	10	nmod:poss	10:nmod:poss	Entity=(9)
 10	books	book	NOUN	NNS	Number=Plur	7	nmod	7:nmod:of	MSeg=book-s|SpaceAfter=No
 11	.	.	PUNCT	.	_	5	punct	5:punct	_
 
@@ -637,16 +637,16 @@
 # s_type = decl
 # transition = establishment
 # text = Language: Its Nature, Development and Origin (1922) is considered by many to be his masterpiece.
-1	Language	Language	PROPN	NNP	Number=Sing	13	nsubj:pass	13:nsubj:pass|19:nsubj:xsubj	Discourse=explanation-evidence:53->52:0:_|Entity=(15)|SpaceAfter=No|XML=<hi rend:::"italic">
+1	Language	Language	PROPN	NNP	Number=Sing	13	nsubj:pass	13:nsubj:pass|19:nsubj:xsubj	Discourse=explanation-evidence:53->52:0:_|Entity=(16)|PDTB=Implicit:Expansion.Level-of-detail.Arg2-as-detail:in particular:_:473-483:484-503|SpaceAfter=No|XML=<hi rend:::"italic">
 2	:	:	PUNCT	:	_	4	punct	4:punct	_
-3	Its	its	PRON	PRP$	Case=Gen|Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	4	nmod:poss	4:nmod:poss	Entity=(15)|MSeg=It-s
+3	Its	its	PRON	PRP$	Case=Gen|Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	4	nmod:poss	4:nmod:poss	Entity=(16)|MSeg=It-s
 4	Nature	Nature	PROPN	NNP	Number=Sing	1	dep	1:dep	SpaceAfter=No
 5	,	,	PUNCT	,	_	6	punct	6:punct	_
 6	Development	Development	PROPN	NNP	Number=Sing	4	conj	1:dep|4:conj:and	MSeg=Develop-ment
 7	and	and	CCONJ	CC	_	8	cc	8:cc	_
 8	Origin	Origin	PROPN	NNP	Number=Sing	4	conj	1:dep|4:conj:and	XML=</hi>
 9	(	(	PUNCT	-LRB-	_	10	punct	10:punct	Discourse=context-circumstance:54->53:0:lex-indwd-493|SpaceAfter=No
-10	1922	1922	NUM	CD	NumForm=Digit|NumType=Card	1	nmod:tmod	1:nmod:tmod	SpaceAfter=No|XML=<date when:::"1922"></date>
+10	1922	1922	NUM	CD	NumForm=Digit|NumType=Card	1	nmod:unmarked	1:nmod:unmarked	SpaceAfter=No|XML=<date when:::"1922"></date>
 11	)	)	PUNCT	-RRB-	_	10	punct	10:punct	_
 12	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	13	aux:pass	13:aux:pass	Discourse=same-unit_m:55->53:1:_
 13	considered	consider	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	MSeg=consider-ed
@@ -654,7 +654,7 @@
 15	many	many	ADJ	JJ	Degree=Pos	13	obl:agent	13:obl:agent	_
 16	to	to	PART	TO	_	19	mark	19:mark	_
 17	be	be	AUX	VB	VerbForm=Inf	19	cop	19:cop	_
-18	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	19	nmod:poss	19:nmod:poss	Entity=(8)
+18	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	19	nmod:poss	19:nmod:poss	Entity=(9)
 19	masterpiece	masterpiece	NOUN	NN	Number=Sing	13	xcomp	13:xcomp	MSeg=master-piece|SpaceAfter=No
 20	.	.	PUNCT	.	_	13	punct	13:punct	_
 
@@ -663,25 +663,25 @@
 # s_type = decl
 # transition = continue
 # text = Modern English Grammar on Historical Principles (1909 – 1949), concentrated on morphology and syntax, and Growth and Structure of the English Language (1905) is a comprehensive view of English by someone with another native language, and still in print, over 70 years after his death and more than 100 years after publication.
-1	Modern	Modern	ADJ	NNP	Degree=Pos	2	amod	2:amod	Discourse=joint-list_m:56->53:2:sem-mrnym-484-491,504-509|Entity=(3|XML=<hi rend:::"italic">
+1	Modern	Modern	ADJ	NNP	Degree=Pos	2	amod	2:amod	Discourse=joint-list_m:56->53:2:sem-mrnym-484-491,504-509|Entity=(3|PDTB=Implicit:Expansion.Conjunction:and:_:484-503:504-564|XML=<hi rend:::"italic">
 2	English	English	PROPN	NNP	Number=Sing	3	compound	3:compound	Entity=3)|MSeg=Engl-ish
 3	Grammar	Grammar	PROPN	NNP	Number=Sing	13	nsubj	13:nsubj	_
 4	on	on	ADP	IN	_	6	case	6:case	_
 5	Historical	Historical	ADJ	NNP	Degree=Pos	6	amod	6:amod	MSeg=Histor-ic-al
 6	Principles	Principle	PROPN	NNPS	Number=Plur	3	nmod	3:nmod:on	MSeg=Principle-s|XML=</hi>
 7	(	(	PUNCT	-LRB-	_	8	punct	8:punct	Discourse=context-circumstance:57->56:0:lex-indwd-511+lex-indwd-513|SpaceAfter=No
-8	1909	1909	NUM	CD	NumForm=Digit|NumType=Card	3	nmod:tmod	3:nmod:tmod	XML=<date when:::"1909"></date>
+8	1909	1909	NUM	CD	NumForm=Digit|NumType=Card	3	nmod:unmarked	3:nmod:unmarked	XML=<date when:::"1909"></date>
 9	–	-	SYM	SYM	_	10	case	10:case	_
 10	1949	1949	NUM	CD	NumForm=Digit|NumType=Card	8	nmod	8:nmod:to	SpaceAfter=No|XML=<date when:::"1949"></date>
 11	)	)	PUNCT	-RRB-	_	8	punct	8:punct	SpaceAfter=No
 12	,	,	PUNCT	,	_	3	punct	3:punct	_
 13	concentrated	concentrate	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	Discourse=same-unit_m:58->56:1:_|MSeg=concentrat-ed
 14	on	on	ADP	IN	_	15	case	15:case	_
-15	morphology	morphology	NOUN	NN	Number=Sing	13	obl	13:obl:on	_
+15	morphology	morphology	NOUN	NN	Number=Sing	13	obl	13:obl:on	MSeg=morpho-log-y
 16	and	and	CCONJ	CC	_	17	cc	17:cc	_
 17	syntax	syntax	NOUN	NN	Number=Sing	15	conj	13:obl:on|15:conj:and	SpaceAfter=No
 18	,	,	PUNCT	,	_	33	punct	33:punct	_
-19	and	and	CCONJ	CC	_	33	cc	33:cc	Discourse=joint-list_m:59->53:2:sem-mrnym-504-509,523-529+dm-and-522
+19	and	and	CCONJ	CC	_	33	cc	33:cc	Discourse=joint-list_m:59->53:2:sem-mrnym-504-509,523-529+dm-and-522|PDTB=Explicit:Expansion.Conjunction:and:522:504-521:523-564
 20	Growth	Growth	PROPN	NNP	Number=Sing	33	nsubj	33:nsubj|46:nsubj	MSeg=Grow-th|XML=<hi rend:::"italic">
 21	and	and	CCONJ	CC	_	22	cc	22:cc	_
 22	Structure	Structure	PROPN	NNP	Number=Sing	20	conj	20:conj:and|33:nsubj	_
@@ -690,7 +690,7 @@
 25	English	English	ADJ	NNP	Degree=Pos	26	amod	26:amod	MSeg=Engl-ish
 26	Language	Language	PROPN	NNP	Number=Sing	20	nmod	20:nmod:of	Entity=3)|XML=</hi>
 27	(	(	PUNCT	-LRB-	_	28	punct	28:punct	Discourse=context-circumstance:60->59:0:lex-indwd-531|SpaceAfter=No
-28	1905	1905	NUM	CD	NumForm=Digit|NumType=Card	20	nmod:tmod	20:nmod:tmod	SpaceAfter=No|XML=<date when:::"1905"></date>
+28	1905	1905	NUM	CD	NumForm=Digit|NumType=Card	20	nmod:unmarked	20:nmod:unmarked	SpaceAfter=No|XML=<date when:::"1905"></date>
 29	)	)	PUNCT	-RRB-	_	28	punct	28:punct	_
 30	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	33	cop	33:cop	Discourse=same-unit_m:61->59:1:_
 31	a	a	DET	DT	Definite=Ind|PronType=Art	33	det	33:det	_
@@ -699,11 +699,11 @@
 34	of	of	ADP	IN	_	35	case	35:case	_
 35	English	English	PROPN	NNP	Number=Sing	33	nmod	33:nmod:of	Entity=(3)|MSeg=Engl-ish
 36	by	by	ADP	IN	_	37	case	37:case	_
-37	someone	someone	PRON	NN	Number=Sing|PronType=Ind	33	nmod	33:nmod:by	Entity=(16
+37	someone	someone	PRON	NN	Number=Sing|PronType=Ind	33	nmod	33:nmod:by	Entity=(17|MSeg=some-one
 38	with	with	ADP	IN	_	41	case	41:case	_
 39	another	another	DET	DT	PronType=Ind	41	det	41:det	MSeg=an-other
 40	native	native	ADJ	JJ	Degree=Pos	41	amod	41:amod	_
-41	language	language	NOUN	NN	Number=Sing	37	nmod	37:nmod:with	Entity=16)|SpaceAfter=No
+41	language	language	NOUN	NN	Number=Sing	37	nmod	37:nmod:with	Entity=17)|SpaceAfter=No
 42	,	,	PUNCT	,	_	46	punct	46:punct	_
 43	and	and	CCONJ	CC	_	46	cc	46:cc	_
 44	still	still	ADV	RB	Degree=Pos	46	advmod	46:advmod	_
@@ -712,15 +712,15 @@
 47	,	,	PUNCT	,	_	53	punct	53:punct	_
 48	over	over	ADV	RB	_	49	advmod	49:advmod	XML=<date notBefore:::"2013">
 49	70	70	NUM	CD	NumForm=Digit|NumType=Card	50	nummod	50:nummod	_
-50	years	year	NOUN	NNS	Number=Plur	53	obl:tmod	53:obl:tmod	MSeg=year-s
+50	years	year	NOUN	NNS	Number=Plur	53	obl:unmarked	53:obl:unmarked	MSeg=year-s
 51	after	after	ADP	IN	_	53	case	53:case	_
-52	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	53	nmod:poss	53:nmod:poss	Entity=(16)
-53	death	death	NOUN	NN	Number=Sing	46	obl	46:obl:after	XML=</date>
+52	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	53	nmod:poss	53:nmod:poss	Entity=(17)
+53	death	death	NOUN	NN	Number=Sing	46	obl	46:obl:after	MSeg=dea-th|XML=</date>
 54	and	and	CCONJ	CC	_	60	cc	60:cc	_
-55	more	more	ADV	RBR	Degree=Cmp	57	advmod	57:advmod	ExtPos=ADV|XML=<date notBefore:::"2005">
+55	more	more	ADV	RBR	Degree=Cmp|ExtPos=ADV	57	advmod	57:advmod	XML=<date notBefore:::"2005">
 56	than	than	ADP	IN	_	55	fixed	55:fixed	_
 57	100	100	NUM	CD	NumForm=Digit|NumType=Card	58	nummod	58:nummod	_
-58	years	year	NOUN	NNS	Number=Plur	60	obl:tmod	60:obl:tmod	MSeg=year-s
+58	years	year	NOUN	NNS	Number=Plur	60	obl:unmarked	60:obl:unmarked	MSeg=year-s
 59	after	after	ADP	IN	_	60	case	60:case	_
 60	publication	publication	NOUN	NN	Number=Sing	53	conj	46:obl:after|53:conj:and	MSeg=public-ation|SpaceAfter=No|XML=</date>
 61	.	.	PUNCT	.	_	13	punct	13:punct	_
@@ -730,32 +730,32 @@
 # s_type = decl
 # transition = continue
 # text = Late in his life he published Analytic Syntax (1937), in which he presents his views on syntactic structure using an idiosyncratic shorthand notation.
-1	Late	late	ADV	RB	Degree=Pos	6	advmod	6:advmod	Discourse=joint-list_m:62->53:2:_
+1	Late	late	ADV	RB	Degree=Pos	6	advmod	6:advmod	Discourse=joint-list_m:62->53:2:_|PDTB=Implicit:Expansion.Conjunction:furthermore:_:504-564:565-591
 2	in	in	ADP	IN	_	4	case	4:case	_
-3	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	4	nmod:poss	4:nmod:poss	Entity=(16)
+3	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	4	nmod:poss	4:nmod:poss	Entity=(17)
 4	life	life	NOUN	NN	Number=Sing	1	obl	1:obl:in	_
-5	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	6	nsubj	6:nsubj	Entity=(16)
+5	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	6	nsubj	6:nsubj	Entity=(17)
 6	published	publish	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=publish-ed
 7	Analytic	Analytic	ADJ	NNP	Degree=Pos	8	amod	8:amod	MSeg=Analyt-ic|XML=<hi rend:::"italic">
 8	Syntax	Syntax	PROPN	NNP	Number=Sing	6	obj	6:obj|16:obl:in	XML=</hi>
 9	(	(	PUNCT	-LRB-	_	10	punct	10:punct	Discourse=context-circumstance:63->62:0:lex-indwd-574|SpaceAfter=No
-10	1937	1937	NUM	CD	NumForm=Digit|NumType=Card	8	nmod:tmod	8:nmod:tmod	SpaceAfter=No|XML=<date when:::"1937"></date>
+10	1937	1937	NUM	CD	NumForm=Digit|NumType=Card	8	nmod:unmarked	8:nmod:unmarked	SpaceAfter=No|XML=<date when:::"1937"></date>
 11	)	)	PUNCT	-RRB-	_	10	punct	10:punct	SpaceAfter=No
 12	,	,	PUNCT	,	_	16	punct	16:punct	_
 13	in	in	ADP	IN	_	14	case	14:case	Discourse=elaboration-attribute:64->62:1:syn-mdf-572+syn-relcl-578,580
 14	which	which	PRON	WDT	PronType=Rel	16	obl	8:ref	_
-15	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	16	nsubj	16:nsubj	Entity=(16)
+15	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	16	nsubj	16:nsubj	Entity=(17)
 16	presents	present	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	8	acl:relcl	8:acl:relcl	MSeg=present-s
-17	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	18	nmod:poss	18:nmod:poss	Entity=(16)
+17	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	18	nmod:poss	18:nmod:poss	Entity=(17)
 18	views	view	NOUN	NNS	Number=Plur	16	obj	16:obj	MSeg=view-s
 19	on	on	ADP	IN	_	21	case	21:case	_
 20	syntactic	syntactic	ADJ	JJ	Degree=Pos	21	amod	21:amod	MSeg=syntact-ic
 21	structure	structure	NOUN	NN	Number=Sing	18	nmod	18:nmod:on	MSeg=struct-ure
-22	using	use	VERB	VBG	Tense=Pres|VerbForm=Part	16	advcl	16:advcl	Discourse=mode-means:65->64:0:lex-indwd-586+syn-pres-586|MSeg=us-ing
+22	using	use	VERB	VBG	Tense=Pres|VerbForm=Part	16	advcl	16:advcl	Discourse=mode-means:65->64:0:lex-indwd-586+syn-pres-586|MSeg=us-ing|PDTB=Implicit:Expansion.Manner.Arg2-as-manner:by:_:577-585:586-591
 23	an	a	DET	DT	Definite=Ind|PronType=Art	26	det	26:det	_
 24	idiosyncratic	idiosyncratic	ADJ	JJ	Degree=Pos	26	amod	26:amod	MSeg=idiosyncr-atic
-25	shorthand	shorthand	NOUN	NN	Number=Sing	26	compound	26:compound	_
-26	notation	notation	NOUN	NN	Number=Sing	22	obj	22:obj	SpaceAfter=No
+25	shorthand	shorthand	NOUN	NN	Number=Sing	26	compound	26:compound	MSeg=short-hand
+26	notation	notation	NOUN	NN	Number=Sing	22	obj	22:obj	MSeg=not-at-ion|SpaceAfter=No
 27	.	.	PUNCT	.	_	6	punct	6:punct	_
 
 # sent_id = GUM_bio_jespersen-24
@@ -763,15 +763,15 @@
 # s_type = decl
 # transition = continue
 # text = In The Philosophy of Grammar (1924) he challenged the accepted views of common concepts in Grammar and proposed corrections to the basic definitions of grammatical case, pronoun, object, voice etc., and developed further his notions of Rank and Nexus.
-1	In	in	ADP	IN	_	3	case	3:case	Discourse=joint-list_m:66->53:2:sem-mrnym-523-529,593-596
-2	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Entity=(17|XML=<hi rend:::"italic">
+1	In	in	ADP	IN	_	3	case	3:case	Discourse=joint-list_m:66->53:2:sem-mrnym-523-529,593-596|PDTB=Implicit:Expansion.Conjunction:and:_:565-591:592-637
+2	The	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	Entity=(18|XML=<hi rend:::"italic">
 3	Philosophy	Philosophy	PROPN	NNP	Number=Sing	10	obl	10:obl:in	_
 4	of	of	ADP	IN	_	5	case	5:case	_
-5	Grammar	Grammar	PROPN	NNP	Number=Sing	3	nmod	3:nmod:of	Entity=17)(18)|XML=</hi>
+5	Grammar	Grammar	PROPN	NNP	Number=Sing	3	nmod	3:nmod:of	Entity=18)(19)|XML=</hi>
 6	(	(	PUNCT	-LRB-	_	7	punct	7:punct	Discourse=context-circumstance:67->66:0:lex-indwd-598|SpaceAfter=No
-7	1924	1924	NUM	CD	NumForm=Digit|NumType=Card	5	nmod:tmod	5:nmod:tmod	SpaceAfter=No|XML=<date when:::"1924"></date>
+7	1924	1924	NUM	CD	NumForm=Digit|NumType=Card	5	nmod:unmarked	5:nmod:unmarked	SpaceAfter=No|XML=<date when:::"1924"></date>
 8	)	)	PUNCT	-RRB-	_	7	punct	7:punct	_
-9	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	10	nsubj	10:nsubj|20:nsubj|38:nsubj	Discourse=same-unit_m:68->66:1:_|Entity=(16)
+9	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	10	nsubj	10:nsubj|20:nsubj|38:nsubj	Discourse=same-unit_m:68->66:1:_|Entity=(17)
 10	challenged	challenge	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=challeng-ed
 11	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	_
 12	accepted	accept	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	13	amod	13:amod	MSeg=accept-ed
@@ -780,8 +780,8 @@
 15	common	common	ADJ	JJ	Degree=Pos	16	amod	16:amod	_
 16	concepts	concept	NOUN	NNS	Number=Plur	13	nmod	13:nmod:of	MSeg=concept-s
 17	in	in	ADP	IN	_	18	case	18:case	_
-18	Grammar	Grammar	PROPN	NNP	Number=Sing	16	nmod	16:nmod:in	Entity=(18)|XML=<ref></ref>
-19	and	and	CCONJ	CC	_	20	cc	20:cc	Discourse=joint-list_m:69->66:2:dm-and-610
+18	Grammar	Grammar	PROPN	NNP	Number=Sing	16	nmod	16:nmod:in	Entity=(19)|XML=<ref></ref>
+19	and	and	CCONJ	CC	_	20	cc	20:cc	Discourse=joint-list_m:69->66:2:dm-and-610|PDTB=Explicit:Expansion.Conjunction:and:610:592-609:611-627
 20	proposed	propose	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	10	conj	10:conj:and	MSeg=propos-ed
 21	corrections	correction	NOUN	NNS	Number=Plur	20	obj	20:obj	MSeg=correct-ion-s
 22	to	to	ADP	IN	_	25	case	25:case	_
@@ -799,15 +799,15 @@
 34	voice	voice	NOUN	NN	Number=Sing	28	conj	25:nmod:of|28:conj	XML=<ref></ref>
 35	etc.	etc.	NOUN	FW	Abbr=Yes|Number=Plur	28	conj	25:nmod:of|28:conj	SpaceAfter=No
 36	,	,	PUNCT	,	_	38	punct	38:punct	_
-37	and	and	CCONJ	CC	_	38	cc	38:cc	Discourse=joint-list_m:70->66:2:dm-and-628
+37	and	and	CCONJ	CC	_	38	cc	38:cc	Discourse=joint-list_m:70->66:2:dm-and-628|PDTB=Explicit:Expansion.Conjunction:and:628:610-627:629-637
 38	developed	develop	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	10	conj	10:conj:and	MSeg=develop-ed
 39	further	far	ADV	RBR	Degree=Cmp	38	advmod	38:advmod	MSeg=furth-er
-40	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	41	nmod:poss	41:nmod:poss	Entity=(16)
+40	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	41	nmod:poss	41:nmod:poss	Entity=(17)
 41	notions	notion	NOUN	NNS	Number=Plur	38	obj	38:obj	MSeg=notion-s
 42	of	of	ADP	IN	_	43	case	43:case	_
-43	Rank	Rank	PROPN	NNP	Number=Sing	41	nmod	41:nmod:of	Entity=(11)|XML=<hi rend:::"italic"></hi>
+43	Rank	Rank	PROPN	NNP	Number=Sing	41	nmod	41:nmod:of	Entity=(12)|XML=<hi rend:::"italic"></hi>
 44	and	and	CCONJ	CC	_	45	cc	45:cc	_
-45	Nexus	Nexus	PROPN	NNP	Number=Sing	43	conj	41:nmod:of|43:conj:and	Entity=(14)|SpaceAfter=No|XML=<hi rend:::"italic"></hi>
+45	Nexus	Nexus	PROPN	NNP	Number=Sing	43	conj	41:nmod:of|43:conj:and	Entity=(15)|SpaceAfter=No|XML=<hi rend:::"italic"></hi>
 46	.	.	PUNCT	.	_	10	punct	10:punct	_
 
 # sent_id = GUM_bio_jespersen-25
@@ -815,12 +815,12 @@
 # s_type = decl
 # transition = smooth-shift
 # text = In the 21st century this book is still used as one of the basic texts in modern Structural linguistics.
-1	In	in	ADP	IN	_	4	case	4:case	Discourse=elaboration-additional:71->66:3:ref-dem-593-596,642-643
+1	In	in	ADP	IN	_	4	case	4:case	Discourse=elaboration-additional:71->66:3:ref-dem-593-596,642-643|PDTB=Implicit:Expansion.Level-of-detail.Arg2-as-detail:in fact:_:592-637:638-657
 2	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	XML=<date from:::"2000-01-01" to:::"2099-12-31">
 3	21st	21st	ADJ	JJ	Degree=Pos|NumForm=Combi|NumType=Ord	4	amod	4:amod	_
 4	century	century	NOUN	NN	Number=Sing	9	obl	9:obl:in	XML=</date>
-5	this	this	DET	DT	Number=Sing|PronType=Dem	6	det	6:det	Entity=(17
-6	book	book	NOUN	NN	Number=Sing	9	nsubj:pass	9:nsubj:pass	Entity=17)
+5	this	this	DET	DT	Number=Sing|PronType=Dem	6	det	6:det	Entity=(18
+6	book	book	NOUN	NN	Number=Sing	9	nsubj:pass	9:nsubj:pass	Entity=18)
 7	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	9	aux:pass	9:aux:pass	_
 8	still	still	ADV	RB	Degree=Pos	9	advmod	9:advmod	_
 9	used	use	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	MSeg=us-ed
@@ -854,7 +854,7 @@
 11	of	of	ADP	IN	_	12	case	12:case	_
 12	view	view	NOUN	NN	Number=Sing	10	nmod	10:nmod:of	XML=</hi>
 13	(	(	PUNCT	-LRB-	_	14	punct	14:punct	Discourse=context-circumstance:74->72:1:lex-indwd-671|SpaceAfter=No
-14	1925	1925	NUM	CD	NumForm=Digit|NumType=Card	1	nmod:tmod	1:nmod:tmod	SpaceAfter=No|XML=<date when:::"1925"></date>
+14	1925	1925	NUM	CD	NumForm=Digit|NumType=Card	1	nmod:unmarked	1:nmod:unmarked	SpaceAfter=No|XML=<date when:::"1925"></date>
 15	)	)	PUNCT	-RRB-	_	14	punct	14:punct	_
 16	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	17	cop	17:cop	Discourse=same-unit_m:75->72:2:_
 17	one	one	NUM	CD	NumForm=Word|NumType=Card	0	root	0:root	_
@@ -873,11 +873,11 @@
 # text = Jespersen visited the United States twice:
 # newpar
 # newpar_block = p (4 s)
-1	Jespersen	Jespersen	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=joint-other_m:76->31:5:_|Entity=(16)
+1	Jespersen	Jespersen	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=joint-other_m:76->31:5:_|Entity=(17)
 2	visited	visit	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=visit-ed
-3	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	Entity=(19
+3	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	Entity=(20
 4	United	Unite	VERB	NNP	Tense=Past|VerbForm=Part	5	amod	5:amod	MSeg=Unit-ed
-5	States	State	PROPN	NNPS	Number=Plur	2	obj	2:obj	Entity=19)|MSeg=State-s
+5	States	State	PROPN	NNPS	Number=Plur	2	obj	2:obj	Entity=20)|MSeg=State-s
 6	twice	twice	ADV	RB	NumForm=Word|NumType=Mult	2	advmod	2:advmod	SpaceAfter=No
 7	:	:	PUNCT	:	_	2	punct	2:punct	_
 
@@ -886,7 +886,7 @@
 # s_type = decl
 # transition = establishment
 # text = he lectured at the Congress of Arts and Sciences in St. Louis in 1904, and in 1909 – 1910 he visited both the University of California and Columbia University.
-1	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=elaboration-additional:77->76:0:ref-prs-682,689+grf-col-688|Entity=(16)
+1	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=elaboration-additional:77->76:0:ref-prs-682,689+grf-col-688|Entity=(17)|PDTB=Implicit:Expansion.Level-of-detail.Arg2-as-detail:specifically:_:682-688:689-719
 2	lectured	lecture	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=lectur-ed
 3	at	at	ADP	IN	_	5	case	5:case	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	_
@@ -901,12 +901,12 @@
 13	in	in	ADP	IN	_	14	case	14:case	_
 14	1904	1904	NUM	CD	NumForm=Digit|NumType=Card	2	obl	2:obl:in	SpaceAfter=No|XML=<date when:::"1904"></date>
 15	,	,	PUNCT	,	_	22	punct	22:punct	_
-16	and	and	CCONJ	CC	_	22	cc	22:cc	Discourse=joint-sequence_m:78->77:0:lex-indwd-702+dm-and-704+lex-indwd-706+lex-indwd-708
+16	and	and	CCONJ	CC	_	22	cc	22:cc	Discourse=joint-sequence_m:78->77:0:lex-indwd-702+dm-and-704+lex-indwd-706+lex-indwd-708|PDTB=Explicit:Expansion.Conjunction:and:704:689-703:705-719;Implicit:Temporal.Asynchronous.Precedence:then:_:689-703:704-719
 17	in	in	ADP	IN	_	18	case	18:case	_
 18	1909	1909	NUM	CD	NumForm=Digit|NumType=Card	22	obl	22:obl:in	XML=<date when:::"1909"></date>
 19	–	-	SYM	SYM	_	20	case	20:case	_
 20	1910	1910	NUM	CD	NumForm=Digit|NumType=Card	18	nmod	18:nmod:to	XML=<date when:::"1910"></date>
-21	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	22	nsubj	22:nsubj	Entity=(16)
+21	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	22	nsubj	22:nsubj	Entity=(17)
 22	visited	visit	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	2	conj	2:conj:and	MSeg=visit-ed
 23	both	both	CCONJ	CC	_	25	cc:preconj	25:cc:preconj	_
 24	the	the	DET	DT	Definite=Def|PronType=Art	25	det	25:det	_
@@ -914,8 +914,8 @@
 26	of	of	ADP	IN	_	27	case	27:case	_
 27	California	California	PROPN	NNP	Number=Sing	25	nmod	25:nmod:of	XML=</ref>
 28	and	and	CCONJ	CC	_	30	cc	30:cc	_
-29	Columbia	Columbia	PROPN	NNP	Number=Sing	30	compound	30:compound	Entity=(20|MSeg=Columb-ia|XML=<ref>
-30	University	University	PROPN	NNP	Number=Sing	25	conj	22:obj|25:conj:and	Entity=20)|MSeg=Univers-ity|SpaceAfter=No|XML=</ref>
+29	Columbia	Columbia	PROPN	NNP	Number=Sing	30	compound	30:compound	Entity=(21|MSeg=Columb-ia|XML=<ref>
+30	University	University	PROPN	NNP	Number=Sing	25	conj	22:obj|25:conj:and	Entity=21)|MSeg=Univers-ity|SpaceAfter=No|XML=</ref>
 31	.	.	PUNCT	.	_	2	punct	2:punct	_
 
 # sent_id = GUM_bio_jespersen-29
@@ -923,20 +923,20 @@
 # s_type = decl
 # transition = continue
 # text = While in the U.S., he took occasion to study the country's educational system.
-1	While	while	SCONJ	IN	_	4	mark	4:mark	Discourse=context-circumstance:79->80:1:dm-while-720
+1	While	while	SCONJ	IN	_	4	mark	4:mark	Discourse=context-circumstance:79->80:1:dm-while-720|PDTB=Explicit:Temporal.Synchronous:while:720:725-735:721-724
 2	in	in	ADP	IN	_	4	case	4:case	_
-3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	Entity=(19
-4	U.S.	U.S.	PROPN	NNP	Abbr=Yes|Number=Sing	7	advcl	7:advcl:while	Entity=19)|SpaceAfter=No
+3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	Entity=(20
+4	U.S.	U.S.	PROPN	NNP	Abbr=Yes|Number=Sing	7	advcl	7:advcl:while	Entity=20)|SpaceAfter=No
 5	,	,	PUNCT	,	_	4	punct	4:punct	_
-6	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	7	nsubj	7:nsubj	Discourse=elaboration-additional:80->76:1:ref-prs-682,725+sem-synym-684-686,722-723|Entity=(16)
+6	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	7	nsubj	7:nsubj	Discourse=elaboration-additional:80->76:1:ref-prs-682,725+sem-synym-684-686,722-723|Entity=(17)
 7	took	take	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 8	occasion	occasion	NOUN	NN	Number=Sing	7	obj	7:obj|10:nsubj:xsubj	_
-9	to	to	PART	TO	_	10	mark	10:mark	Discourse=purpose-goal:81->80:0:_
+9	to	to	PART	TO	_	10	mark	10:mark	Discourse=purpose-attribute:81->80:0:_
 10	study	study	VERB	VB	VerbForm=Inf	7	xcomp	7:xcomp	_
-11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(19
+11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(20
 12-13	country's	_	_	_	_	_	_	_	_
 12	country	country	NOUN	NN	Number=Sing	15	nmod:poss	15:nmod:poss	_
-13	's	's	PART	POS	_	12	case	12:case	Entity=19)
+13	's	's	PART	POS	_	12	case	12:case	Entity=20)
 14	educational	educational	ADJ	JJ	Degree=Pos	15	amod	15:amod	MSeg=educat-ion-al
 15	system	system	NOUN	NN	Number=Sing	10	obj	10:obj	SpaceAfter=No
 16	.	.	PUNCT	.	_	7	punct	7:punct	_
@@ -946,7 +946,7 @@
 # s_type = decl
 # transition = continue
 # text = His autobiography (see below) was published in English translation as recently as 1995.
-1	His	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=joint-other_m:82->31:5:_|Entity=(16)
+1	His	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	2	nmod:poss	2:nmod:poss	Discourse=joint-other_m:82->31:5:_|Entity=(17)
 2	autobiography	autobiography	NOUN	NN	Number=Sing	8	nsubj:pass	8:nsubj:pass	MSeg=auto-biography
 3	(	(	PUNCT	-LRB-	_	4	punct	4:punct	Discourse=elaboration-additional:83->82:0:grf-prn-738,741|SpaceAfter=No
 4	see	see	VERB	VB	Person=2|VerbForm=Inf	2	parataxis	2:parataxis	_
@@ -970,13 +970,13 @@
 # text = Jespersen was a proponent of phonosemanticism and wrote:
 # newpar
 # newpar_block = p (3 s)
-1	Jespersen	Jespersen	PROPN	NNP	Number=Sing	4	nsubj	4:nsubj|8:nsubj	Discourse=joint-other_m:85->31:5:_|Entity=(16)
+1	Jespersen	Jespersen	PROPN	NNP	Number=Sing	4	nsubj	4:nsubj|8:nsubj	Discourse=joint-other_m:85->31:5:_|Entity=(17)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	4	cop	4:cop	_
 3	a	a	DET	DT	Definite=Ind|PronType=Art	4	det	4:det	_
-4	proponent	proponent	NOUN	NN	Number=Sing	0	root	0:root	_
+4	proponent	proponent	NOUN	NN	Number=Sing	0	root	0:root	MSeg=propon-ent
 5	of	of	ADP	IN	_	6	case	6:case	_
 6	phonosemanticism	phonosemanticism	NOUN	NN	Number=Sing	4	nmod	4:nmod:of	MSeg=phono-semantic-ism|XML=<ref></ref>
-7	and	and	CCONJ	CC	_	8	cc	8:cc	Discourse=attribution-positive:86->92:3:sem-atsrc-752+lex-indwd-759+syn-rpr-816
+7	and	and	CCONJ	CC	_	8	cc	8:cc	Discourse=attribution-positive:86->92:3:sem-atsrc-752+lex-indwd-759+syn-rpr-816|PDTB=Explicit:Expansion.Level-of-detail.Arg2-as-detail:and:758:752-757,759-760:759-835
 8	wrote	write	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	4	conj	4:conj:and	SpaceAfter=No
 9	:	:	PUNCT	:	_	4	punct	4:punct	_
 
@@ -988,15 +988,15 @@
 # newpar
 # newpar_block = quote (2 s)
 1	“	''	PUNCT	``	_	2	punct	2:punct	Discourse=adversative-antithesis:87->92:2:_|SpaceAfter=No
-2	Is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-CopPred-ThereExpl,Interrogative-Polar-Direct
+2	Is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-CopPred-ThereExpl,Interrogative-Polar-Direct|CxnElt=Clause
 3	there	there	PRON	EX	PronType=Dem	2	expl	2:expl	_
 4	really	really	ADV	RB	Degree=Pos	2	advmod	2:advmod	MSeg=real-ly
 5	much	much	ADV	RB	Degree=Pos	6	advmod	6:advmod	_
 6	more	more	ADJ	JJR	Degree=Cmp	7	amod	7:amod	_
-7	logic	logic	NOUN	NN	Number=Sing	2	nsubj	2:nsubj	_
+7	logic	logic	NOUN	NN	Number=Sing	2	nsubj	2:nsubj	CxnElt=Pivot
 8	in	in	ADP	IN	_	11	case	11:case	_
 9	the	the	DET	DT	Definite=Def|PronType=Art	11	det	11:det	_
-10	opposite	opposite	ADJ	JJ	Degree=Pos	11	amod	11:amod	_
+10	opposite	opposite	ADJ	JJ	Degree=Pos	11	amod	11:amod	MSeg=oppos-ite
 11	extreme	extreme	NOUN	NN	Number=Sing	2	obl	2:obl:in|13:nsubj	_
 12	which	which	PRON	WDT	PronType=Rel	13	nsubj	11:ref	Discourse=elaboration-attribute:88->87:0:syn-mdf-771+syn-relcl-772-773+grf-prn-779,792
 13	denies	deny	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	11	acl:relcl	11:acl:relcl	MSeg=denie-s
@@ -1006,7 +1006,7 @@
 17	sound	sound	NOUN	NN	Number=Sing	18	compound	18:compound	XML=<ref>
 18	symbolism	symbolism	NOUN	NN	Number=Sing	15	nmod	15:nmod:of	MSeg=symbol-ism|XML=</ref>
 19	(	(	PUNCT	-LRB-	_	24	punct	24:punct	Discourse=adversative-concession:89->88:0:_|SpaceAfter=No
-20	apart	apart	ADV	RB	Degree=Pos	24	advmod	24:advmod	_
+20	apart	apart	ADV	RB	Degree=Pos	24	advmod	24:advmod	MSeg=a-part
 21	from	from	ADP	IN	_	24	case	24:case	_
 22	the	the	DET	DT	Definite=Def|PronType=Art	24	det	24:det	_
 23	small	small	ADJ	JJ	Degree=Pos	24	amod	24:amod	_
@@ -1019,10 +1019,10 @@
 30	onomatopoeia	onomatopoeia	NOUN	NN	Number=Sing	27	conj	24:nmod:of|27:conj:and	SpaceAfter=No|XML=<ref></ref>
 31	’	'	PUNCT	''	_	24	punct	24:punct	SpaceAfter=No|XML=</q>
 32	)	)	PUNCT	-RRB-	_	24	punct	24:punct	_
-33	and	and	CCONJ	CC	_	34	cc	34:cc	Discourse=joint-list_m:90->88:1:sem-lxchn-777,797+dm-and-793
+33	and	and	CCONJ	CC	_	34	cc	34:cc	Discourse=joint-list_m:90->88:1:sem-lxchn-777,797+dm-and-793|PDTB=Explicit:Expansion.Conjunction:and:793:772-792:794-811
 34	sees	see	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	13	conj	11:acl:relcl|13:conj:and	MSeg=see-s
 35	in	in	ADP	IN	_	37	case	37:case	_
-36	our	our	PRON	PRP$	Case=Gen|Number=Plur|Person=1|Poss=Yes|PronType=Prs	37	nmod:poss	37:nmod:poss	Entity=(21)
+36	our	our	PRON	PRP$	Case=Gen|Number=Plur|Person=1|Poss=Yes|PronType=Prs	37	nmod:poss	37:nmod:poss	Entity=(22)
 37	words	word	NOUN	NNS	Number=Plur	34	obl	34:obl:in	MSeg=word-s
 38	only	only	ADV	RB	_	34	advmod	34:advmod	_
 39	a	a	DET	DT	Definite=Ind|PronType=Art	40	det	40:det	_
@@ -1044,22 +1044,22 @@
 # s_type = decl
 # transition = establishment
 # text = There is no denying that there are words which we feel instinctively to be adequate to express the ideas they stand for.”
-1	There	there	PRON	EX	PronType=Dem	2	expl	2:expl	Discourse=evaluation-comment:91->92:1:_
+1	There	there	PRON	EX	PronType=Dem	2	expl	2:expl	Discourse=evaluation-comment:91->92:1:_|PDTB=Implicit:Expansion.Substitution.Arg2-as-subst:instead:_:761-811:812-835
 2	is	be	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-CopPred-ThereExpl
-3	no	no	DET	DT	Polarity=Neg|PronType=Neg	4	det	4:det	_
-4	denying	denying	NOUN	NN	Number=Sing	2	nsubj	2:nsubj	MSeg=deny-ing
+3	no	no	DET	DT	PronType=Neg	4	det	4:det	Negation=Yes
+4	denying	denying	NOUN	NN	Number=Sing	2	nsubj	2:nsubj	CxnElt=Pivot|MSeg=deny-ing
 5	that	that	SCONJ	IN	_	7	mark	7:mark	Discourse=elaboration-additional:92->85:0:dm-and-758
 6	there	there	PRON	EX	PronType=Dem	7	expl	7:expl	_
 7	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	4	acl	4:acl:that	Cxn=Existential-CopPred-ThereExpl
-8	words	word	NOUN	NNS	Number=Plur	7	nsubj	7:nsubj|11:obj	MSeg=word-s
+8	words	word	NOUN	NNS	Number=Plur	7	nsubj	7:nsubj|11:obj	CxnElt=Pivot|MSeg=word-s
 9	which	which	PRON	WDT	PronType=Rel	11	obj	8:ref	Discourse=elaboration-attribute:93->92:0:syn-mdf-819+syn-relcl-820,822
-10	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	11	nsubj	11:nsubj	Entity=(21)
+10	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	11	nsubj	11:nsubj	Entity=(22)
 11	feel	feel	VERB	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	8	acl:relcl	8:acl:relcl	_
 12	instinctively	instinctively	ADV	RB	Degree=Pos	11	advmod	11:advmod	MSeg=instinct-ive-ly
 13	to	to	PART	TO	_	15	mark	15:mark	_
 14	be	be	AUX	VB	VerbForm=Inf	15	cop	15:cop	_
 15	adequate	adequate	ADJ	JJ	Degree=Pos	11	xcomp	11:xcomp	_
-16	to	to	PART	TO	_	17	mark	17:mark	Discourse=purpose-goal:94->93:0:_
+16	to	to	PART	TO	_	17	mark	17:mark	Discourse=purpose-goal:94->93:0:_|PDTB=Implicit:Contingency.Purpose.Arg2-as-goal:in order:_:820-826:827-835
 17	express	express	VERB	VB	VerbForm=Inf	15	xcomp	15:xcomp	_
 18	the	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	_
 19	ideas	idea	NOUN	NNS	Number=Plur	17	obj	17:obj	MSeg=idea-s
@@ -1077,12 +1077,12 @@
 # newpar
 # newpar_block = p (2 s)
 1	After	after	ADP	IN	_	3	case	3:case	Discourse=joint-other_m:96->9:2:_
-2	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	3	nmod:poss	3:nmod:poss	Entity=(16)
+2	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	3	nmod:poss	3:nmod:poss	Entity=(17)
 3	retirement	retirement	NOUN	NN	Number=Sing	8	obl	8:obl:after	MSeg=retire-ment
 4	in	in	ADP	IN	_	5	case	5:case	_
 5	1925	1925	NUM	CD	NumForm=Digit|NumType=Card	3	nmod	3:nmod:in	SpaceAfter=No|XML=<date when:::"1925"></date>
 6	,	,	PUNCT	,	_	3	punct	3:punct	_
-7	Jespersen	Jespersen	PROPN	NNP	Number=Sing	8	nsubj	8:nsubj|9:nsubj:xsubj	Entity=(16)
+7	Jespersen	Jespersen	PROPN	NNP	Number=Sing	8	nsubj	8:nsubj|9:nsubj:xsubj	Entity=(17)
 8	remained	remain	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=remain-ed
 9	active	active	ADJ	JJ	Degree=Pos	8	xcomp	8:xcomp	MSeg=act-ive
 10	in	in	ADP	IN	_	14	case	14:case	_
@@ -1097,14 +1097,14 @@
 # s_type = decl
 # transition = establishment
 # text = In addition to continuing to write, he convened and chaired the first International Meeting on Linguistic Research in Geneva in 1930, and acted as president of the Fourth International Congress of Linguists in Copenhagen in 1936.
-1	In	in	ADP	IN	_	2	case	2:case	Discourse=elaboration-additional:97->96:0:ref-prs-837,858
+1	In	in	ADP	IN	_	2	case	2:case	Discourse=elaboration-additional:97->96:0:ref-prs-837,858|PDTB=Explicit:Expansion.Conjunction:in addition:851-852:858-889:853-857;Implicit:Expansion.Instantiation.Arg2-as-instance:for example:_:836-850:851-889
 2	addition	addition	NOUN	NN	Number=Sing	9	obl	9:obl:in	MSeg=add-ition
 3	to	to	SCONJ	IN	_	4	mark	4:mark	_
 4	continuing	continue	VERB	VBG	VerbForm=Ger	2	acl	2:acl:to	MSeg=continu-ing
 5	to	to	PART	TO	_	6	mark	6:mark	_
 6	write	write	VERB	VB	VerbForm=Inf	4	xcomp	4:xcomp	SpaceAfter=No
 7	,	,	PUNCT	,	_	2	punct	2:punct	_
-8	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	9	nsubj	9:nsubj|11:nsubj|25:nsubj	Discourse=joint-list_m:98->97:0:_|Entity=(16)
+8	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	9	nsubj	9:nsubj|11:nsubj|25:nsubj	Discourse=joint-list_m:98->97:0:dm-in addition-851-852|Entity=(17)
 9	convened	convene	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=conven-ed
 10	and	and	CCONJ	CC	_	11	cc	11:cc	_
 11	chaired	chair	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	9	conj	9:conj:and	MSeg=chair-ed
@@ -1120,10 +1120,10 @@
 21	in	in	ADP	IN	_	22	case	22:case	_
 22	1930	1930	NUM	CD	NumForm=Digit|NumType=Card	9	obl	9:obl:in	SpaceAfter=No|XML=<date when:::"1930"></date>
 23	,	,	PUNCT	,	_	25	punct	25:punct	_
-24	and	and	CCONJ	CC	_	25	cc	25:cc	Discourse=joint-sequence_m:99->98:0:lex-indwd-872+dm-and-874+lex-indwd-888
+24	and	and	CCONJ	CC	_	25	cc	25:cc	Discourse=joint-sequence_m:99->98:0:lex-indwd-872+dm-and-874+lex-indwd-888|PDTB=Explicit:Expansion.Conjunction:and:874:858-873:875-889;Implicit:Temporal.Asynchronous.Precedence:then:_:858-873:874-889
 25	acted	act	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	9	conj	9:conj:and	MSeg=act-ed
 26	as	as	ADP	IN	_	27	case	27:case	_
-27	president	president	NOUN	NN	Number=Sing	25	obl	25:obl:as	Entity=(16|MSeg=presid-ent
+27	president	president	NOUN	NN	Number=Sing	25	obl	25:obl:as	Entity=(17|MSeg=presid-ent
 28	of	of	ADP	IN	_	32	case	32:case	_
 29	the	the	DET	DT	Definite=Def|PronType=Art	32	det	32:det	_
 30	Fourth	Fourth	ADJ	NNP	Degree=Pos|NumForm=Word|NumType=Ord	32	amod	32:amod	MSeg=Four-th
@@ -1132,7 +1132,7 @@
 33	of	of	ADP	IN	_	34	case	34:case	_
 34	Linguists	Linguist	PROPN	NNPS	Number=Plur	32	nmod	32:nmod:of	MSeg=Linguist-s
 35	in	in	ADP	IN	_	36	case	36:case	_
-36	Copenhagen	Copenhagen	PROPN	NNP	Number=Sing	32	nmod	32:nmod:in	Entity=16)(6)
+36	Copenhagen	Copenhagen	PROPN	NNP	Number=Sing	32	nmod	32:nmod:in	Entity=17)(7)
 37	in	in	ADP	IN	_	38	case	38:case	_
 38	1936	1936	NUM	CD	NumForm=Digit|NumType=Card	25	obl	25:obl:in	SpaceAfter=No|XML=<date when:::"1936"></date>
 39	.	.	PUNCT	.	_	9	punct	9:punct	_
@@ -1144,7 +1144,7 @@
 # text = Jespersen was an important figure in the international language movement.
 # newpar
 # newpar_block = p (3 s)
-1	Jespersen	Jespersen	PROPN	NNP	Number=Sing	5	nsubj	5:nsubj	Discourse=joint-other_m:100->97:1:_|Entity=(16)
+1	Jespersen	Jespersen	PROPN	NNP	Number=Sing	5	nsubj	5:nsubj	Discourse=joint-other_m:100->97:1:_|Entity=(17)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	5	cop	5:cop	_
 3	an	a	DET	DT	Definite=Ind|PronType=Art	5	det	5:det	_
 4	important	important	ADJ	JJ	Degree=Pos	5	amod	5:amod	MSeg=import-ant
@@ -1161,7 +1161,7 @@
 # s_type = decl
 # transition = continue
 # text = He was an early supporter of the Esperanto offshoot Ido and in 1927 published his own project Novial.
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	5	nsubj	5:nsubj|14:nsubj	Discourse=explanation-evidence:101->100:0:_|Entity=(16)
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	5	nsubj	5:nsubj|14:nsubj	Discourse=explanation-evidence:101->100:0:_|Entity=(17)|PDTB=Implicit:Contingency.Cause.Reason:as:_:890-900:901-919
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	5	cop	5:cop	_
 3	an	a	DET	DT	Definite=Ind|PronType=Art	5	det	5:det	_
 4	early	early	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
@@ -1171,7 +1171,7 @@
 8	Esperanto	Esperanto	PROPN	NNP	Number=Sing	9	compound	9:compound	XML=<ref></ref>
 9	offshoot	offshoot	NOUN	NN	Number=Sing	5	nmod	5:nmod:of	MSeg=off-shoot
 10	Ido	Ido	PROPN	NNP	Number=Sing	9	appos	9:appos	XML=<ref></ref>
-11	and	and	CCONJ	CC	_	14	cc	14:cc	Discourse=joint-sequence_m:102->101:0:dm-and-911+lex-indwd-913
+11	and	and	CCONJ	CC	_	14	cc	14:cc	Discourse=joint-sequence_m:102->101:0:dm-and-911+lex-indwd-913|PDTB=Explicit:Expansion.Conjunction:and:911:901-910:912-919;Implicit:Temporal.Asynchronous.Precedence:then:_:901-910:911-919
 12	in	in	ADP	IN	_	13	case	13:case	_
 13	1927	1927	NUM	CD	NumForm=Digit|NumType=Card	14	obl	14:obl:in	XML=<date when:::"1927"></date>
 14	published	publish	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	5	conj	5:conj:and	MSeg=publish-ed
@@ -1186,8 +1186,8 @@
 # s_type = decl
 # transition = continue
 # text = He also worked with the International Auxiliary Language Association.
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	Discourse=joint-other_m:103->97:1:dm-also-921|Entity=(16)
-2	also	also	ADV	RB	_	3	advmod	3:advmod	_
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	Discourse=joint-other_m:103->97:1:dm-also-921|Entity=(17)
+2	also	also	ADV	RB	_	3	advmod	3:advmod	PDTB=Explicit:Expansion.Conjunction:also:921:890-900:920,922-929
 3	worked	work	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=work-ed
 4	with	with	ADP	IN	_	9	case	9:case	_
 5	the	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	_
@@ -1204,18 +1204,18 @@
 # text = Jespersen received honorary degrees from Columbia University in New York (1910), St. Andrews University in Scotland (1925), and the Sorbonne in Paris (1927).
 # newpar
 # newpar_block = p (2 s)
-1	Jespersen	Jespersen	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=joint-other_m:104->9:2:_|Entity=(16)
+1	Jespersen	Jespersen	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=joint-other_m:104->9:2:_|Entity=(17)
 2	received	receive	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=receiv-ed
 3	honorary	honorary	ADJ	JJ	Degree=Pos	4	amod	4:amod	MSeg=honor-ary
 4	degrees	degree	NOUN	NNS	Number=Plur	2	obj	2:obj	MSeg=degree-s
 5	from	from	ADP	IN	_	7	case	7:case	_
-6	Columbia	Columbia	PROPN	NNP	Number=Sing	7	compound	7:compound	Entity=(20|MSeg=Columb-ia
+6	Columbia	Columbia	PROPN	NNP	Number=Sing	7	compound	7:compound	Entity=(21|MSeg=Columb-ia
 7	University	University	PROPN	NNP	Number=Sing	2	obl	2:obl:from	MSeg=Univers-ity
 8	in	in	ADP	IN	_	10	case	10:case	_
 9	New	New	ADJ	NNP	Degree=Pos	10	amod	10:amod	_
-10	York	York	PROPN	NNP	Number=Sing	7	nmod	7:nmod:in	Entity=20)
+10	York	York	PROPN	NNP	Number=Sing	7	nmod	7:nmod:in	Entity=21)
 11	(	(	PUNCT	-LRB-	_	12	punct	12:punct	Discourse=context-circumstance:105->104:0:lex-indwd-941|SpaceAfter=No
-12	1910	1910	NUM	CD	NumForm=Digit|NumType=Card	2	obl:tmod	2:obl:tmod	SpaceAfter=No|XML=<date when:::"1910"></date>
+12	1910	1910	NUM	CD	NumForm=Digit|NumType=Card	2	obl:unmarked	2:obl:unmarked	SpaceAfter=No|XML=<date when:::"1910"></date>
 13	)	)	PUNCT	-RRB-	_	12	punct	12:punct	SpaceAfter=No
 14	,	,	PUNCT	,	_	12	punct	12:punct	_
 15	St.	St.	PROPN	NNP	Abbr=Yes|Number=Sing	16	compound	16:compound	Discourse=same-unit_m:106->104:1:_
@@ -1224,7 +1224,7 @@
 18	in	in	ADP	IN	_	19	case	19:case	_
 19	Scotland	Scotland	PROPN	NNP	Number=Sing	17	nmod	17:nmod:in	MSeg=Scot-land
 20	(	(	PUNCT	-LRB-	_	21	punct	21:punct	Discourse=context-circumstance:107->106:0:lex-indwd-950|SpaceAfter=No
-21	1925	1925	NUM	CD	NumForm=Digit|NumType=Card	2	obl:tmod	2:obl:tmod	SpaceAfter=No|XML=<date when:::"1925"></date>
+21	1925	1925	NUM	CD	NumForm=Digit|NumType=Card	2	obl:unmarked	2:obl:unmarked	SpaceAfter=No|XML=<date when:::"1925"></date>
 22	)	)	PUNCT	-RRB-	_	21	punct	21:punct	SpaceAfter=No
 23	,	,	PUNCT	,	_	21	punct	21:punct	_
 24	and	and	CCONJ	CC	_	26	cc	26:cc	Discourse=same-unit_m:108->104:1:_
@@ -1233,7 +1233,7 @@
 27	in	in	ADP	IN	_	28	case	28:case	_
 28	Paris	Paris	PROPN	NNP	Number=Sing	26	nmod	26:nmod:in	_
 29	(	(	PUNCT	-LRB-	_	30	punct	30:punct	Discourse=context-circumstance:109->108:0:lex-indwd-959|SpaceAfter=No
-30	1927	1927	NUM	CD	NumForm=Digit|NumType=Card	2	obl:tmod	2:obl:tmod	SpaceAfter=No|XML=<date when:::"1927"></date>
+30	1927	1927	NUM	CD	NumForm=Digit|NumType=Card	2	obl:unmarked	2:obl:unmarked	SpaceAfter=No|XML=<date when:::"1927"></date>
 31	)	)	PUNCT	-RRB-	_	30	punct	30:punct	SpaceAfter=No
 32	.	.	PUNCT	.	_	2	punct	2:punct	_
 
@@ -1242,7 +1242,7 @@
 # s_type = decl
 # transition = continue
 # text = He was one of the first six international scholars to be elected as honorary members of the Linguistic Society of America.
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	Discourse=joint-other_m:110->9:2:_|Entity=(16)
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	Discourse=joint-other_m:110->9:2:_|Entity=(17)|PDTB=Implicit:Expansion.Conjunction:and:_:930-961:962-983
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	cop	3:cop	_
 3	one	one	NUM	CD	NumForm=Word|NumType=Card	0	root	0:root	_
 4	of	of	ADP	IN	_	9	case	9:case	_
@@ -1262,6 +1262,6 @@
 18	Linguistic	Linguistic	ADJ	NNP	Degree=Pos	19	amod	19:amod	MSeg=Linguist-ic|XML=<ref>
 19	Society	Society	PROPN	NNP	Number=Sing	15	nmod	15:nmod:of	_
 20	of	of	ADP	IN	_	21	case	21:case	_
-21	America	America	PROPN	NNP	Number=Sing	19	nmod	19:nmod:of	Entity=(19)|SpaceAfter=No|XML=</ref>
+21	America	America	PROPN	NNP	Number=Sing	19	nmod	19:nmod:of	Entity=(20)|SpaceAfter=No|XML=</ref>
 22	.	.	PUNCT	.	_	3	punct	3:punct	_
 
