@@ -733,7 +733,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if pos == "NPS" and tok == lemma and tok.endswith("s") and func != "goeswith":
 		if tok not in ["Netherlands","Analytics","Olympics","Commons","Paralympics","Vans",
-					   "Andes","Forties","Philippines","Maldives", "Politics"]:
+					   "Andes","Forties","Philippines","Maldives", "Politics", "Species"]:
 			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
 	if pos == "NNS" and tok.lower() == lemma.lower() and lemma.endswith("s") and func != "goeswith":
@@ -758,6 +758,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if pos == "CC" and func not in ["cc","cc:preconj","conj","reparandum","root","dep"] and not (parent_lemma=="whether" and func=="fixed"):
 		if not ("languages" in inname and tok == "and"):  # metalinguistic discussion in whow_languages
 			print("WARN: pos " + pos + " should normally have function cc or cc:preconj, not " + func + inname)
+
+	if func == "cc" and parent_func not in ["root","ccomp","conj","reparandum","parataxis"]:
+		print("WARN: function " + func + " should not have parent function " + parent_func + inname)
 
 	if pos == "RP" and func not in ["compound:prt","conj"] or pos != "RP" and func=="compound:prt":
 		print("WARN: pos " + pos + " should not normally have function " + func + inname)
@@ -854,6 +857,11 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if func =="xcomp" and parent_lemma == "be":
 		print("WARN: verb lemma 'be' should not have xcomp child" + inname)
 
+	# Implements check from UniversalDependencies/docs#1066
+	if func not in ["csubj","ccomp","xcomp","advcl","acl","acl:relcl","advcl:relcl","csubj:pass","root","list","parataxis","conj","appos","reparandum","dislocated","orphan","compound"]:
+		if any([x in child_funcs for x in ["csubj","nsubj","nsubj:pass","csubj:pass"]]):
+			print("WARN: "+func+" should not have subject child" + inname)
+
 	IN_not_like_lemma = ["vs", "vs.", "v", "v.", "o'er", "ca", "that", "then", "a", "fro", "too", "til", "wether", "ta","ok", # incl. known typos
 						 "nananananananananananananananananana","ro-","c-","cap-"]
 	if pos in ["IN","UH"] and tok.lower() not in IN_not_like_lemma and lemma != tok.lower() and func != "goeswith" and "goeswith" not in child_funcs:
@@ -916,6 +924,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if func in ["iobj","obj"] and parent_lemma in ["become","remain","stay"]:
 		print("WARN: verb '"+parent_lemma+"' should take xcomp not "+func+" argument" + inname)
+
+	if func in ["iobj","obj"] and "case" in child_funcs and "POS" not in child_pos:
+		print("WARN: function " + func +  " should not have non-possessive 'case' dependents" + inname)
 
 	if func in ["nmod:tmod","nmod:npmod","obl:tmod","obl:npmod","nmod:unmarked","obl:unmarked"] and "case" in child_funcs:
 		print("WARN: function " + func +  " should not have 'case' dependents" + inname)
