@@ -1,6 +1,6 @@
 # Splits
 
-The standard train / dev / test splits are used for the corpus:
+The following standard train / dev / test / test2 splits are used for the corpus. The split 'test2' comes from the GENTLE corpus and is used for testing out-of-domain, and contains documents from challenging genres not present in the other partitions. See the main README.md for more information.
 
 ## dev
 
@@ -11,14 +11,18 @@ The standard train / dev / test splits are used for the corpus:
   * GUM_conversation_grounded
   * GUM_conversation_risk
   * GUM_court_loan
+  * GUM_court_negligence
   * GUM_essay_evolved
+  * GUM_essay_tools
   * GUM_fiction_beast
   * GUM_fiction_lunre
   * GUM_interview_cyclone
   * GUM_interview_gaming
   * GUM_letter_arendt
+  * GUM_letter_wiki
   * GUM_news_homeopathic
   * GUM_news_iodine
+  * GUM_podcast_bangladesh
   * GUM_podcast_wrestling
   * GUM_reddit_macroeconomics
   * GUM_reddit_pandas
@@ -41,16 +45,20 @@ The standard train / dev / test splits are used for the corpus:
   * GUM_bio_jespersen
   * GUM_conversation_lambada
   * GUM_conversation_retirement
+  * GUM_court_insanity
   * GUM_court_mitigation
   * GUM_essay_fear
+  * GUM_essay_system
   * GUM_fiction_falling
   * GUM_fiction_teeth
   * GUM_interview_hill
   * GUM_interview_libertarian
+  * GUM_letter_attorney
   * GUM_letter_mandela
   * GUM_news_nasa
   * GUM_news_sensitive
   * GUM_podcast_bezos
+  * GUM_podcast_multitasking
   * GUM_reddit_escape
   * GUM_reddit_monsters
   * GUM_speech_austria
@@ -63,6 +71,35 @@ The standard train / dev / test splits are used for the corpus:
   * GUM_voyage_vavau
   * GUM_whow_cactus
   * GUM_whow_mice
+
+## test2
+
+  * GENTLE_dictionary_next
+  * GENTLE_dictionary_school
+  * GENTLE_dictionary_trust
+  * GENTLE_esports_fifa
+  * GENTLE_esports_fortnite
+  * GENTLE_legal_abortion
+  * GENTLE_legal_service
+  * GENTLE_medical_anemia
+  * GENTLE_medical_hiv
+  * GENTLE_medical_screw
+  * GENTLE_medical_transplant
+  * GENTLE_poetry_annabel
+  * GENTLE_poetry_death
+  * GENTLE_poetry_flower
+  * GENTLE_poetry_raven
+  * GENTLE_poetry_road
+  * GENTLE_proof_five
+  * GENTLE_proof_square
+  * GENTLE_proof_wosets
+  * GENTLE_syllabus_opensource
+  * GENTLE_syllabus_techtonica
+  * GENTLE_threat_bolin
+  * GENTLE_threat_dillard
+  * GENTLE_threat_kelly
+  * GENTLE_threat_malik
+  * GENTLE_threat_white
 
 ## train
 
@@ -96,6 +133,7 @@ The standard train / dev / test splits are used for the corpus:
   * GUM_bio_nida
   * GUM_bio_padalecki
   * GUM_bio_theodorus
+  * GUM_conversation_artist
   * GUM_conversation_atoms
   * GUM_conversation_blacksmithing
   * GUM_conversation_christmas
@@ -110,8 +148,11 @@ The standard train / dev / test splits are used for the corpus:
   * GUM_court_equality
   * GUM_court_fire
   * GUM_court_prince
+  * GUM_court_property
   * GUM_essay_distraction
   * GUM_essay_dividends
+  * GUM_essay_food
+  * GUM_essay_ghost
   * GUM_essay_sexlife
   * GUM_fiction_claus
   * GUM_fiction_error
@@ -143,8 +184,12 @@ The standard train / dev / test splits are used for the corpus:
   * GUM_interview_peres
   * GUM_interview_shalev
   * GUM_interview_stardust
+  * GUM_letter_conference
   * GUM_letter_flood
   * GUM_letter_gorbachev
+  * GUM_letter_marcie
+  * GUM_letter_marcie2
+  * GUM_letter_marcie3
   * GUM_letter_roomers
   * GUM_letter_zora
   * GUM_news_afghan
@@ -160,6 +205,7 @@ The standard train / dev / test splits are used for the corpus:
   * GUM_news_imprisoned
   * GUM_news_korea
   * GUM_news_lanterns
+  * GUM_news_questionnaire
   * GUM_news_soccer
   * GUM_news_stampede
   * GUM_news_taxes
@@ -169,6 +215,9 @@ The standard train / dev / test splits are used for the corpus:
   * GUM_podcast_addiction
   * GUM_podcast_brave
   * GUM_podcast_collaboration
+  * GUM_podcast_covid
+  * GUM_podcast_llms
+  * GUM_podcast_movie
   * GUM_reddit_bobby
   * GUM_reddit_callout
   * GUM_reddit_card
