@@ -10,9 +10,12 @@ from utils.ontogum import build_ontogum
 
 PY2 = sys.version_info[0] < 3
 script_dir = os.path.dirname(os.path.realpath(__file__)) + os.sep
-tsv_temp_dir = script_dir + "pepper" + os.sep + "tmp" + os.sep + "tsv" + os.sep + "GUM" + os.sep
-if not os.path.exists(tsv_temp_dir):
-	os.makedirs(tsv_temp_dir)
+tsv_temp_dir_gentle = script_dir + "pepper" + os.sep + "tmp" + os.sep + "tsv" + os.sep + "GENTLE" + os.sep
+if not os.path.exists(tsv_temp_dir_gentle):
+	os.makedirs(tsv_temp_dir_gentle)
+tsv_temp_dir_gum = script_dir + "pepper" + os.sep + "tmp" + os.sep + "tsv" + os.sep + "GUM" + os.sep
+if not os.path.exists(tsv_temp_dir_gum):
+	os.makedirs(tsv_temp_dir_gum)
 
 def equiv_tok(token):
 	replacements = {"&amp;": "&", "&gt;": ">", "&lt;": "<", "’": "'", "—": "-", "&quot;": '"', "&apos;": "'", "(":"-LRB-", ")":"-RRB-", "…":"...",
@@ -523,7 +526,10 @@ def fix_genitive_s(tsv_path, xml_path, warn_only=True, outdir=None, string_input
 	"""
 	if outdir is None:
 		utils_dir = os.path.dirname(os.path.realpath(__file__)) + os.sep
-		outdir = utils_dir + "pepper" + os.sep + "tmp" + os.sep + "tsv" + os.sep + "GUM" + os.sep
+		if "GENTLE_" in tsv_path:
+			outdir = utils_dir + "pepper" + os.sep + "tmp" + os.sep + "tsv" + os.sep + "GENTLE" + os.sep
+		else:
+			outdir = utils_dir + "pepper" + os.sep + "tmp" + os.sep + "tsv" + os.sep + "GUM" + os.sep
 
 	if string_input:
 		lines = [l + "\n" for l in tsv_path.split("\n")]
@@ -990,10 +996,10 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 	last_good_token = ""
 	if sys.version_info[0] < 3:
 		outfile = open(outdir + tsv_file_name,'wb')
-		outtemp = open(tsv_temp_dir + tsv_file_name,'wb')
+		outtemp = open(tsv_temp_dir_gentle + tsv_file_name,'wb') if "GENTLE_" in tsv_file_name else open(tsv_temp_dir_gum + tsv_file_name,'wb')
 	else:
 		outfile = io.open(outdir + tsv_file_name, 'w', encoding="utf8",newline="\n")
-		outtemp = io.open(tsv_temp_dir + tsv_file_name,'w', encoding="utf8", newline="\n")
+		outtemp = io.open(tsv_temp_dir_gentle + tsv_file_name,'w', encoding="utf8", newline="\n") if "GENTLE_" in tsv_file_name else io.open(tsv_temp_dir_gum + tsv_file_name,'w', encoding="utf8", newline="\n")
 	tt_file = os.path.abspath(tt_file).replace("tsv" + os.sep,"xml"+os.sep)
 
 	if PY2:
