@@ -1,13 +1,18 @@
 #FORMAT=WebAnno TSV 3.2
 #T_SP=webanno.custom.Referent|entity|infstat|salience|identity|centering
 #T_RL=webanno.custom.Coref|type|BT_webanno.custom.Referent
+#Summary1=(human1) This guide to York, a Cathedral city in Yorkshire, England, with a population of 181,000, tells of its Roman and Viking era history, its renown for holding annual cultural festivals, and information about roads into the city, congested traffic and expensive parking.
+#Summary2=(claude-3-5-sonnet-20241022) York is an ancient cathedral city in Northern England, founded by Romans in 71 CE and later ruled by Vikings, which now serves as a major tourist destination with rich historical heritage, numerous festivals, and well-preserved buildings, though driving into its center is discouraged.
+#Summary3=(gpt4o) York in North Yorkshire, England, is a popular, family-friendly destination known for its well-preserved Roman heritage, vibrant cultural events like the Viking Festival, and status as England's second most visited city, with easy rail and road access, though city center driving is discouraged due to congestion and parking costs.
+#Summary4=(Llama-3.2-3B-Instruct) This article provides an overview of York, a historic city in North Yorkshire, England, including its Roman history, Viking settlement, and modern attractions, as well as information on how to get to and around the city.
+#Summary5=(Qwen2.5-7B-Instruct) York, an ancient cathedral city with a rich history dating back to Roman times, boasts well-preserved historic buildings, hosts numerous cultural festivals throughout the year, and attracts over 181,000 visitors annually.
 
 
 #Text=York
-1-1	0-4	York	place[1]	new[1]	sal[1]	York[1]	cf1[1]	coref	2-1[2_1]
+1-1	0-4	York	place[1]	new[1]	sssss[1]	York[1]	cf1[1]	coref	2-1[2_1]
 
 #Text=York is an ancient cathedral city with a history that dates back to before Roman times .
-2-1	5-9	York	place[2]	giv:act[2]	sal[2]	York[2]	cf1*[2]	ana	3-1[10_2]
+2-1	5-9	York	place[2]	giv:act[2]	sssss[2]	York[2]	cf1*[2]	ana	3-1[10_2]
 2-2	10-12	is	_	_	_	_	_	_	_
 2-3	13-15	an	_	_	_	York[5]	cf1*[5]	_	_
 2-4	16-23	ancient	_	_	_	York[5]	cf1*[5]	_	_
@@ -26,7 +31,7 @@
 2-17	92-93	.	_	_	_	_	_	_	_
 
 #Text=It is situated in Yorkshire , North Yorkshire , England with some of the best preserved historical buildings and structures in Europe .
-3-1	94-96	It	place[10]	giv:act[10]	sal[10]	York[10]	cf1*[10]	coref	4-10[22_10]
+3-1	94-96	It	place[10]	giv:act[10]	sssss[10]	York[10]	cf1*[10]	coref	4-10[22_10]
 3-2	97-99	is	_	_	_	_	_	_	_
 3-3	100-108	situated	_	_	_	_	_	_	_
 3-4	109-111	in	_	_	_	_	_	_	_
@@ -35,7 +40,7 @@
 3-7	124-129	North	_	_	_	Yorkshire[12]|North_Yorkshire[13]	cf3[12]|cf4[13]	_	_
 3-8	130-139	Yorkshire	_	_	_	Yorkshire[12]|North_Yorkshire[13]	cf3[12]|cf4[13]	_	_
 3-9	140-141	,	_	_	_	Yorkshire[12]|North_Yorkshire[13]	cf3[12]|cf4[13]	_	_
-3-10	142-149	England	place[14]	new[14]	sal[14]	Yorkshire[12]|North_Yorkshire[13]|England[14]	cf3[12]|cf4[13]|cf5[14]	coref	5-17[31_14]
+3-10	142-149	England	place[14]	new[14]	ssssn[14]	Yorkshire[12]|North_Yorkshire[13]|England[14]	cf3[12]|cf4[13]|cf5[14]	coref	5-17[31_14]
 3-11	150-154	with	_	_	_	_	_	_	_
 3-12	155-159	some	_	_	_	_	cf7[16]	_	_
 3-13	160-162	of	_	_	_	_	cf7[16]	_	_
@@ -60,13 +65,13 @@
 4-7	254-257	the	_	_	_	_	cf2[21]	_	_
 4-8	258-268	population	_	_	_	_	cf2[21]	_	_
 4-9	269-271	of	_	_	_	_	cf2[21]	_	_
-4-10	272-276	York	place[22]	giv:act[22]	sal[22]	York[22]	cf2[21]|cf1*[22]	coref	5-1[24_22]
+4-10	272-276	York	place[22]	giv:act[22]	sssss[22]	York[22]	cf2[21]|cf1*[22]	coref	5-1[24_22]
 4-11	277-280	was	_	_	_	_	_	_	_
 4-12	281-288	181,000	_	_	_	_	cf2[23]	_	_
 4-13	289-290	.	_	_	_	_	_	_	_
 
 #Text=York is frequently ranked ( often vying with Manchester ) the second most visited city in England after London .
-5-1	291-295	York	place[24]	giv:act[24]	sal[24]	York[24]	cf1*[24]	_	_
+5-1	291-295	York	place[24]	giv:act[24]	sssss[24]	York[24]	cf1*[24]	_	_
 5-2	296-298	is	_	_	_	_	_	_	_
 5-3	299-309	frequently	_	_	_	_	_	_	_
 5-4	310-316	ranked	_	_	_	_	_	_	_
@@ -74,15 +79,15 @@
 5-6	319-324	often	_	_	_	_	_	_	_
 5-7	325-330	vying	_	_	_	_	_	_	_
 5-8	331-335	with	_	_	_	_	_	_	_
-5-9	336-346	Manchester	place[25]	new[25]	nonsal[25]	Manchester[25]	cf3[25]	coref	25-15[191_25]
+5-9	336-346	Manchester	place[25]	new[25]	nnnnn[25]	Manchester[25]	cf3[25]	coref	25-15[191_25]
 5-10	347-348	)	_	_	_	_	_	_	_
-5-11	349-352	the	place[30]	giv:act[30]	sal[30]	York[30]	cf1*[30]	coref	8-1[36_30]
-5-12	353-359	second	place[30]	giv:act[30]	sal[30]	York[30]	cf1*[30]	_	_
-5-13	360-364	most	place[30]	giv:act[30]	sal[30]	York[30]	cf1*[30]	_	_
-5-14	365-372	visited	place[30]	giv:act[30]	sal[30]	York[30]	cf1*[30]	_	_
-5-15	373-377	city	place[30]	giv:act[30]	sal[30]	York[30]	cf1*[30]	_	_
-5-16	378-380	in	place[30]	giv:act[30]	sal[30]	York[30]	cf1*[30]	_	_
-5-17	381-388	England	place[30]|place[31]	giv:act[30]|giv:inact[31]	sal[30]|sal[31]	York[30]|England[31]	cf1*[30]|cf2[31]	coref	15-5[105_31]
+5-11	349-352	the	place[30]	giv:act[30]	sssss[30]	York[30]	cf1*[30]	coref	8-1[36_30]
+5-12	353-359	second	place[30]	giv:act[30]	sssss[30]	York[30]	cf1*[30]	_	_
+5-13	360-364	most	place[30]	giv:act[30]	sssss[30]	York[30]	cf1*[30]	_	_
+5-14	365-372	visited	place[30]	giv:act[30]	sssss[30]	York[30]	cf1*[30]	_	_
+5-15	373-377	city	place[30]	giv:act[30]	sssss[30]	York[30]	cf1*[30]	_	_
+5-16	378-380	in	place[30]	giv:act[30]	sssss[30]	York[30]	cf1*[30]	_	_
+5-17	381-388	England	place[30]|place[31]	giv:act[30]|giv:inact[31]	sssss[30]|ssssn[31]	York[30]|England[31]	cf1*[30]|cf2[31]	coref	15-5[105_31]
 5-18	389-394	after	_	_	_	_	_	_	_
 5-19	395-401	London	_	_	_	London[32]	cf4[32]	_	_
 5-20	402-403	.	_	_	_	_	_	_	_
@@ -95,7 +100,7 @@
 7-1	417-427	Understand	_	_	_	_	_	_	_
 
 #Text=York was known as Eboracum by the Romans , who founded the fortress city on the River Ouse in the year 71 .
-8-1	428-432	York	place[36]	giv:inact[36]	sal[36]	York[36]	cf1[36]	coref	8-12[41_36]
+8-1	428-432	York	place[36]	giv:inact[36]	sssss[36]	York[36]	cf1[36]	coref	8-12[41_36]
 8-2	433-436	was	_	_	_	_	_	_	_
 8-3	437-442	known	_	_	_	_	_	_	_
 8-4	443-445	as	_	_	_	_	_	_	_
@@ -106,9 +111,9 @@
 8-9	469-470	,	_	_	_	Roman_people[40]	cf2[40]	_	_
 8-10	471-474	who	_	_	_	Roman_people[40]	cf2[40]	_	_
 8-11	475-482	founded	_	_	_	Roman_people[40]	cf2[40]	_	_
-8-12	483-486	the	place[41]	giv:act[41]	sal[41]	Roman_people[40]|York[41]	cf2[40]|cf1[41]	coref	9-1[46_41]
-8-13	487-495	fortress	place[41]	giv:act[41]	sal[41]	Roman_people[40]|York[41]	cf2[40]|cf1[41]|cf6[42]	_	_
-8-14	496-500	city	place[41]	giv:act[41]	sal[41]	Roman_people[40]|York[41]	cf2[40]|cf1[41]	_	_
+8-12	483-486	the	place[41]	giv:act[41]	sssss[41]	Roman_people[40]|York[41]	cf2[40]|cf1[41]	coref	9-1[46_41]
+8-13	487-495	fortress	place[41]	giv:act[41]	sssss[41]	Roman_people[40]|York[41]	cf2[40]|cf1[41]|cf6[42]	_	_
+8-14	496-500	city	place[41]	giv:act[41]	sssss[41]	Roman_people[40]|York[41]	cf2[40]|cf1[41]	_	_
 8-15	501-503	on	_	_	_	Roman_people[40]	cf2[40]	_	_
 8-16	504-507	the	_	_	_	Roman_people[40]|River_Ouse[44]	cf2[40]|cf3[44]	_	_
 8-17	508-513	River	_	_	_	Roman_people[40]|River_Ouse[44]	cf2[40]|cf3[44]	_	_
@@ -120,7 +125,7 @@
 8-23	534-535	.	_	_	_	_	_	_	_
 
 #Text=York was home first to the Ninth Legion and later the Sixth .
-9-1	536-540	York	place[46]	giv:act[46]	sal[46]	York[46]	cf1*[46]	coref	10-1[51_46]
+9-1	536-540	York	place[46]	giv:act[46]	sssss[46]	York[46]	cf1*[46]	coref	10-1[51_46]
 9-2	541-544	was	_	_	_	_	_	_	_
 9-3	545-549	home	_	_	_	York[48]	cf1*[48]	_	_
 9-4	550-555	first	_	_	_	York[48]	cf1*[48]	_	_
@@ -135,7 +140,7 @@
 9-13	596-597	.	_	_	_	_	_	_	_
 
 #Text=York quickly became one of the most important cities in Roman Britain , and after 211 became the capital of the province Britannia Inferior .
-10-1	598-602	York	place[51]	giv:act[51]	sal[51]	York[51]	cf1*[51]	_	_
+10-1	598-602	York	place[51]	giv:act[51]	sssss[51]	York[51]	cf1*[51]	_	_
 10-2	603-610	quickly	_	_	_	_	_	_	_
 10-3	611-617	became	_	_	_	_	_	_	_
 10-4	618-621	one	_	_	_	York[53]	cf1*[53]	_	_
@@ -152,40 +157,40 @@
 10-15	674-679	after	_	_	_	_	_	_	_
 10-16	680-683	211	_	_	_	_	cf4[55]	_	_
 10-17	684-690	became	_	_	_	_	_	_	_
-10-18	691-694	the	place[57]	giv:act[57]	sal[57]	York[57]	cf1*[57]	coref	11-23[66_57]
-10-19	695-702	capital	place[57]	giv:act[57]	sal[57]	York[57]	cf1*[57]	_	_
-10-20	703-705	of	place[57]	giv:act[57]	sal[57]	York[57]	cf1*[57]	_	_
-10-21	706-709	the	place[57]	giv:act[57]	sal[57]	York[57]|Britannia_Inferior[58]	cf1*[57]|cf2[58]	_	_
-10-22	710-718	province	place[57]	giv:act[57]	sal[57]	York[57]|Britannia_Inferior[58]	cf1*[57]|cf2[58]	_	_
-10-23	719-728	Britannia	place[57]	giv:act[57]	sal[57]	York[57]|Britannia_Inferior[58]	cf1*[57]|cf2[58]	_	_
-10-24	729-737	Inferior	place[57]	giv:act[57]	sal[57]	York[57]|Britannia_Inferior[58]	cf1*[57]|cf2[58]	_	_
+10-18	691-694	the	place[57]	giv:act[57]	sssss[57]	York[57]	cf1*[57]	coref	11-23[66_57]
+10-19	695-702	capital	place[57]	giv:act[57]	sssss[57]	York[57]	cf1*[57]	_	_
+10-20	703-705	of	place[57]	giv:act[57]	sssss[57]	York[57]	cf1*[57]	_	_
+10-21	706-709	the	place[57]	giv:act[57]	sssss[57]	York[57]|Britannia_Inferior[58]	cf1*[57]|cf2[58]	_	_
+10-22	710-718	province	place[57]	giv:act[57]	sssss[57]	York[57]|Britannia_Inferior[58]	cf1*[57]|cf2[58]	_	_
+10-23	719-728	Britannia	place[57]	giv:act[57]	sssss[57]	York[57]|Britannia_Inferior[58]	cf1*[57]|cf2[58]	_	_
+10-24	729-737	Inferior	place[57]	giv:act[57]	sssss[57]	York[57]|Britannia_Inferior[58]	cf1*[57]|cf2[58]	_	_
 10-25	738-739	.	_	_	_	_	_	_	_
 
 #Text=Constantine the Great - later responsible for making Christianity the official religion of the Roman Empire - was first proclaimed Emperor in the city .
-11-1	740-751	Constantine	person[59]	new[59]	nonsal[59]	Constantine_the_Great[59]	cf3[59]	coref	11-21[64_59]
-11-2	752-755	the	person[59]	new[59]	nonsal[59]	Constantine_the_Great[59]	cf3[59]	_	_
-11-3	756-761	Great	person[59]	new[59]	nonsal[59]	Constantine_the_Great[59]	cf3[59]	_	_
-11-4	762-763	-	person[59]	new[59]	nonsal[59]	Constantine_the_Great[59]	cf3[59]	_	_
-11-5	764-769	later	person[59]	new[59]	nonsal[59]	Constantine_the_Great[59]	cf3[59]	_	_
-11-6	770-781	responsible	person[59]	new[59]	nonsal[59]	Constantine_the_Great[59]	cf3[59]	_	_
-11-7	782-785	for	person[59]	new[59]	nonsal[59]	Constantine_the_Great[59]	cf3[59]	_	_
-11-8	786-792	making	person[59]	new[59]	nonsal[59]	Constantine_the_Great[59]	cf3[59]	_	_
-11-9	793-805	Christianity	person[59]	new[59]	nonsal[59]	Constantine_the_Great[59]|Christianity[60]	cf3[59]|cf1[60]	_	_
-11-10	806-809	the	person[59]	new[59]	nonsal[59]	Constantine_the_Great[59]|Christianity[62]	cf3[59]|cf1[62]	_	_
-11-11	810-818	official	person[59]	new[59]	nonsal[59]	Constantine_the_Great[59]|Christianity[62]	cf3[59]|cf1[62]	_	_
-11-12	819-827	religion	person[59]	new[59]	nonsal[59]	Constantine_the_Great[59]|Christianity[62]	cf3[59]|cf1[62]	_	_
-11-13	828-830	of	person[59]	new[59]	nonsal[59]	Constantine_the_Great[59]|Christianity[62]	cf3[59]|cf1[62]	_	_
-11-14	831-834	the	person[59]	new[59]	nonsal[59]	Constantine_the_Great[59]|Christianity[62]|Roman_Empire[63]	cf3[59]|cf1[62]|cf4[63]	_	_
-11-15	835-840	Roman	person[59]	new[59]	nonsal[59]	Constantine_the_Great[59]|Christianity[62]|Roman_Empire[63]	cf3[59]|cf1[62]|cf4[63]	_	_
-11-16	841-847	Empire	person[59]	new[59]	nonsal[59]	Constantine_the_Great[59]|Christianity[62]|Roman_Empire[63]	cf3[59]|cf1[62]|cf4[63]	_	_
+11-1	740-751	Constantine	person[59]	new[59]	nnnnn[59]	Constantine_the_Great[59]	cf3[59]	coref	11-21[64_59]
+11-2	752-755	the	person[59]	new[59]	nnnnn[59]	Constantine_the_Great[59]	cf3[59]	_	_
+11-3	756-761	Great	person[59]	new[59]	nnnnn[59]	Constantine_the_Great[59]	cf3[59]	_	_
+11-4	762-763	-	person[59]	new[59]	nnnnn[59]	Constantine_the_Great[59]	cf3[59]	_	_
+11-5	764-769	later	person[59]	new[59]	nnnnn[59]	Constantine_the_Great[59]	cf3[59]	_	_
+11-6	770-781	responsible	person[59]	new[59]	nnnnn[59]	Constantine_the_Great[59]	cf3[59]	_	_
+11-7	782-785	for	person[59]	new[59]	nnnnn[59]	Constantine_the_Great[59]	cf3[59]	_	_
+11-8	786-792	making	person[59]	new[59]	nnnnn[59]	Constantine_the_Great[59]	cf3[59]	_	_
+11-9	793-805	Christianity	person[59]	new[59]	nnnnn[59]	Constantine_the_Great[59]|Christianity[60]	cf3[59]|cf1[60]	_	_
+11-10	806-809	the	person[59]	new[59]	nnnnn[59]	Constantine_the_Great[59]|Christianity[62]	cf3[59]|cf1[62]	_	_
+11-11	810-818	official	person[59]	new[59]	nnnnn[59]	Constantine_the_Great[59]|Christianity[62]	cf3[59]|cf1[62]	_	_
+11-12	819-827	religion	person[59]	new[59]	nnnnn[59]	Constantine_the_Great[59]|Christianity[62]	cf3[59]|cf1[62]	_	_
+11-13	828-830	of	person[59]	new[59]	nnnnn[59]	Constantine_the_Great[59]|Christianity[62]	cf3[59]|cf1[62]	_	_
+11-14	831-834	the	person[59]	new[59]	nnnnn[59]	Constantine_the_Great[59]|Christianity[62]|Roman_Empire[63]	cf3[59]|cf1[62]|cf4[63]	_	_
+11-15	835-840	Roman	person[59]	new[59]	nnnnn[59]	Constantine_the_Great[59]|Christianity[62]|Roman_Empire[63]	cf3[59]|cf1[62]|cf4[63]	_	_
+11-16	841-847	Empire	person[59]	new[59]	nnnnn[59]	Constantine_the_Great[59]|Christianity[62]|Roman_Empire[63]	cf3[59]|cf1[62]|cf4[63]	_	_
 11-17	848-849	-	_	_	_	_	_	_	_
 11-18	850-853	was	_	_	_	_	_	_	_
 11-19	854-859	first	_	_	_	_	_	_	_
 11-20	860-870	proclaimed	_	_	_	_	_	_	_
-11-21	871-878	Emperor	person[64]	giv:act[64]	nonsal[64]	Constantine_the_Great[64]	cf3[64]	_	_
+11-21	871-878	Emperor	person[64]	giv:act[64]	n____[64]	Constantine_the_Great[64]	cf3[64]	_	_
 11-22	879-881	in	_	_	_	_	_	_	_
-11-23	882-885	the	place[66]	giv:act[66]	sal[66]	York[66]	cf2*[66]	coref	12-7[70_66]
-11-24	886-890	city	place[66]	giv:act[66]	sal[66]	York[66]	cf2*[66]	_	_
+11-23	882-885	the	place[66]	giv:act[66]	sssss[66]	York[66]	cf2*[66]	coref	12-7[70_66]
+11-24	886-890	city	place[66]	giv:act[66]	sssss[66]	York[66]	cf2*[66]	_	_
 11-25	891-892	.	_	_	_	_	_	_	_
 
 #Text=Captured by the Vikings 866 , the city quickly took on a new identity as Jorvik ( pronounced " Yor-vik " ) and experienced a major urban revival as a centre of Viking trade and settlement in northern England .
@@ -195,8 +200,8 @@
 12-4	909-916	Vikings	_	_	_	Vikings[67]	cf6[67]	_	_
 12-5	917-920	866	_	_	_	_	cf8[68]	_	_
 12-6	921-922	,	_	_	_	_	_	_	_
-12-7	923-926	the	place[70]	giv:act[70]	sal[70]	York[70]	cf1*[70]	pred	12-30[74_70]
-12-8	927-931	city	place[70]	giv:act[70]	sal[70]	York[70]	cf1*[70]	_	_
+12-7	923-926	the	place[70]	giv:act[70]	sssss[70]	York[70]	cf1*[70]	pred	12-30[74_70]
+12-8	927-931	city	place[70]	giv:act[70]	sssss[70]	York[70]	cf1*[70]	_	_
 12-9	932-939	quickly	_	_	_	_	_	_	_
 12-10	940-944	took	_	_	_	_	_	_	_
 12-11	945-947	on	_	_	_	_	_	_	_
@@ -218,16 +223,16 @@
 12-27	1024-1029	urban	_	_	_	_	cf5[73]	_	_
 12-28	1030-1037	revival	_	_	_	_	cf5[73]	_	_
 12-29	1038-1040	as	_	_	_	_	cf5[73]	_	_
-12-30	1041-1042	a	place[74]	giv:act[74]	sal[74]	York[74]	cf5[73]|cf1*[74]	coref	14-1[85_74]
-12-31	1043-1049	centre	place[74]	giv:act[74]	sal[74]	York[74]	cf5[73]|cf1*[74]	_	_
-12-32	1050-1052	of	place[74]	giv:act[74]	sal[74]	York[74]	cf5[73]|cf1*[74]	_	_
-12-33	1053-1059	Viking	place[74]|person[76]	giv:act[74]|acc:inf[76]	sal[74]|sal[76]	York[74]|Vikings[76]	cf5[73]|cf1*[74]|cf7[75]|cf3[76]	coref	13-11[84_76]
-12-34	1060-1065	trade	place[74]	giv:act[74]	sal[74]	York[74]	cf5[73]|cf1*[74]|cf7[75]	_	_
-12-35	1066-1069	and	place[74]	giv:act[74]	sal[74]	York[74]	cf5[73]|cf1*[74]|cf7[75]	_	_
-12-36	1070-1080	settlement	place[74]	giv:act[74]	sal[74]	York[74]	cf5[73]|cf1*[74]|cf7[75]	_	_
-12-37	1081-1083	in	place[74]	giv:act[74]	sal[74]	York[74]	cf5[73]|cf1*[74]|cf7[75]	_	_
-12-38	1084-1092	northern	place[74]	giv:act[74]	sal[74]	York[74]|Northern_England[78]	cf5[73]|cf1*[74]|cf7[75]|cf2[78]	_	_
-12-39	1093-1100	England	place[74]	giv:act[74]	sal[74]	York[74]|Northern_England[78]	cf5[73]|cf1*[74]|cf7[75]|cf2[78]	_	_
+12-30	1041-1042	a	place[74]	giv:act[74]	sssss[74]	York[74]	cf5[73]|cf1*[74]	coref	14-1[85_74]
+12-31	1043-1049	centre	place[74]	giv:act[74]	sssss[74]	York[74]	cf5[73]|cf1*[74]	_	_
+12-32	1050-1052	of	place[74]	giv:act[74]	sssss[74]	York[74]	cf5[73]|cf1*[74]	_	_
+12-33	1053-1059	Viking	place[74]|person[76]	giv:act[74]|acc:inf[76]	sssss[74]|snssn[76]	York[74]|Vikings[76]	cf5[73]|cf1*[74]|cf7[75]|cf3[76]	coref	13-11[84_76]
+12-34	1060-1065	trade	place[74]	giv:act[74]	sssss[74]	York[74]	cf5[73]|cf1*[74]|cf7[75]	_	_
+12-35	1066-1069	and	place[74]	giv:act[74]	sssss[74]	York[74]	cf5[73]|cf1*[74]|cf7[75]	_	_
+12-36	1070-1080	settlement	place[74]	giv:act[74]	sssss[74]	York[74]	cf5[73]|cf1*[74]|cf7[75]	_	_
+12-37	1081-1083	in	place[74]	giv:act[74]	sssss[74]	York[74]	cf5[73]|cf1*[74]|cf7[75]	_	_
+12-38	1084-1092	northern	place[74]	giv:act[74]	sssss[74]	York[74]|Northern_England[78]	cf5[73]|cf1*[74]|cf7[75]|cf2[78]	_	_
+12-39	1093-1100	England	place[74]	giv:act[74]	sssss[74]	York[74]|Northern_England[78]	cf5[73]|cf1*[74]|cf7[75]|cf2[78]	_	_
 12-40	1101-1102	.	_	_	_	_	_	_	_
 
 #Text=The Coppergate excavations of the 1970s revealed much of this Viking past .
@@ -241,12 +246,12 @@
 13-8	1152-1156	much	_	_	_	_	_	_	_
 13-9	1157-1159	of	_	_	_	_	_	_	_
 13-10	1160-1164	this	_	_	_	_	cf3[83]	_	_
-13-11	1165-1171	Viking	person[84]	giv:act[84]	sal[84]	Vikings[84]	cf3[83]|cf1*[84]	coref	16-6[113_84]
+13-11	1165-1171	Viking	person[84]	giv:act[84]	snssn[84]	Vikings[84]	cf3[83]|cf1*[84]	coref	16-6[113_84]
 13-12	1172-1176	past	_	_	_	_	cf3[83]	_	_
 13-13	1177-1178	.	_	_	_	_	_	_	_
 
 #Text=York is a fairly small city - four days is enough to see the major sights although York is a city that reveals its charms to explorers with curiosity and patience .
-14-1	1179-1183	York	place[85]	giv:inact[85]	sal[85]	York[85]	cf1[85]	coref	14-18[91_85]
+14-1	1179-1183	York	place[85]	giv:inact[85]	sssss[85]	York[85]	cf1[85]	coref	14-18[91_85]
 14-2	1184-1186	is	_	_	_	_	_	_	_
 14-3	1187-1188	a	_	_	_	York[88]	cf1[88]	_	_
 14-4	1189-1195	fairly	_	_	_	York[88]	cf1[88]	_	_
@@ -263,13 +268,13 @@
 14-15	1240-1245	major	_	_	_	_	cf2[90]	_	_
 14-16	1246-1252	sights	_	_	_	_	cf2[90]	_	_
 14-17	1253-1261	although	_	_	_	_	_	_	_
-14-18	1262-1266	York	place[91]	giv:act[91]	sal[91]	York[91]	cf1[91]	ana	14-24[95_91]
+14-18	1262-1266	York	place[91]	giv:act[91]	sssss[91]	York[91]	cf1[91]	ana	14-24[95_91]
 14-19	1267-1269	is	_	_	_	_	_	_	_
 14-20	1270-1271	a	_	_	_	York[93]	cf1[93]	_	_
 14-21	1272-1276	city	_	_	_	York[93]	cf1[93]	_	_
 14-22	1277-1281	that	_	_	_	York[93]	cf1[93]	_	_
 14-23	1282-1289	reveals	_	_	_	York[93]	cf1[93]	_	_
-14-24	1290-1293	its	place[95]	giv:act[95]	sal[95]	York[93]|York[95]	cf1[93]|cf4[94]|cf1[95]	coref	15-1[100_95]
+14-24	1290-1293	its	place[95]	giv:act[95]	sssss[95]	York[93]|York[95]	cf1[93]|cf4[94]|cf1[95]	coref	15-1[100_95]
 14-25	1294-1300	charms	_	_	_	York[93]	cf1[93]|cf4[94]	_	_
 14-26	1301-1303	to	_	_	_	York[93]	cf1[93]	_	_
 14-27	1304-1313	explorers	_	_	_	York[93]	cf1[93]|cf5[97]	_	_
@@ -280,17 +285,17 @@
 14-32	1342-1343	.	_	_	_	_	_	_	_
 
 #Text=York is known as England 's " City of Festivals " as there are regular cultural festivals every year .
-15-1	1344-1348	York	place[100]	giv:act[100]	sal[100]	York[100]	cf1*[100]	coref	15-5[104_100]
+15-1	1344-1348	York	place[100]	giv:act[100]	sssss[100]	York[100]	cf1*[100]	coref	15-5[104_100]
 15-2	1349-1351	is	_	_	_	_	_	_	_
 15-3	1352-1357	known	_	_	_	_	_	_	_
 15-4	1358-1360	as	_	_	_	_	_	_	_
-15-5	1361-1368	England	place[104]|place[105]	giv:act[104]|giv:inact[105]	sal[104]|sal[105]	York[104]|England[105]	cf1*[104]|cf3[105]	ana	17-1[128_104]
-15-6	1369-1371	's	place[104]|place[105]	giv:act[104]|giv:inact[105]	sal[104]|sal[105]	York[104]|England[105]	cf1*[104]|cf3[105]	_	_
-15-7	1372-1373	"	place[104]	giv:act[104]	sal[104]	York[104]	cf1*[104]	_	_
-15-8	1374-1378	City	place[104]	giv:act[104]	sal[104]	York[104]	cf1*[104]	_	_
-15-9	1379-1381	of	place[104]	giv:act[104]	sal[104]	York[104]	cf1*[104]	_	_
-15-10	1382-1391	Festivals	place[104]	giv:act[104]	sal[104]	York[104]	cf1*[104]|cf2[106]	_	_
-15-11	1392-1393	"	place[104]	giv:act[104]	sal[104]	York[104]	cf1*[104]	_	_
+15-5	1361-1368	England	place[104]|place[105]	giv:act[104]|giv:inact[105]	sssss[104]|ssssn[105]	York[104]|England[105]	cf1*[104]|cf3[105]	ana	17-1[128_104]
+15-6	1369-1371	's	place[104]|place[105]	giv:act[104]|giv:inact[105]	sssss[104]|ssssn[105]	York[104]|England[105]	cf1*[104]|cf3[105]	_	_
+15-7	1372-1373	"	place[104]	giv:act[104]	sssss[104]	York[104]	cf1*[104]	_	_
+15-8	1374-1378	City	place[104]	giv:act[104]	sssss[104]	York[104]	cf1*[104]	_	_
+15-9	1379-1381	of	place[104]	giv:act[104]	sssss[104]	York[104]	cf1*[104]	_	_
+15-10	1382-1391	Festivals	place[104]	giv:act[104]	sssss[104]	York[104]	cf1*[104]|cf2[106]	_	_
+15-11	1392-1393	"	place[104]	giv:act[104]	sssss[104]	York[104]	cf1*[104]	_	_
 15-12	1394-1396	as	_	_	_	_	_	_	_
 15-13	1397-1402	there	_	_	_	_	_	_	_
 15-14	1403-1406	are	_	_	_	_	_	_	_
@@ -307,7 +312,7 @@
 16-3	1460-1469	festivals	_	_	_	_	cf1[110]	_	_
 16-4	1470-1473	are	_	_	_	_	_	_	_
 16-5	1474-1477	the	_	_	_	_	cf1[111]|cf4[112]	_	_
-16-6	1478-1484	Viking	person[113]	giv:inact[113]	sal[113]	Vikings[113]	cf1[111]|cf4[112]|cf3[113]	_	_
+16-6	1478-1484	Viking	person[113]	giv:inact[113]	snssn[113]	Vikings[113]	cf1[111]|cf4[112]|cf3[113]	_	_
 16-7	1485-1493	Festival	_	_	_	_	cf1[111]|cf4[112]	_	_
 16-8	1494-1495	,	_	_	_	_	cf1[111]	_	_
 16-9	1496-1499	the	_	_	_	_	cf1[111]|cf5[115]	_	_
@@ -359,7 +364,7 @@
 16-55	1721-1722	.	_	_	_	_	_	_	_
 
 #Text=It 's a romantic city for a weekend break .
-17-1	1723-1725	It	place[128]	giv:inact[128]	sal[128]	York[128]	cf1[128]	coref	18-1[133_128]
+17-1	1723-1725	It	place[128]	giv:inact[128]	sssss[128]	York[128]	cf1[128]	coref	18-1[133_128]
 17-2	1726-1728	's	_	_	_	_	_	_	_
 17-3	1729-1730	a	_	_	_	York[130]	cf1[130]	_	_
 17-4	1731-1739	romantic	_	_	_	York[130]	cf1[130]	_	_
@@ -371,7 +376,7 @@
 17-10	1765-1766	.	_	_	_	_	_	_	_
 
 #Text=York is full of magic and a wonderful place to bring children !
-18-1	1767-1771	York	place[133]	giv:act[133]	sal[133]	York[133]	cf1*[133]	coref	20-6[142_133]
+18-1	1767-1771	York	place[133]	giv:act[133]	sssss[133]	York[133]	cf1*[133]	coref	20-6[142_133]
 18-2	1772-1774	is	_	_	_	_	_	_	_
 18-3	1775-1779	full	_	_	_	_	_	_	_
 18-4	1780-1782	of	_	_	_	_	_	_	_
@@ -395,7 +400,7 @@
 20-3	1854-1858	will	_	_	_	_	_	_	_
 20-4	1859-1865	arrive	_	_	_	_	_	_	_
 20-5	1866-1868	in	_	_	_	_	_	_	_
-20-6	1869-1873	York	place[142]	giv:inact[142]	sal[142]	York[142]	cf1[142]	coref	22-2[156_142]
+20-6	1869-1873	York	place[142]	giv:inact[142]	sssss[142]	York[142]	cf1[142]	coref	22-2[156_142]
 20-7	1874-1876	by	_	_	_	_	_	_	_
 20-8	1877-1881	road	_	_	_	_	cf5[143]	_	_
 20-9	1882-1883	(	_	_	_	_	_	_	_
@@ -422,7 +427,7 @@
 
 #Text=Although York is not directly on any of the main north - south motorways , the connections are reasonably good .
 22-1	1955-1963	Although	_	_	_	_	_	_	_
-22-2	1964-1968	York	place[156]	giv:inact[156]	sal[156]	York[156]	cf1[156]	coref	23-40[171_156]
+22-2	1964-1968	York	place[156]	giv:inact[156]	sssss[156]	York[156]	cf1[156]	coref	23-40[171_156]
 22-3	1969-1971	is	_	_	_	_	_	_	_
 22-4	1972-1975	not	_	_	_	_	_	_	_
 22-5	1976-1984	directly	_	_	_	_	_	_	_
@@ -455,8 +460,8 @@
 23-9	2107-2115	probably	_	_	_	_	_	_	_
 23-10	2116-2118	to	_	_	_	_	_	_	_
 23-11	2119-2123	take	_	_	_	_	_	_	_
-23-12	2124-2127	the	place[163]	new[163]	nonsal[163]	M1_motorway[163]	cf5[163]	coref	24-6[177_163]
-23-13	2128-2130	M1	place[163]	new[163]	nonsal[163]	M1_motorway[163]	cf5[163]	_	_
+23-12	2124-2127	the	place[163]	new[163]	nnnnn[163]	M1_motorway[163]	cf5[163]	coref	24-6[177_163]
+23-13	2128-2130	M1	place[163]	new[163]	nnnnn[163]	M1_motorway[163]	cf5[163]	_	_
 23-14	2131-2141	northbound	_	_	_	_	_	_	_
 23-15	2142-2144	to	_	_	_	_	_	_	_
 23-16	2145-2153	junction	_	_	_	_	cf9[164]	_	_
@@ -478,28 +483,28 @@
 23-32	2229-2231	44	_	_	_	_	cf11[168]	_	_
 23-33	2232-2235	and	_	_	_	_	_	_	_
 23-34	2236-2243	finally	_	_	_	_	_	_	_
-23-35	2244-2247	the	place[169]	new[169]	nonsal[169]	A1237_road[169]	cf1[169]	coref	23-45[172_169]
-23-36	2248-2251	A64	place[169]	new[169]	nonsal[169]	A1237_road[169]	cf1[169]	_	_
-23-37	2252-2261	eastbound	place[169]	new[169]	nonsal[169]	A1237_road[169]	cf1[169]	_	_
-23-38	2262-2264	to	place[169]	new[169]	nonsal[169]	A1237_road[169]	cf1[169]	_	_
-23-39	2265-2268	the	place[169]|place[170]	new[169]|new[170]	nonsal[169]|nonsal[170]	A1237_road[169]|York_Outer_Ring_Road[170]	cf1[169]|cf8[170]	coref	29-41[244_170]
-23-40	2269-2273	York	place[169]|place[170]|place[171]	new[169]|new[170]|giv:act[171]	nonsal[169]|nonsal[170]|sal[171]	A1237_road[169]|York_Outer_Ring_Road[170]|York[171]	cf1[169]|cf8[170]|cf2*[171]	coref	25-27[197_171]
-23-41	2274-2279	Outer	place[169]|place[170]	new[169]|new[170]	nonsal[169]|nonsal[170]	A1237_road[169]|York_Outer_Ring_Road[170]	cf1[169]|cf8[170]	_	_
-23-42	2280-2284	Ring	place[169]|place[170]	new[169]|new[170]	nonsal[169]|nonsal[170]	A1237_road[169]|York_Outer_Ring_Road[170]	cf1[169]|cf8[170]	_	_
-23-43	2285-2289	Road	place[169]|place[170]	new[169]|new[170]	nonsal[169]|nonsal[170]	A1237_road[169]|York_Outer_Ring_Road[170]	cf1[169]|cf8[170]	_	_
+23-35	2244-2247	the	place[169]	new[169]	nnnnn[169]	A1237_road[169]	cf1[169]	coref	23-45[172_169]
+23-36	2248-2251	A64	place[169]	new[169]	nnnnn[169]	A1237_road[169]	cf1[169]	_	_
+23-37	2252-2261	eastbound	place[169]	new[169]	nnnnn[169]	A1237_road[169]	cf1[169]	_	_
+23-38	2262-2264	to	place[169]	new[169]	nnnnn[169]	A1237_road[169]	cf1[169]	_	_
+23-39	2265-2268	the	place[169]|place[170]	new[169]|new[170]	nnnnn[169]|nnnnn[170]	A1237_road[169]|York_Outer_Ring_Road[170]	cf1[169]|cf8[170]	coref	29-41[244_170]
+23-40	2269-2273	York	place[169]|place[170]|place[171]	new[169]|new[170]|giv:act[171]	nnnnn[169]|nnnnn[170]|sssss[171]	A1237_road[169]|York_Outer_Ring_Road[170]|York[171]	cf1[169]|cf8[170]|cf2*[171]	coref	25-27[197_171]
+23-41	2274-2279	Outer	place[169]|place[170]	new[169]|new[170]	nnnnn[169]|nnnnn[170]	A1237_road[169]|York_Outer_Ring_Road[170]	cf1[169]|cf8[170]	_	_
+23-42	2280-2284	Ring	place[169]|place[170]	new[169]|new[170]	nnnnn[169]|nnnnn[170]	A1237_road[169]|York_Outer_Ring_Road[170]	cf1[169]|cf8[170]	_	_
+23-43	2285-2289	Road	place[169]|place[170]	new[169]|new[170]	nnnnn[169]|nnnnn[170]	A1237_road[169]|York_Outer_Ring_Road[170]	cf1[169]|cf8[170]	_	_
 23-44	2290-2291	(	_	_	_	_	_	_	_
-23-45	2292-2297	A1237	place[172]	giv:act[172]	nonsal[172]	A1237_road[172]	cf1[172]	_	_
+23-45	2292-2297	A1237	place[172]	giv:act[172]	n____[172]	A1237_road[172]	cf1[172]	_	_
 23-46	2298-2299	)	_	_	_	_	_	_	_
 23-47	2300-2301	.	_	_	_	_	_	_	_
 
 #Text=Alternatively , you can take the M1 all the way to the A64 , but the upper reaches of the M1 around Sheffield and Leeds can get very congested , especially in the rush hours .
 24-1	2302-2315	Alternatively	_	_	_	_	_	_	_
 24-2	2316-2317	,	_	_	_	_	_	_	_
-24-3	2318-2321	you	person[173]	acc:com[173]	nonsal[173]	_	cf2[173]	ana	29-2[231_173]
+24-3	2318-2321	you	person[173]	acc:com[173]	nnnnn[173]	_	cf2[173]	ana	29-2[231_173]
 24-4	2322-2325	can	_	_	_	_	_	_	_
 24-5	2326-2330	take	_	_	_	_	_	_	_
-24-6	2331-2334	the	place[177]	giv:act[177]	nonsal[177]	M1_motorway[177]	cf1*[177]	coref	24-20[180_177]
-24-7	2335-2337	M1	place[177]	giv:act[177]	nonsal[177]	M1_motorway[177]	cf1*[177]	_	_
+24-6	2331-2334	the	place[177]	giv:act[177]	n____[177]	M1_motorway[177]	cf1*[177]	coref	24-20[180_177]
+24-7	2335-2337	M1	place[177]	giv:act[177]	n____[177]	M1_motorway[177]	cf1*[177]	_	_
 24-8	2338-2341	all	_	_	_	_	_	_	_
 24-9	2342-2345	the	_	_	_	_	_	_	_
 24-10	2346-2349	way	_	_	_	_	_	_	_
@@ -512,8 +517,8 @@
 24-17	2371-2376	upper	_	_	_	_	cf4[179]	_	_
 24-18	2377-2384	reaches	_	_	_	_	cf4[179]	_	_
 24-19	2385-2387	of	_	_	_	_	cf4[179]	_	_
-24-20	2388-2391	the	place[180]	giv:act[180]	nonsal[180]	M1_motorway[180]	cf4[179]|cf1*[180]	_	_
-24-21	2392-2394	M1	place[180]	giv:act[180]	nonsal[180]	M1_motorway[180]	cf4[179]|cf1*[180]	_	_
+24-20	2388-2391	the	place[180]	giv:act[180]	n____[180]	M1_motorway[180]	cf4[179]|cf1*[180]	_	_
+24-21	2392-2394	M1	place[180]	giv:act[180]	n____[180]	M1_motorway[180]	cf4[179]|cf1*[180]	_	_
 24-22	2395-2401	around	_	_	_	_	cf4[179]	_	_
 24-23	2402-2411	Sheffield	_	_	_	Sheffield[181]	cf4[179]|cf6[181]	_	_
 24-24	2412-2415	and	_	_	_	_	cf4[179]	_	_
@@ -525,9 +530,9 @@
 24-30	2445-2446	,	_	_	_	_	_	_	_
 24-31	2447-2457	especially	_	_	_	_	_	_	_
 24-32	2458-2460	in	_	_	_	_	_	_	_
-24-33	2461-2464	the	time[185]	acc:com[185]	nonsal[185]	_	cf3[185]	coref	27-30[218_185]
-24-34	2465-2469	rush	time[185]	acc:com[185]	nonsal[185]	_	cf3[185]	_	_
-24-35	2470-2475	hours	time[185]	acc:com[185]	nonsal[185]	_	cf3[185]	_	_
+24-33	2461-2464	the	time[185]	acc:com[185]	nnnnn[185]	_	cf3[185]	coref	27-30[218_185]
+24-34	2465-2469	rush	time[185]	acc:com[185]	nnnnn[185]	_	cf3[185]	_	_
+24-35	2470-2475	hours	time[185]	acc:com[185]	nnnnn[185]	_	cf3[185]	_	_
 24-36	2476-2477	.	_	_	_	_	_	_	_
 
 #Text=From the west , the A59 and the M62 provide connections from Liverpool and Manchester , and from the north the A1 and the A19 link York with Tyneside , Northumberland and south - eastern Scotland .
@@ -545,7 +550,7 @@
 25-12	2534-2538	from	_	_	_	_	cf3[189]	_	_
 25-13	2539-2548	Liverpool	_	_	_	Liverpool[190]	cf3[189]|cf10[190]	_	_
 25-14	2549-2552	and	_	_	_	_	cf3[189]	_	_
-25-15	2553-2563	Manchester	place[191]	giv:inact[191]	nonsal[191]	Manchester[191]	cf3[189]|cf2[191]	_	_
+25-15	2553-2563	Manchester	place[191]	giv:inact[191]	n____[191]	Manchester[191]	cf3[189]|cf2[191]	_	_
 25-16	2564-2565	,	_	_	_	_	_	_	_
 25-17	2566-2569	and	_	_	_	_	_	_	_
 25-18	2570-2574	from	_	_	_	_	_	_	_
@@ -554,10 +559,10 @@
 25-21	2585-2588	the	_	_	_	A1_road_%28Great_Britain%29[195]	cf7[195]	_	_
 25-22	2589-2591	A1	_	_	_	A1_road_%28Great_Britain%29[195]	cf7[195]	_	_
 25-23	2592-2595	and	_	_	_	_	_	_	_
-25-24	2596-2599	the	place[196]	new[196]	nonsal[196]	A19_road[196]	cf9[196]	coref	27-13[214_196]
-25-25	2600-2603	A19	place[196]	new[196]	nonsal[196]	A19_road[196]	cf9[196]	_	_
+25-24	2596-2599	the	place[196]	new[196]	nnnnn[196]	A19_road[196]	cf9[196]	coref	27-13[214_196]
+25-25	2600-2603	A19	place[196]	new[196]	nnnnn[196]	A19_road[196]	cf9[196]	_	_
 25-26	2604-2608	link	_	_	_	_	_	_	_
-25-27	2609-2613	York	place[197]	giv:inact[197]	sal[197]	York[197]	cf1[197]	_	_
+25-27	2609-2613	York	place[197]	giv:inact[197]	sssss[197]	York[197]	cf1[197]	_	_
 25-28	2614-2618	with	_	_	_	_	_	_	_
 25-29	2619-2627	Tyneside	_	_	_	Tyneside[198]	cf11[198]	_	_
 25-30	2628-2629	,	_	_	_	_	_	_	_
@@ -572,10 +577,10 @@
 #Text=Driving into the city centre itself is something to avoid .
 26-1	2676-2683	Driving	_	_	_	_	cf2[204]	_	_
 26-2	2684-2688	into	_	_	_	_	cf2[204]	_	_
-26-3	2689-2692	the	place[205]	acc:inf[205]	nonsal[205]	_	cf2[204]|cf1[205]	ana	26-6[207_205]
-26-4	2693-2697	city	place[205]	acc:inf[205]	nonsal[205]	York[206]	cf2[204]|cf1[205]|cf3*[206]	_	_
-26-5	2698-2704	centre	place[205]	acc:inf[205]	nonsal[205]	_	cf2[204]|cf1[205]	_	_
-26-6	2705-2711	itself	place[207]	giv:act[207]	nonsal[207]	_	cf2[204]|cf1[207]	coref	28-27[229_207]
+26-3	2689-2692	the	place[205]	acc:inf[205]	nnnnn[205]	_	cf2[204]|cf1[205]	ana	26-6[207_205]
+26-4	2693-2697	city	place[205]	acc:inf[205]	nnnnn[205]	York[206]	cf2[204]|cf1[205]|cf3*[206]	_	_
+26-5	2698-2704	centre	place[205]	acc:inf[205]	nnnnn[205]	_	cf2[204]|cf1[205]	_	_
+26-6	2705-2711	itself	place[207]	giv:act[207]	n____[207]	_	cf2[204]|cf1[207]	coref	28-27[229_207]
 26-7	2712-2714	is	_	_	_	_	_	_	_
 26-8	2715-2724	something	_	_	_	_	cf2[210]	_	_
 26-9	2725-2727	to	_	_	_	_	cf2[210]	_	_
@@ -595,8 +600,8 @@
 27-10	2794-2798	city	_	_	_	York[213]	cf4[211]|cf5[212]|cf1*[213]	_	_
 27-11	2799-2800	(	_	_	_	_	cf4[211]|cf5[212]	_	_
 27-12	2801-2811	especially	_	_	_	_	cf4[211]|cf5[212]	_	_
-27-13	2812-2815	the	place[214]	giv:inact[214]	nonsal[214]	A19_road[214]	cf4[211]|cf5[212]|cf2[214]	_	_
-27-14	2816-2819	A19	place[214]	giv:inact[214]	nonsal[214]	A19_road[214]	cf4[211]|cf5[212]|cf2[214]	_	_
+27-13	2812-2815	the	place[214]	giv:inact[214]	n____[214]	A19_road[214]	cf4[211]|cf5[212]|cf2[214]	_	_
+27-14	2816-2819	A19	place[214]	giv:inact[214]	n____[214]	A19_road[214]	cf4[211]|cf5[212]|cf2[214]	_	_
 27-15	2820-2822	on	_	_	_	_	cf4[211]|cf5[212]	_	_
 27-16	2823-2830	Bootham	_	_	_	Bootham[215]	cf4[211]|cf5[212]|cf7[215]	_	_
 27-17	2831-2834	and	_	_	_	_	cf4[211]|cf5[212]	_	_
@@ -612,9 +617,9 @@
 27-27	2874-2875	,	_	_	_	_	_	_	_
 27-28	2876-2886	especially	_	_	_	_	_	_	_
 27-29	2887-2893	during	_	_	_	_	_	_	_
-27-30	2894-2897	the	time[218]	giv:inact[218]	nonsal[218]	_	cf3[218]	_	_
-27-31	2898-2902	rush	time[218]	giv:inact[218]	nonsal[218]	_	cf3[218]	_	_
-27-32	2903-2908	hours	time[218]	giv:inact[218]	nonsal[218]	_	cf3[218]	_	_
+27-30	2894-2897	the	time[218]	giv:inact[218]	n____[218]	_	cf3[218]	_	_
+27-31	2898-2902	rush	time[218]	giv:inact[218]	n____[218]	_	cf3[218]	_	_
+27-32	2903-2908	hours	time[218]	giv:inact[218]	n____[218]	_	cf3[218]	_	_
 27-33	2909-2912	and	_	_	_	_	_	_	_
 27-34	2913-2915	on	_	_	_	_	_	_	_
 27-35	2916-2924	Saturday	_	_	_	_	cf8[219]	_	_
@@ -648,9 +653,9 @@
 28-24	3078-3081	and	_	_	_	_	_	_	_
 28-25	3082-3089	parking	_	_	_	_	cf4[228]	_	_
 28-26	3090-3092	in	_	_	_	_	cf4[228]	_	_
-28-27	3093-3096	the	place[229]	giv:inact[229]	nonsal[229]	_	cf4[228]|cf2[229]	coref	29-30[240_229]
-28-28	3097-3101	city	place[229]	giv:inact[229]	nonsal[229]	York[230]	cf4[228]|cf2[229]|cf1*[230]	_	_
-28-29	3102-3108	centre	place[229]	giv:inact[229]	nonsal[229]	_	cf4[228]|cf2[229]	_	_
+28-27	3093-3096	the	place[229]	giv:inact[229]	n____[229]	_	cf4[228]|cf2[229]	coref	29-30[240_229]
+28-28	3097-3101	city	place[229]	giv:inact[229]	n____[229]	York[230]	cf4[228]|cf2[229]|cf1*[230]	_	_
+28-29	3102-3108	centre	place[229]	giv:inact[229]	n____[229]	_	cf4[228]|cf2[229]	_	_
 28-30	3109-3111	is	_	_	_	_	_	_	_
 28-31	3112-3116	very	_	_	_	_	_	_	_
 28-32	3117-3126	expensive	_	_	_	_	_	_	_
@@ -658,20 +663,20 @@
 
 #Text=If you are just visiting York for the day , using a Park and Ride [ 1 ] costs a lot less than trying to park in or near the city centre , and there are five sites dotted around the Outer Ring Road .
 29-1	3129-3131	If	_	_	_	_	_	_	_
-29-2	3132-3135	you	person[231]	giv:inact[231]	nonsal[231]	_	cf3[231]	ana	30-19[251_231]
+29-2	3132-3135	you	person[231]	giv:inact[231]	n____[231]	_	cf3[231]	ana	30-19[251_231]
 29-3	3136-3139	are	_	_	_	_	_	_	_
 29-4	3140-3144	just	_	_	_	_	_	_	_
 29-5	3145-3153	visiting	_	_	_	_	_	_	_
 29-6	3154-3158	York	_	_	_	York[232]	cf1*[232]	_	_
 29-7	3159-3162	for	_	_	_	_	_	_	_
-29-8	3163-3166	the	time[236]	new[236]	nonsal[236]	_	cf7[236]	coref	32-7[272_236]
-29-9	3167-3170	day	time[236]	new[236]	nonsal[236]	_	cf7[236]	_	_
+29-8	3163-3166	the	time[236]	new[236]	nnnnn[236]	_	cf7[236]	coref	32-7[272_236]
+29-9	3167-3170	day	time[236]	new[236]	nnnnn[236]	_	cf7[236]	_	_
 29-10	3171-3172	,	_	_	_	_	_	_	_
 29-11	3173-3178	using	_	_	_	_	_	_	_
-29-12	3179-3180	a	place[237]	new[237]	nonsal[237]	York_park_and_ride[237]	cf6[237]	coref	30-28[256_237]
-29-13	3181-3185	Park	place[237]	new[237]	nonsal[237]	York_park_and_ride[237]	cf6[237]	_	_
-29-14	3186-3189	and	place[237]	new[237]	nonsal[237]	York_park_and_ride[237]	cf6[237]	_	_
-29-15	3190-3194	Ride	place[237]	new[237]	nonsal[237]	York_park_and_ride[237]	cf6[237]	_	_
+29-12	3179-3180	a	place[237]	new[237]	nnnnn[237]	York_park_and_ride[237]	cf6[237]	coref	30-28[256_237]
+29-13	3181-3185	Park	place[237]	new[237]	nnnnn[237]	York_park_and_ride[237]	cf6[237]	_	_
+29-14	3186-3189	and	place[237]	new[237]	nnnnn[237]	York_park_and_ride[237]	cf6[237]	_	_
+29-15	3190-3194	Ride	place[237]	new[237]	nnnnn[237]	York_park_and_ride[237]	cf6[237]	_	_
 29-16	3195-3196	[	_	_	_	_	_	_	_
 29-17	3197-3198	1	_	_	_	_	cf8[238]	_	_
 29-18	3199-3200	]	_	_	_	_	_	_	_
@@ -686,9 +691,9 @@
 29-27	3238-3240	in	_	_	_	_	_	_	_
 29-28	3241-3243	or	_	_	_	_	_	_	_
 29-29	3244-3248	near	_	_	_	_	_	_	_
-29-30	3249-3252	the	place[240]	giv:act[240]	nonsal[240]	_	cf2[240]	coref	30-7[246_240]
-29-31	3253-3257	city	place[240]	giv:act[240]	nonsal[240]	York[241]	cf2[240]|cf1*[241]	_	_
-29-32	3258-3264	centre	place[240]	giv:act[240]	nonsal[240]	_	cf2[240]	_	_
+29-30	3249-3252	the	place[240]	giv:act[240]	n____[240]	_	cf2[240]	coref	30-7[246_240]
+29-31	3253-3257	city	place[240]	giv:act[240]	n____[240]	York[241]	cf2[240]|cf1*[241]	_	_
+29-32	3258-3264	centre	place[240]	giv:act[240]	n____[240]	_	cf2[240]	_	_
 29-33	3265-3266	,	_	_	_	_	_	_	_
 29-34	3267-3270	and	_	_	_	_	_	_	_
 29-35	3271-3276	there	_	_	_	_	_	_	_
@@ -697,10 +702,10 @@
 29-38	3286-3291	sites	_	_	_	_	cf5[243]	_	_
 29-39	3292-3298	dotted	_	_	_	_	cf5[243]	_	_
 29-40	3299-3305	around	_	_	_	_	cf5[243]	_	_
-29-41	3306-3309	the	place[244]	giv:inact[244]	nonsal[244]	York_Outer_Ring_Road[244]	cf5[243]|cf4[244]	_	_
-29-42	3310-3315	Outer	place[244]	giv:inact[244]	nonsal[244]	York_Outer_Ring_Road[244]	cf5[243]|cf4[244]	_	_
-29-43	3316-3320	Ring	place[244]	giv:inact[244]	nonsal[244]	York_Outer_Ring_Road[244]	cf5[243]|cf4[244]	_	_
-29-44	3321-3325	Road	place[244]	giv:inact[244]	nonsal[244]	York_Outer_Ring_Road[244]	cf5[243]|cf4[244]	_	_
+29-41	3306-3309	the	place[244]	giv:inact[244]	n____[244]	York_Outer_Ring_Road[244]	cf5[243]|cf4[244]	_	_
+29-42	3310-3315	Outer	place[244]	giv:inact[244]	n____[244]	York_Outer_Ring_Road[244]	cf5[243]|cf4[244]	_	_
+29-43	3316-3320	Ring	place[244]	giv:inact[244]	n____[244]	York_Outer_Ring_Road[244]	cf5[243]|cf4[244]	_	_
+29-44	3321-3325	Road	place[244]	giv:inact[244]	n____[244]	York_Outer_Ring_Road[244]	cf5[243]|cf4[244]	_	_
 29-45	3326-3327	.	_	_	_	_	_	_	_
 
 #Text=However , the last buses from the city centre leave at around 8 pm in the evenings and you are not allowed to leave your car in a Park and Ride overnight .
@@ -710,9 +715,9 @@
 30-4	3342-3346	last	_	_	_	_	cf5[245]	_	_
 30-5	3347-3352	buses	_	_	_	_	cf5[245]	_	_
 30-6	3353-3357	from	_	_	_	_	cf5[245]	_	_
-30-7	3358-3361	the	place[246]	giv:act[246]	nonsal[246]	_	cf5[245]|cf2[246]	_	_
-30-8	3362-3366	city	place[246]	giv:act[246]	nonsal[246]	York[247]	cf5[245]|cf2[246]|cf4[247]	_	_
-30-9	3367-3373	centre	place[246]	giv:act[246]	nonsal[246]	_	cf5[245]|cf2[246]	_	_
+30-7	3358-3361	the	place[246]	giv:act[246]	n____[246]	_	cf5[245]|cf2[246]	_	_
+30-8	3362-3366	city	place[246]	giv:act[246]	n____[246]	York[247]	cf5[245]|cf2[246]|cf4[247]	_	_
+30-9	3367-3373	centre	place[246]	giv:act[246]	n____[246]	_	cf5[245]|cf2[246]	_	_
 30-10	3374-3379	leave	_	_	_	_	_	_	_
 30-11	3380-3382	at	_	_	_	_	_	_	_
 30-12	3383-3389	around	_	_	_	_	cf8[249]	_	_
@@ -722,19 +727,19 @@
 30-16	3398-3401	the	_	_	_	_	cf7[250]	_	_
 30-17	3402-3410	evenings	_	_	_	_	cf7[250]	_	_
 30-18	3411-3414	and	_	_	_	_	_	_	_
-30-19	3415-3418	you	person[251]	giv:act[251]	nonsal[251]	_	cf1*[251]	ana	30-25[254_251]
+30-19	3415-3418	you	person[251]	giv:act[251]	n____[251]	_	cf1*[251]	ana	30-25[254_251]
 30-20	3419-3422	are	_	_	_	_	_	_	_
 30-21	3423-3426	not	_	_	_	_	_	_	_
 30-22	3427-3434	allowed	_	_	_	_	_	_	_
 30-23	3435-3437	to	_	_	_	_	_	_	_
 30-24	3438-3443	leave	_	_	_	_	_	_	_
-30-25	3444-3448	your	person[254]	giv:act[254]	nonsal[254]	_	cf6[253]|cf1*[254]	ana	31-4[257_254]
+30-25	3444-3448	your	person[254]	giv:act[254]	n____[254]	_	cf6[253]|cf1*[254]	ana	31-4[257_254]
 30-26	3449-3452	car	_	_	_	_	cf6[253]	_	_
 30-27	3453-3455	in	_	_	_	_	_	_	_
-30-28	3456-3457	a	place[256]	giv:act[256]	nonsal[256]	York_park_and_ride[256]	cf3[256]	_	_
-30-29	3458-3462	Park	place[256]	giv:act[256]	nonsal[256]	York_park_and_ride[256]	cf3[256]	_	_
-30-30	3463-3466	and	place[256]	giv:act[256]	nonsal[256]	York_park_and_ride[256]	cf3[256]	_	_
-30-31	3467-3471	Ride	place[256]	giv:act[256]	nonsal[256]	York_park_and_ride[256]	cf3[256]	_	_
+30-28	3456-3457	a	place[256]	giv:act[256]	n____[256]	York_park_and_ride[256]	cf3[256]	_	_
+30-29	3458-3462	Park	place[256]	giv:act[256]	n____[256]	York_park_and_ride[256]	cf3[256]	_	_
+30-30	3463-3466	and	place[256]	giv:act[256]	n____[256]	York_park_and_ride[256]	cf3[256]	_	_
+30-31	3467-3471	Ride	place[256]	giv:act[256]	n____[256]	York_park_and_ride[256]	cf3[256]	_	_
 30-32	3472-3481	overnight	_	_	_	_	_	_	_
 30-33	3482-3483	.	_	_	_	_	_	_	_
 
@@ -742,7 +747,7 @@
 31-1	3484-3493	Therefore	_	_	_	_	_	_	_
 31-2	3494-3495	,	_	_	_	_	_	_	_
 31-3	3496-3498	if	_	_	_	_	_	_	_
-31-4	3499-3502	you	person[257]	giv:act[257]	nonsal[257]	_	cf1*[257]	ana	31-18[264_257]
+31-4	3499-3502	you	person[257]	giv:act[257]	n____[257]	_	cf1*[257]	ana	31-18[264_257]
 31-5	3503-3506	are	_	_	_	_	_	_	_
 31-6	3507-3514	staying	_	_	_	_	_	_	_
 31-7	3515-3524	overnight	_	_	_	_	_	_	_
@@ -756,31 +761,31 @@
 31-15	3555-3559	make	_	_	_	_	_	_	_
 31-16	3560-3564	sure	_	_	_	_	_	_	_
 31-17	3565-3569	that	_	_	_	_	_	_	_
-31-18	3570-3574	your	person[264]	giv:act[264]	nonsal[264]	_	cf4[263]|cf1*[264]	ana	31-23[266_264]
+31-18	3570-3574	your	person[264]	giv:act[264]	n____[264]	_	cf4[263]|cf1*[264]	ana	31-23[266_264]
 31-19	3575-3580	hotel	_	_	_	_	cf4[263]	_	_
 31-20	3581-3587	offers	_	_	_	_	_	_	_
 31-21	3588-3595	parking	_	_	_	_	cf5[265]	_	_
 31-22	3596-3602	before	_	_	_	_	_	_	_
-31-23	3603-3606	you	person[266]	giv:act[266]	nonsal[266]	_	cf1*[266]	ana	32-2[267_266]
+31-23	3603-3606	you	person[266]	giv:act[266]	n____[266]	_	cf1*[266]	ana	32-2[267_266]
 31-24	3607-3611	book	_	_	_	_	_	_	_
 31-25	3612-3613	.	_	_	_	_	_	_	_
 
 #Text=If you are only visiting for the day but staying until late evening , you will need to use a city centre car park .
 32-1	3614-3616	If	_	_	_	_	_	_	_
-32-2	3617-3620	you	person[267]	giv:act[267]	nonsal[267]	_	cf1*[267]	ana	32-15[274_267]
+32-2	3617-3620	you	person[267]	giv:act[267]	n____[267]	_	cf1*[267]	ana	32-15[274_267]
 32-3	3621-3624	are	_	_	_	_	_	_	_
 32-4	3625-3629	only	_	_	_	_	_	_	_
 32-5	3630-3638	visiting	_	_	_	_	_	_	_
 32-6	3639-3642	for	_	_	_	_	_	_	_
-32-7	3643-3646	the	time[272]	giv:inact[272]	nonsal[272]	_	cf3[272]	_	_
-32-8	3647-3650	day	time[272]	giv:inact[272]	nonsal[272]	_	cf3[272]	_	_
+32-7	3643-3646	the	time[272]	giv:inact[272]	n____[272]	_	cf3[272]	_	_
+32-8	3647-3650	day	time[272]	giv:inact[272]	n____[272]	_	cf3[272]	_	_
 32-9	3651-3654	but	_	_	_	_	_	_	_
 32-10	3655-3662	staying	_	_	_	_	_	_	_
 32-11	3663-3668	until	_	_	_	_	_	_	_
 32-12	3669-3673	late	_	_	_	_	cf6[273]	_	_
 32-13	3674-3681	evening	_	_	_	_	cf6[273]	_	_
 32-14	3682-3683	,	_	_	_	_	_	_	_
-32-15	3684-3687	you	person[274]	giv:act[274]	nonsal[274]	_	cf1*[274]	_	_
+32-15	3684-3687	you	person[274]	giv:act[274]	n____[274]	_	cf1*[274]	_	_
 32-16	3688-3692	will	_	_	_	_	_	_	_
 32-17	3693-3697	need	_	_	_	_	_	_	_
 32-18	3698-3700	to	_	_	_	_	_	_	_

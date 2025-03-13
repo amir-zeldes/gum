@@ -5,28 +5,32 @@
 # meta::dateCreated = 2019-07-20
 # meta::dateModified = 2019-07-20
 # meta::genre = bio
-# meta::salientEntities = 6, 20, 36, 40, 46, 60, 64, 77, 94
+# meta::salientEntities = 6 (5*), 7 (4), 95 (4*), 20 (3*), 36 (3), 40 (3*), 46 (3*), 65 (3*), 75 (3), 12 (2), 61 (2*), 97 (2), 13 (1), 18 (1), 19 (1), 27 (1), 28 (1), 50 (1), 68 (1), 78 (1*), 82 (1), 88 (1)
 # meta::sourceURL = https://en.wikipedia.org/wiki/Yuen_Ren_Chao
 # meta::speakerCount = 0
-# meta::summary = Yuen Ren Chao was a Chinese and American dialectologist and polyglot who sudied Chinese dialects and taught at Tsinghua University, Harvard and Berkeley between the 1920s and 1960s.
+# meta::summary1 = (human1) Yuen Ren Chao was a Chinese and American dialectologist and polyglot who sudied Chinese dialects and taught at Tsinghua University, Harvard and Berkeley between the 1920s and 1960s.
+# meta::summary2 = (claude-3-5-sonnet-20241022) A Chinese-born linguist and scholar, Yuen Ren Chao studied in America, taught at various institutions including Berkeley, conducted extensive linguistic fieldwork in China, and made significant contributions to Chinese linguistics while maintaining diverse interests in mathematics, music, and languages.
+# meta::summary3 = (gpt4o) Chao Yuen Ren, a prominent Chinese linguist and Harvard Ph.D. in philosophy, was known for his work on Chinese dialects, collaborations with leading linguists, professorship at UC Berkeley, and linguistic wit, maintaining strong ties with both the U.S. and China.
+# meta::summary4 = (Llama-3.2-3B-Instruct) Chao Yuan-fen was a Chinese-American linguist who studied mathematics and physics in the US, became a professor at Harvard and Tsinghua University, and collaborated with other linguists on various projects before moving to the US permanently in 1938 and becoming an American citizen in 1954.
+# meta::summary5 = (Qwen2.5-7B-Instruct) Li Fang-Yen Chao, a scholar fluent in multiple languages and renowned for his contributions to linguistics, traveled between the United States and China throughout his career, collaborating with fellow scholars and conducting extensive fieldwork on Chinese dialects.
 # meta::title = Yuen Ren Chao
+# newpar
+# newpar_block = head rend:::"bold" (1 s)
 # sent_id = GUM_bio_chao-1
 # s_prominence = 2
 # s_type = frag
 # transition = establishment
 # text = Early life
-# newpar
-# newpar_block = head rend:::"bold" (1 s)
 1	Early	early	ADJ	JJ	Degree=Pos	2	amod	2:amod	Discourse=organization-heading:1->3:4:grf-ly-
 2	life	life	NOUN	NN	Number=Sing	0	root	0:root	_
 
+# newpar
+# newpar_block = p (2 s)
 # sent_id = GUM_bio_chao-2
 # s_prominence = 1
 # s_type = decl
 # transition = null
 # text = Born in Tianjin with ancestry in Changzhou, Jiangsu province, Chao went to the United States with a Boxer Indemnity Scholarship in 1910 to study mathematics and physics at Cornell University, where he was a classmate and lifelong friend of Hu Shih, the leader of the New Culture Movement.
-# newpar
-# newpar_block = p (2 s)
 1	Born	bear	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	12	acl	12:acl	Discourse=context-background:2->3:1:_|Entity=(1
 2	in	in	ADP	IN	_	3	case	3:case	_
 3	Tianjin	Tianjin	PROPN	NNP	Number=Sing	1	obl	1:obl:in	XML=<ref target:::"https://en.wikipedia.org/wiki/Tianjin"></ref>
@@ -36,7 +40,7 @@
 7	Changzhou	Changzhou	PROPN	NNP	Number=Sing	5	nmod	5:nmod:in	SpaceAfter=No|XML=<ref target:::"https://en.wikipedia.org/wiki/Changzhou"></ref>
 8	,	,	PUNCT	,	_	10	punct	10:punct	_
 9	Jiangsu	Jiangsu	PROPN	NNP	Number=Sing	10	compound	10:compound	XML=<ref target:::"https://en.wikipedia.org/wiki/Jiangsu"></ref>
-10	province	province	NOUN	NN	Number=Sing	7	appos	7:appos	SpaceAfter=No
+10	province	province	NOUN	NN	Number=Sing	7	nmod:unmarked	7:nmod:unmarked	SpaceAfter=No
 11	,	,	PUNCT	,	_	1	punct	1:punct	Entity=1)
 12	Chao	Chao	PROPN	NNP	Number=Sing	13	nsubj	13:nsubj	Discourse=ROOT:3:0
 13	went	go	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
@@ -70,7 +74,7 @@
 41	friend	friend	NOUN	NN	Number=Sing	38	conj	32:acl:relcl|38:conj:and	_
 42	of	of	ADP	IN	_	43	case	43:case	_
 43	Hu	Hu	PROPN	NNP	Number=Sing	41	nmod	41:nmod:of	Entity=(3|XML=<ref target:::"https://en.wikipedia.org/wiki/Hu_Shih">
-44	Shih	Shih	PROPN	NNP	Number=Sing	43	flat	43:flat	Entity=1)|SpaceAfter=No|XML=</ref>
+44	Shih	Shih	PROPN	NNP	Number=Sing	43	flat	43:flat	SpaceAfter=No|XML=</ref>
 45	,	,	PUNCT	,	_	47	punct	47:punct	_
 46	the	the	DET	DT	Definite=Def|PronType=Art	47	det	47:det	_
 47	leader	leader	NOUN	NN	Number=Sing	43	appos	43:appos	MSeg=lead-er
@@ -78,7 +82,7 @@
 49	the	the	DET	DT	Definite=Def|PronType=Art	52	det	52:det	_
 50	New	New	ADJ	NNP	Degree=Pos	51	amod	51:amod	Entity=(4|XML=<ref target:::"https://en.wikipedia.org/wiki/New_Culture_Movement">
 51	Culture	Culture	PROPN	NNP	Number=Sing	52	compound	52:compound	Entity=4)
-52	Movement	Movement	PROPN	NNP	Number=Sing	47	nmod	47:nmod:of	Entity=3)|MSeg=Move-ment|SpaceAfter=No|XML=</ref>
+52	Movement	Movement	PROPN	NNP	Number=Sing	47	nmod	47:nmod:of	Entity=3)1)|MSeg=Move-ment|SpaceAfter=No|XML=</ref>
 53	.	.	PUNCT	.	_	13	punct	13:punct	_
 
 # sent_id = GUM_bio_chao-3
@@ -108,22 +112,22 @@
 20	a	a	DET	DT	Definite=Ind|PronType=Art	21	det	21:det	_
 21	dissertation	dissertation	NOUN	NN	Number=Sing	9	obl	9:obl:with	MSeg=dissertat-ion
 22	entitled	entitle	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	21	acl	21:acl	MSeg=en-titl-ed
-23	"	''	PUNCT	``	_	24	punct	24:punct	SpaceAfter=No|XML=<q>
+23	"	"	PUNCT	``	_	24	punct	24:punct	SpaceAfter=No|XML=<q>
 24	Continuity	Continuity	PROPN	NNP	Number=Sing	22	xcomp	22:xcomp	MSeg=Continu-ity|SpaceAfter=No
 25	:	:	PUNCT	:	_	26	punct	26:punct	_
 26	Study	Study	PROPN	NNP	Number=Sing	24	appos	24:appos	_
 27	in	in	ADP	IN	_	28	case	28:case	_
 28	Methodology	Methodology	PROPN	NNP	Number=Sing	26	nmod	26:nmod:in	MSeg=Method-ology|SpaceAfter=No
-29	"	''	PUNCT	''	_	24	punct	24:punct	SpaceAfter=No|XML=</q>
+29	"	"	PUNCT	''	_	24	punct	24:punct	SpaceAfter=No|XML=</q>
 30	.	.	PUNCT	.	_	3	punct	3:punct	_
 
+# newpar
+# newpar_block = p (5 s)
 # sent_id = GUM_bio_chao-4
 # s_prominence = 1
 # s_type = decl
 # transition = continue
 # text = Already in college his interests had turned to music and languages.
-# newpar
-# newpar_block = p (5 s)
 1	Already	already	ADV	RB	_	7	advmod	7:advmod	Discourse=joint-other_m:8->3:3:_|MSeg=Al-ready
 2	in	in	ADP	IN	_	3	case	3:case	_
 3	college	college	NOUN	NN	Number=Sing	7	obl	7:obl:in	Entity=(5)
@@ -236,12 +240,12 @@
 14	said	say	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	5	acl:relcl	5:acl:relcl	MSeg=sai-d
 15	to	to	PART	TO	_	18	mark	18:mark	_
 16	be	be	AUX	VB	VerbForm=Inf	18	cop	18:cop	_
-17	"	''	PUNCT	``	_	18	punct	18:punct	SpaceAfter=No
+17	"	"	PUNCT	``	_	18	punct	18:punct	SpaceAfter=No
 18	legendary	legendary	ADJ	JJ	Degree=Pos	14	xcomp	14:xcomp	MSeg=legend-ary
 19	for	for	ADP	IN	_	21	case	21:case	_
 20	its	its	PRON	PRP$	Case=Gen|Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	21	nmod:poss	21:nmod:poss	MSeg=it-s
 21	acuity	acuity	NOUN	NN	Number=Sing	18	obl	18:obl:for	MSeg=acu-ity|SpaceAfter=No
-22	"	''	PUNCT	''	_	18	punct	18:punct	SpaceAfter=No
+22	"	"	PUNCT	''	_	18	punct	18:punct	SpaceAfter=No
 23	,	,	PUNCT	,	_	24	punct	24:punct	_
 24	enabling	enable	VERB	VBG	Tense=Pres|VerbForm=Part	2	advcl	2:advcl	Discourse=causal-result:19->16:2:syn-pres-180|MSeg=enabl-ing|PDTB=Implicit:Contingency.Cause.Result:thus:_:157-179:180-195
 25	him	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	24	obj	24:obj|27:nsubj:xsubj	Entity=(7)
@@ -260,26 +264,26 @@
 38	accuracy	accuracy	NOUN	NN	Number=Sing	36	nmod	36:nmod:of	MSeg=accura-cy|SpaceAfter=No
 39	.	.	PUNCT	.	_	2	punct	2:punct	_
 
+# newpar
+# newpar_block = head rend:::"bold" (1 s)
 # sent_id = GUM_bio_chao-9
 # s_prominence = 2
 # s_type = frag
 # transition = zero
 # text = Career development and later life
-# newpar
-# newpar_block = head rend:::"bold" (1 s)
 1	Career	career	NOUN	NN	Number=Sing	2	compound	2:compound	Discourse=organization-heading:20->21:3:grf-ly-
 2	development	development	NOUN	NN	Number=Sing	0	root	0:root	MSeg=develop-ment
 3	and	and	CCONJ	CC	_	5	cc	5:cc	_
 4	later	late	ADJ	JJR	Degree=Cmp	5	amod	5:amod	MSeg=lat-er
 5	life	life	NOUN	NN	Number=Sing	2	conj	2:conj:and	_
 
+# newpar
+# newpar_block = p (3 s)
 # sent_id = GUM_bio_chao-10
 # s_prominence = 1
 # s_type = decl
 # transition = null
 # text = He returned to China in 1920, marrying the physician Yang Buwei there that year.
-# newpar
-# newpar_block = p (3 s)
 1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=joint-sequence_m:21->3:5:_|Entity=(7)
 2	returned	return	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=return-ed
 3	to	to	ADP	IN	_	4	case	4:case	_
@@ -307,7 +311,7 @@
 3	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	4	cop	4:cop	_
 4	simple	simple	ADJ	JJ	Degree=Pos	0	root	0:root	SpaceAfter=No
 5	,	,	PUNCT	,	_	11	punct	11:punct	_
-6	rather	rather	ADV	RB	_	11	cc	11:cc	Discourse=adversative-antithesis:24->23:0:dm-rather than-222-223|MSeg=rath-er|PDTB=Explicit:Expansion.Substitution.Arg2-as-subst:rather than:222-223:217-221:224-228
+6	rather	rather	ADV	RB	ExtPos=CCONJ	11	cc	11:cc	Discourse=adversative-antithesis:24->23:0:dm-rather than-222-223|MSeg=rath-er|PDTB=Explicit:Expansion.Substitution.Arg2-as-subst:rather than:222-223:217-221:224-228
 7	than	than	ADP	IN	_	6	fixed	6:fixed	_
 8	the	the	DET	DT	Definite=Def|PronType=Art	11	det	11:det	_
 9	noisy	noisy	ADJ	JJ	Degree=Pos	11	amod	11:amod	MSeg=nois-y
@@ -356,13 +360,13 @@
 22	generation	generation	NOUN	NN	Number=Sing	16	nmod	16:nmod:for	Entity=15)14)|MSeg=generat-ion|SpaceAfter=No|XML=</ref>
 23	.	.	PUNCT	.	_	9	punct	9:punct	_
 
+# newpar
+# newpar_block = p (4 s)
 # sent_id = GUM_bio_chao-13
 # s_prominence = 1
 # s_type = decl
 # transition = zero
 # text = Chao taught mathematics at Tsinghua University and, one year later, returned to the United States to teach at Harvard.
-# newpar
-# newpar_block = p (4 s)
 1	Chao	Chao	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj|13:nsubj	Discourse=joint-sequence_m:27->21:1:lex-indwd-206+lex-indph-214-215|Entity=(7)
 2	taught	teach	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	mathematics	mathematics	NOUN	NN	Number=Sing	2	obj	2:obj	MSeg=mathematic-s
@@ -372,9 +376,9 @@
 7	and	and	CCONJ	CC	_	13	cc	13:cc	Discourse=joint-sequence_m:28->21:1:dm-and-268+lex-indph-270-272|PDTB=Explicit:Expansion.Conjunction:and:268:262-267:269-283;Implicit:Temporal.Asynchronous.Precedence:then:_:262-267:268-283|SpaceAfter=No
 8	,	,	PUNCT	,	_	7	punct	7:punct	_
 9	one	one	NUM	CD	NumForm=Word|NumType=Card	10	nummod	10:nummod	XML=<date when:::"1921">
-10	year	year	NOUN	NN	Number=Sing	13	obl:unmarked	13:obl:unmarked	_
-11	later	late	ADV	RBR	Degree=Cmp	10	advmod	10:advmod	MSeg=lat-er|SpaceAfter=No|XML=</date>
-12	,	,	PUNCT	,	_	10	punct	10:punct	_
+10	year	year	NOUN	NN	Number=Sing	11	obl:unmarked	11:obl:unmarked	_
+11	later	late	ADV	RBR	Degree=Cmp	13	advmod	13:advmod	MSeg=lat-er|SpaceAfter=No|XML=</date>
+12	,	,	PUNCT	,	_	11	punct	11:punct	_
 13	returned	return	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	2	conj	2:conj:and	MSeg=return-ed
 14	to	to	ADP	IN	_	17	case	17:case	_
 15	the	the	DET	DT	Definite=Def|PronType=Art	17	det	17:det	Entity=(2
@@ -498,13 +502,13 @@
 47	)	)	PUNCT	-RRB-	_	44	punct	44:punct	SpaceAfter=No
 48	.	.	PUNCT	.	_	8	punct	8:punct	_
 
+# newpar
+# newpar_block = p (5 s)
 # sent_id = GUM_bio_chao-17
 # s_prominence = 1
 # s_type = decl
 # transition = continue
 # text = He left for the US in 1938, and resided there afterwards.
-# newpar
-# newpar_block = p (5 s)
 1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj|10:nsubj	Discourse=joint-sequence_m:37->21:1:_|Entity=(7)
 2	left	leave	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	for	for	ADP	IN	_	5	case	5:case	_
@@ -627,13 +631,13 @@
 26	Languages	Language	PROPN	NNPS	Number=Plur	23	nmod	23:nmod:of	Entity=7)|MSeg=Language-s|SpaceAfter=No
 27	.	.	PUNCT	.	_	7	punct	7:punct	_
 
+# newpar
+# newpar_block = p (1 s)
 # sent_id = GUM_bio_chao-22
 # s_prominence = 1
 # s_type = decl
 # transition = retain
 # text = Both Chao and Yang were known for their good senses of humor, he particularly for his love of subtle jokes and language puns: they published a family history entitled, Life with Chaos: the autobiography of a Chinese family.
-# newpar
-# newpar_block = p (1 s)
 1	Both	both	CCONJ	CC	_	2	cc:preconj	2:cc:preconj	Discourse=joint-other_m:45->21:2:_|Entity=(14
 2	Chao	Chao	PROPN	NNP	Number=Sing	6	nsubj:pass	6:nsubj:pass	Entity=(7)
 3	and	and	CCONJ	CC	_	4	cc	4:cc	_
@@ -680,13 +684,13 @@
 42	family	family	NOUN	NN	Number=Sing	38	nmod	38:nmod:of	SpaceAfter=No|XML=</hi>
 43	.	.	PUNCT	.	_	6	punct	6:punct	_
 
+# newpar
+# newpar_block = p (6 s)
 # sent_id = GUM_bio_chao-23
 # s_prominence = 2
 # s_type = decl
 # transition = continue
 # text = Late in his life, he was invited by Deng Xiaoping to return to China in 1981.
-# newpar
-# newpar_block = p (6 s)
 1	Late	late	ADV	RB	Degree=Pos	8	advmod	8:advmod	Discourse=context-background:49->51:1:ref-prs-518,562+sem-rpt-530,564+sem-rpt-532,571
 2	in	in	ADP	IN	_	4	case	4:case	_
 3	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	4	nmod:poss	4:nmod:poss	Entity=(7)
@@ -715,10 +719,10 @@
 2	at	at	ADP	IN	_	4	case	4:case	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	_
 4	invitation	invitation	NOUN	NN	Number=Sing	16	obl	16:obl:at	MSeg=invit-ation
-5	of	of	ADP	IN	_	6	case	6:case	_
-6	Premier	Premier	PROPN	NNP	Number=Sing	4	nmod	4:nmod:of	_
-7	Zhou	Zhou	PROPN	NNP	Number=Sing	6	flat	6:flat	XML=<ref target:::"https://en.wikipedia.org/wiki/Zhou_Enlai">
-8	En	En	PROPN	NNP	Number=Sing	6	flat	6:flat	SpaceAfter=No|XML=<w>
+5	of	of	ADP	IN	_	7	case	7:case	_
+6	Premier	Premier	PROPN	NNP	Number=Sing	7	nmod:desc	7:nmod:desc	_
+7	Zhou	Zhou	PROPN	NNP	Number=Sing	4	nmod	4:nmod:of	XML=<ref target:::"https://en.wikipedia.org/wiki/Zhou_Enlai">
+8	En	En	PROPN	NNP	Number=Sing	7	flat	7:flat	SpaceAfter=No|XML=<w>
 9	-	-	PUNCT	HYPH	_	10	punct	10:punct	SpaceAfter=No
 10	Lai	Lai	PROPN	NNP	Number=Sing	8	flat	8:flat	SpaceAfter=No|XML=</w></ref>
 11	,	,	PUNCT	,	_	4	punct	4:punct	_
@@ -776,7 +780,7 @@
 3	in	in	ADP	IN	_	4	case	4:case	_
 4	Cambridge	Cambridge	PROPN	NNP	Number=Sing	2	obl	2:obl:in	SpaceAfter=No|XML=<ref target:::"https://en.wikipedia.org/wiki/Cambridge,_Massachusetts"></ref>
 5	,	,	PUNCT	,	_	6	punct	6:punct	_
-6	Massachusetts	Massachusetts	PROPN	NNP	Number=Sing	4	appos	4:appos	SpaceAfter=No
+6	Massachusetts	Massachusetts	PROPN	NNP	Number=Sing	4	nmod:unmarked	4:nmod:unmarked	SpaceAfter=No
 7	.	.	PUNCT	.	_	2	punct	2:punct	_
 
 # sent_id = GUM_bio_chao-27

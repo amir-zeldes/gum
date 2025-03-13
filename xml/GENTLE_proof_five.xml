@@ -1,0 +1,769 @@
+<text id="GENTLE_proof_five" partition="train" author="Pr∞fWiki" dateCollected="2022-11-11" dateCreated="2009-03-13" dateModified="2022-03-21"  shortTitle="five" sourceURL="https://proofwiki.org/wiki/Five_Color_Theorem" speakerCount="0" speakerList="none" title="Five Color Theorem" type="proof" summary1="(human1) This mathematical proof shows by induction that for any graph Gr of n vertices a proper vertex k-coloring can be assigned such that k≤5 colors, using the Minimum Degree Bound for Simple Planar Graph theorem, which states that Gr+1 has at least one vertex x with at most 5 edges, whose removal would yield a 5-colorable graph, allowing one of 5 colors for x in each condition." summary2="(claude-3-5-sonnet-20241022) This proof uses mathematical induction to demonstrate that any planar graph Gn can be properly colored using at most 5 colors, by showing that removing a vertex with at most 5 edges allows for a valid 5-coloring through strategic color swapping." summary3="(gpt4o) This proof demonstrates using the Principle of Mathematical Induction that any simple planar graph Gn with n vertices can be properly colored with at most five colors, starting from the base case for up to five vertices and extending to any number of vertices by showing that removing and recoloring a vertex results in a valid five-coloring." summary4="(Meta-Llama-3-8B-Instruct) This proof demonstrates that a graph with n ≥ 5 vertices can be five-colored using the Principle of Mathematical Induction." summary5="(Qwen2.5-3B-Instruct) The proof uses mathematical induction to show that a simple planar graph Gn can be colored with at most 5 colors for all n > 0, by analyzing vertices with at most 5 edges and manipulating colorings of induced subgraphs.">
+<head>
+<s type="frag" transition="establishment">
+Proof	NN	proof	NN1	NOUN	root	_
+</s>
+</head>
+<p>
+<s type="decl" transition="establishment">
+The	DT	the	AT0	DET	det	_
+proof	NN	proof	NN1	NOUN	nsubj	_
+proceeds	VVZ	proceed	VVZ	VERB	root	_
+by	IN	by	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Principle_of_Mathematical_Induction">
+Principle	NP	Principle	NP0	PROPN	obl	Princip-le
+of	IN	of	PRF	ADP	case	_
+Mathematical	NP	Mathematical	NP0	ADJ	amod	Mathematic-al
+Induction	NP	Induction	NP0	PROPN	nmod	Induct-ion
+</ref>
+on	IN	on	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+number	NN	number	NN1	NOUN	nmod	_
+of	IN	of	PRF	ADP	case	_
+<ref target="https://proofwiki.org/wiki/Definition:Vertex_of_Graph">
+vertices	NNS	vertice	NN2	NOUN	nmod	vertice-s
+</ref>
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<p>
+<s type="imp" transition="zero">
+For	IN	for	PRP	ADP	case	_
+all	DT	all	DT0	DET	det	_
+n	NN	n	NN1	NOUN	obl	_
+∈	SYM	∈	UNC	SYM	appos	_
+N&gt;0	NN	N&gt;0	NN1	NOUN	nmod:unmarked	_
+,	,	,	PUN	PUNCT	punct	_
+let	VV	let	VVB	VERB	root	_
+P	NN	P	NN1	NOUN	nsubj	_
+(	(	(	PUL	PUNCT	punct	_
+n	NN	n	NN1	NOUN	nmod:unmarked	_
+)	)	)	PUR	PUNCT	punct	_
+be	VB	be	VBI	AUX	cop	_
+the	DT	the	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Proposition">
+proposition	NN	proposition	NN1	NOUN	xcomp	propos-it-ion
+</ref>
+:	:	:	PUN	PUNCT	punct	_
+Gn	NN	Gn	NN1	NOUN	nsubj:pass	_
+can	MD	can	VM0	AUX	aux	_
+be	VB	be	VBI	AUX	aux:pass	_
+assigned	VVN	assign	VVN	VERB	appos	assign-ed
+a	DT	a	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Proper_Vertex_Coloring">
+proper	JJ	proper	AJ0	ADJ	amod	_
+vertex	NN	vertex	NN1	NOUN	compound	_
+k	NN	k	NN1	NOUN	compound	_
+-	HYPH	-	PUN	PUNCT	punct	_
+coloring	NN	coloring	NN1	NOUN	obj	color-ing
+</ref>
+such	JJ	such	DT0	ADJ	mark	_
+that	IN/that	that	CJT	SCONJ	fixed	_
+k	NN	k	NN1	NOUN	nsubj	_
+≤	SYM	≤	NP0	SYM	acl	_
+5	CD	5	CRD	NUM	obl:unmarked	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<head>
+<s type="frag" transition="null">
+Basis	NN	basis	NN1	NOUN	root	_
+for	IN	for	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+Induction	NN	induction	NN1	NOUN	nmod	Induct-ion
+</s>
+</head>
+<p>
+<s type="decl" transition="establishment">
+P	NN	P	NN1	NOUN	nsubj	_
+(	(	(	PUL	PUNCT	punct	_
+r	NN	reter	NN1	NOUN	nmod:unmarked	_
+)	)	)	PUR	PUNCT	punct	_
+is	VBZ	be	VBZ	AUX	cop	_
+trivially	RB	trivially	AV0	ADV	advmod	trivi-al-ly
+true	JJ	true	AJ0	ADJ	root	_
+for	IN	for	PRP	SCONJ	mark	_
+1	CD	1	CRD	NUM	obl:unmarked	_
+≤	SYM	≤	UNC	SYM	advcl	_
+r	NN	reter	NN1	NOUN	nsubj	_
+≤	SYM	≤	NP0	SYM	conj	_
+5	CD	5	CRD	NUM	obl:unmarked	_
+,	,	,	PUN	PUNCT	punct	_
+as	IN	as	CJS	SCONJ	mark	_
+there	EX	there	EX0	PRON	expl	_
+are	VBP	be	VBB	VERB	advcl	_
+no	RB	no	AV0	ADV	advmod	_
+more	RBR	more	AV0	ADV	advmod	_
+than	IN	than	CJS	ADP	fixed	_
+5	CD	5	CRD	NUM	nummod	_
+<ref target="https://proofwiki.org/wiki/Definition:Vertex_of_Graph">
+vertices	NNS	vertice	NN2	NOUN	nsubj	vertice-s
+</ref>
+to	TO	to	TO0	PART	mark	_
+be	VB	be	VBI	AUX	aux:pass	_
+colored	VVN	color	VVN	VERB	acl	color-ed
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<p>
+<s type="decl" transition="continue">
+This	DT	this	DT0	PRON	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+our	PP$	our	DPS	PRON	nmod:poss	_
+<ref target="https://proofwiki.org/wiki/Definition:Basis_for_the_Induction">
+basis	NN	basis	NN1	NOUN	root	_
+for	IN	for	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+induction	NN	induction	NN1	NOUN	nmod	induct-ion
+</ref>
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<head>
+<s type="frag" transition="zero">
+Induction	NN	induction	NN1	NOUN	compound	Induct-ion
+Hypothesis	NN	hypothesis	NN1	NOUN	root	Hypothes-is
+</s>
+</head>
+<p>
+<s type="decl" transition="null">
+Now	RB	now	CJS	ADV	advmod	_
+we	PP	we	PNP	PRON	nsubj	_
+need	VVP	need	VVB	VERB	root	_
+to	TO	to	TO0	PART	mark	_
+show	VV	show	VVI	VERB	xcomp	_
+that	IN/that	that	CJT	SCONJ	mark	_
+,	,	,	PUN	PUNCT	punct	_
+if	IN	if	CJS	SCONJ	mark	_
+P	NN	P	NN1	NOUN	nsubj	_
+(	(	(	PUL	PUNCT	punct	_
+r	NN	reter	NN1	NOUN	nmod:unmarked	_
+)	)	)	PUR	PUNCT	punct	_
+is	VBZ	be	VBZ	AUX	cop	_
+true	JJ	true	AJ0	ADJ	advcl	_
+,	,	,	PUN	PUNCT	punct	_
+where	WRB	where	CJS	ADV	advmod	_
+r	NN	reter	NN1	NOUN	nsubj	_
+≥	SYM	≥	NP0	SYM	acl:relcl	_
+5	CD	5	CRD	NUM	obl:unmarked	_
+,	,	,	PUN	PUNCT	punct	_
+then	RB	then	AV0	ADV	advmod	_
+it	PP	it	PNP	PRON	expl	_
+logically	RB	logically	AV0	ADV	advmod	log-ic-al-ly
+follows	VVZ	follow	VVZ	VERB	ccomp	follow-s
+that	IN/that	that	CJT	SCONJ	mark	_
+P	NN	P	NN1	NOUN	nsubj	_
+(	(	(	PUL	PUNCT	punct	_
+r	NN	reter	NN1	NOUN	nmod:unmarked	_
++	SYM	+	UNC	SYM	cc	_
+1	CD	1	CRD	NUM	conj	_
+)	)	)	PUR	PUNCT	punct	_
+is	VBZ	be	VBZ	AUX	cop	_
+true	JJ	true	AJ0	ADJ	csubj	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<p>
+<s type="decl" transition="establishment">
+So	RB	so	CJS	ADV	advmod	_
+this	DT	this	DT0	PRON	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+our	PP$	our	DPS	PRON	nmod:poss	_
+<ref target="https://proofwiki.org/wiki/Definition:Induction_Hypothesis">
+induction	NN	induction	NN1	NOUN	compound	induct-ion
+hypothesis	NN	hypothesis	NN1	NOUN	root	hypothes-is
+</ref>
+:	:	:	PUN	PUNCT	punct	_
+Gr	NN	Gr	NN1	NOUN	nsubj:pass	_
+can	MD	can	VM0	AUX	aux	_
+be	VB	be	VBI	AUX	aux:pass	_
+assigned	VVN	assign	VVN	VERB	parataxis	assign-ed
+a	DT	a	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Proper_Vertex_Coloring">
+proper	JJ	proper	AJ0	ADJ	amod	_
+vertex	NN	vertex	NN1	NOUN	compound	_
+k	NN	k	NN1	NOUN	compound	_
+-	HYPH	-	PUN	PUNCT	punct	_
+coloring	NN	coloring	NN1	NOUN	obj	color-ing
+</ref>
+such	JJ	such	DT0	ADJ	mark	_
+that	IN/that	that	CJT	SCONJ	fixed	_
+k	NN	k	NN1	NOUN	nsubj	_
+≤	SYM	≤	NP0	SYM	acl	_
+5	CD	5	CRD	NUM	obl:unmarked	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<p>
+<s type="decl" transition="continue">
+Then	RB	then	AV0	ADV	advmod	_
+we	PP	we	PNP	PRON	nsubj	_
+need	VVP	need	VVB	VERB	root	_
+to	TO	to	TO0	PART	mark	_
+show	VV	show	VVI	VERB	xcomp	_
+:	:	:	PUN	PUNCT	punct	_
+Gr+1	NN	Gr+1	NN1	NOUN	nsubj:pass	_
+can	MD	can	VM0	AUX	aux	_
+be	VB	be	VBI	AUX	aux:pass	_
+assigned	VVN	assign	VVN	VERB	ccomp	assign-ed
+a	DT	a	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Proper_Vertex_Coloring">
+proper	JJ	proper	AJ0	ADJ	amod	_
+vertex	NN	vertex	NN1	NOUN	compound	_
+k	NN	k	NN1	NOUN	compound	_
+-	HYPH	-	PUN	PUNCT	punct	_
+coloring	NN	coloring	NN1	NOUN	obj	color-ing
+</ref>
+such	JJ	such	DT0	ADJ	mark	_
+that	IN/that	that	CJT	SCONJ	fixed	_
+k	NN	k	NN1	NOUN	nsubj	_
+≤	SYM	≤	NP0	SYM	acl	_
+5	CD	5	CRD	NUM	obl:unmarked	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<head>
+<s type="frag" transition="zero">
+Induction	NN	induction	NN1	NOUN	compound	Induct-ion
+Step	NN	step	NN1	NOUN	root	_
+</s>
+</head>
+<p>
+<s type="decl" transition="establishment">
+This	DT	this	DT0	PRON	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+our	PP$	our	DPS	PRON	nmod:poss	_
+<ref target="https://proofwiki.org/wiki/Definition:Induction_Step">
+induction	NN	induction	NN1	NOUN	compound	induct-ion
+step	NN	step	NN1	NOUN	root	_
+</ref>
+:	:	:	PUN	PUNCT	punct	_
+</s>
+</p>
+<p>
+<s type="decl" transition="zero">
+According	VVG	accord	VVG	VERB	case	Accord-ing
+to	IN	to	PRP	ADP	fixed	_
+the	DT	the	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Minimum_Degree_Bound_for_Simple_Planar_Graph">
+Minimum	NP	Minimum	NP0	ADJ	amod	_
+Degree	NP	Degree	NP0	PROPN	compound	_
+Bound	NP	Bound	NP0	PROPN	obl	_
+for	IN	for	PRP	ADP	case	_
+Simple	NP	simple	NP0	ADJ	amod	_
+Planar	NP	Planar	NP0	ADJ	amod	_
+Graph	NP	Graph	NP0	PROPN	nmod	_
+</ref>
+,	,	,	PUN	PUNCT	punct	_
+Gr+1	NN	Gr+1	NN1	NOUN	nsubj	_
+has	VHZ	have	VHZ	VERB	root	ha-s
+at	IN	at	PRP	ADP	case	_
+least	JJS	least	AJS	ADJ	nmod	_
+one	CD	one	CRD	NUM	nummod	_
+<ref target="https://proofwiki.org/wiki/Definition:Vertex_of_Graph">
+vertex	NN	vertex	NN1	NOUN	obj	_
+</ref>
+with	IN	with	PRP	ADP	case	_
+at	IN	at	PRP	ADP	case	_
+most	JJS	most	AJS	ADJ	nmod	_
+5	CD	5	CRD	NUM	nummod	_
+edges	NNS	edge	NN2	NOUN	nmod	edge-s
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="establishment">
+Let	VV	let	VVB	VERB	root	_
+this	DT	this	DT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Vertex_of_Graph">
+vertex	NN	vertex	NN1	NOUN	obj	_
+</ref>
+be	VB	be	VBI	AUX	aux:pass	_
+labeled	VVN	label	VVN	VERB	xcomp	label-ed
+x	NN	x	NN1	NOUN	obj	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="imp" transition="continue">
+Remove	VV	remove	VVB	VERB	root	Re-move
+vertex	NN	vertex	NN1	NOUN	obj	_
+x	NN	x	NN1	NOUN	flat	_
+from	IN	from	PRP	ADP	case	_
+Gr+1	NN	Gr+1	NN1	NOUN	obl	_
+to	TO	to	TO0	PART	mark	_
+create	VV	create	VVI	VERB	advcl	_
+another	DT	another	DT0	DET	det	an-other
+graph	NN	graph	NN1	NOUN	obj	_
+,	,	,	PUN	PUNCT	punct	_
+G′r.	NN	G′r.	NN1	NOUN	appos	_
+</s>
+<s type="decl" transition="smooth-shift">
+By	IN	by	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Induction_Hypothesis">
+induction	NN	induction	NN1	NOUN	compound	induct-ion
+hypothesis	NN	hypothesis	NN1	NOUN	obl	hypothes-is
+</ref>
+,	,	,	PUN	PUNCT	punct	_
+G′r	NN	G′r	NN1	NOUN	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+five	CD	five	CRD	NUM	nummod	_
+-	HYPH	-	PUN	PUNCT	punct	_
+colorable	JJ	colorable	AJ0	ADJ	root	color-able
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="imp" transition="zero">
+Suppose	VV	suppose	VVB	VERB	root	_
+all	DT	all	DT0	DET	det	_
+five	CD	five	CRD	NUM	nummod	_
+colors	NNS	color	NN2	NOUN	nsubj:pass	color-s
+were	VBD	be	VBD	AUX	aux:pass	_
+not	RB	not	XX0	PART	advmod	_
+connected	VVN	connect	VVN	VERB	ccomp	connect-ed
+to	IN	to	PRP	ADP	case	_
+x	NN	x	NN1	NOUN	obl	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="establishment">
+Then	RB	then	AV0	ADV	advmod	_
+we	PP	we	PNP	PRON	nsubj	_
+can	MD	can	VM0	AUX	aux	_
+give	VV	give	VVI	VERB	root	_
+x	NN	x	NN1	NOUN	iobj	_
+the	DT	the	AT0	DET	det	_
+missing	JJ	missing	AJ0	ADJ	amod	miss-ing
+color	NN	color	NN1	NOUN	obj	_
+and	CC	and	CJC	CCONJ	cc	_
+thus	RB	thus	AV0	ADV	advmod	_
+five	CD	five	CRD	NUM	nummod	_
+-	HYPH	-	PUN	PUNCT	punct	_
+color	NN	color	NN1	NOUN	conj	_
+Gr+1	NN	Gr+1	NN1	NOUN	obj	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<p>
+<s type="imp" transition="continue">
+Suppose	VV	suppose	VVB	VERB	root	_
+all	DT	all	DT0	DET	det	_
+five	CD	five	CRD	NUM	nummod	_
+colors	NNS	color	NN2	NOUN	nsubj:pass	color-s
+are	VBP	be	VBB	AUX	aux:pass	_
+connected	VVN	connect	VVN	VERB	ccomp	connect-ed
+to	IN	to	PRP	ADP	case	_
+x	NN	x	NN1	NOUN	obl	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="imp" transition="continue">
+Then	RB	then	AV0	ADV	advmod	_
+examine	VV	examine	VVB	VERB	root	_
+the	DT	the	AT0	DET	det	_
+five	CD	five	CRD	NUM	nummod	_
+vertices	NNS	vertice	NN2	NOUN	obj	vertice-s
+x	NN	x	NN1	NOUN	nsubj	_
+was	VBD	be	VBD	AUX	cop	_
+<ref target="https://proofwiki.org/wiki/Definition:Adjacent_(Graph_Theory)">
+adjacent	JJ	adjacent	AJ0	ADJ	acl:relcl	_
+</ref>
+to	IN	to	PRP	ADP	obl	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="imp" transition="smooth-shift">
+Call	VV	call	VVB	VERB	root	_
+them	PP	they	PNP	PRON	obj	_
+y1	NN	y1	NN1	NOUN	xcomp	_
+,	,	,	PUN	PUNCT	punct	_
+y2	NN	y2	NN1	NOUN	conj	_
+,	,	,	PUN	PUNCT	punct	_
+y3	NN	y3	NN1	NOUN	conj	_
+,	,	,	PUN	PUNCT	punct	_
+y4	NN	y4	NN0	NOUN	conj	_
+and	CC	and	CJC	CCONJ	cc	_
+y5	NN	y5	NN0	NOUN	conj	_
+in	IN	in	PRP	ADP	case	_
+clockwise	JJ	clockwise	AJ0	ADJ	amod	clock-wise
+order	NN	order	NN1	NOUN	obl	_
+around	IN	around	PRP	ADP	case	a-round
+x	NN	x	NN1	NOUN	nmod	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="imp" transition="smooth-shift">
+Let	VV	let	VVB	VERB	root	_
+y1	NN	y1	NN1	NOUN	obj	_
+,	,	,	PUN	PUNCT	punct	_
+y2	NN	y2	NN1	NOUN	conj	_
+,	,	,	PUN	PUNCT	punct	_
+y3	NN	y3	NN1	NOUN	conj	_
+,	,	,	PUN	PUNCT	punct	_
+y4	NN	y4	NN0	NOUN	conj	_
+and	CC	and	CJC	CCONJ	cc	_
+y5	NN	y5	NN0	NOUN	conj	_
+be	VB	be	VBI	AUX	aux:pass	_
+colored	VVN	color	VVN	VERB	xcomp	color-ed
+respectively	RB	respectively	AV0	ADV	advmod	respect-ive-ly
+by	IN	by	PRP	ADP	case	_
+colors	NNS	color	NN2	NOUN	obl:agent	color-s
+c1	NN	c1	NN1	NOUN	flat	_
+,	,	,	PUN	PUNCT	punct	_
+c2	NN	c2	NN0	NOUN	conj	_
+,	,	,	PUN	PUNCT	punct	_
+c3	NN	c3	NN0	NOUN	conj	_
+,	,	,	PUN	PUNCT	punct	_
+c4	NN	c4	NN0	NOUN	conj	_
+and	CC	and	CJC	CCONJ	cc	_
+c5	NN	c5	NN0	NOUN	conj	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<p>
+<s type="imp" transition="zero">
+Let	VV	let	VVB	VERB	root	_
+us	PP	we	PNP	PRON	obj	_
+denote	VV	denote	VVI	VERB	xcomp	_
+Hi,j	NN	Hi,j	NN1	NOUN	obj	_
+a	DT	a	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Subgraph">
+subgraph	NN	subgraph	NN1	NOUN	xcomp	_
+</ref>
+of	IN	of	PRF	ADP	case	_
+G′r	NN	G′r	NN1	NOUN	nmod	_
+induced	VVN	induce	VVN	VERB	acl	induc-ed
+by	IN	by	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+vertices	NNS	vertice	NN2	NOUN	obl:agent	vertice-s
+colored	VVN	color	VVN	VERB	acl	color-ed
+with	IN	with	PRP	ADP	case	_
+ci	NN	circa	NN1	NOUN	obl	_
+and	CC	and	CJC	CCONJ	cc	_
+cj	NN	cunce	NN1	NOUN	conj	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="imp" transition="null">
+Consider	VV	consider	VVB	VERB	root	_
+H1,3	NN	H1,3	NN1	NOUN	obj	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="imp" transition="establishment">
+Suppose	VV	suppose	VVB	VERB	root	_
+there	EX	there	AV0	PRON	expl	_
+exists	VVZ	exist	VVZ	VERB	ccomp	exist-s
+no	DT	no	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Path">
+path	NN	path	NN1	NOUN	nsubj	_
+</ref>
+between	IN	between	PRP	ADP	case	be-tween
+y1	NN	y1	NN1	NOUN	nmod	_
+and	CC	and	CJC	CCONJ	cc	_
+y3	NN	y3	NN1	NOUN	conj	_
+in	IN	in	PRP	ADP	case	_
+H1,3	NN	H1,3	NN1	NOUN	obl	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="continue">
+Thus	RB	thus	AV0	ADV	advmod	_
+,	,	,	PUN	PUNCT	punct	_
+H1,3	NN	H1,3	NN1	NOUN	nsubj:pass	_
+is	VBZ	be	VBZ	AUX	aux:pass	_
+disconnected	VVN	disconnect	VVN	VERB	root	dis-connect-ed
+into	IN	into	PRP	ADP	case	in-to
+two	CD	two	CRD	NUM	nummod	_
+components	NNS	component	NN2	NOUN	obl	component-s
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="zero">
+We	PP	we	PNP	PRON	nsubj	_
+can	MD	can	VM0	AUX	aux	_
+,	,	,	PUN	PUNCT	punct	_
+then	RB	then	AV0	ADV	advmod	_
+,	,	,	PUN	PUNCT	punct	_
+interchange	VV	interchange	NN1	VERB	root	inter-change
+the	DT	the	AT0	DET	det	_
+colors	NNS	color	NN2	NOUN	obj	color-s
+c1	NN	c1	NN0	NOUN	dep	_
+and	CC	and	CJC	CCONJ	cc	_
+c3	NN	c3	NN0	NOUN	conj	_
+in	IN	in	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+component	NN	component	NN1	NOUN	obl	_
+that	WDT	that	CJT	PRON	nsubj:pass	_
+is	VBZ	be	VBZ	AUX	aux:pass	_
+connected	VVN	connect	VVN	VERB	acl:relcl	connect-ed
+to	IN	to	PRP	ADP	case	_
+y1	NN	y1	NN1	NOUN	obl	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="establishment">
+Thus	RB	thus	AV0	ADV	advmod	_
+x	JJ	x	AJ0	ADJ	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+no	RB	no	AT0	ADV	advmod	_
+longer	RBR	long	AV0	ADV	advmod	long-er
+adjacent	JJ	adjacent	AJ0	ADJ	root	_
+to	IN	to	PRP	ADP	case	_
+a	DT	a	AT0	DET	det	_
+vertex	NN	vertex	NN1	NOUN	obl	_
+of	IN	of	PRF	ADP	case	_
+color	NN	color	NN1	NOUN	nmod	_
+c1	NN	c1	NN1	NOUN	flat	_
+,	,	,	PUN	PUNCT	punct	_
+so	RB	so	CJS	ADV	advmod	_
+x	NN	x	NN1	NOUN	nsubj:pass	_
+can	MD	can	VM0	AUX	aux	_
+be	VB	be	VBI	AUX	aux:pass	_
+colored	VVN	color	VVN	VERB	advcl	color-ed
+c1	NN	c1	NN1	NOUN	obj	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<p>
+<s type="imp" transition="zero">
+Suppose	VV	suppose	VVB	VERB	root	_
+there	EX	there	AV0	PRON	expl	_
+exists	VVZ	exist	VVZ	VERB	ccomp	exist-s
+a	DT	a	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Path">
+path	NN	path	NN1	NOUN	nsubj	_
+</ref>
+between	IN	between	PRP	ADP	case	be-tween
+y1	NN	y1	NN1	NOUN	nmod	_
+and	CC	and	CJC	CCONJ	cc	_
+y3	NN	y3	NN1	NOUN	conj	_
+in	IN	in	PRP	ADP	case	_
+H1,3	NN	H1,3	NN1	NOUN	obl	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="establishment">
+Including	VVG	include	VVG	VERB	advcl	Includ-ing
+the	DT	the	AT0	DET	det	_
+vertex	NN	vertex	NN1	NOUN	obj	_
+x	NN	x	NN1	NOUN	flat	_
+in	IN	in	PRP	ADP	case	_
+this	DT	this	DT0	DET	det	_
+path	NN	path	NN1	NOUN	obl	_
+we	PP	we	PNP	PRON	nsubj	_
+get	VVP	get	VVB	VERB	root	_
+a	DT	a	AT0	DET	det	_
+circuit	NN	circuit	NN1	NOUN	obj	_
+C	NN	C	NN1	NOUN	flat	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="smooth-shift">
+Since	IN	since	CJS	SCONJ	mark	_
+we	PP	we	PNP	PRON	nsubj	_
+indexed	VVD	index	VVD	VERB	advcl	index-ed
+the	DT	the	AT0	DET	det	_
+vertices	NNS	vertice	NN2	NOUN	obj	vertice-s
+y1	NN	y1	NN1	NOUN	flat	_
+,	,	,	PUN	PUNCT	punct	_
+y2	NN	y2	NN1	NOUN	conj	_
+,	,	,	PUN	PUNCT	punct	_
+y3	NN	y3	NN1	NOUN	conj	_
+,	,	,	PUN	PUNCT	punct	_
+y4	NN	y4	NN1	NOUN	conj	_
+and	CC	and	CJC	CCONJ	cc	_
+y5	NN	y5	NN1	NOUN	conj	_
+clockwise	NN	clockwise	NN1	NOUN	obl:unmarked	clock-wise
+,	,	,	PUN	PUNCT	punct	_
+exactly	RB	exactly	AV0	ADV	advmod	exact-ly
+one	CD	one	CRD	NUM	nsubj	_
+of	IN	of	PRF	ADP	case	_
+the	DT	the	AT0	DET	det	_
+vertices	NNS	vertice	NN2	NOUN	nmod	vertice-s
+y2	NN	y2	NN0	NOUN	flat	_
+and	CC	and	CJC	CCONJ	cc	_
+y4	NN	y4	NN0	NOUN	conj	_
+is	VBZ	be	VBZ	AUX	cop	_
+inside	IN	inside	PRP	ADP	case	in-side
+C	NN	C	NN1	NOUN	root	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="smooth-shift">
+Hence	RB	hence	AV0	ADV	advmod	_
+,	,	,	PUN	PUNCT	punct	_
+y2	NN	y2	NN0	NOUN	nsubj	_
+and	CC	and	CJC	CCONJ	cc	_
+y4	NN	y4	NN0	NOUN	conj	_
+are	VBP	be	VBB	AUX	cop	_
+in	IN	in	PRP	ADP	case	_
+different	JJ	different	AJ0	ADJ	amod	differ-ent
+connected	VVN	connect	VVN	VERB	amod	connect-ed
+components	NNS	component	NN2	NOUN	root	component-s
+of	IN	of	PRF	ADP	case	_
+H2,4	NN	H2,4	NN1	NOUN	nmod	_
+</s>
+<s type="decl" transition="smooth-shift">
+Then	RB	then	AV0	ADV	advmod	_
+we	PP	we	PNP	PRON	nsubj	_
+can	MD	can	VM0	AUX	aux	_
+switch	VV	switch	VVI	VERB	root	_
+colors	NNS	color	NN2	NOUN	obj	color-s
+c2	NN	c2	NN0	NOUN	dep	_
+and	CC	and	CJC	CCONJ	cc	_
+c4	NN	c4	NN0	NOUN	conj	_
+in	IN	in	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+component	NN	component	NN1	NOUN	obl	_
+of	IN	of	PRF	ADP	case	_
+H2,4	NN	H2,4	NN1	NOUN	nmod	_
+that	WDT	that	CJT	PRON	nsubj:pass	_
+is	VBZ	be	VBZ	AUX	aux:pass	_
+connected	VVN	connect	VVN	VERB	acl:relcl	connect-ed
+to	IN	to	PRP	ADP	case	_
+y2	NN	y2	NN0	NOUN	obl	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="smooth-shift">
+Now	RB	now	AV0	ADV	advmod	_
+x	NN	x	NN1	NOUN	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+no	RB	no	AT0	ADV	advmod	_
+longer	RBR	long	AV0	ADV	advmod	long-er
+adjacent	JJ	adjacent	AJ0	ADJ	root	_
+to	IN	to	PRP	ADP	case	_
+a	DT	a	AT0	DET	det	_
+vertex	NN	vertex	NN1	NOUN	obl	_
+of	IN	of	PRF	ADP	case	_
+color	NN	color	NN1	NOUN	nmod	_
+c2	NN	c2	NN0	NOUN	flat	_
+,	,	,	PUN	PUNCT	punct	_
+so	RB	so	CJS	ADV	advmod	_
+we	PP	we	PNP	PRON	nsubj	_
+can	MD	can	VM0	AUX	aux	_
+color	VV	color	NN1	VERB	advcl	_
+it	PP	it	PNP	PRON	obj	_
+c2	NN	c2	NN1	NOUN	xcomp	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<p>
+<s type="decl" transition="zero">
+<figure rend="Five Color Theorem.png">
+</figure>
+This	DT	this	DT0	DET	det	_
+graph	NN	graph	NN1	NOUN	nsubj	_
+illustrates	VVZ	illustrate	VVZ	VERB	root	illustrate-s
+the	DT	the	AT0	DET	det	_
+case	NN	case	NN1	NOUN	obj	_
+in	IN	in	PRP	ADP	case	_
+which	WDT	which	DTQ	PRON	obl	_
+the	DT	the	AT0	DET	det	_
+path	NN	path	NN1	NOUN	nsubj:pass	_
+from	IN	from	PRP	ADP	case	_
+y1	NN	y1	NN1	NOUN	nmod	_
+to	IN	to	PRP	ADP	case	_
+y3	NN	y3	NN0	NOUN	nmod	_
+can	MD	can	VM0	AUX	aux	_
+be	VB	be	VBI	AUX	aux:pass	_
+completed	VVN	complete	VVN	VERB	acl:relcl	complet-ed
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="null">
+Blue	NN	Blue	NN1	NOUN	nsubj:outer	_
+=	SYM	=	UNC	SYM	root	_
+c1	NN	c1	NN0	NOUN	obj	_
+,	,	,	PUN	PUNCT	punct	_
+Yellow	NN	yellow	NN1	NOUN	nsubj	_
+=	SYM	=	UNC	SYM	conj	_
+c2	NN	c2	NN1	NOUN	obj	_
+,	,	,	PUN	PUNCT	punct	_
+Red	NN	Red	NN1	NOUN	nsubj	_
+=	:	=	UNC	PUNCT	punct	_
+c3	NN	c3	NN1	NOUN	obj	_
+,	,	,	PUN	PUNCT	punct	_
+Green	NN	Green	NN1	NOUN	nsubj	_
+=	SYM	=	UNC	SYM	conj	_
+c4	NN	c4	NN1	NOUN	obj	_
+,	,	,	PUN	PUNCT	punct	_
+Turquoise	NN	Turquoise	NN1	NOUN	nsubj	_
+=	SYM	=	UNC	SYM	conj	_
+c5	NN	c5	NN0	NOUN	obj	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="null">
+The	DT	the	AT0	DET	det	_
+dotted	JJ	dotted	AJ0	ADJ	amod	dott-ed
+lines	NNS	line	NN2	NOUN	nsubj	line-s
+represent	VVP	represent	VVB	VERB	root	_
+edges	NNS	edge	NN2	NOUN	obj	edge-s
+and	CC	and	CJC	CCONJ	cc	_
+vertices	NNS	vertice	NN2	NOUN	conj	vertice-s
+that	WDT	that	CJT	PRON	nsubj	_
+might	MD	might	VM0	AUX	aux	_
+exist	VV	exist	VVI	VERB	acl:relcl	_
+,	,	,	PUN	PUNCT	punct	_
+as	IN	as	CJS	SCONJ	mark	_
+this	DT	this	DT0	PRON	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+simply	RB	simply	AV0	ADV	advmod	simp-ly
+a	DT	a	AT0	DET	det	_
+fairly	RB	fairly	AV0	ADV	advmod	fair-ly
+minimal	JJ	minimal	AJ0	ADJ	amod	minim-al
+example	NN	example	NN1	NOUN	compound	_
+graph	NN	graph	NN1	NOUN	advcl	_
+that	WDT	that	CJT	PRON	nsubj	_
+matches	VVZ	match	VVZ	VERB	acl:relcl	matche-s
+the	DT	the	AT0	DET	det	_
+conditions	NNS	condition	NN2	NOUN	obj	condition-s
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<p>
+<s type="decl" transition="null">
+So	RB	so	CJS	ADV	advmod	_
+P	NN	P	NN1	NOUN	nsubj	_
+(	(	(	PUL	PUNCT	punct	_
+r	NN	reter	NN1	NOUN	nmod:unmarked	_
+)	)	)	PUR	PUNCT	punct	_
+⟹	NN	⟹	NN1	NOUN	root	_
+P	NN	P	NN1	NOUN	obj	_
+(	(	(	PUL	PUNCT	punct	_
+r	NN	reter	NN1	NOUN	nmod:unmarked	_
++	SYM	+	UNC	SYM	cc	_
+1	CD	1	CRD	NUM	conj	_
+)	)	)	PUR	PUNCT	punct	_
+and	CC	and	CJC	CCONJ	cc	_
+the	DT	the	AT0	DET	det	_
+result	NN	result	NN1	NOUN	nsubj	_
+follows	VVZ	follow	VVZ	VERB	conj	follow-s
+by	IN	by	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Principle_of_Mathematical_Induction">
+Principle	NP	Principle	NP0	PROPN	obl	Princip-le
+of	IN	of	PRF	ADP	case	_
+Mathematical	NP	Mathematical	NP0	ADJ	amod	Mathematic-al
+Induction	NP	Induction	NP0	PROPN	nmod	Induct-ion
+</ref>
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<p>
+<s type="other" transition="null">
+Therefore	RB	therefore	AV0	ADV	root	There-fore
+:	:	:	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="null">
+For	IN	for	PRP	ADP	case	_
+all	DT	all	DT0	DET	det	_
+n	NN	n	NN1	NOUN	obl	_
+∈	SYM	∈	UNC	SYM	appos	_
+N&gt;0	NN	N&gt;0	NN1	NOUN	nmod:unmarked	_
+,	,	,	PUN	PUNCT	punct	_
+Gn	NN	Gn	NN1	NOUN	nsubj:pass	_
+can	MD	can	VM0	AUX	aux	_
+be	VB	be	VBI	AUX	aux:pass	_
+assigned	VVN	assign	VVN	VERB	root	assign-ed
+a	DT	a	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Proper_Vertex_Coloring">
+proper	JJ	proper	AJ0	ADJ	amod	_
+vertex	NN	vertex	NN1	NOUN	compound	_
+k	NN	k	NN1	NOUN	compound	_
+-	HYPH	-	PUN	PUNCT	punct	_
+coloring	NN	coloring	NN1	NOUN	obj	color-ing
+</ref>
+such	JJ	such	DT0	ADJ	mark	_
+that	IN/that	that	CJT	SCONJ	fixed	_
+k	NN	k	NN1	NOUN	nsubj	_
+≤	SYM	≤	NP0	SYM	acl	_
+5	CD	5	CRD	NUM	obl:unmarked	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+</text>

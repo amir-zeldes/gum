@@ -1,0 +1,926 @@
+#FORMAT=WebAnno TSV 3.2
+#T_SP=webanno.custom.Referent|entity|infstat|salience|identity|centering
+#T_RL=webanno.custom.Coref|type|BT_webanno.custom.Referent
+#Summary1=(human1) This mathematical proof shows that two wosets S and T, ordered sets with a well-ordering, must be order isomorphic to each other, or else one set is order isomorphic to an initial segment of the other, trivially if they contain less than two elements, and otherwise provably using a relation ⪯, which is shown to be a reflexive, transitive and antisymmetric total well-ordering.
+#Summary2=(claude-3-5-sonnet-20241022) This proof establishes that two well-ordered sets S and T with at least two elements each can be combined into a single well-ordered set U by defining a specific relation that preserves the ordering properties and leads to an order isomorphism between T and either U or an initial segment of U.
+#Summary3=(gpt4o) This proof establishes that by defining a specific ordering relation on the union of two well-ordered sets, S and T, a well-ordering can be achieved, and further demonstrates the existence of a strictly increasing mapping from T to U, leading to order isomorphisms either between T and S or vice versa, depending on specific initial conditions.
+#Summary4=(Meta-Llama-3-8B-Instruct) The proof shows that ⪯ is a well-ordering on the disjoint union of sets S and T, establishing a well-ordering on the union of a well-ordered set and an ordered set.
+#Summary5=(Qwen2.5-3B-Instruct) The proof demonstrates that a well-ordering can be established on the union of ordered sets S and T, and that this order is order-isomorphic to subsets of S or T, depending on the smallest element’s location.
+
+
+#Text=Proof
+1-1	0-5	Proof	abstract[1]	new[1]	sssss[1]	_	cf1[1]	bridge:def	2-13[10_1]	
+
+#Text=If the sets S and T considered are empty or singletons , the theorem holds vacuously or trivially .
+2-1	6-8	If	_	_	_	_	_	_	_	
+2-2	9-12	the	abstract[3]	new[3]	sssss[3]	_	cf2[3]	_	_	
+2-3	13-17	sets	abstract[3]	new[3]	sssss[3]	_	cf2[3]	_	_	
+2-4	18-19	S	abstract[3]|abstract[4]	new[3]|new[4]	sssss[3]|sssss[4]	_	cf2[3]|cf3[4]	coref	3-3[11_4]	
+2-5	20-23	and	abstract[3]	new[3]	sssss[3]	_	cf2[3]	_	_	
+2-6	24-25	T	abstract[3]|abstract[5]	new[3]|new[5]	sssss[3]|sssss[5]	_	cf2[3]|cf4[5]	coref	3-5[12_5]	
+2-7	26-36	considered	abstract[3]	new[3]	sssss[3]	_	cf2[3]	_	_	
+2-8	37-40	are	_	_	_	_	_	_	_	
+2-9	41-46	empty	_	_	_	_	_	_	_	
+2-10	47-49	or	_	_	_	_	_	_	_	
+2-11	50-60	singletons	abstract[6]	new[6]	nnnnn[6]	_	cf5[6]	_	_	
+2-12	61-62	,	_	_	_	_	_	_	_	
+2-13	63-66	the	abstract[10]	acc:inf[10]	nnnnn[10]	_	cf1[10]	_	_	
+2-14	67-74	theorem	abstract[10]	acc:inf[10]	nnnnn[10]	_	cf1[10]	_	_	
+2-15	75-80	holds	_	_	_	_	_	_	_	
+2-16	81-90	vacuously	_	_	_	_	_	_	_	
+2-17	91-93	or	_	_	_	_	_	_	_	
+2-18	94-103	trivially	_	_	_	_	_	_	_	
+2-19	104-105	.	_	_	_	_	_	_	_	
+
+#Text=Thus assume S and T each contain at least two elements .
+3-1	106-110	Thus	_	_	_	_	_	_	_	
+3-2	111-117	assume	_	_	_	_	_	_	_	
+3-3	118-119	S	abstract[11]	giv:act[11]	sssss[11]	_	cf1*[11]	coref	4-5[17_11]	
+3-4	120-123	and	_	_	_	_	_	_	_	
+3-5	124-125	T	abstract[12]	giv:act[12]	sssss[12]	_	cf2[12]	coref	4-12[19_12]	
+3-6	126-130	each	_	_	_	_	_	_	_	
+3-7	131-138	contain	_	_	_	_	_	_	_	
+3-8	139-141	at	abstract[15]	new[15]	nsnnn[15]	_	cf3[15]	_	_	
+3-9	142-147	least	abstract[15]	new[15]	nsnnn[15]	_	cf3[15]	_	_	
+3-10	148-151	two	abstract[15]	new[15]	nsnnn[15]	_	cf3[15]	_	_	
+3-11	152-160	elements	abstract[15]	new[15]	nsnnn[15]	_	cf3[15]	_	_	
+3-12	161-162	.	_	_	_	_	_	_	_	
+
+#Text=Let U = ( S , ⪯ S ) ∪ ( T , ⪯ T )
+4-1	163-166	Let	_	_	_	_	_	_	_	
+4-2	167-168	U	abstract[16]	new[16]	nssss[16]	_	cf3[16]	coref	5-7[28_16]	
+4-3	169-170	=	_	_	_	_	_	_	_	
+4-4	171-172	(	_	_	_	_	_	_	_	
+4-5	173-174	S	abstract[17]	giv:act[17]	sssss[17]	_	cf1*[17]	coref	4-8[18_17]	
+4-6	175-176	,	_	_	_	_	_	_	_	
+4-7	177-178	⪯	_	_	_	_	_	_	_	
+4-8	179-180	S	abstract[18]	giv:act[18]	sssss[18]	_	cf1*[18]	coref	5-28[45_18]	
+4-9	181-182	)	_	_	_	_	_	_	_	
+4-10	183-184	∪	_	_	_	_	_	_	_	
+4-11	185-186	(	_	_	_	_	_	_	_	
+4-12	187-188	T	abstract[19]	giv:act[19]	sssss[19]	_	cf2[19]	coref	4-15[20_19]	
+4-13	189-190	,	_	_	_	_	_	_	_	
+4-14	191-192	⪯	_	_	_	_	_	_	_	
+4-15	193-194	T	abstract[20]	giv:act[20]	sssss[20]	_	cf2[20]	coref	5-40[59_20]	
+4-16	195-196	)	_	_	_	_	_	_	_	
+
+#Text=Define the following relation ⪯ on U : ∀ x , y ∈ U : x ⪯ y if and only if : x , y ∈ S : x ⪯ S y or : x , y ∈ T : x ⪯ T y or : x ∈ S , y ∈ T
+5-1	197-203	Define	_	_	_	_	_	_	_	
+5-2	204-207	the	abstract[26]	new[26]	sssss[26]	_	cf8[26]	appos	5-5[27_26]	
+5-3	208-217	following	abstract[26]	new[26]	sssss[26]	_	cf8[26]	_	_	
+5-4	218-226	relation	abstract[26]	new[26]	sssss[26]	_	cf8[26]	_	_	
+5-5	227-228	⪯	abstract[27]	giv:act[27]	sssss[27]	_	cf8[27]	coref	6-4[77_27]	
+5-6	229-231	on	_	_	_	_	_	_	_	
+5-7	232-233	U	abstract[28]	giv:act[28]	nssss[28]	_	cf3*[28]	coref	5-14[33_28]	
+5-8	234-235	:	_	_	_	_	_	_	_	
+5-9	236-237	∀	abstract[31]	new[31]	nnnnn[31]	_	cf9[31]	appos	5-13[32_31]	
+5-10	238-239	x	abstract[31]	new[31]	nnnnn[31]	_	cf9[31]	_	_	
+5-11	240-241	,	abstract[31]	new[31]	nnnnn[31]	_	cf9[31]	_	_	
+5-12	242-243	y	abstract[31]	new[31]	nnnnn[31]	_	cf9[31]	_	_	
+5-13	244-245	∈	abstract[32]	giv:act[32]	nnnnn[32]	_	cf9[32]	_	_	
+5-14	246-247	U	abstract[32]|abstract[33]	giv:act[32]|giv:act[33]	nnnnn[32]|nssss[33]	_	cf9[32]|cf3*[33]	coref	13-8[125_33]	
+5-15	248-249	:	_	_	_	_	_	_	_	
+5-16	250-251	x	abstract[34]	new[34]	nnnnn[34]	_	cf14[34]	coref	10-2[91_34]	
+5-17	252-253	⪯	_	_	_	_	_	_	_	
+5-18	254-255	y	abstract[35]	new[35]	nnnnn[35]	_	cf15[35]	coref	10-4[92_35]	
+5-19	256-258	if	_	_	_	_	_	_	_	
+5-20	259-262	and	_	_	_	_	_	_	_	
+5-21	263-267	only	_	_	_	_	_	_	_	
+5-22	268-270	if	_	_	_	_	_	_	_	
+5-23	271-272	:	_	_	_	_	_	_	_	
+5-24	273-274	x	abstract[39]|abstract[40]	new[39]|new[40]	nnnnn[39]|nnnnn[40]	_	cf10[39]|cf1[40]	appos|coref	5-27[44_39]|5-30[46_40]	
+5-25	275-276	,	abstract[39]	new[39]	nnnnn[39]	_	cf10[39]	_	_	
+5-26	277-278	y	abstract[39]|abstract[41]	new[39]|new[41]	nnnnn[39]|nnnnn[41]	_	cf10[39]|cf5[41]	coref	5-33[48_41]	
+5-27	279-280	∈	abstract[44]	giv:act[44]	nnnnn[44]	_	cf10[44]	_	_	
+5-28	281-282	S	abstract[44]|abstract[45]	giv:act[44]|giv:act[45]	nnnnn[44]|sssss[45]	_	cf10[44]|cf4[45]	coref	5-32[47_45]	
+5-29	283-284	:	_	_	_	_	_	_	_	
+5-30	285-286	x	abstract[46]	giv:act[46]	nnnnn[46]	_	cf1[46]	_	_	
+5-31	287-288	⪯	_	_	_	_	_	_	_	
+5-32	289-290	S	abstract[47]	giv:act[47]	sssss[47]	_	cf4[47]	coref	5-50[70_47]	
+5-33	291-292	y	abstract[48]	giv:act[48]	nnnnn[48]	_	cf5[48]	_	_	
+5-34	293-295	or	_	_	_	_	_	_	_	
+5-35	296-297	:	_	_	_	_	_	_	_	
+5-36	298-299	x	abstract[53]|abstract[54]	new[53]|new[54]	nnnnn[53]|nnnnn[54]	_	cf11[53]|cf2[54]	appos|coref	5-39[58_53]|5-42[60_54]	
+5-37	300-301	,	abstract[53]	new[53]	nnnnn[53]	_	cf11[53]	_	_	
+5-38	302-303	y	abstract[53]|abstract[55]	new[53]|new[55]	nnnnn[53]|nnnnn[55]	_	cf11[53]|cf7[55]	coref	5-45[62_55]	
+5-39	304-305	∈	abstract[58]	giv:act[58]	nnnnn[58]	_	cf11[58]	_	_	
+5-40	306-307	T	abstract[58]|abstract[59]	giv:act[58]|giv:act[59]	nnnnn[58]|sssss[59]	_	cf11[58]|cf6[59]	coref	5-44[61_59]	
+5-41	308-309	:	_	_	_	_	_	_	_	
+5-42	310-311	x	abstract[60]	giv:act[60]	nnnnn[60]	_	cf2[60]	_	_	
+5-43	312-313	⪯	_	_	_	_	_	_	_	
+5-44	314-315	T	abstract[61]	giv:act[61]	sssss[61]	_	cf6[61]	coref	5-54[75_61]	
+5-45	316-317	y	abstract[62]	giv:act[62]	nnnnn[62]	_	cf7[62]	_	_	
+5-46	318-320	or	_	_	_	_	_	_	_	
+5-47	321-322	:	_	_	_	_	_	_	_	
+5-48	323-324	x	abstract[63]	new[63]	nnnnn[63]	_	cf12[63]	coref	5-49[69_63]	
+5-49	325-326	∈	abstract[69]	giv:act[69]	nnnnn[69]	_	cf12[69]	_	_	
+5-50	327-328	S	abstract[69]|abstract[70]	giv:act[69]|giv:act[70]	nnnnn[69]|sssss[70]	_	cf12[69]|cf4[70]	coref	10-11[94_70]	
+5-51	329-330	,	_	_	_	_	_	_	_	
+5-52	331-332	y	abstract[71]	new[71]	nnnnn[71]	_	cf13[71]	coref	5-53[74_71]	
+5-53	333-334	∈	abstract[74]	giv:act[74]	nnnnn[74]	_	cf13[74]	_	_	
+5-54	335-336	T	abstract[74]|abstract[75]	giv:act[74]|giv:act[75]	nnnnn[74]|sssss[75]	_	cf13[74]|cf6[75]	coref	10-13[95_75]	
+
+#Text=We claim that ⪯ is a well - ordering .
+6-1	337-339	We	person[76]	acc:com[76]	nnnnn[76]	_	cf2[76]	ana	7-3[82_76]	
+6-2	340-345	claim	_	_	_	_	_	_	_	
+6-3	346-350	that	_	_	_	_	_	_	_	
+6-4	351-352	⪯	abstract[77]	giv:act[77]	sssss[77]	_	cf1*[77]	coref	6-6[81_77]	
+6-5	353-355	is	_	_	_	_	_	_	_	
+6-6	356-357	a	abstract[81]	giv:act[81]	sssss[81]	_	cf1*[81]	ana	7-5[83_81]	
+6-7	358-362	well	abstract[81]	giv:act[81]	sssss[81]	_	cf1*[81]	_	_	
+6-8	363-364	-	abstract[81]	giv:act[81]	sssss[81]	_	cf1*[81]	_	_	
+6-9	365-373	ordering	abstract[81]	giv:act[81]	sssss[81]	_	cf1*[81]	_	_	
+6-10	374-375	.	_	_	_	_	_	_	_	
+
+#Text=First , we show it is a total ordering .
+7-1	376-381	First	_	_	_	_	_	_	_	
+7-2	382-383	,	_	_	_	_	_	_	_	
+7-3	384-386	we	person[82]	giv:act[82]	nnnnn[82]	_	cf1*[82]	_	_	
+7-4	387-391	show	_	_	_	_	_	_	_	
+7-5	392-394	it	abstract[83]	giv:act[83]	sssss[83]	_	cf2[83]	pred	7-7[86_83]	
+7-6	395-397	is	_	_	_	_	_	_	_	
+7-7	398-399	a	abstract[86]	giv:act[86]	sssss[86]	_	cf2[86]	coref	14-20[146_86]	
+7-8	400-405	total	abstract[86]	giv:act[86]	sssss[86]	_	cf2[86]	_	_	
+7-9	406-414	ordering	abstract[86]	giv:act[86]	sssss[86]	_	cf2[86]	_	_	
+7-10	415-416	.	_	_	_	_	_	_	_	
+
+#Text=Checking in turn each of the criteria for a total ordering :
+8-1	417-425	Checking	_	_	_	_	_	_	_	
+8-2	426-428	in	_	_	_	_	_	_	_	
+8-3	429-433	turn	_	_	_	_	_	_	_	
+8-4	434-438	each	abstract[87]	new[87]	nnnnn[87]	_	cf1[87]	bridge:other|bridge:other|bridge:other	9-1[90_87]|12-1[115_87]|21-1[218_87]	
+8-5	439-441	of	abstract[87]	new[87]	nnnnn[87]	_	cf1[87]	_	_	
+8-6	442-445	the	abstract[87]|abstract[88]	new[87]|new[88]	nnnnn[87]|nnnnn[88]	_	cf1[87]|cf2[88]	_	_	
+8-7	446-454	criteria	abstract[87]|abstract[88]	new[87]|new[88]	nnnnn[87]|nnnnn[88]	_	cf1[87]|cf2[88]	_	_	
+8-8	455-458	for	abstract[87]|abstract[88]	new[87]|new[88]	nnnnn[87]|nnnnn[88]	_	cf1[87]|cf2[88]	_	_	
+8-9	459-460	a	abstract[87]|abstract[88]|abstract[89]	new[87]|new[88]|new[89]	nnnnn[87]|nnnnn[88]|nnnnn[89]	_	cf1[87]|cf2[88]|cf3[89]	_	_	
+8-10	461-466	total	abstract[87]|abstract[88]|abstract[89]	new[87]|new[88]|new[89]	nnnnn[87]|nnnnn[88]|nnnnn[89]	_	cf1[87]|cf2[88]|cf3[89]	_	_	
+8-11	467-475	ordering	abstract[87]|abstract[88]|abstract[89]	new[87]|new[88]|new[89]	nnnnn[87]|nnnnn[88]|nnnnn[89]	_	cf1[87]|cf2[88]|cf3[89]	_	_	
+8-12	476-477	:	_	_	_	_	_	_	_	
+
+#Text=Reflexivity
+9-1	478-489	Reflexivity	abstract[90]	acc:inf[90]	ssnnn[90]	_	cf1[90]	coref	11-1[96_90]	
+
+#Text=If x = y , they 're necessarily both in S or T simultaneously .
+10-1	490-492	If	_	_	_	_	_	_	_	
+10-2	493-494	x	abstract[91]	giv:inact[91]	nnnnn[91]	_	cf1[91]	bridge:aggr|coref	10-6[93_91]|11-8[106_91]	
+10-3	495-496	=	_	_	_	_	_	_	_	
+10-4	497-498	y	abstract[92]	giv:inact[92]	nnnnn[92]	_	cf2[92]	bridge:aggr	10-6[93_92]	
+10-5	499-500	,	_	_	_	_	_	_	_	
+10-6	501-505	they	abstract[93]	acc:aggr[93]	nnnnn[93]	_	cf5[93]	_	_	
+10-7	506-509	're	_	_	_	_	_	_	_	
+10-8	510-521	necessarily	_	_	_	_	_	_	_	
+10-9	522-526	both	_	_	_	_	_	_	_	
+10-10	527-529	in	_	_	_	_	_	_	_	
+10-11	530-531	S	abstract[94]	giv:inact[94]	sssss[94]	_	cf3[94]	coref	11-6[105_94]	
+10-12	532-534	or	_	_	_	_	_	_	_	
+10-13	535-536	T	abstract[95]	giv:inact[95]	sssss[95]	_	cf4[95]	coref	11-10[110_95]	
+10-14	537-551	simultaneously	_	_	_	_	_	_	_	
+10-15	552-553	.	_	_	_	_	_	_	_	
+
+#Text=Reflexivity then follows from ⪯ S and x ⪯ T being reflexive , as they are both orderings .
+11-1	554-565	Reflexivity	abstract[96]	giv:inact[96]	ssnnn[96]	_	cf5[96]	_	_	
+11-2	566-570	then	_	_	_	_	_	_	_	
+11-3	571-578	follows	_	_	_	_	_	_	_	
+11-4	579-583	from	_	_	_	_	_	_	_	
+11-5	584-585	⪯	abstract[104]	new[104]	nnnnn[104]	_	cf6[104]	bridge:aggr|coref	11-15[111_104]|14-27[150_104]	
+11-6	586-587	S	abstract[104]|abstract[105]	new[104]|giv:act[105]	nnnnn[104]|sssss[105]	_	cf6[104]|cf2[105]	coref	14-8[135_105]	
+11-7	588-591	and	_	_	_	_	_	_	_	
+11-8	592-593	x	abstract[106]	giv:act[106]	nnnnn[106]	_	cf1*[106]	_	_	
+11-9	594-595	⪯	abstract[109]	new[109]	nnnnn[109]	_	cf7[109]	bridge:aggr|coref	11-15[111_109]|14-30[153_109]	
+11-10	596-597	T	abstract[109]|abstract[110]	new[109]|giv:act[110]	nnnnn[109]|sssss[110]	_	cf7[109]|cf3[110]	coref	14-16[145_110]	
+11-11	598-603	being	_	_	_	_	_	_	_	
+11-12	604-613	reflexive	_	_	_	_	_	_	_	
+11-13	614-615	,	_	_	_	_	_	_	_	
+11-14	616-618	as	_	_	_	_	_	_	_	
+11-15	619-623	they	abstract[111]	acc:aggr[111]	nnnnn[111]	_	cf4[111]	coref	11-17[114_111]	
+11-16	624-627	are	_	_	_	_	_	_	_	
+11-17	628-632	both	abstract[114]	giv:act[114]	nnnnn[114]	_	cf4[114]	_	_	
+11-18	633-642	orderings	abstract[114]	giv:act[114]	nnnnn[114]	_	cf4[114]	_	_	
+11-19	643-644	.	_	_	_	_	_	_	_	
+
+#Text=Transitivity
+12-1	645-657	Transitivity	abstract[115]	acc:inf[115]	ssnnn[115]	_	cf1[115]	_	_	
+
+#Text=Let x , y , z ∈ U .
+13-1	658-661	Let	_	_	_	_	_	_	_	
+13-2	662-663	x	abstract[117]|abstract[118]	new[117]|new[118]	nnnnn[117]|nnnnn[118]	_	cf1[117]|cf3[118]	coref|coref	13-7[124_117]|14-2[128_118]	
+13-3	664-665	,	abstract[117]	new[117]	nnnnn[117]	_	cf1[117]	_	_	
+13-4	666-667	y	abstract[117]|abstract[119]	new[117]|new[119]	nnnnn[117]|nnnnn[119]	_	cf1[117]|cf4[119]	coref	14-4[129_119]	
+13-5	668-669	,	abstract[117]	new[117]	nnnnn[117]	_	cf1[117]	_	_	
+13-6	670-671	z	abstract[117]|abstract[120]	new[117]|new[120]	nnnnn[117]|nnnnn[120]	_	cf1[117]|cf5[120]	coref	14-6[130_120]	
+13-7	672-673	∈	abstract[124]	giv:act[124]	nnnnn[124]	_	cf1[124]	_	_	
+13-8	674-675	U	abstract[124]|abstract[125]	giv:act[124]|giv:inact[125]	nnnnn[124]|nssss[125]	_	cf1[124]|cf2[125]	coref	39-15[412_125]	
+13-9	676-677	.	_	_	_	_	_	_	_	
+
+#Text=If x , y , z ∈ S or x , y , z ∈ T simultaneously , then ⪯ is transitive by the transitivity of ⪯ S and ⪯ T .
+14-1	678-680	If	_	_	_	_	_	_	_	
+14-2	681-682	x	abstract[127]|abstract[128]	new[127]|giv:act[128]	nnnnn[127]|nnnnn[128]	_	cf6[127]|cf1*[128]	coref|coref	14-7[134_127]|14-10[138_128]	
+14-3	683-684	,	abstract[127]	new[127]	nnnnn[127]	_	cf6[127]	_	_	
+14-4	685-686	y	abstract[127]|abstract[129]	new[127]|giv:act[129]	nnnnn[127]|nnnnn[129]	_	cf6[127]|cf2[129]	coref	14-12[139_129]	
+14-5	687-688	,	abstract[127]	new[127]	nnnnn[127]	_	cf6[127]	_	_	
+14-6	689-690	z	abstract[127]|abstract[130]	new[127]|giv:act[130]	nnnnn[127]|nnnnn[130]	_	cf6[127]|cf3[130]	coref	14-14[140_130]	
+14-7	691-692	∈	abstract[134]	giv:act[134]	nnnnn[134]	_	cf6[134]	_	_	
+14-8	693-694	S	abstract[134]|abstract[135]	giv:act[134]|giv:inact[135]	nnnnn[134]|sssss[135]	_	cf6[134]|cf4[135]	coref	14-28[151_135]	
+14-9	695-697	or	_	_	_	_	_	_	_	
+14-10	698-699	x	abstract[137]|abstract[138]	new[137]|giv:act[138]	nnnnn[137]|nnnnn[138]	_	cf7[137]|cf1*[138]	coref	14-15[144_137]	
+14-11	700-701	,	abstract[137]	new[137]	nnnnn[137]	_	cf7[137]	_	_	
+14-12	702-703	y	abstract[137]|abstract[139]	new[137]|giv:act[139]	nnnnn[137]|nnnnn[139]	_	cf7[137]|cf2[139]	_	_	
+14-13	704-705	,	abstract[137]	new[137]	nnnnn[137]	_	cf7[137]	_	_	
+14-14	706-707	z	abstract[137]|abstract[140]	new[137]|giv:act[140]	nnnnn[137]|nnnnn[140]	_	cf7[137]|cf3[140]	_	_	
+14-15	708-709	∈	abstract[144]	giv:act[144]	nnnnn[144]	_	cf7[144]	_	_	
+14-16	710-711	T	abstract[144]|abstract[145]	giv:act[144]|giv:inact[145]	nnnnn[144]|sssss[145]	_	cf7[144]|cf5[145]	coref	14-31[154_145]	
+14-17	712-726	simultaneously	_	_	_	_	_	_	_	
+14-18	727-728	,	_	_	_	_	_	_	_	
+14-19	729-733	then	_	_	_	_	_	_	_	
+14-20	734-735	⪯	abstract[146]	giv:inact[146]	sssss[146]	_	cf8[146]	coref	20-2[217_146]	
+14-21	736-738	is	_	_	_	_	_	_	_	
+14-22	739-749	transitive	_	_	_	_	_	_	_	
+14-23	750-752	by	_	_	_	_	_	_	_	
+14-24	753-756	the	abstract[149]	new[149]	nnnnn[149]	_	cf11[149]	_	_	
+14-25	757-769	transitivity	abstract[149]	new[149]	nnnnn[149]	_	cf11[149]	_	_	
+14-26	770-772	of	abstract[149]	new[149]	nnnnn[149]	_	cf11[149]	_	_	
+14-27	773-774	⪯	abstract[149]|abstract[150]	new[149]|giv:inact[150]	nnnnn[149]|nnnnn[150]	_	cf11[149]|cf9[150]	coref	23-15[243_150]	
+14-28	775-776	S	abstract[149]|abstract[150]|abstract[151]	new[149]|giv:inact[150]|giv:act[151]	nnnnn[149]|nnnnn[150]|sssss[151]	_	cf11[149]|cf9[150]|cf4[151]	coref	15-6[162_151]	
+14-29	777-780	and	abstract[149]	new[149]	nnnnn[149]	_	cf11[149]	_	_	
+14-30	781-782	⪯	abstract[149]|abstract[153]	new[149]|giv:inact[153]	nnnnn[149]|nnnnn[153]	_	cf11[149]|cf10[153]	coref	26-12[282_153]	
+14-31	783-784	T	abstract[149]|abstract[153]|abstract[154]	new[149]|giv:inact[153]|giv:act[154]	nnnnn[149]|nnnnn[153]|sssss[154]	_	cf11[149]|cf10[153]|cf5[154]	coref	15-10[167_154]	
+14-32	785-786	.	_	_	_	_	_	_	_	
+
+#Text=Suppose x , y ∈ S and z ∈ T .
+15-1	787-794	Suppose	_	_	_	_	_	_	_	
+15-2	795-796	x	abstract[156]|abstract[157]	new[156]|new[157]	nnnnn[156]|nnnnn[157]	_	cf1[156]|cf5[157]	coref|coref	15-5[161_156]|16-2[168_157]	
+15-3	797-798	,	abstract[156]	new[156]	nnnnn[156]	_	cf1[156]	_	_	
+15-4	799-800	y	abstract[156]|abstract[158]	new[156]|new[158]	nnnnn[156]|nnnnn[158]	_	cf1[156]|cf6[158]	coref	16-4[169_158]	
+15-5	801-802	∈	abstract[161]	giv:act[161]	nnnnn[161]	_	cf1[161]	_	_	
+15-6	803-804	S	abstract[161]|abstract[162]	giv:act[161]|giv:act[162]	nnnnn[161]|sssss[162]	_	cf1[161]|cf2*[162]	coref	17-8[184_162]	
+15-7	805-808	and	_	_	_	_	_	_	_	
+15-8	809-810	z	abstract[163]	new[163]	nnnnn[163]	_	cf4[163]	coref	15-9[166_163]	
+15-9	811-812	∈	abstract[166]	giv:act[166]	nnnnn[166]	_	cf4[166]	coref	16-8[171_166]	
+15-10	813-814	T	abstract[166]|abstract[167]	giv:act[166]|giv:act[167]	nnnnn[166]|sssss[167]	_	cf4[166]|cf3[167]	coref	17-12[189_167]	
+15-11	815-816	.	_	_	_	_	_	_	_	
+
+#Text=Let x ⪯ y and y ⪯ z .
+16-1	817-820	Let	_	_	_	_	_	_	_	
+16-2	821-822	x	abstract[168]	giv:act[168]	nnnnn[168]	_	cf2[168]	coref	17-2[172_168]	
+16-3	823-824	⪯	_	_	_	_	_	_	_	
+16-4	825-826	y	abstract[169]	giv:act[169]	nnnnn[169]	_	cf1*[169]	coref	16-6[170_169]	
+16-5	827-830	and	_	_	_	_	_	_	_	
+16-6	831-832	y	abstract[170]	giv:act[170]	nnnnn[170]	_	cf1*[170]	coref	17-10[185_170]	
+16-7	833-834	⪯	_	_	_	_	_	_	_	
+16-8	835-836	z	abstract[171]	giv:act[171]	nnnnn[171]	_	cf3[171]	coref	17-4[173_171]	
+16-9	837-838	.	_	_	_	_	_	_	_	
+
+#Text=Then x ⪯ z because x ∈ S and y ∈ T .
+17-1	839-843	Then	_	_	_	_	_	_	_	
+17-2	844-845	x	abstract[172]	giv:act[172]	nnnnn[172]	_	cf1*[172]	coref	17-6[174_172]	
+17-3	846-847	⪯	_	_	_	_	_	_	_	
+17-4	848-849	z	abstract[173]	giv:act[173]	nnnnn[173]	_	cf3[173]	_	_	
+17-5	850-857	because	_	_	_	_	_	_	_	
+17-6	858-859	x	abstract[174]	giv:act[174]	nnnnn[174]	_	cf1*[174]	coref	17-7[183_174]	
+17-7	860-861	∈	abstract[183]	giv:act[183]	nnnnn[183]	_	cf1*[183]	_	_	
+17-8	862-863	S	abstract[183]|abstract[184]	giv:act[183]|giv:inact[184]	nnnnn[183]|sssss[184]	_	cf1*[183]|cf4[184]	coref	18-4[194_184]	
+17-9	864-867	and	_	_	_	_	_	_	_	
+17-10	868-869	y	abstract[185]	giv:act[185]	nnnnn[185]	_	cf2[185]	coref	17-11[188_185]	
+17-11	870-871	∈	abstract[188]	giv:act[188]	nnnnn[188]	_	cf2[188]	_	_	
+17-12	872-873	T	abstract[188]|abstract[189]	giv:act[188]|giv:inact[189]	nnnnn[188]|sssss[189]	_	cf2[188]|cf5[189]	coref	18-10[202_189]	
+17-13	874-875	.	_	_	_	_	_	_	_	
+
+#Text=Suppose x ∈ S and y , z ∈ T .
+18-1	876-883	Suppose	_	_	_	_	_	_	_	
+18-2	884-885	x	abstract[190]	new[190]	nnnnn[190]	_	cf1[190]	coref	18-3[193_190]	
+18-3	886-887	∈	abstract[193]	giv:act[193]	nnnnn[193]	_	cf1[193]	coref	19-2[203_193]	
+18-4	888-889	S	abstract[193]|abstract[194]	giv:act[193]|giv:act[194]	nnnnn[193]|sssss[194]	_	cf1[193]|cf2*[194]	coref	19-9[211_194]	
+18-5	890-893	and	_	_	_	_	_	_	_	
+18-6	894-895	y	abstract[196]|abstract[197]	new[196]|new[197]	nnnnn[196]|nnnnn[197]	_	cf4[196]|cf5[197]	coref|coref	18-9[201_196]|19-11[212_197]	
+18-7	896-897	,	abstract[196]	new[196]	nnnnn[196]	_	cf4[196]	_	_	
+18-8	898-899	z	abstract[196]|abstract[198]	new[196]|new[198]	nnnnn[196]|nnnnn[198]	_	cf4[196]|cf6[198]	coref	19-4[204_198]	
+18-9	900-901	∈	abstract[201]	giv:act[201]	nnnnn[201]	_	cf4[201]	_	_	
+18-10	902-903	T	abstract[201]|abstract[202]	giv:act[201]|giv:act[202]	nnnnn[201]|sssss[202]	_	cf4[201]|cf3[202]	coref	19-13[216_202]	
+18-11	904-905	.	_	_	_	_	_	_	_	
+
+#Text=Then x ⪯ z also because x ∈ S and y ∈ T .
+19-1	906-910	Then	_	_	_	_	_	_	_	
+19-2	911-912	x	abstract[203]	giv:act[203]	nnnnn[203]	_	cf1*[203]	coref	19-7[205_203]	
+19-3	913-914	⪯	_	_	_	_	_	_	_	
+19-4	915-916	z	abstract[204]	giv:act[204]	nnnnn[204]	_	cf3[204]	_	_	
+19-5	917-921	also	_	_	_	_	_	_	_	
+19-6	922-929	because	_	_	_	_	_	_	_	
+19-7	930-931	x	abstract[205]	giv:act[205]	nnnnn[205]	_	cf1*[205]	coref	19-8[210_205]	
+19-8	932-933	∈	abstract[210]	giv:act[210]	nnnnn[210]	_	cf1*[210]	_	_	
+19-9	934-935	S	abstract[210]|abstract[211]	giv:act[210]|giv:act[211]	nnnnn[210]|sssss[211]	_	cf1*[210]|cf4[211]	coref	23-6[236_211]	
+19-10	936-939	and	_	_	_	_	_	_	_	
+19-11	940-941	y	abstract[212]	giv:act[212]	nnnnn[212]	_	cf2[212]	coref	19-12[215_212]	
+19-12	942-943	∈	abstract[215]	giv:act[215]	nnnnn[215]	_	cf2[215]	_	_	
+19-13	944-945	T	abstract[215]|abstract[216]	giv:act[215]|giv:act[216]	nnnnn[215]|sssss[216]	_	cf2[215]|cf5[216]	coref	24-7[252_216]	
+19-14	946-947	.	_	_	_	_	_	_	_	
+
+#Text=Thus ⪯ is transitive .
+20-1	948-952	Thus	_	_	_	_	_	_	_	
+20-2	953-954	⪯	abstract[217]	giv:inact[217]	sssss[217]	_	cf1[217]	coref	27-3[284_217]	
+20-3	955-957	is	_	_	_	_	_	_	_	
+20-4	958-968	transitive	_	_	_	_	_	_	_	
+20-5	969-970	.	_	_	_	_	_	_	_	
+
+#Text=Antisymmetry
+21-1	971-983	Antisymmetry	abstract[218]	acc:inf[218]	ssnnn[218]	_	cf1[218]	_	_	
+
+#Text=Let x ⪯ y and y ⪯ x .
+22-1	984-987	Let	_	_	_	_	_	_	_	
+22-2	988-989	x	abstract[219]	new[219]	nnnnn[219]	_	cf2[219]	coref	22-8[222_219]	
+22-3	990-991	⪯	_	_	_	_	_	_	_	
+22-4	992-993	y	abstract[220]	new[220]	nnnnn[220]	_	cf1[220]	coref	22-6[221_220]	
+22-5	994-997	and	_	_	_	_	_	_	_	
+22-6	998-999	y	abstract[221]	giv:act[221]	nnnnn[221]	_	cf1[221]	coref	23-4[232_221]	
+22-7	1000-1001	⪯	_	_	_	_	_	_	_	
+22-8	1002-1003	x	abstract[222]	giv:act[222]	nnnnn[222]	_	cf2[222]	coref	23-2[231_222]	
+22-9	1004-1005	.	_	_	_	_	_	_	_	
+
+#Text=If x , y ∈ S then x = y by the antisymmetry of ⪯ S .
+23-1	1006-1008	If	_	_	_	_	_	_	_	
+23-2	1009-1010	x	abstract[230]|abstract[231]	new[230]|giv:act[231]	nnnnn[230]|nnnnn[231]	_	cf4[230]|cf1*[231]	coref|coref	23-5[235_230]|23-8[237_231]	
+23-3	1011-1012	,	abstract[230]	new[230]	nnnnn[230]	_	cf4[230]	_	_	
+23-4	1013-1014	y	abstract[230]|abstract[232]	new[230]|giv:act[232]	nnnnn[230]|nnnnn[232]	_	cf4[230]|cf2[232]	coref	23-10[238_232]	
+23-5	1015-1016	∈	abstract[235]	giv:act[235]	nnnnn[235]	_	cf4[235]	_	_	
+23-6	1017-1018	S	abstract[235]|abstract[236]	giv:act[235]|giv:inact[236]	nnnnn[235]|sssss[236]	_	cf4[235]|cf3[236]	coref	23-16[244_236]	
+23-7	1019-1023	then	_	_	_	_	_	_	_	
+23-8	1024-1025	x	abstract[237]	giv:act[237]	nnnnn[237]	_	cf1*[237]	coref	24-3[247_237]	
+23-9	1026-1027	=	_	_	_	_	_	_	_	
+23-10	1028-1029	y	abstract[238]	giv:act[238]	nnnnn[238]	_	cf2[238]	coref	24-5[248_238]	
+23-11	1030-1032	by	_	_	_	_	_	_	_	
+23-12	1033-1036	the	abstract[242]	new[242]	nnnnn[242]	_	cf6[242]	_	_	
+23-13	1037-1049	antisymmetry	abstract[242]	new[242]	nnnnn[242]	_	cf6[242]	_	_	
+23-14	1050-1052	of	abstract[242]	new[242]	nnnnn[242]	_	cf6[242]	_	_	
+23-15	1053-1054	⪯	abstract[242]|abstract[243]	new[242]|giv:inact[243]	nnnnn[242]|nnnnn[243]	_	cf6[242]|cf5[243]	coref	26-9[279_243]	
+23-16	1055-1056	S	abstract[242]|abstract[243]|abstract[244]	new[242]|giv:inact[243]|giv:act[244]	nnnnn[242]|nnnnn[243]|sssss[244]	_	cf6[242]|cf5[243]|cf3[244]	coref	25-4[257_244]	
+23-17	1057-1058	.	_	_	_	_	_	_	_	
+
+#Text=Likewise if x , y ∈ T .
+24-1	1059-1067	Likewise	_	_	_	_	_	_	_	
+24-2	1068-1070	if	_	_	_	_	_	_	_	
+24-3	1071-1072	x	abstract[246]|abstract[247]	new[246]|giv:act[247]	nnnnn[246]|nnnnn[247]	_	cf3[246]|cf1*[247]	coref|coref	24-6[251_246]|25-2[253_247]	
+24-4	1073-1074	,	abstract[246]	new[246]	nnnnn[246]	_	cf3[246]	_	_	
+24-5	1075-1076	y	abstract[246]|abstract[248]	new[246]|giv:act[248]	nnnnn[246]|nnnnn[248]	_	cf3[246]|cf2[248]	coref	25-6[258_248]	
+24-6	1077-1078	∈	abstract[251]	giv:act[251]	nnnnn[251]	_	cf3[251]	_	_	
+24-7	1079-1080	T	abstract[251]|abstract[252]	giv:act[251]|giv:inact[252]	nnnnn[251]|sssss[252]	_	cf3[251]|cf4[252]	coref	25-8[262_252]	
+24-8	1081-1082	.	_	_	_	_	_	_	_	
+
+#Text=If x ∈ S and y ∈ T , then y ∈ S and x ∈ T as well .
+25-1	1083-1085	If	_	_	_	_	_	_	_	
+25-2	1086-1087	x	abstract[253]	giv:act[253]	nnnnn[253]	_	cf1*[253]	coref	25-3[256_253]	
+25-3	1088-1089	∈	abstract[256]	giv:act[256]	nnnnn[256]	_	cf1*[256]	coref	25-15[268_256]	
+25-4	1090-1091	S	abstract[256]|abstract[257]	giv:act[256]|giv:inact[257]	nnnnn[256]|sssss[257]	_	cf1*[256]|cf4[257]	coref	25-13[267_257]	
+25-5	1092-1095	and	_	_	_	_	_	_	_	
+25-6	1096-1097	y	abstract[258]	giv:act[258]	nnnnn[258]	_	cf2[258]	coref	25-7[261_258]	
+25-7	1098-1099	∈	abstract[261]	giv:act[261]	nnnnn[261]	_	cf2[261]	coref	25-11[263_261]	
+25-8	1100-1101	T	abstract[261]|abstract[262]	giv:act[261]|giv:act[262]	nnnnn[261]|sssss[262]	_	cf2[261]|cf3[262]	coref	25-17[272_262]	
+25-9	1102-1103	,	_	_	_	_	_	_	_	
+25-10	1104-1108	then	_	_	_	_	_	_	_	
+25-11	1109-1110	y	abstract[263]	giv:act[263]	nnnnn[263]	_	cf2[263]	coref	25-12[266_263]	
+25-12	1111-1112	∈	abstract[266]	giv:act[266]	nnnnn[266]	_	cf2[266]	coref	26-4[274_266]	
+25-13	1113-1114	S	abstract[266]|abstract[267]	giv:act[266]|giv:act[267]	nnnnn[266]|sssss[267]	_	cf2[266]|cf4[267]	coref	26-10[280_267]	
+25-14	1115-1118	and	_	_	_	_	_	_	_	
+25-15	1119-1120	x	abstract[268]	giv:act[268]	nnnnn[268]	_	cf1*[268]	coref	25-16[271_268]	
+25-16	1121-1122	∈	abstract[271]	giv:act[271]	nnnnn[271]	_	cf1*[271]	coref	26-2[273_271]	
+25-17	1123-1124	T	abstract[271]|abstract[272]	giv:act[271]|giv:act[272]	nnnnn[271]|sssss[272]	_	cf1*[271]|cf3[272]	coref	34-12[363_272]	
+25-18	1125-1127	as	_	_	_	_	_	_	_	
+25-19	1128-1132	well	_	_	_	_	_	_	_	
+25-20	1133-1134	.	_	_	_	_	_	_	_	
+
+#Text=Thus x = y from the antisymmetry of ⪯ S or ⪯ T .
+26-1	1135-1139	Thus	_	_	_	_	_	_	_	
+26-2	1140-1141	x	abstract[273]	giv:act[273]	nnnnn[273]	_	cf1*[273]	_	_	
+26-3	1142-1143	=	_	_	_	_	_	_	_	
+26-4	1144-1145	y	abstract[274]	giv:act[274]	nnnnn[274]	_	cf2[274]	_	_	
+26-5	1146-1150	from	_	_	_	_	_	_	_	
+26-6	1151-1154	the	abstract[278]	new[278]	nnnnn[278]	_	cf6[278]	_	_	
+26-7	1155-1167	antisymmetry	abstract[278]	new[278]	nnnnn[278]	_	cf6[278]	_	_	
+26-8	1168-1170	of	abstract[278]	new[278]	nnnnn[278]	_	cf6[278]	_	_	
+26-9	1171-1172	⪯	abstract[278]|abstract[279]	new[278]|giv:inact[279]	nnnnn[278]|nnnnn[279]	_	cf6[278]|cf4[279]	coref	33-9[357_279]	
+26-10	1173-1174	S	abstract[278]|abstract[279]|abstract[280]	new[278]|giv:inact[279]|giv:act[280]	nnnnn[278]|nnnnn[279]|sssss[280]	_	cf6[278]|cf4[279]|cf3[280]	coref	29-6[300_280]	
+26-11	1175-1177	or	abstract[278]	new[278]	nnnnn[278]	_	cf6[278]	_	_	
+26-12	1178-1179	⪯	abstract[278]|abstract[282]	new[278]|giv:inact[282]	nnnnn[278]|nnnnn[282]	_	cf6[278]|cf5[282]	coref	31-9[339_282]	
+26-13	1180-1181	T	abstract[278]|abstract[282]|abstract[283]	new[278]|giv:inact[282]|new[283]	nnnnn[278]|nnnnn[282]|nnnnn[283]	_	cf6[278]|cf5[282]|cf7[283]	coref	29-13[308_283]	
+26-14	1182-1183	.	_	_	_	_	_	_	_	
+
+#Text=Conclude that ⪯ is a total ordering .
+27-1	1184-1192	Conclude	_	_	_	_	_	_	_	
+27-2	1193-1197	that	_	_	_	_	_	_	_	
+27-3	1198-1199	⪯	abstract[284]	giv:inact[284]	sssss[284]	_	cf1[284]	coref	27-5[287_284]	
+27-4	1200-1202	is	_	_	_	_	_	_	_	
+27-5	1203-1204	a	abstract[287]	giv:act[287]	sssss[287]	_	cf1[287]	coref	28-3[288_287]	
+27-6	1205-1210	total	abstract[287]	giv:act[287]	sssss[287]	_	cf1[287]	_	_	
+27-7	1211-1219	ordering	abstract[287]	giv:act[287]	sssss[287]	_	cf1[287]	_	_	
+27-8	1220-1221	.	_	_	_	_	_	_	_	
+
+#Text=To show ⪯ is a well - ordering , consider a non-empty set X ⊆ U .
+28-1	1222-1224	To	_	_	_	_	_	_	_	
+28-2	1225-1229	show	_	_	_	_	_	_	_	
+28-3	1230-1231	⪯	abstract[288]	giv:act[288]	sssss[288]	_	cf1*[288]	pred	28-5[290_288]	
+28-4	1232-1234	is	_	_	_	_	_	_	_	
+28-5	1235-1236	a	abstract[290]	giv:act[290]	sssss[290]	_	cf1*[290]	coref	35-12[375_290]	
+28-6	1237-1241	well	abstract[290]	giv:act[290]	sssss[290]	_	cf1*[290]	_	_	
+28-7	1242-1243	-	abstract[290]	giv:act[290]	sssss[290]	_	cf1*[290]	_	_	
+28-8	1244-1252	ordering	abstract[290]	giv:act[290]	sssss[290]	_	cf1*[290]	_	_	
+28-9	1253-1254	,	_	_	_	_	_	_	_	
+28-10	1255-1263	consider	_	_	_	_	_	_	_	
+28-11	1264-1265	a	abstract[291]	new[291]	nnnnn[291]	_	cf2[291]	appos	28-14[292_291]	
+28-12	1266-1275	non-empty	abstract[291]	new[291]	nnnnn[291]	_	cf2[291]	_	_	
+28-13	1276-1279	set	abstract[291]	new[291]	nnnnn[291]	_	cf2[291]	_	_	
+28-14	1280-1281	X	abstract[292]	giv:act[292]	nnnnn[292]	_	cf2[292]	appos	28-15[294_292]	
+28-15	1282-1283	⊆	abstract[294]	giv:act[294]	nnnnn[294]	_	cf2[294]	coref	29-4[299_294]	
+28-16	1284-1285	U	abstract[294]|abstract[295]	giv:act[294]|new[295]	nnnnn[294]|nnnnn[295]	_	cf2[294]|cf3[295]	coref	42-16[440_295]	
+28-17	1286-1287	.	_	_	_	_	_	_	_	
+
+#Text=Then either : X ∩ S = ∅ or : X ∩ T = ∅ or : X ∩ S is non-empty and X ∩ T is non-empty .
+29-1	1288-1292	Then	_	_	_	_	_	_	_	
+29-2	1293-1299	either	_	_	_	_	_	_	_	
+29-3	1300-1301	:	_	_	_	_	_	_	_	
+29-4	1302-1303	X	event[297]|abstract[298]|abstract[299]	new[297]|new[298]|giv:act[299]	nnnnn[297]|nnnnn[298]|nnnnn[299]	_	cf8[297]|cf6[298]|cf1*[299]	disc|coref	30-2[324_297]|29-11[307_299]	
+29-5	1304-1305	∩	event[297]|abstract[298]	new[297]|new[298]	nnnnn[297]|nnnnn[298]	_	cf8[297]|cf6[298]	_	_	
+29-6	1306-1307	S	event[297]|abstract[298]|abstract[300]	new[297]|new[298]|giv:inact[300]	nnnnn[297]|nnnnn[298]|sssss[300]	_	cf8[297]|cf6[298]|cf4[300]	coref	29-20[316_300]	
+29-7	1308-1309	=	event[297]	new[297]	nnnnn[297]	_	cf8[297]	_	_	
+29-8	1310-1311	∅	event[297]|abstract[301]	new[297]|new[301]	nnnnn[297]|nnnnn[301]	_	cf8[297]|cf3[301]	coref	29-15[309_301]	
+29-9	1312-1314	or	_	_	_	_	_	_	_	
+29-10	1315-1316	:	_	_	_	_	_	_	_	
+29-11	1317-1318	X	event[305]|abstract[306]|abstract[307]	new[305]|new[306]|giv:act[307]	nnnnn[305]|nnnnn[306]|nnnnn[307]	_	cf9[305]|cf2[306]|cf1*[307]	disc|coref|coref	32-2[342_305]|29-24[319_306]|29-18[315_307]	
+29-12	1319-1320	∩	event[305]|abstract[306]	new[305]|new[306]	nnnnn[305]|nnnnn[306]	_	cf9[305]|cf2[306]	_	_	
+29-13	1321-1322	T	event[305]|abstract[306]|abstract[308]	new[305]|new[306]|giv:inact[308]	nnnnn[305]|nnnnn[306]|nnnnn[308]	_	cf9[305]|cf2[306]|cf5[308]	coref	29-26[321_308]	
+29-14	1323-1324	=	event[305]	new[305]	nnnnn[305]	_	cf9[305]	_	_	
+29-15	1325-1326	∅	event[305]|abstract[309]	new[305]|giv:act[309]	nnnnn[305]|nnnnn[309]	_	cf9[305]|cf3[309]	_	_	
+29-16	1327-1329	or	_	_	_	_	_	_	_	
+29-17	1330-1331	:	_	_	_	_	_	_	_	
+29-18	1332-1333	X	event[313]|abstract[314]|abstract[315]	new[313]|new[314]|giv:act[315]	nnnnn[313]|nnnnn[314]|nnnnn[315]	_	cf10[313]|cf7[314]|cf1*[315]	disc|coref	34-2[360_313]|29-24[320_315]	
+29-19	1334-1335	∩	event[313]|abstract[314]	new[313]|new[314]	nnnnn[313]|nnnnn[314]	_	cf10[313]|cf7[314]	_	_	
+29-20	1336-1337	S	event[313]|abstract[314]|abstract[316]	new[313]|new[314]|giv:act[316]	nnnnn[313]|nnnnn[314]|sssss[316]	_	cf10[313]|cf7[314]|cf4[316]	coref	32-8[346_316]	
+29-21	1338-1340	is	event[313]	new[313]	nnnnn[313]	_	cf10[313]	_	_	
+29-22	1341-1350	non-empty	event[313]	new[313]	nnnnn[313]	_	cf10[313]	_	_	
+29-23	1351-1354	and	event[313]	new[313]	nnnnn[313]	_	cf10[313]	_	_	
+29-24	1355-1356	X	event[313]|abstract[319]|abstract[320]	new[313]|giv:act[319]|giv:act[320]	nnnnn[313]|nnnnn[319]|nnnnn[320]	_	cf10[313]|cf2[319]|cf1*[320]	coref	30-6[325_320]	
+29-25	1357-1358	∩	event[313]|abstract[319]	new[313]|giv:act[319]	nnnnn[313]|nnnnn[319]	_	cf10[313]|cf2[319]	_	_	
+29-26	1359-1360	T	event[313]|abstract[319]|abstract[321]	new[313]|giv:act[319]|giv:act[321]	nnnnn[313]|nnnnn[319]|nnnnn[321]	_	cf10[313]|cf2[319]|cf5[321]	coref	30-8[328_321]	
+29-27	1361-1363	is	event[313]	new[313]	nnnnn[313]	_	cf10[313]	_	_	
+29-28	1364-1373	non-empty	event[313]	new[313]	nnnnn[313]	_	cf10[313]	_	_	
+29-29	1374-1375	.	_	_	_	_	_	_	_	
+
+#Text=In the first case , X ⊆ T , by Intersection with Complement is Empty iff Subset .
+30-1	1376-1378	In	_	_	_	_	_	_	_	
+30-2	1379-1382	the	event[324]	giv:act[324]	nnnnn[324]	_	cf2[324]	_	_	
+30-3	1383-1388	first	event[324]	giv:act[324]	nnnnn[324]	_	cf2[324]	_	_	
+30-4	1389-1393	case	event[324]	giv:act[324]	nnnnn[324]	_	cf2[324]	_	_	
+30-5	1394-1395	,	_	_	_	_	_	_	_	
+30-6	1396-1397	X	abstract[325]	giv:act[325]	nnnnn[325]	_	cf1*[325]	coref	31-2[334_325]	
+30-7	1398-1399	⊆	abstract[327]	new[327]	nnnnn[327]	_	cf7[327]	_	_	
+30-8	1400-1401	T	abstract[327]|abstract[328]	new[327]|giv:act[328]	nnnnn[327]|nnnnn[328]	_	cf7[327]|cf3[328]	coref	31-10[340_328]	
+30-9	1402-1403	,	_	_	_	_	_	_	_	
+30-10	1404-1406	by	_	_	_	_	_	_	_	
+30-11	1407-1419	Intersection	abstract[330]|abstract[331]	new[330]|new[331]	nnnnn[330]|nnnnn[331]	_	cf8[330]|cf4[331]	disc|coref	32-12[348_330]|32-12[349_331]	
+30-12	1420-1424	with	abstract[330]|abstract[331]	new[330]|new[331]	nnnnn[330]|nnnnn[331]	_	cf8[330]|cf4[331]	_	_	
+30-13	1425-1435	Complement	abstract[330]|abstract[331]|abstract[332]	new[330]|new[331]|new[332]	nnnnn[330]|nnnnn[331]|nnnnn[332]	_	cf8[330]|cf4[331]|cf5[332]	coref	32-14[350_332]	
+30-14	1436-1438	is	abstract[330]	new[330]	nnnnn[330]	_	cf8[330]	_	_	
+30-15	1439-1444	Empty	abstract[330]	new[330]	nnnnn[330]	_	cf8[330]	_	_	
+30-16	1445-1448	iff	abstract[330]	new[330]	nnnnn[330]	_	cf8[330]	_	_	
+30-17	1449-1455	Subset	abstract[330]|abstract[333]	new[330]|new[333]	nnnnn[330]|nnnnn[333]	_	cf8[330]|cf6[333]	coref	32-18[351_333]	
+30-18	1456-1457	.	_	_	_	_	_	_	_	
+
+#Text=Then X has a smallest element defined by ⪯ T .
+31-1	1458-1462	Then	_	_	_	_	_	_	_	
+31-2	1463-1464	X	abstract[334]	giv:act[334]	nnnnn[334]	_	cf1*[334]	coref	32-6[343_334]	
+31-3	1465-1468	has	_	_	_	_	_	_	_	
+31-4	1469-1470	a	abstract[338]	new[338]	nnnnn[338]	_	cf4[338]	_	_	
+31-5	1471-1479	smallest	abstract[338]	new[338]	nnnnn[338]	_	cf4[338]	_	_	
+31-6	1480-1487	element	abstract[338]	new[338]	nnnnn[338]	_	cf4[338]	_	_	
+31-7	1488-1495	defined	_	_	_	_	_	_	_	
+31-8	1496-1498	by	_	_	_	_	_	_	_	
+31-9	1499-1500	⪯	abstract[339]	giv:inact[339]	nnnnn[339]	_	cf3[339]	_	_	
+31-10	1501-1502	T	abstract[339]|abstract[340]	giv:inact[339]|giv:act[340]	nnnnn[339]|nnnnn[340]	_	cf3[339]|cf2[340]	_	_	
+31-11	1503-1504	.	_	_	_	_	_	_	_	
+
+#Text=In the second case , X ⊆ S , also by Intersection with Complement is Empty iff Subset .
+32-1	1505-1507	In	_	_	_	_	_	_	_	
+32-2	1508-1511	the	event[342]	giv:inact[342]	nnnnn[342]	_	cf3[342]	_	_	
+32-3	1512-1518	second	event[342]	giv:inact[342]	nnnnn[342]	_	cf3[342]	_	_	
+32-4	1519-1523	case	event[342]	giv:inact[342]	nnnnn[342]	_	cf3[342]	_	_	
+32-5	1524-1525	,	_	_	_	_	_	_	_	
+32-6	1526-1527	X	abstract[343]	giv:act[343]	nnnnn[343]	_	cf1*[343]	coref	33-2[352_343]	
+32-7	1528-1529	⊆	abstract[345]	new[345]	nnnnn[345]	_	cf8[345]	_	_	
+32-8	1530-1531	S	abstract[345]|abstract[346]	new[345]|giv:inact[346]	nnnnn[345]|sssss[346]	_	cf8[345]|cf4[346]	coref	33-10[358_346]	
+32-9	1532-1533	,	_	_	_	_	_	_	_	
+32-10	1534-1538	also	_	_	_	_	_	_	_	
+32-11	1539-1541	by	_	_	_	_	_	_	_	
+32-12	1542-1554	Intersection	abstract[348]|abstract[349]	giv:inact[348]|giv:inact[349]	nnnnn[348]|nnnnn[349]	_	cf7[348]|cf2[349]	_	_	
+32-13	1555-1559	with	abstract[348]|abstract[349]	giv:inact[348]|giv:inact[349]	nnnnn[348]|nnnnn[349]	_	cf7[348]|cf2[349]	_	_	
+32-14	1560-1570	Complement	abstract[348]|abstract[349]|abstract[350]	giv:inact[348]|giv:inact[349]|giv:inact[350]	nnnnn[348]|nnnnn[349]|nnnnn[350]	_	cf7[348]|cf2[349]|cf5[350]	_	_	
+32-15	1571-1573	is	abstract[348]	giv:inact[348]	nnnnn[348]	_	cf7[348]	_	_	
+32-16	1574-1579	Empty	abstract[348]	giv:inact[348]	nnnnn[348]	_	cf7[348]	_	_	
+32-17	1580-1583	iff	abstract[348]	giv:inact[348]	nnnnn[348]	_	cf7[348]	_	_	
+32-18	1584-1590	Subset	abstract[348]|abstract[351]	giv:inact[348]|giv:inact[351]	nnnnn[348]|nnnnn[351]	_	cf7[348]|cf6[351]	_	_	
+32-19	1591-1592	.	_	_	_	_	_	_	_	
+
+#Text=Then X has a smallest element defined by ⪯ S .
+33-1	1593-1597	Then	_	_	_	_	_	_	_	
+33-2	1598-1599	X	abstract[352]	giv:act[352]	nnnnn[352]	_	cf1*[352]	coref	34-10[362_352]	
+33-3	1600-1603	has	_	_	_	_	_	_	_	
+33-4	1604-1605	a	abstract[356]	new[356]	nnnnn[356]	_	cf4[356]	_	_	
+33-5	1606-1614	smallest	abstract[356]	new[356]	nnnnn[356]	_	cf4[356]	_	_	
+33-6	1615-1622	element	abstract[356]	new[356]	nnnnn[356]	_	cf4[356]	_	_	
+33-7	1623-1630	defined	_	_	_	_	_	_	_	
+33-8	1631-1633	by	_	_	_	_	_	_	_	
+33-9	1634-1635	⪯	abstract[357]	giv:inact[357]	nnnnn[357]	_	cf3[357]	_	_	
+33-10	1636-1637	S	abstract[357]|abstract[358]	giv:inact[357]|giv:act[358]	nnnnn[357]|sssss[358]	_	cf3[357]|cf2[358]	coref	34-17[367_358]	
+33-11	1638-1639	.	_	_	_	_	_	_	_	
+
+#Text=In the third case , the smallest element of X ∖ T is an element of S .
+34-1	1640-1642	In	_	_	_	_	_	_	_	
+34-2	1643-1646	the	event[360]	giv:inact[360]	nnnnn[360]	_	cf4[360]	_	_	
+34-3	1647-1652	third	event[360]	giv:inact[360]	nnnnn[360]	_	cf4[360]	_	_	
+34-4	1653-1657	case	event[360]	giv:inact[360]	nnnnn[360]	_	cf4[360]	_	_	
+34-5	1658-1659	,	_	_	_	_	_	_	_	
+34-6	1660-1663	the	abstract[361]	new[361]	nnnnn[361]	_	cf2[361]	pred	34-14[366_361]	
+34-7	1664-1672	smallest	abstract[361]	new[361]	nnnnn[361]	_	cf2[361]	_	_	
+34-8	1673-1680	element	abstract[361]	new[361]	nnnnn[361]	_	cf2[361]	_	_	
+34-9	1681-1683	of	abstract[361]	new[361]	nnnnn[361]	_	cf2[361]	_	_	
+34-10	1684-1685	X	abstract[361]|abstract[362]	new[361]|giv:act[362]	nnnnn[361]|nnnnn[362]	_	cf2[361]|cf1*[362]	coref	36-5[378_362]	
+34-11	1686-1687	∖	abstract[361]	new[361]	nnnnn[361]	_	cf2[361]	_	_	
+34-12	1688-1689	T	abstract[361]|abstract[363]	new[361]|giv:inact[363]	nnnnn[361]|sssss[363]	_	cf2[361]|cf5[363]	coref	35-7[372_363]	
+34-13	1690-1692	is	_	_	_	_	_	_	_	
+34-14	1693-1695	an	abstract[366]	giv:act[366]	nnnnn[366]	_	cf2[366]	ana	35-2[368_366]	
+34-15	1696-1703	element	abstract[366]	giv:act[366]	nnnnn[366]	_	cf2[366]	_	_	
+34-16	1704-1706	of	abstract[366]	giv:act[366]	nnnnn[366]	_	cf2[366]	_	_	
+34-17	1707-1708	S	abstract[366]|abstract[367]	giv:act[366]|giv:act[367]	nnnnn[366]|sssss[367]	_	cf2[366]|cf3[367]	coref	36-14[384_367]	
+34-18	1709-1710	.	_	_	_	_	_	_	_	
+
+#Text=Thus it precedes any element of T by the definition of ⪯ .
+35-1	1711-1715	Thus	_	_	_	_	_	_	_	
+35-2	1716-1718	it	abstract[368]	giv:act[368]	nnnnn[368]	_	cf1*[368]	coref	35-4[371_368]	
+35-3	1719-1727	precedes	_	_	_	_	_	_	_	
+35-4	1728-1731	any	abstract[371]	giv:act[371]	nnnnn[371]	_	cf1*[371]	coref	36-1[377_371]	
+35-5	1732-1739	element	abstract[371]	giv:act[371]	nnnnn[371]	_	cf1*[371]	_	_	
+35-6	1740-1742	of	abstract[371]	giv:act[371]	nnnnn[371]	_	cf1*[371]	_	_	
+35-7	1743-1744	T	abstract[371]|abstract[372]	giv:act[371]|giv:act[372]	nnnnn[371]|sssss[372]	_	cf1*[371]|cf2[372]	coref	36-7[380_372]	
+35-8	1745-1747	by	_	_	_	_	_	_	_	
+35-9	1748-1751	the	abstract[374]	new[374]	nnnnn[374]	_	cf4[374]	_	_	
+35-10	1752-1762	definition	abstract[374]	new[374]	nnnnn[374]	_	cf4[374]	_	_	
+35-11	1763-1765	of	abstract[374]	new[374]	nnnnn[374]	_	cf4[374]	_	_	
+35-12	1766-1767	⪯	abstract[374]|abstract[375]	new[374]|giv:inact[375]	nnnnn[374]|sssss[375]	_	cf4[374]|cf3[375]	coref	38-2[395_375]	
+35-13	1768-1769	.	_	_	_	_	_	_	_	
+
+#Text=The smallest element of X ∖ T , which is a subset of S , is guaranteed to exist by the well - ordering on S .
+36-1	1770-1773	The	abstract[377]	giv:act[377]	nnnnn[377]	_	cf1*[377]	coref	37-1[389_377]	
+36-2	1774-1782	smallest	abstract[377]	giv:act[377]	nnnnn[377]	_	cf1*[377]	_	_	
+36-3	1783-1790	element	abstract[377]	giv:act[377]	nnnnn[377]	_	cf1*[377]	_	_	
+36-4	1791-1793	of	abstract[377]	giv:act[377]	nnnnn[377]	_	cf1*[377]	_	_	
+36-5	1794-1795	X	abstract[377]|abstract[378]|abstract[379]	giv:act[377]|giv:inact[378]|new[379]	nnnnn[377]|nnnnn[378]|nnnnn[379]	_	cf1*[377]|cf4[378]|cf6[379]	coref	37-12[391_378]	
+36-6	1796-1797	∖	abstract[377]|abstract[378]	giv:act[377]|giv:inact[378]	nnnnn[377]|nnnnn[378]	_	cf1*[377]|cf4[378]	_	_	
+36-7	1798-1799	T	abstract[377]|abstract[378]|abstract[380]	giv:act[377]|giv:inact[378]|giv:act[380]	nnnnn[377]|nnnnn[378]|sssss[380]	_	cf1*[377]|cf4[378]|cf2[380]	coref	37-14[392_380]	
+36-8	1800-1801	,	abstract[377]	giv:act[377]	nnnnn[377]	_	cf1*[377]	_	_	
+36-9	1802-1807	which	abstract[377]	giv:act[377]	nnnnn[377]	_	cf1*[377]	_	_	
+36-10	1808-1810	is	abstract[377]	giv:act[377]	nnnnn[377]	_	cf1*[377]	_	_	
+36-11	1811-1812	a	abstract[377]|abstract[383]	giv:act[377]|new[383]	nnnnn[377]|nnnnn[383]	_	cf1*[377]|cf7[383]	_	_	
+36-12	1813-1819	subset	abstract[377]|abstract[383]	giv:act[377]|new[383]	nnnnn[377]|nnnnn[383]	_	cf1*[377]|cf7[383]	_	_	
+36-13	1820-1822	of	abstract[377]|abstract[383]	giv:act[377]|new[383]	nnnnn[377]|nnnnn[383]	_	cf1*[377]|cf7[383]	_	_	
+36-14	1823-1824	S	abstract[377]|abstract[383]|abstract[384]	giv:act[377]|new[383]|giv:inact[384]	nnnnn[377]|nnnnn[383]|sssss[384]	_	cf1*[377]|cf7[383]|cf3[384]	coref	36-26[387_384]	
+36-15	1825-1826	,	_	_	_	_	_	_	_	
+36-16	1827-1829	is	_	_	_	_	_	_	_	
+36-17	1830-1840	guaranteed	_	_	_	_	_	_	_	
+36-18	1841-1843	to	_	_	_	_	_	_	_	
+36-19	1844-1849	exist	_	_	_	_	_	_	_	
+36-20	1850-1852	by	_	_	_	_	_	_	_	
+36-21	1853-1856	the	abstract[386]	new[386]	nnnnn[386]	_	cf5[386]	_	_	
+36-22	1857-1861	well	abstract[386]	new[386]	nnnnn[386]	_	cf5[386]	_	_	
+36-23	1862-1863	-	abstract[386]	new[386]	nnnnn[386]	_	cf5[386]	_	_	
+36-24	1864-1872	ordering	abstract[386]	new[386]	nnnnn[386]	_	cf5[386]	_	_	
+36-25	1873-1875	on	abstract[386]	new[386]	nnnnn[386]	_	cf5[386]	_	_	
+36-26	1876-1877	S	abstract[386]|abstract[387]	new[386]|giv:act[387]	nnnnn[386]|sssss[387]	_	cf5[386]|cf3[387]	coref	38-9[402_387]	
+36-27	1878-1879	.	_	_	_	_	_	_	_	
+
+#Text=This smallest element is then also the smallest element of ( X ∖ T ) ∪ T = X .
+37-1	1880-1884	This	abstract[389]	giv:act[389]	nnnnn[389]	_	cf1*[389]	coref	37-7[390_389]	
+37-2	1885-1893	smallest	abstract[389]	giv:act[389]	nnnnn[389]	_	cf1*[389]	_	_	
+37-3	1894-1901	element	abstract[389]	giv:act[389]	nnnnn[389]	_	cf1*[389]	_	_	
+37-4	1902-1904	is	_	_	_	_	_	_	_	
+37-5	1905-1909	then	_	_	_	_	_	_	_	
+37-6	1910-1914	also	_	_	_	_	_	_	_	
+37-7	1915-1918	the	abstract[390]	giv:act[390]	nnnnn[390]	_	cf1*[390]	_	_	
+37-8	1919-1927	smallest	abstract[390]	giv:act[390]	nnnnn[390]	_	cf1*[390]	_	_	
+37-9	1928-1935	element	abstract[390]	giv:act[390]	nnnnn[390]	_	cf1*[390]	_	_	
+37-10	1936-1938	of	abstract[390]	giv:act[390]	nnnnn[390]	_	cf1*[390]	_	_	
+37-11	1939-1940	(	abstract[390]	giv:act[390]	nnnnn[390]	_	cf1*[390]	_	_	
+37-12	1941-1942	X	abstract[390]|abstract[391]	giv:act[390]|giv:act[391]	nnnnn[390]|nnnnn[391]	_	cf1*[390]|cf2[391]	coref	37-19[394_391]	
+37-13	1943-1944	∖	abstract[390]	giv:act[390]	nnnnn[390]	_	cf1*[390]	_	_	
+37-14	1945-1946	T	abstract[390]|abstract[392]	giv:act[390]|giv:act[392]	nnnnn[390]|sssss[392]	_	cf1*[390]|cf3[392]	coref	37-17[393_392]	
+37-15	1947-1948	)	abstract[390]	giv:act[390]	nnnnn[390]	_	cf1*[390]	_	_	
+37-16	1949-1950	∪	abstract[390]	giv:act[390]	nnnnn[390]	_	cf1*[390]	_	_	
+37-17	1951-1952	T	abstract[390]|abstract[393]	giv:act[390]|giv:act[393]	nnnnn[390]|sssss[393]	_	cf1*[390]|cf3[393]	coref	38-11[403_393]	
+37-18	1953-1954	=	abstract[390]	giv:act[390]	nnnnn[390]	_	cf1*[390]	_	_	
+37-19	1955-1956	X	abstract[390]|abstract[394]	giv:act[390]|giv:act[394]	nnnnn[390]|nnnnn[394]	_	cf1*[390]|cf2[394]	_	_	
+37-20	1957-1958	.	_	_	_	_	_	_	_	
+
+#Text=Thus ⪯ is a well - ordering on S ∪ T . □
+38-1	1959-1963	Thus	_	_	_	_	_	_	_	
+38-2	1964-1965	⪯	abstract[395]	giv:inact[395]	sssss[395]	_	cf1[395]	pred	38-4[401_395]	
+38-3	1966-1968	is	_	_	_	_	_	_	_	
+38-4	1969-1970	a	abstract[401]	giv:act[401]	sssss[401]	_	cf1[401]	coref	40-11[425_401]	
+38-5	1971-1975	well	abstract[401]	giv:act[401]	sssss[401]	_	cf1[401]	_	_	
+38-6	1976-1977	-	abstract[401]	giv:act[401]	sssss[401]	_	cf1[401]	_	_	
+38-7	1978-1986	ordering	abstract[401]	giv:act[401]	sssss[401]	_	cf1[401]	_	_	
+38-8	1987-1989	on	abstract[401]	giv:act[401]	sssss[401]	_	cf1[401]	_	_	
+38-9	1990-1991	S	abstract[401]|abstract[402]	giv:act[401]|giv:inact[402]	sssss[401]|sssss[402]	_	cf1[401]|cf3[402]	coref	45-4[470_402]	
+38-10	1992-1993	∪	abstract[401]	giv:act[401]	sssss[401]	_	cf1[401]	_	_	
+38-11	1994-1995	T	abstract[401]|abstract[403]	giv:act[401]|giv:act[403]	sssss[401]|sssss[403]	_	cf1[401]|cf2*[403]	coref	39-8[410_403]	
+38-12	1996-1997	.	_	_	_	_	_	_	_	
+38-13	1998-1999	□	_	_	_	_	_	_	_	
+
+#Text=Consider the mapping : k : ( T , ⪯ T ) → ( U , ⪯ ) : k ( α ) = α
+39-1	2000-2008	Consider	_	_	_	_	_	_	_	
+39-2	2009-2012	the	abstract[406]	new[406]	nnsnn[406]	_	cf2[406]	appos	39-5[407_406]	
+39-3	2013-2020	mapping	abstract[406]	new[406]	nnsnn[406]	_	cf2[406]	_	_	
+39-4	2021-2022	:	_	_	_	_	_	_	_	
+39-5	2023-2024	k	abstract[407]	giv:act[407]	nnsnn[407]	_	cf2[407]	coref	39-7[409_407]	
+39-6	2025-2026	:	_	_	_	_	_	_	_	
+39-7	2027-2028	(	abstract[409]	giv:act[409]	nnsnn[409]	_	cf2[409]	disc	39-20[413_409]	
+39-8	2029-2030	T	abstract[409]|abstract[410]	giv:act[409]|giv:act[410]	nnsnn[409]|sssss[410]	_	cf2[409]|cf1*[410]	coref	39-11[411_410]	
+39-9	2031-2032	,	abstract[409]	giv:act[409]	nnsnn[409]	_	cf2[409]	_	_	
+39-10	2033-2034	⪯	abstract[409]	giv:act[409]	nnsnn[409]	_	cf2[409]	_	_	
+39-11	2035-2036	T	abstract[409]|abstract[411]	giv:act[409]|giv:act[411]	nnsnn[409]|sssss[411]	_	cf2[409]|cf1*[411]	coref	41-9[428_411]	
+39-12	2037-2038	)	abstract[409]	giv:act[409]	nnsnn[409]	_	cf2[409]	_	_	
+39-13	2039-2040	→	abstract[409]	giv:act[409]	nnsnn[409]	_	cf2[409]	_	_	
+39-14	2041-2042	(	abstract[409]	giv:act[409]	nnsnn[409]	_	cf2[409]	_	_	
+39-15	2043-2044	U	abstract[409]|abstract[412]	giv:act[409]|giv:inact[412]	nnsnn[409]|nssss[412]	_	cf2[409]|cf4[412]	coref	41-11[429_412]	
+39-16	2045-2046	,	abstract[409]	giv:act[409]	nnsnn[409]	_	cf2[409]	_	_	
+39-17	2047-2048	⪯	abstract[409]	giv:act[409]	nnsnn[409]	_	cf2[409]	_	_	
+39-18	2049-2050	)	abstract[409]	giv:act[409]	nnsnn[409]	_	cf2[409]	_	_	
+39-19	2051-2052	:	_	_	_	_	_	_	_	
+39-20	2053-2054	k	abstract[413]	giv:act[413]	nnsnn[413]	_	cf2[413]	coref	40-2[416_413]	
+39-21	2055-2056	(	_	_	_	_	_	_	_	
+39-22	2057-2058	α	abstract[414]	new[414]	nnnnn[414]	_	cf3[414]	coref	39-25[415_414]	
+39-23	2059-2060	)	_	_	_	_	_	_	_	
+39-24	2061-2062	=	_	_	_	_	_	_	_	
+39-25	2063-2064	α	abstract[415]	giv:act[415]	nnnnn[415]	_	cf3[415]	_	_	
+
+#Text=Then k is strictly increasing , by the construction of ⪯ .
+40-1	2065-2069	Then	_	_	_	_	_	_	_	
+40-2	2070-2071	k	abstract[416]	giv:act[416]	nnsnn[416]	_	cf1*[416]	coref	41-4[427_416]	
+40-3	2072-2074	is	_	_	_	_	_	_	_	
+40-4	2075-2083	strictly	_	_	_	_	_	_	_	
+40-5	2084-2094	increasing	_	_	_	_	_	_	_	
+40-6	2095-2096	,	_	_	_	_	_	_	_	
+40-7	2097-2099	by	_	_	_	_	_	_	_	
+40-8	2100-2103	the	abstract[424]	new[424]	nnnnn[424]	_	cf3[424]	_	_	
+40-9	2104-2116	construction	abstract[424]	new[424]	nnnnn[424]	_	cf3[424]	_	_	
+40-10	2117-2119	of	abstract[424]	new[424]	nnnnn[424]	_	cf3[424]	_	_	
+40-11	2120-2121	⪯	abstract[424]|abstract[425]	new[424]|giv:inact[425]	nnnnn[424]|sssss[425]	_	cf3[424]|cf2[425]	coref	46-6[477_425]	
+40-12	2122-2123	.	_	_	_	_	_	_	_	
+
+#Text=Thus there is a strictly increasing mapping from T to U .
+41-1	2124-2128	Thus	_	_	_	_	_	_	_	
+41-2	2129-2134	there	_	_	_	_	_	_	_	
+41-3	2135-2137	is	_	_	_	_	_	_	_	
+41-4	2138-2139	a	abstract[427]	giv:act[427]	nnsnn[427]	_	cf1*[427]	coref	43-15[453_427]	
+41-5	2140-2148	strictly	abstract[427]	giv:act[427]	nnsnn[427]	_	cf1*[427]	_	_	
+41-6	2149-2159	increasing	abstract[427]	giv:act[427]	nnsnn[427]	_	cf1*[427]	_	_	
+41-7	2160-2167	mapping	abstract[427]	giv:act[427]	nnsnn[427]	_	cf1*[427]	_	_	
+41-8	2168-2172	from	abstract[427]	giv:act[427]	nnsnn[427]	_	cf1*[427]	_	_	
+41-9	2173-2174	T	abstract[427]|abstract[428]	giv:act[427]|giv:inact[428]	nnsnn[427]|sssss[428]	_	cf1*[427]|cf2[428]	coref	42-11[438_428]	
+41-10	2175-2177	to	abstract[427]	giv:act[427]	nnsnn[427]	_	cf1*[427]	_	_	
+41-11	2178-2179	U	abstract[427]|abstract[429]	giv:act[427]|giv:inact[429]	nnsnn[427]|nssss[429]	_	cf1*[427]|cf3[429]	coref	42-22[446_429]	
+41-12	2180-2181	.	_	_	_	_	_	_	_	
+
+#Text=From Strictly Increasing Mapping Between Wosets Implies Order Isomorphism , T is order isomorphic to U or an initial segment of U .
+42-1	2182-2186	From	_	_	_	_	_	_	_	
+42-2	2187-2195	Strictly	abstract[432]|abstract[433]	new[432]|new[433]	nnnnn[432]|nnnnn[433]	_	cf9[432]|cf5[433]	_	_	
+42-3	2196-2206	Increasing	abstract[432]|abstract[433]	new[432]|new[433]	nnnnn[432]|nnnnn[433]	_	cf9[432]|cf5[433]	_	_	
+42-4	2207-2214	Mapping	abstract[432]|abstract[433]	new[432]|new[433]	nnnnn[432]|nnnnn[433]	_	cf9[432]|cf5[433]	_	_	
+42-5	2215-2222	Between	abstract[432]|abstract[433]	new[432]|new[433]	nnnnn[432]|nnnnn[433]	_	cf9[432]|cf5[433]	_	_	
+42-6	2223-2229	Wosets	abstract[432]|abstract[433]|abstract[434]	new[432]|new[433]|new[434]	nnnnn[432]|nnnnn[433]|nnnnn[434]	_	cf9[432]|cf5[433]|cf7[434]	_	_	
+42-7	2230-2237	Implies	abstract[432]	new[432]	nnnnn[432]	_	cf9[432]	_	_	
+42-8	2238-2243	Order	abstract[432]|abstract[436]|abstract[437]	new[432]|new[436]|new[437]	nnnnn[432]|sssns[436]|snnnn[437]	_	cf9[432]|cf6[436]|cf3[437]	coref	42-13[439_437]	
+42-9	2244-2255	Isomorphism	abstract[432]|abstract[436]	new[432]|new[436]	nnnnn[432]|sssns[436]	_	cf9[432]|cf6[436]	_	_	
+42-10	2256-2257	,	_	_	_	_	_	_	_	
+42-11	2258-2259	T	abstract[438]	giv:act[438]	sssss[438]	_	cf1*[438]	coref	47-8[483_438]	
+42-12	2260-2262	is	_	_	_	_	_	_	_	
+42-13	2263-2268	order	abstract[439]	giv:act[439]	snnnn[439]	_	cf3[439]	coref	47-5[482_439]	
+42-14	2269-2279	isomorphic	_	_	_	_	_	_	_	
+42-15	2280-2282	to	_	_	_	_	_	_	_	
+42-16	2283-2284	U	abstract[440]	giv:inact[440]	nnnnn[440]	_	cf4[440]	coref	43-8[451_440]	
+42-17	2285-2287	or	_	_	_	_	_	_	_	
+42-18	2288-2290	an	abstract[445]	new[445]	sssnn[445]	_	cf8[445]	coref	43-4[450_445]	
+42-19	2291-2298	initial	abstract[445]	new[445]	sssnn[445]	_	cf8[445]	_	_	
+42-20	2299-2306	segment	abstract[445]	new[445]	sssnn[445]	_	cf8[445]	_	_	
+42-21	2307-2309	of	abstract[445]	new[445]	sssnn[445]	_	cf8[445]	_	_	
+42-22	2310-2311	U	abstract[445]|abstract[446]	new[445]|giv:act[446]	sssnn[445]|nssss[446]	_	cf8[445]|cf2[446]	_	_	
+42-23	2312-2313	.	_	_	_	_	_	_	_	
+
+#Text=Let Ix denote the initial segment in U determined by x , according to k .
+43-1	2314-2317	Let	_	_	_	_	_	_	_	
+43-2	2318-2320	Ix	abstract[447]	new[447]	nnnnn[447]	_	cf4[447]	coref	44-3[454_447]	
+43-3	2321-2327	denote	_	_	_	_	_	_	_	
+43-4	2328-2331	the	abstract[450]	giv:act[450]	sssnn[450]	_	cf1*[450]	coref	53-4[532_450]	
+43-5	2332-2339	initial	abstract[450]	giv:act[450]	sssnn[450]	_	cf1*[450]	_	_	
+43-6	2340-2347	segment	abstract[450]	giv:act[450]	sssnn[450]	_	cf1*[450]	_	_	
+43-7	2348-2350	in	abstract[450]	giv:act[450]	sssnn[450]	_	cf1*[450]	_	_	
+43-8	2351-2352	U	abstract[450]|abstract[451]	giv:act[450]|giv:act[451]	sssnn[450]|nnnnn[451]	_	cf1*[450]|cf2[451]	_	_	
+43-9	2353-2363	determined	_	_	_	_	_	_	_	
+43-10	2364-2366	by	_	_	_	_	_	_	_	
+43-11	2367-2368	x	abstract[452]	new[452]	nnnnn[452]	_	cf5[452]	coref	44-7[460_452]	
+43-12	2369-2370	,	_	_	_	_	_	_	_	
+43-13	2371-2380	according	_	_	_	_	_	_	_	
+43-14	2381-2383	to	_	_	_	_	_	_	_	
+43-15	2384-2385	k	abstract[453]	giv:inact[453]	nnsnn[453]	_	cf3[453]	_	_	
+43-16	2386-2387	.	_	_	_	_	_	_	_	
+
+#Text=Note that Ix = Ik ( x ) , because k ( x ) = x .
+44-1	2388-2392	Note	_	_	_	_	_	_	_	
+44-2	2393-2397	that	_	_	_	_	_	_	_	
+44-3	2398-2400	Ix	abstract[454]	giv:act[454]	nnnnn[454]	_	cf1*[454]	coref	47-10[484_454]	
+44-4	2401-2402	=	_	_	_	_	_	_	_	
+44-5	2403-2405	Ik	abstract[459]	new[459]	nnnnn[459]	_	cf5[459]	_	_	
+44-6	2406-2407	(	abstract[459]	new[459]	nnnnn[459]	_	cf5[459]	_	_	
+44-7	2408-2409	x	abstract[459]|abstract[460]	new[459]|giv:act[460]	nnnnn[459]|nnnnn[460]	_	cf5[459]|cf3[460]	_	_	
+44-8	2410-2411	)	abstract[459]	new[459]	nnnnn[459]	_	cf5[459]	_	_	
+44-9	2412-2413	,	_	_	_	_	_	_	_	
+44-10	2414-2421	because	_	_	_	_	_	_	_	
+44-11	2422-2423	k	abstract[462]	new[462]	nnnnn[462]	_	cf4[462]	_	_	
+44-12	2424-2425	(	abstract[462]	new[462]	nnnnn[462]	_	cf4[462]	_	_	
+44-13	2426-2427	x	abstract[462]|abstract[463]	new[462]|new[463]	nnnnn[462]|nnnnn[463]	_	cf4[462]|cf2[463]	coref	44-16[464_463]	
+44-14	2428-2429	)	abstract[462]	new[462]	nnnnn[462]	_	cf4[462]	_	_	
+44-15	2430-2431	=	_	_	_	_	_	_	_	
+44-16	2432-2433	x	abstract[464]	giv:act[464]	nnnnn[464]	_	cf2[464]	_	_	
+44-17	2434-2435	.	_	_	_	_	_	_	_	
+
+#Text=Suppose x ∈ S .
+45-1	2436-2443	Suppose	_	_	_	_	_	_	_	
+45-2	2444-2445	x	abstract[465]	new[465]	nnnnn[465]	_	cf1[465]	coref	45-3[469_465]	
+45-3	2446-2447	∈	abstract[469]	giv:act[469]	nnnnn[469]	_	cf1[469]	_	_	
+45-4	2448-2449	S	abstract[469]|abstract[470]	giv:act[469]|giv:inact[470]	nnnnn[469]|sssss[470]	_	cf1[469]|cf2[470]	coref	46-4[476_470]	
+45-5	2450-2451	.	_	_	_	_	_	_	_	
+
+#Text=Then Ix ⊆ S because ⪯ is a well - ordering .
+46-1	2452-2456	Then	_	_	_	_	_	_	_	
+46-2	2457-2459	Ix	event[472]|abstract[473]	new[472]|new[473]	nnnnn[472]|nnnnn[473]	_	cf4[472]|cf3[473]	bridge:aggr|coref	56-1[551_472]|46-3[475_473]	
+46-3	2460-2461	⊆	event[472]|abstract[475]	new[472]|giv:act[475]	nnnnn[472]|nnnnn[475]	_	cf4[472]|cf3[475]	_	_	
+46-4	2462-2463	S	event[472]|abstract[475]|abstract[476]	new[472]|giv:act[475]|giv:act[476]	nnnnn[472]|nnnnn[475]|sssss[476]	_	cf4[472]|cf3[475]|cf1*[476]	coref	47-12[485_476]	
+46-5	2464-2471	because	_	_	_	_	_	_	_	
+46-6	2472-2473	⪯	abstract[477]	giv:inact[477]	sssss[477]	_	cf2[477]	pred	46-8[480_477]	
+46-7	2474-2476	is	_	_	_	_	_	_	_	
+46-8	2477-2478	a	abstract[480]	giv:act[480]	sssss[480]	_	cf2[480]	_	_	
+46-9	2479-2483	well	abstract[480]	giv:act[480]	sssss[480]	_	cf2[480]	_	_	
+46-10	2484-2485	-	abstract[480]	giv:act[480]	sssss[480]	_	cf2[480]	_	_	
+46-11	2486-2494	ordering	abstract[480]	giv:act[480]	sssss[480]	_	cf2[480]	_	_	
+46-12	2495-2496	.	_	_	_	_	_	_	_	
+
+#Text=Thus there is an order isomorphism from T to Ix in S .
+47-1	2497-2501	Thus	_	_	_	_	_	_	_	
+47-2	2502-2507	there	_	_	_	_	_	_	_	
+47-3	2508-2510	is	_	_	_	_	_	_	_	
+47-4	2511-2513	an	abstract[481]	new[481]	nnnnn[481]	_	cf5[481]	_	_	
+47-5	2514-2519	order	abstract[481]|abstract[482]	new[481]|giv:inact[482]	nnnnn[481]|snnnn[482]	_	cf5[481]|cf4[482]	coref	51-5[516_482]	
+47-6	2520-2531	isomorphism	abstract[481]	new[481]	nnnnn[481]	_	cf5[481]	_	_	
+47-7	2532-2536	from	abstract[481]	new[481]	nnnnn[481]	_	cf5[481]	_	_	
+47-8	2537-2538	T	abstract[481]|abstract[483]	new[481]|giv:inact[483]	nnnnn[481]|sssss[483]	_	cf5[481]|cf2[483]	coref	48-11[494_483]	
+47-9	2539-2541	to	abstract[481]	new[481]	nnnnn[481]	_	cf5[481]	_	_	
+47-10	2542-2544	Ix	abstract[481]|abstract[484]	new[481]|giv:inact[484]	nnnnn[481]|nnnnn[484]	_	cf5[481]|cf3[484]	coref	50-11[510_484]	
+47-11	2545-2547	in	abstract[481]	new[481]	nnnnn[481]	_	cf5[481]	_	_	
+47-12	2548-2549	S	abstract[481]|abstract[485]	new[481]|giv:act[485]	nnnnn[481]|sssss[485]	_	cf5[481]|cf1*[485]	coref	49-5[498_485]	
+47-13	2550-2551	.	_	_	_	_	_	_	_	
+
+#Text=Suppose x = min T , the smallest element of T .
+48-1	2552-2559	Suppose	_	_	_	_	_	_	_	
+48-2	2560-2561	x	abstract[486]	new[486]	nnnns[486]	_	cf1[486]	coref	48-4[492_486]	
+48-3	2562-2563	=	_	_	_	_	_	_	_	
+48-4	2564-2567	min	abstract[492]	giv:act[492]	nnnns[492]	_	cf1[492]	appos	48-7[493_492]	
+48-5	2568-2569	T	abstract[492]	giv:act[492]	nnnns[492]	_	cf1[492]	_	_	
+48-6	2570-2571	,	_	_	_	_	_	_	_	
+48-7	2572-2575	the	abstract[493]	giv:act[493]	nnnns[493]	_	cf1[493]	coref	49-8[499_493]	
+48-8	2576-2584	smallest	abstract[493]	giv:act[493]	nnnns[493]	_	cf1[493]	_	_	
+48-9	2585-2592	element	abstract[493]	giv:act[493]	nnnns[493]	_	cf1[493]	_	_	
+48-10	2593-2595	of	abstract[493]	giv:act[493]	nnnns[493]	_	cf1[493]	_	_	
+48-11	2596-2597	T	abstract[493]|abstract[494]	giv:act[493]|giv:act[494]	nnnns[493]|sssss[494]	_	cf1[493]|cf2*[494]	pred	49-14[501_494]	
+48-12	2598-2599	.	_	_	_	_	_	_	_	
+
+#Text=Then every element of S strictly precedes x , as x is in T .
+49-1	2600-2604	Then	_	_	_	_	_	_	_	
+49-2	2605-2610	every	abstract[496]|abstract[497]	acc:com[496]|new[497]	nnnnn[496]|nnnnn[497]	_	cf4[496]|cf5[497]	bridge:aggr|coref	56-1[551_496]|54-3[535_497]	
+49-3	2611-2618	element	abstract[496]|abstract[497]	acc:com[496]|new[497]	nnnnn[496]|nnnnn[497]	_	cf4[496]|cf5[497]	_	_	
+49-4	2619-2621	of	abstract[496]|abstract[497]	acc:com[496]|new[497]	nnnnn[496]|nnnnn[497]	_	cf4[496]|cf5[497]	_	_	
+49-5	2622-2623	S	abstract[496]|abstract[497]|abstract[498]	acc:com[496]|new[497]|giv:inact[498]	nnnnn[496]|nnnnn[497]|sssss[498]	_	cf4[496]|cf5[497]|cf3[498]	ana	51-10[520_498]	
+49-6	2624-2632	strictly	abstract[496]	acc:com[496]	nnnnn[496]	_	cf4[496]	_	_	
+49-7	2633-2641	precedes	abstract[496]	acc:com[496]	nnnnn[496]	_	cf4[496]	_	_	
+49-8	2642-2643	x	abstract[496]|abstract[499]	acc:com[496]|giv:act[499]	nnnnn[496]|nnnns[499]	_	cf4[496]|cf1*[499]	coref	49-11[500_499]	
+49-9	2644-2645	,	_	_	_	_	_	_	_	
+49-10	2646-2648	as	_	_	_	_	_	_	_	
+49-11	2649-2650	x	abstract[500]	giv:act[500]	nnnns[500]	_	cf1*[500]	coref	50-3[502_500]	
+49-12	2651-2653	is	_	_	_	_	_	_	_	
+49-13	2654-2656	in	_	_	_	_	_	_	_	
+49-14	2657-2658	T	abstract[501]	giv:act[501]	sssss[501]	_	cf2[501]	coref	50-8[509_501]	
+49-15	2659-2660	.	_	_	_	_	_	_	_	
+
+#Text=Also , x precedes every element of T , so Ix ≠ T .
+50-1	2661-2665	Also	_	_	_	_	_	_	_	
+50-2	2666-2667	,	_	_	_	_	_	_	_	
+50-3	2668-2669	x	abstract[502]	giv:act[502]	nnnns[502]	_	cf1*[502]	coref	52-8[528_502]	
+50-4	2670-2678	precedes	_	_	_	_	_	_	_	
+50-5	2679-2684	every	abstract[508]	new[508]	nnnnn[508]	_	cf4[508]	_	_	
+50-6	2685-2692	element	abstract[508]	new[508]	nnnnn[508]	_	cf4[508]	_	_	
+50-7	2693-2695	of	abstract[508]	new[508]	nnnnn[508]	_	cf4[508]	_	_	
+50-8	2696-2697	T	abstract[508]|abstract[509]	new[508]|giv:act[509]	nnnnn[508]|sssss[509]	_	cf4[508]|cf2[509]	coref	50-13[511_509]	
+50-9	2698-2699	,	_	_	_	_	_	_	_	
+50-10	2700-2702	so	_	_	_	_	_	_	_	
+50-11	2703-2705	Ix	abstract[510]	giv:inact[510]	nnnnn[510]	_	cf3[510]	coref	53-2[530_510]	
+50-12	2706-2707	≠	_	_	_	_	_	_	_	
+50-13	2708-2709	T	abstract[511]	giv:act[511]	sssss[511]	_	cf2[511]	coref	51-8[517_511]	
+50-14	2710-2711	.	_	_	_	_	_	_	_	
+
+#Text=Thus there is an order isomorphism from T to all of S .
+51-1	2712-2716	Thus	_	_	_	_	_	_	_	
+51-2	2717-2722	there	_	_	_	_	_	_	_	
+51-3	2723-2725	is	_	_	_	_	_	_	_	
+51-4	2726-2728	an	abstract[515]	new[515]	nnnnn[515]	_	cf4[515]	_	_	
+51-5	2729-2734	order	abstract[515]|abstract[516]	new[515]|giv:inact[516]	nnnnn[515]|snnnn[516]	_	cf4[515]|cf3[516]	coref	55-5[545_516]	
+51-6	2735-2746	isomorphism	abstract[515]	new[515]	nnnnn[515]	_	cf4[515]	_	_	
+51-7	2747-2751	from	abstract[515]	new[515]	nnnnn[515]	_	cf4[515]	_	_	
+51-8	2752-2753	T	abstract[515]|abstract[517]	new[515]|giv:act[517]	nnnnn[515]|sssss[517]	_	cf4[515]|cf1*[517]	coref	52-4[524_517]	
+51-9	2754-2756	to	abstract[515]	new[515]	nnnnn[515]	_	cf4[515]	_	_	
+51-10	2757-2760	all	abstract[515]|abstract[520]	new[515]|giv:inact[520]	nnnnn[515]|sssss[520]	_	cf4[515]|cf2[520]	coref	54-6[536_520]	
+51-11	2761-2763	of	abstract[515]|abstract[520]	new[515]|giv:inact[520]	nnnnn[515]|sssss[520]	_	cf4[515]|cf2[520]	_	_	
+51-12	2764-2765	S	abstract[515]|abstract[520]	new[515]|giv:inact[520]	nnnnn[515]|sssss[520]	_	cf4[515]|cf2[520]	_	_	
+51-13	2766-2767	.	_	_	_	_	_	_	_	
+
+#Text=Suppose x ∈ T and x ≠ min T .
+52-1	2768-2775	Suppose	_	_	_	_	_	_	_	
+52-2	2776-2777	x	abstract[521]	new[521]	nnnnn[521]	_	cf1[521]	pred	52-3[523_521]	
+52-3	2778-2779	∈	abstract[523]	giv:act[523]	nnnnn[523]	_	cf1[523]	coref	52-6[525_523]	
+52-4	2780-2781	T	abstract[523]|abstract[524]	giv:act[523]|giv:act[524]	nnnnn[523]|sssss[524]	_	cf1[523]|cf2*[524]	coref	53-8[533_524]	
+52-5	2782-2785	and	_	_	_	_	_	_	_	
+52-6	2786-2787	x	abstract[525]	giv:act[525]	nnnnn[525]	_	cf1[525]	coref	54-9[537_525]	
+52-7	2788-2789	≠	_	_	_	_	_	_	_	
+52-8	2790-2793	min	abstract[528]	giv:inact[528]	nnnns[528]	_	cf3[528]	_	_	
+52-9	2794-2795	T	abstract[528]	giv:inact[528]	nnnns[528]	_	cf3[528]	_	_	
+52-10	2796-2797	.	_	_	_	_	_	_	_	
+
+#Text=Then Ix defines an initial segment in T .
+53-1	2798-2802	Then	_	_	_	_	_	_	_	
+53-2	2803-2805	Ix	event[529]|abstract[530]	acc:com[529]|giv:inact[530]	nnnnn[529]|nnnnn[530]	_	cf4[529]|cf2[530]	bridge:aggr	56-1[551_529]	
+53-3	2806-2813	defines	event[529]	acc:com[529]	nnnnn[529]	_	cf4[529]	_	_	
+53-4	2814-2816	an	event[529]|abstract[532]	acc:com[529]|giv:inact[532]	nnnnn[529]|sssnn[532]	_	cf4[529]|cf3[532]	_	_	
+53-5	2817-2824	initial	event[529]|abstract[532]	acc:com[529]|giv:inact[532]	nnnnn[529]|sssnn[532]	_	cf4[529]|cf3[532]	_	_	
+53-6	2825-2832	segment	event[529]|abstract[532]	acc:com[529]|giv:inact[532]	nnnnn[529]|sssnn[532]	_	cf4[529]|cf3[532]	_	_	
+53-7	2833-2835	in	event[529]|abstract[532]	acc:com[529]|giv:inact[532]	nnnnn[529]|sssnn[532]	_	cf4[529]|cf3[532]	_	_	
+53-8	2836-2837	T	event[529]|abstract[532]|abstract[533]	acc:com[529]|giv:inact[532]|giv:act[533]	nnnnn[529]|sssnn[532]|sssss[533]	_	cf4[529]|cf3[532]|cf1*[533]	pred	54-15[539_533]	
+53-9	2838-2839	.	_	_	_	_	_	_	_	
+
+#Text=Also , every element of S strictly precedes x , as x is in T .
+54-1	2840-2844	Also	_	_	_	_	_	_	_	
+54-2	2845-2846	,	_	_	_	_	_	_	_	
+54-3	2847-2852	every	abstract[535]	giv:inact[535]	nnnnn[535]	_	cf3[535]	_	_	
+54-4	2853-2860	element	abstract[535]	giv:inact[535]	nnnnn[535]	_	cf3[535]	_	_	
+54-5	2861-2863	of	abstract[535]	giv:inact[535]	nnnnn[535]	_	cf3[535]	_	_	
+54-6	2864-2865	S	abstract[535]|abstract[536]	giv:inact[535]|giv:inact[536]	nnnnn[535]|sssss[536]	_	cf3[535]|cf4[536]	ana	55-14[550_536]	
+54-7	2866-2874	strictly	_	_	_	_	_	_	_	
+54-8	2875-2883	precedes	_	_	_	_	_	_	_	
+54-9	2884-2885	x	abstract[537]	giv:inact[537]	nnnnn[537]	_	cf1[537]	coref	54-12[538_537]	
+54-10	2886-2887	,	_	_	_	_	_	_	_	
+54-11	2888-2890	as	_	_	_	_	_	_	_	
+54-12	2891-2892	x	abstract[538]	giv:act[538]	nnnnn[538]	_	cf1[538]	_	_	
+54-13	2893-2895	is	_	_	_	_	_	_	_	
+54-14	2896-2898	in	_	_	_	_	_	_	_	
+54-15	2899-2900	T	abstract[539]	giv:act[539]	sssss[539]	_	cf2*[539]	coref	55-12[548_539]	
+54-16	2901-2902	.	_	_	_	_	_	_	_	
+
+#Text=Thus there is an order isomorphism from an initial segment of T to all of S .
+55-1	2903-2907	Thus	_	_	_	_	_	_	_	
+55-2	2908-2913	there	_	_	_	_	_	_	_	
+55-3	2914-2916	is	_	_	_	_	_	_	_	
+55-4	2917-2919	an	abstract[544]	new[544]	nnnnn[544]	_	cf4[544]	_	_	
+55-5	2920-2925	order	abstract[544]|abstract[545]	new[544]|giv:inact[545]	nnnnn[544]|snnnn[545]	_	cf4[544]|cf3[545]	_	_	
+55-6	2926-2937	isomorphism	abstract[544]	new[544]	nnnnn[544]	_	cf4[544]	_	_	
+55-7	2938-2942	from	abstract[544]	new[544]	nnnnn[544]	_	cf4[544]	_	_	
+55-8	2943-2945	an	abstract[544]|abstract[547]	new[544]|new[547]	nnnnn[544]|nnnnn[547]	_	cf4[544]|cf5[547]	_	_	
+55-9	2946-2953	initial	abstract[544]|abstract[547]	new[544]|new[547]	nnnnn[544]|nnnnn[547]	_	cf4[544]|cf5[547]	_	_	
+55-10	2954-2961	segment	abstract[544]|abstract[547]	new[544]|new[547]	nnnnn[544]|nnnnn[547]	_	cf4[544]|cf5[547]	_	_	
+55-11	2962-2964	of	abstract[544]|abstract[547]	new[544]|new[547]	nnnnn[544]|nnnnn[547]	_	cf4[544]|cf5[547]	_	_	
+55-12	2965-2966	T	abstract[544]|abstract[547]|abstract[548]	new[544]|new[547]|giv:act[548]	nnnnn[544]|nnnnn[547]|sssss[548]	_	cf4[544]|cf5[547]|cf1*[548]	_	_	
+55-13	2967-2969	to	abstract[544]	new[544]	nnnnn[544]	_	cf4[544]	_	_	
+55-14	2970-2973	all	abstract[544]|abstract[550]	new[544]|giv:act[550]	nnnnn[544]|sssss[550]	_	cf4[544]|cf2[550]	_	_	
+55-15	2974-2976	of	abstract[544]|abstract[550]	new[544]|giv:act[550]	nnnnn[544]|sssss[550]	_	cf4[544]|cf2[550]	_	_	
+55-16	2977-2978	S	abstract[544]|abstract[550]	new[544]|giv:act[550]	nnnnn[544]|sssss[550]	_	cf4[544]|cf2[550]	_	_	
+55-17	2979-2980	.	_	_	_	_	_	_	_	
+
+#Text=The cases are distinct by Well - Ordered Class is not Isomorphic to Initial Segment . ■
+56-1	2981-2984	The	event[551]	acc:aggr[551]	nnnnn[551]	_	cf1[551]	_	_	
+56-2	2985-2990	cases	event[551]	acc:aggr[551]	nnnnn[551]	_	cf1[551]	_	_	
+56-3	2991-2994	are	_	_	_	_	_	_	_	
+56-4	2995-3003	distinct	_	_	_	_	_	_	_	
+56-5	3004-3006	by	_	_	_	_	_	_	_	
+56-6	3007-3011	Well	abstract[552]|abstract[553]	new[552]|new[553]	nnnnn[552]|nnnnn[553]	_	cf4[552]|cf2[553]	_	_	
+56-7	3012-3013	-	abstract[552]|abstract[553]	new[552]|new[553]	nnnnn[552]|nnnnn[553]	_	cf4[552]|cf2[553]	_	_	
+56-8	3014-3021	Ordered	abstract[552]|abstract[553]	new[552]|new[553]	nnnnn[552]|nnnnn[553]	_	cf4[552]|cf2[553]	_	_	
+56-9	3022-3027	Class	abstract[552]|abstract[553]	new[552]|new[553]	nnnnn[552]|nnnnn[553]	_	cf4[552]|cf2[553]	_	_	
+56-10	3028-3030	is	abstract[552]	new[552]	nnnnn[552]	_	cf4[552]	_	_	
+56-11	3031-3034	not	abstract[552]	new[552]	nnnnn[552]	_	cf4[552]	_	_	
+56-12	3035-3045	Isomorphic	abstract[552]	new[552]	nnnnn[552]	_	cf4[552]	_	_	
+56-13	3046-3048	to	abstract[552]	new[552]	nnnnn[552]	_	cf4[552]	_	_	
+56-14	3049-3056	Initial	abstract[552]|abstract[554]	new[552]|new[554]	nnnnn[552]|nnnnn[554]	_	cf4[552]|cf3[554]	_	_	
+56-15	3057-3064	Segment	abstract[552]|abstract[554]	new[552]|new[554]	nnnnn[552]|nnnnn[554]	_	cf4[552]|cf3[554]	_	_	
+56-16	3065-3066	.	_	_	_	_	_	_	_	
+56-17	3067-3068	■	_	_	_	_	_	_	_	
