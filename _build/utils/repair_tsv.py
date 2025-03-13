@@ -617,7 +617,17 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 				min_idx.append(str(i+1))
 		return ",".join(min_idx)
 
+	def merge_salience(sal1,sal2):
+		output = []
+		for i in range(len(sal1)):
+			if sal1[i] == "s" or sal2[i] == "s":
+				output.append("s")
+			else:
+				output.append("n")
+		return "".join(output)
 
+
+	salience_scores = True  # Use new graded salience format (values like 'snsnn' rather than 'nonsal')
 	adjusted = []
 	entities = {}
 	source2rel = defaultdict(list)
@@ -663,6 +673,10 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 					entities[e["id"]]["toks"].append((int(dct["id_in_sent"]),int(dct["dep_parent"]),dct["pos"],dct["func"],dct["token"],dct["abs_id"]))
 					entities[e["id"]]["length"] += 1
 				else:
+					if e["salience"] == "nonsal" and salience_scores:
+						salience_scores = False
+						sys.stdout.write("! WARN: detected value 'nonsal' in salience column in "+str(parsed_lines[0:10])+", reverting to binary salience format\n")
+						quit()
 					entities[e["id"]] = {"start":tid, "end":tid,"length":1, "func": dct["func"], "pos": dct["pos"],
 									 "infstat": e["infstat"], "salience": e["salience"], "type":e["type"], "identity": e["identity"], "relations": [],
 									 "head_tok_abs_id": dct["abs_id"], "head_tok_parent_abs_id" : 0, "group":None,
@@ -835,7 +849,10 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 					entities[rel["dest"]]["group"] = ent["group"]
 
 	group_identities = {}
-	group_saliences = defaultdict(lambda :"nonsal")
+	if salience_scores:
+		group_saliences = defaultdict(lambda: "nnnnn")
+	else:
+		group_saliences = defaultdict(lambda:"nonsal")
 	for e_id in entities:
 		ent = entities[e_id]
 		if ent["infstat"] == "split":
@@ -856,13 +873,16 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 					sys.stderr.write("Multiple entity conflict in doc "+ webanno_tsv[webanno_tsv.find("Text"): webanno_tsv.find("Text") + 20]+"\n"+
 									 group_identities[ent["group"]] + "<>" + ent["identity"] + "\n")
 			group_identities[ent["group"]] = ent["identity"]
-		if ent["salience"] == "sal":
-			group_saliences[ent["group"]] = "sal"
-		elif ent["group"] in group_identities:
-			#continue
-			#if ent["pos"][0] == "P":
-			#	pass  # pronoun
-			ent["identity"] = group_identities[ent["group"]]
+		if salience_scores:
+			if 's' in ent["salience"]:
+				group_saliences[ent["group"]] = merge_salience(group_saliences[ent["group"]], ent["salience"])
+			elif ent["group"] in group_identities:
+				ent["identity"] = group_identities[ent["group"]]
+		else:
+			if ent["salience"] == "sal":
+				group_saliences[ent["group"]] = "sal"
+			elif ent["group"] in group_identities:
+				ent["identity"] = group_identities[ent["group"]]
 
 	# Second pass on identities, for early mentions whose group got an identity later
 	for e_id in entities:
@@ -870,11 +890,9 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 		if ent["group"] in group_identities:
 			ent["identity"] = group_identities[ent["group"]]
 		if ent["group"] in group_saliences:
-			ent["salience"] = group_saliences[ent["group"]]
+			ent["salience"] = group_saliences[ent["group"]].replace("_","n")
 
 	# Add Centering Theory annotations
-	if "REDACTED" in webanno_tsv:
-		a=4
 	entities, centering_transitions = add_centering(entities)
 
 	# Create opener and closer data for later conllu-a serialization
@@ -897,9 +915,10 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 			group_mapping[ent["group"]] = max_mapped_group
 			max_mapped_group += 1
 		group = group_mapping[ent["group"]]
-		if ent["salience"] == "sal":
-			mapped_saliences[group] = "sal"
-		starter = f'({etype}-{group}-{infstat}-{centering}-{min_ids}-{coref_type}{identity}'
+		if "s" in ent["salience"] and "non" not in ent["salience"]:
+			mapped_saliences[group] = ent["salience"]
+		salience = ent["salience"]
+		starter = f'({etype}-{group}-{infstat}-{salience}-{centering}-{min_ids}-{coref_type}{identity}'
 		if start == end:
 			starter += ")"
 		opener_lists[start].append(starter)
