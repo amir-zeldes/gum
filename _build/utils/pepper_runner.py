@@ -84,7 +84,7 @@ def cycle_spinner(spinner):
 		return "/"
 
 
-def run_pepper(pepper_params,full_log=False):
+def run_pepper(pepper_params,full_log=False,corpus_subdir=""):
 	# Open new thread for pepper so we don't lose control of the cli
 	threads = []
 	output = [""] # Placeholder variable to get output via modification by ref
@@ -102,6 +102,8 @@ def run_pepper(pepper_params,full_log=False):
 
 	script_dir = os.path.dirname(os.path.realpath(__file__)) + os.sep
 	annis_out_dir = script_dir + ".." + os.sep + "target" + os.sep + "annis" + os.sep
+	if corpus_subdir != "":
+		annis_out_dir += corpus_subdir + os.sep
 	# Rename ANNIS namespaces
 	ext = "annis"
 
