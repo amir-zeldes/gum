@@ -46,7 +46,7 @@ parser.add_argument("--skip_ptb_labels",action="store_true", help="Skip projecti
 parser.add_argument("--skip_ontogum",action="store_true", help="Skip building OntoGUM version of coref data")
 parser.add_argument("--no_secedges",action="store_true", help="No eRST secedges in conllu")
 parser.add_argument("--no_signals",action="store_true", help="No eRST signals in conllu")
-parser.add_argument("--corpus_name",action="store", default="GUM", help="Corpus name / document prefix")
+parser.add_argument("--corpus_name",action="store", default="both", choices=["GUM","GENTLE","both"], help="Corpus name / document prefix")
 
 options = parser.parse_args()
 
@@ -238,7 +238,7 @@ if not options.pepper_only and not options.discourse_only:
 	#   * creates speaker, s_type and centering transition comments from xml/
 	# Returns pre_annotated, a dictionary giving pre-annotated fields in src/dep/ which overwrite annotation values
 	print("\nEnriching Dependencies:\n" + "="*23)
-	pre_annotated = enrich_dep(gum_source, gum_target, pepper_tmp, reddit)
+	pre_annotated = enrich_dep(gum_source, gum_target, pepper_tmp, reddit, corpus=corpus_name)
 
 	# Create fresh constituent parses in const/ if desired
 	# (either reparse or use dep2const conversion, e.g. https://github.com/ikekonglp/PAD)
@@ -262,7 +262,7 @@ if not options.pepper_only and not options.discourse_only:
 	print("\nCompiling Universal Dependencies version:\n" + "=" * 40)
 	compile_ud(pepper_tmp, gum_target, pre_annotated, reddit=reddit, corpus=corpus_name)
 
-	fix_gw_tags(gum_target, reddit=reddit)
+	fix_gw_tags(gum_target, reddit=reddit, corpus=corpus_name)
 
 	if not options.skip_ontogum:
 		# Create OntoGUM data (OntoNotes schema version of coref annotations)
@@ -297,62 +297,84 @@ else:
 	sys.stderr.write("i Pepper only conversion, entities in conllu-a data will be generated from Pepper output (no infsat or min IDs)\n")
 
 ## Step 3: merge and convert source formats to target formats
-if options.no_pepper or options.discourse_only:
-	sys.__stdout__.write("\ni Skipping Pepper conversion\n")
-else:
-	sys.__stdout__.write("\nStarting pepper conversion:\n" + "="*30 + "\n")
 
-	# Create Pepper staging erea in utils/pepper/tmp/
-	dirs = [('xml','xml','xml','', ''),('dep','ud','conllu','', os.sep + "ud" + os.sep + "not-to-release"),
-			('rst'+os.sep+'rstweb','rst','rs[34]','',''),('rst'+os.sep+'dependencies','rsd','rsd','',''),
-			('tsv','tsv','tsv','coref' + os.sep,''),('const','const','ptb','','')]
-	for dir in dirs:
-		files = []
-		dir_name, out_dir_name, extension, prefix, suffix = dir
-		files_ = glob(gum_target + prefix + dir_name + suffix + os.sep + "*" + extension)
-		for file_ in files_:
-			if not reddit and "reddit_" in file_:
-				continue
-			files.append(file_)
-		if not os.path.exists(pepper_tmp + out_dir_name + os.sep + corpus_name + os.sep):
-			os.makedirs(pepper_tmp + out_dir_name + os.sep + corpus_name + os.sep)
-		for file_ in files:
-			shutil.copy(file_, pepper_tmp + out_dir_name + os.sep + corpus_name + os.sep)
-	if not os.path.exists(gum_target + "coref" + os.sep + "conll" + os.sep):
-		os.makedirs(gum_target + "coref" + os.sep + "conll" + os.sep)
+corpora = ["GUM", "GENTLE"] if corpus_name == "both" else [corpus_name]
+for cname in corpora:
 
-	try:
-		pepper_params = io.open(pepper_home + "merge_gum.pepperparams", encoding="utf8").read().replace("\r","")
-	except:
-		sys.__stdout__.write("x Can't find pepper template at: "+"utils" + os.sep + "pepper" + os.sep + "merge_gum.pepperparams"+"\n  Aborting...")
-		sys.exit()
-
-	# Inject gum_target in pepper_params and replace os.sep with URI slash
-	if platform.system() == "Windows":
-		pepper_params = pepper_params.replace("**gum_tmp**",os.path.abspath(pepper_tmp).replace(os.sep,"/"))
-		pepper_params = pepper_params.replace("**gum_target**",gum_target.replace(os.sep,"/"))
+	if options.no_pepper or options.discourse_only:
+		sys.__stdout__.write("\ni Skipping Pepper conversion\n")
 	else:
-		pepper_params = pepper_params.replace("file:/**gum_tmp**", os.path.abspath(pepper_tmp))
-		pepper_params = pepper_params.replace("file:/**gum_target**", os.path.abspath(pepper_home) + os.sep + "../../target/")
+		sys.__stdout__.write("\nStarting pepper conversion:\n" + "="*30 + "\n")
 
-	# Setup metadata file
-	build_date = datetime.datetime.now().date().isoformat()
-	meta = io.open(pepper_home + "meta_template.meta", encoding="utf8").read().replace("\r","")
-	meta = meta.replace("**gum_version**",options.increment_version)
-	meta = meta.replace("**build_date**",build_date)
-	meta_out = io.open(pepper_tmp + "xml" + os.sep + corpus_name + os.sep + corpus_name + ".meta",'w')
-	meta_out.write(meta)
-	meta_out.close()
+		# Create Pepper staging erea in utils/pepper/tmp/
+		dirs = [('xml','xml','xml','', ''),('dep','dep' + os.sep + 'ud','conllu','', os.sep + "not-to-release"),
+				('rst'+os.sep+'rstweb','rst','rs[34]','',''),('rst'+os.sep+'dependencies','rsd','rsd','',''),
+				('tsv','tsv','tsv','coref' + os.sep,''),('const','const','ptb','','')]
+		for dir in dirs:
+			files = []
+			dir_name, out_dir_name, extension, prefix, suffix = dir
+			files_ = glob(gum_target + prefix + dir_name + suffix + os.sep + "*" + extension)
+			for file_ in files_:
+				if not reddit and "reddit_" in file_:
+					continue
+				files.append(file_)
+			if not os.path.exists(pepper_tmp + out_dir_name + os.sep + cname + os.sep):
+				os.makedirs(pepper_tmp + out_dir_name + os.sep + cname + os.sep)
+			for file_ in files:
+				if cname in os.path.basename(file_):
+					shutil.copy(file_, pepper_tmp + out_dir_name + os.sep + cname + os.sep)
+		if not os.path.exists(gum_target + "coref" + os.sep + "conll" + os.sep):
+			os.makedirs(gum_target + "coref" + os.sep + "conll" + os.sep)
 
-	# Remove reddit tmp files if not included in build
-	if not reddit:
-		sys.__stdout__.write("\ni Deleting reddit files under " + pepper_tmp + "**\n")
-		reddit_tmp = glob(pepper_tmp + "**\\GUM_reddit*",recursive=True)
-		for f in reddit_tmp:
-			os.remove(f)
+		try:
+			pepper_params = io.open(pepper_home + "merge_gum.pepperparams", encoding="utf8").read().replace("\r","")
+		except:
+			sys.__stdout__.write("x Can't find pepper template at: "+"utils" + os.sep + "pepper" + os.sep + "merge_gum.pepperparams"+"\n  Aborting...")
+			sys.exit()
 
-	out = run_pepper(pepper_params,options.verbose_pepper)
-	sys.__stdout__.write(out + "\n")
+		# Inject gum_target in pepper_params and replace os.sep with URI slash
+		if platform.system() == "Windows":
+			pepper_params = pepper_params.replace("**gum_tmp**",os.path.abspath(pepper_tmp).replace(os.sep,"/"))
+			pepper_params = pepper_params.replace("**gum_target**",gum_target.replace(os.sep,"/"))
+		else:
+			pepper_params = pepper_params.replace("file:/**gum_tmp**", os.path.abspath(pepper_tmp))
+			pepper_params = pepper_params.replace("file:/**gum_target**", os.path.abspath(pepper_home) + os.sep + "../../target/")
+		pepper_params = pepper_params.replace("**corpus**", cname)
+
+		# Setup metadata file
+		build_date = datetime.datetime.now().date().isoformat()
+		meta = io.open(pepper_home + "meta_template_"+cname+".meta", encoding="utf8").read().replace("\r","")
+		meta = meta.replace("**gum_version**", options.increment_version)
+		meta = meta.replace("**build_date**", build_date)
+		meta_out = io.open(pepper_tmp + "xml" + os.sep + cname + os.sep + cname + ".meta",'w')
+		meta_out.write(meta)
+		meta_out.close()
+
+		# Remove reddit tmp files if not included in build
+		if not reddit and cname != "GENTLE":
+			sys.__stdout__.write("\ni Deleting reddit files under " + pepper_tmp + "**\n")
+			reddit_tmp = glob(pepper_tmp + "**\\GUM_reddit*",recursive=True)
+			for f in reddit_tmp:
+				os.remove(f)
+
+		# Divide metadata between conllu and xml files in tmp/ to ensure correct import
+		# Pepper can't handle long summaries in xml so xml should contain only other metadata
+		for f in glob(pepper_tmp + "xml" + os.sep + cname + os.sep + "*.xml"):
+			xml = io.open(f, 'r', encoding="utf8").read()
+			xml = re.sub(r' summary[0-9]="[^"]*?"', '', xml)
+			with io.open(f, 'w', encoding="utf8") as outfile:
+				outfile.write(xml)
+		# Conllu for pepper should only include summary metadatum
+		for f in glob(pepper_tmp + "dep" + os.sep + "ud" + os.sep + cname + os.sep + "*.conllu"):
+			conllu = io.open(f, 'r', encoding="utf8").read()
+			conllu = re.sub(r'# meta::summary', '# temp::summary', conllu)
+			conllu = re.sub(r'# meta::[^\n]+\n', '', conllu)
+			conllu = re.sub(r'# temp::summary', '# meta::summary', conllu)
+			with io.open(f, 'w', encoding="utf8") as outfile:
+				outfile.write(conllu)
+
+		out = run_pepper(pepper_params,options.verbose_pepper)
+		sys.__stdout__.write(out + "\n")
 
 if options.pepper_only:
 	quit()
@@ -361,20 +383,20 @@ if options.pepper_only:
 from utils.propagate import add_entities_to_conllu, add_rsd_and_pdtb_to_conllu, add_bridging_to_conllu, add_xml_to_conllu
 
 if not options.discourse_only:
-	add_entities_to_conllu(gum_target, reddit=reddit, ontogum=False, conllua_data=conllua_data, salience_data=salience_data)
+	add_entities_to_conllu(gum_target, reddit=reddit, ontogum=False, conllua_data=conllua_data, salience_data=salience_data, corpus=corpus_name)
 	if not options.skip_ontogum:
 		if options.no_pepper:
 			sys.__stdout__.write("\ni Not adding entity information to UD parses in OntoGUM version since Pepper conversion was skipped\n")
-			add_entities_to_conllu(gum_target,reddit=reddit,ontogum=True)
+			add_entities_to_conllu(gum_target,reddit=reddit,ontogum=True, corpus=corpus_name)
 		else:
-			add_entities_to_conllu(gum_target,reddit=reddit,ontogum=True)
+			add_entities_to_conllu(gum_target,reddit=reddit,ontogum=True, corpus=corpus_name)
 	add_bridging_to_conllu(gum_target,reddit=reddit,corpus=corpus_name)
 
 	sys.__stdout__.write("\no Added entities, coreference and bridging to UD parses\n")
 
-add_rsd_and_pdtb_to_conllu(gum_target,reddit=reddit,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
+add_rsd_and_pdtb_to_conllu(gum_target,reddit=reddit,output_signals=not options.no_signals,output_secedges=not options.no_secedges,corpus=corpus_name)
 if not options.skip_ontogum:
-	add_rsd_and_pdtb_to_conllu(gum_target,reddit=reddit,ontogum=True,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
+	add_rsd_and_pdtb_to_conllu(gum_target,reddit=reddit,ontogum=True,output_signals=not options.no_signals,output_secedges=not options.no_secedges,corpus=corpus_name)
 
 if not options.discourse_only:
 	add_xml_to_conllu(gum_target,reddit=reddit,corpus=corpus_name)
@@ -395,8 +417,9 @@ add_rsd_and_pdtb_to_conllu(gum_target,reddit=reddit,output_signals=not options.n
 if not options.skip_ontogum:
 	add_rsd_and_pdtb_to_conllu(gum_target,reddit=reddit,ontogum=True,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
 
-# TODO: also add PDTB framework rels output to DISRPT outs
-make_disrpt(conn_data,reddit=reddit,corpus=corpus_name.lower(),outmode=options.disrpt_outmode)
+for cname in corpora:
+	# TODO: also add PDTB framework rels output to DISRPT outs
+	make_disrpt(conn_data,reddit=reddit,corpus=cname.lower(),outmode=options.disrpt_outmode)
 
 sys.__stdout__.write("\no Created DISRPT shared task discourse relation formats in target rst/disrpt/\n")
 
