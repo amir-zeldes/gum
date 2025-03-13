@@ -215,9 +215,9 @@ The following standard train / dev / test / test2 splits are used for the corpus
   * GUM_podcast_addiction
   * GUM_podcast_brave
   * GUM_podcast_collaboration
-  * GUM_podcast_covid
   * GUM_podcast_llms
   * GUM_podcast_movie
+  * GUM_podcast_pandemic
   * GUM_reddit_bobby
   * GUM_reddit_callout
   * GUM_reddit_card
