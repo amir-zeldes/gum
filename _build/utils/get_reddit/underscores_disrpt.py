@@ -143,7 +143,12 @@ def restore_docs(path_to_underscores,text_dict):
 	tid2string = defaultdict(dict)
 
 	if len(dep_files) == 0:  # Need token strings from conllu but only restoring rels
-		reddit_conllu = glob(script_dir + ".." + os.sep + ".." + os.sep + "src" + os.sep + "dep" + os.sep + "GUM_reddit*.conllu")
+		# Check if src/ files have content
+		bobby_src = open(script_dir + ".." + os.sep + ".." + os.sep + "src" + os.sep + "dep" + os.sep + "GUM_reddit_bobby.conllu").read()
+		if "_____" in bobby_src:  # Use top level folders instead, we are running from master/get_text.py
+			reddit_conllu = glob(script_dir + ".." + os.sep + ".." + os.sep + ".." + os.sep + "dep" + os.sep + "GUM_reddit*.conllu")
+		else:
+			reddit_conllu = glob(script_dir + ".." + os.sep + ".." + os.sep + "src" + os.sep + "dep" + os.sep + "GUM_reddit*.conllu")
 		for file_ in reddit_conllu:
 			lines = io.open(file_,encoding="utf8").readlines()
 			docname = os.path.basename(file_).replace(".conllu","")

@@ -551,7 +551,7 @@ def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, non_dm_
             closers = []
 
         for m in open_mentions:
-            minspan = m.split("-")[4]
+            minspan = m.split("-")[5]
             head_words = [int(x) for x in minspan.split(",")]  # 1-based
             eid = m.split("-")[0]
             depth = len([x for x in mention_span[eid] if toknum in mention_span[eid][x]])
@@ -579,7 +579,7 @@ def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, non_dm_
                                 for span in heads_to_mentions[abs_nominal_id]:
                                     heads_to_mentions[abs_rel_pron_id].add(span)
 
-            mentions_to_mtype[mention_span[eid][depth]] = opener.split("-")[5]
+            mentions_to_mtype[mention_span[eid][depth]] = opener.split("-")[6]
             tok2entities[toknum][eid].add(mention_span[eid][depth])
             if mention_span[eid][depth] not in eid2mention_spans[eid]:
                 eid2mention_spans[eid].append(mention_span[eid][depth])
@@ -1164,7 +1164,7 @@ def update_signals(gold_rs4, docname, xml_root=None, rerun_depedit=False, no_cac
 
 if __name__ == "__main__":
 
-    # To get spreadsheets for manual annotation, run with --no_cache and inspect results with browse_rs4.py
+    # To get spreadsheets for manual annotation, e.g. of lexchain/indicative_word_pair run with --no_cache and inspect results with browse_rs4.py
 
     p = ArgumentParser()
     p.add_argument("-n", "--no_cache", action="store_true", help="Do not use gold signal cache spreadsheets")

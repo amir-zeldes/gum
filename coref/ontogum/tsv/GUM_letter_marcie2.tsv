@@ -1,0 +1,569 @@
+#FORMAT=WebAnno TSV 3.2
+#T_SP=webanno.custom.Referent|entity|infstat|salience|identity|centering
+#T_RL=webanno.custom.Coref|type|BT_webanno.custom.Referent
+#Summary1=(human1) In a letter from Ash Wednesday -- Thursday 1969, Marcie Rickenbacker write to her Mom from Abbot Academy about her grades (B, B- and C in math), her English project, her French comp., guys she is asking out to the Prom and Winter Carnival, as well as the Catholic Mass she went to with Sue and 2 other girls to get her ashes before school.
+#Summary2=(human2) Marcie Rickenbacker writes a letter to her mother about her school projects and tests, as well as prom, and a Catholic Mass attended for Ash Wednesday.
+#Summary3=(claude-3-5-sonnet-20241022) On February 1969, Marcie writes to her mother detailing her academic progress at Abbot Academy, including her relief at avoiding academic probation, grading frustrations in Math and French, her potential Prom dates, Winter Carnival plans, and her Ash Wednesday church experiences.
+#Summary4=(gpt4o) On Ash Wednesday 1969, Marcie writes to her mother, updating her on her academic progress, expressing frustration over a poor math test grade, mentioning social plans including asking a friend to the Prom, describing attending an early Catholic mass and receiving ashes, and sharing her decision to give up extra and fattening foods for Lent.
+#Summary5=(Meta-Llama-3-8B-Instruct) Marcie writes to her mom about her hectic school life, including a busy project, test grades, and social events, with mentions of her Catholic and Episcopalian faith practices during Lent.
+
+
+#Text=P.S. Slacks are on the way , sent yesterday .
+1-1	0-4	P.S.	_	_	_	_	_	_	_
+1-2	5-11	Slacks	_	_	_	_	cf2[1]	_	_
+1-3	12-15	are	_	_	_	_	_	_	_
+1-4	16-18	on	_	_	_	_	_	_	_
+1-5	19-22	the	_	_	_	_	_	_	_
+1-6	23-26	way	_	_	_	_	_	_	_
+1-7	27-28	,	_	_	_	_	_	_	_
+1-8	29-33	sent	_	_	_	_	_	_	_
+1-9	34-43	yesterday	time[2]	acc:com[2]	snnsn[2]	_	cf1[2]	coref	5-1[13_2]
+1-10	44-45	.	_	_	_	_	_	_	_
+
+#Text=Miss Marcie Rickenbacker
+2-1	46-50	Miss	person[5]	new[5]	sssss[5]	_	cf1[5]	ana	9-1[21_5]
+2-2	51-57	Marcie	person[5]	new[5]	sssss[5]	_	cf1[5]	_	_
+2-3	58-70	Rickenbacker	person[5]	new[5]	sssss[5]	_	cf1[5]	_	_
+
+#Text=Abbot Academy
+3-1	71-76	Abbot	_	_	_	Abbot_Academy[6]	cf1[6]|cf2[7]	_	_
+3-2	77-84	Academy	_	_	_	Abbot_Academy[6]	cf1[6]	_	_
+
+#Text=Andover , Massachusetts 01810
+4-1	85-92	Andover	_	_	_	Andover%2C_Massachusetts[10]	cf1[9]|cf2[10]	_	_
+4-2	93-94	,	_	_	_	Andover%2C_Massachusetts[10]	cf1[9]|cf2[10]	_	_
+4-3	95-108	Massachusetts	_	_	_	Andover%2C_Massachusetts[10]|Massachusetts[11]	cf1[9]|cf2[10]|cf3[11]	_	_
+4-4	109-114	01810	_	_	_	_	cf1[9]	_	_
+
+#Text=Ash Wednesday 1969
+5-1	115-118	Ash	time[13]	giv:inact[13]	snnsn[13]	_	cf1[13]	_	_
+5-2	119-128	Wednesday	time[13]	giv:inact[13]	snnsn[13]	_	cf1[13]	_	_
+5-3	129-133	1969	time[13]	giv:inact[13]	snnsn[13]	_	cf1[13]|cf2[14]	_	_
+
+#Text=Thurs.
+6-1	134-140	Thurs.	_	_	_	_	cf1[15]	_	_
+
+#Text=Dear Mom ,
+7-1	141-145	Dear	_	_	_	_	cf1[18]	_	_
+7-2	146-149	Mom	_	_	_	_	cf1[18]	_	_
+7-3	150-151	,	_	_	_	_	_	_	_
+
+#Text=Sorry for the delay of this letter .
+8-1	152-157	Sorry	_	_	_	_	_	_	_
+8-2	158-161	for	_	_	_	_	_	_	_
+8-3	162-165	the	_	_	_	_	cf2[19]	_	_
+8-4	166-171	delay	_	_	_	_	cf2[19]	_	_
+8-5	172-174	of	_	_	_	_	cf2[19]	_	_
+8-6	175-179	this	_	_	_	_	cf2[19]|cf1[20]	_	_
+8-7	180-186	letter	_	_	_	_	cf2[19]|cf1[20]	_	_
+8-8	187-188	.	_	_	_	_	_	_	_
+
+#Text=I just started my Eng. project on Sunday and have been working like mad to get some or all of it done .
+9-1	189-190	I	person[21]	giv:inact[21]	sssss[21]	_	cf1[21]	ana	9-4[24_21]
+9-2	191-195	just	_	_	_	_	_	_	_
+9-3	196-203	started	_	_	_	_	_	_	_
+9-4	204-206	my	abstract[23]|person[24]	new[23]|giv:act[24]	snnss[23]|sssss[24]	_	cf2[23]|cf1[24]	ana|ana	10-8[36_24]|9-21[31_23]
+9-5	207-211	Eng.	abstract[23]	new[23]	snnss[23]	English_language[25]	cf2[23]|cf5[25]	_	_
+9-6	212-219	project	abstract[23]	new[23]	snnss[23]	_	cf2[23]	_	_
+9-7	220-222	on	_	_	_	_	_	_	_
+9-8	223-229	Sunday	time[26]	acc:inf[26]	nnnnn[26]	_	cf3[26]	coref	21-25[120_26]
+9-9	230-233	and	_	_	_	_	_	_	_
+9-10	234-238	have	_	_	_	_	_	_	_
+9-11	239-243	been	_	_	_	_	_	_	_
+9-12	244-251	working	_	_	_	_	_	_	_
+9-13	252-256	like	_	_	_	_	_	_	_
+9-14	257-260	mad	_	_	_	_	_	_	_
+9-15	261-263	to	_	_	_	_	_	_	_
+9-16	264-267	get	_	_	_	_	_	_	_
+9-17	268-272	some	_	_	_	_	cf4[30]	_	_
+9-18	273-275	or	_	_	_	_	cf4[30]	_	_
+9-19	276-279	all	_	_	_	_	cf4[30]	_	_
+9-20	280-282	of	_	_	_	_	cf4[30]	_	_
+9-21	283-285	it	abstract[31]	giv:act[31]	snnss[31]	_	cf4[30]|cf2[31]	_	_
+9-22	286-290	done	_	_	_	_	_	_	_
+9-23	291-292	.	_	_	_	_	_	_	_
+
+#Text=Academic probabition list came out yesterday , I 'm not on it .
+10-1	293-301	Academic	abstract[33]	new[33]	nnnnn[33]	_	cf2[33]	ana	10-12[37_33]
+10-2	302-313	probabition	abstract[33]	new[33]	nnnnn[33]	_	cf2[33]|cf4[34]	_	_
+10-3	314-318	list	abstract[33]	new[33]	nnnnn[33]	_	cf2[33]	_	_
+10-4	319-323	came	_	_	_	_	_	_	_
+10-5	324-327	out	_	_	_	_	_	_	_
+10-6	328-337	yesterday	_	_	_	_	cf3[35]	_	_
+10-7	338-339	,	_	_	_	_	_	_	_
+10-8	340-341	I	person[36]	giv:act[36]	sssss[36]	_	cf1*[36]	ana	12-5[39_36]
+10-9	342-344	'm	_	_	_	_	_	_	_
+10-10	345-348	not	_	_	_	_	_	_	_
+10-11	349-351	on	_	_	_	_	_	_	_
+10-12	352-354	it	abstract[37]	giv:act[37]	n____[37]	_	cf2[37]	_	_
+10-13	355-356	.	_	_	_	_	_	_	_
+
+#Text=Yeah !
+11-1	357-361	Yeah	_	_	_	_	_	_	_
+11-2	362-363	!	_	_	_	_	_	_	_
+
+#Text=So far in Math I 've gotten a B & B- and we had a take home test Tues. nite .
+12-1	364-366	So	_	_	_	_	_	_	_
+12-2	367-370	far	_	_	_	_	_	_	_
+12-3	371-373	in	_	_	_	_	_	_	_
+12-4	374-378	Math	_	_	_	_	cf6[38]	_	_
+12-5	379-380	I	person[39]	giv:inact[39]	sssss[39]	_	cf1[39]	ana	13-10[55_39]
+12-6	381-384	've	_	_	_	_	_	_	_
+12-7	385-391	gotten	_	_	_	_	_	_	_
+12-8	392-393	a	_	_	_	_	cf4[46]	_	_
+12-9	394-395	B	_	_	_	_	cf4[46]	_	_
+12-10	396-397	&	_	_	_	_	_	_	_
+12-11	398-400	B-	_	_	_	_	cf7[47]	_	_
+12-12	401-404	and	_	_	_	_	_	_	_
+12-13	405-407	we	_	_	_	_	cf2[48]	_	_
+12-14	408-411	had	_	_	_	_	_	_	_
+12-15	412-413	a	abstract[51]	new[51]	ssnss[51]	_	cf5[51]	ana	13-8[54_51]
+12-16	414-418	take	abstract[51]	new[51]	ssnss[51]	_	cf5[51]	_	_
+12-17	419-423	home	abstract[51]	new[51]	ssnss[51]	_	cf5[51]	_	_
+12-18	424-428	test	abstract[51]	new[51]	ssnss[51]	_	cf5[51]	_	_
+12-19	429-434	Tues.	_	_	_	_	cf8[52]|cf3[53]	_	_
+12-20	435-439	nite	_	_	_	_	cf8[52]	_	_
+12-21	440-441	.	_	_	_	_	_	_	_
+
+#Text=After working so hard and long on it , I hope to get a good mark .
+13-1	442-447	After	_	_	_	_	_	_	_
+13-2	448-455	working	_	_	_	_	_	_	_
+13-3	456-458	so	_	_	_	_	_	_	_
+13-4	459-463	hard	_	_	_	_	_	_	_
+13-5	464-467	and	_	_	_	_	_	_	_
+13-6	468-472	long	_	_	_	_	_	_	_
+13-7	473-475	on	_	_	_	_	_	_	_
+13-8	476-478	it	abstract[54]	giv:act[54]	ssnss[54]	_	cf2[54]	_	_
+13-9	479-480	,	_	_	_	_	_	_	_
+13-10	481-482	I	person[55]	giv:act[55]	sssss[55]	_	cf1*[55]	ana	14-1[60_55]
+13-11	483-487	hope	_	_	_	_	_	_	_
+13-12	488-490	to	_	_	_	_	_	_	_
+13-13	491-494	get	_	_	_	_	_	_	_
+13-14	495-496	a	_	_	_	_	cf3[59]	_	_
+13-15	497-501	good	_	_	_	_	cf3[59]	_	_
+13-16	502-506	mark	_	_	_	_	cf3[59]	_	_
+13-17	507-508	.	_	_	_	_	_	_	_
+
+#Text=I did a French comp. the other nite .
+14-1	509-510	I	person[60]	giv:act[60]	sssss[60]	_	cf1*[60]	ana	15-7[68_60]
+14-2	511-514	did	_	_	_	_	_	_	_
+14-3	515-516	a	abstract[62]	new[62]	sssss[62]	_	cf3[62]	ana	15-3[67_62]
+14-4	517-523	French	abstract[62]	new[62]	sssss[62]	_	cf3[62]|cf4[63]	_	_
+14-5	524-529	comp.	abstract[62]	new[62]	sssss[62]	_	cf3[62]	_	_
+14-6	530-533	the	_	_	_	_	cf2[65]	_	_
+14-7	534-539	other	_	_	_	_	cf2[65]	_	_
+14-8	540-544	nite	_	_	_	_	cf2[65]	_	_
+14-9	545-546	.	_	_	_	_	_	_	_
+
+#Text=Arosa said it was terrible , I just ca n’t write comps. , so I ’ve got a confer. this after .
+15-1	547-552	Arosa	_	_	_	_	cf4[66]	_	_
+15-2	553-557	said	_	_	_	_	_	_	_
+15-3	558-560	it	abstract[67]	giv:act[67]	sssss[67]	_	cf2[67]	_	_
+15-4	561-564	was	_	_	_	_	_	_	_
+15-5	565-573	terrible	_	_	_	_	_	_	_
+15-6	574-575	,	_	_	_	_	_	_	_
+15-7	576-577	I	person[68]	giv:act[68]	sssss[68]	_	cf1*[68]	ana	15-15[70_68]
+15-8	578-582	just	_	_	_	_	_	_	_
+15-9	583-585	ca	_	_	_	_	_	_	_
+15-10	586-589	n’t	_	_	_	_	_	_	_
+15-11	590-595	write	_	_	_	_	_	_	_
+15-12	596-602	comps.	_	_	_	_	cf5[69]	_	_
+15-13	603-604	,	_	_	_	_	_	_	_
+15-14	605-607	so	_	_	_	_	_	_	_
+15-15	608-609	I	person[70]	giv:act[70]	sssss[70]	_	cf1*[70]	ana	16-4[78_70]
+15-16	610-613	’ve	_	_	_	_	_	_	_
+15-17	614-617	got	_	_	_	_	_	_	_
+15-18	618-619	a	_	_	_	_	cf6[76]	_	_
+15-19	620-627	confer.	_	_	_	_	cf6[76]	_	_
+15-20	628-632	this	_	_	_	_	cf3[77]	_	_
+15-21	633-638	after	_	_	_	_	cf3[77]	_	_
+15-22	639-640	.	_	_	_	_	cf3[77]	_	_
+
+#Text=Oh crum , I just got back my Math test and got a C .
+16-1	641-643	Oh	_	_	_	_	_	_	_
+16-2	644-648	crum	_	_	_	_	_	_	_
+16-3	649-650	,	_	_	_	_	_	_	_
+16-4	651-652	I	person[78]	giv:act[78]	sssss[78]	_	cf1*[78]	ana	16-8[81_78]
+16-5	653-657	just	_	_	_	_	_	_	_
+16-6	658-661	got	_	_	_	_	_	_	_
+16-7	662-666	back	_	_	_	_	_	_	_
+16-8	667-669	my	person[81]	giv:act[81]	sssss[81]	_	cf3[80]|cf1*[81]	ana	17-1[86_81]
+16-9	670-674	Math	_	_	_	_	cf3[80]|cf2[82]	_	_
+16-10	675-679	test	_	_	_	_	cf3[80]	_	_
+16-11	680-683	and	_	_	_	_	_	_	_
+16-12	684-687	got	_	_	_	_	_	_	_
+16-13	688-689	a	_	_	_	_	cf4[85]	_	_
+16-14	690-691	C	_	_	_	_	cf4[85]	_	_
+16-15	692-693	.	_	_	_	_	_	_	_
+
+#Text=I 'm so mad , after working so hard , I could scream !
+17-1	694-695	I	person[86]	giv:act[86]	sssss[86]	_	cf1*[86]	ana	17-11[87_86]
+17-2	696-698	'm	_	_	_	_	_	_	_
+17-3	699-701	so	_	_	_	_	_	_	_
+17-4	702-705	mad	_	_	_	_	_	_	_
+17-5	706-707	,	_	_	_	_	_	_	_
+17-6	708-713	after	_	_	_	_	_	_	_
+17-7	714-721	working	_	_	_	_	_	_	_
+17-8	722-724	so	_	_	_	_	_	_	_
+17-9	725-729	hard	_	_	_	_	_	_	_
+17-10	730-731	,	_	_	_	_	_	_	_
+17-11	732-733	I	person[87]	giv:act[87]	sssss[87]	_	cf1*[87]	ana	18-1[88_87]
+17-12	734-739	could	_	_	_	_	_	_	_
+17-13	740-746	scream	_	_	_	_	_	_	_
+17-14	747-748	!	_	_	_	_	_	_	_
+
+#Text=I asked the guy , who really helped me at the Hum. Relations Confer , to the Prom .
+18-1	749-750	I	person[88]	giv:act[88]	sssss[88]	_	cf1*[88]	ana	18-9[93_88]
+18-2	751-756	asked	_	_	_	_	_	_	_
+18-3	757-760	the	person[92]	new[92]	snnsn[92]	_	cf3[92]	coref	19-10[100_92]
+18-4	761-764	guy	person[92]	new[92]	snnsn[92]	_	cf3[92]	_	_
+18-5	765-766	,	person[92]	new[92]	snnsn[92]	_	cf3[92]	_	_
+18-6	767-770	who	person[92]	new[92]	snnsn[92]	_	cf3[92]	_	_
+18-7	771-777	really	person[92]	new[92]	snnsn[92]	_	cf3[92]	_	_
+18-8	778-784	helped	person[92]	new[92]	snnsn[92]	_	cf3[92]	_	_
+18-9	785-787	me	person[92]|person[93]	new[92]|giv:act[93]	snnsn[92]|sssss[93]	_	cf3[92]|cf1*[93]	ana	19-1[98_93]
+18-10	788-790	at	person[92]	new[92]	snnsn[92]	_	cf3[92]	_	_
+18-11	791-794	the	person[92]	new[92]	snnsn[92]	_	cf3[92]	_	_
+18-12	795-799	Hum.	person[92]	new[92]	snnsn[92]	_	cf3[92]|cf4[95]|cf5[96]	_	_
+18-13	800-809	Relations	person[92]	new[92]	snnsn[92]	_	cf3[92]|cf4[95]|cf5[96]	_	_
+18-14	810-816	Confer	person[92]	new[92]	snnsn[92]	_	cf3[92]|cf4[95]	_	_
+18-15	817-818	,	_	_	_	_	_	_	_
+18-16	819-821	to	_	_	_	_	_	_	_
+18-17	822-825	the	_	_	_	_	cf2[97]	_	_
+18-18	826-830	Prom	_	_	_	_	cf2[97]	_	_
+18-19	831-832	.	_	_	_	_	_	_	_
+
+#Text=I really am Crazy , I do n't think Mike will come , but I hope so .
+19-1	833-834	I	person[98]	giv:act[98]	sssss[98]	_	cf1*[98]	ana	19-6[99_98]
+19-2	835-841	really	_	_	_	_	_	_	_
+19-3	842-844	am	_	_	_	_	_	_	_
+19-4	845-850	Crazy	_	_	_	_	_	_	_
+19-5	851-852	,	_	_	_	_	_	_	_
+19-6	853-854	I	person[99]	giv:act[99]	sssss[99]	_	cf1*[99]	ana	19-15[101_99]
+19-7	855-857	do	_	_	_	_	_	_	_
+19-8	858-861	n't	_	_	_	_	_	_	_
+19-9	862-867	think	_	_	_	_	_	_	_
+19-10	868-872	Mike	person[100]	giv:act[100]	snnsn[100]	_	cf2[100]	ana	20-2[102_100]
+19-11	873-877	will	_	_	_	_	_	_	_
+19-12	878-882	come	_	_	_	_	_	_	_
+19-13	883-884	,	_	_	_	_	_	_	_
+19-14	885-888	but	_	_	_	_	_	_	_
+19-15	889-890	I	person[101]	giv:act[101]	sssss[101]	_	cf1*[101]	ana	20-6[103_101]
+19-16	891-895	hope	_	_	_	_	_	_	_
+19-17	896-898	so	_	_	_	_	_	_	_
+19-18	899-900	.	_	_	_	_	_	_	_
+
+#Text=If he does n't then I 'll probably ask Dan Kent or Craig Ashley .
+20-1	901-903	If	_	_	_	_	_	_	_
+20-2	904-906	he	person[102]	giv:act[102]	snnsn[102]	_	cf1*[102]	_	_
+20-3	907-911	does	_	_	_	_	_	_	_
+20-4	912-915	n't	_	_	_	_	_	_	_
+20-5	916-920	then	_	_	_	_	_	_	_
+20-6	921-922	I	person[103]	giv:act[103]	sssss[103]	_	cf2[103]	ana	21-1[112_103]
+20-7	923-926	'll	_	_	_	_	_	_	_
+20-8	927-935	probably	_	_	_	_	_	_	_
+20-9	936-939	ask	_	_	_	_	_	_	_
+20-10	940-943	Dan	_	_	_	_	cf3[110]	_	_
+20-11	944-948	Kent	_	_	_	_	cf3[110]	_	_
+20-12	949-951	or	_	_	_	_	_	_	_
+20-13	952-957	Craig	_	_	_	_	cf4[111]	_	_
+20-14	958-964	Ashley	_	_	_	_	cf4[111]	_	_
+20-15	965-966	.	_	_	_	_	_	_	_
+
+#Text=I 'm supposed to go to the Winter Carnival this Sat. with Ed Davison , but have n't seen or heard from him since Sunday when he walked me back from Vespers .
+21-1	967-968	I	person[112]	giv:act[112]	sssss[112]	_	cf1*[112]	ana	21-29[122_112]
+21-2	969-971	'm	_	_	_	_	_	_	_
+21-3	972-980	supposed	_	_	_	_	_	_	_
+21-4	981-983	to	_	_	_	_	_	_	_
+21-5	984-986	go	_	_	_	_	_	_	_
+21-6	987-989	to	_	_	_	_	_	_	_
+21-7	990-993	the	_	_	_	_	cf5[114]	_	_
+21-8	994-1000	Winter	_	_	_	_	cf5[114]|cf7[115]	_	_
+21-9	1001-1009	Carnival	_	_	_	_	cf5[114]	_	_
+21-10	1010-1014	this	_	_	_	_	cf4[117]	_	_
+21-11	1015-1019	Sat.	_	_	_	_	cf4[117]	_	_
+21-12	1020-1024	with	_	_	_	_	_	_	_
+21-13	1025-1027	Ed	person[118]	new[118]	nnnnn[118]	_	cf2[118]	ana	21-23[119_118]
+21-14	1028-1035	Davison	person[118]	new[118]	nnnnn[118]	_	cf2[118]	_	_
+21-15	1036-1037	,	_	_	_	_	_	_	_
+21-16	1038-1041	but	_	_	_	_	_	_	_
+21-17	1042-1046	have	_	_	_	_	_	_	_
+21-18	1047-1050	n't	_	_	_	_	_	_	_
+21-19	1051-1055	seen	_	_	_	_	_	_	_
+21-20	1056-1058	or	_	_	_	_	_	_	_
+21-21	1059-1064	heard	_	_	_	_	_	_	_
+21-22	1065-1069	from	_	_	_	_	_	_	_
+21-23	1070-1073	him	person[119]	giv:act[119]	n____[119]	_	cf2[119]	ana	21-27[121_119]
+21-24	1074-1079	since	_	_	_	_	_	_	_
+21-25	1080-1086	Sunday	time[120]	giv:inact[120]	n____[120]	_	cf3[120]	_	_
+21-26	1087-1091	when	_	_	_	_	_	_	_
+21-27	1092-1094	he	person[121]	giv:act[121]	n____[121]	_	cf2[121]	ana	22-11[126_121]
+21-28	1095-1101	walked	_	_	_	_	_	_	_
+21-29	1102-1104	me	person[122]	giv:act[122]	sssss[122]	_	cf1*[122]	ana	22-1[124_122]
+21-30	1105-1109	back	_	_	_	_	_	_	_
+21-31	1110-1114	from	_	_	_	_	_	_	_
+21-32	1115-1122	Vespers	_	_	_	Vespers[123]	cf6[123]	_	_
+21-33	1123-1124	.	_	_	_	_	_	_	_
+
+#Text=I said , " Hey , write sometime " & he said , “ Yeah , sometime . " .
+22-1	1125-1126	I	person[124]	giv:act[124]	sssss[124]	_	cf1*[124]	ana	23-1[128_124]
+22-2	1127-1131	said	_	_	_	_	_	_	_
+22-3	1132-1133	,	_	_	_	_	_	_	_
+22-4	1134-1135	"	_	_	_	_	_	_	_
+22-5	1136-1139	Hey	_	_	_	_	_	_	_
+22-6	1140-1141	,	_	_	_	_	_	_	_
+22-7	1142-1147	write	_	_	_	_	_	_	_
+22-8	1148-1156	sometime	_	_	_	_	cf3[125]	_	_
+22-9	1157-1158	"	_	_	_	_	_	_	_
+22-10	1159-1160	&	_	_	_	_	_	_	_
+22-11	1161-1163	he	person[126]	giv:act[126]	n____[126]	_	cf2[126]	ana	23-13[129_126]
+22-12	1164-1168	said	_	_	_	_	_	_	_
+22-13	1169-1170	,	_	_	_	_	_	_	_
+22-14	1171-1172	“	_	_	_	_	_	_	_
+22-15	1173-1177	Yeah	_	_	_	_	_	_	_
+22-16	1178-1179	,	_	_	_	_	_	_	_
+22-17	1180-1188	sometime	_	_	_	_	cf3[127]	_	_
+22-18	1189-1190	.	_	_	_	_	_	_	_
+22-19	1191-1192	"	_	_	_	_	_	_	_
+22-20	1193-1194	.	_	_	_	_	_	_	_
+
+#Text=I 've got to find out what 's coming off , because he said if he got back from his swimming meet at a reasonable hour then we 'd go .
+23-1	1195-1196	I	person[128]	giv:act[128]	sssss[128]	_	cf1*[128]	ana	24-1[150_128]
+23-2	1197-1200	've	_	_	_	_	_	_	_
+23-3	1201-1204	got	_	_	_	_	_	_	_
+23-4	1205-1207	to	_	_	_	_	_	_	_
+23-5	1208-1212	find	_	_	_	_	_	_	_
+23-6	1213-1216	out	_	_	_	_	_	_	_
+23-7	1217-1221	what	_	_	_	_	_	_	_
+23-8	1222-1224	's	_	_	_	_	_	_	_
+23-9	1225-1231	coming	_	_	_	_	_	_	_
+23-10	1232-1235	off	_	_	_	_	_	_	_
+23-11	1236-1237	,	_	_	_	_	_	_	_
+23-12	1238-1245	because	_	_	_	_	_	_	_
+23-13	1246-1248	he	person[129]	giv:act[129]	n____[129]	_	cf2[129]	ana	23-16[130_129]
+23-14	1249-1253	said	_	_	_	_	_	_	_
+23-15	1254-1256	if	_	_	_	_	_	_	_
+23-16	1257-1259	he	person[130]	giv:act[130]	n____[130]	_	cf2[130]	ana	23-20[144_130]
+23-17	1260-1263	got	_	_	_	_	_	_	_
+23-18	1264-1268	back	_	_	_	_	_	_	_
+23-19	1269-1273	from	_	_	_	_	_	_	_
+23-20	1274-1277	his	person[144]	giv:act[144]	n____[144]	_	cf4[143]|cf2[144]	_	_
+23-21	1278-1286	swimming	_	_	_	_	cf4[143]|cf6[145]	_	_
+23-22	1287-1291	meet	_	_	_	_	cf4[143]	_	_
+23-23	1292-1294	at	_	_	_	_	_	_	_
+23-24	1295-1296	a	_	_	_	_	cf5[148]	_	_
+23-25	1297-1307	reasonable	_	_	_	_	cf5[148]	_	_
+23-26	1308-1312	hour	_	_	_	_	cf5[148]	_	_
+23-27	1313-1317	then	_	_	_	_	_	_	_
+23-28	1318-1320	we	_	_	_	_	cf3[149]	_	_
+23-29	1321-1323	'd	_	_	_	_	_	_	_
+23-30	1324-1326	go	_	_	_	_	_	_	_
+23-31	1327-1328	.	_	_	_	_	_	_	_
+
+#Text=I went to the Catholic mass , yesterday morning .
+24-1	1329-1330	I	person[150]	giv:act[150]	sssss[150]	_	cf1*[150]	ana	25-12[158_150]
+24-2	1331-1335	went	_	_	_	_	_	_	_
+24-3	1336-1338	to	_	_	_	_	cf3[153]	_	_
+24-4	1339-1342	the	_	_	_	_	cf3[153]	_	_
+24-5	1343-1351	Catholic	_	_	_	_	cf3[153]	_	_
+24-6	1352-1356	mass	_	_	_	_	cf3[153]	_	_
+24-7	1357-1358	,	_	_	_	_	_	_	_
+24-8	1359-1368	yesterday	_	_	_	_	cf4[154]|cf2[155]	_	_
+24-9	1369-1376	morning	_	_	_	_	cf4[154]	_	_
+24-10	1377-1378	.	_	_	_	_	_	_	_
+
+#Text=Sue said since she was getting up & would probably wake me , would I like to go .
+25-1	1379-1382	Sue	person[156]	new[156]	snnnn[156]	_	cf1[156]	ana	25-4[157_156]
+25-2	1383-1387	said	_	_	_	_	_	_	_
+25-3	1388-1393	since	_	_	_	_	_	_	_
+25-4	1394-1397	she	person[157]	giv:act[157]	snnnn[157]	_	cf1[157]	coref	32-5[210_157]
+25-5	1398-1401	was	_	_	_	_	_	_	_
+25-6	1402-1409	getting	_	_	_	_	_	_	_
+25-7	1410-1412	up	_	_	_	_	_	_	_
+25-8	1413-1414	&	_	_	_	_	_	_	_
+25-9	1415-1420	would	_	_	_	_	_	_	_
+25-10	1421-1429	probably	_	_	_	_	_	_	_
+25-11	1430-1434	wake	_	_	_	_	_	_	_
+25-12	1435-1437	me	person[158]	giv:act[158]	sssss[158]	_	cf2*[158]	ana	25-15[159_158]
+25-13	1438-1439	,	_	_	_	_	_	_	_
+25-14	1440-1445	would	_	_	_	_	_	_	_
+25-15	1446-1447	I	person[159]	giv:act[159]	sssss[159]	_	cf2*[159]	ana	28-1[178_159]
+25-16	1448-1452	like	_	_	_	_	_	_	_
+25-17	1453-1455	to	_	_	_	_	_	_	_
+25-18	1456-1458	go	_	_	_	_	_	_	_
+25-19	1459-1460	.	_	_	_	_	_	_	_
+
+#Text=We got up at 5:55 and stumbled into our clothes .
+26-1	1461-1463	We	person[160]	acc:aggr[160]	nnnnn[160]	_	cf1[160]	ana	26-9[170_160]
+26-2	1464-1467	got	_	_	_	_	_	_	_
+26-3	1468-1470	up	_	_	_	_	_	_	_
+26-4	1471-1473	at	_	_	_	_	_	_	_
+26-5	1474-1478	5:55	_	_	_	_	cf3[161]	_	_
+26-6	1479-1482	and	_	_	_	_	_	_	_
+26-7	1483-1491	stumbled	_	_	_	_	_	_	_
+26-8	1492-1496	into	_	_	_	_	_	_	_
+26-9	1497-1500	our	person[170]	giv:act[170]	n____[170]	_	cf2[169]|cf1[170]	ana	27-1[173_170]
+26-10	1501-1508	clothes	_	_	_	_	cf2[169]	_	_
+26-11	1509-1510	.	_	_	_	_	_	_	_
+
+#Text=We and 2 other girls hurried to church by 6:30 .
+27-1	1511-1513	We	person[172]|person[173]	new[172]|giv:act[173]	nnnnn[172]|n____[173]	_	cf2[172]|cf1*[173]	ana|ana	29-2[184_172]|32-16[216_173]
+27-2	1514-1517	and	person[172]	new[172]	nnnnn[172]	_	cf2[172]	_	_
+27-3	1518-1519	2	person[172]	new[172]	nnnnn[172]	_	cf2[172]|cf3[175]	_	_
+27-4	1520-1525	other	person[172]	new[172]	nnnnn[172]	_	cf2[172]|cf3[175]	_	_
+27-5	1526-1531	girls	person[172]	new[172]	nnnnn[172]	_	cf2[172]|cf3[175]	_	_
+27-6	1532-1539	hurried	_	_	_	_	_	_	_
+27-7	1540-1542	to	_	_	_	_	_	_	_
+27-8	1543-1549	church	_	_	_	_	cf4[176]	_	_
+27-9	1550-1552	by	_	_	_	_	_	_	_
+27-10	1553-1557	6:30	_	_	_	_	cf5[177]	_	_
+27-11	1558-1559	.	_	_	_	_	_	_	_
+
+#Text=I was completely lost 'cuz the service was n't in the Misalette .
+28-1	1560-1561	I	person[178]	giv:inact[178]	sssss[178]	_	cf1[178]	ana	30-1[187_178]
+28-2	1562-1565	was	_	_	_	_	_	_	_
+28-3	1566-1576	completely	_	_	_	_	_	_	_
+28-4	1577-1581	lost	_	_	_	_	_	_	_
+28-5	1582-1586	'cuz	_	_	_	_	_	_	_
+28-6	1587-1590	the	_	_	_	_	cf2[182]	_	_
+28-7	1591-1598	service	_	_	_	_	cf2[182]	_	_
+28-8	1599-1602	was	_	_	_	_	_	_	_
+28-9	1603-1606	n't	_	_	_	_	_	_	_
+28-10	1607-1609	in	_	_	_	_	_	_	_
+28-11	1610-1613	the	_	_	_	_	cf3[183]	_	_
+28-12	1614-1623	Misalette	_	_	_	_	cf3[183]	_	_
+28-13	1624-1625	.	_	_	_	_	_	_	_
+
+#Text=But we all got our ashes .
+29-1	1626-1629	But	_	_	_	_	_	_	_
+29-2	1630-1632	we	person[184]	giv:inact[184]	n____[184]	_	cf1[184]	ana	29-5[186_184]
+29-3	1633-1636	all	person[184]	giv:inact[184]	n____[184]	_	cf1[184]	_	_
+29-4	1637-1640	got	_	_	_	_	_	_	_
+29-5	1641-1644	our	object[185]|person[186]	new[185]|giv:act[186]	snnsn[185]|n____[186]	_	cf2[185]|cf1[186]	ana	30-6[188_185]
+29-6	1645-1650	ashes	object[185]	new[185]	snnsn[185]	_	cf2[185]	_	_
+29-7	1651-1652	.	_	_	_	_	_	_	_
+
+#Text=Mine were so dark and they stayed on till I washed my face last nite late .
+30-1	1653-1657	Mine	person[187]	giv:inact[187]	sssss[187]	_	cf1[187]	ana	30-10[189_187]
+30-2	1658-1662	were	_	_	_	_	_	_	_
+30-3	1663-1665	so	_	_	_	_	_	_	_
+30-4	1666-1670	dark	_	_	_	_	_	_	_
+30-5	1671-1674	and	_	_	_	_	_	_	_
+30-6	1675-1679	they	object[188]	giv:act[188]	snnsn[188]	_	cf2*[188]	_	_
+30-7	1680-1686	stayed	_	_	_	_	_	_	_
+30-8	1687-1689	on	_	_	_	_	_	_	_
+30-9	1690-1694	till	_	_	_	_	_	_	_
+30-10	1695-1696	I	person[189]	giv:act[189]	sssss[189]	_	cf1[189]	ana	30-12[195_189]
+30-11	1697-1703	washed	_	_	_	_	_	_	_
+30-12	1704-1706	my	person[195]	giv:act[195]	sssss[195]	_	cf4[194]|cf1[195]	_	_
+30-13	1707-1711	face	_	_	_	_	cf4[194]	_	_
+30-14	1712-1716	last	_	_	_	_	cf3[197]	_	_
+30-15	1717-1721	nite	_	_	_	_	cf3[197]	_	_
+30-16	1722-1726	late	_	_	_	_	_	_	_
+30-17	1727-1728	.	_	_	_	_	_	_	_
+
+#Text=It 's funny how so many people remarked , " How Oh what a good girl you are , you went to church . "
+31-1	1729-1731	It	_	_	_	_	cf3[198]	_	_
+31-2	1732-1734	's	_	_	_	_	_	_	_
+31-3	1735-1740	funny	_	_	_	_	_	_	_
+31-4	1741-1744	how	_	_	_	_	cf3[200]	_	_
+31-5	1745-1747	so	_	_	_	_	cf3[200]|cf4[201]	_	_
+31-6	1748-1752	many	_	_	_	_	cf3[200]|cf4[201]	_	_
+31-7	1753-1759	people	_	_	_	_	cf3[200]|cf4[201]	_	_
+31-8	1760-1768	remarked	_	_	_	_	cf3[200]	_	_
+31-9	1769-1770	,	_	_	_	_	cf3[200]	_	_
+31-10	1771-1772	"	_	_	_	_	cf3[200]	_	_
+31-11	1773-1776	How	_	_	_	_	cf3[200]	_	_
+31-12	1777-1779	Oh	_	_	_	_	cf3[200]	_	_
+31-13	1780-1784	what	_	_	_	_	cf3[200]	_	_
+31-14	1785-1786	a	person[202]	giv:act[202]	sssss[202]	_	cf3[200]|cf1*[202]	ana	31-17[203_202]
+31-15	1787-1791	good	person[202]	giv:act[202]	sssss[202]	_	cf3[200]|cf1*[202]	_	_
+31-16	1792-1796	girl	person[202]	giv:act[202]	sssss[202]	_	cf3[200]|cf1*[202]	_	_
+31-17	1797-1800	you	person[203]	giv:act[203]	sssss[203]	_	cf3[200]|cf1*[203]	ana	31-20[204_203]
+31-18	1801-1804	are	_	_	_	_	cf3[200]	_	_
+31-19	1805-1806	,	_	_	_	_	cf3[200]	_	_
+31-20	1807-1810	you	person[204]	giv:act[204]	sssss[204]	_	cf3[200]|cf1*[204]	ana	32-8[211_204]
+31-21	1811-1815	went	_	_	_	_	cf3[200]	_	_
+31-22	1816-1818	to	_	_	_	_	cf3[200]	_	_
+31-23	1819-1825	church	_	_	_	_	cf3[200]|cf2[205]	_	_
+31-24	1826-1827	.	_	_	_	_	cf3[200]	_	_
+31-25	1828-1829	"	_	_	_	_	cf3[200]	_	_
+
+#Text=On the way back Sue Cleveland & I noticed cars at the Epis. church so we decided to have commonion .
+32-1	1830-1832	On	_	_	_	_	_	_	_
+32-2	1833-1836	the	_	_	_	_	cf6[209]	_	_
+32-3	1837-1840	way	_	_	_	_	cf6[209]	_	_
+32-4	1841-1845	back	_	_	_	_	cf6[209]	_	_
+32-5	1846-1849	Sue	person[210]	giv:inact[210]	snnnn[210]	_	cf3[210]	_	_
+32-6	1850-1859	Cleveland	person[210]	giv:inact[210]	snnnn[210]	_	cf3[210]	_	_
+32-7	1860-1861	&	_	_	_	_	_	_	_
+32-8	1862-1863	I	person[211]	giv:act[211]	sssss[211]	_	cf1*[211]	ana	34-1[222_211]
+32-9	1864-1871	noticed	_	_	_	_	_	_	_
+32-10	1872-1876	cars	_	_	_	_	cf4[212]	_	_
+32-11	1877-1879	at	_	_	_	_	_	_	_
+32-12	1880-1883	the	_	_	_	_	cf7[215]	_	_
+32-13	1884-1889	Epis.	_	_	_	_	cf7[215]	_	_
+32-14	1890-1896	church	_	_	_	_	cf7[215]	_	_
+32-15	1897-1899	so	_	_	_	_	_	_	_
+32-16	1900-1902	we	person[216]	giv:inact[216]	n____[216]	_	cf2[216]	ana	33-1[218_216]
+32-17	1903-1910	decided	_	_	_	_	_	_	_
+32-18	1911-1913	to	_	_	_	_	_	_	_
+32-19	1914-1918	have	_	_	_	_	_	_	_
+32-20	1919-1928	commonion	_	_	_	_	cf5[217]	_	_
+32-21	1929-1930	.	_	_	_	_	_	_	_
+
+#Text=We got back to school at 7:40 and did n't have breakfast .
+33-1	1931-1933	We	person[218]	giv:act[218]	n____[218]	_	cf1*[218]	_	_
+33-2	1934-1937	got	_	_	_	_	_	_	_
+33-3	1938-1942	back	_	_	_	_	_	_	_
+33-4	1943-1945	to	_	_	_	_	_	_	_
+33-5	1946-1952	school	_	_	_	Abbot_Academy[219]	cf2[219]	_	_
+33-6	1953-1955	at	_	_	_	_	_	_	_
+33-7	1956-1960	7:40	_	_	_	_	cf4[220]	_	_
+33-8	1961-1964	and	_	_	_	_	_	_	_
+33-9	1965-1968	did	_	_	_	_	_	_	_
+33-10	1969-1972	n't	_	_	_	_	_	_	_
+33-11	1973-1977	have	_	_	_	_	_	_	_
+33-12	1978-1987	breakfast	_	_	_	_	cf3[221]	_	_
+33-13	1988-1989	.	_	_	_	_	_	_	_
+
+#Text=I 've given up all extras & fattening foods for lent .
+34-1	1990-1991	I	person[222]	giv:inact[222]	sssss[222]	_	cf1[222]	ana	35-3[233_222]
+34-2	1992-1995	've	_	_	_	_	_	_	_
+34-3	1996-2001	given	_	_	_	_	_	_	_
+34-4	2002-2004	up	_	_	_	_	_	_	_
+34-5	2005-2008	all	_	_	_	_	cf2[230]	_	_
+34-6	2009-2015	extras	_	_	_	_	cf2[230]	_	_
+34-7	2016-2017	&	_	_	_	_	_	_	_
+34-8	2018-2027	fattening	_	_	_	_	cf4[231]	_	_
+34-9	2028-2033	foods	_	_	_	_	cf4[231]	_	_
+34-10	2034-2037	for	_	_	_	_	_	_	_
+34-11	2038-2042	lent	_	_	_	Lent[232]	cf3[232]	_	_
+34-12	2043-2044	.	_	_	_	_	_	_	_
+
+#Text=Oh , I 'm starving !
+35-1	2045-2047	Oh	_	_	_	_	_	_	_
+35-2	2048-2049	,	_	_	_	_	_	_	_
+35-3	2050-2051	I	person[233]	giv:act[233]	sssss[233]	_	cf1*[233]	coref	38-1[237_233]
+35-4	2052-2054	'm	_	_	_	_	_	_	_
+35-5	2055-2063	starving	_	_	_	_	_	_	_
+35-6	2064-2065	!	_	_	_	_	_	_	_
+
+#Text=Please write soon .
+36-1	2066-2072	Please	_	_	_	_	_	_	_
+36-2	2073-2078	write	_	_	_	_	_	_	_
+36-3	2079-2083	soon	_	_	_	_	_	_	_
+36-4	2084-2085	.	_	_	_	_	_	_	_
+
+#Text=Love & xxx , to all ,
+37-1	2086-2090	Love	_	_	_	_	cf2[234]	_	_
+37-2	2091-2092	&	_	_	_	_	_	_	_
+37-3	2093-2096	xxx	_	_	_	_	cf3[235]	_	_
+37-4	2097-2098	,	_	_	_	_	_	_	_
+37-5	2099-2101	to	_	_	_	_	_	_	_
+37-6	2102-2105	all	_	_	_	_	cf1[236]	_	_
+37-7	2106-2107	,	_	_	_	_	_	_	_
+
+#Text=Marcie
+38-1	2108-2114	Marcie	person[237]	giv:inact[237]	sssss[237]	_	cf1[237]	_	_
+

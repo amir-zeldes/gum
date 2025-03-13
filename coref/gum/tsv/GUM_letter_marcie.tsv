@@ -1,0 +1,441 @@
+#FORMAT=WebAnno TSV 3.2
+#T_SP=webanno.custom.Referent|entity|infstat|salience|identity|centering
+#T_RL=webanno.custom.Coref|type|BT_webanno.custom.Referent
+#Summary1=(human1) On Jan. 10, 1970, Marcie writes to her mum worrying about acceptance to colleges, for which she needs two more $15 checks for Wesleyan and Syracuse, telling her about a family picture she made for creative days with her camera, and discussing her expenses, for which she asks for $20-25 a month.
+#Summary2=(human2) Marcie writes to her mother concerning her financial and academic concerns and the extra-curricular events of both the previous few days and the following months, including creative days, monthly expenses, and school acceptances.
+#Summary3=(claude-3-5-sonnet-20241022) On January 10, 1970, Marcie writes to her mother discussing creative days at school, requesting expense checks, thanking her for grapefruit, suggesting monthly allowance arrangements, describing a responsibility day event, sharing camera troubles, and expressing anxiety about Wesleyan admissions.
+#Summary4=(gpt4o) On January 10, Marcie writes to her mother expressing frustration about the timing of creative days after vacation, updating on her expenses and the delicious grapefruits she received, discussing "responsibility day" and her struggles with photography, sharing concerns about her acceptance to Wesleyan, and sending love to family members including a mention about Kittie.
+#Summary5=(Meta-Llama-3-8B-Instruct) Marcie writes to her mom about her struggles with creativity, using a new camera, and expressing concerns about upcoming responsibility events and her chances of getting accepted at Wesleyan.
+
+
+#Text=19 70
+1-1	0-2	19	time[1]	new[1]	sssss[1]	_	cf1[1]	bridge:other	2-1[3_1]	
+1-2	3-5	70	time[1]	new[1]	sssss[1]	_	cf1[1]	_	_	
+
+#Text=Jan. 10
+2-1	6-10	Jan.	time[2]|time[3]	new[2]|acc:inf[3]	snssn[2]|sssss[3]	January_1970[3]	cf2[2]|cf1[3]	coref	26-10[134_2]	
+2-2	11-13	10	time[2]	new[2]	snssn[2]	_	cf2[2]	_	_	
+
+#Text=dear mum ,
+3-1	14-18	dear	person[5]	new[5]	snnnn[5]	_	cf1[5]	ana	7-9[30_5]	
+3-2	19-22	mum	person[5]	new[5]	snnnn[5]	_	cf1[5]	_	_	
+3-3	23-24	,	_	_	_	_	_	_	_	
+
+#Text=sure enough we had creative days these past two days .
+4-1	25-29	sure	_	_	_	_	_	_	_	
+4-2	30-36	enough	_	_	_	_	_	_	_	
+4-3	37-39	we	person[6]	acc:com[6]	nnnnn[6]	_	cf2[6]	ana	18-1[85_6]	
+4-4	40-43	had	_	_	_	_	_	_	_	
+4-5	44-52	creative	time[8]	new[8]	ssssn[8]	_	cf1[8]	coref	4-7[9_8]	
+4-6	53-57	days	time[8]	new[8]	ssssn[8]	_	cf1[8]	_	_	
+4-7	58-63	these	time[9]	giv:act[9]	ssssn[9]	_	cf1[9]	ana	5-14[18_9]	
+4-8	64-68	past	time[9]	giv:act[9]	ssssn[9]	_	cf1[9]	_	_	
+4-9	69-72	two	time[9]	giv:act[9]	ssssn[9]	_	cf1[9]	_	_	
+4-10	73-77	days	time[9]	giv:act[9]	ssssn[9]	_	cf1[9]	_	_	
+4-11	78-79	.	_	_	_	_	_	_	_	
+
+#Text=Frankly I think it was one of their biggest mistakes ; to make them be so soon after vacation .
+5-1	80-87	Frankly	_	_	_	_	_	_	_	
+5-2	88-89	I	person[10]	acc:com[10]	sssss[10]	_	cf3[10]	ana	6-1[20_10]	
+5-3	90-95	think	_	_	_	_	_	_	_	
+5-4	96-98	it	event[11]	new[11]	nnnnn[11]	_	cf2[11]	_	_	
+5-5	99-102	was	_	_	_	_	_	_	_	
+5-6	103-106	one	event[14]	acc:com[14]	n____[14]	_	cf2[14]	coref|cata	5-12[17_14]|5-4[11_14]	
+5-7	107-109	of	event[14]	acc:com[14]	n____[14]	_	cf2[14]	_	_	
+5-8	110-115	their	event[14]|person[15]	acc:com[14]|acc:com[15]	n____[14]|nnnnn[15]	_	cf2[14]|cf4[15]	ana	19-4[92_15]	
+5-9	116-123	biggest	event[14]	acc:com[14]	n____[14]	_	cf2[14]	_	_	
+5-10	124-132	mistakes	event[14]	acc:com[14]	n____[14]	_	cf2[14]	_	_	
+5-11	133-134	;	_	_	_	_	_	_	_	
+5-12	135-137	to	event[17]	giv:act[17]	n____[17]	_	cf2[17]	_	_	
+5-13	138-142	make	event[17]	giv:act[17]	n____[17]	_	cf2[17]	_	_	
+5-14	143-147	them	event[17]|time[18]	giv:act[17]|giv:act[18]	n____[17]|ssssn[18]	_	cf2[17]|cf1*[18]	coref	19-8[95_18]	
+5-15	148-150	be	event[17]	giv:act[17]	n____[17]	_	cf2[17]	_	_	
+5-16	151-153	so	event[17]	giv:act[17]	n____[17]	_	cf2[17]	_	_	
+5-17	154-158	soon	event[17]	giv:act[17]	n____[17]	_	cf2[17]	_	_	
+5-18	159-164	after	event[17]	giv:act[17]	n____[17]	_	cf2[17]	_	_	
+5-19	165-173	vacation	event[17]|event[19]	giv:act[17]|new[19]	n____[17]|nnnnn[19]	_	cf2[17]|cf5[19]	coref	9-6[43_19]	
+5-20	174-175	.	_	_	_	_	_	_	_	
+
+#Text=I was n't creative at all , but did catch up on my sleep .
+6-1	176-177	I	person[20]	giv:act[20]	sssss[20]	_	cf1*[20]	ana	6-13[25_20]	
+6-2	178-181	was	_	_	_	_	_	_	_	
+6-3	182-185	n't	_	_	_	_	_	_	_	
+6-4	186-194	creative	_	_	_	_	_	_	_	
+6-5	195-197	at	_	_	_	_	_	_	_	
+6-6	198-201	all	_	_	_	_	_	_	_	
+6-7	202-203	,	_	_	_	_	_	_	_	
+6-8	204-207	but	_	_	_	_	_	_	_	
+6-9	208-211	did	_	_	_	_	_	_	_	
+6-10	212-217	catch	_	_	_	_	_	_	_	
+6-11	218-220	up	_	_	_	_	_	_	_	
+6-12	221-223	on	_	_	_	_	_	_	_	
+6-13	224-226	my	abstract[24]|person[25]	new[24]|giv:act[25]	nnnnn[24]|sssss[25]	_	cf2[24]|cf1*[25]	ana	7-1[26_25]	
+6-14	227-232	sleep	abstract[24]	new[24]	nnnnn[24]	_	cf2[24]	_	_	
+6-15	233-234	.	_	_	_	_	_	_	_	
+
+#Text=I forgot to get two more checks from you .
+7-1	235-236	I	person[26]	giv:act[26]	sssss[26]	_	cf1*[26]	ana	10-1[50_26]	
+7-2	237-243	forgot	_	_	_	_	_	_	_	
+7-3	244-246	to	_	_	_	_	_	_	_	
+7-4	247-250	get	_	_	_	_	_	_	_	
+7-5	251-254	two	object[29]	new[29]	snssn[29]	_	cf3[29]	ana	8-1[31_29]	
+7-6	255-259	more	object[29]	new[29]	snssn[29]	_	cf3[29]	_	_	
+7-7	260-266	checks	object[29]	new[29]	snssn[29]	_	cf3[29]	_	_	
+7-8	267-271	from	_	_	_	_	_	_	_	
+7-9	272-275	you	person[30]	giv:inact[30]	snnnn[30]	_	cf2[30]	ana	15-4[69_30]	
+7-10	276-277	.	_	_	_	_	_	_	_	
+
+#Text=Both are for $ 15 , one is Wesleyan and the other is Syracuse .
+8-1	278-282	Both	object[31]	giv:act[31]	snssn[31]	_	cf1*[31]	bridge:other|bridge:def	8-7[35_31]|8-11[39_31]	
+8-2	283-286	are	_	_	_	_	_	_	_	
+8-3	287-290	for	_	_	_	_	_	_	_	
+8-4	291-292	$	abstract[34]	new[34]	snnnn[34]	_	cf6[34]	_	_	
+8-5	293-295	15	abstract[34]	new[34]	snnnn[34]	_	cf6[34]	_	_	
+8-6	296-297	,	_	_	_	_	_	_	_	
+8-7	298-301	one	object[35]	acc:inf[35]	nnnnn[35]	_	cf2[35]	_	_	
+8-8	302-304	is	_	_	_	_	_	_	_	
+8-9	305-313	Wesleyan	organization[36]	new[36]	snsss[36]	Wesleyan_University[36]	cf4[36]	coref	28-12[145_36]	
+8-10	314-317	and	_	_	_	_	_	_	_	
+8-11	318-321	the	object[39]	acc:inf[39]	nnnnn[39]	_	cf3[39]	_	_	
+8-12	322-327	other	object[39]	acc:inf[39]	nnnnn[39]	_	cf3[39]	_	_	
+8-13	328-330	is	_	_	_	_	_	_	_	
+8-14	331-339	Syracuse	organization[40]	new[40]	snnnn[40]	Syracuse_University[40]	cf5[40]	_	_	
+8-15	340-341	.	_	_	_	_	_	_	_	
+
+#Text=The grapefruit apparently arrived before vacation , but smart Mrs. Bonde put them in the big kitchen refrig.
+9-1	342-345	The	object[42]	new[42]	nnsnn[42]	_	cf1[42]	ana	9-13[46_42]	
+9-2	346-356	grapefruit	object[42]	new[42]	nnsnn[42]	_	cf1[42]	_	_	
+9-3	357-367	apparently	_	_	_	_	_	_	_	
+9-4	368-375	arrived	_	_	_	_	_	_	_	
+9-5	376-382	before	_	_	_	_	_	_	_	
+9-6	383-391	vacation	event[43]	giv:inact[43]	n____[43]	_	cf2[43]	_	_	
+9-7	392-393	,	_	_	_	_	_	_	_	
+9-8	394-397	but	_	_	_	_	_	_	_	
+9-9	398-403	smart	person[45]	new[45]	nnnnn[45]	_	cf4[45]	_	_	
+9-10	404-408	Mrs.	person[45]	new[45]	nnnnn[45]	_	cf4[45]	_	_	
+9-11	409-414	Bonde	person[45]	new[45]	nnnnn[45]	_	cf4[45]	_	_	
+9-12	415-418	put	_	_	_	_	_	_	_	
+9-13	419-423	them	object[46]	giv:act[46]	nnsnn[46]	_	cf1[46]	coref	10-8[54_46]	
+9-14	424-426	in	_	_	_	_	_	_	_	
+9-15	427-430	the	object[48]	acc:com[48]	nnnnn[48]	_	cf3[48]	_	_	
+9-16	431-434	big	object[48]	acc:com[48]	nnnnn[48]	_	cf3[48]	_	_	
+9-17	435-442	kitchen	object[48]|place[49]	acc:com[48]|new[49]	nnnnn[48]|nnnnn[49]	_	cf3[48]|cf5[49]	_	_	
+9-18	443-450	refrig.	object[48]	acc:com[48]	nnnnn[48]	_	cf3[48]	_	_	
+
+#Text=I 've already had 5 out of the 9 .
+10-1	451-452	I	person[50]	giv:inact[50]	sssss[50]	_	cf2[50]	ana	12-2[56_50]	
+10-2	453-456	've	_	_	_	_	_	_	_	
+10-3	457-464	already	_	_	_	_	_	_	_	
+10-4	465-468	had	_	_	_	_	_	_	_	
+10-5	469-470	5	object[53]	new[53]	nnnnn[53]	_	cf3[53]	_	_	
+10-6	471-474	out	object[53]	new[53]	nnnnn[53]	_	cf3[53]	_	_	
+10-7	475-477	of	object[53]	new[53]	nnnnn[53]	_	cf3[53]	_	_	
+10-8	478-481	the	object[53]|object[54]	new[53]|giv:act[54]	nnnnn[53]|nnsnn[54]	_	cf3[53]|cf1*[54]	bridge:other|ana	12-5[57_54]|11-4[55_54]	
+10-9	482-483	9	object[53]|object[54]	new[53]|giv:act[54]	nnnnn[53]|nnsnn[54]	_	cf3[53]|cf1*[54]	_	_	
+10-10	484-485	.	_	_	_	_	_	_	_	
+
+#Text=Boy , were they delicious !
+11-1	486-489	Boy	_	_	_	_	_	_	_	
+11-2	490-491	,	_	_	_	_	_	_	_	
+11-3	492-496	were	_	_	_	_	_	_	_	
+11-4	497-501	they	object[55]	giv:act[55]	nnsnn[55]	_	cf1*[55]	_	_	
+11-5	502-511	delicious	_	_	_	_	_	_	_	
+11-6	512-513	!	_	_	_	_	_	_	_	
+
+#Text=wish i could have more ? !
+12-1	514-518	wish	_	_	_	_	_	_	_	
+12-2	519-520	i	person[56]	giv:inact[56]	sssss[56]	_	cf1[56]	ana	13-2[62_56]	
+12-3	521-526	could	_	_	_	_	_	_	_	
+12-4	527-531	have	_	_	_	_	_	_	_	
+12-5	532-536	more	object[57]	acc:inf[57]	nnnnn[57]	_	cf2[57]	_	_	
+12-6	537-538	?	_	_	_	_	_	_	_	
+12-7	539-540	!	_	_	_	_	_	_	_	
+
+#Text=About my expenses .
+13-1	541-546	About	_	_	_	_	_	_	_	
+13-2	547-549	my	abstract[61]|person[62]	new[61]|giv:act[62]	ssnsn[61]|sssss[62]	_	cf2[61]|cf1*[62]	ana	14-1[63_62]	
+13-3	550-558	expenses	abstract[61]	new[61]	ssnsn[61]	_	cf2[61]	_	_	
+13-4	559-560	.	_	_	_	_	_	_	_	
+
+#Text=I 've been thinking that $ 20 - $ 25 per month would be fine .
+14-1	561-562	I	person[63]	giv:act[63]	sssss[63]	_	cf1*[63]	ana	15-7[70_63]	
+14-2	563-566	've	_	_	_	_	_	_	_	
+14-3	567-571	been	_	_	_	_	_	_	_	
+14-4	572-580	thinking	_	_	_	_	_	_	_	
+14-5	581-585	that	_	_	_	_	_	_	_	
+14-6	586-587	$	abstract[66]	new[66]	snnnn[66]	_	cf2[66]	_	_	
+14-7	588-590	20	abstract[66]	new[66]	snnnn[66]	_	cf2[66]	_	_	
+14-8	591-592	-	_	_	_	_	_	_	_	
+14-9	593-594	$	abstract[67]	new[67]	snnnn[67]	_	cf4[67]	_	_	
+14-10	595-597	25	abstract[67]	new[67]	snnnn[67]	_	cf4[67]	_	_	
+14-11	598-601	per	_	_	_	_	_	_	_	
+14-12	602-607	month	time[68]	new[68]	snnnn[68]	_	cf3[68]	_	_	
+14-13	608-613	would	_	_	_	_	_	_	_	
+14-14	614-616	be	_	_	_	_	_	_	_	
+14-15	617-621	fine	_	_	_	_	_	_	_	
+14-16	622-623	.	_	_	_	_	_	_	_	
+
+#Text=Why do n't you just give me $ 130 in a lump or send me a monthly check .
+15-1	624-627	Why	_	_	_	_	_	_	_	
+15-2	628-630	do	_	_	_	_	_	_	_	
+15-3	631-634	n't	_	_	_	_	_	_	_	
+15-4	635-638	you	person[69]	giv:inact[69]	snnnn[69]	_	cf2[69]	ana	32-2[161_69]	
+15-5	639-643	just	_	_	_	_	_	_	_	
+15-6	644-648	give	_	_	_	_	_	_	_	
+15-7	649-651	me	person[70]	giv:act[70]	sssss[70]	_	cf1*[70]	ana	15-15[76_70]	
+15-8	652-653	$	abstract[74]	new[74]	nnnnn[74]	_	cf4[74]	_	_	
+15-9	654-657	130	abstract[74]	new[74]	nnnnn[74]	_	cf4[74]	_	_	
+15-10	658-660	in	abstract[74]	new[74]	nnnnn[74]	_	cf4[74]	_	_	
+15-11	661-662	a	abstract[74]|abstract[75]	new[74]|new[75]	nnnnn[74]|nnnnn[75]	_	cf4[74]|cf5[75]	_	_	
+15-12	663-667	lump	abstract[74]|abstract[75]	new[74]|new[75]	nnnnn[74]|nnnnn[75]	_	cf4[74]|cf5[75]	_	_	
+15-13	668-670	or	_	_	_	_	_	_	_	
+15-14	671-675	send	_	_	_	_	_	_	_	
+15-15	676-678	me	person[76]	giv:act[76]	sssss[76]	_	cf1*[76]	ana	16-1[79_76]	
+15-16	679-680	a	object[78]	new[78]	nnnnn[78]	_	cf3[78]	coref	16-3[81_78]	
+15-17	681-688	monthly	object[78]	new[78]	nnnnn[78]	_	cf3[78]	_	_	
+15-18	689-694	check	object[78]	new[78]	nnnnn[78]	_	cf3[78]	_	_	
+15-19	695-696	.	_	_	_	_	_	_	_	
+
+#Text=I prefer the latter .
+16-1	697-698	I	person[79]	giv:act[79]	sssss[79]	_	cf1*[79]	ana	19-1[91_79]	
+16-2	699-705	prefer	_	_	_	_	_	_	_	
+16-3	706-709	the	object[81]	giv:act[81]	n____[81]	_	cf2[81]	_	_	
+16-4	710-716	latter	object[81]	giv:act[81]	n____[81]	_	cf2[81]	_	_	
+16-5	717-718	.	_	_	_	_	_	_	_	
+
+#Text=Last Wed. was responsibility Day .
+17-1	719-723	Last	time[82]	new[82]	nnnsn[82]	_	cf1[82]	coref	17-4[83_82]	
+17-2	724-728	Wed.	time[82]	new[82]	nnnsn[82]	_	cf1[82]	_	_	
+17-3	729-732	was	_	_	_	_	_	_	_	
+17-4	733-747	responsibility	time[83]|abstract[84]	giv:act[83]|new[84]	nnnsn[83]|nnnnn[84]	_	cf1[83]|cf2[84]	_	_	
+17-5	748-751	Day	time[83]	giv:act[83]	nnnsn[83]	_	cf1[83]	_	_	
+17-6	752-753	.	_	_	_	_	_	_	_	
+
+#Text=We had discussion groups about the hand book and certain situations .
+18-1	754-756	We	person[85]	giv:inact[85]	n____[85]	_	cf1[85]	ana	26-5[132_85]	
+18-2	757-760	had	_	_	_	_	_	_	_	
+18-3	761-771	discussion	event[88]	new[88]	nnnnn[88]	_	cf3[88]	_	_	
+18-4	772-778	groups	event[88]	new[88]	nnnnn[88]	_	cf3[88]	_	_	
+18-5	779-784	about	_	_	_	_	_	_	_	
+18-6	785-788	the	object[89]	acc:com[89]	nnnnn[89]	_	cf2[89]	_	_	
+18-7	789-793	hand	object[89]	acc:com[89]	nnnnn[89]	_	cf2[89]	_	_	
+18-8	794-798	book	object[89]	acc:com[89]	nnnnn[89]	_	cf2[89]	_	_	
+18-9	799-802	and	_	_	_	_	_	_	_	
+18-10	803-810	certain	abstract[90]	new[90]	nnnnn[90]	_	cf4[90]	_	_	
+18-11	811-821	situations	abstract[90]	new[90]	nnnnn[90]	_	cf4[90]	_	_	
+18-12	822-823	.	_	_	_	_	_	_	_	
+
+#Text=I really wish they 'd waited for the creative days ; in the middle of Feb. I would have been ready for them , and would have done something very creative .
+19-1	824-825	I	person[91]	giv:inact[91]	sssss[91]	_	cf1[91]	ana	19-17[98_91]	
+19-2	826-832	really	_	_	_	_	_	_	_	
+19-3	833-837	wish	_	_	_	_	_	_	_	
+19-4	838-842	they	person[92]	giv:inact[92]	n____[92]	_	cf3[92]	_	_	
+19-5	843-845	'd	_	_	_	_	_	_	_	
+19-6	846-852	waited	_	_	_	_	_	_	_	
+19-7	853-856	for	_	_	_	_	_	_	_	
+19-8	857-860	the	time[95]	giv:inact[95]	ssssn[95]	_	cf2[95]	ana	19-23[99_95]	
+19-9	861-869	creative	time[95]	giv:inact[95]	ssssn[95]	_	cf2[95]	_	_	
+19-10	870-874	days	time[95]	giv:inact[95]	ssssn[95]	_	cf2[95]	_	_	
+19-11	875-876	;	_	_	_	_	_	_	_	
+19-12	877-879	in	_	_	_	_	_	_	_	
+19-13	880-883	the	time[96]	new[96]	nnnnn[96]	_	cf5[96]	_	_	
+19-14	884-890	middle	time[96]	new[96]	nnnnn[96]	_	cf5[96]	_	_	
+19-15	891-893	of	time[96]	new[96]	nnnnn[96]	_	cf5[96]	_	_	
+19-16	894-898	Feb.	time[96]|time[97]	new[96]|new[97]	nnnnn[96]|nnnnn[97]	_	cf5[96]|cf6[97]	_	_	
+19-17	899-900	I	person[98]	giv:act[98]	sssss[98]	_	cf1[98]	ana	20-1[104_98]	
+19-18	901-906	would	_	_	_	_	_	_	_	
+19-19	907-911	have	_	_	_	_	_	_	_	
+19-20	912-916	been	_	_	_	_	_	_	_	
+19-21	917-922	ready	_	_	_	_	_	_	_	
+19-22	923-926	for	_	_	_	_	_	_	_	
+19-23	927-931	them	time[99]	giv:act[99]	ssssn[99]	_	cf2[99]	_	_	
+19-24	932-933	,	_	_	_	_	_	_	_	
+19-25	934-937	and	_	_	_	_	_	_	_	
+19-26	938-943	would	_	_	_	_	_	_	_	
+19-27	944-948	have	_	_	_	_	_	_	_	
+19-28	949-953	done	_	_	_	_	_	_	_	
+19-29	954-963	something	abstract[103]	new[103]	nnnnn[103]	_	cf4[103]	_	_	
+19-30	964-968	very	abstract[103]	new[103]	nnnnn[103]	_	cf4[103]	_	_	
+19-31	969-977	creative	abstract[103]	new[103]	nnnnn[103]	_	cf4[103]	_	_	
+19-32	978-979	.	_	_	_	_	_	_	_	
+
+#Text=I did the picture of the family and I 'm so mad ‘cuz only 1 came out .
+20-1	980-981	I	person[104]	giv:act[104]	sssss[104]	_	cf1*[104]	ana	20-9[108_104]	
+20-2	982-985	did	_	_	_	_	_	_	_	
+20-3	986-989	the	object[106]	new[106]	snnnn[106]	_	cf4[106]	bridge:other	20-14[111_106]	
+20-4	990-997	picture	object[106]	new[106]	snnnn[106]	_	cf4[106]	_	_	
+20-5	998-1000	of	object[106]	new[106]	snnnn[106]	_	cf4[106]	_	_	
+20-6	1001-1004	the	object[106]|person[107]	new[106]|acc:com[107]	snnnn[106]|snnsn[107]	_	cf4[106]|cf3[107]	_	_	
+20-7	1005-1011	family	object[106]|person[107]	new[106]|acc:com[107]	snnnn[106]|snnsn[107]	_	cf4[106]|cf3[107]	_	_	
+20-8	1012-1015	and	_	_	_	_	_	_	_	
+20-9	1016-1017	I	person[108]	giv:act[108]	sssss[108]	_	cf1*[108]	ana	21-1[112_108]	
+20-10	1018-1020	'm	_	_	_	_	_	_	_	
+20-11	1021-1023	so	_	_	_	_	_	_	_	
+20-12	1024-1027	mad	_	_	_	_	_	_	_	
+20-13	1028-1032	‘cuz	_	_	_	_	_	_	_	
+20-14	1033-1037	only	event[110]|object[111]	new[110]|acc:inf[111]	nnnnn[110]|nnnnn[111]	_	cf5[110]|cf2[111]	disc	21-6[113_110]	
+20-15	1038-1039	1	event[110]|object[111]	new[110]|acc:inf[111]	nnnnn[110]|nnnnn[111]	_	cf5[110]|cf2[111]	_	_	
+20-16	1040-1044	came	event[110]	new[110]	nnnnn[110]	_	cf5[110]	_	_	
+20-17	1045-1048	out	event[110]	new[110]	nnnnn[110]	_	cf5[110]	_	_	
+20-18	1049-1050	.	_	_	_	_	_	_	_	
+
+#Text=I ca n't under stand it .
+21-1	1051-1052	I	person[112]	giv:act[112]	sssss[112]	_	cf1*[112]	ana	22-1[114_112]	
+21-2	1053-1055	ca	_	_	_	_	_	_	_	
+21-3	1056-1059	n't	_	_	_	_	_	_	_	
+21-4	1060-1065	under	_	_	_	_	_	_	_	
+21-5	1066-1071	stand	_	_	_	_	_	_	_	
+21-6	1072-1074	it	event[113]	giv:act[113]	n____[113]	_	cf2[113]	_	_	
+21-7	1075-1076	.	_	_	_	_	_	_	_	
+
+#Text=I still do n't know how to work that camera .
+22-1	1077-1078	I	person[114]	giv:act[114]	sssss[114]	_	cf1*[114]	ana	25-2[128_114]	
+22-2	1079-1084	still	_	_	_	_	_	_	_	
+22-3	1085-1087	do	_	_	_	_	_	_	_	
+22-4	1088-1091	n't	_	_	_	_	_	_	_	
+22-5	1092-1096	know	_	_	_	_	_	_	_	
+22-6	1097-1100	how	abstract[118]	new[118]	nnnnn[118]	_	cf3[118]	ana	23-1[120_118]	
+22-7	1101-1103	to	abstract[118]	new[118]	nnnnn[118]	_	cf3[118]	_	_	
+22-8	1104-1108	work	abstract[118]	new[118]	nnnnn[118]	_	cf3[118]	_	_	
+22-9	1109-1113	that	abstract[118]|object[119]	new[118]|acc:com[119]	nnnnn[118]|snsns[119]	_	cf3[118]|cf2[119]	bridge:def|bridge:other|bridge:def	23-7[121_119]|23-10[123_119]|25-7[130_119]	
+22-10	1114-1120	camera	abstract[118]|object[119]	new[118]|acc:com[119]	nnnnn[118]|snsns[119]	_	cf3[118]|cf2[119]	_	_	
+22-11	1121-1122	.	_	_	_	_	_	_	_	
+
+#Text=It all has to do with the speed and shutter settings .
+23-1	1123-1125	It	abstract[120]	giv:act[120]	n____[120]	_	cf1*[120]	_	_	
+23-2	1126-1129	all	abstract[120]	giv:act[120]	n____[120]	_	cf1*[120]	_	_	
+23-3	1130-1133	has	_	_	_	_	_	_	_	
+23-4	1134-1136	to	_	_	_	_	_	_	_	
+23-5	1137-1139	do	_	_	_	_	_	_	_	
+23-6	1140-1144	with	_	_	_	_	_	_	_	
+23-7	1145-1148	the	abstract[121]	acc:inf[121]	nnnnn[121]	_	cf2[121]	coref	24-1[124_121]	
+23-8	1149-1154	speed	abstract[121]	acc:inf[121]	nnnnn[121]	_	cf2[121]	_	_	
+23-9	1155-1158	and	_	_	_	_	_	_	_	
+23-10	1159-1166	shutter	abstract[122]|object[123]	new[122]|acc:inf[123]	nnnnn[122]|nnnnn[123]	_	cf4[122]|cf3[123]	coref	24-7[127_122]	
+23-11	1167-1175	settings	abstract[122]	new[122]	nnnnn[122]	_	cf4[122]	_	_	
+23-12	1176-1177	.	_	_	_	_	_	_	_	
+
+#Text=One was n't slow enough & the other was n't open op enough .
+24-1	1178-1181	One	abstract[124]	giv:act[124]	n____[124]	_	cf2[124]	_	_	
+24-2	1182-1185	was	_	_	_	_	_	_	_	
+24-3	1186-1189	n't	_	_	_	_	_	_	_	
+24-4	1190-1194	slow	_	_	_	_	_	_	_	
+24-5	1195-1201	enough	_	_	_	_	_	_	_	
+24-6	1202-1203	&	_	_	_	_	_	_	_	
+24-7	1204-1207	the	abstract[127]	giv:act[127]	n____[127]	_	cf1*[127]	_	_	
+24-8	1208-1213	other	abstract[127]	giv:act[127]	n____[127]	_	cf1*[127]	_	_	
+24-9	1214-1217	was	_	_	_	_	_	_	_	
+24-10	1218-1221	n't	_	_	_	_	_	_	_	
+24-11	1222-1226	open	_	_	_	_	_	_	_	
+24-12	1227-1229	op	_	_	_	_	_	_	_	
+24-13	1230-1236	enough	_	_	_	_	_	_	_	
+24-14	1237-1238	.	_	_	_	_	_	_	_	
+
+#Text=Hopefully I 'll get more on the next roll .
+25-1	1239-1248	Hopefully	_	_	_	_	_	_	_	
+25-2	1249-1250	I	person[128]	giv:inact[128]	sssss[128]	_	cf1[128]	ana	26-1[131_128]	
+25-3	1251-1254	'll	_	_	_	_	_	_	_	
+25-4	1255-1258	get	_	_	_	_	_	_	_	
+25-5	1259-1263	more	_	_	_	_	_	_	_	
+25-6	1264-1266	on	_	_	_	_	_	_	_	
+25-7	1267-1270	the	object[130]	acc:inf[130]	nnnnn[130]	_	cf2[130]	_	_	
+25-8	1271-1275	next	object[130]	acc:inf[130]	nnnnn[130]	_	cf2[130]	_	_	
+25-9	1276-1280	roll	object[130]	acc:inf[130]	nnnnn[130]	_	cf2[130]	_	_	
+25-10	1281-1282	.	_	_	_	_	_	_	_	
+
+#Text=I ca n't believe we 've got achievements . today .
+26-1	1283-1284	I	person[131]	giv:act[131]	sssss[131]	_	cf1*[131]	ana	28-1[135_131]	
+26-2	1285-1287	ca	_	_	_	_	_	_	_	
+26-3	1288-1291	n't	_	_	_	_	_	_	_	
+26-4	1292-1299	believe	_	_	_	_	_	_	_	
+26-5	1300-1302	we	person[132]	giv:inact[132]	n____[132]	_	cf2[132]	_	_	
+26-6	1303-1306	've	_	_	_	_	_	_	_	
+26-7	1307-1310	got	_	_	_	_	_	_	_	
+26-8	1311-1323	achievements	abstract[133]	new[133]	nnnnn[133]	_	cf4[133]	_	_	
+26-9	1324-1325	.	_	_	_	_	_	_	_	
+26-10	1326-1331	today	time[134]	giv:inact[134]	snssn[134]	_	cf3[134]	_	_	
+26-11	1332-1333	.	_	_	_	_	_	_	_	
+
+#Text=Oh , eck !
+27-1	1334-1336	Oh	_	_	_	_	_	_	_	
+27-2	1337-1338	,	_	_	_	_	_	_	_	
+27-3	1339-1342	eck	_	_	_	_	_	_	_	
+27-4	1343-1344	!	_	_	_	_	_	_	_	
+
+#Text=I heard from Adelle that already 25 have been accepted at Wesleyan , that leaves 75 more , I already know of 6 kids ten times more competent than I , who are applying .
+28-1	1345-1346	I	person[135]	giv:inact[135]	sssss[135]	_	cf1[135]	ana	28-19[151_135]	
+28-2	1347-1352	heard	_	_	_	_	_	_	_	
+28-3	1353-1357	from	_	_	_	_	_	_	_	
+28-4	1358-1364	Adelle	person[136]	new[136]	nnnnn[136]	_	cf6[136]	_	_	
+28-5	1365-1369	that	_	_	_	_	_	_	_	
+28-6	1370-1377	already	_	_	_	_	_	_	_	
+28-7	1378-1380	25	event[143]|person[144]	new[143]|new[144]	snsss[143]|nnnnn[144]	_	cf2[143]|cf4[144]	disc	28-14[146_143]	
+28-8	1381-1385	have	event[143]	new[143]	snsss[143]	_	cf2[143]	_	_	
+28-9	1386-1390	been	event[143]	new[143]	snsss[143]	_	cf2[143]	_	_	
+28-10	1391-1399	accepted	event[143]	new[143]	snsss[143]	_	cf2[143]	_	_	
+28-11	1400-1402	at	event[143]	new[143]	snsss[143]	_	cf2[143]	_	_	
+28-12	1403-1411	Wesleyan	event[143]|organization[145]	new[143]|giv:inact[145]	snsss[143]|snsss[145]	Wesleyan_University[145]	cf2[143]|cf3[145]	_	_	
+28-13	1412-1413	,	_	_	_	_	_	_	_	
+28-14	1414-1418	that	event[146]	giv:act[146]	snsss[146]	_	cf2[146]	_	_	
+28-15	1419-1425	leaves	_	_	_	_	_	_	_	
+28-16	1426-1428	75	person[150]	new[150]	nnnnn[150]	_	cf5[150]	_	_	
+28-17	1429-1433	more	person[150]	new[150]	nnnnn[150]	_	cf5[150]	_	_	
+28-18	1434-1435	,	_	_	_	_	_	_	_	
+28-19	1436-1437	I	person[151]	giv:act[151]	sssss[151]	_	cf1[151]	ana	28-30[155_151]	
+28-20	1438-1445	already	_	_	_	_	_	_	_	
+28-21	1446-1450	know	_	_	_	_	_	_	_	
+28-22	1451-1453	of	_	_	_	_	_	_	_	
+28-23	1454-1455	6	person[153]	new[153]	nnnnn[153]	_	cf7[153]	_	_	
+28-24	1456-1460	kids	person[153]	new[153]	nnnnn[153]	_	cf7[153]	_	_	
+28-25	1461-1464	ten	person[153]|abstract[154]	new[153]|new[154]	nnnnn[153]|nnnnn[154]	_	cf7[153]|cf8[154]	_	_	
+28-26	1465-1470	times	person[153]|abstract[154]	new[153]|new[154]	nnnnn[153]|nnnnn[154]	_	cf7[153]|cf8[154]	_	_	
+28-27	1471-1475	more	person[153]	new[153]	nnnnn[153]	_	cf7[153]	_	_	
+28-28	1476-1485	competent	person[153]	new[153]	nnnnn[153]	_	cf7[153]	_	_	
+28-29	1486-1490	than	person[153]	new[153]	nnnnn[153]	_	cf7[153]	_	_	
+28-30	1491-1492	I	person[153]|person[155]	new[153]|giv:act[155]	nnnnn[153]|sssss[155]	_	cf7[153]|cf1[155]	ana	31-2[158_155]	
+28-31	1493-1494	,	person[153]	new[153]	nnnnn[153]	_	cf7[153]	_	_	
+28-32	1495-1498	who	person[153]	new[153]	nnnnn[153]	_	cf7[153]	_	_	
+28-33	1499-1502	are	person[153]	new[153]	nnnnn[153]	_	cf7[153]	_	_	
+28-34	1503-1511	applying	person[153]	new[153]	nnnnn[153]	_	cf7[153]	_	_	
+28-35	1512-1513	.	_	_	_	_	_	_	_	
+
+#Text=Rats !
+29-1	1514-1518	Rats	_	_	_	_	_	_	_	
+29-2	1519-1520	!	_	_	_	_	_	_	_	
+
+#Text=got ta go now .
+30-1	1521-1524	got	_	_	_	_	_	_	_	
+30-2	1525-1527	ta	_	_	_	_	_	_	_	
+30-3	1528-1530	go	_	_	_	_	_	_	_	
+30-4	1531-1534	now	_	_	_	_	_	_	_	
+30-5	1535-1536	.	_	_	_	_	_	_	_	
+
+#Text=give my love to all , say " hullo " to Wila .
+31-1	1537-1541	give	_	_	_	_	_	_	_	
+31-2	1542-1544	my	abstract[157]|person[158]	new[157]|giv:inact[158]	nnnnn[157]|sssss[158]	_	cf3[157]|cf1[158]	coref	33-1[162_158]	
+31-3	1545-1549	love	abstract[157]	new[157]	nnnnn[157]	_	cf3[157]	_	_	
+31-4	1550-1552	to	_	_	_	_	_	_	_	
+31-5	1553-1556	all	person[159]	acc:com[159]	nnnnn[159]	_	cf2[159]	_	_	
+31-6	1557-1558	,	_	_	_	_	_	_	_	
+31-7	1559-1562	say	_	_	_	_	_	_	_	
+31-8	1563-1564	"	_	_	_	_	_	_	_	
+31-9	1565-1570	hullo	_	_	_	_	_	_	_	
+31-10	1571-1572	"	_	_	_	_	_	_	_	
+31-11	1573-1575	to	_	_	_	_	_	_	_	
+31-12	1576-1580	Wila	person[160]	new[160]	nnnnn[160]	_	cf4[160]	_	_	
+31-13	1581-1582	.	_	_	_	_	_	_	_	
+
+#Text=Love ya .
+32-1	1583-1587	Love	_	_	_	_	_	_	_	
+32-2	1588-1590	ya	person[161]	giv:inact[161]	snnnn[161]	_	cf1[161]	_	_	
+32-3	1591-1592	.	_	_	_	_	_	_	_	
+
+#Text=Marcie
+33-1	1593-1599	Marcie	person[162]	giv:inact[162]	sssss[162]	_	cf1[162]	_	_	
+
+#Text=P.S. What about Kittie ?
+34-1	1600-1604	P.S.	_	_	_	_	_	_	_	
+34-2	1605-1609	What	_	_	_	_	_	_	_	
+34-3	1610-1615	about	_	_	_	_	_	_	_	
+34-4	1616-1622	Kittie	person[163]	new[163]	nnnnn[163]	_	cf1[163]	_	_	
+34-5	1623-1624	?	_	_	_	_	_	_	_

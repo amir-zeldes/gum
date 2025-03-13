@@ -1,6 +1,11 @@
 #FORMAT=WebAnno TSV 3.2
 #T_SP=webanno.custom.Referent|entity|infstat|salience|identity|centering
 #T_RL=webanno.custom.Coref|type|BT_webanno.custom.Referent
+#Summary1=(human1) Some veterinarians discuss various treatments and their pricing for several patients while going about daily business in the office, culminating in one vet, Marcia, calling Carol, the owner of a patient, to discuss further treatment of an animal with a broken leg.
+#Summary2=(claude-3-5-sonnet-20241022) A veterinarian discusses treatment options and costs for a dog with a spiral tibia fracture, recommending a cast over surgery while coordinating with the owner and staff about the case details.
+#Summary3=(gpt4o) A veterinary staff discusses treatment options, including casting and costs, for a dog with a stable spiral fracture in its tibia, estimates the total expenses, and plans to communicate with the dog's owner about the least expensive method that could allow the dog to go home soon, while also handling another procedure involving cat castration.
+#Summary4=(Llama-3.2-3B-Instruct) Carol and Lindsey discuss the medical treatment of a dog with a distemper vaccine and a dog with a tibial fracture, and they agree on the least expensive alternative for the dog's treatment.
+#Summary5=(Qwen2.5-7B-Instruct) A veterinarian discusses a dog's treatment plan, including x-rays, potential surgeries, costs, and discharge options, while also handling phone calls and other tasks at the animal clinic.
 
 
 #Text=Okay , so a recheck would be about that much with the x - rays , and then —
@@ -11,9 +16,9 @@
 1-5	12-19	recheck	_	_	_	_	cf2[1]	_	_
 1-6	20-25	would	_	_	_	_	_	_	_
 1-7	26-28	be	_	_	_	_	_	_	_
-1-8	29-34	about	abstract[2]	acc:com[2]	nonsal[2]	_	cf1[2]	ana	3-2[4_2]
-1-9	35-39	that	abstract[2]	acc:com[2]	nonsal[2]	_	cf1[2]	_	_
-1-10	40-44	much	abstract[2]	acc:com[2]	nonsal[2]	_	cf1[2]	_	_
+1-8	29-34	about	abstract[2]	acc:com[2]	nnnnn[2]	_	cf1[2]	ana	3-2[4_2]
+1-9	35-39	that	abstract[2]	acc:com[2]	nnnnn[2]	_	cf1[2]	_	_
+1-10	40-44	much	abstract[2]	acc:com[2]	nnnnn[2]	_	cf1[2]	_	_
 1-11	45-49	with	_	_	_	_	_	_	_
 1-12	50-53	the	_	_	_	_	cf3[3]	_	_
 1-13	54-55	x	_	_	_	_	cf3[3]	_	_
@@ -30,7 +35,7 @@
 
 #Text=Does that sound right ?
 3-1	82-86	Does	_	_	_	_	_	_	_
-3-2	87-91	that	abstract[4]	giv:inact[4]	nonsal[4]	_	cf1[4]	ana	25-3[60_4]
+3-2	87-91	that	abstract[4]	giv:inact[4]	n____[4]	_	cf1[4]	ana	25-3[60_4]
 3-3	92-97	sound	_	_	_	_	_	_	_
 3-4	98-103	right	_	_	_	_	_	_	_
 3-5	104-105	?	_	_	_	_	_	_	_
@@ -42,45 +47,45 @@
 4-4	119-120	—	_	_	_	_	_	_	_
 
 #Text=I think if we — she woke up , we could w- send her home tonight .
-5-1	121-122	I	person[7]	acc:com[7]	sal[7]	_	cf2[7]	ana	6-1[14_7]
+5-1	121-122	I	person[7]	acc:com[7]	sssss[7]	_	cf2[7]	ana	6-1[14_7]
 5-2	123-128	think	_	_	_	_	_	_	_
 5-3	129-131	if	_	_	_	_	_	_	_
-5-4	132-134	we	person[8]	acc:com[8]	sal[8]	_	cf1[8]	ana	5-10[10_8]
+5-4	132-134	we	person[8]	acc:com[8]	snnnn[8]	_	cf1[8]	ana	5-10[10_8]
 5-5	135-136	—	_	_	_	_	_	_	_
 5-6	137-140	she	_	_	_	_	cf3[9]	_	_
 5-7	141-145	woke	_	_	_	_	_	_	_
 5-8	146-148	up	_	_	_	_	_	_	_
 5-9	149-150	,	_	_	_	_	_	_	_
-5-10	151-153	we	person[10]	giv:act[10]	sal[10]	_	cf1[10]	ana	6-6[15_10]
+5-10	151-153	we	person[10]	giv:act[10]	snnnn[10]	_	cf1[10]	ana	6-6[15_10]
 5-11	154-159	could	_	_	_	_	_	_	_
 5-12	160-162	w-	_	_	_	_	_	_	_
 5-13	163-167	send	_	_	_	_	_	_	_
-5-14	168-171	her	animal[11]	acc:com[11]	sal[11]	_	cf3[11]	ana	6-10[16_11]
+5-14	168-171	her	animal[11]	acc:com[11]	snsnn[11]	_	cf3[11]	ana	6-10[16_11]
 5-15	172-176	home	_	_	_	_	cf5[12]	_	_
 5-16	177-184	tonight	_	_	_	_	cf4[13]	_	_
 5-17	185-186	.	_	_	_	_	_	_	_
 
 #Text=I would n't see why we could n't send her home tonight , would you ?
-6-1	187-188	I	person[14]	giv:act[14]	sal[14]	_	cf1*[14]	ana	12-1[25_14]
+6-1	187-188	I	person[14]	giv:act[14]	sssss[14]	_	cf1*[14]	ana	12-1[25_14]
 6-2	189-194	would	_	_	_	_	_	_	_
 6-3	195-198	n't	_	_	_	_	_	_	_
 6-4	199-202	see	_	_	_	_	_	_	_
 6-5	203-206	why	_	_	_	_	_	_	_
-6-6	207-209	we	person[15]	giv:act[15]	sal[15]	_	cf2[15]	ana	8-4[21_15]
+6-6	207-209	we	person[15]	giv:act[15]	snnnn[15]	_	cf2[15]	ana	8-4[21_15]
 6-7	210-215	could	_	_	_	_	_	_	_
 6-8	216-219	n't	_	_	_	_	_	_	_
 6-9	220-224	send	_	_	_	_	_	_	_
-6-10	225-228	her	animal[16]	giv:act[16]	sal[16]	_	cf3[16]	ana	7-2[20_16]
+6-10	225-228	her	animal[16]	giv:act[16]	snsnn[16]	_	cf3[16]	ana	7-2[20_16]
 6-11	229-233	home	_	_	_	_	cf4[17]	_	_
 6-12	234-241	tonight	_	_	_	_	cf5[18]	_	_
 6-13	242-243	,	_	_	_	_	_	_	_
 6-14	244-249	would	_	_	_	_	_	_	_
-6-15	250-253	you	person[19]	acc:com[19]	sal[19]	_	cf6[19]	ana	30-1[78_19]
+6-15	250-253	you	person[19]	acc:com[19]	snnnn[19]	_	cf6[19]	ana	30-1[78_19]
 6-16	254-255	?	_	_	_	_	_	_	_
 
 #Text=If she wakes up , fine .
 7-1	256-258	If	_	_	_	_	_	_	_
-7-2	259-262	she	animal[20]	giv:act[20]	sal[20]	_	cf1*[20]	ana	8-10[22_20]
+7-2	259-262	she	animal[20]	giv:act[20]	snsnn[20]	_	cf1*[20]	ana	8-10[22_20]
 7-3	263-268	wakes	_	_	_	_	_	_	_
 7-4	269-271	up	_	_	_	_	_	_	_
 7-5	272-273	,	_	_	_	_	_	_	_
@@ -91,13 +96,13 @@
 8-1	281-283	Oh	_	_	_	_	_	_	_
 8-2	284-288	well	_	_	_	_	_	_	_
 8-3	289-290	,	_	_	_	_	_	_	_
-8-4	291-293	we	person[21]	giv:inact[21]	sal[21]	_	cf2[21]	ana	38-2[120_21]
+8-4	291-293	we	person[21]	giv:inact[21]	snnnn[21]	_	cf2[21]	ana	38-2[120_21]
 8-5	294-297	're	_	_	_	_	_	_	_
 8-6	298-301	gon	_	_	_	_	_	_	_
 8-7	302-304	na	_	_	_	_	_	_	_
 8-8	305-307	be	_	_	_	_	_	_	_
 8-9	308-317	Biotaling	_	_	_	_	_	_	_
-8-10	318-321	her	animal[22]	giv:act[22]	sal[22]	_	cf1*[22]	ana	9-3[23_22]
+8-10	318-321	her	animal[22]	giv:act[22]	snsnn[22]	_	cf1*[22]	ana	9-3[23_22]
 8-11	322-325	and	_	_	_	_	_	_	_
 8-12	326-328	oh	_	_	_	_	_	_	_
 8-13	329-330	—	_	_	_	_	_	_	_
@@ -105,9 +110,9 @@
 #Text=Sh- if she — she probably wo n't though .
 9-1	331-334	Sh-	_	_	_	_	_	_	_
 9-2	335-337	if	_	_	_	_	_	_	_
-9-3	338-341	she	animal[23]	giv:act[23]	sal[23]	_	cf1*[23]	ana	9-5[24_23]
+9-3	338-341	she	animal[23]	giv:act[23]	snsnn[23]	_	cf1*[23]	ana	9-5[24_23]
 9-4	342-343	—	_	_	_	_	_	_	_
-9-5	344-347	she	animal[24]	giv:act[24]	sal[24]	_	cf1*[24]	ana	16-2[27_24]
+9-5	344-347	she	animal[24]	giv:act[24]	snsnn[24]	_	cf1*[24]	ana	16-2[27_24]
 9-6	348-356	probably	_	_	_	_	_	_	_
 9-7	357-359	wo	_	_	_	_	_	_	_
 9-8	360-363	n't	_	_	_	_	_	_	_
@@ -125,11 +130,11 @@
 11-3	397-398	.	_	_	_	_	_	_	_
 
 #Text=I was thinking , I 'm still thinking —
-12-1	399-400	I	person[25]	giv:inact[25]	sal[25]	_	cf1[25]	ana	12-5[26_25]
+12-1	399-400	I	person[25]	giv:inact[25]	sssss[25]	_	cf1[25]	ana	12-5[26_25]
 12-2	401-404	was	_	_	_	_	_	_	_
 12-3	405-413	thinking	_	_	_	_	_	_	_
 12-4	414-415	,	_	_	_	_	_	_	_
-12-5	416-417	I	person[26]	giv:act[26]	sal[26]	_	cf1[26]	ana	26-3[61_26]
+12-5	416-417	I	person[26]	giv:act[26]	sssss[26]	_	cf1[26]	ana	26-3[61_26]
 12-6	418-420	'm	_	_	_	_	_	_	_
 12-7	421-426	still	_	_	_	_	_	_	_
 12-8	427-435	thinking	_	_	_	_	_	_	_
@@ -154,7 +159,7 @@
 
 #Text=And she wo n't have any an- antibiotics , cause there 's no break .
 16-1	469-472	And	_	_	_	_	_	_	_
-16-2	473-476	she	animal[27]	giv:inact[27]	sal[27]	_	cf1[27]	_	_
+16-2	473-476	she	animal[27]	giv:inact[27]	snsnn[27]	_	cf1[27]	_	_
 16-3	477-479	wo	_	_	_	_	_	_	_
 16-4	480-483	n't	_	_	_	_	_	_	_
 16-5	484-488	have	_	_	_	_	_	_	_
@@ -204,13 +209,13 @@
 #Text=But , they 're opposite .
 23-1	611-614	But	_	_	_	_	_	_	_
 23-2	615-616	,	_	_	_	_	_	_	_
-23-3	617-621	they	abstract[58]	acc:com[58]	nonsal[58]	_	cf1[58]	ana	24-1[59_58]
+23-3	617-621	they	abstract[58]	acc:com[58]	nnnnn[58]	_	cf1[58]	ana	24-1[59_58]
 23-4	622-625	're	_	_	_	_	_	_	_
 23-5	626-634	opposite	_	_	_	_	_	_	_
 23-6	635-636	.	_	_	_	_	_	_	_
 
 #Text=They 're still opposite .
-24-1	637-641	They	abstract[59]	giv:act[59]	nonsal[59]	_	cf1*[59]	_	_
+24-1	637-641	They	abstract[59]	giv:act[59]	n____[59]	_	cf1*[59]	_	_
 24-2	642-645	're	_	_	_	_	_	_	_
 24-3	646-651	still	_	_	_	_	_	_	_
 24-4	652-660	opposite	_	_	_	_	_	_	_
@@ -219,7 +224,7 @@
 #Text=Yeah , that looks alright .
 25-1	663-667	Yeah	_	_	_	_	_	_	_
 25-2	668-669	,	_	_	_	_	_	_	_
-25-3	670-674	that	abstract[60]	giv:inact[60]	nonsal[60]	_	cf1[60]	_	_
+25-3	670-674	that	abstract[60]	giv:inact[60]	n____[60]	_	cf1[60]	_	_
 25-4	675-680	looks	_	_	_	_	_	_	_
 25-5	681-688	alright	_	_	_	_	_	_	_
 25-6	689-690	.	_	_	_	_	_	_	_
@@ -227,9 +232,9 @@
 #Text=Do n't you think we should charge them an extra eighteen ?
 26-1	691-693	Do	_	_	_	_	_	_	_
 26-2	694-697	n't	_	_	_	_	_	_	_
-26-3	698-701	you	person[61]	giv:inact[61]	sal[61]	_	cf1[61]	ana	33-9[104_61]
+26-3	698-701	you	person[61]	giv:inact[61]	sssss[61]	_	cf1[61]	ana	33-9[104_61]
 26-4	702-707	think	_	_	_	_	_	_	_
-26-5	708-710	we	organization[62]	acc:com[62]	sal[62]	_	cf2[62]	ana	33-6[103_62]
+26-5	708-710	we	organization[62]	acc:com[62]	snnnn[62]	_	cf2[62]	ana	33-6[103_62]
 26-6	711-717	should	_	_	_	_	_	_	_
 26-7	718-724	charge	event[463]	new[463]	_	_	cf4[71]	disc	28-3[77_463]
 26-8	725-729	them	_	_	_	_	cf4[71]|cf3[72]	_	_
@@ -246,9 +251,9 @@
 27-5	776-777	?	_	_	_	_	_	_	_
 
 #Text=Trent does it .
-28-1	778-783	Trent	person[76]	new[76]	nonsal[76]	_	cf2[76]	ana	30-11[86_76]
+28-1	778-783	Trent	person[76]	new[76]	nnnnn[76]	_	cf2[76]	ana	30-11[86_76]
 28-2	784-788	does	_	_	_	_	_	_	_
-28-3	789-791	it	event[77]	giv:inact[77]	nonsal[77]	_	cf1[77]	ana	30-5[79_77]
+28-3	789-791	it	event[77]	giv:inact[77]	n____[77]	_	cf1[77]	ana	30-5[79_77]
 28-4	792-793	.	_	_	_	_	_	_	_
 
 #Text=No .
@@ -256,17 +261,17 @@
 29-2	797-798	.	_	_	_	_	_	_	_
 
 #Text=I felt horrible doing that on that eye dog that he had in here last week , under whatever night it was .
-30-1	799-800	I	person[78]	giv:inact[78]	sal[78]	_	cf1[78]	ana	40-2[127_78]
+30-1	799-800	I	person[78]	giv:inact[78]	snnnn[78]	_	cf1[78]	ana	40-2[127_78]
 30-2	801-805	felt	_	_	_	_	_	_	_
 30-3	806-814	horrible	_	_	_	_	_	_	_
 30-4	815-820	doing	_	_	_	_	_	_	_
-30-5	821-825	that	event[79]	giv:inact[79]	nonsal[79]	_	cf3[79]	ana	33-13[105_79]
+30-5	821-825	that	event[79]	giv:inact[79]	n____[79]	_	cf3[79]	ana	33-13[105_79]
 30-6	826-828	on	_	_	_	_	_	_	_
 30-7	829-833	that	_	_	_	_	cf6[84]	_	_
 30-8	834-837	eye	_	_	_	_	cf6[84]|cf8[85]	_	_
 30-9	838-841	dog	_	_	_	_	cf6[84]	_	_
 30-10	842-846	that	_	_	_	_	_	_	_
-30-11	847-849	he	person[86]	giv:inact[86]	nonsal[86]	_	cf2[86]	ana	31-2[93_86]
+30-11	847-849	he	person[86]	giv:inact[86]	n____[86]	_	cf2[86]	ana	31-2[93_86]
 30-12	850-853	had	_	_	_	_	_	_	_
 30-13	854-856	in	_	_	_	_	_	_	_
 30-14	857-861	here	_	_	_	_	cf5[87]	_	_
@@ -282,27 +287,27 @@
 
 #Text=Cause he had down twenty - five plus eighteen , and what can you do , when he 's already got it down ?
 31-1	904-909	Cause	_	_	_	_	_	_	_
-31-2	910-912	he	person[93]	giv:act[93]	nonsal[93]	_	cf1*[93]	ana	31-18[97_93]
+31-2	910-912	he	person[93]	giv:act[93]	n____[93]	_	cf1*[93]	ana	31-18[97_93]
 31-3	913-916	had	_	_	_	_	_	_	_
 31-4	917-921	down	_	_	_	_	_	_	_
-31-5	922-928	twenty	abstract[95]	new[95]	nonsal[95]	_	cf2[95]	ana	31-22[98_95]
-31-6	929-930	-	abstract[95]	new[95]	nonsal[95]	_	cf2[95]	_	_
-31-7	931-935	five	abstract[95]	new[95]	nonsal[95]	_	cf2[95]	_	_
-31-8	936-940	plus	abstract[95]	new[95]	nonsal[95]	_	cf2[95]	_	_
-31-9	941-949	eighteen	abstract[95]	new[95]	nonsal[95]	_	cf2[95]	_	_
+31-5	922-928	twenty	abstract[95]	new[95]	nnnnn[95]	_	cf2[95]	ana	31-22[98_95]
+31-6	929-930	-	abstract[95]	new[95]	nnnnn[95]	_	cf2[95]	_	_
+31-7	931-935	five	abstract[95]	new[95]	nnnnn[95]	_	cf2[95]	_	_
+31-8	936-940	plus	abstract[95]	new[95]	nnnnn[95]	_	cf2[95]	_	_
+31-9	941-949	eighteen	abstract[95]	new[95]	nnnnn[95]	_	cf2[95]	_	_
 31-10	950-951	,	_	_	_	_	_	_	_
 31-11	952-955	and	_	_	_	_	_	_	_
 31-12	956-960	what	_	_	_	_	_	_	_
 31-13	961-964	can	_	_	_	_	_	_	_
-31-14	965-968	you	person[96]	acc:com[96]	nonsal[96]	_	cf3[96]	ana	56-7[197_96]
+31-14	965-968	you	person[96]	acc:com[96]	nnnnn[96]	_	cf3[96]	ana	56-7[197_96]
 31-15	969-971	do	_	_	_	_	_	_	_
 31-16	972-973	,	_	_	_	_	_	_	_
 31-17	974-978	when	_	_	_	_	_	_	_
-31-18	979-981	he	person[97]	giv:act[97]	nonsal[97]	_	cf1*[97]	_	_
+31-18	979-981	he	person[97]	giv:act[97]	n____[97]	_	cf1*[97]	_	_
 31-19	982-984	's	_	_	_	_	_	_	_
 31-20	985-992	already	_	_	_	_	_	_	_
 31-21	993-996	got	_	_	_	_	_	_	_
-31-22	997-999	it	abstract[98]	giv:act[98]	nonsal[98]	_	cf2[98]	_	_
+31-22	997-999	it	abstract[98]	giv:act[98]	n____[98]	_	cf2[98]	_	_
 31-23	1000-1004	down	_	_	_	_	_	_	_
 31-24	1005-1006	?	_	_	_	_	_	_	_
 
@@ -315,23 +320,23 @@
 33-2	1019-1020	,	_	_	_	_	_	_	_
 33-3	1021-1025	well	_	_	_	_	_	_	_
 33-4	1026-1027	,	_	_	_	_	_	_	_
-33-5	1028-1031	all	event[102]	new[102]	nonsal[102]	_	cf3[102]	ana	33-16[109_102]
-33-6	1032-1034	we	event[102]|organization[103]	new[102]|giv:inact[103]	nonsal[102]|sal[103]	_	cf3[102]|cf2[103]	ana	33-17[110_103]
-33-7	1035-1038	did	event[102]	new[102]	nonsal[102]	_	cf3[102]	_	_
+33-5	1028-1031	all	event[102]	new[102]	nnnnn[102]	_	cf3[102]	ana	33-16[109_102]
+33-6	1032-1034	we	event[102]|organization[103]	new[102]|giv:inact[103]	nnnnn[102]|snnnn[103]	_	cf3[102]|cf2[103]	ana	33-17[110_103]
+33-7	1035-1038	did	event[102]	new[102]	nnnnn[102]	_	cf3[102]	_	_
 33-8	1039-1040	—	_	_	_	_	_	_	_
-33-9	1041-1042	I	person[104]	giv:inact[104]	sal[104]	_	cf1[104]	ana	33-21[111_104]
+33-9	1041-1042	I	person[104]	giv:inact[104]	sssss[104]	_	cf1[104]	ana	33-21[111_104]
 33-10	1043-1045	ca	_	_	_	_	_	_	_
 33-11	1046-1049	n't	_	_	_	_	_	_	_
 33-12	1050-1052	do	_	_	_	_	_	_	_
-33-13	1053-1057	that	event[105]	giv:inact[105]	nonsal[105]	_	cf4[105]	_	_
+33-13	1053-1057	that	event[105]	giv:inact[105]	n____[105]	_	cf4[105]	_	_
 33-14	1058-1059	,	_	_	_	_	_	_	_
 33-15	1060-1065	cause	_	_	_	_	_	_	_
-33-16	1066-1069	all	event[109]	giv:act[109]	nonsal[109]	_	cf3[109]	_	_
-33-17	1070-1072	we	event[109]|organization[110]	giv:act[109]|giv:act[110]	nonsal[109]|sal[110]	_	cf3[109]|cf2[110]	ana	47-11[167_110]
-33-18	1073-1076	did	event[109]	giv:act[109]	nonsal[109]	_	cf3[109]	_	_
+33-16	1066-1069	all	event[109]	giv:act[109]	n____[109]	_	cf3[109]	_	_
+33-17	1070-1072	we	event[109]|organization[110]	giv:act[109]|giv:act[110]	n____[109]|snnnn[110]	_	cf3[109]|cf2[110]	ana	47-11[167_110]
+33-18	1073-1076	did	event[109]	giv:act[109]	n____[109]	_	cf3[109]	_	_
 33-19	1077-1080	was	_	_	_	_	_	_	_
 33-20	1081-1082	,	_	_	_	_	_	_	_
-33-21	1083-1084	I	person[111]	giv:act[111]	sal[111]	_	cf1[111]	ana	47-3[166_111]
+33-21	1083-1084	I	person[111]	giv:act[111]	sssss[111]	_	cf1[111]	ana	47-3[166_111]
 33-22	1085-1088	was	_	_	_	_	_	_	_
 33-23	1089-1091	in	_	_	_	_	_	_	_
 33-24	1092-1096	here	_	_	_	_	cf5[112]	_	_
@@ -354,11 +359,11 @@
 36-1	1134-1136	Um	_	_	_	_	_	_	_
 36-2	1137-1138	,	_	_	_	_	_	_	_
 36-3	1139-1142	did	_	_	_	_	_	_	_
-36-4	1143-1146	you	person[118]	acc:com[118]	nonsal[118]	_	cf1[118]	ana	64-1[225_118]
+36-4	1143-1146	you	person[118]	acc:com[118]	nnnsn[118]	_	cf1[118]	ana	64-1[225_118]
 36-5	1147-1150	get	_	_	_	_	_	_	_
 36-6	1151-1155	hold	_	_	_	_	_	_	_
 36-7	1156-1158	of	_	_	_	_	_	_	_
-36-8	1159-1162	Dan	person[119]	new[119]	nonsal[119]	_	cf2[119]	ana	45-6[156_119]
+36-8	1159-1162	Dan	person[119]	new[119]	nnnnn[119]	_	cf2[119]	ana	45-6[156_119]
 36-9	1163-1167	then	_	_	_	_	_	_	_
 36-10	1168-1169	?	_	_	_	_	_	_	_
 
@@ -368,7 +373,7 @@
 
 #Text=Let 's see .
 38-1	1177-1180	Let	_	_	_	_	_	_	_
-38-2	1181-1183	's	person[120]	giv:inact[120]	sal[120]	_	cf1[120]	ana	41-1[129_120]
+38-2	1181-1183	's	person[120]	giv:inact[120]	snnnn[120]	_	cf1[120]	ana	41-1[129_120]
 38-3	1184-1187	see	_	_	_	_	_	_	_
 38-4	1188-1189	.	_	_	_	_	_	_	_
 
@@ -382,16 +387,16 @@
 
 #Text=Let me see , let me see .
 40-1	1210-1213	Let	_	_	_	_	_	_	_
-40-2	1214-1216	me	person[127]	giv:inact[127]	sal[127]	_	cf1[127]	ana	40-6[128_127]
+40-2	1214-1216	me	person[127]	giv:inact[127]	snnnn[127]	_	cf1[127]	ana	40-6[128_127]
 40-3	1217-1220	see	_	_	_	_	_	_	_
 40-4	1221-1222	,	_	_	_	_	_	_	_
 40-5	1223-1226	let	_	_	_	_	_	_	_
-40-6	1227-1229	me	person[128]	giv:act[128]	sal[128]	_	cf1[128]	ana	45-3[155_128]
+40-6	1227-1229	me	person[128]	giv:act[128]	snnnn[128]	_	cf1[128]	ana	45-3[155_128]
 40-7	1230-1233	see	_	_	_	_	_	_	_
 40-8	1234-1235	.	_	_	_	_	_	_	_
 
 #Text=We need one of these and one of these , one of those , and one of those , and two of those .
-41-1	1236-1238	We	person[129]	giv:inact[129]	sal[129]	_	cf1[129]	ana	43-11[154_129]
+41-1	1236-1238	We	person[129]	giv:inact[129]	snnnn[129]	_	cf1[129]	ana	43-11[154_129]
 41-2	1239-1243	need	_	_	_	_	_	_	_
 41-3	1244-1247	one	_	_	_	_	cf7[133]	_	_
 41-4	1248-1250	of	_	_	_	_	cf7[133]	_	_
@@ -435,7 +440,7 @@
 43-8	1385-1386	,	_	_	_	_	_	_	_
 43-9	1387-1389	so	_	_	_	_	_	_	_
 43-10	1390-1391	,	_	_	_	_	_	_	_
-43-11	1392-1394	we	person[154]	giv:inact[154]	sal[154]	_	cf1[154]	ana	50-2[168_154]
+43-11	1392-1394	we	person[154]	giv:inact[154]	snnnn[154]	_	cf1[154]	ana	50-2[168_154]
 43-12	1395-1398	'll	_	_	_	_	_	_	_
 43-13	1399-1402	see	_	_	_	_	_	_	_
 43-14	1403-1406	how	_	_	_	_	_	_	_
@@ -448,10 +453,10 @@
 #Text=Well , I 'll call him probably late this afternoon , to make sure he 's alright .
 45-1	1416-1420	Well	_	_	_	_	_	_	_
 45-2	1421-1422	,	_	_	_	_	_	_	_
-45-3	1423-1424	I	person[155]	giv:inact[155]	sal[155]	_	cf2[155]	_	_
+45-3	1423-1424	I	person[155]	giv:inact[155]	snnnn[155]	_	cf2[155]	_	_
 45-4	1425-1428	'll	_	_	_	_	_	_	_
 45-5	1429-1433	call	_	_	_	_	_	_	_
-45-6	1434-1437	him	person[156]	giv:inact[156]	nonsal[156]	_	cf1[156]	ana	45-15[164_156]
+45-6	1434-1437	him	person[156]	giv:inact[156]	n____[156]	_	cf1[156]	ana	45-15[164_156]
 45-7	1438-1446	probably	_	_	_	_	_	_	_
 45-8	1447-1451	late	_	_	_	_	_	_	_
 45-9	1452-1456	this	_	_	_	_	cf3[163]	_	_
@@ -460,7 +465,7 @@
 45-12	1469-1471	to	_	_	_	_	_	_	_
 45-13	1472-1476	make	_	_	_	_	_	_	_
 45-14	1477-1481	sure	_	_	_	_	_	_	_
-45-15	1482-1484	he	person[164]	giv:act[164]	nonsal[164]	_	cf1[164]	_	_
+45-15	1482-1484	he	person[164]	giv:act[164]	n____[164]	_	cf1[164]	_	_
 45-16	1485-1487	's	_	_	_	_	_	_	_
 45-17	1488-1495	alright	_	_	_	_	_	_	_
 45-18	1496-1497	.	_	_	_	_	_	_	_
@@ -472,7 +477,7 @@
 #Text=No , I was just trying to figure out what we spent already .
 47-1	1511-1513	No	_	_	_	_	_	_	_
 47-2	1514-1515	,	_	_	_	_	_	_	_
-47-3	1516-1517	I	person[166]	giv:inact[166]	sal[166]	_	cf1[166]	ana	50-14[172_166]
+47-3	1516-1517	I	person[166]	giv:inact[166]	sssss[166]	_	cf1[166]	ana	50-14[172_166]
 47-4	1518-1521	was	_	_	_	_	_	_	_
 47-5	1522-1526	just	_	_	_	_	_	_	_
 47-6	1527-1533	trying	_	_	_	_	_	_	_
@@ -480,7 +485,7 @@
 47-8	1537-1543	figure	_	_	_	_	_	_	_
 47-9	1544-1547	out	_	_	_	_	_	_	_
 47-10	1548-1552	what	_	_	_	_	_	_	_
-47-11	1553-1555	we	organization[167]	giv:inact[167]	sal[167]	_	cf2[167]	ana	50-5[169_167]
+47-11	1553-1555	we	organization[167]	giv:inact[167]	snnnn[167]	_	cf2[167]	ana	50-5[169_167]
 47-12	1556-1561	spent	_	_	_	_	_	_	_
 47-13	1562-1569	already	_	_	_	_	_	_	_
 47-14	1570-1571	.	_	_	_	_	_	_	_
@@ -495,21 +500,21 @@
 
 #Text=Let 's see , we 've already spent fifty for him , and I want him to spend another hundred .
 50-1	1582-1585	Let	_	_	_	_	_	_	_
-50-2	1586-1588	's	person[168]	giv:inact[168]	sal[168]	_	cf4[168]	ana	59-2[204_168]
+50-2	1586-1588	's	person[168]	giv:inact[168]	snnnn[168]	_	cf4[168]	ana	59-2[204_168]
 50-3	1589-1592	see	_	_	_	_	_	_	_
 50-4	1593-1594	,	_	_	_	_	_	_	_
-50-5	1595-1597	we	organization[169]	giv:inact[169]	sal[169]	_	cf3[169]	ana	83-3[281_169]
+50-5	1595-1597	we	organization[169]	giv:inact[169]	snnnn[169]	_	cf3[169]	ana	83-3[281_169]
 50-6	1598-1601	've	_	_	_	_	_	_	_
 50-7	1602-1609	already	_	_	_	_	_	_	_
 50-8	1610-1615	spent	_	_	_	_	_	_	_
 50-9	1616-1621	fifty	_	_	_	_	cf5[170]	_	_
 50-10	1622-1625	for	_	_	_	_	_	_	_
-50-11	1626-1629	him	person[171]	acc:com[171]	nonsal[171]	_	cf1[171]	ana	50-16[173_171]
+50-11	1626-1629	him	person[171]	acc:com[171]	nnnnn[171]	_	cf1[171]	ana	50-16[173_171]
 50-12	1630-1631	,	_	_	_	_	_	_	_
 50-13	1632-1635	and	_	_	_	_	_	_	_
-50-14	1636-1637	I	person[172]	giv:inact[172]	sal[172]	_	cf2[172]	ana	57-9[201_172]
+50-14	1636-1637	I	person[172]	giv:inact[172]	sssss[172]	_	cf2[172]	ana	57-9[201_172]
 50-15	1638-1642	want	_	_	_	_	_	_	_
-50-16	1643-1646	him	person[173]	giv:act[173]	nonsal[173]	_	cf1[173]	ana	72-6[249_173]
+50-16	1643-1646	him	person[173]	giv:act[173]	n____[173]	_	cf1[173]	ana	72-6[249_173]
 50-17	1647-1649	to	_	_	_	_	cf7[184]	_	_
 50-18	1650-1655	spend	event[464]	new[464]	_	_	cf7[184]	disc	52-2[186_464]
 50-19	1656-1663	another	_	_	_	_	cf7[184]|cf6[185]	_	_
@@ -522,7 +527,7 @@
 
 #Text=But that 's better than pins , and surgery .
 52-1	1681-1684	But	_	_	_	_	_	_	_
-52-2	1685-1689	that	event[186]	giv:inact[186]	nonsal[186]	_	cf1[186]	_	_
+52-2	1685-1689	that	event[186]	giv:inact[186]	n____[186]	_	cf1[186]	_	_
 52-3	1690-1692	's	_	_	_	_	_	_	_
 52-4	1693-1699	better	_	_	_	_	_	_	_
 52-5	1700-1704	than	_	_	_	_	_	_	_
@@ -538,16 +543,16 @@
 53-3	1734-1739	which	_	_	_	_	_	_	_
 53-4	1740-1745	would	_	_	_	_	_	_	_
 53-5	1746-1748	be	_	_	_	_	_	_	_
-53-6	1749-1756	another	abstract[192]	new[192]	nonsal[192]	_	cf1[192]	ana	54-3[193_192]
-53-7	1757-1760	two	abstract[192]	new[192]	nonsal[192]	_	cf1[192]	_	_
-53-8	1761-1768	hundred	abstract[192]	new[192]	nonsal[192]	_	cf1[192]	_	_
+53-6	1749-1756	another	abstract[192]	new[192]	nnnnn[192]	_	cf1[192]	ana	54-3[193_192]
+53-7	1757-1760	two	abstract[192]	new[192]	nnnnn[192]	_	cf1[192]	_	_
+53-8	1761-1768	hundred	abstract[192]	new[192]	nnnnn[192]	_	cf1[192]	_	_
 53-9	1769-1771	or	_	_	_	_	_	_	_
 53-10	1772-1773	—	_	_	_	_	_	_	_
 
 #Text=Yeah , it 's more for a surgery .
 54-1	1774-1778	Yeah	_	_	_	_	_	_	_
 54-2	1779-1780	,	_	_	_	_	_	_	_
-54-3	1781-1783	it	abstract[193]	giv:act[193]	nonsal[193]	_	cf1*[193]	_	_
+54-3	1781-1783	it	abstract[193]	giv:act[193]	n____[193]	_	cf1*[193]	_	_
 54-4	1784-1786	's	_	_	_	_	_	_	_
 54-5	1787-1791	more	_	_	_	_	_	_	_
 54-6	1792-1795	for	_	_	_	_	_	_	_
@@ -567,24 +572,24 @@
 56-4	1832-1836	much	_	_	_	_	_	_	_
 56-5	1837-1840	any	_	_	_	_	cf2[196]	_	_
 56-6	1841-1845	time	_	_	_	_	cf2[196]	_	_
-56-7	1846-1849	you	person[197]	acc:com[197]	nonsal[197]	_	cf1[197]	ana	57-6[200_197]
+56-7	1846-1849	you	person[197]	acc:com[197]	n____[197]	_	cf1[197]	ana	57-6[200_197]
 56-8	1850-1853	can	_	_	_	_	_	_	_
 56-9	1854-1855	—	_	_	_	_	_	_	_
 
 #Text=And that one really , you know , I do n't think it would benefit from pins .
 57-1	1856-1859	And	_	_	_	_	_	_	_
-57-2	1860-1864	that	abstract[199]	acc:com[199]	sal[199]	_	cf2[199]	ana	57-13[202_199]
-57-3	1865-1868	one	abstract[199]	acc:com[199]	sal[199]	_	cf2[199]	_	_
+57-2	1860-1864	that	abstract[199]	acc:com[199]	snnnn[199]	_	cf2[199]	ana	57-13[202_199]
+57-3	1865-1868	one	abstract[199]	acc:com[199]	snnnn[199]	_	cf2[199]	_	_
 57-4	1869-1875	really	_	_	_	_	_	_	_
 57-5	1876-1877	,	_	_	_	_	_	_	_
-57-6	1878-1881	you	person[200]	giv:act[200]	nonsal[200]	_	cf1*[200]	ana	87-17[315_200]
+57-6	1878-1881	you	person[200]	giv:act[200]	n____[200]	_	cf1*[200]	ana	87-17[315_200]
 57-7	1882-1886	know	_	_	_	_	_	_	_
 57-8	1887-1888	,	_	_	_	_	_	_	_
-57-9	1889-1890	I	person[201]	giv:inact[201]	sal[201]	_	cf3[201]	ana	60-1[206_201]
+57-9	1889-1890	I	person[201]	giv:inact[201]	sssss[201]	_	cf3[201]	ana	60-1[206_201]
 57-10	1891-1893	do	_	_	_	_	_	_	_
 57-11	1894-1897	n't	_	_	_	_	_	_	_
 57-12	1898-1903	think	_	_	_	_	_	_	_
-57-13	1904-1906	it	abstract[202]	giv:act[202]	sal[202]	_	cf2[202]	ana	59-7[205_202]
+57-13	1904-1906	it	abstract[202]	giv:act[202]	snnnn[202]	_	cf2[202]	ana	59-7[205_202]
 57-14	1907-1912	would	_	_	_	_	_	_	_
 57-15	1913-1920	benefit	_	_	_	_	_	_	_
 57-16	1921-1925	from	_	_	_	_	_	_	_
@@ -597,25 +602,25 @@
 
 #Text=Because we 'd have to undo it .
 59-1	1939-1946	Because	_	_	_	_	_	_	_
-59-2	1947-1949	we	person[204]	giv:inact[204]	sal[204]	_	cf1[204]	ana	60-3[207_204]
+59-2	1947-1949	we	person[204]	giv:inact[204]	snnnn[204]	_	cf1[204]	ana	60-3[207_204]
 59-3	1950-1952	'd	_	_	_	_	_	_	_
 59-4	1953-1957	have	_	_	_	_	_	_	_
 59-5	1958-1960	to	_	_	_	_	_	_	_
 59-6	1961-1965	undo	_	_	_	_	_	_	_
-59-7	1966-1968	it	abstract[205]	giv:inact[205]	sal[205]	_	cf2[205]	ana	61-7[223_205]
+59-7	1966-1968	it	abstract[205]	giv:inact[205]	snnnn[205]	_	cf2[205]	ana	61-7[223_205]
 59-8	1969-1970	.	_	_	_	_	_	_	_
 
 #Text=I mean we 'd have to , well , we 'd have to go —
-60-1	1971-1972	I	person[206]	giv:inact[206]	sal[206]	_	cf2[206]	ana	72-3[248_206]
+60-1	1971-1972	I	person[206]	giv:inact[206]	sssss[206]	_	cf2[206]	ana	72-3[248_206]
 60-2	1973-1977	mean	_	_	_	_	_	_	_
-60-3	1978-1980	we	person[207]	giv:act[207]	sal[207]	_	cf1*[207]	ana	60-10[208_207]
+60-3	1978-1980	we	person[207]	giv:act[207]	snnnn[207]	_	cf1*[207]	ana	60-10[208_207]
 60-4	1981-1983	'd	_	_	_	_	_	_	_
 60-5	1984-1988	have	_	_	_	_	_	_	_
 60-6	1989-1991	to	_	_	_	_	_	_	_
 60-7	1992-1993	,	_	_	_	_	_	_	_
 60-8	1994-1998	well	_	_	_	_	_	_	_
 60-9	1999-2000	,	_	_	_	_	_	_	_
-60-10	2001-2003	we	person[208]	giv:act[208]	sal[208]	_	cf1*[208]	ana	61-1[209_208]
+60-10	2001-2003	we	person[208]	giv:act[208]	snnnn[208]	_	cf1*[208]	ana	61-1[209_208]
 60-11	2004-2006	'd	_	_	_	_	_	_	_
 60-12	2007-2011	have	_	_	_	_	_	_	_
 60-13	2012-2014	to	_	_	_	_	_	_	_
@@ -623,13 +628,13 @@
 60-15	2018-2019	—	_	_	_	_	_	_	_
 
 #Text=We could — we could try it closed .
-61-1	2020-2022	We	person[209]	giv:act[209]	sal[209]	_	cf1*[209]	ana	61-4[210_209]
+61-1	2020-2022	We	person[209]	giv:act[209]	snnnn[209]	_	cf1*[209]	ana	61-4[210_209]
 61-2	2023-2028	could	_	_	_	_	_	_	_
 61-3	2029-2030	—	_	_	_	_	_	_	_
-61-4	2031-2033	we	person[210]	giv:act[210]	sal[210]	_	cf1*[210]	_	_
+61-4	2031-2033	we	person[210]	giv:act[210]	snnnn[210]	_	cf1*[210]	_	_
 61-5	2034-2039	could	_	_	_	_	_	_	_
 61-6	2040-2043	try	event[465]	new[465]	_	_	cf3[222]	disc	63-5[224_465]
-61-7	2044-2046	it	abstract[223]	giv:inact[223]	sal[223]	_	cf3[222]|cf2[223]	ana	64-3[226_223]
+61-7	2044-2046	it	abstract[223]	giv:inact[223]	snnnn[223]	_	cf3[222]|cf2[223]	ana	64-3[226_223]
 61-8	2047-2053	closed	_	_	_	_	cf3[222]	_	_
 61-9	2054-2055	.	_	_	_	_	_	_	_
 
@@ -642,26 +647,26 @@
 63-2	2066-2067	,	_	_	_	_	_	_	_
 63-3	2068-2073	still	_	_	_	_	_	_	_
 63-4	2074-2075	,	_	_	_	_	_	_	_
-63-5	2076-2078	it	event[224]	giv:inact[224]	nonsal[224]	_	cf1[224]	_	_
+63-5	2076-2078	it	event[224]	giv:inact[224]	n____[224]	_	cf1[224]	_	_
 63-6	2079-2081	's	_	_	_	_	_	_	_
 63-7	2082-2086	more	_	_	_	_	_	_	_
 63-8	2087-2096	expensive	_	_	_	_	_	_	_
 63-9	2097-2098	.	_	_	_	_	_	_	_
 
 #Text=I think it 'll do fine with a cast , especially since it 's a spiral fracture .
-64-1	2099-2100	I	person[225]	giv:inact[225]	nonsal[225]	_	cf2[225]	coref	98-1[400_225]
+64-1	2099-2100	I	person[225]	giv:inact[225]	nnnsn[225]	_	cf2[225]	coref	98-1[400_225]
 64-2	2101-2106	think	_	_	_	_	_	_	_
-64-3	2107-2109	it	abstract[226]	giv:inact[226]	sal[226]	_	cf1[226]	ana	64-13[232_226]
+64-3	2107-2109	it	abstract[226]	giv:inact[226]	snnnn[226]	_	cf1[226]	ana	64-13[232_226]
 64-4	2110-2113	'll	_	_	_	_	_	_	_
 64-5	2114-2116	do	_	_	_	_	_	_	_
 64-6	2117-2121	fine	_	_	_	_	_	_	_
 64-7	2122-2126	with	_	_	_	_	_	_	_
-64-8	2127-2128	a	object[231]	new[231]	nonsal[231]	_	cf3[231]	coref	68-17[243_231]
-64-9	2129-2133	cast	object[231]	new[231]	nonsal[231]	_	cf3[231]	_	_
+64-8	2127-2128	a	object[231]	new[231]	nsnnn[231]	_	cf3[231]	coref	68-17[243_231]
+64-9	2129-2133	cast	object[231]	new[231]	nsnnn[231]	_	cf3[231]	_	_
 64-10	2134-2135	,	_	_	_	_	_	_	_
 64-11	2136-2146	especially	_	_	_	_	_	_	_
 64-12	2147-2152	since	_	_	_	_	_	_	_
-64-13	2153-2155	it	abstract[232]	giv:act[232]	sal[232]	_	cf1[232]	ana	65-2[235_232]
+64-13	2153-2155	it	abstract[232]	giv:act[232]	snnnn[232]	_	cf1[232]	ana	65-2[235_232]
 64-14	2156-2158	's	_	_	_	_	_	_	_
 64-15	2159-2160	a	_	_	_	_	cf1[234]	_	_
 64-16	2161-2167	spiral	_	_	_	_	cf1[234]	_	_
@@ -670,7 +675,7 @@
 
 #Text=And it 's not displaced .
 65-1	2179-2182	And	_	_	_	_	_	_	_
-65-2	2183-2185	it	abstract[235]	giv:act[235]	sal[235]	_	cf1*[235]	ana	66-2[236_235]
+65-2	2183-2185	it	abstract[235]	giv:act[235]	snnnn[235]	_	cf1*[235]	ana	66-2[236_235]
 65-3	2186-2188	's	_	_	_	_	_	_	_
 65-4	2189-2192	not	_	_	_	_	_	_	_
 65-5	2193-2202	displaced	_	_	_	_	_	_	_
@@ -678,7 +683,7 @@
 
 #Text=And it 's not displaced .
 66-1	2205-2208	And	_	_	_	_	_	_	_
-66-2	2209-2211	it	abstract[236]	giv:act[236]	sal[236]	_	cf1*[236]	_	_
+66-2	2209-2211	it	abstract[236]	giv:act[236]	snnnn[236]	_	cf1*[236]	_	_
 66-3	2212-2214	's	_	_	_	_	_	_	_
 66-4	2215-2218	not	_	_	_	_	_	_	_
 66-5	2219-2228	displaced	_	_	_	_	_	_	_
@@ -708,8 +713,8 @@
 68-14	2309-2312	not	_	_	_	_	_	_	_
 68-15	2313-2314	,	_	_	_	_	_	_	_
 68-16	2315-2322	getting	_	_	_	_	cf2[242]	_	_
-68-17	2323-2326	the	object[243]	giv:inact[243]	nonsal[243]	_	cf2[242]|cf1[243]	_	_
-68-18	2327-2331	cast	object[243]	giv:inact[243]	nonsal[243]	_	cf2[242]|cf1[243]	_	_
+68-17	2323-2326	the	object[243]	giv:inact[243]	nsnnn[243]	_	cf2[242]|cf1[243]	_	_
+68-18	2327-2331	cast	object[243]	giv:inact[243]	nsnnn[243]	_	cf2[242]|cf1[243]	_	_
 68-19	2332-2336	over	_	_	_	_	cf2[242]	_	_
 68-20	2337-2340	the	_	_	_	_	cf2[242]|cf3[244]	_	_
 68-21	2341-2347	stifle	_	_	_	_	cf2[242]|cf3[244]	_	_
@@ -733,13 +738,13 @@
 71-3	2391-2393	as	_	_	_	_	_	_	_
 71-4	2394-2398	long	_	_	_	_	_	_	_
 71-5	2399-2401	as	_	_	_	_	_	_	_
-71-6	2402-2405	she	animal[246]	acc:com[246]	sal[246]	_	cf1[246]	ana	71-12[247_246]
+71-6	2402-2405	she	animal[246]	acc:com[246]	snsnn[246]	_	cf1[246]	ana	71-12[247_246]
 71-7	2406-2408	's	_	_	_	_	_	_	_
 71-8	2409-2410	—	_	_	_	_	_	_	_
 71-9	2411-2413	as	_	_	_	_	_	_	_
 71-10	2414-2418	long	_	_	_	_	_	_	_
 71-11	2419-2421	as	_	_	_	_	_	_	_
-71-12	2422-2425	she	animal[247]	giv:act[247]	sal[247]	_	cf1[247]	ana	86-6[296_247]
+71-12	2422-2425	she	animal[247]	giv:act[247]	snsnn[247]	_	cf1[247]	ana	86-6[296_247]
 71-13	2426-2428	's	_	_	_	_	_	_	_
 71-14	2429-2434	quiet	_	_	_	_	_	_	_
 71-15	2435-2436	.	_	_	_	_	_	_	_
@@ -747,25 +752,25 @@
 #Text=Okay , I 'll give him a call .
 72-1	2437-2441	Okay	_	_	_	_	_	_	_
 72-2	2442-2443	,	_	_	_	_	_	_	_
-72-3	2444-2445	I	person[248]	giv:inact[248]	sal[248]	_	cf1[248]	ana	73-1[255_248]
+72-3	2444-2445	I	person[248]	giv:inact[248]	sssss[248]	_	cf1[248]	ana	73-1[255_248]
 72-4	2446-2449	'll	_	_	_	_	_	_	_
 72-5	2450-2454	give	_	_	_	_	_	_	_
-72-6	2455-2458	him	person[249]	giv:inact[249]	nonsal[249]	_	cf2[249]	ana	73-6[256_249]
+72-6	2455-2458	him	person[249]	giv:inact[249]	n____[249]	_	cf2[249]	ana	73-6[256_249]
 72-7	2459-2460	a	_	_	_	_	cf3[254]	_	_
 72-8	2461-2465	call	_	_	_	_	cf3[254]	_	_
 72-9	2466-2467	.	_	_	_	_	_	_	_
 
 #Text=I do n't know if he 's in the barn , from home .
-73-1	2468-2469	I	person[255]	giv:act[255]	sal[255]	_	cf1*[255]	ana	81-1[279_255]
+73-1	2468-2469	I	person[255]	giv:act[255]	sssss[255]	_	cf1*[255]	ana	81-1[279_255]
 73-2	2470-2472	do	_	_	_	_	_	_	_
 73-3	2473-2476	n't	_	_	_	_	_	_	_
 73-4	2477-2481	know	_	_	_	_	_	_	_
 73-5	2482-2484	if	_	_	_	_	_	_	_
-73-6	2485-2487	he	person[256]	giv:act[256]	nonsal[256]	_	cf2[256]	coref	84-5[293_256]
+73-6	2485-2487	he	person[256]	giv:act[256]	n____[256]	_	cf2[256]	coref	84-5[293_256]
 73-7	2488-2490	's	_	_	_	_	_	_	_
 73-8	2491-2493	in	_	_	_	_	_	_	_
-73-9	2494-2497	the	place[259]	new[259]	nonsal[259]	_	cf3[259]	coref	74-5[262_259]
-73-10	2498-2502	barn	place[259]	new[259]	nonsal[259]	_	cf3[259]	_	_
+73-9	2494-2497	the	place[259]	new[259]	nnnnn[259]	_	cf3[259]	coref	74-5[262_259]
+73-10	2498-2502	barn	place[259]	new[259]	nnnnn[259]	_	cf3[259]	_	_
 73-11	2503-2504	,	_	_	_	_	_	_	_
 73-12	2505-2509	from	_	_	_	_	_	_	_
 73-13	2510-2514	home	_	_	_	_	cf4[260]	_	_
@@ -776,8 +781,8 @@
 74-2	2520-2524	back	_	_	_	_	_	_	_
 74-3	2525-2527	in	_	_	_	_	_	_	_
 74-4	2528-2532	from	_	_	_	_	_	_	_
-74-5	2533-2536	the	place[262]	giv:act[262]	nonsal[262]	_	cf1*[262]	_	_
-74-6	2537-2541	barn	place[262]	giv:act[262]	nonsal[262]	_	cf1*[262]	_	_
+74-5	2533-2536	the	place[262]	giv:act[262]	n____[262]	_	cf1*[262]	_	_
+74-6	2537-2541	barn	place[262]	giv:act[262]	n____[262]	_	cf1*[262]	_	_
 74-7	2542-2545	yet	_	_	_	_	_	_	_
 74-8	2546-2548	or	_	_	_	_	_	_	_
 74-9	2549-2552	not	_	_	_	_	_	_	_
@@ -789,19 +794,19 @@
 
 #Text=Called both the house number and the barn number , and both of em , and , a little kid answered .
 76-1	2562-2568	Called	_	_	_	_	_	_	_
-76-2	2569-2573	both	abstract[263]	new[263]	nonsal[263]	_	cf1[263]	ana	76-12[270_263]
-76-3	2574-2577	the	abstract[263]	new[263]	nonsal[263]	_	cf1[263]|cf5[264]	_	_
-76-4	2578-2583	house	abstract[263]	new[263]	nonsal[263]	_	cf1[263]|cf5[264]|cf2[265]	_	_
-76-5	2584-2590	number	abstract[263]	new[263]	nonsal[263]	_	cf1[263]|cf5[264]	_	_
-76-6	2591-2594	and	abstract[263]	new[263]	nonsal[263]	_	cf1[263]	_	_
-76-7	2595-2598	the	abstract[263]	new[263]	nonsal[263]	_	cf1[263]|cf6[267]	_	_
-76-8	2599-2603	barn	abstract[263]	new[263]	nonsal[263]	_	cf1[263]|cf6[267]|cf3[268]	_	_
-76-9	2604-2610	number	abstract[263]	new[263]	nonsal[263]	_	cf1[263]|cf6[267]	_	_
+76-2	2569-2573	both	abstract[263]	new[263]	nnnnn[263]	_	cf1[263]	ana	76-12[270_263]
+76-3	2574-2577	the	abstract[263]	new[263]	nnnnn[263]	_	cf1[263]|cf5[264]	_	_
+76-4	2578-2583	house	abstract[263]	new[263]	nnnnn[263]	_	cf1[263]|cf5[264]|cf2[265]	_	_
+76-5	2584-2590	number	abstract[263]	new[263]	nnnnn[263]	_	cf1[263]|cf5[264]	_	_
+76-6	2591-2594	and	abstract[263]	new[263]	nnnnn[263]	_	cf1[263]	_	_
+76-7	2595-2598	the	abstract[263]	new[263]	nnnnn[263]	_	cf1[263]|cf6[267]	_	_
+76-8	2599-2603	barn	abstract[263]	new[263]	nnnnn[263]	_	cf1[263]|cf6[267]|cf3[268]	_	_
+76-9	2604-2610	number	abstract[263]	new[263]	nnnnn[263]	_	cf1[263]|cf6[267]	_	_
 76-10	2611-2612	,	_	_	_	_	_	_	_
 76-11	2613-2616	and	_	_	_	_	_	_	_
-76-12	2617-2621	both	abstract[270]	giv:act[270]	nonsal[270]	_	cf1[270]	_	_
-76-13	2622-2624	of	abstract[270]	giv:act[270]	nonsal[270]	_	cf1[270]	_	_
-76-14	2625-2627	em	abstract[270]	giv:act[270]	nonsal[270]	_	cf1[270]	_	_
+76-12	2617-2621	both	abstract[270]	giv:act[270]	n____[270]	_	cf1[270]	_	_
+76-13	2622-2624	of	abstract[270]	giv:act[270]	n____[270]	_	cf1[270]	_	_
+76-14	2625-2627	em	abstract[270]	giv:act[270]	n____[270]	_	cf1[270]	_	_
 76-15	2628-2629	,	_	_	_	_	_	_	_
 76-16	2630-2633	and	_	_	_	_	_	_	_
 76-17	2634-2635	,	_	_	_	_	_	_	_
@@ -816,7 +821,7 @@
 77-2	2663-2664	,	_	_	_	_	_	_	_
 77-3	2665-2669	yeah	_	_	_	_	_	_	_
 77-4	2670-2673	and	_	_	_	_	_	_	_
-77-5	2674-2678	they	person[272]	acc:com[272]	nonsal[272]	_	cf1[272]	ana	79-1[275_272]
+77-5	2674-2678	they	person[272]	acc:com[272]	nnnnn[272]	_	cf1[272]	ana	79-1[275_272]
 77-6	2679-2682	're	_	_	_	_	_	_	_
 77-7	2683-2689	little	_	_	_	_	cf1[274]	_	_
 77-8	2690-2696	little	_	_	_	_	cf1[274]	_	_
@@ -829,11 +834,11 @@
 78-2	2712-2713	?	_	_	_	_	_	_	_
 
 #Text=They 're like ' I 'm three . '
-79-1	2714-2718	They	person[275]	giv:inact[275]	nonsal[275]	_	cf1[275]	ana	79-5[276_275]
+79-1	2714-2718	They	person[275]	giv:inact[275]	n____[275]	_	cf1[275]	ana	79-5[276_275]
 79-2	2719-2722	're	_	_	_	_	_	_	_
 79-3	2723-2727	like	_	_	_	_	_	_	_
 79-4	2728-2729	'	_	_	_	_	_	_	_
-79-5	2730-2731	I	person[276]	giv:act[276]	nonsal[276]	_	cf1[276]	_	_
+79-5	2730-2731	I	person[276]	giv:act[276]	n____[276]	_	cf1[276]	_	_
 79-6	2732-2734	'm	_	_	_	_	_	_	_
 79-7	2735-2740	three	_	_	_	_	cf2[277]	_	_
 79-8	2741-2742	.	_	_	_	_	_	_	_
@@ -841,11 +846,11 @@
 
 #Text=Yeah Carol ?
 80-1	2745-2749	Yeah	_	_	_	_	_	_	_
-80-2	2750-2755	Carol	person[278]	new[278]	sal[278]	_	cf1[278]	ana	83-18[291_278]
+80-2	2750-2755	Carol	person[278]	new[278]	snssn[278]	_	cf1[278]	ana	83-18[291_278]
 80-3	2756-2757	?	_	_	_	_	_	_	_
 
 #Text=It 's Marcia .
-81-1	2758-2760	It	person[279]	giv:inact[279]	sal[279]	_	cf1[279]	ana	83-13[290_279]
+81-1	2758-2760	It	person[279]	giv:inact[279]	sssss[279]	_	cf1[279]	ana	83-13[290_279]
 81-2	2761-2763	's	_	_	_	_	_	_	_
 81-3	2764-2770	Marcia	_	_	_	_	cf1[280]	_	_
 81-4	2771-2772	.	_	_	_	_	_	_	_
@@ -857,22 +862,22 @@
 #Text=Um , we got x - rays done already , and , I was gon na let you know what , what was going on .
 83-1	2778-2780	Um	_	_	_	_	_	_	_
 83-2	2781-2782	,	_	_	_	_	_	_	_
-83-3	2783-2785	we	organization[281]	giv:inact[281]	sal[281]	_	cf2[281]	ana	92-24[355_281]
+83-3	2783-2785	we	organization[281]	giv:inact[281]	snnnn[281]	_	cf2[281]	ana	92-24[355_281]
 83-4	2786-2789	got	_	_	_	_	_	_	_
-83-5	2790-2791	x	abstract[289]	new[289]	nonsal[289]	_	cf4[289]	coref	89-22[333_289]
-83-6	2792-2793	-	abstract[289]	new[289]	nonsal[289]	_	cf4[289]	_	_
-83-7	2794-2798	rays	abstract[289]	new[289]	nonsal[289]	_	cf4[289]	_	_
+83-5	2790-2791	x	abstract[289]	new[289]	nnnns[289]	_	cf4[289]	coref	89-22[333_289]
+83-6	2792-2793	-	abstract[289]	new[289]	nnnns[289]	_	cf4[289]	_	_
+83-7	2794-2798	rays	abstract[289]	new[289]	nnnns[289]	_	cf4[289]	_	_
 83-8	2799-2803	done	_	_	_	_	_	_	_
 83-9	2804-2811	already	_	_	_	_	_	_	_
 83-10	2812-2813	,	_	_	_	_	_	_	_
 83-11	2814-2817	and	_	_	_	_	_	_	_
 83-12	2818-2819	,	_	_	_	_	_	_	_
-83-13	2820-2821	I	person[290]	giv:inact[290]	sal[290]	_	cf1[290]	ana	84-2[292_290]
+83-13	2820-2821	I	person[290]	giv:inact[290]	sssss[290]	_	cf1[290]	ana	84-2[292_290]
 83-14	2822-2825	was	_	_	_	_	_	_	_
 83-15	2826-2829	gon	_	_	_	_	_	_	_
 83-16	2830-2832	na	_	_	_	_	_	_	_
 83-17	2833-2836	let	_	_	_	_	_	_	_
-83-18	2837-2840	you	person[291]	giv:inact[291]	sal[291]	_	cf3[291]	ana	84-8[294_291]
+83-18	2837-2840	you	person[291]	giv:inact[291]	snssn[291]	_	cf3[291]	ana	84-8[294_291]
 83-19	2841-2845	know	_	_	_	_	_	_	_
 83-20	2846-2850	what	_	_	_	_	_	_	_
 83-21	2851-2852	,	_	_	_	_	_	_	_
@@ -884,13 +889,13 @@
 
 #Text=Should I talk to Richard or are you okay ?
 84-1	2873-2879	Should	_	_	_	_	_	_	_
-84-2	2880-2881	I	person[292]	giv:act[292]	sal[292]	_	cf1*[292]	ana	88-4[316_292]
+84-2	2880-2881	I	person[292]	giv:act[292]	sssss[292]	_	cf1*[292]	ana	88-4[316_292]
 84-3	2882-2886	talk	_	_	_	_	_	_	_
 84-4	2887-2889	to	_	_	_	_	_	_	_
-84-5	2890-2897	Richard	person[293]	giv:inact[293]	nonsal[293]	_	cf3[293]	ana	96-10[394_293]
+84-5	2890-2897	Richard	person[293]	giv:inact[293]	n____[293]	_	cf3[293]	ana	96-10[394_293]
 84-6	2898-2900	or	_	_	_	_	_	_	_
 84-7	2901-2904	are	_	_	_	_	_	_	_
-84-8	2905-2908	you	person[294]	giv:act[294]	sal[294]	_	cf2[294]	ana	96-6[393_294]
+84-8	2905-2908	you	person[294]	giv:act[294]	snssn[294]	_	cf2[294]	ana	96-6[393_294]
 84-9	2909-2913	okay	_	_	_	_	_	_	_
 84-10	2914-2915	?	_	_	_	_	_	_	_
 
@@ -904,19 +909,19 @@
 86-3	2928-2930	it	_	_	_	_	cf4[295]	_	_
 86-4	2931-2936	looks	_	_	_	_	_	_	_
 86-5	2937-2941	like	_	_	_	_	_	_	_
-86-6	2942-2945	she	animal[296]	giv:inact[296]	sal[296]	_	cf2[296]	ana	86-17[306_296]
+86-6	2942-2945	she	animal[296]	giv:inact[296]	snsnn[296]	_	cf2[296]	ana	86-17[306_296]
 86-7	2946-2948	's	_	_	_	_	_	_	_
 86-8	2949-2952	got	_	_	_	_	_	_	_
-86-9	2953-2954	a	abstract[304]	giv:inact[304]	sal[304]	_	cf1[304]	ana	86-35[311_304]
-86-10	2955-2961	spiral	abstract[304]	giv:inact[304]	sal[304]	_	cf1[304]	_	_
-86-11	2962-2970	fracture	abstract[304]	giv:inact[304]	sal[304]	_	cf1[304]	_	_
-86-12	2971-2972	,	abstract[304]	giv:inact[304]	sal[304]	_	cf1[304]	_	_
-86-13	2973-2975	of	abstract[304]	giv:inact[304]	sal[304]	_	cf1[304]	_	_
-86-14	2976-2978	um	abstract[304]	giv:inact[304]	sal[304]	_	cf1[304]	_	_
-86-15	2979-2980	,	abstract[304]	giv:inact[304]	sal[304]	_	cf1[304]	_	_
-86-16	2981-2983	of	abstract[304]	giv:inact[304]	sal[304]	_	cf1[304]	_	_
-86-17	2984-2987	her	abstract[304]|animal[306]	giv:inact[304]|giv:act[306]	sal[304]|sal[306]	_	cf1[304]|cf3[305]|cf2[306]	ana	88-7[317_306]
-86-18	2988-2993	tibia	abstract[304]	giv:inact[304]	sal[304]	_	cf1[304]|cf3[305]	_	_
+86-9	2953-2954	a	abstract[304]	giv:inact[304]	snnnn[304]	_	cf1[304]	ana	86-35[311_304]
+86-10	2955-2961	spiral	abstract[304]	giv:inact[304]	snnnn[304]	_	cf1[304]	_	_
+86-11	2962-2970	fracture	abstract[304]	giv:inact[304]	snnnn[304]	_	cf1[304]	_	_
+86-12	2971-2972	,	abstract[304]	giv:inact[304]	snnnn[304]	_	cf1[304]	_	_
+86-13	2973-2975	of	abstract[304]	giv:inact[304]	snnnn[304]	_	cf1[304]	_	_
+86-14	2976-2978	um	abstract[304]	giv:inact[304]	snnnn[304]	_	cf1[304]	_	_
+86-15	2979-2980	,	abstract[304]	giv:inact[304]	snnnn[304]	_	cf1[304]	_	_
+86-16	2981-2983	of	abstract[304]	giv:inact[304]	snnnn[304]	_	cf1[304]	_	_
+86-17	2984-2987	her	abstract[304]|animal[306]	giv:inact[304]|giv:act[306]	snnnn[304]|snsnn[306]	_	cf1[304]|cf3[305]|cf2[306]	ana	88-7[317_306]
+86-18	2988-2993	tibia	abstract[304]	giv:inact[304]	snnnn[304]	_	cf1[304]|cf3[305]	_	_
 86-19	2994-2995	,	_	_	_	_	_	_	_
 86-20	2996-3001	which	_	_	_	_	_	_	_
 86-21	3002-3004	is	_	_	_	_	_	_	_
@@ -933,10 +938,10 @@
 86-32	3050-3051	,	_	_	_	_	_	_	_
 86-33	3052-3054	um	_	_	_	_	_	_	_
 86-34	3055-3056	,	_	_	_	_	_	_	_
-86-35	3057-3059	it	abstract[311]	giv:act[311]	sal[311]	_	cf1[311]	ana	86-38[312_311]
+86-35	3057-3059	it	abstract[311]	giv:act[311]	snnnn[311]	_	cf1[311]	ana	86-38[312_311]
 86-36	3060-3062	's	_	_	_	_	_	_	_
 86-37	3063-3065	f-	_	_	_	_	_	_	_
-86-38	3066-3068	it	abstract[312]	giv:act[312]	sal[312]	_	cf1[312]	ana	87-1[313_312]
+86-38	3066-3068	it	abstract[312]	giv:act[312]	snnnn[312]	_	cf1[312]	ana	87-1[313_312]
 86-39	3069-3071	's	_	_	_	_	_	_	_
 86-40	3072-3078	really	_	_	_	_	_	_	_
 86-41	3079-3084	looks	_	_	_	_	_	_	_
@@ -946,7 +951,7 @@
 86-45	3101-3102	.	_	_	_	_	_	_	_
 
 #Text=It 's not displaced very far anyway , and it 's um , pretty much , you know , locked in place , so to speak .
-87-1	3103-3105	It	abstract[313]	giv:act[313]	sal[313]	_	cf1*[313]	ana	87-10[314_313]
+87-1	3103-3105	It	abstract[313]	giv:act[313]	snnnn[313]	_	cf1*[313]	ana	87-10[314_313]
 87-2	3106-3108	's	_	_	_	_	_	_	_
 87-3	3109-3112	not	_	_	_	_	_	_	_
 87-4	3113-3122	displaced	_	_	_	_	_	_	_
@@ -955,14 +960,14 @@
 87-7	3132-3138	anyway	_	_	_	_	_	_	_
 87-8	3139-3140	,	_	_	_	_	_	_	_
 87-9	3141-3144	and	_	_	_	_	_	_	_
-87-10	3145-3147	it	abstract[314]	giv:act[314]	sal[314]	_	cf1*[314]	ana	92-47[364_314]
+87-10	3145-3147	it	abstract[314]	giv:act[314]	snnnn[314]	_	cf1*[314]	ana	92-47[364_314]
 87-11	3148-3150	's	_	_	_	_	_	_	_
 87-12	3151-3153	um	_	_	_	_	_	_	_
 87-13	3154-3155	,	_	_	_	_	_	_	_
 87-14	3156-3162	pretty	_	_	_	_	_	_	_
 87-15	3163-3167	much	_	_	_	_	_	_	_
 87-16	3168-3169	,	_	_	_	_	_	_	_
-87-17	3170-3173	you	person[315]	giv:inact[315]	nonsal[315]	_	cf2[315]	ana	95-1[370_315]
+87-17	3170-3173	you	person[315]	giv:inact[315]	n____[315]	_	cf2[315]	ana	95-1[370_315]
 87-18	3174-3178	know	_	_	_	_	_	_	_
 87-19	3179-3180	,	_	_	_	_	_	_	_
 87-20	3181-3187	locked	_	_	_	_	_	_	_
@@ -978,13 +983,13 @@
 88-1	3213-3215	Um	_	_	_	_	_	_	_
 88-2	3216-3217	,	_	_	_	_	_	_	_
 88-3	3218-3220	so	_	_	_	_	_	_	_
-88-4	3221-3222	I	person[316]	giv:inact[316]	sal[316]	_	cf2[316]	ana	89-5[328_316]
+88-4	3221-3222	I	person[316]	giv:inact[316]	sssss[316]	_	cf2[316]	ana	89-5[328_316]
 88-5	3223-3228	think	_	_	_	_	_	_	_
 88-6	3229-3233	that	_	_	_	_	_	_	_
-88-7	3234-3237	she	animal[317]	giv:inact[317]	sal[317]	_	cf1[317]	ana	88-10[318_317]
+88-7	3234-3237	she	animal[317]	giv:inact[317]	snsnn[317]	_	cf1[317]	ana	88-10[318_317]
 88-8	3238-3243	would	_	_	_	_	_	_	_
 88-9	3244-3245	,	_	_	_	_	_	_	_
-88-10	3246-3249	she	animal[318]	giv:act[318]	sal[318]	_	cf1[318]	ana	92-27[356_318]
+88-10	3246-3249	she	animal[318]	giv:act[318]	snsnn[318]	_	cf1[318]	ana	92-27[356_318]
 88-11	3250-3255	would	_	_	_	_	_	_	_
 88-12	3256-3258	do	_	_	_	_	_	_	_
 88-13	3259-3263	fine	_	_	_	_	_	_	_
@@ -998,14 +1003,14 @@
 89-2	3281-3282	,	_	_	_	_	_	_	_
 89-3	3283-3286	and	_	_	_	_	_	_	_
 89-4	3287-3288	,	_	_	_	_	_	_	_
-89-5	3289-3290	I	person[328]	giv:act[328]	sal[328]	_	cf1*[328]	ana	96-17[396_328]
+89-5	3289-3290	I	person[328]	giv:act[328]	sssss[328]	_	cf1*[328]	ana	96-17[396_328]
 89-6	3291-3297	pretty	_	_	_	_	_	_	_
 89-7	3298-3302	much	_	_	_	_	_	_	_
 89-8	3303-3306	got	_	_	_	_	_	_	_
-89-9	3307-3309	an	abstract[330]	new[330]	sal[330]	_	cf2[330]	coref	89-29[336_330]
-89-10	3310-3318	estimate	abstract[330]	new[330]	sal[330]	_	cf2[330]	_	_
-89-11	3319-3321	so	abstract[330]	new[330]	sal[330]	_	cf2[330]	_	_
-89-12	3322-3325	far	abstract[330]	new[330]	sal[330]	_	cf2[330]	_	_
+89-9	3307-3309	an	abstract[330]	new[330]	snnnn[330]	_	cf2[330]	coref	89-29[336_330]
+89-10	3310-3318	estimate	abstract[330]	new[330]	snnnn[330]	_	cf2[330]	_	_
+89-11	3319-3321	so	abstract[330]	new[330]	snnnn[330]	_	cf2[330]	_	_
+89-12	3322-3325	far	abstract[330]	new[330]	snnnn[330]	_	cf2[330]	_	_
 89-13	3326-3327	,	_	_	_	_	_	_	_
 89-14	3328-3332	with	_	_	_	_	_	_	_
 89-15	3333-3336	the	_	_	_	_	_	_	_
@@ -1015,15 +1020,15 @@
 89-19	3349-3358	yesterday	_	_	_	_	cf4[331]	_	_
 89-20	3359-3360	,	_	_	_	_	_	_	_
 89-21	3361-3364	and	_	_	_	_	_	_	_
-89-22	3365-3368	the	abstract[333]	giv:inact[333]	nonsal[333]	_	cf3[333]	_	_
-89-23	3369-3370	x	abstract[333]	giv:inact[333]	nonsal[333]	_	cf3[333]	_	_
-89-24	3371-3372	-	abstract[333]	giv:inact[333]	nonsal[333]	_	cf3[333]	_	_
-89-25	3373-3377	rays	abstract[333]	giv:inact[333]	nonsal[333]	_	cf3[333]	_	_
+89-22	3365-3368	the	abstract[333]	giv:inact[333]	nnnns[333]	_	cf3[333]	_	_
+89-23	3369-3370	x	abstract[333]	giv:inact[333]	nnnns[333]	_	cf3[333]	_	_
+89-24	3371-3372	-	abstract[333]	giv:inact[333]	nnnns[333]	_	cf3[333]	_	_
+89-25	3373-3377	rays	abstract[333]	giv:inact[333]	nnnns[333]	_	cf3[333]	_	_
 89-26	3378-3381	and	_	_	_	_	_	_	_
 89-27	3382-3392	everything	_	_	_	_	cf5[334]	_	_
 89-28	3393-3394	,	_	_	_	_	_	_	_
-89-29	3395-3398	the	abstract[336]	giv:act[336]	sal[336]	_	cf2[336]	_	_
-89-30	3399-3403	bill	abstract[336]	giv:act[336]	sal[336]	_	cf2[336]	_	_
+89-29	3395-3398	the	abstract[336]	giv:act[336]	snnnn[336]	_	cf2[336]	_	_
+89-30	3399-3403	bill	abstract[336]	giv:act[336]	snnnn[336]	_	cf2[336]	_	_
 89-31	3404-3407	was	_	_	_	_	_	_	_
 89-32	3408-3413	about	_	_	_	_	cf2[337]	_	_
 89-33	3414-3419	fifty	_	_	_	_	cf2[337]	_	_
@@ -1085,17 +1090,17 @@
 #Text=And , the only , then it would be , the only extra would be , in about six to eight weeks , we 'd have her come in again , we would tranquilize her , and take the X - rays , and see if it 's healed , enough to take off .
 92-1	3637-3640	And	_	_	_	_	_	_	_
 92-2	3641-3642	,	_	_	_	_	_	_	_
-92-3	3643-3646	the	abstract[349]	new[349]	nonsal[349]	_	cf1[349]	ana	92-7[350_349]
-92-4	3647-3651	only	abstract[349]	new[349]	nonsal[349]	_	cf1[349]	_	_
+92-3	3643-3646	the	abstract[349]	new[349]	nnnnn[349]	_	cf1[349]	ana	92-7[350_349]
+92-4	3647-3651	only	abstract[349]	new[349]	nnnnn[349]	_	cf1[349]	_	_
 92-5	3652-3653	,	_	_	_	_	_	_	_
 92-6	3654-3658	then	_	_	_	_	_	_	_
-92-7	3659-3661	it	abstract[350]	giv:act[350]	nonsal[350]	_	cf1[350]	coref	92-11[352_350]
+92-7	3659-3661	it	abstract[350]	giv:act[350]	n____[350]	_	cf1[350]	coref	92-11[352_350]
 92-8	3662-3667	would	_	_	_	_	_	_	_
 92-9	3668-3670	be	_	_	_	_	_	_	_
 92-10	3671-3672	,	_	_	_	_	_	_	_
-92-11	3673-3676	the	abstract[352]	giv:act[352]	nonsal[352]	_	cf1[352]	_	_
-92-12	3677-3681	only	abstract[352]	giv:act[352]	nonsal[352]	_	cf1[352]	_	_
-92-13	3682-3687	extra	abstract[352]	giv:act[352]	nonsal[352]	_	cf1[352]	_	_
+92-11	3673-3676	the	abstract[352]	giv:act[352]	n____[352]	_	cf1[352]	_	_
+92-12	3677-3681	only	abstract[352]	giv:act[352]	n____[352]	_	cf1[352]	_	_
+92-13	3682-3687	extra	abstract[352]	giv:act[352]	n____[352]	_	cf1[352]	_	_
 92-14	3688-3693	would	_	_	_	_	_	_	_
 92-15	3694-3696	be	_	_	_	_	_	_	_
 92-16	3697-3698	,	_	_	_	_	_	_	_
@@ -1106,18 +1111,18 @@
 92-21	3715-3720	eight	_	_	_	_	cf6[353]	_	_
 92-22	3721-3726	weeks	_	_	_	_	cf6[353]	_	_
 92-23	3727-3728	,	_	_	_	_	_	_	_
-92-24	3729-3731	we	organization[355]	giv:inact[355]	sal[355]	_	cf7[354]|cf2[355]	ana	92-32[357_355]
+92-24	3729-3731	we	organization[355]	giv:inact[355]	snnnn[355]	_	cf7[354]|cf2[355]	ana	92-32[357_355]
 92-25	3732-3734	'd	_	_	_	_	cf7[354]	_	_
 92-26	3735-3739	have	event[467]	new[467]	_	_	cf7[354]	disc	93-2[365_467]
-92-27	3740-3743	her	animal[356]	giv:inact[356]	sal[356]	_	cf7[354]|cf3[356]	ana	92-35[358_356]
+92-27	3740-3743	her	animal[356]	giv:inact[356]	snsnn[356]	_	cf7[354]|cf3[356]	ana	92-35[358_356]
 92-28	3744-3748	come	_	_	_	_	cf7[354]	_	_
 92-29	3749-3751	in	_	_	_	_	cf7[354]	_	_
 92-30	3752-3757	again	_	_	_	_	cf7[354]	_	_
 92-31	3758-3759	,	_	_	_	_	cf7[354]	_	_
-92-32	3760-3762	we	organization[357]	giv:act[357]	sal[357]	_	cf7[354]|cf2[357]	ana	95-11[375_357]
+92-32	3760-3762	we	organization[357]	giv:act[357]	snnnn[357]	_	cf7[354]|cf2[357]	ana	95-11[375_357]
 92-33	3763-3768	would	_	_	_	_	cf7[354]	_	_
 92-34	3769-3780	tranquilize	_	_	_	_	cf7[354]	_	_
-92-35	3781-3784	her	animal[358]	giv:act[358]	sal[358]	_	cf7[354]|cf3[358]	ana	95-54[392_358]
+92-35	3781-3784	her	animal[358]	giv:act[358]	snsnn[358]	_	cf7[354]|cf3[358]	ana	95-54[392_358]
 92-36	3785-3786	,	_	_	_	_	cf7[354]	_	_
 92-37	3787-3790	and	_	_	_	_	cf7[354]	_	_
 92-38	3791-3795	take	_	_	_	_	cf7[354]	_	_
@@ -1129,7 +1134,7 @@
 92-44	3811-3814	and	_	_	_	_	cf7[354]	_	_
 92-45	3815-3818	see	_	_	_	_	cf7[354]	_	_
 92-46	3819-3821	if	_	_	_	_	cf7[354]	_	_
-92-47	3822-3824	it	abstract[364]	giv:inact[364]	sal[364]	_	cf7[354]|cf4[364]	_	_
+92-47	3822-3824	it	abstract[364]	giv:inact[364]	snnnn[364]	_	cf7[354]|cf4[364]	_	_
 92-48	3825-3827	's	_	_	_	_	cf7[354]	_	_
 92-49	3828-3834	healed	_	_	_	_	cf7[354]	_	_
 92-50	3835-3836	,	_	_	_	_	cf7[354]	_	_
@@ -1141,7 +1146,7 @@
 
 #Text=And that 's generally about thirty - four to forty , somewhere in there .
 93-1	3858-3861	And	_	_	_	_	_	_	_
-93-2	3862-3866	that	event[365]	giv:act[365]	nonsal[365]	_	cf1*[365]	_	_
+93-2	3862-3866	that	event[365]	giv:act[365]	n____[365]	_	cf1*[365]	_	_
 93-3	3867-3869	's	_	_	_	_	_	_	_
 93-4	3870-3879	generally	_	_	_	_	_	_	_
 93-5	3880-3885	about	_	_	_	_	cf2[368]	_	_
@@ -1161,17 +1166,17 @@
 94-2	3937-3938	.	_	_	_	_	_	_	_
 
 #Text=You know , a pin , you know , if we did a pin , it 's probably , it would probably be even a hundred more but , so it 's it 's that 's about the — at this point the , the least expensive alternative that probably will work for her .
-95-1	3939-3942	You	person[370]	giv:inact[370]	nonsal[370]	_	cf1[370]	ana	95-7[374_370]
+95-1	3939-3942	You	person[370]	giv:inact[370]	n____[370]	_	cf1[370]	ana	95-7[374_370]
 95-2	3943-3947	know	_	_	_	_	_	_	_
 95-3	3948-3949	,	_	_	_	_	_	_	_
 95-4	3950-3951	a	_	_	_	_	cf3[373]	_	_
 95-5	3952-3955	pin	_	_	_	_	cf3[373]	_	_
 95-6	3956-3957	,	_	_	_	_	_	_	_
-95-7	3958-3961	you	person[374]	giv:act[374]	nonsal[374]	_	cf1[374]	ana	102-5[415_374]
+95-7	3958-3961	you	person[374]	giv:act[374]	n____[374]	_	cf1[374]	ana	102-5[415_374]
 95-8	3962-3966	know	_	_	_	_	_	_	_
 95-9	3967-3968	,	_	_	_	_	_	_	_
 95-10	3969-3971	if	_	_	_	_	_	_	_
-95-11	3972-3974	we	organization[375]	giv:inact[375]	sal[375]	_	cf5[375]	ana	102-9[416_375]
+95-11	3972-3974	we	organization[375]	giv:inact[375]	snnnn[375]	_	cf5[375]	ana	102-9[416_375]
 95-12	3975-3978	did	_	_	_	_	_	_	_
 95-13	3979-3980	a	_	_	_	_	cf3[378]	_	_
 95-14	3981-3984	pin	_	_	_	_	cf3[378]	_	_
@@ -1191,11 +1196,11 @@
 95-28	4045-4048	but	_	_	_	_	_	_	_
 95-29	4049-4050	,	_	_	_	_	_	_	_
 95-30	4051-4053	so	_	_	_	_	_	_	_
-95-31	4054-4056	it	event[384]	giv:inact[384]	nonsal[384]	_	cf2[384]	ana	95-33[385_384]
+95-31	4054-4056	it	event[384]	giv:inact[384]	n____[384]	_	cf2[384]	ana	95-33[385_384]
 95-32	4057-4059	's	_	_	_	_	_	_	_
-95-33	4060-4062	it	event[385]	giv:act[385]	nonsal[385]	_	cf2[385]	ana	95-35[386_385]
+95-33	4060-4062	it	event[385]	giv:act[385]	n____[385]	_	cf2[385]	ana	95-35[386_385]
 95-34	4063-4065	's	_	_	_	_	_	_	_
-95-35	4066-4070	that	event[386]	giv:act[386]	nonsal[386]	_	cf2[386]	ana	96-31[399_386]
+95-35	4066-4070	that	event[386]	giv:act[386]	n____[386]	_	cf2[386]	ana	96-31[399_386]
 95-36	4071-4073	's	_	_	_	_	_	_	_
 95-37	4074-4079	about	_	_	_	_	_	_	_
 95-38	4080-4083	the	_	_	_	_	_	_	_
@@ -1214,7 +1219,7 @@
 95-51	4152-4156	will	_	_	_	_	cf2[391]	_	_
 95-52	4157-4161	work	_	_	_	_	cf2[391]	_	_
 95-53	4162-4165	for	_	_	_	_	cf2[391]	_	_
-95-54	4166-4169	her	animal[392]	giv:inact[392]	sal[392]	_	cf2[391]|cf6[392]	ana	102-3[414_392]
+95-54	4166-4169	her	animal[392]	giv:inact[392]	snsnn[392]	_	cf2[391]|cf6[392]	ana	102-3[414_392]
 95-55	4170-4171	.	_	_	_	_	_	_	_
 
 #Text=Um , so , if you want to let him know and then have him call me back , if you , if you wan na go ahead and do it .
@@ -1223,32 +1228,32 @@
 96-3	4177-4179	so	_	_	_	_	_	_	_
 96-4	4180-4181	,	_	_	_	_	_	_	_
 96-5	4182-4184	if	_	_	_	_	_	_	_
-96-6	4185-4188	you	person[393]	giv:inact[393]	sal[393]	_	cf1[393]	ana	96-21[397_393]
+96-6	4185-4188	you	person[393]	giv:inact[393]	snssn[393]	_	cf1[393]	ana	96-21[397_393]
 96-7	4189-4193	want	_	_	_	_	_	_	_
 96-8	4194-4196	to	_	_	_	_	_	_	_
 96-9	4197-4200	let	_	_	_	_	_	_	_
-96-10	4201-4204	him	person[394]	giv:inact[394]	nonsal[394]	_	cf2[394]	ana	96-15[395_394]
+96-10	4201-4204	him	person[394]	giv:inact[394]	n____[394]	_	cf2[394]	ana	96-15[395_394]
 96-11	4205-4209	know	_	_	_	_	_	_	_
 96-12	4210-4213	and	_	_	_	_	_	_	_
 96-13	4214-4218	then	_	_	_	_	_	_	_
 96-14	4219-4223	have	_	_	_	_	_	_	_
-96-15	4224-4227	him	person[395]	giv:act[395]	nonsal[395]	_	cf2[395]	_	_
+96-15	4224-4227	him	person[395]	giv:act[395]	n____[395]	_	cf2[395]	_	_
 96-16	4228-4232	call	_	_	_	_	_	_	_
-96-17	4233-4235	me	person[396]	giv:inact[396]	sal[396]	_	cf4[396]	_	_
+96-17	4233-4235	me	person[396]	giv:inact[396]	sssss[396]	_	cf4[396]	_	_
 96-18	4236-4240	back	_	_	_	_	_	_	_
 96-19	4241-4242	,	_	_	_	_	_	_	_
 96-20	4243-4245	if	_	_	_	_	_	_	_
-96-21	4246-4249	you	person[397]	giv:act[397]	sal[397]	_	cf1[397]	ana	96-24[398_397]
+96-21	4246-4249	you	person[397]	giv:act[397]	snssn[397]	_	cf1[397]	ana	96-24[398_397]
 96-22	4250-4251	,	_	_	_	_	_	_	_
 96-23	4252-4254	if	_	_	_	_	_	_	_
-96-24	4255-4258	you	person[398]	giv:act[398]	sal[398]	_	cf1[398]	ana	103-6[421_398]
+96-24	4255-4258	you	person[398]	giv:act[398]	snssn[398]	_	cf1[398]	ana	103-6[421_398]
 96-25	4259-4262	wan	_	_	_	_	_	_	_
 96-26	4263-4265	na	_	_	_	_	_	_	_
 96-27	4266-4268	go	_	_	_	_	_	_	_
 96-28	4269-4274	ahead	_	_	_	_	_	_	_
 96-29	4275-4278	and	_	_	_	_	_	_	_
 96-30	4279-4281	do	_	_	_	_	_	_	_
-96-31	4282-4284	it	event[399]	giv:act[399]	nonsal[399]	_	cf3*[399]	ana	102-11[417_399]
+96-31	4282-4284	it	event[399]	giv:act[399]	n____[399]	_	cf3*[399]	ana	102-11[417_399]
 96-32	4285-4286	.	_	_	_	_	_	_	_
 
 #Text=Okay ?
@@ -1256,7 +1261,7 @@
 97-2	4292-4293	?	_	_	_	_	_	_	_
 
 #Text=Lindsey ?
-98-1	4294-4301	Lindsey	person[400]	giv:inact[400]	nonsal[400]	_	cf1[400]	_	_
+98-1	4294-4301	Lindsey	person[400]	giv:inact[400]	nnnsn[400]	_	cf1[400]	_	_
 98-2	4302-4303	?	_	_	_	_	_	_	_
 
 #Text=You wan na put this kitty castration down ?
@@ -1281,17 +1286,17 @@
 #Text=And if she — you know , if we did it , she could probably go home tomorrow .
 102-1	4365-4368	And	_	_	_	_	_	_	_
 102-2	4369-4371	if	_	_	_	_	_	_	_
-102-3	4372-4375	she	animal[414]	giv:inact[414]	sal[414]	_	cf1[414]	ana	102-13[418_414]
+102-3	4372-4375	she	animal[414]	giv:inact[414]	snsnn[414]	_	cf1[414]	ana	102-13[418_414]
 102-4	4376-4377	—	_	_	_	_	_	_	_
-102-5	4378-4381	you	person[415]	giv:inact[415]	nonsal[415]	_	cf2[415]	_	_
+102-5	4378-4381	you	person[415]	giv:inact[415]	n____[415]	_	cf2[415]	_	_
 102-6	4382-4386	know	_	_	_	_	_	_	_
 102-7	4387-4388	,	_	_	_	_	_	_	_
 102-8	4389-4391	if	_	_	_	_	_	_	_
-102-9	4392-4394	we	organization[416]	giv:inact[416]	sal[416]	_	cf3[416]	_	_
+102-9	4392-4394	we	organization[416]	giv:inact[416]	snnnn[416]	_	cf3[416]	_	_
 102-10	4395-4398	did	_	_	_	_	_	_	_
-102-11	4399-4401	it	event[417]	giv:inact[417]	nonsal[417]	_	cf4[417]	_	_
+102-11	4399-4401	it	event[417]	giv:inact[417]	n____[417]	_	cf4[417]	_	_
 102-12	4402-4403	,	_	_	_	_	_	_	_
-102-13	4404-4407	she	animal[418]	giv:act[418]	sal[418]	_	cf1[418]	_	_
+102-13	4404-4407	she	animal[418]	giv:act[418]	snsnn[418]	_	cf1[418]	_	_
 102-14	4408-4413	could	_	_	_	_	_	_	_
 102-15	4414-4422	probably	_	_	_	_	_	_	_
 102-16	4423-4425	go	_	_	_	_	_	_	_
@@ -1305,7 +1310,7 @@
 103-3	4449-4457	whenever	_	_	_	_	_	_	_
 103-4	4458-4459	,	_	_	_	_	_	_	_
 103-5	4460-4468	whenever	_	_	_	_	_	_	_
-103-6	4469-4472	you	person[421]	giv:inact[421]	sal[421]	_	cf1[421]	coref	104-4[432_421]
+103-6	4469-4472	you	person[421]	giv:inact[421]	snssn[421]	_	cf1[421]	coref	104-4[432_421]
 103-7	4473-4476	get	_	_	_	_	_	_	_
 103-8	4477-4478	a	_	_	_	_	cf2[431]	_	_
 103-9	4479-4485	chance	_	_	_	_	cf2[431]	_	_
@@ -1315,7 +1320,7 @@
 104-1	4488-4492	Okay	_	_	_	_	_	_	_
 104-2	4493-4494	,	_	_	_	_	_	_	_
 104-3	4495-4501	thanks	_	_	_	_	_	_	_
-104-4	4502-4507	Carol	person[432]	giv:act[432]	sal[432]	_	cf1*[432]	_	_
+104-4	4502-4507	Carol	person[432]	giv:act[432]	snssn[432]	_	cf1*[432]	_	_
 104-5	4508-4509	.	_	_	_	_	_	_	_
 
 #Text=Mhm , bye - bye .

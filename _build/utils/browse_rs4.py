@@ -337,7 +337,7 @@ def read_doc(rs4, rsd, conllu, docname, allow_sourceless_signals=False):
                             relations[source].signals.append((docname, sigtype, sigsubtype, tids))
             else:
                 print("! Found signal with missing source " + source + " in " + docname)
-                return relations, conllu_annos, nodes
+                #return relations, conllu_annos, nodes
 
     return relations, conllu_annos, nodes
 
@@ -350,7 +350,7 @@ if __name__ == "__main__":
     p.add_argument("-s", "--subtype",action="store",default=".*",help="Signal subtype to find, e.g. indicative_word (regex OK)")
     p.add_argument("-o", "--output",action="store",default="cli",choices=["cli","html"],help="Output type (use html to paste to spreadsheet with colors)")
     p.add_argument("-e", "--edgetypes",action="store",default="both",choices=["both","prim","sec"],help="Included edge types")
-    p.add_argument("-d", "--docname",action="store",default="any",help="Document name filter (regex OK)")
+    p.add_argument("-d", "--docname",action="store",default="any",help="Document name filter (substring OK)")
     p.add_argument("-a", "--annos",action="store",default=None,help="semicolon separated key-value pairs like: source:xpos=NN;deprel=nsubj")
     p.add_argument("--full_sent",action="store_true",help="Add the full sentence of the relation source in the context")
     opts = p.parse_args()

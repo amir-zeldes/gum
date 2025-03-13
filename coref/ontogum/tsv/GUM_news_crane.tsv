@@ -1,6 +1,11 @@
 #FORMAT=WebAnno TSV 3.2
 #T_SP=webanno.custom.Referent|entity|infstat|salience|identity|centering
 #T_RL=webanno.custom.Coref|type|BT_webanno.custom.Referent
+#Summary1=(human1) On September 12, 2015, at least 107 people were killed and 238 wounded at Mecca's Grand Mosque in Saudi Arabia when a storm caused a construction crane to collapse just ten days before the beginning of the Hajj, Islam's annual pilgrimage to Mecca.
+#Summary2=(claude-3-5-sonnet-20241022) A construction crane at Mecca's Grand Mosque collapsed during a storm, killing at least 107 people and injuring 238 just days before the annual Hajj pilgrimage, while the mosque was undergoing expansion work to improve crowd control.
+#Summary3=(gpt4o) A crane collapse at Mecca's Grand Mosque on September 12, 2015, killed 107 and injured 238 just ten days before the Hajj pilgrimage; The accident, reported by Saudi Arabia's Civil Defense, underscores ongoing construction efforts to improve crowd control during the significant Muslim religious event.
+#Summary4=(Llama-3.2-3B-Instruct) A crane collapsed into Mecca's Grand Mosque on September 12, 2015, killing at least 107 people and wounding 238, due to strong winds and heavy rain, just ten days before the start of the Hajj pilgrimage.
+#Summary5=(Qwen2.5-7B-Instruct) A storm caused a crane to collapse in Mecca's Grand Mosque, resulting in at least 107 deaths and 238 injuries, occurring just before the start of the Hajj pilgrimage.
 
 
 #Text=At least 107 killed in Mecca crane collapse
@@ -9,7 +14,7 @@
 1-3	9-12	107	_	_	_	_	cf1[1]	_	_
 1-4	13-19	killed	_	_	_	_	_	_	_
 1-5	20-22	in	_	_	_	_	_	_	_
-1-6	23-28	Mecca	place[4]	new[4]	sal[4]	Mecca[4]	cf2[3]|cf3[4]	coref	3-3[16_4]
+1-6	23-28	Mecca	place[4]	new[4]	sssss[4]	Mecca[4]	cf2[3]|cf3[4]	coref	3-3[16_4]
 1-7	29-34	crane	_	_	_	_	cf2[3]|cf4[5]	_	_
 1-8	35-43	collapse	_	_	_	_	cf2[3]	_	_
 
@@ -24,10 +29,10 @@
 #Text=pilgrims at Mecca 's Grand Mosque in 2008 .
 3-1	75-83	pilgrims	_	_	_	_	cf3[12]	_	_
 3-2	84-86	at	_	_	_	_	_	_	_
-3-3	87-92	Mecca	place[15]|place[16]	new[15]|giv:inact[16]	sal[15]|sal[16]	Masjid_al%2DHaram[15]|Mecca[16]	cf2[15]|cf1[16]	coref|coref	4-10[25_16]|4-10[24_15]
-3-4	93-95	's	place[15]|place[16]	new[15]|giv:inact[16]	sal[15]|sal[16]	Masjid_al%2DHaram[15]|Mecca[16]	cf2[15]|cf1[16]	_	_
-3-5	96-101	Grand	place[15]	new[15]	sal[15]	Masjid_al%2DHaram[15]	cf2[15]	_	_
-3-6	102-108	Mosque	place[15]	new[15]	sal[15]	Masjid_al%2DHaram[15]	cf2[15]	_	_
+3-3	87-92	Mecca	place[15]|place[16]	new[15]|giv:inact[16]	sssss[15]|sssss[16]	Masjid_al%2DHaram[15]|Mecca[16]	cf2[15]|cf1[16]	coref|coref	4-10[24_15]|4-10[25_16]
+3-4	93-95	's	place[15]|place[16]	new[15]|giv:inact[16]	sssss[15]|sssss[16]	Masjid_al%2DHaram[15]|Mecca[16]	cf2[15]|cf1[16]	_	_
+3-5	96-101	Grand	place[15]	new[15]	sssss[15]	Masjid_al%2DHaram[15]	cf2[15]	_	_
+3-6	102-108	Mosque	place[15]	new[15]	sssss[15]	Masjid_al%2DHaram[15]	cf2[15]	_	_
 3-7	109-111	in	_	_	_	_	_	_	_
 3-8	112-116	2008	_	_	_	_	cf4[17]	_	_
 3-9	117-118	.	_	_	_	_	_	_	_
@@ -37,38 +42,38 @@
 4-2	121-126	storm	_	_	_	_	cf10[19]|cf6[20]	_	_
 4-3	127-136	yesterday	_	_	_	_	cf10[19]|cf6[20]|cf5[21]	_	_
 4-4	137-143	caused	event[129]	new[129]	_	_	cf10[19]	disc	8-1[51_129]
-4-5	144-145	a	object[23]	giv:inact[23]	sal[23]	_	cf10[19]|cf4[23]	coref	6-19[46_23]
-4-6	146-151	crane	object[23]	giv:inact[23]	sal[23]	_	cf10[19]|cf4[23]	_	_
+4-5	144-145	a	object[23]	giv:inact[23]	sssss[23]	_	cf10[19]|cf4[23]	coref	6-19[46_23]
+4-6	146-151	crane	object[23]	giv:inact[23]	sssss[23]	_	cf10[19]|cf4[23]	_	_
 4-7	152-154	to	_	_	_	_	cf10[19]	_	_
 4-8	155-159	fall	_	_	_	_	cf10[19]	_	_
 4-9	160-164	into	_	_	_	_	cf10[19]	_	_
-4-10	165-170	Mecca	place[24]|place[25]	giv:act[24]|giv:act[25]	sal[24]|sal[25]	Masjid_al%2DHaram[24]|Mecca[25]	cf10[19]|cf1*[24]|cf2[25]	coref|coref	5-41[40_24]|11-19[136_25]
-4-11	171-173	's	place[24]|place[25]	giv:act[24]|giv:act[25]	sal[24]|sal[25]	Masjid_al%2DHaram[24]|Mecca[25]	cf10[19]|cf1*[24]|cf2[25]	_	_
-4-12	174-179	Grand	place[24]	giv:act[24]	sal[24]	Masjid_al%2DHaram[24]	cf10[19]|cf1*[24]	_	_
-4-13	180-186	Mosque	place[24]	giv:act[24]	sal[24]	Masjid_al%2DHaram[24]	cf10[19]|cf1*[24]	_	_
+4-10	165-170	Mecca	place[24]|place[25]	giv:act[24]|giv:act[25]	sssss[24]|sssss[25]	Masjid_al%2DHaram[24]|Mecca[25]	cf10[19]|cf1*[24]|cf2[25]	coref|coref	5-41[40_24]|11-19[136_25]
+4-11	171-173	's	place[24]|place[25]	giv:act[24]|giv:act[25]	sssss[24]|sssss[25]	Masjid_al%2DHaram[24]|Mecca[25]	cf10[19]|cf1*[24]|cf2[25]	_	_
+4-12	174-179	Grand	place[24]	giv:act[24]	sssss[24]	Masjid_al%2DHaram[24]	cf10[19]|cf1*[24]	_	_
+4-13	180-186	Mosque	place[24]	giv:act[24]	sssss[24]	Masjid_al%2DHaram[24]	cf10[19]|cf1*[24]	_	_
 4-14	187-188	,	_	_	_	_	cf10[19]	_	_
 4-15	189-196	killing	_	_	_	_	cf10[19]	_	_
-4-16	197-200	107	person[26]	giv:inact[26]	sal[26]	_	cf10[19]|cf3[26]	coref	5-27[36_26]
+4-16	197-200	107	person[26]	giv:inact[26]	sssss[26]	_	cf10[19]|cf3[26]	coref	5-27[36_26]
 4-17	201-203	or	_	_	_	_	cf10[19]	_	_
 4-18	204-208	more	_	_	_	_	cf10[19]	_	_
 4-19	209-212	and	_	_	_	_	cf10[19]	_	_
 4-20	213-221	wounding	_	_	_	_	cf10[19]	_	_
-4-21	222-225	238	person[27]	new[27]	sal[27]	_	cf10[19]|cf7[27]	ana	5-21[35_27]
+4-21	222-225	238	person[27]	new[27]	sssss[27]	_	cf10[19]|cf7[27]	ana	5-21[35_27]
 4-22	226-227	,	_	_	_	_	_	_	_
 4-23	228-237	according	_	_	_	_	_	_	_
 4-24	238-240	to	_	_	_	_	_	_	_
-4-25	241-246	Saudi	organization[30]	new[30]	nonsal[30]	Saudi_Arabia[31]	cf8[30]|cf9[31]	coref	5-1[33_30]
-4-26	247-253	Arabia	organization[30]	new[30]	nonsal[30]	Saudi_Arabia[31]	cf8[30]|cf9[31]	_	_
-4-27	254-256	's	organization[30]	new[30]	nonsal[30]	Saudi_Arabia[31]	cf8[30]|cf9[31]	_	_
-4-28	257-262	Civil	organization[30]	new[30]	nonsal[30]	_	cf8[30]	_	_
-4-29	263-270	Defense	organization[30]	new[30]	nonsal[30]	_	cf8[30]	_	_
-4-30	271-280	Authority	organization[30]	new[30]	nonsal[30]	_	cf8[30]	_	_
+4-25	241-246	Saudi	organization[30]	new[30]	nnnnn[30]	Saudi_Arabia[31]	cf8[30]|cf9[31]	coref	5-1[33_30]
+4-26	247-253	Arabia	organization[30]	new[30]	nnnnn[30]	Saudi_Arabia[31]	cf8[30]|cf9[31]	_	_
+4-27	254-256	's	organization[30]	new[30]	nnnnn[30]	Saudi_Arabia[31]	cf8[30]|cf9[31]	_	_
+4-28	257-262	Civil	organization[30]	new[30]	nnnnn[30]	_	cf8[30]	_	_
+4-29	263-270	Defense	organization[30]	new[30]	nnnnn[30]	_	cf8[30]	_	_
+4-30	271-280	Authority	organization[30]	new[30]	nnnnn[30]	_	cf8[30]	_	_
 4-31	281-282	.	_	_	_	_	_	_	_
 
 #Text=Civil Defense Authority director General Suleiman al - Amr , in remarks to al - Ikhbariya television , said " All those who were wounded and the dead have been taken to hospital . There are no casualties left at the location . "
-5-1	283-288	Civil	organization[33]	giv:act[33]	nonsal[33]	_	cf5[32]|cf4[33]	_	_
-5-2	289-296	Defense	organization[33]	giv:act[33]	nonsal[33]	_	cf5[32]|cf4[33]	_	_
-5-3	297-306	Authority	organization[33]	giv:act[33]	nonsal[33]	_	cf5[32]|cf4[33]	_	_
+5-1	283-288	Civil	organization[33]	giv:act[33]	n____[33]	_	cf5[32]|cf4[33]	_	_
+5-2	289-296	Defense	organization[33]	giv:act[33]	n____[33]	_	cf5[32]|cf4[33]	_	_
+5-3	297-306	Authority	organization[33]	giv:act[33]	n____[33]	_	cf5[32]|cf4[33]	_	_
 5-4	307-315	director	_	_	_	_	cf5[32]	_	_
 5-5	316-323	General	_	_	_	_	cf5[32]	_	_
 5-6	324-332	Suleiman	_	_	_	_	cf5[32]	_	_
@@ -86,14 +91,14 @@
 5-18	384-385	,	_	_	_	_	_	_	_
 5-19	386-390	said	_	_	_	_	_	_	_
 5-20	391-392	"	_	_	_	_	_	_	_
-5-21	393-396	All	person[35]	giv:act[35]	sal[35]	_	cf1*[35]	_	_
-5-22	397-402	those	person[35]	giv:act[35]	sal[35]	_	cf1*[35]	_	_
-5-23	403-406	who	person[35]	giv:act[35]	sal[35]	_	cf1*[35]	_	_
-5-24	407-411	were	person[35]	giv:act[35]	sal[35]	_	cf1*[35]	_	_
-5-25	412-419	wounded	person[35]	giv:act[35]	sal[35]	_	cf1*[35]	_	_
+5-21	393-396	All	person[35]	giv:act[35]	sssss[35]	_	cf1*[35]	_	_
+5-22	397-402	those	person[35]	giv:act[35]	sssss[35]	_	cf1*[35]	_	_
+5-23	403-406	who	person[35]	giv:act[35]	sssss[35]	_	cf1*[35]	_	_
+5-24	407-411	were	person[35]	giv:act[35]	sssss[35]	_	cf1*[35]	_	_
+5-25	412-419	wounded	person[35]	giv:act[35]	sssss[35]	_	cf1*[35]	_	_
 5-26	420-423	and	_	_	_	_	_	_	_
-5-27	424-427	the	person[36]	giv:act[36]	sal[36]	_	cf3[36]	_	_
-5-28	428-432	dead	person[36]	giv:act[36]	sal[36]	_	cf3[36]	_	_
+5-27	424-427	the	person[36]	giv:act[36]	sssss[36]	_	cf3[36]	_	_
+5-28	428-432	dead	person[36]	giv:act[36]	sssss[36]	_	cf3[36]	_	_
 5-29	433-437	have	_	_	_	_	_	_	_
 5-30	438-442	been	_	_	_	_	_	_	_
 5-31	443-448	taken	_	_	_	_	_	_	_
@@ -106,8 +111,8 @@
 5-38	476-486	casualties	_	_	_	_	cf6[39]	_	_
 5-39	487-491	left	_	_	_	_	_	_	_
 5-40	492-494	at	_	_	_	_	_	_	_
-5-41	495-498	the	place[40]	giv:act[40]	sal[40]	Masjid_al%2DHaram[40]	cf2[40]	coref	7-4[48_40]
-5-42	499-507	location	place[40]	giv:act[40]	sal[40]	Masjid_al%2DHaram[40]	cf2[40]	_	_
+5-41	495-498	the	place[40]	giv:act[40]	sssss[40]	Masjid_al%2DHaram[40]	cf2[40]	coref	7-4[48_40]
+5-42	499-507	location	place[40]	giv:act[40]	sssss[40]	Masjid_al%2DHaram[40]	cf2[40]	_	_
 5-43	508-509	.	_	_	_	_	_	_	_
 5-44	510-511	"	_	_	_	_	_	_	_
 
@@ -130,8 +135,8 @@
 6-16	601-605	rain	_	_	_	_	cf6[43]|cf4[45]	_	_
 6-17	606-610	that	_	_	_	_	cf6[43]	_	_
 6-18	611-614	led	_	_	_	_	cf6[43]	_	_
-6-19	615-618	the	object[46]	giv:inact[46]	sal[46]	_	cf6[43]|cf1[46]	_	_
-6-20	619-624	crane	object[46]	giv:inact[46]	sal[46]	_	cf6[43]|cf1[46]	_	_
+6-19	615-618	the	object[46]	giv:inact[46]	sssss[46]	_	cf6[43]|cf1[46]	_	_
+6-20	619-624	crane	object[46]	giv:inact[46]	sssss[46]	_	cf6[43]|cf1[46]	_	_
 6-21	625-627	to	_	_	_	_	cf6[43]	_	_
 6-22	628-632	fall	_	_	_	_	cf6[43]	_	_
 6-23	633-634	.	_	_	_	_	_	_	_
@@ -140,8 +145,8 @@
 7-1	635-641	Photos	_	_	_	_	cf2[47]	_	_
 7-2	642-650	released	_	_	_	_	cf2[47]	_	_
 7-3	651-653	of	_	_	_	_	cf2[47]	_	_
-7-4	654-657	the	place[48]	giv:inact[48]	sal[48]	Masjid_al%2DHaram[48]	cf2[47]|cf1[48]	coref	8-8[53_48]
-7-5	658-663	scene	place[48]	giv:inact[48]	sal[48]	Masjid_al%2DHaram[48]	cf2[47]|cf1[48]	_	_
+7-4	654-657	the	place[48]	giv:inact[48]	sssss[48]	Masjid_al%2DHaram[48]	cf2[47]|cf1[48]	coref	8-8[53_48]
+7-5	658-663	scene	place[48]	giv:inact[48]	sssss[48]	Masjid_al%2DHaram[48]	cf2[47]|cf1[48]	_	_
 7-6	664-670	showed	_	_	_	_	_	_	_
 7-7	671-679	numerous	_	_	_	_	cf3[49]	_	_
 7-8	680-688	bloodied	_	_	_	_	cf3[49]	_	_
@@ -153,15 +158,15 @@
 7-14	725-726	.	_	_	_	_	_	_	_
 
 #Text=The accident occurred at a time when the mosque was relatively uncrowded .
-8-1	727-730	The	event[51]	giv:inact[51]	sal[51]	_	cf2[51]	ana	9-3[54_51]
-8-2	731-739	accident	event[51]	giv:inact[51]	sal[51]	_	cf2[51]	_	_
+8-1	727-730	The	event[51]	giv:inact[51]	snsns[51]	_	cf2[51]	ana	9-3[54_51]
+8-2	731-739	accident	event[51]	giv:inact[51]	snsns[51]	_	cf2[51]	_	_
 8-3	740-748	occurred	_	_	_	_	_	_	_
 8-4	749-751	at	_	_	_	_	_	_	_
 8-5	752-753	a	_	_	_	_	cf3[52]	_	_
 8-6	754-758	time	_	_	_	_	cf3[52]	_	_
 8-7	759-763	when	_	_	_	_	cf3[52]	_	_
-8-8	764-767	the	place[53]	giv:act[53]	sal[53]	Masjid_al%2DHaram[53]	cf3[52]|cf1*[53]	coref	13-5[91_53]
-8-9	768-774	mosque	place[53]	giv:act[53]	sal[53]	Masjid_al%2DHaram[53]	cf3[52]|cf1*[53]	_	_
+8-8	764-767	the	place[53]	giv:act[53]	sssss[53]	Masjid_al%2DHaram[53]	cf3[52]|cf1*[53]	coref	13-5[91_53]
+8-9	768-774	mosque	place[53]	giv:act[53]	sssss[53]	Masjid_al%2DHaram[53]	cf3[52]|cf1*[53]	_	_
 8-10	775-778	was	_	_	_	_	cf3[52]	_	_
 8-11	779-789	relatively	_	_	_	_	cf3[52]	_	_
 8-12	790-799	uncrowded	_	_	_	_	cf3[52]	_	_
@@ -170,12 +175,12 @@
 #Text=" Had it happened an hour later it would have been much worse , " Khaled Al - Maeena , editor at large at the Saudi Gazette , said .
 9-1	802-803	"	_	_	_	_	_	_	_
 9-2	804-807	Had	_	_	_	_	_	_	_
-9-3	808-810	it	event[54]	giv:act[54]	sal[54]	_	cf1*[54]	ana	9-8[57_54]
+9-3	808-810	it	event[54]	giv:act[54]	snsns[54]	_	cf1*[54]	ana	9-8[57_54]
 9-4	811-819	happened	_	_	_	_	_	_	_
 9-5	820-822	an	_	_	_	_	cf3[56]	_	_
 9-6	823-827	hour	_	_	_	_	cf3[56]	_	_
 9-7	828-833	later	_	_	_	_	_	_	_
-9-8	834-836	it	event[57]	giv:act[57]	sal[57]	_	cf1*[57]	ana	10-3[62_57]
+9-8	834-836	it	event[57]	giv:act[57]	snsns[57]	_	cf1*[57]	ana	10-3[62_57]
 9-9	837-842	would	_	_	_	_	_	_	_
 9-10	843-847	have	_	_	_	_	_	_	_
 9-11	848-852	been	_	_	_	_	_	_	_
@@ -202,7 +207,7 @@
 #Text=" Had it happened five hours earlier or four hours earlier , I think the death toll would have been more than a thousand . "
 10-1	935-936	"	_	_	_	_	_	_	_
 10-2	937-940	Had	_	_	_	_	_	_	_
-10-3	941-943	it	event[62]	giv:act[62]	sal[62]	_	cf2[62]	coref	11-1[70_62]
+10-3	941-943	it	event[62]	giv:act[62]	snsns[62]	_	cf2[62]	coref	11-1[70_62]
 10-4	944-952	happened	_	_	_	_	_	_	_
 10-5	953-957	five	_	_	_	_	cf5[64]	_	_
 10-6	958-963	hours	_	_	_	_	cf5[64]	_	_
@@ -212,7 +217,7 @@
 10-10	980-985	hours	_	_	_	_	cf6[65]	_	_
 10-11	986-993	earlier	_	_	_	_	_	_	_
 10-12	994-995	,	_	_	_	_	_	_	_
-10-13	996-997	I	person[66]	giv:act[66]	nonsal[66]	Khaled_Al_Maeena[66]	cf1*[66]	_	_
+10-13	996-997	I	person[66]	giv:act[66]	n____[66]	Khaled_Al_Maeena[66]	cf1*[66]	_	_
 10-14	998-1003	think	_	_	_	_	_	_	_
 10-15	1004-1007	the	_	_	_	_	cf3[68]	_	_
 10-16	1008-1013	death	_	_	_	_	cf3[68]	_	_
@@ -228,9 +233,9 @@
 10-26	1058-1059	"	_	_	_	_	_	_	_
 
 #Text=The crane accident comes just ten days before the beginning of the Hajj , the annual pilgrimage to Mecca , Islam 's holiest site .
-11-1	1060-1063	The	event[70]	giv:act[70]	sal[70]	_	cf1*[70]	_	_
-11-2	1064-1069	crane	event[70]	giv:act[70]	sal[70]	_	cf1*[70]	_	_
-11-3	1070-1078	accident	event[70]	giv:act[70]	sal[70]	_	cf1*[70]	_	_
+11-1	1060-1063	The	event[70]	giv:act[70]	snsns[70]	_	cf1*[70]	_	_
+11-2	1064-1069	crane	event[70]	giv:act[70]	snsns[70]	_	cf1*[70]	_	_
+11-3	1070-1078	accident	event[70]	giv:act[70]	snsns[70]	_	cf1*[70]	_	_
 11-4	1079-1084	comes	_	_	_	_	_	_	_
 11-5	1085-1089	just	_	_	_	_	_	_	_
 11-6	1090-1093	ten	_	_	_	_	cf6[71]	_	_
@@ -246,7 +251,7 @@
 11-16	1138-1144	annual	event[134]	new[134]	_	Hajj[74]	cf6[71]|cf4[72]|cf2[74]	_	_
 11-17	1145-1155	pilgrimage	event[134]	new[134]	_	Hajj[74]	cf6[71]|cf4[72]|cf2[74]	_	_
 11-18	1156-1158	to	event[134]	new[134]	_	Hajj[74]	cf6[71]|cf4[72]|cf2[74]	_	_
-11-19	1159-1164	Mecca	event[134]|place[136]	new[134]|new[136]	_	Hajj[74]|Mecca[75]	cf6[71]|cf4[72]|cf2[74]|cf3[75]	coref	12-6[80_136]
+11-19	1159-1164	Mecca	place[136]|event[134]	new[136]|new[134]	_	Hajj[74]|Mecca[75]	cf6[71]|cf4[72]|cf2[74]|cf3[75]	coref	12-6[80_136]
 11-20	1165-1166	,	place[136]	new[136]	_	_	_	_	_
 11-21	1167-1172	Islam	place[136]	new[136]	_	Mecca[77]|Islam[78]	cf3[77]|cf5[78]	_	_
 11-22	1173-1175	's	place[136]	new[136]	_	Mecca[77]|Islam[78]	cf3[77]|cf5[78]	_	_
@@ -257,10 +262,10 @@
 #Text=As undergoing a pilgrimage to Mecca is a mandatory religious duty for all Muslims who physically and financially can , millions of pilgrims arrive in Mecca each year for the Hajj .
 12-1	1191-1193	As	_	_	_	_	_	_	_
 12-2	1194-1204	undergoing	_	_	_	_	_	_	_
-12-3	1205-1206	a	event[79]	giv:act[79]	sal[79]	Hajj[79]	cf1*[79]	coref	12-30[88_79]
-12-4	1207-1217	pilgrimage	event[79]	giv:act[79]	sal[79]	Hajj[79]	cf1*[79]	_	_
-12-5	1218-1220	to	event[79]	giv:act[79]	sal[79]	Hajj[79]	cf1*[79]	_	_
-12-6	1221-1226	Mecca	event[79]|place[80]	giv:act[79]|giv:act[80]	sal[79]|sal[80]	Hajj[79]|Mecca[80]	cf1*[79]|cf2[80]	coref	12-26[85_80]
+12-3	1205-1206	a	event[79]	giv:act[79]	sssss[79]	Hajj[79]	cf1*[79]	coref	12-30[88_79]
+12-4	1207-1217	pilgrimage	event[79]	giv:act[79]	sssss[79]	Hajj[79]	cf1*[79]	_	_
+12-5	1218-1220	to	event[79]	giv:act[79]	sssss[79]	Hajj[79]	cf1*[79]	_	_
+12-6	1221-1226	Mecca	event[79]|place[80]	giv:act[79]|giv:act[80]	sssss[79]|sssss[80]	Hajj[79]|Mecca[80]	cf1*[79]|cf2[80]	coref	12-26[85_80]
 12-7	1227-1229	is	_	_	_	_	_	_	_
 12-8	1230-1231	a	_	_	_	_	cf5[82]	_	_
 12-9	1232-1241	mandatory	_	_	_	_	cf5[82]	_	_
@@ -280,12 +285,12 @@
 12-23	1322-1330	pilgrims	_	_	_	_	cf3[84]	_	_
 12-24	1331-1337	arrive	_	_	_	_	_	_	_
 12-25	1338-1340	in	_	_	_	_	_	_	_
-12-26	1341-1346	Mecca	place[85]	giv:act[85]	sal[85]	Mecca[85]	cf2[85]	coref	13-25[98_85]
+12-26	1341-1346	Mecca	place[85]	giv:act[85]	sssss[85]	Mecca[85]	cf2[85]	coref	13-25[98_85]
 12-27	1347-1351	each	_	_	_	_	cf6[87]	_	_
 12-28	1352-1356	year	_	_	_	_	cf6[87]	_	_
 12-29	1357-1360	for	_	_	_	_	_	_	_
-12-30	1361-1364	the	event[88]	giv:act[88]	sal[88]	Hajj[88]	cf1*[88]	_	_
-12-31	1365-1369	Hajj	event[88]	giv:act[88]	sal[88]	Hajj[88]	cf1*[88]	_	_
+12-30	1361-1364	the	event[88]	giv:act[88]	sssss[88]	Hajj[88]	cf1*[88]	_	_
+12-31	1365-1369	Hajj	event[88]	giv:act[88]	sssss[88]	Hajj[88]	cf1*[88]	_	_
 12-32	1370-1371	.	_	_	_	_	_	_	_
 
 #Text=Construction was underway at the mosque in order to enlarge the mosque and improve crowd control , which has been a recurring problem during Mecca 's pilgrimages .
@@ -293,14 +298,14 @@
 13-2	1385-1388	was	_	_	_	_	_	_	_
 13-3	1389-1397	underway	_	_	_	_	_	_	_
 13-4	1398-1400	at	_	_	_	_	_	_	_
-13-5	1401-1404	the	place[91]	giv:inact[91]	sal[91]	Masjid_al%2DHaram[91]	cf1[91]	coref	13-11[92_91]
-13-6	1405-1411	mosque	place[91]	giv:inact[91]	sal[91]	Masjid_al%2DHaram[91]	cf1[91]	_	_
+13-5	1401-1404	the	place[91]	giv:inact[91]	sssss[91]	Masjid_al%2DHaram[91]	cf1[91]	coref	13-11[92_91]
+13-6	1405-1411	mosque	place[91]	giv:inact[91]	sssss[91]	Masjid_al%2DHaram[91]	cf1[91]	_	_
 13-7	1412-1414	in	_	_	_	_	_	_	_
 13-8	1415-1420	order	_	_	_	_	_	_	_
 13-9	1421-1423	to	_	_	_	_	_	_	_
 13-10	1424-1431	enlarge	_	_	_	_	_	_	_
-13-11	1432-1435	the	place[92]	giv:act[92]	sal[92]	Masjid_al%2DHaram[92]	cf1[92]	_	_
-13-12	1436-1442	mosque	place[92]	giv:act[92]	sal[92]	Masjid_al%2DHaram[92]	cf1[92]	_	_
+13-11	1432-1435	the	place[92]	giv:act[92]	sssss[92]	Masjid_al%2DHaram[92]	cf1[92]	_	_
+13-12	1436-1442	mosque	place[92]	giv:act[92]	sssss[92]	Masjid_al%2DHaram[92]	cf1[92]	_	_
 13-13	1443-1446	and	_	_	_	_	_	_	_
 13-14	1447-1454	improve	_	_	_	_	_	_	_
 13-15	1455-1460	crowd	_	_	_	_	cf3[93]|cf6[94]	_	_
@@ -313,8 +318,8 @@
 13-22	1488-1497	recurring	_	_	_	_	cf3[93]|cf3[96]	_	_
 13-23	1498-1505	problem	_	_	_	_	cf3[93]|cf3[96]	_	_
 13-24	1506-1512	during	_	_	_	_	cf3[93]|cf3[96]	_	_
-13-25	1513-1518	Mecca	place[98]	giv:act[98]	sal[98]	Hajj[97]|Mecca[98]	cf3[93]|cf3[96]|cf4[97]|cf2*[98]	_	_
-13-26	1519-1521	's	place[98]	giv:act[98]	sal[98]	Hajj[97]|Mecca[98]	cf3[93]|cf3[96]|cf4[97]|cf2*[98]	_	_
+13-25	1513-1518	Mecca	place[98]	giv:act[98]	sssss[98]	Hajj[97]|Mecca[98]	cf3[93]|cf3[96]|cf4[97]|cf2*[98]	_	_
+13-26	1519-1521	's	place[98]	giv:act[98]	sssss[98]	Hajj[97]|Mecca[98]	cf3[93]|cf3[96]|cf4[97]|cf2*[98]	_	_
 13-27	1522-1533	pilgrimages	_	_	_	Hajj[97]	cf3[93]|cf3[96]|cf4[97]	_	_
 13-28	1534-1535	.	_	_	_	_	_	_	_
 

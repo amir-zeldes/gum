@@ -17,7 +17,7 @@
       <xs:attribute name="id" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="GUM_(bio|academic|reddit|fiction|news|whow|voyage|interview|conversation|speech|textbook|vlog|court|essay|letter|podcast)_[a-z]+[0-9]?"/>
+            <xs:pattern value="(GUM|GENTLE)_(bio|academic|reddit|fiction|news|whow|voyage|interview|conversation|speech|textbook|vlog|essay|podcast|letter|court|threat|proof|esports|poetry|dictionary|medical|legal|syllabus)_[a-z]+[0-9]?"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -31,18 +31,6 @@
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:pattern value="[a-z]+[0-9]*"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
-    <xs:attribute name="summary" use="required">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
-    <xs:attribute name="summary2" use="optional">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -113,6 +101,14 @@
             <xs:enumeration value="essay"/>
             <xs:enumeration value="letter"/>
             <xs:enumeration value="podcast"/>
+            <xs:enumeration value="threat"/>
+            <xs:enumeration value="medical"/>
+            <xs:enumeration value="syllabus"/>
+            <xs:enumeration value="proof"/>
+            <xs:enumeration value="poetry"/>
+            <xs:enumeration value="legal"/>
+            <xs:enumeration value="dictionary"/>
+            <xs:enumeration value="esports"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -246,6 +242,7 @@
     <xs:complexType mixed="true">
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element ref="w"/>
+        <xs:element ref="sic"/>
         <xs:element ref="ref"/>
       </xs:choice>
       <xs:attribute name="from" type="xs:string"/>
@@ -285,6 +282,7 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="q"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="sic"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="date"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="time"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -5,35 +5,39 @@
 # meta::dateCreated = 2005-05-11
 # meta::dateModified = 2019-09-15
 # meta::genre = bio
-# meta::salientEntities = 1, 9, 12, 44, 69, 71
+# meta::salientEntities = 1 (5*), 9 (5*), 69 (5*), 12 (4*), 37 (3), 71 (3*), 84 (3), 4 (2), 13 (2*), 33 (2), 98 (2), 103 (2), 109 (2), 19 (1), 44 (1*), 45 (1*), 60 (1), 91 (1), 125 (1), 136 (1), 138 (1), 139 (1), 140 (1), 142 (1), 143 (1), 144 (1)
 # meta::sourceURL = https://en.wikipedia.org/wiki/Matthew_Goode
 # meta::speakerCount = 0
-# meta::summary = Matthew Goode is an English actor known for his roles in the romantic comedy Chasing Liberty (2004) and Burning Man (2011), as well as television roles including in the series Downton Abbey and The Good Wife.
+# meta::summary1 = (human1) Matthew Goode is an English actor known for his roles in the romantic comedy Chasing Liberty (2004) and Burning Man (2011), as well as television roles including in the series Downton Abbey and The Good Wife.
+# meta::summary2 = (claude-3-5-sonnet-20241022) Matthew Goode is an English actor who rose to fame with 2004's Chasing Liberty and went on to star in numerous films and TV shows, including Watchmen, Downton Abbey, The Crown, and A Discovery of Witches.
+# meta::summary3 = (gpt4o; postedited) Matthew Goode, born in 1978, is an English actor known for films like Chasing Liberty, Brideshead Revisited, and The Imitation Game, plus TV series Downton Abbey and The Crown, who was educated at Exeter School, the University of Birmingham, and the Webber Douglas Academy of Dramatic Art, and is married to Sophie Dymoke, with whom he has has three children.
+# meta::summary4 = (Llama-3.2-3B-Instruct) Matthew Goode is an English character actor born in 1978, known for his roles in films like Chasing Liberty, Match Point, and Watchmen, as well as television shows like Downton Abbey and The Good Wife.
+# meta::summary5 = (Qwen2.5-7B-Instruct; postedited) English actor Matthew Goode, known for films like “Brideshead Revisited,” and “Watchmen,” and TV series such as “The Crown,” “Downton Abbey” and “The Good Wife,” is married to Sophie Dymoke since 2014 with three children.
 # meta::title = Matthew Goode
+# newpar
+# newpar_block = head (1 s)
 # sent_id = GUM_bio_goode-1
 # s_prominence = 2
 # s_type = frag
 # transition = establishment
 # text = Matthew Goode
-# newpar
-# newpar_block = head (1 s)
 1	Matthew	Matthew	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=organization-heading:1->2:4:grf-ly-+sem-synym-1-11|Entity=(1
 2	Goode	Goode	PROPN	NNP	Number=Sing	1	flat	1:flat	Entity=1)
 
+# newpar
+# newpar_block = p (6 s)
 # sent_id = GUM_bio_goode-2
 # s_prominence = 1
 # s_type = decl
 # transition = establishment
 # text = Matthew William Goode (born 3 April 1978) is an English character actor.
-# newpar
-# newpar_block = p (6 s)
 1	Matthew	Matthew	PROPN	NNP	Number=Sing	14	nsubj	14:nsubj	Discourse=ROOT:2:0|Entity=(1|XML=<hi rend:::"bold">
 2	William	William	PROPN	NNP	Number=Sing	1	flat	1:flat	_
 3	Goode	Goode	PROPN	NNP	Number=Sing	1	flat	1:flat	XML=</hi>
 4	(	(	PUNCT	-LRB-	_	5	punct	5:punct	Discourse=elaboration-additional:3->2:0:grf-prn-6,11|SpaceAfter=No
 5	born	bear	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	1	parataxis	1:parataxis	_
 6	3	3	NUM	CD	NumForm=Digit|NumType=Card	5	obl:unmarked	5:obl:unmarked	XML=<date when:::"1978-04-03">
-7	April	April	PROPN	NNP	Number=Sing	6	compound	6:compound	_
+7	April	April	PROPN	NNP	Number=Sing	6	nmod:unmarked	6:nmod:unmarked	_
 8	1978	1978	NUM	CD	NumForm=Digit|NumType=Card	6	nmod:unmarked	6:nmod:unmarked	SpaceAfter=No|XML=</date>
 9	)	)	PUNCT	-RRB-	_	5	punct	5:punct	Entity=1)
 10	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	14	cop	14:cop	Discourse=same-unit_m:4->2:1:_
@@ -187,7 +191,7 @@
 18-19	Waugh's	_	_	_	_	_	_	_	_
 18	Waugh	Waugh	PROPN	NNP	Number=Sing	17	flat	17:flat	XML=</ref>
 19	's	's	PART	POS	_	17	case	17:case	_
-20	Brideshead	Brideshead	PROPN	NNP	Number=Sing	15	nmod	15:nmod:of	XML=<ref target:::"https://en.wikipedia.org/wiki/Brideshead_Revisited_(film)">
+20	Brideshead	Brideshead	PROPN	NNP	Number=Sing	15	nmod	15:nmod:of	MSeg=Bride-s-head|XML=<ref target:::"https://en.wikipedia.org/wiki/Brideshead_Revisited_(film)">
 21	Revisited	Revisited	PROPN	NNP	Number=Sing	20	acl	20:acl	MSeg=Re-visit-ed|XML=</ref>
 22	(	(	PUNCT	-LRB-	_	23	punct	23:punct	Discourse=context-circumstance:16->15:0:lex-indwd-137|SpaceAfter=No
 23	2008	2008	NUM	CD	NumForm=Digit|NumType=Card	20	nmod:unmarked	20:nmod:unmarked	SpaceAfter=No|XML=<date when:::"2008"></date>
@@ -250,10 +254,10 @@
 20	,	,	PUNCT	,	_	23	punct	23:punct	_
 21	the	the	DET	DT	Definite=Def|PronType=Art	22	det	22:det	Discourse=causal-result:24->20:2:_|Entity=(4
 22	latter	latter	ADJ	JJ	Degree=Pos	23	nsubj	23:nsubj	Entity=4)
-23	earning	earn	VERB	VBG	Tense=Pres|VerbForm=Part	3	advcl	3:advcl	Cxn=Ditransitive|CxnElt=DitrV|MSeg=earn-ing
-24	him	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	23	iobj	23:iobj	CxnElt=DitrRec|Entity=(1)
+23	earning	earn	VERB	VBG	Tense=Pres|VerbForm=Part	3	advcl	3:advcl	Cxn=Ditransitive|CxnElt=23:Ditransitive.V|MSeg=earn-ing
+24	him	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	23	iobj	23:iobj	CxnElt=23:Ditransitive.Rec|Entity=(1)
 25	a	a	DET	DT	Definite=Ind|PronType=Art	26	det	26:det	_
-26	nomination	nomination	NOUN	NN	Number=Sing	23	obj	23:obj	CxnElt=DitrTheme|MSeg=nominat-ion
+26	nomination	nomination	NOUN	NN	Number=Sing	23	obj	23:obj	CxnElt=23:Ditransitive.Theme|MSeg=nominat-ion
 27	for	for	ADP	IN	_	29	case	29:case	_
 28	Best	good	ADJ	JJS	Degree=Sup	29	amod	29:amod	MSeg=Be-st
 29	Actor	actor	NOUN	NN	Number=Sing	26	nmod	26:nmod:for	MSeg=Act-or
@@ -267,13 +271,13 @@
 37	Awards	Award	PROPN	NNPS	Number=Plur	26	nmod	26:nmod:at	MSeg=Award-s|SpaceAfter=No|XML=</ref>
 38	.	.	PUNCT	.	_	3	punct	3:punct	_
 
+# newpar
+# newpar_block = p (6 s)
 # sent_id = GUM_bio_goode-8
 # s_prominence = 2
 # s_type = decl
 # transition = smooth-shift
 # text = Other notable film roles include The Lookout (2007), A Single Man (2009), Cemetery Junction (2010), Stoker (2013), Belle (2013), The Imitation Game (2014) and Self/less (2015).
-# newpar
-# newpar_block = p (6 s)
 1	Other	other	ADJ	JJ	Degree=Pos	4	amod	4:amod	Discourse=joint-list_m:25->5:1:_
 2	notable	notable	ADJ	JJ	Degree=Pos	4	amod	4:amod	MSeg=not-able
 3	film	film	NOUN	NN	Number=Sing	4	compound	4:compound	_
@@ -326,7 +330,7 @@
 # s_type = decl
 # transition = zero
 # text = As well as appearing in films, Goode has appeared in numerous television shows.
-1	As	as	ADV	RB	_	4	mark	4:mark	Discourse=organization-preparation:39->40:0:sem-lxchn-255,261|PDTB=Explicit:Expansion.Conjunction:as well as:252-254:259-266:255-258
+1	As	as	ADV	RB	ExtPos=SCONJ	4	mark	4:mark	Discourse=organization-preparation:39->40:0:sem-lxchn-255,261|PDTB=Explicit:Expansion.Conjunction:as well as:252-254:259-266:255-258
 2	well	well	ADV	RB	Degree=Pos	1	fixed	1:fixed	_
 3	as	as	ADP	IN	_	1	fixed	1:fixed	_
 4	appearing	appear	VERB	VBG	Tense=Pres|VerbForm=Part	10	advcl	10:advcl:as_well_as	MSeg=appear-ing
@@ -368,9 +372,9 @@
 19	,	,	PUNCT	,	_	21	punct	21:punct	_
 20	and	and	CCONJ	CC	_	21	cc	21:cc	_
 21	Finley	Finley	PROPN	NNP	Number=Sing	7	conj	6:obj|7:conj:and	_
-22	"	''	PUNCT	``	_	23	punct	23:punct	SpaceAfter=No|XML=<q>
+22	"	"	PUNCT	``	_	23	punct	23:punct	SpaceAfter=No|XML=<q>
 23	Finn	Finn	PROPN	NNP	Number=Sing	21	flat	21:flat	SpaceAfter=No
-24	"	''	PUNCT	''	_	23	punct	23:punct	XML=</q>
+24	"	"	PUNCT	''	_	23	punct	23:punct	XML=</q>
 25	Polmar	Polmar	PROPN	NNP	Number=Sing	21	flat	21:flat	_
 26	in	in	ADP	IN	_	30	case	30:case	_
 27	the	the	DET	DT	Definite=Def|PronType=Art	30	det	30:det	_
@@ -504,11 +508,11 @@
 14	Discovery	Discovery	PROPN	NNP	Number=Sing	11	appos	11:appos	MSeg=Dis-cover-y
 15	of	of	ADP	IN	_	16	case	16:case	_
 16	Witches	Witches	PROPN	NNP	Number=Sing	14	nmod	14:nmod:of	SpaceAfter=No|XML=</ref>
-17	,	,	PUNCT	,	_	19	punct	19:punct	_
-18	as	as	ADP	IN	_	19	case	19:case	_
-19	Professor	Professor	PROPN	NNP	Number=Sing	3	obl	3:obl:as	MSeg=Profess-or
-20	Matthew	Matthew	PROPN	NNP	Number=Sing	19	flat	19:flat	_
-21	Clairmont	Clairmont	PROPN	NNP	Number=Sing	19	flat	19:flat	_
+17	,	,	PUNCT	,	_	20	punct	20:punct	_
+18	as	as	ADP	IN	_	20	case	20:case	_
+19	Professor	Professor	PROPN	NNP	Number=Sing	20	nmod:desc	20:nmod:desc	MSeg=Profess-or
+20	Matthew	Matthew	PROPN	NNP	Number=Sing	3	obl	3:obl:as	_
+21	Clairmont	Clairmont	PROPN	NNP	Number=Sing	20	flat	20:flat	_
 22	and	and	CCONJ	CC	_	24	cc	24:cc	Discourse=joint-list_m:48->47:0:sem-lxchn-391,412+dm-and-410|PDTB=Explicit:Expansion.Conjunction:and:410:389-409:411-423
 23	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	24	aux	24:aux	_
 24	filming	film	VERB	VBG	Tense=Pres|VerbForm=Part	3	conj	3:conj:and	MSeg=film-ing
@@ -526,23 +530,23 @@
 34	Man	man	NOUN	NN	Number=Sing	29	appos	29:appos	SpaceAfter=No|XML=</ref>
 35	.	.	PUNCT	.	_	3	punct	3:punct	_
 
+# newpar
+# newpar_block = head rend:::"bold" (1 s)
 # sent_id = GUM_bio_goode-14
 # s_prominence = 3
 # s_type = frag
 # transition = zero
 # text = Personal life
-# newpar
-# newpar_block = head rend:::"bold" (1 s)
 1	Personal	personal	ADJ	JJ	Degree=Pos	2	amod	2:amod	Discourse=organization-heading:49->50:3:grf-ly-|MSeg=Person-al
 2	life	life	NOUN	NN	Number=Sing	0	root	0:root	_
 
+# newpar
+# newpar_block = p (3 s)
 # sent_id = GUM_bio_goode-15
 # s_prominence = 2
 # s_type = decl
 # transition = null
 # text = Goode has been in a relationship with Sophie Dymoke since 2005.
-# newpar
-# newpar_block = p (3 s)
 1	Goode	Goode	PROPN	NNP	Number=Sing	6	nsubj	6:nsubj	Discourse=elaboration-additional:50->2:3:sem-synym-3-11,426|Entity=(1)
 2	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	aux	6:aux	MSeg=ha-s
 3	been	be	AUX	VBN	Tense=Past|VerbForm=Part	6	cop	6:cop	_
@@ -628,13 +632,13 @@
 # text = Career
 1	Career	career	NOUN	NN	Number=Sing	0	root	0:root	Discourse=organization-preparation:63->64:2:_
 
+# newpar
+# newpar_block = p (2 s)
 # sent_id = GUM_bio_goode-19
 # s_prominence = 2
 # s_type = decl
 # transition = null
 # text = Goode played Peter Lynley, the brother of Inspector Lynley in the BBC production Inspector Lynley Mysteries: A Suitable Vengeance and co-starred in the TV film Confessions of an Ugly Stepsister, based on the Gregory Maguire novel of the same name and William Shakespeare's play The Tempest.
-# newpar
-# newpar_block = p (2 s)
 1	Goode	Goode	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj|23:nsubj	Discourse=joint-other_m:64->50:4:_|Entity=(1)
 2	played	play	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=play-ed
 3	Peter	Peter	PROPN	NNP	Number=Sing	2	obj	2:obj	MSeg=Pet-er
@@ -642,15 +646,15 @@
 5	,	,	PUNCT	,	_	7	punct	7:punct	_
 6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	_
 7	brother	brother	NOUN	NN	Number=Sing	3	appos	3:appos	_
-8	of	of	ADP	IN	_	9	case	9:case	_
-9	Inspector	Inspector	PROPN	NNP	Number=Sing	7	nmod	7:nmod:of	Entity=(6|MSeg=Inspect-or
-10	Lynley	Lynley	PROPN	NNP	Number=Sing	9	flat	9:flat	Entity=6)
+8	of	of	ADP	IN	_	10	case	10:case	_
+9	Inspector	Inspector	PROPN	NNP	Number=Sing	10	nmod:desc	10:nmod:desc	Entity=(6|MSeg=Inspect-or
+10	Lynley	Lynley	PROPN	NNP	Number=Sing	7	nmod	7:nmod:of	Entity=6)
 11	in	in	ADP	IN	_	14	case	14:case	_
 12	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	_
 13	BBC	BBC	PROPN	NNP	Abbr=Yes|Number=Sing	14	compound	14:compound	_
 14	production	production	NOUN	NN	Number=Sing	2	obl	2:obl:in	MSeg=produc-t-ion
-15	Inspector	Inspector	PROPN	NNP	Number=Sing	17	compound	17:compound	Entity=(6|MSeg=Inspect-or
-16	Lynley	Lynley	PROPN	NNP	Number=Sing	15	flat	15:flat	Entity=6)|XML=<hi rend:::"italic"><ref target:::"https://en.wikipedia.org/wiki/The_Inspector_Lynley_Mysteries">
+15	Inspector	Inspector	PROPN	NNP	Number=Sing	16	nmod:desc	16:nmod:desc	Entity=(6|MSeg=Inspect-or
+16	Lynley	Lynley	PROPN	NNP	Number=Sing	17	compound	17:compound	Entity=6)|XML=<hi rend:::"italic"><ref target:::"https://en.wikipedia.org/wiki/The_Inspector_Lynley_Mysteries">
 17	Mysteries	Mystery	PROPN	NNPS	Number=Plur	14	appos	14:appos	MSeg=Mysterie-s|SpaceAfter=No|XML=</ref>
 18	:	:	PUNCT	:	_	21	punct	21:punct	_
 19	A	a	DET	DT	Definite=Ind|PronType=Art	21	det	21:det	Discourse=elaboration-additional:65->64:0:sem-synym-503-512+grf-col-509
@@ -721,20 +725,20 @@
 1	Early	early	ADJ	JJ	Degree=Pos	2	amod	2:amod	Discourse=organization-preparation:69->70:1:_
 2	life	life	NOUN	NN	Number=Sing	0	root	0:root	_
 
+# newpar
+# newpar_block = p (5 s)
 # sent_id = GUM_bio_goode-22
 # s_prominence = 2
 # s_type = decl
 # transition = null
 # text = Goode was born in Exeter, Devon.
-# newpar
-# newpar_block = p (5 s)
 1	Goode	Goode	PROPN	NNP	Number=Sing	3	nsubj:pass	3:nsubj:pass	Discourse=joint-other_m:70->50:4:_|Entity=(1)
 2	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	aux:pass	3:aux:pass	_
 3	born	bear	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
 4	in	in	ADP	IN	_	5	case	5:case	_
 5	Exeter	Exeter	PROPN	NNP	Number=Sing	3	obl	3:obl:in	Entity=(7|SpaceAfter=No|XML=<ref target:::"https://en.wikipedia.org/wiki/Exeter"></ref>
 6	,	,	PUNCT	,	_	7	punct	7:punct	_
-7	Devon	Devon	PROPN	NNP	Number=Sing	5	appos	5:appos	Entity=7)(8)|SpaceAfter=No|XML=<ref target:::"https://en.wikipedia.org/wiki/Devon"></ref>
+7	Devon	Devon	PROPN	NNP	Number=Sing	5	nmod:unmarked	5:nmod:unmarked	Entity=7)(8)|SpaceAfter=No|XML=<ref target:::"https://en.wikipedia.org/wiki/Devon"></ref>
 8	.	.	PUNCT	.	_	3	punct	3:punct	_
 
 # sent_id = GUM_bio_goode-23
@@ -776,7 +780,7 @@
 4	youngest	young	ADJ	JJS	Degree=Sup	0	root	0:root	MSeg=young-est
 5	of	of	ADP	IN	_	7	case	7:case	_
 6	five	five	NUM	CD	NumForm=Word|NumType=Card	7	nummod	7:nummod	_
-7	children	child	NOUN	NNS	Number=Plur	4	nmod	4:nmod:of	MSeg=child-ren
+7	children	child	NOUN	NNS	Number=Plur	4	obl	4:obl:of	MSeg=child-ren
 8	with	with	ADP	IN	_	10	case	10:case	_
 9	a	a	DET	DT	Definite=Ind|PronType=Art	10	det	10:det	_
 10	brother	brother	NOUN	NN	Number=Sing	7	nmod	7:nmod:with	SpaceAfter=No
@@ -847,7 +851,7 @@
 11	in	in	ADP	IN	_	12	case	12:case	_
 12	Exeter	Exeter	PROPN	NNP	Number=Sing	10	nmod	10:nmod:in	Entity=(7|SpaceAfter=No
 13	,	,	PUNCT	,	_	14	punct	14:punct	_
-14	Devon	Devon	PROPN	NNP	Number=Sing	12	appos	12:appos	Entity=7)(8)|SpaceAfter=No
+14	Devon	Devon	PROPN	NNP	Number=Sing	12	nmod:unmarked	12:nmod:unmarked	Entity=7)(8)|SpaceAfter=No
 15	,	,	PUNCT	,	_	6	punct	6:punct	_
 16	[	[	PUNCT	-LRB-	_	17	punct	17:punct	Discourse=explanation-evidence:77->76:0:grf-prn-660,662|SpaceAfter=No|XML=<ref>
 17	4	4	NUM	CD	NumForm=Digit|NumType=Card	3	dep	3:dep	SpaceAfter=No

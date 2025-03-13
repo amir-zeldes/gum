@@ -1,0 +1,403 @@
+#FORMAT=WebAnno TSV 3.2
+#T_SP=webanno.custom.Referent|entity|infstat|salience|identity|centering
+#T_RL=webanno.custom.Coref|type|BT_webanno.custom.Referent
+#Summary1=(human1) On May 30, Marcie Rickenbacker writes a letter to her Mum from Abbot Academy about school acceptances, exams, a love interest named Brendan and his academic endeavors, and other small monetary matters, and also writes about trouble she has shipping things home.
+#Summary2=(claude-3-5-sonnet-20241022) In a letter to her mother, Marcie discusses school concerns like exams and coed options, mentions sending a package home, shares news about Brendan going to Antioch, requests five dollars for her return trip home, and sends greetings to family.
+#Summary3=(gpt4o) On May 30, Marcie writes to her mom thanking her for her note, expressing concerns about choosing a coed school, detailing her mailing logistics and upcoming exams, sharing news about her boyfriend potentially starting at Antioch, requesting five dollars for expenses, asking about a check, and hoping for good weather to study outside, while sending regards to everyone.
+#Summary4=(Meta-Llama-3-8B-Instruct) Marcie writes to her mother about receiving her note, plans for exams and a potential summer setback with her boyfriend Brendan, and asks for money to cover expenses on her way home.
+#Summary5=(Qwen2.5-7B-Instruct) Marcie writes to her mother about receiving a letter, her concerns about attending a northern coeducational school, sending items via postal mail due to issues with UPS, upcoming exams, the impending departure of her boyfriend Brendan, and her request for money to cover expenses and send a gift.
+
+
+#Text=Miss Marcie Rickenbacker
+1-1	0-4	Miss	person[1]	new[1]	sssss[1]	_	cf1[1]	ana	8-3[26_1]	
+1-2	5-11	Marcie	person[1]	new[1]	sssss[1]	_	cf1[1]	_	_	
+1-3	12-24	Rickenbacker	person[1]	new[1]	sssss[1]	_	cf1[1]	_	_	
+
+#Text=Abbot Academy
+2-1	25-30	Abbot	organization[2]|person[3]	new[2]|new[3]	snnnn[2]|nnnnn[3]	Abbot_Academy[2]	cf1[2]|cf2[3]	_	_	
+2-2	31-38	Academy	organization[2]	new[2]	snnnn[2]	Abbot_Academy[2]	cf1[2]	_	_	
+
+#Text=Andover , Massachusetts 01810
+3-1	39-46	Andover	place[5]|place[6]	new[5]|new[6]	nnnnn[5]|nnnnn[6]	Andover%2C_Massachusetts[6]	cf1[5]|cf2[6]	_	_	
+3-2	47-48	,	place[5]|place[6]	new[5]|new[6]	nnnnn[5]|nnnnn[6]	Andover%2C_Massachusetts[6]	cf1[5]|cf2[6]	_	_	
+3-3	49-62	Massachusetts	place[5]|place[6]|place[7]	new[5]|new[6]|new[7]	nnnnn[5]|nnnnn[6]|nnnnn[7]	Andover%2C_Massachusetts[6]|Massachusetts[7]	cf1[5]|cf2[6]|cf3[7]	_	_	
+3-4	63-68	01810	place[5]	new[5]	nnnnn[5]	_	cf1[5]	_	_	
+
+#Text=May 30
+4-1	69-72	May	time[9]|time[10]	new[9]|new[10]	snsnn[9]|snsnn[10]	_	cf2[9]|cf1[10]	coref|coref	6-4[16_9]|16-11[96_10]	
+4-2	73-75	30	time[9]	new[9]	snsnn[9]	_	cf2[9]	_	_	
+
+#Text=Mum ,
+5-1	76-79	Mum	person[11]	new[11]	ssnns[11]	_	cf1[11]	ana	6-2[15_11]	
+5-2	80-81	,	_	_	_	_	_	_	_	
+
+#Text=Got your note today , many thanks , it was good to hear from you .
+6-1	82-85	Got	_	_	_	_	_	_	_	
+6-2	86-90	your	object[14]|person[15]	new[14]|giv:act[15]	nnnsn[14]|ssnns[15]	_	cf4[14]|cf1*[15]	ana	6-15[23_15]	
+6-3	91-95	note	object[14]	new[14]	nnnsn[14]	_	cf4[14]	_	_	
+6-4	96-101	today	time[16]	giv:inact[16]	snsnn[16]	_	cf2[16]	coref	11-3[51_16]	
+6-5	102-103	,	_	_	_	_	_	_	_	
+6-6	104-108	many	abstract[19]	new[19]	nnnnn[19]	_	cf5[19]	_	_	
+6-7	109-115	thanks	abstract[19]	new[19]	nnnnn[19]	_	cf5[19]	_	_	
+6-8	116-117	,	_	_	_	_	_	_	_	
+6-9	118-120	it	event[20]	new[20]	nnnnn[20]	_	cf3[20]	_	_	
+6-10	121-124	was	_	_	_	_	_	_	_	
+6-11	125-129	good	_	_	_	_	_	_	_	
+6-12	130-132	to	event[22]	acc:com[22]	n____[22]	_	cf3[22]	cata	6-9[20_22]	
+6-13	133-137	hear	event[22]	acc:com[22]	n____[22]	_	cf3[22]	_	_	
+6-14	138-142	from	event[22]	acc:com[22]	n____[22]	_	cf3[22]	_	_	
+6-15	143-146	you	event[22]|person[23]	acc:com[22]|giv:act[23]	n____[22]|ssnns[23]	_	cf3[22]|cf1*[23]	ana	7-3[24_23]	
+6-16	147-148	.	_	_	_	_	_	_	_	
+
+#Text=What did you do with duck ?
+7-1	149-153	What	_	_	_	_	_	_	_	
+7-2	154-157	did	_	_	_	_	_	_	_	
+7-3	158-161	you	person[24]	giv:act[24]	ssnns[24]	_	cf1*[24]	ana	19-10[128_24]	
+7-4	162-164	do	_	_	_	_	_	_	_	
+7-5	165-169	with	_	_	_	_	_	_	_	
+7-6	170-174	duck	substance[25]	new[25]	nnnnn[25]	_	cf2[25]	_	_	
+7-7	175-176	?	_	_	_	_	_	_	_	
+
+#Text=What am I going to do about that coed school in the north ?
+8-1	177-181	What	_	_	_	_	_	_	_	
+8-2	182-184	am	_	_	_	_	_	_	_	
+8-3	185-186	I	person[26]	giv:inact[26]	sssss[26]	_	cf1[26]	ana	9-12[34_26]	
+8-4	187-192	going	_	_	_	_	_	_	_	
+8-5	193-195	to	_	_	_	_	_	_	_	
+8-6	196-198	do	_	_	_	_	_	_	_	
+8-7	199-204	about	_	_	_	_	_	_	_	
+8-8	205-209	that	organization[31]	acc:com[31]	nnnnn[31]	_	cf2[31]	bridge:other	9-4[33_31]	
+8-9	210-214	coed	organization[31]	acc:com[31]	nnnnn[31]	_	cf2[31]	_	_	
+8-10	215-221	school	organization[31]	acc:com[31]	nnnnn[31]	_	cf2[31]	_	_	
+8-11	222-224	in	organization[31]	acc:com[31]	nnnnn[31]	_	cf2[31]	_	_	
+8-12	225-228	the	organization[31]|place[32]	acc:com[31]|new[32]	nnnnn[31]|nnnnn[32]	_	cf2[31]|cf3[32]	_	_	
+8-13	229-234	north	organization[31]|place[32]	acc:com[31]|new[32]	nnnnn[31]|nnnnn[32]	_	cf2[31]|cf3[32]	_	_	
+8-14	235-236	?	_	_	_	_	_	_	_	
+
+#Text=There are n’t very many good ones around , ( that I could get into ) .
+9-1	237-242	There	_	_	_	_	_	_	_	
+9-2	243-246	are	_	_	_	_	_	_	_	
+9-3	247-250	n’t	_	_	_	_	_	_	_	
+9-4	251-255	very	organization[33]	acc:inf[33]	nnnnn[33]	_	cf2[33]	_	_	
+9-5	256-260	many	organization[33]	acc:inf[33]	nnnnn[33]	_	cf2[33]	_	_	
+9-6	261-265	good	organization[33]	acc:inf[33]	nnnnn[33]	_	cf2[33]	_	_	
+9-7	266-270	ones	organization[33]	acc:inf[33]	nnnnn[33]	_	cf2[33]	_	_	
+9-8	271-277	around	organization[33]	acc:inf[33]	nnnnn[33]	_	cf2[33]	_	_	
+9-9	278-279	,	organization[33]	acc:inf[33]	nnnnn[33]	_	cf2[33]	_	_	
+9-10	280-281	(	organization[33]	acc:inf[33]	nnnnn[33]	_	cf2[33]	_	_	
+9-11	282-286	that	organization[33]	acc:inf[33]	nnnnn[33]	_	cf2[33]	_	_	
+9-12	287-288	I	organization[33]|person[34]	acc:inf[33]|giv:act[34]	nnnnn[33]|sssss[34]	_	cf2[33]|cf1*[34]	ana	11-4[52_34]	
+9-13	289-294	could	organization[33]	acc:inf[33]	nnnnn[33]	_	cf2[33]	_	_	
+9-14	295-298	get	organization[33]	acc:inf[33]	nnnnn[33]	_	cf2[33]	_	_	
+9-15	299-303	into	organization[33]	acc:inf[33]	nnnnn[33]	_	cf2[33]	_	_	
+9-16	304-305	)	organization[33]	acc:inf[33]	nnnnn[33]	_	cf2[33]	_	_	
+9-17	306-307	.	_	_	_	_	_	_	_	
+
+#Text=We ca n’t send stuff UPS because it ’s out of Boston and for some reason it ’s too much trouble .
+10-1	308-310	We	person[35]	acc:com[35]	nnnnn[35]	_	cf2[35]	_	_	
+10-2	311-313	ca	_	_	_	_	_	_	_	
+10-3	314-317	n’t	_	_	_	_	_	_	_	
+10-4	318-322	send	event[38]	new[38]	nnnns[38]	_	cf1[38]	disc	10-8[41_38]	
+10-5	323-328	stuff	event[38]|object[39]	new[38]|new[39]	nnnns[38]|nnnnn[39]	_	cf1[38]|cf3[39]	_	_	
+10-6	329-332	UPS	event[38]|organization[40]	new[38]|new[40]	nnnns[38]|nnnns[40]	United_Parcel_Service[40]	cf1[38]|cf4[40]	_	_	
+10-7	333-340	because	_	_	_	_	_	_	_	
+10-8	341-343	it	event[41]	giv:act[41]	nnnns[41]	_	cf1[41]	ana	10-17[48_41]	
+10-9	344-346	’s	_	_	_	_	_	_	_	
+10-10	347-350	out	_	_	_	_	_	_	_	
+10-11	351-353	of	_	_	_	_	_	_	_	
+10-12	354-360	Boston	place[42]	new[42]	nnnnn[42]	Boston[42]	cf5[42]	_	_	
+10-13	361-364	and	_	_	_	_	_	_	_	
+10-14	365-368	for	_	_	_	_	_	_	_	
+10-15	369-373	some	abstract[47]	new[47]	nnnnn[47]	_	cf6[47]	_	_	
+10-16	374-380	reason	abstract[47]	new[47]	nnnnn[47]	_	cf6[47]	_	_	
+10-17	381-383	it	event[48]	giv:act[48]	nnnns[48]	_	cf1[48]	pred	10-19[50_48]	
+10-18	384-386	’s	_	_	_	_	_	_	_	
+10-19	387-390	too	event[50]	giv:act[50]	nnnns[50]	_	cf1[50]	_	_	
+10-20	391-395	much	event[50]	giv:act[50]	nnnns[50]	_	cf1[50]	_	_	
+10-21	396-403	trouble	event[50]	giv:act[50]	nnnns[50]	_	cf1[50]	_	_	
+10-22	404-405	.	_	_	_	_	_	_	_	
+
+#Text=So ^ Today I sent a box of stuff home regular ( parcel post ) mail .
+11-1	406-408	So	_	_	_	_	_	_	_	
+11-2	409-410	^	_	_	_	_	_	_	_	
+11-3	411-416	Today	time[51]	giv:inact[51]	snsnn[51]	_	cf2[51]	bridge:other|bridge:other|coref	13-5[71_51]|23-11[164_51]|24-1[165_51]	
+11-4	417-418	I	person[52]	giv:inact[52]	sssss[52]	_	cf1[52]	ana	12-12[65_52]	
+11-5	419-423	sent	_	_	_	_	_	_	_	
+11-6	424-425	a	object[55]	new[55]	ssnsn[55]	_	cf4[55]	bridge:def	12-4[63_55]	
+11-7	426-429	box	object[55]	new[55]	ssnsn[55]	_	cf4[55]	_	_	
+11-8	430-432	of	object[55]	new[55]	ssnsn[55]	_	cf4[55]	_	_	
+11-9	433-438	stuff	object[55]|object[56]	new[55]|new[56]	ssnsn[55]|nnnnn[56]	_	cf4[55]|cf5[56]	_	_	
+11-10	439-443	home	place[57]	acc:com[57]	ssnsn[57]	_	cf3[57]	coref	19-26[135_57]	
+11-11	444-451	regular	abstract[60]	new[60]	nnnnn[60]	_	cf6[60]	_	_	
+11-12	452-453	(	abstract[60]	new[60]	nnnnn[60]	_	cf6[60]	_	_	
+11-13	454-460	parcel	abstract[60]|abstract[61]	new[60]|new[61]	nnnnn[60]|nnnnn[61]	_	cf6[60]|cf7[61]	_	_	
+11-14	461-465	post	abstract[60]|abstract[61]	new[60]|new[61]	nnnnn[60]|nnnnn[61]	_	cf6[60]|cf7[61]	_	_	
+11-15	466-467	)	abstract[60]	new[60]	nnnnn[60]	_	cf6[60]	_	_	
+11-16	468-472	mail	abstract[60]	new[60]	nnnnn[60]	_	cf6[60]	_	_	
+11-17	473-474	.	_	_	_	_	_	_	_	
+
+#Text=Mrs. B put the postage on ( 80 ¢ ) but I just know it ’s not going to be enough .
+12-1	475-479	Mrs.	person[62]	new[62]	nnnnn[62]	_	cf3[62]	_	_	
+12-2	480-481	B	person[62]	new[62]	nnnnn[62]	_	cf3[62]	_	_	
+12-3	482-485	put	_	_	_	_	_	_	_	
+12-4	486-489	the	object[63]	acc:inf[63]	nnnnn[63]	_	cf2[63]	coref	12-8[64_63]	
+12-5	490-497	postage	object[63]	acc:inf[63]	nnnnn[63]	_	cf2[63]	_	_	
+12-6	498-500	on	_	_	_	_	_	_	_	
+12-7	501-502	(	_	_	_	_	_	_	_	
+12-8	503-505	80	object[64]	giv:act[64]	n____[64]	_	cf2[64]	ana	12-15[66_64]	
+12-9	506-507	¢	object[64]	giv:act[64]	n____[64]	_	cf2[64]	_	_	
+12-10	508-509	)	_	_	_	_	_	_	_	
+12-11	510-513	but	_	_	_	_	_	_	_	
+12-12	514-515	I	person[65]	giv:act[65]	sssss[65]	_	cf1*[65]	ana	13-1[70_65]	
+12-13	516-520	just	_	_	_	_	_	_	_	
+12-14	521-525	know	_	_	_	_	_	_	_	
+12-15	526-528	it	object[66]	giv:act[66]	n____[66]	_	cf2[66]	_	_	
+12-16	529-531	’s	_	_	_	_	_	_	_	
+12-17	532-535	not	_	_	_	_	_	_	_	
+12-18	536-541	going	_	_	_	_	_	_	_	
+12-19	542-544	to	_	_	_	_	_	_	_	
+12-20	545-547	be	_	_	_	_	_	_	_	
+12-21	548-554	enough	_	_	_	_	_	_	_	
+12-22	555-556	.	_	_	_	_	_	_	_	
+
+#Text=My exams start on Monday , Eng , French , then Math ( M. - Wed )
+13-1	557-559	My	event[69]|person[70]	new[69]|giv:act[70]	sssss[69]|sssss[70]	_	cf4[69]|cf1*[70]	ana	16-4[89_70]	
+13-2	560-565	exams	event[69]	new[69]	sssss[69]	_	cf4[69]	_	_	
+13-3	566-571	start	_	_	_	_	_	_	_	
+13-4	572-574	on	_	_	_	_	_	_	_	
+13-5	575-581	Monday	time[71]	acc:inf[71]	nnnnn[71]	_	cf2[71]	coref	13-14[75_71]	
+13-6	582-583	,	_	_	_	_	_	_	_	
+13-7	584-587	Eng	abstract[72]	new[72]	nnnnn[72]	English_language[72]	cf5[72]	_	_	
+13-8	588-589	,	_	_	_	_	_	_	_	
+13-9	590-596	French	abstract[73]	new[73]	nnnnn[73]	French_language[73]	cf6[73]	_	_	
+13-10	597-598	,	_	_	_	_	_	_	_	
+13-11	599-603	then	_	_	_	_	_	_	_	
+13-12	604-608	Math	abstract[74]	new[74]	nnnnn[74]	_	cf7[74]	_	_	
+13-13	609-610	(	_	_	_	_	_	_	_	
+13-14	611-613	M.	time[75]	giv:act[75]	n____[75]	_	cf2[75]	bridge:other	13-16[76_75]	
+13-15	614-615	-	_	_	_	_	_	_	_	
+13-16	616-619	Wed	time[76]	acc:inf[76]	nnnnn[76]	_	cf3[76]	_	_	
+13-17	620-621	)	_	_	_	_	_	_	_	
+
+#Text=No his. of Art. exam !
+14-1	622-624	No	abstract[84]	new[84]	nnnnn[84]	_	cf1[84]	_	_	
+14-2	625-629	his.	abstract[84]|abstract[85]	new[84]|new[85]	nnnnn[84]|nnnnn[85]	_	cf1[84]|cf3[85]	_	_	
+14-3	630-632	of	abstract[84]|abstract[85]	new[84]|new[85]	nnnnn[84]|nnnnn[85]	_	cf1[84]|cf3[85]	_	_	
+14-4	633-637	Art.	abstract[84]|abstract[85]|abstract[86]	new[84]|new[85]|new[86]	nnnnn[84]|nnnnn[85]|nnnnn[86]	_	cf1[84]|cf3[85]|cf2[86]	_	_	
+14-5	638-642	exam	abstract[84]	new[84]	nnnnn[84]	_	cf1[84]	_	_	
+14-6	643-644	!	_	_	_	_	_	_	_	
+
+#Text=Yeah ! ! !
+15-1	645-649	Yeah	_	_	_	_	_	_	_	
+15-2	650-651	!	_	_	_	_	_	_	_	
+15-3	652-653	!	_	_	_	_	_	_	_	
+15-4	654-655	!	_	_	_	_	_	_	_	
+
+#Text=Icky news for me – Brendan ( my love of this month ) is going to Antioch and they start June 30 .
+16-1	656-660	Icky	abstract[88]	new[88]	nnnnn[88]	_	cf6[88]	_	_	
+16-2	661-665	news	abstract[88]	new[88]	nnnnn[88]	_	cf6[88]	_	_	
+16-3	666-669	for	abstract[88]	new[88]	nnnnn[88]	_	cf6[88]	_	_	
+16-4	670-672	me	abstract[88]|person[89]	new[88]|giv:inact[89]	nnnnn[88]|sssss[89]	_	cf6[88]|cf2[89]	ana	16-8[94_89]	
+16-5	673-674	–	_	_	_	_	_	_	_	
+16-6	675-682	Brendan	person[90]	new[90]	ssnss[90]	_	cf3[90]	appos	16-8[93_90]	
+16-7	683-684	(	_	_	_	_	_	_	_	
+16-8	685-687	my	person[93]|person[94]	giv:act[93]|giv:act[94]	ssnss[93]|sssss[94]	_	cf3[93]|cf2[94]	ana|ana	17-1[103_93]|18-1[112_94]	
+16-9	688-692	love	person[93]	giv:act[93]	ssnss[93]	_	cf3[93]	_	_	
+16-10	693-695	of	person[93]	giv:act[93]	ssnss[93]	_	cf3[93]	_	_	
+16-11	696-700	this	person[93]|time[96]	giv:act[93]|giv:inact[96]	ssnss[93]|snsnn[96]	_	cf3[93]|cf4[96]	_	_	
+16-12	701-706	month	person[93]|time[96]	giv:act[93]|giv:inact[96]	ssnss[93]|snsnn[96]	_	cf3[93]|cf4[96]	_	_	
+16-13	707-708	)	_	_	_	_	_	_	_	
+16-14	709-711	is	_	_	_	_	_	_	_	
+16-15	712-717	going	_	_	_	_	_	_	_	
+16-16	718-720	to	_	_	_	_	_	_	_	
+16-17	721-728	Antioch	organization[97]	new[97]	nssnn[97]	Antioch_College[97]	cf1[97]	ana	16-19[98_97]	
+16-18	729-732	and	_	_	_	_	_	_	_	
+16-19	733-737	they	organization[98]	giv:act[98]	nssnn[98]	Antioch_College[98]	cf1[98]	bridge:def	17-6[106_98]	
+16-20	738-743	start	_	_	_	_	_	_	_	
+16-21	744-748	June	time[101]|time[102]	new[101]|new[102]	nnnnn[101]|nnnnn[102]	_	cf7[101]|cf5[102]	_	_	
+16-22	749-751	30	time[101]	new[101]	nnnnn[101]	_	cf7[101]	_	_	
+16-23	752-753	.	_	_	_	_	_	_	_	
+
+#Text=He ’s trying to go the next session ; Sept 29th , but wo n’t hear for another week or two .
+17-1	754-756	He	person[103]	giv:act[103]	ssnss[103]	_	cf1*[103]	ana	18-16[118_103]	
+17-2	757-759	’s	_	_	_	_	_	_	_	
+17-3	760-766	trying	_	_	_	_	_	_	_	
+17-4	767-769	to	_	_	_	_	_	_	_	
+17-5	770-772	go	_	_	_	_	_	_	_	
+17-6	773-776	the	time[106]	acc:inf[106]	nnnnn[106]	_	cf2[106]	appos	17-10[107_106]	
+17-7	777-781	next	time[106]	acc:inf[106]	nnnnn[106]	_	cf2[106]	_	_	
+17-8	782-789	session	time[106]	acc:inf[106]	nnnnn[106]	_	cf2[106]	_	_	
+17-9	790-791	;	_	_	_	_	_	_	_	
+17-10	792-796	Sept	time[107]|time[108]	giv:act[107]|new[108]	n____[107]|nnnnn[108]	_	cf2[107]|cf4[108]	_	_	
+17-11	797-801	29th	time[107]	giv:act[107]	n____[107]	_	cf2[107]	_	_	
+17-12	802-803	,	_	_	_	_	_	_	_	
+17-13	804-807	but	_	_	_	_	_	_	_	
+17-14	808-810	wo	_	_	_	_	_	_	_	
+17-15	811-814	n’t	_	_	_	_	_	_	_	
+17-16	815-819	hear	_	_	_	_	_	_	_	
+17-17	820-823	for	_	_	_	_	_	_	_	
+17-18	824-831	another	time[110]	new[110]	nnnnn[110]	_	cf5[110]	bridge:other	17-21[111_110]	
+17-19	832-836	week	time[110]	new[110]	nnnnn[110]	_	cf5[110]	_	_	
+17-20	837-839	or	_	_	_	_	_	_	_	
+17-21	840-843	two	time[111]	acc:inf[111]	nnnnn[111]	_	cf3[111]	_	_	
+17-22	844-845	.	_	_	_	_	_	_	_	
+
+#Text=I ’m going to keep my fingers crossed , I was really planning on seeing him this summer .
+18-1	846-847	I	person[112]	giv:inact[112]	sssss[112]	_	cf1[112]	ana	18-6[116_112]	
+18-2	848-850	’m	_	_	_	_	_	_	_	
+18-3	851-856	going	_	_	_	_	_	_	_	
+18-4	857-859	to	_	_	_	_	_	_	_	
+18-5	860-864	keep	_	_	_	_	_	_	_	
+18-6	865-867	my	object[115]|person[116]	new[115]|giv:act[116]	nnnnn[115]|sssss[116]	_	cf4[115]|cf1[116]	ana	18-10[117_116]	
+18-7	868-875	fingers	object[115]	new[115]	nnnnn[115]	_	cf4[115]	_	_	
+18-8	876-883	crossed	_	_	_	_	_	_	_	
+18-9	884-885	,	_	_	_	_	_	_	_	
+18-10	886-887	I	person[117]	giv:act[117]	sssss[117]	_	cf1[117]	ana	19-1[123_117]	
+18-11	888-891	was	_	_	_	_	_	_	_	
+18-12	892-898	really	_	_	_	_	_	_	_	
+18-13	899-907	planning	_	_	_	_	_	_	_	
+18-14	908-910	on	_	_	_	_	_	_	_	
+18-15	911-917	seeing	_	_	_	_	_	_	_	
+18-16	918-921	him	person[118]	giv:act[118]	ssnss[118]	_	cf2*[118]	_	_	
+18-17	922-926	this	time[122]	acc:com[122]	nnnnn[122]	_	cf3[122]	_	_	
+18-18	927-933	summer	time[122]	acc:com[122]	nnnnn[122]	_	cf3[122]	_	_	
+18-19	934-935	.	_	_	_	_	_	_	_	
+
+#Text=I hate to ask this , but … could you send me a measly five bucks ( only 5 smackers ) so I can get home .
+19-1	936-937	I	person[123]	giv:act[123]	sssss[123]	_	cf1*[123]	ana	19-12[129_123]	
+19-2	938-942	hate	_	_	_	_	_	_	_	
+19-3	943-945	to	_	_	_	_	_	_	_	
+19-4	946-949	ask	_	_	_	_	_	_	_	
+19-5	950-954	this	abstract[124]	new[124]	nnnnn[124]	_	cf5[124]	_	_	
+19-6	955-956	,	_	_	_	_	_	_	_	
+19-7	957-960	but	_	_	_	_	_	_	_	
+19-8	961-962	…	_	_	_	_	_	_	_	
+19-9	963-968	could	abstract[127]	acc:com[127]	n____[127]	_	cf5[127]	cata	19-5[124_127]	
+19-10	969-972	you	abstract[127]|person[128]	acc:com[127]|giv:inact[128]	n____[127]|ssnns[128]	_	cf5[127]|cf3[128]	ana	28-2[173_128]	
+19-11	973-977	send	abstract[127]	acc:com[127]	n____[127]	_	cf5[127]	_	_	
+19-12	978-980	me	abstract[127]|person[129]	acc:com[127]|giv:act[129]	n____[127]|sssss[129]	_	cf5[127]|cf1*[129]	ana	19-23[134_129]	
+19-13	981-982	a	abstract[127]|object[132]	acc:com[127]|new[132]	n____[127]|nnnnn[132]	_	cf5[127]|cf2[132]	appos	19-18[133_132]	
+19-14	983-989	measly	abstract[127]|object[132]	acc:com[127]|new[132]	n____[127]|nnnnn[132]	_	cf5[127]|cf2[132]	_	_	
+19-15	990-994	five	abstract[127]|object[132]	acc:com[127]|new[132]	n____[127]|nnnnn[132]	_	cf5[127]|cf2[132]	_	_	
+19-16	995-1000	bucks	abstract[127]|object[132]	acc:com[127]|new[132]	n____[127]|nnnnn[132]	_	cf5[127]|cf2[132]	_	_	
+19-17	1001-1002	(	abstract[127]	acc:com[127]	n____[127]	_	cf5[127]	_	_	
+19-18	1003-1007	only	abstract[127]|object[133]	acc:com[127]|giv:act[133]	n____[127]|n____[133]	_	cf5[127]|cf2[133]	_	_	
+19-19	1008-1009	5	abstract[127]|object[133]	acc:com[127]|giv:act[133]	n____[127]|n____[133]	_	cf5[127]|cf2[133]	_	_	
+19-20	1010-1018	smackers	abstract[127]|object[133]	acc:com[127]|giv:act[133]	n____[127]|n____[133]	_	cf5[127]|cf2[133]	_	_	
+19-21	1019-1020	)	abstract[127]	acc:com[127]	n____[127]	_	cf5[127]	_	_	
+19-22	1021-1023	so	abstract[127]	acc:com[127]	n____[127]	_	cf5[127]	_	_	
+19-23	1024-1025	I	abstract[127]|person[134]	acc:com[127]|giv:act[134]	n____[127]|sssss[134]	_	cf5[127]|cf1*[134]	ana	20-4[139_134]	
+19-24	1026-1029	can	abstract[127]	acc:com[127]	n____[127]	_	cf5[127]	_	_	
+19-25	1030-1033	get	abstract[127]	acc:com[127]	n____[127]	_	cf5[127]	_	_	
+19-26	1034-1038	home	abstract[127]|place[135]	acc:com[127]|giv:inact[135]	n____[127]|ssnsn[135]	_	cf5[127]|cf4[135]	coref	20-11[140_135]	
+19-27	1039-1040	.	_	_	_	_	_	_	_	
+
+#Text=At this point I have just barely enough to get home , but I want to get something for Mlle. Arosa and then as always there ’ll be other petty expenses .
+20-1	1041-1043	At	_	_	_	_	_	_	_	
+20-2	1044-1048	this	time[138]	acc:com[138]	nnnnn[138]	_	cf3[138]	_	_	
+20-3	1049-1054	point	time[138]	acc:com[138]	nnnnn[138]	_	cf3[138]	_	_	
+20-4	1055-1056	I	person[139]	giv:act[139]	sssss[139]	_	cf1*[139]	ana	20-14[141_139]	
+20-5	1057-1061	have	_	_	_	_	_	_	_	
+20-6	1062-1066	just	_	_	_	_	_	_	_	
+20-7	1067-1073	barely	_	_	_	_	_	_	_	
+20-8	1074-1080	enough	_	_	_	_	_	_	_	
+20-9	1081-1083	to	_	_	_	_	_	_	_	
+20-10	1084-1087	get	_	_	_	_	_	_	_	
+20-11	1088-1092	home	place[140]	giv:act[140]	ssnsn[140]	_	cf2[140]	_	_	
+20-12	1093-1094	,	_	_	_	_	_	_	_	
+20-13	1095-1098	but	_	_	_	_	_	_	_	
+20-14	1099-1100	I	person[141]	giv:act[141]	sssss[141]	_	cf1*[141]	ana	22-17[154_141]	
+20-15	1101-1105	want	_	_	_	_	_	_	_	
+20-16	1106-1108	to	_	_	_	_	_	_	_	
+20-17	1109-1112	get	_	_	_	_	_	_	_	
+20-18	1113-1122	something	object[142]	new[142]	nnnnn[142]	_	cf5[142]	_	_	
+20-19	1123-1126	for	_	_	_	_	_	_	_	
+20-20	1127-1132	Mlle.	person[147]	new[147]	nnnnn[147]	_	cf6[147]	_	_	
+20-21	1133-1138	Arosa	person[147]	new[147]	nnnnn[147]	_	cf6[147]	_	_	
+20-22	1139-1142	and	_	_	_	_	_	_	_	
+20-23	1143-1147	then	_	_	_	_	_	_	_	
+20-24	1148-1150	as	_	_	_	_	_	_	_	
+20-25	1151-1157	always	_	_	_	_	_	_	_	
+20-26	1158-1163	there	_	_	_	_	_	_	_	
+20-27	1164-1167	’ll	_	_	_	_	_	_	_	
+20-28	1168-1170	be	_	_	_	_	_	_	_	
+20-29	1171-1176	other	abstract[148]	new[148]	snnnn[148]	_	cf4[148]	_	_	
+20-30	1177-1182	petty	abstract[148]	new[148]	snnnn[148]	_	cf4[148]	_	_	
+20-31	1183-1191	expenses	abstract[148]	new[148]	snnnn[148]	_	cf4[148]	_	_	
+20-32	1192-1193	.	_	_	_	_	_	_	_	
+
+#Text=Please … .
+21-1	1194-1200	Please	_	_	_	_	_	_	_	
+21-2	1201-1202	…	_	_	_	_	_	_	_	
+21-3	1203-1204	.	_	_	_	_	_	_	_	
+
+#Text=Also tell Nance to cash the check if she has n’t already , it ’s fouling me up .
+22-1	1205-1209	Also	_	_	_	_	_	_	_	
+22-2	1210-1214	tell	_	_	_	_	_	_	_	
+22-3	1215-1220	Nance	person[149]	new[149]	nnnnn[149]	_	cf1[149]	ana	22-9[152_149]	
+22-4	1221-1223	to	_	_	_	_	_	_	_	
+22-5	1224-1228	cash	_	_	_	_	_	_	_	
+22-6	1229-1232	the	object[151]	new[151]	nnsnn[151]	_	cf2[151]	ana	22-14[153_151]	
+22-7	1233-1238	check	object[151]	new[151]	nnsnn[151]	_	cf2[151]	_	_	
+22-8	1239-1241	if	_	_	_	_	_	_	_	
+22-9	1242-1245	she	person[152]	giv:act[152]	n____[152]	_	cf1[152]	_	_	
+22-10	1246-1249	has	_	_	_	_	_	_	_	
+22-11	1250-1253	n’t	_	_	_	_	_	_	_	
+22-12	1254-1261	already	_	_	_	_	_	_	_	
+22-13	1262-1263	,	_	_	_	_	_	_	_	
+22-14	1264-1266	it	object[153]	giv:act[153]	nnsnn[153]	_	cf2[153]	_	_	
+22-15	1267-1269	’s	_	_	_	_	_	_	_	
+22-16	1270-1277	fouling	_	_	_	_	_	_	_	
+22-17	1278-1280	me	person[154]	giv:inact[154]	sssss[154]	_	cf3[154]	ana	23-1[155_154]	
+22-18	1281-1283	up	_	_	_	_	_	_	_	
+22-19	1284-1285	.	_	_	_	_	_	_	_	
+
+#Text=I hope it stays nice , so I can study all morning outside .
+23-1	1286-1287	I	person[155]	giv:act[155]	sssss[155]	_	cf1*[155]	ana	23-8[157_155]	
+23-2	1288-1292	hope	_	_	_	_	_	_	_	
+23-3	1293-1295	it	abstract[156]	acc:com[156]	nnnnn[156]	_	cf2[156]	ana	24-2[166_156]	
+23-4	1296-1301	stays	_	_	_	_	_	_	_	
+23-5	1302-1306	nice	_	_	_	_	_	_	_	
+23-6	1307-1308	,	_	_	_	_	_	_	_	
+23-7	1309-1311	so	_	_	_	_	_	_	_	
+23-8	1312-1313	I	person[157]	giv:act[157]	sssss[157]	_	cf1*[157]	ana	25-8[171_157]	
+23-9	1314-1317	can	_	_	_	_	_	_	_	
+23-10	1318-1323	study	_	_	_	_	_	_	_	
+23-11	1324-1327	all	time[164]	acc:inf[164]	nnnnn[164]	_	cf3[164]	_	_	
+23-12	1328-1335	morning	time[164]	acc:inf[164]	nnnnn[164]	_	cf3[164]	_	_	
+23-13	1336-1343	outside	_	_	_	_	_	_	_	
+23-14	1344-1345	.	_	_	_	_	_	_	_	
+
+#Text=Today it was in the 80's .
+24-1	1346-1351	Today	time[165]	giv:inact[165]	snsnn[165]	_	cf2[165]	_	_	
+24-2	1352-1354	it	abstract[166]	giv:act[166]	n____[166]	_	cf1*[166]	_	_	
+24-3	1355-1358	was	_	_	_	_	_	_	_	
+24-4	1359-1361	in	_	_	_	_	_	_	_	
+24-5	1362-1365	the	abstract[169]	new[169]	nnnnn[169]	_	cf3[169]	_	_	
+24-6	1366-1370	80's	abstract[169]	new[169]	nnnnn[169]	_	cf3[169]	_	_	
+24-7	1371-1372	.	_	_	_	_	_	_	_	
+
+#Text=Say “ hello ” to all for me .
+25-1	1373-1376	Say	_	_	_	_	_	_	_	
+25-2	1377-1378	“	_	_	_	_	_	_	_	
+25-3	1379-1384	hello	_	_	_	_	_	_	_	
+25-4	1385-1386	”	_	_	_	_	_	_	_	
+25-5	1387-1389	to	_	_	_	_	_	_	_	
+25-6	1390-1393	all	person[170]	acc:com[170]	nnnnn[170]	_	cf2[170]	_	_	
+25-7	1394-1397	for	_	_	_	_	_	_	_	
+25-8	1398-1400	me	person[171]	giv:inact[171]	sssss[171]	_	cf1[171]	coref	27-1[172_171]	
+25-9	1401-1402	.	_	_	_	_	_	_	_	
+
+#Text=Love always ,
+26-1	1403-1407	Love	_	_	_	_	_	_	_	
+26-2	1408-1414	always	_	_	_	_	_	_	_	
+26-3	1415-1416	,	_	_	_	_	_	_	_	
+
+#Text=Marcie
+27-1	1417-1423	Marcie	person[172]	giv:inact[172]	sssss[172]	_	cf1[172]	_	_	
+
+#Text=See you soon !
+28-1	1424-1427	See	_	_	_	_	_	_	_	
+28-2	1428-1431	you	person[173]	giv:inact[173]	ssnns[173]	_	cf1[173]	_	_	
+28-3	1432-1436	soon	_	_	_	_	_	_	_	
+28-4	1437-1438	!	_	_	_	_	_	_	_	

@@ -1,3 +1,3 @@
 # GUM corpus - ANNIS version (without Reddit)
 
-The zip file in this directory can be imported for search and visualization into [ANNIS](https://corpus-tools.org/annis/). Note that this version of the corpus does not include the Reddit subcorpus of GUM. To compile an ANNIS version of the corpus including the Reddit subcorpus, please see [README_reddit.md](https://github.com/amir-zeldes/gum/blob/master/README_reddit.md).
+The zip files in this directory can be imported for search and visualization into [ANNIS](https://corpus-tools.org/annis/). Note that this version of the corpus does not include the Reddit subcorpus of GUM. To compile an ANNIS version of the corpus including the Reddit subcorpus, please see [README_reddit.md](https://github.com/amir-zeldes/gum/blob/master/README_reddit.md).

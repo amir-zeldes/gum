@@ -5,19 +5,23 @@
 # meta::dateCreated = 1963-10-30
 # meta::dateModified = 1963-10-30
 # meta::genre = speech
-# meta::salientEntities = 1, 2, 3, 10, 24, 54, 80
+# meta::salientEntities = 1 (5*), 2 (5*), 3 (5*), 10 (5*), 4 (3), 80 (3*), 5 (1), 24 (1*), 54 (1*), 70 (1), 72 (1)
 # meta::sourceURL = https://www.presidency.ucsb.edu/documents/remarks-philadelphia-dinner-sponsored-the-democratic-county-executive-committee
 # meta::speakerCount = 1
-# meta::summary = US President John F. Kennedy gives a speech in support of the mayor of Philadelphia and Democractic congressmen and senators, and details some of his administration's achievements and policy goals.
+# meta::summary1 = (human1) US President John F. Kennedy gives a speech in support of the mayor of Philadelphia and Democractic congressmen and senators, and details some of his administration's achievements and policy goals.
+# meta::summary2 = (claude-3-5-sonnet-20241022) President John F. Kennedy addresses Democrats in Philadelphia, expressing gratitude for their support in the 1960 campaign, highlighting local Democratic achievements, and discussing national economic progress including job growth and potential tax cuts to stimulate further expansion.
+# meta::summary3 = (gpt4o) In Philadelphia, the speaker, a proud Democrat, highlights strong local Democratic support, commends leaders for contributions, addresses economic growth and challenges like unemployment and high taxes, and emphasizes the potential benefits of a proposed tax cut for future expansion.
+# meta::summary4 = (Llama-3.2-3B-Instruct) A Democratic member of Congress speaks in Philadelphia, expressing pride and gratitude for the city's support during the 1960 presidential campaign and reporting on progress made in the country's goals, including increased economic growth and reduced unemployment.
+# meta::summary5 = (Qwen2.5-7B-Instruct) Former U.S. President John F. Kennedy delivers a speech in Philadelphia expressing his gratitude for the city's support during the 1960 election, updating the audience on progress towards achieving his previously stated goals for America, and emphasizing the importance of continued economic growth and job creation.
 # meta::title = Remarks in Philadelphia at a Dinner Sponsored by the Democratic County Executive Committee
+# newpar
+# newpar_block = sp who:::"#JohnFKennedy" (34 s) | p (1 s)
 # sent_id = GUM_speech_remarks-1
 # s_prominence = 1
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = establishment
+# speaker = JohnFKennedy
 # text = I am proud to come here to Philadelphia and join my fellow Democrats.
-# newpar
-# newpar_block = sp who:::"#JohnFKennedy" (34 s) | p (1 s)
 1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	3:nsubj|5:nsubj:xsubj|10:nsubj:xsubj	Discourse=ROOT:1:0|Entity=(1)
 2	am	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	3	cop	3:cop	_
 3	proud	proud	ADJ	JJ	Degree=Pos	0	root	0:root	_
@@ -33,14 +37,14 @@
 13	Democrats	Democrat	PROPN	NNPS	Number=Plur	10	obj	10:obj	MSeg=Democrat-s|SpaceAfter=No
 14	.	.	PUNCT	.	_	3	punct	3:punct	_
 
+# newpar
+# newpar_block = p (3 s)
 # sent_id = GUM_speech_remarks-2
 # s_prominence = 3
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = establishment
+# speaker = JohnFKennedy
 # text = In 1960, the Democrats of this city produced a margin in the presidential race that was in this city three times as large as it was in the whole United States.
-# newpar
-# newpar_block = p (3 s)
 1	In	in	ADP	IN	_	2	case	2:case	Discourse=causal-cause:3->6:0:dm-so-48
 2	1960	1960	NUM	CD	NumForm=Digit|NumType=Card	9	obl	9:obl:in	SpaceAfter=No|XML=<date when:::"1960"></date>
 3	,	,	PUNCT	,	_	2	punct	2:punct	_
@@ -78,8 +82,8 @@
 # sent_id = GUM_speech_remarks-3
 # s_prominence = 2
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = retain
+# speaker = JohnFKennedy
 # text = So I am proud to be back here again, and I am very happy to be introduced by your distinguished chairman, Bill Green.
 1	So	so	ADV	RB	_	4	advmod	4:advmod	Discourse=elaboration-additional:6->1:1:ref-prs-1,49+sem-rpt-6,55|PDTB=Explicit:Contingency.Cause.Result:so:48:15-47:49-73
 2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj|7:nsubj:xsubj	Entity=(1)
@@ -111,8 +115,8 @@
 # sent_id = GUM_speech_remarks-4
 # s_prominence = 3
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = smooth-shift
+# speaker = JohnFKennedy
 # text = When he became chairman of this city committee, there were 300,000 more Republicans registered in the city of Philadelphia than Democrats, and it is a source of satisfaction to me that tonight there are 260,000 more Democrats registered.
 1	When	when	ADV	WRB	PronType=Int	3	advmod	3:advmod	Discourse=context-circumstance:8->9:1:dm-when-74|PDTB=Explicit:Temporal.Synchronous:when:74:83-114:75-82;Implicit:Expansion.Conjunction:in fact:_:48-73:74-114
 2	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj|4:nsubj:xsubj	Entity=(5)
@@ -127,7 +131,7 @@
 11	were	be	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	Cxn=Existential-CopPred-ThereExpl
 12	300,000	300000	NUM	CD	NumForm=Digit|NumType=Card	14	nummod	14:nummod	_
 13	more	more	ADJ	JJR	Degree=Cmp	14	amod	14:amod	_
-14	Republicans	Republican	PROPN	NNPS	Number=Plur	11	nsubj	11:nsubj	CxnElt=Pivot|MSeg=Republic-an-s
+14	Republicans	Republican	PROPN	NNPS	Number=Plur	11	nsubj	11:nsubj	CxnElt=11:Existential-CopPred-ThereExpl.Pivot|MSeg=Republic-an-s
 15	registered	register	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	14	acl	14:acl	MSeg=register-ed
 16	in	in	ADP	IN	_	18	case	18:case	_
 17	the	the	DET	DT	Definite=Def|PronType=Art	18	det	18:det	Entity=(7
@@ -152,18 +156,18 @@
 36	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	28	csubj	28:csubj	Cxn=Existential-CopPred-ThereExpl|Entity=(8)
 37	260,000	260000	NUM	CD	NumForm=Digit|NumType=Card	39	nummod	39:nummod	_
 38	more	more	ADJ	JJR	Degree=Cmp	39	amod	39:amod	_
-39	Democrats	Democrat	PROPN	NNPS	Number=Plur	36	nsubj	36:nsubj	CxnElt=Pivot|MSeg=Democrat-s
+39	Democrats	Democrat	PROPN	NNPS	Number=Plur	36	nsubj	36:nsubj	CxnElt=36:Existential-CopPred-ThereExpl.Pivot|MSeg=Democrat-s
 40	registered	register	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	39	acl	39:acl	MSeg=register-ed|SpaceAfter=No
 41	.	.	PUNCT	.	_	11	punct	11:punct	_
 
+# newpar
+# newpar_block = p (1 s)
 # sent_id = GUM_speech_remarks-5
 # s_prominence = 2
 # s_type = multiple
-# speaker = JohnFKennedy
 # transition = smooth-shift
+# speaker = JohnFKennedy
 # text = I can understand why some Republicans may not like it, but, as a Democrat, as one who believes in the Democratic Party, as one who believes that the Democratic Party has meant progress for this city, this State, and this country, I am proud to be here in Philadelphia.
-# newpar
-# newpar_block = p (1 s)
 1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	3:nsubj	Discourse=attribution-positive:11->12:0:sem-atsrc-115+lex-indwd-117|Entity=(1)
 2	can	can	AUX	MD	VerbForm=Fin	3	aux	3:aux	_
 3	understand	understand	VERB	VB	VerbForm=Inf	0	root	0:root	MSeg=under-stand
@@ -222,14 +226,14 @@
 56	Philadelphia	Philadelphia	PROPN	NNP	Number=Sing	54	obl	54:obl:in	Entity=(7)|SpaceAfter=No
 57	.	.	PUNCT	.	_	3	punct	3:punct	_
 
+# newpar
+# newpar_block = p (2 s)
 # sent_id = GUM_speech_remarks-6
 # s_prominence = 2
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = continue
+# speaker = JohnFKennedy
 # text = And I am proud to be here with your mayor.
-# newpar
-# newpar_block = p (2 s)
 1	And	and	CCONJ	CC	_	4	cc	4:cc	Discourse=joint-list_m:19->13:3:dm-and-172|PDTB=Explicit:Expansion.Conjunction:and:172:115-171:173-182
 2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj|7:nsubj:xsubj	Entity=(10)
 3	am	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	4	cop	4:cop	_
@@ -245,8 +249,8 @@
 # sent_id = GUM_speech_remarks-7
 # s_prominence = 3
 # s_type = multiple
-# speaker = JohnFKennedy
 # transition = continue
+# speaker = JohnFKennedy
 # text = I do not come from Philadelphia, and I would not interfere, but I am hopeful and confident that when we come to the Army - Navy game in a month from now, we will be greeted by the new mayor of Philadelphia, Mayor Tale.
 1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Discourse=adversative-concession:20->23:2:dm-but-196|Entity=(10)|PDTB=Implicit:Expansion.Level-of-detail.Arg2-as-detail:in particular:_:172-182:183-231
 2	do	do	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	4	aux	4:aux	_
@@ -293,19 +297,19 @@
 43	mayor	mayor	NOUN	NN	Number=Sing	39	obl:agent	39:obl:agent	_
 44	of	of	ADP	IN	_	45	case	45:case	_
 45	Philadelphia	Philadelphia	PROPN	NNP	Number=Sing	43	nmod	43:nmod:of	Entity=(7)|SpaceAfter=No
-46	,	,	PUNCT	,	_	47	punct	47:punct	_
-47	Mayor	Mayor	PROPN	NNP	Number=Sing	43	appos	43:appos	_
-48	Tale	Tale	PROPN	NNP	Number=Sing|Typo=Yes	47	flat	47:flat	CorrectForm=Tate|Entity=13)|SpaceAfter=No|XML=<sic ana:::"Tate"></sic>
+46	,	,	PUNCT	,	_	48	punct	48:punct	_
+47	Mayor	Mayor	PROPN	NNP	Number=Sing	48	nmod:desc	48:nmod:desc	_
+48	Tale	Tale	PROPN	NNP	Number=Sing|Typo=Yes	43	appos	43:appos	CorrectForm=Tate|Entity=13)|SpaceAfter=No|XML=<sic ana:::"Tate"></sic>
 49	.	.	PUNCT	.	_	4	punct	4:punct	_
 
+# newpar
+# newpar_block = p (1 s)
 # sent_id = GUM_speech_remarks-8
 # s_prominence = 3
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = continue
+# speaker = JohnFKennedy
 # text = I haven't given a political speech for about 3 years, so I am a little out of practice, but I am gradually getting back into it.
-# newpar
-# newpar_block = p (1 s)
 1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Discourse=causal-cause:26->27:0:dm-so-244|Entity=(10)
 2-3	haven't	_	_	_	_	_	_	_	_
 2	have	have	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	4	aux	4:aux	_
@@ -324,7 +328,7 @@
 15	am	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	20	cop	20:cop	_
 16	a	a	DET	DT	Definite=Ind|PronType=Art	17	det	17:det	_
 17	little	little	ADJ	JJ	Degree=Pos	20	nmod:unmarked	20:nmod:unmarked	_
-18	out	out	ADP	IN	_	20	case	20:case	_
+18	out	out	ADP	IN	ExtPos=ADP	20	case	20:case	_
 19	of	of	ADP	IN	_	18	fixed	18:fixed	_
 20	practice	practice	NOUN	NN	Number=Sing	4	parataxis	4:parataxis	SpaceAfter=No
 21	,	,	PUNCT	,	_	26	punct	26:punct	_
@@ -338,14 +342,14 @@
 29	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	26	obl	26:obl:into	Entity=(14)|SpaceAfter=No
 30	.	.	PUNCT	.	_	4	punct	4:punct	_
 
+# newpar
+# newpar_block = p (2 s)
 # sent_id = GUM_speech_remarks-9
 # s_prominence = 3
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = continue
+# speaker = JohnFKennedy
 # text = And I am glad to be here with a mayor who follows two other distinguished mayors of this city, who carries on their tradition - Joe Clark, your United States Senator who was a great mayor of Philadelphia, and Dick Dilworth, who followed him, who was a great mayor of Philadelphia.
-# newpar
-# newpar_block = p (2 s)
 1	And	and	CCONJ	CC	_	4	cc	4:cc	Discourse=evaluation-comment:29->19:2:lex-indwd-265+lex-indwd-298+lex-indwd-314;joint-list:29->19:1:0:orp-and-262|PDTB=Explicit:Expansion.Conjunction:and:262:172-182:263-318
 2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj|7:nsubj:xsubj	Entity=(10)
 3	am	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	4	cop	4:cop	_
@@ -407,8 +411,8 @@
 # sent_id = GUM_speech_remarks-10
 # s_prominence = 5
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = zero
+# speaker = JohnFKennedy
 # text = That is the tradition of honest, progressive democratic government that Mayor Tate carries on.
 1	That	that	PRON	DT	Number=Sing|PronType=Dem	4	nsubj	4:nsubj	Discourse=elaboration-additional:37->30:2:num-count-274|PDTB=Implicit:Expansion.Level-of-detail.Arg2-as-detail:indeed:_:262-318:319-334
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	cop	4:cop	_
@@ -421,20 +425,20 @@
 9	democratic	democratic	ADJ	JJ	Degree=Pos	10	amod	10:amod	MSeg=democrat-ic
 10	government	government	NOUN	NN	Number=Sing	4	nmod	4:nmod:of|14:obj	MSeg=govern-ment
 11	that	that	PRON	WDT	PronType=Rel	14	obj	10:ref	Discourse=elaboration-attribute:38->37:0:syn-mdf-328+syn-relcl-329,332
-12	Mayor	Mayor	PROPN	NNP	Number=Sing	14	nsubj	14:nsubj	Entity=(13
-13	Tate	Tate	PROPN	NNP	Number=Sing	12	flat	12:flat	Entity=13)
+12	Mayor	Mayor	PROPN	NNP	Number=Sing	13	nmod:desc	13:nmod:desc	Entity=(13
+13	Tate	Tate	PROPN	NNP	Number=Sing	14	nsubj	14:nsubj	Entity=13)
 14	carries	carry	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	10	acl:relcl	10:acl:relcl	MSeg=carrie-s
 15	on	on	ADP	RP	_	14	compound:prt	14:compound:prt	SpaceAfter=No
 16	.	.	PUNCT	.	_	4	punct	4:punct	_
 
+# newpar
+# newpar_block = p (1 s)
 # sent_id = GUM_speech_remarks-11
 # s_prominence = 2
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = null
+# speaker = JohnFKennedy
 # text = And I am glad to be here with Judge Hoffman and Senator Mahady who also run this fall in the State of Pennsylvania.
-# newpar
-# newpar_block = p (1 s)
 1	And	and	CCONJ	CC	_	4	cc	4:cc	Discourse=joint-list_m:39->6:2:dm-and-335|PDTB=Explicit:Expansion.Conjunction:and:335:172-182:336-358
 2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj|7:nsubj:xsubj	Entity=(10)
 3	am	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	4	cop	4:cop	_
@@ -442,15 +446,15 @@
 5	to	to	PART	TO	_	7	mark	7:mark	_
 6	be	be	AUX	VB	VerbForm=Inf	7	cop	7:cop	_
 7	here	here	ADV	RB	PronType=Dem	4	xcomp	4:xcomp	_
-8	with	with	ADP	IN	_	9	case	9:case	_
-9	Judge	Judge	PROPN	NNP	Number=Sing	7	obl	7:obl:with	_
-10	Hoffman	Hoffman	PROPN	NNP	Number=Sing	9	flat	9:flat	_
-11	and	and	CCONJ	CC	_	12	cc	12:cc	_
-12	Senator	Senator	PROPN	NNP	Number=Sing	9	conj	7:obl:with|9:conj:and|16:nsubj	MSeg=Senat-or
-13	Mahady	Mahady	PROPN	NNP	Number=Sing	12	flat	12:flat	_
-14	who	who	PRON	WP	PronType=Rel	16	nsubj	12:ref	Discourse=elaboration-attribute:40->39:0:syn-mdf-346+syn-relcl-348,350+dm-also-349
+8	with	with	ADP	IN	_	10	case	10:case	_
+9	Judge	Judge	PROPN	NNP	Number=Sing	10	nmod:desc	10:nmod:desc	_
+10	Hoffman	Hoffman	PROPN	NNP	Number=Sing	7	obl	7:obl:with	_
+11	and	and	CCONJ	CC	_	13	cc	13:cc	_
+12	Senator	Senator	PROPN	NNP	Number=Sing	13	nmod:desc	13:nmod:desc	MSeg=Senat-or
+13	Mahady	Mahady	PROPN	NNP	Number=Sing	10	conj	7:obl:with|10:conj:and|16:nsubj	_
+14	who	who	PRON	WP	PronType=Rel	16	nsubj	13:ref	Discourse=elaboration-attribute:40->39:0:syn-mdf-347+syn-relcl-348,350+dm-also-349
 15	also	also	ADV	RB	_	16	advmod	16:advmod	_
-16	run	run	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	12	acl:relcl	12:acl:relcl	_
+16	run	run	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	13	acl:relcl	13:acl:relcl	_
 17	this	this	DET	DT	Number=Sing|PronType=Dem	18	det	18:det	_
 18	fall	fall	NOUN	NN	Number=Sing	16	obl:unmarked	16:obl:unmarked	_
 19	in	in	ADP	IN	_	21	case	21:case	_
@@ -460,14 +464,14 @@
 23	Pennsylvania	Pennsylvania	PROPN	NNP	Number=Sing	21	nmod	21:nmod:of	Entity=11)|SpaceAfter=No
 24	.	.	PUNCT	.	_	4	punct	4:punct	_
 
+# newpar
+# newpar_block = p (1 s)
 # sent_id = GUM_speech_remarks-12
 # s_prominence = 2
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = establishment
+# speaker = JohnFKennedy
 # text = Everyone expects things of Presidents, but I am not sure that they realize how much depends upon the Members of the House and the Members of the Senate who must make the final judgment on what kind of laws a President must execute.
-# newpar
-# newpar_block = p (1 s)
 1	Everyone	everyone	PRON	NN	Number=Sing|PronType=Tot	2	nsubj	2:nsubj	Discourse=adversative-concession:41->44:2:dm-but-365|Entity=(17)|MSeg=Every-one
 2	expects	expect	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	MSeg=expect-s
 3	things	thing	NOUN	NNS	Number=Plur	2	obj	2:obj	MSeg=thing-s
@@ -514,14 +518,14 @@
 44	execute	execute	VERB	VB	VerbForm=Inf	38	acl:relcl	38:acl:relcl	SpaceAfter=No
 45	.	.	PUNCT	.	_	2	punct	2:punct	_
 
+# newpar
+# newpar_block = p (2 s)
 # sent_id = GUM_speech_remarks-13
 # s_prominence = 1
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = zero
+# speaker = JohnFKennedy
 # text = The Congressmen from this city as well as the Senator from this State - Bill Barrett and Bob Nix and Herman Toll and Jim Byrne and Chairman Green - have, with Joe Clark supported legislation month in and month out that benefited this city and this State and this country and, what is more, has helped make the United States meet its responsibilities around the globe.
-# newpar
-# newpar_block = p (2 s)
 1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=joint-other_m:46->1:2:_|Entity=(20
 2	Congressmen	Congressman	PROPN	NNPS	Number=Plur	35	nsubj	35:nsubj	MSeg=Congress-men
 3	from	from	ADP	IN	_	5	case	5:case	_
@@ -547,9 +551,9 @@
 23	and	and	CCONJ	CC	_	24	cc	24:cc	_
 24	Jim	Jim	PROPN	NNP	Number=Sing	15	conj	2:appos|15:conj:and	_
 25	Byrne	Byrne	PROPN	NNP	Number=Sing	24	flat	24:flat	_
-26	and	and	CCONJ	CC	_	27	cc	27:cc	_
-27	Chairman	Chairman	PROPN	NNP	Number=Sing	15	conj	2:appos|15:conj:and	Entity=(6|MSeg=Chair-man
-28	Green	Green	PROPN	NNP	Number=Sing	27	flat	27:flat	Entity=6)
+26	and	and	CCONJ	CC	_	28	cc	28:cc	_
+27	Chairman	Chairman	PROPN	NNP	Number=Sing	28	nmod:desc	28:nmod:desc	Entity=(6|MSeg=Chair-man
+28	Green	Green	PROPN	NNP	Number=Sing	15	conj	2:appos|15:conj:and	Entity=6)
 29	-	-	PUNCT	:	_	2	punct	2:punct	_
 30	have	have	AUX	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	35	aux	35:aux	Discourse=same-unit_m:48->46:1:_|SpaceAfter=No
 31	,	,	PUNCT	,	_	30	punct	30:punct	_
@@ -596,13 +600,13 @@
 # sent_id = GUM_speech_remarks-14
 # s_prominence = 2
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = establishment
+# speaker = JohnFKennedy
 # text = So what you do in this city counts all across the country, and Philadelphia has sent the right men to the House of Representatives and to the Senate of the United States.
 1	So	so	ADV	RB	_	8	advmod	8:advmod	Discourse=causal-result:53->46:5:dm-so-474|PDTB=Explicit:Contingency.Cause.Result:so:474:404-473:475-507
-2	what	what	PRON	WP	PronType=Int	4	obj	4:obj	_
+2	what	what	PRON	WP	PronType=Rel	8	nsubj	8:nsubj	_
 3	you	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	4	nsubj	4:nsubj	Entity=(4)
-4	do	do	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	8	csubj	8:csubj	_
+4	do	do	VERB	VBP	Mood=Ind|Number=Sing|Person=2|Tense=Pres|VerbForm=Fin	2	acl:relcl	2:acl:relcl	_
 5	in	in	ADP	IN	_	7	case	7:case	_
 6	this	this	DET	DT	Number=Sing|PronType=Dem	7	det	7:det	Entity=(7
 7	city	city	NOUN	NN	Number=Sing	4	obl	4:obl:in	Entity=7)
@@ -634,14 +638,14 @@
 33	States	State	PROPN	NNPS	Number=Plur	29	nmod	29:nmod:of	Entity=3)19)|MSeg=State-s|SpaceAfter=No
 34	.	.	PUNCT	.	_	8	punct	8:punct	_
 
+# newpar
+# newpar_block = p (1 s)
 # sent_id = GUM_speech_remarks-15
 # s_prominence = 1
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = smooth-shift
+# speaker = JohnFKennedy
 # text = And I am also proud to be here with your former Governor who is now working for us in Washington as our adviser on fair housing, Governor Dave Lawrence, of the State of Pennsylvania.
-# newpar
-# newpar_block = p (1 s)
 1	And	and	CCONJ	CC	_	5	cc	5:cc	Discourse=joint-other_m:55->46:6:dm-and-508+dm-also-511|PDTB=Explicit:Expansion.Conjunction:and:508:404-473:509-544
 2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	5	nsubj	5:nsubj|8:nsubj:xsubj	Entity=(10)
 3	am	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	5	cop	5:cop	_
@@ -668,26 +672,26 @@
 24	on	on	ADP	IN	_	26	case	26:case	_
 25	fair	fair	ADJ	JJ	Degree=Pos	26	amod	26:amod	_
 26	housing	housing	NOUN	NN	Number=Sing	23	nmod	23:nmod:on	Entity=22)|MSeg=hous-ing|SpaceAfter=No
-27	,	,	PUNCT	,	_	28	punct	28:punct	_
-28	Governor	Governor	PROPN	NNP	Number=Sing	12	parataxis	12:parataxis	Entity=(22|MSeg=Govern-or
-29	Dave	Dave	PROPN	NNP	Number=Sing	28	flat	28:flat	_
-30	Lawrence	Lawrence	PROPN	NNP	Number=Sing	28	flat	28:flat	SpaceAfter=No
+27	,	,	PUNCT	,	_	29	punct	29:punct	_
+28	Governor	Governor	PROPN	NNP	Number=Sing	29	nmod:desc	29:nmod:desc	Entity=(22|MSeg=Govern-or
+29	Dave	Dave	PROPN	NNP	Number=Sing	12	parataxis	12:parataxis	_
+30	Lawrence	Lawrence	PROPN	NNP	Number=Sing	29	flat	29:flat	SpaceAfter=No
 31	,	,	PUNCT	,	_	34	punct	34:punct	_
 32	of	of	ADP	IN	_	34	case	34:case	_
 33	the	the	DET	DT	Definite=Def|PronType=Art	34	det	34:det	Entity=(11
-34	State	State	PROPN	NNP	Number=Sing	28	nmod	28:nmod:of	_
+34	State	State	PROPN	NNP	Number=Sing	29	nmod	29:nmod:of	_
 35	of	of	ADP	IN	_	36	case	36:case	_
 36	Pennsylvania	Pennsylvania	PROPN	NNP	Number=Sing	34	nmod	34:nmod:of	Entity=11)22)|SpaceAfter=No
 37	.	.	PUNCT	.	_	5	punct	5:punct	_
 
+# newpar
+# newpar_block = p (2 s)
 # sent_id = GUM_speech_remarks-16
 # s_prominence = 3
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = smooth-shift
+# speaker = JohnFKennedy
 # text = Three years ago tomorrow night, I spoke in this hall in the closing days of the 1960 campaign, and I asked the people of this city to give us their support to help this country move again.
-# newpar
-# newpar_block = p (2 s)
 1	Three	three	NUM	CD	NumForm=Word|NumType=Card	2	nummod	2:nummod	Discourse=context-circumstance:57->58:1:lex-indph-545-547+lex-indph-548-549+lex-indwd-562|XML=<date when:::"1960-10-31">
 2	years	year	NOUN	NNS	Number=Plur	3	nmod:unmarked	3:nmod:unmarked	MSeg=year-s
 3	ago	ago	ADV	RB	Degree=Pos	5	advmod	5:advmod	MSeg=a-go|XML=</date>
@@ -717,10 +721,10 @@
 27	this	this	DET	DT	Number=Sing|PronType=Dem	28	det	28:det	Entity=(7
 28	city	city	NOUN	NN	Number=Sing	25	nmod	25:nmod:of	Entity=7)24)
 29	to	to	PART	TO	_	30	mark	30:mark	_
-30	give	give	VERB	VB	VerbForm=Inf	23	xcomp	23:xcomp	Cxn=Ditransitive|CxnElt=DitrV
-31	us	we	PRON	PRP	Case=Acc|Number=Plur|Person=1|PronType=Prs	30	iobj	30:iobj	CxnElt=DitrRec|Entity=(12)
+30	give	give	VERB	VB	VerbForm=Inf	23	xcomp	23:xcomp	Cxn=Ditransitive|CxnElt=30:Ditransitive.V
+31	us	we	PRON	PRP	Case=Acc|Number=Plur|Person=1|PronType=Prs	30	iobj	30:iobj	CxnElt=30:Ditransitive.Rec|Entity=(12)
 32	their	their	PRON	PRP$	Case=Gen|Number=Plur|Person=3|Poss=Yes|PronType=Prs	33	nmod:poss	33:nmod:poss	Entity=(25(24)
-33	support	support	NOUN	NN	Number=Sing	30	obj	30:obj	CxnElt=DitrTheme|Entity=25)
+33	support	support	NOUN	NN	Number=Sing	30	obj	30:obj	CxnElt=30:Ditransitive.Theme|Entity=25)
 34	to	to	PART	TO	_	35	mark	35:mark	Discourse=purpose-goal:59->58:0:syn-inf-578|PDTB=Implicit:Contingency.Purpose.Arg2-as-goal:in order:_:565-577:578-584
 35	help	help	VERB	VB	VerbForm=Inf	30	advcl	30:advcl:to	_
 36	this	this	DET	DT	Number=Sing|PronType=Dem	37	det	37:det	Entity=(3
@@ -732,8 +736,8 @@
 # sent_id = GUM_speech_remarks-17
 # s_prominence = 2
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = continue
+# speaker = JohnFKennedy
 # text = The people of Philadelphia gave that support, and the support I received from this city and this State was, as it was in the 1960 convention, the key to our victory across the country.
 1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=context-background:60->66:1:sem-rpt-588,627+ref-dem-590-591,633-634+ref-prs-596,623+sem-rpt-602-603,652+ref-prs-617,643+ref-dem-620-621,663-664|Entity=(24|PDTB=Implicit:Contingency.Cause.Result:as a result:_:545-584:585-622
 2	people	person	NOUN	NNS	Number=Plur	5	nsubj	5:nsubj	_
@@ -774,14 +778,14 @@
 37	country	country	NOUN	NN	Number=Sing	34	nmod	34:nmod:across	Entity=3)25)|SpaceAfter=No
 38	.	.	PUNCT	.	_	5	punct	5:punct	_
 
+# newpar
+# newpar_block = p (5 s)
 # sent_id = GUM_speech_remarks-18
 # s_prominence = 1
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = continue
+# speaker = JohnFKennedy
 # text = I am back in Philadelphia to express my thanks for that support and also to express appreciation for the help we received from those Democrats in this city and State, and to report to you on the progress that this country has made on the goals that were outlined 3 years ago.
-# newpar
-# newpar_block = p (5 s)
 1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	3:nsubj	Discourse=joint-other_m:66->1:2:_|Entity=(10)
 2	am	be	AUX	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	3	cop	3:cop	_
 3	back	back	ADV	RB	Degree=Pos	0	root	0:root	_
@@ -840,8 +844,8 @@
 # sent_id = GUM_speech_remarks-19
 # s_prominence = 2
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = continue
+# speaker = JohnFKennedy
 # text = I did not promise on that October night that life would be easy in the Great Republic.
 1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Discourse=attribution-negative:73->74:0:sem-atsrc-677+sem-ngt-679+sem-ngt-679+lex-indwd-680+syn-rpr-685|Entity=(10)
 2	did	do	AUX	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	4	aux	4:aux	_
@@ -865,8 +869,8 @@
 # sent_id = GUM_speech_remarks-20
 # s_prominence = 2
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = continue
+# speaker = JohnFKennedy
 # text = I did not say we would not have new pressures and new problems.
 1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Discourse=attribution-negative:75->76:0:sem-atsrc-695+sem-ngt-697+sem-ngt-697+lex-indwd-698|Entity=(10)|PDTB=Implicit:Expansion.Conjunction:and:_:677-694:695-708
 2	did	do	AUX	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	4	aux	4:aux	_
@@ -886,8 +890,8 @@
 # sent_id = GUM_speech_remarks-21
 # s_prominence = 2
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = continue
+# speaker = JohnFKennedy
 # text = Nor did I speak of swift solutions in 100 days in office.
 1	Nor	nor	CCONJ	CC	Polarity=Neg	4	cc	4:cc	Discourse=joint-list_m:77->74:1:dm-nor-709|PDTB=Explicit:Expansion.Conjunction:nor:709:695-708:710-721
 2	did	do	AUX	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	4	aux	4:aux	_
@@ -906,8 +910,8 @@
 # sent_id = GUM_speech_remarks-22
 # s_prominence = 1
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = continue
+# speaker = JohnFKennedy
 # text = I talked instead about the kind of America that I wanted for my family and for your family and all those who are citizens of this country in these difficult and changing years, the kind of America in which I believed, not as a Democrat or as a candidate, but as a citizen.
 1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	2:nsubj	Discourse=joint-other_m:78->1:2:_|Entity=(10)|PDTB=EntRel:EntRel:_:_:709-721:722-778
 2	talked	talk	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=talk-ed
@@ -967,14 +971,14 @@
 56	citizen	citizen	NOUN	NN	Number=Sing	47	conj	42:obl:as|47:conj:but	Entity=28)29)|SpaceAfter=No
 57	.	.	PUNCT	.	_	2	punct	2:punct	_
 
+# newpar
+# newpar_block = p (2 s)
 # sent_id = GUM_speech_remarks-23
 # s_prominence = 3
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = zero
+# speaker = JohnFKennedy
 # text = Today, in many ways, the world looks very different, and the revolutionary change of pace is even more rapid than it has been in the past.
-# newpar
-# newpar_block = p (2 s)
 1	Today	today	NOUN	NN	Number=Sing	9	obl:unmarked	9:obl:unmarked	Discourse=adversative-concession:83->86:1:dm-but-809|MSeg=To-day|SpaceAfter=No|XML=<date when:::"1963-10-30"></date>
 2	,	,	PUNCT	,	_	1	punct	1:punct	_
 3	in	in	ADP	IN	_	5	case	5:case	_
@@ -1009,15 +1013,15 @@
 # sent_id = GUM_speech_remarks-24
 # s_prominence = 2
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = null
+# speaker = JohnFKennedy
 # text = But there has been no change in my concept of the goals which this country must strive for if it is to meet its responsibilities to its people and those who depend upon it.
 1	But	but	CCONJ	CC	_	4	cc	4:cc	Discourse=context-background:86->90:2:ref-prs-816,844+ref-dem-819-826,876-877+ref-dem-822-823,868-869|PDTB=Explicit:Comparison.Concession.Arg2-as-denier:but:809:779-808:810-843
 2	there	there	PRON	EX	PronType=Dem	4	expl	4:expl	_
 3	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	aux	4:aux	MSeg=ha-s
 4	been	be	VERB	VBN	Tense=Past|VerbForm=Part	0	root	0:root	Cxn=Existential-CopPred-ThereExpl
 5	no	no	DET	DT	PronType=Neg	6	det	6:det	Negation=Yes
-6	change	change	NOUN	NN	Number=Sing	4	nsubj	4:nsubj	CxnElt=Pivot
+6	change	change	NOUN	NN	Number=Sing	4	nsubj	4:nsubj	CxnElt=4:Existential-CopPred-ThereExpl.Pivot
 7	in	in	ADP	IN	_	9	case	9:case	_
 8	my	my	PRON	PRP$	Case=Gen|Number=Sing|Person=1|Poss=Yes|PronType=Prs	9	nmod:poss	9:nmod:poss	Entity=(29)
 9	concept	concept	NOUN	NN	Number=Sing	6	nmod	6:nmod:in	MSeg=concep-t
@@ -1028,13 +1032,13 @@
 14	this	this	DET	DT	Number=Sing|PronType=Dem	15	det	15:det	Entity=(3
 15	country	country	NOUN	NN	Number=Sing	17	nsubj	17:nsubj	Entity=3)
 16	must	must	AUX	MD	VerbForm=Fin	17	aux	17:aux	_
-17	strive	strive	VERB	VB	VerbForm=Inf	12	acl:relcl	12:acl:relcl	Cxn=Conditional-UnspecifiedEpistemic-NoInversion|CxnElt=Apodosis
+17	strive	strive	VERB	VB	VerbForm=Inf	12	acl:relcl	12:acl:relcl	Cxn=Conditional-UnspecifiedEpistemic-NoInversion|CxnElt=17:Conditional-UnspecifiedEpistemic-NoInversion.Apodosis
 18	for	for	ADP	IN	_	13	case	13:case	_
 19	if	if	SCONJ	IN	_	23	mark	23:mark	Discourse=purpose-goal:88->87:0:syn-inf-830;contingency-condition:88->87:1:0:lex-indwd-840+orp-if-827|PDTB=Explicit:Contingency.Condition.Arg2-as-cond:if:827:821-826:828-843;Implicit:Contingency.Purpose.Arg2-as-goal:in order:_:821-826:827-843
 20	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	23	nsubj:outer	23:nsubj:outer	Entity=(3)
 21	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	23	cop	23:cop	_
 22	to	to	PART	TO	_	23	mark	23:mark	_
-23	meet	meet	VERB	VB	VerbForm=Inf	17	advcl	17:advcl:if_to	CxnElt=Protasis
+23	meet	meet	VERB	VB	VerbForm=Inf	17	advcl	17:advcl:if_to	CxnElt=17:Conditional-UnspecifiedEpistemic-NoInversion.Protasis
 24	its	its	PRON	PRP$	Case=Gen|Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs	25	nmod:poss	25:nmod:poss	Entity=(3)|MSeg=it-s
 25	responsibilities	responsibility	NOUN	NNS	Number=Plur	23	obj	23:obj	MSeg=respons-ibil-itie-s
 26	to	to	ADP	IN	_	28	case	28:case	_
@@ -1048,14 +1052,14 @@
 34	it	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	32	obl	32:obl:upon	Entity=26)(3)|SpaceAfter=No
 35	.	.	PUNCT	.	_	4	punct	4:punct	_
 
+# newpar
+# newpar_block = p (2 s)
 # sent_id = GUM_speech_remarks-25
 # s_prominence = 1
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = establishment
+# speaker = JohnFKennedy
 # text = I still believe in the kind of America which I described in this hall 3 years ago, and I am still determined that this Nation shall continue to strive to meet those goals.
-# newpar
-# newpar_block = p (2 s)
 1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	3:nsubj	Discourse=joint-other_m:90->1:2:_|Entity=(29)
 2	still	still	ADV	RB	Degree=Pos	3	advmod	3:advmod	_
 3	believe	believe	VERB	VBP	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin	0	root	0:root	_
@@ -1095,8 +1099,8 @@
 # sent_id = GUM_speech_remarks-26
 # s_prominence = 1
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = continue
+# speaker = JohnFKennedy
 # text = And I am gratified to be able to report some progress in the last 33 1/2 months.
 1	And	and	CCONJ	CC	_	4	cc	4:cc	Discourse=joint-list_m:94->90:1:dm-and-879|PDTB=Explicit:Expansion.Conjunction:and:879:844-878:880-896
 2	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	4:nsubj	Entity=(29)
@@ -1117,14 +1121,14 @@
 17	months	month	NOUN	NNS	Number=Plur	9	obl	9:obl:in	MSeg=mon-th-s|SpaceAfter=No|XML=</date>
 18	.	.	PUNCT	.	_	4	punct	4:punct	_
 
+# newpar
+# newpar_block = p (6 s)
 # sent_id = GUM_speech_remarks-27
 # s_prominence = 3
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = continue
+# speaker = JohnFKennedy
 # text = I said, first of all, that I believed in America where work was available to those who were willing and able to work, where the waste of idle men and machines could be avoided, and where greater economic growth could provide the new jobs and the new markets that our growing Nation needed.
-# newpar
-# newpar_block = p (6 s)
 1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	2:nsubj	Discourse=attribution-positive:95->96:1:sem-atsrc-897+lex-indwd-898+syn-rpr-904-905,908|Entity=(29)
 2	said	say	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=sai-d|SpaceAfter=No
 3	,	,	PUNCT	,	_	4	punct	4:punct	_
@@ -1187,8 +1191,8 @@
 # sent_id = GUM_speech_remarks-28
 # s_prominence = 3
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = smooth-shift
+# speaker = JohnFKennedy
 # text = That goal has not been fully achieved.
 1	That	that	DET	DT	Number=Sing|PronType=Dem	2	det	2:det	Discourse=adversative-concession:102->107:2:dm-but-1004|Entity=(31|PDTB=NoRel:NoRel:_:_:897-954:955-962
 2	goal	goal	NOUN	NN	Number=Sing	7	nsubj:pass	7:nsubj:pass	Entity=31)
@@ -1202,15 +1206,15 @@
 # sent_id = GUM_speech_remarks-29
 # s_prominence = 4
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = zero
+# speaker = JohnFKennedy
 # text = There are still too many men and women, particularly young men and women, unable to find work.
 1	There	there	PRON	EX	PronType=Dem	2	expl	2:expl	Discourse=explanation-evidence:103->102:0:_|PDTB=Implicit:Contingency.Cause.Reason:because:_:955-962:963-982
 2	are	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-CopPred-ThereExpl
 3	still	still	ADV	RB	Degree=Pos	2	advmod	2:advmod	_
 4	too	too	ADV	RB	Degree=Pos	5	advmod	5:advmod	_
 5	many	many	ADJ	JJ	Degree=Pos	6	amod	6:amod	_
-6	men	man	NOUN	NNS	Number=Plur	2	nsubj	2:nsubj	CxnElt=Pivot
+6	men	man	NOUN	NNS	Number=Plur	2	nsubj	2:nsubj	CxnElt=2:Existential-CopPred-ThereExpl.Pivot
 7	and	and	CCONJ	CC	_	8	cc	8:cc	_
 8	women	woman	NOUN	NNS	Number=Plur	6	conj	2:nsubj|6:conj:and	SpaceAfter=No
 9	,	,	PUNCT	,	_	12	punct	12:punct	_
@@ -1229,8 +1233,8 @@
 # sent_id = GUM_speech_remarks-30
 # s_prominence = 4
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = null
+# speaker = JohnFKennedy
 # text = And our high wartime tax rates still prevent our economy from growing as fully and as freely as it must.
 1	And	and	CCONJ	CC	_	8	cc	8:cc	Discourse=joint-other_m:105->103:1:lex-indwd-966+dm-and-983|PDTB=Explicit:Expansion.Conjunction:and:983:963-982:984-1003
 2	our	our	PRON	PRP$	Case=Gen|Number=Plur|Person=1|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(12)
@@ -1257,8 +1261,8 @@
 # sent_id = GUM_speech_remarks-31
 # s_prominence = 2
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = establishment
+# speaker = JohnFKennedy
 # text = But one fact is that 2 1/2 million people more are working in the United States than were working 33 months ago.
 1	But	but	CCONJ	CC	_	12	cc	12:cc	Discourse=elaboration-additional:107->90:3:sem-synym-868-869,1017-1019|PDTB=Explicit:Comparison.Concession.Arg2-as-denier:but:1004:955-962:1005-1026;NoRel:NoRel:_:_:983-1003:1004-1026
 2	one	one	NUM	CD	NumForm=Word|NumType=Card	3	nummod	3:nummod	Entity=(33
@@ -1287,8 +1291,8 @@
 # sent_id = GUM_speech_remarks-32
 # s_prominence = 2
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = continue
+# speaker = JohnFKennedy
 # text = The rate of unemployment and idle capacity has been cut, and our economy of the United States will shortly pass the $ 600 billion mark, for a record rise--for a record rise in 3 years of $ 100 billion--the largest peacetime rise in the history of the United States.
 1	The	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=joint-list_m:109->107:1:sem-lxchn-1015,1030|PDTB=Implicit:Expansion.Conjunction:and:_:1004-1026:1027-1082
 2	rate	rate	NOUN	NN	Number=Sing	10	nsubj:pass	10:nsubj:pass	_
@@ -1347,19 +1351,19 @@
 55	States	State	PROPN	NNPS	Number=Plur	51	nmod	51:nmod:of	Entity=3)34)|MSeg=State-s|SpaceAfter=No
 56	.	.	PUNCT	.	_	10	punct	10:punct	_
 
+# newpar
+# newpar_block = p (2 s)
 # sent_id = GUM_speech_remarks-33
 # s_prominence = 2
 # s_type = sub
-# speaker = JohnFKennedy
 # transition = smooth-shift
+# speaker = JohnFKennedy
 # text = And if we can obtain the early passage of an effective tax cut which the House of Representatives has already passed--and which the Ways and Means Committee, on which Bill Green serves, wrote--we shall be sailing this country next year on the longest and strongest peacetime expansion of our economy in the history of the United States.
-# newpar
-# newpar_block = p (2 s)
 1	And	and	CCONJ	CC	_	42	cc	42:cc	Discourse=joint-list_m:113->107:1:dm-and-1083|PDTB=Explicit:Expansion.Conjunction:and:1083:1027-1082:1084-1146
 2	if	if	SCONJ	IN	_	5	mark	5:mark	Discourse=contingency-condition:114->119:0:dm-if-1084|PDTB=Explicit:Contingency.Condition.Arg2-as-cond:if:1084:1083,1121-1146:1085-1120
 3	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	5	nsubj	5:nsubj	Entity=(12)
 4	can	can	AUX	MD	VerbForm=Fin	5	aux	5:aux	_
-5	obtain	obtain	VERB	VB	VerbForm=Inf	42	advcl	42:advcl:if	CxnElt=Protasis
+5	obtain	obtain	VERB	VB	VerbForm=Inf	42	advcl	42:advcl:if	CxnElt=42:Conditional-UnspecifiedEpistemic-NoInversion.Protasis
 6	the	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	_
 7	early	early	ADJ	JJ	Degree=Pos	8	amod	8:amod	_
 8	passage	passage	NOUN	NN	Number=Sing	5	obj	5:obj	MSeg=pass-age
@@ -1376,9 +1380,9 @@
 19	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	21	aux	21:aux	MSeg=ha-s
 20	already	already	ADV	RB	_	21	advmod	21:advmod	MSeg=al-ready
 21	passed	pass	VERB	VBN	Tense=Past|VerbForm=Part	13	acl:relcl	13:acl:relcl	MSeg=pass-ed|SpaceAfter=No|XML=<w>
-22	--	-	PUNCT	:	_	29	punct	29:punct	Discourse=joint-list_m:116->115:0:dm-and-1105|SpaceAfter=No
-23	and	and	CCONJ	CC	_	35	cc	35:cc	PDTB=Explicit:Expansion.Conjunction:and:1105:1096-1103:1104,1106-1120|XML=</w>
-24	which	which	PRON	WDT	PronType=Rel	35	obj	29:ref	_
+22	--	-	PUNCT	:	_	23	punct	23:punct	Discourse=joint-list_m:116->115:0:dm-and-1105|SpaceAfter=No
+23	and	and	CCONJ	CC	_	37	cc	37:cc	PDTB=Explicit:Expansion.Conjunction:and:1105:1096-1103:1104,1106-1120|XML=</w>
+24	which	which	PRON	WDT	PronType=Rel	37	obj	37:obj	_
 25	the	the	DET	DT	Definite=Def|PronType=Art	29	det	29:det	_
 26	Ways	Way	PROPN	NNP	Number=Sing	29	compound	29:compound	_
 27	and	and	CCONJ	CC	_	28	cc	28:cc	_
@@ -1391,12 +1395,12 @@
 34	Green	Green	PROPN	NNP	Number=Sing	33	flat	33:flat	Entity=6)
 35	serves	serve	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	29	acl:relcl	29:acl:relcl	MSeg=serve-s|SpaceAfter=No
 36	,	,	PUNCT	,	_	29	punct	29:punct	_
-37	wrote	write	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	21	conj	13:acl:relcl|21:conj	Discourse=same-unit_m:118->116:1:_|SpaceAfter=No|XML=<w>
+37	wrote	write	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	21	conj	13:acl:relcl|21:conj:and	Discourse=same-unit_m:118->116:1:_|SpaceAfter=No|XML=<w>
 38	--	-	PUNCT	:	_	5	punct	5:punct	SpaceAfter=No
 39	we	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	42	nsubj	42:nsubj	Discourse=same-unit_m:119->113:0:_|Entity=(12)|XML=</w>
 40	shall	shall	AUX	MD	VerbForm=Fin	42	aux	42:aux	_
 41	be	be	AUX	VB	VerbForm=Inf	42	aux	42:aux	_
-42	sailing	sail	VERB	VBG	Tense=Pres|VerbForm=Part	0	root	0:root	Cxn=Conditional-UnspecifiedEpistemic-NoInversion|CxnElt=Apodosis|MSeg=sail-ing
+42	sailing	sail	VERB	VBG	Tense=Pres|VerbForm=Part	0	root	0:root	Cxn=Conditional-UnspecifiedEpistemic-NoInversion|CxnElt=42:Conditional-UnspecifiedEpistemic-NoInversion.Apodosis|MSeg=sail-ing
 43	this	this	DET	DT	Number=Sing|PronType=Dem	44	det	44:det	Entity=(3
 44	country	country	NOUN	NN	Number=Sing	42	obj	42:obj	Entity=3)
 45	next	next	ADJ	JJ	Degree=Pos	46	amod	46:amod	_
@@ -1423,8 +1427,8 @@
 # sent_id = GUM_speech_remarks-34
 # s_prominence = 3
 # s_type = decl
-# speaker = JohnFKennedy
 # transition = smooth-shift
+# speaker = JohnFKennedy
 # text = It is well within our reach.
 1	It	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	6	nsubj	6:nsubj	Discourse=evaluation-comment:120->113:1:lex-indph-1150-1152|Entity=(35)|PDTB=Implicit:Contingency.Cause.Reason:indeed:_:1083-1146:1147-1153
 2	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	6:cop	_

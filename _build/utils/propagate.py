@@ -16,6 +16,7 @@ except:
 import os, re, sys, io
 import ntpath
 from collections import defaultdict, OrderedDict
+from functools import cmp_to_key
 
 
 PY2 = sys.version_info[0] < 3
@@ -59,34 +60,23 @@ efuncs = set(["acl","acl:relcl","advcl","advcl:relcl","advmod","amod","appos","a
 mseg_lookup = open(utils_abs_path + os.sep + "mseg.tab",encoding="utf8").read().strip().split("\n")
 mseg_lookup = {tuple(l.split("\t")[:-1]):l.split("\t")[-1] for l in mseg_lookup}
 
-ud_dev = ["GUM_interview_cyclone", "GUM_interview_gaming",
-		  "GUM_news_iodine", "GUM_news_homeopathic",
-		  "GUM_voyage_athens", "GUM_voyage_coron",
-		  "GUM_whow_joke", "GUM_whow_overalls",
-		  "GUM_bio_byron", "GUM_bio_emperor",
-		  "GUM_fiction_lunre", "GUM_fiction_beast",
-		  "GUM_academic_exposure", "GUM_academic_librarians",
-		  "GUM_reddit_macroeconomics", "GUM_reddit_pandas",  # Reddit
-		  "GUM_speech_impeachment", "GUM_textbook_labor",
-		  "GUM_vlog_radiology", "GUM_conversation_grounded",
-		  "GUM_textbook_governments", "GUM_vlog_portland",
-		  "GUM_conversation_risk", "GUM_speech_inauguration",
-		  "GUM_court_loan","GUM_essay_evolved",
-		  "GUM_letter_arendt","GUM_podcast_wrestling"]
-ud_test = ["GUM_interview_libertarian", "GUM_interview_hill",
-		   "GUM_news_nasa", "GUM_news_sensitive",
-		   "GUM_voyage_oakland", "GUM_voyage_vavau",
-		   "GUM_whow_mice", "GUM_whow_cactus",
-		   "GUM_fiction_falling", "GUM_fiction_teeth",
-		   "GUM_bio_jespersen", "GUM_bio_dvorak",
-		   "GUM_academic_eegimaa", "GUM_academic_discrimination",
-		   "GUM_reddit_escape", "GUM_reddit_monsters",  # Reddit
-		   "GUM_speech_austria", "GUM_textbook_chemistry",
-		   "GUM_vlog_studying", "GUM_conversation_retirement",
-		   "GUM_textbook_union", "GUM_vlog_london",
-		   "GUM_conversation_lambada", "GUM_speech_newzealand",
-		   "GUM_court_mitigation","GUM_essay_fear",
-		   "GUM_letter_mandela","GUM_podcast_bezos"]
+# Get docname to partition mapping from splits.md in corpus root directory
+splits_lines = open(utils_abs_path + os.sep + ".." + os.sep + ".." + os.sep + "splits.md").read().strip().split("\n")
+ud_dev = []
+ud_test = []
+ud_gentle = []
+partition = "train"
+for line in splits_lines:
+	if line.startswith("## "):
+		partition = re.search("## ([^\s]+)",line).group(1)
+	if "GUM_" in line:
+		docname = line.strip().split()[-1]
+		if partition == "dev":
+			ud_dev.append(docname)
+		elif partition == "test":
+			ud_test.append(docname)
+	elif "GENTLE_" in line:
+		ud_gentle.append(line.strip().split()[-1])
 
 sigtypes = {"semantic": "sem", "syntactic": "syn", "graphical": "grf", "morphological": "mrf",
 			"numerical": "num", "reference": "ref", "lexical": "lex", "dm": "dm", "orphan": "orp", "unsure": "nsr"}
@@ -374,19 +364,21 @@ def remove_entities(misc):
 		return "|".join(sorted(list(set(output))))
 
 
-def do_hard_replaces(text):
+def do_hard_replaces(text, docname):
 	"""Replace unresolvable conversion problems with hardwired replacements
 	"""
 
-	reps = [("""15	ashes	ash	NOUN	NNS	Number=Plur	12	obl	_	SpaceAfter=No
+	reps = [("GUM_voyage_phoenix",""""15	ashes	ash	NOUN	NNS	Number=Plur	12	obl	_	SpaceAfter=No
 16	"	"	PUNCT	''	_	12	punct	_	_""","""15	ashes	ash	NOUN	NNS	Number=Plur	12	obl	_	SpaceAfter=No
-16	"	"	PUNCT	''	_	15	punct	_	_"""),("""32	)	)	PUNCT	-RRB-	_	24	punct	_	_
+16	"	"	PUNCT	''	_	15	punct	_	_"""),
+			("GUM_bio_galois","""32	)	)	PUNCT	-RRB-	_	24	punct	_	_
 33	that	that	PRON	WDT	PronType=Rel	34	nsubj	_	_""","""32	)	)	PUNCT	-RRB-	_	27	punct	_	_
-33	that	that	PRON	WDT	PronType=Rel	34	nsubj	_	_""")]
+33	that	that	PRON	WDT	PronType=Rel	34	nsubj	_	_"""),
+			("GENTLE_poetry_raven","""38	,	,	PUNCT	,	_	29	punct""","""38	,	,	PUNCT	,	_	37	punct""")]
 
-	#reps = [] ########
-	for f, r in reps:
-		text = text.replace(f,r)
+	for doc, f, r in reps:
+		if doc == docname:
+			text = text.replace(f,r)
 	return text
 
 
@@ -446,7 +438,7 @@ def fix_card_lemma(wordform,lemma):
 	return lemma
 
 
-def enrich_dep(gum_source, gum_target, tmp, reddit=False):
+def enrich_dep(gum_source, gum_target, tmp, reddit=False, corpus="GUM"):
 
 	pre_annotated = defaultdict(lambda: defaultdict(dict))  # Placeholder for explicit annotations in src/dep/
 	no_space_after_strings = {"(","[","{"}
@@ -458,8 +450,14 @@ def enrich_dep(gum_source, gum_target, tmp, reddit=False):
 	if not os.path.isdir(dep_target):
 		os.makedirs(dep_target)
 
+	file_prefix = ""
+	if corpus.lower() == "gum":
+		file_prefix = "GUM_"
+	elif corpus.lower() == "gentle":
+		file_prefix = "GENTLE_"
+
 	depfiles = []
-	files_ = glob(dep_source + "*.conllu")
+	files_ = glob(dep_source + file_prefix + "*.conllu")
 	for file_ in files_:
 		if not reddit and "reddit_" in file_:
 			continue
@@ -655,13 +653,13 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 		print("      Punctuation behavior in the UD data relies on udapi ")
 		print("      which does not support Python 2. All punctuation will be attached to sentence roots.\n")
 
-	train_string, dev_string, test_string = "", "", ""
+	train_string, dev_string, test_string, gentle_string = "", "", "", ""
 
 	dep_source = tmp + "dep" + os.sep + "tmp" + os.sep
 	dep_target = gum_target + "dep" + os.sep + "not-to-release" + os.sep
 	if not os.path.isdir(dep_target):
 		os.makedirs(dep_target)
-	dep_merge_dir = tmp + "dep" + os.sep + "ud" + os.sep + corpus + os.sep
+	dep_merge_dir = tmp + "dep" + os.sep + "ud" + os.sep
 	if not os.path.isdir(dep_merge_dir):
 		os.makedirs(dep_merge_dir)
 	entidep_dir = tmp + "entidep" + os.sep	
@@ -669,6 +667,12 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 		os.makedirs(entidep_dir)
 	
 	depfiles = []
+	file_prefix = ""
+	if corpus.lower() == "gum":
+		file_prefix = "GUM_"
+	elif corpus.lower() == "gentle":
+		file_prefix = "GENTLE_"
+
 	files_ = glob(dep_source + "*.conllu")
 	for file_ in files_:
 		if not reddit and "reddit_" in file_:
@@ -682,8 +686,10 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 		sys.stdout.write("\t+ " + " "*70 + "\r")
 		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(depfiles)) + ":\t+ " + docname + "\r")
 
-		entity_file = tmp + "tsv" + os.sep + corpus + os.sep + docname + ".tsv"
-		tsv_lines = io.open(entity_file,encoding="utf8").read().replace("\r","").split("\n")
+		doc_corpus = "GENTLE" if "GENTLE_" in docname else "GUM"
+		entity_file = tmp + "tsv" + os.sep + doc_corpus + os.sep + docname + ".tsv"
+		tsv = io.open(entity_file,encoding="utf8").read().replace("\r","")
+		tsv_lines = (tsv.strip() + "\t\n").split("\n")
 		int_max_entity = 10000
 		tok_id = 0
 		entity_dict = {}
@@ -849,7 +855,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 
 		# Add metadata and global declaration
 		lines = processed_lines.split("\n")
-		header = ["# global.Entity = GRP-etype-infstat-centering-minspan-link-identity"]
+		header = ["# global.Entity = GRP-etype-infstat-salience-centering-minspan-link-identity"]
 		meta = get_meta(docname,gum_target)
 		header.append("# meta::author = "+ meta["author"])
 		header.append("# meta::dateCollected = " + meta["dateCollected"])
@@ -859,10 +865,9 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 		header.append("# meta::genre = "+ meta["type"])
 		header.append("# meta::sourceURL = " + meta["sourceURL"])
 		header.append("# meta::speakerCount = " + meta["speakerCount"])
-		if 'summary' in meta:
-			header.append("# meta::summary = "+ meta["summary"])
-		if 'summary2' in meta:
-			header.append("# meta::summary2 = " + meta["summary2"])
+		for key in sorted(meta):
+			if key.startswith("summary"):
+				header.append("# meta::" + key + " = "+ meta[key].replace("&quot;",'"').replace("&apos;","'").replace("&amp;","&"))
 		header.append("# meta::title = "+ meta["title"])
 		processed_lines = [lines[0]] + header + lines[1:]
 		processed_lines = "\n".join(processed_lines)
@@ -939,7 +944,7 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 				negatived.append(line)
 		negatived = "\n".join(negatived)
 
-		negatived = do_hard_replaces(negatived)
+		negatived = do_hard_replaces(negatived,docname=docname)
 
 		# Broken non-projective punctuation
 		negatived = punct_depedit.run_depedit(negatived).strip()
@@ -1017,20 +1022,25 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 
 		if docname in ud_dev and "reddit_" not in docname:
 			dev_string += output
-		elif corpus == "GENTLE" or (docname in ud_test and "reddit_" not in docname):
+		elif corpus in ["GENTLE", "both"] and "GENTLE" in docname:
+			gentle_string += output
+		elif docname in ud_test and "reddit_" not in docname:
 			test_string += output
 		elif "reddit_" not in docname:  # Exclude reddit data from UD release
 			train_string += output
 
 
 	train_split_target = dep_target + ".." + os.sep
-	if corpus != "GENTLE":
-		with io.open(train_split_target + "en_"+corpus.lower()+"-ud-train.conllu",'w',encoding="utf8", newline="\n") as f:
+	if corpus in ["GUM","both"]:
+		with io.open(train_split_target + "en_gum-ud-train.conllu",'w',encoding="utf8", newline="\n") as f:
 			f.write(train_string.strip())
-		with io.open(train_split_target + "en_"+corpus.lower()+"-ud-dev.conllu",'w',encoding="utf8", newline="\n") as f:
+		with io.open(train_split_target + "en_gum-ud-dev.conllu",'w',encoding="utf8", newline="\n") as f:
 			f.write(dev_string.strip())
-	with io.open(train_split_target + "en_"+corpus.lower()+"-ud-test.conllu",'w',encoding="utf8", newline="\n") as f:
-		f.write(test_string.strip())
+		with io.open(train_split_target + "en_gum-ud-test.conllu",'w',encoding="utf8", newline="\n") as f:
+			f.write(test_string.strip())
+	if corpus in ["GENTLE","both"]:
+		with io.open(train_split_target + "en_gentle-ud-test.conllu",'w',encoding="utf8", newline="\n") as f:
+			f.write(gentle_string.strip())
 
 	sys.__stdout__.write("o Enriched dependencies in " + str(len(depfiles)) + " documents" + " " *20)
 
@@ -1040,7 +1050,13 @@ def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=F
 	xml_target = gum_target + "xml" + os.sep
 
 	xmlfiles = []
-	files_ = glob(xml_source + "*.xml")
+	file_prefix = ""
+	if corpus.lower() == "gum":
+		file_prefix = "GUM_"
+	elif corpus.lower() == "gentle":
+		file_prefix = "GENTLE_"
+
+	files_ = glob(xml_source + file_prefix + "*.xml")
 	for file_ in files_:
 		if not reddit and "reddit_" in file_:
 			continue
@@ -1065,7 +1081,7 @@ def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=F
 
 		tok_num = 0
 
-		depfile = xmlfile.replace("xml" + os.sep,"dep" + os.sep).replace("xml","conllu")
+		depfile = xmlfile.replace("xml" + os.sep,"dep" + os.sep).replace(".xml",".conllu")
 		if PY2:
 			dep_lines = open(depfile).read().replace("\r", "").split("\n")
 		else:
@@ -1090,6 +1106,14 @@ def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=F
 					tok_num += 1
 					funcs[tok_num] = fields[7]
 
+		summaries = []
+		tsvfile = xmlfile.replace("xml" + os.sep,"tsv" + os.sep).replace(".xml",".tsv")
+		if os.path.isfile(tsvfile):
+			tsv_lines = io.open(tsvfile,encoding="utf8").read().replace("\r","").split("\n")
+			for line in tsv_lines:
+				if line.startswith("#Summary"):
+					summaries.append(line.split("=",1)[1].strip())
+
 		if PY2:
 			xml_lines = open(xmlfile).read().replace("\r", "").split("\n")
 		else:
@@ -1102,7 +1126,6 @@ def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=F
 
 		sent_num = 0
 		centering = centering_data[docname]
-		stored_goeswith_pos = ""
 		for line in xml_lines:
 			if "\t" in line:  # Token
 				tok_num += 1
@@ -1128,6 +1151,12 @@ def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=F
 				sent_num += 1
 			elif line.startswith('<text ') and ' partition=' not in line:
 				line = line.replace(' id="' + docname + '"',' id="' + docname + '"' + partition_meta)
+				if len(summaries) > 0:  # Insert fresh summaries from tsv
+					summaries = [f'summary{i+1}="'+s.replace('&','&amp;').replace('"',"&quot;").replace("<","&lt;")+'"' for i,s in enumerate(summaries)]
+					summaries = " ".join(summaries)
+					line = re.sub(r' summary[0-9]*="[^"]+"',"",line)  # Delete existing summaries if needed
+					line = line.replace(">",f' {summaries}>')
+
 			output += line + "\n"
 
 		output = output.strip() + "\n"
@@ -1144,10 +1173,16 @@ def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=F
 	print("o Enriched xml in " + str(len(xmlfiles)) + " documents" + " " *20)
 
 
-def fix_gw_tags(gum_target, reddit=True):
+def fix_gw_tags(gum_target, reddit=True, corpus="GUM"):
 
 	xmlfiles = []
-	files_ = glob(gum_target + "xml" + os.sep + "*.xml")
+	file_prefix = ""
+	if corpus.lower() == "gum":
+		file_prefix = "GUM_"
+	elif corpus.lower() == "gentle":
+		file_prefix = "GENTLE_"
+
+	files_ = glob(gum_target + "xml" + os.sep + file_prefix + "*.xml")
 	for file_ in files_:
 		if not reddit and "reddit_" in file_:
 			continue
@@ -1180,65 +1215,6 @@ def fix_gw_tags(gum_target, reddit=True):
 			f.write("\n".join(output))
 
 
-"""
-def const_parse(gum_source, gum_target, warn_slash_tokens=False, reddit=False):
-
-	xml_source = gum_source + "xml" + os.sep
-	const_target = gum_target + "const" + os.sep
-
-	# because this parent function is called just once,
-	# init the lal parser here instead of as a global const
-	lalparser = LALConstituentParser(const_target)
-
-	files_ = glob(xml_source + "*.xml")
-	xmlfiles = []
-	for file_ in files_:
-		if not reddit and "reddit_" in file_:
-			continue
-		xmlfiles.append(file_)
-
-	for docnum, xmlfile in enumerate(xmlfiles):
-
-		if "_all" in xmlfile:
-			continue
-		docname = ntpath.basename(xmlfile)
-		output = ""
-		sys.stdout.write("\t+ " + " "*40 + "\r")
-		sys.stdout.write(" " + str(docnum+1) + "/" + str(len(xmlfiles)) + ":\t+ Parsing " + docname + "\r")
-
-		# Name for parser output file
-		constfile = const_target + docname.replace("xml", "ptb")
-
-		xml_lines = io.open(xmlfile, encoding="utf8").read().replace("\r", "").split("\n")
-		line_num = 0
-		out_line = ""
-
-		for line in xml_lines:
-			if line.startswith("</s>"): # Sentence ended
-				output += out_line.strip() + "\n"
-				out_line = ""
-
-			elif "\t" in line:  # Token
-				line_num += 1
-				fields = line.split("\t")
-				token, tag = fields[0], fields[1]
-				tag = tt2vanilla(tag,token)
-				if " " in token:
-					print("WARN: space found in token on line " + str(line_num) + ": " + token + "; replaced by '_'")
-					token = token.replace(" ","_")
-				elif "/" in token and warn_slash_tokens:
-					print("WARN: slash found in token on line " + str(line_num) + ": " + token + "; retained as '/'")
-
-				token = token.replace("&amp;","&").replace("&gt;",">").replace("&lt;","<").replace("&apos;","'").replace("&quot;",'"').replace("(","-LRB-").replace(")","-RRB-")
-				item = tag + '\t' + token + " "
-				out_line += item
-
-		sentences = output.split('\n')
-		lalparser.run_parse(sentences,constfile)
-
-	print("o Reparsed " + str(len(xmlfiles)) + " documents" + " " * 20)
-"""
-
 def get_coref_ids(gum_target, ontogum=False):
 	def clean_closer(instr):
 		output = []
@@ -1250,10 +1226,11 @@ def get_coref_ids(gum_target, ontogum=False):
 		return "".join(output)
 
 	entity_dict = defaultdict(list)
+
 	if ontogum:
 		conll_coref = glob(gum_target + "coref" + os.sep + "ontogum" + os.sep + "conll" + os.sep + "*.conll")
 	else:
-		conll_coref = glob(gum_target + "coref" + os.sep + "conll" + os.sep + corpus + os.sep + "*.conll")
+		conll_coref = glob(gum_target + "coref" + os.sep + "conll" + os.sep + os.sep + "*.conll")
 	for file_ in conll_coref:
 		doc = os.path.basename(file_).replace(".conll","")
 		lines = io.open(file_,encoding="utf8").read().split("\n")
@@ -1268,10 +1245,15 @@ def get_coref_ids(gum_target, ontogum=False):
 	return entity_dict
 
 
-def get_rsd_spans(gum_target):
+def get_rsd_spans(gum_target, corpus="GUM"):
+	file_prefix = ""
+	if corpus.lower() == "gum":
+		file_prefix = "GUM_"
+	elif corpus.lower() == "gentle":
+		file_prefix = "GENTLE_"
 
 	rsd_spans = defaultdict(dict)
-	rsd_files = glob(gum_target + "rst" + os.sep + "dependencies" + os.sep + "*.rsd")
+	rsd_files = glob(gum_target + "rst" + os.sep + "dependencies" + os.sep + file_prefix + "*.rsd")
 	depths = defaultdict(dict)
 	for file_ in rsd_files:
 		doc = os.path.basename(file_).replace(".rsd","")
@@ -1304,9 +1286,15 @@ def get_rsd_spans(gum_target):
 	return rsd_spans, depths
 
 
-def get_pdtb_data(gum_target):
+def get_pdtb_data(gum_target, corpus="GUM"):
+	file_prefix = ""
+	if corpus.lower() == "gum":
+		file_prefix = "GUM_"
+	elif corpus.lower() == "gentle":
+		file_prefix = "GENTLE_"
+
 	pdtb_data = defaultdict(lambda :defaultdict(set))
-	pdtb_files = glob(gum_target + "rst" + os.sep + "gdtb" + os.sep + "pdtb" + os.sep + "gold" + os.sep + "00" + os.sep + "*")
+	pdtb_files = glob(gum_target + "rst" + os.sep + "gdtb" + os.sep + "pdtb" + os.sep + "gold" + os.sep + "00" + os.sep + file_prefix + "*")
 	for file_ in pdtb_files:
 		docname = os.path.basename(file_).split(".")[0]
 		lines = io.open(file_,encoding="utf8").read().split("\n")
@@ -1325,8 +1313,7 @@ def get_pdtb_data(gum_target):
 	return pdtb_data
 
 
-def add_rsd_and_pdtb_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8, output_signals=True, output_secedges=True):
-
+def add_rsd_and_pdtb_to_conllu(gum_target, reddit=False, ontogum=False, relation_set=8, output_signals=True, output_secedges=True, corpus="GUM"):
 	def convert_rel(rel, version=8):
 		if version < 7:
 			if "disjunction" in rel:
@@ -1350,14 +1337,20 @@ def add_rsd_and_pdtb_to_conllu(gum_target, reddit=False, ontogum=False, relation
 
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
-	rsd_spans, depths = get_rsd_spans(gum_target)
-	pdtb_data = get_pdtb_data(gum_target)
+	rsd_spans, depths = get_rsd_spans(gum_target, corpus=corpus)
+	pdtb_data = get_pdtb_data(gum_target, corpus=corpus)
+
+	file_prefix = ""
+	if corpus.lower() == "gum":
+		file_prefix = "GUM_"
+	elif corpus.lower() == "gentle":
+		file_prefix = "GENTLE_"
 
 	if not ontogum:
-		files = glob(gum_target + "dep" + os.sep + "*.conllu")
-		files += glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
+		files = glob(gum_target + "dep" + os.sep + file_prefix + "*.conllu")
+		files += glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + file_prefix + "*.conllu")
 	else:
-		files = glob(gum_target + "coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep + "*.conllu")
+		files = glob(gum_target + "coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep + file_prefix + "*.conllu")
 
 	if not reddit:
 		files = [f for f in files if not "reddit" in f]
@@ -1431,7 +1424,7 @@ def add_rsd_and_pdtb_to_conllu(gum_target, reddit=False, ontogum=False, relation
 			f.write("\n".join(output).strip() + "\n\n")
 
 
-def add_entities_to_conllu(gum_target,reddit=False,ontogum=False,conllua_data=None,salience_data=None):
+def add_entities_to_conllu(gum_target,reddit=False,ontogum=False,conllua_data=None,salience_data=None,corpus="GUM"):
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
 	if conllua_data is None:
@@ -1441,8 +1434,14 @@ def add_entities_to_conllu(gum_target,reddit=False,ontogum=False,conllua_data=No
 	if salience_data is None:
 		salience_data = {}
 
-	files = glob(gum_target + "dep" + os.sep + "*.conllu")
-	files += glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
+	file_prefix = ""
+	if corpus.lower() == "gum":
+		file_prefix = "GUM_"
+	elif corpus.lower() == "gentle":
+		file_prefix = "GENTLE_"
+
+	files = glob(gum_target + "dep" + os.sep + file_prefix + "*.conllu")
+	files += glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + file_prefix + "*.conllu")
 
 	if not reddit:
 		files = [f for f in files if not "reddit" in f]
@@ -1493,8 +1492,22 @@ def add_entities_to_conllu(gum_target,reddit=False,ontogum=False,conllua_data=No
 			output = "\n".join(output)
 			if salience_data is not None:
 				if doc in salience_data:
-					salient_entities = sorted(list(set([int(k) for k in salience_data[doc] if salience_data[doc][k] == "sal"])))
-					salient_entities = ", ".join([str(x) for x in salient_entities])
+					if any(['sal' in salience_data[doc][k] for k in salience_data[doc]]):  # Old binary salience format
+						salient_entities = sorted(list(set([int(k) for k in salience_data[doc] if salience_data[doc][k] == "sal"])))
+						salient_entities = ", ".join([str(x) for x in salient_entities])
+					else:  # New format with scores computed from number of 's' in strings like 'snssn' (e.g. score = 3)
+						ents = []
+						for k in salience_data[doc]:
+							if "s" in salience_data[doc][k]:
+								score = salience_data[doc][k].count("s")
+								ents.append((k,score, salience_data[doc][k].startswith("s")))
+						ents = sorted(ents, key=lambda x: (-x[1],int(x[0])))
+						salient_entities = []
+						for ent in ents:
+							eid, score, is_sal = ent
+							is_sal = "*" if is_sal else ""
+							salient_entities.append(f"{eid} ({score}{is_sal})")
+						salient_entities = ", ".join(salient_entities)
 					salient_entities = "# meta::salientEntities = " + salient_entities
 					output = output.replace("# meta::sourceURL",salient_entities + "\n" + "# meta::sourceURL")
 			with io.open(file_,'w',encoding="utf8",newline="\n") as f:
@@ -1637,7 +1650,13 @@ def add_bridging_to_conllu(gum_target,reddit=False,corpus="GUM"):
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
 
-	files = glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
+	file_prefix = ""
+	if corpus.lower() == "gum":
+		file_prefix = "GUM_"
+	elif corpus.lower() == "gentle":
+		file_prefix = "GENTLE_"
+
+	files = glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + file_prefix + "*.conllu")
 
 	if not reddit:
 		files = [f for f in files if not "reddit" in f]
@@ -1660,8 +1679,13 @@ def add_bridging_to_conllu(gum_target,reddit=False,corpus="GUM"):
 
 	bigfiles = glob(gum_target + "dep" + os.sep + "*.conllu")
 
+	if corpus.lower() == "gum":
+		bigfiles = [f for f in bigfiles if "gum" in f]
+	elif corpus.lower() == "gentle":
+		bigfiles = [f for f in bigfiles if "gentle" in f]
+
 	for file_ in bigfiles:
-		docs = re.findall("# newdoc id ?= ?("+corpus+"_[^\n]+)",io.open(file_).read())
+		docs = re.findall("# newdoc id ?= ?((?:GUM|GENTLE)_[^\n]+)",io.open(file_).read())
 
 		output = []
 		for doc in docs:
@@ -1672,27 +1696,53 @@ def add_bridging_to_conllu(gum_target,reddit=False,corpus="GUM"):
 
 
 def add_xml_to_conllu(gum_target, reddit=False, ontogum=False, corpus="GUM"):
+	def comp_comments(a,b):
+		ranks = ["newdoc id","global.Entity","meta","newpar","newpar_block","sent_id","s_type","s_prominence","transition","speaker","addressee","text"]
+		a_key = a.split("=")[0].split("::")[0].replace("#","").strip()
+		b_key = b.split("=")[0].split("::")[0].replace("#","").strip()
+		if a_key in ranks and b_key in ranks:
+			return ranks.index(a_key) - ranks.index(b_key)
+		elif a_key in ranks:
+			return -1
+		elif b_key in ranks:
+			return 1
+		else:
+			# Use alphabetical sorting on the original a/b values
+			return (a > b) - (a < b)
+
+	file_prefix = ""
+	if corpus.lower() == "gum":
+		file_prefix = "GUM_"
+	elif corpus.lower() == "gentle":
+		file_prefix = "GENTLE_"
+
 	xml_data = {}
 	if not gum_target.endswith(os.sep):
 		gum_target += os.sep
 
-	for file_ in glob(gum_target + "xml" + os.sep + "*.xml"):
+	for file_ in glob(gum_target + "xml" + os.sep + file_prefix + "*.xml"):
 		xml_data[os.path.basename(file_).replace(".xml","")] = io.open(file_,encoding="utf8").read()
 
 	if ontogum:
-		files = glob(gum_target+"coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep + corpus + "*.conllu")
-		files += glob(gum_target+"coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep + "en_"+corpus.lower()+"-ud*.conllu")
+		files = glob(gum_target+"coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep + file_prefix + "*.conllu")
+		if corpus != "both":
+			files += glob(gum_target+"coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep + "en_"+corpus.lower()+"-ud*.conllu")
+		else:
+			files += glob(gum_target+"coref" + os.sep + "ontogum" + os.sep + "conllu" + os.sep + "en_*.conllu")
 	else:
-		files = glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + "*.conllu")
-		files += glob(gum_target + "dep" + os.sep + "*.conllu")
+		files = glob(gum_target + "dep" + os.sep + "not-to-release" + os.sep + file_prefix + "*.conllu")
+		if corpus == "both":
+			files += glob(gum_target + "dep" + os.sep + "*.conllu")
+		else:
+			files += glob(gum_target + "dep" + os.sep + "en_"+corpus.lower()+"-ud*.conllu")
 
 	if not reddit:
 		files = [f for f in files if not "reddit" in f]
 
 	xml_tagged_conllu = {}
-	for file_ in files:
+	for file_ in sorted(files,key=lambda x:x.lower(),reverse=True):  # Ensure individual files are processed before big files
 		with io.open(file_,encoding="utf8") as f:
-			if "en_"+corpus.lower()+"-ud" not in file_:
+			if "en_" not in file_ and "-ud" not in file_:
 				docname = os.path.basename(file_).replace(".conllu", "")
 				conllu = f.read()
 				with_tags = add_xml(conllu,xml_data[docname])
@@ -1702,12 +1752,23 @@ def add_xml_to_conllu(gum_target, reddit=False, ontogum=False, corpus="GUM"):
 				docs = f.read().split("# newdoc id")
 				for doc in docs[1:]:
 					doc = "# newdoc id" + doc
-					docname = re.search(r'# newdoc id = ('+corpus+r'_[^\s]+)',doc).group(1)
+					docname = re.search(r'# newdoc id = ((?:GUM|GENTLE)_[^\s]+)',doc).group(1)
 					docnames.append(docname)
 				with_tags = "\n\n".join([xml_tagged_conllu[d] for d in docnames])
 
 		with io.open(file_,'w',encoding="utf8",newline="\n") as f:
 			# Separate newpar and newpar_blocks
 			with_tags = with_tags.replace("# newpar ", "# newpar\n# newpar_block ")
+
+			# Sort comment lines
+			sort_final = []
+			for sent in with_tags.strip().split("\n\n"):
+				lines = sent.split("\n")
+				comments = [line for line in lines if line.startswith("#")]
+				tokens = [line for line in lines if not line.startswith("#")]
+				comments.sort(key=cmp_to_key(comp_comments))
+				sort_final += comments + tokens + [""]
+
+			with_tags = "\n".join(sort_final)
 			f.write(with_tags.strip() + "\n\n")
 

@@ -1,0 +1,1031 @@
+<text id="GENTLE_proof_wosets" partition="train" author="Pr∞fWiki" dateCollected="2022-11-11" dateCreated="2018-06-26" dateModified="2022-07-09"  shortTitle="wosets" sourceURL="https://proofwiki.org/wiki/Wosets_are_Isomorphic_to_Each_Other_or_Initial_Segments/Proof_Without_Using_Choice" speakerCount="0" speakerList="none" title="Wosets are Isomorphic to Each Other or Initial Segments/Proof Without Using Choice" type="proof" summary1="(human1) This mathematical proof shows that two wosets S and T, ordered sets with a well-ordering, must be order isomorphic to each other, or else one set is order isomorphic to an initial segment of the other, trivially if they contain less than two elements, and otherwise provably using a relation ⪯, which is shown to be a reflexive, transitive and antisymmetric total well-ordering." summary2="(claude-3-5-sonnet-20241022) This proof establishes that two well-ordered sets S and T with at least two elements each can be combined into a single well-ordered set U by defining a specific relation that preserves the ordering properties and leads to an order isomorphism between T and either U or an initial segment of U." summary3="(gpt4o) This proof establishes that by defining a specific ordering relation on the union of two well-ordered sets, S and T, a well-ordering can be achieved, and further demonstrates the existence of a strictly increasing mapping from T to U, leading to order isomorphisms either between T and S or vice versa, depending on specific initial conditions." summary4="(Meta-Llama-3-8B-Instruct) The proof shows that ⪯ is a well-ordering on the disjoint union of sets S and T, establishing a well-ordering on the union of a well-ordered set and an ordered set." summary5="(Qwen2.5-3B-Instruct) The proof demonstrates that a well-ordering can be established on the union of ordered sets S and T, and that this order is order-isomorphic to subsets of S or T, depending on the smallest element’s location.">
+<head>
+<s type="frag" transition="establishment">
+Proof	NN	proof	NN1	NOUN	root	_
+</s>
+</head>
+<p>
+<s type="decl" transition="null">
+If	IN	if	CJS	SCONJ	mark	_
+the	DT	the	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Set">
+sets	NNS	set	NN2	NOUN	nsubj	set-s
+</ref>
+S	NN	S	NN1	NOUN	appos	_
+and	CC	and	CJC	CCONJ	cc	_
+T	NN	T	NN1	NOUN	conj	_
+considered	VVN	consider	VVN	VERB	acl	consider-ed
+are	VBP	be	VBB	AUX	cop	_
+<ref target="https://proofwiki.org/wiki/Definition:Empty_Set">
+empty	JJ	empty	AJ0	ADJ	advcl	_
+</ref>
+or	CC	or	CJC	CCONJ	cc	_
+<ref target="https://proofwiki.org/wiki/Definition:Singleton">
+singletons	NNS	singleton	NN2	NOUN	conj	single-ton-s
+</ref>
+,	,	,	PUN	PUNCT	punct	_
+the	DT	the	AT0	DET	det	_
+theorem	NN	theorem	NN1	NOUN	nsubj	_
+holds	VVZ	hold	VVZ	VERB	root	hold-s
+<ref target="https://proofwiki.org/wiki/Definition:Vacuous">
+vacuously	RB	vacuously	AJ0	ADV	advmod	vacu-ous-ly
+</ref>
+or	CC	or	CJC	CCONJ	cc	_
+trivially	RB	trivially	AJ0	ADV	conj	trivi-al-ly
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="imp" transition="establishment">
+Thus	RB	thus	AV0	ADV	advmod	_
+assume	VV	assume	VVB	VERB	root	_
+S	NN	S	NN1	NOUN	nsubj	_
+and	CC	and	CJC	CCONJ	cc	_
+T	NN	T	NN1	NOUN	conj	_
+each	RB	each	DT0	ADV	advmod	_
+contain	VVP	contain	VVB	VERB	ccomp	_
+at	IN	at	PRP	ADP	case	_
+least	JJS	least	AJS	ADJ	nmod	_
+two	CD	two	CRD	NUM	nummod	_
+elements	NNS	element	NN2	NOUN	obj	element-s
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<p>
+<s type="inf" transition="continue">
+Let	VV	let	VVB	VERB	root	_
+U	NN	U	NN1	NOUN	obj	_
+=	SYM	=	UNC	SYM	xcomp	_
+(	(	(	PUL	PUNCT	punct	_
+S	NN	S	NN1	NOUN	obj	_
+,	,	,	PUN	PUNCT	punct	_
+<w>
+⪯	SYM	⪯	NP0	SYM	conj	_
+S	NN	S	NN1	NOUN	obl:unmarked	_
+</w>
+)	)	)	PUR	PUNCT	punct	_
+∪	SYM	∪	UNC	SYM	cc	_
+(	(	(	PUL	PUNCT	punct	_
+T	NN	T	NN1	NOUN	conj	_
+,	,	,	PUN	PUNCT	punct	_
+<w>
+⪯	SYM	⪯	NP0	SYM	conj	_
+T	NN	T	NN1	NOUN	obl:unmarked	_
+</w>
+)	)	)	PUR	PUNCT	punct	_
+</s>
+<s type="imp" transition="rough-shift">
+Define	VV	define	VVB	VERB	root	_
+the	DT	the	AT0	DET	det	_
+following	VVG	follow	VVG	VERB	amod	follow-ing
+relation	NN	relation	NN1	NOUN	obj	relat-ion
+⪯	SYM	⪯	UNC	SYM	appos	_
+on	IN	on	PRP	ADP	case	_
+U	NN	U	NN1	NOUN	obl	_
+:	:	:	PUN	PUNCT	punct	_
+∀	SYM	∀	UNC	DET	det	_
+x	NN	x	NN1	NOUN	dislocated	_
+,	,	,	PUN	PUNCT	punct	_
+y	NN	y	NN1	NOUN	conj	_
+∈	SYM	∈	UNC	SYM	appos	_
+U	NN	U	NN1	NOUN	nmod:unmarked	_
+:	:	:	PUN	PUNCT	punct	_
+<w>
+x	NN	x	NN1	NOUN	nsubj	_
+⪯	SYM	⪯	UNC	SYM	parataxis	_
+y	NN	y	NN1	NOUN	obl:unmarked	_
+</w>
+<ref target="https://proofwiki.org/wiki/Definition:Iff">
+if	IN	if	CJS	ADP	case	_
+and	CC	and	CJC	CCONJ	cc	_
+only	RB	only	AV0	ADV	advmod	_
+if	IN	if	CJS	ADP	conj	_
+</ref>
+:	:	:	PUN	PUNCT	punct	_
+x	NN	x	NN1	NOUN	dislocated	_
+,	,	,	PUN	PUNCT	punct	_
+y	NN	y	NN1	NOUN	conj	_
+∈	SYM	∈	NP0	SYM	appos	_
+S	NN	S	NN1	NOUN	nmod:unmarked	_
+:	:	:	PUN	PUNCT	punct	_
+x	NN	x	NN1	NOUN	nsubj	_
+⪯	SYM	⪯	UNC	SYM	advcl	_
+S	NN	S	NN1	NOUN	dep	_
+y	NN	y	NN1	NOUN	obl:unmarked	_
+or	CC	or	CJC	CCONJ	cc	_
+:	:	:	PUN	PUNCT	punct	_
+x	NN	x	NN1	NOUN	dislocated	_
+,	,	,	PUN	PUNCT	punct	_
+y	NN	y	NN1	NOUN	conj	_
+∈	SYM	∈	NP0	SYM	appos	_
+T	NN	T	NN1	NOUN	nmod:unmarked	_
+:	:	:	PUN	PUNCT	punct	_
+<w>
+x	RB	x	ZZ0	ADV	nsubj	_
+⪯	SYM	⪯	UNC	SYM	conj	_
+T	NN	T	NN1	NOUN	dep	_
+</w>
+y	NN	y	NN1	NOUN	obl:unmarked	_
+or	CC	or	CJC	CCONJ	cc	_
+:	:	:	PUN	PUNCT	punct	_
+x	NN	x	NN1	NOUN	nsubj	_
+∈	SYM	∈	NP0	SYM	conj	_
+S	NN	S	NN1	NOUN	nmod:unmarked	_
+,	,	,	PUN	PUNCT	punct	_
+y	NN	y	NN1	NOUN	nsubj	_
+∈	SYM	∈	UNC	SYM	conj	_
+T	NN	T	NN1	NOUN	nmod:unmarked	_
+</s>
+</p>
+<p>
+<s type="decl" transition="smooth-shift">
+We	PP	we	PNP	PRON	nsubj	_
+claim	VVP	claim	VVB	VERB	root	_
+that	IN/that	that	CJT	SCONJ	mark	_
+⪯	NN	⪯	NN1	NOUN	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+a	DT	a	AV0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Well-Ordering">
+<w>
+well	RB	well	AV0	ADV	advmod	_
+-	HYPH	-	PUN	PUNCT	punct	_
+ordering	NN	ordering	NN1	NOUN	ccomp	order-ing
+</w>
+</ref>
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="smooth-shift">
+First	RB	first	ORD	ADV	advmod	_
+,	,	,	PUN	PUNCT	punct	_
+we	PP	we	PNP	PRON	nsubj	_
+show	VVP	show	VVB	VERB	root	_
+it	PP	it	PNP	PRON	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+a	DT	a	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Total_Ordering">
+total	JJ	total	AJ0	ADJ	amod	_
+ordering	NN	ordering	NN1	NOUN	ccomp	order-ing
+</ref>
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="multiple" transition="zero">
+Checking	VVG	check	VVG	VERB	root	Check-ing
+in	IN	in	PRP	ADP	case	_
+turn	NN	turn	NN1	NOUN	obl	_
+each	DT	each	DT0	DET	obj	_
+of	IN	of	PRF	ADP	case	_
+the	DT	the	AT0	DET	det	_
+criteria	NNS	criterion	NN2	NOUN	nmod	_
+for	IN	for	PRP	ADP	case	_
+a	DT	a	AT0	DET	det	_
+total	JJ	total	AJ0	ADJ	amod	_
+ordering	NN	ordering	NN1	NOUN	nmod	order-ing
+:	:	:	PUN	PUNCT	punct	_
+</s>
+</p>
+<head>
+<s type="frag" transition="null">
+<ref target="https://proofwiki.org/wiki/Definition:Reflexive_Relation">
+Reflexivity	NN	reflexivity	NN1	NOUN	root	Re-flex-iv-ity
+</ref>
+</s>
+</head>
+<p>
+<s type="decl" transition="null">
+If	IN	if	CJS	SCONJ	mark	_
+x	NN	x	NN1	NOUN	nsubj	_
+=	SYM	=	UNC	SYM	advcl	_
+y	NN	y	NN1	NOUN	obj	_
+,	,	,	PUN	PUNCT	punct	_
+they	PP	they	PNP	PRON	nsubj	_
+'re	VBP	be	VBB	AUX	cop	_
+necessarily	RB	necessarily	AV0	ADV	advmod	necessari-ly
+both	RB	both	AV0	ADV	advmod	_
+in	IN	in	PRP	ADP	case	_
+S	NN	S	NN1	NOUN	root	_
+or	CC	or	CJC	CCONJ	cc	_
+T	NN	T	NN1	NOUN	conj	_
+simultaneously	RB	simultaneously	AV0	ADV	advmod	simultaneous-ly
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="establishment">
+Reflexivity	NN	reflexivity	NN1	NOUN	nsubj	Re-flex-iv-ity
+then	RB	then	AV0	ADV	advmod	_
+follows	VVZ	follow	VVZ	VERB	root	follow-s
+from	IN	from	PRP	SCONJ	mark	_
+<w>
+⪯	SYM	⪯	UNC	SYM	csubj	_
+S	NN	S	NN1	NOUN	dep	_
+</w>
+and	CC	and	CJC	CCONJ	cc	_
+x	NN	x	NN1	NOUN	nsubj	_
+⪯	SYM	⪯	UNC	SYM	conj	_
+T	NN	T	NN1	NOUN	dep	_
+being	VBG	be	VBG	AUX	cop	be-ing
+reflexive	JJ	reflexive	AJ0	ADJ	advcl	reflex-ive
+,	,	,	PUN	PUNCT	punct	_
+as	IN	as	CJS	SCONJ	mark	_
+they	PP	they	PNP	PRON	nsubj	_
+are	VBP	be	VBB	AUX	cop	_
+both	DT	both	DT0	DET	advmod	_
+orderings	NNS	ordering	NN2	NOUN	advcl	order-ing-s
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<head>
+<s type="frag" transition="zero">
+<ref target="https://proofwiki.org/wiki/Definition:Transitive_Relation">
+Transitivity	NN	transitivity	NN1	NOUN	root	Transitiv-ity
+</ref>
+</s>
+</head>
+<p>
+<s type="imp" transition="null">
+Let	VV	let	VVB	VERB	root	_
+x	NN	x	NN1	NOUN	obj	_
+,	,	,	PUN	PUNCT	punct	_
+y	NN	y	NN1	NOUN	conj	_
+,	,	,	PUN	PUNCT	punct	_
+z	NN	z	NN1	NOUN	conj	_
+∈	SYM	∈	UNC	SYM	xcomp	_
+U	NN	U	NN1	NOUN	nmod:unmarked	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="establishment">
+If	IN	if	CJS	SCONJ	mark	_
+x	NN	x	NN1	NOUN	nsubj	_
+,	,	,	PUN	PUNCT	punct	_
+y	NN	y	NN1	NOUN	conj	_
+,	,	,	PUN	PUNCT	punct	_
+z	NN	z	NN1	NOUN	conj	_
+∈	SYM	∈	UNC	SYM	advcl	_
+S	NN	S	NN1	NOUN	nmod:unmarked	_
+or	CC	or	CJC	CCONJ	cc	_
+x	NN	x	NN1	NOUN	nsubj	_
+,	,	,	PUN	PUNCT	punct	_
+y	NN	y	NN1	NOUN	conj	_
+,	,	,	PUN	PUNCT	punct	_
+z	NN	z	NN1	NOUN	conj	_
+∈	SYM	∈	UNC	SYM	conj	_
+T	NN	T	NN1	NOUN	nmod:unmarked	_
+simultaneously	RB	simultaneously	AV0	ADV	advmod	simultaneous-ly
+,	,	,	PUN	PUNCT	punct	_
+then	RB	then	AV0	ADV	advmod	_
+⪯	SYM	⪯	NP0	SYM	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+transitive	JJ	transitive	AJ0	ADJ	root	transit-ive
+by	IN	by	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+transitivity	NN	transitivity	NN1	NOUN	obl	transitiv-ity
+of	IN	of	PRF	ADP	case	_
+⪯	SYM	⪯	NP0	SYM	nmod	_
+S	NN	S	NN1	NOUN	dep	_
+and	CC	and	CJC	CCONJ	cc	_
+⪯	SYM	⪯	NP0	SYM	conj	_
+T	NN	T	NN1	NOUN	dep	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="imp" transition="rough-shift">
+Suppose	VV	suppose	VVB	VERB	root	_
+x	NN	x	NN1	NOUN	nsubj	_
+,	,	,	PUN	PUNCT	punct	_
+y	NN	y	NN1	NOUN	conj	_
+∈	SYM	∈	UNC	SYM	ccomp	_
+S	NP	S	NP0	PROPN	nmod:unmarked	_
+and	CC	and	CJC	CCONJ	cc	_
+z	NN	z	NN1	NOUN	nsubj	_
+∈	SYM	∈	NP0	SYM	conj	_
+T	NN	T	NN1	NOUN	nmod:unmarked	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="inf" transition="smooth-shift">
+Let	VV	let	VVB	VERB	root	_
+x	JJ	x	AJ0	ADJ	obj	_
+⪯	SYM	⪯	UNC	SYM	xcomp	_
+y	NN	y	NN1	NOUN	obl:unmarked	_
+and	CC	and	CJC	CCONJ	cc	_
+y	NN	y	NN1	NOUN	nsubj	_
+⪯	SYM	⪯	AJ0	SYM	conj	_
+z	NN	z	NN1	NOUN	obl:unmarked	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="smooth-shift">
+Then	RB	then	AV0	ADV	advmod	_
+x	NN	x	NN1	NOUN	nsubj	_
+⪯	SYM	⪯	AJ0	SYM	root	_
+z	NN	z	NN1	NOUN	obl:unmarked	_
+because	IN	because	CJS	SCONJ	mark	be-cause
+x	NN	x	NN1	NOUN	nsubj	_
+∈	SYM	∈	UNC	SYM	advcl	_
+S	NPS	S	NP0	PROPN	nmod:unmarked	_
+and	CC	and	CJC	CCONJ	cc	_
+y	NN	y	NN1	NOUN	nsubj	_
+∈	SYM	∈	NP0	SYM	conj	_
+T	NN	T	NN1	NOUN	nmod:unmarked	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="imp" transition="rough-shift">
+Suppose	VV	suppose	VVB	VERB	root	_
+x	NN	x	NN1	NOUN	nsubj	_
+∈	SYM	∈	UNC	SYM	ccomp	_
+S	NN	S	NN1	NOUN	nmod:unmarked	_
+and	CC	and	CJC	CCONJ	cc	_
+y	NN	y	NN1	NOUN	nsubj	_
+,	,	,	PUN	PUNCT	punct	_
+z	NN	z	NN1	NOUN	conj	_
+∈	SYM	∈	NP0	SYM	conj	_
+T	NN	T	NN1	NOUN	nmod:unmarked	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="smooth-shift">
+Then	RB	then	AV0	ADV	advmod	_
+x	NN	x	NN1	NOUN	nsubj	_
+⪯	SYM	⪯	AJ0	SYM	root	_
+z	NN	z	NN1	NOUN	obl:unmarked	_
+also	RB	also	AV0	ADV	advmod	_
+because	IN	because	CJS	SCONJ	mark	be-cause
+x	NN	x	NN1	NOUN	nsubj	_
+∈	SYM	∈	UNC	SYM	advcl	_
+S	NN	S	NN1	NOUN	obl:unmarked	_
+and	CC	and	CJC	CCONJ	cc	_
+y	NN	y	NN1	NOUN	nsubj	_
+∈	SYM	∈	NP0	SYM	conj	_
+T	NN	T	NN1	NOUN	nmod:unmarked	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="zero">
+Thus	RB	thus	AV0	ADV	advmod	_
+⪯	SYM	⪯	NP0	SYM	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+transitive	JJ	transitive	AJ0	ADJ	root	transit-ive
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<head>
+<s type="frag" transition="null">
+<ref target="https://proofwiki.org/wiki/Definition:Antisymmetric_Relation">
+Antisymmetry	NN	antisymmetry	NN1	NOUN	root	Anti-symmetr-y
+</ref>
+</s>
+</head>
+<p>
+<s type="imp" transition="null">
+Let	VV	let	VVB	VERB	root	_
+x	NN	x	NN1	NOUN	obj	_
+⪯	SYM	⪯	UNC	SYM	xcomp	_
+y	NN	y	NN1	NOUN	obl:unmarked	_
+and	CC	and	CJC	CCONJ	cc	_
+y	NN	y	NN1	NOUN	conj	_
+⪯	SYM	⪯	UNC	SYM	orphan	_
+x	NN	x	NN1	NOUN	obl:unmarked	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="establishment">
+If	IN	if	CJS	SCONJ	mark	_
+x	NN	x	NN1	NOUN	nsubj	_
+,	,	,	PUN	PUNCT	punct	_
+y	NN	y	NN1	NOUN	conj	_
+∈	SYM	∈	UNC	SYM	advcl	_
+S	NN	S	NN1	NOUN	nmod:unmarked	_
+then	RB	then	AV0	ADV	advmod	_
+x	NN	x	NN1	NOUN	nsubj	_
+=	SYM	=	UNC	SYM	root	_
+y	NN	y	NN1	NOUN	obj	_
+by	IN	by	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+antisymmetry	NN	antisymmetry	NN1	NOUN	obl	anti-symmetr-y
+of	IN	of	PRF	ADP	case	_
+<w>
+⪯	SYM	⪯	NP0	SYM	nmod	_
+S	NN	S	NN1	NOUN	dep	_
+</w>
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="continue">
+Likewise	RB	likewise	AV0	ADV	advmod	Like-wise
+if	IN	if	CJS	SCONJ	mark	_
+x	NN	x	NN1	NOUN	nsubj	_
+,	,	,	PUN	PUNCT	punct	_
+y	NN	y	NN1	NOUN	conj	_
+∈	SYM	∈	NP0	SYM	root	_
+T	NN	T	NN1	NOUN	nmod:unmarked	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="continue">
+If	IN	if	CJS	SCONJ	mark	_
+x	NN	x	NN1	NOUN	nsubj	_
+∈	SYM	∈	UNC	SYM	advcl	_
+S	NN	S	NN1	NOUN	nmod:unmarked	_
+and	CC	and	CJC	CCONJ	cc	_
+y	NN	y	NN1	NOUN	nsubj	_
+∈	SYM	∈	NP0	SYM	conj	_
+T	NN	T	NN1	NOUN	nmod:unmarked	_
+,	,	,	PUN	PUNCT	punct	_
+then	RB	then	AV0	ADV	advmod	_
+y	NN	y	NN1	NOUN	nsubj	_
+∈	SYM	∈	UNC	SYM	root	_
+S	NN	S	NN1	NOUN	nmod:unmarked	_
+and	CC	and	CJC	CCONJ	cc	_
+x	NN	x	NN1	NOUN	nsubj	_
+∈	SYM	∈	UNC	SYM	conj	_
+T	NN	T	NN1	NOUN	nmod:unmarked	_
+as	RB	as	CJS	ADV	advmod	_
+well	RB	well	AV0	ADV	fixed	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="continue">
+Thus	RB	thus	AV0	ADV	advmod	_
+x	NN	x	NN1	NOUN	nsubj	_
+=	SYM	=	UNC	SYM	root	_
+y	NN	y	NN1	NOUN	obj	_
+from	IN	from	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+antisymmetry	NN	antisymmetry	NN1	NOUN	obl	anti-symmetr-y
+of	IN	of	PRF	ADP	case	_
+<w>
+⪯	SYM	⪯	NP0	SYM	nmod	_
+S	NN	S	NN1	NOUN	dep	_
+</w>
+or	CC	or	CJC	CCONJ	cc	_
+<w>
+⪯	SYM	⪯	NP0	SYM	conj	_
+T	NN	T	NN1	NOUN	dep	_
+</w>
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="imp" transition="zero">
+Conclude	VV	conclude	VVB	VERB	root	_
+that	IN/that	that	CJT	SCONJ	mark	_
+⪯	SYM	⪯	NP0	SYM	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+a	DT	a	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Total_Ordering">
+total	JJ	total	AJ0	ADJ	amod	_
+ordering	NN	ordering	NN1	NOUN	ccomp	order-ing
+</ref>
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="imp" transition="establishment">
+To	TO	to	TO0	PART	mark	_
+show	VV	show	VVI	VERB	advcl	_
+⪯	SYM	⪯	NP0	SYM	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+a	DT	a	AV0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Well-Ordering">
+<w>
+well	RB	well	AV0	ADV	advmod	_
+-	HYPH	-	PUN	PUNCT	punct	_
+ordering	NN	ordering	NN1	NOUN	ccomp	order-ing
+</w>
+</ref>
+,	,	,	PUN	PUNCT	punct	_
+consider	VV	consider	VVB	VERB	root	_
+a	DT	a	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Non-Empty_Set">
+non-empty	JJ	non-empty	AJ0	ADJ	amod	_
+set	NN	set	NN1	NOUN	obj	_
+</ref>
+X	NN	X	NN1	NOUN	appos	_
+⊆	SYM	⊆	UNC	SYM	appos	_
+U	NN	U	NN1	NOUN	nmod:unmarked	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<p>
+<s type="decl" transition="smooth-shift">
+Then	RB	then	AV0	ADV	advmod	_
+either	CC	either	AV0	CCONJ	cc:preconj	_
+:	SYM	:	PUN	PUNCT	punct	_
+X	NN	X	NN1	NOUN	nsubj	_
+∩	SYM	∩	NP0	SYM	cc	_
+S	NN	S	NN1	NOUN	conj	_
+=	SYM	=	UNC	SYM	root	_
+∅	SYM	∅	UNC	SYM	obj	_
+or	CC	or	CJC	CCONJ	cc	_
+:	:	:	PUN	PUNCT	punct	_
+X	NN	X	NN1	NOUN	nsubj	_
+∩	SYM	∩	NP0	SYM	cc	_
+T	NN	T	NN1	NOUN	conj	_
+=	SYM	=	UNC	SYM	conj	_
+∅	SYM	∅	UNC	SYM	obj	_
+or	CC	or	CJC	CCONJ	cc	_
+:	:	:	PUN	PUNCT	punct	_
+X	NN	X	NN1	NOUN	nsubj	_
+∩	SYM	∩	NP0	SYM	case	_
+S	NN	S	NN1	NOUN	conj	_
+is	VBZ	be	VBZ	AUX	cop	_
+non-empty	JJ	non-empty	AJ0	ADJ	conj	_
+and	CC	and	CJC	CCONJ	cc	_
+X	NN	X	NN1	NOUN	nsubj	_
+∩	SYM	∩	NP0	SYM	cc	_
+T	NN	T	NN1	NOUN	conj	_
+is	VBZ	be	VBZ	AUX	cop	_
+non-empty	JJ	non-empty	AJ0	ADJ	conj	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<p>
+<s type="decl" transition="continue">
+In	IN	in	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+first	JJ	first	ORD	ADJ	amod	_
+case	NN	case	NN1	NOUN	obl	_
+,	,	,	PUN	PUNCT	punct	_
+X	NN	X	NN1	NOUN	nsubj	_
+⊆	SYM	⊆	NP0	SYM	root	_
+T	NN	T	NN1	NOUN	nmod:unmarked	_
+,	,	,	PUN	PUNCT	punct	_
+by	IN	by	PRP	SCONJ	mark	_
+<ref target="https://proofwiki.org/wiki/Intersection_with_Complement_is_Empty_iff_Subset">
+Intersection	NN	intersection	NN1	NOUN	nsubj	Inter-sect-ion
+with	IN	with	PRP	ADP	case	_
+Complement	NN	complement	NN1	NOUN	nmod	_
+is	VBZ	be	VBZ	AUX	cop	_
+Empty	JJ	empty	AJ0	ADJ	advcl	_
+iff	IN	iff	PRP	SCONJ	mark	_
+Subset	NN	subset	NN1	NOUN	advcl	_
+</ref>
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="continue">
+Then	RB	then	AV0	ADV	advmod	_
+X	NN	X	NN1	NOUN	nsubj	_
+has	VHZ	have	VHZ	VERB	root	ha-s
+a	DT	a	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Smallest_Element">
+smallest	JJS	small	AJS	ADJ	amod	small-est
+element	NN	element	NN1	NOUN	obj	_
+</ref>
+defined	VVN	define	VVN	VERB	acl	defin-ed
+by	IN	by	PRP	ADP	case	_
+<w>
+⪯	SYM	⪯	NP0	SYM	obl	_
+T	NN	T	NN1	NOUN	dep	_
+</w>
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="continue">
+In	IN	in	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+second	JJ	second	ORD	ADJ	amod	_
+case	NN	case	NN1	NOUN	obl	_
+,	,	,	PUN	PUNCT	punct	_
+X	NN	X	NN1	NOUN	nsubj	_
+⊆	SYM	⊆	NP0	SYM	root	_
+S	NN	S	NN1	NOUN	nmod:unmarked	_
+,	,	,	PUN	PUNCT	punct	_
+also	RB	also	AV0	ADV	advmod	_
+by	IN	by	PRP	SCONJ	mark	_
+<ref target="https://proofwiki.org/wiki/Intersection_with_Complement_is_Empty_iff_Subset">
+Intersection	NN	intersection	NN1	NOUN	nsubj	Inter-sect-ion
+with	IN	with	PRP	ADP	case	_
+Complement	NN	complement	NN1	NOUN	nmod	_
+is	VBZ	be	VBZ	AUX	cop	_
+Empty	JJ	empty	AJ0	ADJ	advcl	_
+iff	IN	iff	PRP	SCONJ	mark	_
+Subset	NN	subset	NN1	NOUN	advcl	_
+</ref>
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="continue">
+Then	RB	then	AV0	ADV	advmod	_
+X	NN	X	NN1	NOUN	nsubj	_
+has	VHZ	have	VHZ	VERB	root	ha-s
+a	DT	a	AT0	DET	det	_
+smallest	JJS	small	AJS	ADJ	amod	small-est
+element	NN	element	NN1	NOUN	obj	_
+defined	VVN	define	VVN	VERB	acl	defin-ed
+by	IN	by	PRP	ADP	case	_
+⪯	SYM	⪯	NP0	SYM	obl	_
+S	NN	S	NN1	NOUN	dep	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="continue">
+In	IN	in	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+third	JJ	third	ORD	ADJ	amod	_
+case	NN	case	NN1	NOUN	obl	_
+,	,	,	PUN	PUNCT	punct	_
+the	DT	the	AT0	DET	det	_
+smallest	JJS	small	AJS	ADJ	amod	small-est
+element	NN	element	NN1	NOUN	nsubj	_
+of	IN	of	PRF	ADP	case	_
+X	NN	X	NN1	NOUN	nmod	_
+∖	SYM	∖	NP0	SYM	cc	_
+T	NN	T	NN1	NOUN	conj	_
+is	VBZ	be	VBZ	AUX	cop	_
+an	DT	a	AT0	DET	det	_
+element	NN	element	NN1	NOUN	root	_
+of	IN	of	PRF	ADP	case	_
+S	NN	S	NN1	NOUN	nmod	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="smooth-shift">
+Thus	RB	thus	AV0	ADV	advmod	_
+it	PP	it	PNP	PRON	nsubj	_
+precedes	VVZ	precede	VVZ	VERB	root	_
+any	DT	any	DT0	DET	det	_
+element	NN	element	NN1	NOUN	obj	_
+of	IN	of	PRF	ADP	case	_
+T	NN	T	NN1	NOUN	nmod	_
+by	IN	by	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+definition	NN	definition	NN1	NOUN	obl	defini-tion
+of	IN	of	PRF	ADP	case	_
+⪯	SYM	⪯	NP0	SYM	nmod	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="continue">
+The	DT	the	AT0	DET	det	_
+smallest	JJS	small	AJS	ADJ	amod	small-est
+element	NN	element	NN1	NOUN	nsubj:pass	_
+of	IN	of	PRF	ADP	case	_
+X	NN	X	NN1	NOUN	nmod	_
+∖	SYM	∖	NP0	SYM	cc	_
+T	NN	T	NN1	NOUN	conj	_
+,	,	,	PUN	PUNCT	punct	_
+which	WDT	which	DTQ	PRON	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+a	DT	a	AT0	DET	det	_
+subset	NN	subset	NN1	NOUN	acl:relcl	_
+of	IN	of	PRF	ADP	case	_
+S	NN	S	NN1	NOUN	nmod	_
+,	,	,	PUN	PUNCT	punct	_
+is	VBZ	be	VBZ	AUX	aux:pass	_
+guaranteed	VVN	guarantee	VVN	VERB	root	guarante-ed
+to	TO	to	TO0	PART	mark	_
+exist	VV	exist	VVI	VERB	xcomp	_
+by	IN	by	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+<w>
+well	RB	well	AV0	ADV	advmod	_
+-	HYPH	-	PUN	PUNCT	punct	_
+ordering	NN	ordering	NN1	NOUN	obl:agent	order-ing
+</w>
+on	IN	on	PRP	ADP	case	_
+S	NN	S	NN1	NOUN	nmod	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="continue">
+This	DT	this	DT0	DET	det	_
+smallest	JJS	small	AJS	ADJ	amod	small-est
+element	NN	element	NN1	NOUN	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+then	RB	then	AV0	ADV	advmod	_
+also	RB	also	AV0	ADV	advmod	_
+the	DT	the	AT0	DET	det	_
+smallest	JJS	small	AJS	ADJ	amod	small-est
+element	NN	element	NN1	NOUN	root	_
+of	IN	of	PRF	ADP	case	_
+(	(	(	PUL	PUNCT	punct	_
+X	NN	X	NN1	NOUN	nsubj	_
+∖	SYM	∖	NP0	SYM	cc	_
+T	NN	T	NN1	NOUN	conj	_
+)	)	)	PUR	PUNCT	punct	_
+∪	SYM	∪	UNC	SYM	cc	_
+T	NN	T	NN1	NOUN	conj	_
+=	SYM	=	UNC	SYM	advcl	_
+X	NN	X	NN1	NOUN	obj	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="rough-shift">
+Thus	RB	thus	AV0	ADV	advmod	_
+⪯	SYM	⪯	NP0	SYM	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+a	DT	a	AV0	DET	det	_
+<w>
+well	RB	well	AV0	ADV	advmod	_
+-	HYPH	-	PUN	PUNCT	punct	_
+ordering	NN	ordering	NN1	NOUN	root	order-ing
+</w>
+on	IN	on	PRP	ADP	case	_
+S	NN	S	NN1	NOUN	nmod	_
+∪	SYM	∪	NP0	SYM	cc	_
+T	NN	T	NN1	NOUN	conj	_
+.	SENT	.	PUN	PUNCT	punct	_
+□	SENT	□	UNC	PUNCT	punct	_
+</s>
+</p>
+<p>
+<s type="imp" transition="continue">
+Consider	VV	consider	VVB	VERB	root	_
+the	DT	the	AT0	DET	det	_
+mapping	NN	mapping	NN1	NOUN	obj	mapp-ing
+:	:	:	PUN	PUNCT	punct	_
+k	NN	k	NN1	NOUN	appos	_
+:	:	:	PUN	PUNCT	punct	_
+(	(	(	PUL	PUNCT	punct	_
+T	NN	T	NN1	NOUN	nsubj	_
+,	,	,	PUN	PUNCT	punct	_
+<w>
+⪯	SYM	⪯	NP0	SYM	conj	_
+T	NN	T	NN1	NOUN	dep	_
+</w>
+)	)	)	PUR	PUNCT	punct	_
+→	SYM	→	UNC	SYM	parataxis	_
+(	(	(	PUL	PUNCT	punct	_
+U	NN	U	NN1	NOUN	obj	_
+,	,	,	PUN	PUNCT	punct	_
+⪯	SYM	⪯	UNC	SYM	conj	_
+)	)	)	PUR	PUNCT	punct	_
+:	:	:	PUN	PUNCT	punct	_
+k	NN	k	NN1	NOUN	nsubj	_
+(	(	(	PUL	PUNCT	punct	_
+α	NN	α	NN1	NOUN	nmod:unmarked	_
+)	)	)	PUR	PUNCT	punct	_
+=	SYM	=	UNC	SYM	parataxis	_
+α	NN	α	NN1	NOUN	obj	_
+</s>
+<s type="decl" transition="smooth-shift">
+Then	RB	then	AV0	ADV	advmod	_
+k	NN	k	NN1	NOUN	nsubj	_
+is	VBZ	be	VBZ	AUX	aux	_
+<ref target="https://proofwiki.org/wiki/Definition:Strictly_Increasing">
+strictly	RB	strictly	AV0	ADV	advmod	strict-ly
+increasing	VVG	increase	VVG	VERB	root	increas-ing
+</ref>
+,	,	,	PUN	PUNCT	punct	_
+by	IN	by	PRP	ADP	case	_
+the	DT	the	AT0	DET	det	_
+construction	NN	construction	NN1	NOUN	obl	construct-ion
+of	IN	of	PRF	ADP	case	_
+⪯	SYM	⪯	NP0	SYM	nmod	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="continue">
+Thus	RB	thus	AV0	ADV	advmod	_
+there	EX	there	EX0	PRON	expl	_
+is	VBZ	be	VBZ	VERB	root	_
+a	DT	a	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Strictly_Increasing_Mapping">
+strictly	RB	strictly	AV0	ADV	advmod	strict-ly
+increasing	VVG	increase	VVG	VERB	amod	increas-ing
+mapping	NN	mapping	NN1	NOUN	nsubj	mapp-ing
+</ref>
+from	IN	from	PRP	ADP	case	_
+T	NN	T	NN1	NOUN	nmod	_
+to	IN	to	PRP	ADP	case	_
+U	NN	U	NN1	NOUN	nmod	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="smooth-shift">
+From	IN	from	PRP	SCONJ	mark	_
+<ref target="https://proofwiki.org/wiki/Strictly_Increasing_Mapping_Between_Wosets_Implies_Order_Isomorphism">
+Strictly	RB	strictly	AV0	ADV	advmod	_
+Increasing	VVG	increase	VVG	VERB	amod	In-creas-ing
+Mapping	NN	mapping	NN1	NOUN	nsubj	Mapp-ing
+Between	IN	between	PRP	ADP	case	Be-tween
+Wosets	NNS	woset	NN2	NOUN	nmod	Woset-s
+Implies	VVZ	imply	VVZ	VERB	advcl	_
+Order	NN	order	NN1	NOUN	compound	_
+Isomorphism	NN	isomorphism	NN1	NOUN	obj	Iso-morph-ism
+</ref>
+,	,	,	PUN	PUNCT	punct	_
+T	NN	T	NN1	NOUN	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+<ref target="https://proofwiki.org/wiki/Definition:Order_Isomorphism">
+order	NN	order	NN1	NOUN	compound	_
+isomorphic	JJ	isomorphic	AJ0	ADJ	root	iso-morph-ic
+</ref>
+to	IN	to	PRP	ADP	case	_
+U	NN	U	NN1	NOUN	obl	_
+or	CC	or	CJC	CCONJ	cc	_
+an	DT	a	AT0	DET	det	_
+initial	JJ	initial	AJ0	ADJ	amod	_
+segment	NN	segment	NN1	NOUN	conj	_
+of	IN	of	PRF	ADP	case	_
+U	NN	U	NN1	NOUN	nmod	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<p>
+<s type="imp" transition="smooth-shift">
+Let	VV	let	VVB	VERB	root	_
+Ix	NN	Ix	NN1	NOUN	obj	_
+denote	VV	denote	VVI	VERB	xcomp	_
+the	DT	the	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Initial_Segment">
+initial	JJ	initial	AJ0	ADJ	amod	_
+segment	NN	segment	NN1	NOUN	obj	_
+</ref>
+in	IN	in	PRP	ADP	case	_
+U	NN	U	NN1	NOUN	nmod	_
+determined	VVN	determine	VVN	VERB	acl	determin-ed
+by	IN	by	PRP	ADP	case	_
+x	NN	x	NN1	NOUN	obl	_
+,	,	,	PUN	PUNCT	punct	_
+according	VVG	accord	VVG	VERB	case	accord-ing
+to	IN	to	PRP	ADP	fixed	_
+k	NN	k	NN1	NOUN	obl	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="imp" transition="smooth-shift">
+Note	VV	note	VVB	VERB	root	_
+that	IN/that	that	CJT	SCONJ	mark	_
+Ix	NN	Ix	NN1	NOUN	nsubj	_
+=	SYM	=	UNC	SYM	ccomp	_
+Ik	NN	Ik	NN1	NOUN	obj	_
+(	(	(	PUL	PUNCT	punct	_
+x	NN	x	NN1	NOUN	nmod:unmarked	_
+)	)	)	PUR	PUNCT	punct	_
+,	,	,	PUN	PUNCT	punct	_
+because	IN	because	CJS	SCONJ	mark	be-cause
+k	NN	k	NN1	NOUN	nsubj	_
+(	(	(	PUL	PUNCT	punct	_
+x	NN	x	NN1	NOUN	nmod:unmarked	_
+)	)	)	PUR	PUNCT	punct	_
+=	SYM	=	UNC	SYM	advcl	_
+x	NN	x	NN1	NOUN	obj	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+</p>
+<p>
+<s type="imp" transition="zero">
+Suppose	VV	suppose	VVB	VERB	root	_
+x	NN	x	NN1	NOUN	nsubj	_
+∈	SYM	∈	NP0	SYM	ccomp	_
+S	NN	S	NN1	NOUN	nmod:unmarked	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="establishment">
+Then	RB	then	AV0	ADV	advmod	_
+Ix	NN	Ix	NN1	NOUN	nsubj	_
+⊆	SYM	⊆	UNC	SYM	root	_
+S	NN	S	NN1	NOUN	nmod:unmarked	_
+because	IN	because	CJS	SCONJ	mark	be-cause
+⪯	SYM	⪯	NP0	SYM	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+a	DT	a	AV0	DET	det	_
+<w>
+well	RB	well	AV0	ADV	advmod	_
+-	HYPH	-	PUN	PUNCT	punct	_
+ordering	NN	ordering	NN1	NOUN	advcl	order-ing
+</w>
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="continue">
+Thus	RB	thus	AV0	ADV	advmod	_
+there	EX	there	EX0	PRON	expl	_
+is	VBZ	be	VBZ	VERB	root	_
+an	DT	a	AT0	DET	det	_
+order	NN	order	NN1	NOUN	compound	_
+isomorphism	NN	isomorphism	NN1	NOUN	nsubj	iso-morph-ism
+from	IN	from	PRP	ADP	case	_
+T	NN	T	NN1	NOUN	nmod	_
+to	IN	to	PRP	ADP	case	_
+Ix	NN	Ix	NN1	NOUN	nmod	_
+in	IN	in	PRP	ADP	case	_
+S	NN	S	NN1	NOUN	obl	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="imp" transition="rough-shift">
+Suppose	VV	suppose	VVB	VERB	root	_
+x	NN	x	NN1	NOUN	nsubj	_
+=	SYM	=	UNC	SYM	ccomp	_
+min	NN	min	NN0	NOUN	obj	_
+T	NN	T	NN1	NOUN	nmod:unmarked	_
+,	,	,	PUN	PUNCT	punct	_
+the	DT	the	AT0	DET	det	_
+<ref target="https://proofwiki.org/wiki/Definition:Smallest_Element">
+smallest	JJS	small	AJS	ADJ	amod	small-est
+element	NN	element	NN1	NOUN	appos	_
+</ref>
+of	IN	of	PRF	ADP	case	_
+T	NN	T	NN1	NOUN	nmod	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="smooth-shift">
+Then	RB	then	AV0	ADV	advmod	_
+every	DT	every	AT0	DET	det	_
+element	NN	element	NN1	NOUN	nsubj	_
+of	IN	of	PRF	ADP	case	_
+S	NN	S	NN1	NOUN	nmod	_
+<ref target="https://proofwiki.org/wiki/Definition:Strictly_Precede">
+strictly	RB	strictly	AV0	ADV	advmod	strict-ly
+precedes	VVZ	precede	VVZ	VERB	root	_
+</ref>
+x	NN	x	NN1	NOUN	obj	_
+,	,	,	PUN	PUNCT	punct	_
+as	IN	as	CJS	SCONJ	mark	_
+x	NN	x	NN1	NOUN	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+in	IN	in	PRP	ADP	case	_
+T	NN	T	NN1	NOUN	advcl	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="continue">
+Also	RB	also	AV0	ADV	advmod	_
+,	,	,	PUN	PUNCT	punct	_
+x	NN	x	NN1	NOUN	nsubj	_
+precedes	VVZ	precede	VVZ	VERB	root	_
+every	DT	every	AT0	DET	det	_
+element	NN	element	NN1	NOUN	obj	_
+of	IN	of	PRF	ADP	case	_
+T	NN	T	NN1	NOUN	nmod	_
+,	,	,	PUN	PUNCT	punct	_
+so	RB	so	AV0	ADV	advmod	_
+Ix	NN	Ix	NN1	NOUN	nsubj	_
+≠	SYM	≠	UNC	SYM	parataxis	_
+T	NN	T	NN1	NOUN	obj	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="smooth-shift">
+Thus	RB	thus	AV0	ADV	advmod	_
+there	EX	there	EX0	PRON	expl	_
+is	VBZ	be	VBZ	VERB	root	_
+an	DT	a	AT0	DET	det	_
+order	NN	order	NN1	NOUN	compound	_
+isomorphism	NN	isomorphism	NN1	NOUN	nsubj	iso-morph-ism
+from	IN	from	PRP	ADP	case	_
+T	NN	T	NN1	NOUN	nmod	_
+to	IN	to	PRP	ADP	case	_
+all	DT	all	DT0	DET	nmod	_
+of	IN	of	PRF	ADP	case	_
+S	NN	S	NN1	NOUN	nmod	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="imp" transition="retain">
+Suppose	VV	suppose	VVB	VERB	root	_
+x	SYM	x	ZZ0	SYM	nsubj	_
+∈	NN	∈	NN1	NOUN	ccomp	_
+T	NN	T	NN1	NOUN	nmod:unmarked	_
+and	CC	and	CJC	CCONJ	cc	_
+x	NN	x	NN1	NOUN	nsubj	_
+≠	SYM	≠	AJ0	SYM	conj	_
+min	NN	min	NN0	NOUN	obj	_
+T	NN	T	NN1	NOUN	nmod:unmarked	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="continue">
+Then	RB	then	AV0	ADV	advmod	_
+Ix	NN	Ix	NN1	NOUN	nsubj	_
+defines	VVZ	define	VVZ	VERB	root	_
+an	DT	a	AT0	DET	det	_
+initial	JJ	initial	AJ0	ADJ	amod	_
+segment	NN	segment	NN1	NOUN	obj	_
+in	IN	in	PRP	ADP	case	_
+T	NN	T	NN1	NOUN	nmod	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="retain">
+Also	RB	also	AV0	ADV	advmod	_
+,	,	,	PUN	PUNCT	punct	_
+every	DT	every	AT0	DET	det	_
+element	NN	element	NN1	NOUN	nsubj	_
+of	IN	of	PRF	ADP	case	_
+S	NN	S	NN1	NOUN	nmod	_
+<ref target="https://proofwiki.org/wiki/Definition:Strictly_Precede">
+strictly	RB	strictly	AV0	ADV	advmod	strict-ly
+precedes	VVZ	precede	VVZ	VERB	root	_
+</ref>
+x	NN	x	NN1	NOUN	obj	_
+,	,	,	PUN	PUNCT	punct	_
+as	IN	as	CJS	SCONJ	mark	_
+x	NN	x	NN1	NOUN	nsubj	_
+is	VBZ	be	VBZ	AUX	cop	_
+in	IN	in	PRP	ADP	case	_
+T	NN	T	NN1	NOUN	advcl	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="continue">
+Thus	RB	thus	AV0	ADV	advmod	_
+there	EX	there	EX0	PRON	expl	_
+is	VBZ	be	VBZ	VERB	root	_
+an	DT	a	AT0	DET	det	_
+order	NN	order	NN1	NOUN	compound	_
+isomorphism	NN	isomorphism	NN1	NOUN	nsubj	iso-morph-ism
+from	IN	from	PRP	ADP	case	_
+an	DT	a	AT0	DET	det	_
+initial	JJ	initial	AJ0	ADJ	amod	_
+segment	NN	segment	NN1	NOUN	nmod	_
+of	IN	of	PRF	ADP	case	_
+T	NN	T	NN1	NOUN	nmod	_
+to	IN	to	PRP	ADP	case	_
+all	DT	all	DT0	DET	nmod	_
+of	IN	of	PRF	ADP	case	_
+S	NN	S	NN1	NOUN	nmod	_
+.	SENT	.	PUN	PUNCT	punct	_
+</s>
+<s type="decl" transition="zero">
+The	DT	the	AT0	DET	det	_
+cases	NNS	case	NN2	NOUN	nsubj	case-s
+are	VBP	be	VBB	AUX	cop	_
+distinct	JJ	distinct	AJ0	ADJ	root	_
+by	IN	by	PRP	SCONJ	mark	_
+<ref target="https://proofwiki.org/wiki/Well-Ordered_Class_is_not_Isomorphic_to_Initial_Segment">
+<w>
+Well	RB	well	AV0	ADV	advmod	_
+-	:	-	PUN	PUNCT	punct	_
+Ordered	VVN	order	VVN	VERB	amod	Order-ed
+</w>
+Class	NN	class	NN1	NOUN	obl	_
+is	VBZ	be	VBZ	AUX	cop	_
+not	RB	not	XX0	PART	advmod	_
+Isomorphic	JJ	isomorphic	AJ0	ADJ	advcl	Iso-morph-ic
+to	IN	to	PRP	ADP	case	_
+Initial	JJ	initial	AJ0	ADJ	amod	_
+Segment	NN	segment	NN1	NOUN	obl	_
+</ref>
+.	SENT	.	PUN	PUNCT	punct	_
+■	SENT	■	NP0	PUNCT	punct	_
+</s>
+</p>
+</text>

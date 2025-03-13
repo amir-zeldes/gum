@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pepper>
-	<importer name="CoNLLImporter" path="file:/**gum_tmp**/dep/ud/GUM/">
+	<importer name="CoNLLImporter" path="file:/**gum_tmp**/dep/ud/**corpus**/">
 		<customization>
 			<property key="pepper.before.addSLayer">dep</property>
 			<property key="conll.SPOS">NONE</property> <!--POSTAG comes from XML -->
@@ -17,14 +17,14 @@
 			<property key="conll.no.duplicate.edeps">TRUE</property>
 			<property key="conll.dependency.layers">TRUE</property>
 			<property key="conll.ellipsis.tok.annotation">morph:Ellipsis</property>
-			<property key="conll.meta.prefix">NONE</property>
+			<property key="conll.meta.prefix">meta::</property>
 			<property key="conll.sentence.annotations">NONE</property>
 			<property key="pepper.after.removeAnnos">cat,MSeg</property>
 			<!--<property key="pepper.after.addSLayer">dep</property>-->
 			<!--<property key="pepper.after.renameAnnos">deprel:=func</property>-->
 		</customization>
 	</importer>
-	<importer name="TreetaggerImporter" path="file:/**gum_tmp**/xml/GUM/">
+	<importer name="TreetaggerImporter" path="file:/**gum_tmp**/xml/**corpus**/">
 		<customization>
 			<property key="pepper.before.readMeta">meta</property>
 			<property key="treetagger.fileExtension">xml</property>
@@ -40,20 +40,20 @@
 			<property key="pepper.after.addSLayer">tei</property>
 		</customization>
 	</importer>
-	<importer name="WebannoTSVImporter" path="file:/**gum_tmp**/tsv/GUM/">
+	<importer name="WebannoTSVImporter" path="file:/**gum_tmp**/tsv/**corpus**/">
 		<customization>
 			<property key="WebannoTSV.lowerTypes">TRUE</property>
 			<property key="WebannoTSV.namespace">ref</property>
 		</customization>
 	</importer>
-	<importer name="RSTImporter" path="file:/**gum_tmp**/rst/GUM/">
+	<importer name="RSTImporter" path="file:/**gum_tmp**/rst/**corpus**/">
 		<customization>
 			<property key="rstImporter.tokenize">yes</property>
 			<property key="simpleTokenize">' '</property>
 			<property key="pepper.after.addSLayer">rst</property>
 		</customization>
 	</importer>
-	<importer name="RSDImporter" path="file:/**gum_tmp**/rsd/GUM/">
+	<importer name="RSDImporter" path="file:/**gum_tmp**/rsd/**corpus**/">
 		<customization>
 			<property key="RSD.namespace">rsd</property>
 			<property key="RSD.addEduNum">TRUE</property>
@@ -62,7 +62,7 @@
 		</customization>
 	</importer>
 
-	<importer name="PTBImporter" path="file:/**gum_tmp**/const/GUM/">
+	<importer name="PTBImporter" path="file:/**gum_tmp**/const/**corpus**/">
 		<customization>
 			<property key="ptb.importer.posName">xpos</property>
 			<property key="ptb.importer.relationType">edge</property>
@@ -121,11 +121,11 @@
 			<property key="ConllCoref.Exporter.RemoveEmptyTokens">TRUE</property>
 		</customization>
 	</exporter>
-	<exporter name="PAULAExporter" path="file:/**gum_target**paula">
+	<exporter name="PAULAExporter" path="file:/**gum_target**paula/**corpus**">
 	</exporter>
 	<!--<exporter name="SaltInfoExporter" path="file:/**gum_target**saltinfo">
 	</exporter>-->
-	<exporter name="ANNISExporter" path="file:/**gum_target**annis">
+	<exporter name="ANNISExporter" path="file:/**gum_target**annis/**corpus**">
 		<customization>
 			<property key="clobber.visualisation">false</property>
 		</customization>
