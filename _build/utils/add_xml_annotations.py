@@ -512,6 +512,7 @@ def evaluate_reconstruction(original_xml_filepath, reconstructed_xml_filepath):
 
 
 def add_xml(conllu, xml):
+	xml = re.sub(r'<l n="[0-9]+"/>\n','',xml)  # Remove unary line tags
 	sentence_level_info, token_level_open_info, token_level_close_info, metadata = get_xml_info(xml, as_string=True)
 	conllu = update_conllu_file(conllu, "", sentence_level_info, token_level_open_info, token_level_close_info, metadata,
 								as_string=True, add_metadata=False)
