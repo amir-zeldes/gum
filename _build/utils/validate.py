@@ -466,7 +466,7 @@ def validate_annos(gum_source, reddit=False):
 							salience = saliences[i]
 						except:
 							print("ERROR: " + docname)
-							print("no infstat for entity: " + str(entity))
+							print("no infstat/salience for entity: " + str(entity) + " in document " + docname)
 							quit()
 						if isinstance(corefs,list):
 							coref = corefs[i] if i < len(corefs) else corefs[-1]
@@ -733,7 +733,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if pos == "NPS" and tok == lemma and tok.endswith("s") and func != "goeswith":
 		if tok not in ["Netherlands","Analytics","Olympics","Commons","Paralympics","Vans",
-					   "Andes","Forties","Philippines","Maldives", "Politics", "Species"]:
+					   "Forties","Philippines","Maldives", "Politics", "Species"]:
 			print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
 	if pos == "NNS" and tok.lower() == lemma.lower() and lemma.endswith("s") and func != "goeswith":
@@ -759,10 +759,11 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		if not ("languages" in inname and tok == "and"):  # metalinguistic discussion in whow_languages
 			print("WARN: pos " + pos + " should normally have function cc or cc:preconj, not " + func + inname)
 
-	if func == "cc" and parent_func not in ["root","ccomp","conj","reparandum","parataxis"]:
-		print("WARN: function " + func + " should not have parent function " + parent_func + inname)
+	if func == "cc" and parent_func not in ["root","ccomp","conj","reparandum","parataxis", "dislocated"]:
+		if not (func == "cc" and parent_func == "appos" and "sensitive" in docname):  # known metalinguistic case
+			print("WARN: function " + func + " should not have parent function " + parent_func + inname)
 
-	if pos == "RP" and func not in ["compound:prt","conj"] or pos != "RP" and func=="compound:prt":
+	if pos == "RP" and func not in ["compound:prt","conj","reparandum"] or pos != "RP" and func=="compound:prt":
 		print("WARN: pos " + pos + " should not normally have function " + func + inname)
 
 	if pos.startswith("IN") and lemma == "that" and func not in ["mark","fixed","conj","reparandum","ccomp"]:
@@ -787,6 +788,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 	if pos == "VVG" and "case" in child_funcs:
 		if tok != "following":  # Exception for promoted 'the following'
 			print("WARN: pos " + pos + " should not normally have child function 'case'" + inname)
+
+	if tok.endswith("ing") and pos.startswith("NN") and not lemma.endswith("ing"):
+		print("WARN: suspicious lemma " + lemma + " for -ing token " + tok + ", should normally end with -ing" + inname)
 
 	if pos.startswith("V") and any([f.startswith("nmod") for f in child_funcs]):
 		print("WARN: pos " + pos + " should not normally have child function 'nmod.*'" + inname)
@@ -858,12 +862,16 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		print("WARN: verb lemma 'be' should not have xcomp child" + inname)
 
 	# Implements check from UniversalDependencies/docs#1066
-	if func not in ["csubj","ccomp","xcomp","advcl","acl","acl:relcl","advcl:relcl","csubj:pass","root","list","parataxis","conj","appos","reparandum","dislocated","orphan","compound"]:
+	if func not in ["csubj","ccomp","xcomp","advcl","acl","acl:relcl","advcl:relcl","csubj:pass","root","list","parataxis","conj","appos","reparandum","dislocated","orphan","compound","discourse","dep"]:
 		if any([x in child_funcs for x in ["csubj","nsubj","nsubj:pass","csubj:pass"]]):
-			print("WARN: "+func+" should not have subject child" + inname)
+			if lemma not in ["what", "who", "how", "why", "where"]:  # Free relatives with copulas, e.g. know what/obj it/nsubj is/cop
+				# Exceptions for pharsals dependents, Toys R Us as obl in GUM_conversation_toys or "he got my order" in GUM_reddit_gender...
+				if not ((tok == "Us" and "toys" in docname) or (tok == "got" and parent_lemma == "reprimand") or
+						(tok == "is" and "steak" in docname)):
+					print("WARN: "+func+" should not have subject child" + inname)
 
-	IN_not_like_lemma = ["vs", "vs.", "v", "v.", "o'er", "ca", "that", "then", "a", "fro", "too", "til", "wether", "ta","ok", # incl. known typos
-						 "nananananananananananananananananana","ro-","c-","cap-"]
+	IN_not_like_lemma = ["vs", "vs.", "v", "v.", "o'er", "ca", "that", "then", "a", "fro", "too", "'til", "til", "wether", "ta","ok", "'cuz", "‘cuz", # incl. known typos
+						 "nananananananananananananananananana","ro-","c-","cap-","whil","altho"]
 	if pos in ["IN","UH"] and tok.lower() not in IN_not_like_lemma and lemma != tok.lower() and func != "goeswith" and "goeswith" not in child_funcs:
 		print("WARN: pos "+pos+" should have lemma identical to lower cased token" + inname)
 	if pos == "DT":
@@ -891,7 +899,8 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if func == "ccomp" and "mark" in child_funcs and not any([x in children for x in ["that","That","whether","if","Whether","If","wether","a"]]):
 		if not ((lemma == "lie" and "once" in children) or (lemma=="find" and ("see" in children or "associate" in children)) \
-				or (lemma=="look" and "directly" in children) or (lemma=="make" and "to" in children) or (lemma=="pass" and "as" in children)):  # Exceptions
+				or (lemma=="look" and "directly" in children) or (lemma=="make" and "to" in children) or \
+				(lemma=="have" and "preconception" in children) or (lemma=="pass" and "as" in children)):  # Exceptions
 			print("WARN: ccomp should not have child mark" + inname)
 
 	if func == "acl:relcl" and pos in ["VB","VV","VH"] and "to" in children and "cop" not in child_funcs and "aux" not in child_funcs:
@@ -901,10 +910,10 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 			("MD" not in child_pos) and not any([x in [k.lower() for k in children] for x in ["do","did","does","for","better","'d"]])\
 			and not "cop" in child_funcs \
 			and not lemma == "be" and not (lemma=="believe" and "malik" in docname):  # Strong raised existential: there appears to be X; and known exceptions
-		if docname not in ["GUM_conversation_grounded","GUM_vlog_lipstick"]:  # Known exception
+		if docname not in ["GUM_conversation_grounded","GUM_vlog_lipstick","GUM_news_questionnaire"]:  # Known exceptions
 			if not ("that" in children and func in ["ccomp","csubj"]):  # Subjunctive clause
 				if "Mood=Sub" not in pre_morph:
-					print("WARN: infinitive verb should not have subject " + inname)
+					print("WARN: infinitive verb should not have subject" + inname)
 
 	if pos in ["VBG","VVG","VHG"] and "det" in child_funcs:
 		# Exceptions for phrasal compound in GUM_reddit_card and nominalization in GUM_academic_exposure, GENTLE_dictionary_next
@@ -916,7 +925,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		if "maiden" not in inname:  # Known expl exceptions in speech_maiden
 			print("WARN: verb 'let' should take xcomp clausal object, not ccomp" + inname)
 
-	if pos == "MD" and lemma not in ["can","must","will","shall","would","could","may","might","ought","should"] and func != "goeswith":
+	if pos == "MD" and lemma not in ["can","must","will","shall","would","could","may","might","ought","should","need"] and func != "goeswith":
 		print("WARN: lemma '"+lemma+"' is not a known modal verb for tag MD" + inname)
 
 	if lemma == "like" and pos == "UH" and func not in ["discourse","conj","reparandum"]:
@@ -995,11 +1004,11 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 				 ("more","than"),("not","to"),("not","mention"),("of","course"),("prior","to"),("rather","than"),("so","as"),
 				 ("so", "to"),("sort", "of"),("so", "that"),("such","as"),("such","that"),("that","is"), ("up","to"),("depend","on"),
 				 ("out","of"),("off","of"),("long","than"),("on","board"),("as","of"),("depend","upon"),
-				 ("that","be"),("just","about"),("vice","versa"),("as","such"),("next","to"),("close","to"),("one","another"),
-				 ("de","facto"),("each","other"), ("as","many"), ("in","that"), ("few","than"), ("as","for"), ("as","though")}
+				 ("that","be"),("just","about"),("as","such"),("next","to"),("close","to"),("one","another"),
+				 ("each","other"), ("as","many"), ("in","that"), ("few","than"), ("as","for"), ("as","though")}
 
-	# Ad hoc listing of triple mwe parts - All in all, in order for, whether or not
-	mwe_pairs.update({("all","in"),("all","all"),("in","for"),("whether","or"),("whether","not")})
+	# Ad hoc listing of triple mwe parts - in order for, whether or not
+	mwe_pairs.update({("in","for"),("whether","or"),("whether","not")})
 
 	if func == "fixed":
 		if (parent_lemma.lower(), lemma.lower()) not in mwe_pairs:

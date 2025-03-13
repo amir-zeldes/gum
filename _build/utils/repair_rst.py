@@ -73,11 +73,14 @@ def validate_rsd(rsd_line, linenum, docname):
 		if "\tthat" not in rsd_line and "\tabout" not in rsd_line and "\tyou " not in rsd_line and \
 			'\tto expect "' not in rsd_line and "\tto consider" not in rsd_line and \
 			"\tto hold the Office" not in rsd_line and "\tto represent California" not in rsd_line and \
+			"\tto provide those specific procedures" not in rsd_line and "to compete in the Olympic Games" not in rsd_line and \
+			"\tit would amount to amnesty" not in rsd_line and "\tto win the Nobel Prize" not in rsd_line and \
 			"\tto shine through" not in rsd_line and "\tto go down in this match" not in rsd_line:  # check for that-clause embedding to-, or about PP
 			sys.stderr.write("! adnominal infinitive clause should be purpose-attribute not elaboration-attribute" + inname)
 	if re.search(r'(\bn.t\b[^\n]+)attribution-positive_r', rsd_line) is not None:
 		if ("surprised" not in rsd_line and "not only" not in rsd_line) and "n't also deny" not in rsd_line and \
-			not ("n't think" in rsd_line and "veronique" in docname) and not ("agreeing" in rsd_line and "raven" in docname):
+			not ("n't think" in rsd_line and "veronique" in docname) and not ("agreeing" in rsd_line and "raven" in docname) and \
+				not ("has n't this Court" in rsd_line and "insanity" in docname) and not ("I ca n't believe" in rsd_line and "marcie" in docname):
 			sys.stderr.write("! suspicious attribution-positive_r with negation" + inname)
 	if "\t" in rsd_line:
 		fields = rsd_line.split("\t")
@@ -151,7 +154,10 @@ def validate_erst(rs4,docname,sig_stats):
 
 	for e in secedges:
 		if e not in signal_sources:
-			sys.stderr.write("! Found secondary eRST relation with no signal for edge "+str(e)+" in "+docname+"\n")
+			if "attribut" not in id2rel[e]:  # Attribution and attribute edges may have syntactic signals
+				sys.stderr.write("! Found secondary eRST relation with no signal for edge " + str(e) + " in " + docname + "\n")
+			else:
+				sys.stderr.write("! Found secondary syntactic eRST relation with no detected signal for edge "+str(e)+" in "+docname+"\n")
 
 	return sig_stats
 
