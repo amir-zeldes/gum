@@ -19,6 +19,6 @@ To compile all projected annotations and produce all formats not included in `_b
 At a minumum, you can run `build_gum.py` with no options. This will produce basic formats in `_build/target/`, but skip generating fresh constituent parses and CLAWS5 tags. To include these you will need:
 
   * CLAWS5: use option -c and ensure that utils/paths.py points to an executable for the TreeTagger (http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/). The CLAWS 5 parameter file is already included in utils/treetagger/lib/, and tags are auto-corrected by the build bot based on gold PTB tags.
-  * Constituent parses: option -p; ensure that paths.py correctly points your installation of the Stanford Parser/CoreNLP
+  * Constituent parses: option -p; requires dependencies for the included neural parser
 
 After the build bot runs, data including `PAULA` and `annis` versions will be generated in the specified `target/` folder. If you run into problems building the corpus, feel free to report an issue via GitHub or contact us via e-mail.
