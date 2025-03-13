@@ -1740,7 +1740,7 @@ def add_xml_to_conllu(gum_target, reddit=False, ontogum=False, corpus="GUM"):
 		files = [f for f in files if not "reddit" in f]
 
 	xml_tagged_conllu = {}
-	for file_ in sorted(files):
+	for file_ in sorted(files,key=lambda x:x.lower(),reverse=True):  # Ensure individual files are processed before big files
 		with io.open(file_,encoding="utf8") as f:
 			if "en_" not in file_ and "-ud" not in file_:
 				docname = os.path.basename(file_).replace(".conllu", "")
