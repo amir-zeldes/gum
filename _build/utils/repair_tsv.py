@@ -556,7 +556,7 @@ def fix_genitive_s(tsv_path, xml_path, warn_only=True, outdir=None, string_input
 ### end genitive s fix
 
 
-def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, single_coref_type=False):
+def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, filename, single_coref_type=False):
 	"""
 	Fix webanno TSV in several ways:
 	  * All edges pointing back from a pronoun receive type 'ana'
@@ -925,6 +925,49 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 		if start != end:
 			closer_lists[end].append(str(group) + ")")
 
+		# Validate that entity spans are constituents
+		outside_head = [] # tally of which tokens have head outside of the entity span
+		token_indexes = []
+		token_heads = []
+		for token in ent["toks"]:
+			token_indexes.append(token[0])
+			token_heads.append(token[1])
+		for i in range(len(ent["toks"])):
+			outside_head.append(0)
+			if token_heads[i] not in token_indexes and token_heads[i] is not None:
+				outside_head[i] = 1
+
+		# skip <month> <year> dates
+		skip = False
+		months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
+		# first token is month, second token is 4 digit number
+		if len(ent["toks"]) == 2 and ent["toks"][0][4].lower() in months \
+				and len(ent["toks"][1][4]) == 4 and ent["toks"][1][2] == "CD":
+			skip = True
+
+		if sum(outside_head) > 1 and not skip:
+			ent_str = ""
+			for j, tok in enumerate(ent["toks"]):
+				if outside_head[j] == 1:
+					ent_str += "*" + tok[4] + "*" + " "
+				else:
+					ent_str += tok[4] + " "
+			ent_str = "[" + ent_str[:-1] + "]"
+
+			start_context = parsed_lines[max(ent["start"] - 5, 0):ent["start"]]
+			end_context = parsed_lines[ent["end"] + 1:min(ent["end"] + 6, len(parsed_lines))]
+			combined_text = ""
+			for tok in start_context:
+				if tok["token_id"].split("-")[0] == ent["sid"]:
+					combined_text += tok["token"] + " "
+			combined_text += ent_str + " "
+			for tok in end_context:
+				if tok["token_id"].split("-")[0] == ent["sid"]:
+					combined_text += tok["token"] + " "
+			combined_text = combined_text[:-1]
+
+			print("WARN: non-constituent entity (" + filename.split("/")[-1] + "): " + combined_text)
+
 	conllua_data = []
 	for i in range(len(tokens)):
 		if i+1 in opener_lists or i+1 in closer_lists:
@@ -1272,7 +1315,7 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 	output += "\n".join(out_lines) + "\n"
 	parsed_lines, entity_mappings, single_tok_mappings = fix_genitive_s(output, tt_file, warn_only=True, string_input=True)
 
-	output, conllua_data, centering_transitions, group_saliences = adjust_edges(output, parsed_lines, entity_mappings, single_tok_mappings)
+	output, conllua_data, centering_transitions, group_saliences = adjust_edges(output, parsed_lines, entity_mappings, single_tok_mappings, filename)
 	centering_doc_data = defaultdict(lambda: "no-ent")
 
 	# Set missing transitions
