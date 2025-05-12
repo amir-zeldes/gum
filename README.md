@@ -53,7 +53,7 @@ The best paper to cite depends on the data you are using. To cite the corpus in 
 Zeldes, Amir (2017) "The GUM Corpus: Creating Multilayer Resources in the Classroom". Language Resources and Evaluation 51(3), 581–612. 
 
 ```bibtex
-@Article{Zeldes2017,
+@article{Zeldes2017,
   author    = {Amir Zeldes},
   title     = {The {GUM} Corpus: Creating Multilayer Resources in the Classroom},
   journal   = {Language Resources and Evaluation},
@@ -139,7 +139,7 @@ For papers using GDTB/PDTB style shallow discourse relations, please cite:
 If you are using the OntoNotes schema version of the coreference annotations (a.k.a. OntoGUM data in `coref/ontogum/`), please cite this paper instead:
 
 ```bibtex
-@InProceedings{ZhuEtAl2021,
+@inproceedings{ZhuEtAl2021,
   author    = {Yilun Zhu and Sameer Pradhan and Amir Zeldes},
   booktitle = {Proceedings of ACL-IJCNLP 2021},
   title     = {{OntoGUM}: Evaluating Contextualized {SOTA} Coreference Resolution on 12 More Genres},
