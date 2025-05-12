@@ -53,7 +53,7 @@ The best paper to cite depends on the data you are using. To cite the corpus in 
 Zeldes, Amir (2017) "The GUM Corpus: Creating Multilayer Resources in the Classroom". Language Resources and Evaluation 51(3), 581–612. 
 
 ```bibtex
-@Article{Zeldes2017,
+@article{Zeldes2017,
   author    = {Amir Zeldes},
   title     = {The {GUM} Corpus: Creating Multilayer Resources in the Classroom},
   journal   = {Language Resources and Evaluation},
@@ -67,53 +67,79 @@ Zeldes, Amir (2017) "The GUM Corpus: Creating Multilayer Resources in the Classr
 
 If you are using the **Reddit** subset of GUM in particular, please use this citation instead:
 
-* Behzad, Shabnam and Zeldes, Amir (2020) "A Cross-Genre Ensemble Approach to Robust Reddit Part of Speech Tagging". In: Proceedings of the 12th Web as Corpus Workshop (WAC-XII).
+* Behzad, Shabnam and Zeldes, Amir (2020) "A Cross-Genre Ensemble Approach to Robust Reddit Part of Speech Tagging". In: Proceedings of the 12th Web as Corpus Workshop (WAC-XII). Marseille, France, 50–56.
 
 ```bibtex
-@InProceedings{BehzadZeldes2020,
-  author    = {Shabnam Behzad and Amir Zeldes},
-  title     = {A Cross-Genre Ensemble Approach to Robust {R}eddit Part of Speech Tagging},
-  booktitle = {Proceedings of the 12th Web as Corpus Workshop (WAC-XII)},
-  pages     = {50--56},
-  year      = {2020},
+@inproceedings{behzad-zeldes-2020-cross,
+    title = "A Cross-Genre Ensemble Approach to Robust {R}eddit Part of Speech Tagging",
+    author = "Behzad, Shabnam  and
+      Zeldes, Amir",
+    editor = {Barbaresi, Adrien  and
+      Bildhauer, Felix  and
+      Sch{\"a}fer, Roland  and
+      Stemle, Egon},
+    booktitle = "Proceedings of the 12th Web as Corpus Workshop",
+    month = may,
+    year = "2020",
+    address = "Marseille, France",
+    publisher = "European Language Resources Association",
+    url = "https://aclanthology.org/2020.wac-1.7/",
+    pages = "50--56",
 }
 ```
 
-For papers focusing on the discourse relations, discourse markers or other discourse signal annotations, please cite [the eRST paper](https://arxiv.org/abs/2403.13560):
+For papers focusing on the discourse relations, discourse markers or other discourse signal annotations, please cite [the eRST paper](https://aclanthology.org/2025.cl-1.3/):
 
 ```bibtex
-@misc{ZeldesEtAl2024,
-      title={{eRST}: A Signaled Graph Theory of Discourse Relations and Organization}, 
-      author={Amir Zeldes and Tatsuya Aoyama and Yang Janet Liu and Siyao Peng and Debopam Das and Luke Gessler},
-      year={2024},
-      eprint={2403.13560},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2403.13560}
+@article{ZeldesEtAl2025eRST,
+    author = {Zeldes, Amir and Aoyama, Tatsuya and Liu, Yang Janet and Peng, Siyao and Das, Debopam and Gessler, Luke},
+    title = {{eRST}: A Signaled Graph Theory of Discourse Relations and Organization},
+    journal = {Computational Linguistics},
+    volume = {51},
+    number = {1},
+    pages = {23--72},
+    year = {2025},
+    month = {03},
+    issn = {0891-2017},
+    doi = {10.1162/coli_a_00538},
+    url = {https://aclanthology.org/2025.cl-1.3/},
 }
 ```
 
 For papers using GDTB/PDTB style shallow discourse relations, please cite:
 
-  * Yang Janet Liu, Tatsuya Aoyama, Wesley Scivetti, Yilun Zhu, Shabnam Behzad, Lauren Elizabeth Levine, Jessica Lin, Devika Tiwari, and Amir Zeldes (2024), "GDTB: Genre Diverse Data for English Shallow Discourse Parsing across Modalities, Text Types, and Domains". In: Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing. Association for Computational Linguistics: Miami, USA.
+  * Yang Janet Liu, Tatsuya Aoyama, Wesley Scivetti, Yilun Zhu, Shabnam Behzad, Lauren Elizabeth Levine, Jessica Lin, Devika Tiwari, and Amir Zeldes (2024), "GDTB: Genre Diverse Data for English Shallow Discourse Parsing across Modalities, Text Types, and Domains". In: Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing. Association for Computational Linguistics: Miami, FL, 12287–12303.
 
 ```bibtex
-@inproceedings{liu-etal-2024-GDTB,
-    title = "GDTB: Genre Diverse Data for English Shallow Discourse Parsing across Modalities, Text Types, and Domains",
-    author = "Yang Janet Liu and Tatsuya Aoyama and Wesley Scivetti and Yilun Zhu and Shabnam Behzad and Lauren Elizabeth Levine and Jessica Lin and Devika Tiwari and Amir Zeldes",
+@inproceedings{liu-etal-2024-gdtb,
+    title = "{GDTB}: Genre Diverse Data for {E}nglish Shallow Discourse Parsing across Modalities, Text Types, and Domains",
+    author = "Liu, Yang Janet  and
+      Aoyama, Tatsuya  and
+      Scivetti, Wesley  and
+      Zhu, Yilun  and
+      Behzad, Shabnam  and
+      Levine, Lauren Elizabeth  and
+      Lin, Jessica  and
+      Tiwari, Devika  and
+      Zeldes, Amir",
+    editor = "Al-Onaizan, Yaser  and
+      Bansal, Mohit  and
+      Chen, Yun-Nung",
     booktitle = "Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing",
     month = nov,
     year = "2024",
-    address = "Miami, USA",
+    address = "Miami, Florida, USA",
     publisher = "Association for Computational Linguistics",
-    abstract = "Work on shallow discourse parsing in English has focused on the Wall Street Journal corpus, the only large-scale dataset for the language in the PDTB framework. However, the data is not openly available, is restricted to the news domain, and is by now 35 years old. In this paper, we present and evaluate a new open-access, multi-genre benchmark for PDTB-style shallow discourse parsing, based on the existing UD English GUM corpus, for which discourse relation annotations in other frameworks already exist. In a series of experiments on cross-domain relation classification, we show that while our dataset is compatible with PDTB, substantial out-of-domain degradation is observed, which can be alleviated by joint training on both datasets.",
+    url = "https://aclanthology.org/2024.emnlp-main.684/",
+    doi = "10.18653/v1/2024.emnlp-main.684",
+    pages = "12287--12303",
 }
 ```
 
 If you are using the OntoNotes schema version of the coreference annotations (a.k.a. OntoGUM data in `coref/ontogum/`), please cite this paper instead:
 
 ```bibtex
-@InProceedings{ZhuEtAl2021,
+@inproceedings{ZhuEtAl2021,
   author    = {Yilun Zhu and Sameer Pradhan and Amir Zeldes},
   booktitle = {Proceedings of ACL-IJCNLP 2021},
   title     = {{OntoGUM}: Evaluating Contextualized {SOTA} Coreference Resolution on 12 More Genres},
