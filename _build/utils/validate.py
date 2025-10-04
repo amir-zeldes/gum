@@ -870,7 +870,11 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 						(tok == "is" and "steak" in docname)):
 					print("WARN: "+func+" should not have subject child" + inname)
 
-	IN_not_like_lemma = ["vs", "vs.", "v", "v.", "o'er", "ca", "that", "then", "a", "fro", "too", "'til", "til", "wether", "ta","ok", "'cuz", "‘cuz", # incl. known typos
+	# Implements check from UniversalDependencies/UD_English-GUM#100
+	if func == "acl" and pos in ["VBD","VVD","VHD"] and not any(["subj" in x for x in child_funcs]):
+		print("WARN: "+pos+" labeled acl without subject, probably a V.N participle" + inname)
+
+	IN_not_like_lemma = ["vs", "vs.", "v", "v.", "o'er", "ca", "that", "then", "a", "@", "fro", "too", "'til", "til", "wether", "ta","ok", "'cuz", "‘cuz", # incl. known typos
 						 "nananananananananananananananananana","ro-","c-","cap-","whil","altho"]
 	if pos in ["IN","UH"] and tok.lower() not in IN_not_like_lemma and lemma != tok.lower() and func != "goeswith" and "goeswith" not in child_funcs:
 		print("WARN: pos "+pos+" should have lemma identical to lower cased token" + inname)
@@ -997,6 +1001,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if (sent_position == "first" and pos == "''") or (sent_position == "last" and pos=="``"):
 		print("WARN: incorrect quotation mark tag " + pos + " at "+sent_position+" position in sentence" + inname)
+
+	if sent_position == "first" and pos != "CC" and lemma == "yet":
+		print("WARN: sentence initial 'yet' should be tagged CC, not " + pos + inname)
 
 	mwe_pairs = {("accord", "to"), ("all","but"), ("as","if"), ("as", "well"), ("as", "as"), ("as","in"), ("all","of"), ("as","oppose"),("as","to"),
 				 ("at","least"),("because","of"),("due","to"),("had","better"),("'d","better"),("in","between"), ("per", "se"),
