@@ -1,5 +1,7 @@
 import os, re, json
 import pickle
+import sys
+
 import pandas as pd
 import numpy as np
 from depedit import DepEdit
@@ -323,7 +325,7 @@ def convert_to_pandas(data, train=False):
     return data
 
 
-def train(partition="devtrain", use_gentle=False, hyperparams=None, use_five=False):
+def train(partition="devtrain", use_gentle=True, hyperparams=None, use_five=False):
     # Train a random forest model using the facts.tab file with sklearn
     from sklearn.ensemble import RandomForestClassifier
 
@@ -332,6 +334,7 @@ def train(partition="devtrain", use_gentle=False, hyperparams=None, use_five=Fal
     data = []
     labels = []
 
+    train_docs = set()
     lines = open("facts.tab").read().strip().split("\n")
     for line in lines[1:]:
         fields = line.split("\t")
@@ -344,6 +347,7 @@ def train(partition="devtrain", use_gentle=False, hyperparams=None, use_five=Fal
         if "GENTLE" in feats_dict["docname"] and not use_gentle:
             continue
         label = feats_dict["label"]
+        train_docs.add(feats_dict["docname"])
         labels.append(label)
         data.append([feats_dict[f] for f in selected_feats])
 
@@ -365,6 +369,7 @@ def train(partition="devtrain", use_gentle=False, hyperparams=None, use_five=Fal
          'max_depth': 10, 'n_estimators': 150, 'subsample': 0.9812032459280908}
     model = XGBClassifier(random_state=42, n_jobs=4, use_label_encoder=False, **hyperparams)
 
+    sys.stderr.write("o Training on " + str(len(data)) + " instances from " + str(len(train_docs)) + " documents\n")
     model.fit(data,labels)
 
     # Save the model
@@ -441,6 +446,14 @@ def predict(docname):
         with open("salience_ensemble.pkl","rb") as f:
             model = pickle.load(f)
 
+    conllu_files = glob(conllu_dir + "*.conllu")
+
+    for f in conllu_files:
+        if docname in f:
+            conllu = open(f).read().strip()
+            summaries = re.findall(r'# meta::summary[0-9]* = (\(.*?\) [^\n]+)', conllu)
+            gold_summaries[docname] = summaries
+
     data = []
     ents = []
     gold = []
@@ -454,7 +467,7 @@ def predict(docname):
             data += feats
             if i == 1:
                 for j, ent in enumerate(data):
-                    ents.append([ent[-3],ent[-2],gold[j]])  # Start, end and gold label of each entity
+                    ents.append([ent[header.index("start")],ent[header.index("end")],gold[j]])  # Start, end and gold label of each entity
 
     # Filter data to have just the selected feature columns
     filtered = []
@@ -473,8 +486,8 @@ def predict(docname):
             labels[j] += pred
 
     span2label = {}
-    for i, row in enumerate(feats):
-        span2label[(int(float(row[-3])),int(float(row[-2])))] = labels[i]
+    for i, row in enumerate(ents):
+        span2label[(int(float(row[0])),int(float(row[1])))] = labels[i]
 
     tsv = open(tsv_dir + docname + ".tsv").read().strip().split("\n")
     span2eid = {}
@@ -562,7 +575,7 @@ if __name__ == "__main__":
     p = ArgumentParser()
     p.add_argument("--pos_filter",action="store_true")
     p.add_argument("-m","--mode",choices=["train","eval","traineval","predict","optimize"],default="eval")
-    p.add_argument("-p","--partition",default="dev")
+    p.add_argument("-p","--partition",choices=["dev","train","devtrain"],default="dev")
     p.add_argument("-t","--test",default="test")
     p.add_argument("-d","--docname",default="GUM_bio_marbles")
     p.add_argument("--five",action="store_true",help="Use 5 summaries for training when available")
