@@ -142,6 +142,9 @@ def main(n_summaries=5, alignment_components=None, overwrite_alignment=False, do
     all_alignments = []
     docnames = sorted(list(summaries.keys()))
 
+    if alignment_components == ["None"]:
+        alignment_components = []
+
     for component in alignment_components:
         alias = aliases[component] if "LLM" not in component else align_llm.split("/")[-1].replace("; postedited","")
         if component == "LLM_zero":
@@ -209,7 +212,7 @@ if __name__ == "__main__":
     p.add_argument("-n", "--n_summaries", type=int, default=5, help="Total number of summaries needed, including human ones")
     p.add_argument("--alignment_component", default=["LLM","LLM_zero","stanza","stanza_pre","stanza_on","stanza_onpre","stanza_gum","stanza_gumpre"],
                    choices=["LLM", "LLM_zero", "string_simple_lower", "string_simple", "string_match", "stanza", "stanza_on", "stanza_pre", "stanza_onpre",
-                            "stanza_gum","stanza_gumpre"], nargs="+", help="Components to use for alignment. Note string components are deprecated, the ensemble computes string matches independently.")
+                            "stanza_gum","stanza_gumpre",'None'], nargs="+", help="Components to use for alignment. Note string components are deprecated, the ensemble computes string matches independently.")
     p.add_argument("--llm", default="gpt4o", choices=["gpt-4o-mini","gpt4o"], help="LLM to use for alignment. Default: gpt4o")
     p.add_argument("--doclist", default=None, help="Optional file with document names to process, one per line")
     p.add_argument("--train_ensemble", action="store_true", help="Train the ensemble model")
