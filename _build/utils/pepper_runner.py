@@ -118,7 +118,7 @@ def run_pepper(pepper_params,full_log=False,corpus_subdir=""):
 		node_annotation = node_annotation.replace("default_ns\tclaws5","gum\tclaws5")
 		node_annotation = node_annotation.replace("default_ns\ttok_func","gum\ttok_func")
 		node_annotation = node_annotation.replace("default_ns","tei")
-		node_annotation = node_annotation.replace("\trst\t","\tdefault_ns\t")  # revert default_ns for rst++
+		node_annotation = node_annotation.replace("\trst\t","\tdefault_ns\t")  # revert default_ns for eRST
 	with io.open(annis_out_dir + "node_annotation." + ext,"w",encoding="utf8",newline="\n") as f:
 		f.write(node_annotation)
 
