@@ -138,11 +138,14 @@ class Sentence:
         upos_tags = []
         xpos_tags = []
         deprels = []
+        next_mwt = False
         for line in lines.split('\n'):
             if '\t' not in line:
                 continue
             fields = line.split("\t")
             if "." in fields[0] or "-" in fields[0]:
+                if "-" in fields[0]:
+                    next_mwt = True
                 continue
             if "Discourse=" in fields[-1]:
                 if edu:
@@ -160,6 +163,11 @@ class Sentence:
                 edu.sent_id = sent_id
                 # is_new_edu = True
             token = Token(fields)
+            if next_mwt:
+                token.mwt_first = True
+                next_mwt = False
+            else:
+                token.mwt_first = False
             token.doc_token_id = str(tok_id + int(token.token_id))
             token.doc_head_id = str(tok_id + int(token.head)) if token.head != '0' else token.doc_token_id
             edu.tokens.append(token)

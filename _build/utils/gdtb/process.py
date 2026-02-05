@@ -96,7 +96,7 @@ def read_rsd(rsd: Text, doc: Doc) -> Doc:
 
 def read_file(conllu_dir: str, rs4_dir: str, docname: str) -> Doc:
     """
-    Partially borrow from RST++ at https://github.com/t-aoyam/rstpp/blob/main/code/converter/browse_rs4.py#L106
+    Partially borrow from eRST at https://github.com/t-aoyam/rstpp/blob/main/code/converter/browse_rs4.py#L106
     """
     conllu_file = io.open(conllu_dir).read()
     rs4 = io.open(rs4_dir).read()

@@ -54,7 +54,9 @@ class ConvertBase(ABC):
         mappings_by_sents = defaultdict(lambda: defaultdict(dict))
 
         for split in ['train', 'dev', 'test', 'add']:
-            raw_f = open(os.path.join(pred_dir, f'eng.rst.gum_{split}.rels'), encoding='utf8').read().strip().split('\n')[1:]
+            raw_f = open(os.path.join(pred_dir, f'eng.rst.gum_{split}.rels'), encoding='utf8').read().strip().split('\n')
+            if raw_f[0].startswith("doc\t"):
+                raw_f = raw_f[1:]
             pred_f = open(os.path.join(pred_dir, f'eng.rst.gum_{split}_predictions.json'), encoding='utf8').read().strip().split('\n')
 
             assert len(raw_f) == len(pred_f)
