@@ -657,14 +657,14 @@ def flag_mark_warnings(mark, docname, flag_giv_new=False):
 
 	# General checks for all markables
 	if isinstance(mark.antecedent,Markable):
-		if mark.infstat == "new" and mark.coref_type != "bridge" and mark.coref_type != "cata" and flag_giv_new:
+		if mark.infstat == "new" and "bridge" not in mark.coref_type and mark.coref_type != "cata" and flag_giv_new:
 			print("WARN: new markable has an antecedent"+inname + ", " + mark.start + "=" + mark.entity + " -> " + \
 				  str(mark.antecedent.start) + "=" + mark.antecedent.entity + \
 				  " (" + truncate(mark.text) + "->" + truncate(mark.antecedent.text) +")")
 
 	# Inspect markables that have antecedents
 	# if isinstance(mark.antecedent,Markable): // We don't need a second statement for this, do we?
-		if mark.antecedent.entity != mark.entity and mark.coref_type != "bridge":
+		if mark.antecedent.entity != mark.entity and "bridge" not in mark.coref_type:
 			print("WARN: coref clash" +inname + ", " + mark.start + "=" + mark.entity + " -> " + \
 				  str(mark.antecedent.start) + "=" + mark.antecedent.entity + \
 				  " (" + truncate(mark.text) + "->" + truncate(mark.antecedent.text) +")")
