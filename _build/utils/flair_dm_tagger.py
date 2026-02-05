@@ -70,9 +70,9 @@ def make_data(corpus="gum",tag="dm"):
                 if "." in fields[0] or "-" in fields[0]:
                     continue
                 label = "O"
-                if "Seg=B-Conn" in fields[-1]:
+                if "Seg=B-Conn" in fields[-1] or "Conn=B-conn" in fields[-1]:
                     label = "B-Conn"
-                elif "Seg=I-Conn" in fields[-1]:
+                elif "Seg=I-Conn" in fields[-1] or "Conn=I-conn" in fields[-1]:
                     label = "I-Conn"
                 output[partition].append(fields[1] + "\t" + label)
             elif len(line.strip()) == 0:
