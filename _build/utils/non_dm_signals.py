@@ -252,8 +252,6 @@ def rm_ellipsis(conllu):
 
 def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, non_dm_gold, use_depedit_cache=False,
                        secedges=None,signal_cache=True):
-    legacy_mode = False
-
     conllu = rm_ellipsis(conllu)
 
     docname = re.search("# newdoc id = ([^\s]+)",conllu).group(1)
@@ -1180,6 +1178,7 @@ if __name__ == "__main__":
         pattern = opts.input
     files = glob(pattern)
 
+    files = [f for f in files if "messina" in f]
     for f in files:
         docname = os.path.basename(f).replace(".rs4","")
         sys.stderr.write("o Predicting non-DM signals for " + docname + "\n")
