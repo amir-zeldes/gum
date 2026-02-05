@@ -161,7 +161,7 @@ def order_rel_args(rel, doc_state, filter=None):
                 # target
                 if len(rel.target.sent_ids) > 1:  # if multi-sentential
                     sent_id = rel.target.head_edu[0].sent_id  # head_edu should be a list of length 1
-                    if sent_id == rel.source.head_edu[0].sent_id:  # This is actually intersentential - same head sents
+                    if sent_id == rel.source.head_edu[0].sent_id:  # This is actually intrasentential - same head sents
                         source_ids = [edu.edu_id for edu in rel.source.edus if edu.sent_id == sent_id]
                         target_ids = [edu.edu_id for edu in rel.target.edus if edu.sent_id == sent_id]
                     else:
@@ -189,11 +189,13 @@ def order_rel_args(rel, doc_state, filter=None):
 
                 if source_edu_sent_ids != target_edu_sent_ids:
                     if is_src_attribution:  # Include entire sentence including attribution satellites
-                        source_ids = [edu for edu in doc_state.edus if doc_state.edus[edu].sent_id == source_edu_sent_ids[0]]
+                        source_ids = [edu for edu in doc_state.edus if doc_state.edus[edu].sent_id == source_edu_sent_ids[0] and edu not in target_ids]
                     else:  # Include entire sentence except attribution satellites
                         source_ids = [edu for edu in doc_state.edus if doc_state.edus[edu].sent_id == source_edu_sent_ids[0] and "attribution" not in doc_state.edus[edu].rel]
                     if is_trg_attribution:
-                        target_ids = [edu for edu in doc_state.edus if doc_state.edus[edu].sent_id == target_edu_sent_ids[0]]
+                        suggested = [edu for edu in doc_state.edus if doc_state.edus[edu].sent_id == target_edu_sent_ids[0] if edu not in source_ids]
+                        if suggested != source_ids:  # If the target IDs are different from the source
+                            target_ids = suggested
                     else:
                         target_ids = [edu for edu in doc_state.edus if doc_state.edus[edu].sent_id == target_edu_sent_ids[0] and "attribution" not in doc_state.edus[edu].rel]
 
