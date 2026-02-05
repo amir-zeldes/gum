@@ -29,7 +29,8 @@ existing_add_rels = open(discodisco_preds + "eng.rst.gum_add.rels").read().strip
 existing_json_rels = open(discodisco_preds + "eng.rst.gum_add_predictions.json").read().strip().split("\n")
 
 if not existing_add_rels[0].startswith("doc\t"):
-    raise ValueError("! eng.rst.gum_add.rels is missing the header.")
+    header = "doc	unit1_toks	unit2_toks	unit1_txt	unit2_txt	u1_raw	u2_raw	s1_toks	s2_toks	unit1_sent	unit2_sent	dir	rel_type	orig_label	label"
+    existing_add_rels = [header] + existing_add_rels
 
 if not len(existing_add_rels[1:]) == len(existing_json_rels):
     raise ValueError("! eng.rst.gum_add.rels and eng.rst.gum_add_predictions.json have different lengths.")
