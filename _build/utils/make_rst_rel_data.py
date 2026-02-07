@@ -2,7 +2,7 @@ import io, os, sys, re
 from glob import glob
 from collections import defaultdict
 from argparse import ArgumentParser
-from nt import remove
+#from nt import remove
 
 from depedit import DepEdit
 

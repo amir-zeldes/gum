@@ -107,7 +107,7 @@ def validate_src(gum_source, reddit=False):
 	lemma_dict = defaultdict(lambda : defaultdict(int))  # collects tok+pos -> lemmas -> count  for consistency checks
 	lemma_docs = defaultdict(set)
 	rst_extension = "rs4" if (os.path.exists(gum_source + "rst" + os.sep + "GUM_academic_art.rs4") or os.path.exists(gum_source + "rst" + os.sep + "GENTLE_poetry_raven.rs4")) else "rs3"
-	dirs = [('xml', 'xml'), ('dep', 'conllu'), ('rst', rst_extension), ('tsv', 'tsv')]
+	dirs = [('xml', 'xml'), ('dep', 'conllu'), ('tsv', 'tsv'), ('rst', rst_extension)]
 
 	# check that each dir has same # and names of files (except extensions)
 	file_lists = []
@@ -216,7 +216,7 @@ def validate_src(gum_source, reddit=False):
 	
 	# check sentences (based on tok count)
 	all_sent_lengths = []
-	sentence_dirs = [('xml', 'xml'), ('dep', 'conllu')] # just the dirs where we check sentences
+	sentence_dirs = [('xml', 'xml'), ('dep', 'conllu'), ('tsv', 'tsv')] # just the dirs where we check sentences
 	
 	for d in range(len(sentence_dirs)):
 		dir_sent_lengths = []
@@ -242,6 +242,20 @@ def validate_src(gum_source, reddit=False):
 								if "." not in line.split("\t")[0]:  # Ignore ellipsis tokens
 									sent_length += 1
 						file_sent_lengths.append(sent_length)
+				elif sentence_dirs[d][0] == 'tsv':
+					file_text = this_file.read().strip()
+					sentences = {}  # sent_id -> list of lines
+					current_sent = 0
+					for line in file_text.split('\n'):
+						if line.startswith("#Text="):
+							current_sent += 1
+						elif "\t" in line: # no empty lines
+							if current_sent not in sentences and line.strip() != "":
+								sentences[current_sent] = [line]
+							else:
+								sentences[current_sent].append(line)
+					for sent_id in sentences:
+						file_sent_lengths.append(len(sentences[sent_id]))
 	
 			dir_sent_lengths.append(file_sent_lengths)
 		all_sent_lengths.append(dir_sent_lengths)

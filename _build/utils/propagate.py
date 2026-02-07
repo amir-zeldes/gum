@@ -1625,7 +1625,7 @@ def get_bridging(webannotsv):
 	return edges_by_source, out_spans, rev_out_spans
 
 
-def merge_bridge_conllu(conllu, webannotsv):
+def merge_bridge_conllu(conllu, webannotsv, file_):
 	def no_brace(instr):
 		if "-" in instr:
 			return instr.split("-")[0].replace("(","").replace(")","")
@@ -1697,6 +1697,10 @@ def merge_bridge_conllu(conllu, webannotsv):
 				out_misc.append("Bridge=" + ",".join(bridging))
 			if len(split_ante) > 0:
 				out_misc.append("SplitAnte=" + ",".join(split_ante))
+				if len(set(split_ante)) < len(split_ante):
+					# there is a dupicate SplitAnte edge annotation (this may result from coreferent split antecedents)
+					sys.stderr.write("WARN: Duplicate 'SplitAnte=' edge (" + ",".join(split_ante) + ") detected in " +
+							 os.path.basename(file_)+"\n")
 			bridging = []
 			split_ante = []
 			fields[-1] = "|".join(sorted(out_misc)) if len(out_misc) > 0 else "_"
@@ -1726,7 +1730,7 @@ def add_bridging_to_conllu(gum_target,reddit=False,corpus="GUM"):
 	for file_ in files:
 		tsv_file = gum_target + "coref" + os.sep + "tsv" + os.sep + os.path.basename(file_).replace("conllu","tsv")
 
-		merged = merge_bridge_conllu(io.open(file_,encoding="utf8").read(),io.open(tsv_file,encoding="utf8").read())
+		merged = merge_bridge_conllu(io.open(file_,encoding="utf8").read(),io.open(tsv_file,encoding="utf8").read(), file_)
 		merged = merged.strip() + "\n\n"
 
 		if any(["SplitAnte=" not in l and "acc:aggr" in l for l in merged.split("\n")]):
