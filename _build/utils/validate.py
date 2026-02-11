@@ -289,7 +289,7 @@ def validate_lemmas(lemma_dict, lemma_docs, use_neaten=False):
 	exceptions = [("Democratic","JJ","democratic"),("Water","NP","Waters"),("Sun","NP","Sunday"),("a","IN","of"),
 		      ("a","IN","as"),("car","NN","card"),("lay","VV","lay"),("that","IN","than"),("positing","NN","positioning"),  # Typo for positioning
 		      ("da","NP","Danish"),("all","RB","alright"),("All","RB","alright"),("any","RB","anymore"),
-				  ("principal","NN","principle"),  # Typo for principle
+				  ("Walking","NP","Walk"), ("principal","NN","principle"),  # Typo for principle
 			  ("before","RB","beforehand"),("any","RB","any"),("Black","JJ","black"),("wait","NN","wait"),
 				  ("M.", "NP", "Monday"),("S.", "NP", "South"),("p","NN","p"),("people", "NNS", "people"),  # Typo for peoples
 				  ("Middle","JJ","Middle"),("R","NP","Be"),("better","JJR","well"),("set","VVD","sit")]  # Middle Eastern, Toys R Us, feel better
