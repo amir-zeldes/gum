@@ -240,7 +240,7 @@ The following standard train / dev / test / test2 splits are used for the corpus
   * GUM_speech_maiden
   * GUM_speech_nixon
   * GUM_speech_remarks
-  * GUM_speech_school
+  * GUM_speech_open
   * GUM_speech_telescope
   * GUM_speech_trump
   * GUM_textbook_alamo
