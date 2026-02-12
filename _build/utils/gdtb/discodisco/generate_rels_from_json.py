@@ -20,7 +20,7 @@ discodisco_preds = os.sep.join([script_dir, "..","data","discodisco_preds"]) + o
 # Check that .rels file exists and has header
 if not os.path.exists(discodisco_preds + "eng.rst.gum_add.rels"):
     with open(discodisco_preds + "eng.rst.gum_add.rels", "w") as f:
-        f.write("doc	unit1_toks	unit2_toks	unit1_txt	unit2_txt	s1_toks	s2_toks	unit1_sent	unit2_sent	dir	rel_key	label\n")
+        f.write("doc	unit1_toks	unit2_toks	unit1_txt	unit2_txt	s1_toks	s2_toks	unit1_sent	unit2_sent	dir	rel_key	label")
 if not os.path.exists(discodisco_preds + "eng.rst.gum_add.rels"):
     with open(discodisco_preds + "eng.rst.gum_add_predictions.json", "w") as f:
         f.write("")
@@ -29,7 +29,7 @@ existing_add_rels = open(discodisco_preds + "eng.rst.gum_add.rels").read().strip
 existing_json_rels = open(discodisco_preds + "eng.rst.gum_add_predictions.json").read().strip().split("\n")
 
 if not existing_add_rels[0].startswith("doc\t"):
-    header = "doc	unit1_toks	unit2_toks	unit1_txt	unit2_txt	u1_raw	u2_raw	s1_toks	s2_toks	unit1_sent	unit2_sent	dir	rel_type	orig_label	label"
+    header = "doc	unit1_toks	unit2_toks	unit1_txt	unit2_txt	s1_toks	s2_toks	unit1_sent	unit2_sent	dir	rel_key	label"
     existing_add_rels = [header] + existing_add_rels
 
 if not len(existing_add_rels[1:]) == len(existing_json_rels):
