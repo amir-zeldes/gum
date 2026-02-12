@@ -3,7 +3,7 @@ Script for adding summaries and graded salience scores for new documents added t
 
 To add new documents to the corpus, the following steps are required:
 1. if you have underscored documents (e.g. reddit), make sure to restore the text in _build/src/ before running
-2. add the docname(s) and human-written summary1 to summaries_final.txt
+2. add the docname(s) and human-written summary1 to summaries_final.txt (you can use get_summaries_final.py to do this)
 3. run this script (optional: if there are new gold documents to train on, retrain the ensemble before predicting final alignment)
 """
 import sys

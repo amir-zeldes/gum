@@ -473,7 +473,7 @@ def merge_genitive_s(parsed_lines, tsv_path, warn_only, xml_path):
 						  + "and merged with immediately preceding markable " + e['type'] + '[' + str(e['id']) + '].')
 			else:
 				for e in entity_difference:
-					if not ("GUM_speech_school" in xml_path and e['type'] == "time"):  # Known split 's case, "Kenya Vision 2030 's ..."
+					if not ("GUM_speech_open" in xml_path and e['type'] == "time"):  # Known split 's case, "Kenya Vision 2030 's ..."
 						print("WARN: token " + line['token_id'] + " in doc '" + xml_path + "' "
 						  + "looks like a genitive s but is not contained in the immediately preceding markable "
 						  + e['type'] + '[' + str(e['id']) +"].\n      Per GUM guidelines, it should be included."
