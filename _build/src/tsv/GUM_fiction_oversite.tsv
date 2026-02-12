@@ -42,7 +42,7 @@
 3-14	109-115	sleeve	object[7]	new[7]	nnnnn[7]	_	_	_	
 3-15	116-118	to	_	_	_	_	_	_	
 3-16	119-123	show	_	_	_	_	_	_	
-3-17	124-127	her	object[10]|person[11]	new[10]|giv[11]	nnnns[10]|sssns[11]	_	coref|bridge|bridge|coref	50-19[183_10]|3-21[12_10]|3-26[14_10]|4-2[16_11]	
+3-17	124-127	her	object[10]|person[11]	new[10]|giv[11]	nnnns[10]|sssns[11]	_	coref|coref|bridge:entity-meronomy|bridge:entity-meronomy|bridge:entity-meronomy	50-19[183_10]|4-2[16_11]|3-21[12_10]|3-26[14_10]|3-31[15_10]	
 3-18	128-132	bare	object[10]	new[10]	nnnns[10]	_	_	_	
 3-19	133-136	arm	object[10]	new[10]	nnnns[10]	_	_	_	
 3-20	137-138	,	_	_	_	_	_	_	
@@ -56,8 +56,8 @@
 3-28	176-184	swelling	_	_	_	_	_	_	
 3-29	185-193	slightly	_	_	_	_	_	_	
 3-30	194-198	into	_	_	_	_	_	_	
-3-31	199-205	smooth	object[15]	new[15]	nnnnn[15]	_	_	_	
-3-32	206-212	biceps	object[15]	new[15]	nnnnn[15]	_	_	_	
+3-31	199-205	smooth	object[15]	acc[15]	nnnnn[15]	_	_	_	
+3-32	206-212	biceps	object[15]	acc[15]	nnnnn[15]	_	_	_	
 3-33	213-214	,	_	_	_	_	_	_	
 3-34	215-223	flawless	_	_	_	_	_	_	
 3-35	224-225	.	_	_	_	_	_	_	
@@ -94,7 +94,7 @@
 5-8	330-339	examining	place[22]|event[23]	new[22]|new[23]	nnnnn[22]|nnnnn[23]	_	coref	6-12[27_23]	
 5-9	340-344	room	place[22]	new[22]	nnnnn[22]	_	_	_	
 5-10	345-347	at	place[22]	new[22]	nnnnn[22]	_	_	_	
-5-11	348-351	the	place[22]|place[24]	new[22]|new[24]	nnnnn[22]|nnnnn[24]	_	_	_	
+5-11	348-351	the	place[22]|place[24]	new[22]|new[24]	nnnnn[22]|nnnnn[24]	_	bridge:entity-associative	8-1[32_24]	
 5-12	352-360	assisted	place[22]|place[24]	new[22]|new[24]	nnnnn[22]|nnnnn[24]	_	_	_	
 5-13	361-367	living	place[22]|place[24]	new[22]|new[24]	nnnnn[22]|nnnnn[24]	_	_	_	
 5-14	368-369	.	_	_	_	_	_	_	
@@ -127,7 +127,7 @@
 7-9	476-481	white	object[29]	new[29]	nnnnn[29]	_	_	_	
 7-10	482-487	table	object[29]	new[29]	nnnnn[29]	_	_	_	
 7-11	488-492	with	object[29]	new[29]	nnnnn[29]	_	_	_	
-7-12	493-496	two	object[29]|object[30]	new[29]|new[30]	nnnnn[29]|nnnnn[30]	_	bridge	8-14[35_30]	
+7-12	493-496	two	object[29]|object[30]	new[29]|new[30]	nnnnn[29]|nnnnn[30]	_	bridge:set-member;comparison-relative	8-14[35_30]	
 7-13	497-503	chairs	object[29]|object[30]	new[29]|new[30]	nnnnn[29]|nnnnn[30]	_	_	_	
 7-14	504-507	and	_	_	_	_	_	_	
 7-15	508-509	a	object[31]	new[31]	nnnnn[31]	_	_	_	
@@ -135,8 +135,8 @@
 7-17	516-517	.	_	_	_	_	_	_	
 
 #Text=The doctor , a woman I do n’t know , is sitting in the other chair .
-8-1	518-521	The	person[32]	new[32]	snssn[32]	_	coref	8-4[33_32]	
-8-2	522-528	doctor	person[32]	new[32]	snssn[32]	_	_	_	
+8-1	518-521	The	person[32]	acc[32]	snssn[32]	_	coref	8-4[33_32]	
+8-2	522-528	doctor	person[32]	acc[32]	snssn[32]	_	_	_	
 8-3	529-530	,	_	_	_	_	_	_	
 8-4	531-532	a	person[33]	giv[33]	snssn[33]	_	coref	20-1[70_33]	
 8-5	533-538	woman	person[33]	giv[33]	snssn[33]	_	_	_	
@@ -303,7 +303,7 @@
 20-1	1125-1128	The	person[70]	giv[70]	snssn[70]	_	coref	21-1[76_70]	
 20-2	1129-1135	doctor	person[70]	giv[70]	snssn[70]	_	_	_	
 20-3	1136-1141	bares	_	_	_	_	_	_	
-20-4	1142-1144	my	object[71]|person[72]|person[73]	new[71]|giv[72]|giv[73]	snnns[71]|sssss[72]|sssss[73]	_	coref|bridge|bridge|coref|coref	45-22[159_71]|20-10[74_71]|20-16[75_71]|21-4[78_72]|22-2[84_73]	
+20-4	1142-1144	my	object[71]|person[72]|person[73]	new[71]|giv[72]|giv[73]	snnns[71]|sssss[72]|sssss[73]	_	coref|coref|coref|bridge:entity-meronomy|bridge:entity-meronomy	45-22[159_71]|21-4[78_72]|22-2[84_73]|20-10[74_71]|20-16[75_71]	
 20-5	1145-1151	mother	object[71]|person[72]	new[71]|giv[72]	snnns[71]|sssss[72]	_	_	_	
 20-6	1152-1154	’s	object[71]|person[72]	new[71]|giv[72]	snnns[71]|sssss[72]	_	_	_	
 20-7	1155-1158	arm	object[71]	new[71]	snnns[71]	_	_	_	
@@ -362,7 +362,7 @@
 22-12	1374-1376	It	substance[88]	giv[88]	nnnnn[88]	_	coref	22-15[89_88]	
 22-13	1377-1379	’s	_	_	_	_	_	_	
 22-14	1380-1384	just	_	_	_	_	_	_	
-22-15	1385-1386	a	substance[89]	giv[89]	nnnnn[89]	_	bridge	27-5[102_89]	
+22-15	1385-1386	a	substance[89]	giv[89]	nnnnn[89]	_	bridge:entity-associative	27-5[102_89]	
 22-16	1387-1393	little	substance[89]	giv[89]	nnnnn[89]	_	_	_	
 22-17	1394-1403	lidocaine	substance[89]	giv[89]	nnnnn[89]	_	_	_	
 22-18	1404-1405	.	_	_	_	_	_	_	
@@ -679,7 +679,7 @@
 47-12	2459-2460	I	person[168]	giv[168]	sssss[168]	_	coref	47-19[171_168]	
 47-13	2461-2466	think	_	_	_	_	_	_	
 47-14	2467-2472	about	_	_	_	_	_	_	
-47-15	2473-2477	that	event[169]	giv[169]	nnnnn[169]	_	bridge	48-2[177_169]	
+47-15	2473-2477	that	event[169]	giv[169]	nnnnn[169]	_	bridge:other	48-2[177_169]	
 47-16	2478-2488	particular	event[169]	giv[169]	nnnnn[169]	_	_	_	
 47-17	2489-2493	time	event[169]	giv[169]	nnnnn[169]	_	_	_	
 47-18	2494-2498	with	event[169]	giv[169]	nnnnn[169]	_	_	_	
@@ -713,7 +713,7 @@
 49-2	2596-2600	come	_	_	_	_	_	_	
 49-3	2601-2605	back	_	_	_	_	_	_	
 49-4	2606-2608	to	_	_	_	_	_	_	
-49-5	2609-2611	it	abstract[180]	giv[180]	nsnnn[180]	_	bridge	50-2[181_180]	
+49-5	2609-2611	it	abstract[180]	giv[180]	nsnnn[180]	_	bridge:entity-associative	50-2[181_180]	
 49-6	2612-2613	a	_	_	_	_	_	_	
 49-7	2614-2617	lot	_	_	_	_	_	_	
 49-8	2618-2619	.	_	_	_	_	_	_	
@@ -755,7 +755,7 @@
 50-34	2780-2781	.	_	_	_	_	_	_	
 
 #Text=The last two nights I have dreamed of dogs in trouble .
-51-1	2782-2785	The	time[190]	new[190]	nnnnn[190]	_	bridge|bridge	53-1[202_190]|57-1[223_190]	
+51-1	2782-2785	The	time[190]	new[190]	nnnnn[190]	_	bridge:set-member;comparison-relative|bridge:set-member;comparison-relative	53-1[202_190]|57-1[223_190]	
 51-2	2786-2790	last	time[190]	new[190]	nnnnn[190]	_	_	_	
 51-3	2791-2794	two	time[190]	new[190]	nnnnn[190]	_	_	_	
 51-4	2795-2801	nights	time[190]	new[190]	nnnnn[190]	_	_	_	
@@ -769,7 +769,7 @@
 51-12	2836-2837	.	_	_	_	_	_	_	
 
 #Text=I do n’t dream about Renata , although when the dreams wake me up , it ’s thinking about Renata that keeps me awake .
-52-1	2838-2839	I	person[194]	giv[194]	sssss[194]	_	coref	52-13[197_194]	
+52-1	2838-2839	I	person[194]	giv[194]	sssss[194]	_	coref|bridge:entity-associative	52-13[197_194]|52-10[196_194]	
 52-2	2840-2842	do	_	_	_	_	_	_	
 52-3	2843-2846	n’t	_	_	_	_	_	_	
 52-4	2847-2852	dream	_	_	_	_	_	_	
@@ -834,7 +834,7 @@
 54-3	3113-3116	the	time[211]	giv[211]	nnnnn[211]	_	_	_	
 54-4	3117-3122	first	time[211]	giv[211]	nnnnn[211]	_	_	_	
 54-5	3123-3128	night	time[211]	giv[211]	nnnnn[211]	_	_	_	
-54-6	3129-3135	Renata	time[211]|person[212]	giv[211]|giv[212]	nnnnn[211]|sssns[212]	_	coref|bridge	56-2[220_212]|54-10[213_212]	
+54-6	3129-3135	Renata	time[211]|person[212]	giv[211]|giv[212]	nnnnn[211]|sssns[212]	_	coref|bridge:entity-associative	56-2[220_212]|54-10[213_212]	
 54-7	3136-3139	did	time[211]	giv[211]	nnnnn[211]	_	_	_	
 54-8	3140-3143	n’t	time[211]	giv[211]	nnnnn[211]	_	_	_	
 54-9	3144-3148	come	time[211]	giv[211]	nnnnn[211]	_	_	_	
@@ -854,15 +854,15 @@
 54-23	3211-3212	.	_	_	_	_	_	_	
 
 #Text=Seventeen - year - olds sleep on friends ’ couches , I know .
-55-1	3213-3222	Seventeen	person[216]	new[216]	nnnnn[216]	_	_	_	
+55-1	3213-3222	Seventeen	person[216]	new[216]	nnnnn[216]	_	bridge:entity-associative	55-8[218_216]	
 55-2	3223-3224	-	person[216]	new[216]	nnnnn[216]	_	_	_	
 55-3	3225-3229	year	person[216]	new[216]	nnnnn[216]	_	_	_	
 55-4	3230-3231	-	person[216]	new[216]	nnnnn[216]	_	_	_	
 55-5	3232-3236	olds	person[216]	new[216]	nnnnn[216]	_	_	_	
 55-6	3237-3242	sleep	_	_	_	_	_	_	
 55-7	3243-3245	on	_	_	_	_	_	_	
-55-8	3246-3253	friends	object[217]|person[218]	new[217]|new[218]	nnnnn[217]|nnnnn[218]	_	_	_	
-55-9	3254-3255	’	object[217]|person[218]	new[217]|new[218]	nnnnn[217]|nnnnn[218]	_	_	_	
+55-8	3246-3253	friends	object[217]|person[218]	new[217]|acc[218]	nnnnn[217]|nnnnn[218]	_	_	_	
+55-9	3254-3255	’	object[217]|person[218]	new[217]|acc[218]	nnnnn[217]|nnnnn[218]	_	_	_	
 55-10	3256-3263	couches	object[217]	new[217]	nnnnn[217]	_	_	_	
 55-11	3264-3265	,	_	_	_	_	_	_	
 55-12	3266-3267	I	person[219]	giv[219]	sssss[219]	_	coref	57-4[225_219]	
@@ -932,7 +932,7 @@
 59-3	3534-3537	her	event[238]|animal[240]	new[238]|giv[240]	nnnnn[238]|snnns[240]	_	coref	60-1[242_240]	
 59-4	3538-3542	down	event[238]	new[238]	nnnnn[238]	_	_	_	
 59-5	3543-3545	on	event[238]	new[238]	nnnnn[238]	_	_	_	
-59-6	3546-3550	some	event[238]|object[241]	new[238]|new[241]	nnnnn[238]|nnnnn[241]	_	_	_	
+59-6	3546-3550	some	event[238]|object[241]	new[238]|new[241]	nnnnn[238]|nnnnn[241]	_	bridge:entity-resultative	63-6[267_241]	
 59-7	3551-3557	sticks	event[238]|object[241]	new[238]|new[241]	nnnnn[238]|nnnnn[241]	_	_	_	
 59-8	3558-3559	.	event[238]	new[238]	nnnnn[238]	_	_	_	
 
@@ -1012,8 +1012,8 @@
 63-3	3836-3841	while	_	_	_	_	_	_	
 63-4	3842-3843	I	person[266]	giv[266]	sssss[266]	_	coref	64-9[270_266]	
 63-5	3844-3847	lit	_	_	_	_	_	_	
-63-6	3848-3851	the	abstract[267]	new[267]	nnnnn[267]	_	_	_	
-63-7	3852-3856	fire	abstract[267]	new[267]	nnnnn[267]	_	_	_	
+63-6	3848-3851	the	abstract[267]	acc[267]	nnnnn[267]	_	_	_	
+63-7	3852-3856	fire	abstract[267]	acc[267]	nnnnn[267]	_	_	_	
 63-8	3857-3858	.	_	_	_	_	_	_	
 
 #Text=And then the horror of it all hit me and I said , “ Sonia , up ! ”

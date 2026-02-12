@@ -11,7 +11,7 @@
 #Text=Friday , January 3 , 2014
 1-1	0-6	Friday	time[1]	acc[1]	nnnnn[1]	_	coref	1-3[2_1]	
 1-2	7-8	,	_	_	_	_	_	_	
-1-3	9-16	January	time[2]	giv[2]	nnnnn[2]	_	_	_	
+1-3	9-16	January	time[2]	giv[2]	nnnnn[2]	_	bridge:comparison-time	3-2[7_2]	
 1-4	17-18	3	time[2]	giv[2]	nnnnn[2]	_	_	_	
 1-5	19-20	,	time[2]	giv[2]	nnnnn[2]	_	_	_	
 1-6	21-25	2014	time[2]|time[3]	giv[2]|new[3]	nnnnn[2]|nnnnn[3]	_	_	_	
@@ -61,7 +61,7 @@
 4-7	242-252	Paralympic	person[17]	giv[17]	sssss[17]	Tina_McKenzie[17]	_	_	
 4-8	253-261	medalist	person[17]	giv[17]	sssss[17]	Tina_McKenzie[17]	_	_	
 4-9	262-264	in	person[17]	giv[17]	sssss[17]	Tina_McKenzie[17]	_	_	
-4-10	265-275	wheelchair	person[17]|abstract[18]|object[19]	giv[17]|giv[18]|giv[19]	sssss[17]|sssss[18]|sssss[19]	Tina_McKenzie[17]	coref|bridge	4-15[20_18]|18-17[70_18]	
+4-10	265-275	wheelchair	person[17]|abstract[18]|object[19]	giv[17]|giv[18]|giv[19]	sssss[17]|sssss[18]|sssss[19]	Tina_McKenzie[17]	coref	4-15[20_18]	
 4-11	276-286	basketball	person[17]|abstract[18]	giv[17]|giv[18]	sssss[17]|sssss[18]	Tina_McKenzie[17]	_	_	
 4-12	287-288	,	_	_	_	_	_	_	
 4-13	289-296	retired	_	_	_	_	_	_	
@@ -207,12 +207,12 @@
 #Text=And so we can compete against each other all the time within Australia but we really need to be able to ...
 13-1	903-906	And	_	_	_	_	_	_	
 13-2	907-909	so	_	_	_	_	_	_	
-13-3	910-912	we	organization[52]	giv[52]	sssss[52]	Australia_women's_national_wheelchair_basketball_team[52]	bridge	13-7[54_52]	
+13-3	910-912	we	organization[52]	giv[52]	sssss[52]	Australia_women's_national_wheelchair_basketball_team[52]	bridge:comparison-sense;comparison-relative	13-7[54_52]	
 13-4	913-916	can	_	_	_	_	_	_	
 13-5	917-924	compete	event[53]	new[53]	nnnnn[53]	_	coref	14-1[57_53]	
 13-6	925-932	against	event[53]	new[53]	nnnnn[53]	_	_	_	
-13-7	933-937	each	event[53]|organization[54]	new[53]|giv[54]	nnnnn[53]|nnnnn[54]	Australia_women's_national_wheelchair_basketball_team[54]	coref	13-15[56_54]	
-13-8	938-943	other	event[53]|organization[54]	new[53]|giv[54]	nnnnn[53]|nnnnn[54]	Australia_women's_national_wheelchair_basketball_team[54]	_	_	
+13-7	933-937	each	event[53]|organization[54]	new[53]|acc[54]	nnnnn[53]|nnnnn[54]	Australia_women's_national_wheelchair_basketball_team[54]	coref	13-15[56_54]	
+13-8	938-943	other	event[53]|organization[54]	new[53]|acc[54]	nnnnn[53]|nnnnn[54]	Australia_women's_national_wheelchair_basketball_team[54]	_	_	
 13-9	944-947	all	_	_	_	_	_	_	
 13-10	948-951	the	_	_	_	_	_	_	
 13-11	952-956	time	_	_	_	_	_	_	
@@ -264,7 +264,7 @@
 15-25	1145-1149	year	event[60]	giv[60]	nnnnn[60]	_	_	_	
 15-26	1150-1152	to	event[60]	giv[60]	nnnnn[60]	_	_	_	
 15-27	1153-1161	continue	event[60]	giv[60]	nnnnn[60]	_	_	_	
-15-28	1162-1165	our	event[60]|abstract[62]|organization[63]	giv[60]|new[62]|giv[63]	nnnnn[60]|nnnnn[62]|nnnnn[63]	Australia_women's_national_wheelchair_basketball_team[63]	coref	18-1[66_63]	
+15-28	1162-1165	our	event[60]|abstract[62]|organization[63]	giv[60]|new[62]|giv[63]	nnnnn[60]|nnnnn[62]|nnnnn[63]	Australia_women's_national_wheelchair_basketball_team[63]	coref|bridge:comparison-relative	18-1[66_63]|16-5[64_63]	
 15-29	1166-1177	improvement	event[60]|abstract[62]	giv[60]|new[62]	nnnnn[60]|nnnnn[62]	_	_	_	
 15-30	1178-1179	.	_	_	_	_	_	_	
 
@@ -273,9 +273,9 @@
 16-2	1185-1188	see	_	_	_	_	_	_	
 16-3	1189-1194	where	_	_	_	_	_	_	
 16-4	1195-1198	all	_	_	_	_	_	_	
-16-5	1199-1202	the	organization[64]	new[64]	nnnnn[64]	_	_	_	
-16-6	1203-1208	other	organization[64]	new[64]	nnnnn[64]	_	_	_	
-16-7	1209-1214	teams	organization[64]	new[64]	nnnnn[64]	_	_	_	
+16-5	1199-1202	the	organization[64]	acc[64]	nnnnn[64]	_	_	_	
+16-6	1203-1208	other	organization[64]	acc[64]	nnnnn[64]	_	_	_	
+16-7	1209-1214	teams	organization[64]	acc[64]	nnnnn[64]	_	_	_	
 16-8	1215-1218	are	_	_	_	_	_	_	
 16-9	1219-1221	at	_	_	_	_	_	_	
 16-10	1222-1224	as	_	_	_	_	_	_	
@@ -292,13 +292,13 @@
 17-7	1260-1261	.	_	_	_	_	_	_	
 
 #Text=We took quite a few new girls over there back then in 2005 , leading into the World Cup in the Netherlands .
-18-1	1262-1264	We	organization[66]	giv[66]	nnnnn[66]	Australia_women's_national_wheelchair_basketball_team[66]	coref	19-11[76_66]	
+18-1	1262-1264	We	organization[66]	giv[66]	nnnnn[66]	Australia_women's_national_wheelchair_basketball_team[66]	coref|bridge:comparison-relative	19-11[76_66]|18-4[67_66]	
 18-2	1265-1269	took	_	_	_	_	_	_	
 18-3	1270-1275	quite	_	_	_	_	_	_	
-18-4	1276-1277	a	person[67]	new[67]	nnnnn[67]	_	_	_	
-18-5	1278-1281	few	person[67]	new[67]	nnnnn[67]	_	_	_	
-18-6	1282-1285	new	person[67]	new[67]	nnnnn[67]	_	_	_	
-18-7	1286-1291	girls	person[67]	new[67]	nnnnn[67]	_	_	_	
+18-4	1276-1277	a	person[67]	acc[67]	nnnnn[67]	_	_	_	
+18-5	1278-1281	few	person[67]	acc[67]	nnnnn[67]	_	_	_	
+18-6	1282-1285	new	person[67]	acc[67]	nnnnn[67]	_	_	_	
+18-7	1286-1291	girls	person[67]	acc[67]	nnnnn[67]	_	_	_	
 18-8	1292-1296	over	_	_	_	_	_	_	
 18-9	1297-1302	there	event[68]	giv[68]	nssnn[68]	_	_	_	
 18-10	1303-1307	back	_	_	_	_	_	_	
@@ -308,36 +308,36 @@
 18-14	1321-1322	,	_	_	_	_	_	_	
 18-15	1323-1330	leading	_	_	_	_	_	_	
 18-16	1331-1335	into	_	_	_	_	_	_	
-18-17	1336-1339	the	event[70]	acc[70]	nnnnn[70]	_	coref	19-2[72_70]	
-18-18	1340-1345	World	event[70]	acc[70]	nnnnn[70]	_	_	_	
-18-19	1346-1349	Cup	event[70]	acc[70]	nnnnn[70]	_	_	_	
-18-20	1350-1352	in	event[70]	acc[70]	nnnnn[70]	_	_	_	
-18-21	1353-1356	the	event[70]|place[71]	acc[70]|acc[71]	nnnnn[70]|nnnnn[71]	Netherlands[71]	_	_	
-18-22	1357-1368	Netherlands	event[70]|place[71]	acc[70]|acc[71]	nnnnn[70]|nnnnn[71]	Netherlands[71]	_	_	
+18-17	1336-1339	the	event[70]	auto[70]	nnnnn[70]	_	coref	19-2[72_70]	
+18-18	1340-1345	World	event[70]	auto[70]	nnnnn[70]	_	_	_	
+18-19	1346-1349	Cup	event[70]	auto[70]	nnnnn[70]	_	_	_	
+18-20	1350-1352	in	event[70]	auto[70]	nnnnn[70]	_	_	_	
+18-21	1353-1356	the	event[70]|place[71]	auto[70]|acc[71]	nnnnn[70]|nnnnn[71]	Netherlands[71]	_	_	
+18-22	1357-1368	Netherlands	event[70]|place[71]	auto[70]|acc[71]	nnnnn[70]|nnnnn[71]	Netherlands[71]	_	_	
 18-23	1369-1370	.	_	_	_	_	_	_	
 
 #Text=Was that the one where you were the captain of the team , in 2005 ?
 19-1	1371-1374	Was	_	_	_	_	_	_	
-19-2	1375-1379	that	event[72]	giv[72]	nnnnn[72]	_	_	_	
-19-3	1380-1383	the	event[73]	new[73]	nnnnn[73]	_	coref|bridge	20-3[78_73]|20-4[79_73]	
-19-4	1384-1387	one	event[73]	new[73]	nnnnn[73]	_	_	_	
-19-5	1388-1393	where	event[73]	new[73]	nnnnn[73]	_	_	_	
-19-6	1394-1397	you	event[73]|person[74]	new[73]|giv[74]	nnnnn[73]|sssss[74]	Tina_McKenzie[74]	coref	21-3[80_74]	
-19-7	1398-1402	were	event[73]	new[73]	nnnnn[73]	_	_	_	
-19-8	1403-1406	the	event[73]|person[75]	new[73]|new[75]	nnnnn[73]|nnnnn[75]	_	_	_	
-19-9	1407-1414	captain	event[73]|person[75]	new[73]|new[75]	nnnnn[73]|nnnnn[75]	_	_	_	
-19-10	1415-1417	of	event[73]|person[75]	new[73]|new[75]	nnnnn[73]|nnnnn[75]	_	_	_	
-19-11	1418-1421	the	event[73]|person[75]|organization[76]	new[73]|new[75]|giv[76]	nnnnn[73]|nnnnn[75]|nnnnn[76]	Australia_women's_national_wheelchair_basketball_team[76]	coref	24-1[88_76]	
-19-12	1422-1426	team	event[73]|person[75]|organization[76]	new[73]|new[75]|giv[76]	nnnnn[73]|nnnnn[75]|nnnnn[76]	Australia_women's_national_wheelchair_basketball_team[76]	_	_	
-19-13	1427-1428	,	event[73]	new[73]	nnnnn[73]	_	_	_	
-19-14	1429-1431	in	event[73]	new[73]	nnnnn[73]	_	_	_	
-19-15	1432-1436	2005	event[73]|time[77]	new[73]|giv[77]	nnnnn[73]|nnnnn[77]	_	_	_	
+19-2	1375-1379	that	event[72]	giv[72]	nnnnn[72]	_	bridge:comparison-sense	19-3[73_72]	
+19-3	1380-1383	the	event[73]	acc[73]	nnnnn[73]	_	coref	20-3[78_73]	
+19-4	1384-1387	one	event[73]	acc[73]	nnnnn[73]	_	_	_	
+19-5	1388-1393	where	event[73]	acc[73]	nnnnn[73]	_	_	_	
+19-6	1394-1397	you	event[73]|person[74]	acc[73]|giv[74]	nnnnn[73]|sssss[74]	Tina_McKenzie[74]	coref	21-3[80_74]	
+19-7	1398-1402	were	event[73]	acc[73]	nnnnn[73]	_	_	_	
+19-8	1403-1406	the	event[73]|person[75]	acc[73]|new[75]	nnnnn[73]|nnnnn[75]	_	_	_	
+19-9	1407-1414	captain	event[73]|person[75]	acc[73]|new[75]	nnnnn[73]|nnnnn[75]	_	_	_	
+19-10	1415-1417	of	event[73]|person[75]	acc[73]|new[75]	nnnnn[73]|nnnnn[75]	_	_	_	
+19-11	1418-1421	the	event[73]|person[75]|organization[76]	acc[73]|new[75]|giv[76]	nnnnn[73]|nnnnn[75]|nnnnn[76]	Australia_women's_national_wheelchair_basketball_team[76]	coref	24-1[88_76]	
+19-12	1422-1426	team	event[73]|person[75]|organization[76]	acc[73]|new[75]|giv[76]	nnnnn[73]|nnnnn[75]|nnnnn[76]	Australia_women's_national_wheelchair_basketball_team[76]	_	_	
+19-13	1427-1428	,	event[73]	acc[73]	nnnnn[73]	_	_	_	
+19-14	1429-1431	in	event[73]	acc[73]	nnnnn[73]	_	_	_	
+19-15	1432-1436	2005	event[73]|time[77]	acc[73]|giv[77]	nnnnn[73]|nnnnn[77]	_	_	_	
 19-16	1437-1438	?	_	_	_	_	_	_	
 
 #Text=Or was that a later one ?
 20-1	1439-1441	Or	_	_	_	_	_	_	
 20-2	1442-1445	was	_	_	_	_	_	_	
-20-3	1446-1450	that	event[78]	giv[78]	nnnnn[78]	_	_	_	
+20-3	1446-1450	that	event[78]	giv[78]	nnnnn[78]	_	bridge:comparison-sense;comparison-relative	20-4[79_78]	
 20-4	1451-1452	a	event[79]	acc[79]	nnnnn[79]	_	_	_	
 20-5	1453-1458	later	event[79]	acc[79]	nnnnn[79]	_	_	_	
 20-6	1459-1462	one	event[79]	acc[79]	nnnnn[79]	_	_	_	
@@ -440,7 +440,7 @@
 #Text=Then in 2006 we ended up fourth .
 29-1	1798-1802	Then	_	_	_	_	_	_	
 29-2	1803-1805	in	_	_	_	_	_	_	
-29-3	1806-1810	2006	time[102]	new[102]	nnnnn[102]	_	bridge	30-1[104_102]	
+29-3	1806-1810	2006	time[102]	new[102]	nnnnn[102]	_	bridge:entity-associative	30-1[104_102]	
 29-4	1811-1813	we	organization[103]	giv[103]	nnnnn[103]	Australia_women's_national_wheelchair_basketball_team[103]	coref	30-9[107_103]	
 29-5	1814-1819	ended	_	_	_	_	_	_	
 29-6	1820-1822	up	_	_	_	_	_	_	
@@ -569,11 +569,11 @@
 
 #Text=So you can come back home and revisit what you need to do and , you know , where the team 's at .
 37-1	2300-2302	So	_	_	_	_	_	_	
-37-2	2303-2306	you	person[125]	giv[125]	nnnnn[125]	_	coref	37-10[127_125]	
+37-2	2303-2306	you	person[125]	giv[125]	nnnnn[125]	_	coref|bridge:entity-associative	37-10[127_125]|37-6[126_125]	
 37-3	2307-2310	can	_	_	_	_	_	_	
 37-4	2311-2315	come	_	_	_	_	_	_	
 37-5	2316-2320	back	_	_	_	_	_	_	
-37-6	2321-2325	home	place[126]	new[126]	nnnnn[126]	_	_	_	
+37-6	2321-2325	home	place[126]	acc[126]	nnnnn[126]	_	_	_	
 37-7	2326-2329	and	_	_	_	_	_	_	
 37-8	2330-2337	revisit	_	_	_	_	_	_	
 37-9	2338-2342	what	_	_	_	_	_	_	

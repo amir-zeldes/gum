@@ -9,7 +9,7 @@
 
 
 #Text=Miss Marcie Rickenbacker
-1-1	0-4	Miss	person[1]	new[1]	sssss[1]	_	coref	8-3[19_1]	
+1-1	0-4	Miss	person[1]	new[1]	sssss[1]	_	coref|bridge:entity-associative	8-3[19_1]|5-1[9_1]	
 1-2	5-11	Marcie	person[1]	new[1]	sssss[1]	_	_	_	
 1-3	12-24	Rickenbacker	person[1]	new[1]	sssss[1]	_	_	_	
 
@@ -18,7 +18,7 @@
 2-2	31-38	Academy	organization[2]	new[2]	ssnnn[2]	Abbot_Academy[2]	_	_	
 
 #Text=Andover , Massachusetts 01810
-3-1	39-46	Andover	place[4]|place[5]	new[4]|new[5]	nnnnn[4]|nnnnn[5]	Andover,_Massachusetts[5]	_	_	
+3-1	39-46	Andover	place[4]|place[5]	new[4]|new[5]	nnnnn[4]|nnnnn[5]	Andover,_Massachusetts[5]	bridge:entity-associative	8-12[21_5]	
 3-2	47-48	,	place[4]|place[5]	new[4]|new[5]	nnnnn[4]|nnnnn[5]	Andover,_Massachusetts[5]	_	_	
 3-3	49-62	Massachusetts	place[4]|place[5]|place[6]	new[4]|new[5]|new[6]	nnnnn[4]|nnnnn[5]|nnnnn[6]	Andover,_Massachusetts[5]|Massachusetts[6]	_	_	
 3-4	63-68	01810	place[4]	new[4]	nnnnn[4]	_	_	_	
@@ -28,7 +28,7 @@
 4-2	73-75	30	time[7]	new[7]	snsnn[7]	_	_	_	
 
 #Text=Mum ,
-5-1	76-79	Mum	person[9]	new[9]	sssss[9]	_	coref	6-2[11_9]	
+5-1	76-79	Mum	person[9]	acc[9]	sssss[9]	_	coref	6-2[11_9]	
 5-2	80-81	,	_	_	_	_	_	_	
 
 #Text=Got your note today , many thanks , it was good to hear from you .
@@ -66,7 +66,7 @@
 8-5	193-195	to	_	_	_	_	_	_	
 8-6	196-198	do	_	_	_	_	_	_	
 8-7	199-204	about	_	_	_	_	_	_	
-8-8	205-209	that	organization[20]	acc[20]	nssns[20]	_	bridge	9-4[22_20]	
+8-8	205-209	that	organization[20]	acc[20]	nssns[20]	_	bridge:set-member;comparison-sense	9-4[22_20]	
 8-9	210-214	coed	organization[20]	acc[20]	nssns[20]	_	_	_	
 8-10	215-221	school	organization[20]	acc[20]	nssns[20]	_	_	_	
 8-11	222-224	in	organization[20]	acc[20]	nssns[20]	_	_	_	
@@ -120,10 +120,10 @@
 #Text=So ^ Today I sent a box of stuff home regular ( parcel post ) mail .
 11-1	406-408	So	_	_	_	_	_	_	
 11-2	409-410	^	_	_	_	_	_	_	
-11-3	411-416	Today	time[33]	giv[33]	snsnn[33]	_	coref|bridge|bridge	24-1[103_33]|13-5[47_33]|23-11[102_33]	
-11-4	417-418	I	person[34]	giv[34]	sssss[34]	_	coref	12-12[43_34]	
+11-3	411-416	Today	time[33]	giv[33]	snsnn[33]	_	coref|bridge:comparison-time|bridge:comparison-time|bridge:comparison-time;comparison-relative|bridge:set-span-interval;comparison-time	24-1[103_33]|13-5[47_33]|20-2[87_33]|17-18[70_33]|23-11[102_33]	
+11-4	417-418	I	person[34]	giv[34]	sssss[34]	_	coref|bridge:entity-associative	12-12[43_34]|11-10[37_34]	
 11-5	419-423	sent	_	_	_	_	_	_	
-11-6	424-425	a	object[35]	new[35]	ssnns[35]	_	bridge	12-4[41_35]	
+11-6	424-425	a	object[35]	new[35]	ssnns[35]	_	bridge:entity-associative	12-4[41_35]	
 11-7	426-429	box	object[35]	new[35]	ssnns[35]	_	_	_	
 11-8	430-432	of	object[35]	new[35]	ssnns[35]	_	_	_	
 11-9	433-438	stuff	object[35]|object[36]	new[35]|giv[36]	ssnns[35]|nnnnn[36]	_	_	_	
@@ -174,7 +174,7 @@
 13-11	599-603	then	_	_	_	_	_	_	
 13-12	604-608	Math	abstract[50]	new[50]	nnnnn[50]	_	_	_	
 13-13	609-610	(	_	_	_	_	_	_	
-13-14	611-613	M.	time[51]	new[51]	nnnnn[51]	_	bridge	13-16[52_51]	
+13-14	611-613	M.	time[51]	new[51]	nnnnn[51]	_	bridge:comparison-time	13-16[52_51]	
 13-15	614-615	-	_	_	_	_	_	_	
 13-16	616-619	Wed	time[52]	acc[52]	nnnnn[52]	_	_	_	
 13-17	620-621	)	_	_	_	_	_	_	
@@ -204,7 +204,7 @@
 16-8	685-687	my	person[59]|person[60]	new[59]|giv[60]	sssss[59]|sssss[60]	_	coref|coref	17-1[66_59]|18-1[72_60]	
 16-9	688-692	love	person[59]	new[59]	sssss[59]	_	_	_	
 16-10	693-695	of	person[59]	new[59]	sssss[59]	_	_	_	
-16-11	696-700	this	person[59]|time[61]	new[59]|new[61]	sssss[59]|snsnn[61]	_	_	_	
+16-11	696-700	this	person[59]|time[61]	new[59]|new[61]	sssss[59]|snsnn[61]	_	bridge:comparison-time|bridge:comparison-time	16-21[65_61]|18-17[77_61]	
 16-12	701-706	month	person[59]|time[61]	new[59]|new[61]	sssss[59]|snsnn[61]	_	_	_	
 16-13	707-708	)	_	_	_	_	_	_	
 16-14	709-711	is	_	_	_	_	_	_	
@@ -212,9 +212,9 @@
 16-16	718-720	to	_	_	_	_	_	_	
 16-17	721-728	Antioch	organization[62]	new[62]	nssnn[62]	Antioch_College[62]	coref	16-19[63_62]	
 16-18	729-732	and	_	_	_	_	_	_	
-16-19	733-737	they	organization[63]	giv[63]	nssnn[63]	_	bridge	17-6[67_63]	
+16-19	733-737	they	organization[63]	giv[63]	nssnn[63]	_	bridge:entity-associative;comparison-relative	17-6[67_63]	
 16-20	738-743	start	_	_	_	_	_	_	
-16-21	744-748	June	time[64]|time[65]	giv[64]|new[65]	nnnnn[64]|nnnnn[65]	_	_	_	
+16-21	744-748	June	time[64]|time[65]	giv[64]|acc[65]	nnnnn[64]|nnnnn[65]	_	bridge:comparison-time	17-10[69_65]	
 16-22	749-751	30	time[64]	giv[64]	nnnnn[64]	_	_	_	
 16-23	752-753	.	_	_	_	_	_	_	
 
@@ -224,11 +224,11 @@
 17-3	760-766	trying	_	_	_	_	_	_	
 17-4	767-769	to	_	_	_	_	_	_	
 17-5	770-772	go	_	_	_	_	_	_	
-17-6	773-776	the	time[67]	new[67]	nnnnn[67]	_	coref	17-10[68_67]	
-17-7	777-781	next	time[67]	new[67]	nnnnn[67]	_	_	_	
-17-8	782-789	session	time[67]	new[67]	nnnnn[67]	_	_	_	
+17-6	773-776	the	time[67]	acc[67]	nnnnn[67]	_	coref	17-10[68_67]	
+17-7	777-781	next	time[67]	acc[67]	nnnnn[67]	_	_	_	
+17-8	782-789	session	time[67]	acc[67]	nnnnn[67]	_	_	_	
 17-9	790-791	;	_	_	_	_	_	_	
-17-10	792-796	Sept	time[68]|time[69]	giv[68]|new[69]	nnnnn[68]|nnnnn[69]	_	_	_	
+17-10	792-796	Sept	time[68]|time[69]	giv[68]|acc[69]	nnnnn[68]|nnnnn[69]	_	_	_	
 17-11	797-801	29th	time[68]	giv[68]	nnnnn[68]	_	_	_	
 17-12	802-803	,	_	_	_	_	_	_	
 17-13	804-807	but	_	_	_	_	_	_	
@@ -236,8 +236,8 @@
 17-15	811-814	n’t	_	_	_	_	_	_	
 17-16	815-819	hear	_	_	_	_	_	_	
 17-17	820-823	for	_	_	_	_	_	_	
-17-18	824-831	another	time[70]	new[70]	nnnnn[70]	_	bridge	17-21[71_70]	
-17-19	832-836	week	time[70]	new[70]	nnnnn[70]	_	_	_	
+17-18	824-831	another	time[70]	acc[70]	nnnnn[70]	_	bridge:comparison-sense	17-21[71_70]	
+17-19	832-836	week	time[70]	acc[70]	nnnnn[70]	_	_	_	
 17-20	837-839	or	_	_	_	_	_	_	
 17-21	840-843	two	time[71]	acc[71]	nnnnn[71]	_	_	_	
 17-22	844-845	.	_	_	_	_	_	_	
@@ -310,7 +310,7 @@
 20-15	1101-1105	want	_	_	_	_	_	_	
 20-16	1106-1108	to	_	_	_	_	_	_	
 20-17	1109-1112	get	_	_	_	_	_	_	
-20-18	1113-1122	something	object[91]	giv[91]	nnnns[91]	_	_	_	
+20-18	1113-1122	something	object[91]	giv[91]	nnnns[91]	_	bridge:comparison-relative	20-29[93_91]	
 20-19	1123-1126	for	_	_	_	_	_	_	
 20-20	1127-1132	Mlle.	person[92]	new[92]	nnnnn[92]	_	_	_	
 20-21	1133-1138	Arosa	person[92]	new[92]	nnnnn[92]	_	_	_	
@@ -321,9 +321,9 @@
 20-26	1158-1163	there	_	_	_	_	_	_	
 20-27	1164-1167	’ll	_	_	_	_	_	_	
 20-28	1168-1170	be	_	_	_	_	_	_	
-20-29	1171-1176	other	abstract[93]	new[93]	snnns[93]	_	_	_	
-20-30	1177-1182	petty	abstract[93]	new[93]	snnns[93]	_	_	_	
-20-31	1183-1191	expenses	abstract[93]	new[93]	snnns[93]	_	_	_	
+20-29	1171-1176	other	abstract[93]	acc[93]	snnns[93]	_	_	_	
+20-30	1177-1182	petty	abstract[93]	acc[93]	snnns[93]	_	_	_	
+20-31	1183-1191	expenses	abstract[93]	acc[93]	snnns[93]	_	_	_	
 20-32	1192-1193	.	_	_	_	_	_	_	
 
 #Text=Please … .

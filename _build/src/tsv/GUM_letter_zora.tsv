@@ -19,14 +19,14 @@
 2-2	26-34	Delivery	abstract[3]	new[3]	nnnnn[3]	Poste_restante[3]	_	_	
 
 #Text=July 9 , 1951 .
-3-1	35-39	July	time[4]	new[4]	snsnn[4]	_	coref	21-1[103_4]	
+3-1	35-39	July	time[4]	new[4]	snsnn[4]	_	coref|bridge:set-span-interval;comparison-time;comparison-relative	21-1[103_4]|14-1[59_4]	
 3-2	40-41	9	time[4]	new[4]	snsnn[4]	_	_	_	
 3-3	42-43	,	time[4]	new[4]	snsnn[4]	_	_	_	
-3-4	44-48	1951	time[4]|time[5]	new[4]|new[5]	snsnn[4]|sssnn[5]	_	coref|bridge	60-17[314_5]|9-9[25_5]	
+3-4	44-48	1951	time[4]|time[5]	new[4]|new[5]	snsnn[4]|sssnn[5]	_	coref|bridge:set-span-interval;comparison-time;comparison-relative	60-17[314_5]|9-9[25_5]	
 3-5	49-50	.	_	_	_	_	_	_	
 
 #Text=Dear Jean :
-4-1	51-55	Dear	person[6]	new[6]	sssss[6]	_	coref	12-13[43_6]	
+4-1	51-55	Dear	person[6]	new[6]	sssss[6]	_	coref|bridge:entity-associative	12-13[43_6]|5-3[7_6]	
 4-2	56-60	Jean	person[6]	new[6]	sssss[6]	_	_	_	
 4-3	61-62	:	_	_	_	_	_	_	
 
@@ -51,10 +51,10 @@
 #Text=It is a one - room house , but a large room , and set in two blocks of grounds with an artesian well .
 7-1	120-122	It	place[12]	giv[12]	sssss[12]	_	coref	7-3[13_12]	
 7-2	123-125	is	_	_	_	_	_	_	
-7-3	126-127	a	place[13]	giv[13]	sssss[13]	_	coref|bridge	25-15[126_13]|14-12[61_13]	
-7-4	128-131	one	place[13]|place[14]	giv[13]|new[14]	sssss[13]|nsssn[14]	_	coref	7-10[15_14]	
-7-5	132-133	-	place[13]|place[14]	giv[13]|new[14]	sssss[13]|nsssn[14]	_	_	_	
-7-6	134-138	room	place[13]|place[14]	giv[13]|new[14]	sssss[13]|nsssn[14]	_	_	_	
+7-3	126-127	a	place[13]	giv[13]	sssss[13]	_	coref|bridge:entity-meronomy|bridge:entity-meronomy	25-15[126_13]|7-4[14_13]|14-12[61_13]	
+7-4	128-131	one	place[13]|place[14]	giv[13]|acc[14]	sssss[13]|nsssn[14]	_	coref	7-10[15_14]	
+7-5	132-133	-	place[13]|place[14]	giv[13]|acc[14]	sssss[13]|nsssn[14]	_	_	_	
+7-6	134-138	room	place[13]|place[14]	giv[13]|acc[14]	sssss[13]|nsssn[14]	_	_	_	
 7-7	139-144	house	place[13]	giv[13]	sssss[13]	_	_	_	
 7-8	145-146	,	_	_	_	_	_	_	
 7-9	147-150	but	_	_	_	_	_	_	
@@ -97,7 +97,7 @@
 9-2	284-286	am	_	_	_	_	_	_	
 9-3	287-290	the	_	_	_	_	_	_	
 9-4	291-299	happiest	_	_	_	_	_	_	
-9-5	300-301	I	person[24]	giv[24]	sssss[24]	_	coref	10-1[29_24]	
+9-5	300-301	I	person[24]	giv[24]	sssss[24]	_	coref|bridge:entity-associative	10-1[29_24]|9-19[27_24]	
 9-6	302-306	have	_	_	_	_	_	_	
 9-7	307-311	been	_	_	_	_	_	_	
 9-8	312-314	in	_	_	_	_	_	_	
@@ -155,10 +155,10 @@
 11-16	556-557	.	_	_	_	_	_	_	
 
 #Text=I go to bed happily tired and swear that I will write you a letter first thing in the morning .
-12-1	558-559	I	person[40]	giv[40]	sssss[40]	_	coref	12-10[42_40]	
+12-1	558-559	I	person[40]	giv[40]	sssss[40]	_	coref|bridge:entity-associative	12-10[42_40]|12-4[41_40]	
 12-2	560-562	go	_	_	_	_	_	_	
 12-3	563-565	to	_	_	_	_	_	_	
-12-4	566-569	bed	place[41]	new[41]	nnnnn[41]	_	_	_	
+12-4	566-569	bed	place[41]	acc[41]	nnnnn[41]	_	_	_	
 12-5	570-577	happily	_	_	_	_	_	_	
 12-6	578-583	tired	_	_	_	_	_	_	
 12-7	584-587	and	_	_	_	_	_	_	
@@ -211,7 +211,7 @@
 13-31	799-802	out	_	_	_	_	_	_	
 13-32	803-806	and	_	_	_	_	_	_	
 13-33	807-812	place	_	_	_	_	_	_	
-13-34	813-818	stale	substance[54]	new[54]	nnnnn[54]	_	_	_	
+13-34	813-818	stale	substance[54]	new[54]	nnnnn[54]	_	bridge:comparison-relative	14-26[64_54]	
 13-35	819-824	bread	substance[54]	new[54]	nnnnn[54]	_	_	_	
 13-36	825-826	,	_	_	_	_	_	_	
 13-37	827-831	etc.	_	_	_	_	_	_	
@@ -255,9 +255,9 @@
 14-23	1006-1010	that	_	_	_	_	_	_	
 14-24	1011-1016	there	_	_	_	_	_	_	
 14-25	1017-1020	was	_	_	_	_	_	_	
-14-26	1021-1023	no	substance[64]	new[64]	nnnnn[64]	_	bridge	14-36[67_64]	
-14-27	1024-1028	more	substance[64]	new[64]	nnnnn[64]	_	_	_	
-14-28	1029-1033	food	substance[64]	new[64]	nnnnn[64]	_	_	_	
+14-26	1021-1023	no	substance[64]	acc[64]	nnnnn[64]	_	bridge:comparison-sense	14-36[67_64]	
+14-27	1024-1028	more	substance[64]	acc[64]	nnnnn[64]	_	_	_	
+14-28	1029-1033	food	substance[64]	acc[64]	nnnnn[64]	_	_	_	
 14-29	1034-1041	outside	place[65]	new[65]	nnnnn[65]	_	_	_	
 14-30	1042-1043	,	_	_	_	_	_	_	
 14-31	1044-1046	so	_	_	_	_	_	_	
@@ -279,7 +279,7 @@
 15-7	1100-1103	the	object[69]	giv[69]	nnnnn[69]	_	_	_	
 15-8	1104-1111	machine	object[69]	giv[69]	nnnnn[69]	_	_	_	
 15-9	1112-1113	,	_	_	_	_	_	_	
-15-10	1114-1115	a	animal[70]	new[70]	nnnnn[70]	_	_	_	
+15-10	1114-1115	a	animal[70]	new[70]	nnnnn[70]	_	bridge:entity-associative	15-25[73_70]	
 15-11	1116-1121	great	animal[70]	new[70]	nnnnn[70]	_	_	_	
 15-12	1122-1130	conclave	animal[70]	new[70]	nnnnn[70]	_	_	_	
 15-13	1131-1133	of	animal[70]	new[70]	nnnnn[70]	_	_	_	
@@ -294,8 +294,8 @@
 15-22	1170-1172	to	_	_	_	_	_	_	
 15-23	1173-1175	me	person[72]	giv[72]	sssss[72]	_	coref	15-41[77_72]	
 15-24	1176-1180	that	_	_	_	_	_	_	
-15-25	1181-1185	some	animal[73]	new[73]	nnnnn[73]	_	coref	15-46[78_73]	
-15-26	1186-1191	enemy	animal[73]	new[73]	nnnnn[73]	_	_	_	
+15-25	1181-1185	some	animal[73]	acc[73]	nnnnn[73]	_	coref	15-46[78_73]	
+15-26	1186-1191	enemy	animal[73]	acc[73]	nnnnn[73]	_	_	_	
 15-27	1192-1195	was	_	_	_	_	_	_	
 15-28	1196-1203	raiding	_	_	_	_	_	_	
 15-29	1204-1205	a	object[74]	new[74]	nnnnn[74]	_	_	_	
@@ -410,7 +410,7 @@
 20-17	1635-1636	!	_	_	_	_	_	_	
 
 #Text=This day , I take out my notes and go back to work with new vigor and a clean - swept mind .
-21-1	1637-1641	This	time[103]	new[103]	snsnn[103]	_	bridge|bridge	33-8[158_103]|34-6[163_103]	
+21-1	1637-1641	This	time[103]	new[103]	snsnn[103]	_	bridge:set-span-interval;comparison-time;comparison-relative|bridge:comparison-time;comparison-relative	33-8[158_103]|34-6[163_103]	
 21-2	1642-1645	day	time[103]	new[103]	snsnn[103]	_	_	_	
 21-3	1646-1647	,	_	_	_	_	_	_	
 21-4	1648-1649	I	person[104]	giv[104]	sssss[104]	_	coref	21-7[106_104]	
@@ -435,7 +435,7 @@
 21-23	1728-1729	.	_	_	_	_	_	_	
 
 #Text=Two short pieces and back to the attempt at drama .
-22-1	1730-1733	Two	abstract[110]|abstract[111]	new[110]|new[111]	nnnnn[110]|snnnn[111]	_	bridge	24-4[121_110]	
+22-1	1730-1733	Two	abstract[110]|abstract[111]	new[110]|new[111]	nnnnn[110]|snnnn[111]	_	bridge:set-subset;comparison-relative	24-4[121_110]	
 22-2	1734-1739	short	abstract[110]|abstract[111]	new[110]|new[111]	nnnnn[110]|snnnn[111]	_	_	_	
 22-3	1740-1746	pieces	abstract[110]|abstract[111]	new[110]|new[111]	nnnnn[110]|snnnn[111]	_	_	_	
 22-4	1747-1750	and	abstract[110]	new[110]	nnnnn[110]	_	_	_	
@@ -522,7 +522,7 @@
 27-4	2050-2055	house	place[131]	new[131]	sssss[131]	_	_	_	
 27-5	2056-2057	I	person[132]	giv[132]	sssss[132]	_	coref	30-6[147_132]	
 27-6	2058-2063	wrote	_	_	_	_	_	_	
-27-7	2064-2069	MULES	abstract[133]|animal[134]	new[133]|new[134]	nnnnn[133]|nnnnn[134]	_	_	_	
+27-7	2064-2069	MULES	abstract[133]|animal[134]	new[133]|new[134]	nnnnn[133]|nnnnn[134]	_	bridge:entity-associative	28-2[136_133]	
 27-8	2070-2073	AND	abstract[133]	new[133]	nnnnn[133]	_	_	_	
 27-9	2074-2077	MEN	abstract[133]|person[135]	new[133]|new[135]	nnnnn[133]|nnnnn[135]	_	_	_	
 27-10	2078-2079	.	_	_	_	_	_	_	
@@ -571,7 +571,7 @@
 29-24	2257-2261	many	person[143]	new[143]	nnnnn[143]	_	_	_	
 29-25	2262-2268	people	person[143]	new[143]	nnnnn[143]	_	_	_	
 29-26	2269-2278	stationed	person[143]	new[143]	nnnnn[143]	_	_	_	
-29-27	2279-2283	here	person[143]|place[144]	new[143]|giv[144]	nnnnn[143]|sssss[144]	_	coref	40-3[200_144]	
+29-27	2279-2283	here	person[143]|place[144]	new[143]|giv[144]	nnnnn[143]|sssss[144]	_	coref|bridge:entity-associative|bridge:entity-associative	40-3[200_144]|31-13[152_144]|37-4[182_144]	
 29-28	2284-2287	are	_	_	_	_	_	_	
 29-29	2288-2294	buying	_	_	_	_	_	_	
 29-30	2295-2298	and	_	_	_	_	_	_	
@@ -599,14 +599,14 @@
 31-4	2375-2379	slow	_	_	_	_	_	_	
 31-5	2380-2385	about	_	_	_	_	_	_	
 31-6	2386-2393	selling	_	_	_	_	_	_	
-31-7	2394-2396	it	place[150]	giv[150]	sssss[150]	_	coref|bridge	34-1[161_150]|33-14[159_150]	
+31-7	2394-2396	it	place[150]	giv[150]	sssss[150]	_	coref|bridge:entity-associative	34-1[161_150]|33-14[159_150]	
 31-8	2397-2399	to	_	_	_	_	_	_	
 31-9	2400-2402	me	person[151]	giv[151]	sssss[151]	_	coref	32-8[154_151]	
 31-10	2403-2404	,	_	_	_	_	_	_	
 31-11	2405-2412	waiting	_	_	_	_	_	_	
 31-12	2413-2415	on	_	_	_	_	_	_	
-31-13	2416-2422	public	abstract[152]	new[152]	nnnnn[152]	_	coref	32-1[153_152]	
-31-14	2423-2431	reaction	abstract[152]	new[152]	nnnnn[152]	_	_	_	
+31-13	2416-2422	public	abstract[152]	acc[152]	nnnnn[152]	_	coref	32-1[153_152]	
+31-14	2423-2431	reaction	abstract[152]	acc[152]	nnnnn[152]	_	_	_	
 31-15	2432-2433	.	_	_	_	_	_	_	
 
 #Text=It is beginning to be favorable to me .
@@ -628,13 +628,13 @@
 33-5	2498-2502	have	_	_	_	_	_	_	
 33-6	2503-2510	stopped	_	_	_	_	_	_	
 33-7	2511-2513	in	_	_	_	_	_	_	
-33-8	2514-2517	the	time[158]	acc[158]	nnnnn[158]	_	_	_	
+33-8	2514-2517	the	time[158]	acc[158]	nnnnn[158]	_	bridge:set-span-interval;comparison-time	37-27[189_158]	
 33-9	2518-2522	last	time[158]	acc[158]	nnnnn[158]	_	_	_	
 33-10	2523-2527	week	time[158]	acc[158]	nnnnn[158]	_	_	_	
 33-11	2528-2531	and	_	_	_	_	_	_	
 33-12	2532-2540	remarked	_	_	_	_	_	_	
 33-13	2541-2543	on	_	_	_	_	_	_	
-33-14	2544-2547	the	abstract[159]	acc[159]	nnnnn[159]	_	_	_	
+33-14	2544-2547	the	abstract[159]	acc[159]	nnnnn[159]	_	bridge:comparison-relative	56-29[290_159]	
 33-15	2548-2560	improvements	abstract[159]	acc[159]	nnnnn[159]	_	_	_	
 33-16	2561-2562	I	abstract[159]|person[160]	acc[159]|giv[160]	nnnnn[159]|sssss[160]	_	coref	34-23[169_160]	
 33-17	2563-2567	have	abstract[159]	acc[159]	nnnnn[159]	_	_	_	
@@ -674,7 +674,7 @@
 34-30	2702-2703	.	_	_	_	_	_	_	
 
 #Text=The place had run down so badly .
-35-1	2704-2707	The	place[171]	giv[171]	sssss[171]	_	coref|bridge	38-14[193_171]|38-1[190_171]	
+35-1	2704-2707	The	place[171]	giv[171]	sssss[171]	_	coref|bridge:entity-associative	38-14[193_171]|38-1[190_171]	
 35-2	2708-2713	place	place[171]	giv[171]	sssss[171]	_	_	_	
 35-3	2714-2717	had	_	_	_	_	_	_	
 35-4	2718-2721	run	_	_	_	_	_	_	
@@ -726,9 +726,9 @@
 37-1	2904-2907	The	person[181]	new[181]	nnnnn[181]	_	_	_	
 37-2	2908-2915	manager	person[181]	new[181]	nnnnn[181]	_	_	_	
 37-3	2916-2918	of	person[181]	new[181]	nnnnn[181]	_	_	_	
-37-4	2919-2922	the	person[181]|organization[182]	new[181]|new[182]	nnnnn[181]|nnnnn[182]	_	_	_	
-37-5	2923-2928	local	person[181]|organization[182]	new[181]|new[182]	nnnnn[181]|nnnnn[182]	_	_	_	
-37-6	2929-2934	dairy	person[181]|organization[182]	new[181]|new[182]	nnnnn[181]|nnnnn[182]	_	_	_	
+37-4	2919-2922	the	person[181]|organization[182]	new[181]|acc[182]	nnnnn[181]|nnnnn[182]	_	_	_	
+37-5	2923-2928	local	person[181]|organization[182]	new[181]|acc[182]	nnnnn[181]|nnnnn[182]	_	_	_	
+37-6	2929-2934	dairy	person[181]|organization[182]	new[181]|acc[182]	nnnnn[181]|nnnnn[182]	_	_	_	
 37-7	2935-2936	,	_	_	_	_	_	_	
 37-8	2937-2943	seeing	_	_	_	_	_	_	
 37-9	2944-2946	me	person[183]	giv[183]	sssss[183]	_	coref	37-14[185_183]	
@@ -749,7 +749,7 @@
 37-24	3018-3020	as	_	_	_	_	_	_	
 37-25	3021-3022	a	object[188]	new[188]	nnnnn[188]	_	_	_	
 37-26	3023-3030	present	object[188]	new[188]	nnnnn[188]	_	_	_	
-37-27	3031-3039	Saturday	time[189]	new[189]	nnnnn[189]	_	_	_	
+37-27	3031-3039	Saturday	time[189]	acc[189]	nnnnn[189]	_	_	_	
 37-28	3040-3041	.	_	_	_	_	_	_	
 
 #Text=The grounds have great possibilities , and I really would love to own it .
@@ -811,7 +811,7 @@
 41-5	3277-3279	to	abstract[204]	new[204]	nnnnn[204]	_	_	_	
 41-6	3280-3284	come	abstract[204]	new[204]	nnnnn[204]	_	_	_	
 41-7	3285-3289	back	abstract[204]	new[204]	nnnnn[204]	_	_	_	
-41-8	3290-3294	here	abstract[204]|place[206]	new[204]|new[206]	nnnnn[204]|sssss[206]	_	bridge	59-12[304_206]	
+41-8	3290-3294	here	abstract[204]|place[206]	new[204]|new[206]	nnnnn[204]|sssss[206]	_	bridge:entity-meronomy	59-12[304_206]	
 41-9	3295-3296	.	abstract[204]	new[204]	nnnnn[204]	_	_	_	
 
 #Text=That is why I am doing so much to make a go of it .
@@ -894,7 +894,7 @@
 46-6	3597-3602	would	_	_	_	_	_	_	
 46-7	3603-3606	not	_	_	_	_	_	_	
 46-8	3607-3611	want	_	_	_	_	_	_	
-46-9	3612-3613	a	person[228]	new[228]	snnnn[228]	_	_	_	
+46-9	3612-3613	a	person[228]	new[228]	snnnn[228]	_	bridge:comparison-sense;comparison-relative	47-2[230_228]	
 46-10	3614-3619	Negro	person[228]	new[228]	snnnn[228]	_	_	_	
 46-11	3620-3626	writer	person[228]	new[228]	snnnn[228]	_	_	_	
 46-12	3627-3629	to	_	_	_	_	_	_	
@@ -905,10 +905,10 @@
 
 #Text=Since none of the others have thought to do anything with the hair - traightening business , it might prove a temptation to play my work down to Burroughs , then do something on it himself .
 47-1	3647-3652	Since	_	_	_	_	_	_	
-47-2	3653-3657	none	person[230]	giv[230]	nnnnn[230]	_	_	_	
-47-3	3658-3660	of	person[230]	giv[230]	nnnnn[230]	_	_	_	
-47-4	3661-3664	the	person[230]	giv[230]	nnnnn[230]	_	_	_	
-47-5	3665-3671	others	person[230]	giv[230]	nnnnn[230]	_	_	_	
+47-2	3653-3657	none	person[230]	acc[230]	nnnnn[230]	_	_	_	
+47-3	3658-3660	of	person[230]	acc[230]	nnnnn[230]	_	_	_	
+47-4	3661-3664	the	person[230]	acc[230]	nnnnn[230]	_	_	_	
+47-5	3665-3671	others	person[230]	acc[230]	nnnnn[230]	_	_	_	
 47-6	3672-3676	have	_	_	_	_	_	_	
 47-7	3677-3684	thought	_	_	_	_	_	_	
 47-8	3685-3687	to	_	_	_	_	_	_	
@@ -953,7 +953,7 @@
 
 #Text=The Saturday Evening Post photographer has been here and took a lot of pictures .
 49-1	3868-3871	The	person[244]	new[244]	nnnnn[244]	_	coref	50-1[248_244]	
-49-2	3872-3880	Saturday	person[244]|organization[245]	new[244]|new[245]	nnnnn[244]|snnnn[245]	The_Saturday_Evening_Post[245]	coref|bridge	52-8[264_245]|52-5[263_245]	
+49-2	3872-3880	Saturday	person[244]|organization[245]	new[244]|new[245]	nnnnn[244]|snnnn[245]	The_Saturday_Evening_Post[245]	coref|bridge:entity-associative|bridge:entity-associative|bridge:entity-associative	52-8[264_245]|51-8[259_245]|51-17[261_245]|52-5[263_245]	
 49-3	3881-3888	Evening	person[244]|organization[245]	new[244]|new[245]	nnnnn[244]|snnnn[245]	The_Saturday_Evening_Post[245]	_	_	
 49-4	3889-3893	Post	person[244]|organization[245]	new[244]|new[245]	nnnnn[244]|snnnn[245]	The_Saturday_Evening_Post[245]	_	_	
 49-5	3894-3906	photographer	person[244]	new[244]	nnnnn[244]	_	_	_	
@@ -1005,9 +1005,9 @@
 51-14	4114-4118	will	_	_	_	_	_	_	
 51-15	4119-4121	be	_	_	_	_	_	_	
 51-16	4122-4124	in	_	_	_	_	_	_	
-51-17	4125-4127	an	abstract[261]	new[261]	nnnnn[261]	_	_	_	
-51-18	4128-4133	early	abstract[261]	new[261]	nnnnn[261]	_	_	_	
-51-19	4134-4139	issue	abstract[261]	new[261]	nnnnn[261]	_	_	_	
+51-17	4125-4127	an	abstract[261]	acc[261]	nnnnn[261]	_	_	_	
+51-18	4128-4133	early	abstract[261]	acc[261]	nnnnn[261]	_	_	_	
+51-19	4134-4139	issue	abstract[261]	acc[261]	nnnnn[261]	_	_	_	
 51-20	4140-4141	.	_	_	_	_	_	_	
 
 #Text=I gather from reading the magazine that the SEP favors Taft , and so it probably falls right in with the plan .
@@ -1074,7 +1074,7 @@
 54-20	4401-4404	the	abstract[276]	new[276]	nnnnn[276]	_	_	_	
 54-21	4405-4409	cash	abstract[276]	new[276]	nnnnn[276]	_	_	_	
 54-22	4410-4413	for	abstract[276]	new[276]	nnnnn[276]	_	_	_	
-54-23	4414-4416	my	abstract[276]|organization[277]|person[278]	new[276]|new[277]|giv[278]	nnnnn[276]|nssnn[277]|sssss[278]	_	bridge|coref	55-5[282_277]|55-1[281_278]	
+54-23	4414-4416	my	abstract[276]|organization[277]|person[278]	new[276]|new[277]|giv[278]	nnnnn[276]|nssnn[277]|sssss[278]	_	coref|bridge:entity-associative	55-1[281_278]|55-5[282_277]	
 54-24	4417-4426	newspaper	abstract[276]|organization[277]	new[276]|new[277]	nnnnn[276]|nssnn[277]	_	_	_	
 54-25	4427-4434	devoted	abstract[276]|organization[277]	new[276]|new[277]	nnnnn[276]|nssnn[277]	_	_	_	
 54-26	4435-4437	to	abstract[276]|organization[277]	new[276]|new[277]	nnnnn[276]|nssnn[277]	_	_	_	
@@ -1131,8 +1131,8 @@
 56-26	4651-4655	more	_	_	_	_	_	_	
 56-27	4656-4663	livable	_	_	_	_	_	_	
 56-28	4664-4666	in	_	_	_	_	_	_	
-56-29	4667-4672	other	abstract[290]	giv[290]	nnnnn[290]	_	_	_	
-56-30	4673-4677	ways	abstract[290]	giv[290]	nnnnn[290]	_	_	_	
+56-29	4667-4672	other	abstract[290]	acc[290]	nnnnn[290]	_	_	_	
+56-30	4673-4677	ways	abstract[290]	acc[290]	nnnnn[290]	_	_	_	
 56-31	4678-4684	around	_	_	_	_	_	_	
 56-32	4685-4688	the	place[291]	giv[291]	sssss[291]	_	coref	60-32[318_291]	
 56-33	4689-4694	place	place[291]	giv[291]	sssss[291]	_	_	_	
@@ -1245,7 +1245,7 @@
 60-29	5108-5109	I	person[316]	giv[316]	sssss[316]	_	coref	60-35[319_316]	
 60-30	5110-5113	can	_	_	_	_	_	_	
 60-31	5114-5117	buy	event[317]	new[317]	nnnnn[317]	_	coref	60-38[320_317]	
-60-32	5118-5122	this	event[317]|place[318]	new[317]|giv[318]	nnnnn[317]|sssss[318]	_	coref	60-47[322_318]	
+60-32	5118-5122	this	event[317]|place[318]	new[317]|giv[318]	nnnnn[317]|sssss[318]	_	coref|bridge:comparison-relative	60-47[322_318]|60-41[321_318]	
 60-33	5123-5128	place	event[317]|place[318]	new[317]|giv[318]	nnnnn[317]|sssss[318]	_	_	_	
 60-34	5129-5130	,	_	_	_	_	_	_	
 60-35	5131-5132	I	person[319]	giv[319]	sssss[319]	_	coref	62-1[325_319]	
@@ -1254,11 +1254,11 @@
 60-38	5140-5142	it	event[320]	giv[320]	nnnnn[320]	_	_	_	
 60-39	5143-5146	and	_	_	_	_	_	_	
 60-40	5147-5152	build	_	_	_	_	_	_	
-60-41	5153-5154	a	place[321]	giv[321]	nnnnn[321]	_	_	_	
-60-42	5155-5166	comfortable	place[321]	giv[321]	nnnnn[321]	_	_	_	
-60-43	5167-5173	little	place[321]	giv[321]	nnnnn[321]	_	_	_	
-60-44	5174-5177	new	place[321]	giv[321]	nnnnn[321]	_	_	_	
-60-45	5178-5183	house	place[321]	giv[321]	nnnnn[321]	_	_	_	
+60-41	5153-5154	a	place[321]	acc[321]	nnnnn[321]	_	_	_	
+60-42	5155-5166	comfortable	place[321]	acc[321]	nnnnn[321]	_	_	_	
+60-43	5167-5173	little	place[321]	acc[321]	nnnnn[321]	_	_	_	
+60-44	5174-5177	new	place[321]	acc[321]	nnnnn[321]	_	_	_	
+60-45	5178-5183	house	place[321]	acc[321]	nnnnn[321]	_	_	_	
 60-46	5184-5186	on	_	_	_	_	_	_	
 60-47	5187-5189	it	place[322]	giv[322]	sssss[322]	_	_	_	
 60-48	5190-5191	.	_	_	_	_	_	_	

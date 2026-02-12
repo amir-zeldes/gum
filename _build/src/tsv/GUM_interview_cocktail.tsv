@@ -22,7 +22,7 @@
 #Text=Thursday , March 15 , 2012
 2-1	60-68	Thursday	time[7]	new[7]	nnnnn[7]	_	coref	2-3[8_7]	
 2-2	69-70	,	_	_	_	_	_	_	
-2-3	71-76	March	time[8]	giv[8]	nnnnn[8]	_	_	_	
+2-3	71-76	March	time[8]	giv[8]	nnnnn[8]	_	bridge:comparison-time;comparison-relative	57-7[312_8]	
 2-4	77-79	15	time[8]	giv[8]	nnnnn[8]	_	_	_	
 2-5	80-81	,	time[8]	giv[8]	nnnnn[8]	_	_	_	
 2-6	82-86	2012	time[8]|time[9]	giv[8]|acc[9]	nnnnn[8]|nnnnn[9]	_	coref	8-1[42_9]	
@@ -94,7 +94,7 @@
 5-4	449-454	voted	_	_	_	_	_	_	
 5-5	455-457	to	_	_	_	_	_	_	
 5-6	458-464	define	_	_	_	_	_	_	
-5-7	465-473	santorum	abstract[28]	giv[28]	sssss[28]	_	coref	7-1[35_28]	
+5-7	465-473	santorum	abstract[28]	giv[28]	sssss[28]	_	coref|bridge:entity-associative	7-1[35_28]|6-1[34_28]	
 5-8	474-476	as	_	_	_	_	_	_	
 5-9	477-478	;	_	_	_	_	_	_	
 5-10	479-480	"	_	_	_	_	_	_	
@@ -118,7 +118,7 @@
 5-28	571-572	"	_	_	_	_	_	_	
 
 #Text=Background
-6-1	573-583	Background	abstract[34]	new[34]	nnnnn[34]	_	_	_	
+6-1	573-583	Background	abstract[34]	acc[34]	nnnnn[34]	_	_	_	
 
 #Text=The santorum neologism has inspired satirical forms of parody , including this political cartoon by Saturday Morning Breakfast Cereal webcomic artist Zach Weiner .
 7-1	584-587	The	abstract[35]	giv[35]	sssss[35]	_	coref	15-27[90_35]	
@@ -239,7 +239,7 @@
 12-16	1140-1145	Paper	organization[62]	new[62]	nnnnn[62]	The_Brooklyn_Paper[62]	_	_	
 12-17	1146-1147	,	_	_	_	_	_	_	
 12-18	1148-1149	"	_	_	_	_	_	_	
-12-19	1150-1152	We	organization[64]	giv[64]	sssss[64]	_	coref	16-9[94_64]	
+12-19	1150-1152	We	organization[64]	giv[64]	sssss[64]	_	coref|bridge:entity-associative|bridge:entity-associative	16-9[94_64]|15-17[87_64]|15-22[88_64]	
 12-20	1153-1156	'll	_	_	_	_	_	_	
 12-21	1157-1161	keep	_	_	_	_	_	_	
 12-22	1162-1164	it	substance[65]	giv[65]	sssss[65]	_	coref	13-5[71_65]	
@@ -261,7 +261,7 @@
 12-38	1232-1233	.	_	_	_	_	_	_	
 
 #Text=The main ingredients of the Santorum drink include vodka of an orange citrus variety , Baileys Irish Cream , and Angostura bitters .
-13-1	1234-1237	The	substance[70]	new[70]	nnnnn[70]	_	coref|bridge|bridge|bridge	44-1[255_70]|13-9[73_70]|13-16[75_70]|13-21[76_70]	
+13-1	1234-1237	The	substance[70]	new[70]	nnnnn[70]	_	coref	44-1[255_70]	
 13-2	1238-1242	main	substance[70]	new[70]	nnnnn[70]	_	_	_	
 13-3	1243-1254	ingredients	substance[70]	new[70]	nnnnn[70]	_	_	_	
 13-4	1255-1257	of	substance[70]	new[70]	nnnnn[70]	_	_	_	
@@ -269,20 +269,20 @@
 13-6	1262-1270	Santorum	substance[70]|substance[71]|person[72]	new[70]|giv[71]|giv[72]	nnnnn[70]|sssss[71]|sssss[72]	Rick_Santorum[72]	coref	15-28[91_72]	
 13-7	1271-1276	drink	substance[70]|substance[71]	new[70]|giv[71]	nnnnn[70]|sssss[71]	_	_	_	
 13-8	1277-1284	include	_	_	_	_	_	_	
-13-9	1285-1290	vodka	substance[73]	acc[73]	nsnns[73]	_	_	_	
-13-10	1291-1293	of	substance[73]	acc[73]	nsnns[73]	_	_	_	
-13-11	1294-1296	an	substance[73]|substance[74]	acc[73]|new[74]	nsnns[73]|nnnnn[74]	_	_	_	
-13-12	1297-1303	orange	substance[73]|substance[74]	acc[73]|new[74]	nsnns[73]|nnnnn[74]	_	_	_	
-13-13	1304-1310	citrus	substance[73]|substance[74]	acc[73]|new[74]	nsnns[73]|nnnnn[74]	_	_	_	
-13-14	1311-1318	variety	substance[73]|substance[74]	acc[73]|new[74]	nsnns[73]|nnnnn[74]	_	_	_	
+13-9	1285-1290	vodka	substance[73]	auto[73]	nsnns[73]	_	_	_	
+13-10	1291-1293	of	substance[73]	auto[73]	nsnns[73]	_	_	_	
+13-11	1294-1296	an	substance[73]|substance[74]	auto[73]|new[74]	nsnns[73]|nnnnn[74]	_	_	_	
+13-12	1297-1303	orange	substance[73]|substance[74]	auto[73]|new[74]	nsnns[73]|nnnnn[74]	_	_	_	
+13-13	1304-1310	citrus	substance[73]|substance[74]	auto[73]|new[74]	nsnns[73]|nnnnn[74]	_	_	_	
+13-14	1311-1318	variety	substance[73]|substance[74]	auto[73]|new[74]	nsnns[73]|nnnnn[74]	_	_	_	
 13-15	1319-1320	,	_	_	_	_	_	_	
-13-16	1321-1328	Baileys	substance[75]	acc[75]	nsnns[75]	Baileys_Irish_Cream[75]	coref	45-1[258_75]	
-13-17	1329-1334	Irish	substance[75]	acc[75]	nsnns[75]	Baileys_Irish_Cream[75]	_	_	
-13-18	1335-1340	Cream	substance[75]	acc[75]	nsnns[75]	Baileys_Irish_Cream[75]	_	_	
+13-16	1321-1328	Baileys	substance[75]	auto[75]	nsnns[75]	Baileys_Irish_Cream[75]	coref	45-1[258_75]	
+13-17	1329-1334	Irish	substance[75]	auto[75]	nsnns[75]	Baileys_Irish_Cream[75]	_	_	
+13-18	1335-1340	Cream	substance[75]	auto[75]	nsnns[75]	Baileys_Irish_Cream[75]	_	_	
 13-19	1341-1342	,	_	_	_	_	_	_	
 13-20	1343-1346	and	_	_	_	_	_	_	
-13-21	1347-1356	Angostura	substance[76]	acc[76]	nnnns[76]	_	_	_	
-13-22	1357-1364	bitters	substance[76]	acc[76]	nnnns[76]	_	_	_	
+13-21	1347-1356	Angostura	substance[76]	auto[76]	nnnns[76]	_	_	_	
+13-22	1357-1364	bitters	substance[76]	auto[76]	nnnns[76]	_	_	_	
 13-23	1365-1366	.	_	_	_	_	_	_	
 
 #Text=It is served in a cocktail glass and topped with Godiva chocolate flakes .
@@ -318,13 +318,13 @@
 15-14	1498-1501	for	event[85]	new[85]	nnnnn[85]	_	_	_	
 15-15	1502-1504	it	event[85]|substance[86]	new[85]|giv[86]	nnnnn[85]|sssss[86]	_	coref	16-13[95_86]	
 15-16	1505-1506	,	_	_	_	_	_	_	
-15-17	1507-1510	the	person[87]	new[87]	nnnnn[87]	_	_	_	
-15-18	1511-1520	bartender	person[87]	new[87]	nnnnn[87]	_	_	_	
+15-17	1507-1510	the	person[87]	acc[87]	nnnnn[87]	_	_	_	
+15-18	1511-1520	bartender	person[87]	acc[87]	nnnnn[87]	_	_	_	
 15-19	1521-1525	will	_	_	_	_	_	_	
 15-20	1526-1533	recount	_	_	_	_	_	_	
 15-21	1534-1537	for	_	_	_	_	_	_	
-15-22	1538-1541	the	person[88]	new[88]	nnnnn[88]	_	_	_	
-15-23	1542-1550	customer	person[88]	new[88]	nnnnn[88]	_	_	_	
+15-22	1538-1541	the	person[88]	acc[88]	nnnnn[88]	_	_	_	
+15-23	1542-1550	customer	person[88]	acc[88]	nnnnn[88]	_	_	_	
 15-24	1551-1554	the	abstract[89]	new[89]	nnnsn[89]	_	coref	20-9[124_89]	
 15-25	1555-1565	definition	abstract[89]	new[89]	nnnsn[89]	_	_	_	
 15-26	1566-1568	of	abstract[89]	new[89]	nnnsn[89]	_	_	_	
@@ -365,7 +365,7 @@
 17-7	1749-1757	observed	_	_	_	_	_	_	
 17-8	1758-1759	,	_	_	_	_	_	_	
 17-9	1760-1761	"	_	_	_	_	_	_	
-17-10	1762-1764	My	substance[100]|person[101]	giv[100]|giv[101]	sssss[100]|nnnnn[101]	_	coref	27-10[184_100]	
+17-10	1762-1764	My	substance[100]|person[101]	giv[100]|giv[101]	sssss[100]|nnnnn[101]	_	coref|bridge:entity-associative	27-10[184_100]|26-1[180_100]	
 17-11	1765-1773	Santorum	substance[100]	giv[100]	sssss[100]	_	_	_	
 17-12	1774-1777	was	_	_	_	_	_	_	
 17-13	1778-1783	sweet	_	_	_	_	_	_	
@@ -411,7 +411,7 @@
 18-28	1982-1987	media	organization[110]	new[110]	nsnnn[110]	_	_	_	
 18-29	1988-1994	laughs	_	_	_	_	_	_	
 18-30	1995-2000	about	_	_	_	_	_	_	
-18-31	2001-2003	it	abstract[111]	giv[111]	sssss[111]	_	coref	21-1[132_111]	
+18-31	2001-2003	it	abstract[111]	giv[111]	sssss[111]	_	coref|bridge:entity-associative	21-1[132_111]|20-30[131_111]	
 18-32	2004-2005	.	_	_	_	_	_	_	
 18-33	2006-2007	—	_	_	_	_	_	_	
 18-34	2008-2012	Rick	person[112]	giv[112]	sssss[112]	Rick_Santorum[112]	coref	19-10[116_112]	
@@ -493,16 +493,16 @@
 21-12	2426-2432	gained	_	_	_	_	_	_	
 21-13	2433-2442	dominance	abstract[135]	new[135]	nnnnn[135]	_	_	_	
 21-14	2443-2445	on	_	_	_	_	_	_	
-21-15	2446-2449	Web	abstract[136]|abstract[137]	new[136]|new[137]	nnnnn[136]|nnnnn[137]	Internet[137]	bridge|bridge|bridge	21-19[138_136]|21-21[139_136]|21-24[140_136]	
+21-15	2446-2449	Web	abstract[136]|abstract[137]	new[136]|new[137]	nnnnn[136]|nnnnn[137]	Internet[137]	_	_	
 21-16	2450-2456	search	abstract[136]	new[136]	nnnnn[136]	_	_	_	
 21-17	2457-2464	engines	abstract[136]	new[136]	nnnnn[136]	_	_	_	
 21-18	2465-2474	including	_	_	_	_	_	_	
-21-19	2475-2481	Google	organization[138]	acc[138]	nnnnn[138]	Google[138]	coref	22-29[151_138]	
+21-19	2475-2481	Google	organization[138]	auto[138]	nnnnn[138]	Google[138]	coref	22-29[151_138]	
 21-20	2482-2483	,	_	_	_	_	_	_	
-21-21	2484-2488	Bing	organization[139]	acc[139]	nnnnn[139]	Microsoft_Bing[139]	_	_	
+21-21	2484-2488	Bing	organization[139]	auto[139]	nnnnn[139]	Microsoft_Bing[139]	_	_	
 21-22	2489-2490	,	_	_	_	_	_	_	
 21-23	2491-2494	and	_	_	_	_	_	_	
-21-24	2495-2501	Yahoo!	organization[140]	acc[140]	nnnnn[140]	Yahoo!_Search[140]	_	_	
+21-24	2495-2501	Yahoo!	organization[140]	auto[140]	nnnnn[140]	Yahoo!_Search[140]	_	_	
 21-25	2502-2503	.	_	_	_	_	_	_	
 
 #Text=Rick Santorum himself has acknowledged and discussed the existence and prevalence of the santorum neologism phenomenon ; he was quoted by The Canadian Press on his assessment of Google 's response ;
@@ -632,7 +632,7 @@
 25-48	3143-3144	"	_	_	_	_	_	_	
 
 #Text=Interview
-26-1	3145-3154	Interview	event[180]	new[180]	nnnnn[180]	_	coref	29-1[192_180]	
+26-1	3145-3154	Interview	event[180]	acc[180]	nnnnn[180]	_	coref	29-1[192_180]	
 
 #Text=Pacific Standard owner , Jonathan M. Stan , displays the Santorum cocktail drink as a finished product at the bar . ( 2012 ) .
 27-1	3155-3162	Pacific	person[181]|organization[182]	giv[181]|giv[182]	snsnn[181]|sssss[182]	_	coref|coref	27-5[183_181]|27-19[187_182]	
@@ -807,7 +807,7 @@
 37-5	3943-3945	us	person[227]	giv[227]	nnnnn[227]	_	coref	38-1[231_227]	
 37-6	3946-3948	to	event[228]	giv[228]	nnnnn[228]	_	coref	38-4[232_228]	
 37-7	3949-3953	take	event[228]	giv[228]	nnnnn[228]	_	_	_	
-37-8	3954-3955	a	event[228]|abstract[229]	giv[228]|new[229]	nnnnn[228]|nnnnn[229]	_	_	_	
+37-8	3954-3955	a	event[228]|abstract[229]	giv[228]|new[229]	nnnnn[228]|nnnnn[229]	_	bridge:entity-associative|bridge:comparison-relative	38-6[233_229]|41-8[249_229]	
 37-9	3956-3961	stand	event[228]|abstract[229]	giv[228]|new[229]	nnnnn[228]|nnnnn[229]	_	_	_	
 37-10	3962-3964	on	event[228]|abstract[229]	giv[228]|new[229]	nnnnn[228]|nnnnn[229]	_	_	_	
 37-11	3965-3968	any	event[228]|abstract[229]|abstract[230]	giv[228]|new[229]|new[230]	nnnnn[228]|nnnnn[229]|nnnnn[230]	_	_	_	
@@ -821,8 +821,8 @@
 38-3	3995-4000	leave	_	_	_	_	_	_	
 38-4	4001-4005	that	event[232]	giv[232]	nnnnn[232]	_	_	_	
 38-5	4006-4008	to	_	_	_	_	_	_	
-38-6	4009-4012	the	person[233]	new[233]	nnnnn[233]	_	coref	41-13[251_233]	
-38-7	4013-4026	professionals	person[233]	new[233]	nnnnn[233]	_	_	_	
+38-6	4009-4012	the	person[233]	acc[233]	nnnnn[233]	_	coref	41-13[251_233]	
+38-7	4013-4026	professionals	person[233]	acc[233]	nnnnn[233]	_	_	_	
 38-8	4027-4028	.	_	_	_	_	_	_	
 
 #Text=Do you think it was an appropriate form of satire for Dan Savage to popularize the definition of the santorum neologism created in his advice column ?
@@ -870,15 +870,15 @@
 41-5	4232-4234	or	_	_	_	_	_	_	
 41-6	4235-4238	not	_	_	_	_	_	_	
 41-7	4239-4241	is	_	_	_	_	_	_	
-41-8	4242-4249	another	abstract[249]	new[249]	nnnnn[249]	_	_	_	
-41-9	4250-4255	thing	abstract[249]	new[249]	nnnnn[249]	_	_	_	
-41-10	4256-4258	we	abstract[249]|person[250]	new[249]|giv[250]	nnnnn[249]|nnnnn[250]	_	coref	49-1[268_250]	
-41-11	4259-4264	leave	abstract[249]	new[249]	nnnnn[249]	_	_	_	
-41-12	4265-4267	to	abstract[249]	new[249]	nnnnn[249]	_	_	_	
-41-13	4268-4271	the	abstract[249]|person[251]	new[249]|giv[251]	nnnnn[249]|nnnnn[251]	_	_	_	
-41-14	4272-4276	pros	abstract[249]|person[251]	new[249]|giv[251]	nnnnn[249]|nnnnn[251]	_	_	_	
-41-15	4277-4279	to	abstract[249]	new[249]	nnnnn[249]	_	_	_	
-41-16	4280-4286	decide	abstract[249]	new[249]	nnnnn[249]	_	_	_	
+41-8	4242-4249	another	abstract[249]	acc[249]	nnnnn[249]	_	_	_	
+41-9	4250-4255	thing	abstract[249]	acc[249]	nnnnn[249]	_	_	_	
+41-10	4256-4258	we	abstract[249]|person[250]	acc[249]|giv[250]	nnnnn[249]|nnnnn[250]	_	coref	49-1[268_250]	
+41-11	4259-4264	leave	abstract[249]	acc[249]	nnnnn[249]	_	_	_	
+41-12	4265-4267	to	abstract[249]	acc[249]	nnnnn[249]	_	_	_	
+41-13	4268-4271	the	abstract[249]|person[251]	acc[249]|giv[251]	nnnnn[249]|nnnnn[251]	_	_	_	
+41-14	4272-4276	pros	abstract[249]|person[251]	acc[249]|giv[251]	nnnnn[249]|nnnnn[251]	_	_	_	
+41-15	4277-4279	to	abstract[249]	acc[249]	nnnnn[249]	_	_	_	
+41-16	4280-4286	decide	abstract[249]	acc[249]	nnnnn[249]	_	_	_	
 41-17	4287-4288	.	_	_	_	_	_	_	
 
 #Text=When was the Santorum cocktail first created ?
@@ -899,7 +899,7 @@
 43-5	4353-4354	.	_	_	_	_	_	_	
 
 #Text=What ingredients go in the Santorum cocktail ?
-44-1	4355-4359	What	substance[255]	giv[255]	nnnnn[255]	_	coref|bridge|bridge|bridge|bridge	47-1[264_255]|45-1[258_255]|45-4[259_255]|45-7[260_255]|45-10[261_255]	
+44-1	4355-4359	What	substance[255]	giv[255]	nnnnn[255]	_	coref	47-1[264_255]	
 44-2	4360-4371	ingredients	substance[255]	giv[255]	nnnnn[255]	_	_	_	
 44-3	4372-4374	go	_	_	_	_	_	_	
 44-4	4375-4377	in	_	_	_	_	_	_	
@@ -909,17 +909,17 @@
 44-8	4400-4401	?	_	_	_	_	_	_	
 
 #Text=Bailey 's , orange vodka , bitters , and chocolate flakes .
-45-1	4402-4408	Bailey	substance[258]	giv[258]	nsnns[258]	Baileys_Irish_Cream[258]	_	_	
-45-2	4409-4411	's	substance[258]	giv[258]	nsnns[258]	Baileys_Irish_Cream[258]	_	_	
+45-1	4402-4408	Bailey	substance[258]	auto[258]	nsnns[258]	Baileys_Irish_Cream[258]	_	_	
+45-2	4409-4411	's	substance[258]	auto[258]	nsnns[258]	Baileys_Irish_Cream[258]	_	_	
 45-3	4412-4413	,	_	_	_	_	_	_	
-45-4	4414-4420	orange	substance[259]	acc[259]	nnnnn[259]	_	_	_	
-45-5	4421-4426	vodka	substance[259]	acc[259]	nnnnn[259]	_	_	_	
+45-4	4414-4420	orange	substance[259]	auto[259]	nnnnn[259]	_	_	_	
+45-5	4421-4426	vodka	substance[259]	auto[259]	nnnnn[259]	_	_	_	
 45-6	4427-4428	,	_	_	_	_	_	_	
-45-7	4429-4436	bitters	substance[260]	acc[260]	nnnnn[260]	_	_	_	
+45-7	4429-4436	bitters	substance[260]	auto[260]	nnnnn[260]	_	_	_	
 45-8	4437-4438	,	_	_	_	_	_	_	
 45-9	4439-4442	and	_	_	_	_	_	_	
-45-10	4443-4452	chocolate	object[261]	acc[261]	nnnnn[261]	_	_	_	
-45-11	4453-4459	flakes	object[261]	acc[261]	nnnnn[261]	_	_	_	
+45-10	4443-4452	chocolate	object[261]	auto[261]	nnnnn[261]	_	_	_	
+45-11	4453-4459	flakes	object[261]	auto[261]	nnnnn[261]	_	_	_	
 45-12	4460-4461	.	_	_	_	_	_	_	
 
 #Text=How is the Santorum drink made ?
@@ -963,30 +963,30 @@
 49-8	4634-4639	media	abstract[270]	new[270]	nnsnn[270]	_	coref	50-14[287_270]	
 49-9	4640-4648	coverage	abstract[270]	new[270]	nnsnn[270]	_	_	_	
 49-10	4649-4653	from	_	_	_	_	_	_	
-49-11	4654-4666	publications	organization[271]	new[271]	nnnnn[271]	_	bridge|bridge|bridge|bridge|bridge	49-18[274_271]|49-23[276_271]|49-25[277_271]|49-27[278_271]|49-33[280_271]	
+49-11	4654-4666	publications	organization[271]	new[271]	nnnnn[271]	_	_	_	
 49-12	4667-4676	including	organization[271]	new[271]	nnnnn[271]	_	_	_	
 49-13	4677-4678	;	organization[271]	new[271]	nnnnn[271]	_	_	_	
 49-14	4679-4682	The	organization[271]|organization[272]	new[271]|giv[272]	nnnnn[271]|nnnnn[272]	The_Brooklyn_Paper[272]	_	_	
 49-15	4683-4691	Brooklyn	organization[271]|organization[272]|place[273]	new[271]|giv[272]|giv[273]	nnnnn[271]|nnnnn[272]|nsssn[273]	The_Brooklyn_Paper[272]|Brooklyn[273]	_	_	
 49-16	4692-4697	Paper	organization[271]|organization[272]	new[271]|giv[272]	nnnnn[271]|nnnnn[272]	The_Brooklyn_Paper[272]	_	_	
 49-17	4698-4699	,	organization[271]	new[271]	nnnnn[271]	_	_	_	
-49-18	4700-4703	The	organization[271]|organization[274]	new[271]|acc[274]	nnnnn[271]|nnnnn[274]	The_New_York_Times[274]	_	_	
-49-19	4704-4707	New	organization[271]|organization[274]|place[275]	new[271]|acc[274]|giv[275]	nnnnn[271]|nnnnn[274]|snnss[275]	The_New_York_Times[274]|New_York_City[275]	_	_	
-49-20	4708-4712	York	organization[271]|organization[274]|place[275]	new[271]|acc[274]|giv[275]	nnnnn[271]|nnnnn[274]|snnss[275]	The_New_York_Times[274]|New_York_City[275]	_	_	
-49-21	4713-4718	Times	organization[271]|organization[274]	new[271]|acc[274]	nnnnn[271]|nnnnn[274]	The_New_York_Times[274]	_	_	
+49-18	4700-4703	The	organization[271]|organization[274]	new[271]|auto[274]	nnnnn[271]|nnnnn[274]	The_New_York_Times[274]	_	_	
+49-19	4704-4707	New	organization[271]|organization[274]|place[275]	new[271]|auto[274]|giv[275]	nnnnn[271]|nnnnn[274]|snnss[275]	The_New_York_Times[274]|New_York_City[275]	_	_	
+49-20	4708-4712	York	organization[271]|organization[274]|place[275]	new[271]|auto[274]|giv[275]	nnnnn[271]|nnnnn[274]|snnss[275]	The_New_York_Times[274]|New_York_City[275]	_	_	
+49-21	4713-4718	Times	organization[271]|organization[274]	new[271]|auto[274]	nnnnn[271]|nnnnn[274]	The_New_York_Times[274]	_	_	
 49-22	4719-4720	,	organization[271]	new[271]	nnnnn[271]	_	_	_	
-49-23	4721-4728	Jezebel	organization[271]|organization[276]	new[271]|acc[276]	nnnnn[271]|nnnnn[276]	Jezebel_%28website%29[276]	_	_	
+49-23	4721-4728	Jezebel	organization[271]|organization[276]	new[271]|auto[276]	nnnnn[271]|nnnnn[276]	Jezebel_%28website%29[276]	_	_	
 49-24	4729-4730	,	organization[271]	new[271]	nnnnn[271]	_	_	_	
-49-25	4731-4739	Metro.us	organization[271]|organization[277]	new[271]|acc[277]	nnnnn[271]|nnnnn[277]	Metro_New_York[277]	_	_	
+49-25	4731-4739	Metro.us	organization[271]|organization[277]	new[271]|auto[277]	nnnnn[271]|nnnnn[277]	Metro_New_York[277]	_	_	
 49-26	4740-4741	,	organization[271]	new[271]	nnnnn[271]	_	_	_	
-49-27	4742-4746	EDGE	organization[271]|organization[278]	new[271]|acc[278]	nnnnn[271]|nnnnn[278]	_	_	_	
-49-28	4747-4749	on	organization[271]|organization[278]	new[271]|acc[278]	nnnnn[271]|nnnnn[278]	_	_	_	
-49-29	4750-4753	the	organization[271]|organization[278]|abstract[279]	new[271]|acc[278]|new[279]	nnnnn[271]|nnnnn[278]|nnnnn[279]	Internet[279]	_	_	
-49-30	4754-4757	Net	organization[271]|organization[278]|abstract[279]	new[271]|acc[278]|new[279]	nnnnn[271]|nnnnn[278]|nnnnn[279]	Internet[279]	_	_	
+49-27	4742-4746	EDGE	organization[271]|organization[278]	new[271]|auto[278]	nnnnn[271]|nnnnn[278]	_	_	_	
+49-28	4747-4749	on	organization[271]|organization[278]	new[271]|auto[278]	nnnnn[271]|nnnnn[278]	_	_	_	
+49-29	4750-4753	the	organization[271]|organization[278]|abstract[279]	new[271]|auto[278]|new[279]	nnnnn[271]|nnnnn[278]|nnnnn[279]	Internet[279]	_	_	
+49-30	4754-4757	Net	organization[271]|organization[278]|abstract[279]	new[271]|auto[278]|new[279]	nnnnn[271]|nnnnn[278]|nnnnn[279]	Internet[279]	_	_	
 49-31	4758-4759	,	organization[271]	new[271]	nnnnn[271]	_	_	_	
 49-32	4760-4763	and	organization[271]	new[271]	nnnnn[271]	_	_	_	
-49-33	4764-4772	Instinct	organization[271]|organization[280]	new[271]|acc[280]	nnnnn[271]|nnnnn[280]	Instinct_%28magazine%29[280]	_	_	
-49-34	4773-4781	Magazine	organization[271]|organization[280]	new[271]|acc[280]	nnnnn[271]|nnnnn[280]	Instinct_%28magazine%29[280]	_	_	
+49-33	4764-4772	Instinct	organization[271]|organization[280]	new[271]|auto[280]	nnnnn[271]|nnnnn[280]	Instinct_%28magazine%29[280]	_	_	
+49-34	4773-4781	Magazine	organization[271]|organization[280]	new[271]|auto[280]	nnnnn[271]|nnnnn[280]	Instinct_%28magazine%29[280]	_	_	
 49-35	4782-4783	.	_	_	_	_	_	_	
 
 #Text=Did you think when you created it that the Santorum cocktail would receive this news coverage ?
@@ -1110,10 +1110,10 @@
 57-4	5315-5321	mildly	_	_	_	_	_	_	
 57-5	5322-5329	popular	_	_	_	_	_	_	
 57-6	5330-5333	for	_	_	_	_	_	_	
-57-7	5334-5337	the	time[312]	new[312]	nnnnn[312]	_	_	_	
-57-8	5338-5342	last	time[312]	new[312]	nnnnn[312]	_	_	_	
-57-9	5343-5346	few	time[312]	new[312]	nnnnn[312]	_	_	_	
-57-10	5347-5353	months	time[312]	new[312]	nnnnn[312]	_	_	_	
+57-7	5334-5337	the	time[312]	acc[312]	nnnnn[312]	_	_	_	
+57-8	5338-5342	last	time[312]	acc[312]	nnnnn[312]	_	_	_	
+57-9	5343-5346	few	time[312]	acc[312]	nnnnn[312]	_	_	_	
+57-10	5347-5353	months	time[312]	acc[312]	nnnnn[312]	_	_	_	
 57-11	5354-5355	,	_	_	_	_	_	_	
 57-12	5356-5359	but	_	_	_	_	_	_	
 57-13	5360-5362	of	_	_	_	_	_	_	
@@ -1145,7 +1145,7 @@
 58-10	5484-5486	we	person[316]	giv[316]	nnnnn[316]	_	coref	58-17[318_316]	
 58-11	5487-5490	've	_	_	_	_	_	_	
 58-12	5491-5497	served	_	_	_	_	_	_	
-58-13	5498-5500	it	substance[317]	giv[317]	sssss[317]	_	bridge	58-22[319_317]	
+58-13	5498-5500	it	substance[317]	giv[317]	sssss[317]	_	bridge:comparison-sense	58-22[319_317]	
 58-14	5501-5508	overall	_	_	_	_	_	_	
 58-15	5509-5510	,	_	_	_	_	_	_	
 58-16	5511-5514	but	_	_	_	_	_	_	

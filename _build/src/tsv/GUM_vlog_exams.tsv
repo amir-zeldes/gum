@@ -23,7 +23,7 @@
 3-3	40-41	,	_	_	_	_	_	_	
 3-4	42-44	it	_	_	_	_	_	_	
 3-5	45-47	is	_	_	_	_	_	_	
-3-6	48-54	Monday	time[4]	giv[4]	nnnnn[4]	_	coref	14-1[42_4]	
+3-6	48-54	Monday	time[4]	giv[4]	nnnnn[4]	_	coref|bridge:set-span-interval;comparison-time	14-1[42_4]|4-6[9_4]	
 3-7	55-58	May	time[4]|time[5]	giv[4]|new[5]	nnnnn[4]|nnnnn[5]	_	coref	42-3[158_5]	
 3-8	59-62	3rd	time[4]	giv[4]	nnnnn[4]	_	_	_	
 3-9	63-68	10:38	time[6]	new[6]	nnnnn[6]	_	_	_	
@@ -32,10 +32,10 @@
 #Text=I have a meeting at 10:45 so in a few minutes with one of my TFs about my project .
 4-1	74-75	I	person[7]	acc[7]	sssss[7]	_	coref	4-15[13_7]	
 4-2	76-80	have	_	_	_	_	_	_	
-4-3	81-82	a	event[8]	new[8]	nnsnn[8]	_	bridge	9-15[31_8]	
+4-3	81-82	a	event[8]	new[8]	nnsnn[8]	_	bridge:entity-associative	9-15[31_8]	
 4-4	83-90	meeting	event[8]	new[8]	nnsnn[8]	_	_	_	
 4-5	91-93	at	_	_	_	_	_	_	
-4-6	94-99	10:45	time[9]	new[9]	nnnnn[9]	_	_	_	
+4-6	94-99	10:45	time[9]	acc[9]	nnnnn[9]	_	_	_	
 4-7	100-102	so	_	_	_	_	_	_	
 4-8	103-105	in	_	_	_	_	_	_	
 4-9	106-107	a	time[10]	new[10]	nnnnn[10]	_	_	_	
@@ -47,7 +47,7 @@
 4-15	132-134	my	person[11]|person[12]|person[13]	new[11]|new[12]|giv[13]	nnnnn[11]|nnnnn[12]|sssss[13]	_	coref	4-18[15_13]	
 4-16	135-138	TFs	person[11]|person[12]	new[11]|new[12]	nnnnn[11]|nnnnn[12]	_	_	_	
 4-17	139-144	about	_	_	_	_	_	_	
-4-18	145-147	my	abstract[14]|person[15]	new[14]|giv[15]	nnnnn[14]|sssss[15]	_	coref	5-1[16_15]	
+4-18	145-147	my	abstract[14]|person[15]	new[14]|giv[15]	nnnnn[14]|sssss[15]	_	coref|bridge:entity-associative	5-1[16_15]|5-14[19_14]	
 4-19	148-155	project	abstract[14]	new[14]	nnnnn[14]	_	_	_	
 4-20	156-157	.	_	_	_	_	_	_	
 
@@ -65,8 +65,8 @@
 5-11	200-202	if	_	_	_	_	_	_	
 5-12	203-206	she	person[18]	giv[18]	nnnnn[18]	_	coref	6-1[23_18]	
 5-13	207-210	has	_	_	_	_	_	_	
-5-14	211-214	any	abstract[19]	new[19]	nnnnn[19]	_	_	_	
-5-15	215-223	feedback	abstract[19]	new[19]	nnnnn[19]	_	_	_	
+5-14	211-214	any	abstract[19]	acc[19]	nnnnn[19]	_	_	_	
+5-15	215-223	feedback	abstract[19]	acc[19]	nnnnn[19]	_	_	_	
 5-16	224-227	and	_	_	_	_	_	_	
 5-17	228-232	then	_	_	_	_	_	_	
 5-18	233-234	I	person[20]	giv[20]	sssss[20]	_	coref	8-1[24_20]	
@@ -244,7 +244,7 @@
 16-20	846-847	.	_	_	_	_	_	_	
 
 #Text=Full day of studying , not really much to update you all on .
-17-1	848-852	Full	time[56]	new[56]	nnnnn[56]	_	_	_	
+17-1	848-852	Full	time[56]	new[56]	nnnnn[56]	_	bridge:comparison-time|bridge:comparison-time	21-7[65_56]|39-15[151_56]	
 17-2	853-856	day	time[56]	new[56]	nnnnn[56]	_	_	_	
 17-3	857-859	of	time[56]	new[56]	nnnnn[56]	_	_	_	
 17-4	860-868	studying	time[56]	new[56]	nnnnn[56]	_	_	_	
@@ -290,7 +290,7 @@
 21-4	1010-1014	2:25	time[64]	giv[64]	nnnnn[64]	_	_	_	
 21-5	1015-1019	a.m.	time[64]	giv[64]	nnnnn[64]	_	_	_	
 21-6	1020-1022	on	_	_	_	_	_	_	
-21-7	1023-1032	Wednesday	time[65]	new[65]	nnnnn[65]	_	_	_	
+21-7	1023-1032	Wednesday	time[65]	acc[65]	nnnnn[65]	_	bridge:comparison-time	26-27[97_65]	
 21-8	1033-1034	.	_	_	_	_	_	_	
 
 #Text=It 's raining .
@@ -360,7 +360,7 @@
 #Text=These are the things I 've gotten done , so I got this done , this done , this done .
 25-1	1308-1313	These	abstract[83]	acc[83]	nnnnn[83]	_	coref	25-3[84_83]	
 25-2	1314-1317	are	_	_	_	_	_	_	
-25-3	1318-1321	the	abstract[84]	giv[84]	nnnnn[84]	_	_	_	
+25-3	1318-1321	the	abstract[84]	giv[84]	nnnnn[84]	_	bridge:set-member|bridge:set-member|bridge:set-member	25-13[87_84]|25-16[88_84]|25-19[89_84]	
 25-4	1322-1328	things	abstract[84]	giv[84]	nnnnn[84]	_	_	_	
 25-5	1329-1330	I	abstract[84]|person[85]	giv[84]|giv[85]	nnnnn[84]|sssss[85]	_	coref	25-11[86_85]	
 25-6	1331-1334	've	abstract[84]	giv[84]	nnnnn[84]	_	_	_	
@@ -572,17 +572,17 @@
 35-4	2139-2142	not	_	_	_	_	_	_	
 35-5	2143-2147	only	_	_	_	_	_	_	
 35-6	2148-2150	as	_	_	_	_	_	_	
-35-7	2151-2152	a	abstract[138]	new[138]	nnnnn[138]	_	_	_	
+35-7	2151-2152	a	abstract[138]	new[138]	nnnnn[138]	_	bridge:entity-associative|bridge:entity-associative	35-10[139_138]|35-16[140_138]	
 35-8	2153-2161	question	abstract[138]	new[138]	nnnnn[138]	_	_	_	
 35-9	2162-2164	of	abstract[138]	new[138]	nnnnn[138]	_	_	_	
-35-10	2165-2168	the	abstract[138]|abstract[139]	new[138]|new[139]	nnnnn[138]|nnnnn[139]	_	_	_	
-35-11	2169-2176	methods	abstract[138]|abstract[139]	new[138]|new[139]	nnnnn[138]|nnnnn[139]	_	_	_	
+35-10	2165-2168	the	abstract[138]|abstract[139]	new[138]|acc[139]	nnnnn[138]|nnnnn[139]	_	_	_	
+35-11	2169-2176	methods	abstract[138]|abstract[139]	new[138]|acc[139]	nnnnn[138]|nnnnn[139]	_	_	_	
 35-12	2177-2178	,	_	_	_	_	_	_	
 35-13	2179-2182	but	_	_	_	_	_	_	
 35-14	2183-2187	also	_	_	_	_	_	_	
 35-15	2188-2190	of	_	_	_	_	_	_	
-35-16	2191-2194	the	abstract[140]	new[140]	nnnnn[140]	_	_	_	
-35-17	2195-2208	circumstances	abstract[140]	new[140]	nnnnn[140]	_	_	_	
+35-16	2191-2194	the	abstract[140]	acc[140]	nnnnn[140]	_	_	_	
+35-17	2195-2208	circumstances	abstract[140]	acc[140]	nnnnn[140]	_	_	_	
 35-18	2209-2210	.	_	_	_	_	_	_	
 
 #Text=Oh my god , I 'm so tired .
@@ -669,15 +669,15 @@
 42-5	2506-2512	Friday	time[159]	new[159]	sssss[159]	_	coref	42-6[160_159]	
 42-6	2513-2516	May	time[160]|time[161]	giv[160]|giv[161]	sssss[160]|nnnnn[161]	_	coref	42-8[162_160]	
 42-7	2517-2520	7th	time[160]	giv[160]	sssss[160]	_	_	_	
-42-8	2521-2524	the	time[162]	new[162]	sssss[162]	_	coref	59-7[222_162]	
+42-8	2521-2524	the	time[162]	new[162]	sssss[162]	_	coref|bridge:set-span-interval;comparison-time|bridge:set-span-interval;comparison-time|bridge:set-span-interval;comparison-time|bridge:set-span-interval;comparison-time|bridge:set-span-interval;comparison-time	59-7[222_162]|42-15[165_162]|43-9[168_162]|44-19[178_162]|44-21[179_162]|45-16[187_162]	
 42-9	2525-2528	day	time[162]	new[162]	sssss[162]	_	_	_	
 42-10	2529-2531	of	time[162]	new[162]	sssss[162]	_	_	_	
 42-11	2532-2534	my	time[162]|event[163]|person[164]	new[162]|new[163]|giv[164]	sssss[162]|nssss[163]|sssss[164]	_	coref|coref	43-7[167_163]|43-1[166_164]	
 42-12	2535-2540	final	time[162]|event[163]	new[162]|new[163]	sssss[162]|nssss[163]	_	_	_	
 42-13	2541-2542	,	_	_	_	_	_	_	
 42-14	2543-2552	currently	_	_	_	_	_	_	
-42-15	2553-2557	9:46	time[165]	new[165]	nnnnn[165]	_	_	_	
-42-16	2558-2562	a.m.	time[165]	new[165]	nnnnn[165]	_	_	_	
+42-15	2553-2557	9:46	time[165]	acc[165]	nnnnn[165]	_	_	_	
+42-16	2558-2562	a.m.	time[165]	acc[165]	nnnnn[165]	_	_	_	
 
 #Text=I 'm going to be taking it at 10 a.m. , so I have 15 minutes .
 43-1	2563-2564	I	person[166]	giv[166]	sssss[166]	_	coref	43-13[169_166]	
@@ -688,8 +688,8 @@
 43-6	2580-2586	taking	_	_	_	_	_	_	
 43-7	2587-2589	it	event[167]	giv[167]	nssss[167]	_	coref	44-6[173_167]	
 43-8	2590-2592	at	_	_	_	_	_	_	
-43-9	2593-2595	10	time[168]	new[168]	nnnnn[168]	_	coref	45-8[185_168]	
-43-10	2596-2600	a.m.	time[168]	new[168]	nnnnn[168]	_	_	_	
+43-9	2593-2595	10	time[168]	acc[168]	nnnnn[168]	_	coref	45-8[185_168]	
+43-10	2596-2600	a.m.	time[168]	acc[168]	nnnnn[168]	_	_	_	
 43-11	2601-2602	,	_	_	_	_	_	_	
 43-12	2603-2605	so	_	_	_	_	_	_	
 43-13	2606-2607	I	person[169]	giv[169]	sssss[169]	_	coref	44-3[172_169]	
@@ -717,10 +717,10 @@
 44-16	2693-2699	school	event[175]|organization[177]	new[175]|new[177]	nnnnn[175]|nnnnn[177]	_	_	_	
 44-17	2700-2705	class	event[175]	new[175]	nnnnn[175]	_	_	_	
 44-18	2706-2708	at	_	_	_	_	_	_	
-44-19	2709-2712	two	time[178]	new[178]	nnnnn[178]	_	coref	59-4[221_178]	
+44-19	2709-2712	two	time[178]	acc[178]	nnnnn[178]	_	coref	59-4[221_178]	
 44-20	2713-2715	to	_	_	_	_	_	_	
-44-21	2716-2720	four	time[179]	new[179]	nnnnn[179]	_	_	_	
-44-22	2721-2727	thirty	time[179]	new[179]	nnnnn[179]	_	_	_	
+44-21	2716-2720	four	time[179]	acc[179]	nnnnn[179]	_	_	_	
+44-22	2721-2727	thirty	time[179]	acc[179]	nnnnn[179]	_	_	_	
 44-23	2728-2729	,	_	_	_	_	_	_	
 44-24	2730-2732	so	_	_	_	_	_	_	
 44-25	2733-2735	we	person[180]	acc[180]	nnnnn[180]	_	_	_	
@@ -750,7 +750,7 @@
 45-13	2815-2821	finish	_	_	_	_	_	_	
 45-14	2822-2828	around	_	_	_	_	_	_	
 45-15	2829-2833	like	_	_	_	_	_	_	
-45-16	2834-2838	1:45	time[187]	new[187]	nnnnn[187]	_	_	_	
+45-16	2834-2838	1:45	time[187]	acc[187]	nnnnn[187]	_	_	_	
 45-17	2839-2841	in	_	_	_	_	_	_	
 45-18	2842-2846	time	_	_	_	_	_	_	
 45-19	2847-2850	for	_	_	_	_	_	_	
@@ -797,7 +797,7 @@
 #Text=It was a really weird tiring semester , I think , relatively , compared to last semester , so you know , it is what it is .
 49-1	2982-2984	It	time[197]	giv[197]	nnnnn[197]	_	coref	49-3[198_197]	
 49-2	2985-2988	was	_	_	_	_	_	_	
-49-3	2989-2990	a	time[198]	giv[198]	nnnnn[198]	_	_	_	
+49-3	2989-2990	a	time[198]	giv[198]	nnnnn[198]	_	bridge:comparison-relative	49-16[200_198]	
 49-4	2991-2997	really	time[198]	giv[198]	nnnnn[198]	_	_	_	
 49-5	2998-3003	weird	time[198]	giv[198]	nnnnn[198]	_	_	_	
 49-6	3004-3010	tiring	time[198]	giv[198]	nnnnn[198]	_	_	_	
@@ -958,7 +958,7 @@
 62-4	3551-3553	to	_	_	_	_	_	_	
 62-5	3554-3556	be	_	_	_	_	_	_	
 62-6	3557-3565	ordering	_	_	_	_	_	_	
-62-7	3566-3570	some	object[242]	new[242]	sssss[242]	_	_	_	
+62-7	3566-3570	some	object[242]	new[242]	sssss[242]	_	bridge:set-member;comparison-sense|bridge:set-member;comparison-sense|bridge:set-subset;comparison-sense	96-1[283_242]|102-1[291_242]|104-3[295_242]	
 62-8	3571-3577	donuts	object[242]	new[242]	sssss[242]	_	_	_	
 62-9	3578-3580	to	_	_	_	_	_	_	
 62-10	3581-3585	pick	_	_	_	_	_	_	
@@ -1198,7 +1198,7 @@
 94-3	4254-4260	should	_	_	_	_	_	_	
 94-4	4261-4262	I	person[280]	giv[280]	sssss[280]	_	coref|bridge	103-3[293_280]|96-4[284_280]	
 94-5	4263-4266	put	_	_	_	_	_	_	
-94-6	4267-4271	this	abstract[281]	giv[281]	snsnn[281]	_	coref|bridge	137-9[340_281]|121-10[315_281]	
+94-6	4267-4271	this	abstract[281]	giv[281]	snsnn[281]	_	coref|bridge:entity-associative	137-9[340_281]|121-10[315_281]	
 94-7	4272-4274	on	_	_	_	_	_	_	
 94-8	4275-4282	YouTube	abstract[282]	giv[282]	nnnnn[282]	YouTube[282]	_	_	
 94-9	4283-4284	?	_	_	_	_	_	_	
@@ -1226,7 +1226,7 @@
 97-6	4359-4360	.	_	_	_	_	_	_	
 
 #Text=Cinnamon sugar first ?
-98-1	4361-4369	Cinnamon	substance[287]|substance[288]	new[287]|giv[288]	nnnnn[287]|nnnnn[288]	_	coref	127-5[324_288]	
+98-1	4361-4369	Cinnamon	substance[287]|substance[288]	new[287]|giv[288]	nnnnn[287]|nnnnn[288]	_	coref|bridge:entity-meronomy;comparison-sense	127-5[324_288]|99-6[290_287]	
 98-2	4370-4375	sugar	substance[287]	new[287]	nnnnn[287]	_	_	_	
 98-3	4376-4381	first	_	_	_	_	_	_	
 98-4	4382-4383	?	_	_	_	_	_	_	
@@ -1237,8 +1237,8 @@
 99-3	4391-4395	want	_	_	_	_	_	_	
 99-4	4396-4398	to	_	_	_	_	_	_	
 99-5	4399-4403	have	_	_	_	_	_	_	
-99-6	4404-4405	a	object[290]	new[290]	nnnnn[290]	_	_	_	
-99-7	4406-4411	piece	object[290]	new[290]	nnnnn[290]	_	_	_	
+99-6	4404-4405	a	object[290]	acc[290]	nnnnn[290]	_	_	_	
+99-7	4406-4411	piece	object[290]	acc[290]	nnnnn[290]	_	_	_	
 99-8	4412-4413	?	_	_	_	_	_	_	
 
 #Text=No .
@@ -1268,8 +1268,8 @@
 #Text=I think these three ?
 104-1	4469-4470	I	person[294]	giv[294]	sssss[294]	_	_	_	
 104-2	4471-4476	think	_	_	_	_	_	_	
-104-3	4477-4482	these	object[295]	new[295]	nnnnn[295]	_	coref	105-1[296_295]	
-104-4	4483-4488	three	object[295]	new[295]	nnnnn[295]	_	_	_	
+104-3	4477-4482	these	object[295]	acc[295]	nnnnn[295]	_	coref	105-1[296_295]	
+104-4	4483-4488	three	object[295]	acc[295]	nnnnn[295]	_	_	_	
 104-5	4489-4490	?	_	_	_	_	_	_	
 
 #Text=These three , I think .
@@ -1509,7 +1509,7 @@
 137-6	5208-5211	the	time[339]	new[339]	nnnnn[339]	_	_	_	
 137-7	5212-5215	end	time[339]	new[339]	nnnnn[339]	_	_	_	
 137-8	5216-5218	of	time[339]	new[339]	nnnnn[339]	_	_	_	
-137-9	5219-5222	the	time[339]|abstract[340]	new[339]|new[340]	nnnnn[339]|snsnn[340]	_	bridge|bridge	138-3[341_340]|139-19[346_340]	
+137-9	5219-5222	the	time[339]|abstract[340]	new[339]|new[340]	nnnnn[339]|snsnn[340]	_	bridge:entity-associative|bridge:entity-associative|bridge:entity-associative|bridge:entity-associative	138-3[341_340]|139-4[342_340]|139-13[344_340]|139-19[346_340]	
 137-10	5223-5228	video	time[339]|abstract[340]	new[339]|new[340]	nnnnn[339]|snsnn[340]	_	_	_	
 137-11	5229-5230	?	_	_	_	_	_	_	
 
@@ -1526,16 +1526,16 @@
 139-1	5268-5277	Subscribe	_	_	_	_	_	_	
 139-2	5278-5281	and	_	_	_	_	_	_	
 139-3	5282-5287	press	_	_	_	_	_	_	
-139-4	5288-5291	the	abstract[342]	new[342]	nnnnn[342]	_	_	_	
-139-5	5292-5296	like	abstract[342]	new[342]	nnnnn[342]	_	_	_	
-139-6	5297-5303	button	abstract[342]	new[342]	nnnnn[342]	_	_	_	
+139-4	5288-5291	the	abstract[342]	acc[342]	nnnnn[342]	_	_	_	
+139-5	5292-5296	like	abstract[342]	acc[342]	nnnnn[342]	_	_	_	
+139-6	5297-5303	button	abstract[342]	acc[342]	nnnnn[342]	_	_	_	
 139-7	5304-5307	and	_	_	_	_	_	_	
 139-8	5308-5312	then	_	_	_	_	_	_	
 139-9	5313-5323	afterwards	_	_	_	_	_	_	
 139-10	5324-5327	you	person[343]	giv[343]	nnnnn[343]	_	coref	139-16[345_343]	
 139-11	5328-5331	can	_	_	_	_	_	_	
 139-12	5332-5334	do	_	_	_	_	_	_	
-139-13	5335-5343	comments	abstract[344]	new[344]	nnnnn[344]	_	_	_	
+139-13	5335-5343	comments	abstract[344]	acc[344]	nnnnn[344]	_	_	_	
 139-14	5344-5347	and	_	_	_	_	_	_	
 139-15	5348-5352	then	_	_	_	_	_	_	
 139-16	5353-5356	you	person[345]	giv[345]	nnnnn[345]	_	_	_	

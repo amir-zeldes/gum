@@ -9,7 +9,7 @@
 
 
 #Text=Over 900 asylum seekers rescued off Indonesian coast
-1-1	0-4	Over	event[1]|person[2]	new[1]|new[2]	sssss[1]|sssss[2]	_	coref|bridge|bridge	10-39[72_1]|3-6[10_2]|3-20[14_2]	
+1-1	0-4	Over	event[1]|person[2]	new[1]|new[2]	sssss[1]|sssss[2]	_	coref|bridge:set-subset	10-39[72_1]|3-6[10_2]	
 1-2	5-8	900	event[1]|person[2]	new[1]|new[2]	sssss[1]|sssss[2]	_	_	_	
 1-3	9-15	asylum	event[1]|person[2]|abstract[3]	new[1]|new[2]|new[3]	sssss[1]|sssss[2]|sssss[3]	_	coref	3-8[11_3]	
 1-4	16-23	seekers	event[1]|person[2]	new[1]|new[2]	sssss[1]|sssss[2]	_	_	_	
@@ -21,7 +21,7 @@
 #Text=Monday , May 18 , 2015
 2-1	53-59	Monday	time[5]	acc[5]	nnnnn[5]	_	coref	2-3[6_5]	
 2-2	60-61	,	_	_	_	_	_	_	
-2-3	62-65	May	time[6]	acc[6]	nnnnn[6]	_	_	_	
+2-3	62-65	May	time[6]	acc[6]	nnnnn[6]	_	bridge:comparison-time	3-2[8_6]	
 2-4	66-68	18	time[6]	acc[6]	nnnnn[6]	_	_	_	
 2-5	69-70	,	time[6]	acc[6]	nnnnn[6]	_	_	_	
 2-6	71-75	2015	time[6]|time[7]	acc[6]|acc[7]	nnnnn[6]|nnnnn[7]	_	_	_	
@@ -32,7 +32,7 @@
 3-3	86-87	,	_	_	_	_	_	_	
 3-4	88-97	fishermen	person[9]	new[9]	snnsn[9]	_	_	_	
 3-5	98-105	rescued	_	_	_	_	_	_	
-3-6	106-110	over	person[10]	acc[10]	nnnnn[10]	_	coref	4-16[23_10]	
+3-6	106-110	over	person[10]	acc[10]	nnnnn[10]	_	coref|bridge:comparison-sense;comparison-relative	4-16[23_10]|3-20[14_10]	
 3-7	111-114	700	person[10]	acc[10]	nnnnn[10]	_	_	_	
 3-8	115-121	asylum	person[10]|abstract[11]	acc[10]|giv[11]	nnnnn[10]|sssss[11]	_	coref	7-10[39_11]	
 3-9	122-129	seekers	person[10]	acc[10]	nnnnn[10]	_	_	_	
@@ -54,7 +54,7 @@
 3-25	214-219	found	_	_	_	_	_	_	
 3-26	220-228	swimming	_	_	_	_	_	_	
 3-27	229-234	along	_	_	_	_	_	_	
-3-28	235-238	the	place[16]	giv[16]	ssnss[16]	_	bridge|bridge	7-14[40_16]|13-17[92_16]	
+3-28	235-238	the	place[16]	giv[16]	ssnss[16]	_	bridge:entity-associative	7-14[40_16]	
 3-29	239-244	coast	place[16]	giv[16]	ssnss[16]	_	_	_	
 3-30	245-247	of	place[16]	giv[16]	ssnss[16]	_	_	_	
 3-31	248-252	Aceh	place[16]|place[17]	giv[16]|new[17]	ssnss[16]|snnnn[17]	Aceh[17]	_	_	
@@ -91,13 +91,13 @@
 4-26	418-419	.	_	_	_	_	_	_	
 
 #Text=The rescued members included Bangladeshis and Rohingya , a stateless minority of Muslims from Myanmar .
-5-1	420-423	The	person[26]	giv[26]	nnnnn[26]	_	bridge|bridge	5-5[27_26]|5-7[28_26]	
+5-1	420-423	The	person[26]	giv[26]	nnnnn[26]	_	_	_	
 5-2	424-431	rescued	person[26]	giv[26]	nnnnn[26]	_	_	_	
 5-3	432-439	members	person[26]	giv[26]	nnnnn[26]	_	_	_	
 5-4	440-448	included	_	_	_	_	_	_	
-5-5	449-461	Bangladeshis	person[27]	acc[27]	sssss[27]	Bangladeshis[27]	_	_	
+5-5	449-461	Bangladeshis	person[27]	auto[27]	sssss[27]	Bangladeshis[27]	_	_	
 5-6	462-465	and	_	_	_	_	_	_	
-5-7	466-474	Rohingya	person[28]	acc[28]	sssss[28]	Rohingya_people[28]	coref	5-9[29_28]	
+5-7	466-474	Rohingya	person[28]	auto[28]	sssss[28]	Rohingya_people[28]	coref	5-9[29_28]	
 5-8	475-476	,	_	_	_	_	_	_	
 5-9	477-478	a	person[29]	giv[29]	sssss[29]	Rohingya_people[29]	coref	6-10[33_29]	
 5-10	479-488	stateless	person[29]	giv[29]	sssss[29]	Rohingya_people[29]	_	_	
@@ -118,7 +118,7 @@
 6-7	559-565	United	organization[32]	new[32]	nssnn[32]	United_Nations[32]	_	_	
 6-8	566-573	Nations	organization[32]	new[32]	nssnn[32]	United_Nations[32]	_	_	
 6-9	574-579	rates	_	_	_	_	_	_	
-6-10	580-583	the	person[33]	giv[33]	sssss[33]	Rohingya_people[33]	bridge	9-1[52_33]	
+6-10	580-583	the	person[33]	giv[33]	sssss[33]	Rohingya_people[33]	bridge:set-member	9-1[52_33]	
 6-11	584-592	Rohingya	person[33]	giv[33]	sssss[33]	Rohingya_people[33]	_	_	
 6-12	593-598	among	_	_	_	_	_	_	
 6-13	599-602	the	abstract[34]|place[35]	new[34]|acc[35]	nnnnn[34]|nnnnn[35]	_	_	_	
@@ -176,7 +176,7 @@
 8-8	864-866	of	abstract[46]	new[46]	nsnnn[46]	_	_	_	
 8-9	867-874	turning	abstract[46]	new[46]	nsnnn[46]	_	_	_	
 8-10	875-879	away	abstract[46]	new[46]	nsnnn[46]	_	_	_	
-8-11	880-885	boats	abstract[46]|object[47]	new[46]|new[47]	nsnnn[46]|nnnnn[47]	_	bridge|bridge	9-7[54_47]|14-14[100_47]	
+8-11	880-885	boats	abstract[46]|object[47]	new[46]|new[47]	nsnnn[46]|nnnnn[47]	_	_	_	
 8-12	886-888	of	abstract[46]|object[47]	new[46]|new[47]	nsnnn[46]|nnnnn[47]	_	_	_	
 8-13	889-897	migrants	abstract[46]|object[47]|person[48]	new[46]|new[47]|new[48]	nsnnn[46]|nnnnn[47]|nsnnn[48]	_	_	_	
 8-14	898-903	which	abstract[46]	new[46]	nsnnn[46]	_	_	_	
@@ -197,15 +197,15 @@
 8-29	983-984	.	_	_	_	_	_	_	
 
 #Text=One Rohingya , Muhammad Amin , the first boat rescued on Friday was turned around twice , toward Malaysia by Indonesian navy and then toward Indonesia by Malaysian navy .
-9-1	985-988	One	person[52]	giv[52]	nnnnn[52]	_	coref	9-4[53_52]	
-9-2	989-997	Rohingya	person[52]	giv[52]	nnnnn[52]	_	_	_	
+9-1	985-988	One	person[52]	acc[52]	nnnnn[52]	_	coref	9-4[53_52]	
+9-2	989-997	Rohingya	person[52]	acc[52]	nnnnn[52]	_	_	_	
 9-3	998-999	,	_	_	_	_	_	_	
 9-4	1000-1008	Muhammad	person[53]	giv[53]	nnnnn[53]	_	_	_	
 9-5	1009-1013	Amin	person[53]	giv[53]	nnnnn[53]	_	_	_	
 9-6	1014-1015	,	_	_	_	_	_	_	
-9-7	1016-1019	the	object[54]	acc[54]	nnnnn[54]	_	_	_	
-9-8	1020-1025	first	object[54]	acc[54]	nnnnn[54]	_	_	_	
-9-9	1026-1030	boat	object[54]	acc[54]	nnnnn[54]	_	_	_	
+9-7	1016-1019	the	object[54]	auto[54]	nnnnn[54]	_	_	_	
+9-8	1020-1025	first	object[54]	auto[54]	nnnnn[54]	_	_	_	
+9-9	1026-1030	boat	object[54]	auto[54]	nnnnn[54]	_	_	_	
 9-10	1031-1038	rescued	_	_	_	_	_	_	
 9-11	1039-1041	on	_	_	_	_	_	_	
 9-12	1042-1048	Friday	time[55]	giv[55]	nnnnn[55]	_	_	_	
@@ -222,7 +222,7 @@
 9-23	1110-1113	and	_	_	_	_	_	_	
 9-24	1114-1118	then	_	_	_	_	_	_	
 9-25	1119-1125	toward	_	_	_	_	_	_	
-9-26	1126-1135	Indonesia	place[58]	giv[58]	sssss[58]	Indonesia[58]	_	_	
+9-26	1126-1135	Indonesia	place[58]	giv[58]	sssss[58]	Indonesia[58]	bridge:entity-associative	13-17[92_58]	
 9-27	1136-1138	by	_	_	_	_	_	_	
 9-28	1139-1148	Malaysian	organization[59]	new[59]	nnnnn[59]	_	_	_	
 9-29	1149-1153	navy	organization[59]	new[59]	nnnnn[59]	_	_	_	
@@ -237,7 +237,7 @@
 10-6	1184-1190	public	abstract[62]	new[62]	nnnnn[62]	_	_	_	
 10-7	1191-1200	statement	abstract[62]	new[62]	nnnnn[62]	_	_	_	
 10-8	1201-1202	,	_	_	_	_	_	_	
-10-9	1203-1211	Malaysia	person[63]|place[64]	giv[63]|giv[64]	nnnnn[63]|nnnnn[64]	Najib_Razak[63]|Malaysia[64]	coref|bridge	10-14[65_63]|10-19[66_64]	
+10-9	1203-1211	Malaysia	person[63]|place[64]	giv[63]|giv[64]	nnnnn[63]|nnnnn[64]	Najib_Razak[63]|Malaysia[64]	coref|bridge:other	10-14[65_63]|10-19[66_64]	
 10-10	1212-1214	's	person[63]|place[64]	giv[63]|giv[64]	nnnnn[63]|nnnnn[64]	Najib_Razak[63]|Malaysia[64]	_	_	
 10-11	1215-1220	Prime	person[63]	giv[63]	nnnnn[63]	Najib_Razak[63]	_	_	
 10-12	1221-1229	Minister	person[63]	giv[63]	nnnnn[63]	Najib_Razak[63]	_	_	
@@ -359,7 +359,7 @@
 13-30	1816-1819	the	person[93]	new[93]	nnnnn[93]	_	_	_	
 13-31	1820-1825	lives	person[93]	new[93]	nnnnn[93]	_	_	_	
 13-32	1826-1828	of	person[93]	new[93]	nnnnn[93]	_	_	_	
-13-33	1829-1837	migrants	person[93]|person[94]	new[93]|new[94]	nnnnn[93]|nnnnn[94]	_	bridge	15-3[104_94]	
+13-33	1829-1837	migrants	person[93]|person[94]	new[93]|new[94]	nnnnn[93]|nnnnn[94]	_	bridge:set-subset	15-3[104_94]	
 13-34	1838-1841	now	person[93]|person[94]	new[93]|new[94]	nnnnn[93]|nnnnn[94]	_	_	_	
 13-35	1842-1844	at	person[93]|person[94]	new[93]|new[94]	nnnnn[93]|nnnnn[94]	_	_	_	
 13-36	1845-1848	sea	person[93]|person[94]|place[95]	new[93]|new[94]|giv[95]	nnnnn[93]|nnnnn[94]|snssn[95]	_	coref	15-9[105_95]	
@@ -389,11 +389,11 @@
 14-11	1956-1958	to	_	_	_	_	_	_	
 14-12	1959-1963	turn	_	_	_	_	_	_	
 14-13	1964-1968	away	_	_	_	_	_	_	
-14-14	1969-1974	boats	object[100]	acc[100]	nnnnn[100]	_	_	_	
-14-15	1975-1977	of	object[100]	acc[100]	nnnnn[100]	_	_	_	
-14-16	1978-1984	people	object[100]|person[101]	acc[100]|new[101]	nnnnn[100]|nnnnn[101]	_	_	_	
-14-17	1985-1992	seeking	object[100]|person[101]	acc[100]|new[101]	nnnnn[100]|nnnnn[101]	_	_	_	
-14-18	1993-1999	asylum	object[100]|person[101]|abstract[102]	acc[100]|new[101]|giv[102]	nnnnn[100]|nnnnn[101]|sssss[102]	_	_	_	
+14-14	1969-1974	boats	object[100]	auto[100]	nnnnn[100]	_	_	_	
+14-15	1975-1977	of	object[100]	auto[100]	nnnnn[100]	_	_	_	
+14-16	1978-1984	people	object[100]|person[101]	auto[100]|new[101]	nnnnn[100]|nnnnn[101]	_	_	_	
+14-17	1985-1992	seeking	object[100]|person[101]	auto[100]|new[101]	nnnnn[100]|nnnnn[101]	_	_	_	
+14-18	1993-1999	asylum	object[100]|person[101]|abstract[102]	auto[100]|new[101]|giv[102]	nnnnn[100]|nnnnn[101]|sssss[102]	_	_	_	
 14-19	2000-2001	.	_	_	_	_	_	_	
 
 #Text=Estimates suggest 8000 migrants may be currently at sea in the region .

@@ -16,7 +16,7 @@
 2-1	7-9	It	place[1]	new[1]	nnnnn[1]	_	coref	2-4[2_1]	
 2-2	10-12	's	_	_	_	_	_	_	
 2-3	13-17	like	_	_	_	_	_	_	
-2-4	18-26	lipstick	place[2]|object[3]	acc[2]|new[3]	nnnnn[2]|nnnnn[3]	_	coref	3-7[4_2]	
+2-4	18-26	lipstick	place[2]|object[3]	acc[2]|new[3]	nnnnn[2]|nnnnn[3]	_	coref|bridge:set-member	3-7[4_2]|5-12[12_3]	
 2-5	27-34	central	place[2]	acc[2]	nnnnn[2]	_	_	_	
 2-6	35-36	.	_	_	_	_	_	_	
 
@@ -57,7 +57,7 @@
 5-9	175-182	acrylic	object[10]|object[11]	new[10]|new[11]	nnsnn[10]|nnnnn[11]	_	_	_	
 5-10	183-189	things	object[10]|object[11]	new[10]|new[11]	nnsnn[10]|nnnnn[11]	_	_	_	
 5-11	190-195	where	object[10]	new[10]	nnsnn[10]	_	_	_	
-5-12	196-199	the	object[10]|object[12]	new[10]|acc[12]	nnsnn[10]|nnnnn[12]	_	coref	122-5[273_12]	
+5-12	196-199	the	object[10]|object[12]	new[10]|acc[12]	nnsnn[10]|nnnnn[12]	_	coref|bridge:comparison-sense	122-5[273_12]|7-10[20_12]	
 5-13	200-209	lipsticks	object[10]|object[12]	new[10]|acc[12]	nnsnn[10]|nnnnn[12]	_	_	_	
 5-14	210-213	can	object[10]	new[10]	nnsnn[10]	_	_	_	
 5-15	214-218	just	object[10]	new[10]	nnsnn[10]	_	_	_	
@@ -92,7 +92,7 @@
 7-7	323-324	a	object[19]	new[19]	nnnsn[19]	_	coref	7-15[23_19]	
 7-8	325-328	lot	object[19]	new[19]	nnnsn[19]	_	_	_	
 7-9	329-331	of	object[19]	new[19]	nnnsn[19]	_	_	_	
-7-10	332-337	these	object[19]|object[20]	new[19]|new[20]	nnnsn[19]|sssnn[20]	_	coref	7-18[24_20]	
+7-10	332-337	these	object[19]|object[20]	new[19]|acc[20]	nnnsn[19]|sssnn[20]	_	coref	7-18[24_20]	
 7-11	338-341	out	_	_	_	_	_	_	
 7-12	342-349	because	_	_	_	_	_	_	
 7-13	350-351	I	person[21]	giv[21]	sssss[21]	_	coref	9-1[30_21]	
@@ -129,13 +129,13 @@
 8-7	478-483	quick	event[27]	new[27]	nnnnn[27]	_	_	_	
 8-8	484-488	look	event[27]	new[27]	nnnnn[27]	_	_	_	
 8-9	489-491	at	_	_	_	_	_	_	
-8-10	492-496	this	object[28]	giv[28]	sssnn[28]	_	bridge	9-1[29_28]	
+8-10	492-496	this	object[28]	giv[28]	sssnn[28]	_	_	_	
 8-11	497-498	.	_	_	_	_	_	_	
 
 #Text=My fancy lipsticks — I ca n't part with them yet .
-9-1	499-501	My	object[29]|person[30]	acc[29]|giv[30]	nnnnn[29]|sssss[30]	_	coref|coref	9-10[32_29]|9-5[31_30]	
-9-2	502-507	fancy	object[29]	acc[29]	nnnnn[29]	_	_	_	
-9-3	508-517	lipsticks	object[29]	acc[29]	nnnnn[29]	_	_	_	
+9-1	499-501	My	object[29]|person[30]	auto[29]|giv[30]	nnnnn[29]|sssss[30]	_	coref|coref	9-10[32_29]|9-5[31_30]	
+9-2	502-507	fancy	object[29]	auto[29]	nnnnn[29]	_	_	_	
+9-3	508-517	lipsticks	object[29]	auto[29]	nnnnn[29]	_	_	_	
 9-4	518-519	—	_	_	_	_	_	_	
 9-5	520-521	I	person[31]	giv[31]	sssss[31]	_	coref	10-1[33_31]	
 9-6	522-524	ca	_	_	_	_	_	_	
@@ -225,7 +225,7 @@
 18-2	792-794	at	_	_	_	_	_	_	
 18-3	795-798	how	_	_	_	_	_	_	
 18-4	799-808	beautiful	_	_	_	_	_	_	
-18-5	809-813	this	object[47]	giv[47]	snnnn[47]	_	coref|bridge	19-10[50_47]|20-6[51_47]	
+18-5	809-813	this	object[47]	giv[47]	snnnn[47]	_	coref	19-10[50_47]	
 18-6	814-816	is	_	_	_	_	_	_	
 18-7	817-818	.	_	_	_	_	_	_	
 
@@ -249,11 +249,11 @@
 20-3	876-877	,	_	_	_	_	_	_	
 20-4	878-880	so	_	_	_	_	_	_	
 20-5	881-883	on	_	_	_	_	_	_	
-20-6	884-887	the	place[51]	acc[51]	nnnnn[51]	_	coref	20-15[54_51]	
-20-7	888-894	bottom	place[51]	acc[51]	nnnnn[51]	_	_	_	
-20-8	895-897	of	place[51]	acc[51]	nnnnn[51]	_	_	_	
-20-9	898-902	this	place[51]|object[52]	acc[51]|giv[52]	nnnnn[51]|snnnn[52]	_	coref	26-9[79_52]	
-20-10	903-911	lipstick	place[51]|object[52]	acc[51]|giv[52]	nnnnn[51]|snnnn[52]	_	_	_	
+20-6	884-887	the	place[51]	auto[51]	nnnnn[51]	_	coref	20-15[54_51]	
+20-7	888-894	bottom	place[51]	auto[51]	nnnnn[51]	_	_	_	
+20-8	895-897	of	place[51]	auto[51]	nnnnn[51]	_	_	_	
+20-9	898-902	this	place[51]|object[52]	auto[51]|giv[52]	nnnnn[51]|snnnn[52]	_	coref	26-9[79_52]	
+20-10	903-911	lipstick	place[51]|object[52]	auto[51]|giv[52]	nnnnn[51]|snnnn[52]	_	_	_	
 20-11	912-915	you	person[53]	giv[53]	nnnnn[53]	_	coref	22-2[59_53]	
 20-12	916-919	can	_	_	_	_	_	_	
 20-13	920-923	see	_	_	_	_	_	_	
@@ -357,7 +357,7 @@
 27-1	1312-1313	I	person[81]	giv[81]	nnnnn[81]	_	coref	27-14[84_81]	
 27-2	1314-1318	feel	_	_	_	_	_	_	
 27-3	1319-1323	like	_	_	_	_	_	_	
-27-4	1324-1328	this	object[82]	giv[82]	snnnn[82]	_	coref|bridge	28-11[89_82]|27-18[85_82]	
+27-4	1324-1328	this	object[82]	giv[82]	snnnn[82]	_	coref|bridge:entity-property	28-11[89_82]|27-18[85_82]	
 27-5	1329-1331	is	_	_	_	_	_	_	
 27-6	1332-1335	not	_	_	_	_	_	_	
 27-7	1336-1339	too	_	_	_	_	_	_	
@@ -381,7 +381,7 @@
 28-3	1402-1411	beautiful	_	_	_	_	_	_	
 28-4	1412-1413	,	_	_	_	_	_	_	
 28-5	1414-1416	so	_	_	_	_	_	_	
-28-6	1417-1418	I	abstract[87]|person[88]	new[87]|giv[88]	nnnnn[87]|nnnnn[88]	_	coref|coref	29-1[90_87]|36-1[96_88]	
+28-6	1417-1418	I	abstract[87]|person[88]	new[87]|giv[88]	nnnnn[87]|nnnnn[88]	_	coref|coref|bridge:entity-associative	29-1[90_87]|36-1[96_88]|31-1[92_88]	
 28-7	1419-1421	ca	abstract[87]	new[87]	nnnnn[87]	_	_	_	
 28-8	1422-1425	n't	abstract[87]	new[87]	nnnnn[87]	_	_	_	
 28-9	1426-1430	part	abstract[87]	new[87]	nnnnn[87]	_	_	_	
@@ -403,8 +403,8 @@
 30-4	1472-1473	.	_	_	_	_	_	_	
 
 #Text=The doorbell rang .
-31-1	1474-1477	The	object[92]	new[92]	nnnnn[92]	_	_	_	
-31-2	1478-1486	doorbell	object[92]	new[92]	nnnnn[92]	_	_	_	
+31-1	1474-1477	The	object[92]	acc[92]	nnnnn[92]	_	bridge:entity-meronomy	33-4[94_92]	
+31-2	1478-1486	doorbell	object[92]	acc[92]	nnnnn[92]	_	_	_	
 31-3	1487-1491	rang	_	_	_	_	_	_	
 31-4	1492-1493	.	_	_	_	_	_	_	
 
@@ -416,8 +416,8 @@
 33-1	1507-1510	Who	person[93]	new[93]	nnnnn[93]	_	_	_	
 33-2	1511-1513	's	_	_	_	_	_	_	
 33-3	1514-1516	at	_	_	_	_	_	_	
-33-4	1517-1520	the	object[94]	new[94]	nnnnn[94]	_	coref	37-5[98_94]	
-33-5	1521-1525	door	object[94]	new[94]	nnnnn[94]	_	_	_	
+33-4	1517-1520	the	object[94]	acc[94]	nnnnn[94]	_	coref	37-5[98_94]	
+33-5	1521-1525	door	object[94]	acc[94]	nnnnn[94]	_	_	_	
 33-6	1526-1533	Hershey	animal[95]	new[95]	nnsnn[95]	_	coref	40-1[102_95]	
 33-7	1534-1535	?	_	_	_	_	_	_	
 
@@ -555,7 +555,7 @@
 52-1	1928-1929	I	person[120]	giv[120]	nnnnn[120]	_	coref	53-1[122_120]	
 52-2	1930-1934	also	_	_	_	_	_	_	
 52-3	1935-1939	love	_	_	_	_	_	_	
-52-4	1940-1944	this	object[121]	giv[121]	snnnn[121]	_	coref|bridge	54-3[124_121]|53-3[123_121]	
+52-4	1940-1944	this	object[121]	giv[121]	snnnn[121]	_	coref|bridge:entity-property	54-3[124_121]|53-3[123_121]	
 52-5	1945-1946	.	_	_	_	_	_	_	
 
 #Text=I love this color .
@@ -594,7 +594,7 @@
 56-12	2081-2083	's	_	_	_	_	_	_	
 56-13	2084-2088	just	_	_	_	_	_	_	
 56-14	2089-2093	with	_	_	_	_	_	_	
-56-15	2094-2103	lipsticks	object[128]	new[128]	nnnnn[128]	_	_	_	
+56-15	2094-2103	lipsticks	object[128]	new[128]	nnnnn[128]	_	bridge:entity-associative	58-15[138_128]	
 56-16	2104-2106	it	_	_	_	_	_	_	
 56-17	2107-2109	's	_	_	_	_	_	_	
 56-18	2110-2114	kind	_	_	_	_	_	_	
@@ -612,7 +612,7 @@
 57-5	2153-2157	with	_	_	_	_	_	_	
 57-6	2158-2169	foundations	object[129]	new[129]	nnnnn[129]	_	coref	57-8[130_129]	
 57-7	2170-2174	when	_	_	_	_	_	_	
-57-8	2175-2177	it	object[130]	giv[130]	nnnnn[130]	_	bridge|bridge	57-15[132_130]|57-19[133_130]	
+57-8	2175-2177	it	object[130]	giv[130]	nnnnn[130]	_	bridge:entity-meronomy|bridge:entity-associative	57-15[132_130]|57-19[133_130]	
 57-9	2178-2180	's	_	_	_	_	_	_	
 57-10	2181-2188	expired	_	_	_	_	_	_	
 57-11	2189-2190	,	_	_	_	_	_	_	
@@ -651,10 +651,10 @@
 58-12	2319-2321	na	_	_	_	_	_	_	
 58-13	2322-2328	create	_	_	_	_	_	_	
 58-14	2329-2333	like	_	_	_	_	_	_	
-58-15	2334-2335	a	object[138]	new[138]	snssn[138]	_	coref	64-10[154_138]	
-58-16	2336-2342	little	object[138]	new[138]	snssn[138]	_	_	_	
-58-17	2343-2350	expired	object[138]	new[138]	snssn[138]	_	_	_	
-58-18	2351-2355	pile	object[138]	new[138]	snssn[138]	_	_	_	
+58-15	2334-2335	a	object[138]	acc[138]	snssn[138]	_	coref	64-10[154_138]	
+58-16	2336-2342	little	object[138]	acc[138]	snssn[138]	_	_	_	
+58-17	2343-2350	expired	object[138]	acc[138]	snssn[138]	_	_	_	
+58-18	2351-2355	pile	object[138]	acc[138]	snssn[138]	_	_	_	
 58-19	2356-2360	down	_	_	_	_	_	_	
 58-20	2361-2365	here	_	_	_	_	_	_	
 58-21	2366-2368	on	_	_	_	_	_	_	
@@ -680,12 +680,12 @@
 61-1	2422-2424	Oh	_	_	_	_	_	_	
 61-2	2425-2427	my	_	_	_	_	_	_	
 61-3	2428-2431	god	_	_	_	_	_	_	
-61-4	2432-2433	I	person[143]	giv[143]	nnnnn[143]	_	coref	61-12[146_143]	
+61-4	2432-2433	I	person[143]	giv[143]	nnnnn[143]	_	coref|bridge:entity-associative	61-12[146_143]|61-9[145_143]	
 61-5	2434-2437	had	_	_	_	_	_	_	
 61-6	2438-2442	this	object[144]	giv[144]	snsnn[144]	_	coref	61-14[147_144]	
 61-7	2443-2447	back	_	_	_	_	_	_	
 61-8	2448-2450	in	_	_	_	_	_	_	
-61-9	2451-2458	college	organization[145]	new[145]	nnnnn[145]	_	coref	76-19[182_145]	
+61-9	2451-2458	college	organization[145]	acc[145]	nnnnn[145]	_	coref	76-19[182_145]	
 61-10	2459-2461	is	_	_	_	_	_	_	
 61-11	2462-2466	when	_	_	_	_	_	_	
 61-12	2467-2468	I	person[146]	giv[146]	nnnnn[146]	_	coref	71-2[161_146]	
@@ -804,13 +804,13 @@
 71-14	2903-2909	symbol	abstract[162]	giv[162]	nssnn[162]	_	_	_	
 71-15	2910-2915	meant	_	_	_	_	_	_	
 71-16	2916-2921	until	_	_	_	_	_	_	
-71-17	2922-2923	I	person[163]	giv[163]	nnnnn[163]	_	coref	71-25[166_163]	
+71-17	2922-2923	I	person[163]	giv[163]	nnnnn[163]	_	coref|bridge:comparison-relative	71-25[166_163]|71-19[164_163]	
 71-18	2924-2929	heard	_	_	_	_	_	_	
-71-19	2930-2935	other	person[164]	new[164]	nnnnn[164]	_	_	_	
-71-20	2936-2942	people	person[164]	new[164]	nnnnn[164]	_	_	_	
-71-21	2943-2950	talking	person[164]	new[164]	nnnnn[164]	_	_	_	
-71-22	2951-2956	about	person[164]	new[164]	nnnnn[164]	_	_	_	
-71-23	2957-2959	it	person[164]|abstract[165]	new[164]|giv[165]	nnnnn[164]|nssnn[165]	_	_	_	
+71-19	2930-2935	other	person[164]	acc[164]	nnnnn[164]	_	_	_	
+71-20	2936-2942	people	person[164]	acc[164]	nnnnn[164]	_	_	_	
+71-21	2943-2950	talking	person[164]	acc[164]	nnnnn[164]	_	_	_	
+71-22	2951-2956	about	person[164]	acc[164]	nnnnn[164]	_	_	_	
+71-23	2957-2959	it	person[164]|abstract[165]	acc[164]|giv[165]	nnnnn[164]|nssnn[165]	_	_	_	
 71-24	2960-2963	and	_	_	_	_	_	_	
 71-25	2964-2965	I	person[166]	giv[166]	nnnnn[166]	_	coref	76-1[177_166]	
 71-26	2966-2969	was	_	_	_	_	_	_	
@@ -894,7 +894,7 @@
 77-7	3280-3282	to	_	_	_	_	_	_	
 77-8	3283-3285	go	_	_	_	_	_	_	
 77-9	3286-3288	in	_	_	_	_	_	_	
-77-10	3289-3292	the	object[184]	giv[184]	snssn[184]	_	coref	96-9[224_184]	
+77-10	3289-3292	the	object[184]	giv[184]	snssn[184]	_	coref|bridge:comparison-relative	96-9[224_184]|83-12[200_184]	
 77-11	3293-3300	expired	object[184]	giv[184]	snssn[184]	_	_	_	
 77-12	3301-3305	pile	object[184]	giv[184]	snssn[184]	_	_	_	
 77-13	3306-3307	.	_	_	_	_	_	_	
@@ -970,9 +970,9 @@
 83-9	3554-3556	of	object[199]	giv[199]	snnnn[199]	_	_	_	
 83-10	3557-3562	Color	object[199]	giv[199]	snnnn[199]	_	_	_	
 83-11	3563-3565	in	_	_	_	_	_	_	
-83-12	3566-3567	a	object[200]	new[200]	nnnnn[200]	_	_	_	
-83-13	3568-3576	separate	object[200]	new[200]	nnnnn[200]	_	_	_	
-83-14	3577-3581	pile	object[200]	new[200]	nnnnn[200]	_	_	_	
+83-12	3566-3567	a	object[200]	acc[200]	nnnnn[200]	_	_	_	
+83-13	3568-3576	separate	object[200]	acc[200]	nnnnn[200]	_	_	_	
+83-14	3577-3581	pile	object[200]	acc[200]	nnnnn[200]	_	_	_	
 83-15	3582-3585	cuz	_	_	_	_	_	_	
 83-16	3586-3590	that	abstract[201]	giv[201]	snnnn[201]	_	coref	84-6[203_201]	
 83-17	3591-3593	's	_	_	_	_	_	_	
@@ -1024,7 +1024,7 @@
 #Text=Okay so the fancy lipsticks have a shelf life of twelve months , so one full year .
 90-1	3725-3729	Okay	_	_	_	_	_	_	
 90-2	3730-3732	so	_	_	_	_	_	_	
-90-3	3733-3736	the	object[208]	giv[208]	nnnnn[208]	_	_	_	
+90-3	3733-3736	the	object[208]	giv[208]	nnnnn[208]	_	bridge:comparison-sense	98-1[225_208]	
 90-4	3737-3742	fancy	object[208]	giv[208]	nnnnn[208]	_	_	_	
 90-5	3743-3752	lipsticks	object[208]	giv[208]	nnnnn[208]	_	_	_	
 90-6	3753-3757	have	_	_	_	_	_	_	
@@ -1131,7 +1131,7 @@
 99-8	4099-4102	the	object[228]	giv[228]	nnnnn[228]	_	coref	103-1[238_228]	
 99-9	4103-4108	black	object[228]	giv[228]	nnnnn[228]	_	_	_	
 99-10	4109-4114	since	_	_	_	_	_	_	
-99-11	4115-4119	last	event[229]|time[230]	new[229]|acc[230]	nnnnn[229]|nnnnn[230]	_	_	_	
+99-11	4115-4119	last	event[229]|time[230]	new[229]|acc[230]	nnnnn[229]|nnnnn[230]	_	bridge:comparison-time;comparison-relative	100-3[231_230]	
 99-12	4120-4124	year	event[229]|time[230]	new[229]|acc[230]	nnnnn[229]|nnnnn[230]	_	_	_	
 99-13	4125-4134	Halloween	event[229]	new[229]	nnnnn[229]	_	_	_	
 99-14	4135-4141	though	_	_	_	_	_	_	
@@ -1140,7 +1140,7 @@
 #Text=Or was it the Halloween before ?
 100-1	4144-4146	Or	_	_	_	_	_	_	
 100-2	4147-4150	was	_	_	_	_	_	_	
-100-3	4151-4153	it	event[231]	new[231]	nnnnn[231]	_	coref	100-4[232_231]	
+100-3	4151-4153	it	event[231]	acc[231]	nnnnn[231]	_	coref	100-4[232_231]	
 100-4	4154-4157	the	event[232]	acc[232]	nnnnn[232]	_	_	_	
 100-5	4158-4167	Halloween	event[232]	acc[232]	nnnnn[232]	_	_	_	
 100-6	4168-4174	before	event[232]	acc[232]	nnnnn[232]	_	_	_	
@@ -1219,7 +1219,7 @@
 108-9	4433-4438	shelf	abstract[243]|time[245]|abstract[246]	giv[243]|new[245]|new[246]	nnnnn[243]|nnnsn[245]|nnnsn[246]	_	coref	124-13[280_246]	
 108-10	4439-4443	life	abstract[243]|time[245]|abstract[246]	giv[243]|new[245]|new[246]	nnnnn[243]|nnnsn[245]|nnnsn[246]	_	_	_	
 108-11	4444-4447	for	abstract[243]|time[245]	giv[243]|new[245]	nnnnn[243]|nnnsn[245]	_	_	_	
-108-12	4448-4453	their	abstract[243]|time[245]|object[247]|organization[248]	giv[243]|new[245]|new[247]|giv[248]	nnnnn[243]|nnnsn[245]|nnnnn[247]|nnnnn[248]	_	_	_	
+108-12	4448-4453	their	abstract[243]|time[245]|object[247]|organization[248]	giv[243]|new[245]|new[247]|giv[248]	nnnnn[243]|nnnsn[245]|nnnnn[247]|nnnnn[248]	_	bridge:entity-associative	111-5[254_248]	
 108-13	4454-4457	lip	abstract[243]|time[245]|object[247]	giv[243]|new[245]|new[247]	nnnnn[243]|nnnsn[245]|nnnnn[247]	_	_	_	
 108-14	4458-4465	pencils	abstract[243]|time[245]|object[247]	giv[243]|new[245]|new[247]	nnnnn[243]|nnnsn[245]|nnnnn[247]	_	_	_	
 108-15	4466-4471	which	_	_	_	_	_	_	
@@ -1321,7 +1321,7 @@
 118-12	4827-4829	at	_	_	_	_	_	_	
 118-13	4830-4832	it	object[265]	giv[265]	snnnn[265]	_	coref	118-15[266_265]	
 118-14	4833-4836	but	_	_	_	_	_	_	
-118-15	4837-4840	she	object[266]	giv[266]	snnnn[266]	_	coref|bridge	121-1[269_266]|119-5[268_266]	
+118-15	4837-4840	she	object[266]	giv[266]	snnnn[266]	_	coref|bridge:entity-associative	121-1[269_266]|119-5[268_266]	
 118-16	4841-4843	's	_	_	_	_	_	_	
 118-17	4844-4847	old	_	_	_	_	_	_	
 118-18	4848-4849	.	_	_	_	_	_	_	
@@ -1344,7 +1344,7 @@
 120-4	4906-4907	.	_	_	_	_	_	_	
 
 #Text=The Urban Decay does not have a shelf life on the actual stick .
-121-1	4908-4911	The	object[269]	giv[269]	snnnn[269]	_	bridge	121-11[271_269]	
+121-1	4908-4911	The	object[269]	giv[269]	snnnn[269]	_	bridge:entity-meronomy	121-11[271_269]	
 121-2	4912-4917	Urban	object[269]	giv[269]	snnnn[269]	_	_	_	
 121-3	4918-4923	Decay	object[269]	giv[269]	snnnn[269]	_	_	_	
 121-4	4924-4928	does	_	_	_	_	_	_	

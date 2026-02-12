@@ -35,7 +35,7 @@
 3-1	105-107	To	event[7]	new[7]	nnnnn[7]	_	coref	5-1[20_7]	
 3-2	108-113	truly	event[7]	new[7]	nnnnn[7]	_	_	_	
 3-3	114-118	make	event[7]	new[7]	nnnnn[7]	_	_	_	
-3-4	119-120	a	event[7]|object[8]	new[7]|giv[8]	nnnnn[7]|sssss[8]	_	bridge|bridge|bridge	21-1[82_8]|27-10[109_8]|31-11[127_8]	
+3-4	119-120	a	event[7]|object[8]	new[7]|giv[8]	nnnnn[7]|sssss[8]	_	bridge:entity-associative	21-1[82_8]	
 3-5	121-130	glowstick	event[7]|object[8]	new[7]|giv[8]	nnnnn[7]|sssss[8]	_	_	_	
 3-6	131-138	without	event[7]	new[7]	nnnnn[7]	_	_	_	
 3-7	139-147	breaking	event[7]|event[9]	new[7]|new[9]	nnnnn[7]|nnnss[9]	_	coref	3-24[14_9]	
@@ -88,7 +88,7 @@
 4-9	352-353	.	_	_	_	_	_	_	
 
 #Text=This is fun for anyone and everyone .
-5-1	354-358	This	event[20]	giv[20]	nnnnn[20]	_	_	_	
+5-1	354-358	This	event[20]	giv[20]	nnnnn[20]	_	bridge:entity-associative|bridge:entity-associative|bridge:entity-associative	6-1[23_20]|11-8[42_20]|46-1[163_20]	
 5-2	359-361	is	_	_	_	_	_	_	
 5-3	362-365	fun	_	_	_	_	_	_	
 5-4	366-369	for	_	_	_	_	_	_	
@@ -98,13 +98,13 @@
 5-8	390-391	.	_	_	_	_	_	_	
 
 #Text=Method One of Two : Using Luminol
-6-1	392-398	Method	abstract[23]	new[23]	nnnnn[23]	_	_	_	
-6-2	399-402	One	abstract[23]	new[23]	nnnnn[23]	_	_	_	
-6-3	403-405	of	abstract[23]	new[23]	nnnnn[23]	_	_	_	
-6-4	406-409	Two	abstract[23]|abstract[24]	new[23]|new[24]	nnnnn[23]|nnnnn[24]	_	_	_	
+6-1	392-398	Method	abstract[23]	acc[23]	nnnnn[23]	_	bridge:comparison-sense	6-4[24_23]	
+6-2	399-402	One	abstract[23]	acc[23]	nnnnn[23]	_	_	_	
+6-3	403-405	of	abstract[23]	acc[23]	nnnnn[23]	_	_	_	
+6-4	406-409	Two	abstract[23]|abstract[24]	acc[23]|acc[24]	nnnnn[23]|nnnnn[24]	_	_	_	
 6-5	410-411	:	_	_	_	_	_	_	
 6-6	412-417	Using	_	_	_	_	_	_	
-6-7	418-425	Luminol	substance[25]	new[25]	sssss[25]	Luminol[25]	coref	19-7[75_25]	
+6-7	418-425	Luminol	substance[25]	new[25]	sssss[25]	Luminol[25]	coref|bridge:entity-associative	19-7[75_25]|11-3[41_25]	
 
 #Text=Put on protective glasses .
 7-1	426-429	Put	_	_	_	_	_	_	
@@ -165,8 +165,8 @@
 11-5	651-653	is	_	_	_	_	_	_	
 11-6	654-663	dangerous	_	_	_	_	_	_	
 11-7	664-666	--	_	_	_	_	_	_	
-11-8	667-671	this	event[42]	new[42]	nnnnn[42]	_	_	_	
-11-9	672-682	experiment	event[42]	new[42]	nnnnn[42]	_	_	_	
+11-8	667-671	this	event[42]	acc[42]	nnnnn[42]	_	_	_	
+11-9	672-682	experiment	event[42]	acc[42]	nnnnn[42]	_	_	_	
 11-10	683-685	is	_	_	_	_	_	_	
 11-11	686-689	not	_	_	_	_	_	_	
 11-12	690-695	meant	_	_	_	_	_	_	
@@ -258,21 +258,21 @@
 16-11	1030-1039	distilled	substance[60]|substance[62]	new[60]|new[62]	nnnnn[60]|ssnnn[62]	_	_	_	
 16-12	1040-1045	water	substance[60]|substance[62]	new[60]|new[62]	nnnnn[60]|ssnnn[62]	_	_	_	
 16-13	1046-1048	in	_	_	_	_	_	_	
-16-14	1049-1050	a	object[63]	new[63]	snnnn[63]	_	bridge	17-1[64_63]	
+16-14	1049-1050	a	object[63]	new[63]	snnnn[63]	_	bridge:comparison-relative	22-36[92_63]	
 16-15	1051-1057	mixing	object[63]	new[63]	snnnn[63]	_	_	_	
 16-16	1058-1062	bowl	object[63]	new[63]	snnnn[63]	_	_	_	
 16-17	1063-1064	.	_	_	_	_	_	_	
 
 #Text=A ceramic bowl will work best , but plastic works too .
-17-1	1065-1066	A	object[64]	acc[64]	nnnnn[64]	_	_	_	
-17-2	1067-1074	ceramic	object[64]|substance[65]	acc[64]|new[65]	nnnnn[64]|nnnnn[65]	_	_	_	
-17-3	1075-1079	bowl	object[64]	acc[64]	nnnnn[64]	_	_	_	
+17-1	1065-1066	A	object[64]	auto[64]	nnnnn[64]	_	bridge:comparison-sense	17-9[66_64]	
+17-2	1067-1074	ceramic	object[64]|substance[65]	auto[64]|new[65]	nnnnn[64]|nnnnn[65]	_	_	_	
+17-3	1075-1079	bowl	object[64]	auto[64]	nnnnn[64]	_	_	_	
 17-4	1080-1084	will	_	_	_	_	_	_	
 17-5	1085-1089	work	_	_	_	_	_	_	
 17-6	1090-1094	best	_	_	_	_	_	_	
 17-7	1095-1096	,	_	_	_	_	_	_	
 17-8	1097-1100	but	_	_	_	_	_	_	
-17-9	1101-1108	plastic	substance[66]	new[66]	nnnnn[66]	_	_	_	
+17-9	1101-1108	plastic	substance[66]	acc[66]	nnnnn[66]	_	_	_	
 17-10	1109-1114	works	_	_	_	_	_	_	
 17-11	1115-1118	too	_	_	_	_	_	_	
 17-12	1119-1120	.	_	_	_	_	_	_	
@@ -320,7 +320,7 @@
 20-2	1311-1315	that	event[77]	giv[77]	nnnnn[77]	_	_	_	
 20-3	1316-1323	happens	_	_	_	_	_	_	
 20-4	1324-1325	,	_	_	_	_	_	_	
-20-5	1326-1329	all	substance[78]	split[78]	nnnnn[78]	_	_	_	
+20-5	1326-1329	all	substance[78]	split[78]	nnnnn[78]	_	bridge:comparison-relative	32-7[132_78]	
 20-6	1330-1333	the	substance[78]	split[78]	nnnnn[78]	_	_	_	
 20-7	1334-1344	substances	substance[78]	split[78]	nnnnn[78]	_	_	_	
 20-8	1345-1351	create	_	_	_	_	_	_	
@@ -379,9 +379,9 @@
 22-33	1583-1592	distilled	substance[83]|substance[89]	new[83]|new[89]	nnnnn[83]|nnnnn[89]	_	_	_	
 22-34	1593-1598	water	substance[83]|substance[89]	new[83]|new[89]	nnnnn[83]|nnnnn[89]	_	_	_	
 22-35	1599-1601	in	_	_	_	_	_	_	
-22-36	1602-1603	a	object[92]	new[92]	nnnnn[92]	_	_	_	
-22-37	1604-1610	second	object[92]	new[92]	nnnnn[92]	_	_	_	
-22-38	1611-1615	bowl	object[92]	new[92]	nnnnn[92]	_	_	_	
+22-36	1602-1603	a	object[92]	acc[92]	nnnnn[92]	_	_	_	
+22-37	1604-1610	second	object[92]	acc[92]	nnnnn[92]	_	_	_	
+22-38	1611-1615	bowl	object[92]	acc[92]	nnnnn[92]	_	_	_	
 22-39	1616-1617	.	_	_	_	_	_	_	
 
 #Text=It is important not to touch the luminol .
@@ -441,7 +441,7 @@
 26-13	1866-1869	spy	person[102]	new[102]	nnnnn[102]	_	_	_	
 26-14	1870-1871	/	person[102]	new[102]	nnnnn[102]	_	_	_	
 26-15	1872-1885	criminologist	person[102]	new[102]	nnnnn[102]	_	_	_	
-26-16	1886-1889	you	person[103]	giv[103]	nnnnn[103]	_	coref	27-2[106_103]	
+26-16	1886-1889	you	person[103]	giv[103]	nnnnn[103]	_	coref|bridge:entity-associative	27-2[106_103]|26-25[105_103]	
 26-17	1890-1898	probably	_	_	_	_	_	_	
 26-18	1899-1901	do	_	_	_	_	_	_	
 26-19	1902-1905	n't	_	_	_	_	_	_	
@@ -467,13 +467,13 @@
 27-5	1985-1988	set	_	_	_	_	_	_	
 27-6	1989-1991	on	_	_	_	_	_	_	
 27-7	1992-2000	starting	_	_	_	_	_	_	
-27-8	2001-2005	your	abstract[107]|person[108]	new[107]|giv[108]	nnnnn[107]|nnnnn[108]	_	coref	29-4[119_108]	
+27-8	2001-2005	your	abstract[107]|person[108]	new[107]|giv[108]	nnnnn[107]|nnnnn[108]	_	coref|bridge:comparison-relative	29-4[119_108]|27-13[110_107]	
 27-9	2006-2009	own	abstract[107]	new[107]	nnnnn[107]	_	_	_	
-27-10	2010-2019	glowstick	abstract[107]|object[109]	new[107]|acc[109]	nnnnn[107]|nnnnn[109]	_	_	_	
+27-10	2010-2019	glowstick	abstract[107]|object[109]	new[107]|auto[109]	nnnnn[107]|nnnnn[109]	_	bridge:entity-associative|bridge:entity-associative	27-33[116_109]|30-2[122_109]	
 27-11	2020-2028	business	abstract[107]	new[107]	nnnnn[107]	_	_	_	
 27-12	2029-2030	(	_	_	_	_	_	_	
-27-13	2031-2036	worse	abstract[110]	new[110]	nnnnn[110]	_	_	_	
-27-14	2037-2042	ideas	abstract[110]	new[110]	nnnnn[110]	_	_	_	
+27-13	2031-2036	worse	abstract[110]	acc[110]	nnnnn[110]	_	_	_	
+27-14	2037-2042	ideas	abstract[110]	acc[110]	nnnnn[110]	_	_	_	
 27-15	2043-2048	exist	_	_	_	_	_	_	
 27-16	2049-2050	)	_	_	_	_	_	_	
 27-17	2051-2052	,	_	_	_	_	_	_	
@@ -492,7 +492,7 @@
 27-30	2107-2108	2	abstract[115]	new[115]	nnnnn[115]	_	_	_	
 27-31	2109-2110	]	_	_	_	_	_	_	
 27-32	2111-2114	for	_	_	_	_	_	_	
-27-33	2115-2123	supplies	object[116]	new[116]	nnnnn[116]	_	_	_	
+27-33	2115-2123	supplies	object[116]	acc[116]	nnnnn[116]	_	_	_	
 27-34	2124-2125	.	_	_	_	_	_	_	
 
 #Text=Mix everything well .
@@ -521,11 +521,11 @@
 
 #Text=Clean the containers and dry them thoroughly .
 30-1	2219-2224	Clean	_	_	_	_	_	_	
-30-2	2225-2228	the	object[122]	new[122]	nnnns[122]	_	coref	30-6[123_122]	
-30-3	2229-2239	containers	object[122]	new[122]	nnnns[122]	_	_	_	
+30-2	2225-2228	the	object[122]	acc[122]	nnnns[122]	_	coref	30-6[123_122]	
+30-3	2229-2239	containers	object[122]	acc[122]	nnnns[122]	_	_	_	
 30-4	2240-2243	and	_	_	_	_	_	_	
 30-5	2244-2247	dry	_	_	_	_	_	_	
-30-6	2248-2252	them	object[123]	giv[123]	nnnns[123]	_	coref|bridge	33-7[138_123]|31-6[126_123]	
+30-6	2248-2252	them	object[123]	giv[123]	nnnns[123]	_	coref|bridge:entity-associative	33-7[138_123]|33-2[137_123]	
 30-7	2253-2263	thoroughly	_	_	_	_	_	_	
 30-8	2264-2265	.	_	_	_	_	_	_	
 
@@ -535,13 +535,13 @@
 31-3	2272-2281	important	_	_	_	_	_	_	
 31-4	2282-2284	to	event[125]	giv[125]	nnnnn[125]	_	_	_	
 31-5	2285-2288	use	event[125]	giv[125]	nnnnn[125]	_	_	_	
-31-6	2289-2297	sanitary	event[125]|object[126]	giv[125]|acc[126]	nnnnn[125]|nnnnn[126]	_	_	_	
-31-7	2298-2299	,	event[125]|object[126]	giv[125]|acc[126]	nnnnn[125]|nnnnn[126]	_	_	_	
-31-8	2300-2305	clean	event[125]|object[126]	giv[125]|acc[126]	nnnnn[125]|nnnnn[126]	_	_	_	
-31-9	2306-2311	tubes	event[125]|object[126]	giv[125]|acc[126]	nnnnn[125]|nnnnn[126]	_	_	_	
+31-6	2289-2297	sanitary	event[125]|object[126]	giv[125]|auto[126]	nnnnn[125]|nnnnn[126]	_	_	_	
+31-7	2298-2299	,	event[125]|object[126]	giv[125]|auto[126]	nnnnn[125]|nnnnn[126]	_	_	_	
+31-8	2300-2305	clean	event[125]|object[126]	giv[125]|auto[126]	nnnnn[125]|nnnnn[126]	_	_	_	
+31-9	2306-2311	tubes	event[125]|object[126]	giv[125]|auto[126]	nnnnn[125]|nnnnn[126]	_	_	_	
 31-10	2312-2315	for	event[125]	giv[125]	nnnnn[125]	_	_	_	
-31-11	2316-2320	your	event[125]|object[127]|person[128]	giv[125]|acc[127]|giv[128]	nnnnn[125]|nnnnn[127]|nnnnn[128]	_	coref|coref	42-2[154_127]|32-4[130_128]	
-31-12	2321-2331	glowsticks	event[125]|object[127]	giv[125]|acc[127]	nnnnn[125]|nnnnn[127]	_	_	_	
+31-11	2316-2320	your	event[125]|object[127]|person[128]	giv[125]|auto[127]|giv[128]	nnnnn[125]|nnnnn[127]|nnnnn[128]	_	coref|coref	42-2[154_127]|32-4[130_128]	
+31-12	2321-2331	glowsticks	event[125]|object[127]	giv[125]|auto[127]	nnnnn[125]|nnnnn[127]	_	_	_	
 31-13	2332-2333	.	_	_	_	_	_	_	
 
 #Text=The last thing you want is other substances interacting with the reactions you 're depending on to make the substances glow .
@@ -551,8 +551,8 @@
 32-4	2349-2352	you	event[129]|person[130]	new[129]|giv[130]	nnnnn[129]|nnnnn[130]	_	coref	32-13[134_130]	
 32-5	2353-2357	want	event[129]	new[129]	nnnnn[129]	_	_	_	
 32-6	2358-2360	is	_	_	_	_	_	_	
-32-7	2361-2366	other	event[131]|substance[132]	giv[131]|new[132]	nnnnn[131]|nnnnn[132]	_	_	_	
-32-8	2367-2377	substances	event[131]|substance[132]	giv[131]|new[132]	nnnnn[131]|nnnnn[132]	_	_	_	
+32-7	2361-2366	other	event[131]|substance[132]	giv[131]|acc[132]	nnnnn[131]|nnnnn[132]	_	_	_	
+32-8	2367-2377	substances	event[131]|substance[132]	giv[131]|acc[132]	nnnnn[131]|nnnnn[132]	_	_	_	
 32-9	2378-2389	interacting	event[131]	giv[131]	nnnnn[131]	_	_	_	
 32-10	2390-2394	with	event[131]	giv[131]	nnnnn[131]	_	_	_	
 32-11	2395-2398	the	event[131]|event[133]	giv[131]|new[133]	nnnnn[131]|nnnnn[133]	_	_	_	
@@ -570,9 +570,9 @@
 
 #Text=Set the correct lid next to each container .
 33-1	2460-2463	Set	event[136]	new[136]	nnnnn[136]	_	coref	34-1[139_136]	
-33-2	2464-2467	the	event[136]|object[137]	new[136]|new[137]	nnnnn[136]|nnnnn[137]	_	_	_	
-33-3	2468-2475	correct	event[136]|object[137]	new[136]|new[137]	nnnnn[136]|nnnnn[137]	_	_	_	
-33-4	2476-2479	lid	event[136]|object[137]	new[136]|new[137]	nnnnn[136]|nnnnn[137]	_	_	_	
+33-2	2464-2467	the	event[136]|object[137]	new[136]|acc[137]	nnnnn[136]|nnnnn[137]	_	_	_	
+33-3	2468-2475	correct	event[136]|object[137]	new[136]|acc[137]	nnnnn[136]|nnnnn[137]	_	_	_	
+33-4	2476-2479	lid	event[136]|object[137]	new[136]|acc[137]	nnnnn[136]|nnnnn[137]	_	_	_	
 33-5	2480-2484	next	event[136]	new[136]	nnnnn[136]	_	_	_	
 33-6	2485-2487	to	event[136]	new[136]	nnnnn[136]	_	_	_	
 33-7	2488-2492	each	event[136]|object[138]	new[136]|giv[138]	nnnnn[136]|nnnns[138]	_	coref	34-6[141_138]	
@@ -623,17 +623,17 @@
 36-8	2680-2686	second	substance[144]|substance[145]	new[144]|split[145]	nsnnn[144]|nnnnn[145]	_	_	_	
 36-9	2687-2695	solution	substance[144]|substance[145]	new[144]|split[145]	nsnnn[144]|nnnnn[145]	_	_	_	
 36-10	2696-2698	in	_	_	_	_	_	_	
-36-11	2699-2702	the	object[146]	giv[146]	nnnns[146]	_	_	_	
+36-11	2699-2702	the	object[146]	giv[146]	nnnns[146]	_	bridge:entity-associative	36-15[147_146]	
 36-12	2703-2712	container	object[146]	giv[146]	nnnns[146]	_	_	_	
 36-13	2713-2716	and	_	_	_	_	_	_	
 36-14	2717-2722	close	_	_	_	_	_	_	
-36-15	2723-2726	the	object[147]	acc[147]	snnnn[147]	_	coref|bridge	37-2[148_147]|37-5[149_147]	
+36-15	2723-2726	the	object[147]	acc[147]	snnnn[147]	_	coref	37-2[148_147]	
 36-16	2727-2734	bottles	object[147]	acc[147]	snnnn[147]	_	_	_	
 36-17	2735-2736	.	_	_	_	_	_	_	
 
 #Text=Shake them up once the lids are on tightly .
 37-1	2737-2742	Shake	_	_	_	_	_	_	
-37-2	2743-2747	them	object[148]	giv[148]	snnnn[148]	_	coref	39-2[151_148]	
+37-2	2743-2747	them	object[148]	giv[148]	snnnn[148]	_	coref|bridge:entity-meronomy	39-2[151_148]|37-5[149_148]	
 37-3	2748-2750	up	_	_	_	_	_	_	
 37-4	2751-2755	once	_	_	_	_	_	_	
 37-5	2756-2759	the	object[149]	acc[149]	nnnnn[149]	_	_	_	
@@ -690,7 +690,7 @@
 42-6	2958-2963	party	event[156]	new[156]	nnnns[156]	_	_	_	
 42-7	2964-2967	and	_	_	_	_	_	_	
 42-8	2968-2974	charge	_	_	_	_	_	_	
-42-9	2975-2979	your	person[157]|person[158]	new[157]|giv[158]	nnnnn[157]|nnnnn[158]	_	coref	48-21[171_158]	
+42-9	2975-2979	your	person[157]|person[158]	new[157]|giv[158]	nnnnn[157]|nnnnn[158]	_	coref|bridge:entity-associative	48-21[171_158]|45-1[162_158]	
 42-10	2980-2987	friends	person[157]	new[157]	nnnnn[157]	_	_	_	
 42-11	2988-2993	loads	abstract[159]	new[159]	nnnnn[159]	_	_	_	
 42-12	2994-2996	of	abstract[159]	new[159]	nnnnn[159]	_	_	_	
@@ -716,13 +716,13 @@
 44-8	3065-3066	.	_	_	_	_	_	_	
 
 #Text=Expectations crushed ?
-45-1	3067-3079	Expectations	abstract[162]	new[162]	nnnnn[162]	_	_	_	
+45-1	3067-3079	Expectations	abstract[162]	acc[162]	nnnnn[162]	_	_	_	
 45-2	3080-3087	crushed	_	_	_	_	_	_	
 45-3	3088-3089	?	_	_	_	_	_	_	
 
 #Text=Method two to the rescue !
-46-1	3090-3096	Method	abstract[163]	new[163]	nnsns[163]	_	coref	48-9[170_163]	
-46-2	3097-3100	two	abstract[163]	new[163]	nnsns[163]	_	_	_	
+46-1	3090-3096	Method	abstract[163]	acc[163]	nnsns[163]	_	coref	48-9[170_163]	
+46-2	3097-3100	two	abstract[163]	acc[163]	nnsns[163]	_	_	_	
 46-3	3101-3103	to	_	_	_	_	_	_	
 46-4	3104-3107	the	_	_	_	_	_	_	
 46-5	3108-3114	rescue	_	_	_	_	_	_	

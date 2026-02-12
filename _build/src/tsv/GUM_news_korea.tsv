@@ -9,7 +9,7 @@
 
 
 #Text=North Korea puts military in ' quasi - state of war '
-1-1	0-5	North	organization[1]	acc[1]	sssss[1]	North_Korea[1]	bridge|coref	1-4[2_1]|3-8[9_1]	
+1-1	0-5	North	organization[1]	acc[1]	sssss[1]	North_Korea[1]	coref|bridge:entity-associative	3-8[9_1]|1-4[2_1]	
 1-2	6-11	Korea	organization[1]	acc[1]	sssss[1]	North_Korea[1]	_	_	
 1-3	12-16	puts	_	_	_	_	_	_	
 1-4	17-25	military	organization[2]	acc[2]	nssss[2]	_	coref	3-22[12_2]	
@@ -25,10 +25,10 @@
 #Text=Friday , August 21 , 2015
 2-1	54-60	Friday	time[4]	acc[4]	nnnnn[4]	_	coref	2-3[5_4]	
 2-2	61-62	,	_	_	_	_	_	_	
-2-3	63-69	August	time[5]	acc[5]	nnnnn[5]	_	_	_	
+2-3	63-69	August	time[5]	acc[5]	nnnnn[5]	_	bridge:comparison-time	4-12[20_5]	
 2-4	70-72	21	time[5]	acc[5]	nnnnn[5]	_	_	_	
 2-5	73-74	,	time[5]	acc[5]	nnnnn[5]	_	_	_	
-2-6	75-79	2015	time[5]|time[6]	acc[5]|new[6]	nnnnn[5]|snnnn[6]	_	_	_	
+2-6	75-79	2015	time[5]|time[6]	acc[5]|new[6]	nnnnn[5]|snnnn[6]	_	bridge:set-span-interval;comparison-time	14-5[95_6]	
 
 #Text=According to Yonhap news agency , quoting North Korea 's main news agency Korean Central News Agency ( KCNA ) , the country 's military has been placed on high alert and has been told to prepare a " quasi - state of war " .
 3-1	80-89	According	_	_	_	_	_	_	
@@ -85,10 +85,10 @@
 4-4	321-326	after	_	_	_	_	_	_	
 4-5	327-332	North	event[16]|organization[17]	new[16]|giv[17]	sssss[16]|sssss[17]	North_Korea[17]	coref|coref	11-8[79_16]|5-15[24_17]	
 4-6	333-336	and	event[16]	new[16]	sssss[16]	_	_	_	
-4-7	337-342	South	event[16]|organization[18]	new[16]|acc[18]	sssss[16]|sssss[18]	South_Korea[18]	bridge|coref	5-5[22_18]|9-13[62_18]	
+4-7	337-342	South	event[16]|organization[18]	new[16]|acc[18]	sssss[16]|sssss[18]	South_Korea[18]	coref	9-13[62_18]	
 4-8	343-348	Korea	event[16]|organization[18]	new[16]|acc[18]	sssss[16]|sssss[18]	South_Korea[18]	_	_	
 4-9	349-358	exchanged	event[16]	new[16]	sssss[16]	_	_	_	
-4-10	359-368	artillery	event[16]|event[19]	new[16]|new[19]	sssss[16]|nssss[19]	_	_	_	
+4-10	359-368	artillery	event[16]|event[19]	new[16]|new[19]	sssss[16]|nssss[19]	_	bridge:entity-associative|bridge:entity-associative|bridge:entity-associative	6-8[30_19]|6-23[35_19]|11-27[85_19]	
 4-11	369-373	fire	event[16]|event[19]	new[16]|new[19]	sssss[16]|nssss[19]	_	_	_	
 4-12	374-383	yesterday	event[16]|time[20]	new[16]|acc[20]	sssss[16]|nnnnn[20]	_	coref	5-26[26_20]	
 4-13	384-385	.	_	_	_	_	_	_	
@@ -98,11 +98,11 @@
 5-2	388-391	War	person[21]	new[21]	nnnnn[21]	_	coref	6-1[28_21]	
 5-3	392-399	maniacs	person[21]	new[21]	nnnnn[21]	_	_	_	
 5-4	400-402	of	person[21]	new[21]	nnnnn[21]	_	_	_	
-5-5	403-406	the	person[21]|organization[22]	new[21]|acc[22]	nnnnn[21]|nnnnn[22]	_	_	_	
-5-6	407-412	South	person[21]|organization[22]	new[21]|acc[22]	nnnnn[21]|nnnnn[22]	_	_	_	
-5-7	413-419	Korean	person[21]|organization[22]	new[21]|acc[22]	nnnnn[21]|nnnnn[22]	_	_	_	
-5-8	420-426	puppet	person[21]|organization[22]	new[21]|acc[22]	nnnnn[21]|nnnnn[22]	_	_	_	
-5-9	427-435	military	person[21]|organization[22]	new[21]|acc[22]	nnnnn[21]|nnnnn[22]	_	_	_	
+5-5	403-406	the	person[21]|organization[22]	new[21]|auto[22]	nnnnn[21]|nnnnn[22]	_	_	_	
+5-6	407-412	South	person[21]|organization[22]	new[21]|auto[22]	nnnnn[21]|nnnnn[22]	_	_	_	
+5-7	413-419	Korean	person[21]|organization[22]	new[21]|auto[22]	nnnnn[21]|nnnnn[22]	_	_	_	
+5-8	420-426	puppet	person[21]|organization[22]	new[21]|auto[22]	nnnnn[21]|nnnnn[22]	_	_	_	
+5-9	427-435	military	person[21]|organization[22]	new[21]|auto[22]	nnnnn[21]|nnnnn[22]	_	_	_	
 5-10	436-440	made	_	_	_	_	_	_	
 5-11	441-448	another	event[23]	new[23]	nnsnn[23]	_	_	_	
 5-12	449-454	grave	event[23]	new[23]	nnsnn[23]	_	_	_	
@@ -111,7 +111,7 @@
 5-15	470-473	the	event[23]|organization[24]	new[23]|giv[24]	nnsnn[23]|sssss[24]	North_Korea[24]	coref	9-3[59_24]	
 5-16	474-478	DPRK	event[23]|organization[24]	new[23]|giv[24]	nnsnn[23]|sssss[24]	North_Korea[24]	_	_	
 5-17	479-481	in	event[23]	new[23]	nnsnn[23]	_	_	_	
-5-18	482-485	the	event[23]|place[25]	new[23]|new[25]	nnsnn[23]|nnnnn[25]	_	_	_	
+5-18	482-485	the	event[23]|place[25]	new[23]|new[25]	nnsnn[23]|nnnnn[25]	_	bridge:entity-meronomy	6-26[36_25]	
 5-19	486-493	central	event[23]|place[25]	new[23]|new[25]	nnsnn[23]|nnnnn[25]	_	_	_	
 5-20	494-501	western	event[23]|place[25]	new[23]|new[25]	nnsnn[23]|nnnnn[25]	_	_	_	
 5-21	502-508	sector	event[23]|place[25]	new[23]|new[25]	nnsnn[23]|nnnnn[25]	_	_	_	
@@ -131,10 +131,10 @@
 6-5	577-583	action	event[29]	new[29]	nnnnn[29]	_	_	_	
 6-6	584-586	as	_	_	_	_	_	_	
 6-7	587-593	firing	_	_	_	_	_	_	
-6-8	594-596	36	object[30]	new[30]	nnnnn[30]	_	bridge|bridge|coref	7-1[37_30]|7-17[42_30]|7-4[38_30]	
-6-9	597-603	shells	object[30]	new[30]	nnnnn[30]	_	_	_	
+6-8	594-596	36	object[30]	acc[30]	nnnnn[30]	_	coref	7-4[38_30]	
+6-9	597-603	shells	object[30]	acc[30]	nnnnn[30]	_	_	_	
 6-10	604-606	at	_	_	_	_	_	_	
-6-11	607-610	KPA	place[31]|organization[32]	new[31]|giv[32]	nnnnn[31]|nssss[32]	Korean_People's_Army[32]	bridge|bridge|coref	7-9[40_31]|7-22[43_31]|6-20[34_32]	
+6-11	607-610	KPA	place[31]|organization[32]	new[31]|giv[32]	nnnnn[31]|nssss[32]	Korean_People's_Army[32]	coref	6-20[34_32]	
 6-12	611-616	civil	place[31]	new[31]	nnnnn[31]	_	_	_	
 6-13	617-623	police	place[31]	new[31]	nnnnn[31]	_	_	_	
 6-14	624-629	posts	place[31]	new[31]	nnnnn[31]	_	_	_	
@@ -146,8 +146,8 @@
 6-20	660-663	the	abstract[33]|organization[34]	new[33]|giv[34]	nnnnn[33]|nssss[34]	Korean_People's_Army[34]	coref	7-9[41_34]	
 6-21	664-667	KPA	abstract[33]|organization[34]	new[33]|giv[34]	nnnnn[33]|nssss[34]	Korean_People's_Army[34]	_	_	
 6-22	668-673	fired	abstract[33]	new[33]	nnnnn[33]	_	_	_	
-6-23	674-677	one	abstract[33]|object[35]	new[33]|new[35]	nnnnn[33]|nnnnn[35]	_	_	_	
-6-24	678-683	shell	abstract[33]|object[35]	new[33]|new[35]	nnnnn[33]|nnnnn[35]	_	_	_	
+6-23	674-677	one	abstract[33]|object[35]	new[33]|acc[35]	nnnnn[33]|nnnnn[35]	_	_	_	
+6-24	678-683	shell	abstract[33]|object[35]	new[33]|acc[35]	nnnnn[33]|nnnnn[35]	_	_	_	
 6-25	684-686	at	abstract[33]	new[33]	nnnnn[33]	_	_	_	
 6-26	687-690	the	abstract[33]|place[36]	new[33]|acc[36]	nnnnn[33]|nnnnn[36]	_	_	_	
 6-27	691-696	south	abstract[33]|place[36]	new[33]|acc[36]	nnnnn[33]|nnnnn[36]	_	_	_	
@@ -155,34 +155,34 @@
 6-29	702-703	.	_	_	_	_	_	_	
 
 #Text=Six shells of them hit the area near KPA civil police posts 542 and 543 and other 15 shells fell near KPA civil police posts 250 and 251 " , said KCNA .
-7-1	704-707	Six	object[37]	acc[37]	nnnnn[37]	_	_	_	
-7-2	708-714	shells	object[37]	acc[37]	nnnnn[37]	_	_	_	
-7-3	715-717	of	object[37]	acc[37]	nnnnn[37]	_	_	_	
-7-4	718-722	them	object[37]|object[38]	acc[37]|giv[38]	nnnnn[37]|nnnnn[38]	_	_	_	
+7-1	704-707	Six	object[37]	auto[37]	nnnnn[37]	_	bridge:comparison-relative	7-17[42_37]	
+7-2	708-714	shells	object[37]	auto[37]	nnnnn[37]	_	_	_	
+7-3	715-717	of	object[37]	auto[37]	nnnnn[37]	_	_	_	
+7-4	718-722	them	object[37]|object[38]	auto[37]|giv[38]	nnnnn[37]|nnnnn[38]	_	_	_	
 7-5	723-726	hit	_	_	_	_	_	_	
 7-6	727-730	the	place[39]	new[39]	nnnnn[39]	_	_	_	
 7-7	731-735	area	place[39]	new[39]	nnnnn[39]	_	_	_	
 7-8	736-740	near	place[39]	new[39]	nnnnn[39]	_	_	_	
-7-9	741-744	KPA	place[39]|place[40]|organization[41]	new[39]|acc[40]|giv[41]	nnnnn[39]|nnnnn[40]|nssss[41]	Korean_People's_Army[41]	coref	7-22[44_41]	
-7-10	745-750	civil	place[39]|place[40]	new[39]|acc[40]	nnnnn[39]|nnnnn[40]	_	_	_	
-7-11	751-757	police	place[39]|place[40]	new[39]|acc[40]	nnnnn[39]|nnnnn[40]	_	_	_	
-7-12	758-763	posts	place[39]|place[40]	new[39]|acc[40]	nnnnn[39]|nnnnn[40]	_	_	_	
-7-13	764-767	542	place[39]|place[40]	new[39]|acc[40]	nnnnn[39]|nnnnn[40]	_	_	_	
-7-14	768-771	and	place[39]|place[40]	new[39]|acc[40]	nnnnn[39]|nnnnn[40]	_	_	_	
-7-15	772-775	543	place[39]|place[40]	new[39]|acc[40]	nnnnn[39]|nnnnn[40]	_	_	_	
+7-9	741-744	KPA	place[39]|place[40]|organization[41]	new[39]|auto[40]|giv[41]	nnnnn[39]|nnnnn[40]|nssss[41]	Korean_People's_Army[41]	coref	7-22[44_41]	
+7-10	745-750	civil	place[39]|place[40]	new[39]|auto[40]	nnnnn[39]|nnnnn[40]	_	_	_	
+7-11	751-757	police	place[39]|place[40]	new[39]|auto[40]	nnnnn[39]|nnnnn[40]	_	_	_	
+7-12	758-763	posts	place[39]|place[40]	new[39]|auto[40]	nnnnn[39]|nnnnn[40]	_	_	_	
+7-13	764-767	542	place[39]|place[40]	new[39]|auto[40]	nnnnn[39]|nnnnn[40]	_	_	_	
+7-14	768-771	and	place[39]|place[40]	new[39]|auto[40]	nnnnn[39]|nnnnn[40]	_	_	_	
+7-15	772-775	543	place[39]|place[40]	new[39]|auto[40]	nnnnn[39]|nnnnn[40]	_	_	_	
 7-16	776-779	and	_	_	_	_	_	_	
 7-17	780-785	other	object[42]	acc[42]	nnnnn[42]	_	_	_	
 7-18	786-788	15	object[42]	acc[42]	nnnnn[42]	_	_	_	
 7-19	789-795	shells	object[42]	acc[42]	nnnnn[42]	_	_	_	
 7-20	796-800	fell	_	_	_	_	_	_	
 7-21	801-805	near	_	_	_	_	_	_	
-7-22	806-809	KPA	place[43]|organization[44]	acc[43]|giv[44]	nnnnn[43]|nssss[44]	Korean_People's_Army[44]	coref	8-29[52_44]	
-7-23	810-815	civil	place[43]	acc[43]	nnnnn[43]	_	_	_	
-7-24	816-822	police	place[43]	acc[43]	nnnnn[43]	_	_	_	
-7-25	823-828	posts	place[43]	acc[43]	nnnnn[43]	_	_	_	
-7-26	829-832	250	place[43]	acc[43]	nnnnn[43]	_	_	_	
-7-27	833-836	and	place[43]	acc[43]	nnnnn[43]	_	_	_	
-7-28	837-840	251	place[43]	acc[43]	nnnnn[43]	_	_	_	
+7-22	806-809	KPA	place[43]|organization[44]	auto[43]|giv[44]	nnnnn[43]|nssss[44]	Korean_People's_Army[44]	coref	8-29[52_44]	
+7-23	810-815	civil	place[43]	auto[43]	nnnnn[43]	_	_	_	
+7-24	816-822	police	place[43]	auto[43]	nnnnn[43]	_	_	_	
+7-25	823-828	posts	place[43]	auto[43]	nnnnn[43]	_	_	_	
+7-26	829-832	250	place[43]	auto[43]	nnnnn[43]	_	_	_	
+7-27	833-836	and	place[43]	auto[43]	nnnnn[43]	_	_	_	
+7-28	837-840	251	place[43]	auto[43]	nnnnn[43]	_	_	_	
 7-29	841-842	"	_	_	_	_	_	_	
 7-30	843-844	,	_	_	_	_	_	_	
 7-31	845-849	said	_	_	_	_	_	_	
@@ -320,7 +320,7 @@
 10-39	1547-1550	and	_	_	_	_	_	_	
 10-40	1551-1558	prepare	_	_	_	_	_	_	
 10-41	1559-1566	against	_	_	_	_	_	_	
-10-42	1567-1570	the	abstract[74]|organization[75]	new[74]|giv[75]	nnnnn[74]|sssss[75]	South_Korea[75]	coref	11-15[81_75]	
+10-42	1567-1570	the	abstract[74]|organization[75]	new[74]|giv[75]	nnnnn[74]|sssss[75]	South_Korea[75]	coref|bridge:entity-associative	11-15[81_75]|11-11[80_75]	
 10-43	1571-1576	enemy	abstract[74]|organization[75]	new[74]|giv[75]	nnnnn[74]|sssss[75]	South_Korea[75]	_	_	
 10-44	1577-1579	's	abstract[74]|organization[75]	new[74]|giv[75]	nnnnn[74]|sssss[75]	South_Korea[75]	_	_	
 10-45	1580-1588	possible	abstract[74]	new[74]	nnnnn[74]	_	_	_	
@@ -455,12 +455,12 @@
 15-32	2255-2256	.	_	_	_	_	_	_	
 
 #Text=Both countries have put their militaries on high levels of alert .
-16-1	2257-2261	Both	organization[105]	acc[105]	nnnnn[105]	_	bridge|coref	16-5[106_105]|16-5[107_105]	
+16-1	2257-2261	Both	organization[105]	acc[105]	nnnnn[105]	_	coref	16-5[107_105]	
 16-2	2262-2271	countries	organization[105]	acc[105]	nnnnn[105]	_	_	_	
 16-3	2272-2276	have	_	_	_	_	_	_	
 16-4	2277-2280	put	_	_	_	_	_	_	
-16-5	2281-2286	their	organization[106]|organization[107]	acc[106]|giv[107]	nnnnn[106]|nnnnn[107]	_	_	_	
-16-6	2287-2297	militaries	organization[106]	acc[106]	nnnnn[106]	_	_	_	
+16-5	2281-2286	their	organization[106]|organization[107]	auto[106]|giv[107]	nnnnn[106]|nnnnn[107]	_	_	_	
+16-6	2287-2297	militaries	organization[106]	auto[106]	nnnnn[106]	_	_	_	
 16-7	2298-2300	on	_	_	_	_	_	_	
 16-8	2301-2305	high	abstract[108]	new[108]	snnnn[108]	_	_	_	
 16-9	2306-2312	levels	abstract[108]	new[108]	snnnn[108]	_	_	_	

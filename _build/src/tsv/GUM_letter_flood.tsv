@@ -14,14 +14,14 @@
 1-3	15-21	REPORT	abstract[1]	new[1]	nnnnn[1]	_	_	_	
 
 #Text=JAMES ABOUREZK
-2-1	22-27	JAMES	person[3]	new[3]	sssss[3]	James_Abourezk[3]	coref	8-8[17_3]	
+2-1	22-27	JAMES	person[3]	new[3]	sssss[3]	James_Abourezk[3]	coref|bridge:entity-associative	8-8[17_3]|5-1[7_3]	
 2-2	28-36	ABOUREZK	person[3]	new[3]	sssss[3]	James_Abourezk[3]	_	_	
 
 #Text=2D DISTRICT , SOUTH DAKOTA
 3-1	37-39	2D	place[4]	new[4]	snnnn[4]	South_Dakota's_2nd_congressional_district[4]	_	_	
 3-2	40-48	DISTRICT	place[4]	new[4]	snnnn[4]	South_Dakota's_2nd_congressional_district[4]	_	_	
 3-3	49-50	,	place[4]	new[4]	snnnn[4]	South_Dakota's_2nd_congressional_district[4]	_	_	
-3-4	51-56	SOUTH	place[4]|place[5]	new[4]|new[5]	snnnn[4]|sssns[5]	South_Dakota's_2nd_congressional_district[4]|South_Dakota[5]	_	_	
+3-4	51-56	SOUTH	place[4]|place[5]	new[4]|new[5]	snnnn[4]|sssns[5]	South_Dakota's_2nd_congressional_district[4]|South_Dakota[5]	bridge:entity-meronomy	6-8[11_5]	
 3-5	57-63	DAKOTA	place[4]|place[5]	new[4]|new[5]	snnnn[4]|sssns[5]	South_Dakota's_2nd_congressional_district[4]|South_Dakota[5]	_	_	
 
 #Text=508 CANNON HOUSE OFFICE BUILDING
@@ -32,7 +32,7 @@
 4-5	88-96	BUILDING	place[6]	new[6]	nnnnn[6]	Cannon_House_Office_Building[6]	_	_	
 
 #Text=TELEPHONE : ( 202 ) 225-5185
-5-1	97-106	TELEPHONE	abstract[7]	new[7]	nnnnn[7]	_	coref	5-3[8_7]	
+5-1	97-106	TELEPHONE	abstract[7]	acc[7]	nnnnn[7]	_	coref	5-3[8_7]	
 5-2	107-108	:	_	_	_	_	_	_	
 5-3	109-110	(	abstract[8]	giv[8]	nnnnn[8]	_	_	_	
 5-4	111-114	202	abstract[8]	giv[8]	nnnnn[8]	_	_	_	
@@ -47,9 +47,9 @@
 6-5	144-147	THE	object[9]|person[10]	new[9]|new[10]	ssnsn[9]|sssss[10]	_	coref	7-1[13_10]	
 6-6	148-154	PEOPLE	object[9]|person[10]	new[9]|new[10]	ssnsn[9]|sssss[10]	_	_	_	
 6-7	155-157	OF	object[9]|person[10]	new[9]|new[10]	ssnsn[9]|sssss[10]	_	_	_	
-6-8	158-161	THE	object[9]|person[10]|place[11]	new[9]|new[10]|new[11]	ssnsn[9]|sssss[10]|nnnnn[11]	_	coref	10-12[26_11]	
-6-9	162-167	FLOOD	object[9]|person[10]|place[11]|event[12]	new[9]|new[10]|new[11]|new[12]	ssnsn[9]|sssss[10]|nnnnn[11]|sssss[12]	_	coref	17-24[64_12]	
-6-10	168-172	AREA	object[9]|person[10]|place[11]	new[9]|new[10]|new[11]	ssnsn[9]|sssss[10]|nnnnn[11]	_	_	_	
+6-8	158-161	THE	object[9]|person[10]|place[11]	new[9]|new[10]|acc[11]	ssnsn[9]|sssss[10]|nnnnn[11]	_	coref	10-12[26_11]	
+6-9	162-167	FLOOD	object[9]|person[10]|place[11]|event[12]	new[9]|new[10]|acc[11]|new[12]	ssnsn[9]|sssss[10]|nnnnn[11]|sssss[12]	_	coref	17-24[64_12]	
+6-10	168-172	AREA	object[9]|person[10]|place[11]	new[9]|new[10]|acc[11]	ssnsn[9]|sssss[10]|nnnnn[11]	_	_	_	
 
 #Text=Dear Friends :
 7-1	173-177	Dear	person[13]	new[13]	sssss[13]	_	coref	26-6[119_13]	
@@ -268,7 +268,7 @@
 18-4	1079-1083	this	person[65]|abstract[66]	giv[65]|giv[66]	nnnnn[65]|nnnnn[66]	_	_	_	
 18-5	1084-1093	situation	person[65]|abstract[66]	giv[65]|giv[66]	nnnnn[65]|nnnnn[66]	_	_	_	
 18-6	1094-1097	all	abstract[67]	new[67]	nnnnn[67]	_	_	_	
-18-7	1098-1101	the	abstract[67]|abstract[68]	new[67]|new[68]	nnnnn[67]|nnnnn[68]	_	coref	41-23[208_68]	
+18-7	1098-1101	the	abstract[67]|abstract[68]	new[67]|new[68]	nnnnn[67]|nnnnn[68]	_	coref|bridge:comparison-relative|bridge:comparison-relative|bridge:comparison-relative	41-23[208_68]|24-15[109_68]|25-17[116_68]|26-14[121_68]	
 18-8	1102-1109	present	abstract[67]|abstract[68]	new[67]|new[68]	nnnnn[67]|nnnnn[68]	_	_	_	
 18-9	1110-1113	law	abstract[67]|abstract[68]	new[67]|new[68]	nnnnn[67]|nnnnn[68]	_	_	_	
 18-10	1114-1120	offers	abstract[67]	new[67]	nnnnn[67]	_	_	_	
@@ -341,7 +341,7 @@
 20-18	1445-1450	could	abstract[82]	new[82]	nnnnn[82]	_	_	_	
 20-19	1451-1456	never	abstract[82]	new[82]	nnnnn[82]	_	_	_	
 20-20	1457-1461	pass	abstract[82]	new[82]	nnnnn[82]	_	_	_	
-20-21	1462-1465	the	abstract[82]|organization[85]	new[82]|acc[85]	nnnnn[82]|nnnnn[85]	United_States_Congress[85]	coref|bridge	25-5[111_85]|24-11[108_85]	
+20-21	1462-1465	the	abstract[82]|organization[85]	new[82]|acc[85]	nnnnn[82]|nnnnn[85]	United_States_Congress[85]	coref|bridge:set-subset;entity-associative	25-5[111_85]|24-11[108_85]	
 20-22	1466-1474	Congress	abstract[82]|organization[85]	new[82]|acc[85]	nnnnn[82]|nnnnn[85]	United_States_Congress[85]	_	_	
 20-23	1475-1476	.	_	_	_	_	_	_	
 
@@ -462,9 +462,9 @@
 24-12	2055-2066	Congressmen	person[108]	acc[108]	nnnnn[108]	_	_	_	
 24-13	2067-2071	felt	_	_	_	_	_	_	
 24-14	2072-2076	that	_	_	_	_	_	_	
-24-15	2077-2079	no	abstract[109]	giv[109]	nnnnn[109]	_	_	_	
-24-16	2080-2083	new	abstract[109]	giv[109]	nnnnn[109]	_	_	_	
-24-17	2084-2095	legislation	abstract[109]	giv[109]	nnnnn[109]	_	_	_	
+24-15	2077-2079	no	abstract[109]	acc[109]	nnnnn[109]	_	_	_	
+24-16	2080-2083	new	abstract[109]	acc[109]	nnnnn[109]	_	_	_	
+24-17	2084-2095	legislation	abstract[109]	acc[109]	nnnnn[109]	_	_	_	
 24-18	2096-2101	could	_	_	_	_	_	_	
 24-19	2102-2104	be	_	_	_	_	_	_	
 24-20	2105-2111	passed	_	_	_	_	_	_	
@@ -473,7 +473,7 @@
 #Text=As of today , the House has passed one of my bills , and prospects for at least some helpful new legislation are good .
 25-1	2114-2116	As	_	_	_	_	_	_	
 25-2	2117-2119	of	_	_	_	_	_	_	
-25-3	2120-2125	today	time[110]	acc[110]	nnnnn[110]	_	_	_	
+25-3	2120-2125	today	time[110]	acc[110]	nnnnn[110]	_	bridge:comparison-time	35-10[181_110]	
 25-4	2126-2127	,	_	_	_	_	_	_	
 25-5	2128-2131	the	organization[111]	acc[111]	nnnnn[111]	United_States_Congress[111]	coref	32-2[156_111]	
 25-6	2132-2137	House	organization[111]	acc[111]	nnnnn[111]	United_States_Congress[111]	_	_	
@@ -487,12 +487,12 @@
 25-14	2167-2170	and	_	_	_	_	_	_	
 25-15	2171-2180	prospects	abstract[115]	new[115]	nnnnn[115]	_	_	_	
 25-16	2181-2184	for	abstract[115]	new[115]	nnnnn[115]	_	_	_	
-25-17	2185-2187	at	abstract[115]|abstract[116]	new[115]|new[116]	nnnnn[115]|nnssn[116]	_	coref	26-33[125_116]	
-25-18	2188-2193	least	abstract[115]|abstract[116]	new[115]|new[116]	nnnnn[115]|nnssn[116]	_	_	_	
-25-19	2194-2198	some	abstract[115]|abstract[116]	new[115]|new[116]	nnnnn[115]|nnssn[116]	_	_	_	
-25-20	2199-2206	helpful	abstract[115]|abstract[116]	new[115]|new[116]	nnnnn[115]|nnssn[116]	_	_	_	
-25-21	2207-2210	new	abstract[115]|abstract[116]	new[115]|new[116]	nnnnn[115]|nnssn[116]	_	_	_	
-25-22	2211-2222	legislation	abstract[115]|abstract[116]	new[115]|new[116]	nnnnn[115]|nnssn[116]	_	_	_	
+25-17	2185-2187	at	abstract[115]|abstract[116]	new[115]|acc[116]	nnnnn[115]|nnssn[116]	_	coref	26-33[125_116]	
+25-18	2188-2193	least	abstract[115]|abstract[116]	new[115]|acc[116]	nnnnn[115]|nnssn[116]	_	_	_	
+25-19	2194-2198	some	abstract[115]|abstract[116]	new[115]|acc[116]	nnnnn[115]|nnssn[116]	_	_	_	
+25-20	2199-2206	helpful	abstract[115]|abstract[116]	new[115]|acc[116]	nnnnn[115]|nnssn[116]	_	_	_	
+25-21	2207-2210	new	abstract[115]|abstract[116]	new[115]|acc[116]	nnnnn[115]|nnssn[116]	_	_	_	
+25-22	2211-2222	legislation	abstract[115]|abstract[116]	new[115]|acc[116]	nnnnn[115]|nnssn[116]	_	_	_	
 25-23	2223-2226	are	_	_	_	_	_	_	
 25-24	2227-2231	good	_	_	_	_	_	_	
 25-25	2232-2233	.	_	_	_	_	_	_	
@@ -511,9 +511,9 @@
 26-11	2292-2300	disaster	abstract[118]|person[119]|event[120]	giv[118]|giv[119]|giv[120]	nnnnn[118]|sssss[119]|sssss[120]	_	_	_	
 26-12	2301-2305	know	abstract[118]	giv[118]	nnnnn[118]	_	_	_	
 26-13	2306-2313	exactly	abstract[118]	giv[118]	nnnnn[118]	_	_	_	
-26-14	2314-2318	what	abstract[118]|abstract[121]	giv[118]|new[121]	nnnnn[118]|nnnnn[121]	_	coref	26-22[122_121]	
-26-15	2319-2322	new	abstract[118]|abstract[121]	giv[118]|new[121]	nnnnn[118]|nnnnn[121]	_	_	_	
-26-16	2323-2327	laws	abstract[118]|abstract[121]	giv[118]|new[121]	nnnnn[118]|nnnnn[121]	_	_	_	
+26-14	2314-2318	what	abstract[118]|abstract[121]	giv[118]|acc[121]	nnnnn[118]|nnnnn[121]	_	coref	26-22[122_121]	
+26-15	2319-2322	new	abstract[118]|abstract[121]	giv[118]|acc[121]	nnnnn[118]|nnnnn[121]	_	_	_	
+26-16	2323-2327	laws	abstract[118]|abstract[121]	giv[118]|acc[121]	nnnnn[118]|nnnnn[121]	_	_	_	
 26-17	2328-2332	have	abstract[118]	giv[118]	nnnnn[118]	_	_	_	
 26-18	2333-2337	been	abstract[118]	giv[118]	nnnnn[118]	_	_	_	
 26-19	2338-2346	proposed	abstract[118]	giv[118]	nnnnn[118]	_	_	_	
@@ -652,7 +652,7 @@
 31-16	2928-2929	.	_	_	_	_	_	_	
 
 #Text=The House Committee rewrote my bill to provide for 3 % interest if the person repays the full loan , or 1 % interest if he chooses to not repay $ 2,500 of the loan .
-32-1	2930-2933	The	organization[155]	acc[155]	nnnnn[155]	_	bridge	59-12[292_155]	
+32-1	2930-2933	The	organization[155]	acc[155]	nnnnn[155]	_	bridge:set-member	59-12[292_155]	
 32-2	2934-2939	House	organization[155]|organization[156]	acc[155]|giv[156]	nnnnn[155]|nnnnn[156]	United_States_Congress[156]	coref	33-5[168_156]	
 32-3	2940-2949	Committee	organization[155]	acc[155]	nnnnn[155]	_	_	_	
 32-4	2950-2957	rewrote	_	_	_	_	_	_	
@@ -694,7 +694,7 @@
 33-2	3100-3104	bill	abstract[167]	giv[167]	sssss[167]	_	_	_	
 33-3	3105-3109	then	_	_	_	_	_	_	
 33-4	3110-3116	passed	_	_	_	_	_	_	
-33-5	3117-3120	the	organization[168]	giv[168]	nnnnn[168]	United_States_Congress[168]	coref	45-2[219_168]	
+33-5	3117-3120	the	organization[168]	giv[168]	nnnnn[168]	United_States_Congress[168]	coref|bridge:entity-associative	45-2[219_168]|35-4[179_168]	
 33-6	3121-3126	House	organization[168]	giv[168]	nnnnn[168]	United_States_Congress[168]	_	_	
 33-7	3127-3129	in	_	_	_	_	_	_	
 33-8	3130-3134	this	abstract[169]	new[169]	nnnnn[169]	_	coref	34-29[177_169]	
@@ -749,7 +749,7 @@
 35-7	3371-3375	pass	abstract[178]	giv[178]	nnnnn[178]	_	_	_	
 35-8	3376-3380	this	abstract[178]|abstract[180]	giv[178]|giv[180]	nnnnn[178]|sssss[180]	_	_	_	
 35-9	3381-3385	bill	abstract[178]|abstract[180]	giv[178]|giv[180]	nnnnn[178]|sssss[180]	_	_	_	
-35-10	3386-3390	this	abstract[178]|time[181]	giv[178]|acc[181]	nnnnn[178]|nnnnn[181]	_	bridge	45-13[223_181]	
+35-10	3386-3390	this	abstract[178]|time[181]	giv[178]|acc[181]	nnnnn[178]|nnnnn[181]	_	bridge:set-span-interval;comparison-time	45-13[223_181]	
 35-11	3391-3397	summer	abstract[178]|time[181]	giv[178]|acc[181]	nnnnn[178]|nnnnn[181]	_	_	_	
 35-12	3398-3401	are	_	_	_	_	_	_	
 35-13	3402-3406	good	_	_	_	_	_	_	
@@ -903,14 +903,14 @@
 42-10	4039-4040	.	_	_	_	_	_	_	
 
 #Text=It would provide loans on such generous terms that nearly everyone could afford to rebuild .
-43-1	4041-4043	It	abstract[212]	giv[212]	ssssn[212]	_	coref	44-3[216_212]	
+43-1	4041-4043	It	abstract[212]	giv[212]	ssssn[212]	_	coref|bridge:comparison-relative	44-3[216_212]|43-6[214_212]	
 43-2	4044-4049	would	_	_	_	_	_	_	
 43-3	4050-4057	provide	_	_	_	_	_	_	
 43-4	4058-4063	loans	abstract[213]	giv[213]	snnsn[213]	_	coref	46-11[227_213]	
 43-5	4064-4066	on	_	_	_	_	_	_	
-43-6	4067-4071	such	abstract[214]	new[214]	nnsnn[214]	_	_	_	
-43-7	4072-4080	generous	abstract[214]	new[214]	nnsnn[214]	_	_	_	
-43-8	4081-4086	terms	abstract[214]	new[214]	nnsnn[214]	_	_	_	
+43-6	4067-4071	such	abstract[214]	acc[214]	nnsnn[214]	_	_	_	
+43-7	4072-4080	generous	abstract[214]	acc[214]	nnsnn[214]	_	_	_	
+43-8	4081-4086	terms	abstract[214]	acc[214]	nnsnn[214]	_	_	_	
 43-9	4087-4091	that	_	_	_	_	_	_	
 43-10	4092-4098	nearly	person[215]	new[215]	nnnnn[215]	_	_	_	
 43-11	4099-4107	everyone	person[215]	new[215]	nnnnn[215]	_	_	_	

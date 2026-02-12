@@ -16,7 +16,7 @@
 1-5	30-33	S65	abstract[2]	new[2]	nnnnn[2]	_	_	_	
 
 #Text=January 20 , 2021
-2-1	34-41	January	time[4]	new[4]	nnnnn[4]	_	_	_	
+2-1	34-41	January	time[4]	new[4]	nnnnn[4]	_	bridge:set-span-interval;comparison-time|bridge:set-span-interval;comparison-time|bridge:comparison-time|bridge:entity-associative;comparison-time	5-1[11_4]|7-9[31_4]|34-94[230_4]|43-8[295_4]	
 2-2	42-44	20	time[4]	new[4]	nnnnn[4]	_	_	_	
 2-3	45-46	,	time[4]	new[4]	nnnnn[4]	_	_	_	
 2-4	47-51	2021	time[4]|time[5]	new[4]|new[5]	nnnnn[4]|nnnnn[5]	_	_	_	
@@ -43,10 +43,10 @@
 4-15	131-132	.	_	_	_	_	_	_	
 
 #Text=A few hours ago , on the West Front of this citadel of democracy , Joe Biden and KAMALA HARRIS were administered the oaths of Office to the Presidency and Vice Presidency of the United States .
-5-1	133-134	A	time[11]	new[11]	nnnnn[11]	_	_	_	
-5-2	135-138	few	time[11]	new[11]	nnnnn[11]	_	_	_	
-5-3	139-144	hours	time[11]	new[11]	nnnnn[11]	_	_	_	
-5-4	145-148	ago	time[11]	new[11]	nnnnn[11]	_	_	_	
+5-1	133-134	A	time[11]	acc[11]	nnnnn[11]	_	_	_	
+5-2	135-138	few	time[11]	acc[11]	nnnnn[11]	_	_	_	
+5-3	139-144	hours	time[11]	acc[11]	nnnnn[11]	_	_	_	
+5-4	145-148	ago	time[11]	acc[11]	nnnnn[11]	_	_	_	
 5-5	149-150	,	_	_	_	_	_	_	
 5-6	151-153	on	_	_	_	_	_	_	
 5-7	154-157	the	place[12]	new[12]	nnnnn[12]	United_States_Capitol[12]	_	_	
@@ -65,7 +65,7 @@
 5-20	221-227	HARRIS	person[16]	new[16]	ssssn[16]	Kamala_Harris[16]	_	_	
 5-21	228-232	were	_	_	_	_	_	_	
 5-22	233-245	administered	_	_	_	_	_	_	
-5-23	246-249	the	abstract[17]	new[17]	nnnnn[17]	_	bridge	12-35[63_17]	
+5-23	246-249	the	abstract[17]	new[17]	nnnnn[17]	_	bridge:set-member	12-35[63_17]	
 5-24	250-255	oaths	abstract[17]	new[17]	nnnnn[17]	_	_	_	
 5-25	256-258	of	abstract[17]	new[17]	nnnnn[17]	_	_	_	
 5-26	259-265	Office	abstract[17]	new[17]	nnnnn[17]	_	_	_	
@@ -177,7 +177,7 @@
 9-14	742-746	hope	abstract[41]	giv[41]	nnnnn[41]	_	_	_	
 9-15	747-749	we	abstract[41]|person[42]	giv[41]|giv[42]	nnnnn[41]|nnnnn[42]	_	coref	12-46[66_42]	
 9-16	750-754	feel	abstract[41]	giv[41]	nnnnn[41]	_	_	_	
-9-17	755-760	today	abstract[41]|time[43]	giv[41]|giv[43]	nnnnn[41]|nnnnn[43]	_	coref	13-12[73_43]	
+9-17	755-760	today	abstract[41]|time[43]	giv[41]|giv[43]	nnnnn[41]|nnnnn[43]	_	coref|bridge:comparison-time|bridge:comparison-time	13-12[73_43]|12-18[59_43]|13-7[71_43]	
 9-18	761-762	,	_	_	_	_	_	_	
 9-19	763-765	is	_	_	_	_	_	_	
 9-20	766-767	a	abstract[44]	giv[44]	nnnnn[44]	_	_	_	
@@ -196,7 +196,7 @@
 #Text=This was an inauguration unlike most others .
 10-1	817-821	This	event[46]	acc[46]	sssnn[46]	_	coref	10-3[47_46]	
 10-2	822-825	was	_	_	_	_	_	_	
-10-3	826-828	an	event[47]	giv[47]	sssnn[47]	_	bridge	10-6[48_47]	
+10-3	826-828	an	event[47]	giv[47]	sssnn[47]	_	bridge:comparison-sense;comparison-relative	10-6[48_47]	
 10-4	829-841	inauguration	event[47]	giv[47]	sssnn[47]	_	_	_	
 10-5	842-848	unlike	event[47]	giv[47]	sssnn[47]	_	_	_	
 10-6	849-853	most	event[47]|event[48]	giv[47]|acc[48]	sssnn[47]|nnnnn[48]	_	_	_	
@@ -218,7 +218,7 @@
 11-12	928-929	a	abstract[51]	new[51]	nnnnn[51]	_	_	_	
 11-13	930-938	reminder	abstract[51]	new[51]	nnnnn[51]	_	_	_	
 11-14	939-943	that	abstract[51]	new[51]	nnnnn[51]	_	_	_	
-11-15	944-947	our	abstract[51]|place[52]	new[51]|new[52]	nnnnn[51]|nnnsn[52]	United_States[52]	coref|bridge	17-9[101_52]|13-21[76_52]	
+11-15	944-947	our	abstract[51]|place[52]	new[51]|new[52]	nnnnn[51]|nnnsn[52]	United_States[52]	coref|bridge:entity-associative|bridge:entity-associative|bridge:entity-associative|bridge:entity-associative|bridge:entity-associative	17-9[101_52]|12-4[55_52]|12-9[56_52]|12-12[57_52]|13-21[76_52]|13-31[78_52]	
 11-16	948-954	Nation	abstract[51]|place[52]	new[51]|new[52]	nnnnn[51]|nnnsn[52]	United_States[52]	_	_	
 11-17	955-957	is	abstract[51]	new[51]	nnnnn[51]	_	_	_	
 11-18	958-963	still	abstract[51]	new[51]	nnnnn[51]	_	_	_	
@@ -235,23 +235,23 @@
 12-1	1001-1004	The	abstract[54]	new[54]	nnnnn[54]	_	_	_	
 12-2	1005-1013	presence	abstract[54]	new[54]	nnnnn[54]	_	_	_	
 12-3	1014-1016	of	abstract[54]	new[54]	nnnnn[54]	_	_	_	
-12-4	1017-1026	thousands	abstract[54]|person[55]	new[54]|new[55]	nnnnn[54]|nnnnn[55]	_	_	_	
-12-5	1027-1029	of	abstract[54]|person[55]	new[54]|new[55]	nnnnn[54]|nnnnn[55]	_	_	_	
-12-6	1030-1038	National	abstract[54]|person[55]	new[54]|new[55]	nnnnn[54]|nnnnn[55]	_	_	_	
-12-7	1039-1048	Guardsmen	abstract[54]|person[55]	new[54]|new[55]	nnnnn[54]|nnnnn[55]	_	_	_	
+12-4	1017-1026	thousands	abstract[54]|person[55]	new[54]|acc[55]	nnnnn[54]|nnnnn[55]	_	_	_	
+12-5	1027-1029	of	abstract[54]|person[55]	new[54]|acc[55]	nnnnn[54]|nnnnn[55]	_	_	_	
+12-6	1030-1038	National	abstract[54]|person[55]	new[54]|acc[55]	nnnnn[54]|nnnnn[55]	_	_	_	
+12-7	1039-1048	Guardsmen	abstract[54]|person[55]	new[54]|acc[55]	nnnnn[54]|nnnnn[55]	_	_	_	
 12-8	1049-1050	,	abstract[54]	new[54]	nnnnn[54]	_	_	_	
-12-9	1051-1057	police	abstract[54]|organization[56]	new[54]|new[56]	nnnnn[54]|nnnnn[56]	_	_	_	
+12-9	1051-1057	police	abstract[54]|organization[56]	new[54]|acc[56]	nnnnn[54]|nnnnn[56]	_	_	_	
 12-10	1058-1059	,	abstract[54]	new[54]	nnnnn[54]	_	_	_	
 12-11	1060-1063	and	abstract[54]	new[54]	nnnnn[54]	_	_	_	
-12-12	1064-1070	Secret	abstract[54]|organization[57]	new[54]|new[57]	nnnnn[54]|nnnnn[57]	United_States_Secret_Service[57]	_	_	
-12-13	1071-1078	Service	abstract[54]|organization[57]	new[54]|new[57]	nnnnn[54]|nnnnn[57]	United_States_Secret_Service[57]	_	_	
+12-12	1064-1070	Secret	abstract[54]|organization[57]	new[54]|acc[57]	nnnnn[54]|nnnnn[57]	United_States_Secret_Service[57]	_	_	
+12-13	1071-1078	Service	abstract[54]|organization[57]	new[54]|acc[57]	nnnnn[54]|nnnnn[57]	United_States_Secret_Service[57]	_	_	
 12-14	1079-1082	was	_	_	_	_	_	_	
 12-15	1083-1084	a	abstract[58]	new[58]	nnnnn[58]	_	_	_	
 12-16	1085-1093	reminder	abstract[58]	new[58]	nnnnn[58]	_	_	_	
 12-17	1094-1098	that	abstract[58]	new[58]	nnnnn[58]	_	_	_	
-12-18	1099-1100	2	abstract[58]|time[59]	new[58]|new[59]	nnnnn[58]|nnnnn[59]	_	_	_	
-12-19	1101-1106	weeks	abstract[58]|time[59]	new[58]|new[59]	nnnnn[58]|nnnnn[59]	_	_	_	
-12-20	1107-1110	ago	abstract[58]|time[59]	new[58]|new[59]	nnnnn[58]|nnnnn[59]	_	_	_	
+12-18	1099-1100	2	abstract[58]|time[59]	new[58]|acc[59]	nnnnn[58]|nnnnn[59]	_	_	_	
+12-19	1101-1106	weeks	abstract[58]|time[59]	new[58]|acc[59]	nnnnn[58]|nnnnn[59]	_	_	_	
+12-20	1107-1110	ago	abstract[58]|time[59]	new[58]|acc[59]	nnnnn[58]|nnnnn[59]	_	_	_	
 12-21	1111-1112	,	abstract[58]	new[58]	nnnnn[58]	_	_	_	
 12-22	1113-1115	in	abstract[58]	new[58]	nnnnn[58]	_	_	_	
 12-23	1116-1120	this	abstract[58]|place[60]	new[58]|new[60]	nnnnn[58]|nnnnn[60]	_	coref	31-13[196_60]	
@@ -303,10 +303,10 @@
 13-4	1338-1347	President	person[70]	giv[70]	sssss[70]	Joe_Biden[70]	coref	17-1[99_70]	
 13-5	1348-1353	Biden	person[70]	giv[70]	sssss[70]	Joe_Biden[70]	_	_	
 13-6	1354-1358	said	_	_	_	_	_	_	
-13-7	1359-1360	a	time[71]	new[71]	nnnnn[71]	_	_	_	
-13-8	1361-1364	few	time[71]	new[71]	nnnnn[71]	_	_	_	
-13-9	1365-1370	hours	time[71]	new[71]	nnnnn[71]	_	_	_	
-13-10	1371-1374	ago	time[71]	new[71]	nnnnn[71]	_	_	_	
+13-7	1359-1360	a	time[71]	acc[71]	nnnnn[71]	_	_	_	
+13-8	1361-1364	few	time[71]	acc[71]	nnnnn[71]	_	_	_	
+13-9	1365-1370	hours	time[71]	acc[71]	nnnnn[71]	_	_	_	
+13-10	1371-1374	ago	time[71]	acc[71]	nnnnn[71]	_	_	_	
 13-11	1375-1376	,	_	_	_	_	_	_	
 13-12	1377-1382	today	event[72]|time[73]	new[72]|giv[73]	nnnnn[72]|nnnnn[73]	_	coref|coref	15-2[85_72]|20-1[116_73]	
 13-13	1383-1384	,	event[72]	new[72]	nnnnn[72]	_	_	_	
@@ -327,7 +327,7 @@
 13-28	1455-1463	peaceful	event[72]|event[77]	new[72]|new[77]	nnnnn[72]|nnnsn[77]	_	_	_	
 13-29	1464-1472	transfer	event[72]|event[77]	new[72]|new[77]	nnnnn[72]|nnnsn[77]	_	_	_	
 13-30	1473-1475	of	event[72]|event[77]	new[72]|new[77]	nnnnn[72]|nnnsn[77]	_	_	_	
-13-31	1476-1481	power	event[72]|event[77]|abstract[78]	new[72]|new[77]|new[78]	nnnnn[72]|nnnsn[77]|nnnsn[78]	_	_	_	
+13-31	1476-1481	power	event[72]|event[77]|abstract[78]	new[72]|new[77]|acc[78]	nnnnn[72]|nnnsn[77]|nnnsn[78]	_	_	_	
 13-32	1482-1491	fulfilled	event[72]	new[72]	nnnnn[72]	_	_	_	
 13-33	1492-1493	.	_	_	_	_	_	_	
 
@@ -441,7 +441,7 @@
 19-4	1978-1984	course	_	_	_	_	_	_	
 19-5	1985-1986	,	_	_	_	_	_	_	
 19-6	1987-1989	in	_	_	_	_	_	_	
-19-7	1990-1994	more	abstract[105]	new[105]	nnnnn[105]	_	bridge	19-10[106_105]	
+19-7	1990-1994	more	abstract[105]	new[105]	nnnnn[105]	_	bridge:comparison-sense	19-10[106_105]	
 19-8	1995-1999	ways	abstract[105]	new[105]	nnnnn[105]	_	_	_	
 19-9	2000-2004	than	abstract[105]	new[105]	nnnnn[105]	_	_	_	
 19-10	2005-2008	one	abstract[105]|abstract[106]	new[105]|acc[106]	nnnnn[105]|nnnnn[106]	_	_	_	
@@ -484,7 +484,7 @@
 19-47	2172-2176	Vice	person[112]|abstract[113]	new[112]|new[113]	ssssn[112]|nnnnn[113]	Vice_President_of_the_United_States[113]	_	_	
 19-48	2177-2187	Presidency	person[112]|abstract[113]	new[112]|new[113]	ssssn[112]|nnnnn[113]	Vice_President_of_the_United_States[113]	_	_	
 19-49	2188-2190	in	person[112]	new[112]	ssssn[112]	_	_	_	
-19-50	2191-2194	our	person[112]|abstract[114]|place[115]	new[112]|new[114]|new[115]	ssssn[112]|nnnnn[114]|nnnsn[115]	United_States[115]	coref	20-21[124_115]	
+19-50	2191-2194	our	person[112]|abstract[114]|place[115]	new[112]|new[114]|new[115]	ssssn[112]|nnnnn[114]|nnnsn[115]	United_States[115]	coref|bridge:entity-associative	20-21[124_115]|20-9[121_115]	
 19-51	2195-2201	Nation	person[112]|abstract[114]|place[115]	new[112]|new[114]|new[115]	ssssn[112]|nnnnn[114]|nnnsn[115]	United_States[115]	_	_	
 19-52	2202-2204	’s	person[112]|abstract[114]|place[115]	new[112]|new[114]|new[115]	ssssn[112]|nnnnn[114]|nnnsn[115]	United_States[115]	_	_	
 19-53	2205-2212	history	person[112]|abstract[114]	new[112]|new[114]	ssssn[112]|nnnnn[114]	_	_	_	
@@ -499,19 +499,19 @@
 20-6	2237-2240	our	abstract[117]|abstract[118]|abstract[119]|person[120]	new[117]|new[118]|giv[119]|giv[120]	nnnnn[117]|nnnnn[118]|nnnns[119]|nnnnn[120]	_	coref	20-18[123_120]	
 20-7	2241-2250	democracy	abstract[117]|abstract[118]|abstract[119]	new[117]|new[118]|giv[119]	nnnnn[117]|nnnnn[118]|nnnns[119]	_	_	_	
 20-8	2251-2255	from	abstract[117]|abstract[118]	new[117]|new[118]	nnnnn[117]|nnnnn[118]	_	_	_	
-20-9	2256-2259	the	abstract[117]|abstract[118]|abstract[121]	new[117]|new[118]|new[121]	nnnnn[117]|nnnnn[118]|nnnnn[121]	President_of_the_United_States[121]	_	_	
-20-10	2260-2270	Presidency	abstract[117]|abstract[118]|abstract[121]	new[117]|new[118]|new[121]	nnnnn[117]|nnnnn[118]|nnnnn[121]	President_of_the_United_States[121]	_	_	
-20-11	2271-2277	itself	abstract[117]|abstract[118]|abstract[121]	new[117]|new[118]|new[121]	nnnnn[117]|nnnnn[118]|nnnnn[121]	President_of_the_United_States[121]	_	_	
+20-9	2256-2259	the	abstract[117]|abstract[118]|abstract[121]	new[117]|new[118]|acc[121]	nnnnn[117]|nnnnn[118]|nnnnn[121]	President_of_the_United_States[121]	_	_	
+20-10	2260-2270	Presidency	abstract[117]|abstract[118]|abstract[121]	new[117]|new[118]|acc[121]	nnnnn[117]|nnnnn[118]|nnnnn[121]	President_of_the_United_States[121]	_	_	
+20-11	2271-2277	itself	abstract[117]|abstract[118]|abstract[121]	new[117]|new[118]|acc[121]	nnnnn[117]|nnnnn[118]|nnnnn[121]	President_of_the_United_States[121]	_	_	
 20-12	2278-2281	has	_	_	_	_	_	_	
 20-13	2282-2287	ended	_	_	_	_	_	_	
 20-14	2288-2289	,	_	_	_	_	_	_	
 20-15	2290-2293	but	_	_	_	_	_	_	
-20-16	2294-2297	the	abstract[122]	new[122]	nsnsn[122]	_	coref	50-1[327_122]	
+20-16	2294-2297	the	abstract[122]	new[122]	nsnsn[122]	_	coref|bridge:entity-associative	50-1[327_122]|22-10[140_122]	
 20-17	2298-2308	challenges	abstract[122]	new[122]	nsnsn[122]	_	_	_	
 20-18	2309-2311	we	abstract[122]|person[123]	new[122]|giv[123]	nsnsn[122]|nnnnn[123]	_	coref	21-29[134_123]	
 20-19	2312-2316	face	abstract[122]	new[122]	nsnsn[122]	_	_	_	
 20-20	2317-2319	as	abstract[122]	new[122]	nsnsn[122]	_	_	_	
-20-21	2320-2321	a	abstract[122]|place[124]	new[122]|new[124]	nsnsn[122]|nnnsn[124]	_	coref	25-7[164_124]	
+20-21	2320-2321	a	abstract[122]|place[124]	new[122]|new[124]	nsnsn[122]|nnnsn[124]	_	coref|bridge:entity-associative	25-7[164_124]|21-34[136_124]	
 20-22	2322-2328	nation	abstract[122]|place[124]	new[122]|new[124]	nsnsn[122]|nnnsn[124]	_	_	_	
 20-23	2329-2335	remain	_	_	_	_	_	_	
 20-24	2336-2337	.	_	_	_	_	_	_	
@@ -550,9 +550,9 @@
 21-31	2496-2499	the	abstract[135]	new[135]	nnnnn[135]	_	_	_	
 21-32	2500-2504	work	abstract[135]	new[135]	nnnnn[135]	_	_	_	
 21-33	2505-2507	of	abstract[135]	new[135]	nnnnn[135]	_	_	_	
-21-34	2508-2511	the	abstract[135]|organization[136]	new[135]|new[136]	nnnnn[135]|snnnn[136]	117th_United_States_Congress[136]	_	_	
-21-35	2512-2517	117th	abstract[135]|organization[136]	new[135]|new[136]	nnnnn[135]|snnnn[136]	117th_United_States_Congress[136]	_	_	
-21-36	2518-2526	Congress	abstract[135]|organization[136]	new[135]|new[136]	nnnnn[135]|snnnn[136]	117th_United_States_Congress[136]	_	_	
+21-34	2508-2511	the	abstract[135]|organization[136]	new[135]|acc[136]	nnnnn[135]|snnnn[136]	117th_United_States_Congress[136]	bridge:entity-associative	24-3[159_136]	
+21-35	2512-2517	117th	abstract[135]|organization[136]	new[135]|acc[136]	nnnnn[135]|snnnn[136]	117th_United_States_Congress[136]	_	_	
+21-36	2518-2526	Congress	abstract[135]|organization[136]	new[135]|acc[136]	nnnnn[135]|snnnn[136]	117th_United_States_Congress[136]	_	_	
 21-37	2527-2528	.	_	_	_	_	_	_	
 
 #Text=In his inaugural address , President Biden spoke to this moment — a moment of great challenge — and told us two simple truths : One , that our responsibilities are numerous , and , two , it will take unity — unity of spirit , unity of purpose — to fulfill them .
@@ -565,8 +565,8 @@
 22-7	2566-2571	Biden	person[139]	giv[139]	sssss[139]	Joe_Biden[139]	_	_	
 22-8	2572-2577	spoke	_	_	_	_	_	_	
 22-9	2578-2580	to	_	_	_	_	_	_	
-22-10	2581-2585	this	time[140]	new[140]	nnnnn[140]	_	coref	22-13[141_140]	
-22-11	2586-2592	moment	time[140]	new[140]	nnnnn[140]	_	_	_	
+22-10	2581-2585	this	time[140]	acc[140]	nnnnn[140]	_	coref	22-13[141_140]	
+22-11	2586-2592	moment	time[140]	acc[140]	nnnnn[140]	_	_	_	
 22-12	2593-2594	—	_	_	_	_	_	_	
 22-13	2595-2596	a	time[141]	giv[141]	nnnnn[141]	_	_	_	
 22-14	2597-2603	moment	time[141]	giv[141]	nnnnn[141]	_	_	_	
@@ -584,7 +584,7 @@
 22-26	2657-2660	One	_	_	_	_	_	_	
 22-27	2661-2662	,	_	_	_	_	_	_	
 22-28	2663-2667	that	_	_	_	_	_	_	
-22-29	2668-2671	our	abstract[145]|person[146]	new[145]|giv[146]	nnnnn[145]|nnnnn[146]	_	coref|coref	22-53[154_145]|23-4[156_146]	
+22-29	2668-2671	our	abstract[145]|person[146]	new[145]|giv[146]	nnnnn[145]|nnnnn[146]	_	coref|coref|bridge:entity-associative|bridge:entity-associative	22-53[154_145]|23-4[156_146]|22-45[150_146]|22-49[152_146]	
 22-30	2672-2688	responsibilities	abstract[145]	new[145]	nnnnn[145]	_	_	_	
 22-31	2689-2692	are	_	_	_	_	_	_	
 22-32	2693-2701	numerous	_	_	_	_	_	_	
@@ -600,11 +600,11 @@
 22-42	2735-2736	—	_	_	_	_	_	_	
 22-43	2737-2742	unity	abstract[149]	giv[149]	nnnnn[149]	_	_	_	
 22-44	2743-2745	of	abstract[149]	giv[149]	nnnnn[149]	_	_	_	
-22-45	2746-2752	spirit	abstract[149]|abstract[150]	giv[149]|new[150]	nnnnn[149]|nnnnn[150]	_	_	_	
+22-45	2746-2752	spirit	abstract[149]|abstract[150]	giv[149]|acc[150]	nnnnn[149]|nnnnn[150]	_	_	_	
 22-46	2753-2754	,	_	_	_	_	_	_	
 22-47	2755-2760	unity	abstract[151]	giv[151]	nnnnn[151]	_	_	_	
 22-48	2761-2763	of	abstract[151]	giv[151]	nnnnn[151]	_	_	_	
-22-49	2764-2771	purpose	abstract[151]|abstract[152]	giv[151]|new[152]	nnnnn[151]|nnnnn[152]	_	_	_	
+22-49	2764-2771	purpose	abstract[151]|abstract[152]	giv[151]|acc[152]	nnnnn[151]|nnnnn[152]	_	_	_	
 22-50	2772-2773	—	_	_	_	_	_	_	
 22-51	2774-2776	to	event[153]	giv[153]	nnnnn[153]	_	_	_	
 22-52	2777-2784	fulfill	event[153]	giv[153]	nnnnn[153]	_	_	_	
@@ -626,9 +626,9 @@
 #Text=We have a lengthy agenda , and we need to get it done together .
 24-1	2840-2842	We	person[158]	giv[158]	nnnnn[158]	_	coref	24-8[160_158]	
 24-2	2843-2847	have	_	_	_	_	_	_	
-24-3	2848-2849	a	abstract[159]	new[159]	nnnnn[159]	_	coref	24-12[161_159]	
-24-4	2850-2857	lengthy	abstract[159]	new[159]	nnnnn[159]	_	_	_	
-24-5	2858-2864	agenda	abstract[159]	new[159]	nnnnn[159]	_	_	_	
+24-3	2848-2849	a	abstract[159]	acc[159]	nnnnn[159]	_	coref	24-12[161_159]	
+24-4	2850-2857	lengthy	abstract[159]	acc[159]	nnnnn[159]	_	_	_	
+24-5	2858-2864	agenda	abstract[159]	acc[159]	nnnnn[159]	_	_	_	
 24-6	2865-2866	,	_	_	_	_	_	_	
 24-7	2867-2870	and	_	_	_	_	_	_	
 24-8	2871-2873	we	person[160]	giv[160]	nnnnn[160]	_	coref	25-7[165_160]	
@@ -699,7 +699,7 @@
 27-12	3156-3161	Biden	event[176]|person[177]	new[176]|giv[177]	nnnnn[176]|sssss[177]	Joe_Biden[177]	_	_	
 27-13	3162-3171	described	event[176]	new[176]	nnnnn[176]	_	_	_	
 27-14	3172-3173	—	_	_	_	_	_	_	
-27-15	3174-3183	restoring	event[178]	giv[178]	nnnnn[178]	_	_	_	
+27-15	3174-3183	restoring	event[178]	giv[178]	nnnnn[178]	_	bridge:entity-associative	28-1[181_178]	
 27-16	3184-3187	the	event[178]|abstract[179]	giv[178]|new[179]	nnnnn[178]|nnnnn[179]	_	_	_	
 27-17	3188-3197	greatness	event[178]|abstract[179]	giv[178]|new[179]	nnnnn[178]|nnnnn[179]	_	_	_	
 27-18	3198-3201	and	event[178]|abstract[179]	giv[178]|new[179]	nnnnn[178]|nnnnn[179]	_	_	_	
@@ -763,21 +763,21 @@
 30-19	3450-3454	only	event[191]	new[191]	nnnnn[191]	_	_	_	
 30-20	3455-3463	swearing	event[191]	new[191]	nnnnn[191]	_	_	_	
 30-21	3464-3466	in	event[191]	new[191]	nnnnn[191]	_	_	_	
-30-22	3467-3472	today	event[191]|time[192]	new[191]|giv[192]	nnnnn[191]|nnnnn[192]	_	coref	34-79[226_192]	
+30-22	3467-3472	today	event[191]|time[192]	new[191]|giv[192]	nnnnn[191]|nnnnn[192]	_	coref|bridge:set-span-interval;comparison-time	34-79[226_192]|31-1[193_192]	
 30-23	3473-3474	.	_	_	_	_	_	_	
 
 #Text=A few moments ago , the Senate welcomed three new Members to this Chamber .
-31-1	3475-3476	A	time[193]	new[193]	nnnnn[193]	_	_	_	
-31-2	3477-3480	few	time[193]	new[193]	nnnnn[193]	_	_	_	
-31-3	3481-3488	moments	time[193]	new[193]	nnnnn[193]	_	_	_	
-31-4	3489-3492	ago	time[193]	new[193]	nnnnn[193]	_	_	_	
+31-1	3475-3476	A	time[193]	acc[193]	nnnnn[193]	_	_	_	
+31-2	3477-3480	few	time[193]	acc[193]	nnnnn[193]	_	_	_	
+31-3	3481-3488	moments	time[193]	acc[193]	nnnnn[193]	_	_	_	
+31-4	3489-3492	ago	time[193]	acc[193]	nnnnn[193]	_	_	_	
 31-5	3493-3494	,	_	_	_	_	_	_	
-31-6	3495-3498	the	organization[194]	new[194]	ssssn[194]	United_States_Senate[194]	coref	33-25[209_194]	
+31-6	3495-3498	the	organization[194]	new[194]	ssssn[194]	United_States_Senate[194]	coref|bridge:set-member	33-25[209_194]|31-9[195_194]	
 31-7	3499-3505	Senate	organization[194]	new[194]	ssssn[194]	United_States_Senate[194]	_	_	
 31-8	3506-3514	welcomed	_	_	_	_	_	_	
-31-9	3515-3520	three	person[195]	new[195]	ssnnn[195]	_	coref	32-8[198_195]	
-31-10	3521-3524	new	person[195]	new[195]	ssnnn[195]	_	_	_	
-31-11	3525-3532	Members	person[195]	new[195]	ssnnn[195]	_	_	_	
+31-9	3515-3520	three	person[195]	acc[195]	ssnnn[195]	_	coref	32-8[198_195]	
+31-10	3521-3524	new	person[195]	acc[195]	ssnnn[195]	_	_	_	
+31-11	3525-3532	Members	person[195]	acc[195]	ssnnn[195]	_	_	_	
 31-12	3533-3535	to	_	_	_	_	_	_	
 31-13	3536-3540	this	place[196]	new[196]	nnnnn[196]	United_States_Senate_chamber[196]	coref	34-44[219_196]	
 31-14	3541-3548	Chamber	place[196]	new[196]	nnnnn[196]	United_States_Senate_chamber[196]	_	_	
@@ -828,7 +828,7 @@
 33-22	3759-3760	a	abstract[208]	new[208]	nnsnn[208]	_	coref	38-8[260_208]	
 33-23	3761-3764	new	abstract[208]	new[208]	nnsnn[208]	_	_	_	
 33-24	3765-3775	Democratic	abstract[208]	new[208]	nnsnn[208]	_	_	_	
-33-25	3776-3782	Senate	abstract[208]|organization[209]	new[208]|giv[209]	nnsnn[208]|ssssn[209]	_	coref	36-10[240_209]	
+33-25	3776-3782	Senate	abstract[208]|organization[209]	new[208]|giv[209]	nnsnn[208]|ssssn[209]	_	coref|bridge:entity-associative	36-10[240_209]|36-2[238_209]	
 33-26	3783-3791	majority	abstract[208]	new[208]	nnsnn[208]	_	_	_	
 33-27	3792-3793	.	_	_	_	_	_	_	
 
@@ -926,8 +926,8 @@
 34-91	4288-4289	,	person[229]	new[229]	nnnnn[229]	_	_	_	
 34-92	4290-4293	who	person[229]	new[229]	nnnnn[229]	_	_	_	
 34-93	4294-4295	,	person[229]	new[229]	nnnnn[229]	_	_	_	
-34-94	4296-4303	decades	person[229]|time[230]	new[229]|new[230]	nnnnn[229]|nnnnn[230]	_	_	_	
-34-95	4304-4307	ago	person[229]|time[230]	new[229]|new[230]	nnnnn[229]|nnnnn[230]	_	_	_	
+34-94	4296-4303	decades	person[229]|time[230]	new[229]|acc[230]	nnnnn[229]|nnnnn[230]	_	_	_	
+34-95	4304-4307	ago	person[229]|time[230]	new[229]|acc[230]	nnnnn[229]|nnnnn[230]	_	_	_	
 34-96	4308-4309	,	person[229]	new[229]	nnnnn[229]	_	_	_	
 34-97	4310-4316	formed	person[229]	new[229]	nnnnn[229]	_	_	_	
 34-98	4317-4318	a	person[229]|abstract[231]	new[229]|new[231]	nnnnn[229]|nnnnn[231]	_	_	_	
@@ -968,13 +968,13 @@
 
 #Text=With the swearing in of these three Senators , the Senate will turn to Democratic control , for which I deeply thank my colleagues .
 36-1	4484-4488	With	_	_	_	_	_	_	
-36-2	4489-4492	the	event[238]	new[238]	nnnnn[238]	_	_	_	
-36-3	4493-4501	swearing	event[238]	new[238]	nnnnn[238]	_	_	_	
-36-4	4502-4504	in	event[238]	new[238]	nnnnn[238]	_	_	_	
-36-5	4505-4507	of	event[238]	new[238]	nnnnn[238]	_	_	_	
-36-6	4508-4513	these	event[238]|person[239]	new[238]|new[239]	nnnnn[238]|ssnnn[239]	_	_	_	
-36-7	4514-4519	three	event[238]|person[239]	new[238]|new[239]	nnnnn[238]|ssnnn[239]	_	_	_	
-36-8	4520-4528	Senators	event[238]|person[239]	new[238]|new[239]	nnnnn[238]|ssnnn[239]	_	_	_	
+36-2	4489-4492	the	event[238]	acc[238]	nnnnn[238]	_	_	_	
+36-3	4493-4501	swearing	event[238]	acc[238]	nnnnn[238]	_	_	_	
+36-4	4502-4504	in	event[238]	acc[238]	nnnnn[238]	_	_	_	
+36-5	4505-4507	of	event[238]	acc[238]	nnnnn[238]	_	_	_	
+36-6	4508-4513	these	event[238]|person[239]	acc[238]|new[239]	nnnnn[238]|ssnnn[239]	_	_	_	
+36-7	4514-4519	three	event[238]|person[239]	acc[238]|new[239]	nnnnn[238]|ssnnn[239]	_	_	_	
+36-8	4520-4528	Senators	event[238]|person[239]	acc[238]|new[239]	nnnnn[238]|ssnnn[239]	_	_	_	
 36-9	4529-4530	,	_	_	_	_	_	_	
 36-10	4531-4534	the	organization[240]	giv[240]	ssssn[240]	United_States_Senate[240]	coref	38-10[261_240]	
 36-11	4535-4541	Senate	organization[240]	giv[240]	ssssn[240]	United_States_Senate[240]	_	_	
@@ -1140,7 +1140,7 @@
 42-4	5288-5295	address	_	_	_	_	_	_	
 42-5	5296-5299	the	abstract[286]	new[286]	nnnnn[286]	_	_	_	
 42-6	5300-5310	challenges	abstract[286]	new[286]	nnnnn[286]	_	_	_	
-42-7	5311-5314	our	abstract[286]|place[287]|person[288]	new[286]|giv[287]|giv[288]	nnnnn[286]|nnnsn[287]|nnnnn[288]	_	coref|coref	44-20[310_287]|44-24[312_288]	
+42-7	5311-5314	our	abstract[286]|place[287]|person[288]	new[286]|giv[287]|giv[288]	nnnnn[286]|nnnsn[287]|nnnnn[288]	_	coref|coref|bridge:entity-associative	44-20[310_287]|44-24[312_288]|43-50[306_287]	
 42-8	5315-5322	country	abstract[286]|place[287]	new[286]|giv[287]	nnnnn[286]|nnnsn[287]	_	_	_	
 42-9	5323-5328	faces	abstract[286]	new[286]	nnnnn[286]	_	_	_	
 42-10	5329-5333	head	_	_	_	_	_	_	
@@ -1169,8 +1169,8 @@
 43-5	5442-5445	the	abstract[294]	new[294]	nnnnn[294]	_	_	_	
 43-6	5446-5452	perils	abstract[294]	new[294]	nnnnn[294]	_	_	_	
 43-7	5453-5455	of	abstract[294]	new[294]	nnnnn[294]	_	_	_	
-43-8	5456-5459	the	abstract[294]|time[295]	new[294]|new[295]	nnnnn[294]|nnnnn[295]	_	_	_	
-43-9	5460-5466	moment	abstract[294]|time[295]	new[294]|new[295]	nnnnn[294]|nnnnn[295]	_	_	_	
+43-8	5456-5459	the	abstract[294]|time[295]	new[294]|acc[295]	nnnnn[294]|nnnnn[295]	_	_	_	
+43-9	5460-5466	moment	abstract[294]|time[295]	new[294]|acc[295]	nnnnn[294]|nnnnn[295]	_	_	_	
 43-10	5467-5468	,	_	_	_	_	_	_	
 43-11	5469-5470	a	event[296]	new[296]	nnnnn[296]	_	_	_	
 43-12	5471-5475	once	event[296]	new[296]	nnnnn[296]	_	_	_	
@@ -1211,8 +1211,8 @@
 43-47	5660-5663	and	event[299]|abstract[300]	new[299]|new[300]	nnnnn[299]|nnnnn[300]	_	_	_	
 43-48	5664-5672	equality	event[299]|abstract[300]|abstract[305]	new[299]|new[300]|new[305]	nnnnn[299]|nnnnn[300]|nnnnn[305]	_	_	_	
 43-49	5673-5678	under	event[299]|abstract[300]|abstract[305]	new[299]|new[300]|new[305]	nnnnn[299]|nnnnn[300]|nnnnn[305]	_	_	_	
-43-50	5679-5682	the	event[299]|abstract[300]|abstract[305]|abstract[306]	new[299]|new[300]|new[305]|new[306]	nnnnn[299]|nnnnn[300]|nnnnn[305]|nnnnn[306]	_	_	_	
-43-51	5683-5686	law	event[299]|abstract[300]|abstract[305]|abstract[306]	new[299]|new[300]|new[305]|new[306]	nnnnn[299]|nnnnn[300]|nnnnn[305]|nnnnn[306]	_	_	_	
+43-50	5679-5682	the	event[299]|abstract[300]|abstract[305]|abstract[306]	new[299]|new[300]|new[305]|acc[306]	nnnnn[299]|nnnnn[300]|nnnnn[305]|nnnnn[306]	_	_	_	
+43-51	5683-5686	law	event[299]|abstract[300]|abstract[305]|abstract[306]	new[299]|new[300]|new[305]|acc[306]	nnnnn[299]|nnnnn[300]|nnnnn[305]|nnnnn[306]	_	_	_	
 43-52	5687-5688	.	_	_	_	_	_	_	
 
 #Text=And make no mistake , the Senate will forcefully , consistently , and urgently address the greatest threat to this country and to our planet : climate change .
@@ -1294,7 +1294,7 @@
 47-24	6067-6068	.	_	_	_	_	_	_	
 
 #Text=The Senate works best when we work together .
-48-1	6069-6072	The	organization[323]	giv[323]	ssssn[323]	United_States_Senate[323]	bridge	54-3[339_323]	
+48-1	6069-6072	The	organization[323]	giv[323]	ssssn[323]	United_States_Senate[323]	bridge:entity-associative	54-3[339_323]	
 48-2	6073-6079	Senate	organization[323]	giv[323]	ssssn[323]	United_States_Senate[323]	_	_	
 48-3	6080-6085	works	_	_	_	_	_	_	
 48-4	6086-6090	best	_	_	_	_	_	_	

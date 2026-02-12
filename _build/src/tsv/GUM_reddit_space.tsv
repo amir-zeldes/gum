@@ -29,19 +29,19 @@
 2-9	76-78	__	_	_	_	_	_	_	
 2-10	79-88	_________	_	_	_	_	_	_	
 2-11	89-94	_____	_	_	_	_	_	_	
-2-12	95-101	______	person[7]	new[7]	nnnnn[7]	_	_	_	
+2-12	95-101	______	person[7]	new[7]	nnnnn[7]	_	bridge:set-subset	2-21[10_7]	
 2-13	102-107	_____	_	_	_	_	_	_	
 2-14	108-118	__________	_	_	_	_	_	_	
-2-15	119-123	____	abstract[8]|organization[9]	new[8]|new[9]	nnnnn[8]|sssss[9]	NASA[9]	coref|coref|bridge	2-31[11_8]|10-12[62_9]|5-14[32_9]	
+2-15	119-123	____	abstract[8]|organization[9]	new[8]|new[9]	nnnnn[8]|sssss[9]	NASA[9]	coref|coref|bridge:set-subset;entity-associative	2-31[11_8]|10-12[62_9]|5-14[32_9]	
 2-16	124-126	__	abstract[8]|organization[9]	new[8]|new[9]	nnnnn[8]|sssss[9]	NASA[9]	_	_	
 2-17	127-133	______	abstract[8]	new[8]	nnnnn[8]	_	_	_	
 2-18	134-137	___	_	_	_	_	_	_	
 2-19	138-140	__	_	_	_	_	_	_	
 2-20	141-148	_______	_	_	_	_	_	_	
-2-21	149-150	_	person[10]	new[10]	nnnnn[10]	_	_	_	
-2-22	151-154	___	person[10]	new[10]	nnnnn[10]	_	_	_	
-2-23	155-157	__	person[10]	new[10]	nnnnn[10]	_	_	_	
-2-24	158-164	______	person[10]	new[10]	nnnnn[10]	_	_	_	
+2-21	149-150	_	person[10]	acc[10]	nnnnn[10]	_	_	_	
+2-22	151-154	___	person[10]	acc[10]	nnnnn[10]	_	_	_	
+2-23	155-157	__	person[10]	acc[10]	nnnnn[10]	_	_	_	
+2-24	158-164	______	person[10]	acc[10]	nnnnn[10]	_	_	_	
 2-25	165-167	__	_	_	_	_	_	_	
 2-26	168-171	___	_	_	_	_	_	_	
 2-27	172-176	____	_	_	_	_	_	_	
@@ -173,7 +173,7 @@
 7-4	733-735	__	abstract[43]|person[45]	new[43]|new[45]	nnnnn[43]|snnnn[45]	_	_	_	
 7-5	736-745	_________	abstract[43]|person[45]	new[43]|new[45]	nnnnn[43]|snnnn[45]	_	_	_	
 7-6	746-748	__	abstract[43]|person[45]	new[43]|new[45]	nnnnn[43]|snnnn[45]	_	_	_	
-7-7	749-752	___	abstract[43]|person[45]|object[46]	new[43]|new[45]|new[46]	nnnnn[43]|snnnn[45]|sssnn[46]	International_Space_Station[46]	coref	12-5[84_46]	
+7-7	749-752	___	abstract[43]|person[45]|object[46]	new[43]|new[45]|new[46]	nnnnn[43]|snnnn[45]|sssnn[46]	International_Space_Station[46]	coref|bridge:entity-associative	12-5[84_46]|7-15[48_46]	
 7-8	753-756	___	abstract[43]|person[45]|object[46]	new[43]|new[45]|new[46]	nnnnn[43]|snnnn[45]|sssnn[46]	International_Space_Station[46]	_	_	
 7-9	757-758	_	_	_	_	_	_	_	
 7-10	759-761	__	_	_	_	_	_	_	
@@ -181,8 +181,8 @@
 7-12	768-774	______	_	_	_	_	_	_	
 7-13	775-782	_______	person[47]	new[47]	nnnnn[47]	_	_	_	
 7-14	783-785	__	person[47]	new[47]	nnnnn[47]	_	_	_	
-7-15	786-787	_	person[47]|object[48]	new[47]|new[48]	nnnnn[47]|nnnnn[48]	_	_	_	
-7-16	788-793	_____	person[47]|object[48]	new[47]|new[48]	nnnnn[47]|nnnnn[48]	_	_	_	
+7-15	786-787	_	person[47]|object[48]	new[47]|acc[48]	nnnnn[47]|nnnnn[48]	_	_	_	
+7-16	788-793	_____	person[47]|object[48]	new[47]|acc[48]	nnnnn[47]|nnnnn[48]	_	_	_	
 7-17	794-796	__	_	_	_	_	_	_	
 7-18	797-802	_____	_	_	_	_	_	_	
 7-19	803-805	__	_	_	_	_	_	_	
@@ -258,7 +258,7 @@
 
 #Text=______ ______ _____ __ _ _____ __ __________ __________ __ _____ ______ _ _____ __ ___ _____ _ ___ ___ _____ _ ____ ____ __ _________ _____ ____ _____ __ _ ____ _ _______ ____ ____ ____ _________ __ _____ ___ _______ __ ______ ___ ________ ____ ____ ____ ___ ____ ___ ____ ________ ____ __ ___ _____ _____ _
 11-1	1120-1126	______	_	_	_	_	_	_	
-11-2	1127-1133	______	abstract[66]	giv[66]	nnnnn[66]	Apollo_13_%28film%29[66]	bridge	11-41[77_66]	
+11-2	1127-1133	______	abstract[66]	giv[66]	nnnnn[66]	Apollo_13_%28film%29[66]	bridge:entity-meronomy	11-41[77_66]	
 11-3	1134-1139	_____	_	_	_	_	_	_	
 11-4	1140-1142	__	_	_	_	_	_	_	
 11-5	1143-1144	_	abstract[67]	new[67]	nnnnn[67]	_	coref	11-20[72_67]	
@@ -483,14 +483,14 @@
 22-6	2189-2193	____	_	_	_	_	_	_	
 22-7	2194-2202	________	abstract[125]	new[125]	nnnnn[125]	_	_	_	
 22-8	2203-2205	__	_	_	_	_	_	_	
-22-9	2206-2207	_	abstract[126]	giv[126]	nnnnn[126]	_	_	_	
+22-9	2206-2207	_	abstract[126]	giv[126]	nnnnn[126]	_	bridge:entity-associative	23-1[127_126]	
 22-10	2208-2209	_	abstract[126]	giv[126]	nnnnn[126]	_	_	_	
 22-11	2210-2212	__	_	_	_	_	_	_	
 22-12	2213-2217	____	_	_	_	_	_	_	
 22-13	2218-2219	_	_	_	_	_	_	_	
 
 #Text=__________ _ __ ____ ____ _ ___ _____ _____
-23-1	2220-2230	__________	abstract[127]	new[127]	snnnn[127]	_	coref	23-3[128_127]	
+23-1	2220-2230	__________	abstract[127]	acc[127]	snnnn[127]	_	coref	23-3[128_127]	
 23-2	2231-2232	_	_	_	_	_	_	_	
 23-3	2233-2235	__	abstract[128]|person[129]	giv[128]|giv[129]	snnnn[128]|snnss[129]	_	coref	24-1[132_129]	
 23-4	2236-2240	____	abstract[128]	giv[128]	snnnn[128]	_	_	_	
@@ -693,7 +693,7 @@
 35-1	3053-3055	__	person[175]	giv[175]	nnnnn[175]	_	coref	36-8[181_175]	
 35-2	3056-3062	______	_	_	_	_	_	_	
 35-3	3063-3065	__	_	_	_	_	_	_	
-35-4	3066-3074	________	event[176]	new[176]	nnnnn[176]	_	bridge	36-17[184_176]	
+35-4	3066-3074	________	event[176]	new[176]	nnnnn[176]	_	bridge:comparison-sense;comparison-relative	36-17[184_176]	
 35-5	3075-3080	_____	event[176]|object[177]	new[176]|new[177]	nnnnn[176]|nnnnn[177]	_	_	_	
 35-6	3081-3086	_____	event[176]	new[176]	nnnnn[176]	_	_	_	
 35-7	3087-3090	___	event[176]|object[178]	new[176]|acc[178]	nnnnn[176]|nnnnn[178]	_	_	_	
@@ -726,13 +726,13 @@
 36-23	3221-3226	_____	abstract[186]	new[186]	nnnnn[186]	_	_	_	
 36-24	3227-3228	_	_	_	_	_	_	_	
 36-25	3229-3230	_	_	_	_	_	_	_	
-36-26	3231-3235	____	abstract[187]	new[187]	nnnnn[187]	_	_	_	
+36-26	3231-3235	____	abstract[187]	new[187]	nnnnn[187]	_	bridge:comparison-sense;comparison-relative	36-31[188_187]	
 36-27	3236-3243	_______	abstract[187]	new[187]	nnnnn[187]	_	_	_	
 36-28	3244-3245	_	_	_	_	_	_	_	
 36-29	3246-3247	_	_	_	_	_	_	_	
 36-30	3248-3251	___	_	_	_	_	_	_	
-36-31	3252-3255	___	abstract[188]	new[188]	nnnnn[188]	_	_	_	
-36-32	3256-3260	____	abstract[188]	new[188]	nnnnn[188]	_	_	_	
+36-31	3252-3255	___	abstract[188]	acc[188]	nnnnn[188]	_	_	_	
+36-32	3256-3260	____	abstract[188]	acc[188]	nnnnn[188]	_	_	_	
 36-33	3261-3262	_	_	_	_	_	_	_	
 
 #Text=_ _______ ___ ____ __ ____ __ ___ ____ __ ____ _____ ___ _________ _____________ __ __ ____ _____ __ ___ ___ ___ ________ ______ ____ __ _____ _
@@ -752,7 +752,7 @@
 37-14	3320-3329	_________	_	_	_	_	_	_	
 37-15	3330-3343	_____________	_	_	_	_	_	_	
 37-16	3344-3346	__	_	_	_	_	_	_	
-37-17	3347-3349	__	person[193]	giv[193]	snnss[193]	_	coref|bridge	37-23[195_193]|37-19[194_193]	
+37-17	3347-3349	__	person[193]	giv[193]	snnss[193]	_	coref|bridge:entity-associative	37-23[195_193]|37-19[194_193]	
 37-18	3350-3354	____	_	_	_	_	_	_	
 37-19	3355-3360	_____	event[194]	acc[194]	nnnnn[194]	_	_	_	
 37-20	3361-3363	__	_	_	_	_	_	_	
@@ -807,7 +807,7 @@
 41-7	3565-3567	__	_	_	_	_	_	_	
 
 #Text=___ _____ __ __________ ____ _
-42-1	3568-3571	___	abstract[206]|object[207]	new[206]|giv[207]	sssnn[206]|sssns[207]	_	coref|bridge|coref	44-1[209_206]|43-3[208_206]|45-7[216_207]	
+42-1	3568-3571	___	abstract[206]|object[207]	new[206]|giv[207]	sssnn[206]|sssns[207]	_	coref|coref|bridge:entity-associative	44-1[209_206]|45-7[216_207]|43-3[208_206]	
 42-2	3572-3577	_____	abstract[206]|object[207]	new[206]|giv[207]	sssnn[206]|sssns[207]	_	_	_	
 42-3	3578-3580	__	abstract[206]	new[206]	sssnn[206]	_	_	_	
 42-4	3581-3591	__________	abstract[206]	new[206]	sssnn[206]	_	_	_	
@@ -841,7 +841,7 @@
 45-7	3684-3687	___	abstract[212]|abstract[213]|abstract[215]|object[216]	new[212]|new[213]|new[215]|giv[216]	nnnnn[212]|nnnnn[213]|nnnnn[215]|sssns[216]	_	coref|coref	47-1[226_215]|45-10[217_216]	
 45-8	3688-3693	_____	abstract[212]|abstract[213]|abstract[215]|object[216]	new[212]|new[213]|new[215]|giv[216]	nnnnn[212]|nnnnn[213]|nnnnn[215]|sssns[216]	_	_	_	
 45-9	3694-3697	___	abstract[212]|abstract[213]|abstract[215]	new[212]|new[213]|new[215]	nnnnn[212]|nnnnn[213]|nnnnn[215]	_	_	_	
-45-10	3698-3699	_	abstract[212]|abstract[213]|abstract[215]|object[217]	new[212]|new[213]|new[215]|giv[217]	nnnnn[212]|nnnnn[213]|nnnnn[215]|sssns[217]	_	coref	52-2[233_217]	
+45-10	3698-3699	_	abstract[212]|abstract[213]|abstract[215]|object[217]	new[212]|new[213]|new[215]|giv[217]	nnnnn[212]|nnnnn[213]|nnnnn[215]|sssns[217]	_	coref|bridge:entity-meronomy	52-2[233_217]|45-20[222_217]	
 45-11	3700-3706	______	abstract[212]|abstract[213]|abstract[215]|object[217]	new[212]|new[213]|new[215]|giv[217]	nnnnn[212]|nnnnn[213]|nnnnn[215]|sssns[217]	_	_	_	
 45-12	3707-3710	___	_	_	_	_	_	_	
 45-13	3711-3718	_______	_	_	_	_	_	_	

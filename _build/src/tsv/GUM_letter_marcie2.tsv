@@ -21,12 +21,12 @@
 1-10	44-45	.	_	_	_	_	_	_	
 
 #Text=Miss Marcie Rickenbacker
-2-1	46-50	Miss	person[3]	new[3]	sssss[3]	_	coref	9-1[15_3]	
+2-1	46-50	Miss	person[3]	new[3]	sssss[3]	_	coref|bridge:entity-associative	9-1[15_3]|7-1[12_3]	
 2-2	51-57	Marcie	person[3]	new[3]	sssss[3]	_	_	_	
 2-3	58-70	Rickenbacker	person[3]	new[3]	sssss[3]	_	_	_	
 
 #Text=Abbot Academy
-3-1	71-76	Abbot	organization[4]|person[5]	new[4]|new[5]	sssss[4]|snsnn[5]	Abbot_Academy[4]	coref	33-5[136_4]	
+3-1	71-76	Abbot	organization[4]|person[5]	new[4]|new[5]	sssss[4]|snsnn[5]	Abbot_Academy[4]	coref|bridge:entity-associative	33-5[136_4]|18-17[61_4]	
 3-2	77-84	Academy	organization[4]	new[4]	sssss[4]	Abbot_Academy[4]	_	_	
 
 #Text=Andover , Massachusetts 01810
@@ -36,16 +36,16 @@
 4-4	109-114	01810	place[6]	new[6]	nnnnn[6]	_	_	_	
 
 #Text=Ash Wednesday 1969
-5-1	115-118	Ash	time[9]	new[9]	ssssn[9]	_	coref|bridge|bridge|bridge|bridge|bridge	10-6[24_9]|6-1[11_9]|9-8[19_9]|12-19[34_9]|15-20[48_9]|21-10[73_9]	
+5-1	115-118	Ash	time[9]	new[9]	ssssn[9]	_	coref|bridge:comparison-time	10-6[24_9]|6-1[11_9]	
 5-2	119-128	Wednesday	time[9]	new[9]	ssssn[9]	_	_	_	
 5-3	129-133	1969	time[9]|time[10]	new[9]|new[10]	ssssn[9]|snssn[10]	_	_	_	
 
 #Text=Thurs.
-6-1	134-140	Thurs.	time[11]	acc[11]	nnnnn[11]	_	_	_	
+6-1	134-140	Thurs.	time[11]	acc[11]	nnnnn[11]	_	bridge:comparison-time|bridge:comparison-time|bridge:comparison-time|bridge:comparison-time;comparison-relative|bridge:set-span-interval;comparison-time	9-8[19_11]|12-19[34_11]|21-10[73_11]|14-6[41_11]|15-20[48_11]	
 
 #Text=Dear Mom ,
-7-1	141-145	Dear	person[12]	new[12]	sssss[12]	_	_	_	
-7-2	146-149	Mom	person[12]	new[12]	sssss[12]	_	_	_	
+7-1	141-145	Dear	person[12]	acc[12]	sssss[12]	_	_	_	
+7-2	146-149	Mom	person[12]	acc[12]	sssss[12]	_	_	_	
 7-3	150-151	,	_	_	_	_	_	_	
 
 #Text=Sorry for the delay of this letter .
@@ -133,7 +133,7 @@
 13-5	464-467	and	_	_	_	_	_	_	
 13-6	468-472	long	_	_	_	_	_	_	
 13-7	473-475	on	_	_	_	_	_	_	
-13-8	476-478	it	abstract[35]	giv[35]	ssnss[35]	_	bridge	13-14[37_35]	
+13-8	476-478	it	abstract[35]	giv[35]	ssnss[35]	_	bridge:entity-associative	13-14[37_35]	
 13-9	479-480	,	_	_	_	_	_	_	
 13-10	481-482	I	person[36]	giv[36]	sssss[36]	_	coref	14-1[38_36]	
 13-11	483-487	hope	_	_	_	_	_	_	
@@ -368,7 +368,7 @@
 24-5	1343-1351	Catholic	event[93]	new[93]	ssnsn[93]	_	_	_	
 24-6	1352-1356	mass	event[93]	new[93]	ssnsn[93]	_	_	_	
 24-7	1357-1358	,	_	_	_	_	_	_	
-24-8	1359-1368	yesterday	time[94]|time[95]	new[94]|giv[95]	nnnnn[94]|nnnnn[95]	_	bridge	30-14[120_95]	
+24-8	1359-1368	yesterday	time[94]|time[95]	new[94]|giv[95]	nnnnn[94]|nnnnn[95]	_	bridge:set-span-interval;comparison-time|bridge:set-span-interval;comparison-time|bridge:set-span-interval;comparison-time|bridge:set-span-interval;comparison-time;comparison-relative	26-5[101_94]|27-10[108_94]|33-7[137_94]|30-14[120_95]	
 24-9	1369-1376	morning	time[94]	new[94]	nnnnn[94]	_	_	_	
 24-10	1377-1378	.	_	_	_	_	_	_	
 
@@ -398,7 +398,7 @@
 26-2	1464-1467	got	_	_	_	_	_	_	
 26-3	1468-1470	up	_	_	_	_	_	_	
 26-4	1471-1473	at	_	_	_	_	_	_	
-26-5	1474-1478	5:55	time[101]	new[101]	nnnnn[101]	_	_	_	
+26-5	1474-1478	5:55	time[101]	acc[101]	nnnnn[101]	_	_	_	
 26-6	1479-1482	and	_	_	_	_	_	_	
 26-7	1483-1491	stumbled	_	_	_	_	_	_	
 26-8	1492-1496	into	_	_	_	_	_	_	
@@ -407,16 +407,16 @@
 26-11	1509-1510	.	_	_	_	_	_	_	
 
 #Text=We and 2 other girls hurried to church by 6:30 .
-27-1	1511-1513	We	person[104]|person[105]	new[104]|giv[105]	nnnnn[104]|nnnnn[105]	_	coref|coref	29-2[112_104]|32-16[133_105]	
+27-1	1511-1513	We	person[104]|person[105]	new[104]|giv[105]	nnnnn[104]|nnnnn[105]	_	coref|coref|bridge:comparison-relative	29-2[112_104]|32-16[133_105]|27-3[106_105]	
 27-2	1514-1517	and	person[104]	new[104]	nnnnn[104]	_	_	_	
-27-3	1518-1519	2	person[104]|person[106]	new[104]|new[106]	nnnnn[104]|snnnn[106]	_	_	_	
-27-4	1520-1525	other	person[104]|person[106]	new[104]|new[106]	nnnnn[104]|snnnn[106]	_	_	_	
-27-5	1526-1531	girls	person[104]|person[106]	new[104]|new[106]	nnnnn[104]|snnnn[106]	_	_	_	
+27-3	1518-1519	2	person[104]|person[106]	new[104]|acc[106]	nnnnn[104]|snnnn[106]	_	_	_	
+27-4	1520-1525	other	person[104]|person[106]	new[104]|acc[106]	nnnnn[104]|snnnn[106]	_	_	_	
+27-5	1526-1531	girls	person[104]|person[106]	new[104]|acc[106]	nnnnn[104]|snnnn[106]	_	_	_	
 27-6	1532-1539	hurried	_	_	_	_	_	_	
 27-7	1540-1542	to	_	_	_	_	_	_	
-27-8	1543-1549	church	place[107]	new[107]	nnsnn[107]	_	coref|bridge	31-23[127_107]|28-6[110_107]	
+27-8	1543-1549	church	place[107]	new[107]	nnsnn[107]	_	coref|bridge:entity-associative|bridge:entity-associative	31-23[127_107]|28-6[110_107]|28-11[111_107]	
 27-9	1550-1552	by	_	_	_	_	_	_	
-27-10	1553-1557	6:30	time[108]	new[108]	nnnnn[108]	_	_	_	
+27-10	1553-1557	6:30	time[108]	acc[108]	nnnnn[108]	_	_	_	
 27-11	1558-1559	.	_	_	_	_	_	_	
 
 #Text=I was completely lost 'cuz the service was n't in the Misalette .
@@ -430,8 +430,8 @@
 28-8	1599-1602	was	_	_	_	_	_	_	
 28-9	1603-1606	n't	_	_	_	_	_	_	
 28-10	1607-1609	in	_	_	_	_	_	_	
-28-11	1610-1613	the	object[111]	new[111]	nnnnn[111]	_	_	_	
-28-12	1614-1623	Misalette	object[111]	new[111]	nnnnn[111]	_	_	_	
+28-11	1610-1613	the	object[111]	acc[111]	nnnnn[111]	_	_	_	
+28-12	1614-1623	Misalette	object[111]	acc[111]	nnnnn[111]	_	_	_	
 28-13	1624-1625	.	_	_	_	_	_	_	
 
 #Text=But we all got our ashes .
@@ -485,15 +485,15 @@
 31-20	1807-1810	you	abstract[122]|person[126]	giv[122]|giv[126]	nnnnn[122]|sssss[126]	_	coref	32-8[130_126]	
 31-21	1811-1815	went	abstract[122]	giv[122]	nnnnn[122]	_	_	_	
 31-22	1816-1818	to	abstract[122]	giv[122]	nnnnn[122]	_	_	_	
-31-23	1819-1825	church	abstract[122]|place[127]	giv[122]|giv[127]	nnnnn[122]|nnsnn[127]	_	_	_	
+31-23	1819-1825	church	abstract[122]|place[127]	giv[122]|giv[127]	nnnnn[122]|nnsnn[127]	_	bridge:entity-associative	32-2[128_127]	
 31-24	1826-1827	.	abstract[122]	giv[122]	nnnnn[122]	_	_	_	
 31-25	1828-1829	"	abstract[122]	giv[122]	nnnnn[122]	_	_	_	
 
 #Text=On the way back Sue Cleveland & I noticed cars at the Epis. church so we decided to have commonion .
 32-1	1830-1832	On	_	_	_	_	_	_	
-32-2	1833-1836	the	place[128]	new[128]	nnnnn[128]	_	_	_	
-32-3	1837-1840	way	place[128]	new[128]	nnnnn[128]	_	_	_	
-32-4	1841-1845	back	place[128]	new[128]	nnnnn[128]	_	_	_	
+32-2	1833-1836	the	place[128]	acc[128]	nnnnn[128]	_	_	_	
+32-3	1837-1840	way	place[128]	acc[128]	nnnnn[128]	_	_	_	
+32-4	1841-1845	back	place[128]	acc[128]	nnnnn[128]	_	_	_	
 32-5	1846-1849	Sue	person[129]	giv[129]	snnnn[129]	_	_	_	
 32-6	1850-1859	Cleveland	person[129]	giv[129]	snnnn[129]	_	_	_	
 32-7	1860-1861	&	_	_	_	_	_	_	
@@ -519,7 +519,7 @@
 33-4	1943-1945	to	_	_	_	_	_	_	
 33-5	1946-1952	school	organization[136]	new[136]	sssss[136]	_	_	_	
 33-6	1953-1955	at	_	_	_	_	_	_	
-33-7	1956-1960	7:40	time[137]	new[137]	nnnnn[137]	_	_	_	
+33-7	1956-1960	7:40	time[137]	acc[137]	nnnnn[137]	_	_	_	
 33-8	1961-1964	and	_	_	_	_	_	_	
 33-9	1965-1968	did	_	_	_	_	_	_	
 33-10	1969-1972	n't	_	_	_	_	_	_	
