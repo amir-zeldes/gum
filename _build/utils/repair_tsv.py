@@ -507,7 +507,7 @@ def merge_genitive_s(parsed_lines, tsv_path, warn_only, xml_path):
 			else:
 				for e in entity_difference:
 					# Known split 's case, "Kenya Vision 2030 's ...", "Hebrew University of Jerusalem 's ..."
-					if not ("GUM_speech_school" in xml_path and e['type'] == "time") \
+					if not ("GUM_speech_open" in xml_path and e['type'] == "time") \
 							and not ("GUM_interview_shalev" in xml_path and e['type'] == "place"):
 						print("WARN: token " + line['token_id'] + " in doc '" + xml_path + "' "
 						  + "looks like a genitive s but is not contained in the immediately preceding markable "
