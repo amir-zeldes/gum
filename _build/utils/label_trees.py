@@ -26,6 +26,7 @@ lemma=/{$mnradv}/&xpos=/RB.*/\tnone\t#1:func=mnradv
 lemma=/{$tmpadv}/&xpos=/RB.*/\tnone\t#1:func=tmpadv
 lemma=/put/;func=/obl/;func=/case/&lemma=/in|on|into|at|out|above|under|down|over|behind|through|toward|upon/\t#1>#2>#3\t#3:func=put
 morph=/.*time.*/&func=/nmod|obl/;func=/case/\t#1>#2\t#2:func=pptmp
+morph=/.*time.*/&func=/(nmod|obl):unmarked/\tnone\t#1:func=$1:tmod
 morph=/.*place.*/&func=/nmod|obl/;func=/case/&lemma=/from|to|into|towards?|across|onto|along|through/\t#1>#2\t#2:func=ppdir
 func=/nmod|obl/;func=/case/&lemma=/into|towards?|onto/\t#1>#2\t#2:func=ppdir
 morph=/.*place.*/&func=/nmod|obl/;func=/case/&lemma!=/of/\t#1>#2\t#2:func=pploc
