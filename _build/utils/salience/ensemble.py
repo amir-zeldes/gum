@@ -142,8 +142,8 @@ def extract_features(docname, summary, summary_number, pos_filter=False):
                 edu_id = parents[edu_id]
                 relname = rels[edu_id]
             edu_id = fields[0]
-            stype = re.search("stype=([^\s|]+)", fields[5]).group(1)
-            tense = re.search("edu_tense=([^\s|]+)", fields[5]).group(1)
+            stype = re.search(r"stype=([^\s|]+)", fields[5]).group(1)
+            tense = re.search(r"edu_tense=([^\s|]+)", fields[5]).group(1)
             if "Past" in tense:
                 tense = "past"
             elif "Pres" in tense:
