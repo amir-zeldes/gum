@@ -10,6 +10,7 @@ from glob import glob
 #from nltk.stem import SnowballStemmer
 from argparse import ArgumentParser
 import warnings
+import re
 
 warnings.filterwarnings("ignore", category=FutureWarning)
 
@@ -168,7 +169,9 @@ def extract_features(docname, summary, summary_number, pos_filter=False):
     doclen = np.ceil(len(tok_lines)/100)  # bin document length
     genre = docname.split("_")[1]
 
-    d.run_depedit(conllu, parse_entities=True)
+    supertok_pattern = re.compile(r"^(\d+\.\d+|\d+-\d+)")
+    conllu_removed_supertokens = "\n".join([l for l in conllu.split("\n") if not supertok_pattern.match(l)])
+    d.run_depedit(conllu_removed_supertokens, parse_entities=True)
 
     partition = "test" if docname in ud_test else "dev" if docname in ud_dev else "train"
     summary = summary.split(")", 1)[-1].strip()
