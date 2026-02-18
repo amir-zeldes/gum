@@ -348,7 +348,7 @@ def train(partition="devtrain", use_gentle=True, hyperparams=None, use_five=Fals
             continue
         label = feats_dict["label"]
         train_docs.add(feats_dict["docname"])
-        labels.append(label)
+        labels.append(int(label))
         data.append([feats_dict[f] for f in selected_feats])
 
     data = convert_to_pandas(data, train=True)
@@ -482,7 +482,7 @@ def predict(docname):
     labels = ["s" if g == 1 else "n" for g in gold]
     for i in range(len(gold_summaries[docname][1:])):
         for j, ent in enumerate(ents):
-            pred = "s" if preds[i*len(labels)+j] == '1' else "n"
+            pred = "s" if preds[i*len(labels)+j] == 1 else "n"
             labels[j] += pred
 
     span2label = {}

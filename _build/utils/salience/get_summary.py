@@ -187,7 +187,8 @@ def get_summary_gpt4o(doc_texts, doc_ids, data_folder, partition, model_name="gp
             summaries_exist = all(
                 os.path.exists(f"{summary_folder.replace('7B','3B')}{slug}_{doc_id}{j}.txt") for j in range(n)
             )
-            summary_folder = data_folder + "output" + os.sep + "summaries" + os.sep + partition + os.sep + slug + os.sep
+            if summaries_exist: # rename summary folder only if version for model with different parameter count exists
+                summary_folder = data_folder + "output" + os.sep + "summaries" + os.sep + partition + os.sep + slug + os.sep
 
         if summaries_exist and not overwrite:
             # Load existing summaries
@@ -197,7 +198,7 @@ def get_summary_gpt4o(doc_texts, doc_ids, data_folder, partition, model_name="gp
                     cached_summaries += 1
             cached_summary_docs += 1
         else:
-            raise ValueError("Missing cached summaries")
+            #raise ValueError("Missing cached summaries")
             # Generate new summaries
             genre = doc_id.split("_")[1]
             example = get_example(genre, doc_id)
@@ -221,7 +222,7 @@ def get_summary_gpt4o(doc_texts, doc_ids, data_folder, partition, model_name="gp
 
     return all_summaries
 
-def get_summary_claude35(doc_texts, doc_ids, data_folder, partition, model_name="claude-3-5-sonnet-20241022", n=4, overwrite=False):
+def get_summary_claude45(doc_texts, doc_ids, data_folder, partition, model_name="claude-sonnet-4-5-20250929", n=4, overwrite=False):
 
     HUMAN_PROMPT = "\n\nHuman: "
     AI_PROMPT = "\n\nAssistant: "
@@ -381,7 +382,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Generate summaries for GUM documents")
     parser.add_argument("--data_folder", default="data", help="Path to data folder")
-    parser.add_argument("--model_name", default="google/flan-t5-xl", choices=["gpt4o", "claude-3-5-sonnet-20241022", "mistralai/Mistral-7B-Instruct-v0.3", "meta-llama/Llama-3.2-3B-Instruct", "Qwen/Qwen2.5-7B-Instruct"], help="Model name to use for summarization")
+    parser.add_argument("--model_name", default="google/flan-t5-xl", choices=["gpt4o", "claude-sonnet-4-5-20250929", "mistralai/Mistral-7B-Instruct-v0.3", "meta-llama/Llama-3.2-3B-Instruct", "Qwen/Qwen2.5-7B-Instruct"], help="Model name to use for summarization")
     parser.add_argument("--n_summaries", type=int, default=4, help="Number of summaries to generate per document")
     parser.add_argument("--overwrite_cache", action="store_true", help="Overwrite cached summaries (default: False)")
     parser.add_argument("--partition", default="train", choices=["test", "dev", "train"], help="Data partition to use for generating and storing summaries")
@@ -398,8 +399,8 @@ if __name__ == "__main__":
     # doc_texts = doc_texts[:12]
     if args.model_name=="gpt4o":
         summaries =get_summary_gpt4o(doc_texts, doc_ids, args.data_folder, args.partition, model_name=args.model_name, n=args.n_summaries, overwrite=args.overwrite_cache)
-    elif args.model_name=="claude-3-5-sonnet-20241022":
-        summaries =get_summary_claude35(doc_texts, doc_ids, args.data_folder, args.partition, model_name=args.model_name, n=args.n_summaries, overwrite=args.overwrite_cache)
+    elif args.model_name=="claude-sonnet-4-5-20250929":
+        summaries =get_summary_claude45(doc_texts, doc_ids, args.data_folder, args.partition, model_name=args.model_name, n=args.n_summaries, overwrite=args.overwrite_cache)
     else:
         summaries = get_summary(doc_texts, doc_ids, args.data_folder, args.partition, model_name=args.model_name, n=args.n_summaries, overwrite=args.overwrite_cache)
 
