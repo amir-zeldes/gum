@@ -1,5 +1,4 @@
 import os, re, json
-import pickle
 import sys
 
 import pandas as pd
@@ -11,6 +10,7 @@ from glob import glob
 from argparse import ArgumentParser
 import warnings
 import re
+from xgboost import XGBClassifier
 
 warnings.filterwarnings("ignore", category=FutureWarning)
 
@@ -363,7 +363,6 @@ def train(partition="devtrain", use_gentle=True, hyperparams=None, use_five=Fals
     #model = RandomForestClassifier(n_estimators=200, random_state=42, n_jobs=4, max_depth=20)
 
     # Try XGBoost
-    from xgboost import XGBClassifier
     if hyperparams:
         print("Using hyperparameters:", hyperparams)
     else:
@@ -376,16 +375,15 @@ def train(partition="devtrain", use_gentle=True, hyperparams=None, use_five=Fals
     model.fit(data,labels)
 
     # Save the model
-    with open("salience_ensemble.pkl","wb") as f:
-        pickle.dump(model,f)
+    model.save_model("salience_ensemble.json")
 
 
 def evaluate(analysis=True, test_partition="test"):
     # Evaluate the model on the test set
     from sklearn.metrics import classification_report
 
-    with open("salience_ensemble.pkl","rb") as f:
-        model = pickle.load(f)
+    model = XGBClassifier()
+    model.load_model("salience_ensemble.json")
 
     data = []
     labels = []
@@ -446,8 +444,8 @@ def predict(docname):
     global model
 
     if model is None:
-        with open("salience_ensemble.pkl","rb") as f:
-            model = pickle.load(f)
+        model = XGBClassifier()
+        model.load_model("salience_ensemble.json")
 
     conllu_files = glob(conllu_dir + "*.conllu")
 
