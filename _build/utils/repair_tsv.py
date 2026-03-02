@@ -609,7 +609,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 				min_ids.append(tok[0])
 				head_tokens_lowered[tok[0]] = tok[-2].lower()
 			if tok[2].startswith("NP") and tok[1] in toks_by_id:  # NNP token with parent in span
-				if toks_by_id[tok[1]][2].startswith("NP") and tok[3] not in ["nmod:poss"]:
+				if toks_by_id[tok[1]][2].startswith("NP") and tok[3] not in ["nmod:poss","nmod:desc"]:
 					# NNP child of NNP, not a possessor
 					min_ids.append(tok[0])
 
