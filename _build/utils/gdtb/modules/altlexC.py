@@ -249,6 +249,10 @@ class AltlexC(ConvertBase):
 
         conn, sense = mapping[rel.relname]
 
+        if rel.source.edus[0].xpos[:3] == "VBN" and conn == "by":
+            # Use 'while' not 'by' for manner clauses with passive participles, e.g. "(while) guided by"
+            conn = "while"
+
         # Determine direction and add any necessary words
         if rel.source.tok_ids[0] < rel.target.tok_ids[0]:  # src before target
             if rel.relname == "adversative-antithesis_r":
