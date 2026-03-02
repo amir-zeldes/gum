@@ -110,7 +110,7 @@ class Implicit(ConvertBase):
         elif source_sent_ids[0] == target_sent_ids[0]:
             #print("Source and target sentence IDs are the same sentence. Must not be implicit.", file=sys.stderr)
             return None
-        elif abs(int(source_sent_ids[0]) - int(target_sent_ids[0])) > 1:
+        elif abs(int(source_sent_ids[0]) - int(target_sent_ids[-1])) > 1:
             #print("Sentences are not adjacent. Must not be implicit", file=sys.stderr)
             return None
         elif "dm" in subtypes:
