@@ -1007,7 +1007,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 	return "\n".join(adjusted), conllua_data, centering_transitions, mapped_saliences
 
 
-def fix_file(filename, tt_file, outdir, genitive_s=False):
+def fix_file(filename, tt_file, outdir, genitive_s=False, separate_bridging_edges=False):
 
 	# Get reference tokens
 	tsv_file_name = ntpath.basename(filename)
@@ -1167,7 +1167,7 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 			line = "\t".join(fields)
 		edited_lines.append(line)
 
-	# Now split bridging sub-types
+	# Now split bridging sub-types if desired
 	bridge_fixed = []
 	for line in edited_lines:
 		if "\t" in line:
@@ -1178,7 +1178,7 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 			split_link_annos = link_annos.split("|")
 			split_link_annos_copy = split_link_annos[:]
 			for i, anno in enumerate(split_link_annos_copy):  # Check for ';' inside type and normalize to separate edges
-				if ";" in anno:  # e.g. bridge:set-span-interval;comparison-time
+				if ";" in anno and separate_bridging_edges:  # e.g. bridge:set-span-interval;comparison-time
 					edge_types = anno.split(";")
 					# Create duplicate edges and insert into split_links at index for each type
 					for j, et in enumerate(edge_types):
