@@ -53,14 +53,31 @@ for filename in os.listdir(tsv_dir):
                         match[title] = new_search
                 seen[title] = wikidata_id
 
+known_missing = {"Toys_%22R%22_Us":"Q696334",
+                 "MCI_Telecommunications_Corp._v._AT&T_Co.":"Q117459825",
+                 "Property_Rights_%28economics%29":"Q8799101",
+                 "Shanlyn_A._S._Park":"Q123588026",
+                 "Gil_Penalosa":"Q61947420",
+                 "The_i_Paper":"Q1943651",
+                 "Exposition_du_système_du_monde":"Q19170514",
+                 "Gemini_%28chatbot%29":"Q116698014",
+                 "Sally_Meen":"Q7405228",
+                 "Robert_Lyons_Danly":"Q100375920",
+                 "William_Lansing_Gleason": "Q8014313"
+                 }
+
 not_found = 0
 time = date.today()
 with io.open('wiki_map.tab', 'w', encoding='utf8', newline="\n") as f:
     f.write('#FormattedTitle\tURLTitle\tWikidataID\tDateUpdated\n')
-    for k, t in seen.items():
+    for k, t in sorted(seen.items()):
         if not t:
-            print(k)
-            not_found += 1
+            if k in known_missing:
+                f.write(f'{k}\t{k}\t{known_missing[k]}\t{time}\n')
+                continue
+            else:
+                print(k)
+                not_found += 1
         if k in match:
             f.write(f'{k}\t{match[k]}\t{t}\t{time}\n')
         else:
