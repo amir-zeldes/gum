@@ -1,5 +1,4 @@
 import os, re, json
-import pickle
 import sys
 
 import pandas as pd
@@ -10,6 +9,8 @@ from glob import glob
 #from nltk.stem import SnowballStemmer
 from argparse import ArgumentParser
 import warnings
+import re
+from xgboost import XGBClassifier
 
 warnings.filterwarnings("ignore", category=FutureWarning)
 
@@ -168,7 +169,9 @@ def extract_features(docname, summary, summary_number, pos_filter=False):
     doclen = np.ceil(len(tok_lines)/100)  # bin document length
     genre = docname.split("_")[1]
 
-    d.run_depedit(conllu, parse_entities=True)
+    supertok_pattern = re.compile(r"^(\d+\.\d+|\d+-\d+)")
+    conllu_removed_supertokens = "\n".join([l for l in conllu.split("\n") if not supertok_pattern.match(l)])
+    d.run_depedit(conllu_removed_supertokens, parse_entities=True)
 
     partition = "test" if docname in ud_test else "dev" if docname in ud_dev else "train"
     summary = summary.split(")", 1)[-1].strip()
@@ -348,7 +351,7 @@ def train(partition="devtrain", use_gentle=True, hyperparams=None, use_five=Fals
             continue
         label = feats_dict["label"]
         train_docs.add(feats_dict["docname"])
-        labels.append(label)
+        labels.append(int(label))
         data.append([feats_dict[f] for f in selected_feats])
 
     data = convert_to_pandas(data, train=True)
@@ -360,7 +363,6 @@ def train(partition="devtrain", use_gentle=True, hyperparams=None, use_five=Fals
     #model = RandomForestClassifier(n_estimators=200, random_state=42, n_jobs=4, max_depth=20)
 
     # Try XGBoost
-    from xgboost import XGBClassifier
     if hyperparams:
         print("Using hyperparameters:", hyperparams)
     else:
@@ -373,16 +375,15 @@ def train(partition="devtrain", use_gentle=True, hyperparams=None, use_five=Fals
     model.fit(data,labels)
 
     # Save the model
-    with open("salience_ensemble.pkl","wb") as f:
-        pickle.dump(model,f)
+    model.save_model("salience_ensemble.json")
 
 
 def evaluate(analysis=True, test_partition="test"):
     # Evaluate the model on the test set
     from sklearn.metrics import classification_report
 
-    with open("salience_ensemble.pkl","rb") as f:
-        model = pickle.load(f)
+    model = XGBClassifier()
+    model.load_model("salience_ensemble.json")
 
     data = []
     labels = []
@@ -443,8 +444,8 @@ def predict(docname):
     global model
 
     if model is None:
-        with open("salience_ensemble.pkl","rb") as f:
-            model = pickle.load(f)
+        model = XGBClassifier()
+        model.load_model("salience_ensemble.json")
 
     conllu_files = glob(conllu_dir + "*.conllu")
 
@@ -482,7 +483,7 @@ def predict(docname):
     labels = ["s" if g == 1 else "n" for g in gold]
     for i in range(len(gold_summaries[docname][1:])):
         for j, ent in enumerate(ents):
-            pred = "s" if preds[i*len(labels)+j] == '1' else "n"
+            pred = "s" if preds[i*len(labels)+j] == 1 else "n"
             labels[j] += pred
 
     span2label = {}

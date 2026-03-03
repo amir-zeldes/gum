@@ -12,14 +12,13 @@ import os, json
 from copy import deepcopy
 from glob import glob
 from collections import defaultdict
-from get_summary import get_summary, get_summary_gpt4o, get_summary_claude35, extract_gold_summaries_from_xml, read_documents, extract_text_speaker_from_xml
+from get_summary import get_summary, get_summary_gpt4o, get_summary_claude45, extract_gold_summaries_from_xml, read_documents, extract_text_speaker_from_xml
 from score import get_sal_tsv, get_sal_mentions, sal_coref_cluster, extract_first_mentions, calculate_scores
 
 script_dir = os.path.dirname(os.path.realpath(__file__)) + os.sep
 gum_src = script_dir + ".." + os.sep + ".." + os.sep + "src" + os.sep
 xml_src = gum_src + "xml" + os.sep
-
-model_priorities = ["gpt4o", "claude-3-5-sonnet-20241022", "meta-llama/Meta-Llama-3-8B-Instruct", "Qwen/Qwen2.5-7B-Instruct"]
+model_priorities = ["gpt4o", "claude-sonnet-4-5-20250929", "meta-llama/Meta-Llama-3-8B-Instruct", "Qwen/Qwen2.5-7B-Instruct"]
 
 default_align_comps = ["LLM", "string_simple_lower", "string_simple", "stanza", "stanza_on", "stanza_pre", "stanza_onpre",
                        "stanza_gum","stanza_gumpre"]
@@ -94,7 +93,7 @@ def main(n_summaries=5, alignment_components=None, overwrite_alignment=False, do
             # If summaries already exist, the model API will not be called.
             new_summaries = get_summary_gpt4o(target_texts, docnames, ".", "all", model_name="gpt4o", n=1, overwrite=False)
         elif "claude" in model:
-            new_summaries = get_summary_claude35(target_texts, docnames, ".", "all", model_name="claude-3-5-sonnet-20241022", n=1, overwrite=False)
+            new_summaries = get_summary_claude45(target_texts, docnames, ".", "all", model_name="claude-sonnet-4-5-20250929", n=1, overwrite=False)
         elif "flan" in model:
             new_summaries = get_summary(target_texts, docnames, ".", "all", model_name=model, n=1, overwrite=False)
         else:

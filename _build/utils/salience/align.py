@@ -5,7 +5,7 @@ from openai import OpenAI
 from transformers import pipeline
 import random
 from collections import defaultdict
-from get_summary import get_summary, get_summary_gpt4o, get_summary_claude35, extract_gold_summaries_from_xml, extract_text_speaker_from_xml, read_documents
+from get_summary import get_summary, get_summary_gpt4o, get_summary_claude45, extract_gold_summaries_from_xml, extract_text_speaker_from_xml, read_documents
 from apis import gpt4_key
 
 client = OpenAI(api_key=gpt4_key)
@@ -178,7 +178,6 @@ def align_llm(doc_mentions, summary_text, doc_text, use_cached_prompts=True, sty
     Returns:
         dict of list of list of tuples: A dictionary of document name to lists of lists of tuples where each tuple's `word_span` is found in the corresponding document.
     """
-
     if not live:
         sys.stderr.write("o LLM: running in simulation mode!\n")
 
@@ -488,7 +487,7 @@ def align(doc_first_mentions, summary_text, doc_all_mentions, doc_text, componen
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Align document mentions based on the selected component")
-    parser.add_argument("--model_name", default="gpt4o", choices=["gpt4o", "claude-3-5-sonnet-20241022","meta-llama/Llama-3.2-3B-Instruct", "Qwen/Qwen2.5-7B-Instruct"], help="Model name to use for summarization")
+    parser.add_argument("--model_name", default="gpt4o", choices=["gpt4o", "claude-sonnet-4-5-20250929","meta-llama/Llama-3.2-3B-Instruct", "Qwen/Qwen2.5-7B-Instruct"], help="Model name to use for summarization")
     parser.add_argument("--max_docs", type=int, default=2, help="Maximum number of documents to processe (default: None = all; choose a small number to prototype)")
     parser.add_argument("--component", required=False, default="string_simple", choices=["LLM", "stanza", "stanza_on","stanza_pre","string_simple"], help="Component to use for alignment")
     parser.add_argument("--overwrite_cache", action="store_true", help="Overwrite cached summaries (default: False)")
@@ -534,8 +533,8 @@ if __name__ == "__main__":
     else:
         if args.model_name == "gpt4o":
             summaries = get_summary_gpt4o(doc_texts, doc_ids, ".", partition="all", model_name=args.model_name, n=1, overwrite=args.overwrite_cache)
-        elif args.model_name == "claude-3-5-sonnet-20241022":
-            summaries = get_summary_claude35(doc_texts, doc_ids, ".", partition="all", model_name=args.model_name, n=1, overwrite=args.overwrite_cache)
+        elif args.model_name == "claude-sonnet-4-5-20250929":
+            summaries = get_summary_claude45(doc_texts, doc_ids, ".", partition="all", model_name=args.model_name, n=1, overwrite=args.overwrite_cache)
         else:
             summaries = get_summary(doc_texts, doc_ids, ".", partition="all", model_name=args.model_name, n=1, overwrite=args.overwrite_cache)
 
