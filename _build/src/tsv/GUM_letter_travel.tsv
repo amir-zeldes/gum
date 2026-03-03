@@ -1,182 +1,186 @@
 #FORMAT=WebAnno TSV 3.2
 #T_SP=webanno.custom.Referent|entity|infstat|salience|identity
 #T_RL=webanno.custom.Coref|type|BT_webanno.custom.Referent
-#Summary1=(human1) Edith Wharton writes to Miss Paget informing her that, if they knew she was visiting America, universities might invite her to give a lecture based on her books about Italian life and art, and also praises a play that Miss Paget has written for its description of Italian landscape but says that it is more fit for a narrative, which could then be published in a magazine.
+#Summary1=(human1) E. Wharton writes to Miss Paget informing her that, if they knew she was visiting America, universities might invite her to give a lecture based on her books about Italian life and art, and also praises a play that Miss Paget has written for its description of Italian landscape but says that it is more fit for a narrative, which could then be published in a magazine.
+#Summary2=(claude-sonnet-4-5-20250929; postedited) On April 7, E. Wharton writes to Miss Paget from Milan, expressing regret at seeing her so little in Florence, relaying advice about American lecture opportunities from Professor Norton's daughter, offering to arrange lectures and inviting her to visit New England, and critiquing her play as better suited for narrative than dramatic form.
+#Summary3=(gpt4o) On April 7, E. Wharton writes to Miss Paget from Milan, expressing regret for not spending more time with her in Florence, suggesting opportunities for her to lecture in America, offering feedback on her play, praising her descriptive gifts, and extending an invitation to visit New England.
+#Summary4=(Meta-Llama-3-8B-Instruct; postedited) E. Wharton writes to Miss Paget about her potential lecture opportunities in America, discussing the feasibility of giving talks on Italian art and history, and also shares thoughts on her play, suggesting it would be better suited as a narrative story.
+#Summary5=(Qwen2.5-7B-Instruct; postedited) E. Wharton writes to Miss Paget about her visit to Florence, suggests Paget give lectures on Italian history or art at women's colleges or universities in the US, provides feedback on Paget's play, and mentions seeing the Brenta and arranging combinazioni.
 
 
 #Text=Hotel Cavour , Milan Italy .
 1-1	0-5	Hotel	place[1]	new[1]	nnnnn[1]	_	_	_	
 1-2	6-12	Cavour	place[1]	new[1]	nnnnn[1]	_	_	_	
 1-3	13-14	,	place[1]	new[1]	nnnnn[1]	_	_	_	
-1-4	15-20	Milan	place[1]|place[2]	new[1]|new[2]	nnnnn[1]|nnnnn[2]	Milan[2]	_	_	
-1-5	21-26	Italy	place[1]|place[2]|place[3]	new[1]|new[2]|new[3]	nnnnn[1]|nnnnn[2]|nnnnn[3]	Milan[2]|Italy[3]	_	_	
-1-6	27-28	.	_	_	_	_	_	_	_	_	_
+1-4	15-20	Milan	place[1]|place[2]	new[1]|new[2]	nnnnn[1]|nssnn[2]	Milan[2]	_	_	
+1-5	21-26	Italy	place[1]|place[2]|place[3]	new[1]|new[2]|new[3]	nnnnn[1]|nssnn[2]|nnnnn[3]	Milan[2]|Italy[3]	_	_	
+1-6	27-28	.	_	_	_	_	_	_	
 
 #Text=April 7
-2-1	29-34	April	time[4]|time[5]	new[4]|new[5]	nnnnn[4]|nnnnn[5]	April_1903[5]	bridge:comparison-relative|bridge:set-member;comparison-relative	6-1[15_4]|7-11[27_4]	
-2-2	35-36	7	time[4]	new[4]	nnnnn[4]	_	_	_	
+2-1	29-34	April	time[4]|time[5]	new[4]|new[5]	nssnn[4]|nssnn[5]	April_1903[5]	bridge:comparison-relative|bridge:set-member;comparison-relative	6-1[15_4]|7-11[27_4]	
+2-2	35-36	7	time[4]	new[4]	nssnn[4]	_	_	_	
 
 #Text=Dear Miss Paget
-3-1	37-41	Dear	person[6]	new[6]	snnnn[6]	_	coref	4-15[11_6]	
-3-2	42-46	Miss	person[6]	new[6]	snnnn[6]	_	_	_	
-3-3	47-52	Paget	person[6]	new[6]	snnnn[6]	_	_	_	
+3-1	37-41	Dear	person[6]	new[6]	sssss[6]	_	coref	4-15[11_6]	
+3-2	42-46	Miss	person[6]	new[6]	sssss[6]	_	_	_	
+3-3	47-52	Paget	person[6]	new[6]	sssss[6]	_	_	_	
 
 #Text=My great regret in leaving Florence was that I had seen so little of you .
-4-1	53-55	My	abstract[7]|person[8]	new[7]|acc[8]	nnnnn[7]|snnnn[8]	_	coref	4-9[10_8]	
-4-2	56-61	great	abstract[7]	new[7]	nnnnn[7]	_	_	_	
-4-3	62-68	regret	abstract[7]	new[7]	nnnnn[7]	_	_	_	
-4-4	69-71	in	abstract[7]	new[7]	nnnnn[7]	_	_	_	
-4-5	72-79	leaving	abstract[7]	new[7]	nnnnn[7]	_	_	_	
-4-6	80-88	Florence	abstract[7]|place[9]	new[7]|new[9]	nnnnn[7]|nnnnn[9]	Florence[9]	_	_	
-4-7	89-92	was	_	_	_	_	_	_	_	_	_
-4-8	93-97	that	_	_	_	_	_	_	_	_	_
-4-9	98-99	I	person[10]	giv[10]	snnnn[10]	_	coref	5-1[12_10]	
-4-10	100-103	had	_	_	_	_	_	_	_	_	_
-4-11	104-108	seen	_	_	_	_	_	_	_	_	_
-4-12	109-111	so	_	_	_	_	_	_	_	_	_
-4-13	112-118	little	_	_	_	_	_	_	_	_	_
-4-14	119-121	of	_	_	_	_	_	_	_	_	_
-4-15	122-125	you	person[11]	acc[11]	snnnn[11]	_	coref	5-13[14_11]	
-4-16	126-127	.	_	_	_	_	_	_	_	_	_
+4-1	53-55	My	abstract[7]|person[8]	new[7]|acc[8]	nssnn[7]|sssss[8]	_	coref	4-9[10_8]	
+4-2	56-61	great	abstract[7]	new[7]	nssnn[7]	_	_	_	
+4-3	62-68	regret	abstract[7]	new[7]	nssnn[7]	_	_	_	
+4-4	69-71	in	abstract[7]	new[7]	nssnn[7]	_	_	_	
+4-5	72-79	leaving	abstract[7]	new[7]	nssnn[7]	_	_	_	
+4-6	80-88	Florence	abstract[7]|place[9]	new[7]|new[9]	nssnn[7]|nssns[9]	Florence[9]	_	_	
+4-7	89-92	was	_	_	_	_	_	_	
+4-8	93-97	that	_	_	_	_	_	_	
+4-9	98-99	I	person[10]	giv[10]	sssss[10]	_	coref	5-1[12_10]	
+4-10	100-103	had	_	_	_	_	_	_	
+4-11	104-108	seen	_	_	_	_	_	_	
+4-12	109-111	so	_	_	_	_	_	_	
+4-13	112-118	little	_	_	_	_	_	_	
+4-14	119-121	of	_	_	_	_	_	_	
+4-15	122-125	you	person[11]	acc[11]	sssss[11]	_	coref	5-13[14_11]	
+4-16	126-127	.	_	_	_	_	_	_	
 
 #Text=I wanted so much to have at least one more talk with you .
-5-1	128-129	I	person[12]	giv[12]	snnnn[12]	_	coref	6-3[16_12]	
-5-2	130-136	wanted	_	_	_	_	_	_	_	_	_
-5-3	137-139	so	_	_	_	_	_	_	_	_	_
-5-4	140-144	much	_	_	_	_	_	_	_	_	_
-5-5	145-147	to	_	_	_	_	_	_	_	_	_
-5-6	148-152	have	_	_	_	_	_	_	_	_	_
-5-7	153-155	at	_	_	_	_	_	_	_	_	_
-5-8	156-161	least	_	_	_	_	_	_	_	_	_
+5-1	128-129	I	person[12]	giv[12]	sssss[12]	_	coref	6-3[16_12]	
+5-2	130-136	wanted	_	_	_	_	_	_	
+5-3	137-139	so	_	_	_	_	_	_	
+5-4	140-144	much	_	_	_	_	_	_	
+5-5	145-147	to	_	_	_	_	_	_	
+5-6	148-152	have	_	_	_	_	_	_	
+5-7	153-155	at	_	_	_	_	_	_	
+5-8	156-161	least	_	_	_	_	_	_	
 5-9	162-165	one	event[13]	new[13]	nnnnn[13]	_	_	_	
 5-10	166-170	more	event[13]	new[13]	nnnnn[13]	_	_	_	
 5-11	171-175	talk	event[13]	new[13]	nnnnn[13]	_	_	_	
 5-12	176-180	with	event[13]	new[13]	nnnnn[13]	_	_	_	
-5-13	181-184	you	event[13]|person[14]	new[13]|giv[14]	nnnnn[13]|snnnn[14]	_	coref	6-17[22_14]	
-5-14	185-186	.	_	_	_	_	_	_	_	_	_
+5-13	181-184	you	event[13]|person[14]	new[13]|giv[14]	nnnnn[13]|sssss[14]	_	coref	6-17[22_14]	
+5-14	185-186	.	_	_	_	_	_	_	
 
 #Text=Next year I hope I may come back with more leisure , and perhaps before that you may come to America .
 6-1	187-191	Next	time[15]	acc[15]	nnnnn[15]	_	bridge:comparison-relative	14-46[111_15]	
 6-2	192-196	year	time[15]	acc[15]	nnnnn[15]	_	_	_	
-6-3	197-198	I	person[16]	giv[16]	snnnn[16]	_	coref	6-5[18_16]	
-6-4	199-203	hope	_	_	_	_	_	_	_	_	_
-6-5	204-205	I	event[17]|person[18]	new[17]|giv[18]	nnnnn[17]|snnnn[18]	_	coref|coref	6-16[20_17]|7-27[31_18]	
+6-3	197-198	I	person[16]	giv[16]	sssss[16]	_	coref	6-5[18_16]	
+6-4	199-203	hope	_	_	_	_	_	_	
+6-5	204-205	I	event[17]|person[18]	new[17]|giv[18]	nnnnn[17]|sssss[18]	_	coref|coref	6-16[20_17]|7-27[31_18]	
 6-6	206-209	may	event[17]	new[17]	nnnnn[17]	_	_	_	
 6-7	210-214	come	event[17]	new[17]	nnnnn[17]	_	_	_	
 6-8	215-219	back	event[17]	new[17]	nnnnn[17]	_	_	_	
 6-9	220-224	with	event[17]	new[17]	nnnnn[17]	_	_	_	
 6-10	225-229	more	event[17]|abstract[19]	new[17]|new[19]	nnnnn[17]|nnnnn[19]	_	_	_	
 6-11	230-237	leisure	event[17]|abstract[19]	new[17]|new[19]	nnnnn[17]|nnnnn[19]	_	_	_	
-6-12	238-239	,	_	_	_	_	_	_	_	_	_
-6-13	240-243	and	_	_	_	_	_	_	_	_	_
-6-14	244-251	perhaps	_	_	_	_	_	_	_	_	_
-6-15	252-258	before	_	_	_	_	_	_	_	_	_
+6-12	238-239	,	_	_	_	_	_	_	
+6-13	240-243	and	_	_	_	_	_	_	
+6-14	244-251	perhaps	_	_	_	_	_	_	
+6-15	252-258	before	_	_	_	_	_	_	
 6-16	259-263	that	event[20]	giv[20]	nnnnn[20]	_	_	_	
-6-17	264-267	you	event[21]|person[22]	new[21]|giv[22]	snnnn[21]|snnnn[22]	_	coref|coref	7-8[26_21]|7-1[24_22]	
+6-17	264-267	you	event[21]|person[22]	new[21]|giv[22]	snnnn[21]|sssss[22]	_	coref|coref	7-8[26_21]|7-1[24_22]	
 6-18	268-271	may	event[21]	new[21]	snnnn[21]	_	_	_	
 6-19	272-276	come	event[21]	new[21]	snnnn[21]	_	_	_	
 6-20	277-279	to	event[21]	new[21]	snnnn[21]	_	_	_	
-6-21	280-287	America	event[21]|place[23]	new[21]|new[23]	snnnn[21]|snnnn[23]	United_States[23]	coref	13-39[94_23]	
-6-22	288-289	.	_	_	_	_	_	_	_	_	_
+6-21	280-287	America	event[21]|place[23]	new[21]|new[23]	snnnn[21]|sssss[23]	United_States[23]	coref	13-39[94_23]	
+6-22	288-289	.	_	_	_	_	_	_	
 
 #Text=You say that you have given up the idea for the present ; but in the hope that you may turn to it again later , I will tell you what I learned from my friend , Professor Norton 's daughter .
-7-1	290-293	You	person[24]	giv[24]	snnnn[24]	_	coref	7-4[25_24]	
-7-2	294-297	say	_	_	_	_	_	_	_	_	_
-7-3	298-302	that	_	_	_	_	_	_	_	_	_
-7-4	303-306	you	person[25]	giv[25]	snnnn[25]	_	coref	7-19[29_25]	
-7-5	307-311	have	_	_	_	_	_	_	_	_	_
-7-6	312-317	given	_	_	_	_	_	_	_	_	_
-7-7	318-320	up	_	_	_	_	_	_	_	_	_
+7-1	290-293	You	person[24]	giv[24]	sssss[24]	_	coref	7-4[25_24]	
+7-2	294-297	say	_	_	_	_	_	_	
+7-3	298-302	that	_	_	_	_	_	_	
+7-4	303-306	you	person[25]	giv[25]	sssss[25]	_	coref	7-19[29_25]	
+7-5	307-311	have	_	_	_	_	_	_	
+7-6	312-317	given	_	_	_	_	_	_	
+7-7	318-320	up	_	_	_	_	_	_	
 7-8	321-324	the	event[26]	new[26]	snnnn[26]	_	coref	7-23[30_26]	
 7-9	325-329	idea	event[26]	new[26]	snnnn[26]	_	_	_	
-7-10	330-333	for	_	_	_	_	_	_	_	_	_
+7-10	330-333	for	_	_	_	_	_	_	
 7-11	334-337	the	time[27]	acc[27]	nnnnn[27]	_	_	_	
 7-12	338-345	present	time[27]	acc[27]	nnnnn[27]	_	_	_	
-7-13	346-347	;	_	_	_	_	_	_	_	_	_
-7-14	348-351	but	_	_	_	_	_	_	_	_	_
-7-15	352-354	in	_	_	_	_	_	_	_	_	_
+7-13	346-347	;	_	_	_	_	_	_	
+7-14	348-351	but	_	_	_	_	_	_	
+7-15	352-354	in	_	_	_	_	_	_	
 7-16	355-358	the	abstract[28]	new[28]	nnnnn[28]	_	_	_	
 7-17	359-363	hope	abstract[28]	new[28]	nnnnn[28]	_	_	_	
 7-18	364-368	that	abstract[28]	new[28]	nnnnn[28]	_	_	_	
-7-19	369-372	you	abstract[28]|person[29]	new[28]|giv[29]	nnnnn[28]|snnnn[29]	_	coref	7-30[32_29]	
+7-19	369-372	you	abstract[28]|person[29]	new[28]|giv[29]	nnnnn[28]|sssss[29]	_	coref	7-30[32_29]	
 7-20	373-376	may	abstract[28]	new[28]	nnnnn[28]	_	_	_	
 7-21	377-381	turn	abstract[28]	new[28]	nnnnn[28]	_	_	_	
 7-22	382-384	to	abstract[28]	new[28]	nnnnn[28]	_	_	_	
 7-23	385-387	it	abstract[28]|event[30]	new[28]|giv[30]	nnnnn[28]|snnnn[30]	_	coref	8-41[50_30]	
-7-24	388-393	again	_	_	_	_	_	_	_	_	_
-7-25	394-399	later	_	_	_	_	_	_	_	_	_
-7-26	400-401	,	_	_	_	_	_	_	_	_	_
-7-27	402-403	I	person[31]	giv[31]	snnnn[31]	_	coref	7-32[33_31]	
-7-28	404-408	will	_	_	_	_	_	_	_	_	_
-7-29	409-413	tell	_	_	_	_	_	_	_	_	_
-7-30	414-417	you	person[32]	giv[32]	snnnn[32]	_	coref	8-26[45_32]	
-7-31	418-422	what	_	_	_	_	_	_	_	_	_
-7-32	423-424	I	person[33]	giv[33]	snnnn[33]	_	coref	7-35[35_33]	
-7-33	425-432	learned	_	_	_	_	_	_	_	_	_
-7-34	433-437	from	_	_	_	_	_	_	_	_	_
-7-35	438-440	my	person[34]|person[35]	new[34]|giv[35]	nnnnn[34]|snnnn[35]	_	coref|coref	7-38[36_34]|8-3[39_35]	
-7-36	441-447	friend	person[34]	new[34]	nnnnn[34]	_	_	_	
-7-37	448-449	,	_	_	_	_	_	_	_	_	_
-7-38	450-459	Professor	person[36]|person[37]	giv[36]|new[37]	nnnnn[36]|nnnnn[37]	_	coref	8-1[38_36]	
-7-39	460-466	Norton	person[36]|person[37]	giv[36]|new[37]	nnnnn[36]|nnnnn[37]	_	_	_	
-7-40	467-469	's	person[36]|person[37]	giv[36]|new[37]	nnnnn[36]|nnnnn[37]	_	_	_	
-7-41	470-478	daughter	person[36]	giv[36]	nnnnn[36]	_	_	_	
-7-42	479-480	.	_	_	_	_	_	_	_	_	_
+7-24	388-393	again	_	_	_	_	_	_	
+7-25	394-399	later	_	_	_	_	_	_	
+7-26	400-401	,	_	_	_	_	_	_	
+7-27	402-403	I	person[31]	giv[31]	sssss[31]	_	coref	7-32[33_31]	
+7-28	404-408	will	_	_	_	_	_	_	
+7-29	409-413	tell	_	_	_	_	_	_	
+7-30	414-417	you	person[32]	giv[32]	sssss[32]	_	coref	8-26[45_32]	
+7-31	418-422	what	_	_	_	_	_	_	
+7-32	423-424	I	person[33]	giv[33]	sssss[33]	_	coref	7-35[35_33]	
+7-33	425-432	learned	_	_	_	_	_	_	
+7-34	433-437	from	_	_	_	_	_	_	
+7-35	438-440	my	person[34]|person[35]	new[34]|giv[35]	nsnnn[34]|sssss[35]	_	coref|coref	7-38[36_34]|8-3[39_35]	
+7-36	441-447	friend	person[34]	new[34]	nsnnn[34]	_	_	_	
+7-37	448-449	,	_	_	_	_	_	_	
+7-38	450-459	Professor	person[36]|person[37]	giv[36]|new[37]	nsnnn[36]|nsnnn[37]	_	coref	8-1[38_36]	
+7-39	460-466	Norton	person[36]|person[37]	giv[36]|new[37]	nsnnn[36]|nsnnn[37]	_	_	_	
+7-40	467-469	's	person[36]|person[37]	giv[36]|new[37]	nsnnn[36]|nsnnn[37]	_	_	_	
+7-41	470-478	daughter	person[36]	giv[36]	nsnnn[36]	_	_	_	
+7-42	479-480	.	_	_	_	_	_	_	
 
 #Text=She writes me that it is customary for the Faculties of the various colleges to invite people to give lectures , and she thought that you might be probably be invited by Radcliffe or Barnard , if they knew of your visit .
-8-1	481-484	She	person[38]	giv[38]	nnnnn[38]	_	coref	8-23[44_38]	
-8-2	485-491	writes	_	_	_	_	_	_	_	_	_
-8-3	492-494	me	person[39]	giv[39]	snnnn[39]	_	coref	11-11[74_39]	
-8-4	495-499	that	_	_	_	_	_	_	_	_	_
-8-5	500-502	it	_	_	_	_	_	_	_	_	_
-8-6	503-505	is	_	_	_	_	_	_	_	_	_
-8-7	506-515	customary	_	_	_	_	_	_	_	_	_
-8-8	516-519	for	_	_	_	_	_	_	_	_	_
+8-1	481-484	She	person[38]	giv[38]	nsnnn[38]	_	coref	8-23[44_38]	
+8-2	485-491	writes	_	_	_	_	_	_	
+8-3	492-494	me	person[39]	giv[39]	sssss[39]	_	coref	11-11[74_39]	
+8-4	495-499	that	_	_	_	_	_	_	
+8-5	500-502	it	_	_	_	_	_	_	
+8-6	503-505	is	_	_	_	_	_	_	
+8-7	506-515	customary	_	_	_	_	_	_	
+8-8	516-519	for	_	_	_	_	_	_	
 8-9	520-523	the	organization[40]	new[40]	nnnnn[40]	_	_	_	
 8-10	524-533	Faculties	organization[40]	new[40]	nnnnn[40]	_	_	_	
 8-11	534-536	of	organization[40]	new[40]	nnnnn[40]	_	_	_	
 8-12	537-540	the	organization[40]|organization[41]	new[40]|new[41]	nnnnn[40]|nnnnn[41]	_	_	_	
 8-13	541-548	various	organization[40]|organization[41]	new[40]|new[41]	nnnnn[40]|nnnnn[41]	_	_	_	
 8-14	549-557	colleges	organization[40]|organization[41]	new[40]|new[41]	nnnnn[40]|nnnnn[41]	_	_	_	
-8-15	558-560	to	_	_	_	_	_	_	_	_	_
-8-16	561-567	invite	_	_	_	_	_	_	_	_	_
+8-15	558-560	to	_	_	_	_	_	_	
+8-16	561-567	invite	_	_	_	_	_	_	
 8-17	568-574	people	person[42]	new[42]	nnnnn[42]	_	_	_	
-8-18	575-577	to	_	_	_	_	_	_	_	_	_
-8-19	578-582	give	_	_	_	_	_	_	_	_	_
-8-20	583-591	lectures	event[43]	new[43]	nnnnn[43]	_	_	_	
-8-21	592-593	,	_	_	_	_	_	_	_	_	_
-8-22	594-597	and	_	_	_	_	_	_	_	_	_
-8-23	598-601	she	person[44]	giv[44]	nnnnn[44]	_	coref	9-1[52_44]	
-8-24	602-609	thought	_	_	_	_	_	_	_	_	_
-8-25	610-614	that	_	_	_	_	_	_	_	_	_
-8-26	615-618	you	person[45]	giv[45]	snnnn[45]	_	coref	8-41[51_45]	
-8-27	619-624	might	_	_	_	_	_	_	_	_	_
-8-28	625-627	be	_	_	_	_	_	_	_	_	_
-8-29	628-636	probably	_	_	_	_	_	_	_	_	_
-8-30	637-639	be	_	_	_	_	_	_	_	_	_
-8-31	640-647	invited	_	_	_	_	_	_	_	_	_
-8-32	648-650	by	_	_	_	_	_	_	_	_	_
+8-18	575-577	to	_	_	_	_	_	_	
+8-19	578-582	give	_	_	_	_	_	_	
+8-20	583-591	lectures	event[43]	new[43]	nssss[43]	_	_	_	
+8-21	592-593	,	_	_	_	_	_	_	
+8-22	594-597	and	_	_	_	_	_	_	
+8-23	598-601	she	person[44]	giv[44]	nsnnn[44]	_	coref	9-1[52_44]	
+8-24	602-609	thought	_	_	_	_	_	_	
+8-25	610-614	that	_	_	_	_	_	_	
+8-26	615-618	you	person[45]	giv[45]	sssss[45]	_	coref	8-41[51_45]	
+8-27	619-624	might	_	_	_	_	_	_	
+8-28	625-627	be	_	_	_	_	_	_	
+8-29	628-636	probably	_	_	_	_	_	_	
+8-30	637-639	be	_	_	_	_	_	_	
+8-31	640-647	invited	_	_	_	_	_	_	
+8-32	648-650	by	_	_	_	_	_	_	
 8-33	651-660	Radcliffe	organization[46]|organization[47]	new[46]|new[47]	nnnnn[46]|nnnnn[47]	Radcliffe_College[47]	coref	8-38[49_46]	
 8-34	661-663	or	organization[46]	new[46]	nnnnn[46]	_	_	_	
 8-35	664-671	Barnard	organization[46]|organization[48]	new[46]|new[48]	nnnnn[46]|nnnnn[48]	Barnard_College[48]	_	_	
-8-36	672-673	,	_	_	_	_	_	_	_	_	_
-8-37	674-676	if	_	_	_	_	_	_	_	_	_
+8-36	672-673	,	_	_	_	_	_	_	
+8-37	674-676	if	_	_	_	_	_	_	
 8-38	677-681	they	organization[49]	giv[49]	nnnnn[49]	_	_	_	
-8-39	682-686	knew	_	_	_	_	_	_	_	_	_
-8-40	687-689	of	_	_	_	_	_	_	_	_	_
-8-41	690-694	your	event[50]|person[51]	new[50]|giv[51]	snnnn[50]|snnnn[51]	_	coref	9-29[60_51]	
+8-39	682-686	knew	_	_	_	_	_	_	
+8-40	687-689	of	_	_	_	_	_	_	
+8-41	690-694	your	event[50]|person[51]	new[50]|giv[51]	snnnn[50]|sssss[51]	_	coref	9-29[60_51]	
 8-42	695-700	visit	event[50]	new[50]	snnnn[50]	_	_	_	
-8-43	701-702	.	_	_	_	_	_	_	_	_	_
+8-43	701-702	.	_	_	_	_	_	_	
 
 #Text=She says , however , that in giving a lecture or course of lectures before one of our girls ' colleges , or one of the Universities , you would probably be asked to deal with a more concrete subject than , say , Life and Art .
-9-1	703-706	She	person[52]	giv[52]	nnnnn[52]	_	coref	11-1[71_52]	
-9-2	707-711	says	_	_	_	_	_	_	_	_	_
-9-3	712-713	,	_	_	_	_	_	_	_	_	_
-9-4	714-721	however	_	_	_	_	_	_	_	_	_
-9-5	722-723	,	_	_	_	_	_	_	_	_	_
-9-6	724-728	that	_	_	_	_	_	_	_	_	_
-9-7	729-731	in	_	_	_	_	_	_	_	_	_
-9-8	732-738	giving	_	_	_	_	_	_	_	_	_
+9-1	703-706	She	person[52]	giv[52]	nsnnn[52]	_	coref	11-1[71_52]	
+9-2	707-711	says	_	_	_	_	_	_	
+9-3	712-713	,	_	_	_	_	_	_	
+9-4	714-721	however	_	_	_	_	_	_	
+9-5	722-723	,	_	_	_	_	_	_	
+9-6	724-728	that	_	_	_	_	_	_	
+9-7	729-731	in	_	_	_	_	_	_	
+9-8	732-738	giving	_	_	_	_	_	_	
 9-9	739-740	a	event[53]	new[53]	nnnnn[53]	_	_	_	
 9-10	741-748	lecture	event[53]	new[53]	nnnnn[53]	_	_	_	
 9-11	749-751	or	event[53]	new[53]	nnnnn[53]	_	_	_	
@@ -186,25 +190,25 @@
 9-15	771-777	before	event[53]	new[53]	nnnnn[53]	_	_	_	
 9-16	778-781	one	event[53]|organization[54]	new[53]|new[54]	nnnnn[53]|nnnnn[54]	_	_	_	
 9-17	782-784	of	event[53]|organization[54]	new[53]|new[54]	nnnnn[53]|nnnnn[54]	_	_	_	
-9-18	785-788	our	event[53]|organization[54]|organization[55]|person[56]	new[53]|new[54]|giv[55]|acc[56]	nnnnn[53]|nnnnn[54]|nnnnn[55]|nnnnn[56]	_	coref	27-34[252_56]	
-9-19	789-794	girls	event[53]|organization[54]|organization[55]|person[57]	new[53]|new[54]|giv[55]|new[57]	nnnnn[53]|nnnnn[54]|nnnnn[55]|nnnnn[57]	_	_	_	
-9-20	795-796	'	event[53]|organization[54]|organization[55]|person[57]	new[53]|new[54]|giv[55]|new[57]	nnnnn[53]|nnnnn[54]|nnnnn[55]|nnnnn[57]	_	_	_	
-9-21	797-805	colleges	event[53]|organization[54]|organization[55]	new[53]|new[54]|giv[55]	nnnnn[53]|nnnnn[54]|nnnnn[55]	_	_	_	
+9-18	785-788	our	event[53]|organization[54]|organization[55]|person[56]	new[53]|new[54]|giv[55]|acc[56]	nnnnn[53]|nnnnn[54]|nnnns[55]|nnnnn[56]	_	coref	27-34[252_56]	
+9-19	789-794	girls	event[53]|organization[54]|organization[55]|person[57]	new[53]|new[54]|giv[55]|new[57]	nnnnn[53]|nnnnn[54]|nnnns[55]|nnnnn[57]	_	_	_	
+9-20	795-796	'	event[53]|organization[54]|organization[55]|person[57]	new[53]|new[54]|giv[55]|new[57]	nnnnn[53]|nnnnn[54]|nnnns[55]|nnnnn[57]	_	_	_	
+9-21	797-805	colleges	event[53]|organization[54]|organization[55]	new[53]|new[54]|giv[55]	nnnnn[53]|nnnnn[54]|nnnns[55]	_	_	_	
 9-22	806-807	,	event[53]	new[53]	nnnnn[53]	_	_	_	
 9-23	808-810	or	event[53]	new[53]	nnnnn[53]	_	_	_	
 9-24	811-814	one	event[53]|organization[58]	new[53]|new[58]	nnnnn[53]|nnnnn[58]	_	_	_	
 9-25	815-817	of	event[53]|organization[58]	new[53]|new[58]	nnnnn[53]|nnnnn[58]	_	_	_	
-9-26	818-821	the	event[53]|organization[58]|organization[59]	new[53]|new[58]|new[59]	nnnnn[53]|nnnnn[58]|snnnn[59]	_	_	_	
-9-27	822-834	Universities	event[53]|organization[58]|organization[59]	new[53]|new[58]|new[59]	nnnnn[53]|nnnnn[58]|snnnn[59]	_	_	_	
-9-28	835-836	,	_	_	_	_	_	_	_	_	_
-9-29	837-840	you	person[60]	giv[60]	snnnn[60]	_	coref	12-18[83_60]	
-9-30	841-846	would	_	_	_	_	_	_	_	_	_
-9-31	847-855	probably	_	_	_	_	_	_	_	_	_
-9-32	856-858	be	_	_	_	_	_	_	_	_	_
-9-33	859-864	asked	_	_	_	_	_	_	_	_	_
-9-34	865-867	to	_	_	_	_	_	_	_	_	_
-9-35	868-872	deal	_	_	_	_	_	_	_	_	_
-9-36	873-877	with	_	_	_	_	_	_	_	_	_
+9-26	818-821	the	event[53]|organization[58]|organization[59]	new[53]|new[58]|new[59]	nnnnn[53]|nnnnn[58]|snnns[59]	_	_	_	
+9-27	822-834	Universities	event[53]|organization[58]|organization[59]	new[53]|new[58]|new[59]	nnnnn[53]|nnnnn[58]|snnns[59]	_	_	_	
+9-28	835-836	,	_	_	_	_	_	_	
+9-29	837-840	you	person[60]	giv[60]	sssss[60]	_	coref	12-18[83_60]	
+9-30	841-846	would	_	_	_	_	_	_	
+9-31	847-855	probably	_	_	_	_	_	_	
+9-32	856-858	be	_	_	_	_	_	_	
+9-33	859-864	asked	_	_	_	_	_	_	
+9-34	865-867	to	_	_	_	_	_	_	
+9-35	868-872	deal	_	_	_	_	_	_	
+9-36	873-877	with	_	_	_	_	_	_	
 9-37	878-879	a	abstract[61]	new[61]	nnnnn[61]	_	_	_	
 9-38	880-884	more	abstract[61]	new[61]	nnnnn[61]	_	_	_	
 9-39	885-893	concrete	abstract[61]	new[61]	nnnnn[61]	_	_	_	
@@ -216,73 +220,73 @@
 9-45	915-919	Life	abstract[61]|abstract[62]	new[61]|new[62]	nnnnn[61]|nnnnn[62]	Life[62]	_	_	
 9-46	920-923	and	abstract[61]	new[61]	nnnnn[61]	_	_	_	
 9-47	924-927	Art	abstract[61]|abstract[63]	new[61]|new[63]	nnnnn[61]|nnnnn[63]	Art[63]	_	_	
-9-48	928-929	.	_	_	_	_	_	_	_	_	_
+9-48	928-929	.	_	_	_	_	_	_	
 
 #Text=In other words , a lecture or lectures on a special period of Italian history or art would be more desirable than a discussion of aesthetics .
-10-1	930-932	In	_	_	_	_	_	_	_	_	_
-10-2	933-938	other	_	_	_	_	_	_	_	_	_
-10-3	939-944	words	_	_	_	_	_	_	_	_	_
-10-4	945-946	,	_	_	_	_	_	_	_	_	_
-10-5	947-948	a	event[64]	new[64]	snnnn[64]	_	bridge:comparison-relative	13-1[85_64]	
-10-6	949-956	lecture	event[64]	new[64]	snnnn[64]	_	_	_	
-10-7	957-959	or	event[64]	new[64]	snnnn[64]	_	_	_	
-10-8	960-968	lectures	event[64]	new[64]	snnnn[64]	_	_	_	
-10-9	969-971	on	event[64]	new[64]	snnnn[64]	_	_	_	
-10-10	972-973	a	event[64]|time[65]	new[64]|new[65]	snnnn[64]|nnnnn[65]	_	_	_	
-10-11	974-981	special	event[64]|time[65]	new[64]|new[65]	snnnn[64]|nnnnn[65]	_	_	_	
-10-12	982-988	period	event[64]|time[65]	new[64]|new[65]	snnnn[64]|nnnnn[65]	_	_	_	
-10-13	989-991	of	event[64]|time[65]	new[64]|new[65]	snnnn[64]|nnnnn[65]	_	_	_	
-10-14	992-999	Italian	event[64]|time[65]|abstract[66]	new[64]|new[65]|new[66]	snnnn[64]|nnnnn[65]|nnnnn[66]	_	_	_	
-10-15	1000-1007	history	event[64]|time[65]|abstract[66]|abstract[67]	new[64]|new[65]|new[66]|new[67]	snnnn[64]|nnnnn[65]|nnnnn[66]|nnnnn[67]	_	_	_	
-10-16	1008-1010	or	event[64]|time[65]|abstract[66]	new[64]|new[65]|new[66]	snnnn[64]|nnnnn[65]|nnnnn[66]	_	_	_	
-10-17	1011-1014	art	event[64]|time[65]|abstract[66]|abstract[68]	new[64]|new[65]|new[66]|new[68]	snnnn[64]|nnnnn[65]|nnnnn[66]|snnnn[68]	_	coref	13-31[92_68]	
-10-18	1015-1020	would	_	_	_	_	_	_	_	_	_
-10-19	1021-1023	be	_	_	_	_	_	_	_	_	_
-10-20	1024-1028	more	_	_	_	_	_	_	_	_	_
-10-21	1029-1038	desirable	_	_	_	_	_	_	_	_	_
-10-22	1039-1043	than	_	_	_	_	_	_	_	_	_
+10-1	930-932	In	_	_	_	_	_	_	
+10-2	933-938	other	_	_	_	_	_	_	
+10-3	939-944	words	_	_	_	_	_	_	
+10-4	945-946	,	_	_	_	_	_	_	
+10-5	947-948	a	event[64]	new[64]	snnss[64]	_	bridge:comparison-relative	13-1[85_64]	
+10-6	949-956	lecture	event[64]	new[64]	snnss[64]	_	_	_	
+10-7	957-959	or	event[64]	new[64]	snnss[64]	_	_	_	
+10-8	960-968	lectures	event[64]	new[64]	snnss[64]	_	_	_	
+10-9	969-971	on	event[64]	new[64]	snnss[64]	_	_	_	
+10-10	972-973	a	event[64]|time[65]	new[64]|new[65]	snnss[64]|nnnnn[65]	_	_	_	
+10-11	974-981	special	event[64]|time[65]	new[64]|new[65]	snnss[64]|nnnnn[65]	_	_	_	
+10-12	982-988	period	event[64]|time[65]	new[64]|new[65]	snnss[64]|nnnnn[65]	_	_	_	
+10-13	989-991	of	event[64]|time[65]	new[64]|new[65]	snnss[64]|nnnnn[65]	_	_	_	
+10-14	992-999	Italian	event[64]|time[65]|abstract[66]	new[64]|new[65]|new[66]	snnss[64]|nnnnn[65]|nnnss[66]	_	_	_	
+10-15	1000-1007	history	event[64]|time[65]|abstract[66]|abstract[67]	new[64]|new[65]|new[66]|new[67]	snnss[64]|nnnnn[65]|nnnss[66]|nnnss[67]	_	_	_	
+10-16	1008-1010	or	event[64]|time[65]|abstract[66]	new[64]|new[65]|new[66]	snnss[64]|nnnnn[65]|nnnss[66]	_	_	_	
+10-17	1011-1014	art	event[64]|time[65]|abstract[66]|abstract[68]	new[64]|new[65]|new[66]|new[68]	snnss[64]|nnnnn[65]|nnnss[66]|snnss[68]	_	coref	13-31[92_68]	
+10-18	1015-1020	would	_	_	_	_	_	_	
+10-19	1021-1023	be	_	_	_	_	_	_	
+10-20	1024-1028	more	_	_	_	_	_	_	
+10-21	1029-1038	desirable	_	_	_	_	_	_	
+10-22	1039-1043	than	_	_	_	_	_	_	
 10-23	1044-1045	a	abstract[69]	new[69]	nnnnn[69]	_	bridge:comparison-relative	13-50[97_69]	
 10-24	1046-1056	discussion	abstract[69]	new[69]	nnnnn[69]	_	_	_	
 10-25	1057-1059	of	abstract[69]	new[69]	nnnnn[69]	_	_	_	
 10-26	1060-1070	aesthetics	abstract[69]|abstract[70]	new[69]|new[70]	nnnnn[69]|nnnnn[70]	_	_	_	
-10-27	1071-1072	.	_	_	_	_	_	_	_	_	_
+10-27	1071-1072	.	_	_	_	_	_	_	
 
 #Text=She speaks from long experience of University life , and I fancy her opinion would be confirmed by anyone else of like affiliations .
-11-1	1073-1076	She	person[71]	giv[71]	nnnnn[71]	_	coref	11-13[76_71]	
-11-2	1077-1083	speaks	_	_	_	_	_	_	_	_	_
-11-3	1084-1088	from	_	_	_	_	_	_	_	_	_
+11-1	1073-1076	She	person[71]	giv[71]	nsnnn[71]	_	coref	11-13[76_71]	
+11-2	1077-1083	speaks	_	_	_	_	_	_	
+11-3	1084-1088	from	_	_	_	_	_	_	
 11-4	1089-1093	long	abstract[72]	new[72]	nnnnn[72]	_	bridge:comparison-relative	11-22[78_72]	
 11-5	1094-1104	experience	abstract[72]	new[72]	nnnnn[72]	_	_	_	
 11-6	1105-1107	of	abstract[72]	new[72]	nnnnn[72]	_	_	_	
 11-7	1108-1118	University	abstract[72]|abstract[73]	new[72]|giv[73]	nnnnn[72]|nnnnn[73]	_	_	_	
 11-8	1119-1123	life	abstract[72]|abstract[73]	new[72]|giv[73]	nnnnn[72]|nnnnn[73]	_	_	_	
-11-9	1124-1125	,	_	_	_	_	_	_	_	_	_
-11-10	1126-1129	and	_	_	_	_	_	_	_	_	_
-11-11	1130-1131	I	person[74]	giv[74]	snnnn[74]	_	coref	13-4[86_74]	
-11-12	1132-1137	fancy	_	_	_	_	_	_	_	_	_
-11-13	1138-1141	her	abstract[75]|person[76]	new[75]|giv[76]	nnnnn[75]|nnnnn[76]	_	bridge:comparison-relative|coref	11-19[77_76]|12-1[79_76]	
+11-9	1124-1125	,	_	_	_	_	_	_	
+11-10	1126-1129	and	_	_	_	_	_	_	
+11-11	1130-1131	I	person[74]	giv[74]	sssss[74]	_	coref	13-4[86_74]	
+11-12	1132-1137	fancy	_	_	_	_	_	_	
+11-13	1138-1141	her	abstract[75]|person[76]	new[75]|giv[76]	nnnnn[75]|nsnnn[76]	_	bridge:comparison-relative|coref	11-19[77_76]|12-1[79_76]	
 11-14	1142-1149	opinion	abstract[75]	new[75]	nnnnn[75]	_	_	_	
-11-15	1150-1155	would	_	_	_	_	_	_	_	_	_
-11-16	1156-1158	be	_	_	_	_	_	_	_	_	_
-11-17	1159-1168	confirmed	_	_	_	_	_	_	_	_	_
-11-18	1169-1171	by	_	_	_	_	_	_	_	_	_
+11-15	1150-1155	would	_	_	_	_	_	_	
+11-16	1156-1158	be	_	_	_	_	_	_	
+11-17	1159-1168	confirmed	_	_	_	_	_	_	
+11-18	1169-1171	by	_	_	_	_	_	_	
 11-19	1172-1178	anyone	person[77]	acc[77]	nnnnn[77]	_	_	_	
 11-20	1179-1183	else	person[77]	acc[77]	nnnnn[77]	_	_	_	
 11-21	1184-1186	of	person[77]	acc[77]	nnnnn[77]	_	_	_	
 11-22	1187-1191	like	person[77]|abstract[78]	acc[77]|acc[78]	nnnnn[77]|nnnnn[78]	_	_	_	
 11-23	1192-1204	affiliations	person[77]|abstract[78]	acc[77]|acc[78]	nnnnn[77]|nnnnn[78]	_	_	_	
-11-24	1205-1206	.	_	_	_	_	_	_	_	_	_
+11-24	1205-1206	.	_	_	_	_	_	_	
 
 #Text=She adds that , from the financial standpoint , the lecture to a general audience , which you dislike , would of course be more successful .
-12-1	1207-1210	She	person[79]	giv[79]	nnnnn[79]	_	_	_	
-12-2	1211-1215	adds	_	_	_	_	_	_	_	_	_
-12-3	1216-1220	that	_	_	_	_	_	_	_	_	_
-12-4	1221-1222	,	_	_	_	_	_	_	_	_	_
-12-5	1223-1227	from	_	_	_	_	_	_	_	_	_
+12-1	1207-1210	She	person[79]	giv[79]	nsnnn[79]	_	_	_	
+12-2	1211-1215	adds	_	_	_	_	_	_	
+12-3	1216-1220	that	_	_	_	_	_	_	
+12-4	1221-1222	,	_	_	_	_	_	_	
+12-5	1223-1227	from	_	_	_	_	_	_	
 12-6	1228-1231	the	abstract[80]	new[80]	nnnnn[80]	_	_	_	
 12-7	1232-1241	financial	abstract[80]	new[80]	nnnnn[80]	_	_	_	
 12-8	1242-1252	standpoint	abstract[80]	new[80]	nnnnn[80]	_	_	_	
-12-9	1253-1254	,	_	_	_	_	_	_	_	_	_
+12-9	1253-1254	,	_	_	_	_	_	_	
 12-10	1255-1258	the	event[81]	giv[81]	nnnnn[81]	_	_	_	
 12-11	1259-1266	lecture	event[81]	giv[81]	nnnnn[81]	_	_	_	
 12-12	1267-1269	to	event[81]	giv[81]	nnnnn[81]	_	_	_	
@@ -291,22 +295,22 @@
 12-15	1280-1288	audience	event[81]|person[82]	giv[81]|new[82]	nnnnn[81]|nnnnn[82]	_	_	_	
 12-16	1289-1290	,	event[81]	giv[81]	nnnnn[81]	_	_	_	
 12-17	1291-1296	which	event[81]	giv[81]	nnnnn[81]	_	_	_	
-12-18	1297-1300	you	event[81]|person[83]	giv[81]|giv[83]	nnnnn[81]|snnnn[83]	_	coref	13-42[95_83]	
+12-18	1297-1300	you	event[81]|person[83]	giv[81]|giv[83]	nnnnn[81]|sssss[83]	_	coref	13-42[95_83]	
 12-19	1301-1308	dislike	event[81]	giv[81]	nnnnn[81]	_	_	_	
-12-20	1309-1310	,	_	_	_	_	_	_	_	_	_
-12-21	1311-1316	would	_	_	_	_	_	_	_	_	_
-12-22	1317-1319	of	_	_	_	_	_	_	_	_	_
-12-23	1320-1326	course	_	_	_	_	_	_	_	_	_
-12-24	1327-1329	be	_	_	_	_	_	_	_	_	_
-12-25	1330-1334	more	_	_	_	_	_	_	_	_	_
-12-26	1335-1345	successful	_	_	_	_	_	_	_	_	_
-12-27	1346-1347	.	_	_	_	_	_	_	_	_	_
+12-20	1309-1310	,	_	_	_	_	_	_	
+12-21	1311-1316	would	_	_	_	_	_	_	
+12-22	1317-1319	of	_	_	_	_	_	_	
+12-23	1320-1326	course	_	_	_	_	_	_	
+12-24	1327-1329	be	_	_	_	_	_	_	
+12-25	1330-1334	more	_	_	_	_	_	_	
+12-26	1335-1345	successful	_	_	_	_	_	_	
+12-27	1346-1347	.	_	_	_	_	_	_	
 
 #Text=Such lectures , I am sure , could be arranged for and carried out successfully in New York and Boston , and perhaps Washington ; but your books on Italian art and life are so much appreciated in America that if you dealt with that subject there w[oul]d be far more certainty of popularity .
 13-1	1348-1352	Such	abstract[84]|event[85]	new[84]|acc[85]	nnnnn[84]|nnnnn[85]	_	coref	14-8[100_84]	
 13-2	1353-1361	lectures	abstract[84]|event[85]	new[84]|acc[85]	nnnnn[84]|nnnnn[85]	_	_	_	
 13-3	1362-1363	,	abstract[84]	new[84]	nnnnn[84]	_	_	_	
-13-4	1364-1365	I	abstract[84]|person[86]	new[84]|giv[86]	nnnnn[84]|snnnn[86]	_	coref	14-13[101_86]	
+13-4	1364-1365	I	abstract[84]|person[86]	new[84]|giv[86]	nnnnn[84]|sssss[86]	_	coref	14-13[101_86]	
 13-5	1366-1368	am	abstract[84]	new[84]	nnnnn[84]	_	_	_	
 13-6	1369-1373	sure	abstract[84]	new[84]	nnnnn[84]	_	_	_	
 13-7	1374-1375	,	abstract[84]	new[84]	nnnnn[84]	_	_	_	
@@ -327,117 +331,117 @@
 13-22	1452-1455	and	abstract[84]	new[84]	nnnnn[84]	_	_	_	
 13-23	1456-1463	perhaps	abstract[84]	new[84]	nnnnn[84]	_	_	_	
 13-24	1464-1474	Washington	abstract[84]|place[89]	new[84]|new[89]	nnnnn[84]|nnnnn[89]	Washington,_D.C.[89]	_	_	
-13-25	1475-1476	;	_	_	_	_	_	_	_	_	_
-13-26	1477-1480	but	_	_	_	_	_	_	_	_	_
+13-25	1475-1476	;	_	_	_	_	_	_	
+13-26	1477-1480	but	_	_	_	_	_	_	
 13-27	1481-1485	your	abstract[90]	giv[90]	snnnn[90]	_	_	_	
 13-28	1486-1491	books	abstract[90]	giv[90]	snnnn[90]	_	_	_	
 13-29	1492-1494	on	abstract[90]	giv[90]	snnnn[90]	_	_	_	
 13-30	1495-1502	Italian	abstract[90]|abstract[91]	giv[90]|giv[91]	snnnn[90]|snnnn[91]	_	coref	13-45[96_91]	
-13-31	1503-1506	art	abstract[90]|abstract[91]|abstract[92]	giv[90]|giv[91]|giv[92]	snnnn[90]|snnnn[91]|snnnn[92]	_	_	_	
+13-31	1503-1506	art	abstract[90]|abstract[91]|abstract[92]	giv[90]|giv[91]|giv[92]	snnnn[90]|snnnn[91]|snnss[92]	_	_	_	
 13-32	1507-1510	and	abstract[90]|abstract[91]	giv[90]|giv[91]	snnnn[90]|snnnn[91]	_	_	_	
 13-33	1511-1515	life	abstract[90]|abstract[91]|abstract[93]	giv[90]|giv[91]|new[93]	snnnn[90]|snnnn[91]|snnnn[93]	_	_	_	
-13-34	1516-1519	are	_	_	_	_	_	_	_	_	_
-13-35	1520-1522	so	_	_	_	_	_	_	_	_	_
-13-36	1523-1527	much	_	_	_	_	_	_	_	_	_
-13-37	1528-1539	appreciated	_	_	_	_	_	_	_	_	_
-13-38	1540-1542	in	_	_	_	_	_	_	_	_	_
-13-39	1543-1550	America	place[94]	new[94]	snnnn[94]	United_States[94]	coref	14-45[110_94]	
-13-40	1551-1555	that	_	_	_	_	_	_	_	_	_
-13-41	1556-1558	if	_	_	_	_	_	_	_	_	_
-13-42	1559-1562	you	person[95]	giv[95]	snnnn[95]	_	coref	14-2[99_95]	
-13-43	1563-1568	dealt	_	_	_	_	_	_	_	_	_
-13-44	1569-1573	with	_	_	_	_	_	_	_	_	_
+13-34	1516-1519	are	_	_	_	_	_	_	
+13-35	1520-1522	so	_	_	_	_	_	_	
+13-36	1523-1527	much	_	_	_	_	_	_	
+13-37	1528-1539	appreciated	_	_	_	_	_	_	
+13-38	1540-1542	in	_	_	_	_	_	_	
+13-39	1543-1550	America	place[94]	new[94]	sssss[94]	United_States[94]	coref	14-45[110_94]	
+13-40	1551-1555	that	_	_	_	_	_	_	
+13-41	1556-1558	if	_	_	_	_	_	_	
+13-42	1559-1562	you	person[95]	giv[95]	sssss[95]	_	coref	14-2[99_95]	
+13-43	1563-1568	dealt	_	_	_	_	_	_	
+13-44	1569-1573	with	_	_	_	_	_	_	
 13-45	1574-1578	that	abstract[96]	giv[96]	snnnn[96]	_	_	_	
 13-46	1579-1586	subject	abstract[96]	giv[96]	snnnn[96]	_	_	_	
-13-47	1587-1592	there	_	_	_	_	_	_	_	_	_
-13-48	1593-1600	w[oul]d	_	_	_	_	_	_	_	_	_
-13-49	1601-1603	be	_	_	_	_	_	_	_	_	_
+13-47	1587-1592	there	_	_	_	_	_	_	
+13-48	1593-1600	w[oul]d	_	_	_	_	_	_	
+13-49	1601-1603	be	_	_	_	_	_	_	
 13-50	1604-1607	far	abstract[97]	acc[97]	nnnnn[97]	_	_	_	
 13-51	1608-1612	more	abstract[97]	acc[97]	nnnnn[97]	_	_	_	
 13-52	1613-1622	certainty	abstract[97]	acc[97]	nnnnn[97]	_	_	_	
 13-53	1623-1625	of	abstract[97]	acc[97]	nnnnn[97]	_	_	_	
 13-54	1626-1636	popularity	abstract[97]|abstract[98]	acc[97]|new[98]	nnnnn[97]|nnnnn[98]	_	_	_	
-13-55	1637-1638	.	_	_	_	_	_	_	_	_	_
+13-55	1637-1638	.	_	_	_	_	_	_	
 
 #Text=Whenever you feel disposed to take up the matter again , write me and I will do all I can to make satisfactory arrangements for you , in one line or the other , or in both ; and if you should come to America this summer or autumn , I need not say how much we should enjoy a visit from you .
-14-1	1639-1647	Whenever	_	_	_	_	_	_	_	_	_
-14-2	1648-1651	you	person[99]	giv[99]	snnnn[99]	_	coref	14-26[105_99]	
-14-3	1652-1656	feel	_	_	_	_	_	_	_	_	_
-14-4	1657-1665	disposed	_	_	_	_	_	_	_	_	_
-14-5	1666-1668	to	_	_	_	_	_	_	_	_	_
-14-6	1669-1673	take	_	_	_	_	_	_	_	_	_
-14-7	1674-1676	up	_	_	_	_	_	_	_	_	_
+14-1	1639-1647	Whenever	_	_	_	_	_	_	
+14-2	1648-1651	you	person[99]	giv[99]	sssss[99]	_	coref	14-26[105_99]	
+14-3	1652-1656	feel	_	_	_	_	_	_	
+14-4	1657-1665	disposed	_	_	_	_	_	_	
+14-5	1666-1668	to	_	_	_	_	_	_	
+14-6	1669-1673	take	_	_	_	_	_	_	
+14-7	1674-1676	up	_	_	_	_	_	_	
 14-8	1677-1680	the	abstract[100]	new[100]	nnnnn[100]	_	_	_	
 14-9	1681-1687	matter	abstract[100]	new[100]	nnnnn[100]	_	_	_	
-14-10	1688-1693	again	_	_	_	_	_	_	_	_	_
-14-11	1694-1695	,	_	_	_	_	_	_	_	_	_
-14-12	1696-1701	write	_	_	_	_	_	_	_	_	_
-14-13	1702-1704	me	person[101]	giv[101]	snnnn[101]	_	coref	14-15[102_101]	
-14-14	1705-1708	and	_	_	_	_	_	_	_	_	_
-14-15	1709-1710	I	person[102]	giv[102]	snnnn[102]	_	coref	14-19[103_102]	
-14-16	1711-1715	will	_	_	_	_	_	_	_	_	_
-14-17	1716-1718	do	_	_	_	_	_	_	_	_	_
-14-18	1719-1722	all	_	_	_	_	_	_	_	_	_
-14-19	1723-1724	I	person[103]	giv[103]	snnnn[103]	_	coref	14-51[112_103]	
-14-20	1725-1728	can	_	_	_	_	_	_	_	_	_
-14-21	1729-1731	to	_	_	_	_	_	_	_	_	_
-14-22	1732-1736	make	_	_	_	_	_	_	_	_	_
+14-10	1688-1693	again	_	_	_	_	_	_	
+14-11	1694-1695	,	_	_	_	_	_	_	
+14-12	1696-1701	write	_	_	_	_	_	_	
+14-13	1702-1704	me	person[101]	giv[101]	sssss[101]	_	coref	14-15[102_101]	
+14-14	1705-1708	and	_	_	_	_	_	_	
+14-15	1709-1710	I	person[102]	giv[102]	sssss[102]	_	coref	14-19[103_102]	
+14-16	1711-1715	will	_	_	_	_	_	_	
+14-17	1716-1718	do	_	_	_	_	_	_	
+14-18	1719-1722	all	_	_	_	_	_	_	
+14-19	1723-1724	I	person[103]	giv[103]	sssss[103]	_	coref	14-51[112_103]	
+14-20	1725-1728	can	_	_	_	_	_	_	
+14-21	1729-1731	to	_	_	_	_	_	_	
+14-22	1732-1736	make	_	_	_	_	_	_	
 14-23	1737-1749	satisfactory	abstract[104]	new[104]	nnnnn[104]	_	_	_	
 14-24	1750-1762	arrangements	abstract[104]	new[104]	nnnnn[104]	_	_	_	
 14-25	1763-1766	for	abstract[104]	new[104]	nnnnn[104]	_	_	_	
-14-26	1767-1770	you	abstract[104]|person[105]	new[104]|giv[105]	nnnnn[104]|snnnn[105]	_	coref	14-41[109_105]	
-14-27	1771-1772	,	_	_	_	_	_	_	_	_	_
-14-28	1773-1775	in	_	_	_	_	_	_	_	_	_
+14-26	1767-1770	you	abstract[104]|person[105]	new[104]|giv[105]	nnnnn[104]|sssss[105]	_	coref	14-41[109_105]	
+14-27	1771-1772	,	_	_	_	_	_	_	
+14-28	1773-1775	in	_	_	_	_	_	_	
 14-29	1776-1779	one	abstract[106]	new[106]	nnnnn[106]	_	bridge	14-37[108_106]	
 14-30	1780-1784	line	abstract[106]	new[106]	nnnnn[106]	_	_	_	
-14-31	1785-1787	or	_	_	_	_	_	_	_	_	_
+14-31	1785-1787	or	_	_	_	_	_	_	
 14-32	1788-1791	the	abstract[107]	acc[107]	nnnnn[107]	_	bridge	14-37[108_107]	
 14-33	1792-1797	other	abstract[107]	acc[107]	nnnnn[107]	_	_	_	
-14-34	1798-1799	,	_	_	_	_	_	_	_	_	_
-14-35	1800-1802	or	_	_	_	_	_	_	_	_	_
-14-36	1803-1805	in	_	_	_	_	_	_	_	_	_
+14-34	1798-1799	,	_	_	_	_	_	_	
+14-35	1800-1802	or	_	_	_	_	_	_	
+14-36	1803-1805	in	_	_	_	_	_	_	
 14-37	1806-1810	both	abstract[108]	split[108]	nnnnn[108]	_	_	_	
-14-38	1811-1812	;	_	_	_	_	_	_	_	_	_
-14-39	1813-1816	and	_	_	_	_	_	_	_	_	_
-14-40	1817-1819	if	_	_	_	_	_	_	_	_	_
-14-41	1820-1823	you	person[109]	giv[109]	snnnn[109]	_	coref	14-63[115_109]	
-14-42	1824-1830	should	_	_	_	_	_	_	_	_	_
-14-43	1831-1835	come	_	_	_	_	_	_	_	_	_
-14-44	1836-1838	to	_	_	_	_	_	_	_	_	_
-14-45	1839-1846	America	place[110]	giv[110]	snnnn[110]	United_States[110]	_	_	
+14-38	1811-1812	;	_	_	_	_	_	_	
+14-39	1813-1816	and	_	_	_	_	_	_	
+14-40	1817-1819	if	_	_	_	_	_	_	
+14-41	1820-1823	you	person[109]	giv[109]	sssss[109]	_	coref	14-63[115_109]	
+14-42	1824-1830	should	_	_	_	_	_	_	
+14-43	1831-1835	come	_	_	_	_	_	_	
+14-44	1836-1838	to	_	_	_	_	_	_	
+14-45	1839-1846	America	place[110]	giv[110]	sssss[110]	United_States[110]	_	_	
 14-46	1847-1851	this	time[111]	acc[111]	nnnnn[111]	_	_	_	
 14-47	1852-1858	summer	time[111]	acc[111]	nnnnn[111]	_	_	_	
 14-48	1859-1861	or	time[111]	acc[111]	nnnnn[111]	_	_	_	
 14-49	1862-1868	autumn	time[111]	acc[111]	nnnnn[111]	_	_	_	
-14-50	1869-1870	,	_	_	_	_	_	_	_	_	_
-14-51	1871-1872	I	person[112]	giv[112]	snnnn[112]	_	coref|bridge:set-member	15-20[122_112]|14-57[113_112]	
-14-52	1873-1877	need	_	_	_	_	_	_	_	_	_
-14-53	1878-1881	not	_	_	_	_	_	_	_	_	_
-14-54	1882-1885	say	_	_	_	_	_	_	_	_	_
-14-55	1886-1889	how	_	_	_	_	_	_	_	_	_
-14-56	1890-1894	much	_	_	_	_	_	_	_	_	_
+14-50	1869-1870	,	_	_	_	_	_	_	
+14-51	1871-1872	I	person[112]	giv[112]	sssss[112]	_	bridge:set-member|coref	14-57[113_112]|15-20[122_112]	
+14-52	1873-1877	need	_	_	_	_	_	_	
+14-53	1878-1881	not	_	_	_	_	_	_	
+14-54	1882-1885	say	_	_	_	_	_	_	
+14-55	1886-1889	how	_	_	_	_	_	_	
+14-56	1890-1894	much	_	_	_	_	_	_	
 14-57	1895-1897	we	person[113]	acc[113]	nnnnn[113]	_	coref	15-1[116_113]	
-14-58	1898-1904	should	_	_	_	_	_	_	_	_	_
-14-59	1905-1910	enjoy	_	_	_	_	_	_	_	_	_
-14-60	1911-1912	a	event[114]	giv[114]	nnnnn[114]	_	_	_	
-14-61	1913-1918	visit	event[114]	giv[114]	nnnnn[114]	_	_	_	
-14-62	1919-1923	from	event[114]	giv[114]	nnnnn[114]	_	_	_	
-14-63	1924-1927	you	event[114]|person[115]	giv[114]|giv[115]	nnnnn[114]|snnnn[115]	_	coref	15-4[117_115]	
-14-64	1928-1929	.	_	_	_	_	_	_	_	_	_
+14-58	1898-1904	should	_	_	_	_	_	_	
+14-59	1905-1910	enjoy	_	_	_	_	_	_	
+14-60	1911-1912	a	event[114]	giv[114]	nnsnn[114]	_	_	_	
+14-61	1913-1918	visit	event[114]	giv[114]	nnsnn[114]	_	_	_	
+14-62	1919-1923	from	event[114]	giv[114]	nnsnn[114]	_	_	_	
+14-63	1924-1927	you	event[114]|person[115]	giv[114]|giv[115]	nnsnn[114]|sssss[115]	_	coref	15-4[117_115]	
+14-64	1928-1929	.	_	_	_	_	_	_	
 
 #Text=We could show you some corners of old New England , and some of the most charming woodland scenery I know of anywhere ; and the pleasure of welcoming you would be great .
 15-1	1930-1932	We	person[116]	giv[116]	nnnnn[116]	_	_	_	
-15-2	1933-1938	could	_	_	_	_	_	_	_	_	_
-15-3	1939-1943	show	_	_	_	_	_	_	_	_	_
-15-4	1944-1947	you	person[117]	giv[117]	snnnn[117]	_	coref	15-30[124_117]	
+15-2	1933-1938	could	_	_	_	_	_	_	
+15-3	1939-1943	show	_	_	_	_	_	_	
+15-4	1944-1947	you	person[117]	giv[117]	sssss[117]	_	coref	15-30[124_117]	
 15-5	1948-1952	some	place[118]	new[118]	nnnnn[118]	_	_	_	
 15-6	1953-1960	corners	place[118]	new[118]	nnnnn[118]	_	_	_	
 15-7	1961-1963	of	place[118]	new[118]	nnnnn[118]	_	_	_	
-15-8	1964-1967	old	place[118]|place[119]	new[118]|new[119]	nnnnn[118]|nnnnn[119]	New_England[119]	_	_	
-15-9	1968-1971	New	place[118]|place[119]	new[118]|new[119]	nnnnn[118]|nnnnn[119]	New_England[119]	_	_	
-15-10	1972-1979	England	place[118]|place[119]	new[118]|new[119]	nnnnn[118]|nnnnn[119]	New_England[119]	_	_	
-15-11	1980-1981	,	_	_	_	_	_	_	_	_	_
-15-12	1982-1985	and	_	_	_	_	_	_	_	_	_
+15-8	1964-1967	old	place[118]|place[119]	new[118]|new[119]	nnnnn[118]|nssnn[119]	New_England[119]	_	_	
+15-9	1968-1971	New	place[118]|place[119]	new[118]|new[119]	nnnnn[118]|nssnn[119]	New_England[119]	_	_	
+15-10	1972-1979	England	place[118]|place[119]	new[118]|new[119]	nnnnn[118]|nssnn[119]	New_England[119]	_	_	
+15-11	1980-1981	,	_	_	_	_	_	_	
+15-12	1982-1985	and	_	_	_	_	_	_	
 15-13	1986-1990	some	place[120]	giv[120]	nnnnn[120]	_	_	_	
 15-14	1991-1993	of	place[120]	giv[120]	nnnnn[120]	_	_	_	
 15-15	1994-1997	the	place[120]|place[121]	giv[120]|new[121]	nnnnn[120]|nnnnn[121]	_	_	_	
@@ -445,73 +449,73 @@
 15-17	2003-2011	charming	place[120]|place[121]	giv[120]|new[121]	nnnnn[120]|nnnnn[121]	_	_	_	
 15-18	2012-2020	woodland	place[120]|place[121]	giv[120]|new[121]	nnnnn[120]|nnnnn[121]	_	_	_	
 15-19	2021-2028	scenery	place[120]|place[121]	giv[120]|new[121]	nnnnn[120]|nnnnn[121]	_	_	_	
-15-20	2029-2030	I	place[120]|place[121]|person[122]	giv[120]|new[121]|giv[122]	nnnnn[120]|nnnnn[121]|snnnn[122]	_	coref	16-10[127_122]	
+15-20	2029-2030	I	place[120]|place[121]|person[122]	giv[120]|new[121]|giv[122]	nnnnn[120]|nnnnn[121]|sssss[122]	_	coref	16-10[127_122]	
 15-21	2031-2035	know	place[120]|place[121]	giv[120]|new[121]	nnnnn[120]|nnnnn[121]	_	_	_	
 15-22	2036-2038	of	place[120]|place[121]	giv[120]|new[121]	nnnnn[120]|nnnnn[121]	_	_	_	
 15-23	2039-2047	anywhere	place[120]|place[121]	giv[120]|new[121]	nnnnn[120]|nnnnn[121]	_	_	_	
-15-24	2048-2049	;	_	_	_	_	_	_	_	_	_
-15-25	2050-2053	and	_	_	_	_	_	_	_	_	_
+15-24	2048-2049	;	_	_	_	_	_	_	
+15-25	2050-2053	and	_	_	_	_	_	_	
 15-26	2054-2057	the	abstract[123]	new[123]	nnnnn[123]	_	_	_	
 15-27	2058-2066	pleasure	abstract[123]	new[123]	nnnnn[123]	_	_	_	
 15-28	2067-2069	of	abstract[123]	new[123]	nnnnn[123]	_	_	_	
 15-29	2070-2079	welcoming	abstract[123]	new[123]	nnnnn[123]	_	_	_	
-15-30	2080-2083	you	abstract[123]|person[124]	new[123]|giv[124]	nnnnn[123]|snnnn[124]	_	coref	16-2[125_124]	
-15-31	2084-2089	would	_	_	_	_	_	_	_	_	_
-15-32	2090-2092	be	_	_	_	_	_	_	_	_	_
-15-33	2093-2098	great	_	_	_	_	_	_	_	_	_
-15-34	2099-2100	.	_	_	_	_	_	_	_	_	_
+15-30	2080-2083	you	abstract[123]|person[124]	new[123]|giv[124]	nnnnn[123]|sssss[124]	_	coref	16-2[125_124]	
+15-31	2084-2089	would	_	_	_	_	_	_	
+15-32	2090-2092	be	_	_	_	_	_	_	
+15-33	2093-2098	great	_	_	_	_	_	_	
+15-34	2099-2100	.	_	_	_	_	_	_	
 
 #Text=If you are not weary of this long letter I should like to go on to talk about your play ; but you can let my remarks wait till you have an unemployed hour .
-16-1	2101-2103	If	_	_	_	_	_	_	_	_	_
-16-2	2104-2107	you	person[125]	giv[125]	snnnn[125]	_	coref	16-19[129_125]	
-16-3	2108-2111	are	_	_	_	_	_	_	_	_	_
-16-4	2112-2115	not	_	_	_	_	_	_	_	_	_
-16-5	2116-2121	weary	_	_	_	_	_	_	_	_	_
-16-6	2122-2124	of	_	_	_	_	_	_	_	_	_
+16-1	2101-2103	If	_	_	_	_	_	_	
+16-2	2104-2107	you	person[125]	giv[125]	sssss[125]	_	coref	16-19[129_125]	
+16-3	2108-2111	are	_	_	_	_	_	_	
+16-4	2112-2115	not	_	_	_	_	_	_	
+16-5	2116-2121	weary	_	_	_	_	_	_	
+16-6	2122-2124	of	_	_	_	_	_	_	
 16-7	2125-2129	this	object[126]	acc[126]	nnnnn[126]	_	coref	30-6[272_126]	
 16-8	2130-2134	long	object[126]	acc[126]	nnnnn[126]	_	_	_	
 16-9	2135-2141	letter	object[126]	acc[126]	nnnnn[126]	_	_	_	
-16-10	2142-2143	I	person[127]	giv[127]	snnnn[127]	_	coref	16-26[132_127]	
-16-11	2144-2150	should	_	_	_	_	_	_	_	_	_
-16-12	2151-2155	like	_	_	_	_	_	_	_	_	_
-16-13	2156-2158	to	_	_	_	_	_	_	_	_	_
-16-14	2159-2161	go	_	_	_	_	_	_	_	_	_
-16-15	2162-2164	on	_	_	_	_	_	_	_	_	_
-16-16	2165-2167	to	_	_	_	_	_	_	_	_	_
-16-17	2168-2172	talk	_	_	_	_	_	_	_	_	_
-16-18	2173-2178	about	_	_	_	_	_	_	_	_	_
-16-19	2179-2183	your	abstract[128]|person[129]	new[128]|giv[129]	snnnn[128]|snnnn[129]	_	coref|coref	17-8[139_128]|16-23[130_129]	
-16-20	2184-2188	play	abstract[128]	new[128]	snnnn[128]	_	_	_	
-16-21	2189-2190	;	_	_	_	_	_	_	_	_	_
-16-22	2191-2194	but	_	_	_	_	_	_	_	_	_
-16-23	2195-2198	you	person[130]	giv[130]	snnnn[130]	_	coref	16-30[133_130]	
-16-24	2199-2202	can	_	_	_	_	_	_	_	_	_
-16-25	2203-2206	let	_	_	_	_	_	_	_	_	_
-16-26	2207-2209	my	abstract[131]|person[132]	new[131]|giv[132]	nnnnn[131]|snnnn[132]	_	coref	17-5[138_132]	
+16-10	2142-2143	I	person[127]	giv[127]	sssss[127]	_	coref	16-26[132_127]	
+16-11	2144-2150	should	_	_	_	_	_	_	
+16-12	2151-2155	like	_	_	_	_	_	_	
+16-13	2156-2158	to	_	_	_	_	_	_	
+16-14	2159-2161	go	_	_	_	_	_	_	
+16-15	2162-2164	on	_	_	_	_	_	_	
+16-16	2165-2167	to	_	_	_	_	_	_	
+16-17	2168-2172	talk	_	_	_	_	_	_	
+16-18	2173-2178	about	_	_	_	_	_	_	
+16-19	2179-2183	your	abstract[128]|person[129]	new[128]|giv[129]	sssss[128]|sssss[129]	_	coref|coref	17-8[139_128]|16-23[130_129]	
+16-20	2184-2188	play	abstract[128]	new[128]	sssss[128]	_	_	_	
+16-21	2189-2190	;	_	_	_	_	_	_	
+16-22	2191-2194	but	_	_	_	_	_	_	
+16-23	2195-2198	you	person[130]	giv[130]	sssss[130]	_	coref	16-30[133_130]	
+16-24	2199-2202	can	_	_	_	_	_	_	
+16-25	2203-2206	let	_	_	_	_	_	_	
+16-26	2207-2209	my	abstract[131]|person[132]	new[131]|giv[132]	nnnnn[131]|sssss[132]	_	coref	17-5[138_132]	
 16-27	2210-2217	remarks	abstract[131]	new[131]	nnnnn[131]	_	_	_	
-16-28	2218-2222	wait	_	_	_	_	_	_	_	_	_
-16-29	2223-2227	till	_	_	_	_	_	_	_	_	_
-16-30	2228-2231	you	person[133]	giv[133]	snnnn[133]	_	coref	17-1[135_133]	
-16-31	2232-2236	have	_	_	_	_	_	_	_	_	_
+16-28	2218-2222	wait	_	_	_	_	_	_	
+16-29	2223-2227	till	_	_	_	_	_	_	
+16-30	2228-2231	you	person[133]	giv[133]	sssss[133]	_	coref	17-1[135_133]	
+16-31	2232-2236	have	_	_	_	_	_	_	
 16-32	2237-2239	an	time[134]	new[134]	nnnnn[134]	_	_	_	
 16-33	2240-2250	unemployed	time[134]	new[134]	nnnnn[134]	_	_	_	
 16-34	2251-2255	hour	time[134]	new[134]	nnnnn[134]	_	_	_	
-16-35	2256-2257	.	_	_	_	_	_	_	_	_	_
+16-35	2256-2257	.	_	_	_	_	_	_	
 
 #Text=You said you wished my impression of it — but was it from the standpoint of the stage or of the “ closet ” ?
-17-1	2258-2261	You	person[135]	giv[135]	snnnn[135]	_	coref	17-3[136_135]	
-17-2	2262-2266	said	_	_	_	_	_	_	_	_	_
-17-3	2267-2270	you	person[136]	giv[136]	snnnn[136]	_	coref	18-4[145_136]	
-17-4	2271-2277	wished	_	_	_	_	_	_	_	_	_
-17-5	2278-2280	my	abstract[137]|person[138]	new[137]|giv[138]	nnnnn[137]|snnnn[138]	_	coref	24-32[224_138]	
+17-1	2258-2261	You	person[135]	giv[135]	sssss[135]	_	coref	17-3[136_135]	
+17-2	2262-2266	said	_	_	_	_	_	_	
+17-3	2267-2270	you	person[136]	giv[136]	sssss[136]	_	coref	18-4[145_136]	
+17-4	2271-2277	wished	_	_	_	_	_	_	
+17-5	2278-2280	my	abstract[137]|person[138]	new[137]|giv[138]	nnnnn[137]|sssss[138]	_	coref	24-32[224_138]	
 17-6	2281-2291	impression	abstract[137]	new[137]	nnnnn[137]	_	_	_	
 17-7	2292-2294	of	abstract[137]	new[137]	nnnnn[137]	_	_	_	
-17-8	2295-2297	it	abstract[137]|abstract[139]	new[137]|giv[139]	nnnnn[137]|snnnn[139]	_	coref	17-12[140_139]	
-17-9	2298-2299	—	_	_	_	_	_	_	_	_	_
-17-10	2300-2303	but	_	_	_	_	_	_	_	_	_
-17-11	2304-2307	was	_	_	_	_	_	_	_	_	_
-17-12	2308-2310	it	abstract[140]	giv[140]	snnnn[140]	_	coref	18-17[148_140]	
-17-13	2311-2315	from	_	_	_	_	_	_	_	_	_
+17-8	2295-2297	it	abstract[137]|abstract[139]	new[137]|giv[139]	nnnnn[137]|sssss[139]	_	coref	17-12[140_139]	
+17-9	2298-2299	—	_	_	_	_	_	_	
+17-10	2300-2303	but	_	_	_	_	_	_	
+17-11	2304-2307	was	_	_	_	_	_	_	
+17-12	2308-2310	it	abstract[140]	giv[140]	sssss[140]	_	coref	18-17[148_140]	
+17-13	2311-2315	from	_	_	_	_	_	_	
 17-14	2316-2319	the	abstract[141]	giv[141]	nnnnn[141]	_	_	_	
 17-15	2320-2330	standpoint	abstract[141]	giv[141]	nnnnn[141]	_	_	_	
 17-16	2331-2333	of	abstract[141]	giv[141]	nnnnn[141]	_	_	_	
@@ -523,47 +527,47 @@
 17-22	2354-2355	“	abstract[141]|abstract[143]	giv[141]|new[143]	nnnnn[141]|nnnnn[143]	_	_	_	
 17-23	2356-2362	closet	abstract[141]|abstract[143]	giv[141]|new[143]	nnnnn[141]|nnnnn[143]	_	_	_	
 17-24	2363-2364	”	abstract[141]|abstract[143]	giv[141]|new[143]	nnnnn[141]|nnnnn[143]	_	_	_	
-17-25	2365-2366	?	_	_	_	_	_	_	_	_	_
+17-25	2365-2366	?	_	_	_	_	_	_	
 
 #Text=On the former I should hardly be an authority ; so I prefer to write of the play as a reader , rather than as a spectator .
-18-1	2367-2369	On	_	_	_	_	_	_	_	_	_
+18-1	2367-2369	On	_	_	_	_	_	_	
 18-2	2370-2373	the	abstract[144]	new[144]	nnnnn[144]	_	_	_	
 18-3	2374-2380	former	abstract[144]	new[144]	nnnnn[144]	_	_	_	
-18-4	2381-2382	I	person[145]	giv[145]	snnnn[145]	_	coref	18-12[147_145]	
-18-5	2383-2389	should	_	_	_	_	_	_	_	_	_
-18-6	2390-2396	hardly	_	_	_	_	_	_	_	_	_
-18-7	2397-2399	be	_	_	_	_	_	_	_	_	_
+18-4	2381-2382	I	person[145]	giv[145]	sssss[145]	_	coref	18-12[147_145]	
+18-5	2383-2389	should	_	_	_	_	_	_	
+18-6	2390-2396	hardly	_	_	_	_	_	_	
+18-7	2397-2399	be	_	_	_	_	_	_	
 18-8	2400-2402	an	person[146]	new[146]	nnnnn[146]	_	_	_	
 18-9	2403-2412	authority	person[146]	new[146]	nnnnn[146]	_	_	_	
-18-10	2413-2414	;	_	_	_	_	_	_	_	_	_
-18-11	2415-2417	so	_	_	_	_	_	_	_	_	_
-18-12	2418-2419	I	person[147]	giv[147]	snnnn[147]	_	coref	18-20[149_147]	
-18-13	2420-2426	prefer	_	_	_	_	_	_	_	_	_
-18-14	2427-2429	to	_	_	_	_	_	_	_	_	_
-18-15	2430-2435	write	_	_	_	_	_	_	_	_	_
-18-16	2436-2438	of	_	_	_	_	_	_	_	_	_
-18-17	2439-2442	the	abstract[148]	giv[148]	snnnn[148]	_	coref|bridge:entity-associative	19-2[151_148]|18-26[150_148]	
-18-18	2443-2447	play	abstract[148]	giv[148]	snnnn[148]	_	_	_	
-18-19	2448-2450	as	_	_	_	_	_	_	_	_	_
-18-20	2451-2452	a	person[149]	giv[149]	snnnn[149]	_	coref	19-16[153_149]	
-18-21	2453-2459	reader	person[149]	giv[149]	snnnn[149]	_	_	_	
-18-22	2460-2461	,	_	_	_	_	_	_	_	_	_
-18-23	2462-2468	rather	_	_	_	_	_	_	_	_	_
-18-24	2469-2473	than	_	_	_	_	_	_	_	_	_
-18-25	2474-2476	as	_	_	_	_	_	_	_	_	_
+18-10	2413-2414	;	_	_	_	_	_	_	
+18-11	2415-2417	so	_	_	_	_	_	_	
+18-12	2418-2419	I	person[147]	giv[147]	sssss[147]	_	coref	18-20[149_147]	
+18-13	2420-2426	prefer	_	_	_	_	_	_	
+18-14	2427-2429	to	_	_	_	_	_	_	
+18-15	2430-2435	write	_	_	_	_	_	_	
+18-16	2436-2438	of	_	_	_	_	_	_	
+18-17	2439-2442	the	abstract[148]	giv[148]	sssss[148]	_	bridge:entity-associative|coref	18-26[150_148]|19-2[151_148]	
+18-18	2443-2447	play	abstract[148]	giv[148]	sssss[148]	_	_	_	
+18-19	2448-2450	as	_	_	_	_	_	_	
+18-20	2451-2452	a	person[149]	giv[149]	sssss[149]	_	coref	19-16[153_149]	
+18-21	2453-2459	reader	person[149]	giv[149]	sssss[149]	_	_	_	
+18-22	2460-2461	,	_	_	_	_	_	_	
+18-23	2462-2468	rather	_	_	_	_	_	_	
+18-24	2469-2473	than	_	_	_	_	_	_	
+18-25	2474-2476	as	_	_	_	_	_	_	
 18-26	2477-2478	a	person[150]	acc[150]	nnnnn[150]	_	_	_	
 18-27	2479-2488	spectator	person[150]	acc[150]	nnnnn[150]	_	_	_	
-18-28	2489-2490	.	_	_	_	_	_	_	_	_	_
+18-28	2489-2490	.	_	_	_	_	_	_	
 
 #Text=— It is exquisite , and so completely the kind of fanciful poetical thing that I long to see done , that I have only one objection to make to it : namely , its greater fitness for narrative than for dramatic treatment .
-19-1	2491-2492	—	_	_	_	_	_	_	_	_	_
-19-2	2493-2495	It	abstract[151]	giv[151]	snnnn[151]	_	coref	19-31[156_151]	
-19-3	2496-2498	is	_	_	_	_	_	_	_	_	_
-19-4	2499-2508	exquisite	_	_	_	_	_	_	_	_	_
-19-5	2509-2510	,	_	_	_	_	_	_	_	_	_
-19-6	2511-2514	and	_	_	_	_	_	_	_	_	_
-19-7	2515-2517	so	_	_	_	_	_	_	_	_	_
-19-8	2518-2528	completely	_	_	_	_	_	_	_	_	_
+19-1	2491-2492	—	_	_	_	_	_	_	
+19-2	2493-2495	It	abstract[151]	giv[151]	sssss[151]	_	coref	19-31[156_151]	
+19-3	2496-2498	is	_	_	_	_	_	_	
+19-4	2499-2508	exquisite	_	_	_	_	_	_	
+19-5	2509-2510	,	_	_	_	_	_	_	
+19-6	2511-2514	and	_	_	_	_	_	_	
+19-7	2515-2517	so	_	_	_	_	_	_	
+19-8	2518-2528	completely	_	_	_	_	_	_	
 19-9	2529-2532	the	abstract[152]	new[152]	nnnnn[152]	_	_	_	
 19-10	2533-2537	kind	abstract[152]	new[152]	nnnnn[152]	_	_	_	
 19-11	2538-2540	of	abstract[152]	new[152]	nnnnn[152]	_	_	_	
@@ -571,80 +575,80 @@
 19-13	2550-2558	poetical	abstract[152]	new[152]	nnnnn[152]	_	_	_	
 19-14	2559-2564	thing	abstract[152]	new[152]	nnnnn[152]	_	_	_	
 19-15	2565-2569	that	abstract[152]	new[152]	nnnnn[152]	_	_	_	
-19-16	2570-2571	I	abstract[152]|person[153]	new[152]|giv[153]	nnnnn[152]|snnnn[153]	_	coref	19-23[154_153]	
+19-16	2570-2571	I	abstract[152]|person[153]	new[152]|giv[153]	nnnnn[152]|sssss[153]	_	coref	19-23[154_153]	
 19-17	2572-2576	long	abstract[152]	new[152]	nnnnn[152]	_	_	_	
 19-18	2577-2579	to	abstract[152]	new[152]	nnnnn[152]	_	_	_	
 19-19	2580-2583	see	abstract[152]	new[152]	nnnnn[152]	_	_	_	
 19-20	2584-2588	done	abstract[152]	new[152]	nnnnn[152]	_	_	_	
-19-21	2589-2590	,	_	_	_	_	_	_	_	_	_
-19-22	2591-2595	that	_	_	_	_	_	_	_	_	_
-19-23	2596-2597	I	person[154]	giv[154]	snnnn[154]	_	coref	20-19[165_154]	
-19-24	2598-2602	have	_	_	_	_	_	_	_	_	_
+19-21	2589-2590	,	_	_	_	_	_	_	
+19-22	2591-2595	that	_	_	_	_	_	_	
+19-23	2596-2597	I	person[154]	giv[154]	sssss[154]	_	coref	20-19[165_154]	
+19-24	2598-2602	have	_	_	_	_	_	_	
 19-25	2603-2607	only	abstract[155]	new[155]	nnnnn[155]	_	_	_	
 19-26	2608-2611	one	abstract[155]	new[155]	nnnnn[155]	_	_	_	
 19-27	2612-2621	objection	abstract[155]	new[155]	nnnnn[155]	_	_	_	
 19-28	2622-2624	to	abstract[155]	new[155]	nnnnn[155]	_	_	_	
 19-29	2625-2629	make	abstract[155]	new[155]	nnnnn[155]	_	_	_	
 19-30	2630-2632	to	abstract[155]	new[155]	nnnnn[155]	_	_	_	
-19-31	2633-2635	it	abstract[155]|abstract[156]	new[155]|giv[156]	nnnnn[155]|snnnn[156]	_	coref	19-35[158_156]	
-19-32	2636-2637	:	_	_	_	_	_	_	_	_	_
-19-33	2638-2644	namely	_	_	_	_	_	_	_	_	_
-19-34	2645-2646	,	_	_	_	_	_	_	_	_	_
-19-35	2647-2650	its	abstract[157]|abstract[158]	giv[157]|giv[158]	snnnn[157]|snnnn[158]	_	coref|bridge:entity-associative	20-10[162_158]|20-2[161_158]	
-19-36	2651-2658	greater	abstract[157]	giv[157]	snnnn[157]	_	_	_	
-19-37	2659-2666	fitness	abstract[157]	giv[157]	snnnn[157]	_	_	_	
-19-38	2667-2670	for	abstract[157]	giv[157]	snnnn[157]	_	_	_	
-19-39	2671-2680	narrative	abstract[157]|abstract[159]	giv[157]|new[159]	snnnn[157]|snnnn[159]	_	_	_	
-19-40	2681-2685	than	abstract[157]	giv[157]	snnnn[157]	_	_	_	
-19-41	2686-2689	for	abstract[157]	giv[157]	snnnn[157]	_	_	_	
-19-42	2690-2698	dramatic	abstract[157]|abstract[160]	giv[157]|new[160]	snnnn[157]|nnnnn[160]	_	_	_	
-19-43	2699-2708	treatment	abstract[157]|abstract[160]	giv[157]|new[160]	snnnn[157]|nnnnn[160]	_	_	_	
-19-44	2709-2710	.	_	_	_	_	_	_	_	_	_
+19-31	2633-2635	it	abstract[155]|abstract[156]	new[155]|giv[156]	nnnnn[155]|sssss[156]	_	coref	19-35[158_156]	
+19-32	2636-2637	:	_	_	_	_	_	_	
+19-33	2638-2644	namely	_	_	_	_	_	_	
+19-34	2645-2646	,	_	_	_	_	_	_	
+19-35	2647-2650	its	abstract[157]|abstract[158]	giv[157]|giv[158]	ssnsn[157]|sssss[158]	_	bridge:entity-associative|coref	20-2[161_158]|20-10[162_158]	
+19-36	2651-2658	greater	abstract[157]	giv[157]	ssnsn[157]	_	_	_	
+19-37	2659-2666	fitness	abstract[157]	giv[157]	ssnsn[157]	_	_	_	
+19-38	2667-2670	for	abstract[157]	giv[157]	ssnsn[157]	_	_	_	
+19-39	2671-2680	narrative	abstract[157]|abstract[159]	giv[157]|new[159]	ssnsn[157]|ssnsn[159]	_	_	_	
+19-40	2681-2685	than	abstract[157]	giv[157]	ssnsn[157]	_	_	_	
+19-41	2686-2689	for	abstract[157]	giv[157]	ssnsn[157]	_	_	_	
+19-42	2690-2698	dramatic	abstract[157]|abstract[160]	giv[157]|new[160]	ssnsn[157]|nsnnn[160]	_	_	_	
+19-43	2699-2708	treatment	abstract[157]|abstract[160]	giv[157]|new[160]	ssnsn[157]|nsnnn[160]	_	_	_	
+19-44	2709-2710	.	_	_	_	_	_	_	
 
 #Text=Certainly the idea is dramatic ; but even for a play read in the closet it seems to me to lack movement and clash of emotions .
-20-1	2711-2720	Certainly	_	_	_	_	_	_	_	_	_
+20-1	2711-2720	Certainly	_	_	_	_	_	_	
 20-2	2721-2724	the	abstract[161]	acc[161]	nnnnn[161]	_	_	_	
 20-3	2725-2729	idea	abstract[161]	acc[161]	nnnnn[161]	_	_	_	
-20-4	2730-2732	is	_	_	_	_	_	_	_	_	_
-20-5	2733-2741	dramatic	_	_	_	_	_	_	_	_	_
-20-6	2742-2743	;	_	_	_	_	_	_	_	_	_
-20-7	2744-2747	but	_	_	_	_	_	_	_	_	_
-20-8	2748-2752	even	_	_	_	_	_	_	_	_	_
-20-9	2753-2756	for	_	_	_	_	_	_	_	_	_
-20-10	2757-2758	a	abstract[162]	new[162]	snnnn[162]	_	coref	20-16[164_162]	
-20-11	2759-2763	play	abstract[162]	new[162]	snnnn[162]	_	_	_	
-20-12	2764-2768	read	abstract[162]	new[162]	snnnn[162]	_	_	_	
-20-13	2769-2771	in	abstract[162]	new[162]	snnnn[162]	_	_	_	
-20-14	2772-2775	the	abstract[162]|abstract[163]	new[162]|giv[163]	snnnn[162]|nnnnn[163]	_	_	_	
-20-15	2776-2782	closet	abstract[162]|abstract[163]	new[162]|giv[163]	snnnn[162]|nnnnn[163]	_	_	_	
-20-16	2783-2785	it	abstract[164]	giv[164]	snnnn[164]	_	coref	21-8[170_164]	
-20-17	2786-2791	seems	_	_	_	_	_	_	_	_	_
-20-18	2792-2794	to	_	_	_	_	_	_	_	_	_
-20-19	2795-2797	me	person[165]	giv[165]	snnnn[165]	_	coref	21-11[171_165]	
-20-20	2798-2800	to	_	_	_	_	_	_	_	_	_
-20-21	2801-2805	lack	_	_	_	_	_	_	_	_	_
+20-4	2730-2732	is	_	_	_	_	_	_	
+20-5	2733-2741	dramatic	_	_	_	_	_	_	
+20-6	2742-2743	;	_	_	_	_	_	_	
+20-7	2744-2747	but	_	_	_	_	_	_	
+20-8	2748-2752	even	_	_	_	_	_	_	
+20-9	2753-2756	for	_	_	_	_	_	_	
+20-10	2757-2758	a	abstract[162]	new[162]	sssss[162]	_	coref	20-16[164_162]	
+20-11	2759-2763	play	abstract[162]	new[162]	sssss[162]	_	_	_	
+20-12	2764-2768	read	abstract[162]	new[162]	sssss[162]	_	_	_	
+20-13	2769-2771	in	abstract[162]	new[162]	sssss[162]	_	_	_	
+20-14	2772-2775	the	abstract[162]|abstract[163]	new[162]|giv[163]	sssss[162]|nnnnn[163]	_	_	_	
+20-15	2776-2782	closet	abstract[162]|abstract[163]	new[162]|giv[163]	sssss[162]|nnnnn[163]	_	_	_	
+20-16	2783-2785	it	abstract[164]	giv[164]	sssss[164]	_	coref	21-8[170_164]	
+20-17	2786-2791	seems	_	_	_	_	_	_	
+20-18	2792-2794	to	_	_	_	_	_	_	
+20-19	2795-2797	me	person[165]	giv[165]	sssss[165]	_	coref	21-11[171_165]	
+20-20	2798-2800	to	_	_	_	_	_	_	
+20-21	2801-2805	lack	_	_	_	_	_	_	
 20-22	2806-2814	movement	event[166]	new[166]	nnnnn[166]	_	_	_	
-20-23	2815-2818	and	_	_	_	_	_	_	_	_	_
+20-23	2815-2818	and	_	_	_	_	_	_	
 20-24	2819-2824	clash	event[167]	new[167]	nnnnn[167]	_	_	_	
 20-25	2825-2827	of	event[167]	new[167]	nnnnn[167]	_	_	_	
 20-26	2828-2836	emotions	event[167]|abstract[168]	new[167]|new[168]	nnnnn[167]|nnnnn[168]	_	_	_	
-20-27	2837-2838	.	_	_	_	_	_	_	_	_	_
+20-27	2837-2838	.	_	_	_	_	_	_	
 
 #Text=In short , whatever is faulty in it seems to me faulty only from the dramatic point - of - view ; whatever is most exquisite , would increase in value were the form narrative .
-21-1	2839-2841	In	_	_	_	_	_	_	_	_	_
-21-2	2842-2847	short	_	_	_	_	_	_	_	_	_
-21-3	2848-2849	,	_	_	_	_	_	_	_	_	_
+21-1	2839-2841	In	_	_	_	_	_	_	
+21-2	2842-2847	short	_	_	_	_	_	_	
+21-3	2848-2849	,	_	_	_	_	_	_	
 21-4	2850-2858	whatever	abstract[169]	giv[169]	nnnnn[169]	_	_	_	
 21-5	2859-2861	is	abstract[169]	giv[169]	nnnnn[169]	_	_	_	
 21-6	2862-2868	faulty	abstract[169]	giv[169]	nnnnn[169]	_	_	_	
 21-7	2869-2871	in	abstract[169]	giv[169]	nnnnn[169]	_	_	_	
-21-8	2872-2874	it	abstract[169]|abstract[170]	giv[169]|giv[170]	nnnnn[169]|snnnn[170]	_	coref|bridge:entity-associative	23-39[202_170]|21-33[175_170]	
-21-9	2875-2880	seems	_	_	_	_	_	_	_	_	_
-21-10	2881-2883	to	_	_	_	_	_	_	_	_	_
-21-11	2884-2886	me	person[171]	giv[171]	snnnn[171]	_	coref	22-1[176_171]	
-21-12	2887-2893	faulty	_	_	_	_	_	_	_	_	_
-21-13	2894-2898	only	_	_	_	_	_	_	_	_	_
-21-14	2899-2903	from	_	_	_	_	_	_	_	_	_
+21-8	2872-2874	it	abstract[169]|abstract[170]	giv[169]|giv[170]	nnnnn[169]|sssss[170]	_	bridge:entity-associative|coref	21-33[175_170]|23-39[202_170]	
+21-9	2875-2880	seems	_	_	_	_	_	_	
+21-10	2881-2883	to	_	_	_	_	_	_	
+21-11	2884-2886	me	person[171]	giv[171]	sssss[171]	_	coref	22-1[176_171]	
+21-12	2887-2893	faulty	_	_	_	_	_	_	
+21-13	2894-2898	only	_	_	_	_	_	_	
+21-14	2899-2903	from	_	_	_	_	_	_	
 21-15	2904-2907	the	abstract[172]	new[172]	nnnnn[172]	_	_	_	
 21-16	2908-2916	dramatic	abstract[172]	new[172]	nnnnn[172]	_	_	_	
 21-17	2917-2922	point	abstract[172]	new[172]	nnnnn[172]	_	_	_	
@@ -652,50 +656,50 @@
 21-19	2925-2927	of	abstract[172]	new[172]	nnnnn[172]	_	_	_	
 21-20	2928-2929	-	abstract[172]	new[172]	nnnnn[172]	_	_	_	
 21-21	2930-2934	view	abstract[172]	new[172]	nnnnn[172]	_	_	_	
-21-22	2935-2936	;	_	_	_	_	_	_	_	_	_
+21-22	2935-2936	;	_	_	_	_	_	_	
 21-23	2937-2945	whatever	abstract[173]	new[173]	nnnnn[173]	_	_	_	
 21-24	2946-2948	is	abstract[173]	new[173]	nnnnn[173]	_	_	_	
 21-25	2949-2953	most	abstract[173]	new[173]	nnnnn[173]	_	_	_	
 21-26	2954-2963	exquisite	abstract[173]	new[173]	nnnnn[173]	_	_	_	
-21-27	2964-2965	,	_	_	_	_	_	_	_	_	_
-21-28	2966-2971	would	_	_	_	_	_	_	_	_	_
-21-29	2972-2980	increase	_	_	_	_	_	_	_	_	_
-21-30	2981-2983	in	_	_	_	_	_	_	_	_	_
+21-27	2964-2965	,	_	_	_	_	_	_	
+21-28	2966-2971	would	_	_	_	_	_	_	
+21-29	2972-2980	increase	_	_	_	_	_	_	
+21-30	2981-2983	in	_	_	_	_	_	_	
 21-31	2984-2989	value	abstract[174]	new[174]	nnnnn[174]	_	_	_	
-21-32	2990-2994	were	_	_	_	_	_	_	_	_	_
+21-32	2990-2994	were	_	_	_	_	_	_	
 21-33	2995-2998	the	abstract[175]	acc[175]	nnnnn[175]	_	bridge:entity-associative	22-36[184_175]	
 21-34	2999-3003	form	abstract[175]	acc[175]	nnnnn[175]	_	_	_	
-21-35	3004-3013	narrative	_	_	_	_	_	_	_	_	_
-21-36	3014-3015	.	_	_	_	_	_	_	_	_	_
+21-35	3004-3013	narrative	_	_	_	_	_	_	
+21-36	3014-3015	.	_	_	_	_	_	_	
 
 #Text=I have always thought , for instance , that no one has your gift of suggesting in a few touches an Italian landscape or picture ; and the little stage directions at the head of each act are so beautiful that one feels they ought to be , not the mere illuminated border of the page , but its central subject .
-22-1	3016-3017	I	person[176]	giv[176]	snnnn[176]	_	coref	22-13[179_176]	
-22-2	3018-3022	have	_	_	_	_	_	_	_	_	_
-22-3	3023-3029	always	_	_	_	_	_	_	_	_	_
-22-4	3030-3037	thought	_	_	_	_	_	_	_	_	_
-22-5	3038-3039	,	_	_	_	_	_	_	_	_	_
-22-6	3040-3043	for	_	_	_	_	_	_	_	_	_
-22-7	3044-3052	instance	_	_	_	_	_	_	_	_	_
-22-8	3053-3054	,	_	_	_	_	_	_	_	_	_
-22-9	3055-3059	that	_	_	_	_	_	_	_	_	_
+22-1	3016-3017	I	person[176]	giv[176]	sssss[176]	_	coref	22-13[179_176]	
+22-2	3018-3022	have	_	_	_	_	_	_	
+22-3	3023-3029	always	_	_	_	_	_	_	
+22-4	3030-3037	thought	_	_	_	_	_	_	
+22-5	3038-3039	,	_	_	_	_	_	_	
+22-6	3040-3043	for	_	_	_	_	_	_	
+22-7	3044-3052	instance	_	_	_	_	_	_	
+22-8	3053-3054	,	_	_	_	_	_	_	
+22-9	3055-3059	that	_	_	_	_	_	_	
 22-10	3060-3062	no	person[177]	giv[177]	nnnnn[177]	_	_	_	
 22-11	3063-3066	one	person[177]	giv[177]	nnnnn[177]	_	_	_	
-22-12	3067-3070	has	_	_	_	_	_	_	_	_	_
-22-13	3071-3075	your	abstract[178]|person[179]	new[178]|giv[179]	nnnnn[178]|snnnn[179]	_	coref	23-2[193_179]	
-22-14	3076-3080	gift	abstract[178]	new[178]	nnnnn[178]	_	_	_	
-22-15	3081-3083	of	abstract[178]	new[178]	nnnnn[178]	_	_	_	
-22-16	3084-3094	suggesting	abstract[178]	new[178]	nnnnn[178]	_	_	_	
-22-17	3095-3097	in	abstract[178]	new[178]	nnnnn[178]	_	_	_	
-22-18	3098-3099	a	abstract[178]|abstract[180]	new[178]|new[180]	nnnnn[178]|nnnnn[180]	_	_	_	
-22-19	3100-3103	few	abstract[178]|abstract[180]	new[178]|new[180]	nnnnn[178]|nnnnn[180]	_	_	_	
-22-20	3104-3111	touches	abstract[178]|abstract[180]	new[178]|new[180]	nnnnn[178]|nnnnn[180]	_	_	_	
-22-21	3112-3114	an	abstract[178]|abstract[181]	new[178]|new[181]	nnnnn[178]|snnnn[181]	_	_	_	
-22-22	3115-3122	Italian	abstract[178]|abstract[181]	new[178]|new[181]	nnnnn[178]|snnnn[181]	_	_	_	
-22-23	3123-3132	landscape	abstract[178]|abstract[181]	new[178]|new[181]	nnnnn[178]|snnnn[181]	_	_	_	
-22-24	3133-3135	or	abstract[178]|abstract[181]	new[178]|new[181]	nnnnn[178]|snnnn[181]	_	_	_	
-22-25	3136-3143	picture	abstract[178]|abstract[181]	new[178]|new[181]	nnnnn[178]|snnnn[181]	_	_	_	
-22-26	3144-3145	;	_	_	_	_	_	_	_	_	_
-22-27	3146-3149	and	_	_	_	_	_	_	_	_	_
+22-12	3067-3070	has	_	_	_	_	_	_	
+22-13	3071-3075	your	abstract[178]|person[179]	new[178]|giv[179]	nnsnn[178]|sssss[179]	_	coref	23-2[193_179]	
+22-14	3076-3080	gift	abstract[178]	new[178]	nnsnn[178]	_	_	_	
+22-15	3081-3083	of	abstract[178]	new[178]	nnsnn[178]	_	_	_	
+22-16	3084-3094	suggesting	abstract[178]	new[178]	nnsnn[178]	_	_	_	
+22-17	3095-3097	in	abstract[178]	new[178]	nnsnn[178]	_	_	_	
+22-18	3098-3099	a	abstract[178]|abstract[180]	new[178]|new[180]	nnsnn[178]|nnnnn[180]	_	_	_	
+22-19	3100-3103	few	abstract[178]|abstract[180]	new[178]|new[180]	nnsnn[178]|nnnnn[180]	_	_	_	
+22-20	3104-3111	touches	abstract[178]|abstract[180]	new[178]|new[180]	nnsnn[178]|nnnnn[180]	_	_	_	
+22-21	3112-3114	an	abstract[178]|abstract[181]	new[178]|new[181]	nnsnn[178]|snnnn[181]	_	_	_	
+22-22	3115-3122	Italian	abstract[178]|abstract[181]	new[178]|new[181]	nnsnn[178]|snnnn[181]	_	_	_	
+22-23	3123-3132	landscape	abstract[178]|abstract[181]	new[178]|new[181]	nnsnn[178]|snnnn[181]	_	_	_	
+22-24	3133-3135	or	abstract[178]|abstract[181]	new[178]|new[181]	nnsnn[178]|snnnn[181]	_	_	_	
+22-25	3136-3143	picture	abstract[178]|abstract[181]	new[178]|new[181]	nnsnn[178]|snnnn[181]	_	_	_	
+22-26	3144-3145	;	_	_	_	_	_	_	
+22-27	3146-3149	and	_	_	_	_	_	_	
 22-28	3150-3153	the	abstract[182]	new[182]	nnnnn[182]	_	coref	22-44[186_182]	
 22-29	3154-3160	little	abstract[182]	new[182]	nnnnn[182]	_	_	_	
 22-30	3161-3166	stage	abstract[182]	new[182]	nnnnn[182]	_	_	_	
@@ -706,18 +710,18 @@
 22-35	3190-3192	of	abstract[182]|abstract[183]	new[182]|new[183]	nnnnn[182]|nnnnn[183]	_	_	_	
 22-36	3193-3197	each	abstract[182]|abstract[183]|abstract[184]	new[182]|new[183]|acc[184]	nnnnn[182]|nnnnn[183]|nnnnn[184]	_	bridge:entity-associative	22-55[188_184]	
 22-37	3198-3201	act	abstract[182]|abstract[183]|abstract[184]	new[182]|new[183]|acc[184]	nnnnn[182]|nnnnn[183]|nnnnn[184]	_	_	_	
-22-38	3202-3205	are	_	_	_	_	_	_	_	_	_
-22-39	3206-3208	so	_	_	_	_	_	_	_	_	_
-22-40	3209-3218	beautiful	_	_	_	_	_	_	_	_	_
-22-41	3219-3223	that	_	_	_	_	_	_	_	_	_
+22-38	3202-3205	are	_	_	_	_	_	_	
+22-39	3206-3208	so	_	_	_	_	_	_	
+22-40	3209-3218	beautiful	_	_	_	_	_	_	
+22-41	3219-3223	that	_	_	_	_	_	_	
 22-42	3224-3227	one	person[185]	giv[185]	nnnnn[185]	_	_	_	
-22-43	3228-3233	feels	_	_	_	_	_	_	_	_	_
+22-43	3228-3233	feels	_	_	_	_	_	_	
 22-44	3234-3238	they	abstract[186]	giv[186]	nnnnn[186]	_	coref	22-50[187_186]	
-22-45	3239-3244	ought	_	_	_	_	_	_	_	_	_
-22-46	3245-3247	to	_	_	_	_	_	_	_	_	_
-22-47	3248-3250	be	_	_	_	_	_	_	_	_	_
-22-48	3251-3252	,	_	_	_	_	_	_	_	_	_
-22-49	3253-3256	not	_	_	_	_	_	_	_	_	_
+22-45	3239-3244	ought	_	_	_	_	_	_	
+22-46	3245-3247	to	_	_	_	_	_	_	
+22-47	3248-3250	be	_	_	_	_	_	_	
+22-48	3251-3252	,	_	_	_	_	_	_	
+22-49	3253-3256	not	_	_	_	_	_	_	
 22-50	3257-3260	the	abstract[187]	new[187]	nnnnn[187]	_	_	_	
 22-51	3261-3265	mere	abstract[187]	new[187]	nnnnn[187]	_	_	_	
 22-52	3266-3277	illuminated	abstract[187]	new[187]	nnnnn[187]	_	_	_	
@@ -725,16 +729,16 @@
 22-54	3285-3287	of	abstract[187]	new[187]	nnnnn[187]	_	_	_	
 22-55	3288-3291	the	abstract[187]|abstract[188]	new[187]|acc[188]	nnnnn[187]|nnnnn[188]	_	coref	22-59[190_188]	
 22-56	3292-3296	page	abstract[187]|abstract[188]	new[187]|acc[188]	nnnnn[187]|nnnnn[188]	_	_	_	
-22-57	3297-3298	,	_	_	_	_	_	_	_	_	_
-22-58	3299-3302	but	_	_	_	_	_	_	_	_	_
+22-57	3297-3298	,	_	_	_	_	_	_	
+22-58	3299-3302	but	_	_	_	_	_	_	
 22-59	3303-3306	its	abstract[189]|abstract[190]	giv[189]|giv[190]	nnnnn[189]|nnnnn[190]	_	_	_	
 22-60	3307-3314	central	abstract[189]	giv[189]	nnnnn[189]	_	_	_	
 22-61	3315-3322	subject	abstract[189]	giv[189]	nnnnn[189]	_	_	_	
-22-62	3323-3324	.	_	_	_	_	_	_	_	_	_
+22-62	3323-3324	.	_	_	_	_	_	_	
 
 #Text=All your little touches of description , of characterization , of local colour in the good sense , would gain immensely , would find their true place , in a story , whereas they are effaced , in the play , by the need of stage - fare - shortening , and compression , and by the fact that the reader , inevitably , from force of association , is on the alert for effects of another sort .
 23-1	3325-3328	All	abstract[191]|abstract[192]	new[191]|giv[192]	nnnnn[191]|nnnnn[192]	_	coref|coref	24-10[216_191]|23-25[199_192]	
-23-2	3329-3333	your	abstract[191]|abstract[192]|person[193]	new[191]|giv[192]|giv[193]	nnnnn[191]|nnnnn[192]|snnnn[193]	_	coref	24-2[213_193]	
+23-2	3329-3333	your	abstract[191]|abstract[192]|person[193]	new[191]|giv[192]|giv[193]	nnnnn[191]|nnnnn[192]|sssss[193]	_	coref	24-2[213_193]	
 23-3	3334-3340	little	abstract[191]|abstract[192]	new[191]|giv[192]	nnnnn[191]|nnnnn[192]	_	_	_	
 23-4	3341-3348	touches	abstract[191]|abstract[192]	new[191]|giv[192]	nnnnn[191]|nnnnn[192]	_	_	_	
 23-5	3349-3351	of	abstract[191]|abstract[192]	new[191]|giv[192]	nnnnn[191]|nnnnn[192]	_	_	_	
@@ -771,8 +775,8 @@
 23-36	3507-3514	effaced	abstract[191]	new[191]	nnnnn[191]	_	_	_	
 23-37	3515-3516	,	abstract[191]	new[191]	nnnnn[191]	_	_	_	
 23-38	3517-3519	in	abstract[191]	new[191]	nnnnn[191]	_	_	_	
-23-39	3520-3523	the	abstract[191]|abstract[202]	new[191]|giv[202]	nnnnn[191]|snnnn[202]	_	coref|bridge:entity-associative	24-27[221_202]|23-46[204_202]	
-23-40	3524-3528	play	abstract[191]|abstract[202]	new[191]|giv[202]	nnnnn[191]|snnnn[202]	_	_	_	
+23-39	3520-3523	the	abstract[191]|abstract[202]	new[191]|giv[202]	nnnnn[191]|sssss[202]	_	bridge:entity-associative|coref	23-46[204_202]|24-27[221_202]	
+23-40	3524-3528	play	abstract[191]|abstract[202]	new[191]|giv[202]	nnnnn[191]|sssss[202]	_	_	_	
 23-41	3529-3530	,	abstract[191]	new[191]	nnnnn[191]	_	_	_	
 23-42	3531-3533	by	abstract[191]	new[191]	nnnnn[191]	_	_	_	
 23-43	3534-3537	the	abstract[191]|abstract[203]	new[191]|new[203]	nnnnn[191]|nnnnn[203]	_	_	_	
@@ -814,99 +818,99 @@
 23-79	3711-3712	.	abstract[191]	new[191]	nnnnn[191]	_	_	_	
 
 #Text=— I feel a kind of shyness in saying this , because I have done so little to prove my fitness to express an opinion on your work , and because my very great and increasing admiration for what you have done makes any kind of criticism , even of this one little thing , seem like an impertinence .
-24-1	3713-3714	—	_	_	_	_	_	_	_	_	_
-24-2	3715-3716	I	person[213]	giv[213]	snnnn[213]	_	coref	24-13[217_213]	
-24-3	3717-3721	feel	_	_	_	_	_	_	_	_	_
+24-1	3713-3714	—	_	_	_	_	_	_	
+24-2	3715-3716	I	person[213]	giv[213]	sssss[213]	_	coref	24-13[217_213]	
+24-3	3717-3721	feel	_	_	_	_	_	_	
 24-4	3722-3723	a	abstract[214]	new[214]	nnnnn[214]	_	_	_	
 24-5	3724-3728	kind	abstract[214]	new[214]	nnnnn[214]	_	_	_	
 24-6	3729-3731	of	abstract[214]	new[214]	nnnnn[214]	_	_	_	
 24-7	3732-3739	shyness	abstract[214]|abstract[215]	new[214]|new[215]	nnnnn[214]|nnnnn[215]	_	_	_	
-24-8	3740-3742	in	_	_	_	_	_	_	_	_	_
-24-9	3743-3749	saying	_	_	_	_	_	_	_	_	_
+24-8	3740-3742	in	_	_	_	_	_	_	
+24-9	3743-3749	saying	_	_	_	_	_	_	
 24-10	3750-3754	this	abstract[216]	giv[216]	nnnnn[216]	_	coref	24-51[228_216]	
-24-11	3755-3756	,	_	_	_	_	_	_	_	_	_
-24-12	3757-3764	because	_	_	_	_	_	_	_	_	_
-24-13	3765-3766	I	person[217]	giv[217]	snnnn[217]	_	coref	24-20[219_217]	
-24-14	3767-3771	have	_	_	_	_	_	_	_	_	_
-24-15	3772-3776	done	_	_	_	_	_	_	_	_	_
-24-16	3777-3779	so	_	_	_	_	_	_	_	_	_
-24-17	3780-3786	little	_	_	_	_	_	_	_	_	_
-24-18	3787-3789	to	_	_	_	_	_	_	_	_	_
-24-19	3790-3795	prove	_	_	_	_	_	_	_	_	_
-24-20	3796-3798	my	abstract[218]|person[219]	giv[218]|giv[219]	nnnnn[218]|snnnn[219]	_	coref	24-27[222_219]	
+24-11	3755-3756	,	_	_	_	_	_	_	
+24-12	3757-3764	because	_	_	_	_	_	_	
+24-13	3765-3766	I	person[217]	giv[217]	sssss[217]	_	coref	24-20[219_217]	
+24-14	3767-3771	have	_	_	_	_	_	_	
+24-15	3772-3776	done	_	_	_	_	_	_	
+24-16	3777-3779	so	_	_	_	_	_	_	
+24-17	3780-3786	little	_	_	_	_	_	_	
+24-18	3787-3789	to	_	_	_	_	_	_	
+24-19	3790-3795	prove	_	_	_	_	_	_	
+24-20	3796-3798	my	abstract[218]|person[219]	giv[218]|giv[219]	nnnnn[218]|sssss[219]	_	coref	24-27[222_219]	
 24-21	3799-3806	fitness	abstract[218]	giv[218]	nnnnn[218]	_	_	_	
 24-22	3807-3809	to	abstract[218]	giv[218]	nnnnn[218]	_	_	_	
 24-23	3810-3817	express	abstract[218]	giv[218]	nnnnn[218]	_	_	_	
 24-24	3818-3820	an	abstract[218]|abstract[220]	giv[218]|giv[220]	nnnnn[218]|nnnnn[220]	_	_	_	
 24-25	3821-3828	opinion	abstract[218]|abstract[220]	giv[218]|giv[220]	nnnnn[218]|nnnnn[220]	_	_	_	
 24-26	3829-3831	on	abstract[218]|abstract[220]	giv[218]|giv[220]	nnnnn[218]|nnnnn[220]	_	_	_	
-24-27	3832-3836	your	abstract[218]|abstract[220]|abstract[221]|person[222]	giv[218]|giv[220]|new[221]|giv[222]	nnnnn[218]|nnnnn[220]|snnnn[221]|snnnn[222]	_	coref|coref	24-39[225_221]|24-40[226_222]	
-24-28	3837-3841	work	abstract[218]|abstract[220]|abstract[221]	giv[218]|giv[220]|new[221]	nnnnn[218]|nnnnn[220]|snnnn[221]	_	_	_	
-24-29	3842-3843	,	_	_	_	_	_	_	_	_	_
-24-30	3844-3847	and	_	_	_	_	_	_	_	_	_
-24-31	3848-3855	because	_	_	_	_	_	_	_	_	_
-24-32	3856-3858	my	abstract[223]|person[224]	new[223]|giv[224]	nnnnn[223]|snnnn[224]	_	coref	25-4[231_224]	
+24-27	3832-3836	your	abstract[218]|abstract[220]|abstract[221]|person[222]	giv[218]|giv[220]|new[221]|giv[222]	nnnnn[218]|nnnnn[220]|sssss[221]|sssss[222]	_	coref|coref	24-39[225_221]|24-40[226_222]	
+24-28	3837-3841	work	abstract[218]|abstract[220]|abstract[221]	giv[218]|giv[220]|new[221]	nnnnn[218]|nnnnn[220]|sssss[221]	_	_	_	
+24-29	3842-3843	,	_	_	_	_	_	_	
+24-30	3844-3847	and	_	_	_	_	_	_	
+24-31	3848-3855	because	_	_	_	_	_	_	
+24-32	3856-3858	my	abstract[223]|person[224]	new[223]|giv[224]	nnnnn[223]|sssss[224]	_	coref	25-4[231_224]	
 24-33	3859-3863	very	abstract[223]	new[223]	nnnnn[223]	_	_	_	
 24-34	3864-3869	great	abstract[223]	new[223]	nnnnn[223]	_	_	_	
 24-35	3870-3873	and	abstract[223]	new[223]	nnnnn[223]	_	_	_	
 24-36	3874-3884	increasing	abstract[223]	new[223]	nnnnn[223]	_	_	_	
 24-37	3885-3895	admiration	abstract[223]	new[223]	nnnnn[223]	_	_	_	
 24-38	3896-3899	for	abstract[223]	new[223]	nnnnn[223]	_	_	_	
-24-39	3900-3904	what	abstract[223]|abstract[225]	new[223]|new[225]	nnnnn[223]|snnnn[225]	_	coref|bridge:entity-associative	26-1[235_225]|24-44[227_225]	
-24-40	3905-3908	you	abstract[223]|abstract[225]|person[226]	new[223]|new[225]|giv[226]	nnnnn[223]|snnnn[225]|snnnn[226]	_	coref	25-2[230_226]	
-24-41	3909-3913	have	abstract[223]|abstract[225]	new[223]|new[225]	nnnnn[223]|snnnn[225]	_	_	_	
-24-42	3914-3918	done	abstract[223]|abstract[225]	new[223]|new[225]	nnnnn[223]|snnnn[225]	_	_	_	
-24-43	3919-3924	makes	_	_	_	_	_	_	_	_	_
+24-39	3900-3904	what	abstract[223]|abstract[225]	new[223]|new[225]	nnnnn[223]|sssss[225]	_	bridge:entity-associative|coref	24-44[227_225]|26-1[235_225]	
+24-40	3905-3908	you	abstract[223]|abstract[225]|person[226]	new[223]|new[225]|giv[226]	nnnnn[223]|sssss[225]|sssss[226]	_	coref	25-2[230_226]	
+24-41	3909-3913	have	abstract[223]|abstract[225]	new[223]|new[225]	nnnnn[223]|sssss[225]	_	_	_	
+24-42	3914-3918	done	abstract[223]|abstract[225]	new[223]|new[225]	nnnnn[223]|sssss[225]	_	_	_	
+24-43	3919-3924	makes	_	_	_	_	_	_	
 24-44	3925-3928	any	abstract[227]	acc[227]	nnnnn[227]	_	_	_	
 24-45	3929-3933	kind	abstract[227]	acc[227]	nnnnn[227]	_	_	_	
 24-46	3934-3936	of	abstract[227]	acc[227]	nnnnn[227]	_	_	_	
 24-47	3937-3946	criticism	abstract[227]	acc[227]	nnnnn[227]	_	_	_	
-24-48	3947-3948	,	_	_	_	_	_	_	_	_	_
-24-49	3949-3953	even	_	_	_	_	_	_	_	_	_
-24-50	3954-3956	of	_	_	_	_	_	_	_	_	_
+24-48	3947-3948	,	_	_	_	_	_	_	
+24-49	3949-3953	even	_	_	_	_	_	_	
+24-50	3954-3956	of	_	_	_	_	_	_	
 24-51	3957-3961	this	abstract[228]	new[228]	nnnnn[228]	_	_	_	
 24-52	3962-3965	one	abstract[228]	new[228]	nnnnn[228]	_	_	_	
 24-53	3966-3972	little	abstract[228]	new[228]	nnnnn[228]	_	_	_	
 24-54	3973-3978	thing	abstract[228]	new[228]	nnnnn[228]	_	_	_	
-24-55	3979-3980	,	_	_	_	_	_	_	_	_	_
-24-56	3981-3985	seem	_	_	_	_	_	_	_	_	_
-24-57	3986-3990	like	_	_	_	_	_	_	_	_	_
+24-55	3979-3980	,	_	_	_	_	_	_	
+24-56	3981-3985	seem	_	_	_	_	_	_	
+24-57	3986-3990	like	_	_	_	_	_	_	
 24-58	3991-3993	an	abstract[229]	new[229]	nnnnn[229]	_	_	_	
 24-59	3994-4006	impertinence	abstract[229]	new[229]	nnnnn[229]	_	_	_	
-24-60	4007-4008	.	_	_	_	_	_	_	_	_	_
+24-60	4007-4008	.	_	_	_	_	_	_	
 
 #Text=But you asked me to tell you , and I was too sincerely interested to give a superficial answer .
-25-1	4009-4012	But	_	_	_	_	_	_	_	_	_
-25-2	4013-4016	you	person[230]	giv[230]	snnnn[230]	_	coref	25-7[232_230]	
-25-3	4017-4022	asked	_	_	_	_	_	_	_	_	_
-25-4	4023-4025	me	person[231]	giv[231]	snnnn[231]	_	coref	25-10[233_231]	
-25-5	4026-4028	to	_	_	_	_	_	_	_	_	_
-25-6	4029-4033	tell	_	_	_	_	_	_	_	_	_
-25-7	4034-4037	you	person[232]	giv[232]	snnnn[232]	_	coref	27-3[244_232]	
-25-8	4038-4039	,	_	_	_	_	_	_	_	_	_
-25-9	4040-4043	and	_	_	_	_	_	_	_	_	_
-25-10	4044-4045	I	person[233]	giv[233]	snnnn[233]	_	coref	26-7[237_233]	
-25-11	4046-4049	was	_	_	_	_	_	_	_	_	_
-25-12	4050-4053	too	_	_	_	_	_	_	_	_	_
-25-13	4054-4063	sincerely	_	_	_	_	_	_	_	_	_
-25-14	4064-4074	interested	_	_	_	_	_	_	_	_	_
-25-15	4075-4077	to	_	_	_	_	_	_	_	_	_
-25-16	4078-4082	give	_	_	_	_	_	_	_	_	_
+25-1	4009-4012	But	_	_	_	_	_	_	
+25-2	4013-4016	you	person[230]	giv[230]	sssss[230]	_	coref	25-7[232_230]	
+25-3	4017-4022	asked	_	_	_	_	_	_	
+25-4	4023-4025	me	person[231]	giv[231]	sssss[231]	_	coref	25-10[233_231]	
+25-5	4026-4028	to	_	_	_	_	_	_	
+25-6	4029-4033	tell	_	_	_	_	_	_	
+25-7	4034-4037	you	person[232]	giv[232]	sssss[232]	_	coref	27-3[244_232]	
+25-8	4038-4039	,	_	_	_	_	_	_	
+25-9	4040-4043	and	_	_	_	_	_	_	
+25-10	4044-4045	I	person[233]	giv[233]	sssss[233]	_	coref	26-7[237_233]	
+25-11	4046-4049	was	_	_	_	_	_	_	
+25-12	4050-4053	too	_	_	_	_	_	_	
+25-13	4054-4063	sincerely	_	_	_	_	_	_	
+25-14	4064-4074	interested	_	_	_	_	_	_	
+25-15	4075-4077	to	_	_	_	_	_	_	
+25-16	4078-4082	give	_	_	_	_	_	_	
 25-17	4083-4084	a	abstract[234]	new[234]	nnnnn[234]	_	_	_	
 25-18	4085-4096	superficial	abstract[234]	new[234]	nnnnn[234]	_	_	_	
 25-19	4097-4103	answer	abstract[234]	new[234]	nnnnn[234]	_	_	_	
-25-20	4104-4105	.	_	_	_	_	_	_	_	_	_
+25-20	4104-4105	.	_	_	_	_	_	_	
 
 #Text=The whole little romance lives in my memory like a more delicate , a paler , Pinturricchio ; and I should be sorry indeed not to see more use made of Hyppolita , who seems to me a most original creation .
-26-1	4106-4109	The	abstract[235]	new[235]	snnnn[235]	_	coref	27-6[245_235]	
-26-2	4110-4115	whole	abstract[235]	new[235]	snnnn[235]	_	_	_	
-26-3	4116-4122	little	abstract[235]	new[235]	snnnn[235]	_	_	_	
-26-4	4123-4130	romance	abstract[235]	new[235]	snnnn[235]	_	_	_	
-26-5	4131-4136	lives	_	_	_	_	_	_	_	_	_
-26-6	4137-4139	in	_	_	_	_	_	_	_	_	_
-26-7	4140-4142	my	abstract[236]|person[237]	new[236]|giv[237]	nnnnn[236]|snnnn[237]	_	coref	26-20[239_237]	
+26-1	4106-4109	The	abstract[235]	new[235]	sssss[235]	_	coref	27-6[245_235]	
+26-2	4110-4115	whole	abstract[235]	new[235]	sssss[235]	_	_	_	
+26-3	4116-4122	little	abstract[235]	new[235]	sssss[235]	_	_	_	
+26-4	4123-4130	romance	abstract[235]	new[235]	sssss[235]	_	_	_	
+26-5	4131-4136	lives	_	_	_	_	_	_	
+26-6	4137-4139	in	_	_	_	_	_	_	
+26-7	4140-4142	my	abstract[236]|person[237]	new[236]|giv[237]	nnnnn[236]|sssss[237]	_	coref	26-20[239_237]	
 26-8	4143-4149	memory	abstract[236]	new[236]	nnnnn[236]	_	_	_	
-26-9	4150-4154	like	_	_	_	_	_	_	_	_	_
+26-9	4150-4154	like	_	_	_	_	_	_	
 26-10	4155-4156	a	abstract[238]	new[238]	nnnnn[238]	_	_	_	
 26-11	4157-4161	more	abstract[238]	new[238]	nnnnn[238]	_	_	_	
 26-12	4162-4170	delicate	abstract[238]	new[238]	nnnnn[238]	_	_	_	
@@ -915,20 +919,20 @@
 26-15	4175-4180	paler	abstract[238]	new[238]	nnnnn[238]	_	_	_	
 26-16	4181-4182	,	abstract[238]	new[238]	nnnnn[238]	_	_	_	
 26-17	4183-4196	Pinturricchio	abstract[238]	new[238]	nnnnn[238]	_	_	_	
-26-18	4197-4198	;	_	_	_	_	_	_	_	_	_
-26-19	4199-4202	and	_	_	_	_	_	_	_	_	_
-26-20	4203-4204	I	person[239]	giv[239]	snnnn[239]	_	coref	27-1[243_239]	
-26-21	4205-4211	should	_	_	_	_	_	_	_	_	_
-26-22	4212-4214	be	_	_	_	_	_	_	_	_	_
-26-23	4215-4220	sorry	_	_	_	_	_	_	_	_	_
-26-24	4221-4227	indeed	_	_	_	_	_	_	_	_	_
-26-25	4228-4231	not	_	_	_	_	_	_	_	_	_
-26-26	4232-4234	to	_	_	_	_	_	_	_	_	_
-26-27	4235-4238	see	_	_	_	_	_	_	_	_	_
+26-18	4197-4198	;	_	_	_	_	_	_	
+26-19	4199-4202	and	_	_	_	_	_	_	
+26-20	4203-4204	I	person[239]	giv[239]	sssss[239]	_	coref	27-1[243_239]	
+26-21	4205-4211	should	_	_	_	_	_	_	
+26-22	4212-4214	be	_	_	_	_	_	_	
+26-23	4215-4220	sorry	_	_	_	_	_	_	
+26-24	4221-4227	indeed	_	_	_	_	_	_	
+26-25	4228-4231	not	_	_	_	_	_	_	
+26-26	4232-4234	to	_	_	_	_	_	_	
+26-27	4235-4238	see	_	_	_	_	_	_	
 26-28	4239-4243	more	abstract[240]	new[240]	nnnnn[240]	_	_	_	
 26-29	4244-4247	use	abstract[240]	new[240]	nnnnn[240]	_	_	_	
-26-30	4248-4252	made	_	_	_	_	_	_	_	_	_
-26-31	4253-4255	of	_	_	_	_	_	_	_	_	_
+26-30	4248-4252	made	_	_	_	_	_	_	
+26-31	4253-4255	of	_	_	_	_	_	_	
 26-32	4256-4265	Hyppolita	person[241]	new[241]	nnnnn[241]	_	coref	26-38[242_241]	
 26-33	4266-4267	,	person[241]	new[241]	nnnnn[241]	_	_	_	
 26-34	4268-4271	who	person[241]	new[241]	nnnnn[241]	_	_	_	
@@ -939,20 +943,20 @@
 26-39	4286-4290	most	person[241]|person[242]	new[241]|new[242]	nnnnn[241]|nnnnn[242]	_	_	_	
 26-40	4291-4299	original	person[241]|person[242]	new[241]|new[242]	nnnnn[241]|nnnnn[242]	_	_	_	
 26-41	4300-4308	creation	person[241]|person[242]	new[241]|new[242]	nnnnn[241]|nnnnn[242]	_	_	_	
-26-42	4309-4310	.	_	_	_	_	_	_	_	_	_
+26-42	4309-4310	.	_	_	_	_	_	_	
 
 #Text=I wish you would put it all into a story — a long short story , full of such curious colour and detail as you alone could give , and give one of our magazines a chance to publish it .
-27-1	4311-4312	I	person[243]	giv[243]	snnnn[243]	_	coref	28-1[255_243]	
-27-2	4313-4317	wish	_	_	_	_	_	_	_	_	_
-27-3	4318-4321	you	person[244]	giv[244]	snnnn[244]	_	coref	27-25[249_244]	
-27-4	4322-4327	would	_	_	_	_	_	_	_	_	_
-27-5	4328-4331	put	_	_	_	_	_	_	_	_	_
-27-6	4332-4334	it	abstract[245]	giv[245]	snnnn[245]	_	_	_	
-27-7	4335-4338	all	abstract[245]	giv[245]	snnnn[245]	_	_	_	
-27-8	4339-4343	into	_	_	_	_	_	_	_	_	_
+27-1	4311-4312	I	person[243]	giv[243]	sssss[243]	_	coref	28-1[255_243]	
+27-2	4313-4317	wish	_	_	_	_	_	_	
+27-3	4318-4321	you	person[244]	giv[244]	sssss[244]	_	coref	27-25[249_244]	
+27-4	4322-4327	would	_	_	_	_	_	_	
+27-5	4328-4331	put	_	_	_	_	_	_	
+27-6	4332-4334	it	abstract[245]	giv[245]	sssss[245]	_	_	_	
+27-7	4335-4338	all	abstract[245]	giv[245]	sssss[245]	_	_	_	
+27-8	4339-4343	into	_	_	_	_	_	_	
 27-9	4344-4345	a	abstract[246]	new[246]	nnnnn[246]	_	coref	27-12[247_246]	
 27-10	4346-4351	story	abstract[246]	new[246]	nnnnn[246]	_	_	_	
-27-11	4352-4353	—	_	_	_	_	_	_	_	_	_
+27-11	4352-4353	—	_	_	_	_	_	_	
 27-12	4354-4355	a	abstract[247]	giv[247]	nnnnn[247]	_	coref	27-40[254_247]	
 27-13	4356-4360	long	abstract[247]	giv[247]	nnnnn[247]	_	_	_	
 27-14	4361-4366	short	abstract[247]	giv[247]	nnnnn[247]	_	_	_	
@@ -966,13 +970,13 @@
 27-22	4403-4406	and	abstract[247]|abstract[248]	giv[247]|giv[248]	nnnnn[247]|nnnnn[248]	_	_	_	
 27-23	4407-4413	detail	abstract[247]|abstract[248]	giv[247]|giv[248]	nnnnn[247]|nnnnn[248]	_	_	_	
 27-24	4414-4416	as	abstract[247]|abstract[248]	giv[247]|giv[248]	nnnnn[247]|nnnnn[248]	_	_	_	
-27-25	4417-4420	you	abstract[247]|abstract[248]|person[249]	giv[247]|giv[248]|giv[249]	nnnnn[247]|nnnnn[248]|snnnn[249]	_	coref	28-8[257_249]	
+27-25	4417-4420	you	abstract[247]|abstract[248]|person[249]	giv[247]|giv[248]|giv[249]	nnnnn[247]|nnnnn[248]|sssss[249]	_	coref	28-8[257_249]	
 27-26	4421-4426	alone	abstract[247]|abstract[248]	giv[247]|giv[248]	nnnnn[247]|nnnnn[248]	_	_	_	
 27-27	4427-4432	could	abstract[247]|abstract[248]	giv[247]|giv[248]	nnnnn[247]|nnnnn[248]	_	_	_	
 27-28	4433-4437	give	abstract[247]|abstract[248]	giv[247]|giv[248]	nnnnn[247]|nnnnn[248]	_	_	_	
-27-29	4438-4439	,	_	_	_	_	_	_	_	_	_
-27-30	4440-4443	and	_	_	_	_	_	_	_	_	_
-27-31	4444-4448	give	_	_	_	_	_	_	_	_	_
+27-29	4438-4439	,	_	_	_	_	_	_	
+27-30	4440-4443	and	_	_	_	_	_	_	
+27-31	4444-4448	give	_	_	_	_	_	_	
 27-32	4449-4452	one	organization[250]	new[250]	snnnn[250]	_	_	_	
 27-33	4453-4455	of	organization[250]	new[250]	snnnn[250]	_	_	_	
 27-34	4456-4459	our	organization[250]|organization[251]|person[252]	new[250]|new[251]|giv[252]	snnnn[250]|nnnnn[251]|nnnnn[252]	_	_	_	
@@ -982,34 +986,34 @@
 27-38	4479-4481	to	abstract[253]	new[253]	nnnnn[253]	_	_	_	
 27-39	4482-4489	publish	abstract[253]	new[253]	nnnnn[253]	_	_	_	
 27-40	4490-4492	it	abstract[253]|abstract[254]	new[253]|giv[254]	nnnnn[253]|nnnnn[254]	_	_	_	
-27-41	4493-4494	.	_	_	_	_	_	_	_	_	_
+27-41	4493-4494	.	_	_	_	_	_	_	
 
 #Text=I have no space left to tell you of the Brenta , which I saw and photographed , in its whole length , nor of Countess Papafava 's kindness and good advice about villas .
-28-1	4495-4496	I	person[255]	giv[255]	snnnn[255]	_	coref	28-14[259_255]	
-28-2	4497-4501	have	_	_	_	_	_	_	_	_	_
-28-3	4502-4504	no	_	_	_	_	_	_	_	_	_
+28-1	4495-4496	I	person[255]	giv[255]	sssss[255]	_	coref	28-14[259_255]	
+28-2	4497-4501	have	_	_	_	_	_	_	
+28-3	4502-4504	no	_	_	_	_	_	_	
 28-4	4505-4510	space	place[256]	new[256]	nnnnn[256]	_	_	_	
-28-5	4511-4515	left	_	_	_	_	_	_	_	_	_
-28-6	4516-4518	to	_	_	_	_	_	_	_	_	_
-28-7	4519-4523	tell	_	_	_	_	_	_	_	_	_
-28-8	4524-4527	you	person[257]	giv[257]	snnnn[257]	_	coref	29-24[271_257]	
-28-9	4528-4530	of	_	_	_	_	_	_	_	_	_
-28-10	4531-4534	the	place[258]	new[258]	nnnnn[258]	Brenta_(river)[258]	coref	28-20[261_258]	
-28-11	4535-4541	Brenta	place[258]	new[258]	nnnnn[258]	Brenta_(river)[258]	_	_	
-28-12	4542-4543	,	place[258]	new[258]	nnnnn[258]	Brenta_(river)[258]	_	_	
-28-13	4544-4549	which	place[258]	new[258]	nnnnn[258]	Brenta_(river)[258]	_	_	
-28-14	4550-4551	I	place[258]|person[259]	new[258]|giv[259]	nnnnn[258]|snnnn[259]	Brenta_(river)[258]	coref	29-20[270_259]	
-28-15	4552-4555	saw	place[258]	new[258]	nnnnn[258]	Brenta_(river)[258]	_	_	
-28-16	4556-4559	and	place[258]	new[258]	nnnnn[258]	Brenta_(river)[258]	_	_	
-28-17	4560-4572	photographed	place[258]	new[258]	nnnnn[258]	Brenta_(river)[258]	_	_	
-28-18	4573-4574	,	place[258]	new[258]	nnnnn[258]	Brenta_(river)[258]	_	_	
-28-19	4575-4577	in	place[258]	new[258]	nnnnn[258]	Brenta_(river)[258]	_	_	
-28-20	4578-4581	its	place[258]|abstract[260]|place[261]	new[258]|new[260]|giv[261]	nnnnn[258]|nnnnn[260]|nnnnn[261]	Brenta_(river)[258]	_	_	
-28-21	4582-4587	whole	place[258]|abstract[260]	new[258]|new[260]	nnnnn[258]|nnnnn[260]	Brenta_(river)[258]	_	_	
-28-22	4588-4594	length	place[258]|abstract[260]	new[258]|new[260]	nnnnn[258]|nnnnn[260]	Brenta_(river)[258]	_	_	
-28-23	4595-4596	,	_	_	_	_	_	_	_	_	_
-28-24	4597-4600	nor	_	_	_	_	_	_	_	_	_
-28-25	4601-4603	of	_	_	_	_	_	_	_	_	_
+28-5	4511-4515	left	_	_	_	_	_	_	
+28-6	4516-4518	to	_	_	_	_	_	_	
+28-7	4519-4523	tell	_	_	_	_	_	_	
+28-8	4524-4527	you	person[257]	giv[257]	sssss[257]	_	coref	29-24[271_257]	
+28-9	4528-4530	of	_	_	_	_	_	_	
+28-10	4531-4534	the	place[258]	new[258]	nnnns[258]	Brenta_(river)[258]	coref	28-20[261_258]	
+28-11	4535-4541	Brenta	place[258]	new[258]	nnnns[258]	Brenta_(river)[258]	_	_	
+28-12	4542-4543	,	place[258]	new[258]	nnnns[258]	Brenta_(river)[258]	_	_	
+28-13	4544-4549	which	place[258]	new[258]	nnnns[258]	Brenta_(river)[258]	_	_	
+28-14	4550-4551	I	place[258]|person[259]	new[258]|giv[259]	nnnns[258]|sssss[259]	Brenta_(river)[258]	coref	29-20[270_259]	
+28-15	4552-4555	saw	place[258]	new[258]	nnnns[258]	Brenta_(river)[258]	_	_	
+28-16	4556-4559	and	place[258]	new[258]	nnnns[258]	Brenta_(river)[258]	_	_	
+28-17	4560-4572	photographed	place[258]	new[258]	nnnns[258]	Brenta_(river)[258]	_	_	
+28-18	4573-4574	,	place[258]	new[258]	nnnns[258]	Brenta_(river)[258]	_	_	
+28-19	4575-4577	in	place[258]	new[258]	nnnns[258]	Brenta_(river)[258]	_	_	
+28-20	4578-4581	its	place[258]|abstract[260]|place[261]	new[258]|new[260]|giv[261]	nnnns[258]|nnnnn[260]|nnnns[261]	Brenta_(river)[258]	_	_	
+28-21	4582-4587	whole	place[258]|abstract[260]	new[258]|new[260]	nnnns[258]|nnnnn[260]	Brenta_(river)[258]	_	_	
+28-22	4588-4594	length	place[258]|abstract[260]	new[258]|new[260]	nnnns[258]|nnnnn[260]	Brenta_(river)[258]	_	_	
+28-23	4595-4596	,	_	_	_	_	_	_	
+28-24	4597-4600	nor	_	_	_	_	_	_	
+28-25	4601-4603	of	_	_	_	_	_	_	
 28-26	4604-4612	Countess	abstract[262]|person[263]	new[262]|new[263]	nnnnn[262]|nnnnn[263]	_	_	_	
 28-27	4613-4621	Papafava	abstract[262]|person[263]	new[262]|new[263]	nnnnn[262]|nnnnn[263]	_	_	_	
 28-28	4622-4624	's	abstract[262]|person[263]	new[262]|new[263]	nnnnn[262]|nnnnn[263]	_	_	_	
@@ -1019,55 +1023,55 @@
 28-32	4643-4649	advice	abstract[262]	new[262]	nnnnn[262]	_	_	_	
 28-33	4650-4655	about	abstract[262]	new[262]	nnnnn[262]	_	_	_	
 28-34	4656-4662	villas	abstract[262]|place[264]	new[262]|new[264]	nnnnn[262]|nnnnn[264]	_	_	_	
-28-35	4663-4664	.	_	_	_	_	_	_	_	_	_
+28-35	4663-4664	.	_	_	_	_	_	_	
 
 #Text=Here Donna Giulia Bassi is arranging “ combinazioni ” with infinite amiability , and all this , too , I owe indirectly to you .
-29-1	4665-4669	Here	_	_	_	_	_	_	_	_	_
+29-1	4665-4669	Here	_	_	_	_	_	_	
 29-2	4670-4675	Donna	event[265]|person[266]	new[265]|new[266]	nnnnn[265]|nnnnn[266]	_	coref	29-15[269_265]	
 29-3	4676-4682	Giulia	event[265]|person[266]	new[265]|new[266]	nnnnn[265]|nnnnn[266]	_	_	_	
 29-4	4683-4688	Bassi	event[265]|person[266]	new[265]|new[266]	nnnnn[265]|nnnnn[266]	_	_	_	
 29-5	4689-4691	is	event[265]	new[265]	nnnnn[265]	_	_	_	
 29-6	4692-4701	arranging	event[265]	new[265]	nnnnn[265]	_	_	_	
 29-7	4702-4703	“	event[265]	new[265]	nnnnn[265]	_	_	_	
-29-8	4704-4716	combinazioni	event[265]|abstract[267]	new[265]|new[267]	nnnnn[265]|nnnnn[267]	_	_	_	
+29-8	4704-4716	combinazioni	event[265]|abstract[267]	new[265]|new[267]	nnnnn[265]|nnnns[267]	_	_	_	
 29-9	4717-4718	”	event[265]	new[265]	nnnnn[265]	_	_	_	
 29-10	4719-4723	with	event[265]	new[265]	nnnnn[265]	_	_	_	
 29-11	4724-4732	infinite	event[265]|abstract[268]	new[265]|new[268]	nnnnn[265]|nnnnn[268]	_	_	_	
 29-12	4733-4743	amiability	event[265]|abstract[268]	new[265]|new[268]	nnnnn[265]|nnnnn[268]	_	_	_	
-29-13	4744-4745	,	_	_	_	_	_	_	_	_	_
-29-14	4746-4749	and	_	_	_	_	_	_	_	_	_
+29-13	4744-4745	,	_	_	_	_	_	_	
+29-14	4746-4749	and	_	_	_	_	_	_	
 29-15	4750-4753	all	event[269]	giv[269]	nnnnn[269]	_	_	_	
 29-16	4754-4758	this	event[269]	giv[269]	nnnnn[269]	_	_	_	
-29-17	4759-4760	,	_	_	_	_	_	_	_	_	_
-29-18	4761-4764	too	_	_	_	_	_	_	_	_	_
-29-19	4765-4766	,	_	_	_	_	_	_	_	_	_
-29-20	4767-4768	I	person[270]	giv[270]	snnnn[270]	_	coref	30-12[273_270]	
-29-21	4769-4772	owe	_	_	_	_	_	_	_	_	_
-29-22	4773-4783	indirectly	_	_	_	_	_	_	_	_	_
-29-23	4784-4786	to	_	_	_	_	_	_	_	_	_
-29-24	4787-4790	you	person[271]	giv[271]	snnnn[271]	_	coref	30-18[274_271]	
-29-25	4791-4792	.	_	_	_	_	_	_	_	_	_
+29-17	4759-4760	,	_	_	_	_	_	_	
+29-18	4761-4764	too	_	_	_	_	_	_	
+29-19	4765-4766	,	_	_	_	_	_	_	
+29-20	4767-4768	I	person[270]	giv[270]	sssss[270]	_	coref	30-12[273_270]	
+29-21	4769-4772	owe	_	_	_	_	_	_	
+29-22	4773-4783	indirectly	_	_	_	_	_	_	
+29-23	4784-4786	to	_	_	_	_	_	_	
+29-24	4787-4790	you	person[271]	giv[271]	sssss[271]	_	coref	30-18[274_271]	
+29-25	4791-4792	.	_	_	_	_	_	_	
 
 #Text=Do n't think of answering this , but remember that when I can be of use to you , a line to THE MOUNT , LENOX , MASSACHUSETTS will always find me .
-30-1	4793-4795	Do	_	_	_	_	_	_	_	_	_
-30-2	4796-4799	n't	_	_	_	_	_	_	_	_	_
-30-3	4800-4805	think	_	_	_	_	_	_	_	_	_
-30-4	4806-4808	of	_	_	_	_	_	_	_	_	_
-30-5	4809-4818	answering	_	_	_	_	_	_	_	_	_
+30-1	4793-4795	Do	_	_	_	_	_	_	
+30-2	4796-4799	n't	_	_	_	_	_	_	
+30-3	4800-4805	think	_	_	_	_	_	_	
+30-4	4806-4808	of	_	_	_	_	_	_	
+30-5	4809-4818	answering	_	_	_	_	_	_	
 30-6	4819-4823	this	object[272]	giv[272]	nnnnn[272]	_	_	_	
-30-7	4824-4825	,	_	_	_	_	_	_	_	_	_
-30-8	4826-4829	but	_	_	_	_	_	_	_	_	_
-30-9	4830-4838	remember	_	_	_	_	_	_	_	_	_
-30-10	4839-4843	that	_	_	_	_	_	_	_	_	_
-30-11	4844-4848	when	_	_	_	_	_	_	_	_	_
-30-12	4849-4850	I	person[273]	giv[273]	snnnn[273]	_	coref	30-32[279_273]	
-30-13	4851-4854	can	_	_	_	_	_	_	_	_	_
-30-14	4855-4857	be	_	_	_	_	_	_	_	_	_
-30-15	4858-4860	of	_	_	_	_	_	_	_	_	_
-30-16	4861-4864	use	_	_	_	_	_	_	_	_	_
-30-17	4865-4867	to	_	_	_	_	_	_	_	_	_
-30-18	4868-4871	you	person[274]	giv[274]	snnnn[274]	_	coref	31-2[280_274]	
-30-19	4872-4873	,	_	_	_	_	_	_	_	_	_
+30-7	4824-4825	,	_	_	_	_	_	_	
+30-8	4826-4829	but	_	_	_	_	_	_	
+30-9	4830-4838	remember	_	_	_	_	_	_	
+30-10	4839-4843	that	_	_	_	_	_	_	
+30-11	4844-4848	when	_	_	_	_	_	_	
+30-12	4849-4850	I	person[273]	giv[273]	sssss[273]	_	coref	30-32[279_273]	
+30-13	4851-4854	can	_	_	_	_	_	_	
+30-14	4855-4857	be	_	_	_	_	_	_	
+30-15	4858-4860	of	_	_	_	_	_	_	
+30-16	4861-4864	use	_	_	_	_	_	_	
+30-17	4865-4867	to	_	_	_	_	_	_	
+30-18	4868-4871	you	person[274]	giv[274]	sssss[274]	_	coref	31-2[280_274]	
+30-19	4872-4873	,	_	_	_	_	_	_	
 30-20	4874-4875	a	abstract[275]	giv[275]	nnnnn[275]	_	_	_	
 30-21	4876-4880	line	abstract[275]	giv[275]	nnnnn[275]	_	_	_	
 30-22	4881-4883	to	abstract[275]	giv[275]	nnnnn[275]	_	_	_	
@@ -1077,16 +1081,16 @@
 30-26	4896-4901	LENOX	abstract[275]|place[276]|place[277]	giv[275]|new[276]|new[277]	nnnnn[275]|nnnnn[276]|nnnnn[277]	The_Mount_(Lenox,_Massachusetts)[276]|Lenox,_Massachusetts[277]	_	_	
 30-27	4902-4903	,	abstract[275]|place[276]|place[277]	giv[275]|new[276]|new[277]	nnnnn[275]|nnnnn[276]|nnnnn[277]	The_Mount_(Lenox,_Massachusetts)[276]|Lenox,_Massachusetts[277]	_	_	
 30-28	4904-4917	MASSACHUSETTS	abstract[275]|place[276]|place[277]|place[278]	giv[275]|new[276]|new[277]|new[278]	nnnnn[275]|nnnnn[276]|nnnnn[277]|nnnnn[278]	The_Mount_(Lenox,_Massachusetts)[276]|Lenox,_Massachusetts[277]|Massachusetts[278]	_	_	
-30-29	4918-4922	will	_	_	_	_	_	_	_	_	_
-30-30	4923-4929	always	_	_	_	_	_	_	_	_	_
-30-31	4930-4934	find	_	_	_	_	_	_	_	_	_
-30-32	4935-4937	me	person[279]	giv[279]	snnnn[279]	_	coref	32-1[281_279]	
-30-33	4938-4939	.	_	_	_	_	_	_	_	_	_
+30-29	4918-4922	will	_	_	_	_	_	_	
+30-30	4923-4929	always	_	_	_	_	_	_	
+30-31	4930-4934	find	_	_	_	_	_	_	
+30-32	4935-4937	me	person[279]	giv[279]	sssss[279]	_	coref	32-1[281_279]	
+30-33	4938-4939	.	_	_	_	_	_	_	
 
 #Text=Gratefully yours
-31-1	4940-4950	Gratefully	_	_	_	_	_	_	_	_	_
-31-2	4951-4956	yours	person[280]	giv[280]	snnnn[280]	_	_	_	
+31-1	4940-4950	Gratefully	_	_	_	_	_	_	
+31-2	4951-4956	yours	person[280]	giv[280]	sssss[280]	_	_	_	
 
 #Text=E. WHARTON
-32-1	4957-4959	E.	person[281]	new[281]	snnnn[281]	Edith_Wharton[281]	_	_	
-32-2	4960-4967	WHARTON	person[281]	new[281]	snnnn[281]	Edith_Wharton[281]	_	_	
+32-1	4957-4959	E.	person[281]	new[281]	sssss[281]	Edith_Wharton[281]	_	_	
+32-2	4960-4967	WHARTON	person[281]	new[281]	sssss[281]	Edith_Wharton[281]	_	_	

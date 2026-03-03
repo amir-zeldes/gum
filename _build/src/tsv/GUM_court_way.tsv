@@ -2,86 +2,90 @@
 #T_SP=webanno.custom.Referent|entity|infstat|salience|identity
 #T_RL=webanno.custom.Coref|type|BT_webanno.custom.Referent
 #Summary1=(human1) In the court case SJC 13721, Town of Concord versus Neil Rasmussen and others, Attorney Gwen King, on behalf of the appellants, addresses the question of how a way becomes public and also how a public way is discontinued and ceases to be public, while Justice Kafka and other judges ask clarifying questions.
+#Summary2=(claude-sonnet-4-5-20250929; postedited) Attorney King, representing appellants in a dispute over whether a road remains public, argues that the 1932 discontinuance by Middlesex County Commissioners under section 32A could legally end the public status of ways, distinguishing this from section 21 town discontinuances, and questioning whether the way could have remained public through lost layout or prescription.
+#Summary3=(gpt4o; postedited) Attorney Gwen King argues before Justices of the Court that the key issues in Town of Concord versus Neil Rasmussen involve how a way becomes public, how it is discontinued, and the legal distinctions between the relevant statutory sections, with emphasis on the public's access rights and the authority of county commissioners.
+#Summary4=(Meta-Llama-3-8B-Instruct; postedited) Attorney Gwen King argues whether the 1932 discontinuance of a public way by the Middlesex County Commissioners under the 1924 act rendered it private.
+#Summary5=(Qwen2.5-7B-Instruct; postedited) Attorney Gwen King argues before the Court whether the 1932 discontinuance by the Middlesex County Commissioners under the 1924 act legally discontinues a public way, and whether a way can be deemed public due to a lost layout, challenging the current interpretation of public way discontinuance laws.
 
 
 #Text=SJC 13721 .
 1-1	0-3	SJC	abstract[1]	new[1]	snnnn[1]	_	coref	2-1[2_1]	
 1-2	4-9	13721	abstract[1]	new[1]	snnnn[1]	_	_	_	
-1-3	10-11	.	_	_	_	_	_	_	_	_	_
+1-3	10-11	.	_	_	_	_	_	_	
 
 #Text=Town of Concord versus Neil Rasmussen and others .
-2-1	12-16	Town	abstract[2]|place[3]	giv[2]|new[3]	snnnn[2]|snnnn[3]	Concord,_Massachusetts[3]	coref|bridge:entity-associative|coref	56-16[258_2]|7-7[12_2]|35-17[117_3]	
-2-2	17-19	of	abstract[2]|place[3]	giv[2]|new[3]	snnnn[2]|snnnn[3]	Concord,_Massachusetts[3]	_	_	
-2-3	20-27	Concord	abstract[2]|place[3]	giv[2]|new[3]	snnnn[2]|snnnn[3]	Concord,_Massachusetts[3]	_	_	
+2-1	12-16	Town	abstract[2]|place[3]	giv[2]|new[3]	snnnn[2]|snsnn[3]	Concord,_Massachusetts[3]	bridge:entity-associative|coref|coref	7-7[12_2]|56-16[258_2]|35-17[117_3]	
+2-2	17-19	of	abstract[2]|place[3]	giv[2]|new[3]	snnnn[2]|snsnn[3]	Concord,_Massachusetts[3]	_	_	
+2-3	20-27	Concord	abstract[2]|place[3]	giv[2]|new[3]	snnnn[2]|snsnn[3]	Concord,_Massachusetts[3]	_	_	
 2-4	28-34	versus	abstract[2]	giv[2]	snnnn[2]	_	_	_	
-2-5	35-39	Neil	abstract[2]|person[4]	giv[2]|new[4]	snnnn[2]|snnnn[4]	_	bridge:comparison-sense;comparison-relative	2-8[5_4]	
-2-6	40-49	Rasmussen	abstract[2]|person[4]	giv[2]|new[4]	snnnn[2]|snnnn[4]	_	_	_	
+2-5	35-39	Neil	abstract[2]|person[4]	giv[2]|new[4]	snnnn[2]|snsnn[4]	_	bridge:comparison-sense;comparison-relative	2-8[5_4]	
+2-6	40-49	Rasmussen	abstract[2]|person[4]	giv[2]|new[4]	snnnn[2]|snsnn[4]	_	_	_	
 2-7	50-53	and	abstract[2]	giv[2]	snnnn[2]	_	_	_	
 2-8	54-60	others	abstract[2]|person[5]	giv[2]|acc[5]	snnnn[2]|snnnn[5]	_	_	_	
 2-9	61-62	.	abstract[2]	giv[2]	snnnn[2]	_	_	_	
 
 #Text=Okay , Attorney King , whenever you 're ready .
-3-1	63-67	Okay	_	_	_	_	_	_	_	_	_
-3-2	68-69	,	_	_	_	_	_	_	_	_	_
-3-3	70-78	Attorney	person[6]	new[6]	snnnn[6]	_	coref	3-7[7_6]	
-3-4	79-83	King	person[6]	new[6]	snnnn[6]	_	_	_	
-3-5	84-85	,	_	_	_	_	_	_	_	_	_
-3-6	86-94	whenever	_	_	_	_	_	_	_	_	_
-3-7	95-98	you	person[7]	giv[7]	snnnn[7]	_	coref	7-1[11_7]	
-3-8	99-102	're	_	_	_	_	_	_	_	_	_
-3-9	103-108	ready	_	_	_	_	_	_	_	_	_
-3-10	109-110	.	_	_	_	_	_	_	_	_	_
+3-1	63-67	Okay	_	_	_	_	_	_	
+3-2	68-69	,	_	_	_	_	_	_	
+3-3	70-78	Attorney	person[6]	new[6]	sssss[6]	_	coref	3-7[7_6]	
+3-4	79-83	King	person[6]	new[6]	sssss[6]	_	_	_	
+3-5	84-85	,	_	_	_	_	_	_	
+3-6	86-94	whenever	_	_	_	_	_	_	
+3-7	95-98	you	person[7]	giv[7]	sssss[7]	_	coref	7-1[11_7]	
+3-8	99-102	're	_	_	_	_	_	_	
+3-9	103-108	ready	_	_	_	_	_	_	
+3-10	109-110	.	_	_	_	_	_	_	
 
 #Text=All set .
-4-1	111-114	All	_	_	_	_	_	_	_	_	_
-4-2	115-118	set	_	_	_	_	_	_	_	_	_
-4-3	119-120	.	_	_	_	_	_	_	_	_	_
+4-1	111-114	All	_	_	_	_	_	_	
+4-2	115-118	set	_	_	_	_	_	_	
+4-3	119-120	.	_	_	_	_	_	_	
 
 #Text=Good morning .
 5-1	121-125	Good	time[8]	new[8]	nnnnn[8]	_	_	_	
 5-2	126-133	morning	time[8]	new[8]	nnnnn[8]	_	_	_	
-5-3	134-135	.	_	_	_	_	_	_	_	_	_
+5-3	134-135	.	_	_	_	_	_	_	
 
 #Text=May it please the Court .
-6-1	136-139	May	_	_	_	_	_	_	_	_	_
+6-1	136-139	May	_	_	_	_	_	_	
 6-2	140-142	it	event[9]	giv[9]	nnnnn[9]	_	_	_	
-6-3	143-149	please	_	_	_	_	_	_	_	_	_
-6-4	150-153	the	organization[10]	new[10]	nnnnn[10]	Massachusetts_Supreme_Judicial_Court[10]	coref	8-2[13_10]	
-6-5	154-159	Court	organization[10]	new[10]	nnnnn[10]	Massachusetts_Supreme_Judicial_Court[10]	_	_	
-6-6	160-161	.	_	_	_	_	_	_	_	_	_
+6-3	143-149	please	_	_	_	_	_	_	
+6-4	150-153	the	organization[10]	new[10]	nnsns[10]	Massachusetts_Supreme_Judicial_Court[10]	coref	8-2[13_10]	
+6-5	154-159	Court	organization[10]	new[10]	nnsns[10]	Massachusetts_Supreme_Judicial_Court[10]	_	_	
+6-6	160-161	.	_	_	_	_	_	_	
 
 #Text=Gwen King , on behalf of the appellants .
-7-1	162-166	Gwen	person[11]	giv[11]	snnnn[11]	_	coref	9-2[19_11]	
-7-2	167-171	King	person[11]	giv[11]	snnnn[11]	_	_	_	
-7-3	172-173	,	_	_	_	_	_	_	_	_	_
-7-4	174-176	on	_	_	_	_	_	_	_	_	_
-7-5	177-183	behalf	_	_	_	_	_	_	_	_	_
-7-6	184-186	of	_	_	_	_	_	_	_	_	_
-7-7	187-190	the	person[12]	acc[12]	snnnn[12]	_	_	_	
-7-8	191-201	appellants	person[12]	acc[12]	snnnn[12]	_	_	_	
-7-9	202-203	.	_	_	_	_	_	_	_	_	_
+7-1	162-166	Gwen	person[11]	giv[11]	sssss[11]	_	coref	9-2[19_11]	
+7-2	167-171	King	person[11]	giv[11]	sssss[11]	_	_	_	
+7-3	172-173	,	_	_	_	_	_	_	
+7-4	174-176	on	_	_	_	_	_	_	
+7-5	177-183	behalf	_	_	_	_	_	_	
+7-6	184-186	of	_	_	_	_	_	_	
+7-7	187-190	the	person[12]	acc[12]	ssnnn[12]	_	_	_	
+7-8	191-201	appellants	person[12]	acc[12]	ssnnn[12]	_	_	_	
+7-9	202-203	.	_	_	_	_	_	_	
 
 #Text=Before the Court today is a question of both how a way becomes public and also how a public way is discontinued and ceases to be public .
-8-1	204-210	Before	_	_	_	_	_	_	_	_	_
-8-2	211-214	the	organization[13]	giv[13]	nnnnn[13]	Massachusetts_Supreme_Judicial_Court[13]	coref	9-13[22_13]	
-8-3	215-220	Court	organization[13]	giv[13]	nnnnn[13]	Massachusetts_Supreme_Judicial_Court[13]	_	_	
+8-1	204-210	Before	_	_	_	_	_	_	
+8-2	211-214	the	organization[13]	giv[13]	nnsns[13]	Massachusetts_Supreme_Judicial_Court[13]	coref	9-13[22_13]	
+8-3	215-220	Court	organization[13]	giv[13]	nnsns[13]	Massachusetts_Supreme_Judicial_Court[13]	_	_	
 8-4	221-226	today	time[14]	acc[14]	nnnnn[14]	_	_	_	
-8-5	227-229	is	_	_	_	_	_	_	_	_	_
+8-5	227-229	is	_	_	_	_	_	_	
 8-6	230-231	a	abstract[15]	new[15]	snnnn[15]	_	_	_	
 8-7	232-240	question	abstract[15]	new[15]	snnnn[15]	_	_	_	
 8-8	241-243	of	abstract[15]	new[15]	snnnn[15]	_	_	_	
 8-9	244-248	both	abstract[15]	new[15]	snnnn[15]	_	_	_	
 8-10	249-252	how	abstract[15]	new[15]	snnnn[15]	_	_	_	
-8-11	253-254	a	abstract[15]|place[16]	new[15]|new[16]	snnnn[15]|snnnn[16]	_	coref	11-4[31_16]	
-8-12	255-258	way	abstract[15]|place[16]	new[15]|new[16]	snnnn[15]|snnnn[16]	_	_	_	
+8-11	253-254	a	abstract[15]|place[16]	new[15]|new[16]	snnnn[15]|sssss[16]	_	coref	11-4[31_16]	
+8-12	255-258	way	abstract[15]|place[16]	new[15]|new[16]	snnnn[15]|sssss[16]	_	_	_	
 8-13	259-266	becomes	abstract[15]	new[15]	snnnn[15]	_	_	_	
 8-14	267-273	public	abstract[15]	new[15]	snnnn[15]	_	_	_	
 8-15	274-277	and	abstract[15]	new[15]	snnnn[15]	_	_	_	
 8-16	278-282	also	abstract[15]	new[15]	snnnn[15]	_	_	_	
 8-17	283-286	how	abstract[15]	new[15]	snnnn[15]	_	_	_	
-8-18	287-288	a	abstract[15]|place[17]	new[15]|giv[17]	snnnn[15]|snnnn[17]	_	coref	10-20[30_17]	
-8-19	289-295	public	abstract[15]|place[17]	new[15]|giv[17]	snnnn[15]|snnnn[17]	_	_	_	
-8-20	296-299	way	abstract[15]|place[17]	new[15]|giv[17]	snnnn[15]|snnnn[17]	_	_	_	
+8-18	287-288	a	abstract[15]|place[17]	new[15]|giv[17]	snnnn[15]|snnss[17]	_	coref	10-20[30_17]	
+8-19	289-295	public	abstract[15]|place[17]	new[15]|giv[17]	snnnn[15]|snnss[17]	_	_	_	
+8-20	296-299	way	abstract[15]|place[17]	new[15]|giv[17]	snnnn[15]|snnss[17]	_	_	_	
 8-21	300-302	is	abstract[15]	new[15]	snnnn[15]	_	_	_	
 8-22	303-315	discontinued	abstract[15]	new[15]	snnnn[15]	_	_	_	
 8-23	316-319	and	abstract[15]	new[15]	snnnn[15]	_	_	_	
@@ -89,439 +93,439 @@
 8-25	327-329	to	abstract[15]	new[15]	snnnn[15]	_	_	_	
 8-26	330-332	be	abstract[15]	new[15]	snnnn[15]	_	_	_	
 8-27	333-339	public	abstract[15]	new[15]	snnnn[15]	_	_	_	
-8-28	340-341	.	_	_	_	_	_	_	_	_	_
+8-28	340-341	.	_	_	_	_	_	_	
 
 #Text=During my time , I 'd like to address three issues for the Court .
-9-1	342-348	During	_	_	_	_	_	_	_	_	_
-9-2	349-351	my	time[18]|person[19]	new[18]|giv[19]	nnnnn[18]|snnnn[19]	_	coref	9-5[20_19]	
+9-1	342-348	During	_	_	_	_	_	_	
+9-2	349-351	my	time[18]|person[19]	new[18]|giv[19]	nnnnn[18]|sssss[19]	_	coref	9-5[20_19]	
 9-3	352-356	time	time[18]	new[18]	nnnnn[18]	_	_	_	
-9-4	357-358	,	_	_	_	_	_	_	_	_	_
-9-5	359-360	I	person[20]	giv[20]	snnnn[20]	_	coref	23-3[61_20]	
-9-6	361-363	'd	_	_	_	_	_	_	_	_	_
-9-7	364-368	like	_	_	_	_	_	_	_	_	_
-9-8	369-371	to	_	_	_	_	_	_	_	_	_
-9-9	372-379	address	_	_	_	_	_	_	_	_	_
+9-4	357-358	,	_	_	_	_	_	_	
+9-5	359-360	I	person[20]	giv[20]	sssss[20]	_	coref	23-3[61_20]	
+9-6	361-363	'd	_	_	_	_	_	_	
+9-7	364-368	like	_	_	_	_	_	_	
+9-8	369-371	to	_	_	_	_	_	_	
+9-9	372-379	address	_	_	_	_	_	_	
 9-10	380-385	three	abstract[21]	new[21]	nnnnn[21]	_	_	_	
 9-11	386-392	issues	abstract[21]	new[21]	nnnnn[21]	_	_	_	
-9-12	393-396	for	_	_	_	_	_	_	_	_	_
-9-13	397-400	the	organization[22]	giv[22]	nnnnn[22]	Massachusetts_Supreme_Judicial_Court[22]	coref	12-5[37_22]	
-9-14	401-406	Court	organization[22]	giv[22]	nnnnn[22]	Massachusetts_Supreme_Judicial_Court[22]	_	_	
-9-15	407-408	.	_	_	_	_	_	_	_	_	_
+9-12	393-396	for	_	_	_	_	_	_	
+9-13	397-400	the	organization[22]	giv[22]	nnsns[22]	Massachusetts_Supreme_Judicial_Court[22]	coref	12-5[37_22]	
+9-14	401-406	Court	organization[22]	giv[22]	nnsns[22]	Massachusetts_Supreme_Judicial_Court[22]	_	_	
+9-15	407-408	.	_	_	_	_	_	_	
 
 #Text=First , the effect of the 1932 discontinuance by the Middlesex County Commissioners under the 1924 act to discontinue public ways .
-10-1	409-414	First	_	_	_	_	_	_	_	_	_
-10-2	415-416	,	_	_	_	_	_	_	_	_	_
+10-1	409-414	First	_	_	_	_	_	_	
+10-2	415-416	,	_	_	_	_	_	_	
 10-3	417-420	the	abstract[23]	new[23]	nnnnn[23]	_	coref	13-5[44_23]	
 10-4	421-427	effect	abstract[23]	new[23]	nnnnn[23]	_	_	_	
 10-5	428-430	of	abstract[23]	new[23]	nnnnn[23]	_	_	_	
-10-6	431-434	the	abstract[23]|event[24]	new[23]|new[24]	nnnnn[23]|nnnnn[24]	_	_	_	
-10-7	435-439	1932	abstract[23]|event[24]|time[25]	new[23]|new[24]|new[25]	nnnnn[23]|nnnnn[24]|nnnnn[25]	_	coref	13-9[45_25]	
-10-8	440-454	discontinuance	abstract[23]|event[24]	new[23]|new[24]	nnnnn[23]|nnnnn[24]	_	_	_	
-10-9	455-457	by	abstract[23]|event[24]	new[23]|new[24]	nnnnn[23]|nnnnn[24]	_	_	_	
-10-10	458-461	the	abstract[23]|event[24]|organization[26]	new[23]|new[24]|new[26]	nnnnn[23]|nnnnn[24]|nnnnn[26]	_	coref	45-7[189_26]	
-10-11	462-471	Middlesex	abstract[23]|event[24]|organization[26]|place[27]	new[23]|new[24]|new[26]|new[27]	nnnnn[23]|nnnnn[24]|nnnnn[26]|nnnnn[27]	Middlesex_County,_Massachusetts[27]	coref|bridge:entity-associative	45-8[190_27]|16-4[56_27]	
-10-12	472-478	County	abstract[23]|event[24]|organization[26]|place[27]	new[23]|new[24]|new[26]|new[27]	nnnnn[23]|nnnnn[24]|nnnnn[26]|nnnnn[27]	Middlesex_County,_Massachusetts[27]	_	_	
-10-13	479-492	Commissioners	abstract[23]|event[24]|organization[26]	new[23]|new[24]|new[26]	nnnnn[23]|nnnnn[24]|nnnnn[26]	_	_	_	
-10-14	493-498	under	_	_	_	_	_	_	_	_	_
-10-15	499-502	the	abstract[28]	new[28]	nnnnn[28]	_	coref	43-27[172_28]	
-10-16	503-507	1924	abstract[28]|time[29]	new[28]|new[29]	nnnnn[28]|nnnnn[29]	_	coref	16-2[55_29]	
-10-17	508-511	act	abstract[28]	new[28]	nnnnn[28]	_	_	_	
-10-18	512-514	to	_	_	_	_	_	_	_	_	_
-10-19	515-526	discontinue	_	_	_	_	_	_	_	_	_
-10-20	527-533	public	place[30]	new[30]	snnnn[30]	_	coref	12-14[39_30]	
-10-21	534-538	ways	place[30]	new[30]	snnnn[30]	_	_	_	
-10-22	539-540	.	_	_	_	_	_	_	_	_	_
+10-6	431-434	the	abstract[23]|event[24]	new[23]|new[24]	nnnnn[23]|nsnss[24]	_	_	_	
+10-7	435-439	1932	abstract[23]|event[24]|time[25]	new[23]|new[24]|new[25]	nnnnn[23]|nsnss[24]|nsnss[25]	_	coref	13-9[45_25]	
+10-8	440-454	discontinuance	abstract[23]|event[24]	new[23]|new[24]	nnnnn[23]|nsnss[24]	_	_	_	
+10-9	455-457	by	abstract[23]|event[24]	new[23]|new[24]	nnnnn[23]|nsnss[24]	_	_	_	
+10-10	458-461	the	abstract[23]|event[24]|organization[26]	new[23]|new[24]|new[26]	nnnnn[23]|nsnss[24]|nssss[26]	_	coref	45-7[189_26]	
+10-11	462-471	Middlesex	abstract[23]|event[24]|organization[26]|place[27]	new[23]|new[24]|new[26]|new[27]	nnnnn[23]|nsnss[24]|nssss[26]|nsnss[27]	Middlesex_County,_Massachusetts[27]	bridge:entity-associative|coref	16-4[56_27]|45-8[190_27]	
+10-12	472-478	County	abstract[23]|event[24]|organization[26]|place[27]	new[23]|new[24]|new[26]|new[27]	nnnnn[23]|nsnss[24]|nssss[26]|nsnss[27]	Middlesex_County,_Massachusetts[27]	_	_	
+10-13	479-492	Commissioners	abstract[23]|event[24]|organization[26]	new[23]|new[24]|new[26]	nnnnn[23]|nsnss[24]|nssss[26]	_	_	_	
+10-14	493-498	under	_	_	_	_	_	_	
+10-15	499-502	the	abstract[28]	new[28]	nnnss[28]	_	coref	43-27[172_28]	
+10-16	503-507	1924	abstract[28]|time[29]	new[28]|new[29]	nnnss[28]|nnnss[29]	_	coref	16-2[55_29]	
+10-17	508-511	act	abstract[28]	new[28]	nnnss[28]	_	_	_	
+10-18	512-514	to	_	_	_	_	_	_	
+10-19	515-526	discontinue	_	_	_	_	_	_	
+10-20	527-533	public	place[30]	new[30]	snnss[30]	_	coref	12-14[39_30]	
+10-21	534-538	ways	place[30]	new[30]	snnss[30]	_	_	_	
+10-22	539-540	.	_	_	_	_	_	_	
 
 #Text=Second , whether a way can be deemed public by virtue of a lost layout where there is no evidence regarding when it was laid out , who it was laid out by , and most importantly , under what authority it was laid out .
-11-1	541-547	Second	_	_	_	_	_	_	_	_	_
-11-2	548-549	,	_	_	_	_	_	_	_	_	_
-11-3	550-557	whether	_	_	_	_	_	_	_	_	_
-11-4	558-559	a	place[31]	giv[31]	snnnn[31]	_	coref	11-23[34_31]	
-11-5	560-563	way	place[31]	giv[31]	snnnn[31]	_	_	_	
-11-6	564-567	can	_	_	_	_	_	_	_	_	_
-11-7	568-570	be	_	_	_	_	_	_	_	_	_
-11-8	571-577	deemed	_	_	_	_	_	_	_	_	_
-11-9	578-584	public	_	_	_	_	_	_	_	_	_
-11-10	585-587	by	_	_	_	_	_	_	_	_	_
-11-11	588-594	virtue	_	_	_	_	_	_	_	_	_
-11-12	595-597	of	_	_	_	_	_	_	_	_	_
-11-13	598-599	a	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-14	600-604	lost	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-15	605-611	layout	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-16	612-617	where	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-17	618-623	there	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-18	624-626	is	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-19	627-629	no	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-20	630-638	evidence	abstract[32]|abstract[33]	new[32]|new[33]	nnnnn[32]|nnnnn[33]	_	_	_	
-11-21	639-648	regarding	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-22	649-653	when	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-23	654-656	it	abstract[32]|place[34]	new[32]|giv[34]	nnnnn[32]|snnnn[34]	_	coref	11-29[35_34]	
-11-24	657-660	was	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-25	661-665	laid	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-26	666-669	out	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-27	670-671	,	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-28	672-675	who	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-29	676-678	it	abstract[32]|place[35]	new[32]|giv[35]	nnnnn[32]|snnnn[35]	_	coref	13-20[48_35]	
-11-30	679-682	was	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-31	683-687	laid	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-32	688-691	out	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-33	692-694	by	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-34	695-696	,	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-35	697-700	and	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-36	701-705	most	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-37	706-717	importantly	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-38	718-719	,	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-39	720-725	under	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-40	726-730	what	abstract[32]|abstract[36]	new[32]|new[36]	nnnnn[32]|nnnnn[36]	_	_	_	
-11-41	731-740	authority	abstract[32]|abstract[36]	new[32]|new[36]	nnnnn[32]|nnnnn[36]	_	_	_	
-11-42	741-743	it	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-43	744-747	was	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-44	748-752	laid	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-45	753-756	out	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-11-46	757-758	.	_	_	_	_	_	_	_	_	_
+11-1	541-547	Second	_	_	_	_	_	_	
+11-2	548-549	,	_	_	_	_	_	_	
+11-3	550-557	whether	_	_	_	_	_	_	
+11-4	558-559	a	place[31]	giv[31]	sssss[31]	_	coref	11-23[34_31]	
+11-5	560-563	way	place[31]	giv[31]	sssss[31]	_	_	_	
+11-6	564-567	can	_	_	_	_	_	_	
+11-7	568-570	be	_	_	_	_	_	_	
+11-8	571-577	deemed	_	_	_	_	_	_	
+11-9	578-584	public	_	_	_	_	_	_	
+11-10	585-587	by	_	_	_	_	_	_	
+11-11	588-594	virtue	_	_	_	_	_	_	
+11-12	595-597	of	_	_	_	_	_	_	
+11-13	598-599	a	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-14	600-604	lost	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-15	605-611	layout	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-16	612-617	where	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-17	618-623	there	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-18	624-626	is	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-19	627-629	no	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-20	630-638	evidence	abstract[32]|abstract[33]	new[32]|new[33]	nsnns[32]|nnnnn[33]	_	_	_	
+11-21	639-648	regarding	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-22	649-653	when	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-23	654-656	it	abstract[32]|place[34]	new[32]|giv[34]	nsnns[32]|sssss[34]	_	coref	11-29[35_34]	
+11-24	657-660	was	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-25	661-665	laid	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-26	666-669	out	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-27	670-671	,	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-28	672-675	who	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-29	676-678	it	abstract[32]|place[35]	new[32]|giv[35]	nsnns[32]|sssss[35]	_	coref	13-20[48_35]	
+11-30	679-682	was	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-31	683-687	laid	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-32	688-691	out	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-33	692-694	by	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-34	695-696	,	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-35	697-700	and	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-36	701-705	most	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-37	706-717	importantly	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-38	718-719	,	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-39	720-725	under	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-40	726-730	what	abstract[32]|abstract[36]	new[32]|new[36]	nsnns[32]|nnnnn[36]	_	_	_	
+11-41	731-740	authority	abstract[32]|abstract[36]	new[32]|new[36]	nsnns[32]|nnnnn[36]	_	_	_	
+11-42	741-743	it	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-43	744-747	was	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-44	748-752	laid	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-45	753-756	out	abstract[32]	new[32]	nsnns[32]	_	_	_	
+11-46	757-758	.	_	_	_	_	_	_	
 
 #Text=And third , whether the Court should eliminate the high bar of establishing a public way by prescription , where the claim of public prescription is an ancient claim .
-12-1	759-762	And	_	_	_	_	_	_	_	_	_
-12-2	763-768	third	_	_	_	_	_	_	_	_	_
-12-3	769-770	,	_	_	_	_	_	_	_	_	_
-12-4	771-778	whether	_	_	_	_	_	_	_	_	_
-12-5	779-782	the	organization[37]	giv[37]	nnnnn[37]	Massachusetts_Supreme_Judicial_Court[37]	coref	31-5[92_37]	
-12-6	783-788	Court	organization[37]	giv[37]	nnnnn[37]	Massachusetts_Supreme_Judicial_Court[37]	_	_	
-12-7	789-795	should	_	_	_	_	_	_	_	_	_
-12-8	796-805	eliminate	_	_	_	_	_	_	_	_	_
+12-1	759-762	And	_	_	_	_	_	_	
+12-2	763-768	third	_	_	_	_	_	_	
+12-3	769-770	,	_	_	_	_	_	_	
+12-4	771-778	whether	_	_	_	_	_	_	
+12-5	779-782	the	organization[37]	giv[37]	nnsns[37]	Massachusetts_Supreme_Judicial_Court[37]	coref	31-5[92_37]	
+12-6	783-788	Court	organization[37]	giv[37]	nnsns[37]	Massachusetts_Supreme_Judicial_Court[37]	_	_	
+12-7	789-795	should	_	_	_	_	_	_	
+12-8	796-805	eliminate	_	_	_	_	_	_	
 12-9	806-809	the	abstract[38]	new[38]	nnnnn[38]	_	_	_	
 12-10	810-814	high	abstract[38]	new[38]	nnnnn[38]	_	_	_	
 12-11	815-818	bar	abstract[38]	new[38]	nnnnn[38]	_	_	_	
 12-12	819-821	of	abstract[38]	new[38]	nnnnn[38]	_	_	_	
 12-13	822-834	establishing	abstract[38]	new[38]	nnnnn[38]	_	_	_	
-12-14	835-836	a	abstract[38]|place[39]	new[38]|giv[39]	nnnnn[38]|snnnn[39]	_	coref	44-12[185_39]	
-12-15	837-843	public	abstract[38]|place[39]	new[38]|giv[39]	nnnnn[38]|snnnn[39]	_	_	_	
-12-16	844-847	way	abstract[38]|place[39]	new[38]|giv[39]	nnnnn[38]|snnnn[39]	_	_	_	
+12-14	835-836	a	abstract[38]|place[39]	new[38]|giv[39]	nnnnn[38]|snnss[39]	_	coref	44-12[185_39]	
+12-15	837-843	public	abstract[38]|place[39]	new[38]|giv[39]	nnnnn[38]|snnss[39]	_	_	_	
+12-16	844-847	way	abstract[38]|place[39]	new[38]|giv[39]	nnnnn[38]|snnss[39]	_	_	_	
 12-17	848-850	by	abstract[38]	new[38]	nnnnn[38]	_	_	_	
-12-18	851-863	prescription	abstract[38]|abstract[40]	new[38]|new[40]	nnnnn[38]|nnnnn[40]	_	coref	12-24[42_40]	
+12-18	851-863	prescription	abstract[38]|abstract[40]	new[38]|new[40]	nnnnn[38]|nsnnn[40]	_	coref	12-24[42_40]	
 12-19	864-865	,	abstract[38]	new[38]	nnnnn[38]	_	_	_	
 12-20	866-871	where	abstract[38]	new[38]	nnnnn[38]	_	_	_	
 12-21	872-875	the	abstract[38]|abstract[41]	new[38]|new[41]	nnnnn[38]|nnnnn[41]	_	coref	12-27[43_41]	
 12-22	876-881	claim	abstract[38]|abstract[41]	new[38]|new[41]	nnnnn[38]|nnnnn[41]	_	_	_	
 12-23	882-884	of	abstract[38]|abstract[41]	new[38]|new[41]	nnnnn[38]|nnnnn[41]	_	_	_	
-12-24	885-891	public	abstract[38]|abstract[41]|abstract[42]	new[38]|new[41]|giv[42]	nnnnn[38]|nnnnn[41]|nnnnn[42]	_	_	_	
-12-25	892-904	prescription	abstract[38]|abstract[41]|abstract[42]	new[38]|new[41]|giv[42]	nnnnn[38]|nnnnn[41]|nnnnn[42]	_	_	_	
+12-24	885-891	public	abstract[38]|abstract[41]|abstract[42]	new[38]|new[41]|giv[42]	nnnnn[38]|nnnnn[41]|nsnnn[42]	_	_	_	
+12-25	892-904	prescription	abstract[38]|abstract[41]|abstract[42]	new[38]|new[41]|giv[42]	nnnnn[38]|nnnnn[41]|nsnnn[42]	_	_	_	
 12-26	905-907	is	abstract[38]	new[38]	nnnnn[38]	_	_	_	
 12-27	908-910	an	abstract[38]|abstract[43]	new[38]|new[43]	nnnnn[38]|nnnnn[43]	_	_	_	
 12-28	911-918	ancient	abstract[38]|abstract[43]	new[38]|new[43]	nnnnn[38]|nnnnn[43]	_	_	_	
 12-29	919-924	claim	abstract[38]|abstract[43]	new[38]|new[43]	nnnnn[38]|nnnnn[43]	_	_	_	
-12-30	925-926	.	_	_	_	_	_	_	_	_	_
+12-30	925-926	.	_	_	_	_	_	_	
 
 #Text=First , as to the effect of the 1932 discontinuance , a fundamental rule of land law is that a way is public until it is -- until it is legally discontinued .
-13-1	927-932	First	_	_	_	_	_	_	_	_	_
-13-2	933-934	,	_	_	_	_	_	_	_	_	_
-13-3	935-937	as	_	_	_	_	_	_	_	_	_
-13-4	938-940	to	_	_	_	_	_	_	_	_	_
+13-1	927-932	First	_	_	_	_	_	_	
+13-2	933-934	,	_	_	_	_	_	_	
+13-3	935-937	as	_	_	_	_	_	_	
+13-4	938-940	to	_	_	_	_	_	_	
 13-5	941-944	the	abstract[44]	giv[44]	nnnnn[44]	_	_	_	
 13-6	945-951	effect	abstract[44]	giv[44]	nnnnn[44]	_	_	_	
 13-7	952-954	of	abstract[44]	giv[44]	nnnnn[44]	_	_	_	
 13-8	955-958	the	abstract[44]	giv[44]	nnnnn[44]	_	_	_	
-13-9	959-963	1932	abstract[44]|time[45]	giv[44]|giv[45]	nnnnn[44]|nnnnn[45]	_	coref	48-14[208_45]	
+13-9	959-963	1932	abstract[44]|time[45]	giv[44]|giv[45]	nnnnn[44]|nsnss[45]	_	coref	48-14[208_45]	
 13-10	964-978	discontinuance	abstract[44]	giv[44]	nnnnn[44]	_	_	_	
-13-11	979-980	,	_	_	_	_	_	_	_	_	_
+13-11	979-980	,	_	_	_	_	_	_	
 13-12	981-982	a	abstract[46]	giv[46]	nnnnn[46]	_	_	_	
 13-13	983-994	fundamental	abstract[46]	giv[46]	nnnnn[46]	_	_	_	
 13-14	995-999	rule	abstract[46]	giv[46]	nnnnn[46]	_	_	_	
 13-15	1000-1002	of	abstract[46]	giv[46]	nnnnn[46]	_	_	_	
 13-16	1003-1007	land	abstract[46]|abstract[47]	giv[46]|new[47]	nnnnn[46]|nnnnn[47]	_	coref	15-7[54_47]	
 13-17	1008-1011	law	abstract[46]|abstract[47]	giv[46]|new[47]	nnnnn[46]|nnnnn[47]	_	_	_	
-13-18	1012-1014	is	_	_	_	_	_	_	_	_	_
-13-19	1015-1019	that	_	_	_	_	_	_	_	_	_
-13-20	1020-1021	a	place[48]	giv[48]	snnnn[48]	_	coref	13-25[49_48]	
-13-21	1022-1025	way	place[48]	giv[48]	snnnn[48]	_	_	_	
-13-22	1026-1028	is	_	_	_	_	_	_	_	_	_
-13-23	1029-1035	public	_	_	_	_	_	_	_	_	_
-13-24	1036-1041	until	_	_	_	_	_	_	_	_	_
-13-25	1042-1044	it	place[49]	giv[49]	snnnn[49]	_	coref	13-29[50_49]	
-13-26	1045-1047	is	_	_	_	_	_	_	_	_	_
-13-27	1048-1050	--	_	_	_	_	_	_	_	_	_
-13-28	1051-1056	until	_	_	_	_	_	_	_	_	_
-13-29	1057-1059	it	place[50]	giv[50]	snnnn[50]	_	coref	28-13[86_50]	
-13-30	1060-1062	is	_	_	_	_	_	_	_	_	_
-13-31	1063-1070	legally	_	_	_	_	_	_	_	_	_
-13-32	1071-1083	discontinued	_	_	_	_	_	_	_	_	_
-13-33	1084-1085	.	_	_	_	_	_	_	_	_	_
+13-18	1012-1014	is	_	_	_	_	_	_	
+13-19	1015-1019	that	_	_	_	_	_	_	
+13-20	1020-1021	a	place[48]	giv[48]	sssss[48]	_	coref	13-25[49_48]	
+13-21	1022-1025	way	place[48]	giv[48]	sssss[48]	_	_	_	
+13-22	1026-1028	is	_	_	_	_	_	_	
+13-23	1029-1035	public	_	_	_	_	_	_	
+13-24	1036-1041	until	_	_	_	_	_	_	
+13-25	1042-1044	it	place[49]	giv[49]	sssss[49]	_	coref	13-29[50_49]	
+13-26	1045-1047	is	_	_	_	_	_	_	
+13-27	1048-1050	--	_	_	_	_	_	_	
+13-28	1051-1056	until	_	_	_	_	_	_	
+13-29	1057-1059	it	place[50]	giv[50]	sssss[50]	_	coref	28-13[86_50]	
+13-30	1060-1062	is	_	_	_	_	_	_	
+13-31	1063-1070	legally	_	_	_	_	_	_	
+13-32	1071-1083	discontinued	_	_	_	_	_	_	
+13-33	1084-1085	.	_	_	_	_	_	_	
 
 #Text=Well , what is a legally -- a legal discontinuance ?
-14-1	1086-1090	Well	_	_	_	_	_	_	_	_	_
-14-2	1091-1092	,	_	_	_	_	_	_	_	_	_
-14-3	1093-1097	what	_	_	_	_	_	_	_	_	_
-14-4	1098-1100	is	_	_	_	_	_	_	_	_	_
-14-5	1101-1102	a	event[51]	giv[51]	nnnnn[51]	_	coref	15-1[52_51]	
-14-6	1103-1110	legally	event[51]	giv[51]	nnnnn[51]	_	_	_	
-14-7	1111-1113	--	event[51]	giv[51]	nnnnn[51]	_	_	_	
-14-8	1114-1115	a	event[51]	giv[51]	nnnnn[51]	_	_	_	
-14-9	1116-1121	legal	event[51]	giv[51]	nnnnn[51]	_	_	_	
-14-10	1122-1136	discontinuance	event[51]	giv[51]	nnnnn[51]	_	_	_	
-14-11	1137-1138	?	_	_	_	_	_	_	_	_	_
+14-1	1086-1090	Well	_	_	_	_	_	_	
+14-2	1091-1092	,	_	_	_	_	_	_	
+14-3	1093-1097	what	_	_	_	_	_	_	
+14-4	1098-1100	is	_	_	_	_	_	_	
+14-5	1101-1102	a	event[51]	giv[51]	nssns[51]	_	coref	15-1[52_51]	
+14-6	1103-1110	legally	event[51]	giv[51]	nssns[51]	_	_	_	
+14-7	1111-1113	--	event[51]	giv[51]	nssns[51]	_	_	_	
+14-8	1114-1115	a	event[51]	giv[51]	nssns[51]	_	_	_	
+14-9	1116-1121	legal	event[51]	giv[51]	nssns[51]	_	_	_	
+14-10	1122-1136	discontinuance	event[51]	giv[51]	nssns[51]	_	_	_	
+14-11	1137-1138	?	_	_	_	_	_	_	
 
 #Text=It is a discontinuance according to law .
-15-1	1139-1141	It	event[52]	giv[52]	nnnnn[52]	_	coref	15-3[53_52]	
-15-2	1142-1144	is	_	_	_	_	_	_	_	_	_
-15-3	1145-1146	a	event[53]	giv[53]	nnnnn[53]	_	coref	31-8[93_53]	
-15-4	1147-1161	discontinuance	event[53]	giv[53]	nnnnn[53]	_	_	_	
-15-5	1162-1171	according	event[53]	giv[53]	nnnnn[53]	_	_	_	
-15-6	1172-1174	to	event[53]	giv[53]	nnnnn[53]	_	_	_	
-15-7	1175-1178	law	event[53]|abstract[54]	giv[53]|giv[54]	nnnnn[53]|nnnnn[54]	_	_	_	
-15-8	1179-1180	.	_	_	_	_	_	_	_	_	_
+15-1	1139-1141	It	event[52]	giv[52]	nssns[52]	_	coref	15-3[53_52]	
+15-2	1142-1144	is	_	_	_	_	_	_	
+15-3	1145-1146	a	event[53]	giv[53]	nssns[53]	_	coref	31-8[93_53]	
+15-4	1147-1161	discontinuance	event[53]	giv[53]	nssns[53]	_	_	_	
+15-5	1162-1171	according	event[53]	giv[53]	nssns[53]	_	_	_	
+15-6	1172-1174	to	event[53]	giv[53]	nssns[53]	_	_	_	
+15-7	1175-1178	law	event[53]|abstract[54]	giv[53]|giv[54]	nssns[53]|nnnnn[54]	_	_	_	
+15-8	1179-1180	.	_	_	_	_	_	_	
 
 #Text=In 1924 , the legislature —
-16-1	1181-1183	In	_	_	_	_	_	_	_	_	_
-16-2	1184-1188	1924	time[55]	giv[55]	nnnnn[55]	_	coref	43-28[173_55]	
-16-3	1189-1190	,	_	_	_	_	_	_	_	_	_
+16-1	1181-1183	In	_	_	_	_	_	_	
+16-2	1184-1188	1924	time[55]	giv[55]	nnnss[55]	_	coref	43-28[173_55]	
+16-3	1189-1190	,	_	_	_	_	_	_	
 16-4	1191-1194	the	organization[56]	acc[56]	nnnnn[56]	_	coref	43-22[171_56]	
 16-5	1195-1206	legislature	organization[56]	acc[56]	nnnnn[56]	_	_	_	
-16-6	1207-1208	—	_	_	_	_	_	_	_	_	_
+16-6	1207-1208	—	_	_	_	_	_	_	
 
 #Text=Just to be more specific .
-17-1	1209-1213	Just	_	_	_	_	_	_	_	_	_
-17-2	1214-1216	to	_	_	_	_	_	_	_	_	_
-17-3	1217-1219	be	_	_	_	_	_	_	_	_	_
-17-4	1220-1224	more	_	_	_	_	_	_	_	_	_
-17-5	1225-1233	specific	_	_	_	_	_	_	_	_	_
-17-6	1234-1235	.	_	_	_	_	_	_	_	_	_
+17-1	1209-1213	Just	_	_	_	_	_	_	
+17-2	1214-1216	to	_	_	_	_	_	_	
+17-3	1217-1219	be	_	_	_	_	_	_	
+17-4	1220-1224	more	_	_	_	_	_	_	
+17-5	1225-1233	specific	_	_	_	_	_	_	
+17-6	1234-1235	.	_	_	_	_	_	_	
 
 #Text=There are three different ways , right ?
-18-1	1236-1241	There	_	_	_	_	_	_	_	_	_
-18-2	1242-1245	are	_	_	_	_	_	_	_	_	_
-18-3	1246-1251	three	abstract[57]	giv[57]	nnnnn[57]	_	coref|bridge:set-member;comparison-sense	23-7[63_57]|19-3[58_57]	
+18-1	1236-1241	There	_	_	_	_	_	_	
+18-2	1242-1245	are	_	_	_	_	_	_	
+18-3	1246-1251	three	abstract[57]	giv[57]	nnnnn[57]	_	bridge:set-member;comparison-sense|coref	19-3[58_57]|23-7[63_57]	
 18-4	1252-1261	different	abstract[57]	giv[57]	nnnnn[57]	_	_	_	
 18-5	1262-1266	ways	abstract[57]	giv[57]	nnnnn[57]	_	_	_	
-18-6	1267-1268	,	_	_	_	_	_	_	_	_	_
-18-7	1269-1274	right	_	_	_	_	_	_	_	_	_
-18-8	1275-1276	?	_	_	_	_	_	_	_	_	_
+18-6	1267-1268	,	_	_	_	_	_	_	
+18-7	1269-1274	right	_	_	_	_	_	_	
+18-8	1275-1276	?	_	_	_	_	_	_	
 
 #Text=There 's 32A .
-19-1	1277-1282	There	_	_	_	_	_	_	_	_	_
-19-2	1283-1285	's	_	_	_	_	_	_	_	_	_
-19-3	1286-1289	32A	abstract[58]	acc[58]	nnnnn[58]	_	coref|bridge:set-member;comparison-sense	36-17[122_58]|20-3[59_58]	
-19-4	1290-1291	.	_	_	_	_	_	_	_	_	_
+19-1	1277-1282	There	_	_	_	_	_	_	
+19-2	1283-1285	's	_	_	_	_	_	_	
+19-3	1286-1289	32A	abstract[58]	acc[58]	nssnn[58]	_	bridge:set-member;comparison-sense|coref	20-3[59_58]|36-17[122_58]	
+19-4	1290-1291	.	_	_	_	_	_	_	
 
 #Text=There 's 21 and 30 .
-20-1	1292-1297	There	_	_	_	_	_	_	_	_	_
-20-2	1298-1300	's	_	_	_	_	_	_	_	_	_
-20-3	1301-1303	21	abstract[59]	acc[59]	nnnnn[59]	_	coref|bridge:set-member;comparison-sense	26-2[75_59]|20-5[60_59]	
-20-4	1304-1307	and	_	_	_	_	_	_	_	_	_
-20-5	1308-1310	30	abstract[60]	acc[60]	nnnnn[60]	_	_	_	
-20-6	1311-1312	.	_	_	_	_	_	_	_	_	_
+20-1	1292-1297	There	_	_	_	_	_	_	
+20-2	1298-1300	's	_	_	_	_	_	_	
+20-3	1301-1303	21	abstract[59]	acc[59]	nssnn[59]	_	bridge:set-member;comparison-sense|coref	20-5[60_59]|26-2[75_59]	
+20-4	1304-1307	and	_	_	_	_	_	_	
+20-5	1308-1310	30	abstract[60]	acc[60]	nnsnn[60]	_	_	_	
+20-6	1311-1312	.	_	_	_	_	_	_	
 
 #Text=Right ?
-21-1	1313-1318	Right	_	_	_	_	_	_	_	_	_
-21-2	1319-1320	?	_	_	_	_	_	_	_	_	_
+21-1	1313-1318	Right	_	_	_	_	_	_	
+21-2	1319-1320	?	_	_	_	_	_	_	
 
 #Text=Correct .
-22-1	1321-1328	Correct	_	_	_	_	_	_	_	_	_
-22-2	1329-1330	.	_	_	_	_	_	_	_	_	_
+22-1	1321-1328	Correct	_	_	_	_	_	_	
+22-2	1329-1330	.	_	_	_	_	_	_	
 
 #Text=Are n't you sort of saying all three work exactly the same ?
-23-1	1331-1334	Are	_	_	_	_	_	_	_	_	_
-23-2	1335-1338	n't	_	_	_	_	_	_	_	_	_
-23-3	1339-1342	you	person[61]	giv[61]	snnnn[61]	_	coref	24-13[68_61]	
-23-4	1343-1347	sort	_	_	_	_	_	_	_	_	_
-23-5	1348-1350	of	_	_	_	_	_	_	_	_	_
-23-6	1351-1357	saying	_	_	_	_	_	_	_	_	_
+23-1	1331-1334	Are	_	_	_	_	_	_	
+23-2	1335-1338	n't	_	_	_	_	_	_	
+23-3	1339-1342	you	person[61]	giv[61]	sssss[61]	_	coref	24-13[68_61]	
+23-4	1343-1347	sort	_	_	_	_	_	_	
+23-5	1348-1350	of	_	_	_	_	_	_	
+23-6	1351-1357	saying	_	_	_	_	_	_	
 23-7	1358-1361	all	abstract[62]|abstract[63]	new[62]|new[63]	nnnnn[62]|nnnnn[63]	_	coref|coref	24-4[65_62]|24-16[69_63]	
 23-8	1362-1367	three	abstract[62]|abstract[63]	new[62]|new[63]	nnnnn[62]|nnnnn[63]	_	_	_	
 23-9	1368-1372	work	abstract[62]	new[62]	nnnnn[62]	_	_	_	
 23-10	1373-1380	exactly	abstract[62]	new[62]	nnnnn[62]	_	_	_	
 23-11	1381-1384	the	abstract[62]	new[62]	nnnnn[62]	_	_	_	
 23-12	1385-1389	same	abstract[62]	new[62]	nnnnn[62]	_	_	_	
-23-13	1390-1391	?	_	_	_	_	_	_	_	_	_
+23-13	1390-1391	?	_	_	_	_	_	_	
 
 #Text=I 'm -- that 's -- I 'm a little confused by your argument that they 're not doing different things .
-24-1	1392-1393	I	person[64]	giv[64]	snnnn[64]	_	coref	24-7[66_64]	
-24-2	1394-1396	'm	_	_	_	_	_	_	_	_	_
-24-3	1397-1399	--	_	_	_	_	_	_	_	_	_
+24-1	1392-1393	I	person[64]	giv[64]	snsnn[64]	_	coref	24-7[66_64]	
+24-2	1394-1396	'm	_	_	_	_	_	_	
+24-3	1397-1399	--	_	_	_	_	_	_	
 24-4	1400-1404	that	abstract[65]	giv[65]	nnnnn[65]	_	_	_	
-24-5	1405-1407	's	_	_	_	_	_	_	_	_	_
-24-6	1408-1410	--	_	_	_	_	_	_	_	_	_
-24-7	1411-1412	I	person[66]	giv[66]	snnnn[66]	_	coref	27-7[79_66]	
-24-8	1413-1415	'm	_	_	_	_	_	_	_	_	_
-24-9	1416-1417	a	_	_	_	_	_	_	_	_	_
-24-10	1418-1424	little	_	_	_	_	_	_	_	_	_
-24-11	1425-1433	confused	_	_	_	_	_	_	_	_	_
-24-12	1434-1436	by	_	_	_	_	_	_	_	_	_
-24-13	1437-1441	your	abstract[67]|person[68]	new[67]|giv[68]	nnnnn[67]|snnnn[68]	_	coref|coref	28-6[83_67]|27-4[78_68]	
+24-5	1405-1407	's	_	_	_	_	_	_	
+24-6	1408-1410	--	_	_	_	_	_	_	
+24-7	1411-1412	I	person[66]	giv[66]	snsnn[66]	_	coref	27-7[79_66]	
+24-8	1413-1415	'm	_	_	_	_	_	_	
+24-9	1416-1417	a	_	_	_	_	_	_	
+24-10	1418-1424	little	_	_	_	_	_	_	
+24-11	1425-1433	confused	_	_	_	_	_	_	
+24-12	1434-1436	by	_	_	_	_	_	_	
+24-13	1437-1441	your	abstract[67]|person[68]	new[67]|giv[68]	nnnnn[67]|sssss[68]	_	coref|coref	28-6[83_67]|27-4[78_68]	
 24-14	1442-1450	argument	abstract[67]	new[67]	nnnnn[67]	_	_	_	
 24-15	1451-1455	that	abstract[67]	new[67]	nnnnn[67]	_	_	_	
-24-16	1456-1460	they	abstract[67]|abstract[69]	new[67]|giv[69]	nnnnn[67]|nnnnn[69]	_	coref|bridge:comparison-relative	25-3[71_69]|24-20[70_69]	
+24-16	1456-1460	they	abstract[67]|abstract[69]	new[67]|giv[69]	nnnnn[67]|nnnnn[69]	_	bridge:comparison-relative|coref	24-20[70_69]|25-3[71_69]	
 24-17	1461-1464	're	abstract[67]	new[67]	nnnnn[67]	_	_	_	
 24-18	1465-1468	not	abstract[67]	new[67]	nnnnn[67]	_	_	_	
 24-19	1469-1474	doing	abstract[67]	new[67]	nnnnn[67]	_	_	_	
 24-20	1475-1484	different	abstract[67]|abstract[70]	new[67]|acc[70]	nnnnn[67]|nnnnn[70]	_	_	_	
 24-21	1485-1491	things	abstract[67]|abstract[70]	new[67]|acc[70]	nnnnn[67]|nnnnn[70]	_	_	_	
-24-22	1492-1493	.	_	_	_	_	_	_	_	_	_
+24-22	1492-1493	.	_	_	_	_	_	_	
 
 #Text=Well , they definitely have different procedures and in some instances different outcomes .
-25-1	1494-1498	Well	_	_	_	_	_	_	_	_	_
-25-2	1499-1500	,	_	_	_	_	_	_	_	_	_
-25-3	1501-1505	they	abstract[71]	giv[71]	nnnnn[71]	_	coref|bridge:comparison-relative	28-8[85_71]|25-6[72_71]	
-25-4	1506-1516	definitely	_	_	_	_	_	_	_	_	_
-25-5	1517-1521	have	_	_	_	_	_	_	_	_	_
+25-1	1494-1498	Well	_	_	_	_	_	_	
+25-2	1499-1500	,	_	_	_	_	_	_	
+25-3	1501-1505	they	abstract[71]	giv[71]	nnnnn[71]	_	bridge:comparison-relative|coref	25-6[72_71]|28-8[85_71]	
+25-4	1506-1516	definitely	_	_	_	_	_	_	
+25-5	1517-1521	have	_	_	_	_	_	_	
 25-6	1522-1531	different	abstract[72]	acc[72]	nnnnn[72]	_	bridge:comparison-relative	25-12[74_72]	
 25-7	1532-1542	procedures	abstract[72]	acc[72]	nnnnn[72]	_	_	_	
-25-8	1543-1546	and	_	_	_	_	_	_	_	_	_
-25-9	1547-1549	in	_	_	_	_	_	_	_	_	_
+25-8	1543-1546	and	_	_	_	_	_	_	
+25-9	1547-1549	in	_	_	_	_	_	_	
 25-10	1550-1554	some	event[73]	new[73]	nnnnn[73]	_	_	_	
 25-11	1555-1564	instances	event[73]	new[73]	nnnnn[73]	_	_	_	
 25-12	1565-1574	different	abstract[74]	acc[74]	nnnnn[74]	_	_	_	
 25-13	1575-1583	outcomes	abstract[74]	acc[74]	nnnnn[74]	_	_	_	
-25-14	1584-1585	.	_	_	_	_	_	_	_	_	_
+25-14	1584-1585	.	_	_	_	_	_	_	
 
 #Text=So section 21 , let 's take that first .
-26-1	1586-1588	So	_	_	_	_	_	_	_	_	_
-26-2	1589-1596	section	abstract[75]	new[75]	nnnnn[75]	_	coref	26-8[77_75]	
-26-3	1597-1599	21	abstract[75]	new[75]	nnnnn[75]	_	_	_	
-26-4	1600-1601	,	_	_	_	_	_	_	_	_	_
-26-5	1602-1605	let	_	_	_	_	_	_	_	_	_
+26-1	1586-1588	So	_	_	_	_	_	_	
+26-2	1589-1596	section	abstract[75]	new[75]	nssnn[75]	_	coref	26-8[77_75]	
+26-3	1597-1599	21	abstract[75]	new[75]	nssnn[75]	_	_	_	
+26-4	1600-1601	,	_	_	_	_	_	_	
+26-5	1602-1605	let	_	_	_	_	_	_	
 26-6	1606-1608	's	person[76]	acc[76]	nnnnn[76]	_	coref	48-2[203_76]	
-26-7	1609-1613	take	_	_	_	_	_	_	_	_	_
-26-8	1614-1618	that	abstract[77]	giv[77]	nnnnn[77]	_	coref	31-9[94_77]	
-26-9	1619-1624	first	_	_	_	_	_	_	_	_	_
-26-10	1625-1626	.	_	_	_	_	_	_	_	_	_
+26-7	1609-1613	take	_	_	_	_	_	_	
+26-8	1614-1618	that	abstract[77]	giv[77]	nssnn[77]	_	coref	31-9[94_77]	
+26-9	1619-1624	first	_	_	_	_	_	_	
+26-10	1625-1626	.	_	_	_	_	_	_	
 
 #Text=Just just pin you down and I 'll let you talk .
-27-1	1627-1631	Just	_	_	_	_	_	_	_	_	_
-27-2	1632-1636	just	_	_	_	_	_	_	_	_	_
-27-3	1637-1640	pin	_	_	_	_	_	_	_	_	_
-27-4	1641-1644	you	person[78]	giv[78]	snnnn[78]	_	coref	27-10[80_78]	
-27-5	1645-1649	down	_	_	_	_	_	_	_	_	_
-27-6	1650-1653	and	_	_	_	_	_	_	_	_	_
-27-7	1654-1655	I	person[79]	giv[79]	snnnn[79]	_	coref	28-2[82_79]	
-27-8	1656-1659	'll	_	_	_	_	_	_	_	_	_
-27-9	1660-1663	let	_	_	_	_	_	_	_	_	_
-27-10	1664-1667	you	person[80]	giv[80]	snnnn[80]	_	coref	28-6[84_80]	
-27-11	1668-1672	talk	_	_	_	_	_	_	_	_	_
-27-12	1673-1674	.	_	_	_	_	_	_	_	_	_
+27-1	1627-1631	Just	_	_	_	_	_	_	
+27-2	1632-1636	just	_	_	_	_	_	_	
+27-3	1637-1640	pin	_	_	_	_	_	_	
+27-4	1641-1644	you	person[78]	giv[78]	sssss[78]	_	coref	27-10[80_78]	
+27-5	1645-1649	down	_	_	_	_	_	_	
+27-6	1650-1653	and	_	_	_	_	_	_	
+27-7	1654-1655	I	person[79]	giv[79]	snsnn[79]	_	coref	28-2[82_79]	
+27-8	1656-1659	'll	_	_	_	_	_	_	
+27-9	1660-1663	let	_	_	_	_	_	_	
+27-10	1664-1667	you	person[80]	giv[80]	sssss[80]	_	coref	28-6[84_80]	
+27-11	1668-1672	talk	_	_	_	_	_	_	
+27-12	1673-1674	.	_	_	_	_	_	_	
 
 #Text=But my understanding is that your view all three of those turn it into a purely private way .
-28-1	1675-1678	But	_	_	_	_	_	_	_	_	_
-28-2	1679-1681	my	abstract[81]|person[82]	new[81]|giv[82]	nnnnn[81]|snnnn[82]	_	coref	30-9[90_82]	
+28-1	1675-1678	But	_	_	_	_	_	_	
+28-2	1679-1681	my	abstract[81]|person[82]	new[81]|giv[82]	nnnnn[81]|snsnn[82]	_	coref	30-9[90_82]	
 28-3	1682-1695	understanding	abstract[81]	new[81]	nnnnn[81]	_	_	_	
-28-4	1696-1698	is	_	_	_	_	_	_	_	_	_
-28-5	1699-1703	that	_	_	_	_	_	_	_	_	_
-28-6	1704-1708	your	abstract[83]|person[84]	new[83]|giv[84]	nnnnn[83]|snnnn[84]	_	coref	30-2[88_84]	
+28-4	1696-1698	is	_	_	_	_	_	_	
+28-5	1699-1703	that	_	_	_	_	_	_	
+28-6	1704-1708	your	abstract[83]|person[84]	new[83]|giv[84]	nnnnn[83]|sssss[84]	_	coref	30-2[88_84]	
 28-7	1709-1713	view	abstract[83]	new[83]	nnnnn[83]	_	_	_	
 28-8	1714-1717	all	abstract[85]	new[85]	nnnnn[85]	_	_	_	
 28-9	1718-1723	three	abstract[85]	new[85]	nnnnn[85]	_	_	_	
 28-10	1724-1726	of	abstract[85]	new[85]	nnnnn[85]	_	_	_	
 28-11	1727-1732	those	abstract[85]	new[85]	nnnnn[85]	_	_	_	
-28-12	1733-1737	turn	_	_	_	_	_	_	_	_	_
-28-13	1738-1740	it	place[86]	giv[86]	snnnn[86]	_	coref|bridge:comparison-sense	42-19[163_86]|35-21[118_86]	
-28-14	1741-1745	into	_	_	_	_	_	_	_	_	_
+28-12	1733-1737	turn	_	_	_	_	_	_	
+28-13	1738-1740	it	place[86]	giv[86]	sssss[86]	_	bridge:comparison-sense|coref	35-21[118_86]|42-19[163_86]	
+28-14	1741-1745	into	_	_	_	_	_	_	
 28-15	1746-1747	a	place[87]	new[87]	nnnnn[87]	_	coref	33-4[106_87]	
 28-16	1748-1754	purely	place[87]	new[87]	nnnnn[87]	_	_	_	
 28-17	1755-1762	private	place[87]	new[87]	nnnnn[87]	_	_	_	
 28-18	1763-1766	way	place[87]	new[87]	nnnnn[87]	_	_	_	
-28-19	1767-1768	.	_	_	_	_	_	_	_	_	_
+28-19	1767-1768	.	_	_	_	_	_	_	
 
 #Text=Right ?
-29-1	1769-1774	Right	_	_	_	_	_	_	_	_	_
-29-2	1775-1776	?	_	_	_	_	_	_	_	_	_
+29-1	1769-1774	Right	_	_	_	_	_	_	
+29-2	1775-1776	?	_	_	_	_	_	_	
 
 #Text=Well I -- with a slight distinction , Your Honor .
-30-1	1777-1781	Well	_	_	_	_	_	_	_	_	_
-30-2	1782-1783	I	person[88]	giv[88]	snnnn[88]	_	coref	40-2[147_88]	
-30-3	1784-1786	--	_	_	_	_	_	_	_	_	_
-30-4	1787-1791	with	_	_	_	_	_	_	_	_	_
+30-1	1777-1781	Well	_	_	_	_	_	_	
+30-2	1782-1783	I	person[88]	giv[88]	sssss[88]	_	coref	40-2[147_88]	
+30-3	1784-1786	--	_	_	_	_	_	_	
+30-4	1787-1791	with	_	_	_	_	_	_	
 30-5	1792-1793	a	abstract[89]	new[89]	nnnnn[89]	_	_	_	
 30-6	1794-1800	slight	abstract[89]	new[89]	nnnnn[89]	_	_	_	
 30-7	1801-1812	distinction	abstract[89]	new[89]	nnnnn[89]	_	_	_	
-30-8	1813-1814	,	_	_	_	_	_	_	_	_	_
-30-9	1815-1819	Your	person[90]	new[90]	snnnn[90]	Scott_L._Kafker[90]	coref	35-1[111_90]	
-30-10	1820-1825	Honor	person[90]	new[90]	snnnn[90]	Scott_L._Kafker[90]	_	_	
-30-11	1826-1827	.	_	_	_	_	_	_	_	_	_
+30-8	1813-1814	,	_	_	_	_	_	_	
+30-9	1815-1819	Your	person[90]	new[90]	snsnn[90]	Scott_L._Kafker[90]	coref	35-1[111_90]	
+30-10	1820-1825	Honor	person[90]	new[90]	snsnn[90]	Scott_L._Kafker[90]	_	_	
+30-11	1826-1827	.	_	_	_	_	_	_	
 
 #Text=So under Nylander , this Court held a section 21 discontinuance , which is a discontinuance at town meeting of a town way .
-31-1	1828-1830	So	_	_	_	_	_	_	_	_	_
-31-2	1831-1836	under	_	_	_	_	_	_	_	_	_
+31-1	1828-1830	So	_	_	_	_	_	_	
+31-2	1831-1836	under	_	_	_	_	_	_	
 31-3	1837-1845	Nylander	abstract[91]	new[91]	nnnnn[91]	_	coref	33-16[110_91]	
-31-4	1846-1847	,	_	_	_	_	_	_	_	_	_
-31-5	1848-1852	this	organization[92]	giv[92]	nnnnn[92]	Massachusetts_Supreme_Judicial_Court[92]	coref	33-13[109_92]	
-31-6	1853-1858	Court	organization[92]	giv[92]	nnnnn[92]	Massachusetts_Supreme_Judicial_Court[92]	_	_	
-31-7	1859-1863	held	_	_	_	_	_	_	_	_	_
-31-8	1864-1865	a	event[93]	giv[93]	nnnnn[93]	_	coref	31-15[95_93]	
-31-9	1866-1873	section	event[93]|abstract[94]	giv[93]|giv[94]	nnnnn[93]|nnnnn[94]	_	coref	32-7[102_94]	
-31-10	1874-1876	21	event[93]|abstract[94]	giv[93]|giv[94]	nnnnn[93]|nnnnn[94]	_	_	_	
-31-11	1877-1891	discontinuance	event[93]	giv[93]	nnnnn[93]	_	_	_	
-31-12	1892-1893	,	event[93]	giv[93]	nnnnn[93]	_	_	_	
-31-13	1894-1899	which	event[93]	giv[93]	nnnnn[93]	_	_	_	
-31-14	1900-1902	is	event[93]	giv[93]	nnnnn[93]	_	_	_	
-31-15	1903-1904	a	event[93]|event[95]	giv[93]|giv[95]	nnnnn[93]|nnnnn[95]	_	coref	33-9[107_95]	
-31-16	1905-1919	discontinuance	event[93]|event[95]	giv[93]|giv[95]	nnnnn[93]|nnnnn[95]	_	_	_	
-31-17	1920-1922	at	event[93]|event[95]	giv[93]|giv[95]	nnnnn[93]|nnnnn[95]	_	_	_	
-31-18	1923-1927	town	event[93]|event[95]|event[96]|place[97]	giv[93]|giv[95]|new[96]|new[97]	nnnnn[93]|nnnnn[95]|nnnnn[96]|nnnnn[97]	_	coref	31-22[99_97]	
-31-19	1928-1935	meeting	event[93]|event[95]|event[96]	giv[93]|giv[95]|new[96]	nnnnn[93]|nnnnn[95]|nnnnn[96]	_	_	_	
-31-20	1936-1938	of	event[93]|event[95]	giv[93]|giv[95]	nnnnn[93]|nnnnn[95]	_	_	_	
-31-21	1939-1940	a	event[93]|event[95]|place[98]	giv[93]|giv[95]|giv[98]	nnnnn[93]|nnnnn[95]|nnnnn[98]	_	coref	32-3[100_98]	
-31-22	1941-1945	town	event[93]|event[95]|place[98]|place[99]	giv[93]|giv[95]|giv[98]|giv[99]	nnnnn[93]|nnnnn[95]|nnnnn[98]|nnnnn[99]	_	coref	32-4[101_99]	
-31-23	1946-1949	way	event[93]|event[95]|place[98]	giv[93]|giv[95]|giv[98]	nnnnn[93]|nnnnn[95]|nnnnn[98]	_	_	_	
-31-24	1950-1951	.	_	_	_	_	_	_	_	_	_
+31-4	1846-1847	,	_	_	_	_	_	_	
+31-5	1848-1852	this	organization[92]	giv[92]	nnsns[92]	Massachusetts_Supreme_Judicial_Court[92]	coref	33-13[109_92]	
+31-6	1853-1858	Court	organization[92]	giv[92]	nnsns[92]	Massachusetts_Supreme_Judicial_Court[92]	_	_	
+31-7	1859-1863	held	_	_	_	_	_	_	
+31-8	1864-1865	a	event[93]	giv[93]	nssns[93]	_	coref	31-15[95_93]	
+31-9	1866-1873	section	event[93]|abstract[94]	giv[93]|giv[94]	nssns[93]|nssnn[94]	_	coref	32-7[102_94]	
+31-10	1874-1876	21	event[93]|abstract[94]	giv[93]|giv[94]	nssns[93]|nssnn[94]	_	_	_	
+31-11	1877-1891	discontinuance	event[93]	giv[93]	nssns[93]	_	_	_	
+31-12	1892-1893	,	event[93]	giv[93]	nssns[93]	_	_	_	
+31-13	1894-1899	which	event[93]	giv[93]	nssns[93]	_	_	_	
+31-14	1900-1902	is	event[93]	giv[93]	nssns[93]	_	_	_	
+31-15	1903-1904	a	event[93]|event[95]	giv[93]|giv[95]	nssns[93]|nssns[95]	_	coref	33-9[107_95]	
+31-16	1905-1919	discontinuance	event[93]|event[95]	giv[93]|giv[95]	nssns[93]|nssns[95]	_	_	_	
+31-17	1920-1922	at	event[93]|event[95]	giv[93]|giv[95]	nssns[93]|nssns[95]	_	_	_	
+31-18	1923-1927	town	event[93]|event[95]|event[96]|place[97]	giv[93]|giv[95]|new[96]|new[97]	nssns[93]|nssns[95]|nnnnn[96]|nnnnn[97]	_	coref	31-22[99_97]	
+31-19	1928-1935	meeting	event[93]|event[95]|event[96]	giv[93]|giv[95]|new[96]	nssns[93]|nssns[95]|nnnnn[96]	_	_	_	
+31-20	1936-1938	of	event[93]|event[95]	giv[93]|giv[95]	nssns[93]|nssns[95]	_	_	_	
+31-21	1939-1940	a	event[93]|event[95]|place[98]	giv[93]|giv[95]|giv[98]	nssns[93]|nssns[95]|nnnnn[98]	_	coref	32-3[100_98]	
+31-22	1941-1945	town	event[93]|event[95]|place[98]|place[99]	giv[93]|giv[95]|giv[98]|giv[99]	nssns[93]|nssns[95]|nnnnn[98]|nnnnn[99]	_	coref	32-4[101_99]	
+31-23	1946-1949	way	event[93]|event[95]|place[98]	giv[93]|giv[95]|giv[98]	nssns[93]|nssns[95]|nnnnn[98]	_	_	_	
+31-24	1950-1951	.	_	_	_	_	_	_	
 
 #Text=And only a town way under section 21 does n't leave any abutter access rights .
-32-1	1952-1955	And	_	_	_	_	_	_	_	_	_
-32-2	1956-1960	only	_	_	_	_	_	_	_	_	_
+32-1	1952-1955	And	_	_	_	_	_	_	
+32-2	1956-1960	only	_	_	_	_	_	_	
 32-3	1961-1962	a	place[100]	giv[100]	nnnnn[100]	_	coref	52-16[229_100]	
 32-4	1963-1967	town	place[100]|place[101]	giv[100]|giv[101]	nnnnn[100]|nnnnn[101]	_	coref	52-16[230_101]	
 32-5	1968-1971	way	place[100]	giv[100]	nnnnn[100]	_	_	_	
-32-6	1972-1977	under	_	_	_	_	_	_	_	_	_
-32-7	1978-1985	section	abstract[102]	giv[102]	nnnnn[102]	_	coref	33-9[108_102]	
-32-8	1986-1988	21	abstract[102]	giv[102]	nnnnn[102]	_	_	_	
-32-9	1989-1993	does	_	_	_	_	_	_	_	_	_
-32-10	1994-1997	n't	_	_	_	_	_	_	_	_	_
-32-11	1998-2003	leave	_	_	_	_	_	_	_	_	_
+32-6	1972-1977	under	_	_	_	_	_	_	
+32-7	1978-1985	section	abstract[102]	giv[102]	nssnn[102]	_	coref	33-9[108_102]	
+32-8	1986-1988	21	abstract[102]	giv[102]	nssnn[102]	_	_	_	
+32-9	1989-1993	does	_	_	_	_	_	_	
+32-10	1994-1997	n't	_	_	_	_	_	_	
+32-11	1998-2003	leave	_	_	_	_	_	_	
 32-12	2004-2007	any	abstract[103]	new[103]	nnnnn[103]	_	coref	39-27[144_103]	
 32-13	2008-2015	abutter	abstract[103]|abstract[104]|person[105]	new[103]|new[104]|new[105]	nnnnn[103]|nnnnn[104]|nnnnn[105]	_	coref	39-27[145_105]	
 32-14	2016-2022	access	abstract[103]|abstract[104]	new[103]|new[104]	nnnnn[103]|nnnnn[104]	_	_	_	
 32-15	2023-2029	rights	abstract[103]	new[103]	nnnnn[103]	_	_	_	
-32-16	2030-2031	.	_	_	_	_	_	_	_	_	_
+32-16	2030-2031	.	_	_	_	_	_	_	
 
 #Text=There is no private way left intact after section 21 discontinuance per this court in Nylander .
-33-1	2032-2037	There	_	_	_	_	_	_	_	_	_
-33-2	2038-2040	is	_	_	_	_	_	_	_	_	_
-33-3	2041-2043	no	_	_	_	_	_	_	_	_	_
+33-1	2032-2037	There	_	_	_	_	_	_	
+33-2	2038-2040	is	_	_	_	_	_	_	
+33-3	2041-2043	no	_	_	_	_	_	_	
 33-4	2044-2051	private	place[106]	giv[106]	nnnnn[106]	_	coref	39-22[143_106]	
 33-5	2052-2055	way	place[106]	giv[106]	nnnnn[106]	_	_	_	
-33-6	2056-2060	left	_	_	_	_	_	_	_	_	_
-33-7	2061-2067	intact	_	_	_	_	_	_	_	_	_
-33-8	2068-2073	after	_	_	_	_	_	_	_	_	_
-33-9	2074-2081	section	event[107]|abstract[108]	giv[107]|giv[108]	nnnnn[107]|nnnnn[108]	_	coref	48-5[206_108]	
-33-10	2082-2084	21	event[107]|abstract[108]	giv[107]|giv[108]	nnnnn[107]|nnnnn[108]	_	_	_	
-33-11	2085-2099	discontinuance	event[107]	giv[107]	nnnnn[107]	_	_	_	
-33-12	2100-2103	per	_	_	_	_	_	_	_	_	_
-33-13	2104-2108	this	organization[109]	giv[109]	nnnnn[109]	_	coref	37-4[123_109]	
-33-14	2109-2114	court	organization[109]	giv[109]	nnnnn[109]	_	_	_	
-33-15	2115-2117	in	_	_	_	_	_	_	_	_	_
+33-6	2056-2060	left	_	_	_	_	_	_	
+33-7	2061-2067	intact	_	_	_	_	_	_	
+33-8	2068-2073	after	_	_	_	_	_	_	
+33-9	2074-2081	section	event[107]|abstract[108]	giv[107]|giv[108]	nssns[107]|nssnn[108]	_	coref	48-5[206_108]	
+33-10	2082-2084	21	event[107]|abstract[108]	giv[107]|giv[108]	nssns[107]|nssnn[108]	_	_	_	
+33-11	2085-2099	discontinuance	event[107]	giv[107]	nssns[107]	_	_	_	
+33-12	2100-2103	per	_	_	_	_	_	_	
+33-13	2104-2108	this	organization[109]	giv[109]	nnsns[109]	_	coref	37-4[123_109]	
+33-14	2109-2114	court	organization[109]	giv[109]	nnsns[109]	_	_	_	
+33-15	2115-2117	in	_	_	_	_	_	_	
 33-16	2118-2126	Nylander	abstract[110]	giv[110]	nnnnn[110]	_	coref	35-6[113_110]	
-33-17	2127-2128	.	_	_	_	_	_	_	_	_	_
+33-17	2127-2128	.	_	_	_	_	_	_	
 
 #Text=However —
-34-1	2129-2136	However	_	_	_	_	_	_	_	_	_
-34-2	2137-2138	—	_	_	_	_	_	_	_	_	_
+34-1	2129-2136	However	_	_	_	_	_	_	
+34-2	2137-2138	—	_	_	_	_	_	_	
 
 #Text=I thought the footnote in Nylander is the big , foundation -- is the foundation of their argument for why this remains still public .
-35-1	2139-2140	I	person[111]	giv[111]	snnnn[111]	_	coref	39-5[136_111]	
-35-2	2141-2148	thought	_	_	_	_	_	_	_	_	_
+35-1	2139-2140	I	person[111]	giv[111]	snsnn[111]	_	coref	39-5[136_111]	
+35-2	2141-2148	thought	_	_	_	_	_	_	
 35-3	2149-2152	the	abstract[112]	new[112]	nnnnn[112]	_	coref	35-8[114_112]	
 35-4	2153-2161	footnote	abstract[112]	new[112]	nnnnn[112]	_	_	_	
 35-5	2162-2164	in	abstract[112]	new[112]	nnnnn[112]	_	_	_	
 35-6	2165-2173	Nylander	abstract[112]|abstract[113]	new[112]|giv[113]	nnnnn[112]|nnnnn[113]	_	coref	39-18[140_113]	
-35-7	2174-2176	is	_	_	_	_	_	_	_	_	_
+35-7	2174-2176	is	_	_	_	_	_	_	
 35-8	2177-2180	the	abstract[114]	new[114]	nnnnn[114]	_	coref	35-14[115_114]	
 35-9	2181-2184	big	abstract[114]	new[114]	nnnnn[114]	_	_	_	
 35-10	2185-2186	,	abstract[114]	new[114]	nnnnn[114]	_	_	_	
 35-11	2187-2197	foundation	abstract[114]	new[114]	nnnnn[114]	_	_	_	
-35-12	2198-2200	--	_	_	_	_	_	_	_	_	_
-35-13	2201-2203	is	_	_	_	_	_	_	_	_	_
+35-12	2198-2200	--	_	_	_	_	_	_	
+35-13	2201-2203	is	_	_	_	_	_	_	
 35-14	2204-2207	the	abstract[115]	giv[115]	nnnnn[115]	_	coref	36-2[119_115]	
 35-15	2208-2218	foundation	abstract[115]	giv[115]	nnnnn[115]	_	_	_	
 35-16	2219-2221	of	abstract[115]	giv[115]	nnnnn[115]	_	_	_	
-35-17	2222-2227	their	abstract[115]|abstract[116]|place[117]	giv[115]|giv[116]|giv[117]	nnnnn[115]|nnnnn[116]|snnnn[117]	_	coref	36-8[120_117]	
+35-17	2222-2227	their	abstract[115]|abstract[116]|place[117]	giv[115]|giv[116]|giv[117]	nnnnn[115]|nnnnn[116]|snsnn[117]	_	coref	36-8[120_117]	
 35-18	2228-2236	argument	abstract[115]|abstract[116]	giv[115]|giv[116]	nnnnn[115]|nnnnn[116]	_	_	_	
 35-19	2237-2240	for	abstract[115]|abstract[116]	giv[115]|giv[116]	nnnnn[115]|nnnnn[116]	_	_	_	
 35-20	2241-2244	why	abstract[115]|abstract[116]	giv[115]|giv[116]	nnnnn[115]|nnnnn[116]	_	_	_	
@@ -529,82 +533,82 @@
 35-22	2250-2257	remains	abstract[115]|abstract[116]	giv[115]|giv[116]	nnnnn[115]|nnnnn[116]	_	_	_	
 35-23	2258-2263	still	abstract[115]|abstract[116]	giv[115]|giv[116]	nnnnn[115]|nnnnn[116]	_	_	_	
 35-24	2264-2270	public	abstract[115]|abstract[116]	giv[115]|giv[116]	nnnnn[115]|nnnnn[116]	_	_	_	
-35-25	2271-2272	.	_	_	_	_	_	_	_	_	_
+35-25	2271-2272	.	_	_	_	_	_	_	
 
 #Text=So the footnote that 's emphasized by the town is referring to a subsequent version of 32A .
-36-1	2273-2275	So	_	_	_	_	_	_	_	_	_
+36-1	2273-2275	So	_	_	_	_	_	_	
 36-2	2276-2279	the	abstract[119]	new[119]	nnnnn[119]	_	_	_	
 36-3	2280-2288	footnote	abstract[119]	new[119]	nnnnn[119]	_	_	_	
 36-4	2289-2293	that	abstract[119]	new[119]	nnnnn[119]	_	_	_	
 36-5	2294-2296	's	abstract[119]	new[119]	nnnnn[119]	_	_	_	
 36-6	2297-2307	emphasized	abstract[119]	new[119]	nnnnn[119]	_	_	_	
 36-7	2308-2310	by	abstract[119]	new[119]	nnnnn[119]	_	_	_	
-36-8	2311-2314	the	abstract[119]|place[120]	new[119]|giv[120]	nnnnn[119]|snnnn[120]	_	coref	38-23[134_120]	
-36-9	2315-2319	town	abstract[119]|place[120]	new[119]|giv[120]	nnnnn[119]|snnnn[120]	_	_	_	
-36-10	2320-2322	is	_	_	_	_	_	_	_	_	_
-36-11	2323-2332	referring	_	_	_	_	_	_	_	_	_
-36-12	2333-2335	to	_	_	_	_	_	_	_	_	_
+36-8	2311-2314	the	abstract[119]|place[120]	new[119]|giv[120]	nnnnn[119]|snsnn[120]	_	coref	38-23[134_120]	
+36-9	2315-2319	town	abstract[119]|place[120]	new[119]|giv[120]	nnnnn[119]|snsnn[120]	_	_	_	
+36-10	2320-2322	is	_	_	_	_	_	_	
+36-11	2323-2332	referring	_	_	_	_	_	_	
+36-12	2333-2335	to	_	_	_	_	_	_	
 36-13	2336-2337	a	abstract[121]	new[121]	nnnnn[121]	_	coref	37-8[124_121]	
 36-14	2338-2348	subsequent	abstract[121]	new[121]	nnnnn[121]	_	_	_	
 36-15	2349-2356	version	abstract[121]	new[121]	nnnnn[121]	_	_	_	
 36-16	2357-2359	of	abstract[121]	new[121]	nnnnn[121]	_	_	_	
-36-17	2360-2363	32A	abstract[121]|abstract[122]	new[121]|giv[122]	nnnnn[121]|nnnnn[122]	_	coref	45-26[195_122]	
-36-18	2364-2365	.	_	_	_	_	_	_	_	_	_
+36-17	2360-2363	32A	abstract[121]|abstract[122]	new[121]|giv[122]	nnnnn[121]|nssnn[122]	_	coref	45-26[195_122]	
+36-18	2364-2365	.	_	_	_	_	_	_	
 
 #Text=And in that this court noted that that leaves intact public access rights .
-37-1	2366-2369	And	_	_	_	_	_	_	_	_	_
-37-2	2370-2372	in	_	_	_	_	_	_	_	_	_
-37-3	2373-2377	that	_	_	_	_	_	_	_	_	_
-37-4	2378-2382	this	organization[123]	giv[123]	nnnnn[123]	_	coref	38-11[131_123]	
-37-5	2383-2388	court	organization[123]	giv[123]	nnnnn[123]	_	_	_	
-37-6	2389-2394	noted	_	_	_	_	_	_	_	_	_
-37-7	2395-2399	that	_	_	_	_	_	_	_	_	_
+37-1	2366-2369	And	_	_	_	_	_	_	
+37-2	2370-2372	in	_	_	_	_	_	_	
+37-3	2373-2377	that	_	_	_	_	_	_	
+37-4	2378-2382	this	organization[123]	giv[123]	nnsns[123]	_	coref	38-11[131_123]	
+37-5	2383-2388	court	organization[123]	giv[123]	nnsns[123]	_	_	_	
+37-6	2389-2394	noted	_	_	_	_	_	_	
+37-7	2395-2399	that	_	_	_	_	_	_	
 37-8	2400-2404	that	abstract[124]	giv[124]	nnnnn[124]	_	_	_	
-37-9	2405-2411	leaves	_	_	_	_	_	_	_	_	_
-37-10	2412-2418	intact	_	_	_	_	_	_	_	_	_
-37-11	2419-2425	public	abstract[125]|abstract[126]	giv[125]|new[126]	nnnnn[125]|nnnnn[126]	_	coref|coref	38-16[132_125]|38-16[133_126]	
-37-12	2426-2432	access	abstract[125]|abstract[126]	giv[125]|new[126]	nnnnn[125]|nnnnn[126]	_	_	_	
-37-13	2433-2439	rights	abstract[125]	giv[125]	nnnnn[125]	_	_	_	
-37-14	2440-2441	.	_	_	_	_	_	_	_	_	_
+37-9	2405-2411	leaves	_	_	_	_	_	_	
+37-10	2412-2418	intact	_	_	_	_	_	_	
+37-11	2419-2425	public	abstract[125]|abstract[126]	giv[125]|new[126]	nnsnn[125]|nnnnn[126]	_	coref|coref	38-16[132_125]|38-16[133_126]	
+37-12	2426-2432	access	abstract[125]|abstract[126]	giv[125]|new[126]	nnsnn[125]|nnnnn[126]	_	_	_	
+37-13	2433-2439	rights	abstract[125]	giv[125]	nnsnn[125]	_	_	_	
+37-14	2440-2441	.	_	_	_	_	_	_	
 
 #Text=Now , we have contended in our brief that what the court was construing is public access rights is distinct from how the town characterized it .
-38-1	2442-2445	Now	_	_	_	_	_	_	_	_	_
-38-2	2446-2447	,	_	_	_	_	_	_	_	_	_
+38-1	2442-2445	Now	_	_	_	_	_	_	
+38-2	2446-2447	,	_	_	_	_	_	_	
 38-3	2448-2450	we	person[127]	acc[127]	nnnnn[127]	_	coref	38-7[129_127]	
-38-4	2451-2455	have	_	_	_	_	_	_	_	_	_
-38-5	2456-2465	contended	_	_	_	_	_	_	_	_	_
-38-6	2466-2468	in	_	_	_	_	_	_	_	_	_
+38-4	2451-2455	have	_	_	_	_	_	_	
+38-5	2456-2465	contended	_	_	_	_	_	_	
+38-6	2466-2468	in	_	_	_	_	_	_	
 38-7	2469-2472	our	abstract[128]|person[129]	new[128]|giv[129]	nnnnn[128]|nnnnn[129]	_	coref	40-12[150_129]	
 38-8	2473-2478	brief	abstract[128]	new[128]	nnnnn[128]	_	_	_	
-38-9	2479-2483	that	_	_	_	_	_	_	_	_	_
+38-9	2479-2483	that	_	_	_	_	_	_	
 38-10	2484-2488	what	abstract[130]	new[130]	nnnnn[130]	_	_	_	
-38-11	2489-2492	the	abstract[130]|organization[131]	new[130]|giv[131]	nnnnn[130]|nnnnn[131]	_	coref	41-11[157_131]	
-38-12	2493-2498	court	abstract[130]|organization[131]	new[130]|giv[131]	nnnnn[130]|nnnnn[131]	_	_	_	
+38-11	2489-2492	the	abstract[130]|organization[131]	new[130]|giv[131]	nnnnn[130]|nnsns[131]	_	coref	41-11[157_131]	
+38-12	2493-2498	court	abstract[130]|organization[131]	new[130]|giv[131]	nnnnn[130]|nnsns[131]	_	_	_	
 38-13	2499-2502	was	abstract[130]	new[130]	nnnnn[130]	_	_	_	
 38-14	2503-2513	construing	abstract[130]	new[130]	nnnnn[130]	_	_	_	
 38-15	2514-2516	is	abstract[130]	new[130]	nnnnn[130]	_	_	_	
-38-16	2517-2523	public	abstract[130]|abstract[132]|abstract[133]	new[130]|giv[132]|giv[133]	nnnnn[130]|nnnnn[132]|nnnnn[133]	_	coref|coref	38-26[135_132]|39-19[141_133]	
-38-17	2524-2530	access	abstract[130]|abstract[132]|abstract[133]	new[130]|giv[132]|giv[133]	nnnnn[130]|nnnnn[132]|nnnnn[133]	_	_	_	
-38-18	2531-2537	rights	abstract[130]|abstract[132]	new[130]|giv[132]	nnnnn[130]|nnnnn[132]	_	_	_	
-38-19	2538-2540	is	_	_	_	_	_	_	_	_	_
-38-20	2541-2549	distinct	_	_	_	_	_	_	_	_	_
-38-21	2550-2554	from	_	_	_	_	_	_	_	_	_
-38-22	2555-2558	how	_	_	_	_	_	_	_	_	_
-38-23	2559-2562	the	place[134]	giv[134]	snnnn[134]	_	coref	57-16[266_134]	
-38-24	2563-2567	town	place[134]	giv[134]	snnnn[134]	_	_	_	
-38-25	2568-2581	characterized	_	_	_	_	_	_	_	_	_
-38-26	2582-2584	it	abstract[135]	giv[135]	nnnnn[135]	_	coref	41-1[154_135]	
-38-27	2585-2586	.	_	_	_	_	_	_	_	_	_
+38-16	2517-2523	public	abstract[130]|abstract[132]|abstract[133]	new[130]|giv[132]|giv[133]	nnnnn[130]|nnsnn[132]|nnnnn[133]	_	coref|coref	38-26[135_132]|39-19[141_133]	
+38-17	2524-2530	access	abstract[130]|abstract[132]|abstract[133]	new[130]|giv[132]|giv[133]	nnnnn[130]|nnsnn[132]|nnnnn[133]	_	_	_	
+38-18	2531-2537	rights	abstract[130]|abstract[132]	new[130]|giv[132]	nnnnn[130]|nnsnn[132]	_	_	_	
+38-19	2538-2540	is	_	_	_	_	_	_	
+38-20	2541-2549	distinct	_	_	_	_	_	_	
+38-21	2550-2554	from	_	_	_	_	_	_	
+38-22	2555-2558	how	_	_	_	_	_	_	
+38-23	2559-2562	the	place[134]	giv[134]	snsnn[134]	_	coref	57-16[266_134]	
+38-24	2563-2567	town	place[134]	giv[134]	snsnn[134]	_	_	_	
+38-25	2568-2581	characterized	_	_	_	_	_	_	
+38-26	2582-2584	it	abstract[135]	giv[135]	nnsnn[135]	_	coref	41-1[154_135]	
+38-27	2585-2586	.	_	_	_	_	_	_	
 
 #Text=Most notably , as you can see in the underlying appeals court and superior court decision in Nylander public access , private way was referring to abutters ' private rights of access .
-39-1	2587-2591	Most	_	_	_	_	_	_	_	_	_
-39-2	2592-2599	notably	_	_	_	_	_	_	_	_	_
-39-3	2600-2601	,	_	_	_	_	_	_	_	_	_
-39-4	2602-2604	as	_	_	_	_	_	_	_	_	_
-39-5	2605-2608	you	person[136]	giv[136]	snnnn[136]	_	coref	47-12[201_136]	
-39-6	2609-2612	can	_	_	_	_	_	_	_	_	_
-39-7	2613-2616	see	_	_	_	_	_	_	_	_	_
-39-8	2617-2619	in	_	_	_	_	_	_	_	_	_
+39-1	2587-2591	Most	_	_	_	_	_	_	
+39-2	2592-2599	notably	_	_	_	_	_	_	
+39-3	2600-2601	,	_	_	_	_	_	_	
+39-4	2602-2604	as	_	_	_	_	_	_	
+39-5	2605-2608	you	person[136]	giv[136]	snsnn[136]	_	coref	47-12[201_136]	
+39-6	2609-2612	can	_	_	_	_	_	_	
+39-7	2613-2616	see	_	_	_	_	_	_	
+39-8	2617-2619	in	_	_	_	_	_	_	
 39-9	2620-2623	the	abstract[137]	new[137]	nnnnn[137]	_	bridge:comparison-relative	45-1[188_137]	
 39-10	2624-2634	underlying	abstract[137]	new[137]	nnnnn[137]	_	_	_	
 39-11	2635-2642	appeals	abstract[137]|organization[138]	new[137]|giv[138]	nnnnn[137]|nnnnn[138]	_	_	_	
@@ -617,7 +621,7 @@
 39-18	2680-2688	Nylander	abstract[137]|abstract[140]	new[137]|giv[140]	nnnnn[137]|nnnnn[140]	_	_	_	
 39-19	2689-2695	public	abstract[137]|abstract[141]	new[137]|giv[141]	nnnnn[137]|nnnnn[141]	_	_	_	
 39-20	2696-2702	access	abstract[137]|abstract[141]	new[137]|giv[141]	nnnnn[137]|nnnnn[141]	_	_	_	
-39-21	2703-2704	,	_	_	_	_	_	_	_	_	_
+39-21	2703-2704	,	_	_	_	_	_	_	
 39-22	2705-2712	private	abstract[142]|place[143]	new[142]|giv[143]	nnnnn[142]|nnnnn[143]	_	coref	40-4[148_142]	
 39-23	2713-2716	way	abstract[142]|place[143]	new[142]|giv[143]	nnnnn[142]|nnnnn[143]	_	_	_	
 39-24	2717-2720	was	abstract[142]	new[142]	nnnnn[142]	_	_	_	
@@ -629,29 +633,29 @@
 39-30	2753-2759	rights	abstract[142]|abstract[144]	new[142]|giv[144]	nnnnn[142]|nnnnn[144]	_	_	_	
 39-31	2760-2762	of	abstract[142]|abstract[144]	new[142]|giv[144]	nnnnn[142]|nnnnn[144]	_	_	_	
 39-32	2763-2769	access	abstract[142]|abstract[144]|abstract[146]	new[142]|giv[144]|giv[146]	nnnnn[142]|nnnnn[144]|nnnnn[146]	_	coref	41-5[155_146]	
-39-33	2770-2771	.	_	_	_	_	_	_	_	_	_
+39-33	2770-2771	.	_	_	_	_	_	_	
 
 #Text=And I emphasized that as an important point because , as we note , the public right to travel is the public easement that is laid out under chapter 82 .
-40-1	2772-2775	And	_	_	_	_	_	_	_	_	_
-40-2	2776-2777	I	person[147]	giv[147]	snnnn[147]	_	coref	46-2[196_147]	
-40-3	2778-2788	emphasized	_	_	_	_	_	_	_	_	_
+40-1	2772-2775	And	_	_	_	_	_	_	
+40-2	2776-2777	I	person[147]	giv[147]	sssss[147]	_	coref	46-2[196_147]	
+40-3	2778-2788	emphasized	_	_	_	_	_	_	
 40-4	2789-2793	that	abstract[148]	giv[148]	nnnnn[148]	_	coref	40-6[149_148]	
-40-5	2794-2796	as	_	_	_	_	_	_	_	_	_
+40-5	2794-2796	as	_	_	_	_	_	_	
 40-6	2797-2799	an	abstract[149]	new[149]	nnnnn[149]	_	_	_	
 40-7	2800-2809	important	abstract[149]	new[149]	nnnnn[149]	_	_	_	
 40-8	2810-2815	point	abstract[149]	new[149]	nnnnn[149]	_	_	_	
-40-9	2816-2823	because	_	_	_	_	_	_	_	_	_
-40-10	2824-2825	,	_	_	_	_	_	_	_	_	_
-40-11	2826-2828	as	_	_	_	_	_	_	_	_	_
+40-9	2816-2823	because	_	_	_	_	_	_	
+40-10	2824-2825	,	_	_	_	_	_	_	
+40-11	2826-2828	as	_	_	_	_	_	_	
 40-12	2829-2831	we	person[150]	giv[150]	nnnnn[150]	_	coref	60-1[280_150]	
-40-13	2832-2836	note	_	_	_	_	_	_	_	_	_
-40-14	2837-2838	,	_	_	_	_	_	_	_	_	_
+40-13	2832-2836	note	_	_	_	_	_	_	
+40-14	2837-2838	,	_	_	_	_	_	_	
 40-15	2839-2842	the	abstract[151]	new[151]	nnnnn[151]	_	coref	40-21[152_151]	
 40-16	2843-2849	public	abstract[151]	new[151]	nnnnn[151]	_	_	_	
 40-17	2850-2855	right	abstract[151]	new[151]	nnnnn[151]	_	_	_	
 40-18	2856-2858	to	abstract[151]	new[151]	nnnnn[151]	_	_	_	
 40-19	2859-2865	travel	abstract[151]	new[151]	nnnnn[151]	_	_	_	
-40-20	2866-2868	is	_	_	_	_	_	_	_	_	_
+40-20	2866-2868	is	_	_	_	_	_	_	
 40-21	2869-2872	the	abstract[152]	giv[152]	nnnnn[152]	_	coref	43-5[167_152]	
 40-22	2873-2879	public	abstract[152]	giv[152]	nnnnn[152]	_	_	_	
 40-23	2880-2888	easement	abstract[152]	giv[152]	nnnnn[152]	_	_	_	
@@ -662,53 +666,53 @@
 40-28	2906-2911	under	abstract[152]	giv[152]	nnnnn[152]	_	_	_	
 40-29	2912-2919	chapter	abstract[152]|abstract[153]	giv[152]|new[153]	nnnnn[152]|nnnnn[153]	_	_	_	
 40-30	2920-2922	82	abstract[152]|abstract[153]	giv[152]|new[153]	nnnnn[152]|nnnnn[153]	_	_	_	
-40-31	2923-2924	.	_	_	_	_	_	_	_	_	_
+40-31	2923-2924	.	_	_	_	_	_	_	
 
 #Text=The public right of access is is not something in this court .
-41-1	2925-2928	The	abstract[154]	new[154]	nnnnn[154]	_	bridge:entity-associative	42-9[161_154]	
-41-2	2929-2935	public	abstract[154]	new[154]	nnnnn[154]	_	_	_	
-41-3	2936-2941	right	abstract[154]	new[154]	nnnnn[154]	_	_	_	
-41-4	2942-2944	of	abstract[154]	new[154]	nnnnn[154]	_	_	_	
-41-5	2945-2951	access	abstract[154]|abstract[155]	new[154]|giv[155]	nnnnn[154]|nnnnn[155]	_	coref	42-22[164_155]	
-41-6	2952-2954	is	_	_	_	_	_	_	_	_	_
-41-7	2955-2957	is	_	_	_	_	_	_	_	_	_
-41-8	2958-2961	not	_	_	_	_	_	_	_	_	_
+41-1	2925-2928	The	abstract[154]	new[154]	nnsnn[154]	_	bridge:entity-associative	42-9[161_154]	
+41-2	2929-2935	public	abstract[154]	new[154]	nnsnn[154]	_	_	_	
+41-3	2936-2941	right	abstract[154]	new[154]	nnsnn[154]	_	_	_	
+41-4	2942-2944	of	abstract[154]	new[154]	nnsnn[154]	_	_	_	
+41-5	2945-2951	access	abstract[154]|abstract[155]	new[154]|giv[155]	nnsnn[154]|nnnnn[155]	_	coref	42-22[164_155]	
+41-6	2952-2954	is	_	_	_	_	_	_	
+41-7	2955-2957	is	_	_	_	_	_	_	
+41-8	2958-2961	not	_	_	_	_	_	_	
 41-9	2962-2971	something	abstract[156]	new[156]	nnnnn[156]	_	_	_	
 41-10	2972-2974	in	abstract[156]	new[156]	nnnnn[156]	_	_	_	
-41-11	2975-2979	this	abstract[156]|organization[157]	new[156]|giv[157]	nnnnn[156]|nnnnn[157]	_	_	_	
-41-12	2980-2985	court	abstract[156]|organization[157]	new[156]|giv[157]	nnnnn[156]|nnnnn[157]	_	_	_	
-41-13	2986-2987	.	_	_	_	_	_	_	_	_	_
+41-11	2975-2979	this	abstract[156]|organization[157]	new[156]|giv[157]	nnnnn[156]|nnsns[157]	_	_	_	
+41-12	2980-2985	court	abstract[156]|organization[157]	new[156]|giv[157]	nnnnn[156]|nnsns[157]	_	_	_	
+41-13	2986-2987	.	_	_	_	_	_	_	
 
 #Text=In the 2002 case , Chandler actually noted the distinction and said , you ca n't lay out a way for access .
-42-1	2988-2990	In	_	_	_	_	_	_	_	_	_
+42-1	2988-2990	In	_	_	_	_	_	_	
 42-2	2991-2994	the	event[158]	new[158]	nnnnn[158]	_	_	_	
 42-3	2995-2999	2002	event[158]|time[159]	new[158]|new[159]	nnnnn[158]|nnnnn[159]	_	_	_	
 42-4	3000-3004	case	event[158]	new[158]	nnnnn[158]	_	_	_	
-42-5	3005-3006	,	_	_	_	_	_	_	_	_	_
+42-5	3005-3006	,	_	_	_	_	_	_	
 42-6	3007-3015	Chandler	person[160]	new[160]	nnnnn[160]	_	_	_	
-42-7	3016-3024	actually	_	_	_	_	_	_	_	_	_
-42-8	3025-3030	noted	_	_	_	_	_	_	_	_	_
+42-7	3016-3024	actually	_	_	_	_	_	_	
+42-8	3025-3030	noted	_	_	_	_	_	_	
 42-9	3031-3034	the	abstract[161]	acc[161]	nnnnn[161]	_	_	_	
 42-10	3035-3046	distinction	abstract[161]	acc[161]	nnnnn[161]	_	_	_	
-42-11	3047-3050	and	_	_	_	_	_	_	_	_	_
-42-12	3051-3055	said	_	_	_	_	_	_	_	_	_
-42-13	3056-3057	,	_	_	_	_	_	_	_	_	_
+42-11	3047-3050	and	_	_	_	_	_	_	
+42-12	3051-3055	said	_	_	_	_	_	_	
+42-13	3056-3057	,	_	_	_	_	_	_	
 42-14	3058-3061	you	person[162]	new[162]	nnnnn[162]	_	coref	43-1[165_162]	
-42-15	3062-3064	ca	_	_	_	_	_	_	_	_	_
-42-16	3065-3068	n't	_	_	_	_	_	_	_	_	_
-42-17	3069-3072	lay	_	_	_	_	_	_	_	_	_
-42-18	3073-3076	out	_	_	_	_	_	_	_	_	_
-42-19	3077-3078	a	place[163]	giv[163]	snnnn[163]	_	_	_	
-42-20	3079-3082	way	place[163]	giv[163]	snnnn[163]	_	_	_	
-42-21	3083-3086	for	_	_	_	_	_	_	_	_	_
+42-15	3062-3064	ca	_	_	_	_	_	_	
+42-16	3065-3068	n't	_	_	_	_	_	_	
+42-17	3069-3072	lay	_	_	_	_	_	_	
+42-18	3073-3076	out	_	_	_	_	_	_	
+42-19	3077-3078	a	place[163]	giv[163]	sssss[163]	_	_	_	
+42-20	3079-3082	way	place[163]	giv[163]	sssss[163]	_	_	_	
+42-21	3083-3086	for	_	_	_	_	_	_	
 42-22	3087-3093	access	abstract[164]	giv[164]	nnnnn[164]	_	_	_	
-42-23	3094-3095	.	_	_	_	_	_	_	_	_	_
+42-23	3094-3095	.	_	_	_	_	_	_	
 
 #Text=You can onl- -- the public right is only that of travel , and that 's inconsistent with what is clearly the legislature 's intent in the 1924 act , because in the 1924 act , they say it 's no longer needed for common convenience and necessity , and it 's not needed to be safe and convenient for travel .
 43-1	3096-3099	You	person[165]	giv[165]	nnnnn[165]	_	_	_	
-43-2	3100-3103	can	_	_	_	_	_	_	_	_	_
-43-3	3104-3108	onl-	_	_	_	_	_	_	_	_	_
-43-4	3109-3111	--	_	_	_	_	_	_	_	_	_
+43-2	3100-3103	can	_	_	_	_	_	_	
+43-3	3104-3108	onl-	_	_	_	_	_	_	
+43-4	3109-3111	--	_	_	_	_	_	_	
 43-5	3112-3115	the	abstract[166]|abstract[167]	new[166]|giv[167]	nnnnn[166]|nnnnn[167]	_	coref|coref	43-15[169_166]|43-39[178_167]	
 43-6	3116-3122	public	abstract[166]|abstract[167]	new[166]|giv[167]	nnnnn[166]|nnnnn[167]	_	_	_	
 43-7	3123-3128	right	abstract[166]|abstract[167]	new[166]|giv[167]	nnnnn[166]|nnnnn[167]	_	_	_	
@@ -717,30 +721,30 @@
 43-10	3137-3141	that	abstract[166]	new[166]	nnnnn[166]	_	_	_	
 43-11	3142-3144	of	abstract[166]	new[166]	nnnnn[166]	_	_	_	
 43-12	3145-3151	travel	abstract[166]|event[168]	new[166]|new[168]	nnnnn[166]|nnnnn[168]	_	coref	43-61[181_168]	
-43-13	3152-3153	,	_	_	_	_	_	_	_	_	_
-43-14	3154-3157	and	_	_	_	_	_	_	_	_	_
+43-13	3152-3153	,	_	_	_	_	_	_	
+43-14	3154-3157	and	_	_	_	_	_	_	
 43-15	3158-3162	that	abstract[169]	giv[169]	nnnnn[169]	_	_	_	
-43-16	3163-3165	's	_	_	_	_	_	_	_	_	_
-43-17	3166-3178	inconsistent	_	_	_	_	_	_	_	_	_
-43-18	3179-3183	with	_	_	_	_	_	_	_	_	_
-43-19	3184-3188	what	_	_	_	_	_	_	_	_	_
-43-20	3189-3191	is	_	_	_	_	_	_	_	_	_
-43-21	3192-3199	clearly	_	_	_	_	_	_	_	_	_
+43-16	3163-3165	's	_	_	_	_	_	_	
+43-17	3166-3178	inconsistent	_	_	_	_	_	_	
+43-18	3179-3183	with	_	_	_	_	_	_	
+43-19	3184-3188	what	_	_	_	_	_	_	
+43-20	3189-3191	is	_	_	_	_	_	_	
+43-21	3192-3199	clearly	_	_	_	_	_	_	
 43-22	3200-3203	the	abstract[170]|organization[171]	new[170]|new[171]	nnnnn[170]|nnnnn[171]	_	coref	43-37[177_171]	
 43-23	3204-3215	legislature	abstract[170]|organization[171]	new[170]|new[171]	nnnnn[170]|nnnnn[171]	_	_	_	
 43-24	3216-3218	's	abstract[170]|organization[171]	new[170]|new[171]	nnnnn[170]|nnnnn[171]	_	_	_	
 43-25	3219-3225	intent	abstract[170]	new[170]	nnnnn[170]	_	_	_	
 43-26	3226-3228	in	abstract[170]	new[170]	nnnnn[170]	_	_	_	
-43-27	3229-3232	the	abstract[170]|abstract[172]	new[170]|giv[172]	nnnnn[170]|nnnnn[172]	_	coref	43-33[174_172]	
-43-28	3233-3237	1924	abstract[170]|abstract[172]|time[173]	new[170]|giv[172]|giv[173]	nnnnn[170]|nnnnn[172]|nnnnn[173]	_	coref	43-34[175_173]	
-43-29	3238-3241	act	abstract[170]|abstract[172]	new[170]|giv[172]	nnnnn[170]|nnnnn[172]	_	_	_	
-43-30	3242-3243	,	_	_	_	_	_	_	_	_	_
-43-31	3244-3251	because	_	_	_	_	_	_	_	_	_
-43-32	3252-3254	in	_	_	_	_	_	_	_	_	_
-43-33	3255-3258	the	abstract[174]	giv[174]	nnnnn[174]	_	_	_	
-43-34	3259-3263	1924	abstract[174]|time[175]	giv[174]|giv[175]	nnnnn[174]|nnnnn[175]	_	coref	54-11[241_175]	
-43-35	3264-3267	act	abstract[174]	giv[174]	nnnnn[174]	_	_	_	
-43-36	3268-3269	,	_	_	_	_	_	_	_	_	_
+43-27	3229-3232	the	abstract[170]|abstract[172]	new[170]|giv[172]	nnnnn[170]|nnnss[172]	_	coref	43-33[174_172]	
+43-28	3233-3237	1924	abstract[170]|abstract[172]|time[173]	new[170]|giv[172]|giv[173]	nnnnn[170]|nnnss[172]|nnnss[173]	_	coref	43-34[175_173]	
+43-29	3238-3241	act	abstract[170]|abstract[172]	new[170]|giv[172]	nnnnn[170]|nnnss[172]	_	_	_	
+43-30	3242-3243	,	_	_	_	_	_	_	
+43-31	3244-3251	because	_	_	_	_	_	_	
+43-32	3252-3254	in	_	_	_	_	_	_	
+43-33	3255-3258	the	abstract[174]	giv[174]	nnnss[174]	_	_	_	
+43-34	3259-3263	1924	abstract[174]|time[175]	giv[174]|giv[175]	nnnss[174]|nnnss[175]	_	coref	54-11[241_175]	
+43-35	3264-3267	act	abstract[174]	giv[174]	nnnss[174]	_	_	_	
+43-36	3268-3269	,	_	_	_	_	_	_	
 43-37	3270-3274	they	abstract[176]|organization[177]	new[176]|giv[177]	nnnnn[176]|nnnnn[177]	_	coref	44-1[182_176]	
 43-38	3275-3278	say	abstract[176]	new[176]	nnnnn[176]	_	_	_	
 43-39	3279-3281	it	abstract[176]|abstract[178]	new[176]|giv[178]	nnnnn[176]|nnnnn[178]	_	coref	43-51[180_178]	
@@ -766,13 +770,13 @@
 43-59	3377-3387	convenient	abstract[176]	new[176]	nnnnn[176]	_	_	_	
 43-60	3388-3391	for	abstract[176]	new[176]	nnnnn[176]	_	_	_	
 43-61	3392-3398	travel	abstract[176]|event[181]	new[176]|giv[181]	nnnnn[176]|nnnnn[181]	_	coref	44-27[186_181]	
-43-62	3399-3400	.	_	_	_	_	_	_	_	_	_
+43-62	3399-3400	.	_	_	_	_	_	_	
 
 #Text=That 's inconsistent with the concept of what a layout for a public way is needed to be for , to be safe and convenient for travel .
 44-1	3401-3405	That	abstract[182]	giv[182]	nnnnn[182]	_	_	_	
-44-2	3406-3408	's	_	_	_	_	_	_	_	_	_
-44-3	3409-3421	inconsistent	_	_	_	_	_	_	_	_	_
-44-4	3422-3426	with	_	_	_	_	_	_	_	_	_
+44-2	3406-3408	's	_	_	_	_	_	_	
+44-3	3409-3421	inconsistent	_	_	_	_	_	_	
+44-4	3422-3426	with	_	_	_	_	_	_	
 44-5	3427-3430	the	abstract[183]	new[183]	nnnnn[183]	_	_	_	
 44-6	3431-3438	concept	abstract[183]	new[183]	nnnnn[183]	_	_	_	
 44-7	3439-3441	of	abstract[183]	new[183]	nnnnn[183]	_	_	_	
@@ -780,23 +784,23 @@
 44-9	3447-3448	a	abstract[183]|abstract[184]	new[183]|new[184]	nnnnn[183]|nnnnn[184]	_	_	_	
 44-10	3449-3455	layout	abstract[183]|abstract[184]	new[183]|new[184]	nnnnn[183]|nnnnn[184]	_	_	_	
 44-11	3456-3459	for	abstract[183]|abstract[184]	new[183]|new[184]	nnnnn[183]|nnnnn[184]	_	_	_	
-44-12	3460-3461	a	abstract[183]|abstract[184]|place[185]	new[183]|new[184]|new[185]	nnnnn[183]|nnnnn[184]|snnnn[185]	_	coref	53-9[233_185]	
-44-13	3462-3468	public	abstract[183]|abstract[184]|place[185]	new[183]|new[184]|new[185]	nnnnn[183]|nnnnn[184]|snnnn[185]	_	_	_	
-44-14	3469-3472	way	abstract[183]|abstract[184]|place[185]	new[183]|new[184]|new[185]	nnnnn[183]|nnnnn[184]|snnnn[185]	_	_	_	
+44-12	3460-3461	a	abstract[183]|abstract[184]|place[185]	new[183]|new[184]|new[185]	nnnnn[183]|nnnnn[184]|snnss[185]	_	coref	53-9[233_185]	
+44-13	3462-3468	public	abstract[183]|abstract[184]|place[185]	new[183]|new[184]|new[185]	nnnnn[183]|nnnnn[184]|snnss[185]	_	_	_	
+44-14	3469-3472	way	abstract[183]|abstract[184]|place[185]	new[183]|new[184]|new[185]	nnnnn[183]|nnnnn[184]|snnss[185]	_	_	_	
 44-15	3473-3475	is	abstract[183]	new[183]	nnnnn[183]	_	_	_	
 44-16	3476-3482	needed	abstract[183]	new[183]	nnnnn[183]	_	_	_	
 44-17	3483-3485	to	abstract[183]	new[183]	nnnnn[183]	_	_	_	
 44-18	3486-3488	be	abstract[183]	new[183]	nnnnn[183]	_	_	_	
 44-19	3489-3492	for	abstract[183]	new[183]	nnnnn[183]	_	_	_	
-44-20	3493-3494	,	_	_	_	_	_	_	_	_	_
-44-21	3495-3497	to	_	_	_	_	_	_	_	_	_
-44-22	3498-3500	be	_	_	_	_	_	_	_	_	_
-44-23	3501-3505	safe	_	_	_	_	_	_	_	_	_
-44-24	3506-3509	and	_	_	_	_	_	_	_	_	_
-44-25	3510-3520	convenient	_	_	_	_	_	_	_	_	_
-44-26	3521-3524	for	_	_	_	_	_	_	_	_	_
+44-20	3493-3494	,	_	_	_	_	_	_	
+44-21	3495-3497	to	_	_	_	_	_	_	
+44-22	3498-3500	be	_	_	_	_	_	_	
+44-23	3501-3505	safe	_	_	_	_	_	_	
+44-24	3506-3509	and	_	_	_	_	_	_	
+44-25	3510-3520	convenient	_	_	_	_	_	_	
+44-26	3521-3524	for	_	_	_	_	_	_	
 44-27	3525-3531	travel	event[186]	giv[186]	nnnnn[186]	_	_	_	
-44-28	3532-3533	.	_	_	_	_	_	_	_	_	_
+44-28	3532-3533	.	_	_	_	_	_	_	
 
 #Text=The inverse decision was adjudicated by the county commissioners here , and the adjudication is a very important point as to the distinct meaning of section 32A .
 45-1	3534-3537	The	event[187]|abstract[188]	new[187]|acc[188]	nnnnn[187]|nnnnn[188]	_	coref	45-13[192_187]	
@@ -805,15 +809,15 @@
 45-4	3555-3558	was	event[187]	new[187]	nnnnn[187]	_	_	_	
 45-5	3559-3570	adjudicated	event[187]	new[187]	nnnnn[187]	_	_	_	
 45-6	3571-3573	by	event[187]	new[187]	nnnnn[187]	_	_	_	
-45-7	3574-3577	the	event[187]|organization[189]	new[187]|new[189]	nnnnn[187]|nnnnn[189]	_	coref	53-12[234_189]	
-45-8	3578-3584	county	event[187]|organization[189]|place[190]	new[187]|new[189]|new[190]	nnnnn[187]|nnnnn[189]|nnnnn[190]	_	coref	53-13[235_190]	
-45-9	3585-3598	commissioners	event[187]|organization[189]	new[187]|new[189]	nnnnn[187]|nnnnn[189]	_	_	_	
+45-7	3574-3577	the	event[187]|organization[189]	new[187]|new[189]	nnnnn[187]|nssss[189]	_	coref	53-12[234_189]	
+45-8	3578-3584	county	event[187]|organization[189]|place[190]	new[187]|new[189]|new[190]	nnnnn[187]|nssss[189]|nsnss[190]	_	coref	53-13[235_190]	
+45-9	3585-3598	commissioners	event[187]|organization[189]	new[187]|new[189]	nnnnn[187]|nssss[189]	_	_	_	
 45-10	3599-3603	here	event[187]|place[191]	new[187]|acc[191]	nnnnn[187]|nnnnn[191]	_	_	_	
-45-11	3604-3605	,	_	_	_	_	_	_	_	_	_
-45-12	3606-3609	and	_	_	_	_	_	_	_	_	_
+45-11	3604-3605	,	_	_	_	_	_	_	
+45-12	3606-3609	and	_	_	_	_	_	_	
 45-13	3610-3613	the	event[192]	new[192]	nnnnn[192]	_	coref	45-16[193_192]	
 45-14	3614-3626	adjudication	event[192]	new[192]	nnnnn[192]	_	_	_	
-45-15	3627-3629	is	_	_	_	_	_	_	_	_	_
+45-15	3627-3629	is	_	_	_	_	_	_	
 45-16	3630-3631	a	event[193]	giv[193]	nnnnn[193]	_	_	_	
 45-17	3632-3636	very	event[193]	giv[193]	nnnnn[193]	_	_	_	
 45-18	3637-3646	important	event[193]	giv[193]	nnnnn[193]	_	_	_	
@@ -824,60 +828,60 @@
 45-23	3663-3671	distinct	event[193]|abstract[194]	giv[193]|new[194]	nnnnn[193]|nnnnn[194]	_	_	_	
 45-24	3672-3679	meaning	event[193]|abstract[194]	giv[193]|new[194]	nnnnn[193]|nnnnn[194]	_	_	_	
 45-25	3680-3682	of	event[193]|abstract[194]	giv[193]|new[194]	nnnnn[193]|nnnnn[194]	_	_	_	
-45-26	3683-3690	section	event[193]|abstract[194]|abstract[195]	giv[193]|new[194]|giv[195]	nnnnn[193]|nnnnn[194]|nnnnn[195]	_	coref	48-17[210_195]	
-45-27	3691-3694	32A	event[193]|abstract[194]|abstract[195]	giv[193]|new[194]|giv[195]	nnnnn[193]|nnnnn[194]|nnnnn[195]	_	_	_	
-45-28	3695-3696	.	_	_	_	_	_	_	_	_	_
+45-26	3683-3690	section	event[193]|abstract[194]|abstract[195]	giv[193]|new[194]|giv[195]	nnnnn[193]|nnnnn[194]|nssnn[195]	_	coref	48-17[210_195]	
+45-27	3691-3694	32A	event[193]|abstract[194]|abstract[195]	giv[193]|new[194]|giv[195]	nnnnn[193]|nnnnn[194]|nssnn[195]	_	_	_	
+45-28	3695-3696	.	_	_	_	_	_	_	
 
 #Text=Can you ?
-46-1	3697-3700	Can	_	_	_	_	_	_	_	_	_
-46-2	3701-3704	you	person[196]	giv[196]	snnnn[196]	_	coref	49-2[215_196]	
-46-3	3705-3706	?	_	_	_	_	_	_	_	_	_
+46-1	3697-3700	Can	_	_	_	_	_	_	
+46-2	3701-3704	you	person[196]	giv[196]	sssss[196]	_	coref	49-2[215_196]	
+46-3	3705-3706	?	_	_	_	_	_	_	
 
 #Text=I have , I think , a somewhat related question to Justice Kafka 's question .
-47-1	3707-3708	I	person[197]	new[197]	snnnn[197]	_	coref	47-4[198_197]	
-47-2	3709-3713	have	_	_	_	_	_	_	_	_	_
-47-3	3714-3715	,	_	_	_	_	_	_	_	_	_
-47-4	3716-3717	I	person[198]	giv[198]	snnnn[198]	_	coref	56-19[259_198]	
-47-5	3718-3723	think	_	_	_	_	_	_	_	_	_
-47-6	3724-3725	,	_	_	_	_	_	_	_	_	_
+47-1	3707-3708	I	person[197]	new[197]	snsnn[197]	_	coref	47-4[198_197]	
+47-2	3709-3713	have	_	_	_	_	_	_	
+47-3	3714-3715	,	_	_	_	_	_	_	
+47-4	3716-3717	I	person[198]	giv[198]	snsnn[198]	_	coref	56-19[259_198]	
+47-5	3718-3723	think	_	_	_	_	_	_	
+47-6	3724-3725	,	_	_	_	_	_	_	
 47-7	3726-3727	a	abstract[199]	new[199]	snnnn[199]	_	coref	48-1[202_199]	
 47-8	3728-3736	somewhat	abstract[199]	new[199]	snnnn[199]	_	_	_	
 47-9	3737-3744	related	abstract[199]	new[199]	snnnn[199]	_	_	_	
 47-10	3745-3753	question	abstract[199]	new[199]	snnnn[199]	_	_	_	
 47-11	3754-3756	to	abstract[199]	new[199]	snnnn[199]	_	_	_	
-47-12	3757-3764	Justice	abstract[199]|abstract[200]|person[201]	new[199]|giv[200]|new[201]	snnnn[199]|snnnn[200]|snnnn[201]	Scott_L._Kafker[201]	_	_	
-47-13	3765-3770	Kafka	abstract[199]|abstract[200]|person[201]	new[199]|giv[200]|new[201]	snnnn[199]|snnnn[200]|snnnn[201]	Scott_L._Kafker[201]	_	_	
-47-14	3771-3773	's	abstract[199]|abstract[200]|person[201]	new[199]|giv[200]|new[201]	snnnn[199]|snnnn[200]|snnnn[201]	Scott_L._Kafker[201]	_	_	
+47-12	3757-3764	Justice	abstract[199]|abstract[200]|person[201]	new[199]|giv[200]|new[201]	snnnn[199]|snnnn[200]|snsnn[201]	Scott_L._Kafker[201]	_	_	
+47-13	3765-3770	Kafka	abstract[199]|abstract[200]|person[201]	new[199]|giv[200]|new[201]	snnnn[199]|snnnn[200]|snsnn[201]	Scott_L._Kafker[201]	_	_	
+47-14	3771-3773	's	abstract[199]|abstract[200]|person[201]	new[199]|giv[200]|new[201]	snnnn[199]|snnnn[200]|snsnn[201]	Scott_L._Kafker[201]	_	_	
 47-15	3774-3782	question	abstract[199]|abstract[200]	new[199]|giv[200]	snnnn[199]|snnnn[200]	_	_	_	
-47-16	3783-3784	.	_	_	_	_	_	_	_	_	_
+47-16	3783-3784	.	_	_	_	_	_	_	
 
 #Text=If we look at section 21 , as it was in effect in 1932 , and section 32A as it was in effect at that time , uh , what is the difference in outcome ?
 48-1	3785-3787	If	abstract[202]	giv[202]	snnnn[202]	_	coref	51-2[221_202]	
 48-2	3788-3790	we	abstract[202]|person[203]	giv[202]|giv[203]	snnnn[202]|nnnnn[203]	_	_	_	
 48-3	3791-3795	look	abstract[202]	giv[202]	snnnn[202]	_	_	_	
 48-4	3796-3798	at	abstract[202]	giv[202]	snnnn[202]	_	_	_	
-48-5	3799-3806	section	abstract[202]|abstract[204]|abstract[205]|abstract[206]	giv[202]|new[204]|new[205]|giv[206]	snnnn[202]|nnnnn[204]|nnnnn[205]|nnnnn[206]	_	coref|bridge:comparison-relative|coref	49-10[218_204]|48-32[213_204]|48-9[207_206]	
-48-6	3807-3809	21	abstract[202]|abstract[204]|abstract[205]|abstract[206]	giv[202]|new[204]|new[205]|giv[206]	snnnn[202]|nnnnn[204]|nnnnn[205]|nnnnn[206]	_	_	_	
+48-5	3799-3806	section	abstract[202]|abstract[204]|abstract[205]|abstract[206]	giv[202]|new[204]|new[205]|giv[206]	snnnn[202]|nnnnn[204]|nnnnn[205]|nssnn[206]	_	bridge:comparison-relative|coref|coref	48-32[213_204]|49-10[218_204]|48-9[207_206]	
+48-6	3807-3809	21	abstract[202]|abstract[204]|abstract[205]|abstract[206]	giv[202]|new[204]|new[205]|giv[206]	snnnn[202]|nnnnn[204]|nnnnn[205]|nssnn[206]	_	_	_	
 48-7	3810-3811	,	abstract[202]|abstract[204]|abstract[205]	giv[202]|new[204]|new[205]	snnnn[202]|nnnnn[204]|nnnnn[205]	_	_	_	
 48-8	3812-3814	as	abstract[202]|abstract[204]|abstract[205]	giv[202]|new[204]|new[205]	snnnn[202]|nnnnn[204]|nnnnn[205]	_	_	_	
-48-9	3815-3817	it	abstract[202]|abstract[204]|abstract[205]|abstract[207]	giv[202]|new[204]|new[205]|giv[207]	snnnn[202]|nnnnn[204]|nnnnn[205]|nnnnn[207]	_	coref	52-9[227_207]	
+48-9	3815-3817	it	abstract[202]|abstract[204]|abstract[205]|abstract[207]	giv[202]|new[204]|new[205]|giv[207]	snnnn[202]|nnnnn[204]|nnnnn[205]|nssnn[207]	_	coref	52-9[227_207]	
 48-10	3818-3821	was	abstract[202]|abstract[204]|abstract[205]	giv[202]|new[204]|new[205]	snnnn[202]|nnnnn[204]|nnnnn[205]	_	_	_	
 48-11	3822-3824	in	abstract[202]|abstract[204]|abstract[205]	giv[202]|new[204]|new[205]	snnnn[202]|nnnnn[204]|nnnnn[205]	_	_	_	
 48-12	3825-3831	effect	abstract[202]|abstract[204]|abstract[205]	giv[202]|new[204]|new[205]	snnnn[202]|nnnnn[204]|nnnnn[205]	_	_	_	
 48-13	3832-3834	in	abstract[202]|abstract[204]|abstract[205]	giv[202]|new[204]|new[205]	snnnn[202]|nnnnn[204]|nnnnn[205]	_	_	_	
-48-14	3835-3839	1932	abstract[202]|abstract[204]|abstract[205]|time[208]	giv[202]|new[204]|new[205]|giv[208]	snnnn[202]|nnnnn[204]|nnnnn[205]|nnnnn[208]	_	coref	48-25[212_208]	
+48-14	3835-3839	1932	abstract[202]|abstract[204]|abstract[205]|time[208]	giv[202]|new[204]|new[205]|giv[208]	snnnn[202]|nnnnn[204]|nnnnn[205]|nsnss[208]	_	coref	48-25[212_208]	
 48-15	3840-3841	,	abstract[202]|abstract[204]	giv[202]|new[204]	snnnn[202]|nnnnn[204]	_	_	_	
 48-16	3842-3845	and	abstract[202]|abstract[204]	giv[202]|new[204]	snnnn[202]|nnnnn[204]	_	_	_	
-48-17	3846-3853	section	abstract[202]|abstract[204]|abstract[209]|abstract[210]	giv[202]|new[204]|new[209]|giv[210]	snnnn[202]|nnnnn[204]|nnnnn[209]|nnnnn[210]	_	coref	48-20[211_210]	
-48-18	3854-3857	32A	abstract[202]|abstract[204]|abstract[209]|abstract[210]	giv[202]|new[204]|new[209]|giv[210]	snnnn[202]|nnnnn[204]|nnnnn[209]|nnnnn[210]	_	_	_	
+48-17	3846-3853	section	abstract[202]|abstract[204]|abstract[209]|abstract[210]	giv[202]|new[204]|new[209]|giv[210]	snnnn[202]|nnnnn[204]|nnnnn[209]|nssnn[210]	_	coref	48-20[211_210]	
+48-18	3854-3857	32A	abstract[202]|abstract[204]|abstract[209]|abstract[210]	giv[202]|new[204]|new[209]|giv[210]	snnnn[202]|nnnnn[204]|nnnnn[209]|nssnn[210]	_	_	_	
 48-19	3858-3860	as	abstract[202]|abstract[204]|abstract[209]	giv[202]|new[204]|new[209]	snnnn[202]|nnnnn[204]|nnnnn[209]	_	_	_	
-48-20	3861-3863	it	abstract[202]|abstract[204]|abstract[209]|abstract[211]	giv[202]|new[204]|new[209]|giv[211]	snnnn[202]|nnnnn[204]|nnnnn[209]|nnnnn[211]	_	coref	49-5[216_211]	
+48-20	3861-3863	it	abstract[202]|abstract[204]|abstract[209]|abstract[211]	giv[202]|new[204]|new[209]|giv[211]	snnnn[202]|nnnnn[204]|nnnnn[209]|nssnn[211]	_	coref	49-5[216_211]	
 48-21	3864-3867	was	abstract[202]|abstract[204]|abstract[209]	giv[202]|new[204]|new[209]	snnnn[202]|nnnnn[204]|nnnnn[209]	_	_	_	
 48-22	3868-3870	in	abstract[202]|abstract[204]|abstract[209]	giv[202]|new[204]|new[209]	snnnn[202]|nnnnn[204]|nnnnn[209]	_	_	_	
 48-23	3871-3877	effect	abstract[202]|abstract[204]|abstract[209]	giv[202]|new[204]|new[209]	snnnn[202]|nnnnn[204]|nnnnn[209]	_	_	_	
 48-24	3878-3880	at	abstract[202]|abstract[204]|abstract[209]	giv[202]|new[204]|new[209]	snnnn[202]|nnnnn[204]|nnnnn[209]	_	_	_	
-48-25	3881-3885	that	abstract[202]|abstract[204]|abstract[209]|time[212]	giv[202]|new[204]|new[209]|new[212]	snnnn[202]|nnnnn[204]|nnnnn[209]|nnnnn[212]	_	coref	51-18[225_212]	
-48-26	3886-3890	time	abstract[202]|abstract[204]|abstract[209]|time[212]	giv[202]|new[204]|new[209]|new[212]	snnnn[202]|nnnnn[204]|nnnnn[209]|nnnnn[212]	_	_	_	
+48-25	3881-3885	that	abstract[202]|abstract[204]|abstract[209]|time[212]	giv[202]|new[204]|new[209]|new[212]	snnnn[202]|nnnnn[204]|nnnnn[209]|nsnss[212]	_	coref	51-18[225_212]	
+48-26	3886-3890	time	abstract[202]|abstract[204]|abstract[209]|time[212]	giv[202]|new[204]|new[209]|new[212]	snnnn[202]|nnnnn[204]|nnnnn[209]|nsnss[212]	_	_	_	
 48-27	3891-3892	,	abstract[202]	giv[202]	snnnn[202]	_	_	_	
 48-28	3893-3895	uh	abstract[202]	giv[202]	snnnn[202]	_	_	_	
 48-29	3896-3897	,	abstract[202]	giv[202]	snnnn[202]	_	_	_	
@@ -890,242 +894,242 @@
 48-36	3932-3933	?	abstract[202]	giv[202]	snnnn[202]	_	_	_	
 
 #Text=Are you saying that it -- that action under either section would result in exactly the same outcome ?
-49-1	3934-3937	Are	_	_	_	_	_	_	_	_	_
-49-2	3938-3941	you	person[215]	giv[215]	snnnn[215]	_	coref	50-3[220_215]	
-49-3	3942-3948	saying	_	_	_	_	_	_	_	_	_
-49-4	3949-3953	that	_	_	_	_	_	_	_	_	_
-49-5	3954-3956	it	abstract[216]	giv[216]	nnnnn[216]	_	coref	51-7[222_216]	
-49-6	3957-3959	--	_	_	_	_	_	_	_	_	_
-49-7	3960-3964	that	_	_	_	_	_	_	_	_	_
+49-1	3934-3937	Are	_	_	_	_	_	_	
+49-2	3938-3941	you	person[215]	giv[215]	sssss[215]	_	coref	50-3[220_215]	
+49-3	3942-3948	saying	_	_	_	_	_	_	
+49-4	3949-3953	that	_	_	_	_	_	_	
+49-5	3954-3956	it	abstract[216]	giv[216]	nssnn[216]	_	coref	51-7[222_216]	
+49-6	3957-3959	--	_	_	_	_	_	_	
+49-7	3960-3964	that	_	_	_	_	_	_	
 49-8	3965-3971	action	abstract[217]	new[217]	nnnnn[217]	_	_	_	
 49-9	3972-3977	under	abstract[217]	new[217]	nnnnn[217]	_	_	_	
 49-10	3978-3984	either	abstract[217]|abstract[218]	new[217]|giv[218]	nnnnn[217]|nnnnn[218]	_	bridge:comparison-relative	49-16[219_218]	
 49-11	3985-3992	section	abstract[217]|abstract[218]	new[217]|giv[218]	nnnnn[217]|nnnnn[218]	_	_	_	
-49-12	3993-3998	would	_	_	_	_	_	_	_	_	_
-49-13	3999-4005	result	_	_	_	_	_	_	_	_	_
-49-14	4006-4008	in	_	_	_	_	_	_	_	_	_
-49-15	4009-4016	exactly	_	_	_	_	_	_	_	_	_
+49-12	3993-3998	would	_	_	_	_	_	_	
+49-13	3999-4005	result	_	_	_	_	_	_	
+49-14	4006-4008	in	_	_	_	_	_	_	
+49-15	4009-4016	exactly	_	_	_	_	_	_	
 49-16	4017-4020	the	abstract[219]	acc[219]	nnnnn[219]	_	_	_	
 49-17	4021-4025	same	abstract[219]	acc[219]	nnnnn[219]	_	_	_	
 49-18	4026-4033	outcome	abstract[219]	acc[219]	nnnnn[219]	_	_	_	
-49-19	4034-4035	?	_	_	_	_	_	_	_	_	_
+49-19	4034-4035	?	_	_	_	_	_	_	
 
 #Text=No , I 'm not .
-50-1	4036-4038	No	_	_	_	_	_	_	_	_	_
-50-2	4039-4040	,	_	_	_	_	_	_	_	_	_
-50-3	4041-4042	I	person[220]	giv[220]	snnnn[220]	_	_	_	
-50-4	4043-4045	'm	_	_	_	_	_	_	_	_	_
-50-5	4046-4049	not	_	_	_	_	_	_	_	_	_
-50-6	4050-4051	.	_	_	_	_	_	_	_	_	_
+50-1	4036-4038	No	_	_	_	_	_	_	
+50-2	4039-4040	,	_	_	_	_	_	_	
+50-3	4041-4042	I	person[220]	giv[220]	sssss[220]	_	_	_	
+50-4	4043-4045	'm	_	_	_	_	_	_	
+50-5	4046-4049	not	_	_	_	_	_	_	
+50-6	4050-4051	.	_	_	_	_	_	_	
 
 #Text=And the question actually shows why section 32A was so important to municipalities and the Commonwealth at the time .
-51-1	4052-4055	And	_	_	_	_	_	_	_	_	_
+51-1	4052-4055	And	_	_	_	_	_	_	
 51-2	4056-4059	the	abstract[221]	giv[221]	snnnn[221]	_	_	_	
 51-3	4060-4068	question	abstract[221]	giv[221]	snnnn[221]	_	_	_	
-51-4	4069-4077	actually	_	_	_	_	_	_	_	_	_
-51-5	4078-4083	shows	_	_	_	_	_	_	_	_	_
-51-6	4084-4087	why	_	_	_	_	_	_	_	_	_
-51-7	4088-4095	section	abstract[222]	giv[222]	nnnnn[222]	_	coref	53-6[232_222]	
-51-8	4096-4099	32A	abstract[222]	giv[222]	nnnnn[222]	_	_	_	
-51-9	4100-4103	was	_	_	_	_	_	_	_	_	_
-51-10	4104-4106	so	_	_	_	_	_	_	_	_	_
-51-11	4107-4116	important	_	_	_	_	_	_	_	_	_
-51-12	4117-4119	to	_	_	_	_	_	_	_	_	_
+51-4	4069-4077	actually	_	_	_	_	_	_	
+51-5	4078-4083	shows	_	_	_	_	_	_	
+51-6	4084-4087	why	_	_	_	_	_	_	
+51-7	4088-4095	section	abstract[222]	giv[222]	nssnn[222]	_	coref	53-6[232_222]	
+51-8	4096-4099	32A	abstract[222]	giv[222]	nssnn[222]	_	_	_	
+51-9	4100-4103	was	_	_	_	_	_	_	
+51-10	4104-4106	so	_	_	_	_	_	_	
+51-11	4107-4116	important	_	_	_	_	_	_	
+51-12	4117-4119	to	_	_	_	_	_	_	
 51-13	4120-4134	municipalities	organization[223]	new[223]	nnnnn[223]	_	_	_	
-51-14	4135-4138	and	_	_	_	_	_	_	_	_	_
+51-14	4135-4138	and	_	_	_	_	_	_	
 51-15	4139-4142	the	organization[224]	new[224]	nnnnn[224]	Massachusetts[224]	_	_	
 51-16	4143-4155	Commonwealth	organization[224]	new[224]	nnnnn[224]	Massachusetts[224]	_	_	
-51-17	4156-4158	at	_	_	_	_	_	_	_	_	_
-51-18	4159-4162	the	time[225]	giv[225]	nnnnn[225]	_	coref	53-22[237_225]	
-51-19	4163-4167	time	time[225]	giv[225]	nnnnn[225]	_	_	_	
-51-20	4168-4169	.	_	_	_	_	_	_	_	_	_
+51-17	4156-4158	at	_	_	_	_	_	_	
+51-18	4159-4162	the	time[225]	giv[225]	nsnss[225]	_	coref	53-22[237_225]	
+51-19	4163-4167	time	time[225]	giv[225]	nsnss[225]	_	_	_	
+51-20	4168-4169	.	_	_	_	_	_	_	
 
 #Text=So first , as to the jurisdiction of section 21 , that only applies to town ways .
-52-1	4170-4172	So	_	_	_	_	_	_	_	_	_
-52-2	4173-4178	first	_	_	_	_	_	_	_	_	_
-52-3	4179-4180	,	_	_	_	_	_	_	_	_	_
-52-4	4181-4183	as	_	_	_	_	_	_	_	_	_
-52-5	4184-4186	to	_	_	_	_	_	_	_	_	_
+52-1	4170-4172	So	_	_	_	_	_	_	
+52-2	4173-4178	first	_	_	_	_	_	_	
+52-3	4179-4180	,	_	_	_	_	_	_	
+52-4	4181-4183	as	_	_	_	_	_	_	
+52-5	4184-4186	to	_	_	_	_	_	_	
 52-6	4187-4190	the	abstract[226]	giv[226]	nnnnn[226]	_	coref	52-12[228_226]	
 52-7	4191-4203	jurisdiction	abstract[226]	giv[226]	nnnnn[226]	_	_	_	
 52-8	4204-4206	of	abstract[226]	giv[226]	nnnnn[226]	_	_	_	
-52-9	4207-4214	section	abstract[226]|abstract[227]	giv[226]|giv[227]	nnnnn[226]|nnnnn[227]	_	coref	57-28[269_227]	
-52-10	4215-4217	21	abstract[226]|abstract[227]	giv[226]|giv[227]	nnnnn[226]|nnnnn[227]	_	_	_	
-52-11	4218-4219	,	_	_	_	_	_	_	_	_	_
+52-9	4207-4214	section	abstract[226]|abstract[227]	giv[226]|giv[227]	nnnnn[226]|nssnn[227]	_	coref	57-28[269_227]	
+52-10	4215-4217	21	abstract[226]|abstract[227]	giv[226]|giv[227]	nnnnn[226]|nssnn[227]	_	_	_	
+52-11	4218-4219	,	_	_	_	_	_	_	
 52-12	4220-4224	that	abstract[228]	giv[228]	nnnnn[228]	_	coref	53-3[231_228]	
-52-13	4225-4229	only	_	_	_	_	_	_	_	_	_
-52-14	4230-4237	applies	_	_	_	_	_	_	_	_	_
-52-15	4238-4240	to	_	_	_	_	_	_	_	_	_
+52-13	4225-4229	only	_	_	_	_	_	_	
+52-14	4230-4237	applies	_	_	_	_	_	_	
+52-15	4238-4240	to	_	_	_	_	_	_	
 52-16	4241-4245	town	place[229]|place[230]	new[229]|giv[230]	nnnnn[229]|nnnnn[230]	_	coref|coref	55-11[251_229]|55-11[252_230]	
 52-17	4246-4250	ways	place[229]	new[229]	nnnnn[229]	_	_	_	
-52-18	4251-4252	.	_	_	_	_	_	_	_	_	_
+52-18	4251-4252	.	_	_	_	_	_	_	
 
 #Text=However , the jurisdiction of 32A applies to public ways which the county commissioners had jurisdiction over all public ways at the time .
-53-1	4253-4260	However	_	_	_	_	_	_	_	_	_
-53-2	4261-4262	,	_	_	_	_	_	_	_	_	_
+53-1	4253-4260	However	_	_	_	_	_	_	
+53-2	4261-4262	,	_	_	_	_	_	_	
 53-3	4263-4266	the	abstract[231]	giv[231]	nnnnn[231]	_	_	_	
 53-4	4267-4279	jurisdiction	abstract[231]	giv[231]	nnnnn[231]	_	_	_	
 53-5	4280-4282	of	abstract[231]	giv[231]	nnnnn[231]	_	_	_	
-53-6	4283-4286	32A	abstract[231]|abstract[232]	giv[231]|giv[232]	nnnnn[231]|nnnnn[232]	_	coref	57-13[265_232]	
-53-7	4287-4294	applies	_	_	_	_	_	_	_	_	_
-53-8	4295-4297	to	_	_	_	_	_	_	_	_	_
-53-9	4298-4304	public	place[233]	giv[233]	snnnn[233]	_	coref	53-18[236_233]	
-53-10	4305-4309	ways	place[233]	giv[233]	snnnn[233]	_	_	_	
-53-11	4310-4315	which	_	_	_	_	_	_	_	_	_
-53-12	4316-4319	the	organization[234]	giv[234]	nnnnn[234]	_	coref	54-18[243_234]	
-53-13	4320-4326	county	organization[234]|place[235]	giv[234]|giv[235]	nnnnn[234]|nnnnn[235]	_	coref	54-19[244_235]	
-53-14	4327-4340	commissioners	organization[234]	giv[234]	nnnnn[234]	_	_	_	
-53-15	4341-4344	had	_	_	_	_	_	_	_	_	_
-53-16	4345-4357	jurisdiction	_	_	_	_	_	_	_	_	_
-53-17	4358-4362	over	_	_	_	_	_	_	_	_	_
-53-18	4363-4366	all	place[236]	giv[236]	snnnn[236]	_	coref	55-5[248_236]	
-53-19	4367-4373	public	place[236]	giv[236]	snnnn[236]	_	_	_	
-53-20	4374-4378	ways	place[236]	giv[236]	snnnn[236]	_	_	_	
-53-21	4379-4381	at	_	_	_	_	_	_	_	_	_
-53-22	4382-4385	the	time[237]	giv[237]	nnnnn[237]	_	_	_	
-53-23	4386-4390	time	time[237]	giv[237]	nnnnn[237]	_	_	_	
-53-24	4391-4392	.	_	_	_	_	_	_	_	_	_
+53-6	4283-4286	32A	abstract[231]|abstract[232]	giv[231]|giv[232]	nnnnn[231]|nssnn[232]	_	coref	57-13[265_232]	
+53-7	4287-4294	applies	_	_	_	_	_	_	
+53-8	4295-4297	to	_	_	_	_	_	_	
+53-9	4298-4304	public	place[233]	giv[233]	snnss[233]	_	coref	53-18[236_233]	
+53-10	4305-4309	ways	place[233]	giv[233]	snnss[233]	_	_	_	
+53-11	4310-4315	which	_	_	_	_	_	_	
+53-12	4316-4319	the	organization[234]	giv[234]	nssss[234]	_	coref	54-18[243_234]	
+53-13	4320-4326	county	organization[234]|place[235]	giv[234]|giv[235]	nssss[234]|nsnss[235]	_	coref	54-19[244_235]	
+53-14	4327-4340	commissioners	organization[234]	giv[234]	nssss[234]	_	_	_	
+53-15	4341-4344	had	_	_	_	_	_	_	
+53-16	4345-4357	jurisdiction	_	_	_	_	_	_	
+53-17	4358-4362	over	_	_	_	_	_	_	
+53-18	4363-4366	all	place[236]	giv[236]	snnss[236]	_	coref	55-5[248_236]	
+53-19	4367-4373	public	place[236]	giv[236]	snnss[236]	_	_	_	
+53-20	4374-4378	ways	place[236]	giv[236]	snnss[236]	_	_	_	
+53-21	4379-4381	at	_	_	_	_	_	_	
+53-22	4382-4385	the	time[237]	giv[237]	nsnss[237]	_	_	_	
+53-23	4386-4390	time	time[237]	giv[237]	nsnss[237]	_	_	_	
+53-24	4391-4392	.	_	_	_	_	_	_	
 
 #Text=And it 's important to go back in time to 1924 when thinking about the jurisdiction of the county commissioners .
-54-1	4393-4396	And	_	_	_	_	_	_	_	_	_
+54-1	4393-4396	And	_	_	_	_	_	_	
 54-2	4397-4399	it	event[238]	giv[238]	nnnnn[238]	_	coref	54-5[239_238]	
-54-3	4400-4402	's	_	_	_	_	_	_	_	_	_
-54-4	4403-4412	important	_	_	_	_	_	_	_	_	_
+54-3	4400-4402	's	_	_	_	_	_	_	
+54-4	4403-4412	important	_	_	_	_	_	_	
 54-5	4413-4415	to	event[239]	new[239]	nnnnn[239]	_	_	_	
 54-6	4416-4418	go	event[239]	new[239]	nnnnn[239]	_	_	_	
 54-7	4419-4423	back	event[239]	new[239]	nnnnn[239]	_	_	_	
 54-8	4424-4426	in	event[239]	new[239]	nnnnn[239]	_	_	_	
 54-9	4427-4431	time	event[239]|time[240]	new[239]|giv[240]	nnnnn[239]|nnnnn[240]	_	_	_	
 54-10	4432-4434	to	event[239]	new[239]	nnnnn[239]	_	_	_	
-54-11	4435-4439	1924	event[239]|time[241]	new[239]|giv[241]	nnnnn[239]|nnnnn[241]	_	_	_	
+54-11	4435-4439	1924	event[239]|time[241]	new[239]|giv[241]	nnnnn[239]|nnnss[241]	_	_	_	
 54-12	4440-4444	when	event[239]	new[239]	nnnnn[239]	_	_	_	
 54-13	4445-4453	thinking	event[239]	new[239]	nnnnn[239]	_	_	_	
 54-14	4454-4459	about	event[239]	new[239]	nnnnn[239]	_	_	_	
 54-15	4460-4463	the	event[239]|abstract[242]	new[239]|new[242]	nnnnn[239]|nnnnn[242]	_	_	_	
 54-16	4464-4476	jurisdiction	event[239]|abstract[242]	new[239]|new[242]	nnnnn[239]|nnnnn[242]	_	_	_	
 54-17	4477-4479	of	event[239]|abstract[242]	new[239]|new[242]	nnnnn[239]|nnnnn[242]	_	_	_	
-54-18	4480-4483	the	event[239]|abstract[242]|organization[243]	new[239]|new[242]|giv[243]	nnnnn[239]|nnnnn[242]|nnnnn[243]	_	coref	55-1[246_243]	
-54-19	4484-4490	county	event[239]|abstract[242]|organization[243]|place[244]	new[239]|new[242]|giv[243]|giv[244]	nnnnn[239]|nnnnn[242]|nnnnn[243]|nnnnn[244]	_	coref	55-8[250_244]	
-54-20	4491-4504	commissioners	event[239]|abstract[242]|organization[243]	new[239]|new[242]|giv[243]	nnnnn[239]|nnnnn[242]|nnnnn[243]	_	_	_	
-54-21	4505-4506	.	_	_	_	_	_	_	_	_	_
+54-18	4480-4483	the	event[239]|abstract[242]|organization[243]	new[239]|new[242]|giv[243]	nnnnn[239]|nnnnn[242]|nssss[243]	_	coref	55-1[246_243]	
+54-19	4484-4490	county	event[239]|abstract[242]|organization[243]|place[244]	new[239]|new[242]|giv[243]|giv[244]	nnnnn[239]|nnnnn[242]|nssss[243]|nsnss[244]	_	coref	55-8[250_244]	
+54-20	4491-4504	commissioners	event[239]|abstract[242]|organization[243]	new[239]|new[242]|giv[243]	nnnnn[239]|nnnnn[242]|nssss[243]	_	_	_	
+54-21	4505-4506	.	_	_	_	_	_	_	
 
 #Text=They had authority over public ways being county highways , town ways , and any public way of unknown jurisdiction .
-55-1	4507-4511	They	abstract[245]|organization[246]	new[245]|giv[246]	nnnnn[245]|nnnnn[246]	_	coref|coref	56-2[255_245]|57-2[261_246]	
+55-1	4507-4511	They	abstract[245]|organization[246]	new[245]|giv[246]	nnnnn[245]|nssss[246]	_	coref|coref	56-2[255_245]|57-2[261_246]	
 55-2	4512-4515	had	abstract[245]	new[245]	nnnnn[245]	_	_	_	
-55-3	4516-4525	authority	abstract[245]|abstract[247]	new[245]|new[247]	nnnnn[245]|nnnnn[247]	_	_	_	
-55-4	4526-4530	over	abstract[245]|abstract[247]	new[245]|new[247]	nnnnn[245]|nnnnn[247]	_	_	_	
-55-5	4531-4537	public	abstract[245]|abstract[247]|place[248]	new[245]|new[247]|giv[248]	nnnnn[245]|nnnnn[247]|snnnn[248]	_	_	_	
-55-6	4538-4542	ways	abstract[245]|abstract[247]|place[248]	new[245]|new[247]|giv[248]	nnnnn[245]|nnnnn[247]|snnnn[248]	_	_	_	
-55-7	4543-4548	being	abstract[245]|abstract[247]	new[245]|new[247]	nnnnn[245]|nnnnn[247]	_	_	_	
-55-8	4549-4555	county	abstract[245]|abstract[247]|place[249]|place[250]	new[245]|new[247]|new[249]|giv[250]	nnnnn[245]|nnnnn[247]|nnnnn[249]|nnnnn[250]	_	coref	57-3[262_250]	
-55-9	4556-4564	highways	abstract[245]|abstract[247]|place[249]	new[245]|new[247]|new[249]	nnnnn[245]|nnnnn[247]|nnnnn[249]	_	_	_	
-55-10	4565-4566	,	abstract[245]|abstract[247]	new[245]|new[247]	nnnnn[245]|nnnnn[247]	_	_	_	
-55-11	4567-4571	town	abstract[245]|abstract[247]|place[251]|place[252]	new[245]|new[247]|giv[251]|giv[252]	nnnnn[245]|nnnnn[247]|nnnnn[251]|nnnnn[252]	_	_	_	
-55-12	4572-4576	ways	abstract[245]|abstract[247]|place[251]	new[245]|new[247]|giv[251]	nnnnn[245]|nnnnn[247]|nnnnn[251]	_	_	_	
-55-13	4577-4578	,	abstract[245]|abstract[247]	new[245]|new[247]	nnnnn[245]|nnnnn[247]	_	_	_	
-55-14	4579-4582	and	abstract[245]|abstract[247]	new[245]|new[247]	nnnnn[245]|nnnnn[247]	_	_	_	
-55-15	4583-4586	any	abstract[245]|abstract[247]|place[253]	new[245]|new[247]|giv[253]	nnnnn[245]|nnnnn[247]|nnnnn[253]	_	_	_	
-55-16	4587-4593	public	abstract[245]|abstract[247]|place[253]	new[245]|new[247]|giv[253]	nnnnn[245]|nnnnn[247]|nnnnn[253]	_	_	_	
-55-17	4594-4597	way	abstract[245]|abstract[247]|place[253]	new[245]|new[247]|giv[253]	nnnnn[245]|nnnnn[247]|nnnnn[253]	_	_	_	
-55-18	4598-4600	of	abstract[245]|abstract[247]|place[253]	new[245]|new[247]|giv[253]	nnnnn[245]|nnnnn[247]|nnnnn[253]	_	_	_	
-55-19	4601-4608	unknown	abstract[245]|abstract[247]|place[253]|abstract[254]	new[245]|new[247]|giv[253]|giv[254]	nnnnn[245]|nnnnn[247]|nnnnn[253]|nnnnn[254]	_	_	_	
-55-20	4609-4621	jurisdiction	abstract[245]|abstract[247]|place[253]|abstract[254]	new[245]|new[247]|giv[253]|giv[254]	nnnnn[245]|nnnnn[247]|nnnnn[253]|nnnnn[254]	_	_	_	
+55-3	4516-4525	authority	abstract[245]|abstract[247]	new[245]|new[247]	nnnnn[245]|nnsnn[247]	_	_	_	
+55-4	4526-4530	over	abstract[245]|abstract[247]	new[245]|new[247]	nnnnn[245]|nnsnn[247]	_	_	_	
+55-5	4531-4537	public	abstract[245]|abstract[247]|place[248]	new[245]|new[247]|giv[248]	nnnnn[245]|nnsnn[247]|snnss[248]	_	_	_	
+55-6	4538-4542	ways	abstract[245]|abstract[247]|place[248]	new[245]|new[247]|giv[248]	nnnnn[245]|nnsnn[247]|snnss[248]	_	_	_	
+55-7	4543-4548	being	abstract[245]|abstract[247]	new[245]|new[247]	nnnnn[245]|nnsnn[247]	_	_	_	
+55-8	4549-4555	county	abstract[245]|abstract[247]|place[249]|place[250]	new[245]|new[247]|new[249]|giv[250]	nnnnn[245]|nnsnn[247]|nnnnn[249]|nsnss[250]	_	coref	57-3[262_250]	
+55-9	4556-4564	highways	abstract[245]|abstract[247]|place[249]	new[245]|new[247]|new[249]	nnnnn[245]|nnsnn[247]|nnnnn[249]	_	_	_	
+55-10	4565-4566	,	abstract[245]|abstract[247]	new[245]|new[247]	nnnnn[245]|nnsnn[247]	_	_	_	
+55-11	4567-4571	town	abstract[245]|abstract[247]|place[251]|place[252]	new[245]|new[247]|giv[251]|giv[252]	nnnnn[245]|nnsnn[247]|nnnnn[251]|nnnnn[252]	_	_	_	
+55-12	4572-4576	ways	abstract[245]|abstract[247]|place[251]	new[245]|new[247]|giv[251]	nnnnn[245]|nnsnn[247]|nnnnn[251]	_	_	_	
+55-13	4577-4578	,	abstract[245]|abstract[247]	new[245]|new[247]	nnnnn[245]|nnsnn[247]	_	_	_	
+55-14	4579-4582	and	abstract[245]|abstract[247]	new[245]|new[247]	nnnnn[245]|nnsnn[247]	_	_	_	
+55-15	4583-4586	any	abstract[245]|abstract[247]|place[253]	new[245]|new[247]|giv[253]	nnnnn[245]|nnsnn[247]|nnnnn[253]	_	_	_	
+55-16	4587-4593	public	abstract[245]|abstract[247]|place[253]	new[245]|new[247]|giv[253]	nnnnn[245]|nnsnn[247]|nnnnn[253]	_	_	_	
+55-17	4594-4597	way	abstract[245]|abstract[247]|place[253]	new[245]|new[247]|giv[253]	nnnnn[245]|nnsnn[247]|nnnnn[253]	_	_	_	
+55-18	4598-4600	of	abstract[245]|abstract[247]|place[253]	new[245]|new[247]|giv[253]	nnnnn[245]|nnsnn[247]|nnnnn[253]	_	_	_	
+55-19	4601-4608	unknown	abstract[245]|abstract[247]|place[253]|abstract[254]	new[245]|new[247]|giv[253]|giv[254]	nnnnn[245]|nnsnn[247]|nnnnn[253]|nnnnn[254]	_	_	_	
+55-20	4609-4621	jurisdiction	abstract[245]|abstract[247]|place[253]|abstract[254]	new[245]|new[247]|giv[253]|giv[254]	nnnnn[245]|nnsnn[247]|nnnnn[253]|nnnnn[254]	_	_	_	
 55-21	4622-4623	.	abstract[245]	new[245]	nnnnn[245]	_	_	_	
 
 #Text=So that 's an important distinction because here where , as made clear by the the case before you , what this way was was at minimum uncertain .
-56-1	4624-4626	So	_	_	_	_	_	_	_	_	_
+56-1	4624-4626	So	_	_	_	_	_	_	
 56-2	4627-4631	that	abstract[255]	giv[255]	nnnnn[255]	_	coref	56-4[256_255]	
-56-3	4632-4634	's	_	_	_	_	_	_	_	_	_
+56-3	4632-4634	's	_	_	_	_	_	_	
 56-4	4635-4637	an	abstract[256]	giv[256]	nnnnn[256]	_	_	_	
 56-5	4638-4647	important	abstract[256]	giv[256]	nnnnn[256]	_	_	_	
 56-6	4648-4659	distinction	abstract[256]	giv[256]	nnnnn[256]	_	_	_	
-56-7	4660-4667	because	_	_	_	_	_	_	_	_	_
+56-7	4660-4667	because	_	_	_	_	_	_	
 56-8	4668-4672	here	place[257]	acc[257]	nnnnn[257]	_	_	_	
-56-9	4673-4678	where	_	_	_	_	_	_	_	_	_
-56-10	4679-4680	,	_	_	_	_	_	_	_	_	_
-56-11	4681-4683	as	_	_	_	_	_	_	_	_	_
-56-12	4684-4688	made	_	_	_	_	_	_	_	_	_
-56-13	4689-4694	clear	_	_	_	_	_	_	_	_	_
-56-14	4695-4697	by	_	_	_	_	_	_	_	_	_
-56-15	4698-4701	the	_	_	_	_	_	_	_	_	_
+56-9	4673-4678	where	_	_	_	_	_	_	
+56-10	4679-4680	,	_	_	_	_	_	_	
+56-11	4681-4683	as	_	_	_	_	_	_	
+56-12	4684-4688	made	_	_	_	_	_	_	
+56-13	4689-4694	clear	_	_	_	_	_	_	
+56-14	4695-4697	by	_	_	_	_	_	_	
+56-15	4698-4701	the	_	_	_	_	_	_	
 56-16	4702-4705	the	abstract[258]	giv[258]	snnnn[258]	_	_	_	
 56-17	4706-4710	case	abstract[258]	giv[258]	snnnn[258]	_	_	_	
 56-18	4711-4717	before	abstract[258]	giv[258]	snnnn[258]	_	_	_	
-56-19	4718-4721	you	abstract[258]|person[259]	giv[258]|giv[259]	snnnn[258]|snnnn[259]	_	coref	58-1[270_259]	
-56-20	4722-4723	,	_	_	_	_	_	_	_	_	_
-56-21	4724-4728	what	_	_	_	_	_	_	_	_	_
+56-19	4718-4721	you	abstract[258]|person[259]	giv[258]|giv[259]	snnnn[258]|snsnn[259]	_	coref	58-1[270_259]	
+56-20	4722-4723	,	_	_	_	_	_	_	
+56-21	4724-4728	what	_	_	_	_	_	_	
 56-22	4729-4733	this	place[260]	giv[260]	nnnnn[260]	_	coref	57-11[264_260]	
 56-23	4734-4737	way	place[260]	giv[260]	nnnnn[260]	_	_	_	
-56-24	4738-4741	was	_	_	_	_	_	_	_	_	_
-56-25	4742-4745	was	_	_	_	_	_	_	_	_	_
-56-26	4746-4748	at	_	_	_	_	_	_	_	_	_
-56-27	4749-4756	minimum	_	_	_	_	_	_	_	_	_
-56-28	4757-4766	uncertain	_	_	_	_	_	_	_	_	_
-56-29	4767-4768	.	_	_	_	_	_	_	_	_	_
+56-24	4738-4741	was	_	_	_	_	_	_	
+56-25	4742-4745	was	_	_	_	_	_	_	
+56-26	4746-4748	at	_	_	_	_	_	_	
+56-27	4749-4756	minimum	_	_	_	_	_	_	
+56-28	4757-4766	uncertain	_	_	_	_	_	_	
+56-29	4767-4768	.	_	_	_	_	_	_	
 
 #Text=So the county commissioners would have the authority to discontinue it under 32A , whereas the town would not have authority to discontinue a county way under section 21 .
-57-1	4769-4771	So	_	_	_	_	_	_	_	_	_
-57-2	4772-4775	the	organization[261]	giv[261]	nnnnn[261]	_	coref	59-25[278_261]	
-57-3	4776-4782	county	organization[261]|place[262]	giv[261]|giv[262]	nnnnn[261]|nnnnn[262]	_	coref	59-15[276_262]	
-57-4	4783-4796	commissioners	organization[261]	giv[261]	nnnnn[261]	_	_	_	
-57-5	4797-4802	would	_	_	_	_	_	_	_	_	_
-57-6	4803-4807	have	_	_	_	_	_	_	_	_	_
+57-1	4769-4771	So	_	_	_	_	_	_	
+57-2	4772-4775	the	organization[261]	giv[261]	nssss[261]	_	coref	59-25[278_261]	
+57-3	4776-4782	county	organization[261]|place[262]	giv[261]|giv[262]	nssss[261]|nsnss[262]	_	coref	59-15[276_262]	
+57-4	4783-4796	commissioners	organization[261]	giv[261]	nssss[261]	_	_	_	
+57-5	4797-4802	would	_	_	_	_	_	_	
+57-6	4803-4807	have	_	_	_	_	_	_	
 57-7	4808-4811	the	abstract[263]	giv[263]	nnnnn[263]	_	_	_	
 57-8	4812-4821	authority	abstract[263]	giv[263]	nnnnn[263]	_	_	_	
 57-9	4822-4824	to	abstract[263]	giv[263]	nnnnn[263]	_	_	_	
 57-10	4825-4836	discontinue	abstract[263]	giv[263]	nnnnn[263]	_	_	_	
 57-11	4837-4839	it	abstract[263]|place[264]	giv[263]|giv[264]	nnnnn[263]|nnnnn[264]	_	coref	58-8[272_264]	
-57-12	4840-4845	under	_	_	_	_	_	_	_	_	_
-57-13	4846-4849	32A	abstract[265]	giv[265]	nnnnn[265]	_	_	_	
-57-14	4850-4851	,	_	_	_	_	_	_	_	_	_
-57-15	4852-4859	whereas	_	_	_	_	_	_	_	_	_
-57-16	4860-4863	the	place[266]	giv[266]	snnnn[266]	_	coref	59-7[274_266]	
-57-17	4864-4868	town	place[266]	giv[266]	snnnn[266]	_	_	_	
-57-18	4869-4874	would	_	_	_	_	_	_	_	_	_
-57-19	4875-4878	not	_	_	_	_	_	_	_	_	_
-57-20	4879-4883	have	_	_	_	_	_	_	_	_	_
+57-12	4840-4845	under	_	_	_	_	_	_	
+57-13	4846-4849	32A	abstract[265]	giv[265]	nssnn[265]	_	_	_	
+57-14	4850-4851	,	_	_	_	_	_	_	
+57-15	4852-4859	whereas	_	_	_	_	_	_	
+57-16	4860-4863	the	place[266]	giv[266]	snsnn[266]	_	coref	59-7[274_266]	
+57-17	4864-4868	town	place[266]	giv[266]	snsnn[266]	_	_	_	
+57-18	4869-4874	would	_	_	_	_	_	_	
+57-19	4875-4878	not	_	_	_	_	_	_	
+57-20	4879-4883	have	_	_	_	_	_	_	
 57-21	4884-4893	authority	abstract[267]	giv[267]	nnnnn[267]	_	_	_	
 57-22	4894-4896	to	abstract[267]	giv[267]	nnnnn[267]	_	_	_	
 57-23	4897-4908	discontinue	abstract[267]	giv[267]	nnnnn[267]	_	_	_	
 57-24	4909-4910	a	abstract[267]|place[268]	giv[267]|giv[268]	nnnnn[267]|nnnnn[268]	_	coref	58-10[273_268]	
 57-25	4911-4917	county	abstract[267]|place[268]	giv[267]|giv[268]	nnnnn[267]|nnnnn[268]	_	_	_	
 57-26	4918-4921	way	abstract[267]|place[268]	giv[267]|giv[268]	nnnnn[267]|nnnnn[268]	_	_	_	
-57-27	4922-4927	under	_	_	_	_	_	_	_	_	_
-57-28	4928-4935	section	abstract[269]	giv[269]	nnnnn[269]	_	_	_	
-57-29	4936-4938	21	abstract[269]	giv[269]	nnnnn[269]	_	_	_	
-57-30	4939-4940	.	_	_	_	_	_	_	_	_	_
+57-27	4922-4927	under	_	_	_	_	_	_	
+57-28	4928-4935	section	abstract[269]	giv[269]	nssnn[269]	_	_	_	
+57-29	4936-4938	21	abstract[269]	giv[269]	nssnn[269]	_	_	_	
+57-30	4939-4940	.	_	_	_	_	_	_	
 
 #Text=I did n't see anything to suggest this was a county way .
-58-1	4941-4942	I	person[270]	giv[270]	snnnn[270]	_	_	_	
-58-2	4943-4946	did	_	_	_	_	_	_	_	_	_
-58-3	4947-4950	n't	_	_	_	_	_	_	_	_	_
-58-4	4951-4954	see	_	_	_	_	_	_	_	_	_
+58-1	4941-4942	I	person[270]	giv[270]	snsnn[270]	_	_	_	
+58-2	4943-4946	did	_	_	_	_	_	_	
+58-3	4947-4950	n't	_	_	_	_	_	_	
+58-4	4951-4954	see	_	_	_	_	_	_	
 58-5	4955-4963	anything	object[271]	new[271]	nnnnn[271]	_	_	_	
-58-6	4964-4966	to	_	_	_	_	_	_	_	_	_
-58-7	4967-4974	suggest	_	_	_	_	_	_	_	_	_
+58-6	4964-4966	to	_	_	_	_	_	_	
+58-7	4967-4974	suggest	_	_	_	_	_	_	
 58-8	4975-4979	this	place[272]	giv[272]	nnnnn[272]	_	coref	59-18[277_272]	
-58-9	4980-4983	was	_	_	_	_	_	_	_	_	_
+58-9	4980-4983	was	_	_	_	_	_	_	
 58-10	4984-4985	a	place[273]	giv[273]	nnnnn[273]	_	coref	61-27[291_273]	
 58-11	4986-4992	county	place[273]	giv[273]	nnnnn[273]	_	_	_	
 58-12	4993-4996	way	place[273]	giv[273]	nnnnn[273]	_	_	_	
-58-13	4997-4998	.	_	_	_	_	_	_	_	_	_
+58-13	4997-4998	.	_	_	_	_	_	_	
 
 #Text=Well , to the contrary , the town contends that there was a 1763 county layout of the Northern Trail that was effectuated by the county commissioners .
-59-1	4999-5003	Well	_	_	_	_	_	_	_	_	_
-59-2	5004-5005	,	_	_	_	_	_	_	_	_	_
-59-3	5006-5008	to	_	_	_	_	_	_	_	_	_
-59-4	5009-5012	the	_	_	_	_	_	_	_	_	_
-59-5	5013-5021	contrary	_	_	_	_	_	_	_	_	_
-59-6	5022-5023	,	_	_	_	_	_	_	_	_	_
-59-7	5024-5027	the	place[274]	giv[274]	snnnn[274]	_	coref	61-1[285_274]	
-59-8	5028-5032	town	place[274]	giv[274]	snnnn[274]	_	_	_	
-59-9	5033-5041	contends	_	_	_	_	_	_	_	_	_
-59-10	5042-5046	that	_	_	_	_	_	_	_	_	_
-59-11	5047-5052	there	_	_	_	_	_	_	_	_	_
-59-12	5053-5056	was	_	_	_	_	_	_	_	_	_
+59-1	4999-5003	Well	_	_	_	_	_	_	
+59-2	5004-5005	,	_	_	_	_	_	_	
+59-3	5006-5008	to	_	_	_	_	_	_	
+59-4	5009-5012	the	_	_	_	_	_	_	
+59-5	5013-5021	contrary	_	_	_	_	_	_	
+59-6	5022-5023	,	_	_	_	_	_	_	
+59-7	5024-5027	the	place[274]	giv[274]	snsnn[274]	_	coref	61-1[285_274]	
+59-8	5028-5032	town	place[274]	giv[274]	snsnn[274]	_	_	_	
+59-9	5033-5041	contends	_	_	_	_	_	_	
+59-10	5042-5046	that	_	_	_	_	_	_	
+59-11	5047-5052	there	_	_	_	_	_	_	
+59-12	5053-5056	was	_	_	_	_	_	_	
 59-13	5057-5058	a	abstract[275]	new[275]	nnnnn[275]	_	coref	60-7[281_275]	
 59-14	5059-5063	1763	abstract[275]	new[275]	nnnnn[275]	_	_	_	
-59-15	5064-5070	county	abstract[275]|place[276]	new[275]|giv[276]	nnnnn[275]|nnnnn[276]	_	coref	59-26[279_276]	
+59-15	5064-5070	county	abstract[275]|place[276]	new[275]|giv[276]	nnnnn[275]|nsnss[276]	_	coref	59-26[279_276]	
 59-16	5071-5077	layout	abstract[275]	new[275]	nnnnn[275]	_	_	_	
 59-17	5078-5080	of	abstract[275]	new[275]	nnnnn[275]	_	_	_	
 59-18	5081-5084	the	abstract[275]|place[277]	new[275]|new[277]	nnnnn[275]|nnnnn[277]	_	coref	61-17[289_277]	
@@ -1135,61 +1139,61 @@
 59-22	5105-5108	was	abstract[275]	new[275]	nnnnn[275]	_	_	_	
 59-23	5109-5120	effectuated	abstract[275]	new[275]	nnnnn[275]	_	_	_	
 59-24	5121-5123	by	abstract[275]	new[275]	nnnnn[275]	_	_	_	
-59-25	5124-5127	the	abstract[275]|organization[278]	new[275]|giv[278]	nnnnn[275]|nnnnn[278]	_	_	_	
-59-26	5128-5134	county	abstract[275]|organization[278]|place[279]	new[275]|giv[278]|giv[279]	nnnnn[275]|nnnnn[278]|nnnnn[279]	_	_	_	
-59-27	5135-5148	commissioners	abstract[275]|organization[278]	new[275]|giv[278]	nnnnn[275]|nnnnn[278]	_	_	_	
-59-28	5149-5150	.	_	_	_	_	_	_	_	_	_
+59-25	5124-5127	the	abstract[275]|organization[278]	new[275]|giv[278]	nnnnn[275]|nssss[278]	_	_	_	
+59-26	5128-5134	county	abstract[275]|organization[278]|place[279]	new[275]|giv[278]|giv[279]	nnnnn[275]|nssss[278]|nsnss[279]	_	_	_	
+59-27	5135-5148	commissioners	abstract[275]|organization[278]	new[275]|giv[278]	nnnnn[275]|nssss[278]	_	_	_	
+59-28	5149-5150	.	_	_	_	_	_	_	
 
 #Text=We have disputed the -- whether that was effective because the conditions -- precedents -- precedents were not fulfilled .
 60-1	5151-5153	We	person[280]	giv[280]	nnnnn[280]	_	_	_	
-60-2	5154-5158	have	_	_	_	_	_	_	_	_	_
-60-3	5159-5167	disputed	_	_	_	_	_	_	_	_	_
-60-4	5168-5171	the	_	_	_	_	_	_	_	_	_
-60-5	5172-5174	--	_	_	_	_	_	_	_	_	_
-60-6	5175-5182	whether	_	_	_	_	_	_	_	_	_
+60-2	5154-5158	have	_	_	_	_	_	_	
+60-3	5159-5167	disputed	_	_	_	_	_	_	
+60-4	5168-5171	the	_	_	_	_	_	_	
+60-5	5172-5174	--	_	_	_	_	_	_	
+60-6	5175-5182	whether	_	_	_	_	_	_	
 60-7	5183-5187	that	abstract[281]	giv[281]	nnnnn[281]	_	bridge:entity-associative	60-11[282_281]	
-60-8	5188-5191	was	_	_	_	_	_	_	_	_	_
-60-9	5192-5201	effective	_	_	_	_	_	_	_	_	_
-60-10	5202-5209	because	_	_	_	_	_	_	_	_	_
+60-8	5188-5191	was	_	_	_	_	_	_	
+60-9	5192-5201	effective	_	_	_	_	_	_	
+60-10	5202-5209	because	_	_	_	_	_	_	
 60-11	5210-5213	the	abstract[282]	acc[282]	nnnnn[282]	_	bridge:entity-associative	60-14[283_282]	
 60-12	5214-5224	conditions	abstract[282]	acc[282]	nnnnn[282]	_	_	_	
-60-13	5225-5227	--	_	_	_	_	_	_	_	_	_
+60-13	5225-5227	--	_	_	_	_	_	_	
 60-14	5228-5238	precedents	abstract[283]	acc[283]	nnnnn[283]	_	coref	60-16[284_283]	
-60-15	5239-5241	--	_	_	_	_	_	_	_	_	_
+60-15	5239-5241	--	_	_	_	_	_	_	
 60-16	5242-5252	precedents	abstract[284]	giv[284]	nnnnn[284]	_	_	_	
-60-17	5253-5257	were	_	_	_	_	_	_	_	_	_
-60-18	5258-5261	not	_	_	_	_	_	_	_	_	_
-60-19	5262-5271	fulfilled	_	_	_	_	_	_	_	_	_
-60-20	5272-5273	.	_	_	_	_	_	_	_	_	_
+60-17	5253-5257	were	_	_	_	_	_	_	
+60-18	5258-5261	not	_	_	_	_	_	_	
+60-19	5262-5271	fulfilled	_	_	_	_	_	_	
+60-20	5272-5273	.	_	_	_	_	_	_	
 
 #Text=The town notes in their brief that -- and relies and emphasizes that certain deeds of the Northern Trail said -- referred to the way as a county way .
-61-1	5274-5277	The	place[285]	giv[285]	snnnn[285]	_	coref	61-5[287_285]	
-61-2	5278-5282	town	place[285]	giv[285]	snnnn[285]	_	_	_	
-61-3	5283-5288	notes	_	_	_	_	_	_	_	_	_
-61-4	5289-5291	in	_	_	_	_	_	_	_	_	_
-61-5	5292-5297	their	abstract[286]|place[287]	new[286]|giv[287]	nnnnn[286]|snnnn[287]	_	_	_	
+61-1	5274-5277	The	place[285]	giv[285]	snsnn[285]	_	coref	61-5[287_285]	
+61-2	5278-5282	town	place[285]	giv[285]	snsnn[285]	_	_	_	
+61-3	5283-5288	notes	_	_	_	_	_	_	
+61-4	5289-5291	in	_	_	_	_	_	_	
+61-5	5292-5297	their	abstract[286]|place[287]	new[286]|giv[287]	nnnnn[286]|snsnn[287]	_	_	_	
 61-6	5298-5303	brief	abstract[286]	new[286]	nnnnn[286]	_	_	_	
-61-7	5304-5308	that	_	_	_	_	_	_	_	_	_
-61-8	5309-5311	--	_	_	_	_	_	_	_	_	_
-61-9	5312-5315	and	_	_	_	_	_	_	_	_	_
-61-10	5316-5322	relies	_	_	_	_	_	_	_	_	_
-61-11	5323-5326	and	_	_	_	_	_	_	_	_	_
-61-12	5327-5337	emphasizes	_	_	_	_	_	_	_	_	_
-61-13	5338-5342	that	_	_	_	_	_	_	_	_	_
+61-7	5304-5308	that	_	_	_	_	_	_	
+61-8	5309-5311	--	_	_	_	_	_	_	
+61-9	5312-5315	and	_	_	_	_	_	_	
+61-10	5316-5322	relies	_	_	_	_	_	_	
+61-11	5323-5326	and	_	_	_	_	_	_	
+61-12	5327-5337	emphasizes	_	_	_	_	_	_	
+61-13	5338-5342	that	_	_	_	_	_	_	
 61-14	5343-5350	certain	abstract[288]	giv[288]	nnnnn[288]	_	_	_	
 61-15	5351-5356	deeds	abstract[288]	giv[288]	nnnnn[288]	_	_	_	
 61-16	5357-5359	of	abstract[288]	giv[288]	nnnnn[288]	_	_	_	
 61-17	5360-5363	the	abstract[288]|place[289]	giv[288]|giv[289]	nnnnn[288]|nnnnn[289]	_	coref	61-24[290_289]	
 61-18	5364-5372	Northern	abstract[288]|place[289]	giv[288]|giv[289]	nnnnn[288]|nnnnn[289]	_	_	_	
 61-19	5373-5378	Trail	abstract[288]|place[289]	giv[288]|giv[289]	nnnnn[288]|nnnnn[289]	_	_	_	
-61-20	5379-5383	said	_	_	_	_	_	_	_	_	_
-61-21	5384-5386	--	_	_	_	_	_	_	_	_	_
-61-22	5387-5395	referred	_	_	_	_	_	_	_	_	_
-61-23	5396-5398	to	_	_	_	_	_	_	_	_	_
+61-20	5379-5383	said	_	_	_	_	_	_	
+61-21	5384-5386	--	_	_	_	_	_	_	
+61-22	5387-5395	referred	_	_	_	_	_	_	
+61-23	5396-5398	to	_	_	_	_	_	_	
 61-24	5399-5402	the	place[290]	giv[290]	nnnnn[290]	_	_	_	
 61-25	5403-5406	way	place[290]	giv[290]	nnnnn[290]	_	_	_	
-61-26	5407-5409	as	_	_	_	_	_	_	_	_	_
+61-26	5407-5409	as	_	_	_	_	_	_	
 61-27	5410-5411	a	place[291]	giv[291]	nnnnn[291]	_	_	_	
 61-28	5412-5418	county	place[291]	giv[291]	nnnnn[291]	_	_	_	
 61-29	5419-5422	way	place[291]	giv[291]	nnnnn[291]	_	_	_	
-61-30	5423-5424	.	_	_	_	_	_	_	_	_	_	
+61-30	5423-5424	.	_	_	_	_	_	_	

@@ -2,76 +2,80 @@
 #T_SP=webanno.custom.Referent|entity|infstat|salience|identity
 #T_RL=webanno.custom.Coref|type|BT_webanno.custom.Referent
 #Summary1=(human1) In the opening statement of a drunken driving trial, assistant prosecutor for the County of Monroe Ken Lorraine narrates how the defendant drove her vehicle into the birthday party of a 3 year old in Berlin Township, MI, under the influence of alcohol and gabapentin, killing two children and injuring five other people, and tells the jury about the witnesses they will hear.
+#Summary2=(claude-sonnet-4-5-20250929) In an opening statement, Assistant Prosecutor Ken Laurain tells the jury that the prosecution will prove the defendant guilty of second-degree murder, OWI causing death, and OWI causing serious impairment after she crashed her car into a children's birthday party at a boat club, killing two children and injuring multiple others.
+#Summary3=(gpt4o) Assistant Prosecutor Ken Laurain argues that the defendant is guilty of second-degree murder and OWI-related charges after a car crash during a child's birthday party resulted in the deaths of Zane and Alanah Phillips and injuries to others, detailing the prosecution's planned evidence and witness testimony over the course of the trial.
+#Summary4=(Meta-Llama-3-8B-Instruct) Assistant prosecutor Ken Laurain argues that defendant's actions, including operating a vehicle while intoxicated, resulted in the deaths of two children and serious injuries to others, making her guilty of second-degree murder and other charges.
+#Summary5=(Qwen2.5-7B-Instruct) Ken Laurain outlines the prosecution's case, detailing the events of a car crash that occurred during a birthday party, and the subsequent charges against the defendant for second-degree murder and OWI causing death and serious impairment.
 
 
 #Text=You ready for your opening statement ?
-1-1	0-3	You	person[1]	acc[1]	snnnn[1]	_	coref	1-4[3_1]	
-1-2	4-9	ready	_	_	_	_	_	_	_	_	_	_	_	_
-1-3	10-13	for	_	_	_	_	_	_	_	_	_	_	_	_
-1-4	14-18	your	event[2]|person[3]	new[2]|giv[3]	snnnn[2]|snnnn[3]	_	coref	21-5[137_3]	
-1-5	19-26	opening	event[2]	new[2]	snnnn[2]	_	_	_	
-1-6	27-36	statement	event[2]	new[2]	snnnn[2]	_	_	_	
-1-7	37-38	?	_	_	_	_	_	_	_	_	_	_	_	_
+1-1	0-3	You	person[1]	acc[1]	sssss[1]	_	coref	1-4[3_1]	
+1-2	4-9	ready	_	_	_	_	_	_	
+1-3	10-13	for	_	_	_	_	_	_	
+1-4	14-18	your	event[2]|person[3]	new[2]|giv[3]	ssnnn[2]|sssss[3]	_	coref	21-5[137_3]	
+1-5	19-26	opening	event[2]	new[2]	ssnnn[2]	_	_	_	
+1-6	27-36	statement	event[2]	new[2]	ssnnn[2]	_	_	_	
+1-7	37-38	?	_	_	_	_	_	_	
 
 #Text=People are , thank you .
 2-1	39-45	People	person[4]	new[4]	nnnnn[4]	_	coref	23-14[147_4]	
-2-2	46-49	are	_	_	_	_	_	_	_	_	_	_	_	_
-2-3	50-51	,	_	_	_	_	_	_	_	_	_	_	_	_
-2-4	52-57	thank	_	_	_	_	_	_	_	_	_	_	_	_
+2-2	46-49	are	_	_	_	_	_	_	
+2-3	50-51	,	_	_	_	_	_	_	
+2-4	52-57	thank	_	_	_	_	_	_	
 2-5	58-61	you	person[5]	acc[5]	nnnnn[5]	_	coref	44-20[327_5]	
-2-6	62-63	.	_	_	_	_	_	_	_	_	_	_	_	_
+2-6	62-63	.	_	_	_	_	_	_	
 
 #Text=Good afternoon ladies and gentlemen .
 3-1	64-68	Good	time[6]	acc[6]	nnnnn[6]	_	bridge:comparison-time	4-1[10_6]	
 3-2	69-78	afternoon	time[6]	acc[6]	nnnnn[6]	_	_	_	
-3-3	79-85	ladies	person[7]|person[8]	new[7]|new[8]	snnnn[7]|nnnnn[8]	_	coref|coref	21-1[133_7]|21-1[134_8]	
-3-4	86-89	and	person[7]	new[7]	snnnn[7]	_	_	_	
-3-5	90-99	gentlemen	person[7]|person[9]	new[7]|new[9]	snnnn[7]|nnnnn[9]	_	coref	21-3[135_9]	
-3-6	100-101	.	_	_	_	_	_	_	_	_	_	_	_	_
+3-3	79-85	ladies	person[7]|person[8]	new[7]|new[8]	ssnnn[7]|nnnnn[8]	_	coref|coref	21-1[133_7]|21-1[134_8]	
+3-4	86-89	and	person[7]	new[7]	ssnnn[7]	_	_	_	
+3-5	90-99	gentlemen	person[7]|person[9]	new[7]|new[9]	ssnnn[7]|nnnnn[9]	_	coref	21-3[135_9]	
+3-6	100-101	.	_	_	_	_	_	_	
 
 #Text=Last year on April 20th , a young mother named Kristen Sigler threw a birthday party for her three year old son Stetson .
 4-1	102-106	Last	time[10]	acc[10]	nnnnn[10]	_	bridge:comparison-time	4-4[12_10]	
 4-2	107-111	year	time[10]	acc[10]	nnnnn[10]	_	_	_	
-4-3	112-114	on	_	_	_	_	_	_	_	_	_	_	_	_
-4-4	115-120	April	time[11]|time[12]	new[11]|acc[12]	nnnnn[11]|nnnnn[12]	_	coref|bridge:set-span-interval;comparison-time|bridge:comparison-time	31-20[238_11]|10-5[48_11]|23-23[149_12]	
+4-3	112-114	on	_	_	_	_	_	_	
+4-4	115-120	April	time[11]|time[12]	new[11]|acc[12]	nnnnn[11]|nnnnn[12]	_	bridge:set-span-interval;comparison-time|coref|bridge:comparison-time	10-5[48_11]|31-20[238_11]|23-23[149_12]	
 4-5	121-125	20th	time[11]	new[11]	nnnnn[11]	_	_	_	
-4-6	126-127	,	_	_	_	_	_	_	_	_	_	_	_	_
+4-6	126-127	,	_	_	_	_	_	_	
 4-7	128-129	a	person[13]	new[13]	nnnnn[13]	_	coref	4-11[14_13]	
 4-8	130-135	young	person[13]	new[13]	nnnnn[13]	_	_	_	
 4-9	136-142	mother	person[13]	new[13]	nnnnn[13]	_	_	_	
 4-10	143-148	named	person[13]	new[13]	nnnnn[13]	_	_	_	
 4-11	149-156	Kristen	person[13]|person[14]	new[13]|giv[14]	nnnnn[13]|nnnnn[14]	_	coref	4-18[18_14]	
 4-12	157-163	Sigler	person[13]|person[14]	new[13]|giv[14]	nnnnn[13]|nnnnn[14]	_	_	_	
-4-13	164-169	threw	_	_	_	_	_	_	_	_	_	_	_	_
-4-14	170-171	a	event[15]	new[15]	snnnn[15]	_	coref	5-10[22_15]	
-4-15	172-180	birthday	event[15]|event[16]	new[15]|new[16]	snnnn[15]|nnnnn[16]	_	_	_	
-4-16	181-186	party	event[15]	new[15]	snnnn[15]	_	_	_	
-4-17	187-190	for	event[15]	new[15]	snnnn[15]	_	_	_	
-4-18	191-194	her	event[15]|person[17]|person[18]	new[15]|new[17]|giv[18]	snnnn[15]|snnnn[17]|nnnnn[18]	_	coref|coref	4-23[19_17]|5-5[21_18]	
-4-19	195-200	three	event[15]|person[17]	new[15]|new[17]	snnnn[15]|snnnn[17]	_	_	_	
-4-20	201-205	year	event[15]|person[17]	new[15]|new[17]	snnnn[15]|snnnn[17]	_	_	_	
-4-21	206-209	old	event[15]|person[17]	new[15]|new[17]	snnnn[15]|snnnn[17]	_	_	_	
-4-22	210-213	son	event[15]|person[17]	new[15]|new[17]	snnnn[15]|snnnn[17]	_	_	_	
-4-23	214-221	Stetson	event[15]|person[19]	new[15]|new[19]	snnnn[15]|snnnn[19]	_	coref	10-23[54_19]	
-4-24	222-223	.	_	_	_	_	_	_	_	_	_	_	_	_
+4-13	164-169	threw	_	_	_	_	_	_	
+4-14	170-171	a	event[15]	new[15]	sssns[15]	_	coref	5-10[22_15]	
+4-15	172-180	birthday	event[15]|event[16]	new[15]|new[16]	sssns[15]|nnnnn[16]	_	_	_	
+4-16	181-186	party	event[15]	new[15]	sssns[15]	_	_	_	
+4-17	187-190	for	event[15]	new[15]	sssns[15]	_	_	_	
+4-18	191-194	her	event[15]|person[17]|person[18]	new[15]|new[17]|giv[18]	sssns[15]|sssnn[17]|nnnnn[18]	_	coref|coref	4-23[19_17]|5-5[21_18]	
+4-19	195-200	three	event[15]|person[17]	new[15]|new[17]	sssns[15]|sssnn[17]	_	_	_	
+4-20	201-205	year	event[15]|person[17]	new[15]|new[17]	sssns[15]|sssnn[17]	_	_	_	
+4-21	206-209	old	event[15]|person[17]	new[15]|new[17]	sssns[15]|sssnn[17]	_	_	_	
+4-22	210-213	son	event[15]|person[17]	new[15]|new[17]	sssns[15]|sssnn[17]	_	_	_	
+4-23	214-221	Stetson	event[15]|person[19]	new[15]|new[19]	sssns[15]|sssnn[19]	_	coref	10-23[54_19]	
+4-24	222-223	.	_	_	_	_	_	_	
 
 #Text=Like many mothers , Kristen went all out for the party .
-5-1	224-228	Like	_	_	_	_	_	_	_	_	_	_	_	_
+5-1	224-228	Like	_	_	_	_	_	_	
 5-2	229-233	many	person[20]	new[20]	nnnnn[20]	_	_	_	
 5-3	234-241	mothers	person[20]	new[20]	nnnnn[20]	_	_	_	
-5-4	242-243	,	_	_	_	_	_	_	_	_	_	_	_	_
+5-4	242-243	,	_	_	_	_	_	_	
 5-5	244-251	Kristen	person[21]	new[21]	nnnnn[21]	_	coref	6-1[23_21]	
-5-6	252-256	went	_	_	_	_	_	_	_	_	_	_	_	_
-5-7	257-260	all	_	_	_	_	_	_	_	_	_	_	_	_
-5-8	261-264	out	_	_	_	_	_	_	_	_	_	_	_	_
-5-9	265-268	for	_	_	_	_	_	_	_	_	_	_	_	_
-5-10	269-272	the	event[22]	giv[22]	snnnn[22]	_	coref	6-28[34_22]	
-5-11	273-278	party	event[22]	giv[22]	snnnn[22]	_	_	_	
-5-12	279-280	.	_	_	_	_	_	_	_	_	_	_	_	_
+5-6	252-256	went	_	_	_	_	_	_	
+5-7	257-260	all	_	_	_	_	_	_	
+5-8	261-264	out	_	_	_	_	_	_	
+5-9	265-268	for	_	_	_	_	_	_	
+5-10	269-272	the	event[22]	giv[22]	sssns[22]	_	coref	6-28[34_22]	
+5-11	273-278	party	event[22]	giv[22]	sssns[22]	_	_	_	
+5-12	279-280	.	_	_	_	_	_	_	
 
 #Text=She had a face painting station , a hot dog bar , entertainers , props and backdrops for photos , and even a bounce house outside of the party .
 6-1	281-284	She	person[23]	giv[23]	nnnnn[23]	_	coref	7-1[35_23]	
-6-2	285-288	had	_	_	_	_	_	_	_	_	_	_	_	_
+6-2	285-288	had	_	_	_	_	_	_	
 6-3	289-290	a	abstract[24]|place[25]	new[24]|new[25]	nnnnn[24]|nnnnn[25]	_	coref	12-14[60_24]	
 6-4	291-295	face	abstract[24]|place[25]|object[26]	new[24]|new[25]|new[26]	nnnnn[24]|nnnnn[25]|nnnnn[26]	_	_	_	
 6-5	296-304	painting	abstract[24]|place[25]	new[24]|new[25]	nnnnn[24]|nnnnn[25]	_	_	_	
@@ -97,118 +101,118 @@
 6-25	397-402	house	abstract[24]|place[33]	new[24]|new[33]	nnnnn[24]|nnnnn[33]	_	_	_	
 6-26	403-410	outside	abstract[24]|place[33]	new[24]|new[33]	nnnnn[24]|nnnnn[33]	_	_	_	
 6-27	411-413	of	abstract[24]|place[33]	new[24]|new[33]	nnnnn[24]|nnnnn[33]	_	_	_	
-6-28	414-417	the	abstract[24]|place[33]|event[34]	new[24]|new[33]|giv[34]	nnnnn[24]|nnnnn[33]|snnnn[34]	_	coref	9-10[46_34]	
-6-29	418-423	party	abstract[24]|place[33]|event[34]	new[24]|new[33]|giv[34]	nnnnn[24]|nnnnn[33]|snnnn[34]	_	_	_	
-6-30	424-425	.	_	_	_	_	_	_	_	_	_	_	_	_
+6-28	414-417	the	abstract[24]|place[33]|event[34]	new[24]|new[33]|giv[34]	nnnnn[24]|nnnnn[33]|sssns[34]	_	coref	9-10[46_34]	
+6-29	418-423	party	abstract[24]|place[33]|event[34]	new[24]|new[33]|giv[34]	nnnnn[24]|nnnnn[33]|sssns[34]	_	_	_	
+6-30	424-425	.	_	_	_	_	_	_	
 
 #Text=Kristen has worked for several years at the Swan Boat Club in Berlin Township , Newport , State of Michigan .
 7-1	426-433	Kristen	person[35]	giv[35]	nnnnn[35]	_	coref	9-1[43_35]	
-7-2	434-437	has	_	_	_	_	_	_	_	_	_	_	_	_
-7-3	438-444	worked	_	_	_	_	_	_	_	_	_	_	_	_
-7-4	445-448	for	_	_	_	_	_	_	_	_	_	_	_	_
+7-2	434-437	has	_	_	_	_	_	_	
+7-3	438-444	worked	_	_	_	_	_	_	
+7-4	445-448	for	_	_	_	_	_	_	
 7-5	449-456	several	time[36]	new[36]	nnnnn[36]	_	_	_	
 7-6	457-462	years	time[36]	new[36]	nnnnn[36]	_	_	_	
-7-7	463-465	at	_	_	_	_	_	_	_	_	_	_	_	_
-7-8	466-469	the	place[37]	new[37]	nnnnn[37]	_	coref	9-3[45_37]	
-7-9	470-474	Swan	place[37]	new[37]	nnnnn[37]	_	_	_	
-7-10	475-479	Boat	place[37]|object[38]	new[37]|new[38]	nnnnn[37]|nnnnn[38]	_	coref	14-7[69_38]	
-7-11	480-484	Club	place[37]	new[37]	nnnnn[37]	_	_	_	
-7-12	485-487	in	place[37]	new[37]	nnnnn[37]	_	_	_	
-7-13	488-494	Berlin	place[37]|place[39]	new[37]|new[39]	nnnnn[37]|snnnn[39]	Berlin_Charter_Township,_Michigan[39]	_	_	
-7-14	495-503	Township	place[37]|place[39]	new[37]|new[39]	nnnnn[37]|snnnn[39]	Berlin_Charter_Township,_Michigan[39]	_	_	
-7-15	504-505	,	place[37]|place[39]	new[37]|new[39]	nnnnn[37]|snnnn[39]	Berlin_Charter_Township,_Michigan[39]	_	_	
-7-16	506-513	Newport	place[37]|place[39]|place[40]	new[37]|new[39]|new[40]	nnnnn[37]|snnnn[39]|nnnnn[40]	Berlin_Charter_Township,_Michigan[39]|Newport,_Michigan[40]	_	_	
-7-17	514-515	,	place[37]|place[39]|place[40]	new[37]|new[39]|new[40]	nnnnn[37]|snnnn[39]|nnnnn[40]	Berlin_Charter_Township,_Michigan[39]|Newport,_Michigan[40]	_	_	
-7-18	516-521	State	place[37]|place[39]|place[40]|place[41]	new[37]|new[39]|new[40]|new[41]	nnnnn[37]|snnnn[39]|nnnnn[40]|snnnn[41]	Berlin_Charter_Township,_Michigan[39]|Newport,_Michigan[40]|Michigan[41]	_	_	
-7-19	522-524	of	place[37]|place[39]|place[40]|place[41]	new[37]|new[39]|new[40]|new[41]	nnnnn[37]|snnnn[39]|nnnnn[40]|snnnn[41]	Berlin_Charter_Township,_Michigan[39]|Newport,_Michigan[40]|Michigan[41]	_	_	
-7-20	525-533	Michigan	place[37]|place[39]|place[40]|place[41]	new[37]|new[39]|new[40]|new[41]	nnnnn[37]|snnnn[39]|nnnnn[40]|snnnn[41]	Berlin_Charter_Township,_Michigan[39]|Newport,_Michigan[40]|Michigan[41]	_	_	
-7-21	534-535	.	_	_	_	_	_	_	_	_	_	_	_	_
+7-7	463-465	at	_	_	_	_	_	_	
+7-8	466-469	the	place[37]	new[37]	nsnnn[37]	_	coref	9-3[45_37]	
+7-9	470-474	Swan	place[37]	new[37]	nsnnn[37]	_	_	_	
+7-10	475-479	Boat	place[37]|object[38]	new[37]|new[38]	nsnnn[37]|nnnnn[38]	_	coref	14-7[69_38]	
+7-11	480-484	Club	place[37]	new[37]	nsnnn[37]	_	_	_	
+7-12	485-487	in	place[37]	new[37]	nsnnn[37]	_	_	_	
+7-13	488-494	Berlin	place[37]|place[39]	new[37]|new[39]	nsnnn[37]|snnnn[39]	Berlin_Charter_Township,_Michigan[39]	_	_	
+7-14	495-503	Township	place[37]|place[39]	new[37]|new[39]	nsnnn[37]|snnnn[39]	Berlin_Charter_Township,_Michigan[39]	_	_	
+7-15	504-505	,	place[37]|place[39]	new[37]|new[39]	nsnnn[37]|snnnn[39]	Berlin_Charter_Township,_Michigan[39]	_	_	
+7-16	506-513	Newport	place[37]|place[39]|place[40]	new[37]|new[39]|new[40]	nsnnn[37]|snnnn[39]|nnnnn[40]	Berlin_Charter_Township,_Michigan[39]|Newport,_Michigan[40]	_	_	
+7-17	514-515	,	place[37]|place[39]|place[40]	new[37]|new[39]|new[40]	nsnnn[37]|snnnn[39]|nnnnn[40]	Berlin_Charter_Township,_Michigan[39]|Newport,_Michigan[40]	_	_	
+7-18	516-521	State	place[37]|place[39]|place[40]|place[41]	new[37]|new[39]|new[40]|new[41]	nsnnn[37]|snnnn[39]|nnnnn[40]|snnnn[41]	Berlin_Charter_Township,_Michigan[39]|Newport,_Michigan[40]|Michigan[41]	_	_	
+7-19	522-524	of	place[37]|place[39]|place[40]|place[41]	new[37]|new[39]|new[40]|new[41]	nsnnn[37]|snnnn[39]|nnnnn[40]|snnnn[41]	Berlin_Charter_Township,_Michigan[39]|Newport,_Michigan[40]|Michigan[41]	_	_	
+7-20	525-533	Michigan	place[37]|place[39]|place[40]|place[41]	new[37]|new[39]|new[40]|new[41]	nsnnn[37]|snnnn[39]|nnnnn[40]|snnnn[41]	Berlin_Charter_Township,_Michigan[39]|Newport,_Michigan[40]|Michigan[41]	_	_	
+7-21	534-535	.	_	_	_	_	_	_	
 
 #Text=Right on Lake Erie .
-8-1	536-541	Right	_	_	_	_	_	_	_	_	_	_	_	_
-8-2	542-544	on	_	_	_	_	_	_	_	_	_	_	_	_
+8-1	536-541	Right	_	_	_	_	_	_	
+8-2	542-544	on	_	_	_	_	_	_	
 8-3	545-549	Lake	place[42]	new[42]	nnnnn[42]	Lake_Erie[42]	_	_	
 8-4	550-554	Erie	place[42]	new[42]	nnnnn[42]	Lake_Erie[42]	_	_	
-8-5	555-556	.	_	_	_	_	_	_	_	_	_	_	_	_
+8-5	555-556	.	_	_	_	_	_	_	
 
 #Text=She used the club 's event space to hold the party .
 9-1	557-560	She	person[43]	giv[43]	nnnnn[43]	_	coref	14-1[67_43]	
-9-2	561-565	used	_	_	_	_	_	_	_	_	_	_	_	_
-9-3	566-569	the	place[44]|place[45]	new[44]|giv[45]	nnnnn[44]|nnnnn[45]	_	coref|coref	12-9[59_44]|14-6[68_45]	
-9-4	570-574	club	place[44]|place[45]	new[44]|giv[45]	nnnnn[44]|nnnnn[45]	_	_	_	
-9-5	575-577	's	place[44]|place[45]	new[44]|giv[45]	nnnnn[44]|nnnnn[45]	_	_	_	
+9-2	561-565	used	_	_	_	_	_	_	
+9-3	566-569	the	place[44]|place[45]	new[44]|giv[45]	nnnnn[44]|nsnnn[45]	_	coref|coref	12-9[59_44]|14-6[68_45]	
+9-4	570-574	club	place[44]|place[45]	new[44]|giv[45]	nnnnn[44]|nsnnn[45]	_	_	_	
+9-5	575-577	's	place[44]|place[45]	new[44]|giv[45]	nnnnn[44]|nsnnn[45]	_	_	_	
 9-6	578-583	event	place[44]	new[44]	nnnnn[44]	_	_	_	
 9-7	584-589	space	place[44]	new[44]	nnnnn[44]	_	_	_	
-9-8	590-592	to	_	_	_	_	_	_	_	_	_	_	_	_
-9-9	593-597	hold	_	_	_	_	_	_	_	_	_	_	_	_
-9-10	598-601	the	event[46]	giv[46]	snnnn[46]	_	coref	10-1[47_46]	
-9-11	602-607	party	event[46]	giv[46]	snnnn[46]	_	_	_	
-9-12	608-609	.	_	_	_	_	_	_	_	_	_	_	_	_
+9-8	590-592	to	_	_	_	_	_	_	
+9-9	593-597	hold	_	_	_	_	_	_	
+9-10	598-601	the	event[46]	giv[46]	sssns[46]	_	coref	10-1[47_46]	
+9-11	602-607	party	event[46]	giv[46]	sssns[46]	_	_	_	
+9-12	608-609	.	_	_	_	_	_	_	
 
 #Text=The party started at noon and by a little before 3 p.m. the party guests had just finished singing Happy Birthday to the guest of honor .
-10-1	610-613	The	event[47]	giv[47]	snnnn[47]	_	coref	10-14[52_47]	
-10-2	614-619	party	event[47]	giv[47]	snnnn[47]	_	_	_	
-10-3	620-627	started	_	_	_	_	_	_	_	_	_	_	_	_
-10-4	628-630	at	_	_	_	_	_	_	_	_	_	_	_	_
+10-1	610-613	The	event[47]	giv[47]	sssns[47]	_	coref	10-14[52_47]	
+10-2	614-619	party	event[47]	giv[47]	sssns[47]	_	_	_	
+10-3	620-627	started	_	_	_	_	_	_	
+10-4	628-630	at	_	_	_	_	_	_	
 10-5	631-635	noon	time[48]	acc[48]	nnnnn[48]	_	bridge:set-span-interval;comparison-time	10-11[50_48]	
-10-6	636-639	and	_	_	_	_	_	_	_	_	_	_	_	_
-10-7	640-642	by	_	_	_	_	_	_	_	_	_	_	_	_
+10-6	636-639	and	_	_	_	_	_	_	
+10-7	640-642	by	_	_	_	_	_	_	
 10-8	643-644	a	time[49]	new[49]	nnnnn[49]	_	_	_	
 10-9	645-651	little	time[49]	new[49]	nnnnn[49]	_	_	_	
 10-10	652-658	before	time[49]	new[49]	nnnnn[49]	_	_	_	
 10-11	659-660	3	time[49]|time[50]	new[49]|acc[50]	nnnnn[49]|nnnnn[50]	_	_	_	
 10-12	661-665	p.m.	time[49]|time[50]	new[49]|acc[50]	nnnnn[49]|nnnnn[50]	_	_	_	
 10-13	666-669	the	person[51]	new[51]	nnnnn[51]	_	_	_	
-10-14	670-675	party	person[51]|event[52]	new[51]|giv[52]	nnnnn[51]|snnnn[52]	_	coref	11-5[55_52]	
+10-14	670-675	party	person[51]|event[52]	new[51]|giv[52]	nnnnn[51]|sssns[52]	_	coref	11-5[55_52]	
 10-15	676-682	guests	person[51]	new[51]	nnnnn[51]	_	_	_	
-10-16	683-686	had	_	_	_	_	_	_	_	_	_	_	_	_
-10-17	687-691	just	_	_	_	_	_	_	_	_	_	_	_	_
-10-18	692-700	finished	_	_	_	_	_	_	_	_	_	_	_	_
-10-19	701-708	singing	_	_	_	_	_	_	_	_	_	_	_	_
+10-16	683-686	had	_	_	_	_	_	_	
+10-17	687-691	just	_	_	_	_	_	_	
+10-18	692-700	finished	_	_	_	_	_	_	
+10-19	701-708	singing	_	_	_	_	_	_	
 10-20	709-714	Happy	abstract[53]	giv[53]	nnnnn[53]	Happy_Birthday_to_You[53]	_	_	
 10-21	715-723	Birthday	abstract[53]	giv[53]	nnnnn[53]	Happy_Birthday_to_You[53]	_	_	
-10-22	724-726	to	_	_	_	_	_	_	_	_	_	_	_	_
-10-23	727-730	the	person[54]	new[54]	snnnn[54]	_	_	_	
-10-24	731-736	guest	person[54]	new[54]	snnnn[54]	_	_	_	
-10-25	737-739	of	person[54]	new[54]	snnnn[54]	_	_	_	
-10-26	740-745	honor	person[54]	new[54]	snnnn[54]	_	_	_	
-10-27	746-747	.	_	_	_	_	_	_	_	_	_	_	_	_
+10-22	724-726	to	_	_	_	_	_	_	
+10-23	727-730	the	person[54]	new[54]	sssnn[54]	_	_	_	
+10-24	731-736	guest	person[54]	new[54]	sssnn[54]	_	_	_	
+10-25	737-739	of	person[54]	new[54]	sssnn[54]	_	_	_	
+10-26	740-745	honor	person[54]	new[54]	sssnn[54]	_	_	_	
+10-27	746-747	.	_	_	_	_	_	_	
 
 #Text=By all accounts , it was a very successful party .
-11-1	748-750	By	_	_	_	_	_	_	_	_	_	_	_	_
-11-2	751-754	all	_	_	_	_	_	_	_	_	_	_	_	_
-11-3	755-763	accounts	_	_	_	_	_	_	_	_	_	_	_	_
-11-4	764-765	,	_	_	_	_	_	_	_	_	_	_	_	_
-11-5	766-768	it	event[55]	giv[55]	snnnn[55]	_	coref	11-7[56_55]	
-11-6	769-772	was	_	_	_	_	_	_	_	_	_	_	_	_
-11-7	773-774	a	event[56]	giv[56]	snnnn[56]	_	coref	12-1[57_56]	
-11-8	775-779	very	event[56]	giv[56]	snnnn[56]	_	_	_	
-11-9	780-790	successful	event[56]	giv[56]	snnnn[56]	_	_	_	
-11-10	791-796	party	event[56]	giv[56]	snnnn[56]	_	_	_	
-11-11	797-798	.	_	_	_	_	_	_	_	_	_	_	_	_
+11-1	748-750	By	_	_	_	_	_	_	
+11-2	751-754	all	_	_	_	_	_	_	
+11-3	755-763	accounts	_	_	_	_	_	_	
+11-4	764-765	,	_	_	_	_	_	_	
+11-5	766-768	it	event[55]	giv[55]	sssns[55]	_	coref	11-7[56_55]	
+11-6	769-772	was	_	_	_	_	_	_	
+11-7	773-774	a	event[56]	giv[56]	sssns[56]	_	coref	12-1[57_56]	
+11-8	775-779	very	event[56]	giv[56]	sssns[56]	_	_	_	
+11-9	780-790	successful	event[56]	giv[56]	sssns[56]	_	_	_	
+11-10	791-796	party	event[56]	giv[56]	sssns[56]	_	_	_	
+11-11	797-798	.	_	_	_	_	_	_	
 
 #Text=It was well attended , and the kids there were taking advantage of all the attractions .
-12-1	799-801	It	event[57]	giv[57]	snnnn[57]	_	coref|bridge	16-1[72_57]|15-1[70_57]	
-12-2	802-805	was	_	_	_	_	_	_	_	_	_	_	_	_
-12-3	806-810	well	_	_	_	_	_	_	_	_	_	_	_	_
-12-4	811-819	attended	_	_	_	_	_	_	_	_	_	_	_	_
-12-5	820-821	,	_	_	_	_	_	_	_	_	_	_	_	_
-12-6	822-825	and	_	_	_	_	_	_	_	_	_	_	_	_
+12-1	799-801	It	event[57]	giv[57]	sssns[57]	_	bridge|coref	15-1[70_57]|16-1[72_57]	
+12-2	802-805	was	_	_	_	_	_	_	
+12-3	806-810	well	_	_	_	_	_	_	
+12-4	811-819	attended	_	_	_	_	_	_	
+12-5	820-821	,	_	_	_	_	_	_	
+12-6	822-825	and	_	_	_	_	_	_	
 12-7	826-829	the	person[58]	new[58]	nnnnn[58]	_	_	_	
 12-8	830-834	kids	person[58]	new[58]	nnnnn[58]	_	_	_	
 12-9	835-840	there	person[58]|place[59]	new[58]|giv[59]	nnnnn[58]|nnnnn[59]	_	_	_	
-12-10	841-845	were	_	_	_	_	_	_	_	_	_	_	_	_
-12-11	846-852	taking	_	_	_	_	_	_	_	_	_	_	_	_
-12-12	853-862	advantage	_	_	_	_	_	_	_	_	_	_	_	_
-12-13	863-865	of	_	_	_	_	_	_	_	_	_	_	_	_
+12-10	841-845	were	_	_	_	_	_	_	
+12-11	846-852	taking	_	_	_	_	_	_	
+12-12	853-862	advantage	_	_	_	_	_	_	
+12-13	863-865	of	_	_	_	_	_	_	
 12-14	866-869	all	abstract[60]	new[60]	nnnnn[60]	_	_	_	
 12-15	870-873	the	abstract[60]	new[60]	nnnnn[60]	_	_	_	
 12-16	874-885	attractions	abstract[60]	new[60]	nnnnn[60]	_	_	_	
-12-17	886-887	.	_	_	_	_	_	_	_	_	_	_	_	_
+12-17	886-887	.	_	_	_	_	_	_	
 
 #Text=However , at the same time , less than 2 football fields away at her home , the defendant was leaving , pulling out onto Branshaw Road .
-13-1	888-895	However	_	_	_	_	_	_	_	_	_	_	_	_
-13-2	896-897	,	_	_	_	_	_	_	_	_	_	_	_	_
+13-1	888-895	However	_	_	_	_	_	_	
+13-2	896-897	,	_	_	_	_	_	_	
 13-3	898-900	at	event[61]	acc[61]	nnnnn[61]	_	bridge	15-1[70_61]	
 13-4	901-904	the	event[61]	acc[61]	nnnnn[61]	_	_	_	
 13-5	905-909	same	event[61]	acc[61]	nnnnn[61]	_	_	_	
@@ -221,11 +225,11 @@
 13-12	938-944	fields	event[61]|place[62]	acc[61]|new[62]	nnnnn[61]|nnnnn[62]	_	_	_	
 13-13	945-949	away	event[61]	acc[61]	nnnnn[61]	_	_	_	
 13-14	950-952	at	event[61]	acc[61]	nnnnn[61]	_	_	_	
-13-15	953-956	her	event[61]|place[63]|person[64]	acc[61]|new[63]|giv[64]	nnnnn[61]|nnnnn[63]|snnnn[64]	_	coref|coref	16-19[78_63]|13-18[65_64]	
+13-15	953-956	her	event[61]|place[63]|person[64]	acc[61]|new[63]|giv[64]	nnnnn[61]|nnnnn[63]|sssss[64]	_	coref|coref	16-19[78_63]|13-18[65_64]	
 13-16	957-961	home	event[61]|place[63]	acc[61]|new[63]	nnnnn[61]|nnnnn[63]	_	_	_	
 13-17	962-963	,	event[61]	acc[61]	nnnnn[61]	_	_	_	
-13-18	964-967	the	event[61]|person[65]	acc[61]|new[65]	nnnnn[61]|snnnn[65]	_	coref	16-15[76_65]	
-13-19	968-977	defendant	event[61]|person[65]	acc[61]|new[65]	nnnnn[61]|snnnn[65]	_	_	_	
+13-18	964-967	the	event[61]|person[65]	acc[61]|new[65]	nnnnn[61]|sssss[65]	_	coref	16-15[76_65]	
+13-19	968-977	defendant	event[61]|person[65]	acc[61]|new[65]	nnnnn[61]|sssss[65]	_	_	_	
 13-20	978-981	was	event[61]	acc[61]	nnnnn[61]	_	_	_	
 13-21	982-989	leaving	event[61]	acc[61]	nnnnn[61]	_	_	_	
 13-22	990-991	,	event[61]	acc[61]	nnnnn[61]	_	_	_	
@@ -234,60 +238,60 @@
 13-25	1004-1008	onto	event[61]	acc[61]	nnnnn[61]	_	_	_	
 13-26	1009-1017	Branshaw	event[61]|place[66]	acc[61]|new[66]	nnnnn[61]|nnnnn[66]	_	coref	20-21[129_66]	
 13-27	1018-1022	Road	event[61]|place[66]	acc[61]|new[66]	nnnnn[61]|nnnnn[66]	_	_	_	
-13-28	1023-1024	.	_	_	_	_	_	_	_	_	_	_	_	_
+13-28	1023-1024	.	_	_	_	_	_	_	
 
 #Text=She was also headed to the boat club .
 14-1	1025-1028	She	person[67]	giv[67]	nnnnn[67]	_	coref	17-8[85_67]	
-14-2	1029-1032	was	_	_	_	_	_	_	_	_	_	_	_	_
-14-3	1033-1037	also	_	_	_	_	_	_	_	_	_	_	_	_
-14-4	1038-1044	headed	_	_	_	_	_	_	_	_	_	_	_	_
-14-5	1045-1047	to	_	_	_	_	_	_	_	_	_	_	_	_
-14-6	1048-1051	the	place[68]	giv[68]	nnnnn[68]	_	coref	16-6[74_68]	
-14-7	1052-1056	boat	place[68]|object[69]	giv[68]|new[69]	nnnnn[68]|nnnnn[69]	_	coref	16-8[75_69]	
-14-8	1057-1061	club	place[68]	giv[68]	nnnnn[68]	_	_	_	
-14-9	1062-1063	.	_	_	_	_	_	_	_	_	_	_	_	_
+14-2	1029-1032	was	_	_	_	_	_	_	
+14-3	1033-1037	also	_	_	_	_	_	_	
+14-4	1038-1044	headed	_	_	_	_	_	_	
+14-5	1045-1047	to	_	_	_	_	_	_	
+14-6	1048-1051	the	place[68]	giv[68]	nsnnn[68]	_	coref	16-6[74_68]	
+14-7	1052-1056	boat	place[68]|object[69]	giv[68]|new[69]	nsnnn[68]|nnnnn[69]	_	coref	16-8[75_69]	
+14-8	1057-1061	club	place[68]	giv[68]	nsnnn[68]	_	_	_	
+14-9	1062-1063	.	_	_	_	_	_	_	
 
 #Text=Both of these events are memorialized on camera .
 15-1	1064-1068	Both	event[70]	split[70]	nnnnn[70]	_	_	_	
 15-2	1069-1071	of	event[70]	split[70]	nnnnn[70]	_	_	_	
 15-3	1072-1077	these	event[70]	split[70]	nnnnn[70]	_	_	_	
 15-4	1078-1084	events	event[70]	split[70]	nnnnn[70]	_	_	_	
-15-5	1085-1088	are	_	_	_	_	_	_	_	_	_	_	_	_
-15-6	1089-1101	memorialized	_	_	_	_	_	_	_	_	_	_	_	_
-15-7	1102-1104	on	_	_	_	_	_	_	_	_	_	_	_	_
+15-5	1085-1088	are	_	_	_	_	_	_	
+15-6	1089-1101	memorialized	_	_	_	_	_	_	
+15-7	1102-1104	on	_	_	_	_	_	_	
 15-8	1105-1111	camera	object[71]	new[71]	nnnnn[71]	_	_	_	
-15-9	1112-1113	.	_	_	_	_	_	_	_	_	_	_	_	_
+15-9	1112-1113	.	_	_	_	_	_	_	
 
 #Text=The party was captured on the Swan Boat Club 's security cameras , and the defendant on a home camera mounted above her garage building across the street .
-16-1	1114-1117	The	event[72]	giv[72]	snnnn[72]	_	coref	17-35[96_72]	
-16-2	1118-1123	party	event[72]	giv[72]	snnnn[72]	_	_	_	
-16-3	1124-1127	was	_	_	_	_	_	_	_	_	_	_	_	_
-16-4	1128-1136	captured	_	_	_	_	_	_	_	_	_	_	_	_
-16-5	1137-1139	on	_	_	_	_	_	_	_	_	_	_	_	_
-16-6	1140-1143	the	object[73]|place[74]	new[73]|new[74]	nnnnn[73]|nnnnn[74]	_	coref	19-13[118_74]	
-16-7	1144-1148	Swan	object[73]|place[74]	new[73]|new[74]	nnnnn[73]|nnnnn[74]	_	_	_	
-16-8	1149-1153	Boat	object[73]|place[74]|object[75]	new[73]|new[74]|giv[75]	nnnnn[73]|nnnnn[74]|nnnnn[75]	_	_	_	
-16-9	1154-1158	Club	object[73]|place[74]	new[73]|new[74]	nnnnn[73]|nnnnn[74]	_	_	_	
-16-10	1159-1161	's	object[73]|place[74]	new[73]|new[74]	nnnnn[73]|nnnnn[74]	_	_	_	
+16-1	1114-1117	The	event[72]	giv[72]	sssns[72]	_	coref	17-35[96_72]	
+16-2	1118-1123	party	event[72]	giv[72]	sssns[72]	_	_	_	
+16-3	1124-1127	was	_	_	_	_	_	_	
+16-4	1128-1136	captured	_	_	_	_	_	_	
+16-5	1137-1139	on	_	_	_	_	_	_	
+16-6	1140-1143	the	object[73]|place[74]	new[73]|new[74]	nnnnn[73]|nsnnn[74]	_	coref	19-13[118_74]	
+16-7	1144-1148	Swan	object[73]|place[74]	new[73]|new[74]	nnnnn[73]|nsnnn[74]	_	_	_	
+16-8	1149-1153	Boat	object[73]|place[74]|object[75]	new[73]|new[74]|giv[75]	nnnnn[73]|nsnnn[74]|nnnnn[75]	_	_	_	
+16-9	1154-1158	Club	object[73]|place[74]	new[73]|new[74]	nnnnn[73]|nsnnn[74]	_	_	_	
+16-10	1159-1161	's	object[73]|place[74]	new[73]|new[74]	nnnnn[73]|nsnnn[74]	_	_	_	
 16-11	1162-1170	security	object[73]	new[73]	nnnnn[73]	_	_	_	
 16-12	1171-1178	cameras	object[73]	new[73]	nnnnn[73]	_	_	_	
-16-13	1179-1180	,	_	_	_	_	_	_	_	_	_	_	_	_
-16-14	1181-1184	and	_	_	_	_	_	_	_	_	_	_	_	_
-16-15	1185-1188	the	person[76]	giv[76]	snnnn[76]	_	coref	16-23[80_76]	
-16-16	1189-1198	defendant	person[76]	giv[76]	snnnn[76]	_	_	_	
-16-17	1199-1201	on	_	_	_	_	_	_	_	_	_	_	_	_
+16-13	1179-1180	,	_	_	_	_	_	_	
+16-14	1181-1184	and	_	_	_	_	_	_	
+16-15	1185-1188	the	person[76]	giv[76]	sssss[76]	_	coref	16-23[80_76]	
+16-16	1189-1198	defendant	person[76]	giv[76]	sssss[76]	_	_	_	
+16-17	1199-1201	on	_	_	_	_	_	_	
 16-18	1202-1203	a	object[77]	giv[77]	nnnnn[77]	_	_	_	
 16-19	1204-1208	home	object[77]|place[78]	giv[77]|giv[78]	nnnnn[77]|nnnnn[78]	_	bridge:entity-associative	16-27[81_78]	
 16-20	1209-1215	camera	object[77]	giv[77]	nnnnn[77]	_	_	_	
 16-21	1216-1223	mounted	object[77]	giv[77]	nnnnn[77]	_	_	_	
 16-22	1224-1229	above	object[77]	giv[77]	nnnnn[77]	_	_	_	
-16-23	1230-1233	her	object[77]|place[79]|person[80]	giv[77]|giv[79]|giv[80]	nnnnn[77]|nnnnn[79]|snnnn[80]	_	coref	18-8[101_80]	
+16-23	1230-1233	her	object[77]|place[79]|person[80]	giv[77]|giv[79]|giv[80]	nnnnn[77]|nnnnn[79]|sssss[80]	_	coref	18-8[101_80]	
 16-24	1234-1240	garage	object[77]|place[79]	giv[77]|giv[79]	nnnnn[77]|nnnnn[79]	_	_	_	
 16-25	1241-1249	building	object[77]|place[79]	giv[77]|giv[79]	nnnnn[77]|nnnnn[79]	_	_	_	
 16-26	1250-1256	across	object[77]	giv[77]	nnnnn[77]	_	_	_	
 16-27	1257-1260	the	object[77]|place[81]	giv[77]|acc[81]	nnnnn[77]|nnnnn[81]	_	_	_	
 16-28	1261-1267	street	object[77]|place[81]	giv[77]|acc[81]	nnnnn[77]|nnnnn[81]	_	_	_	
-16-29	1268-1269	.	_	_	_	_	_	_	_	_	_	_	_	_
+16-29	1268-1269	.	_	_	_	_	_	_	
 
 #Text=Mariah Dodds , a longtime friend of Kristen 's , and her three children , Jayden , Zane , and Alanah Phillips had just sat down at a table to enjoy their lunch from the party 's hot dog bar .
 17-1	1270-1276	Mariah	person[82]|person[83]	giv[82]|new[83]	nnnnn[82]|nnnnn[83]	_	coref|coref	17-32[94_82]|17-4[84_83]	
@@ -307,321 +311,321 @@
 17-15	1342-1343	,	person[82]	giv[82]	nnnnn[82]	_	_	_	
 17-16	1344-1350	Jayden	person[82]|person[88]|person[89]	giv[82]|giv[88]|giv[89]	nnnnn[82]|nnnnn[88]|nnnnn[89]	_	coref|coref	20-11[125_88]|23-76[174_89]	
 17-17	1351-1352	,	person[82]|person[88]	giv[82]|giv[88]	nnnnn[82]|nnnnn[88]	_	_	_	
-17-18	1353-1357	Zane	person[82]|person[88]|person[90]|person[91]	giv[82]|giv[88]|new[90]|new[91]	nnnnn[82]|nnnnn[88]|snnnn[90]|nnnnn[91]	_	coref|coref	23-45[156_90]|23-45[157_91]	
-17-19	1358-1359	,	person[82]|person[88]|person[90]	giv[82]|giv[88]|new[90]	nnnnn[82]|nnnnn[88]|snnnn[90]	_	_	_	
-17-20	1360-1363	and	person[82]|person[88]|person[90]	giv[82]|giv[88]|new[90]	nnnnn[82]|nnnnn[88]|snnnn[90]	_	_	_	
-17-21	1364-1370	Alanah	person[82]|person[88]|person[90]|person[92]	giv[82]|giv[88]|new[90]|new[92]	nnnnn[82]|nnnnn[88]|snnnn[90]|nnnnn[92]	_	coref	23-47[158_92]	
-17-22	1371-1379	Phillips	person[82]|person[88]|person[90]|person[92]	giv[82]|giv[88]|new[90]|new[92]	nnnnn[82]|nnnnn[88]|snnnn[90]|nnnnn[92]	_	_	_	
-17-23	1380-1383	had	_	_	_	_	_	_	_	_	_	_	_	_
-17-24	1384-1388	just	_	_	_	_	_	_	_	_	_	_	_	_
-17-25	1389-1392	sat	_	_	_	_	_	_	_	_	_	_	_	_
-17-26	1393-1397	down	_	_	_	_	_	_	_	_	_	_	_	_
-17-27	1398-1400	at	_	_	_	_	_	_	_	_	_	_	_	_
-17-28	1401-1402	a	_	_	_	_	_	_	_	_	_	_	_	_
-17-29	1403-1408	table	_	_	_	_	_	_	_	_	_	_	_	_
-17-30	1409-1411	to	_	_	_	_	_	_	_	_	_	_	_	_
-17-31	1412-1417	enjoy	_	_	_	_	_	_	_	_	_	_	_	_
+17-18	1353-1357	Zane	person[82]|person[88]|person[90]|person[91]	giv[82]|giv[88]|new[90]|new[91]	nnnnn[82]|nnnnn[88]|ssssn[90]|nnnnn[91]	_	coref|coref	23-45[156_90]|23-45[157_91]	
+17-19	1358-1359	,	person[82]|person[88]|person[90]	giv[82]|giv[88]|new[90]	nnnnn[82]|nnnnn[88]|ssssn[90]	_	_	_	
+17-20	1360-1363	and	person[82]|person[88]|person[90]	giv[82]|giv[88]|new[90]	nnnnn[82]|nnnnn[88]|ssssn[90]	_	_	_	
+17-21	1364-1370	Alanah	person[82]|person[88]|person[90]|person[92]	giv[82]|giv[88]|new[90]|new[92]	nnnnn[82]|nnnnn[88]|ssssn[90]|nnsnn[92]	_	coref	23-47[158_92]	
+17-22	1371-1379	Phillips	person[82]|person[88]|person[90]|person[92]	giv[82]|giv[88]|new[90]|new[92]	nnnnn[82]|nnnnn[88]|ssssn[90]|nnsnn[92]	_	_	_	
+17-23	1380-1383	had	_	_	_	_	_	_	
+17-24	1384-1388	just	_	_	_	_	_	_	
+17-25	1389-1392	sat	_	_	_	_	_	_	
+17-26	1393-1397	down	_	_	_	_	_	_	
+17-27	1398-1400	at	_	_	_	_	_	_	
+17-28	1401-1402	a	_	_	_	_	_	_	
+17-29	1403-1408	table	_	_	_	_	_	_	
+17-30	1409-1411	to	_	_	_	_	_	_	
+17-31	1412-1417	enjoy	_	_	_	_	_	_	
 17-32	1418-1423	their	object[93]|person[94]	new[93]|giv[94]	nnnnn[93]|nnnnn[94]	_	coref|coref	18-5[99_93]|18-2[98_94]	
 17-33	1424-1429	lunch	object[93]	new[93]	nnnnn[93]	_	_	_	
-17-34	1430-1434	from	_	_	_	_	_	_	_	_	_	_	_	_
-17-35	1435-1438	the	place[95]|event[96]	giv[95]|giv[96]	nnnnn[95]|snnnn[96]	_	coref|bridge:entity-associative	27-15[207_96]|20-7[123_96]	
-17-36	1439-1444	party	place[95]|event[96]	giv[95]|giv[96]	nnnnn[95]|snnnn[96]	_	_	_	
-17-37	1445-1447	's	place[95]|event[96]	giv[95]|giv[96]	nnnnn[95]|snnnn[96]	_	_	_	
+17-34	1430-1434	from	_	_	_	_	_	_	
+17-35	1435-1438	the	place[95]|event[96]	giv[95]|giv[96]	nnnnn[95]|sssns[96]	_	bridge:entity-associative|coref	20-7[123_96]|27-15[207_96]	
+17-36	1439-1444	party	place[95]|event[96]	giv[95]|giv[96]	nnnnn[95]|sssns[96]	_	_	_	
+17-37	1445-1447	's	place[95]|event[96]	giv[95]|giv[96]	nnnnn[95]|sssns[96]	_	_	_	
 17-38	1448-1451	hot	place[95]|object[97]	giv[95]|giv[97]	nnnnn[95]|nnnnn[97]	_	_	_	
 17-39	1452-1455	dog	place[95]|object[97]	giv[95]|giv[97]	nnnnn[95]|nnnnn[97]	_	_	_	
 17-40	1456-1459	bar	place[95]	giv[95]	nnnnn[95]	_	_	_	
-17-41	1460-1461	.	_	_	_	_	_	_	_	_	_	_	_	_
+17-41	1460-1461	.	_	_	_	_	_	_	
 
 #Text=As they were beginning their meal , the defendant backed out of her driveway , accelerated her car in an arc out of her driveway , crashing into a small tree and then into her neighbor 's full size pickup truck , forcing it through a wooden fence .
-18-1	1462-1464	As	_	_	_	_	_	_	_	_	_	_	_	_
+18-1	1462-1464	As	_	_	_	_	_	_	
 18-2	1465-1469	they	person[98]	giv[98]	nnnnn[98]	_	coref	18-5[100_98]	
-18-3	1470-1474	were	_	_	_	_	_	_	_	_	_	_	_	_
-18-4	1475-1484	beginning	_	_	_	_	_	_	_	_	_	_	_	_
+18-3	1470-1474	were	_	_	_	_	_	_	
+18-4	1475-1484	beginning	_	_	_	_	_	_	
 18-5	1485-1490	their	object[99]|person[100]	new[99]|giv[100]	nnnnn[99]|nnnnn[100]	_	_	_	
 18-6	1491-1495	meal	object[99]	new[99]	nnnnn[99]	_	_	_	
-18-7	1496-1497	,	_	_	_	_	_	_	_	_	_	_	_	_
-18-8	1498-1501	the	person[101]	giv[101]	snnnn[101]	_	coref	18-13[103_101]	
-18-9	1502-1511	defendant	person[101]	giv[101]	snnnn[101]	_	_	_	
-18-10	1512-1518	backed	_	_	_	_	_	_	_	_	_	_	_	_
-18-11	1519-1522	out	_	_	_	_	_	_	_	_	_	_	_	_
-18-12	1523-1525	of	_	_	_	_	_	_	_	_	_	_	_	_
-18-13	1526-1529	her	place[102]|person[103]	new[102]|giv[103]	nnnnn[102]|snnnn[103]	_	coref|coref	18-24[107_102]|18-17[105_103]	
+18-7	1496-1497	,	_	_	_	_	_	_	
+18-8	1498-1501	the	person[101]	giv[101]	sssss[101]	_	coref	18-13[103_101]	
+18-9	1502-1511	defendant	person[101]	giv[101]	sssss[101]	_	_	_	
+18-10	1512-1518	backed	_	_	_	_	_	_	
+18-11	1519-1522	out	_	_	_	_	_	_	
+18-12	1523-1525	of	_	_	_	_	_	_	
+18-13	1526-1529	her	place[102]|person[103]	new[102]|giv[103]	nnnnn[102]|sssss[103]	_	coref|coref	18-24[107_102]|18-17[105_103]	
 18-14	1530-1538	driveway	place[102]	new[102]	nnnnn[102]	_	_	_	
-18-15	1539-1540	,	_	_	_	_	_	_	_	_	_	_	_	_
-18-16	1541-1552	accelerated	_	_	_	_	_	_	_	_	_	_	_	_
-18-17	1553-1556	her	object[104]|person[105]	new[104]|giv[105]	snnnn[104]|snnnn[105]	_	coref|coref	19-5[116_104]|18-24[108_105]	
-18-18	1557-1560	car	object[104]	new[104]	snnnn[104]	_	_	_	
-18-19	1561-1563	in	_	_	_	_	_	_	_	_	_	_	_	_
+18-15	1539-1540	,	_	_	_	_	_	_	
+18-16	1541-1552	accelerated	_	_	_	_	_	_	
+18-17	1553-1556	her	object[104]|person[105]	new[104]|giv[105]	sssss[104]|sssss[105]	_	coref|coref	19-5[116_104]|18-24[108_105]	
+18-18	1557-1560	car	object[104]	new[104]	sssss[104]	_	_	_	
+18-19	1561-1563	in	_	_	_	_	_	_	
 18-20	1564-1566	an	abstract[106]	new[106]	nnnnn[106]	_	_	_	
 18-21	1567-1570	arc	abstract[106]	new[106]	nnnnn[106]	_	_	_	
-18-22	1571-1574	out	_	_	_	_	_	_	_	_	_	_	_	_
-18-23	1575-1577	of	_	_	_	_	_	_	_	_	_	_	_	_
-18-24	1578-1581	her	place[107]|person[108]	giv[107]|giv[108]	nnnnn[107]|snnnn[108]	_	coref	18-35[112_108]	
+18-22	1571-1574	out	_	_	_	_	_	_	
+18-23	1575-1577	of	_	_	_	_	_	_	
+18-24	1578-1581	her	place[107]|person[108]	giv[107]|giv[108]	nnnnn[107]|sssss[108]	_	coref	18-35[112_108]	
 18-25	1582-1590	driveway	place[107]	giv[107]	nnnnn[107]	_	_	_	
-18-26	1591-1592	,	_	_	_	_	_	_	_	_	_	_	_	_
-18-27	1593-1601	crashing	_	_	_	_	_	_	_	_	_	_	_	_
-18-28	1602-1606	into	_	_	_	_	_	_	_	_	_	_	_	_
+18-26	1591-1592	,	_	_	_	_	_	_	
+18-27	1593-1601	crashing	_	_	_	_	_	_	
+18-28	1602-1606	into	_	_	_	_	_	_	
 18-29	1607-1608	a	plant[109]	new[109]	nnnnn[109]	_	_	_	
 18-30	1609-1614	small	plant[109]	new[109]	nnnnn[109]	_	_	_	
 18-31	1615-1619	tree	plant[109]	new[109]	nnnnn[109]	_	_	_	
-18-32	1620-1623	and	_	_	_	_	_	_	_	_	_	_	_	_
-18-33	1624-1628	then	_	_	_	_	_	_	_	_	_	_	_	_
-18-34	1629-1633	into	_	_	_	_	_	_	_	_	_	_	_	_
-18-35	1634-1637	her	object[110]|person[111]|person[112]	new[110]|new[111]|giv[112]	nnnnn[110]|nnnnn[111]|snnnn[112]	_	coref|coref	18-44[113_110]|19-1[115_112]	
+18-32	1620-1623	and	_	_	_	_	_	_	
+18-33	1624-1628	then	_	_	_	_	_	_	
+18-34	1629-1633	into	_	_	_	_	_	_	
+18-35	1634-1637	her	object[110]|person[111]|person[112]	new[110]|new[111]|giv[112]	nnnnn[110]|nnnnn[111]|sssss[112]	_	coref|coref	18-44[113_110]|19-1[115_112]	
 18-36	1638-1646	neighbor	object[110]|person[111]	new[110]|new[111]	nnnnn[110]|nnnnn[111]	_	_	_	
 18-37	1647-1649	's	object[110]|person[111]	new[110]|new[111]	nnnnn[110]|nnnnn[111]	_	_	_	
 18-38	1650-1654	full	object[110]	new[110]	nnnnn[110]	_	_	_	
 18-39	1655-1659	size	object[110]	new[110]	nnnnn[110]	_	_	_	
 18-40	1660-1666	pickup	object[110]	new[110]	nnnnn[110]	_	_	_	
 18-41	1667-1672	truck	object[110]	new[110]	nnnnn[110]	_	_	_	
-18-42	1673-1674	,	_	_	_	_	_	_	_	_	_	_	_	_
-18-43	1675-1682	forcing	_	_	_	_	_	_	_	_	_	_	_	_
+18-42	1673-1674	,	_	_	_	_	_	_	
+18-43	1675-1682	forcing	_	_	_	_	_	_	
 18-44	1683-1685	it	object[113]	giv[113]	nnnnn[113]	_	_	_	
-18-45	1686-1693	through	_	_	_	_	_	_	_	_	_	_	_	_
+18-45	1686-1693	through	_	_	_	_	_	_	
 18-46	1694-1695	a	object[114]	new[114]	nnnnn[114]	_	_	_	
 18-47	1696-1702	wooden	object[114]	new[114]	nnnnn[114]	_	_	_	
 18-48	1703-1708	fence	object[114]	new[114]	nnnnn[114]	_	_	_	
-18-49	1709-1710	.	_	_	_	_	_	_	_	_	_	_	_	_
+18-49	1709-1710	.	_	_	_	_	_	_	
 
 #Text=The defendant then places her car in drive and speeds off toward the boat club , just 4 houses down .
-19-1	1711-1714	The	person[115]	giv[115]	snnnn[115]	_	coref	19-5[117_115]	
-19-2	1715-1724	defendant	person[115]	giv[115]	snnnn[115]	_	_	_	
-19-3	1725-1729	then	_	_	_	_	_	_	_	_	_	_	_	_
-19-4	1730-1736	places	_	_	_	_	_	_	_	_	_	_	_	_
-19-5	1737-1740	her	object[116]|person[117]	giv[116]|giv[117]	snnnn[116]|snnnn[117]	_	coref|bridge:entity-associative|coref	40-35[295_116]|28-12[211_116]|20-14[127_117]	
-19-6	1741-1744	car	object[116]	giv[116]	snnnn[116]	_	_	_	
-19-7	1745-1747	in	_	_	_	_	_	_	_	_	_	_	_	_
-19-8	1748-1753	drive	_	_	_	_	_	_	_	_	_	_	_	_
-19-9	1754-1757	and	_	_	_	_	_	_	_	_	_	_	_	_
-19-10	1758-1764	speeds	_	_	_	_	_	_	_	_	_	_	_	_
-19-11	1765-1768	off	_	_	_	_	_	_	_	_	_	_	_	_
-19-12	1769-1775	toward	_	_	_	_	_	_	_	_	_	_	_	_
-19-13	1776-1779	the	place[118]	giv[118]	nnnnn[118]	_	coref	20-30[132_118]	
-19-14	1780-1784	boat	place[118]|object[119]	giv[118]|new[119]	nnnnn[118]|nnnnn[119]	_	coref	27-11[206_119]	
-19-15	1785-1789	club	place[118]	giv[118]	nnnnn[118]	_	_	_	
-19-16	1790-1791	,	_	_	_	_	_	_	_	_	_	_	_	_
-19-17	1792-1796	just	_	_	_	_	_	_	_	_	_	_	_	_
+19-1	1711-1714	The	person[115]	giv[115]	sssss[115]	_	coref	19-5[117_115]	
+19-2	1715-1724	defendant	person[115]	giv[115]	sssss[115]	_	_	_	
+19-3	1725-1729	then	_	_	_	_	_	_	
+19-4	1730-1736	places	_	_	_	_	_	_	
+19-5	1737-1740	her	object[116]|person[117]	giv[116]|giv[117]	sssss[116]|sssss[117]	_	bridge:entity-associative|coref|coref	28-12[211_116]|40-35[295_116]|20-14[127_117]	
+19-6	1741-1744	car	object[116]	giv[116]	sssss[116]	_	_	_	
+19-7	1745-1747	in	_	_	_	_	_	_	
+19-8	1748-1753	drive	_	_	_	_	_	_	
+19-9	1754-1757	and	_	_	_	_	_	_	
+19-10	1758-1764	speeds	_	_	_	_	_	_	
+19-11	1765-1768	off	_	_	_	_	_	_	
+19-12	1769-1775	toward	_	_	_	_	_	_	
+19-13	1776-1779	the	place[118]	giv[118]	nsnnn[118]	_	coref	20-30[132_118]	
+19-14	1780-1784	boat	place[118]|object[119]	giv[118]|new[119]	nsnnn[118]|nnnnn[119]	_	coref	27-11[206_119]	
+19-15	1785-1789	club	place[118]	giv[118]	nsnnn[118]	_	_	_	
+19-16	1790-1791	,	_	_	_	_	_	_	
+19-17	1792-1796	just	_	_	_	_	_	_	
 19-18	1797-1798	4	place[120]	new[120]	nnnnn[120]	_	_	_	
 19-19	1799-1805	houses	place[120]	new[120]	nnnnn[120]	_	_	_	
-19-20	1806-1810	down	_	_	_	_	_	_	_	_	_	_	_	_
-19-21	1811-1812	.	_	_	_	_	_	_	_	_	_	_	_	_
+19-20	1806-1810	down	_	_	_	_	_	_	
+19-21	1811-1812	.	_	_	_	_	_	_	
 
 #Text=As Mariah grabs cake pops at the dessert station for her kids , the defendant barrels at full speed down Branshaw Road and makes a right turn into the club parking lot .
-20-1	1813-1815	As	_	_	_	_	_	_	_	_	_	_	_	_
+20-1	1813-1815	As	_	_	_	_	_	_	
 20-2	1816-1822	Mariah	person[121]	giv[121]	nnnnn[121]	_	coref	20-11[126_121]	
-20-3	1823-1828	grabs	_	_	_	_	_	_	_	_	_	_	_	_
+20-3	1823-1828	grabs	_	_	_	_	_	_	
 20-4	1829-1833	cake	object[122]	new[122]	nnnnn[122]	_	_	_	
 20-5	1834-1838	pops	object[122]	new[122]	nnnnn[122]	_	_	_	
-20-6	1839-1841	at	_	_	_	_	_	_	_	_	_	_	_	_
+20-6	1839-1841	at	_	_	_	_	_	_	
 20-7	1842-1845	the	place[123]	acc[123]	nnnnn[123]	_	_	_	
 20-8	1846-1853	dessert	place[123]|object[124]	acc[123]|new[124]	nnnnn[123]|nnnnn[124]	_	_	_	
 20-9	1854-1861	station	place[123]	acc[123]	nnnnn[123]	_	_	_	
-20-10	1862-1865	for	_	_	_	_	_	_	_	_	_	_	_	_
+20-10	1862-1865	for	_	_	_	_	_	_	
 20-11	1866-1869	her	person[125]|person[126]	giv[125]|giv[126]	nnnnn[125]|nnnnn[126]	_	coref	23-69[169_126]	
 20-12	1870-1874	kids	person[125]	giv[125]	nnnnn[125]	_	_	_	
-20-13	1875-1876	,	_	_	_	_	_	_	_	_	_	_	_	_
-20-14	1877-1880	the	person[127]	giv[127]	snnnn[127]	_	coref	23-28[151_127]	
-20-15	1881-1890	defendant	person[127]	giv[127]	snnnn[127]	_	_	_	
-20-16	1891-1898	barrels	_	_	_	_	_	_	_	_	_	_	_	_
-20-17	1899-1901	at	_	_	_	_	_	_	_	_	_	_	_	_
+20-13	1875-1876	,	_	_	_	_	_	_	
+20-14	1877-1880	the	person[127]	giv[127]	sssss[127]	_	coref	23-28[151_127]	
+20-15	1881-1890	defendant	person[127]	giv[127]	sssss[127]	_	_	_	
+20-16	1891-1898	barrels	_	_	_	_	_	_	
+20-17	1899-1901	at	_	_	_	_	_	_	
 20-18	1902-1906	full	abstract[128]	new[128]	nnnnn[128]	_	_	_	
 20-19	1907-1912	speed	abstract[128]	new[128]	nnnnn[128]	_	_	_	
-20-20	1913-1917	down	_	_	_	_	_	_	_	_	_	_	_	_
+20-20	1913-1917	down	_	_	_	_	_	_	
 20-21	1918-1926	Branshaw	place[129]	giv[129]	nnnnn[129]	_	_	_	
 20-22	1927-1931	Road	place[129]	giv[129]	nnnnn[129]	_	_	_	
-20-23	1932-1935	and	_	_	_	_	_	_	_	_	_	_	_	_
-20-24	1936-1941	makes	_	_	_	_	_	_	_	_	_	_	_	_
+20-23	1932-1935	and	_	_	_	_	_	_	
+20-24	1936-1941	makes	_	_	_	_	_	_	
 20-25	1942-1943	a	event[130]	new[130]	nnnnn[130]	_	_	_	
 20-26	1944-1949	right	event[130]	new[130]	nnnnn[130]	_	_	_	
 20-27	1950-1954	turn	event[130]	new[130]	nnnnn[130]	_	_	_	
 20-28	1955-1959	into	event[130]	new[130]	nnnnn[130]	_	_	_	
 20-29	1960-1963	the	event[130]|place[131]	new[130]|new[131]	nnnnn[130]|nnnnn[131]	_	_	_	
-20-30	1964-1968	club	event[130]|place[131]|place[132]	new[130]|new[131]|giv[132]	nnnnn[130]|nnnnn[131]|nnnnn[132]	_	coref	27-11[205_132]	
+20-30	1964-1968	club	event[130]|place[131]|place[132]	new[130]|new[131]|giv[132]	nnnnn[130]|nnnnn[131]|nsnnn[132]	_	coref	27-11[205_132]	
 20-31	1969-1976	parking	event[130]|place[131]	new[130]|new[131]	nnnnn[130]|nnnnn[131]	_	_	_	
 20-32	1977-1980	lot	event[130]|place[131]	new[130]|new[131]	nnnnn[130]|nnnnn[131]	_	_	_	
-20-33	1981-1982	.	_	_	_	_	_	_	_	_	_	_	_	_
+20-33	1981-1982	.	_	_	_	_	_	_	
 
 #Text=Ladies and gentlemen , my name is Ken Lorraine .
-21-1	1983-1989	Ladies	person[133]|person[134]	giv[133]|new[134]	snnnn[133]|nnnnn[134]	_	coref	23-18[148_133]	
-21-2	1990-1993	and	person[133]	giv[133]	snnnn[133]	_	_	_	
-21-3	1994-2003	gentlemen	person[133]|person[135]	giv[133]|giv[135]	snnnn[133]|nnnnn[135]	_	_	_	
-21-4	2004-2005	,	_	_	_	_	_	_	_	_	_	_	_	_
-21-5	2006-2008	my	abstract[136]|person[137]	new[136]|giv[137]	nnnnn[136]|snnnn[137]	_	coref	21-8[138_137]	
+21-1	1983-1989	Ladies	person[133]|person[134]	giv[133]|new[134]	ssnnn[133]|nnnnn[134]	_	coref	23-18[148_133]	
+21-2	1990-1993	and	person[133]	giv[133]	ssnnn[133]	_	_	_	
+21-3	1994-2003	gentlemen	person[133]|person[135]	giv[133]|giv[135]	ssnnn[133]|nnnnn[135]	_	_	_	
+21-4	2004-2005	,	_	_	_	_	_	_	
+21-5	2006-2008	my	abstract[136]|person[137]	new[136]|giv[137]	nnnnn[136]|sssss[137]	_	coref	21-8[138_137]	
 21-6	2009-2013	name	abstract[136]	new[136]	nnnnn[136]	_	_	_	
-21-7	2014-2016	is	_	_	_	_	_	_	_	_	_	_	_	_
-21-8	2017-2020	Ken	person[138]	giv[138]	snnnn[138]	_	coref	22-1[139_138]	
-21-9	2021-2029	Lorraine	person[138]	giv[138]	snnnn[138]	_	_	_	
-21-10	2030-2031	.	_	_	_	_	_	_	_	_	_	_	_	_
+21-7	2014-2016	is	_	_	_	_	_	_	
+21-8	2017-2020	Ken	person[138]	giv[138]	sssss[138]	_	coref	22-1[139_138]	
+21-9	2021-2029	Lorraine	person[138]	giv[138]	sssss[138]	_	_	_	
+21-10	2030-2031	.	_	_	_	_	_	_	
 
 #Text=I 'm an assistant prosecutor for the County of Monroe .
-22-1	2032-2033	I	person[139]	giv[139]	snnnn[139]	_	coref	22-3[140_139]	
-22-2	2034-2036	'm	_	_	_	_	_	_	_	_	_	_	_	_
-22-3	2037-2039	an	person[140]	giv[140]	snnnn[140]	_	coref	23-3[143_140]	
-22-4	2040-2049	assistant	person[140]	giv[140]	snnnn[140]	_	_	_	
-22-5	2050-2060	prosecutor	person[140]	giv[140]	snnnn[140]	_	_	_	
-22-6	2061-2064	for	person[140]	giv[140]	snnnn[140]	_	_	_	
-22-7	2065-2068	the	person[140]|place[141]	giv[140]|new[141]	snnnn[140]|snnnn[141]	Monroe_County,_Michigan[141]	coref	34-13[253_141]	
-22-8	2069-2075	County	person[140]|place[141]	giv[140]|new[141]	snnnn[140]|snnnn[141]	Monroe_County,_Michigan[141]	_	_	
-22-9	2076-2078	of	person[140]|place[141]	giv[140]|new[141]	snnnn[140]|snnnn[141]	Monroe_County,_Michigan[141]	_	_	
-22-10	2079-2085	Monroe	person[140]|place[141]	giv[140]|new[141]	snnnn[140]|snnnn[141]	Monroe_County,_Michigan[141]	_	_	
-22-11	2086-2087	.	_	_	_	_	_	_	_	_	_	_	_	_
+22-1	2032-2033	I	person[139]	giv[139]	sssss[139]	_	coref	22-3[140_139]	
+22-2	2034-2036	'm	_	_	_	_	_	_	
+22-3	2037-2039	an	person[140]	giv[140]	sssss[140]	_	coref	23-3[143_140]	
+22-4	2040-2049	assistant	person[140]	giv[140]	sssss[140]	_	_	_	
+22-5	2050-2060	prosecutor	person[140]	giv[140]	sssss[140]	_	_	_	
+22-6	2061-2064	for	person[140]	giv[140]	sssss[140]	_	_	_	
+22-7	2065-2068	the	person[140]|place[141]	giv[140]|new[141]	sssss[140]|snnnn[141]	Monroe_County,_Michigan[141]	coref	34-13[253_141]	
+22-8	2069-2075	County	person[140]|place[141]	giv[140]|new[141]	sssss[140]|snnnn[141]	Monroe_County,_Michigan[141]	_	_	
+22-9	2076-2078	of	person[140]|place[141]	giv[140]|new[141]	sssss[140]|snnnn[141]	Monroe_County,_Michigan[141]	_	_	
+22-10	2079-2085	Monroe	person[140]|place[141]	giv[140]|new[141]	sssss[140]|snnnn[141]	Monroe_County,_Michigan[141]	_	_	
+22-11	2086-2087	.	_	_	_	_	_	_	
 
 #Text=Along with my fellow assistant prosecutors , Christopher Marriott and Alexis Hatch , we will prove to you over the course of the next several days that defendant 's actions in this case make her guilty of the charges of second degree murder for Zane and Alanah Phillips , OWI causing death for Zane and Alanah Phillips , and OWI causing serious impairment of a body function for Zane and Alanah 's mom Mariah , their brother Jayden , and for Ed Smothers , Leah Stith , and Diane Medina .
-23-1	2088-2093	Along	_	_	_	_	_	_	_	_	_	_	_	_
-23-2	2094-2098	with	_	_	_	_	_	_	_	_	_	_	_	_
-23-3	2099-2101	my	person[142]|person[143]	new[142]|giv[143]	nnnnn[142]|snnnn[143]	_	coref|coref|bridge	23-8[144_142]|24-1[179_143]|23-14[147_143]	
+23-1	2088-2093	Along	_	_	_	_	_	_	
+23-2	2094-2098	with	_	_	_	_	_	_	
+23-3	2099-2101	my	person[142]|person[143]	new[142]|giv[143]	nnnnn[142]|sssss[143]	_	coref|bridge|coref	23-8[144_142]|23-14[147_143]|24-1[179_143]	
 23-4	2102-2108	fellow	person[142]	new[142]	nnnnn[142]	_	_	_	
 23-5	2109-2118	assistant	person[142]	new[142]	nnnnn[142]	_	_	_	
 23-6	2119-2130	prosecutors	person[142]	new[142]	nnnnn[142]	_	_	_	
-23-7	2131-2132	,	_	_	_	_	_	_	_	_	_	_	_	_
+23-7	2131-2132	,	_	_	_	_	_	_	
 23-8	2133-2144	Christopher	person[144]|person[145]	giv[144]|giv[145]	nnnnn[144]|nnnnn[145]	_	bridge	23-14[147_144]	
 23-9	2145-2153	Marriott	person[144]|person[145]	giv[144]|giv[145]	nnnnn[144]|nnnnn[145]	_	_	_	
 23-10	2154-2157	and	person[144]	giv[144]	nnnnn[144]	_	_	_	
 23-11	2158-2164	Alexis	person[144]|person[146]	giv[144]|giv[146]	nnnnn[144]|nnnnn[146]	_	_	_	
 23-12	2165-2170	Hatch	person[144]|person[146]	giv[144]|giv[146]	nnnnn[144]|nnnnn[146]	_	_	_	
-23-13	2171-2172	,	_	_	_	_	_	_	_	_	_	_	_	_
+23-13	2171-2172	,	_	_	_	_	_	_	
 23-14	2173-2175	we	person[147]	split[147]	nnnnn[147]	_	coref	26-11[195_147]	
-23-15	2176-2180	will	_	_	_	_	_	_	_	_	_	_	_	_
-23-16	2181-2186	prove	_	_	_	_	_	_	_	_	_	_	_	_
-23-17	2187-2189	to	_	_	_	_	_	_	_	_	_	_	_	_
-23-18	2190-2193	you	person[148]	giv[148]	snnnn[148]	_	coref	25-32[190_148]	
-23-19	2194-2198	over	_	_	_	_	_	_	_	_	_	_	_	_
-23-20	2199-2202	the	_	_	_	_	_	_	_	_	_	_	_	_
-23-21	2203-2209	course	_	_	_	_	_	_	_	_	_	_	_	_
-23-22	2210-2212	of	_	_	_	_	_	_	_	_	_	_	_	_
+23-15	2176-2180	will	_	_	_	_	_	_	
+23-16	2181-2186	prove	_	_	_	_	_	_	
+23-17	2187-2189	to	_	_	_	_	_	_	
+23-18	2190-2193	you	person[148]	giv[148]	ssnnn[148]	_	coref	25-32[190_148]	
+23-19	2194-2198	over	_	_	_	_	_	_	
+23-20	2199-2202	the	_	_	_	_	_	_	
+23-21	2203-2209	course	_	_	_	_	_	_	
+23-22	2210-2212	of	_	_	_	_	_	_	
 23-23	2213-2216	the	time[149]	acc[149]	nnnnn[149]	_	coref	44-42[332_149]	
 23-24	2217-2221	next	time[149]	acc[149]	nnnnn[149]	_	_	_	
 23-25	2222-2229	several	time[149]	acc[149]	nnnnn[149]	_	_	_	
 23-26	2230-2234	days	time[149]	acc[149]	nnnnn[149]	_	_	_	
-23-27	2235-2239	that	_	_	_	_	_	_	_	_	_	_	_	_
-23-28	2240-2249	defendant	event[150]|person[151]	new[150]|giv[151]	nnnnn[150]|snnnn[151]	_	coref	23-35[153_151]	
-23-29	2250-2252	's	event[150]|person[151]	new[150]|giv[151]	nnnnn[150]|snnnn[151]	_	_	_	
+23-27	2235-2239	that	_	_	_	_	_	_	
+23-28	2240-2249	defendant	event[150]|person[151]	new[150]|giv[151]	nnnnn[150]|sssss[151]	_	coref	23-35[153_151]	
+23-29	2250-2252	's	event[150]|person[151]	new[150]|giv[151]	nnnnn[150]|sssss[151]	_	_	_	
 23-30	2253-2260	actions	event[150]	new[150]	nnnnn[150]	_	_	_	
 23-31	2261-2263	in	event[150]	new[150]	nnnnn[150]	_	_	_	
-23-32	2264-2268	this	event[150]|abstract[152]	new[150]|acc[152]	nnnnn[150]|nnnnn[152]	_	coref|bridge:entity-associative	26-16[196_152]|25-5[182_152]	
+23-32	2264-2268	this	event[150]|abstract[152]	new[150]|acc[152]	nnnnn[150]|nnnnn[152]	_	bridge:entity-associative|coref	25-5[182_152]|26-16[196_152]	
 23-33	2269-2273	case	event[150]|abstract[152]	new[150]|acc[152]	nnnnn[150]|nnnnn[152]	_	_	_	
-23-34	2274-2278	make	_	_	_	_	_	_	_	_	_	_	_	_
-23-35	2279-2282	her	person[153]	giv[153]	snnnn[153]	_	coref	28-31[215_153]	
-23-36	2283-2289	guilty	_	_	_	_	_	_	_	_	_	_	_	_
-23-37	2290-2292	of	_	_	_	_	_	_	_	_	_	_	_	_
-23-38	2293-2296	the	abstract[154]	new[154]	nnnnn[154]	_	_	_	
-23-39	2297-2304	charges	abstract[154]	new[154]	nnnnn[154]	_	_	_	
-23-40	2305-2307	of	abstract[154]	new[154]	nnnnn[154]	_	_	_	
-23-41	2308-2314	second	abstract[154]|event[155]	new[154]|new[155]	nnnnn[154]|nnnnn[155]	_	_	_	
-23-42	2315-2321	degree	abstract[154]|event[155]	new[154]|new[155]	nnnnn[154]|nnnnn[155]	_	_	_	
-23-43	2322-2328	murder	abstract[154]|event[155]	new[154]|new[155]	nnnnn[154]|nnnnn[155]	_	_	_	
-23-44	2329-2332	for	_	_	_	_	_	_	_	_	_	_	_	_
-23-45	2333-2337	Zane	person[156]|person[157]	giv[156]|giv[157]	snnnn[156]|nnnnn[157]	_	coref|coref	23-54[161_156]|23-54[162_157]	
-23-46	2338-2341	and	person[156]	giv[156]	snnnn[156]	_	_	_	
-23-47	2342-2348	Alanah	person[156]|person[158]	giv[156]|giv[158]	snnnn[156]|nnnnn[158]	_	coref	23-56[163_158]	
-23-48	2349-2357	Phillips	person[156]|person[158]	giv[156]|giv[158]	snnnn[156]|nnnnn[158]	_	_	_	
-23-49	2358-2359	,	_	_	_	_	_	_	_	_	_	_	_	_
-23-50	2360-2363	OWI	event[159]	new[159]	nnnnn[159]	_	coref	54-3[402_159]	
-23-51	2364-2371	causing	event[159]	new[159]	nnnnn[159]	_	_	_	
-23-52	2372-2377	death	event[159]|event[160]	new[159]|new[160]	nnnnn[159]|snnnn[160]	_	coref	54-11[403_160]	
-23-53	2378-2381	for	_	_	_	_	_	_	_	_	_	_	_	_
-23-54	2382-2386	Zane	person[161]|person[162]	giv[161]|giv[162]	snnnn[161]|nnnnn[162]	_	coref|coref	23-69[170_161]|23-69[171_162]	
-23-55	2387-2390	and	person[161]	giv[161]	snnnn[161]	_	_	_	
-23-56	2391-2397	Alanah	person[161]|person[163]	giv[161]|giv[163]	snnnn[161]|nnnnn[163]	_	coref	23-71[172_163]	
-23-57	2398-2406	Phillips	person[161]|person[163]	giv[161]|giv[163]	snnnn[161]|nnnnn[163]	_	_	_	
-23-58	2407-2408	,	_	_	_	_	_	_	_	_	_	_	_	_
-23-59	2409-2412	and	_	_	_	_	_	_	_	_	_	_	_	_
-23-60	2413-2416	OWI	event[164]	new[164]	nnnnn[164]	_	coref	47-17[342_164]	
-23-61	2417-2424	causing	event[164]	new[164]	nnnnn[164]	_	_	_	
-23-62	2425-2432	serious	event[164]|event[165]	new[164]|new[165]	nnnnn[164]|nnnnn[165]	_	coref	47-19[343_165]	
-23-63	2433-2443	impairment	event[164]|event[165]	new[164]|new[165]	nnnnn[164]|nnnnn[165]	_	_	_	
-23-64	2444-2446	of	event[164]|event[165]	new[164]|new[165]	nnnnn[164]|nnnnn[165]	_	_	_	
-23-65	2447-2448	a	event[164]|event[165]|abstract[166]	new[164]|new[165]|new[166]	nnnnn[164]|nnnnn[165]|nnnnn[166]	_	coref	47-22[344_166]	
-23-66	2449-2453	body	event[164]|event[165]|abstract[166]|object[167]	new[164]|new[165]|new[166]|new[167]	nnnnn[164]|nnnnn[165]|nnnnn[166]|nnnnn[167]	_	coref	47-23[345_167]	
-23-67	2454-2462	function	event[164]|event[165]|abstract[166]	new[164]|new[165]|new[166]	nnnnn[164]|nnnnn[165]|nnnnn[166]	_	_	_	
-23-68	2463-2466	for	_	_	_	_	_	_	_	_	_	_	_	_
-23-69	2467-2471	Zane	person[168]|person[169]|person[170]|person[171]	new[168]|giv[169]|giv[170]|giv[171]	snnnn[168]|nnnnn[169]|snnnn[170]|nnnnn[171]	_	coref|coref|coref|coref	53-22[401_168]|23-74[173_169]|23-76[175_170]|54-16[405_171]	
-23-70	2472-2475	and	person[168]|person[169]|person[170]	new[168]|giv[169]|giv[170]	snnnn[168]|nnnnn[169]|snnnn[170]	_	_	_	
-23-71	2476-2482	Alanah	person[168]|person[169]|person[170]|person[172]	new[168]|giv[169]|giv[170]|giv[172]	snnnn[168]|nnnnn[169]|snnnn[170]|nnnnn[172]	_	coref	54-18[406_172]	
-23-72	2483-2485	's	person[168]|person[169]|person[170]|person[172]	new[168]|giv[169]|giv[170]|giv[172]	snnnn[168]|nnnnn[169]|snnnn[170]|nnnnn[172]	_	_	_	
-23-73	2486-2489	mom	person[168]|person[169]	new[168]|giv[169]	snnnn[168]|nnnnn[169]	_	_	_	
-23-74	2490-2496	Mariah	person[168]|person[173]	new[168]|giv[173]	snnnn[168]|nnnnn[173]	_	coref	42-13[309_173]	
-23-75	2497-2498	,	person[168]	new[168]	snnnn[168]	_	_	_	
-23-76	2499-2504	their	person[168]|person[174]|person[175]	new[168]|giv[174]|giv[175]	snnnn[168]|nnnnn[174]|snnnn[175]	_	_	_	
-23-77	2505-2512	brother	person[168]|person[174]	new[168]|giv[174]	snnnn[168]|nnnnn[174]	_	_	_	
-23-78	2513-2519	Jayden	person[168]|person[174]	new[168]|giv[174]	snnnn[168]|nnnnn[174]	_	_	_	
-23-79	2520-2521	,	person[168]	new[168]	snnnn[168]	_	_	_	
-23-80	2522-2525	and	person[168]	new[168]	snnnn[168]	_	_	_	
-23-81	2526-2529	for	person[168]	new[168]	snnnn[168]	_	_	_	
-23-82	2530-2532	Ed	person[168]|person[176]	new[168]|new[176]	snnnn[168]|nnnnn[176]	_	coref	42-15[310_176]	
-23-83	2533-2541	Smothers	person[168]|person[176]	new[168]|new[176]	snnnn[168]|nnnnn[176]	_	_	_	
-23-84	2542-2543	,	person[168]	new[168]	snnnn[168]	_	_	_	
-23-85	2544-2548	Leah	person[168]|person[177]	new[168]|new[177]	snnnn[168]|nnnnn[177]	_	coref	42-17[311_177]	
-23-86	2549-2554	Stith	person[168]|person[177]	new[168]|new[177]	snnnn[168]|nnnnn[177]	_	_	_	
-23-87	2555-2556	,	person[168]	new[168]	snnnn[168]	_	_	_	
-23-88	2557-2560	and	person[168]	new[168]	snnnn[168]	_	_	_	
-23-89	2561-2566	Diane	person[168]|person[178]	new[168]|new[178]	snnnn[168]|nnnnn[178]	_	coref	42-20[312_178]	
-23-90	2567-2573	Medina	person[168]|person[178]	new[168]|new[178]	snnnn[168]|nnnnn[178]	_	_	_	
-23-91	2574-2575	.	_	_	_	_	_	_	_	_	_	_	_	_
+23-34	2274-2278	make	_	_	_	_	_	_	
+23-35	2279-2282	her	person[153]	giv[153]	sssss[153]	_	coref	28-31[215_153]	
+23-36	2283-2289	guilty	_	_	_	_	_	_	
+23-37	2290-2292	of	_	_	_	_	_	_	
+23-38	2293-2296	the	abstract[154]	new[154]	nnnns[154]	_	_	_	
+23-39	2297-2304	charges	abstract[154]	new[154]	nnnns[154]	_	_	_	
+23-40	2305-2307	of	abstract[154]	new[154]	nnnns[154]	_	_	_	
+23-41	2308-2314	second	abstract[154]|event[155]	new[154]|new[155]	nnnns[154]|nssss[155]	_	_	_	
+23-42	2315-2321	degree	abstract[154]|event[155]	new[154]|new[155]	nnnns[154]|nssss[155]	_	_	_	
+23-43	2322-2328	murder	abstract[154]|event[155]	new[154]|new[155]	nnnns[154]|nssss[155]	_	_	_	
+23-44	2329-2332	for	_	_	_	_	_	_	
+23-45	2333-2337	Zane	person[156]|person[157]	giv[156]|giv[157]	ssssn[156]|nnnnn[157]	_	coref|coref	23-54[161_156]|23-54[162_157]	
+23-46	2338-2341	and	person[156]	giv[156]	ssssn[156]	_	_	_	
+23-47	2342-2348	Alanah	person[156]|person[158]	giv[156]|giv[158]	ssssn[156]|nnsnn[158]	_	coref	23-56[163_158]	
+23-48	2349-2357	Phillips	person[156]|person[158]	giv[156]|giv[158]	ssssn[156]|nnsnn[158]	_	_	_	
+23-49	2358-2359	,	_	_	_	_	_	_	
+23-50	2360-2363	OWI	event[159]	new[159]	nssss[159]	_	coref	54-3[402_159]	
+23-51	2364-2371	causing	event[159]	new[159]	nssss[159]	_	_	_	
+23-52	2372-2377	death	event[159]|event[160]	new[159]|new[160]	nssss[159]|sssss[160]	_	coref	54-11[403_160]	
+23-53	2378-2381	for	_	_	_	_	_	_	
+23-54	2382-2386	Zane	person[161]|person[162]	giv[161]|giv[162]	ssssn[161]|nnnnn[162]	_	coref|coref	23-69[170_161]|23-69[171_162]	
+23-55	2387-2390	and	person[161]	giv[161]	ssssn[161]	_	_	_	
+23-56	2391-2397	Alanah	person[161]|person[163]	giv[161]|giv[163]	ssssn[161]|nnsnn[163]	_	coref	23-71[172_163]	
+23-57	2398-2406	Phillips	person[161]|person[163]	giv[161]|giv[163]	ssssn[161]|nnsnn[163]	_	_	_	
+23-58	2407-2408	,	_	_	_	_	_	_	
+23-59	2409-2412	and	_	_	_	_	_	_	
+23-60	2413-2416	OWI	event[164]	new[164]	nssss[164]	_	coref	47-17[342_164]	
+23-61	2417-2424	causing	event[164]	new[164]	nssss[164]	_	_	_	
+23-62	2425-2432	serious	event[164]|event[165]	new[164]|new[165]	nssss[164]|nsnss[165]	_	coref	47-19[343_165]	
+23-63	2433-2443	impairment	event[164]|event[165]	new[164]|new[165]	nssss[164]|nsnss[165]	_	_	_	
+23-64	2444-2446	of	event[164]|event[165]	new[164]|new[165]	nssss[164]|nsnss[165]	_	_	_	
+23-65	2447-2448	a	event[164]|event[165]|abstract[166]	new[164]|new[165]|new[166]	nssss[164]|nsnss[165]|nnnnn[166]	_	coref	47-22[344_166]	
+23-66	2449-2453	body	event[164]|event[165]|abstract[166]|object[167]	new[164]|new[165]|new[166]|new[167]	nssss[164]|nsnss[165]|nnnnn[166]|nnnnn[167]	_	coref	47-23[345_167]	
+23-67	2454-2462	function	event[164]|event[165]|abstract[166]	new[164]|new[165]|new[166]	nssss[164]|nsnss[165]|nnnnn[166]	_	_	_	
+23-68	2463-2466	for	_	_	_	_	_	_	
+23-69	2467-2471	Zane	person[168]|person[169]|person[170]|person[171]	new[168]|giv[169]|giv[170]|giv[171]	ssssn[168]|nnnnn[169]|ssssn[170]|nnnnn[171]	_	coref|coref|coref|coref	53-22[401_168]|23-74[173_169]|23-76[175_170]|54-16[405_171]	
+23-70	2472-2475	and	person[168]|person[169]|person[170]	new[168]|giv[169]|giv[170]	ssssn[168]|nnnnn[169]|ssssn[170]	_	_	_	
+23-71	2476-2482	Alanah	person[168]|person[169]|person[170]|person[172]	new[168]|giv[169]|giv[170]|giv[172]	ssssn[168]|nnnnn[169]|ssssn[170]|nnsnn[172]	_	coref	54-18[406_172]	
+23-72	2483-2485	's	person[168]|person[169]|person[170]|person[172]	new[168]|giv[169]|giv[170]|giv[172]	ssssn[168]|nnnnn[169]|ssssn[170]|nnsnn[172]	_	_	_	
+23-73	2486-2489	mom	person[168]|person[169]	new[168]|giv[169]	ssssn[168]|nnnnn[169]	_	_	_	
+23-74	2490-2496	Mariah	person[168]|person[173]	new[168]|giv[173]	ssssn[168]|nnnnn[173]	_	coref	42-13[309_173]	
+23-75	2497-2498	,	person[168]	new[168]	ssssn[168]	_	_	_	
+23-76	2499-2504	their	person[168]|person[174]|person[175]	new[168]|giv[174]|giv[175]	ssssn[168]|nnnnn[174]|ssssn[175]	_	_	_	
+23-77	2505-2512	brother	person[168]|person[174]	new[168]|giv[174]	ssssn[168]|nnnnn[174]	_	_	_	
+23-78	2513-2519	Jayden	person[168]|person[174]	new[168]|giv[174]	ssssn[168]|nnnnn[174]	_	_	_	
+23-79	2520-2521	,	person[168]	new[168]	ssssn[168]	_	_	_	
+23-80	2522-2525	and	person[168]	new[168]	ssssn[168]	_	_	_	
+23-81	2526-2529	for	person[168]	new[168]	ssssn[168]	_	_	_	
+23-82	2530-2532	Ed	person[168]|person[176]	new[168]|new[176]	ssssn[168]|nnnnn[176]	_	coref	42-15[310_176]	
+23-83	2533-2541	Smothers	person[168]|person[176]	new[168]|new[176]	ssssn[168]|nnnnn[176]	_	_	_	
+23-84	2542-2543	,	person[168]	new[168]	ssssn[168]	_	_	_	
+23-85	2544-2548	Leah	person[168]|person[177]	new[168]|new[177]	ssssn[168]|nnnnn[177]	_	coref	42-17[311_177]	
+23-86	2549-2554	Stith	person[168]|person[177]	new[168]|new[177]	ssssn[168]|nnnnn[177]	_	_	_	
+23-87	2555-2556	,	person[168]	new[168]	ssssn[168]	_	_	_	
+23-88	2557-2560	and	person[168]	new[168]	ssssn[168]	_	_	_	
+23-89	2561-2566	Diane	person[168]|person[178]	new[168]|new[178]	ssssn[168]|nnnnn[178]	_	coref	42-20[312_178]	
+23-90	2567-2573	Medina	person[168]|person[178]	new[168]|new[178]	ssssn[168]|nnnnn[178]	_	_	_	
+23-91	2574-2575	.	_	_	_	_	_	_	
 
 #Text=I do n't particularly like long and winding opening statements .
-24-1	2576-2577	I	person[179]	giv[179]	snnnn[179]	_	coref	25-1[181_179]	
-24-2	2578-2580	do	_	_	_	_	_	_	_	_	_	_	_	_
-24-3	2581-2584	n't	_	_	_	_	_	_	_	_	_	_	_	_
-24-4	2585-2597	particularly	_	_	_	_	_	_	_	_	_	_	_	_
-24-5	2598-2602	like	_	_	_	_	_	_	_	_	_	_	_	_
+24-1	2576-2577	I	person[179]	giv[179]	sssss[179]	_	coref	25-1[181_179]	
+24-2	2578-2580	do	_	_	_	_	_	_	
+24-3	2581-2584	n't	_	_	_	_	_	_	
+24-4	2585-2597	particularly	_	_	_	_	_	_	
+24-5	2598-2602	like	_	_	_	_	_	_	
 24-6	2603-2607	long	abstract[180]	new[180]	nnnnn[180]	_	_	_	
 24-7	2608-2611	and	abstract[180]	new[180]	nnnnn[180]	_	_	_	
 24-8	2612-2619	winding	abstract[180]	new[180]	nnnnn[180]	_	_	_	
 24-9	2620-2627	opening	abstract[180]	new[180]	nnnnn[180]	_	_	_	
 24-10	2628-2638	statements	abstract[180]	new[180]	nnnnn[180]	_	_	_	
-24-11	2639-2640	.	_	_	_	_	_	_	_	_	_	_	_	_
+24-11	2639-2640	.	_	_	_	_	_	_	
 
 #Text=I like to give the jury what I would want if I were a juror : a road map , a table of contents to what the prosecution will present to you over the course of the trial .
-25-1	2641-2642	I	person[181]	giv[181]	snnnn[181]	_	coref	25-8[183_181]	
-25-2	2643-2647	like	_	_	_	_	_	_	_	_	_	_	_	_
-25-3	2648-2650	to	_	_	_	_	_	_	_	_	_	_	_	_
-25-4	2651-2655	give	_	_	_	_	_	_	_	_	_	_	_	_
-25-5	2656-2659	the	organization[182]	acc[182]	nnnnn[182]	_	bridge:entity-associative	25-27[189_182]	
-25-6	2660-2664	jury	organization[182]	acc[182]	nnnnn[182]	_	_	_	
-25-7	2665-2669	what	_	_	_	_	_	_	_	_	_	_	_	_
-25-8	2670-2671	I	person[183]	giv[183]	snnnn[183]	_	coref	25-12[184_183]	
-25-9	2672-2677	would	_	_	_	_	_	_	_	_	_	_	_	_
-25-10	2678-2682	want	_	_	_	_	_	_	_	_	_	_	_	_
-25-11	2683-2685	if	_	_	_	_	_	_	_	_	_	_	_	_
-25-12	2686-2687	I	person[184]	giv[184]	snnnn[184]	_	coref	41-2[297_184]	
-25-13	2688-2692	were	_	_	_	_	_	_	_	_	_	_	_	_
+25-1	2641-2642	I	person[181]	giv[181]	sssss[181]	_	coref	25-8[183_181]	
+25-2	2643-2647	like	_	_	_	_	_	_	
+25-3	2648-2650	to	_	_	_	_	_	_	
+25-4	2651-2655	give	_	_	_	_	_	_	
+25-5	2656-2659	the	organization[182]	acc[182]	nsnnn[182]	_	bridge:entity-associative	25-27[189_182]	
+25-6	2660-2664	jury	organization[182]	acc[182]	nsnnn[182]	_	_	_	
+25-7	2665-2669	what	_	_	_	_	_	_	
+25-8	2670-2671	I	person[183]	giv[183]	sssss[183]	_	coref	25-12[184_183]	
+25-9	2672-2677	would	_	_	_	_	_	_	
+25-10	2678-2682	want	_	_	_	_	_	_	
+25-11	2683-2685	if	_	_	_	_	_	_	
+25-12	2686-2687	I	person[184]	giv[184]	sssss[184]	_	coref	41-2[297_184]	
+25-13	2688-2692	were	_	_	_	_	_	_	
 25-14	2693-2694	a	person[185]	giv[185]	nnnnn[185]	_	_	_	
 25-15	2695-2700	juror	person[185]	giv[185]	nnnnn[185]	_	_	_	
-25-16	2701-2702	:	_	_	_	_	_	_	_	_	_	_	_	_
+25-16	2701-2702	:	_	_	_	_	_	_	
 25-17	2703-2704	a	abstract[186]	new[186]	nnnnn[186]	_	coref	25-21[187_186]	
 25-18	2705-2709	road	abstract[186]	new[186]	nnnnn[186]	_	_	_	
 25-19	2710-2713	map	abstract[186]	new[186]	nnnnn[186]	_	_	_	
-25-20	2714-2715	,	_	_	_	_	_	_	_	_	_	_	_	_
+25-20	2714-2715	,	_	_	_	_	_	_	
 25-21	2716-2717	a	abstract[187]	giv[187]	nnnnn[187]	_	_	_	
 25-22	2718-2723	table	abstract[187]	giv[187]	nnnnn[187]	_	_	_	
 25-23	2724-2726	of	abstract[187]	giv[187]	nnnnn[187]	_	_	_	
 25-24	2727-2735	contents	abstract[187]|abstract[188]	giv[187]|new[188]	nnnnn[187]|nnnnn[188]	_	_	_	
-25-25	2736-2738	to	_	_	_	_	_	_	_	_	_	_	_	_
-25-26	2739-2743	what	_	_	_	_	_	_	_	_	_	_	_	_
-25-27	2744-2747	the	organization[189]	acc[189]	nnnnn[189]	_	bridge:entity-associative	25-37[191_189]	
-25-28	2748-2759	prosecution	organization[189]	acc[189]	nnnnn[189]	_	_	_	
-25-29	2760-2764	will	_	_	_	_	_	_	_	_	_	_	_	_
-25-30	2765-2772	present	_	_	_	_	_	_	_	_	_	_	_	_
-25-31	2773-2775	to	_	_	_	_	_	_	_	_	_	_	_	_
-25-32	2776-2779	you	person[190]	giv[190]	snnnn[190]	_	coref	26-18[197_190]	
-25-33	2780-2784	over	_	_	_	_	_	_	_	_	_	_	_	_
-25-34	2785-2788	the	_	_	_	_	_	_	_	_	_	_	_	_
-25-35	2789-2795	course	_	_	_	_	_	_	_	_	_	_	_	_
-25-36	2796-2798	of	_	_	_	_	_	_	_	_	_	_	_	_
-25-37	2799-2802	the	event[191]	acc[191]	snnnn[191]	_	coref	46-11[339_191]	
-25-38	2803-2808	trial	event[191]	acc[191]	snnnn[191]	_	_	_	
-25-39	2809-2810	.	_	_	_	_	_	_	_	_	_	_	_	_
+25-25	2736-2738	to	_	_	_	_	_	_	
+25-26	2739-2743	what	_	_	_	_	_	_	
+25-27	2744-2747	the	organization[189]	acc[189]	nssns[189]	_	bridge:entity-associative	25-37[191_189]	
+25-28	2748-2759	prosecution	organization[189]	acc[189]	nssns[189]	_	_	_	
+25-29	2760-2764	will	_	_	_	_	_	_	
+25-30	2765-2772	present	_	_	_	_	_	_	
+25-31	2773-2775	to	_	_	_	_	_	_	
+25-32	2776-2779	you	person[190]	giv[190]	ssnnn[190]	_	coref	26-18[197_190]	
+25-33	2780-2784	over	_	_	_	_	_	_	
+25-34	2785-2788	the	_	_	_	_	_	_	
+25-35	2789-2795	course	_	_	_	_	_	_	
+25-36	2796-2798	of	_	_	_	_	_	_	
+25-37	2799-2802	the	event[191]	acc[191]	snsnn[191]	_	coref	46-11[339_191]	
+25-38	2803-2808	trial	event[191]	acc[191]	snsnn[191]	_	_	_	
+25-39	2809-2810	.	_	_	_	_	_	_	
 
 #Text=To simplify things for you folks , basically the way we 're going to present this is you 're gon na hear from our witnesses in four groups .
-26-1	2811-2813	To	_	_	_	_	_	_	_	_	_	_	_	_
-26-2	2814-2822	simplify	_	_	_	_	_	_	_	_	_	_	_	_
+26-1	2811-2813	To	_	_	_	_	_	_	
+26-2	2814-2822	simplify	_	_	_	_	_	_	
 26-3	2823-2829	things	abstract[192]	new[192]	nnnnn[192]	_	_	_	
-26-4	2830-2833	for	_	_	_	_	_	_	_	_	_	_	_	_
-26-5	2834-2837	you	person[193]	giv[193]	nnnnn[193]	_	coref	44-17[326_193]	
-26-6	2838-2843	folks	person[193]	giv[193]	nnnnn[193]	_	_	_	
-26-7	2844-2845	,	_	_	_	_	_	_	_	_	_	_	_	_
-26-8	2846-2855	basically	_	_	_	_	_	_	_	_	_	_	_	_
+26-4	2830-2833	for	_	_	_	_	_	_	
+26-5	2834-2837	you	person[193]	giv[193]	nsnnn[193]	_	coref	44-17[326_193]	
+26-6	2838-2843	folks	person[193]	giv[193]	nsnnn[193]	_	_	_	
+26-7	2844-2845	,	_	_	_	_	_	_	
+26-8	2846-2855	basically	_	_	_	_	_	_	
 26-9	2856-2859	the	abstract[194]	new[194]	nnnnn[194]	_	_	_	
 26-10	2860-2863	way	abstract[194]	new[194]	nnnnn[194]	_	_	_	
 26-11	2864-2866	we	abstract[194]|person[195]	new[194]|giv[195]	nnnnn[194]|nnnnn[195]	_	coref	26-24[199_195]	
@@ -630,142 +634,142 @@
 26-14	2877-2879	to	abstract[194]	new[194]	nnnnn[194]	_	_	_	
 26-15	2880-2887	present	abstract[194]	new[194]	nnnnn[194]	_	_	_	
 26-16	2888-2892	this	abstract[194]|abstract[196]	new[194]|giv[196]	nnnnn[194]|nnnnn[196]	_	_	_	
-26-17	2893-2895	is	_	_	_	_	_	_	_	_	_	_	_	_
-26-18	2896-2899	you	person[197]	giv[197]	snnnn[197]	_	coref	29-8[219_197]	
-26-19	2900-2903	're	_	_	_	_	_	_	_	_	_	_	_	_
-26-20	2904-2907	gon	_	_	_	_	_	_	_	_	_	_	_	_
-26-21	2908-2910	na	_	_	_	_	_	_	_	_	_	_	_	_
-26-22	2911-2915	hear	_	_	_	_	_	_	_	_	_	_	_	_
-26-23	2916-2920	from	_	_	_	_	_	_	_	_	_	_	_	_
-26-24	2921-2924	our	person[198]|person[199]	new[198]|giv[199]	snnnn[198]|nnnnn[199]	_	coref|coref	26-27[200_198]|29-6[218_199]	
-26-25	2925-2934	witnesses	person[198]	new[198]	snnnn[198]	_	_	_	
-26-26	2935-2937	in	_	_	_	_	_	_	_	_	_	_	_	_
-26-27	2938-2942	four	person[200]	giv[200]	snnnn[200]	_	bridge:set-member	27-1[201_200]	
-26-28	2943-2949	groups	person[200]	giv[200]	snnnn[200]	_	_	_	
-26-29	2950-2951	.	_	_	_	_	_	_	_	_	_	_	_	_
+26-17	2893-2895	is	_	_	_	_	_	_	
+26-18	2896-2899	you	person[197]	giv[197]	ssnnn[197]	_	coref	29-8[219_197]	
+26-19	2900-2903	're	_	_	_	_	_	_	
+26-20	2904-2907	gon	_	_	_	_	_	_	
+26-21	2908-2910	na	_	_	_	_	_	_	
+26-22	2911-2915	hear	_	_	_	_	_	_	
+26-23	2916-2920	from	_	_	_	_	_	_	
+26-24	2921-2924	our	person[198]|person[199]	new[198]|giv[199]	snsnn[198]|nnnnn[199]	_	coref|coref	26-27[200_198]|29-6[218_199]	
+26-25	2925-2934	witnesses	person[198]	new[198]	snsnn[198]	_	_	_	
+26-26	2935-2937	in	_	_	_	_	_	_	
+26-27	2938-2942	four	person[200]	giv[200]	snsnn[200]	_	bridge:set-member	27-1[201_200]	
+26-28	2943-2949	groups	person[200]	giv[200]	snsnn[200]	_	_	_	
+26-29	2950-2951	.	_	_	_	_	_	_	
 
 #Text=The first group will be , uh , guests and boat club members at the party .
-27-1	2952-2955	The	person[201]	acc[201]	nnnnn[201]	_	coref|bridge:set-member	27-9[202_201]|33-1[243_201]	
+27-1	2952-2955	The	person[201]	acc[201]	nnnnn[201]	_	coref	27-9[202_201]	
 27-2	2956-2961	first	person[201]	acc[201]	nnnnn[201]	_	_	_	
 27-3	2962-2967	group	person[201]	acc[201]	nnnnn[201]	_	_	_	
-27-4	2968-2972	will	_	_	_	_	_	_	_	_	_	_	_	_
-27-5	2973-2975	be	_	_	_	_	_	_	_	_	_	_	_	_
-27-6	2976-2977	,	_	_	_	_	_	_	_	_	_	_	_	_
-27-7	2978-2980	uh	_	_	_	_	_	_	_	_	_	_	_	_
-27-8	2981-2982	,	_	_	_	_	_	_	_	_	_	_	_	_
+27-4	2968-2972	will	_	_	_	_	_	_	
+27-5	2973-2975	be	_	_	_	_	_	_	
+27-6	2976-2977	,	_	_	_	_	_	_	
+27-7	2978-2980	uh	_	_	_	_	_	_	
+27-8	2981-2982	,	_	_	_	_	_	_	
 27-9	2983-2989	guests	person[202]|person[203]	giv[202]|new[203]	nnnnn[202]|nnnnn[203]	_	coref	28-1[208_202]	
 27-10	2990-2993	and	person[202]	giv[202]	nnnnn[202]	_	_	_	
-27-11	2994-2998	boat	person[202]|person[204]|place[205]|object[206]	giv[202]|new[204]|giv[205]|giv[206]	nnnnn[202]|nnnnn[204]|nnnnn[205]|nnnnn[206]	_	coref|coref	32-9[240_205]|32-10[241_206]	
-27-12	2999-3003	club	person[202]|person[204]|place[205]	giv[202]|new[204]|giv[205]	nnnnn[202]|nnnnn[204]|nnnnn[205]	_	_	_	
+27-11	2994-2998	boat	person[202]|person[204]|place[205]|object[206]	giv[202]|new[204]|giv[205]|giv[206]	nnnnn[202]|nnnnn[204]|nsnnn[205]|nnnnn[206]	_	coref|coref	32-9[240_205]|32-10[241_206]	
+27-12	2999-3003	club	person[202]|person[204]|place[205]	giv[202]|new[204]|giv[205]	nnnnn[202]|nnnnn[204]|nsnnn[205]	_	_	_	
 27-13	3004-3011	members	person[202]|person[204]	giv[202]|new[204]	nnnnn[202]|nnnnn[204]	_	_	_	
 27-14	3012-3014	at	person[202]|person[204]	giv[202]|new[204]	nnnnn[202]|nnnnn[204]	_	_	_	
-27-15	3015-3018	the	person[202]|person[204]|event[207]	giv[202]|new[204]|giv[207]	nnnnn[202]|nnnnn[204]|snnnn[207]	_	coref	28-5[209_207]	
-27-16	3019-3024	party	person[202]|person[204]|event[207]	giv[202]|new[204]|giv[207]	nnnnn[202]|nnnnn[204]|snnnn[207]	_	_	_	
-27-17	3025-3026	.	_	_	_	_	_	_	_	_	_	_	_	_
+27-15	3015-3018	the	person[202]|person[204]|event[207]	giv[202]|new[204]|giv[207]	nnnnn[202]|nnnnn[204]|sssns[207]	_	coref	28-5[209_207]	
+27-16	3019-3024	party	person[202]|person[204]|event[207]	giv[202]|new[204]|giv[207]	nnnnn[202]|nnnnn[204]|sssns[207]	_	_	_	
+27-17	3025-3026	.	_	_	_	_	_	_	
 
 #Text=They 'll talk about the party , they 'll talk about the crash , and to some degree , they 'll talk about what they saw , uh , of the defendant .
 28-1	3027-3031	They	person[208]	giv[208]	nnnnn[208]	_	coref	28-8[210_208]	
-28-2	3032-3035	'll	_	_	_	_	_	_	_	_	_	_	_	_
-28-3	3036-3040	talk	_	_	_	_	_	_	_	_	_	_	_	_
-28-4	3041-3046	about	_	_	_	_	_	_	_	_	_	_	_	_
-28-5	3047-3050	the	event[209]	giv[209]	snnnn[209]	_	coref|bridge:entity-associative	31-14[237_209]|31-2[235_209]	
-28-6	3051-3056	party	event[209]	giv[209]	snnnn[209]	_	_	_	
-28-7	3057-3058	,	_	_	_	_	_	_	_	_	_	_	_	_
+28-2	3032-3035	'll	_	_	_	_	_	_	
+28-3	3036-3040	talk	_	_	_	_	_	_	
+28-4	3041-3046	about	_	_	_	_	_	_	
+28-5	3047-3050	the	event[209]	giv[209]	sssns[209]	_	bridge:entity-associative|coref	31-2[235_209]|31-14[237_209]	
+28-6	3051-3056	party	event[209]	giv[209]	sssns[209]	_	_	_	
+28-7	3057-3058	,	_	_	_	_	_	_	
 28-8	3059-3063	they	person[210]	giv[210]	nnnnn[210]	_	coref	28-20[213_210]	
-28-9	3064-3067	'll	_	_	_	_	_	_	_	_	_	_	_	_
-28-10	3068-3072	talk	_	_	_	_	_	_	_	_	_	_	_	_
-28-11	3073-3078	about	_	_	_	_	_	_	_	_	_	_	_	_
-28-12	3079-3082	the	event[211]	acc[211]	nnnnn[211]	_	coref	29-11[221_211]	
-28-13	3083-3088	crash	event[211]	acc[211]	nnnnn[211]	_	_	_	
-28-14	3089-3090	,	_	_	_	_	_	_	_	_	_	_	_	_
-28-15	3091-3094	and	_	_	_	_	_	_	_	_	_	_	_	_
-28-16	3095-3097	to	_	_	_	_	_	_	_	_	_	_	_	_
+28-9	3064-3067	'll	_	_	_	_	_	_	
+28-10	3068-3072	talk	_	_	_	_	_	_	
+28-11	3073-3078	about	_	_	_	_	_	_	
+28-12	3079-3082	the	event[211]	acc[211]	nnsns[211]	_	coref	29-11[221_211]	
+28-13	3083-3088	crash	event[211]	acc[211]	nnsns[211]	_	_	_	
+28-14	3089-3090	,	_	_	_	_	_	_	
+28-15	3091-3094	and	_	_	_	_	_	_	
+28-16	3095-3097	to	_	_	_	_	_	_	
 28-17	3098-3102	some	abstract[212]	new[212]	nnnnn[212]	_	_	_	
 28-18	3103-3109	degree	abstract[212]	new[212]	nnnnn[212]	_	_	_	
-28-19	3110-3111	,	_	_	_	_	_	_	_	_	_	_	_	_
+28-19	3110-3111	,	_	_	_	_	_	_	
 28-20	3112-3116	they	person[213]	giv[213]	nnnnn[213]	_	coref	28-25[214_213]	
-28-21	3117-3120	'll	_	_	_	_	_	_	_	_	_	_	_	_
-28-22	3121-3125	talk	_	_	_	_	_	_	_	_	_	_	_	_
-28-23	3126-3131	about	_	_	_	_	_	_	_	_	_	_	_	_
-28-24	3132-3136	what	_	_	_	_	_	_	_	_	_	_	_	_
+28-21	3117-3120	'll	_	_	_	_	_	_	
+28-22	3121-3125	talk	_	_	_	_	_	_	
+28-23	3126-3131	about	_	_	_	_	_	_	
+28-24	3132-3136	what	_	_	_	_	_	_	
 28-25	3137-3141	they	person[214]	giv[214]	nnnnn[214]	_	coref	29-3[217_214]	
-28-26	3142-3145	saw	_	_	_	_	_	_	_	_	_	_	_	_
-28-27	3146-3147	,	_	_	_	_	_	_	_	_	_	_	_	_
-28-28	3148-3150	uh	_	_	_	_	_	_	_	_	_	_	_	_
-28-29	3151-3152	,	_	_	_	_	_	_	_	_	_	_	_	_
-28-30	3153-3155	of	_	_	_	_	_	_	_	_	_	_	_	_
-28-31	3156-3159	the	person[215]	giv[215]	snnnn[215]	_	coref	39-10[286_215]	
-28-32	3160-3169	defendant	person[215]	giv[215]	snnnn[215]	_	_	_	
-28-33	3170-3171	.	_	_	_	_	_	_	_	_	_	_	_	_
+28-26	3142-3145	saw	_	_	_	_	_	_	
+28-27	3146-3147	,	_	_	_	_	_	_	
+28-28	3148-3150	uh	_	_	_	_	_	_	
+28-29	3151-3152	,	_	_	_	_	_	_	
+28-30	3153-3155	of	_	_	_	_	_	_	
+28-31	3156-3159	the	person[215]	giv[215]	sssss[215]	_	coref	39-10[286_215]	
+28-32	3160-3169	defendant	person[215]	giv[215]	sssss[215]	_	_	_	
+28-33	3170-3171	.	_	_	_	_	_	_	
 
 #Text=Some of them will help us show you video of the crash and its aftermath , some of them will simply tell you what they saw and what they remember , or what they do n't remember , and they 'll tell you what they went through .
 29-1	3172-3176	Some	person[216]	giv[216]	nnnnn[216]	_	coref	29-17[224_216]	
 29-2	3177-3179	of	person[216]	giv[216]	nnnnn[216]	_	_	_	
 29-3	3180-3184	them	person[216]|person[217]	giv[216]|giv[217]	nnnnn[216]|nnnnn[217]	_	coref	29-19[225_217]	
-29-4	3185-3189	will	_	_	_	_	_	_	_	_	_	_	_	_
-29-5	3190-3194	help	_	_	_	_	_	_	_	_	_	_	_	_
+29-4	3185-3189	will	_	_	_	_	_	_	
+29-5	3190-3194	help	_	_	_	_	_	_	
 29-6	3195-3197	us	person[218]	giv[218]	nnnnn[218]	_	coref	38-9[278_218]	
-29-7	3198-3202	show	_	_	_	_	_	_	_	_	_	_	_	_
-29-8	3203-3206	you	person[219]	giv[219]	snnnn[219]	_	coref	29-23[226_219]	
+29-7	3198-3202	show	_	_	_	_	_	_	
+29-8	3203-3206	you	person[219]	giv[219]	ssnnn[219]	_	coref	29-23[226_219]	
 29-9	3207-3212	video	abstract[220]	new[220]	nnnnn[220]	_	_	_	
 29-10	3213-3215	of	abstract[220]	new[220]	nnnnn[220]	_	_	_	
-29-11	3216-3219	the	abstract[220]|event[221]	new[220]|giv[221]	nnnnn[220]|nnnnn[221]	_	coref	29-14[223_221]	
-29-12	3220-3225	crash	abstract[220]|event[221]	new[220]|giv[221]	nnnnn[220]|nnnnn[221]	_	_	_	
+29-11	3216-3219	the	abstract[220]|event[221]	new[220]|giv[221]	nnnnn[220]|nnsns[221]	_	coref	29-14[223_221]	
+29-12	3220-3225	crash	abstract[220]|event[221]	new[220]|giv[221]	nnnnn[220]|nnsns[221]	_	_	_	
 29-13	3226-3229	and	abstract[220]	new[220]	nnnnn[220]	_	_	_	
-29-14	3230-3233	its	abstract[220]|abstract[222]|event[223]	new[220]|new[222]|giv[223]	nnnnn[220]|nnnnn[222]|nnnnn[223]	_	coref	32-14[242_223]	
+29-14	3230-3233	its	abstract[220]|abstract[222]|event[223]	new[220]|new[222]|giv[223]	nnnnn[220]|nnnnn[222]|nnsns[223]	_	coref	32-14[242_223]	
 29-15	3234-3243	aftermath	abstract[220]|abstract[222]	new[220]|new[222]	nnnnn[220]|nnnnn[222]	_	_	_	
-29-16	3244-3245	,	_	_	_	_	_	_	_	_	_	_	_	_
+29-16	3244-3245	,	_	_	_	_	_	_	
 29-17	3246-3250	some	person[224]	giv[224]	nnnnn[224]	_	_	_	
 29-18	3251-3253	of	person[224]	giv[224]	nnnnn[224]	_	_	_	
 29-19	3254-3258	them	person[224]|person[225]	giv[224]|giv[225]	nnnnn[224]|nnnnn[225]	_	coref	29-25[227_225]	
-29-20	3259-3263	will	_	_	_	_	_	_	_	_	_	_	_	_
-29-21	3264-3270	simply	_	_	_	_	_	_	_	_	_	_	_	_
-29-22	3271-3275	tell	_	_	_	_	_	_	_	_	_	_	_	_
-29-23	3276-3279	you	person[226]	giv[226]	snnnn[226]	_	coref	29-43[231_226]	
-29-24	3280-3284	what	_	_	_	_	_	_	_	_	_	_	_	_
+29-20	3259-3263	will	_	_	_	_	_	_	
+29-21	3264-3270	simply	_	_	_	_	_	_	
+29-22	3271-3275	tell	_	_	_	_	_	_	
+29-23	3276-3279	you	person[226]	giv[226]	ssnnn[226]	_	coref	29-43[231_226]	
+29-24	3280-3284	what	_	_	_	_	_	_	
 29-25	3285-3289	they	person[227]	giv[227]	nnnnn[227]	_	coref	29-29[228_227]	
-29-26	3290-3293	saw	_	_	_	_	_	_	_	_	_	_	_	_
-29-27	3294-3297	and	_	_	_	_	_	_	_	_	_	_	_	_
-29-28	3298-3302	what	_	_	_	_	_	_	_	_	_	_	_	_
+29-26	3290-3293	saw	_	_	_	_	_	_	
+29-27	3294-3297	and	_	_	_	_	_	_	
+29-28	3298-3302	what	_	_	_	_	_	_	
 29-29	3303-3307	they	person[228]	giv[228]	nnnnn[228]	_	coref	29-34[229_228]	
-29-30	3308-3316	remember	_	_	_	_	_	_	_	_	_	_	_	_
-29-31	3317-3318	,	_	_	_	_	_	_	_	_	_	_	_	_
-29-32	3319-3321	or	_	_	_	_	_	_	_	_	_	_	_	_
-29-33	3322-3326	what	_	_	_	_	_	_	_	_	_	_	_	_
+29-30	3308-3316	remember	_	_	_	_	_	_	
+29-31	3317-3318	,	_	_	_	_	_	_	
+29-32	3319-3321	or	_	_	_	_	_	_	
+29-33	3322-3326	what	_	_	_	_	_	_	
 29-34	3327-3331	they	person[229]	giv[229]	nnnnn[229]	_	coref	29-40[230_229]	
-29-35	3332-3334	do	_	_	_	_	_	_	_	_	_	_	_	_
-29-36	3335-3338	n't	_	_	_	_	_	_	_	_	_	_	_	_
-29-37	3339-3347	remember	_	_	_	_	_	_	_	_	_	_	_	_
-29-38	3348-3349	,	_	_	_	_	_	_	_	_	_	_	_	_
-29-39	3350-3353	and	_	_	_	_	_	_	_	_	_	_	_	_
+29-35	3332-3334	do	_	_	_	_	_	_	
+29-36	3335-3338	n't	_	_	_	_	_	_	
+29-37	3339-3347	remember	_	_	_	_	_	_	
+29-38	3348-3349	,	_	_	_	_	_	_	
+29-39	3350-3353	and	_	_	_	_	_	_	
 29-40	3354-3358	they	person[230]	giv[230]	nnnnn[230]	_	coref	29-45[232_230]	
-29-41	3359-3362	'll	_	_	_	_	_	_	_	_	_	_	_	_
-29-42	3363-3367	tell	_	_	_	_	_	_	_	_	_	_	_	_
-29-43	3368-3371	you	person[231]	giv[231]	snnnn[231]	_	coref	30-1[233_231]	
-29-44	3372-3376	what	_	_	_	_	_	_	_	_	_	_	_	_
+29-41	3359-3362	'll	_	_	_	_	_	_	
+29-42	3363-3367	tell	_	_	_	_	_	_	
+29-43	3368-3371	you	person[231]	giv[231]	ssnnn[231]	_	coref	30-1[233_231]	
+29-44	3372-3376	what	_	_	_	_	_	_	
 29-45	3377-3381	they	person[232]	giv[232]	nnnnn[232]	_	coref	30-6[234_232]	
-29-46	3382-3386	went	_	_	_	_	_	_	_	_	_	_	_	_
-29-47	3387-3394	through	_	_	_	_	_	_	_	_	_	_	_	_
-29-48	3395-3396	.	_	_	_	_	_	_	_	_	_	_	_	_
+29-46	3382-3386	went	_	_	_	_	_	_	
+29-47	3387-3394	through	_	_	_	_	_	_	
+29-48	3395-3396	.	_	_	_	_	_	_	
 
 #Text=You will not hear from all of them .
-30-1	3397-3400	You	person[233]	giv[233]	snnnn[233]	_	coref	33-4[244_233]	
-30-2	3401-3405	will	_	_	_	_	_	_	_	_	_	_	_	_
-30-3	3406-3409	not	_	_	_	_	_	_	_	_	_	_	_	_
-30-4	3410-3414	hear	_	_	_	_	_	_	_	_	_	_	_	_
-30-5	3415-3419	from	_	_	_	_	_	_	_	_	_	_	_	_
-30-6	3420-3423	all	person[234]	giv[234]	nnnnn[234]	_	_	_	
+30-1	3397-3400	You	person[233]	giv[233]	ssnnn[233]	_	coref	33-4[244_233]	
+30-2	3401-3405	will	_	_	_	_	_	_	
+30-3	3406-3409	not	_	_	_	_	_	_	
+30-4	3410-3414	hear	_	_	_	_	_	_	
+30-5	3415-3419	from	_	_	_	_	_	_	
+30-6	3420-3423	all	person[234]	giv[234]	nnnnn[234]	_	bridge:set-member	33-1[243_234]	
 30-7	3424-3426	of	person[234]	giv[234]	nnnnn[234]	_	_	_	
 30-8	3427-3431	them	person[234]	giv[234]	nnnnn[234]	_	_	_	
-30-9	3432-3433	.	_	_	_	_	_	_	_	_	_	_	_	_
+30-9	3432-3433	.	_	_	_	_	_	_	
 
 #Text=By most accounts , there were some 80 people in and out of the party through the course of the day .
-31-1	3434-3436	By	_	_	_	_	_	_	_	_	_	_	_	_
+31-1	3434-3436	By	_	_	_	_	_	_	
 31-2	3437-3441	most	abstract[235]	acc[235]	nnnnn[235]	_	_	_	
 31-3	3442-3450	accounts	abstract[235]	acc[235]	nnnnn[235]	_	_	_	
-31-4	3451-3452	,	_	_	_	_	_	_	_	_	_	_	_	_
-31-5	3453-3458	there	_	_	_	_	_	_	_	_	_	_	_	_
-31-6	3459-3463	were	_	_	_	_	_	_	_	_	_	_	_	_
+31-4	3451-3452	,	_	_	_	_	_	_	
+31-5	3453-3458	there	_	_	_	_	_	_	
+31-6	3459-3463	were	_	_	_	_	_	_	
 31-7	3464-3468	some	person[236]	new[236]	nnnnn[236]	_	bridge:comparison-sense;comparison-relative	32-2[239_236]	
 31-8	3469-3471	80	person[236]	new[236]	nnnnn[236]	_	_	_	
 31-9	3472-3478	people	person[236]	new[236]	nnnnn[236]	_	_	_	
@@ -773,18 +777,18 @@
 31-11	3482-3485	and	person[236]	new[236]	nnnnn[236]	_	_	_	
 31-12	3486-3489	out	person[236]	new[236]	nnnnn[236]	_	_	_	
 31-13	3490-3492	of	person[236]	new[236]	nnnnn[236]	_	_	_	
-31-14	3493-3496	the	person[236]|event[237]	new[236]|giv[237]	nnnnn[236]|snnnn[237]	_	_	_	
-31-15	3497-3502	party	person[236]|event[237]	new[236]|giv[237]	nnnnn[236]|snnnn[237]	_	_	_	
-31-16	3503-3510	through	_	_	_	_	_	_	_	_	_	_	_	_
-31-17	3511-3514	the	_	_	_	_	_	_	_	_	_	_	_	_
-31-18	3515-3521	course	_	_	_	_	_	_	_	_	_	_	_	_
-31-19	3522-3524	of	_	_	_	_	_	_	_	_	_	_	_	_
+31-14	3493-3496	the	person[236]|event[237]	new[236]|giv[237]	nnnnn[236]|sssns[237]	_	_	_	
+31-15	3497-3502	party	person[236]|event[237]	new[236]|giv[237]	nnnnn[236]|sssns[237]	_	_	_	
+31-16	3503-3510	through	_	_	_	_	_	_	
+31-17	3511-3514	the	_	_	_	_	_	_	
+31-18	3515-3521	course	_	_	_	_	_	_	
+31-19	3522-3524	of	_	_	_	_	_	_	
 31-20	3525-3528	the	time[238]	new[238]	nnnnn[238]	_	_	_	
 31-21	3529-3532	day	time[238]	new[238]	nnnnn[238]	_	_	_	
-31-22	3533-3534	.	_	_	_	_	_	_	_	_	_	_	_	_
+31-22	3533-3534	.	_	_	_	_	_	_	
 
 #Text=And several others that just wandered over from the boat club proper after the crash .
-32-1	3535-3538	And	_	_	_	_	_	_	_	_	_	_	_	_
+32-1	3535-3538	And	_	_	_	_	_	_	
 32-2	3539-3546	several	person[239]	acc[239]	nnnnn[239]	_	_	_	
 32-3	3547-3553	others	person[239]	acc[239]	nnnnn[239]	_	_	_	
 32-4	3554-3558	that	person[239]	acc[239]	nnnnn[239]	_	_	_	
@@ -792,28 +796,28 @@
 32-6	3564-3572	wandered	person[239]	acc[239]	nnnnn[239]	_	_	_	
 32-7	3573-3577	over	person[239]	acc[239]	nnnnn[239]	_	_	_	
 32-8	3578-3582	from	person[239]	acc[239]	nnnnn[239]	_	_	_	
-32-9	3583-3586	the	person[239]|place[240]	acc[239]|giv[240]	nnnnn[239]|nnnnn[240]	_	_	_	
-32-10	3587-3591	boat	person[239]|place[240]|object[241]	acc[239]|giv[240]|giv[241]	nnnnn[239]|nnnnn[240]|nnnnn[241]	_	_	_	
-32-11	3592-3596	club	person[239]|place[240]	acc[239]|giv[240]	nnnnn[239]|nnnnn[240]	_	_	_	
-32-12	3597-3603	proper	person[239]|place[240]	acc[239]|giv[240]	nnnnn[239]|nnnnn[240]	_	_	_	
+32-9	3583-3586	the	person[239]|place[240]	acc[239]|giv[240]	nnnnn[239]|nsnnn[240]	_	_	_	
+32-10	3587-3591	boat	person[239]|place[240]|object[241]	acc[239]|giv[240]|giv[241]	nnnnn[239]|nsnnn[240]|nnnnn[241]	_	_	_	
+32-11	3592-3596	club	person[239]|place[240]	acc[239]|giv[240]	nnnnn[239]|nsnnn[240]	_	_	_	
+32-12	3597-3603	proper	person[239]|place[240]	acc[239]|giv[240]	nnnnn[239]|nsnnn[240]	_	_	_	
 32-13	3604-3609	after	person[239]	acc[239]	nnnnn[239]	_	_	_	
-32-14	3610-3613	the	person[239]|event[242]	acc[239]|giv[242]	nnnnn[239]|nnnnn[242]	_	coref|bridge:entity-associative	34-25[256_242]|34-22[255_242]	
-32-15	3614-3619	crash	person[239]|event[242]	acc[239]|giv[242]	nnnnn[239]|nnnnn[242]	_	_	_	
-32-16	3620-3621	.	_	_	_	_	_	_	_	_	_	_	_	_
+32-14	3610-3613	the	person[239]|event[242]	acc[239]|giv[242]	nnnnn[239]|nnsns[242]	_	bridge:entity-associative|coref	34-22[255_242]|34-25[256_242]	
+32-15	3614-3619	crash	person[239]|event[242]	acc[239]|giv[242]	nnnnn[239]|nnsns[242]	_	_	_	
+32-16	3620-3621	.	_	_	_	_	_	_	
 
 #Text=The second group you will hear from is the first responders .
 33-1	3622-3625	The	person[243]	acc[243]	nnnnn[243]	_	coref	33-9[245_243]	
 33-2	3626-3632	second	person[243]	acc[243]	nnnnn[243]	_	_	_	
 33-3	3633-3638	group	person[243]	acc[243]	nnnnn[243]	_	_	_	
-33-4	3639-3642	you	person[243]|person[244]	acc[243]|giv[244]	nnnnn[243]|snnnn[244]	_	coref	35-4[258_244]	
+33-4	3639-3642	you	person[243]|person[244]	acc[243]|giv[244]	nnnnn[243]|ssnnn[244]	_	coref	35-4[258_244]	
 33-5	3643-3647	will	person[243]	acc[243]	nnnnn[243]	_	_	_	
 33-6	3648-3652	hear	person[243]	acc[243]	nnnnn[243]	_	_	_	
 33-7	3653-3657	from	person[243]	acc[243]	nnnnn[243]	_	_	_	
-33-8	3658-3660	is	_	_	_	_	_	_	_	_	_	_	_	_
+33-8	3658-3660	is	_	_	_	_	_	_	
 33-9	3661-3664	the	person[245]	giv[245]	nnnnn[245]	_	coref	36-10[267_245]	
 33-10	3665-3670	first	person[245]	giv[245]	nnnnn[245]	_	_	_	
 33-11	3671-3681	responders	person[245]	giv[245]	nnnnn[245]	_	_	_	
-33-12	3682-3683	.	_	_	_	_	_	_	_	_	_	_	_	_
+33-12	3682-3683	.	_	_	_	_	_	_	
 
 #Text=The captain of the Frenchtown Fire Department and many members of the Monroe County Sheriff 's office , they arrived on scene shortly after the crash .
 34-1	3684-3687	The	person[246]|person[247]	new[246]|giv[247]	nnnnn[246]|nnnnn[247]	_	coref	34-19[254_246]	
@@ -833,29 +837,29 @@
 34-15	3768-3775	Sheriff	person[246]|person[250]|organization[251]|organization[252]	new[246]|giv[250]|new[251]|new[252]	nnnnn[246]|nnnnn[250]|nnnnn[251]|nnnnn[252]	_	_	_	
 34-16	3776-3778	's	person[246]|person[250]|organization[251]|organization[252]	new[246]|giv[250]|new[251]|new[252]	nnnnn[246]|nnnnn[250]|nnnnn[251]|nnnnn[252]	_	_	_	
 34-17	3779-3785	office	person[246]|person[250]|organization[251]	new[246]|giv[250]|new[251]	nnnnn[246]|nnnnn[250]|nnnnn[251]	_	_	_	
-34-18	3786-3787	,	_	_	_	_	_	_	_	_	_	_	_	_
+34-18	3786-3787	,	_	_	_	_	_	_	
 34-19	3788-3792	they	person[254]	giv[254]	nnnnn[254]	_	coref	35-1[257_254]	
-34-20	3793-3800	arrived	_	_	_	_	_	_	_	_	_	_	_	_
-34-21	3801-3803	on	_	_	_	_	_	_	_	_	_	_	_	_
+34-20	3793-3800	arrived	_	_	_	_	_	_	
+34-21	3801-3803	on	_	_	_	_	_	_	
 34-22	3804-3809	scene	place[255]	acc[255]	nnnnn[255]	_	coref	37-11[270_255]	
-34-23	3810-3817	shortly	_	_	_	_	_	_	_	_	_	_	_	_
-34-24	3818-3823	after	_	_	_	_	_	_	_	_	_	_	_	_
-34-25	3824-3827	the	event[256]	giv[256]	nnnnn[256]	_	coref	35-8[260_256]	
-34-26	3828-3833	crash	event[256]	giv[256]	nnnnn[256]	_	_	_	
-34-27	3834-3835	.	_	_	_	_	_	_	_	_	_	_	_	_
+34-23	3810-3817	shortly	_	_	_	_	_	_	
+34-24	3818-3823	after	_	_	_	_	_	_	
+34-25	3824-3827	the	event[256]	giv[256]	nnsns[256]	_	coref	35-8[260_256]	
+34-26	3828-3833	crash	event[256]	giv[256]	nnsns[256]	_	_	_	
+34-27	3834-3835	.	_	_	_	_	_	_	
 
 #Text=They will give you more information about the crash , its results , and the steps they took to investigate it .
 35-1	3836-3840	They	person[257]	giv[257]	nnnnn[257]	_	coref	35-17[264_257]	
-35-2	3841-3845	will	_	_	_	_	_	_	_	_	_	_	_	_
-35-3	3846-3850	give	_	_	_	_	_	_	_	_	_	_	_	_
-35-4	3851-3854	you	person[258]	giv[258]	snnnn[258]	_	coref	36-3[266_258]	
+35-2	3841-3845	will	_	_	_	_	_	_	
+35-3	3846-3850	give	_	_	_	_	_	_	
+35-4	3851-3854	you	person[258]	giv[258]	ssnnn[258]	_	coref	36-3[266_258]	
 35-5	3855-3859	more	abstract[259]	new[259]	nnnnn[259]	_	_	_	
 35-6	3860-3871	information	abstract[259]	new[259]	nnnnn[259]	_	_	_	
 35-7	3872-3877	about	abstract[259]	new[259]	nnnnn[259]	_	_	_	
-35-8	3878-3881	the	abstract[259]|event[260]	new[259]|giv[260]	nnnnn[259]|nnnnn[260]	_	coref	35-11[262_260]	
-35-9	3882-3887	crash	abstract[259]|event[260]	new[259]|giv[260]	nnnnn[259]|nnnnn[260]	_	_	_	
+35-8	3878-3881	the	abstract[259]|event[260]	new[259]|giv[260]	nnnnn[259]|nnsns[260]	_	coref	35-11[262_260]	
+35-9	3882-3887	crash	abstract[259]|event[260]	new[259]|giv[260]	nnnnn[259]|nnsns[260]	_	_	_	
 35-10	3888-3889	,	abstract[259]	new[259]	nnnnn[259]	_	_	_	
-35-11	3890-3893	its	abstract[259]|abstract[261]|event[262]	new[259]|new[261]|giv[262]	nnnnn[259]|nnnnn[261]|nnnnn[262]	_	coref	35-21[265_262]	
+35-11	3890-3893	its	abstract[259]|abstract[261]|event[262]	new[259]|new[261]|giv[262]	nnnnn[259]|nnnnn[261]|nnsns[262]	_	coref	35-21[265_262]	
 35-12	3894-3901	results	abstract[259]|abstract[261]	new[259]|new[261]	nnnnn[259]|nnnnn[261]	_	_	_	
 35-13	3902-3903	,	abstract[259]	new[259]	nnnnn[259]	_	_	_	
 35-14	3904-3907	and	abstract[259]	new[259]	nnnnn[259]	_	_	_	
@@ -865,21 +869,21 @@
 35-18	3923-3927	took	abstract[259]|abstract[263]	new[259]|new[263]	nnnnn[259]|nnnnn[263]	_	_	_	
 35-19	3928-3930	to	abstract[259]|abstract[263]	new[259]|new[263]	nnnnn[259]|nnnnn[263]	_	_	_	
 35-20	3931-3942	investigate	abstract[259]|abstract[263]	new[259]|new[263]	nnnnn[259]|nnnnn[263]	_	_	_	
-35-21	3943-3945	it	abstract[259]|abstract[263]|event[265]	new[259]|new[263]|giv[265]	nnnnn[259]|nnnnn[263]|nnnnn[265]	_	coref|bridge:entity-associative	43-10[316_265]|38-4[276_265]	
-35-22	3946-3947	.	_	_	_	_	_	_	_	_	_	_	_	_
+35-21	3943-3945	it	abstract[259]|abstract[263]|event[265]	new[259]|new[263]|giv[265]	nnnnn[259]|nnnnn[263]|nnsns[265]	_	bridge:entity-associative|coref	38-4[276_265]|43-10[316_265]	
+35-22	3946-3947	.	_	_	_	_	_	_	
 
 #Text=Again , you wo n't hear from all of them .
-36-1	3948-3953	Again	_	_	_	_	_	_	_	_	_	_	_	_
-36-2	3954-3955	,	_	_	_	_	_	_	_	_	_	_	_	_
-36-3	3956-3959	you	person[266]	giv[266]	snnnn[266]	_	coref	38-1[275_266]	
-36-4	3960-3962	wo	_	_	_	_	_	_	_	_	_	_	_	_
-36-5	3963-3966	n't	_	_	_	_	_	_	_	_	_	_	_	_
-36-6	3967-3971	hear	_	_	_	_	_	_	_	_	_	_	_	_
-36-7	3972-3976	from	_	_	_	_	_	_	_	_	_	_	_	_
-36-8	3977-3980	all	_	_	_	_	_	_	_	_	_	_	_	_
-36-9	3981-3983	of	_	_	_	_	_	_	_	_	_	_	_	_
+36-1	3948-3953	Again	_	_	_	_	_	_	
+36-2	3954-3955	,	_	_	_	_	_	_	
+36-3	3956-3959	you	person[266]	giv[266]	ssnnn[266]	_	coref	38-1[275_266]	
+36-4	3960-3962	wo	_	_	_	_	_	_	
+36-5	3963-3966	n't	_	_	_	_	_	_	
+36-6	3967-3971	hear	_	_	_	_	_	_	
+36-7	3972-3976	from	_	_	_	_	_	_	
+36-8	3977-3980	all	_	_	_	_	_	_	
+36-9	3981-3983	of	_	_	_	_	_	_	
 36-10	3984-3988	them	person[267]	giv[267]	nnnnn[267]	_	coref	38-7[277_267]	
-36-11	3989-3990	.	_	_	_	_	_	_	_	_	_	_	_	_
+36-11	3989-3990	.	_	_	_	_	_	_	
 
 #Text=Law enforcement officers from at least 4 agencies were on scene , as were multiple fire departments , ambulance companies , and 2 life flight helicopters .
 37-1	3991-3994	Law	person[268]	new[268]	nnnnn[268]	_	_	_	
@@ -890,39 +894,39 @@
 37-6	4024-4029	least	person[268]|organization[269]	new[268]|new[269]	nnnnn[268]|nnnnn[269]	_	_	_	
 37-7	4030-4031	4	person[268]|organization[269]	new[268]|new[269]	nnnnn[268]|nnnnn[269]	_	_	_	
 37-8	4032-4040	agencies	person[268]|organization[269]	new[268]|new[269]	nnnnn[268]|nnnnn[269]	_	_	_	
-37-9	4041-4045	were	_	_	_	_	_	_	_	_	_	_	_	_
-37-10	4046-4048	on	_	_	_	_	_	_	_	_	_	_	_	_
+37-9	4041-4045	were	_	_	_	_	_	_	
+37-10	4046-4048	on	_	_	_	_	_	_	
 37-11	4049-4054	scene	place[270]	giv[270]	nnnnn[270]	_	_	_	
-37-12	4055-4056	,	_	_	_	_	_	_	_	_	_	_	_	_
-37-13	4057-4059	as	_	_	_	_	_	_	_	_	_	_	_	_
-37-14	4060-4064	were	_	_	_	_	_	_	_	_	_	_	_	_
+37-12	4055-4056	,	_	_	_	_	_	_	
+37-13	4057-4059	as	_	_	_	_	_	_	
+37-14	4060-4064	were	_	_	_	_	_	_	
 37-15	4065-4073	multiple	organization[271]	new[271]	nnnnn[271]	_	_	_	
 37-16	4074-4078	fire	organization[271]	new[271]	nnnnn[271]	_	_	_	
 37-17	4079-4090	departments	organization[271]	new[271]	nnnnn[271]	_	_	_	
-37-18	4091-4092	,	_	_	_	_	_	_	_	_	_	_	_	_
+37-18	4091-4092	,	_	_	_	_	_	_	
 37-19	4093-4102	ambulance	organization[272]|object[273]	new[272]|new[273]	nnnnn[272]|nnnnn[273]	_	_	_	
 37-20	4103-4112	companies	organization[272]	new[272]	nnnnn[272]	_	_	_	
-37-21	4113-4114	,	_	_	_	_	_	_	_	_	_	_	_	_
-37-22	4115-4118	and	_	_	_	_	_	_	_	_	_	_	_	_
+37-21	4113-4114	,	_	_	_	_	_	_	
+37-22	4115-4118	and	_	_	_	_	_	_	
 37-23	4119-4120	2	object[274]	new[274]	nnnnn[274]	_	_	_	
 37-24	4121-4125	life	object[274]	new[274]	nnnnn[274]	_	_	_	
 37-25	4126-4132	flight	object[274]	new[274]	nnnnn[274]	_	_	_	
 37-26	4133-4144	helicopters	object[274]	new[274]	nnnnn[274]	_	_	_	
-37-27	4145-4146	.	_	_	_	_	_	_	_	_	_	_	_	_
+37-27	4145-4146	.	_	_	_	_	_	_	
 
 #Text=You will hear the stories from the witnesses we call and see some of the footage from their body worn cameras .
-38-1	4147-4150	You	person[275]	giv[275]	snnnn[275]	_	coref	39-5[285_275]	
-38-2	4151-4155	will	_	_	_	_	_	_	_	_	_	_	_	_
-38-3	4156-4160	hear	_	_	_	_	_	_	_	_	_	_	_	_
+38-1	4147-4150	You	person[275]	giv[275]	ssnnn[275]	_	coref	39-5[285_275]	
+38-2	4151-4155	will	_	_	_	_	_	_	
+38-3	4156-4160	hear	_	_	_	_	_	_	
 38-4	4161-4164	the	abstract[276]	acc[276]	nnnnn[276]	_	bridge:entity-associative	41-39[304_276]	
 38-5	4165-4172	stories	abstract[276]	acc[276]	nnnnn[276]	_	_	_	
-38-6	4173-4177	from	_	_	_	_	_	_	_	_	_	_	_	_
+38-6	4173-4177	from	_	_	_	_	_	_	
 38-7	4178-4181	the	person[277]	giv[277]	nnnnn[277]	_	coref	38-18[282_277]	
 38-8	4182-4191	witnesses	person[277]	giv[277]	nnnnn[277]	_	_	_	
 38-9	4192-4194	we	person[277]|person[278]	giv[277]|giv[278]	nnnnn[277]|nnnnn[278]	_	coref	40-3[287_278]	
 38-10	4195-4199	call	person[277]	giv[277]	nnnnn[277]	_	_	_	
-38-11	4200-4203	and	_	_	_	_	_	_	_	_	_	_	_	_
-38-12	4204-4207	see	_	_	_	_	_	_	_	_	_	_	_	_
+38-11	4200-4203	and	_	_	_	_	_	_	
+38-12	4204-4207	see	_	_	_	_	_	_	
 38-13	4208-4212	some	abstract[279]	giv[279]	nnnnn[279]	_	_	_	
 38-14	4213-4215	of	abstract[279]	giv[279]	nnnnn[279]	_	_	_	
 38-15	4216-4219	the	abstract[279]|abstract[280]	giv[279]|new[280]	nnnnn[279]|nnnnn[280]	_	_	_	
@@ -932,30 +936,30 @@
 38-19	4239-4243	body	abstract[279]|abstract[280]|object[281]|object[283]	giv[279]|new[280]|new[281]|new[283]	nnnnn[279]|nnnnn[280]|nnnnn[281]|nnnnn[283]	_	_	_	
 38-20	4244-4248	worn	abstract[279]|abstract[280]|object[281]	giv[279]|new[280]|new[281]	nnnnn[279]|nnnnn[280]|nnnnn[281]	_	_	_	
 38-21	4249-4256	cameras	abstract[279]|abstract[280]|object[281]	giv[279]|new[280]|new[281]	nnnnn[279]|nnnnn[280]|nnnnn[281]	_	_	_	
-38-22	4257-4258	.	_	_	_	_	_	_	_	_	_	_	_	_
+38-22	4257-4258	.	_	_	_	_	_	_	
 
 #Text=Through that medium , you will also hear from the defendant .
-39-1	4259-4266	Through	_	_	_	_	_	_	_	_	_	_	_	_
+39-1	4259-4266	Through	_	_	_	_	_	_	
 39-2	4267-4271	that	object[284]	new[284]	nnnnn[284]	_	_	_	
 39-3	4272-4278	medium	object[284]	new[284]	nnnnn[284]	_	_	_	
-39-4	4279-4280	,	_	_	_	_	_	_	_	_	_	_	_	_
-39-5	4281-4284	you	person[285]	giv[285]	snnnn[285]	_	coref	40-21[291_285]	
-39-6	4285-4289	will	_	_	_	_	_	_	_	_	_	_	_	_
-39-7	4290-4294	also	_	_	_	_	_	_	_	_	_	_	_	_
-39-8	4295-4299	hear	_	_	_	_	_	_	_	_	_	_	_	_
-39-9	4300-4304	from	_	_	_	_	_	_	_	_	_	_	_	_
-39-10	4305-4308	the	person[286]	giv[286]	snnnn[286]	_	coref	40-28[293_286]	
-39-11	4309-4318	defendant	person[286]	giv[286]	snnnn[286]	_	_	_	
-39-12	4319-4320	.	_	_	_	_	_	_	_	_	_	_	_	_
+39-4	4279-4280	,	_	_	_	_	_	_	
+39-5	4281-4284	you	person[285]	giv[285]	ssnnn[285]	_	coref	40-21[291_285]	
+39-6	4285-4289	will	_	_	_	_	_	_	
+39-7	4290-4294	also	_	_	_	_	_	_	
+39-8	4295-4299	hear	_	_	_	_	_	_	
+39-9	4300-4304	from	_	_	_	_	_	_	
+39-10	4305-4308	the	person[286]	giv[286]	sssss[286]	_	coref	40-28[293_286]	
+39-11	4309-4318	defendant	person[286]	giv[286]	sssss[286]	_	_	_	
+39-12	4319-4320	.	_	_	_	_	_	_	
 
 #Text=Next , We 're gon na call a group of witnesses that are necessary under the rules of evidence for you to hear about what was in the defendant 's blood when she crashed her car .
-40-1	4321-4325	Next	_	_	_	_	_	_	_	_	_	_	_	_
-40-2	4326-4327	,	_	_	_	_	_	_	_	_	_	_	_	_
+40-1	4321-4325	Next	_	_	_	_	_	_	
+40-2	4326-4327	,	_	_	_	_	_	_	
 40-3	4328-4330	We	person[287]	giv[287]	nnnnn[287]	_	coref	43-1[313_287]	
-40-4	4331-4334	're	_	_	_	_	_	_	_	_	_	_	_	_
-40-5	4335-4338	gon	_	_	_	_	_	_	_	_	_	_	_	_
-40-6	4339-4341	na	_	_	_	_	_	_	_	_	_	_	_	_
-40-7	4342-4346	call	_	_	_	_	_	_	_	_	_	_	_	_
+40-4	4331-4334	're	_	_	_	_	_	_	
+40-5	4335-4338	gon	_	_	_	_	_	_	
+40-6	4339-4341	na	_	_	_	_	_	_	
+40-7	4342-4346	call	_	_	_	_	_	_	
 40-8	4347-4348	a	person[288]	new[288]	nnnnn[288]	_	_	_	
 40-9	4349-4354	group	person[288]	new[288]	nnnnn[288]	_	_	_	
 40-10	4355-4357	of	person[288]	new[288]	nnnnn[288]	_	_	_	
@@ -969,80 +973,80 @@
 40-18	4403-4405	of	person[288]|abstract[289]	new[288]|new[289]	nnnnn[288]|nnnnn[289]	_	_	_	
 40-19	4406-4414	evidence	person[288]|abstract[289]|abstract[290]	new[288]|new[289]|new[290]	nnnnn[288]|nnnnn[289]|nnnnn[290]	_	coref	41-15[300_290]	
 40-20	4415-4418	for	person[288]	new[288]	nnnnn[288]	_	_	_	
-40-21	4419-4422	you	person[288]|person[291]	new[288]|giv[291]	nnnnn[288]|snnnn[291]	_	coref	42-3[305_291]	
+40-21	4419-4422	you	person[288]|person[291]	new[288]|giv[291]	nnnnn[288]|ssnnn[291]	_	coref	42-3[305_291]	
 40-22	4423-4425	to	person[288]	new[288]	nnnnn[288]	_	_	_	
 40-23	4426-4430	hear	person[288]	new[288]	nnnnn[288]	_	_	_	
 40-24	4431-4436	about	person[288]	new[288]	nnnnn[288]	_	_	_	
 40-25	4437-4441	what	person[288]	new[288]	nnnnn[288]	_	_	_	
 40-26	4442-4445	was	person[288]	new[288]	nnnnn[288]	_	_	_	
 40-27	4446-4448	in	person[288]	new[288]	nnnnn[288]	_	_	_	
-40-28	4449-4452	the	person[288]|substance[292]|person[293]	new[288]|new[292]|giv[293]	nnnnn[288]|nnnnn[292]|snnnn[293]	_	coref	40-33[294_293]	
-40-29	4453-4462	defendant	person[288]|substance[292]|person[293]	new[288]|new[292]|giv[293]	nnnnn[288]|nnnnn[292]|snnnn[293]	_	_	_	
-40-30	4463-4465	's	person[288]|substance[292]|person[293]	new[288]|new[292]|giv[293]	nnnnn[288]|nnnnn[292]|snnnn[293]	_	_	_	
+40-28	4449-4452	the	person[288]|substance[292]|person[293]	new[288]|new[292]|giv[293]	nnnnn[288]|nnnnn[292]|sssss[293]	_	coref	40-33[294_293]	
+40-29	4453-4462	defendant	person[288]|substance[292]|person[293]	new[288]|new[292]|giv[293]	nnnnn[288]|nnnnn[292]|sssss[293]	_	_	_	
+40-30	4463-4465	's	person[288]|substance[292]|person[293]	new[288]|new[292]|giv[293]	nnnnn[288]|nnnnn[292]|sssss[293]	_	_	_	
 40-31	4466-4471	blood	person[288]|substance[292]	new[288]|new[292]	nnnnn[288]|nnnnn[292]	_	_	_	
 40-32	4472-4476	when	person[288]	new[288]	nnnnn[288]	_	_	_	
-40-33	4477-4480	she	person[288]|person[294]	new[288]|giv[294]	nnnnn[288]|snnnn[294]	_	coref	40-35[296_294]	
+40-33	4477-4480	she	person[288]|person[294]	new[288]|giv[294]	nnnnn[288]|sssss[294]	_	coref	40-35[296_294]	
 40-34	4481-4488	crashed	person[288]	new[288]	nnnnn[288]	_	_	_	
-40-35	4489-4492	her	person[288]|object[295]|person[296]	new[288]|new[295]|giv[296]	nnnnn[288]|snnnn[295]|snnnn[296]	_	coref|coref	47-35[348_295]|41-35[303_296]	
-40-36	4493-4496	car	person[288]|object[295]	new[288]|new[295]	nnnnn[288]|snnnn[295]	_	_	_	
-40-37	4497-4498	.	_	_	_	_	_	_	_	_	_	_	_	_
+40-35	4489-4492	her	person[288]|object[295]|person[296]	new[288]|new[295]|giv[296]	nnnnn[288]|sssss[295]|sssss[296]	_	coref|coref	47-35[348_295]|41-35[303_296]	
+40-36	4493-4496	car	person[288]|object[295]	new[288]|new[295]	nnnnn[288]|sssss[295]	_	_	_	
+40-37	4497-4498	.	_	_	_	_	_	_	
 
 #Text=As I spoke about a little bit in voir dire , the rules of evidence are sometimes strict and not always straightforward , but they are important to ensure a fair trial both for the defendant and for the victims .
-41-1	4499-4501	As	_	_	_	_	_	_	_	_	_	_	_	_
-41-2	4502-4503	I	person[297]	giv[297]	snnnn[297]	_	coref	44-2[322_297]	
-41-3	4504-4509	spoke	_	_	_	_	_	_	_	_	_	_	_	_
-41-4	4510-4515	about	_	_	_	_	_	_	_	_	_	_	_	_
-41-5	4516-4517	a	_	_	_	_	_	_	_	_	_	_	_	_
-41-6	4518-4524	little	_	_	_	_	_	_	_	_	_	_	_	_
-41-7	4525-4528	bit	_	_	_	_	_	_	_	_	_	_	_	_
-41-8	4529-4531	in	_	_	_	_	_	_	_	_	_	_	_	_
+41-1	4499-4501	As	_	_	_	_	_	_	
+41-2	4502-4503	I	person[297]	giv[297]	sssss[297]	_	coref	44-2[322_297]	
+41-3	4504-4509	spoke	_	_	_	_	_	_	
+41-4	4510-4515	about	_	_	_	_	_	_	
+41-5	4516-4517	a	_	_	_	_	_	_	
+41-6	4518-4524	little	_	_	_	_	_	_	
+41-7	4525-4528	bit	_	_	_	_	_	_	
+41-8	4529-4531	in	_	_	_	_	_	_	
 41-9	4532-4536	voir	event[298]	new[298]	nnnnn[298]	_	_	_	
 41-10	4537-4541	dire	event[298]	new[298]	nnnnn[298]	_	_	_	
-41-11	4542-4543	,	_	_	_	_	_	_	_	_	_	_	_	_
+41-11	4542-4543	,	_	_	_	_	_	_	
 41-12	4544-4547	the	abstract[299]	giv[299]	nnnnn[299]	_	coref	41-25[301_299]	
 41-13	4548-4553	rules	abstract[299]	giv[299]	nnnnn[299]	_	_	_	
 41-14	4554-4556	of	abstract[299]	giv[299]	nnnnn[299]	_	_	_	
 41-15	4557-4565	evidence	abstract[299]|abstract[300]	giv[299]|giv[300]	nnnnn[299]|nnnnn[300]	_	_	_	
-41-16	4566-4569	are	_	_	_	_	_	_	_	_	_	_	_	_
-41-17	4570-4579	sometimes	_	_	_	_	_	_	_	_	_	_	_	_
-41-18	4580-4586	strict	_	_	_	_	_	_	_	_	_	_	_	_
-41-19	4587-4590	and	_	_	_	_	_	_	_	_	_	_	_	_
-41-20	4591-4594	not	_	_	_	_	_	_	_	_	_	_	_	_
-41-21	4595-4601	always	_	_	_	_	_	_	_	_	_	_	_	_
-41-22	4602-4617	straightforward	_	_	_	_	_	_	_	_	_	_	_	_
-41-23	4618-4619	,	_	_	_	_	_	_	_	_	_	_	_	_
-41-24	4620-4623	but	_	_	_	_	_	_	_	_	_	_	_	_
+41-16	4566-4569	are	_	_	_	_	_	_	
+41-17	4570-4579	sometimes	_	_	_	_	_	_	
+41-18	4580-4586	strict	_	_	_	_	_	_	
+41-19	4587-4590	and	_	_	_	_	_	_	
+41-20	4591-4594	not	_	_	_	_	_	_	
+41-21	4595-4601	always	_	_	_	_	_	_	
+41-22	4602-4617	straightforward	_	_	_	_	_	_	
+41-23	4618-4619	,	_	_	_	_	_	_	
+41-24	4620-4623	but	_	_	_	_	_	_	
 41-25	4624-4628	they	abstract[301]	giv[301]	nnnnn[301]	_	_	_	
-41-26	4629-4632	are	_	_	_	_	_	_	_	_	_	_	_	_
-41-27	4633-4642	important	_	_	_	_	_	_	_	_	_	_	_	_
-41-28	4643-4645	to	_	_	_	_	_	_	_	_	_	_	_	_
-41-29	4646-4652	ensure	_	_	_	_	_	_	_	_	_	_	_	_
+41-26	4629-4632	are	_	_	_	_	_	_	
+41-27	4633-4642	important	_	_	_	_	_	_	
+41-28	4643-4645	to	_	_	_	_	_	_	
+41-29	4646-4652	ensure	_	_	_	_	_	_	
 41-30	4653-4654	a	event[302]	giv[302]	nnnnn[302]	_	_	_	
 41-31	4655-4659	fair	event[302]	giv[302]	nnnnn[302]	_	_	_	
 41-32	4660-4665	trial	event[302]	giv[302]	nnnnn[302]	_	_	_	
-41-33	4666-4670	both	_	_	_	_	_	_	_	_	_	_	_	_
-41-34	4671-4674	for	_	_	_	_	_	_	_	_	_	_	_	_
-41-35	4675-4678	the	person[303]	giv[303]	snnnn[303]	_	coref	47-31[347_303]	
-41-36	4679-4688	defendant	person[303]	giv[303]	snnnn[303]	_	_	_	
-41-37	4689-4692	and	_	_	_	_	_	_	_	_	_	_	_	_
-41-38	4693-4696	for	_	_	_	_	_	_	_	_	_	_	_	_
+41-33	4666-4670	both	_	_	_	_	_	_	
+41-34	4671-4674	for	_	_	_	_	_	_	
+41-35	4675-4678	the	person[303]	giv[303]	sssss[303]	_	coref	47-31[347_303]	
+41-36	4679-4688	defendant	person[303]	giv[303]	sssss[303]	_	_	_	
+41-37	4689-4692	and	_	_	_	_	_	_	
+41-38	4693-4696	for	_	_	_	_	_	_	
 41-39	4697-4700	the	person[304]	acc[304]	nnnnn[304]	_	bridge:set-subset	42-9[307_304]	
 41-40	4701-4708	victims	person[304]	acc[304]	nnnnn[304]	_	_	_	
-41-41	4709-4710	.	_	_	_	_	_	_	_	_	_	_	_	_
+41-41	4709-4710	.	_	_	_	_	_	_	
 
 #Text=Finally , you 'll hear from some of the surviving victims , Mariah , Edward , Leah , and Diane .
-42-1	4711-4718	Finally	_	_	_	_	_	_	_	_	_	_	_	_
-42-2	4719-4720	,	_	_	_	_	_	_	_	_	_	_	_	_
-42-3	4721-4724	you	person[305]	giv[305]	snnnn[305]	_	coref	43-4[314_305]	
-42-4	4725-4728	'll	_	_	_	_	_	_	_	_	_	_	_	_
-42-5	4729-4733	hear	_	_	_	_	_	_	_	_	_	_	_	_
-42-6	4734-4738	from	_	_	_	_	_	_	_	_	_	_	_	_
+42-1	4711-4718	Finally	_	_	_	_	_	_	
+42-2	4719-4720	,	_	_	_	_	_	_	
+42-3	4721-4724	you	person[305]	giv[305]	ssnnn[305]	_	coref	43-4[314_305]	
+42-4	4725-4728	'll	_	_	_	_	_	_	
+42-5	4729-4733	hear	_	_	_	_	_	_	
+42-6	4734-4738	from	_	_	_	_	_	_	
 42-7	4739-4743	some	person[306]	giv[306]	nnnnn[306]	_	coref	42-13[308_306]	
 42-8	4744-4746	of	person[306]	giv[306]	nnnnn[306]	_	_	_	
 42-9	4747-4750	the	person[306]|person[307]	giv[306]|acc[307]	nnnnn[306]|nnnnn[307]	_	_	_	
 42-10	4751-4760	surviving	person[306]|person[307]	giv[306]|acc[307]	nnnnn[306]|nnnnn[307]	_	_	_	
 42-11	4761-4768	victims	person[306]|person[307]	giv[306]|acc[307]	nnnnn[306]|nnnnn[307]	_	_	_	
-42-12	4769-4770	,	_	_	_	_	_	_	_	_	_	_	_	_
+42-12	4769-4770	,	_	_	_	_	_	_	
 42-13	4771-4777	Mariah	person[308]|person[309]	giv[308]|giv[309]	nnnnn[308]|nnnnn[309]	_	coref	43-6[315_308]	
 42-14	4778-4779	,	person[308]	giv[308]	nnnnn[308]	_	_	_	
 42-15	4780-4786	Edward	person[308]|person[310]	giv[308]|giv[310]	nnnnn[308]|nnnnn[310]	_	_	_	
@@ -1051,59 +1055,59 @@
 42-18	4794-4795	,	person[308]	giv[308]	nnnnn[308]	_	_	_	
 42-19	4796-4799	and	person[308]	giv[308]	nnnnn[308]	_	_	_	
 42-20	4800-4805	Diane	person[308]|person[312]	giv[308]|giv[312]	nnnnn[308]|nnnnn[312]	_	_	_	
-42-21	4806-4807	.	_	_	_	_	_	_	_	_	_	_	_	_
+42-21	4806-4807	.	_	_	_	_	_	_	
 
 #Text=We 'll tell you what they can remember from the crash , about their injuries and somewhat about their road to recovery .
 43-1	4808-4810	We	person[313]	giv[313]	nnnnn[313]	_	coref	44-30[330_313]	
-43-2	4811-4814	'll	_	_	_	_	_	_	_	_	_	_	_	_
-43-3	4815-4819	tell	_	_	_	_	_	_	_	_	_	_	_	_
-43-4	4820-4823	you	person[314]	giv[314]	snnnn[314]	_	coref	44-25[328_314]	
-43-5	4824-4828	what	_	_	_	_	_	_	_	_	_	_	_	_
+43-2	4811-4814	'll	_	_	_	_	_	_	
+43-3	4815-4819	tell	_	_	_	_	_	_	
+43-4	4820-4823	you	person[314]	giv[314]	ssnnn[314]	_	coref	44-25[328_314]	
+43-5	4824-4828	what	_	_	_	_	_	_	
 43-6	4829-4833	they	person[315]	giv[315]	nnnnn[315]	_	coref	43-14[318_315]	
-43-7	4834-4837	can	_	_	_	_	_	_	_	_	_	_	_	_
-43-8	4838-4846	remember	_	_	_	_	_	_	_	_	_	_	_	_
-43-9	4847-4851	from	_	_	_	_	_	_	_	_	_	_	_	_
-43-10	4852-4855	the	event[316]	giv[316]	nnnnn[316]	_	bridge:entity-resultative;entity-associative	43-14[317_316]	
-43-11	4856-4861	crash	event[316]	giv[316]	nnnnn[316]	_	_	_	
-43-12	4862-4863	,	_	_	_	_	_	_	_	_	_	_	_	_
-43-13	4864-4869	about	_	_	_	_	_	_	_	_	_	_	_	_
+43-7	4834-4837	can	_	_	_	_	_	_	
+43-8	4838-4846	remember	_	_	_	_	_	_	
+43-9	4847-4851	from	_	_	_	_	_	_	
+43-10	4852-4855	the	event[316]	giv[316]	nnsns[316]	_	bridge:entity-resultative;entity-associative	43-14[317_316]	
+43-11	4856-4861	crash	event[316]	giv[316]	nnsns[316]	_	_	_	
+43-12	4862-4863	,	_	_	_	_	_	_	
+43-13	4864-4869	about	_	_	_	_	_	_	
 43-14	4870-4875	their	abstract[317]|person[318]	acc[317]|giv[318]	nnnnn[317]|nnnnn[318]	_	bridge:entity-associative|coref	43-22[321_317]|43-19[320_318]	
 43-15	4876-4884	injuries	abstract[317]	acc[317]	nnnnn[317]	_	_	_	
-43-16	4885-4888	and	_	_	_	_	_	_	_	_	_	_	_	_
-43-17	4889-4897	somewhat	_	_	_	_	_	_	_	_	_	_	_	_
-43-18	4898-4903	about	_	_	_	_	_	_	_	_	_	_	_	_
+43-16	4885-4888	and	_	_	_	_	_	_	
+43-17	4889-4897	somewhat	_	_	_	_	_	_	
+43-18	4898-4903	about	_	_	_	_	_	_	
 43-19	4904-4909	their	abstract[319]|person[320]	new[319]|giv[320]	nnnnn[319]|nnnnn[320]	_	_	_	
 43-20	4910-4914	road	abstract[319]	new[319]	nnnnn[319]	_	_	_	
 43-21	4915-4917	to	abstract[319]	new[319]	nnnnn[319]	_	_	_	
 43-22	4918-4926	recovery	abstract[319]|event[321]	new[319]|acc[321]	nnnnn[319]|nnnnn[321]	_	_	_	
-43-23	4927-4928	.	_	_	_	_	_	_	_	_	_	_	_	_
+43-23	4927-4928	.	_	_	_	_	_	_	
 
 #Text=Before I want -- before I conclude , I wan na speak just briefly about the jury instructions that the judge highlighted and give you a sense of what the people think you should be watching for over the course of the next few days .
-44-1	4929-4935	Before	_	_	_	_	_	_	_	_	_	_	_	_
-44-2	4936-4937	I	person[322]	giv[322]	snnnn[322]	_	coref	44-6[323_322]	
-44-3	4938-4942	want	_	_	_	_	_	_	_	_	_	_	_	_
-44-4	4943-4945	--	_	_	_	_	_	_	_	_	_	_	_	_
-44-5	4946-4952	before	_	_	_	_	_	_	_	_	_	_	_	_
-44-6	4953-4954	I	person[323]	giv[323]	snnnn[323]	_	coref	44-9[324_323]	
-44-7	4955-4963	conclude	_	_	_	_	_	_	_	_	_	_	_	_
-44-8	4964-4965	,	_	_	_	_	_	_	_	_	_	_	_	_
-44-9	4966-4967	I	person[324]	giv[324]	snnnn[324]	_	coref	48-5[365_324]	
-44-10	4968-4971	wan	_	_	_	_	_	_	_	_	_	_	_	_
-44-11	4972-4974	na	_	_	_	_	_	_	_	_	_	_	_	_
-44-12	4975-4980	speak	_	_	_	_	_	_	_	_	_	_	_	_
-44-13	4981-4985	just	_	_	_	_	_	_	_	_	_	_	_	_
-44-14	4986-4993	briefly	_	_	_	_	_	_	_	_	_	_	_	_
-44-15	4994-4999	about	_	_	_	_	_	_	_	_	_	_	_	_
+44-1	4929-4935	Before	_	_	_	_	_	_	
+44-2	4936-4937	I	person[322]	giv[322]	sssss[322]	_	coref	44-6[323_322]	
+44-3	4938-4942	want	_	_	_	_	_	_	
+44-4	4943-4945	--	_	_	_	_	_	_	
+44-5	4946-4952	before	_	_	_	_	_	_	
+44-6	4953-4954	I	person[323]	giv[323]	sssss[323]	_	coref	44-9[324_323]	
+44-7	4955-4963	conclude	_	_	_	_	_	_	
+44-8	4964-4965	,	_	_	_	_	_	_	
+44-9	4966-4967	I	person[324]	giv[324]	sssss[324]	_	coref	48-5[365_324]	
+44-10	4968-4971	wan	_	_	_	_	_	_	
+44-11	4972-4974	na	_	_	_	_	_	_	
+44-12	4975-4980	speak	_	_	_	_	_	_	
+44-13	4981-4985	just	_	_	_	_	_	_	
+44-14	4986-4993	briefly	_	_	_	_	_	_	
+44-15	4994-4999	about	_	_	_	_	_	_	
 44-16	5000-5003	the	abstract[325]	new[325]	nnnnn[325]	_	coref	45-19[335_325]	
-44-17	5004-5008	jury	abstract[325]|person[326]	new[325]|giv[326]	nnnnn[325]|nnnnn[326]	_	_	_	
+44-17	5004-5008	jury	abstract[325]|person[326]	new[325]|giv[326]	nnnnn[325]|nsnnn[326]	_	_	_	
 44-18	5009-5021	instructions	abstract[325]	new[325]	nnnnn[325]	_	_	_	
 44-19	5022-5026	that	abstract[325]	new[325]	nnnnn[325]	_	_	_	
 44-20	5027-5030	the	abstract[325]|person[327]	new[325]|new[327]	nnnnn[325]|nnnnn[327]	_	_	_	
 44-21	5031-5036	judge	abstract[325]|person[327]	new[325]|new[327]	nnnnn[325]|nnnnn[327]	_	_	_	
 44-22	5037-5048	highlighted	abstract[325]	new[325]	nnnnn[325]	_	_	_	
-44-23	5049-5052	and	_	_	_	_	_	_	_	_	_	_	_	_
-44-24	5053-5057	give	_	_	_	_	_	_	_	_	_	_	_	_
-44-25	5058-5061	you	person[328]	giv[328]	snnnn[328]	_	coref	44-33[331_328]	
+44-23	5049-5052	and	_	_	_	_	_	_	
+44-24	5053-5057	give	_	_	_	_	_	_	
+44-25	5058-5061	you	person[328]	giv[328]	ssnnn[328]	_	coref	44-33[331_328]	
 44-26	5062-5063	a	abstract[329]	new[329]	nnnnn[329]	_	_	_	
 44-27	5064-5069	sense	abstract[329]	new[329]	nnnnn[329]	_	_	_	
 44-28	5070-5072	of	abstract[329]	new[329]	nnnnn[329]	_	_	_	
@@ -1111,7 +1115,7 @@
 44-30	5078-5081	the	abstract[329]|person[330]	new[329]|giv[330]	nnnnn[329]|nnnnn[330]	_	coref	45-3[333_330]	
 44-31	5082-5088	people	abstract[329]|person[330]	new[329]|giv[330]	nnnnn[329]|nnnnn[330]	_	_	_	
 44-32	5089-5094	think	abstract[329]	new[329]	nnnnn[329]	_	_	_	
-44-33	5095-5098	you	abstract[329]|person[331]	new[329]|giv[331]	nnnnn[329]|snnnn[331]	_	coref	45-9[334_331]	
+44-33	5095-5098	you	abstract[329]|person[331]	new[329]|giv[331]	nnnnn[329]|ssnnn[331]	_	coref	45-9[334_331]	
 44-34	5099-5105	should	abstract[329]	new[329]	nnnnn[329]	_	_	_	
 44-35	5106-5108	be	abstract[329]	new[329]	nnnnn[329]	_	_	_	
 44-36	5109-5117	watching	abstract[329]	new[329]	nnnnn[329]	_	_	_	
@@ -1124,85 +1128,85 @@
 44-43	5145-5149	next	abstract[329]|time[332]	new[329]|new[332]	nnnnn[329]|nnnnn[332]	_	_	_	
 44-44	5150-5153	few	abstract[329]|time[332]	new[329]|new[332]	nnnnn[329]|nnnnn[332]	_	_	_	
 44-45	5154-5158	days	abstract[329]|time[332]	new[329]|new[332]	nnnnn[329]|nnnnn[332]	_	_	_	
-44-46	5159-5160	.	_	_	_	_	_	_	_	_	_	_	_	_
+44-46	5159-5160	.	_	_	_	_	_	_	
 
 #Text=Uh , we could bring up the -- you do n't have to be able to entirely read this .
-45-1	5161-5163	Uh	_	_	_	_	_	_	_	_	_	_	_	_
-45-2	5164-5165	,	_	_	_	_	_	_	_	_	_	_	_	_
+45-1	5161-5163	Uh	_	_	_	_	_	_	
+45-2	5164-5165	,	_	_	_	_	_	_	
 45-3	5166-5168	we	person[333]	giv[333]	nnnnn[333]	_	coref	47-26[346_333]	
-45-4	5169-5174	could	_	_	_	_	_	_	_	_	_	_	_	_
-45-5	5175-5180	bring	_	_	_	_	_	_	_	_	_	_	_	_
-45-6	5181-5183	up	_	_	_	_	_	_	_	_	_	_	_	_
-45-7	5184-5187	the	_	_	_	_	_	_	_	_	_	_	_	_
-45-8	5188-5190	--	_	_	_	_	_	_	_	_	_	_	_	_
-45-9	5191-5194	you	person[334]	giv[334]	snnnn[334]	_	coref	46-1[336_334]	
-45-10	5195-5197	do	_	_	_	_	_	_	_	_	_	_	_	_
-45-11	5198-5201	n't	_	_	_	_	_	_	_	_	_	_	_	_
-45-12	5202-5206	have	_	_	_	_	_	_	_	_	_	_	_	_
-45-13	5207-5209	to	_	_	_	_	_	_	_	_	_	_	_	_
-45-14	5210-5212	be	_	_	_	_	_	_	_	_	_	_	_	_
-45-15	5213-5217	able	_	_	_	_	_	_	_	_	_	_	_	_
-45-16	5218-5220	to	_	_	_	_	_	_	_	_	_	_	_	_
-45-17	5221-5229	entirely	_	_	_	_	_	_	_	_	_	_	_	_
-45-18	5230-5234	read	_	_	_	_	_	_	_	_	_	_	_	_
+45-4	5169-5174	could	_	_	_	_	_	_	
+45-5	5175-5180	bring	_	_	_	_	_	_	
+45-6	5181-5183	up	_	_	_	_	_	_	
+45-7	5184-5187	the	_	_	_	_	_	_	
+45-8	5188-5190	--	_	_	_	_	_	_	
+45-9	5191-5194	you	person[334]	giv[334]	ssnnn[334]	_	coref	46-1[336_334]	
+45-10	5195-5197	do	_	_	_	_	_	_	
+45-11	5198-5201	n't	_	_	_	_	_	_	
+45-12	5202-5206	have	_	_	_	_	_	_	
+45-13	5207-5209	to	_	_	_	_	_	_	
+45-14	5210-5212	be	_	_	_	_	_	_	
+45-15	5213-5217	able	_	_	_	_	_	_	
+45-16	5218-5220	to	_	_	_	_	_	_	
+45-17	5221-5229	entirely	_	_	_	_	_	_	
+45-18	5230-5234	read	_	_	_	_	_	_	
 45-19	5235-5239	this	abstract[335]	giv[335]	nnnnn[335]	_	coref	46-4[337_335]	
-45-20	5240-5241	.	_	_	_	_	_	_	_	_	_	_	_	_
+45-20	5240-5241	.	_	_	_	_	_	_	
 
 #Text=You 'll get it printed out at the end of the trial .
-46-1	5242-5245	You	person[336]	giv[336]	snnnn[336]	_	coref	48-11[367_336]	
-46-2	5246-5249	'll	_	_	_	_	_	_	_	_	_	_	_	_
-46-3	5250-5253	get	_	_	_	_	_	_	_	_	_	_	_	_
+46-1	5242-5245	You	person[336]	giv[336]	ssnnn[336]	_	coref	48-11[367_336]	
+46-2	5246-5249	'll	_	_	_	_	_	_	
+46-3	5250-5253	get	_	_	_	_	_	_	
 46-4	5254-5256	it	abstract[337]	giv[337]	nnnnn[337]	_	_	_	
-46-5	5257-5264	printed	_	_	_	_	_	_	_	_	_	_	_	_
-46-6	5265-5268	out	_	_	_	_	_	_	_	_	_	_	_	_
-46-7	5269-5271	at	_	_	_	_	_	_	_	_	_	_	_	_
+46-5	5257-5264	printed	_	_	_	_	_	_	
+46-6	5265-5268	out	_	_	_	_	_	_	
+46-7	5269-5271	at	_	_	_	_	_	_	
 46-8	5272-5275	the	time[338]	new[338]	nnnnn[338]	_	_	_	
 46-9	5276-5279	end	time[338]	new[338]	nnnnn[338]	_	_	_	
 46-10	5280-5282	of	time[338]	new[338]	nnnnn[338]	_	_	_	
-46-11	5283-5286	the	time[338]|event[339]	new[338]|giv[339]	nnnnn[338]|snnnn[339]	_	_	_	
-46-12	5287-5292	trial	time[338]|event[339]	new[338]|giv[339]	nnnnn[338]|snnnn[339]	_	_	_	
-46-13	5293-5294	.	_	_	_	_	_	_	_	_	_	_	_	_
+46-11	5283-5286	the	time[338]|event[339]	new[338]|giv[339]	nnnnn[338]|snsnn[339]	_	_	_	
+46-12	5287-5292	trial	time[338]|event[339]	new[338]|giv[339]	nnnnn[338]|snsnn[339]	_	_	_	
+46-13	5293-5294	.	_	_	_	_	_	_	
 
 #Text=But just roughly , as to the 5 counts , counts 4 through 9 , of OWI causing serious impairment of a body function , we have to prove that the defendant voluntarily operated her vehicle , that she did so in a parking lot or a place accessible to the general public , and that while she was operating it , she was either legally intoxicated , which is what we all hear about when we think of drunk driving , that she was a .08 or higher , or that she was under the influence of alcohol .
-47-1	5295-5298	But	_	_	_	_	_	_	_	_	_	_	_	_
-47-2	5299-5303	just	_	_	_	_	_	_	_	_	_	_	_	_
-47-3	5304-5311	roughly	_	_	_	_	_	_	_	_	_	_	_	_
-47-4	5312-5313	,	_	_	_	_	_	_	_	_	_	_	_	_
-47-5	5314-5316	as	_	_	_	_	_	_	_	_	_	_	_	_
-47-6	5317-5319	to	_	_	_	_	_	_	_	_	_	_	_	_
+47-1	5295-5298	But	_	_	_	_	_	_	
+47-2	5299-5303	just	_	_	_	_	_	_	
+47-3	5304-5311	roughly	_	_	_	_	_	_	
+47-4	5312-5313	,	_	_	_	_	_	_	
+47-5	5314-5316	as	_	_	_	_	_	_	
+47-6	5317-5319	to	_	_	_	_	_	_	
 47-7	5320-5323	the	abstract[340]	new[340]	nnnnn[340]	_	_	_	
 47-8	5324-5325	5	abstract[340]	new[340]	nnnnn[340]	_	_	_	
 47-9	5326-5332	counts	abstract[340]	new[340]	nnnnn[340]	_	_	_	
-47-10	5333-5334	,	_	_	_	_	_	_	_	_	_	_	_	_
+47-10	5333-5334	,	_	_	_	_	_	_	
 47-11	5335-5341	counts	abstract[341]	new[341]	nnnnn[341]	_	_	_	
 47-12	5342-5343	4	abstract[341]	new[341]	nnnnn[341]	_	_	_	
 47-13	5344-5351	through	abstract[341]	new[341]	nnnnn[341]	_	_	_	
 47-14	5352-5353	9	abstract[341]	new[341]	nnnnn[341]	_	_	_	
 47-15	5354-5355	,	abstract[341]	new[341]	nnnnn[341]	_	_	_	
 47-16	5356-5358	of	abstract[341]	new[341]	nnnnn[341]	_	_	_	
-47-17	5359-5362	OWI	abstract[341]|event[342]	new[341]|new[342]	nnnnn[341]|nnnnn[342]	_	_	_	
-47-18	5363-5370	causing	abstract[341]|event[342]	new[341]|new[342]	nnnnn[341]|nnnnn[342]	_	_	_	
-47-19	5371-5378	serious	abstract[341]|event[342]|event[343]	new[341]|new[342]|new[343]	nnnnn[341]|nnnnn[342]|nnnnn[343]	_	_	_	
-47-20	5379-5389	impairment	abstract[341]|event[342]|event[343]	new[341]|new[342]|new[343]	nnnnn[341]|nnnnn[342]|nnnnn[343]	_	_	_	
-47-21	5390-5392	of	abstract[341]|event[342]|event[343]	new[341]|new[342]|new[343]	nnnnn[341]|nnnnn[342]|nnnnn[343]	_	_	_	
-47-22	5393-5394	a	abstract[341]|event[342]|event[343]|abstract[344]	new[341]|new[342]|new[343]|giv[344]	nnnnn[341]|nnnnn[342]|nnnnn[343]|nnnnn[344]	_	_	_	
-47-23	5395-5399	body	abstract[341]|event[342]|event[343]|abstract[344]|object[345]	new[341]|new[342]|new[343]|giv[344]|new[345]	nnnnn[341]|nnnnn[342]|nnnnn[343]|nnnnn[344]|nnnnn[345]	_	_	_	
-47-24	5400-5408	function	abstract[341]|event[342]|event[343]|abstract[344]	new[341]|new[342]|new[343]|giv[344]	nnnnn[341]|nnnnn[342]|nnnnn[343]|nnnnn[344]	_	_	_	
-47-25	5409-5410	,	_	_	_	_	_	_	_	_	_	_	_	_
+47-17	5359-5362	OWI	abstract[341]|event[342]	new[341]|new[342]	nnnnn[341]|nssss[342]	_	_	_	
+47-18	5363-5370	causing	abstract[341]|event[342]	new[341]|new[342]	nnnnn[341]|nssss[342]	_	_	_	
+47-19	5371-5378	serious	abstract[341]|event[342]|event[343]	new[341]|new[342]|new[343]	nnnnn[341]|nssss[342]|nsnss[343]	_	_	_	
+47-20	5379-5389	impairment	abstract[341]|event[342]|event[343]	new[341]|new[342]|new[343]	nnnnn[341]|nssss[342]|nsnss[343]	_	_	_	
+47-21	5390-5392	of	abstract[341]|event[342]|event[343]	new[341]|new[342]|new[343]	nnnnn[341]|nssss[342]|nsnss[343]	_	_	_	
+47-22	5393-5394	a	abstract[341]|event[342]|event[343]|abstract[344]	new[341]|new[342]|new[343]|giv[344]	nnnnn[341]|nssss[342]|nsnss[343]|nnnnn[344]	_	_	_	
+47-23	5395-5399	body	abstract[341]|event[342]|event[343]|abstract[344]|object[345]	new[341]|new[342]|new[343]|giv[344]|new[345]	nnnnn[341]|nssss[342]|nsnss[343]|nnnnn[344]|nnnnn[345]	_	_	_	
+47-24	5400-5408	function	abstract[341]|event[342]|event[343]|abstract[344]	new[341]|new[342]|new[343]|giv[344]	nnnnn[341]|nssss[342]|nsnss[343]|nnnnn[344]	_	_	_	
+47-25	5409-5410	,	_	_	_	_	_	_	
 47-26	5411-5413	we	person[346]	giv[346]	nnnnn[346]	_	coref	50-16[378_346]	
-47-27	5414-5418	have	_	_	_	_	_	_	_	_	_	_	_	_
-47-28	5419-5421	to	_	_	_	_	_	_	_	_	_	_	_	_
-47-29	5422-5427	prove	_	_	_	_	_	_	_	_	_	_	_	_
-47-30	5428-5432	that	_	_	_	_	_	_	_	_	_	_	_	_
-47-31	5433-5436	the	person[347]	giv[347]	snnnn[347]	_	coref	47-35[349_347]	
-47-32	5437-5446	defendant	person[347]	giv[347]	snnnn[347]	_	_	_	
-47-33	5447-5458	voluntarily	_	_	_	_	_	_	_	_	_	_	_	_
-47-34	5459-5467	operated	_	_	_	_	_	_	_	_	_	_	_	_
-47-35	5468-5471	her	object[348]|person[349]	giv[348]|giv[349]	snnnn[348]|snnnn[349]	_	coref|coref	47-61[354_348]|47-39[351_349]	
-47-36	5472-5479	vehicle	object[348]	giv[348]	snnnn[348]	_	_	_	
-47-37	5480-5481	,	_	_	_	_	_	_	_	_	_	_	_	_
-47-38	5482-5486	that	_	_	_	_	_	_	_	_	_	_	_	_
-47-39	5487-5490	she	person[350]|person[351]	new[350]|giv[351]	nnnnn[350]|snnnn[351]	_	coref	47-58[353_351]	
+47-27	5414-5418	have	_	_	_	_	_	_	
+47-28	5419-5421	to	_	_	_	_	_	_	
+47-29	5422-5427	prove	_	_	_	_	_	_	
+47-30	5428-5432	that	_	_	_	_	_	_	
+47-31	5433-5436	the	person[347]	giv[347]	sssss[347]	_	coref	47-35[349_347]	
+47-32	5437-5446	defendant	person[347]	giv[347]	sssss[347]	_	_	_	
+47-33	5447-5458	voluntarily	_	_	_	_	_	_	
+47-34	5459-5467	operated	_	_	_	_	_	_	
+47-35	5468-5471	her	object[348]|person[349]	giv[348]|giv[349]	sssss[348]|sssss[349]	_	coref|coref	47-61[354_348]|47-39[351_349]	
+47-36	5472-5479	vehicle	object[348]	giv[348]	sssss[348]	_	_	_	
+47-37	5480-5481	,	_	_	_	_	_	_	
+47-38	5482-5486	that	_	_	_	_	_	_	
+47-39	5487-5490	she	person[350]|person[351]	new[350]|giv[351]	nnnnn[350]|sssss[351]	_	coref	47-58[353_351]	
 47-40	5491-5494	did	person[350]	new[350]	nnnnn[350]	_	_	_	
 47-41	5495-5497	so	person[350]	new[350]	nnnnn[350]	_	_	_	
 47-42	5498-5500	in	person[350]	new[350]	nnnnn[350]	_	_	_	
@@ -1217,16 +1221,16 @@
 47-51	5540-5543	the	person[350]	new[350]	nnnnn[350]	_	_	_	
 47-52	5544-5551	general	person[350]	new[350]	nnnnn[350]	_	_	_	
 47-53	5552-5558	public	person[350]	new[350]	nnnnn[350]	_	_	_	
-47-54	5559-5560	,	_	_	_	_	_	_	_	_	_	_	_	_
-47-55	5561-5564	and	_	_	_	_	_	_	_	_	_	_	_	_
+47-54	5559-5560	,	_	_	_	_	_	_	
+47-55	5561-5564	and	_	_	_	_	_	_	
 47-56	5565-5569	that	event[352]	new[352]	nnnnn[352]	_	coref	53-5[395_352]	
 47-57	5570-5575	while	event[352]	new[352]	nnnnn[352]	_	_	_	
-47-58	5576-5579	she	event[352]|person[353]	new[352]|giv[353]	nnnnn[352]|snnnn[353]	_	coref	47-63[355_353]	
+47-58	5576-5579	she	event[352]|person[353]	new[352]|giv[353]	nnnnn[352]|sssss[353]	_	coref	47-63[355_353]	
 47-59	5580-5583	was	event[352]	new[352]	nnnnn[352]	_	_	_	
 47-60	5584-5593	operating	event[352]	new[352]	nnnnn[352]	_	_	_	
-47-61	5594-5596	it	event[352]|object[354]	new[352]|giv[354]	nnnnn[352]|snnnn[354]	_	_	_	
+47-61	5594-5596	it	event[352]|object[354]	new[352]|giv[354]	nnnnn[352]|sssss[354]	_	_	_	
 47-62	5597-5598	,	event[352]	new[352]	nnnnn[352]	_	_	_	
-47-63	5599-5602	she	event[352]|person[355]	new[352]|giv[355]	nnnnn[352]|snnnn[355]	_	coref	47-84[359_355]	
+47-63	5599-5602	she	event[352]|person[355]	new[352]|giv[355]	nnnnn[352]|sssss[355]	_	coref	47-84[359_355]	
 47-64	5603-5606	was	event[352]	new[352]	nnnnn[352]	_	_	_	
 47-65	5607-5613	either	event[352]	new[352]	nnnnn[352]	_	_	_	
 47-66	5614-5621	legally	event[352]	new[352]	nnnnn[352]	_	_	_	
@@ -1247,7 +1251,7 @@
 47-81	5691-5698	driving	event[352]|event[358]	new[352]|new[358]	nnnnn[352]|snnnn[358]	_	_	_	
 47-82	5699-5700	,	event[352]	new[352]	nnnnn[352]	_	_	_	
 47-83	5701-5705	that	event[352]	new[352]	nnnnn[352]	_	_	_	
-47-84	5706-5709	she	event[352]|person[359]	new[352]|giv[359]	nnnnn[352]|snnnn[359]	_	coref	47-93[362_359]	
+47-84	5706-5709	she	event[352]|person[359]	new[352]|giv[359]	nnnnn[352]|sssss[359]	_	coref	47-93[362_359]	
 47-85	5710-5713	was	event[352]	new[352]	nnnnn[352]	_	_	_	
 47-86	5714-5715	a	event[352]|abstract[360]|abstract[361]	new[352]|new[360]|new[361]	nnnnn[352]|nnnnn[360]|nnnnn[361]	_	coref	50-7[375_360]	
 47-87	5716-5719	.08	event[352]|abstract[360]|abstract[361]	new[352]|new[360]|new[361]	nnnnn[352]|nnnnn[360]|nnnnn[361]	_	_	_	
@@ -1256,27 +1260,27 @@
 47-90	5730-5731	,	event[352]	new[352]	nnnnn[352]	_	_	_	
 47-91	5732-5734	or	event[352]	new[352]	nnnnn[352]	_	_	_	
 47-92	5735-5739	that	event[352]	new[352]	nnnnn[352]	_	_	_	
-47-93	5740-5743	she	event[352]|person[362]	new[352]|giv[362]	nnnnn[352]|snnnn[362]	_	_	_	
+47-93	5740-5743	she	event[352]|person[362]	new[352]|giv[362]	nnnnn[352]|sssss[362]	_	_	_	
 47-94	5744-5747	was	event[352]	new[352]	nnnnn[352]	_	_	_	
 47-95	5748-5753	under	event[352]	new[352]	nnnnn[352]	_	_	_	
 47-96	5754-5757	the	event[352]|abstract[363]	new[352]|new[363]	nnnnn[352]|snnnn[363]	_	_	_	
 47-97	5758-5767	influence	event[352]|abstract[363]	new[352]|new[363]	nnnnn[352]|snnnn[363]	_	_	_	
 47-98	5768-5770	of	event[352]|abstract[363]	new[352]|new[363]	nnnnn[352]|snnnn[363]	_	_	_	
 47-99	5771-5778	alcohol	event[352]|abstract[363]|substance[364]	new[352]|new[363]|new[364]	nnnnn[352]|snnnn[363]|snnnn[364]	_	coref	52-13[391_364]	
-47-100	5779-5780	.	_	_	_	_	_	_	_	_	_	_	_	_
+47-100	5779-5780	.	_	_	_	_	_	_	
 
 #Text=In other words , I could think of a , you know , a 90 pound , uh , 25 year old woman who I could give one glass of wine to .
-48-1	5781-5783	In	_	_	_	_	_	_	_	_	_	_	_	_
-48-2	5784-5789	other	_	_	_	_	_	_	_	_	_	_	_	_
-48-3	5790-5795	words	_	_	_	_	_	_	_	_	_	_	_	_
-48-4	5796-5797	,	_	_	_	_	_	_	_	_	_	_	_	_
-48-5	5798-5799	I	person[365]	giv[365]	snnnn[365]	_	coref	48-25[368_365]	
-48-6	5800-5805	could	_	_	_	_	_	_	_	_	_	_	_	_
-48-7	5806-5811	think	_	_	_	_	_	_	_	_	_	_	_	_
-48-8	5812-5814	of	_	_	_	_	_	_	_	_	_	_	_	_
+48-1	5781-5783	In	_	_	_	_	_	_	
+48-2	5784-5789	other	_	_	_	_	_	_	
+48-3	5790-5795	words	_	_	_	_	_	_	
+48-4	5796-5797	,	_	_	_	_	_	_	
+48-5	5798-5799	I	person[365]	giv[365]	sssss[365]	_	coref	48-25[368_365]	
+48-6	5800-5805	could	_	_	_	_	_	_	
+48-7	5806-5811	think	_	_	_	_	_	_	
+48-8	5812-5814	of	_	_	_	_	_	_	
 48-9	5815-5816	a	person[366]	new[366]	nnnnn[366]	_	coref	49-1[371_366]	
 48-10	5817-5818	,	person[366]	new[366]	nnnnn[366]	_	_	_	
-48-11	5819-5822	you	person[366]|person[367]	new[366]|giv[367]	nnnnn[366]|snnnn[367]	_	_	_	
+48-11	5819-5822	you	person[366]|person[367]	new[366]|giv[367]	nnnnn[366]|ssnnn[367]	_	_	_	
 48-12	5823-5827	know	person[366]	new[366]	nnnnn[366]	_	_	_	
 48-13	5828-5829	,	person[366]	new[366]	nnnnn[366]	_	_	_	
 48-14	5830-5831	a	person[366]	new[366]	nnnnn[366]	_	_	_	
@@ -1290,7 +1294,7 @@
 48-22	5856-5859	old	person[366]	new[366]	nnnnn[366]	_	_	_	
 48-23	5860-5865	woman	person[366]	new[366]	nnnnn[366]	_	_	_	
 48-24	5866-5869	who	person[366]	new[366]	nnnnn[366]	_	_	_	
-48-25	5870-5871	I	person[366]|person[368]	new[366]|giv[368]	nnnnn[366]|snnnn[368]	_	_	_	
+48-25	5870-5871	I	person[366]|person[368]	new[366]|giv[368]	nnnnn[366]|sssss[368]	_	_	_	
 48-26	5872-5877	could	person[366]	new[366]	nnnnn[366]	_	_	_	
 48-27	5878-5882	give	person[366]	new[366]	nnnnn[366]	_	_	_	
 48-28	5883-5886	one	person[366]|substance[369]	new[366]|new[369]	nnnnn[366]|nnnnn[369]	_	_	_	
@@ -1298,67 +1302,67 @@
 48-30	5893-5895	of	person[366]|substance[369]	new[366]|new[369]	nnnnn[366]|nnnnn[369]	_	_	_	
 48-31	5896-5900	wine	person[366]|substance[369]|substance[370]	new[366]|new[369]|new[370]	nnnnn[366]|nnnnn[369]|nnnnn[370]	_	_	_	
 48-32	5901-5903	to	person[366]	new[366]	nnnnn[366]	_	_	_	
-48-33	5904-5905	.	_	_	_	_	_	_	_	_	_	_	_	_
+48-33	5904-5905	.	_	_	_	_	_	_	
 
 #Text=She could be at a .04 but just be drunk out of her mind .
 49-1	5906-5909	She	person[371]	giv[371]	nnnnn[371]	_	coref	49-13[373_371]	
-49-2	5910-5915	could	_	_	_	_	_	_	_	_	_	_	_	_
-49-3	5916-5918	be	_	_	_	_	_	_	_	_	_	_	_	_
-49-4	5919-5921	at	_	_	_	_	_	_	_	_	_	_	_	_
+49-2	5910-5915	could	_	_	_	_	_	_	
+49-3	5916-5918	be	_	_	_	_	_	_	
+49-4	5919-5921	at	_	_	_	_	_	_	
 49-5	5922-5923	a	abstract[372]	new[372]	nnnnn[372]	_	_	_	
 49-6	5924-5927	.04	abstract[372]	new[372]	nnnnn[372]	_	_	_	
-49-7	5928-5931	but	_	_	_	_	_	_	_	_	_	_	_	_
-49-8	5932-5936	just	_	_	_	_	_	_	_	_	_	_	_	_
-49-9	5937-5939	be	_	_	_	_	_	_	_	_	_	_	_	_
-49-10	5940-5945	drunk	_	_	_	_	_	_	_	_	_	_	_	_
-49-11	5946-5949	out	_	_	_	_	_	_	_	_	_	_	_	_
-49-12	5950-5952	of	_	_	_	_	_	_	_	_	_	_	_	_
+49-7	5928-5931	but	_	_	_	_	_	_	
+49-8	5932-5936	just	_	_	_	_	_	_	
+49-9	5937-5939	be	_	_	_	_	_	_	
+49-10	5940-5945	drunk	_	_	_	_	_	_	
+49-11	5946-5949	out	_	_	_	_	_	_	
+49-12	5950-5952	of	_	_	_	_	_	_	
 49-13	5953-5956	her	person[373]	giv[373]	nnnnn[373]	_	coref	52-6[389_373]	
-49-14	5957-5961	mind	_	_	_	_	_	_	_	_	_	_	_	_
-49-15	5962-5963	.	_	_	_	_	_	_	_	_	_	_	_	_
+49-14	5957-5961	mind	_	_	_	_	_	_	
+49-15	5962-5963	.	_	_	_	_	_	_	
 
 #Text=So it 's not always just a .08 , that 's the legal limit and we consider if you 're over a .08 , regardless of how you feel , you 're legally intoxicated .
-50-1	5964-5966	So	_	_	_	_	_	_	_	_	_	_	_	_
+50-1	5964-5966	So	_	_	_	_	_	_	
 50-2	5967-5969	it	event[374]	giv[374]	snnnn[374]	_	_	_	
-50-3	5970-5972	's	_	_	_	_	_	_	_	_	_	_	_	_
-50-4	5973-5976	not	_	_	_	_	_	_	_	_	_	_	_	_
-50-5	5977-5983	always	_	_	_	_	_	_	_	_	_	_	_	_
-50-6	5984-5988	just	_	_	_	_	_	_	_	_	_	_	_	_
+50-3	5970-5972	's	_	_	_	_	_	_	
+50-4	5973-5976	not	_	_	_	_	_	_	
+50-5	5977-5983	always	_	_	_	_	_	_	
+50-6	5984-5988	just	_	_	_	_	_	_	
 50-7	5989-5990	a	abstract[375]	giv[375]	nnnnn[375]	_	coref	50-10[376_375]	
 50-8	5991-5994	.08	abstract[375]	giv[375]	nnnnn[375]	_	_	_	
-50-9	5995-5996	,	_	_	_	_	_	_	_	_	_	_	_	_
+50-9	5995-5996	,	_	_	_	_	_	_	
 50-10	5997-6001	that	abstract[376]	giv[376]	nnnnn[376]	_	coref	50-12[377_376]	
-50-11	6002-6004	's	_	_	_	_	_	_	_	_	_	_	_	_
+50-11	6002-6004	's	_	_	_	_	_	_	
 50-12	6005-6008	the	abstract[377]	giv[377]	nnnnn[377]	_	coref	50-22[380_377]	
 50-13	6009-6014	legal	abstract[377]	giv[377]	nnnnn[377]	_	_	_	
 50-14	6015-6020	limit	abstract[377]	giv[377]	nnnnn[377]	_	_	_	
-50-15	6021-6024	and	_	_	_	_	_	_	_	_	_	_	_	_
+50-15	6021-6024	and	_	_	_	_	_	_	
 50-16	6025-6027	we	person[378]	giv[378]	nnnnn[378]	_	coref	52-2[388_378]	
-50-17	6028-6036	consider	_	_	_	_	_	_	_	_	_	_	_	_
-50-18	6037-6039	if	_	_	_	_	_	_	_	_	_	_	_	_
+50-17	6028-6036	consider	_	_	_	_	_	_	
+50-18	6037-6039	if	_	_	_	_	_	_	
 50-19	6040-6043	you	person[379]	acc[379]	nnnnn[379]	_	coref	50-28[381_379]	
-50-20	6044-6047	're	_	_	_	_	_	_	_	_	_	_	_	_
-50-21	6048-6052	over	_	_	_	_	_	_	_	_	_	_	_	_
+50-20	6044-6047	're	_	_	_	_	_	_	
+50-21	6048-6052	over	_	_	_	_	_	_	
 50-22	6053-6054	a	abstract[380]	giv[380]	nnnnn[380]	_	coref	51-11[387_380]	
 50-23	6055-6058	.08	abstract[380]	giv[380]	nnnnn[380]	_	_	_	
-50-24	6059-6060	,	_	_	_	_	_	_	_	_	_	_	_	_
-50-25	6061-6071	regardless	_	_	_	_	_	_	_	_	_	_	_	_
-50-26	6072-6074	of	_	_	_	_	_	_	_	_	_	_	_	_
-50-27	6075-6078	how	_	_	_	_	_	_	_	_	_	_	_	_
+50-24	6059-6060	,	_	_	_	_	_	_	
+50-25	6061-6071	regardless	_	_	_	_	_	_	
+50-26	6072-6074	of	_	_	_	_	_	_	
+50-27	6075-6078	how	_	_	_	_	_	_	
 50-28	6079-6082	you	person[381]	giv[381]	nnnnn[381]	_	coref	50-31[382_381]	
-50-29	6083-6087	feel	_	_	_	_	_	_	_	_	_	_	_	_
-50-30	6088-6089	,	_	_	_	_	_	_	_	_	_	_	_	_
+50-29	6083-6087	feel	_	_	_	_	_	_	
+50-30	6088-6089	,	_	_	_	_	_	_	
 50-31	6090-6093	you	person[382]	giv[382]	nnnnn[382]	_	coref	51-6[385_382]	
-50-32	6094-6097	're	_	_	_	_	_	_	_	_	_	_	_	_
-50-33	6098-6105	legally	_	_	_	_	_	_	_	_	_	_	_	_
-50-34	6106-6117	intoxicated	_	_	_	_	_	_	_	_	_	_	_	_
-50-35	6118-6119	.	_	_	_	_	_	_	_	_	_	_	_	_
+50-32	6094-6097	're	_	_	_	_	_	_	
+50-33	6098-6105	legally	_	_	_	_	_	_	
+50-34	6106-6117	intoxicated	_	_	_	_	_	_	
+50-35	6118-6119	.	_	_	_	_	_	_	
 
 #Text=But it is possible for you to find intoxication under a .08 .
-51-1	6120-6123	But	_	_	_	_	_	_	_	_	_	_	_	_
+51-1	6120-6123	But	_	_	_	_	_	_	
 51-2	6124-6126	it	event[383]	giv[383]	nnnnn[383]	_	coref	51-5[384_383]	
-51-3	6127-6129	is	_	_	_	_	_	_	_	_	_	_	_	_
-51-4	6130-6138	possible	_	_	_	_	_	_	_	_	_	_	_	_
+51-3	6127-6129	is	_	_	_	_	_	_	
+51-4	6130-6138	possible	_	_	_	_	_	_	
 51-5	6139-6142	for	event[384]	new[384]	nnnnn[384]	_	_	_	
 51-6	6143-6146	you	event[384]|person[385]	new[384]|giv[385]	nnnnn[384]|nnnnn[385]	_	_	_	
 51-7	6147-6149	to	event[384]	new[384]	nnnnn[384]	_	_	_	
@@ -1367,23 +1371,23 @@
 51-10	6168-6173	under	event[384]	new[384]	nnnnn[384]	_	_	_	
 51-11	6174-6175	a	event[384]|abstract[387]	new[384]|giv[387]	nnnnn[384]|nnnnn[387]	_	_	_	
 51-12	6176-6179	.08	event[384]|abstract[387]	new[384]|giv[387]	nnnnn[384]|nnnnn[387]	_	_	_	
-51-13	6180-6181	.	_	_	_	_	_	_	_	_	_	_	_	_
+51-13	6180-6181	.	_	_	_	_	_	_	
 
 #Text=Or we can prove that she was impaired by the consumption of alcohol and the consumption of a -- uh , intoxicating substance called gabapentin .
-52-1	6182-6184	Or	_	_	_	_	_	_	_	_	_	_	_	_
+52-1	6182-6184	Or	_	_	_	_	_	_	
 52-2	6185-6187	we	person[388]	giv[388]	nnnnn[388]	_	_	_	
-52-3	6188-6191	can	_	_	_	_	_	_	_	_	_	_	_	_
-52-4	6192-6197	prove	_	_	_	_	_	_	_	_	_	_	_	_
-52-5	6198-6202	that	_	_	_	_	_	_	_	_	_	_	_	_
+52-3	6188-6191	can	_	_	_	_	_	_	
+52-4	6192-6197	prove	_	_	_	_	_	_	
+52-5	6198-6202	that	_	_	_	_	_	_	
 52-6	6203-6206	she	person[389]	giv[389]	nnnnn[389]	_	coref	53-14[398_389]	
-52-7	6207-6210	was	_	_	_	_	_	_	_	_	_	_	_	_
-52-8	6211-6219	impaired	_	_	_	_	_	_	_	_	_	_	_	_
-52-9	6220-6222	by	_	_	_	_	_	_	_	_	_	_	_	_
+52-7	6207-6210	was	_	_	_	_	_	_	
+52-8	6211-6219	impaired	_	_	_	_	_	_	
+52-9	6220-6222	by	_	_	_	_	_	_	
 52-10	6223-6226	the	event[390]	new[390]	nnnnn[390]	_	_	_	
 52-11	6227-6238	consumption	event[390]	new[390]	nnnnn[390]	_	_	_	
 52-12	6239-6241	of	event[390]	new[390]	nnnnn[390]	_	_	_	
 52-13	6242-6249	alcohol	event[390]|substance[391]	new[390]|giv[391]	nnnnn[390]|snnnn[391]	_	bridge	53-11[397_391]	
-52-14	6250-6253	and	_	_	_	_	_	_	_	_	_	_	_	_
+52-14	6250-6253	and	_	_	_	_	_	_	
 52-15	6254-6257	the	event[392]	new[392]	nnnnn[392]	_	_	_	
 52-16	6258-6269	consumption	event[392]	new[392]	nnnnn[392]	_	_	_	
 52-17	6270-6272	of	event[392]	new[392]	nnnnn[392]	_	_	_	
@@ -1395,53 +1399,53 @@
 52-23	6296-6305	substance	event[392]|substance[393]	new[392]|new[393]	nnnnn[392]|snnnn[393]	_	_	_	
 52-24	6306-6312	called	event[392]|substance[393]	new[392]|new[393]	nnnnn[392]|snnnn[393]	_	_	_	
 52-25	6313-6323	gabapentin	event[392]|substance[393]|substance[394]	new[392]|new[393]|new[394]	nnnnn[392]|snnnn[393]|snnnn[394]	_	bridge	53-11[397_394]	
-52-26	6324-6325	.	_	_	_	_	_	_	_	_	_	_	_	_
+52-26	6324-6325	.	_	_	_	_	_	_	
 
 #Text=And that in doing this , in driving after ingesting these substances , she caused a serious injury to one of those five victims .
-53-1	6326-6329	And	_	_	_	_	_	_	_	_	_	_	_	_
-53-2	6330-6334	that	_	_	_	_	_	_	_	_	_	_	_	_
-53-3	6335-6337	in	_	_	_	_	_	_	_	_	_	_	_	_
-53-4	6338-6343	doing	_	_	_	_	_	_	_	_	_	_	_	_
+53-1	6326-6329	And	_	_	_	_	_	_	
+53-2	6330-6334	that	_	_	_	_	_	_	
+53-3	6335-6337	in	_	_	_	_	_	_	
+53-4	6338-6343	doing	_	_	_	_	_	_	
 53-5	6344-6348	this	event[395]	giv[395]	nnnnn[395]	_	coref	53-8[396_395]	
-53-6	6349-6350	,	_	_	_	_	_	_	_	_	_	_	_	_
-53-7	6351-6353	in	_	_	_	_	_	_	_	_	_	_	_	_
+53-6	6349-6350	,	_	_	_	_	_	_	
+53-7	6351-6353	in	_	_	_	_	_	_	
 53-8	6354-6361	driving	event[396]	giv[396]	nnnnn[396]	_	_	_	
 53-9	6362-6367	after	event[396]	giv[396]	nnnnn[396]	_	_	_	
 53-10	6368-6377	ingesting	event[396]	giv[396]	nnnnn[396]	_	_	_	
 53-11	6378-6383	these	event[396]|substance[397]	giv[396]|split[397]	nnnnn[396]|nnnnn[397]	_	_	_	
 53-12	6384-6394	substances	event[396]|substance[397]	giv[396]|split[397]	nnnnn[396]|nnnnn[397]	_	_	_	
-53-13	6395-6396	,	_	_	_	_	_	_	_	_	_	_	_	_
+53-13	6395-6396	,	_	_	_	_	_	_	
 53-14	6397-6400	she	person[398]	giv[398]	nnnnn[398]	_	_	_	
-53-15	6401-6407	caused	_	_	_	_	_	_	_	_	_	_	_	_
+53-15	6401-6407	caused	_	_	_	_	_	_	
 53-16	6408-6409	a	event[399]	new[399]	nnnnn[399]	_	_	_	
 53-17	6410-6417	serious	event[399]	new[399]	nnnnn[399]	_	_	_	
 53-18	6418-6424	injury	event[399]	new[399]	nnnnn[399]	_	_	_	
 53-19	6425-6427	to	event[399]	new[399]	nnnnn[399]	_	_	_	
 53-20	6428-6431	one	event[399]|person[400]	new[399]|new[400]	nnnnn[399]|nnnnn[400]	_	_	_	
 53-21	6432-6434	of	event[399]|person[400]	new[399]|new[400]	nnnnn[399]|nnnnn[400]	_	_	_	
-53-22	6435-6440	those	event[399]|person[400]|person[401]	new[399]|new[400]|giv[401]	nnnnn[399]|nnnnn[400]|snnnn[401]	_	_	_	
-53-23	6441-6445	five	event[399]|person[400]|person[401]	new[399]|new[400]|giv[401]	nnnnn[399]|nnnnn[400]|snnnn[401]	_	_	_	
-53-24	6446-6453	victims	event[399]|person[400]|person[401]	new[399]|new[400]|giv[401]	nnnnn[399]|nnnnn[400]|snnnn[401]	_	_	_	
-53-25	6454-6455	.	_	_	_	_	_	_	_	_	_	_	_	_
+53-22	6435-6440	those	event[399]|person[400]|person[401]	new[399]|new[400]|giv[401]	nnnnn[399]|nnnnn[400]|ssssn[401]	_	_	_	
+53-23	6441-6445	five	event[399]|person[400]|person[401]	new[399]|new[400]|giv[401]	nnnnn[399]|nnnnn[400]|ssssn[401]	_	_	_	
+53-24	6446-6453	victims	event[399]|person[400]|person[401]	new[399]|new[400]|giv[401]	nnnnn[399]|nnnnn[400]|ssssn[401]	_	_	_	
+53-25	6454-6455	.	_	_	_	_	_	_	
 
 #Text=Similarly , the two counts of operating while intoxicated causing death , the deaths of Zane and Alanah Phillips .
-54-1	6456-6465	Similarly	_	_	_	_	_	_	_	_	_	_	_	_
-54-2	6466-6467	,	_	_	_	_	_	_	_	_	_	_	_	_
-54-3	6468-6471	the	event[402]	new[402]	nnnnn[402]	_	_	_	
-54-4	6472-6475	two	event[402]	new[402]	nnnnn[402]	_	_	_	
-54-5	6476-6482	counts	event[402]	new[402]	nnnnn[402]	_	_	_	
-54-6	6483-6485	of	event[402]	new[402]	nnnnn[402]	_	_	_	
-54-7	6486-6495	operating	event[402]	new[402]	nnnnn[402]	_	_	_	
-54-8	6496-6501	while	event[402]	new[402]	nnnnn[402]	_	_	_	
-54-9	6502-6513	intoxicated	event[402]	new[402]	nnnnn[402]	_	_	_	
-54-10	6514-6521	causing	event[402]	new[402]	nnnnn[402]	_	_	_	
-54-11	6522-6527	death	event[402]|event[403]	new[402]|new[403]	nnnnn[402]|snnnn[403]	_	coref	54-13[404_403]	
-54-12	6528-6529	,	event[402]	new[402]	nnnnn[402]	_	_	_	
-54-13	6530-6533	the	event[402]|event[404]	new[402]|giv[404]	nnnnn[402]|snnnn[404]	_	_	_	
-54-14	6534-6540	deaths	event[402]|event[404]	new[402]|giv[404]	nnnnn[402]|snnnn[404]	_	_	_	
-54-15	6541-6543	of	event[402]|event[404]	new[402]|giv[404]	nnnnn[402]|snnnn[404]	_	_	_	
-54-16	6544-6548	Zane	event[402]|event[404]|person[405]	new[402]|giv[404]|giv[405]	nnnnn[402]|snnnn[404]|nnnnn[405]	_	_	_	
-54-17	6549-6552	and	event[402]|event[404]	new[402]|giv[404]	nnnnn[402]|snnnn[404]	_	_	_	
-54-18	6553-6559	Alanah	event[402]|event[404]|person[406]	new[402]|giv[404]|giv[406]	nnnnn[402]|snnnn[404]|nnnnn[406]	_	_	_	
-54-19	6560-6568	Phillips	event[402]|event[404]|person[406]	new[402]|giv[404]|giv[406]	nnnnn[402]|snnnn[404]|nnnnn[406]	_	_	_	
-54-20	6569-6570	.	_	_	_	_	_	_	_	_	_	_	_	_	
+54-1	6456-6465	Similarly	_	_	_	_	_	_	
+54-2	6466-6467	,	_	_	_	_	_	_	
+54-3	6468-6471	the	event[402]	new[402]	nssss[402]	_	_	_	
+54-4	6472-6475	two	event[402]	new[402]	nssss[402]	_	_	_	
+54-5	6476-6482	counts	event[402]	new[402]	nssss[402]	_	_	_	
+54-6	6483-6485	of	event[402]	new[402]	nssss[402]	_	_	_	
+54-7	6486-6495	operating	event[402]	new[402]	nssss[402]	_	_	_	
+54-8	6496-6501	while	event[402]	new[402]	nssss[402]	_	_	_	
+54-9	6502-6513	intoxicated	event[402]	new[402]	nssss[402]	_	_	_	
+54-10	6514-6521	causing	event[402]	new[402]	nssss[402]	_	_	_	
+54-11	6522-6527	death	event[402]|event[403]	new[402]|new[403]	nssss[402]|sssss[403]	_	coref	54-13[404_403]	
+54-12	6528-6529	,	event[402]	new[402]	nssss[402]	_	_	_	
+54-13	6530-6533	the	event[402]|event[404]	new[402]|giv[404]	nssss[402]|sssss[404]	_	_	_	
+54-14	6534-6540	deaths	event[402]|event[404]	new[402]|giv[404]	nssss[402]|sssss[404]	_	_	_	
+54-15	6541-6543	of	event[402]|event[404]	new[402]|giv[404]	nssss[402]|sssss[404]	_	_	_	
+54-16	6544-6548	Zane	event[402]|event[404]|person[405]	new[402]|giv[404]|giv[405]	nssss[402]|sssss[404]|nnnnn[405]	_	_	_	
+54-17	6549-6552	and	event[402]|event[404]	new[402]|giv[404]	nssss[402]|sssss[404]	_	_	_	
+54-18	6553-6559	Alanah	event[402]|event[404]|person[406]	new[402]|giv[404]|giv[406]	nssss[402]|sssss[404]|nnsnn[406]	_	_	_	
+54-19	6560-6568	Phillips	event[402]|event[404]|person[406]	new[402]|giv[404]|giv[406]	nssss[402]|sssss[404]|nnsnn[406]	_	_	_	
+54-20	6569-6570	.	_	_	_	_	_	_	

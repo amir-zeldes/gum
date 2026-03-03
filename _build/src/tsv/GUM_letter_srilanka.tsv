@@ -2,89 +2,93 @@
 #T_SP=webanno.custom.Referent|entity|infstat|salience|identity
 #T_RL=webanno.custom.Coref|type|BT_webanno.custom.Referent
 #Summary1=(human1) Rajiva Wijesinja, the Secretary General of Sri Lanka, writes to the editor of the International Herald Tribune regarding an article by Charu Hogg on the human rights situation in Sri Lanka indiscriminate attacks by the government which led to the displacement and forced return of people, stating that her claims were exaggerated and being used to promote the opposition.
+#Summary2=(claude-sonnet-4-5-20250929) In a letter to the International Herald Tribune, Sri Lankan Secretary General Rajiva Wijesinha challenges Charu Hogg's Human Rights Watch article on Sri Lanka, arguing her claims exaggerate civilian casualties, ignore evidence of voluntary refugee returns, and align with opposition and LTTE efforts to destabilize the democratically-elected government.
+#Summary3=(gpt4o; postedited) In a letter to the International Herald Tribune, Rajiva Wijesinha criticizes Charu Hogg's article on Sri Lanka’s human rights situation, arguing it unfairly aligns with LTTE and opposition agendas, overlooks government efforts, and employs exaggerations, while also cautioning against destabilizing the democratically elected government.
+#Summary4=(Meta-Llama-3-8B-Instruct) A letter to the Editor of the International Herald Tribune critiques an article by Charu Hogg on Sri Lanka's human rights situation, arguing that her claims are exaggerated and aligned with the interests of the LTTE and opposition party.
+#Summary5=(Qwen2.5-7B-Instruct) Rajiva Wijesinha disputes Charu Hogg's IHT article on Sri Lanka's human rights situation, arguing it contains exaggerations and conflates with terrorist and opposition agendas, while emphasizing the voluntary nature of returns and the government's handling of the conflict.
 
 
 #Text=The Editor International Herald Tribune
-1-1	0-3	The	person[1]	new[1]	snnnn[1]	_	coref	2-2[3_1]	
-1-2	4-10	Editor	person[1]	new[1]	snnnn[1]	_	_	_	
-1-3	11-24	International	organization[2]	new[2]	snnnn[2]	International_Herald_Tribune[2]	_	_	
-1-4	25-31	Herald	organization[2]	new[2]	snnnn[2]	International_Herald_Tribune[2]	_	_	
-1-5	32-39	Tribune	organization[2]	new[2]	snnnn[2]	International_Herald_Tribune[2]	_	_	
+1-1	0-3	The	person[1]	new[1]	snnsn[1]	_	coref	2-2[3_1]	
+1-2	4-10	Editor	person[1]	new[1]	snnsn[1]	_	_	_	
+1-3	11-24	International	organization[2]	new[2]	ssssn[2]	International_Herald_Tribune[2]	_	_	
+1-4	25-31	Herald	organization[2]	new[2]	ssssn[2]	International_Herald_Tribune[2]	_	_	
+1-5	32-39	Tribune	organization[2]	new[2]	ssssn[2]	International_Herald_Tribune[2]	_	_	
 
 #Text=Dear Sir ,
-2-1	40-44	Dear	_	_	_	_	_	_	_	_	_	_	_	_	_
-2-2	45-48	Sir	person[3]	new[3]	snnnn[3]	_	_	_	
-2-3	49-50	,	_	_	_	_	_	_	_	_	_	_	_	_	_
+2-1	40-44	Dear	_	_	_	_	_	_	
+2-2	45-48	Sir	person[3]	new[3]	snnsn[3]	_	_	_	
+2-3	49-50	,	_	_	_	_	_	_	
 
 #Text=The IHT.com article by Charu Hogg regarding the Human Rights situation in Sri Lanka makes interesting reading , though the mixture of fact and fiction perhaps justifies Ms Hogg ’s arriving here on a tourist visa to complete her research in this field .
-3-1	51-54	The	abstract[4]	giv[4]	snnnn[4]	_	coref	4-6[20_4]	
-3-2	55-62	IHT.com	abstract[4]	giv[4]	snnnn[4]	_	_	_	
-3-3	63-70	article	abstract[4]	giv[4]	snnnn[4]	_	_	_	
-3-4	71-73	by	abstract[4]	giv[4]	snnnn[4]	_	_	_	
-3-5	74-79	Charu	abstract[4]|person[5]	giv[4]|new[5]	snnnn[4]|snnnn[5]	Charu_Lata_Hogg[5]	coref	3-28[13_5]	
-3-6	80-84	Hogg	abstract[4]|person[5]	giv[4]|new[5]	snnnn[4]|snnnn[5]	Charu_Lata_Hogg[5]	_	_	
-3-7	85-94	regarding	abstract[4]	giv[4]	snnnn[4]	_	_	_	
-3-8	95-98	the	abstract[4]|abstract[6]	giv[4]|new[6]	snnnn[4]|snnnn[6]	_	coref|bridge:entity-associative	6-31[51_6]|3-20[10_6]	
-3-9	99-104	Human	abstract[4]|abstract[6]|abstract[7]	giv[4]|new[6]|new[7]	snnnn[4]|snnnn[6]|snnnn[7]	_	coref	12-2[106_7]	
-3-10	105-111	Rights	abstract[4]|abstract[6]|abstract[7]	giv[4]|new[6]|new[7]	snnnn[4]|snnnn[6]|snnnn[7]	_	_	_	
-3-11	112-121	situation	abstract[4]|abstract[6]	giv[4]|new[6]	snnnn[4]|snnnn[6]	_	_	_	
-3-12	122-124	in	abstract[4]|abstract[6]	giv[4]|new[6]	snnnn[4]|snnnn[6]	_	_	_	
-3-13	125-128	Sri	abstract[4]|abstract[6]|place[8]	giv[4]|new[6]|new[8]	snnnn[4]|snnnn[6]|snnnn[8]	Sri_Lanka[8]	coref	3-32[14_8]	
-3-14	129-134	Lanka	abstract[4]|abstract[6]|place[8]	giv[4]|new[6]|new[8]	snnnn[4]|snnnn[6]|snnnn[8]	Sri_Lanka[8]	_	_	
-3-15	135-140	makes	_	_	_	_	_	_	_	_	_	_	_	_	_
+3-1	51-54	The	abstract[4]	giv[4]	sssss[4]	_	coref	4-6[20_4]	
+3-2	55-62	IHT.com	abstract[4]	giv[4]	sssss[4]	_	_	_	
+3-3	63-70	article	abstract[4]	giv[4]	sssss[4]	_	_	_	
+3-4	71-73	by	abstract[4]	giv[4]	sssss[4]	_	_	_	
+3-5	74-79	Charu	abstract[4]|person[5]	giv[4]|new[5]	sssss[4]|sssss[5]	Charu_Lata_Hogg[5]	coref	3-28[13_5]	
+3-6	80-84	Hogg	abstract[4]|person[5]	giv[4]|new[5]	sssss[4]|sssss[5]	Charu_Lata_Hogg[5]	_	_	
+3-7	85-94	regarding	abstract[4]	giv[4]	sssss[4]	_	_	_	
+3-8	95-98	the	abstract[4]|abstract[6]	giv[4]|new[6]	sssss[4]|snsss[6]	_	bridge:entity-associative|coref	3-20[10_6]|6-31[51_6]	
+3-9	99-104	Human	abstract[4]|abstract[6]|abstract[7]	giv[4]|new[6]|new[7]	sssss[4]|snsss[6]|sssss[7]	_	coref	12-2[106_7]	
+3-10	105-111	Rights	abstract[4]|abstract[6]|abstract[7]	giv[4]|new[6]|new[7]	sssss[4]|snsss[6]|sssss[7]	_	_	_	
+3-11	112-121	situation	abstract[4]|abstract[6]	giv[4]|new[6]	sssss[4]|snsss[6]	_	_	_	
+3-12	122-124	in	abstract[4]|abstract[6]	giv[4]|new[6]	sssss[4]|snsss[6]	_	_	_	
+3-13	125-128	Sri	abstract[4]|abstract[6]|place[8]	giv[4]|new[6]|new[8]	sssss[4]|snsss[6]|sssss[8]	Sri_Lanka[8]	coref	3-32[14_8]	
+3-14	129-134	Lanka	abstract[4]|abstract[6]|place[8]	giv[4]|new[6]|new[8]	sssss[4]|snsss[6]|sssss[8]	Sri_Lanka[8]	_	_	
+3-15	135-140	makes	_	_	_	_	_	_	
 3-16	141-152	interesting	abstract[9]	new[9]	nnnnn[9]	_	_	_	
 3-17	153-160	reading	abstract[9]	new[9]	nnnnn[9]	_	_	_	
-3-18	161-162	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-3-19	163-169	though	_	_	_	_	_	_	_	_	_	_	_	_	_
+3-18	161-162	,	_	_	_	_	_	_	
+3-19	163-169	though	_	_	_	_	_	_	
 3-20	170-173	the	abstract[10]	acc[10]	nnnnn[10]	_	bridge:entity-associative	3-42[18_10]	
 3-21	174-181	mixture	abstract[10]	acc[10]	nnnnn[10]	_	_	_	
 3-22	182-184	of	abstract[10]	acc[10]	nnnnn[10]	_	_	_	
 3-23	185-189	fact	abstract[10]|abstract[11]	acc[10]|new[11]	nnnnn[10]|nnnnn[11]	_	_	_	
 3-24	190-193	and	abstract[10]	acc[10]	nnnnn[10]	_	_	_	
 3-25	194-201	fiction	abstract[10]|abstract[12]	acc[10]|new[12]	nnnnn[10]|nnnnn[12]	_	_	_	
-3-26	202-209	perhaps	_	_	_	_	_	_	_	_	_	_	_	_	_
-3-27	210-219	justifies	_	_	_	_	_	_	_	_	_	_	_	_	_
-3-28	220-222	Ms	person[13]	giv[13]	snnnn[13]	Charu_Lata_Hogg[13]	coref	3-39[17_13]	
-3-29	223-227	Hogg	person[13]	giv[13]	snnnn[13]	Charu_Lata_Hogg[13]	_	_	
-3-30	228-230	’s	person[13]	giv[13]	snnnn[13]	Charu_Lata_Hogg[13]	_	_	
-3-31	231-239	arriving	_	_	_	_	_	_	_	_	_	_	_	_	_
-3-32	240-244	here	place[14]	new[14]	snnnn[14]	_	coref|bridge:entity-associative|bridge:entity-meronomy	6-34[52_14]|5-33[39_14]|5-41[41_14]	
-3-33	245-247	on	_	_	_	_	_	_	_	_	_	_	_	_	_
+3-26	202-209	perhaps	_	_	_	_	_	_	
+3-27	210-219	justifies	_	_	_	_	_	_	
+3-28	220-222	Ms	person[13]	giv[13]	sssss[13]	Charu_Lata_Hogg[13]	coref	3-39[17_13]	
+3-29	223-227	Hogg	person[13]	giv[13]	sssss[13]	Charu_Lata_Hogg[13]	_	_	
+3-30	228-230	’s	person[13]	giv[13]	sssss[13]	Charu_Lata_Hogg[13]	_	_	
+3-31	231-239	arriving	_	_	_	_	_	_	
+3-32	240-244	here	place[14]	new[14]	sssss[14]	_	bridge:entity-associative|bridge:entity-meronomy|coref	5-33[39_14]|5-41[41_14]|6-34[52_14]	
+3-33	245-247	on	_	_	_	_	_	_	
 3-34	248-249	a	abstract[15]	new[15]	nnnnn[15]	_	_	_	
 3-35	250-257	tourist	abstract[15]	new[15]	nnnnn[15]	_	_	_	
 3-36	258-262	visa	abstract[15]	new[15]	nnnnn[15]	_	_	_	
-3-37	263-265	to	_	_	_	_	_	_	_	_	_	_	_	_	_
-3-38	266-274	complete	_	_	_	_	_	_	_	_	_	_	_	_	_
-3-39	275-278	her	abstract[16]|person[17]	new[16]|giv[17]	nnnnn[16]|snnnn[17]	_	coref	4-19[24_17]	
+3-37	263-265	to	_	_	_	_	_	_	
+3-38	266-274	complete	_	_	_	_	_	_	
+3-39	275-278	her	abstract[16]|person[17]	new[16]|giv[17]	nnnnn[16]|sssss[17]	_	coref	4-19[24_17]	
 3-40	279-287	research	abstract[16]	new[16]	nnnnn[16]	_	_	_	
 3-41	288-290	in	abstract[16]	new[16]	nnnnn[16]	_	_	_	
 3-42	291-295	this	abstract[16]|abstract[18]	new[16]|acc[18]	nnnnn[16]|nnnnn[18]	_	_	_	
 3-43	296-301	field	abstract[16]|abstract[18]	new[16]|acc[18]	nnnnn[16]|nnnnn[18]	_	_	_	
-3-44	302-303	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+3-44	302-303	.	_	_	_	_	_	_	
 
 #Text=Though datelined August 15th , the article does not take into account the refutations of salient points in her report which I sent to Brad Adams , the Director of the institute for which she works .
-4-1	304-310	Though	_	_	_	_	_	_	_	_	_	_	_	_	_
-4-2	311-320	datelined	_	_	_	_	_	_	_	_	_	_	_	_	_
+4-1	304-310	Though	_	_	_	_	_	_	
+4-2	311-320	datelined	_	_	_	_	_	_	
 4-3	321-327	August	time[19]	new[19]	nnnnn[19]	_	bridge:comparison-time;comparison-relative	24-53[199_19]	
 4-4	328-332	15th	time[19]	new[19]	nnnnn[19]	_	_	_	
-4-5	333-334	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-4-6	335-338	the	abstract[20]	new[20]	snnnn[20]	_	_	_	
-4-7	339-346	article	abstract[20]	new[20]	snnnn[20]	_	_	_	
-4-8	347-351	does	_	_	_	_	_	_	_	_	_	_	_	_	_
-4-9	352-355	not	_	_	_	_	_	_	_	_	_	_	_	_	_
-4-10	356-360	take	_	_	_	_	_	_	_	_	_	_	_	_	_
-4-11	361-365	into	_	_	_	_	_	_	_	_	_	_	_	_	_
-4-12	366-373	account	_	_	_	_	_	_	_	_	_	_	_	_	_
+4-5	333-334	,	_	_	_	_	_	_	
+4-6	335-338	the	abstract[20]	new[20]	sssss[20]	_	_	_	
+4-7	339-346	article	abstract[20]	new[20]	sssss[20]	_	_	_	
+4-8	347-351	does	_	_	_	_	_	_	
+4-9	352-355	not	_	_	_	_	_	_	
+4-10	356-360	take	_	_	_	_	_	_	
+4-11	361-365	into	_	_	_	_	_	_	
+4-12	366-373	account	_	_	_	_	_	_	
 4-13	374-377	the	abstract[21]	new[21]	nnnnn[21]	_	_	_	
 4-14	378-389	refutations	abstract[21]	new[21]	nnnnn[21]	_	_	_	
 4-15	390-392	of	abstract[21]	new[21]	nnnnn[21]	_	_	_	
 4-16	393-400	salient	abstract[21]|abstract[22]	new[21]|new[22]	nnnnn[21]|nnnnn[22]	_	_	_	
 4-17	401-407	points	abstract[21]|abstract[22]	new[21]|new[22]	nnnnn[21]|nnnnn[22]	_	_	_	
 4-18	408-410	in	abstract[21]|abstract[22]	new[21]|new[22]	nnnnn[21]|nnnnn[22]	_	_	_	
-4-19	411-414	her	abstract[21]|abstract[22]|abstract[23]|person[24]	new[21]|new[22]|new[23]|giv[24]	nnnnn[21]|nnnnn[22]|nnnnn[23]|snnnn[24]	_	coref|coref	5-18[34_23]|4-35[29_24]	
+4-19	411-414	her	abstract[21]|abstract[22]|abstract[23]|person[24]	new[21]|new[22]|new[23]|giv[24]	nnnnn[21]|nnnnn[22]|nnnnn[23]|sssss[24]	_	coref|coref	5-18[34_23]|4-35[29_24]	
 4-20	415-421	report	abstract[21]|abstract[22]|abstract[23]	new[21]|new[22]|new[23]	nnnnn[21]|nnnnn[22]|nnnnn[23]	_	_	_	
 4-21	422-427	which	abstract[21]|abstract[22]	new[21]|new[22]	nnnnn[21]|nnnnn[22]	_	_	_	
-4-22	428-429	I	abstract[21]|abstract[22]|person[25]	new[21]|new[22]|acc[25]	nnnnn[21]|nnnnn[22]|snnnn[25]	_	coref	5-1[30_25]	
+4-22	428-429	I	abstract[21]|abstract[22]|person[25]	new[21]|new[22]|acc[25]	nnnnn[21]|nnnnn[22]|sssns[25]	_	coref	5-1[30_25]	
 4-23	430-434	sent	abstract[21]|abstract[22]	new[21]|new[22]	nnnnn[21]|nnnnn[22]	_	_	_	
 4-24	435-437	to	abstract[21]|abstract[22]	new[21]|new[22]	nnnnn[21]|nnnnn[22]	_	_	_	
 4-25	438-442	Brad	abstract[21]|abstract[22]|person[26]	new[21]|new[22]|new[26]	nnnnn[21]|nnnnn[22]|nnnnn[26]	Brad_Adams[26]	coref	4-28[27_26]	
@@ -97,16 +101,16 @@
 4-32	471-480	institute	abstract[21]|abstract[22]|person[27]|organization[28]	new[21]|new[22]|new[27]|new[28]	nnnnn[21]|nnnnn[22]|nnnnn[27]|nnnnn[28]	Brad_Adams[27]	_	_	
 4-33	481-484	for	abstract[21]|abstract[22]|person[27]|organization[28]	new[21]|new[22]|new[27]|new[28]	nnnnn[21]|nnnnn[22]|nnnnn[27]|nnnnn[28]	Brad_Adams[27]	_	_	
 4-34	485-490	which	abstract[21]|abstract[22]|person[27]|organization[28]	new[21]|new[22]|new[27]|new[28]	nnnnn[21]|nnnnn[22]|nnnnn[27]|nnnnn[28]	Brad_Adams[27]	_	_	
-4-35	491-494	she	abstract[21]|abstract[22]|person[27]|organization[28]|person[29]	new[21]|new[22]|new[27]|new[28]|giv[29]	nnnnn[21]|nnnnn[22]|nnnnn[27]|nnnnn[28]|snnnn[29]	Brad_Adams[27]	coref	9-33[85_29]	
+4-35	491-494	she	abstract[21]|abstract[22]|person[27]|organization[28]|person[29]	new[21]|new[22]|new[27]|new[28]|giv[29]	nnnnn[21]|nnnnn[22]|nnnnn[27]|nnnnn[28]|sssss[29]	Brad_Adams[27]	coref	9-33[85_29]	
 4-36	495-500	works	abstract[21]|abstract[22]|person[27]|organization[28]	new[21]|new[22]|new[27]|new[28]	nnnnn[21]|nnnnn[22]|nnnnn[27]|nnnnn[28]	Brad_Adams[27]	_	_	
-4-37	501-502	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+4-37	501-502	.	_	_	_	_	_	_	
 
 #Text=I had for instance challenged the assertions of the sensationalistic press release that accompanied the release of the report , which alleged indiscriminate attacks which led to displacement , after which ‘ Government authorities have forced some to return to areas that remain insecure ’ .
-5-1	503-504	I	person[30]	giv[30]	snnnn[30]	_	coref	6-2[42_30]	
-5-2	505-508	had	_	_	_	_	_	_	_	_	_	_	_	_	_
-5-3	509-512	for	_	_	_	_	_	_	_	_	_	_	_	_	_
-5-4	513-521	instance	_	_	_	_	_	_	_	_	_	_	_	_	_
-5-5	522-532	challenged	_	_	_	_	_	_	_	_	_	_	_	_	_
+5-1	503-504	I	person[30]	giv[30]	sssns[30]	_	coref	6-2[42_30]	
+5-2	505-508	had	_	_	_	_	_	_	
+5-3	509-512	for	_	_	_	_	_	_	
+5-4	513-521	instance	_	_	_	_	_	_	
+5-5	522-532	challenged	_	_	_	_	_	_	
 5-6	533-536	the	abstract[31]	new[31]	nnnnn[31]	_	_	_	
 5-7	537-547	assertions	abstract[31]	new[31]	nnnnn[31]	_	_	_	
 5-8	548-550	of	abstract[31]	new[31]	nnnnn[31]	_	_	_	
@@ -123,45 +127,45 @@
 5-19	622-628	report	abstract[31]|event[32]|event[33]|abstract[34]	new[31]|giv[32]|new[33]|giv[34]	nnnnn[31]|nnnnn[32]|nnnnn[33]|nnnnn[34]	_	_	_	
 5-20	629-630	,	abstract[31]|event[32]	new[31]|giv[32]	nnnnn[31]|nnnnn[32]	_	_	_	
 5-21	631-636	which	abstract[31]|event[32]	new[31]|giv[32]	nnnnn[31]|nnnnn[32]	_	_	_	
-5-22	637-644	alleged	abstract[31]|event[32]|event[35]	new[31]|giv[32]|new[35]	nnnnn[31]|nnnnn[32]|snnnn[35]	_	coref	8-3[68_35]	
-5-23	645-659	indiscriminate	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]	_	coref	8-6[69_36]	
-5-24	660-667	attacks	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]	_	_	_	
-5-25	668-673	which	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]	_	_	_	
-5-26	674-677	led	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]	_	_	_	
-5-27	678-680	to	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]	_	_	_	
-5-28	681-693	displacement	abstract[31]|event[32]|event[35]|event[36]|event[37]	new[31]|giv[32]|new[35]|new[36]|new[37]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]|snnnn[37]	_	_	_	
-5-29	694-695	,	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]	_	_	_	
-5-30	696-701	after	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]	_	_	_	
-5-31	702-707	which	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]	_	_	_	
-5-32	708-709	‘	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]	_	_	_	
-5-33	710-720	Government	abstract[31]|event[32]|event[35]|event[36]|person[38]|organization[39]	new[31]|giv[32]|new[35]|new[36]|new[38]|acc[39]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]|nnnnn[38]|snnnn[39]	Government_of_Sri_Lanka[39]	coref|bridge:entity-associative	7-12[61_39]|5-37[40_39]	
-5-34	721-732	authorities	abstract[31]|event[32]|event[35]|event[36]|person[38]	new[31]|giv[32]|new[35]|new[36]|new[38]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]|nnnnn[38]	_	_	_	
-5-35	733-737	have	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]	_	_	_	
-5-36	738-744	forced	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]	_	_	_	
-5-37	745-749	some	abstract[31]|event[32]|event[35]|event[36]|person[40]	new[31]|giv[32]|new[35]|new[36]|acc[40]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]|snnnn[40]	_	_	_	
-5-38	750-752	to	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]	_	_	_	
-5-39	753-759	return	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]	_	_	_	
-5-40	760-762	to	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]	_	_	_	
-5-41	763-768	areas	abstract[31]|event[32]|event[35]|event[36]|place[41]	new[31]|giv[32]|new[35]|new[36]|acc[41]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]|nnnnn[41]	_	_	_	
-5-42	769-773	that	abstract[31]|event[32]|event[35]|event[36]|place[41]	new[31]|giv[32]|new[35]|new[36]|acc[41]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]|nnnnn[41]	_	_	_	
-5-43	774-780	remain	abstract[31]|event[32]|event[35]|event[36]|place[41]	new[31]|giv[32]|new[35]|new[36]|acc[41]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]|nnnnn[41]	_	_	_	
-5-44	781-789	insecure	abstract[31]|event[32]|event[35]|event[36]|place[41]	new[31]|giv[32]|new[35]|new[36]|acc[41]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]|nnnnn[41]	_	_	_	
-5-45	790-791	’	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|snnnn[35]|snnnn[36]	_	_	_	
-5-46	792-793	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+5-22	637-644	alleged	abstract[31]|event[32]|event[35]	new[31]|giv[32]|new[35]	nnnnn[31]|nnnnn[32]|ssnnn[35]	_	coref	8-3[68_35]	
+5-23	645-659	indiscriminate	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]	_	coref	8-6[69_36]	
+5-24	660-667	attacks	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]	_	_	_	
+5-25	668-673	which	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]	_	_	_	
+5-26	674-677	led	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]	_	_	_	
+5-27	678-680	to	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]	_	_	_	
+5-28	681-693	displacement	abstract[31]|event[32]|event[35]|event[36]|event[37]	new[31]|giv[32]|new[35]|new[36]|new[37]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]|snnnn[37]	_	_	_	
+5-29	694-695	,	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]	_	_	_	
+5-30	696-701	after	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]	_	_	_	
+5-31	702-707	which	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]	_	_	_	
+5-32	708-709	‘	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]	_	_	_	
+5-33	710-720	Government	abstract[31]|event[32]|event[35]|event[36]|person[38]|organization[39]	new[31]|giv[32]|new[35]|new[36]|new[38]|acc[39]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]|nnnnn[38]|sssns[39]	Government_of_Sri_Lanka[39]	bridge:entity-associative|coref	5-37[40_39]|7-12[61_39]	
+5-34	721-732	authorities	abstract[31]|event[32]|event[35]|event[36]|person[38]	new[31]|giv[32]|new[35]|new[36]|new[38]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]|nnnnn[38]	_	_	_	
+5-35	733-737	have	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]	_	_	_	
+5-36	738-744	forced	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]	_	_	_	
+5-37	745-749	some	abstract[31]|event[32]|event[35]|event[36]|person[40]	new[31]|giv[32]|new[35]|new[36]|acc[40]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]|snnnn[40]	_	_	_	
+5-38	750-752	to	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]	_	_	_	
+5-39	753-759	return	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]	_	_	_	
+5-40	760-762	to	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]	_	_	_	
+5-41	763-768	areas	abstract[31]|event[32]|event[35]|event[36]|place[41]	new[31]|giv[32]|new[35]|new[36]|acc[41]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]|nnnnn[41]	_	_	_	
+5-42	769-773	that	abstract[31]|event[32]|event[35]|event[36]|place[41]	new[31]|giv[32]|new[35]|new[36]|acc[41]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]|nnnnn[41]	_	_	_	
+5-43	774-780	remain	abstract[31]|event[32]|event[35]|event[36]|place[41]	new[31]|giv[32]|new[35]|new[36]|acc[41]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]|nnnnn[41]	_	_	_	
+5-44	781-789	insecure	abstract[31]|event[32]|event[35]|event[36]|place[41]	new[31]|giv[32]|new[35]|new[36]|acc[41]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]|nnnnn[41]	_	_	_	
+5-45	790-791	’	abstract[31]|event[32]|event[35]|event[36]	new[31]|giv[32]|new[35]|new[36]	nnnnn[31]|nnnnn[32]|ssnnn[35]|snnnn[36]	_	_	_	
+5-46	792-793	.	_	_	_	_	_	_	
 
 #Text=As I noted then , the release ignored the substance of the report which relates the current situation according to the UNHCR spokesperson who said that ‘ Our staff monitoring the situation on the ground say the majority of people are eager to return home , the returns are voluntary and in line with international protection standards ... .
-6-1	794-796	As	_	_	_	_	_	_	_	_	_	_	_	_	_
-6-2	797-798	I	person[42]	giv[42]	snnnn[42]	_	coref	9-3[79_42]	
-6-3	799-804	noted	_	_	_	_	_	_	_	_	_	_	_	_	_
-6-4	805-809	then	_	_	_	_	_	_	_	_	_	_	_	_	_
-6-5	810-811	,	_	_	_	_	_	_	_	_	_	_	_	_	_
+6-1	794-796	As	_	_	_	_	_	_	
+6-2	797-798	I	person[42]	giv[42]	sssns[42]	_	coref	9-3[79_42]	
+6-3	799-804	noted	_	_	_	_	_	_	
+6-4	805-809	then	_	_	_	_	_	_	
+6-5	810-811	,	_	_	_	_	_	_	
 6-6	812-815	the	event[43]	giv[43]	nnnnn[43]	_	_	_	
 6-7	816-823	release	event[43]	giv[43]	nnnnn[43]	_	_	_	
-6-8	824-831	ignored	_	_	_	_	_	_	_	_	_	_	_	_	_
+6-8	824-831	ignored	_	_	_	_	_	_	
 6-9	832-835	the	abstract[44]	new[44]	nnnnn[44]	_	_	_	
 6-10	836-845	substance	abstract[44]	new[44]	nnnnn[44]	_	_	_	
 6-11	846-848	of	abstract[44]	new[44]	nnnnn[44]	_	_	_	
-6-12	849-852	the	abstract[44]|abstract[45]	new[44]|giv[45]	nnnnn[44]|nnnnn[45]	_	coref|bridge:entity-meronomy	8-12[70_45]|7-33[67_45]	
+6-12	849-852	the	abstract[44]|abstract[45]	new[44]|giv[45]	nnnnn[44]|nnnnn[45]	_	bridge:entity-meronomy|coref	7-33[67_45]|8-12[70_45]	
 6-13	853-859	report	abstract[44]|abstract[45]	new[44]|giv[45]	nnnnn[44]|nnnnn[45]	_	_	_	
 6-14	860-865	which	abstract[44]	new[44]	nnnnn[44]	_	_	_	
 6-15	866-873	relates	abstract[44]	new[44]	nnnnn[44]	_	_	_	
@@ -180,11 +184,11 @@
 6-28	948-951	Our	abstract[44]|abstract[46]|person[47]|person[49]|organization[50]	new[44]|giv[46]|new[47]|new[49]|acc[50]	nnnnn[44]|nnnnn[46]|nnnnn[47]|nnnnn[49]|nnnnn[50]	_	coref	7-1[59_50]	
 6-29	952-957	staff	abstract[44]|abstract[46]|person[47]|person[49]	new[44]|giv[46]|new[47]|new[49]	nnnnn[44]|nnnnn[46]|nnnnn[47]|nnnnn[49]	_	_	_	
 6-30	958-968	monitoring	abstract[44]|abstract[46]|person[47]	new[44]|giv[46]|new[47]	nnnnn[44]|nnnnn[46]|nnnnn[47]	_	_	_	
-6-31	969-972	the	abstract[44]|abstract[46]|person[47]|abstract[51]	new[44]|giv[46]|new[47]|giv[51]	nnnnn[44]|nnnnn[46]|nnnnn[47]|snnnn[51]	_	bridge:entity-associative	31-4[245_51]	
-6-32	973-982	situation	abstract[44]|abstract[46]|person[47]|abstract[51]	new[44]|giv[46]|new[47]|giv[51]	nnnnn[44]|nnnnn[46]|nnnnn[47]|snnnn[51]	_	_	_	
-6-33	983-985	on	abstract[44]|abstract[46]|person[47]|abstract[51]	new[44]|giv[46]|new[47]|giv[51]	nnnnn[44]|nnnnn[46]|nnnnn[47]|snnnn[51]	_	_	_	
-6-34	986-989	the	abstract[44]|abstract[46]|person[47]|abstract[51]|place[52]	new[44]|giv[46]|new[47]|giv[51]|new[52]	nnnnn[44]|nnnnn[46]|nnnnn[47]|snnnn[51]|snnnn[52]	_	coref|bridge:entity-associative|bridge:comparison-relative	25-11[201_52]|6-40[54_52]|10-23[98_52]	
-6-35	990-996	ground	abstract[44]|abstract[46]|person[47]|abstract[51]|place[52]	new[44]|giv[46]|new[47]|giv[51]|new[52]	nnnnn[44]|nnnnn[46]|nnnnn[47]|snnnn[51]|snnnn[52]	_	_	_	
+6-31	969-972	the	abstract[44]|abstract[46]|person[47]|abstract[51]	new[44]|giv[46]|new[47]|giv[51]	nnnnn[44]|nnnnn[46]|nnnnn[47]|snsss[51]	_	bridge:entity-associative	31-4[245_51]	
+6-32	973-982	situation	abstract[44]|abstract[46]|person[47]|abstract[51]	new[44]|giv[46]|new[47]|giv[51]	nnnnn[44]|nnnnn[46]|nnnnn[47]|snsss[51]	_	_	_	
+6-33	983-985	on	abstract[44]|abstract[46]|person[47]|abstract[51]	new[44]|giv[46]|new[47]|giv[51]	nnnnn[44]|nnnnn[46]|nnnnn[47]|snsss[51]	_	_	_	
+6-34	986-989	the	abstract[44]|abstract[46]|person[47]|abstract[51]|place[52]	new[44]|giv[46]|new[47]|giv[51]|new[52]	nnnnn[44]|nnnnn[46]|nnnnn[47]|snsss[51]|sssss[52]	_	bridge:entity-associative|bridge:comparison-relative|coref	6-40[54_52]|10-23[98_52]|25-11[201_52]	
+6-35	990-996	ground	abstract[44]|abstract[46]|person[47]|abstract[51]|place[52]	new[44]|giv[46]|new[47]|giv[51]|new[52]	nnnnn[44]|nnnnn[46]|nnnnn[47]|snsss[51]|sssss[52]	_	_	_	
 6-36	997-1000	say	abstract[44]|abstract[46]	new[44]|giv[46]	nnnnn[44]|nnnnn[46]	_	_	_	
 6-37	1001-1004	the	abstract[44]|abstract[46]|person[53]	new[44]|giv[46]|giv[53]	nnnnn[44]|nnnnn[46]|nnnnn[53]	_	_	_	
 6-38	1005-1013	majority	abstract[44]|abstract[46]|person[53]	new[44]|giv[46]|giv[53]	nnnnn[44]|nnnnn[46]|nnnnn[53]	_	_	_	
@@ -196,8 +200,8 @@
 6-44	1037-1043	return	abstract[44]|abstract[46]	new[44]|giv[46]	nnnnn[44]|nnnnn[46]	_	_	_	
 6-45	1044-1048	home	abstract[44]|abstract[46]|place[55]	new[44]|giv[46]|acc[55]	nnnnn[44]|nnnnn[46]|nnnnn[55]	_	bridge:entity-associative	6-47[56_55]	
 6-46	1049-1050	,	abstract[44]|abstract[46]	new[44]|giv[46]	nnnnn[44]|nnnnn[46]	_	_	_	
-6-47	1051-1054	the	abstract[44]|abstract[46]|event[56]	new[44]|giv[46]|acc[56]	nnnnn[44]|nnnnn[46]|snnnn[56]	_	coref|bridge:entity-associative	7-6[60_56]|13-39[120_56]	
-6-48	1055-1062	returns	abstract[44]|abstract[46]|event[56]	new[44]|giv[46]|acc[56]	nnnnn[44]|nnnnn[46]|snnnn[56]	_	_	_	
+6-47	1051-1054	the	abstract[44]|abstract[46]|event[56]	new[44]|giv[46]|acc[56]	nnnnn[44]|nnnnn[46]|ssnns[56]	_	coref	7-6[60_56]	
+6-48	1055-1062	returns	abstract[44]|abstract[46]|event[56]	new[44]|giv[46]|acc[56]	nnnnn[44]|nnnnn[46]|ssnns[56]	_	_	_	
 6-49	1063-1066	are	abstract[44]|abstract[46]	new[44]|giv[46]	nnnnn[44]|nnnnn[46]	_	_	_	
 6-50	1067-1076	voluntary	abstract[44]|abstract[46]	new[44]|giv[46]	nnnnn[44]|nnnnn[46]	_	_	_	
 6-51	1077-1080	and	abstract[44]|abstract[46]	new[44]|giv[46]	nnnnn[44]|nnnnn[46]	_	_	_	
@@ -207,30 +211,30 @@
 6-55	1094-1107	international	abstract[44]|abstract[46]|abstract[57]	new[44]|giv[46]|new[57]	nnnnn[44]|nnnnn[46]|nnnnn[57]	_	_	_	
 6-56	1108-1118	protection	abstract[44]|abstract[46]|abstract[57]|abstract[58]	new[44]|giv[46]|new[57]|new[58]	nnnnn[44]|nnnnn[46]|nnnnn[57]|nnnnn[58]	_	_	_	
 6-57	1119-1128	standards	abstract[44]|abstract[46]|abstract[57]	new[44]|giv[46]|new[57]	nnnnn[44]|nnnnn[46]|nnnnn[57]	_	_	_	
-6-58	1129-1132	...	_	_	_	_	_	_	_	_	_	_	_	_	_
-6-59	1133-1134	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+6-58	1129-1132	...	_	_	_	_	_	_	
+6-59	1133-1134	.	_	_	_	_	_	_	
 
 #Text=UNHCR will continue to monitor the returns and report directly to the government on any problems regarding the voluntariness and any deviation from the civilian characteristics of the move ’ . ( p 32 )
 7-1	1135-1140	UNHCR	organization[59]	giv[59]	nnnnn[59]	United_Nations_High_Commissioner_for_Refugees[59]	_	_	
-7-2	1141-1145	will	_	_	_	_	_	_	_	_	_	_	_	_	_
-7-3	1146-1154	continue	_	_	_	_	_	_	_	_	_	_	_	_	_
-7-4	1155-1157	to	_	_	_	_	_	_	_	_	_	_	_	_	_
-7-5	1158-1165	monitor	_	_	_	_	_	_	_	_	_	_	_	_	_
-7-6	1166-1169	the	event[60]	new[60]	snnnn[60]	_	coref|bridge:entity-associative	7-28[66_60]|7-18[63_60]	
-7-7	1170-1177	returns	event[60]	new[60]	snnnn[60]	_	_	_	
-7-8	1178-1181	and	_	_	_	_	_	_	_	_	_	_	_	_	_
-7-9	1182-1188	report	_	_	_	_	_	_	_	_	_	_	_	_	_
-7-10	1189-1197	directly	_	_	_	_	_	_	_	_	_	_	_	_	_
-7-11	1198-1200	to	_	_	_	_	_	_	_	_	_	_	_	_	_
-7-12	1201-1204	the	organization[61]	new[61]	snnnn[61]	_	coref	8-21[72_61]	
-7-13	1205-1215	government	organization[61]	new[61]	snnnn[61]	_	_	_	
-7-14	1216-1218	on	_	_	_	_	_	_	_	_	_	_	_	_	_
+7-2	1141-1145	will	_	_	_	_	_	_	
+7-3	1146-1154	continue	_	_	_	_	_	_	
+7-4	1155-1157	to	_	_	_	_	_	_	
+7-5	1158-1165	monitor	_	_	_	_	_	_	
+7-6	1166-1169	the	event[60]	new[60]	ssnns[60]	_	bridge:entity-associative|coref	7-18[63_60]|7-28[66_60]	
+7-7	1170-1177	returns	event[60]	new[60]	ssnns[60]	_	_	_	
+7-8	1178-1181	and	_	_	_	_	_	_	
+7-9	1182-1188	report	_	_	_	_	_	_	
+7-10	1189-1197	directly	_	_	_	_	_	_	
+7-11	1198-1200	to	_	_	_	_	_	_	
+7-12	1201-1204	the	organization[61]	new[61]	sssns[61]	_	coref	8-21[72_61]	
+7-13	1205-1215	government	organization[61]	new[61]	sssns[61]	_	_	_	
+7-14	1216-1218	on	_	_	_	_	_	_	
 7-15	1219-1222	any	abstract[62]	new[62]	nnnnn[62]	_	_	_	
 7-16	1223-1231	problems	abstract[62]	new[62]	nnnnn[62]	_	_	_	
 7-17	1232-1241	regarding	abstract[62]	new[62]	nnnnn[62]	_	_	_	
-7-18	1242-1245	the	abstract[62]|abstract[63]	new[62]|acc[63]	nnnnn[62]|nnnnn[63]	_	_	_	
-7-19	1246-1259	voluntariness	abstract[62]|abstract[63]	new[62]|acc[63]	nnnnn[62]|nnnnn[63]	_	_	_	
-7-20	1260-1263	and	_	_	_	_	_	_	_	_	_	_	_	_	_
+7-18	1242-1245	the	abstract[62]|abstract[63]	new[62]|acc[63]	nnnnn[62]|nsnns[63]	_	_	_	
+7-19	1246-1259	voluntariness	abstract[62]|abstract[63]	new[62]|acc[63]	nnnnn[62]|nsnns[63]	_	_	_	
+7-20	1260-1263	and	_	_	_	_	_	_	
 7-21	1264-1267	any	abstract[64]	new[64]	nnnnn[64]	_	_	_	
 7-22	1268-1277	deviation	abstract[64]	new[64]	nnnnn[64]	_	_	_	
 7-23	1278-1282	from	abstract[64]	new[64]	nnnnn[64]	_	_	_	
@@ -238,112 +242,112 @@
 7-25	1287-1295	civilian	abstract[64]|abstract[65]	new[64]|new[65]	nnnnn[64]|nnnnn[65]	_	_	_	
 7-26	1296-1311	characteristics	abstract[64]|abstract[65]	new[64]|new[65]	nnnnn[64]|nnnnn[65]	_	_	_	
 7-27	1312-1314	of	abstract[64]|abstract[65]	new[64]|new[65]	nnnnn[64]|nnnnn[65]	_	_	_	
-7-28	1315-1318	the	abstract[64]|abstract[65]|event[66]	new[64]|new[65]|new[66]	nnnnn[64]|nnnnn[65]|snnnn[66]	_	coref	9-20[82_66]	
-7-29	1319-1323	move	abstract[64]|abstract[65]|event[66]	new[64]|new[65]|new[66]	nnnnn[64]|nnnnn[65]|snnnn[66]	_	_	_	
-7-30	1324-1325	’	_	_	_	_	_	_	_	_	_	_	_	_	_
-7-31	1326-1327	.	_	_	_	_	_	_	_	_	_	_	_	_	_
-7-32	1328-1329	(	_	_	_	_	_	_	_	_	_	_	_	_	_
+7-28	1315-1318	the	abstract[64]|abstract[65]|event[66]	new[64]|new[65]|new[66]	nnnnn[64]|nnnnn[65]|ssnns[66]	_	coref	9-20[82_66]	
+7-29	1319-1323	move	abstract[64]|abstract[65]|event[66]	new[64]|new[65]|new[66]	nnnnn[64]|nnnnn[65]|ssnns[66]	_	_	_	
+7-30	1324-1325	’	_	_	_	_	_	_	
+7-31	1326-1327	.	_	_	_	_	_	_	
+7-32	1328-1329	(	_	_	_	_	_	_	
 7-33	1330-1331	p	abstract[67]	acc[67]	nnnnn[67]	_	_	_	
 7-34	1332-1334	32	abstract[67]	acc[67]	nnnnn[67]	_	_	_	
-7-35	1335-1336	)	_	_	_	_	_	_	_	_	_	_	_	_	_
+7-35	1335-1336	)	_	_	_	_	_	_	
 
 #Text=Again , the claim of indiscriminate attacks is strange given that the report only records one , as to which the government had explained at the time that its radar showed that mortars had been launched from a refugee camp , ie it was not indiscriminate at all .
-8-1	1337-1342	Again	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-2	1343-1344	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-3	1345-1348	the	event[68]	giv[68]	snnnn[68]	_	coref	9-33[84_68]	
-8-4	1349-1354	claim	event[68]	giv[68]	snnnn[68]	_	_	_	
-8-5	1355-1357	of	event[68]	giv[68]	snnnn[68]	_	_	_	
-8-6	1358-1372	indiscriminate	event[68]|event[69]	giv[68]|giv[69]	snnnn[68]|snnnn[69]	_	bridge:comparison-sense	8-16[71_69]	
-8-7	1373-1380	attacks	event[68]|event[69]	giv[68]|giv[69]	snnnn[68]|snnnn[69]	_	_	_	
-8-8	1381-1383	is	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-9	1384-1391	strange	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-10	1392-1397	given	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-11	1398-1402	that	_	_	_	_	_	_	_	_	_	_	_	_	_
+8-1	1337-1342	Again	_	_	_	_	_	_	
+8-2	1343-1344	,	_	_	_	_	_	_	
+8-3	1345-1348	the	event[68]	giv[68]	ssnnn[68]	_	coref	9-33[84_68]	
+8-4	1349-1354	claim	event[68]	giv[68]	ssnnn[68]	_	_	_	
+8-5	1355-1357	of	event[68]	giv[68]	ssnnn[68]	_	_	_	
+8-6	1358-1372	indiscriminate	event[68]|event[69]	giv[68]|giv[69]	ssnnn[68]|snnnn[69]	_	bridge:comparison-sense	8-16[71_69]	
+8-7	1373-1380	attacks	event[68]|event[69]	giv[68]|giv[69]	ssnnn[68]|snnnn[69]	_	_	_	
+8-8	1381-1383	is	_	_	_	_	_	_	
+8-9	1384-1391	strange	_	_	_	_	_	_	
+8-10	1392-1397	given	_	_	_	_	_	_	
+8-11	1398-1402	that	_	_	_	_	_	_	
 8-12	1403-1406	the	abstract[70]	giv[70]	nnnnn[70]	_	_	_	
 8-13	1407-1413	report	abstract[70]	giv[70]	nnnnn[70]	_	_	_	
-8-14	1414-1418	only	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-15	1419-1426	records	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-16	1427-1430	one	event[71]	acc[71]	nnnnn[71]	_	coref|bridge:entity-associative	8-43[78_71]|8-26[73_71]	
-8-17	1431-1432	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-18	1433-1435	as	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-19	1436-1438	to	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-20	1439-1444	which	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-21	1445-1448	the	organization[72]	giv[72]	snnnn[72]	_	coref	8-29[75_72]	
-8-22	1449-1459	government	organization[72]	giv[72]	snnnn[72]	_	_	_	
-8-23	1460-1463	had	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-24	1464-1473	explained	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-25	1474-1476	at	_	_	_	_	_	_	_	_	_	_	_	_	_
+8-14	1414-1418	only	_	_	_	_	_	_	
+8-15	1419-1426	records	_	_	_	_	_	_	
+8-16	1427-1430	one	event[71]	acc[71]	nnnnn[71]	_	bridge:entity-associative|coref	8-26[73_71]|8-43[78_71]	
+8-17	1431-1432	,	_	_	_	_	_	_	
+8-18	1433-1435	as	_	_	_	_	_	_	
+8-19	1436-1438	to	_	_	_	_	_	_	
+8-20	1439-1444	which	_	_	_	_	_	_	
+8-21	1445-1448	the	organization[72]	giv[72]	sssns[72]	_	coref	8-29[75_72]	
+8-22	1449-1459	government	organization[72]	giv[72]	sssns[72]	_	_	_	
+8-23	1460-1463	had	_	_	_	_	_	_	
+8-24	1464-1473	explained	_	_	_	_	_	_	
+8-25	1474-1476	at	_	_	_	_	_	_	
 8-26	1477-1480	the	time[73]	acc[73]	nnnnn[73]	_	_	_	
 8-27	1481-1485	time	time[73]	acc[73]	nnnnn[73]	_	_	_	
-8-28	1486-1490	that	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-29	1491-1494	its	object[74]|organization[75]	new[74]|giv[75]	nnnnn[74]|snnnn[75]	_	coref	9-10[80_75]	
+8-28	1486-1490	that	_	_	_	_	_	_	
+8-29	1491-1494	its	object[74]|organization[75]	new[74]|giv[75]	nnnnn[74]|sssns[75]	_	coref	9-10[80_75]	
 8-30	1495-1500	radar	object[74]	new[74]	nnnnn[74]	_	_	_	
-8-31	1501-1507	showed	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-32	1508-1512	that	_	_	_	_	_	_	_	_	_	_	_	_	_
+8-31	1501-1507	showed	_	_	_	_	_	_	
+8-32	1508-1512	that	_	_	_	_	_	_	
 8-33	1513-1520	mortars	object[76]	new[76]	nnnnn[76]	_	_	_	
-8-34	1521-1524	had	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-35	1525-1529	been	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-36	1530-1538	launched	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-37	1539-1543	from	_	_	_	_	_	_	_	_	_	_	_	_	_
+8-34	1521-1524	had	_	_	_	_	_	_	
+8-35	1525-1529	been	_	_	_	_	_	_	
+8-36	1530-1538	launched	_	_	_	_	_	_	
+8-37	1539-1543	from	_	_	_	_	_	_	
 8-38	1544-1545	a	place[77]	new[77]	nnnnn[77]	_	_	_	
 8-39	1546-1553	refugee	place[77]	new[77]	nnnnn[77]	_	_	_	
 8-40	1554-1558	camp	place[77]	new[77]	nnnnn[77]	_	_	_	
-8-41	1559-1560	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-42	1561-1563	ie	_	_	_	_	_	_	_	_	_	_	_	_	_
+8-41	1559-1560	,	_	_	_	_	_	_	
+8-42	1561-1563	ie	_	_	_	_	_	_	
 8-43	1564-1566	it	event[78]	giv[78]	nnnnn[78]	_	coref	9-16[81_78]	
-8-44	1567-1570	was	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-45	1571-1574	not	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-46	1575-1589	indiscriminate	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-47	1590-1592	at	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-48	1593-1596	all	_	_	_	_	_	_	_	_	_	_	_	_	_
-8-49	1597-1598	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+8-44	1567-1570	was	_	_	_	_	_	_	
+8-45	1571-1574	not	_	_	_	_	_	_	
+8-46	1575-1589	indiscriminate	_	_	_	_	_	_	
+8-47	1590-1592	at	_	_	_	_	_	_	
+8-48	1593-1596	all	_	_	_	_	_	_	
+8-49	1597-1598	.	_	_	_	_	_	_	
 
 #Text=Of course I can not claim for certain that the government was correct , but one such incident in a campaign in which very few civilian lives were lost does not justify Ms Hogg ’s extravagant claims , and suggests a greater care about civilians than is common in countries to which Ms Hogg owes allegiance .
-9-1	1599-1601	Of	_	_	_	_	_	_	_	_	_	_	_	_	_
-9-2	1602-1608	course	_	_	_	_	_	_	_	_	_	_	_	_	_
-9-3	1609-1610	I	person[79]	giv[79]	snnnn[79]	_	coref	10-1[91_79]	
-9-4	1611-1614	can	_	_	_	_	_	_	_	_	_	_	_	_	_
-9-5	1615-1618	not	_	_	_	_	_	_	_	_	_	_	_	_	_
-9-6	1619-1624	claim	_	_	_	_	_	_	_	_	_	_	_	_	_
-9-7	1625-1628	for	_	_	_	_	_	_	_	_	_	_	_	_	_
-9-8	1629-1636	certain	_	_	_	_	_	_	_	_	_	_	_	_	_
-9-9	1637-1641	that	_	_	_	_	_	_	_	_	_	_	_	_	_
-9-10	1642-1645	the	organization[80]	giv[80]	snnnn[80]	_	coref|bridge:entity-associative	13-30[118_80]|13-17[116_80]	
-9-11	1646-1656	government	organization[80]	giv[80]	snnnn[80]	_	_	_	
-9-12	1657-1660	was	_	_	_	_	_	_	_	_	_	_	_	_	_
-9-13	1661-1668	correct	_	_	_	_	_	_	_	_	_	_	_	_	_
-9-14	1669-1670	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-9-15	1671-1674	but	_	_	_	_	_	_	_	_	_	_	_	_	_
+9-1	1599-1601	Of	_	_	_	_	_	_	
+9-2	1602-1608	course	_	_	_	_	_	_	
+9-3	1609-1610	I	person[79]	giv[79]	sssns[79]	_	coref	10-1[91_79]	
+9-4	1611-1614	can	_	_	_	_	_	_	
+9-5	1615-1618	not	_	_	_	_	_	_	
+9-6	1619-1624	claim	_	_	_	_	_	_	
+9-7	1625-1628	for	_	_	_	_	_	_	
+9-8	1629-1636	certain	_	_	_	_	_	_	
+9-9	1637-1641	that	_	_	_	_	_	_	
+9-10	1642-1645	the	organization[80]	giv[80]	sssns[80]	_	bridge:entity-associative|coref	13-17[116_80]|13-30[118_80]	
+9-11	1646-1656	government	organization[80]	giv[80]	sssns[80]	_	_	_	
+9-12	1657-1660	was	_	_	_	_	_	_	
+9-13	1661-1668	correct	_	_	_	_	_	_	
+9-14	1669-1670	,	_	_	_	_	_	_	
+9-15	1671-1674	but	_	_	_	_	_	_	
 9-16	1675-1678	one	event[81]	new[81]	nnnnn[81]	_	_	_	
 9-17	1679-1683	such	event[81]	new[81]	nnnnn[81]	_	_	_	
 9-18	1684-1692	incident	event[81]	new[81]	nnnnn[81]	_	_	_	
 9-19	1693-1695	in	event[81]	new[81]	nnnnn[81]	_	_	_	
-9-20	1696-1697	a	event[81]|event[82]	new[81]|new[82]	nnnnn[81]|snnnn[82]	_	_	_	
-9-21	1698-1706	campaign	event[81]|event[82]	new[81]|new[82]	nnnnn[81]|snnnn[82]	_	_	_	
-9-22	1707-1709	in	event[81]|event[82]	new[81]|new[82]	nnnnn[81]|snnnn[82]	_	_	_	
-9-23	1710-1715	which	event[81]|event[82]	new[81]|new[82]	nnnnn[81]|snnnn[82]	_	_	_	
-9-24	1716-1720	very	event[81]|event[82]|person[83]	new[81]|new[82]|new[83]	nnnnn[81]|snnnn[82]|nnnnn[83]	_	_	_	
-9-25	1721-1724	few	event[81]|event[82]|person[83]	new[81]|new[82]|new[83]	nnnnn[81]|snnnn[82]|nnnnn[83]	_	_	_	
-9-26	1725-1733	civilian	event[81]|event[82]|person[83]	new[81]|new[82]|new[83]	nnnnn[81]|snnnn[82]|nnnnn[83]	_	_	_	
-9-27	1734-1739	lives	event[81]|event[82]|person[83]	new[81]|new[82]|new[83]	nnnnn[81]|snnnn[82]|nnnnn[83]	_	_	_	
-9-28	1740-1744	were	event[81]|event[82]	new[81]|new[82]	nnnnn[81]|snnnn[82]	_	_	_	
-9-29	1745-1749	lost	event[81]|event[82]	new[81]|new[82]	nnnnn[81]|snnnn[82]	_	_	_	
-9-30	1750-1754	does	_	_	_	_	_	_	_	_	_	_	_	_	_
-9-31	1755-1758	not	_	_	_	_	_	_	_	_	_	_	_	_	_
-9-32	1759-1766	justify	_	_	_	_	_	_	_	_	_	_	_	_	_
-9-33	1767-1769	Ms	event[84]|person[85]	new[84]|giv[85]	snnnn[84]|snnnn[85]	Charu_Lata_Hogg[85]	coref|bridge:comparison-relative|coref	11-5[101_84]|10-9[94_84]|9-53[89_85]	
-9-34	1770-1774	Hogg	event[84]|person[85]	new[84]|giv[85]	snnnn[84]|snnnn[85]	Charu_Lata_Hogg[85]	_	_	
-9-35	1775-1777	’s	event[84]|person[85]	new[84]|giv[85]	snnnn[84]|snnnn[85]	Charu_Lata_Hogg[85]	_	_	
-9-36	1778-1789	extravagant	event[84]	new[84]	snnnn[84]	_	_	_	
-9-37	1790-1796	claims	event[84]	new[84]	snnnn[84]	_	_	_	
-9-38	1797-1798	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-9-39	1799-1802	and	_	_	_	_	_	_	_	_	_	_	_	_	_
-9-40	1803-1811	suggests	_	_	_	_	_	_	_	_	_	_	_	_	_
+9-20	1696-1697	a	event[81]|event[82]	new[81]|new[82]	nnnnn[81]|ssnns[82]	_	bridge:entity-associative	13-39[120_82]	
+9-21	1698-1706	campaign	event[81]|event[82]	new[81]|new[82]	nnnnn[81]|ssnns[82]	_	_	_	
+9-22	1707-1709	in	event[81]|event[82]	new[81]|new[82]	nnnnn[81]|ssnns[82]	_	_	_	
+9-23	1710-1715	which	event[81]|event[82]	new[81]|new[82]	nnnnn[81]|ssnns[82]	_	_	_	
+9-24	1716-1720	very	event[81]|event[82]|person[83]	new[81]|new[82]|new[83]	nnnnn[81]|ssnns[82]|nnnnn[83]	_	_	_	
+9-25	1721-1724	few	event[81]|event[82]|person[83]	new[81]|new[82]|new[83]	nnnnn[81]|ssnns[82]|nnnnn[83]	_	_	_	
+9-26	1725-1733	civilian	event[81]|event[82]|person[83]	new[81]|new[82]|new[83]	nnnnn[81]|ssnns[82]|nnnnn[83]	_	_	_	
+9-27	1734-1739	lives	event[81]|event[82]|person[83]	new[81]|new[82]|new[83]	nnnnn[81]|ssnns[82]|nnnnn[83]	_	_	_	
+9-28	1740-1744	were	event[81]|event[82]	new[81]|new[82]	nnnnn[81]|ssnns[82]	_	_	_	
+9-29	1745-1749	lost	event[81]|event[82]	new[81]|new[82]	nnnnn[81]|ssnns[82]	_	_	_	
+9-30	1750-1754	does	_	_	_	_	_	_	
+9-31	1755-1758	not	_	_	_	_	_	_	
+9-32	1759-1766	justify	_	_	_	_	_	_	
+9-33	1767-1769	Ms	event[84]|person[85]	new[84]|giv[85]	ssnnn[84]|sssss[85]	Charu_Lata_Hogg[85]	bridge:comparison-relative|coref|coref	10-9[94_84]|11-5[101_84]|9-53[89_85]	
+9-34	1770-1774	Hogg	event[84]|person[85]	new[84]|giv[85]	ssnnn[84]|sssss[85]	Charu_Lata_Hogg[85]	_	_	
+9-35	1775-1777	’s	event[84]|person[85]	new[84]|giv[85]	ssnnn[84]|sssss[85]	Charu_Lata_Hogg[85]	_	_	
+9-36	1778-1789	extravagant	event[84]	new[84]	ssnnn[84]	_	_	_	
+9-37	1790-1796	claims	event[84]	new[84]	ssnnn[84]	_	_	_	
+9-38	1797-1798	,	_	_	_	_	_	_	
+9-39	1799-1802	and	_	_	_	_	_	_	
+9-40	1803-1811	suggests	_	_	_	_	_	_	
 9-41	1812-1813	a	abstract[86]	new[86]	nnnnn[86]	_	_	_	
 9-42	1814-1821	greater	abstract[86]	new[86]	nnnnn[86]	_	_	_	
 9-43	1822-1826	care	abstract[86]	new[86]	nnnnn[86]	_	_	_	
 9-44	1827-1832	about	abstract[86]	new[86]	nnnnn[86]	_	_	_	
-9-45	1833-1842	civilians	abstract[86]|person[87]	new[86]|new[87]	nnnnn[86]|nnnnn[87]	_	_	_	
+9-45	1833-1842	civilians	abstract[86]|person[87]	new[86]|new[87]	nnnnn[86]|nsnnn[87]	_	_	_	
 9-46	1843-1847	than	abstract[86]	new[86]	nnnnn[86]	_	_	_	
 9-47	1848-1850	is	abstract[86]	new[86]	nnnnn[86]	_	_	_	
 9-48	1851-1857	common	abstract[86]	new[86]	nnnnn[86]	_	_	_	
@@ -351,26 +355,26 @@
 9-50	1861-1870	countries	abstract[86]|place[88]	new[86]|new[88]	nnnnn[86]|nnnnn[88]	_	_	_	
 9-51	1871-1873	to	abstract[86]|place[88]	new[86]|new[88]	nnnnn[86]|nnnnn[88]	_	_	_	
 9-52	1874-1879	which	abstract[86]|place[88]	new[86]|new[88]	nnnnn[86]|nnnnn[88]	_	_	_	
-9-53	1880-1882	Ms	abstract[86]|place[88]|person[89]	new[86]|new[88]|giv[89]	nnnnn[86]|nnnnn[88]|snnnn[89]	Charu_Lata_Hogg[89]	coref	10-7[93_89]	
-9-54	1883-1887	Hogg	abstract[86]|place[88]|person[89]	new[86]|new[88]|giv[89]	nnnnn[86]|nnnnn[88]|snnnn[89]	Charu_Lata_Hogg[89]	_	_	
+9-53	1880-1882	Ms	abstract[86]|place[88]|person[89]	new[86]|new[88]|giv[89]	nnnnn[86]|nnnnn[88]|sssss[89]	Charu_Lata_Hogg[89]	coref	10-7[93_89]	
+9-54	1883-1887	Hogg	abstract[86]|place[88]|person[89]	new[86]|new[88]|giv[89]	nnnnn[86]|nnnnn[88]|sssss[89]	Charu_Lata_Hogg[89]	_	_	
 9-55	1888-1892	owes	abstract[86]|place[88]	new[86]|new[88]	nnnnn[86]|nnnnn[88]	_	_	_	
 9-56	1893-1903	allegiance	abstract[86]|place[88]|abstract[90]	new[86]|new[88]|new[90]	nnnnn[86]|nnnnn[88]|nnnnn[90]	_	_	_	
-9-57	1904-1905	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+9-57	1904-1905	.	_	_	_	_	_	_	
 
 #Text=I would have more respect for her if similar language were used about much greater assaults on individual lives and liberties by other countries engaged in wars against terrorism .
-10-1	1906-1907	I	person[91]	giv[91]	snnnn[91]	_	coref	11-9[104_91]	
-10-2	1908-1913	would	_	_	_	_	_	_	_	_	_	_	_	_	_
-10-3	1914-1918	have	_	_	_	_	_	_	_	_	_	_	_	_	_
+10-1	1906-1907	I	person[91]	giv[91]	sssns[91]	_	coref	11-9[104_91]	
+10-2	1908-1913	would	_	_	_	_	_	_	
+10-3	1914-1918	have	_	_	_	_	_	_	
 10-4	1919-1923	more	abstract[92]	new[92]	nnnnn[92]	_	_	_	
 10-5	1924-1931	respect	abstract[92]	new[92]	nnnnn[92]	_	_	_	
 10-6	1932-1935	for	abstract[92]	new[92]	nnnnn[92]	_	_	_	
-10-7	1936-1939	her	abstract[92]|person[93]	new[92]|giv[93]	nnnnn[92]|snnnn[93]	_	coref	11-5[102_93]	
-10-8	1940-1942	if	_	_	_	_	_	_	_	_	_	_	_	_	_
+10-7	1936-1939	her	abstract[92]|person[93]	new[92]|giv[93]	nnnnn[92]|sssss[93]	_	coref	11-5[102_93]	
+10-8	1940-1942	if	_	_	_	_	_	_	
 10-9	1943-1950	similar	abstract[94]	acc[94]	nnnnn[94]	_	_	_	
 10-10	1951-1959	language	abstract[94]	acc[94]	nnnnn[94]	_	_	_	
-10-11	1960-1964	were	_	_	_	_	_	_	_	_	_	_	_	_	_
-10-12	1965-1969	used	_	_	_	_	_	_	_	_	_	_	_	_	_
-10-13	1970-1975	about	_	_	_	_	_	_	_	_	_	_	_	_	_
+10-11	1960-1964	were	_	_	_	_	_	_	
+10-12	1965-1969	used	_	_	_	_	_	_	
+10-13	1970-1975	about	_	_	_	_	_	_	
 10-14	1976-1980	much	event[95]	new[95]	nnnnn[95]	_	_	_	
 10-15	1981-1988	greater	event[95]	new[95]	nnnnn[95]	_	_	_	
 10-16	1989-1997	assaults	event[95]	new[95]	nnnnn[95]	_	_	_	
@@ -386,69 +390,69 @@
 10-26	2059-2061	in	event[95]|place[98]	new[95]|acc[98]	nnnnn[95]|nnnnn[98]	_	_	_	
 10-27	2062-2066	wars	event[95]|place[98]	new[95]|acc[98]	nnnnn[95]|nnnnn[98]	_	_	_	
 10-28	2067-2074	against	event[95]|place[98]	new[95]|acc[98]	nnnnn[95]|nnnnn[98]	_	_	_	
-10-29	2075-2084	terrorism	event[95]|place[98]|abstract[99]	new[95]|acc[98]|new[99]	nnnnn[95]|nnnnn[98]|nnnnn[99]	_	_	_	
-10-30	2085-2086	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+10-29	2075-2084	terrorism	event[95]|place[98]|abstract[99]	new[95]|acc[98]|new[99]	nnnnn[95]|nnnnn[98]|nnnns[99]	_	_	_	
+10-30	2085-2086	.	_	_	_	_	_	_	
 
 #Text=But the excesses of her account are not my point here .
-11-1	2087-2090	But	_	_	_	_	_	_	_	_	_	_	_	_	_
+11-1	2087-2090	But	_	_	_	_	_	_	
 11-2	2091-2094	the	abstract[100]	giv[100]	nnnnn[100]	_	_	_	
 11-3	2095-2103	excesses	abstract[100]	giv[100]	nnnnn[100]	_	_	_	
 11-4	2104-2106	of	abstract[100]	giv[100]	nnnnn[100]	_	_	_	
-11-5	2107-2110	her	abstract[100]|event[101]|person[102]	giv[100]|new[101]|giv[102]	nnnnn[100]|snnnn[101]|snnnn[102]	_	coref	13-8[112_102]	
-11-6	2111-2118	account	abstract[100]|event[101]	giv[100]|new[101]	nnnnn[100]|snnnn[101]	_	_	_	
-11-7	2119-2122	are	_	_	_	_	_	_	_	_	_	_	_	_	_
-11-8	2123-2126	not	_	_	_	_	_	_	_	_	_	_	_	_	_
-11-9	2127-2129	my	abstract[103]|person[104]	new[103]|giv[104]	nnnnn[103]|snnnn[104]	_	coref|bridge:set-member	29-1[242_104]|26-2[207_104]	
+11-5	2107-2110	her	abstract[100]|event[101]|person[102]	giv[100]|new[101]|giv[102]	nnnnn[100]|ssnnn[101]|sssss[102]	_	coref	13-8[112_102]	
+11-6	2111-2118	account	abstract[100]|event[101]	giv[100]|new[101]	nnnnn[100]|ssnnn[101]	_	_	_	
+11-7	2119-2122	are	_	_	_	_	_	_	
+11-8	2123-2126	not	_	_	_	_	_	_	
+11-9	2127-2129	my	abstract[103]|person[104]	new[103]|giv[104]	nnnnn[103]|sssns[104]	_	bridge:set-member|coref	26-2[207_104]|29-1[242_104]	
 11-10	2130-2135	point	abstract[103]	new[103]	nnnnn[103]	_	_	_	
 11-11	2136-2140	here	abstract[103]	new[103]	nnnnn[103]	_	_	_	
-11-12	2141-2142	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+11-12	2141-2142	.	_	_	_	_	_	_	
 
 #Text=Even Human Rights researchers have to live , and without exaggerations they may not be taken seriously in an increasingly dangerous world .
-12-1	2143-2147	Even	_	_	_	_	_	_	_	_	_	_	_	_	_
-12-2	2148-2153	Human	person[105]|abstract[106]	new[105]|new[106]	nnnnn[105]|snnnn[106]	_	coref|coref	12-12[108_105]|26-14[210_106]	
-12-3	2154-2160	Rights	person[105]|abstract[106]	new[105]|new[106]	nnnnn[105]|snnnn[106]	_	_	_	
+12-1	2143-2147	Even	_	_	_	_	_	_	
+12-2	2148-2153	Human	person[105]|abstract[106]	new[105]|new[106]	nnnnn[105]|sssss[106]	_	coref|coref	12-12[108_105]|26-14[210_106]	
+12-3	2154-2160	Rights	person[105]|abstract[106]	new[105]|new[106]	nnnnn[105]|sssss[106]	_	_	_	
 12-4	2161-2172	researchers	person[105]	new[105]	nnnnn[105]	_	_	_	
-12-5	2173-2177	have	_	_	_	_	_	_	_	_	_	_	_	_	_
-12-6	2178-2180	to	_	_	_	_	_	_	_	_	_	_	_	_	_
-12-7	2181-2185	live	_	_	_	_	_	_	_	_	_	_	_	_	_
-12-8	2186-2187	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-12-9	2188-2191	and	_	_	_	_	_	_	_	_	_	_	_	_	_
-12-10	2192-2199	without	_	_	_	_	_	_	_	_	_	_	_	_	_
-12-11	2200-2213	exaggerations	abstract[107]	new[107]	nnnnn[107]	_	_	_	
+12-5	2173-2177	have	_	_	_	_	_	_	
+12-6	2178-2180	to	_	_	_	_	_	_	
+12-7	2181-2185	live	_	_	_	_	_	_	
+12-8	2186-2187	,	_	_	_	_	_	_	
+12-9	2188-2191	and	_	_	_	_	_	_	
+12-10	2192-2199	without	_	_	_	_	_	_	
+12-11	2200-2213	exaggerations	abstract[107]	new[107]	nssss[107]	_	_	_	
 12-12	2214-2218	they	person[108]	giv[108]	nnnnn[108]	_	_	_	
-12-13	2219-2222	may	_	_	_	_	_	_	_	_	_	_	_	_	_
-12-14	2223-2226	not	_	_	_	_	_	_	_	_	_	_	_	_	_
-12-15	2227-2229	be	_	_	_	_	_	_	_	_	_	_	_	_	_
-12-16	2230-2235	taken	_	_	_	_	_	_	_	_	_	_	_	_	_
-12-17	2236-2245	seriously	_	_	_	_	_	_	_	_	_	_	_	_	_
-12-18	2246-2248	in	_	_	_	_	_	_	_	_	_	_	_	_	_
+12-13	2219-2222	may	_	_	_	_	_	_	
+12-14	2223-2226	not	_	_	_	_	_	_	
+12-15	2227-2229	be	_	_	_	_	_	_	
+12-16	2230-2235	taken	_	_	_	_	_	_	
+12-17	2236-2245	seriously	_	_	_	_	_	_	
+12-18	2246-2248	in	_	_	_	_	_	_	
 12-19	2249-2251	an	place[109]	new[109]	nnnnn[109]	_	_	_	
 12-20	2252-2264	increasingly	place[109]	new[109]	nnnnn[109]	_	_	_	
 12-21	2265-2274	dangerous	place[109]	new[109]	nnnnn[109]	_	_	_	
 12-22	2275-2280	world	place[109]	new[109]	nnnnn[109]	_	_	_	
-12-23	2281-2282	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+12-23	2281-2282	.	_	_	_	_	_	_	
 
 #Text=Much more serious is the congruence of her recommendations with those of the LTTE and also the main opposition party , both of which dream of getting rid of the duly elected government – elected not only at the Presidential election of 2005 but also at the Parliamentary election of 2004 .
-13-1	2283-2287	Much	_	_	_	_	_	_	_	_	_	_	_	_	_
-13-2	2288-2292	more	_	_	_	_	_	_	_	_	_	_	_	_	_
-13-3	2293-2300	serious	_	_	_	_	_	_	_	_	_	_	_	_	_
-13-4	2301-2303	is	_	_	_	_	_	_	_	_	_	_	_	_	_
+13-1	2283-2287	Much	_	_	_	_	_	_	
+13-2	2288-2292	more	_	_	_	_	_	_	
+13-3	2293-2300	serious	_	_	_	_	_	_	
+13-4	2301-2303	is	_	_	_	_	_	_	
 13-5	2304-2307	the	abstract[110]	new[110]	nnnnn[110]	_	_	_	
 13-6	2308-2318	congruence	abstract[110]	new[110]	nnnnn[110]	_	_	_	
 13-7	2319-2321	of	abstract[110]	new[110]	nnnnn[110]	_	_	_	
-13-8	2322-2325	her	abstract[110]|abstract[111]|person[112]	new[110]|new[111]|giv[112]	nnnnn[110]|nnnnn[111]|snnnn[112]	_	bridge:comparison-sense|coref	13-11[113_111]|27-5[223_112]	
+13-8	2322-2325	her	abstract[110]|abstract[111]|person[112]	new[110]|new[111]|giv[112]	nnnnn[110]|nnnnn[111]|sssss[112]	_	bridge:comparison-sense|coref	13-11[113_111]|27-5[223_112]	
 13-9	2326-2341	recommendations	abstract[110]|abstract[111]	new[110]|new[111]	nnnnn[110]|nnnnn[111]	_	_	_	
-13-10	2342-2346	with	_	_	_	_	_	_	_	_	_	_	_	_	_
+13-10	2342-2346	with	_	_	_	_	_	_	
 13-11	2347-2352	those	abstract[113]	acc[113]	nnnnn[113]	_	_	_	
 13-12	2353-2355	of	abstract[113]	acc[113]	nnnnn[113]	_	_	_	
-13-13	2356-2359	the	abstract[113]|organization[114]|organization[115]	acc[113]|new[114]|new[115]	nnnnn[113]|snnnn[114]|snnnn[115]	Liberation_Tigers_of_Tamil_Eelam[115]	coref|coref	13-22[117_114]|21-5[171_115]	
-13-14	2360-2364	LTTE	abstract[113]|organization[114]|organization[115]	acc[113]|new[114]|new[115]	nnnnn[113]|snnnn[114]|snnnn[115]	Liberation_Tigers_of_Tamil_Eelam[115]	_	_	
+13-13	2356-2359	the	abstract[113]|organization[114]|organization[115]	acc[113]|new[114]|new[115]	nnnnn[113]|snnnn[114]|ssssn[115]	Liberation_Tigers_of_Tamil_Eelam[115]	coref|coref	13-22[117_114]|21-5[171_115]	
+13-14	2360-2364	LTTE	abstract[113]|organization[114]|organization[115]	acc[113]|new[114]|new[115]	nnnnn[113]|snnnn[114]|ssssn[115]	Liberation_Tigers_of_Tamil_Eelam[115]	_	_	
 13-15	2365-2368	and	abstract[113]|organization[114]	acc[113]|new[114]	nnnnn[113]|snnnn[114]	_	_	_	
 13-16	2369-2373	also	abstract[113]|organization[114]	acc[113]|new[114]	nnnnn[113]|snnnn[114]	_	_	_	
-13-17	2374-2377	the	abstract[113]|organization[114]|organization[116]	acc[113]|new[114]|acc[116]	nnnnn[113]|snnnn[114]|snnnn[116]	_	coref	16-1[131_116]	
-13-18	2378-2382	main	abstract[113]|organization[114]|organization[116]	acc[113]|new[114]|acc[116]	nnnnn[113]|snnnn[114]|snnnn[116]	_	_	_	
-13-19	2383-2393	opposition	abstract[113]|organization[114]|organization[116]	acc[113]|new[114]|acc[116]	nnnnn[113]|snnnn[114]|snnnn[116]	_	_	_	
-13-20	2394-2399	party	abstract[113]|organization[114]|organization[116]	acc[113]|new[114]|acc[116]	nnnnn[113]|snnnn[114]|snnnn[116]	_	_	_	
+13-17	2374-2377	the	abstract[113]|organization[114]|organization[116]	acc[113]|new[114]|acc[116]	nnnnn[113]|snnnn[114]|snsss[116]	_	coref	16-1[131_116]	
+13-18	2378-2382	main	abstract[113]|organization[114]|organization[116]	acc[113]|new[114]|acc[116]	nnnnn[113]|snnnn[114]|snsss[116]	_	_	_	
+13-19	2383-2393	opposition	abstract[113]|organization[114]|organization[116]	acc[113]|new[114]|acc[116]	nnnnn[113]|snnnn[114]|snsss[116]	_	_	_	
+13-20	2394-2399	party	abstract[113]|organization[114]|organization[116]	acc[113]|new[114]|acc[116]	nnnnn[113]|snnnn[114]|snsss[116]	_	_	_	
 13-21	2400-2401	,	abstract[113]	acc[113]	nnnnn[113]	_	_	_	
 13-22	2402-2406	both	abstract[113]|organization[117]	acc[113]|giv[117]	nnnnn[113]|snnnn[117]	_	coref	25-5[200_117]	
 13-23	2407-2409	of	abstract[113]|organization[117]	acc[113]|giv[117]	nnnnn[113]|snnnn[117]	_	_	_	
@@ -458,10 +462,10 @@
 13-27	2425-2432	getting	abstract[113]	acc[113]	nnnnn[113]	_	_	_	
 13-28	2433-2436	rid	abstract[113]	acc[113]	nnnnn[113]	_	_	_	
 13-29	2437-2439	of	abstract[113]	acc[113]	nnnnn[113]	_	_	_	
-13-30	2440-2443	the	abstract[113]|organization[118]	acc[113]|giv[118]	nnnnn[113]|snnnn[118]	_	coref	14-7[126_118]	
-13-31	2444-2448	duly	abstract[113]|organization[118]	acc[113]|giv[118]	nnnnn[113]|snnnn[118]	_	_	_	
-13-32	2449-2456	elected	abstract[113]|organization[118]	acc[113]|giv[118]	nnnnn[113]|snnnn[118]	_	_	_	
-13-33	2457-2467	government	abstract[113]|organization[118]	acc[113]|giv[118]	nnnnn[113]|snnnn[118]	_	_	_	
+13-30	2440-2443	the	abstract[113]|organization[118]	acc[113]|giv[118]	nnnnn[113]|sssns[118]	_	coref	14-7[126_118]	
+13-31	2444-2448	duly	abstract[113]|organization[118]	acc[113]|giv[118]	nnnnn[113]|sssns[118]	_	_	_	
+13-32	2449-2456	elected	abstract[113]|organization[118]	acc[113]|giv[118]	nnnnn[113]|sssns[118]	_	_	_	
+13-33	2457-2467	government	abstract[113]|organization[118]	acc[113]|giv[118]	nnnnn[113]|sssns[118]	_	_	_	
 13-34	2468-2469	–	abstract[113]	acc[113]	nnnnn[113]	_	_	_	
 13-35	2470-2477	elected	abstract[113]	acc[113]	nnnnn[113]	_	_	_	
 13-36	2478-2481	not	abstract[113]	acc[113]	nnnnn[113]	_	_	_	
@@ -480,7 +484,7 @@
 13-49	2554-2562	election	abstract[113]|event[119]|event[122]	acc[113]|new[119]|acc[122]	nnnnn[113]|nnnnn[119]|nnnnn[122]	_	_	_	
 13-50	2563-2565	of	abstract[113]|event[119]|event[122]	acc[113]|new[119]|acc[122]	nnnnn[113]|nnnnn[119]|nnnnn[122]	_	_	_	
 13-51	2566-2570	2004	abstract[113]|event[119]|event[122]|time[123]	acc[113]|new[119]|acc[122]|new[123]	nnnnn[113]|nnnnn[119]|nnnnn[122]|nnnnn[123]	_	_	_	
-13-52	2571-2572	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+13-52	2571-2572	.	_	_	_	_	_	_	
 
 #Text=How does one get rid of an elected government ?
 14-1	2573-2576	How	abstract[124]	new[124]	nnnnn[124]	_	bridge:entity-associative;comparison-sense	15-1[127_124]	
@@ -489,71 +493,71 @@
 14-4	2586-2589	get	abstract[124]	new[124]	nnnnn[124]	_	_	_	
 14-5	2590-2593	rid	abstract[124]	new[124]	nnnnn[124]	_	_	_	
 14-6	2594-2596	of	abstract[124]	new[124]	nnnnn[124]	_	_	_	
-14-7	2597-2599	an	abstract[124]|organization[126]	new[124]|giv[126]	nnnnn[124]|snnnn[126]	_	coref|bridge:entity-associative	17-14[144_126]|15-8[130_126]	
-14-8	2600-2607	elected	abstract[124]|organization[126]	new[124]|giv[126]	nnnnn[124]|snnnn[126]	_	_	_	
-14-9	2608-2618	government	abstract[124]|organization[126]	new[124]|giv[126]	nnnnn[124]|snnnn[126]	_	_	_	
-14-10	2619-2620	?	_	_	_	_	_	_	_	_	_	_	_	_	_
+14-7	2597-2599	an	abstract[124]|organization[126]	new[124]|giv[126]	nnnnn[124]|sssns[126]	_	bridge:entity-associative|coref	15-8[130_126]|17-14[144_126]	
+14-8	2600-2607	elected	abstract[124]|organization[126]	new[124]|giv[126]	nnnnn[124]|sssns[126]	_	_	_	
+14-9	2608-2618	government	abstract[124]|organization[126]	new[124]|giv[126]	nnnnn[124]|sssns[126]	_	_	_	
+14-10	2619-2620	?	_	_	_	_	_	_	
 
 #Text=One is by winning over members of Parliament .
 15-1	2621-2624	One	event[127]	acc[127]	nnnnn[127]	_	coref	15-4[128_127]	
-15-2	2625-2627	is	_	_	_	_	_	_	_	_	_	_	_	_	_
-15-3	2628-2630	by	_	_	_	_	_	_	_	_	_	_	_	_	_
+15-2	2625-2627	is	_	_	_	_	_	_	
+15-3	2628-2630	by	_	_	_	_	_	_	
 15-4	2631-2638	winning	event[128]	giv[128]	nnnnn[128]	_	coref	16-6[132_128]	
 15-5	2639-2643	over	event[128]	giv[128]	nnnnn[128]	_	_	_	
 15-6	2644-2651	members	event[128]|person[129]	giv[128]|new[129]	nnnnn[128]|nnnnn[129]	_	_	_	
 15-7	2652-2654	of	event[128]|person[129]	giv[128]|new[129]	nnnnn[128]|nnnnn[129]	_	_	_	
-15-8	2655-2665	Parliament	event[128]|person[129]|organization[130]	giv[128]|new[129]|acc[130]	nnnnn[128]|nnnnn[129]|nnnnn[130]	Parliament_of_Sri_Lanka[130]	coref|bridge:entity-associative	17-9[143_130]|16-16[135_130]	
-15-9	2666-2667	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+15-8	2655-2665	Parliament	event[128]|person[129]|organization[130]	giv[128]|new[129]|acc[130]	nnnnn[128]|nnnnn[129]|nnnnn[130]	Parliament_of_Sri_Lanka[130]	bridge:entity-associative|coref	16-16[135_130]|17-9[143_130]	
+15-9	2666-2667	.	_	_	_	_	_	_	
 
 #Text=The opposition UNP has done this twice before so far , once in 1964 when the current leader ’s father presided over a massive bribery operation , and again in 2001 when once again there were allegations of bribery .
-16-1	2668-2671	The	organization[131]	new[131]	snnnn[131]	United_National_Party[131]	coref	22-7[177_131]	
-16-2	2672-2682	opposition	organization[131]	new[131]	snnnn[131]	United_National_Party[131]	_	_	
-16-3	2683-2686	UNP	organization[131]	new[131]	snnnn[131]	United_National_Party[131]	_	_	
-16-4	2687-2690	has	_	_	_	_	_	_	_	_	_	_	_	_	_
-16-5	2691-2695	done	_	_	_	_	_	_	_	_	_	_	_	_	_
+16-1	2668-2671	The	organization[131]	new[131]	snsss[131]	United_National_Party[131]	coref	22-7[177_131]	
+16-2	2672-2682	opposition	organization[131]	new[131]	snsss[131]	United_National_Party[131]	_	_	
+16-3	2683-2686	UNP	organization[131]	new[131]	snsss[131]	United_National_Party[131]	_	_	
+16-4	2687-2690	has	_	_	_	_	_	_	
+16-5	2691-2695	done	_	_	_	_	_	_	
 16-6	2696-2700	this	event[132]	giv[132]	nnnnn[132]	_	coref	20-16[164_132]	
-16-7	2701-2706	twice	_	_	_	_	_	_	_	_	_	_	_	_	_
-16-8	2707-2713	before	_	_	_	_	_	_	_	_	_	_	_	_	_
-16-9	2714-2716	so	_	_	_	_	_	_	_	_	_	_	_	_	_
-16-10	2717-2720	far	_	_	_	_	_	_	_	_	_	_	_	_	_
-16-11	2721-2722	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-16-12	2723-2727	once	_	_	_	_	_	_	_	_	_	_	_	_	_
-16-13	2728-2730	in	_	_	_	_	_	_	_	_	_	_	_	_	_
+16-7	2701-2706	twice	_	_	_	_	_	_	
+16-8	2707-2713	before	_	_	_	_	_	_	
+16-9	2714-2716	so	_	_	_	_	_	_	
+16-10	2717-2720	far	_	_	_	_	_	_	
+16-11	2721-2722	,	_	_	_	_	_	_	
+16-12	2723-2727	once	_	_	_	_	_	_	
+16-13	2728-2730	in	_	_	_	_	_	_	
 16-14	2731-2735	1964	time[133]	new[133]	nnnnn[133]	_	coref	20-2[159_133]	
-16-15	2736-2740	when	_	_	_	_	_	_	_	_	_	_	_	_	_
+16-15	2736-2740	when	_	_	_	_	_	_	
 16-16	2741-2744	the	person[134]|person[135]	new[134]|acc[135]	nnnnn[134]|nnnnn[135]	_	_	_	
 16-17	2745-2752	current	person[134]|person[135]	new[134]|acc[135]	nnnnn[134]|nnnnn[135]	_	_	_	
 16-18	2753-2759	leader	person[134]|person[135]	new[134]|acc[135]	nnnnn[134]|nnnnn[135]	_	_	_	
 16-19	2760-2762	’s	person[134]|person[135]	new[134]|acc[135]	nnnnn[134]|nnnnn[135]	_	_	_	
 16-20	2763-2769	father	person[134]	new[134]	nnnnn[134]	_	_	_	
-16-21	2770-2778	presided	_	_	_	_	_	_	_	_	_	_	_	_	_
-16-22	2779-2783	over	_	_	_	_	_	_	_	_	_	_	_	_	_
+16-21	2770-2778	presided	_	_	_	_	_	_	
+16-22	2779-2783	over	_	_	_	_	_	_	
 16-23	2784-2785	a	event[136]	new[136]	nnnnn[136]	_	bridge	17-3[141_136]	
 16-24	2786-2793	massive	event[136]	new[136]	nnnnn[136]	_	_	_	
 16-25	2794-2801	bribery	event[136]|abstract[137]	new[136]|new[137]	nnnnn[136]|nnnnn[137]	_	coref	16-39[140_137]	
 16-26	2802-2811	operation	event[136]	new[136]	nnnnn[136]	_	_	_	
-16-27	2812-2813	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-16-28	2814-2817	and	_	_	_	_	_	_	_	_	_	_	_	_	_
-16-29	2818-2823	again	_	_	_	_	_	_	_	_	_	_	_	_	_
-16-30	2824-2826	in	_	_	_	_	_	_	_	_	_	_	_	_	_
+16-27	2812-2813	,	_	_	_	_	_	_	
+16-28	2814-2817	and	_	_	_	_	_	_	
+16-29	2818-2823	again	_	_	_	_	_	_	
+16-30	2824-2826	in	_	_	_	_	_	_	
 16-31	2827-2831	2001	time[138]	new[138]	nnnnn[138]	_	coref	20-15[163_138]	
-16-32	2832-2836	when	_	_	_	_	_	_	_	_	_	_	_	_	_
-16-33	2837-2841	once	_	_	_	_	_	_	_	_	_	_	_	_	_
-16-34	2842-2847	again	_	_	_	_	_	_	_	_	_	_	_	_	_
-16-35	2848-2853	there	_	_	_	_	_	_	_	_	_	_	_	_	_
-16-36	2854-2858	were	_	_	_	_	_	_	_	_	_	_	_	_	_
+16-32	2832-2836	when	_	_	_	_	_	_	
+16-33	2837-2841	once	_	_	_	_	_	_	
+16-34	2842-2847	again	_	_	_	_	_	_	
+16-35	2848-2853	there	_	_	_	_	_	_	
+16-36	2854-2858	were	_	_	_	_	_	_	
 16-37	2859-2870	allegations	abstract[139]	acc[139]	nnnnn[139]	_	bridge	17-3[141_139]	
 16-38	2871-2873	of	abstract[139]	acc[139]	nnnnn[139]	_	_	_	
 16-39	2874-2881	bribery	abstract[139]|abstract[140]	acc[139]|giv[140]	nnnnn[139]|nnnnn[140]	_	_	_	
-16-40	2882-2883	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+16-40	2882-2883	.	_	_	_	_	_	_	
 
 #Text=But in both cases there were members of Parliament who felt genuinely that the government was failing , and therefore they crossed over to the opposition .
-17-1	2884-2887	But	_	_	_	_	_	_	_	_	_	_	_	_	_
-17-2	2888-2890	in	_	_	_	_	_	_	_	_	_	_	_	_	_
+17-1	2884-2887	But	_	_	_	_	_	_	
+17-2	2888-2890	in	_	_	_	_	_	_	
 17-3	2891-2895	both	event[141]	split[141]	nnnnn[141]	_	coref	18-20[152_141]	
 17-4	2896-2901	cases	event[141]	split[141]	nnnnn[141]	_	_	_	
-17-5	2902-2907	there	_	_	_	_	_	_	_	_	_	_	_	_	_
-17-6	2908-2912	were	_	_	_	_	_	_	_	_	_	_	_	_	_
+17-5	2902-2907	there	_	_	_	_	_	_	
+17-6	2908-2912	were	_	_	_	_	_	_	
 17-7	2913-2920	members	person[142]	new[142]	nnnnn[142]	_	coref	17-21[146_142]	
 17-8	2921-2923	of	person[142]	new[142]	nnnnn[142]	_	_	_	
 17-9	2924-2934	Parliament	person[142]|organization[143]	new[142]|giv[143]	nnnnn[142]|nnnnn[143]	Parliament_of_Sri_Lanka[143]	_	_	
@@ -561,58 +565,58 @@
 17-11	2939-2943	felt	person[142]	new[142]	nnnnn[142]	_	_	_	
 17-12	2944-2953	genuinely	person[142]	new[142]	nnnnn[142]	_	_	_	
 17-13	2954-2958	that	person[142]	new[142]	nnnnn[142]	_	_	_	
-17-14	2959-2962	the	person[142]|organization[144]	new[142]|giv[144]	nnnnn[142]|snnnn[144]	_	coref|bridge:entity-associative	20-11[162_144]|17-25[147_144]	
-17-15	2963-2973	government	person[142]|organization[144]	new[142]|giv[144]	nnnnn[142]|snnnn[144]	_	_	_	
+17-14	2959-2962	the	person[142]|organization[144]	new[142]|giv[144]	nnnnn[142]|sssns[144]	_	bridge:entity-associative|coref	17-25[147_144]|20-11[162_144]	
+17-15	2963-2973	government	person[142]|organization[144]	new[142]|giv[144]	nnnnn[142]|sssns[144]	_	_	_	
 17-16	2974-2977	was	person[142]	new[142]	nnnnn[142]	_	_	_	
 17-17	2978-2985	failing	person[142]	new[142]	nnnnn[142]	_	_	_	
-17-18	2986-2987	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-17-19	2988-2991	and	_	_	_	_	_	_	_	_	_	_	_	_	_
-17-20	2992-3001	therefore	_	_	_	_	_	_	_	_	_	_	_	_	_
+17-18	2986-2987	,	_	_	_	_	_	_	
+17-19	2988-2991	and	_	_	_	_	_	_	
+17-20	2992-3001	therefore	_	_	_	_	_	_	
 17-21	3002-3006	they	event[145]|person[146]	new[145]|giv[146]	nnnnn[145]|nnnnn[146]	_	coref	18-1[148_145]	
 17-22	3007-3014	crossed	event[145]	new[145]	nnnnn[145]	_	_	_	
 17-23	3015-3019	over	event[145]	new[145]	nnnnn[145]	_	_	_	
 17-24	3020-3022	to	event[145]	new[145]	nnnnn[145]	_	_	_	
 17-25	3023-3026	the	event[145]|organization[147]	new[145]|acc[147]	nnnnn[145]|nnnnn[147]	_	coref	18-6[150_147]	
 17-26	3027-3037	opposition	event[145]|organization[147]	new[145]|acc[147]	nnnnn[145]|nnnnn[147]	_	_	_	
-17-27	3038-3039	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+17-27	3038-3039	.	_	_	_	_	_	_	
 
 #Text=This precipitated an election which the opposition won , though in both instances not especially convincingly , and in both cases only to be trounced at the next election .
 18-1	3040-3044	This	event[148]	giv[148]	nnnnn[148]	_	_	_	
-18-2	3045-3057	precipitated	_	_	_	_	_	_	_	_	_	_	_	_	_
-18-3	3058-3060	an	event[149]	giv[149]	nnnnn[149]	_	bridge:comparison-relative|bridge:set-member	18-27[153_149]|18-12[151_149]	
+18-2	3045-3057	precipitated	_	_	_	_	_	_	
+18-3	3058-3060	an	event[149]	giv[149]	nnnnn[149]	_	bridge:set-member|bridge:comparison-relative	18-12[151_149]|18-27[153_149]	
 18-4	3061-3069	election	event[149]	giv[149]	nnnnn[149]	_	_	_	
 18-5	3070-3075	which	event[149]	giv[149]	nnnnn[149]	_	_	_	
 18-6	3076-3079	the	event[149]|organization[150]	giv[149]|giv[150]	nnnnn[149]|nnnnn[150]	_	_	_	
 18-7	3080-3090	opposition	event[149]|organization[150]	giv[149]|giv[150]	nnnnn[149]|nnnnn[150]	_	_	_	
 18-8	3091-3094	won	event[149]	giv[149]	nnnnn[149]	_	_	_	
-18-9	3095-3096	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-18-10	3097-3103	though	_	_	_	_	_	_	_	_	_	_	_	_	_
-18-11	3104-3106	in	_	_	_	_	_	_	_	_	_	_	_	_	_
+18-9	3095-3096	,	_	_	_	_	_	_	
+18-10	3097-3103	though	_	_	_	_	_	_	
+18-11	3104-3106	in	_	_	_	_	_	_	
 18-12	3107-3111	both	event[151]	acc[151]	nnnnn[151]	_	_	_	
 18-13	3112-3121	instances	event[151]	acc[151]	nnnnn[151]	_	_	_	
-18-14	3122-3125	not	_	_	_	_	_	_	_	_	_	_	_	_	_
-18-15	3126-3136	especially	_	_	_	_	_	_	_	_	_	_	_	_	_
-18-16	3137-3149	convincingly	_	_	_	_	_	_	_	_	_	_	_	_	_
-18-17	3150-3151	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-18-18	3152-3155	and	_	_	_	_	_	_	_	_	_	_	_	_	_
-18-19	3156-3158	in	_	_	_	_	_	_	_	_	_	_	_	_	_
+18-14	3122-3125	not	_	_	_	_	_	_	
+18-15	3126-3136	especially	_	_	_	_	_	_	
+18-16	3137-3149	convincingly	_	_	_	_	_	_	
+18-17	3150-3151	,	_	_	_	_	_	_	
+18-18	3152-3155	and	_	_	_	_	_	_	
+18-19	3156-3158	in	_	_	_	_	_	_	
 18-20	3159-3163	both	event[152]	giv[152]	nnnnn[152]	_	_	_	
 18-21	3164-3169	cases	event[152]	giv[152]	nnnnn[152]	_	_	_	
-18-22	3170-3174	only	_	_	_	_	_	_	_	_	_	_	_	_	_
-18-23	3175-3177	to	_	_	_	_	_	_	_	_	_	_	_	_	_
-18-24	3178-3180	be	_	_	_	_	_	_	_	_	_	_	_	_	_
-18-25	3181-3189	trounced	_	_	_	_	_	_	_	_	_	_	_	_	_
-18-26	3190-3192	at	_	_	_	_	_	_	_	_	_	_	_	_	_
+18-22	3170-3174	only	_	_	_	_	_	_	
+18-23	3175-3177	to	_	_	_	_	_	_	
+18-24	3178-3180	be	_	_	_	_	_	_	
+18-25	3181-3189	trounced	_	_	_	_	_	_	
+18-26	3190-3192	at	_	_	_	_	_	_	
 18-27	3193-3196	the	event[153]	acc[153]	nnnnn[153]	_	_	_	
 18-28	3197-3201	next	event[153]	acc[153]	nnnnn[153]	_	_	_	
 18-29	3202-3210	election	event[153]	acc[153]	nnnnn[153]	_	_	_	
-18-30	3211-3212	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+18-30	3211-3212	.	_	_	_	_	_	_	
 
 #Text=To convince parliamentarians that the party through which they were elected is a disaster , you have to work extra hard .
-19-1	3213-3215	To	_	_	_	_	_	_	_	_	_	_	_	_	_
-19-2	3216-3224	convince	_	_	_	_	_	_	_	_	_	_	_	_	_
+19-1	3213-3215	To	_	_	_	_	_	_	
+19-2	3216-3224	convince	_	_	_	_	_	_	
 19-3	3225-3241	parliamentarians	person[154]	new[154]	nnnnn[154]	_	coref	19-9[156_154]	
-19-4	3242-3246	that	_	_	_	_	_	_	_	_	_	_	_	_	_
+19-4	3242-3246	that	_	_	_	_	_	_	
 19-5	3247-3250	the	organization[155]	new[155]	nnnnn[155]	_	_	_	
 19-6	3251-3256	party	organization[155]	new[155]	nnnnn[155]	_	_	_	
 19-7	3257-3264	through	organization[155]	new[155]	nnnnn[155]	_	_	_	
@@ -620,72 +624,72 @@
 19-9	3271-3275	they	organization[155]|person[156]	new[155]|giv[156]	nnnnn[155]|nnnnn[156]	_	_	_	
 19-10	3276-3280	were	organization[155]	new[155]	nnnnn[155]	_	_	_	
 19-11	3281-3288	elected	organization[155]	new[155]	nnnnn[155]	_	_	_	
-19-12	3289-3291	is	_	_	_	_	_	_	_	_	_	_	_	_	_
+19-12	3289-3291	is	_	_	_	_	_	_	
 19-13	3292-3293	a	event[157]	new[157]	nnnnn[157]	_	_	_	
 19-14	3294-3302	disaster	event[157]	new[157]	nnnnn[157]	_	_	_	
-19-15	3303-3304	,	_	_	_	_	_	_	_	_	_	_	_	_	_
+19-15	3303-3304	,	_	_	_	_	_	_	
 19-16	3305-3308	you	person[158]	acc[158]	nnnnn[158]	_	_	_	
-19-17	3309-3313	have	_	_	_	_	_	_	_	_	_	_	_	_	_
-19-18	3314-3316	to	_	_	_	_	_	_	_	_	_	_	_	_	_
-19-19	3317-3321	work	_	_	_	_	_	_	_	_	_	_	_	_	_
-19-20	3322-3327	extra	_	_	_	_	_	_	_	_	_	_	_	_	_
-19-21	3328-3332	hard	_	_	_	_	_	_	_	_	_	_	_	_	_
-19-22	3333-3334	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+19-17	3309-3313	have	_	_	_	_	_	_	
+19-18	3314-3316	to	_	_	_	_	_	_	
+19-19	3317-3321	work	_	_	_	_	_	_	
+19-20	3322-3327	extra	_	_	_	_	_	_	
+19-21	3328-3332	hard	_	_	_	_	_	_	
+19-22	3333-3334	.	_	_	_	_	_	_	
 
 #Text=In 1964 there were allegations that communists were taking over the government , in 2001 the task was simpler since a terrorist assault on the airport reduced confidence considerably and contributed to negative growth of the economy .
-20-1	3335-3337	In	_	_	_	_	_	_	_	_	_	_	_	_	_
+20-1	3335-3337	In	_	_	_	_	_	_	
 20-2	3338-3342	1964	time[159]	giv[159]	nnnnn[159]	_	_	_	
-20-3	3343-3348	there	_	_	_	_	_	_	_	_	_	_	_	_	_
-20-4	3349-3353	were	_	_	_	_	_	_	_	_	_	_	_	_	_
+20-3	3343-3348	there	_	_	_	_	_	_	
+20-4	3349-3353	were	_	_	_	_	_	_	
 20-5	3354-3365	allegations	abstract[160]	giv[160]	nnnnn[160]	_	_	_	
 20-6	3366-3370	that	abstract[160]	giv[160]	nnnnn[160]	_	_	_	
 20-7	3371-3381	communists	abstract[160]|person[161]	giv[160]|new[161]	nnnnn[160]|nnnnn[161]	_	_	_	
 20-8	3382-3386	were	abstract[160]	giv[160]	nnnnn[160]	_	_	_	
 20-9	3387-3393	taking	abstract[160]	giv[160]	nnnnn[160]	_	_	_	
 20-10	3394-3398	over	abstract[160]	giv[160]	nnnnn[160]	_	_	_	
-20-11	3399-3402	the	abstract[160]|organization[162]	giv[160]|giv[162]	nnnnn[160]|snnnn[162]	_	coref	22-14[178_162]	
-20-12	3403-3413	government	abstract[160]|organization[162]	giv[160]|giv[162]	nnnnn[160]|snnnn[162]	_	_	_	
-20-13	3414-3415	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-20-14	3416-3418	in	_	_	_	_	_	_	_	_	_	_	_	_	_
+20-11	3399-3402	the	abstract[160]|organization[162]	giv[160]|giv[162]	nnnnn[160]|sssns[162]	_	coref	22-14[178_162]	
+20-12	3403-3413	government	abstract[160]|organization[162]	giv[160]|giv[162]	nnnnn[160]|sssns[162]	_	_	_	
+20-13	3414-3415	,	_	_	_	_	_	_	
+20-14	3416-3418	in	_	_	_	_	_	_	
 20-15	3419-3423	2001	time[163]	giv[163]	nnnnn[163]	_	_	_	
 20-16	3424-3427	the	event[164]	new[164]	nnnnn[164]	_	_	_	
 20-17	3428-3432	task	event[164]	new[164]	nnnnn[164]	_	_	_	
-20-18	3433-3436	was	_	_	_	_	_	_	_	_	_	_	_	_	_
-20-19	3437-3444	simpler	_	_	_	_	_	_	_	_	_	_	_	_	_
-20-20	3445-3450	since	_	_	_	_	_	_	_	_	_	_	_	_	_
+20-18	3433-3436	was	_	_	_	_	_	_	
+20-19	3437-3444	simpler	_	_	_	_	_	_	
+20-20	3445-3450	since	_	_	_	_	_	_	
 20-21	3451-3452	a	event[165]	new[165]	nnnnn[165]	_	_	_	
 20-22	3453-3462	terrorist	event[165]	new[165]	nnnnn[165]	_	_	_	
 20-23	3463-3470	assault	event[165]	new[165]	nnnnn[165]	_	_	_	
 20-24	3471-3473	on	event[165]	new[165]	nnnnn[165]	_	_	_	
 20-25	3474-3477	the	event[165]|place[166]	new[165]|acc[166]	nnnnn[165]|nnnnn[166]	_	bridge:entity-associative	20-36[169_166]	
 20-26	3478-3485	airport	event[165]|place[166]	new[165]|acc[166]	nnnnn[165]|nnnnn[166]	_	_	_	
-20-27	3486-3493	reduced	_	_	_	_	_	_	_	_	_	_	_	_	_
+20-27	3486-3493	reduced	_	_	_	_	_	_	
 20-28	3494-3504	confidence	abstract[167]	new[167]	nnnnn[167]	_	_	_	
-20-29	3505-3517	considerably	_	_	_	_	_	_	_	_	_	_	_	_	_
-20-30	3518-3521	and	_	_	_	_	_	_	_	_	_	_	_	_	_
-20-31	3522-3533	contributed	_	_	_	_	_	_	_	_	_	_	_	_	_
-20-32	3534-3536	to	_	_	_	_	_	_	_	_	_	_	_	_	_
+20-29	3505-3517	considerably	_	_	_	_	_	_	
+20-30	3518-3521	and	_	_	_	_	_	_	
+20-31	3522-3533	contributed	_	_	_	_	_	_	
+20-32	3534-3536	to	_	_	_	_	_	_	
 20-33	3537-3545	negative	abstract[168]	new[168]	nnnnn[168]	_	_	_	
 20-34	3546-3552	growth	abstract[168]	new[168]	nnnnn[168]	_	_	_	
 20-35	3553-3555	of	abstract[168]	new[168]	nnnnn[168]	_	_	_	
 20-36	3556-3559	the	abstract[168]|abstract[169]	new[168]|acc[169]	nnnnn[168]|nnnnn[169]	_	_	_	
 20-37	3560-3567	economy	abstract[168]|abstract[169]	new[168]|acc[169]	nnnnn[168]|nnnnn[169]	_	_	_	
-20-38	3568-3569	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+20-38	3568-3569	.	_	_	_	_	_	_	
 
 #Text=Hence the terrorism that the LTTE has threatened , in making clear its intention of attacking not only military but also economic targets .
-21-1	3570-3575	Hence	_	_	_	_	_	_	_	_	_	_	_	_	_
+21-1	3570-3575	Hence	_	_	_	_	_	_	
 21-2	3576-3579	the	abstract[170]	giv[170]	nnnnn[170]	_	_	_	
 21-3	3580-3589	terrorism	abstract[170]	giv[170]	nnnnn[170]	_	_	_	
 21-4	3590-3594	that	abstract[170]	giv[170]	nnnnn[170]	_	_	_	
-21-5	3595-3598	the	abstract[170]|organization[171]	giv[170]|giv[171]	nnnnn[170]|snnnn[171]	Liberation_Tigers_of_Tamil_Eelam[171]	coref	21-13[173_171]	
-21-6	3599-3603	LTTE	abstract[170]|organization[171]	giv[170]|giv[171]	nnnnn[170]|snnnn[171]	Liberation_Tigers_of_Tamil_Eelam[171]	_	_	
+21-5	3595-3598	the	abstract[170]|organization[171]	giv[170]|giv[171]	nnnnn[170]|ssssn[171]	Liberation_Tigers_of_Tamil_Eelam[171]	coref	21-13[173_171]	
+21-6	3599-3603	LTTE	abstract[170]|organization[171]	giv[170]|giv[171]	nnnnn[170]|ssssn[171]	Liberation_Tigers_of_Tamil_Eelam[171]	_	_	
 21-7	3604-3607	has	abstract[170]	giv[170]	nnnnn[170]	_	_	_	
 21-8	3608-3618	threatened	abstract[170]	giv[170]	nnnnn[170]	_	_	_	
-21-9	3619-3620	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-21-10	3621-3623	in	_	_	_	_	_	_	_	_	_	_	_	_	_
-21-11	3624-3630	making	_	_	_	_	_	_	_	_	_	_	_	_	_
-21-12	3631-3636	clear	_	_	_	_	_	_	_	_	_	_	_	_	_
-21-13	3637-3640	its	abstract[172]|organization[173]	new[172]|giv[173]	nnnnn[172]|snnnn[173]	_	coref|coref	22-5[176_172]|24-37[196_173]	
+21-9	3619-3620	,	_	_	_	_	_	_	
+21-10	3621-3623	in	_	_	_	_	_	_	
+21-11	3624-3630	making	_	_	_	_	_	_	
+21-12	3631-3636	clear	_	_	_	_	_	_	
+21-13	3637-3640	its	abstract[172]|organization[173]	new[172]|giv[173]	nnnnn[172]|ssssn[173]	_	coref|coref	22-5[176_172]|24-37[196_173]	
 21-14	3641-3650	intention	abstract[172]	new[172]	nnnnn[172]	_	_	_	
 21-15	3651-3653	of	abstract[172]	new[172]	nnnnn[172]	_	_	_	
 21-16	3654-3663	attacking	abstract[172]	new[172]	nnnnn[172]	_	_	_	
@@ -696,24 +700,24 @@
 21-21	3686-3690	also	abstract[172]|abstract[174]	new[172]|new[174]	nnnnn[172]|nnnnn[174]	_	_	_	
 21-22	3691-3699	economic	abstract[172]|abstract[174]	new[172]|new[174]	nnnnn[172]|nnnnn[174]	_	_	_	
 21-23	3700-3707	targets	abstract[172]|abstract[174]	new[172]|new[174]	nnnnn[172]|nnnnn[174]	_	_	_	
-21-24	3708-3709	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+21-24	3708-3709	.	_	_	_	_	_	_	
 
 #Text=Of a piece with this is the opposition UNP ’s attempt to prevent the government raising bonds by threatening not to repay them if it returns to power .
-22-1	3710-3712	Of	_	_	_	_	_	_	_	_	_	_	_	_	_
+22-1	3710-3712	Of	_	_	_	_	_	_	
 22-2	3713-3714	a	abstract[175]	new[175]	nnnnn[175]	_	_	_	
 22-3	3715-3720	piece	abstract[175]	new[175]	nnnnn[175]	_	_	_	
 22-4	3721-3725	with	abstract[175]	new[175]	nnnnn[175]	_	_	_	
 22-5	3726-3730	this	abstract[175]|abstract[176]	new[175]|giv[176]	nnnnn[175]|nnnnn[176]	_	_	_	
 22-6	3731-3733	is	abstract[175]	new[175]	nnnnn[175]	_	_	_	
-22-7	3734-3737	the	abstract[175]|organization[177]	new[175]|new[177]	nnnnn[175]|snnnn[177]	United_National_Party[177]	coref	22-25[182_177]	
-22-8	3738-3748	opposition	abstract[175]|organization[177]	new[175]|new[177]	nnnnn[175]|snnnn[177]	United_National_Party[177]	_	_	
-22-9	3749-3752	UNP	abstract[175]|organization[177]	new[175]|new[177]	nnnnn[175]|snnnn[177]	United_National_Party[177]	_	_	
-22-10	3753-3755	’s	abstract[175]|organization[177]	new[175]|new[177]	nnnnn[175]|snnnn[177]	United_National_Party[177]	_	_	
+22-7	3734-3737	the	abstract[175]|organization[177]	new[175]|new[177]	nnnnn[175]|snsss[177]	United_National_Party[177]	coref	22-25[182_177]	
+22-8	3738-3748	opposition	abstract[175]|organization[177]	new[175]|new[177]	nnnnn[175]|snsss[177]	United_National_Party[177]	_	_	
+22-9	3749-3752	UNP	abstract[175]|organization[177]	new[175]|new[177]	nnnnn[175]|snsss[177]	United_National_Party[177]	_	_	
+22-10	3753-3755	’s	abstract[175]|organization[177]	new[175]|new[177]	nnnnn[175]|snsss[177]	United_National_Party[177]	_	_	
 22-11	3756-3763	attempt	abstract[175]	new[175]	nnnnn[175]	_	_	_	
 22-12	3764-3766	to	abstract[175]	new[175]	nnnnn[175]	_	_	_	
 22-13	3767-3774	prevent	abstract[175]	new[175]	nnnnn[175]	_	_	_	
-22-14	3775-3778	the	abstract[175]|organization[178]	new[175]|giv[178]	nnnnn[175]|snnnn[178]	_	coref|bridge:entity-associative	25-35[206_178]|22-28[183_178]	
-22-15	3779-3789	government	abstract[175]|organization[178]	new[175]|giv[178]	nnnnn[175]|snnnn[178]	_	_	_	
+22-14	3775-3778	the	abstract[175]|organization[178]	new[175]|giv[178]	nnnnn[175]|sssns[178]	_	bridge:entity-associative|coref	22-28[183_178]|25-35[206_178]	
+22-15	3779-3789	government	abstract[175]|organization[178]	new[175]|giv[178]	nnnnn[175]|sssns[178]	_	_	_	
 22-16	3790-3797	raising	abstract[175]	new[175]	nnnnn[175]	_	_	_	
 22-17	3798-3803	bonds	abstract[175]|object[179]	new[175]|new[179]	nnnnn[175]|nnnnn[179]	_	coref	22-23[180_179]	
 22-18	3804-3806	by	abstract[175]	new[175]	nnnnn[175]	_	_	_	
@@ -723,135 +727,135 @@
 22-22	3826-3831	repay	abstract[175]	new[175]	nnnnn[175]	_	_	_	
 22-23	3832-3836	them	abstract[175]|object[180]	new[175]|giv[180]	nnnnn[175]|nnnnn[180]	_	_	_	
 22-24	3837-3839	if	abstract[175]	new[175]	nnnnn[175]	_	_	_	
-22-25	3840-3842	it	abstract[175]|event[181]|organization[182]	new[175]|new[181]|giv[182]	nnnnn[175]|nnnnn[181]|snnnn[182]	_	coref|coref	23-3[185_181]|23-1[184_182]	
+22-25	3840-3842	it	abstract[175]|event[181]|organization[182]	new[175]|new[181]|giv[182]	nnnnn[175]|nnnnn[181]|snsss[182]	_	coref|coref	23-3[185_181]|23-1[184_182]	
 22-26	3843-3850	returns	abstract[175]|event[181]	new[175]|new[181]	nnnnn[175]|nnnnn[181]	_	_	_	
 22-27	3851-3853	to	abstract[175]|event[181]	new[175]|new[181]	nnnnn[175]|nnnnn[181]	_	_	_	
 22-28	3854-3859	power	abstract[175]|event[181]|abstract[183]	new[175]|new[181]|acc[183]	nnnnn[175]|nnnnn[181]|nnnnn[183]	_	_	_	
-22-29	3860-3861	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+22-29	3860-3861	.	_	_	_	_	_	_	
 
 #Text=It assumes this will happen soon because , according to sympathetic media , Saturn has moved .
-23-1	3862-3864	It	organization[184]	giv[184]	snnnn[184]	_	coref|bridge:comparison-relative	24-41[197_184]|23-11[186_184]	
-23-2	3865-3872	assumes	_	_	_	_	_	_	_	_	_	_	_	_	_
+23-1	3862-3864	It	organization[184]	giv[184]	snsss[184]	_	bridge:comparison-relative|coref	23-11[186_184]|24-41[197_184]	
+23-2	3865-3872	assumes	_	_	_	_	_	_	
 23-3	3873-3877	this	event[185]	giv[185]	nnnnn[185]	_	_	_	
-23-4	3878-3882	will	_	_	_	_	_	_	_	_	_	_	_	_	_
-23-5	3883-3889	happen	_	_	_	_	_	_	_	_	_	_	_	_	_
-23-6	3890-3894	soon	_	_	_	_	_	_	_	_	_	_	_	_	_
-23-7	3895-3902	because	_	_	_	_	_	_	_	_	_	_	_	_	_
-23-8	3903-3904	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-23-9	3905-3914	according	_	_	_	_	_	_	_	_	_	_	_	_	_
-23-10	3915-3917	to	_	_	_	_	_	_	_	_	_	_	_	_	_
+23-4	3878-3882	will	_	_	_	_	_	_	
+23-5	3883-3889	happen	_	_	_	_	_	_	
+23-6	3890-3894	soon	_	_	_	_	_	_	
+23-7	3895-3902	because	_	_	_	_	_	_	
+23-8	3903-3904	,	_	_	_	_	_	_	
+23-9	3905-3914	according	_	_	_	_	_	_	
+23-10	3915-3917	to	_	_	_	_	_	_	
 23-11	3918-3929	sympathetic	organization[186]	acc[186]	nnnnn[186]	_	_	_	
 23-12	3930-3935	media	organization[186]	acc[186]	nnnnn[186]	_	_	_	
-23-13	3936-3937	,	_	_	_	_	_	_	_	_	_	_	_	_	_
+23-13	3936-3937	,	_	_	_	_	_	_	
 23-14	3938-3944	Saturn	place[187]	new[187]	nnnnn[187]	Saturn[187]	coref	24-1[189_187]	
-23-15	3945-3948	has	_	_	_	_	_	_	_	_	_	_	_	_	_
-23-16	3949-3954	moved	_	_	_	_	_	_	_	_	_	_	_	_	_
-23-17	3955-3956	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+23-15	3945-3948	has	_	_	_	_	_	_	
+23-16	3949-3954	moved	_	_	_	_	_	_	
+23-17	3955-3956	.	_	_	_	_	_	_	
 
 #Text=Saturn ’s movements may be as good a way of predicting events as any other , but what is sad is to see some members of the international community also falling in with the plans of a terrorist organization and an opposition leadership that has been convincingly trounced in elections twice in the recent past .
 24-1	3957-3963	Saturn	abstract[188]|place[189]	new[188]|new[189]	nnnnn[188]|nnnnn[189]	Saturn[189]	coref	24-8[190_188]	
 24-2	3964-3966	’s	abstract[188]|place[189]	new[188]|new[189]	nnnnn[188]|nnnnn[189]	Saturn[189]	_	_	
 24-3	3967-3976	movements	abstract[188]	new[188]	nnnnn[188]	_	_	_	
-24-4	3977-3980	may	_	_	_	_	_	_	_	_	_	_	_	_	_
-24-5	3981-3983	be	_	_	_	_	_	_	_	_	_	_	_	_	_
-24-6	3984-3986	as	_	_	_	_	_	_	_	_	_	_	_	_	_
-24-7	3987-3991	good	_	_	_	_	_	_	_	_	_	_	_	_	_
+24-4	3977-3980	may	_	_	_	_	_	_	
+24-5	3981-3983	be	_	_	_	_	_	_	
+24-6	3984-3986	as	_	_	_	_	_	_	
+24-7	3987-3991	good	_	_	_	_	_	_	
 24-8	3992-3993	a	abstract[190]	giv[190]	nnnnn[190]	_	bridge:comparison-sense;comparison-relative	24-14[192_190]	
 24-9	3994-3997	way	abstract[190]	giv[190]	nnnnn[190]	_	_	_	
 24-10	3998-4000	of	abstract[190]	giv[190]	nnnnn[190]	_	_	_	
 24-11	4001-4011	predicting	abstract[190]	giv[190]	nnnnn[190]	_	_	_	
 24-12	4012-4018	events	abstract[190]|event[191]	giv[190]|new[191]	nnnnn[190]|nnnnn[191]	_	_	_	
-24-13	4019-4021	as	_	_	_	_	_	_	_	_	_	_	_	_	_
+24-13	4019-4021	as	_	_	_	_	_	_	
 24-14	4022-4025	any	abstract[192]	acc[192]	nnnnn[192]	_	_	_	
 24-15	4026-4031	other	abstract[192]	acc[192]	nnnnn[192]	_	_	_	
-24-16	4032-4033	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-24-17	4034-4037	but	_	_	_	_	_	_	_	_	_	_	_	_	_
-24-18	4038-4042	what	_	_	_	_	_	_	_	_	_	_	_	_	_
-24-19	4043-4045	is	_	_	_	_	_	_	_	_	_	_	_	_	_
-24-20	4046-4049	sad	_	_	_	_	_	_	_	_	_	_	_	_	_
-24-21	4050-4052	is	_	_	_	_	_	_	_	_	_	_	_	_	_
-24-22	4053-4055	to	_	_	_	_	_	_	_	_	_	_	_	_	_
-24-23	4056-4059	see	_	_	_	_	_	_	_	_	_	_	_	_	_
+24-16	4032-4033	,	_	_	_	_	_	_	
+24-17	4034-4037	but	_	_	_	_	_	_	
+24-18	4038-4042	what	_	_	_	_	_	_	
+24-19	4043-4045	is	_	_	_	_	_	_	
+24-20	4046-4049	sad	_	_	_	_	_	_	
+24-21	4050-4052	is	_	_	_	_	_	_	
+24-22	4053-4055	to	_	_	_	_	_	_	
+24-23	4056-4059	see	_	_	_	_	_	_	
 24-24	4060-4064	some	person[193]	new[193]	nnnnn[193]	_	_	_	
 24-25	4065-4072	members	person[193]	new[193]	nnnnn[193]	_	_	_	
 24-26	4073-4075	of	person[193]	new[193]	nnnnn[193]	_	_	_	
 24-27	4076-4079	the	person[193]|organization[194]	new[193]|new[194]	nnnnn[193]|nnnnn[194]	_	_	_	
 24-28	4080-4093	international	person[193]|organization[194]	new[193]|new[194]	nnnnn[193]|nnnnn[194]	_	_	_	
 24-29	4094-4103	community	person[193]|organization[194]	new[193]|new[194]	nnnnn[193]|nnnnn[194]	_	_	_	
-24-30	4104-4108	also	_	_	_	_	_	_	_	_	_	_	_	_	_
-24-31	4109-4116	falling	_	_	_	_	_	_	_	_	_	_	_	_	_
-24-32	4117-4119	in	_	_	_	_	_	_	_	_	_	_	_	_	_
-24-33	4120-4124	with	_	_	_	_	_	_	_	_	_	_	_	_	_
+24-30	4104-4108	also	_	_	_	_	_	_	
+24-31	4109-4116	falling	_	_	_	_	_	_	
+24-32	4117-4119	in	_	_	_	_	_	_	
+24-33	4120-4124	with	_	_	_	_	_	_	
 24-34	4125-4128	the	abstract[195]	new[195]	nnnnn[195]	_	_	_	
 24-35	4129-4134	plans	abstract[195]	new[195]	nnnnn[195]	_	_	_	
 24-36	4135-4137	of	abstract[195]	new[195]	nnnnn[195]	_	_	_	
-24-37	4138-4139	a	abstract[195]|organization[196]	new[195]|new[196]	nnnnn[195]|snnnn[196]	_	coref	27-39[232_196]	
-24-38	4140-4149	terrorist	abstract[195]|organization[196]	new[195]|new[196]	nnnnn[195]|snnnn[196]	_	_	_	
-24-39	4150-4162	organization	abstract[195]|organization[196]	new[195]|new[196]	nnnnn[195]|snnnn[196]	_	_	_	
+24-37	4138-4139	a	abstract[195]|organization[196]	new[195]|new[196]	nnnnn[195]|ssssn[196]	_	coref	27-39[232_196]	
+24-38	4140-4149	terrorist	abstract[195]|organization[196]	new[195]|new[196]	nnnnn[195]|ssssn[196]	_	_	_	
+24-39	4150-4162	organization	abstract[195]|organization[196]	new[195]|new[196]	nnnnn[195]|ssssn[196]	_	_	_	
 24-40	4163-4166	and	abstract[195]	new[195]	nnnnn[195]	_	_	_	
-24-41	4167-4169	an	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snnnn[197]	_	coref	27-65[239_197]	
-24-42	4170-4180	opposition	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snnnn[197]	_	_	_	
-24-43	4181-4191	leadership	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snnnn[197]	_	_	_	
-24-44	4192-4196	that	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snnnn[197]	_	_	_	
-24-45	4197-4200	has	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snnnn[197]	_	_	_	
-24-46	4201-4205	been	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snnnn[197]	_	_	_	
-24-47	4206-4218	convincingly	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snnnn[197]	_	_	_	
-24-48	4219-4227	trounced	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snnnn[197]	_	_	_	
-24-49	4228-4230	in	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snnnn[197]	_	_	_	
-24-50	4231-4240	elections	abstract[195]|organization[197]|event[198]	new[195]|new[197]|new[198]	nnnnn[195]|snnnn[197]|nnnnn[198]	_	_	_	
-24-51	4241-4246	twice	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snnnn[197]	_	_	_	
-24-52	4247-4249	in	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snnnn[197]	_	_	_	
-24-53	4250-4253	the	abstract[195]|organization[197]|time[199]	new[195]|new[197]|acc[199]	nnnnn[195]|snnnn[197]|nnnnn[199]	_	_	_	
-24-54	4254-4260	recent	abstract[195]|organization[197]|time[199]	new[195]|new[197]|acc[199]	nnnnn[195]|snnnn[197]|nnnnn[199]	_	_	_	
-24-55	4261-4265	past	abstract[195]|organization[197]|time[199]	new[195]|new[197]|acc[199]	nnnnn[195]|snnnn[197]|nnnnn[199]	_	_	_	
-24-56	4266-4267	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+24-41	4167-4169	an	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snsss[197]	_	coref	27-65[239_197]	
+24-42	4170-4180	opposition	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snsss[197]	_	_	_	
+24-43	4181-4191	leadership	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snsss[197]	_	_	_	
+24-44	4192-4196	that	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snsss[197]	_	_	_	
+24-45	4197-4200	has	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snsss[197]	_	_	_	
+24-46	4201-4205	been	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snsss[197]	_	_	_	
+24-47	4206-4218	convincingly	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snsss[197]	_	_	_	
+24-48	4219-4227	trounced	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snsss[197]	_	_	_	
+24-49	4228-4230	in	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snsss[197]	_	_	_	
+24-50	4231-4240	elections	abstract[195]|organization[197]|event[198]	new[195]|new[197]|new[198]	nnnnn[195]|snsss[197]|nnnnn[198]	_	_	_	
+24-51	4241-4246	twice	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snsss[197]	_	_	_	
+24-52	4247-4249	in	abstract[195]|organization[197]	new[195]|new[197]	nnnnn[195]|snsss[197]	_	_	_	
+24-53	4250-4253	the	abstract[195]|organization[197]|time[199]	new[195]|new[197]|acc[199]	nnnnn[195]|snsss[197]|nnnnn[199]	_	_	_	
+24-54	4254-4260	recent	abstract[195]|organization[197]|time[199]	new[195]|new[197]|acc[199]	nnnnn[195]|snsss[197]|nnnnn[199]	_	_	_	
+24-55	4261-4265	past	abstract[195]|organization[197]|time[199]	new[195]|new[197]|acc[199]	nnnnn[195]|snsss[197]|nnnnn[199]	_	_	_	
+24-56	4266-4267	.	_	_	_	_	_	_	
 
 #Text=Now , sadly , both feel that , by presenting Sri Lanka as a failed state , and requiring that it be nannied by others , they will once more be able to topple an elected government .
-25-1	4268-4271	Now	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-2	4272-4273	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-3	4274-4279	sadly	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-4	4280-4281	,	_	_	_	_	_	_	_	_	_	_	_	_	_
+25-1	4268-4271	Now	_	_	_	_	_	_	
+25-2	4272-4273	,	_	_	_	_	_	_	
+25-3	4274-4279	sadly	_	_	_	_	_	_	
+25-4	4280-4281	,	_	_	_	_	_	_	
 25-5	4282-4286	both	organization[200]	giv[200]	snnnn[200]	_	coref	25-27[205_200]	
-25-6	4287-4291	feel	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-7	4292-4296	that	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-8	4297-4298	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-9	4299-4301	by	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-10	4302-4312	presenting	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-11	4313-4316	Sri	place[201]	giv[201]	snnnn[201]	Sri_Lanka[201]	coref	25-21[203_201]	
-25-12	4317-4322	Lanka	place[201]	giv[201]	snnnn[201]	Sri_Lanka[201]	_	_	
-25-13	4323-4325	as	_	_	_	_	_	_	_	_	_	_	_	_	_
+25-6	4287-4291	feel	_	_	_	_	_	_	
+25-7	4292-4296	that	_	_	_	_	_	_	
+25-8	4297-4298	,	_	_	_	_	_	_	
+25-9	4299-4301	by	_	_	_	_	_	_	
+25-10	4302-4312	presenting	_	_	_	_	_	_	
+25-11	4313-4316	Sri	place[201]	giv[201]	sssss[201]	Sri_Lanka[201]	coref	25-21[203_201]	
+25-12	4317-4322	Lanka	place[201]	giv[201]	sssss[201]	Sri_Lanka[201]	_	_	
+25-13	4323-4325	as	_	_	_	_	_	_	
 25-14	4326-4327	a	place[202]	new[202]	nnnnn[202]	_	_	_	
 25-15	4328-4334	failed	place[202]	new[202]	nnnnn[202]	_	_	_	
 25-16	4335-4340	state	place[202]	new[202]	nnnnn[202]	_	_	_	
-25-17	4341-4342	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-18	4343-4346	and	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-19	4347-4356	requiring	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-20	4357-4361	that	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-21	4362-4364	it	place[203]	giv[203]	snnnn[203]	_	bridge:comparison-sense;comparison-relative	25-25[204_203]	
-25-22	4365-4367	be	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-23	4368-4375	nannied	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-24	4376-4378	by	_	_	_	_	_	_	_	_	_	_	_	_	_
+25-17	4341-4342	,	_	_	_	_	_	_	
+25-18	4343-4346	and	_	_	_	_	_	_	
+25-19	4347-4356	requiring	_	_	_	_	_	_	
+25-20	4357-4361	that	_	_	_	_	_	_	
+25-21	4362-4364	it	place[203]	giv[203]	sssss[203]	_	bridge:comparison-sense;comparison-relative	25-25[204_203]	
+25-22	4365-4367	be	_	_	_	_	_	_	
+25-23	4368-4375	nannied	_	_	_	_	_	_	
+25-24	4376-4378	by	_	_	_	_	_	_	
 25-25	4379-4385	others	place[204]	acc[204]	nnnnn[204]	_	_	_	
-25-26	4386-4387	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-27	4388-4392	they	organization[205]	giv[205]	snnnn[205]	_	coref|bridge:entity-associative	27-62[237_205]|26-42[218_205]	
-25-28	4393-4397	will	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-29	4398-4402	once	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-30	4403-4407	more	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-31	4408-4410	be	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-32	4411-4415	able	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-33	4416-4418	to	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-34	4419-4425	topple	_	_	_	_	_	_	_	_	_	_	_	_	_
-25-35	4426-4428	an	organization[206]	giv[206]	snnnn[206]	_	coref	26-19[211_206]	
-25-36	4429-4436	elected	organization[206]	giv[206]	snnnn[206]	_	_	_	
-25-37	4437-4447	government	organization[206]	giv[206]	snnnn[206]	_	_	_	
-25-38	4448-4449	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+25-26	4386-4387	,	_	_	_	_	_	_	
+25-27	4388-4392	they	organization[205]	giv[205]	snnnn[205]	_	bridge:entity-associative|coref	26-42[218_205]|27-62[237_205]	
+25-28	4393-4397	will	_	_	_	_	_	_	
+25-29	4398-4402	once	_	_	_	_	_	_	
+25-30	4403-4407	more	_	_	_	_	_	_	
+25-31	4408-4410	be	_	_	_	_	_	_	
+25-32	4411-4415	able	_	_	_	_	_	_	
+25-33	4416-4418	to	_	_	_	_	_	_	
+25-34	4419-4425	topple	_	_	_	_	_	_	
+25-35	4426-4428	an	organization[206]	giv[206]	sssns[206]	_	coref	26-19[211_206]	
+25-36	4429-4436	elected	organization[206]	giv[206]	sssns[206]	_	_	_	
+25-37	4437-4447	government	organization[206]	giv[206]	sssns[206]	_	_	_	
+25-38	4448-4449	.	_	_	_	_	_	_	
 
 #Text=Whilst we are grateful to those who draw attention to particular violations of human rights , and believe the government has an obligation to take action to deal with perpetrators and prevent repetition , the relentless generalizations culminating in calls for a particular agenda will only promote the cause of undemocratic terrorism at this juncture .
-26-1	4450-4456	Whilst	_	_	_	_	_	_	_	_	_	_	_	_	_
+26-1	4450-4456	Whilst	_	_	_	_	_	_	
 26-2	4457-4459	we	person[207]	acc[207]	nnnnn[207]	_	coref	27-21[228_207]	
-26-3	4460-4463	are	_	_	_	_	_	_	_	_	_	_	_	_	_
-26-4	4464-4472	grateful	_	_	_	_	_	_	_	_	_	_	_	_	_
-26-5	4473-4475	to	_	_	_	_	_	_	_	_	_	_	_	_	_
+26-3	4460-4463	are	_	_	_	_	_	_	
+26-4	4464-4472	grateful	_	_	_	_	_	_	
+26-5	4473-4475	to	_	_	_	_	_	_	
 26-6	4476-4481	those	person[208]	giv[208]	nnnnn[208]	_	_	_	
 26-7	4482-4485	who	person[208]	giv[208]	nnnnn[208]	_	_	_	
 26-8	4486-4490	draw	person[208]	giv[208]	nnnnn[208]	_	_	_	
@@ -860,14 +864,14 @@
 26-11	4504-4514	particular	person[208]|event[209]	giv[208]|new[209]	nnnnn[208]|nnnnn[209]	_	bridge:entity-associative	26-30[214_209]	
 26-12	4515-4525	violations	person[208]|event[209]	giv[208]|new[209]	nnnnn[208]|nnnnn[209]	_	_	_	
 26-13	4526-4528	of	person[208]|event[209]	giv[208]|new[209]	nnnnn[208]|nnnnn[209]	_	_	_	
-26-14	4529-4534	human	person[208]|event[209]|abstract[210]	giv[208]|new[209]|giv[210]	nnnnn[208]|nnnnn[209]|snnnn[210]	_	_	_	
-26-15	4535-4541	rights	person[208]|event[209]|abstract[210]	giv[208]|new[209]|giv[210]	nnnnn[208]|nnnnn[209]|snnnn[210]	_	_	_	
-26-16	4542-4543	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-26-17	4544-4547	and	_	_	_	_	_	_	_	_	_	_	_	_	_
-26-18	4548-4555	believe	_	_	_	_	_	_	_	_	_	_	_	_	_
-26-19	4556-4559	the	organization[211]	giv[211]	snnnn[211]	_	_	_	
-26-20	4560-4570	government	organization[211]	giv[211]	snnnn[211]	_	_	_	
-26-21	4571-4574	has	_	_	_	_	_	_	_	_	_	_	_	_	_
+26-14	4529-4534	human	person[208]|event[209]|abstract[210]	giv[208]|new[209]|giv[210]	nnnnn[208]|nnnnn[209]|sssss[210]	_	_	_	
+26-15	4535-4541	rights	person[208]|event[209]|abstract[210]	giv[208]|new[209]|giv[210]	nnnnn[208]|nnnnn[209]|sssss[210]	_	_	_	
+26-16	4542-4543	,	_	_	_	_	_	_	
+26-17	4544-4547	and	_	_	_	_	_	_	
+26-18	4548-4555	believe	_	_	_	_	_	_	
+26-19	4556-4559	the	organization[211]	giv[211]	sssns[211]	_	_	_	
+26-20	4560-4570	government	organization[211]	giv[211]	sssns[211]	_	_	_	
+26-21	4571-4574	has	_	_	_	_	_	_	
 26-22	4575-4577	an	abstract[212]	new[212]	nnnnn[212]	_	_	_	
 26-23	4578-4588	obligation	abstract[212]	new[212]	nnnnn[212]	_	_	_	
 26-24	4589-4591	to	abstract[212]	new[212]	nnnnn[212]	_	_	_	
@@ -880,7 +884,7 @@
 26-31	4630-4633	and	abstract[212]	new[212]	nnnnn[212]	_	_	_	
 26-32	4634-4641	prevent	abstract[212]	new[212]	nnnnn[212]	_	_	_	
 26-33	4642-4652	repetition	abstract[212]|event[215]	new[212]|acc[215]	nnnnn[212]|nnnnn[215]	_	_	_	
-26-34	4653-4654	,	_	_	_	_	_	_	_	_	_	_	_	_	_
+26-34	4653-4654	,	_	_	_	_	_	_	
 26-35	4655-4658	the	event[216]	giv[216]	nnnnn[216]	_	_	_	
 26-36	4659-4669	relentless	event[216]	giv[216]	nnnnn[216]	_	_	_	
 26-37	4670-4685	generalizations	event[216]	giv[216]	nnnnn[216]	_	_	_	
@@ -891,40 +895,40 @@
 26-42	4711-4712	a	event[216]|event[217]|abstract[218]	giv[216]|new[217]|acc[218]	nnnnn[216]|nnnnn[217]|nnnnn[218]	_	_	_	
 26-43	4713-4723	particular	event[216]|event[217]|abstract[218]	giv[216]|new[217]|acc[218]	nnnnn[216]|nnnnn[217]|nnnnn[218]	_	_	_	
 26-44	4724-4730	agenda	event[216]|event[217]|abstract[218]	giv[216]|new[217]|acc[218]	nnnnn[216]|nnnnn[217]|nnnnn[218]	_	_	_	
-26-45	4731-4735	will	_	_	_	_	_	_	_	_	_	_	_	_	_
-26-46	4736-4740	only	_	_	_	_	_	_	_	_	_	_	_	_	_
-26-47	4741-4748	promote	_	_	_	_	_	_	_	_	_	_	_	_	_
+26-45	4731-4735	will	_	_	_	_	_	_	
+26-46	4736-4740	only	_	_	_	_	_	_	
+26-47	4741-4748	promote	_	_	_	_	_	_	
 26-48	4749-4752	the	abstract[219]	new[219]	nnnnn[219]	_	_	_	
 26-49	4753-4758	cause	abstract[219]	new[219]	nnnnn[219]	_	_	_	
 26-50	4759-4761	of	abstract[219]	new[219]	nnnnn[219]	_	_	_	
 26-51	4762-4774	undemocratic	abstract[219]|abstract[220]	new[219]|giv[220]	nnnnn[219]|nnnnn[220]	_	_	_	
 26-52	4775-4784	terrorism	abstract[219]|abstract[220]	new[219]|giv[220]	nnnnn[219]|nnnnn[220]	_	_	_	
-26-53	4785-4787	at	_	_	_	_	_	_	_	_	_	_	_	_	_
+26-53	4785-4787	at	_	_	_	_	_	_	
 26-54	4788-4792	this	time[221]	new[221]	nnnnn[221]	_	_	_	
 26-55	4793-4801	juncture	time[221]	new[221]	nnnnn[221]	_	_	_	
-26-56	4802-4803	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+26-56	4802-4803	.	_	_	_	_	_	_	
 
 #Text=It is easy for Ms Hogg , in her London retreat , to pontificate , but could she live amongst our Tamil fellow citizens who have now got to offer one member of each family to the relentless LTTE war machine , if she had been present when Tamil groups not associated with the LTTE were decimated on the last occasion the LTTE and the UNP worked together , she would think twice about what she is trying to achieve .
 27-1	4804-4806	It	abstract[222]	giv[222]	nnnnn[222]	_	_	_	
-27-2	4807-4809	is	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-3	4810-4814	easy	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-4	4815-4818	for	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-5	4819-4821	Ms	person[223]	giv[223]	snnnn[223]	Charu_Lata_Hogg[223]	coref	27-9[225_223]	
-27-6	4822-4826	Hogg	person[223]	giv[223]	snnnn[223]	Charu_Lata_Hogg[223]	_	_	
-27-7	4827-4828	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-8	4829-4831	in	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-9	4832-4835	her	time[224]|person[225]	new[224]|giv[225]	nnnnn[224]|snnnn[225]	London[224]	coref	27-18[226_225]	
+27-2	4807-4809	is	_	_	_	_	_	_	
+27-3	4810-4814	easy	_	_	_	_	_	_	
+27-4	4815-4818	for	_	_	_	_	_	_	
+27-5	4819-4821	Ms	person[223]	giv[223]	sssss[223]	Charu_Lata_Hogg[223]	coref	27-9[225_223]	
+27-6	4822-4826	Hogg	person[223]	giv[223]	sssss[223]	Charu_Lata_Hogg[223]	_	_	
+27-7	4827-4828	,	_	_	_	_	_	_	
+27-8	4829-4831	in	_	_	_	_	_	_	
+27-9	4832-4835	her	time[224]|person[225]	new[224]|giv[225]	nnnnn[224]|sssss[225]	London[224]	coref	27-18[226_225]	
 27-10	4836-4842	London	time[224]	new[224]	nnnnn[224]	London[224]	_	_	
-27-11	4843-4850	retreat	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-12	4851-4852	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-13	4853-4855	to	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-14	4856-4867	pontificate	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-15	4868-4869	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-16	4870-4873	but	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-17	4874-4879	could	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-18	4880-4883	she	person[226]	giv[226]	snnnn[226]	_	coref	27-44[233_226]	
-27-19	4884-4888	live	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-20	4889-4896	amongst	_	_	_	_	_	_	_	_	_	_	_	_	_
+27-11	4843-4850	retreat	_	_	_	_	_	_	
+27-12	4851-4852	,	_	_	_	_	_	_	
+27-13	4853-4855	to	_	_	_	_	_	_	
+27-14	4856-4867	pontificate	_	_	_	_	_	_	
+27-15	4868-4869	,	_	_	_	_	_	_	
+27-16	4870-4873	but	_	_	_	_	_	_	
+27-17	4874-4879	could	_	_	_	_	_	_	
+27-18	4880-4883	she	person[226]	giv[226]	sssss[226]	_	coref	27-44[233_226]	
+27-19	4884-4888	live	_	_	_	_	_	_	
+27-20	4889-4896	amongst	_	_	_	_	_	_	
 27-21	4897-4900	our	person[227]|person[228]	new[227]|giv[228]	nnnnn[227]|nnnnn[228]	_	coref	27-34[230_227]	
 27-22	4901-4906	Tamil	person[227]	new[227]	nnnnn[227]	_	_	_	
 27-23	4907-4913	fellow	person[227]	new[227]	nnnnn[227]	_	_	_	
@@ -940,66 +944,66 @@
 27-33	4960-4962	of	person[227]|person[229]	new[227]|new[229]	nnnnn[227]|nnnnn[229]	_	_	_	
 27-34	4963-4967	each	person[227]|person[229]|person[230]	new[227]|new[229]|new[230]	nnnnn[227]|nnnnn[229]|nnnnn[230]	_	_	_	
 27-35	4968-4974	family	person[227]|person[229]|person[230]	new[227]|new[229]|new[230]	nnnnn[227]|nnnnn[229]|nnnnn[230]	_	_	_	
-27-36	4975-4977	to	_	_	_	_	_	_	_	_	_	_	_	_	_
+27-36	4975-4977	to	_	_	_	_	_	_	
 27-37	4978-4981	the	abstract[231]	new[231]	nnnnn[231]	_	_	_	
 27-38	4982-4992	relentless	abstract[231]	new[231]	nnnnn[231]	_	_	_	
-27-39	4993-4997	LTTE	abstract[231]|organization[232]	new[231]|giv[232]	nnnnn[231]|snnnn[232]	Liberation_Tigers_of_Tamil_Eelam[232]	coref	27-54[235_232]	
+27-39	4993-4997	LTTE	abstract[231]|organization[232]	new[231]|giv[232]	nnnnn[231]|ssssn[232]	Liberation_Tigers_of_Tamil_Eelam[232]	coref	27-54[235_232]	
 27-40	4998-5001	war	abstract[231]	new[231]	nnnnn[231]	_	_	_	
 27-41	5002-5009	machine	abstract[231]	new[231]	nnnnn[231]	_	_	_	
-27-42	5010-5011	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-43	5012-5014	if	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-44	5015-5018	she	person[233]	giv[233]	snnnn[233]	_	coref	27-70[240_233]	
-27-45	5019-5022	had	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-46	5023-5027	been	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-47	5028-5035	present	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-48	5036-5040	when	_	_	_	_	_	_	_	_	_	_	_	_	_
+27-42	5010-5011	,	_	_	_	_	_	_	
+27-43	5012-5014	if	_	_	_	_	_	_	
+27-44	5015-5018	she	person[233]	giv[233]	sssss[233]	_	coref	27-70[240_233]	
+27-45	5019-5022	had	_	_	_	_	_	_	
+27-46	5023-5027	been	_	_	_	_	_	_	
+27-47	5028-5035	present	_	_	_	_	_	_	
+27-48	5036-5040	when	_	_	_	_	_	_	
 27-49	5041-5046	Tamil	organization[234]	new[234]	nnnnn[234]	_	_	_	
 27-50	5047-5053	groups	organization[234]	new[234]	nnnnn[234]	_	_	_	
 27-51	5054-5057	not	organization[234]	new[234]	nnnnn[234]	_	_	_	
 27-52	5058-5068	associated	organization[234]	new[234]	nnnnn[234]	_	_	_	
 27-53	5069-5073	with	organization[234]	new[234]	nnnnn[234]	_	_	_	
-27-54	5074-5077	the	organization[234]|organization[235]	new[234]|giv[235]	nnnnn[234]|snnnn[235]	Liberation_Tigers_of_Tamil_Eelam[235]	coref	27-62[238_235]	
-27-55	5078-5082	LTTE	organization[234]|organization[235]	new[234]|giv[235]	nnnnn[234]|snnnn[235]	Liberation_Tigers_of_Tamil_Eelam[235]	_	_	
-27-56	5083-5087	were	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-57	5088-5097	decimated	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-58	5098-5100	on	_	_	_	_	_	_	_	_	_	_	_	_	_
+27-54	5074-5077	the	organization[234]|organization[235]	new[234]|giv[235]	nnnnn[234]|ssssn[235]	Liberation_Tigers_of_Tamil_Eelam[235]	coref	27-62[238_235]	
+27-55	5078-5082	LTTE	organization[234]|organization[235]	new[234]|giv[235]	nnnnn[234]|ssssn[235]	Liberation_Tigers_of_Tamil_Eelam[235]	_	_	
+27-56	5083-5087	were	_	_	_	_	_	_	
+27-57	5088-5097	decimated	_	_	_	_	_	_	
+27-58	5098-5100	on	_	_	_	_	_	_	
 27-59	5101-5104	the	event[236]	new[236]	nnnnn[236]	_	_	_	
 27-60	5105-5109	last	event[236]	new[236]	nnnnn[236]	_	_	_	
 27-61	5110-5118	occasion	event[236]	new[236]	nnnnn[236]	_	_	_	
-27-62	5119-5122	the	event[236]|organization[237]|organization[238]	new[236]|giv[237]|giv[238]	nnnnn[236]|snnnn[237]|snnnn[238]	Liberation_Tigers_of_Tamil_Eelam[238]	_	_	
-27-63	5123-5127	LTTE	event[236]|organization[237]|organization[238]	new[236]|giv[237]|giv[238]	nnnnn[236]|snnnn[237]|snnnn[238]	Liberation_Tigers_of_Tamil_Eelam[238]	_	_	
+27-62	5119-5122	the	event[236]|organization[237]|organization[238]	new[236]|giv[237]|giv[238]	nnnnn[236]|snnnn[237]|ssssn[238]	Liberation_Tigers_of_Tamil_Eelam[238]	_	_	
+27-63	5123-5127	LTTE	event[236]|organization[237]|organization[238]	new[236]|giv[237]|giv[238]	nnnnn[236]|snnnn[237]|ssssn[238]	Liberation_Tigers_of_Tamil_Eelam[238]	_	_	
 27-64	5128-5131	and	event[236]|organization[237]	new[236]|giv[237]	nnnnn[236]|snnnn[237]	_	_	_	
-27-65	5132-5135	the	event[236]|organization[237]|organization[239]	new[236]|giv[237]|giv[239]	nnnnn[236]|snnnn[237]|snnnn[239]	United_National_Party[239]	_	_	
-27-66	5136-5139	UNP	event[236]|organization[237]|organization[239]	new[236]|giv[237]|giv[239]	nnnnn[236]|snnnn[237]|snnnn[239]	United_National_Party[239]	_	_	
+27-65	5132-5135	the	event[236]|organization[237]|organization[239]	new[236]|giv[237]|giv[239]	nnnnn[236]|snnnn[237]|snsss[239]	United_National_Party[239]	_	_	
+27-66	5136-5139	UNP	event[236]|organization[237]|organization[239]	new[236]|giv[237]|giv[239]	nnnnn[236]|snnnn[237]|snsss[239]	United_National_Party[239]	_	_	
 27-67	5140-5146	worked	event[236]	new[236]	nnnnn[236]	_	_	_	
 27-68	5147-5155	together	event[236]	new[236]	nnnnn[236]	_	_	_	
-27-69	5156-5157	,	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-70	5158-5161	she	person[240]	giv[240]	snnnn[240]	_	coref	27-76[241_240]	
-27-71	5162-5167	would	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-72	5168-5173	think	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-73	5174-5179	twice	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-74	5180-5185	about	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-75	5186-5190	what	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-76	5191-5194	she	person[241]	giv[241]	snnnn[241]	_	_	_	
-27-77	5195-5197	is	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-78	5198-5204	trying	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-79	5205-5207	to	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-80	5208-5215	achieve	_	_	_	_	_	_	_	_	_	_	_	_	_
-27-81	5216-5217	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+27-69	5156-5157	,	_	_	_	_	_	_	
+27-70	5158-5161	she	person[240]	giv[240]	sssss[240]	_	coref	27-76[241_240]	
+27-71	5162-5167	would	_	_	_	_	_	_	
+27-72	5168-5173	think	_	_	_	_	_	_	
+27-73	5174-5179	twice	_	_	_	_	_	_	
+27-74	5180-5185	about	_	_	_	_	_	_	
+27-75	5186-5190	what	_	_	_	_	_	_	
+27-76	5191-5194	she	person[241]	giv[241]	sssss[241]	_	_	_	
+27-77	5195-5197	is	_	_	_	_	_	_	
+27-78	5198-5204	trying	_	_	_	_	_	_	
+27-79	5205-5207	to	_	_	_	_	_	_	
+27-80	5208-5215	achieve	_	_	_	_	_	_	
+27-81	5216-5217	.	_	_	_	_	_	_	
 
 #Text=Yours sincerely ,
-28-1	5218-5223	Yours	_	_	_	_	_	_	_	_	_	_	_	_	_
-28-2	5224-5233	sincerely	_	_	_	_	_	_	_	_	_	_	_	_	_
-28-3	5234-5235	,	_	_	_	_	_	_	_	_	_	_	_	_	_
+28-1	5218-5223	Yours	_	_	_	_	_	_	
+28-2	5224-5233	sincerely	_	_	_	_	_	_	
+28-3	5234-5235	,	_	_	_	_	_	_	
 
 #Text=Rajiva Wijesinha .
-29-1	5236-5242	Rajiva	person[242]	new[242]	snnnn[242]	Rajiva_Wijesinha[242]	coref	30-1[243_242]	
-29-2	5243-5252	Wijesinha	person[242]	new[242]	snnnn[242]	Rajiva_Wijesinha[242]	_	_	
-29-3	5253-5254	.	_	_	_	_	_	_	_	_	_	_	_	_	_
+29-1	5236-5242	Rajiva	person[242]	new[242]	sssns[242]	Rajiva_Wijesinha[242]	coref	30-1[243_242]	
+29-2	5243-5252	Wijesinha	person[242]	new[242]	sssns[242]	Rajiva_Wijesinha[242]	_	_	
+29-3	5253-5254	.	_	_	_	_	_	_	
 
 #Text=Secretary General
-30-1	5255-5264	Secretary	person[243]	new[243]	snnnn[243]	Rajiva_Wijesinha[243]	_	_	
-30-2	5265-5272	General	person[243]	new[243]	snnnn[243]	Rajiva_Wijesinha[243]	_	_	
+30-1	5255-5264	Secretary	person[243]	new[243]	sssns[243]	Rajiva_Wijesinha[243]	_	_	
+30-2	5265-5272	General	person[243]	new[243]	sssns[243]	Rajiva_Wijesinha[243]	_	_	
 
 #Text=Secretariat for Coordinating the Peace Process
 31-1	5273-5284	Secretariat	organization[244]	new[244]	nnnnn[244]	Secretariat_for_Coordinating_the_Peace_Process[244]	_	_	
