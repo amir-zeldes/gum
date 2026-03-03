@@ -43,7 +43,7 @@
 			<sig type="orphan" subtypes="orphan"/>
 			<sig type="reference" subtypes="comparative_reference;demonstrative_reference;personal_reference;propositional_reference"/>
 			<sig type="semantic" subtypes="antonymy;attribution_source;lexical_chain;meronymy;negation;repetition;synonymy"/>
-			<sig type="syntactic" subtypes="infinitival_clause;interrupted_matrix_clause;modified_head;nominal_modifier;parallel_syntactic_construction;past_participial_clause;present_participial_clause;relative_clause;reported_speech;subject_auxiliary_inversion"/>
+			<sig type="syntactic" subtypes="causal_excess;infinitival_clause;interrupted_matrix_clause;modified_head;nominal_modifier;parallel_syntactic_construction;past_participial_clause;present_participial_clause;relative_clause;reported_speech;subject_auxiliary_inversion"/>
 			<sig type="unsure" subtypes="unsure"/>
 		</sigtypes>
 	</header>
@@ -154,7 +154,7 @@
 		<group id="104" type="span" parent="105" relname="joint-list"/>
 		<group id="105" type="multinuc" parent="106" relname="span"/>
 		<group id="106" type="span" parent="88" relname="elaboration-additional"/>
-		<group id="107" type="span" parent="23" relname="mode-manner"/>
+		<group id="107" type="span" parent="23" relname="causal-result"/>
 		<group id="108" type="multinuc" parent="109" relname="span"/>
 		<group id="109" type="span" parent="105" relname="joint-list"/>
 		<group id="110" type="span" parent="108" relname="joint-list"/>
@@ -199,9 +199,9 @@
 		<group id="149" type="span" parent="146" relname="evaluation-comment"/>
 		<group id="150" type="span" parent="148" relname="restatement-partial"/>
 		<secedges>
-			<secedge id="105-100" source="105" target="100" relname="joint-sequence"/>
-			<secedge id="16-15" source="16" target="15" relname="causal-result"/>
 			<secedge id="6-5" source="6" target="5" relname="elaboration-attribute"/>
+			<secedge id="16-15" source="16" target="15" relname="causal-result"/>
+			<secedge id="105-100" source="105" target="100" relname="joint-sequence"/>
 		</secedges>
 		<signals>
 			<signal source="2" type="dm" subtype="dm" tokens="3" status="gold"/>
@@ -277,6 +277,7 @@
 			<signal source="105-100" type="orphan" subtype="orphan" tokens="196,197,198" status="gold"/>
 			<signal source="106" type="semantic" subtype="synonymy" tokens="57,66,200,201,212,213"/>
 			<signal source="106" type="semantic" subtype="repetition" tokens="63,64,200,201,202"/>
+			<signal source="107" type="syntactic" subtype="causal_excess" tokens="204,205,206" status="gold"/>
 			<signal source="109" type="dm" subtype="dm" tokens="220" status="gold"/>
 			<signal source="111" type="syntactic" subtype="present_participial_clause" tokens="247"/>
 			<signal source="113" type="dm" subtype="dm" tokens="252" status="gold"/>
@@ -291,6 +292,7 @@
 			<signal source="115" type="dm" subtype="dm" tokens="281" status="gold"/>
 			<signal source="118" type="reference" subtype="personal_reference" tokens="293,317"/>
 			<signal source="118" type="dm" subtype="dm" tokens="308" status="gold"/>
+			<signal source="120" type="reference" subtype="comparative_reference" tokens="344,345,357,358"/>
 			<signal source="120" type="dm" subtype="dm" tokens="353" status="gold"/>
 			<signal source="121" type="dm" subtype="dm" tokens="329" status="gold"/>
 			<signal source="124" type="dm" subtype="dm" tokens="374" status="gold"/>
@@ -307,7 +309,9 @@
 			<signal source="143" type="syntactic" subtype="modified_head" tokens="552"/>
 			<signal source="143" type="syntactic" subtype="relative_clause" tokens="556,557,576"/>
 			<signal source="143" type="syntactic" subtype="past_participial_clause" tokens="568"/>
+			<signal source="144" type="semantic" subtype="meronymy" tokens="558,580,581"/>
 			<signal source="144" type="syntactic" subtype="relative_clause" tokens="565"/>
+			<signal source="147" type="semantic" subtype="meronymy" tokens="551,552,553,554,555,556,557,558,559,560,561,562,563,564,565,566,567,568,569,570,571,572,573,574,575,576,577,578,579,580,581,583,584"/>
 			<signal source="147" type="semantic" subtype="lexical_chain" tokens="555,584" status="gold"/>
 			<signal source="147" type="semantic" subtype="synonymy" tokens="560,561,562,563,564,565,566,567,568,569,570,571,572,573,574,575,576,577,578,579,580,581,586,587"/>
 			<signal source="147" type="semantic" subtype="repetition" tokens="564,565,566,567,568,569,570,571,572,573,574,575,576,577,578,579,580,581,606,607,608"/>
