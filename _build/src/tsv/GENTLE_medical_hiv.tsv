@@ -91,10 +91,10 @@
 8-3	382-385	CD4	abstract[20]|animal[22]	new[20]|new[22]	nsnnn[20]|nsnnn[22]	CD4[22]	_	_	
 8-4	386-391	count	abstract[20]	new[20]	nsnnn[20]	_	_	_	
 8-5	392-395	was	_	_	_	_	_	_	
-8-6	396-399	425	abstract[23]	new[23]	nsnnn[23]	_	_	_	
+8-6	396-399	425	abstract[23]	new[23]	nsnnn[23]	_	bridge:entity-associative	8-8[24_23]	
 8-7	400-401	,	_	_	_	_	_	_	
-8-8	402-407	viral	abstract[24]	new[24]	nsnnn[24]	_	_	_	
-8-9	408-412	load	abstract[24]	new[24]	nsnnn[24]	_	_	_	
+8-8	402-407	viral	abstract[24]	acc[24]	nsnnn[24]	_	_	_	
+8-9	408-412	load	abstract[24]	acc[24]	nsnnn[24]	_	_	_	
 8-10	413-416	was	_	_	_	_	_	_	
 8-11	417-421	less	_	_	_	_	_	_	
 8-12	422-426	than	_	_	_	_	_	_	
@@ -159,10 +159,10 @@
 12-2	695-698	was	_	_	_	_	_	_	
 12-3	699-703	seen	_	_	_	_	_	_	
 12-4	704-706	in	_	_	_	_	_	_	
-12-5	707-710	the	place[41]	acc[41]	nnnnn[41]	_	bridge	12-8[42_41]	
+12-5	707-710	the	place[41]	acc[41]	nnnnn[41]	_	bridge:entity-associative	12-8[42_41]	
 12-6	711-719	hospital	place[41]	acc[41]	nnnnn[41]	_	_	_	
 12-7	720-722	by	_	_	_	_	_	_	
-12-8	723-726	the	person[42]	acc[42]	nnnnn[42]	_	_	_	
+12-8	723-726	the	person[42]	acc[42]	nnnnn[42]	_	bridge:entity-associative	13-1[47_42]	
 12-9	727-740	endocrinology	person[42]	acc[42]	nnnnn[42]	_	_	_	
 12-10	741-746	staff	person[42]	acc[42]	nnnnn[42]	_	_	_	
 12-11	747-750	and	_	_	_	_	_	_	
@@ -181,9 +181,9 @@
 12-24	840-841	.	_	_	_	_	_	_	
 
 #Text=The endocrine team apparently felt that insulin might be best for this patient , but because of financial issues , elected to place him on Glucophage and glyburide .
-13-1	842-845	The	organization[47]	new[47]	nnnnn[47]	_	_	_	
-13-2	846-855	endocrine	organization[47]	new[47]	nnnnn[47]	_	_	_	
-13-3	856-860	team	organization[47]	new[47]	nnnnn[47]	_	_	_	
+13-1	842-845	The	organization[47]	acc[47]	nnnnn[47]	_	_	_	
+13-2	846-855	endocrine	organization[47]	acc[47]	nnnnn[47]	_	_	_	
+13-3	856-860	team	organization[47]	acc[47]	nnnnn[47]	_	_	_	
 13-4	861-871	apparently	_	_	_	_	_	_	
 13-5	872-876	felt	_	_	_	_	_	_	
 13-6	877-881	that	_	_	_	_	_	_	
@@ -243,7 +243,7 @@
 16-7	1136-1138	is	_	_	_	_	_	_	
 16-8	1139-1148	improving	_	_	_	_	_	_	
 16-9	1149-1152	and	_	_	_	_	_	_	
-16-10	1153-1155	he	person[62]	giv[62]	ssssn[62]	_	coref	28-1[96_62]	
+16-10	1153-1155	he	person[62]	giv[62]	ssssn[62]	_	coref|bridge:entity-associative|bridge:entity-associative	28-1[96_62]|17-1[65_62]|27-3[95_62]	
 16-11	1156-1160	will	_	_	_	_	_	_	
 16-12	1161-1163	be	_	_	_	_	_	_	
 16-13	1164-1173	following	_	_	_	_	_	_	
@@ -254,8 +254,8 @@
 16-18	1196-1197	.	_	_	_	_	_	_	
 
 #Text=CURRENT MEDICATIONS :
-17-1	1198-1205	CURRENT	abstract[65]	new[65]	snsnn[65]	_	coref	46-7[151_65]	
-17-2	1206-1217	MEDICATIONS	abstract[65]	new[65]	snsnn[65]	_	_	_	
+17-1	1198-1205	CURRENT	abstract[65]	acc[65]	snsnn[65]	_	coref	47-5[151_65]	
+17-2	1206-1217	MEDICATIONS	abstract[65]	acc[65]	snsnn[65]	_	_	_	
 17-3	1218-1219	:	_	_	_	_	_	_	
 
 #Text=1. Gabapentin 600 mg at night .
@@ -318,8 +318,8 @@
 
 #Text=7. Atripla one at night .
 24-1	1409-1411	7.	_	_	_	_	_	_	
-24-2	1412-1419	Atripla	substance[84]	giv[84]	snssn[84]	Efavirenz/emtricitabine/tenofovir[84]	coref	40-10[140_84]	
-24-3	1420-1423	one	object[85]	new[85]	nnnnn[85]	_	_	_	
+24-2	1412-1419	Atripla	substance[84]	giv[84]	snssn[84]	Efavirenz/emtricitabine/tenofovir[84]	coref|bridge:comparison-sense	40-10[140_84]|24-3[85_84]	
+24-3	1420-1423	one	object[85]	acc[85]	nnnnn[85]	_	_	_	
 24-4	1424-1426	at	_	_	_	_	_	_	
 24-5	1427-1432	night	time[86]	giv[86]	nnnnn[86]	_	_	_	
 24-6	1433-1434	.	_	_	_	_	_	_	
@@ -336,7 +336,7 @@
 
 #Text=9. Blood pressure medicine , name unknown .
 26-1	1468-1470	9.	_	_	_	_	_	_	
-26-2	1471-1476	Blood	abstract[90]|abstract[91]|substance[92]	new[90]|new[91]|new[92]	nnnnn[90]|nsnnn[91]|nnnnn[92]	_	bridge|coref|coref	26-6[93_90]|30-7[103_91]|30-7[104_92]	
+26-2	1471-1476	Blood	abstract[90]|abstract[91]|substance[92]	new[90]|new[91]|new[92]	nnnnn[90]|nsnnn[91]|nnnnn[92]	_	coref|coref|bridge:entity-property	30-7[103_91]|30-7[104_92]|26-6[93_90]	
 26-3	1477-1485	pressure	abstract[90]|abstract[91]	new[90]|new[91]	nnnnn[90]|nsnnn[91]	_	_	_	
 26-4	1486-1494	medicine	abstract[90]	new[90]	nnnnn[90]	_	_	_	
 26-5	1495-1496	,	_	_	_	_	_	_	
@@ -347,11 +347,11 @@
 #Text=REVIEW OF SYSTEMS :
 27-1	1512-1518	REVIEW	abstract[94]	new[94]	nnnnn[94]	_	_	_	
 27-2	1519-1521	OF	abstract[94]	new[94]	nnnnn[94]	_	_	_	
-27-3	1522-1529	SYSTEMS	abstract[94]|abstract[95]	new[94]|new[95]	nnnnn[94]|nnnnn[95]	_	coref	28-8[98_95]	
+27-3	1522-1529	SYSTEMS	abstract[94]|abstract[95]	new[94]|acc[95]	nnnnn[94]|nnnnn[95]	_	coref	28-8[98_95]	
 27-4	1530-1531	:	_	_	_	_	_	_	
 
 #Text=He otherwise has a negative review of systems .
-28-1	1532-1534	He	person[96]	giv[96]	ssssn[96]	_	coref	32-1[116_96]	
+28-1	1532-1534	He	person[96]	giv[96]	ssssn[96]	_	coref|bridge:entity-associative|bridge:entity-associative|bridge:entity-associative|bridge:entity-property|bridge:entity-property|bridge:entity-property|bridge:entity-meronomy	32-1[116_96]|29-1[99_96]|30-1[100_96]|31-1[113_96]|30-4[101_96]|30-13[106_96]|30-16[108_96]|30-20[110_96]	
 28-2	1535-1544	otherwise	_	_	_	_	_	_	
 28-3	1545-1548	has	_	_	_	_	_	_	
 28-4	1549-1550	a	abstract[97]	new[97]	nnnnn[97]	_	_	_	
@@ -362,15 +362,15 @@
 28-9	1578-1579	.	_	_	_	_	_	_	
 
 #Text=PHYSICAL EXAMINATION :
-29-1	1580-1588	PHYSICAL	abstract[99]	new[99]	nnsnn[99]	_	_	_	
-29-2	1589-1600	EXAMINATION	abstract[99]	new[99]	nnsnn[99]	_	_	_	
+29-1	1580-1588	PHYSICAL	abstract[99]	acc[99]	nnsnn[99]	_	_	_	
+29-2	1589-1600	EXAMINATION	abstract[99]	acc[99]	nnsnn[99]	_	_	_	
 29-3	1601-1602	:	_	_	_	_	_	_	
 
 #Text=VITAL SIGNS : Temperature 36.6 , blood pressure 145 / 90 , pulse 123 , respirations 20 , and weight is 89.9 kg ( 198 pounds . )
-30-1	1603-1608	VITAL	abstract[100]	new[100]	nnnnn[100]	_	_	_	
-30-2	1609-1614	SIGNS	abstract[100]	new[100]	nnnnn[100]	_	_	_	
+30-1	1603-1608	VITAL	abstract[100]	acc[100]	nnnnn[100]	_	_	_	
+30-2	1609-1614	SIGNS	abstract[100]	acc[100]	nnnnn[100]	_	_	_	
 30-3	1615-1616	:	_	_	_	_	_	_	
-30-4	1617-1628	Temperature	abstract[101]	new[101]	nnnnn[101]	_	coref	30-5[102_101]	
+30-4	1617-1628	Temperature	abstract[101]	acc[101]	nnnnn[101]	_	coref	30-5[102_101]	
 30-5	1629-1633	36.6	abstract[102]	new[102]	nnnnn[102]	_	_	_	
 30-6	1634-1635	,	_	_	_	_	_	_	
 30-7	1636-1641	blood	abstract[103]|substance[104]	giv[103]|giv[104]	nsnnn[103]|nnnnn[104]	_	coref	30-9[105_103]	
@@ -379,14 +379,14 @@
 30-10	1655-1656	/	abstract[105]	giv[105]	nsnnn[105]	_	_	_	
 30-11	1657-1659	90	abstract[105]	giv[105]	nsnnn[105]	_	_	_	
 30-12	1660-1661	,	_	_	_	_	_	_	
-30-13	1662-1667	pulse	abstract[106]	new[106]	nsnnn[106]	_	coref	30-14[107_106]	
+30-13	1662-1667	pulse	abstract[106]	acc[106]	nsnnn[106]	_	coref	30-14[107_106]	
 30-14	1668-1671	123	abstract[107]	giv[107]	nsnnn[107]	_	_	_	
 30-15	1672-1673	,	_	_	_	_	_	_	
-30-16	1674-1686	respirations	abstract[108]	new[108]	nnnnn[108]	_	coref	30-17[109_108]	
+30-16	1674-1686	respirations	abstract[108]	acc[108]	nnnnn[108]	_	coref	30-17[109_108]	
 30-17	1687-1689	20	abstract[109]	giv[109]	nnnnn[109]	_	_	_	
 30-18	1690-1691	,	_	_	_	_	_	_	
 30-19	1692-1695	and	_	_	_	_	_	_	
-30-20	1696-1702	weight	abstract[110]	new[110]	nnnnn[110]	_	coref	30-22[111_110]	
+30-20	1696-1702	weight	abstract[110]	acc[110]	nnnnn[110]	_	coref	30-22[111_110]	
 30-21	1703-1705	is	_	_	_	_	_	_	
 30-22	1706-1710	89.9	abstract[111]	giv[111]	nnnnn[111]	_	coref	30-25[112_111]	
 30-23	1711-1713	kg	abstract[111]	giv[111]	nnnnn[111]	_	_	_	
@@ -397,7 +397,7 @@
 30-28	1729-1730	)	_	_	_	_	_	_	
 
 #Text=HEENT : Unremarkable except for some submandibular lymph nodes .
-31-1	1731-1736	HEENT	abstract[113]	new[113]	nnnnn[113]	_	_	_	
+31-1	1731-1736	HEENT	abstract[113]	acc[113]	nnnnn[113]	_	_	_	
 31-2	1737-1738	:	_	_	_	_	_	_	
 31-3	1739-1751	Unremarkable	_	_	_	_	_	_	
 31-4	1752-1758	except	_	_	_	_	_	_	
@@ -409,20 +409,20 @@
 31-10	1794-1795	.	_	_	_	_	_	_	
 
 #Text=His fundi are benign .
-32-1	1796-1799	His	object[115]|person[116]	new[115]|giv[116]	nnnnn[115]|ssssn[116]	_	coref	46-3[150_116]	
+32-1	1796-1799	His	object[115]|person[116]	new[115]|giv[116]	nnnnn[115]|ssssn[116]	_	coref|bridge:entity-meronomy|bridge:entity-meronomy|bridge:entity-meronomy|bridge:entity-meronomy|bridge:entity-meronomy|bridge:entity-associative|bridge:entity-associative	47-1[150_116]|33-1[117_116]|34-1[118_116]|36-1[126_116]|37-1[129_116]|38-5[134_116]|39-1[137_116]|46-1[149_116]	
 32-2	1800-1805	fundi	object[115]	new[115]	nnnnn[115]	_	_	_	
 32-3	1806-1809	are	_	_	_	_	_	_	
 32-4	1810-1816	benign	_	_	_	_	_	_	
 32-5	1817-1818	.	_	_	_	_	_	_	
 
 #Text=NECK : Supple .
-33-1	1819-1823	NECK	object[117]	new[117]	nnnnn[117]	_	_	_	
+33-1	1819-1823	NECK	object[117]	acc[117]	nnnnn[117]	_	_	_	
 33-2	1824-1825	:	_	_	_	_	_	_	
 33-3	1826-1832	Supple	_	_	_	_	_	_	
 33-4	1833-1834	.	_	_	_	_	_	_	
 
 #Text=LUNGS : Clear to auscultation and percussion .
-34-1	1835-1840	LUNGS	object[118]	new[118]	nnnnn[118]	_	_	_	
+34-1	1835-1840	LUNGS	object[118]	acc[118]	nnnnn[118]	_	_	_	
 34-2	1841-1842	:	_	_	_	_	_	_	
 34-3	1843-1848	Clear	_	_	_	_	_	_	
 34-4	1849-1851	to	_	_	_	_	_	_	
@@ -448,7 +448,7 @@
 35-14	1955-1956	.	_	_	_	_	_	_	
 
 #Text=ABDOMEN : Soft and nontender without organomegaly or mass .
-36-1	1957-1964	ABDOMEN	object[126]	new[126]	nnnnn[126]	_	_	_	
+36-1	1957-1964	ABDOMEN	object[126]	acc[126]	nnnnn[126]	_	_	_	
 36-2	1965-1966	:	_	_	_	_	_	_	
 36-3	1967-1971	Soft	_	_	_	_	_	_	
 36-4	1972-1975	and	_	_	_	_	_	_	
@@ -460,7 +460,7 @@
 36-10	2015-2016	.	_	_	_	_	_	_	
 
 #Text=EXTREMITIES : Show no cyanosis , clubbing or edema .
-37-1	2017-2028	EXTREMITIES	object[129]	new[129]	nnnnn[129]	_	_	_	
+37-1	2017-2028	EXTREMITIES	object[129]	acc[129]	nnnnn[129]	_	_	_	
 37-2	2029-2030	:	_	_	_	_	_	_	
 37-3	2031-2035	Show	_	_	_	_	_	_	
 37-4	2036-2038	no	_	_	_	_	_	_	
@@ -476,8 +476,8 @@
 38-2	2073-2074	:	_	_	_	_	_	_	
 38-3	2075-2086	Examination	event[133]	new[133]	nnnnn[133]	_	_	_	
 38-4	2087-2089	of	event[133]	new[133]	nnnnn[133]	_	_	_	
-38-5	2090-2093	the	event[133]|object[134]	new[133]|new[134]	nnnnn[133]|nnnnn[134]	_	_	_	
-38-6	2094-2102	perineum	event[133]|object[134]	new[133]|new[134]	nnnnn[133]|nnnnn[134]	_	_	_	
+38-5	2090-2093	the	event[133]|object[134]	new[133]|acc[134]	nnnnn[133]|nnnnn[134]	_	_	_	
+38-6	2094-2102	perineum	event[133]|object[134]	new[133]|acc[134]	nnnnn[133]|nnnnn[134]	_	_	_	
 38-7	2103-2111	revealed	_	_	_	_	_	_	
 38-8	2112-2114	an	object[135]	new[135]	sssss[135]	_	coref	41-3[141_135]	
 38-9	2115-2119	open	object[135]	new[135]	sssss[135]	_	_	_	
@@ -493,7 +493,7 @@
 38-19	2177-2178	.	_	_	_	_	_	_	
 
 #Text=IMPRESSION :
-39-1	2179-2189	IMPRESSION	abstract[137]	new[137]	nnnnn[137]	_	_	_	
+39-1	2179-2189	IMPRESSION	abstract[137]	acc[137]	nnnnn[137]	_	_	_	
 39-2	2190-2191	:	_	_	_	_	_	_	
 
 #Text=1. Human immunodeficiency virus disease with stable control on Atripla .
@@ -551,52 +551,54 @@
 45-7	2449-2457	etiology	abstract[147]|abstract[148]	new[147]|new[148]	snssn[147]|nnnnn[148]	_	_	_	
 45-8	2458-2459	.	_	_	_	_	_	_	
 
-#Text=PLAN : The patient will continue his current medications .
-46-1	2460-2464	PLAN	abstract[149]	new[149]	snnnn[149]	_	_	_	
+#Text=PLAN :
+46-1	2460-2464	PLAN	abstract[149]	acc[149]	snnnn[149]	_	_	_	
 46-2	2465-2466	:	_	_	_	_	_	_	
-46-3	2467-2470	The	person[150]	new[150]	ssssn[150]	_	coref	46-7[152_150]	
-46-4	2471-2478	patient	person[150]	new[150]	ssssn[150]	_	_	_	
-46-5	2479-2483	will	_	_	_	_	_	_	
-46-6	2484-2492	continue	_	_	_	_	_	_	
-46-7	2493-2496	his	abstract[151]|person[152]	new[151]|giv[152]	snsnn[151]|ssssn[152]	_	coref	47-1[153_152]	
-46-8	2497-2504	current	abstract[151]	new[151]	snsnn[151]	_	_	_	
-46-9	2505-2516	medications	abstract[151]	new[151]	snsnn[151]	_	_	_	
-46-10	2517-2518	.	_	_	_	_	_	_	
+
+#Text=The patient will continue his current medications .
+47-1	2467-2470	The	person[150]	new[150]	ssssn[150]	_	coref	47-5[152_150]	
+47-2	2471-2478	patient	person[150]	new[150]	ssssn[150]	_	_	_	
+47-3	2479-2483	will	_	_	_	_	_	_	
+47-4	2484-2492	continue	_	_	_	_	_	_	
+47-5	2493-2496	his	abstract[151]|person[152]	new[151]|giv[152]	snsnn[151]|ssssn[152]	_	coref	48-1[153_152]	
+47-6	2497-2504	current	abstract[151]	new[151]	snsnn[151]	_	_	_	
+47-7	2505-2516	medications	abstract[151]	new[151]	snsnn[151]	_	_	_	
+47-8	2517-2518	.	_	_	_	_	_	_	
 
 #Text=He will have laboratory studies done in 3 to 4 weeks , and we will see him a few weeks thereafter .
-47-1	2519-2521	He	person[153]	giv[153]	ssssn[153]	_	coref	47-17[157_153]	
-47-2	2522-2526	will	_	_	_	_	_	_	
-47-3	2527-2531	have	_	_	_	_	_	_	
-47-4	2532-2542	laboratory	abstract[154]	new[154]	snsns[154]	_	_	_	
-47-5	2543-2550	studies	abstract[154]	new[154]	snsns[154]	_	_	_	
-47-6	2551-2555	done	_	_	_	_	_	_	
-47-7	2556-2558	in	_	_	_	_	_	_	
-47-8	2559-2560	3	time[155]	new[155]	snsns[155]	_	coref	47-18[158_155]	
-47-9	2561-2563	to	time[155]	new[155]	snsns[155]	_	_	_	
-47-10	2564-2565	4	time[155]	new[155]	snsns[155]	_	_	_	
-47-11	2566-2571	weeks	time[155]	new[155]	snsns[155]	_	_	_	
-47-12	2572-2573	,	_	_	_	_	_	_	
-47-13	2574-2577	and	_	_	_	_	_	_	
-47-14	2578-2580	we	person[156]	acc[156]	nnnnn[156]	_	_	_	
-47-15	2581-2585	will	_	_	_	_	_	_	
-47-16	2586-2589	see	_	_	_	_	_	_	
-47-17	2590-2593	him	person[157]	giv[157]	ssssn[157]	_	coref	48-1[159_157]	
-47-18	2594-2595	a	time[158]	acc[158]	snsns[158]	_	_	_	
-47-19	2596-2599	few	time[158]	acc[158]	snsns[158]	_	_	_	
-47-20	2600-2605	weeks	time[158]	acc[158]	snsns[158]	_	_	_	
-47-21	2606-2616	thereafter	time[158]	acc[158]	snsns[158]	_	_	_	
-47-22	2617-2618	.	_	_	_	_	_	_	
+48-1	2519-2521	He	person[153]	giv[153]	ssssn[153]	_	coref|bridge:set-member	48-17[157_153]|48-14[156_153]	
+48-2	2522-2526	will	_	_	_	_	_	_	
+48-3	2527-2531	have	_	_	_	_	_	_	
+48-4	2532-2542	laboratory	abstract[154]	new[154]	snsns[154]	_	_	_	
+48-5	2543-2550	studies	abstract[154]	new[154]	snsns[154]	_	_	_	
+48-6	2551-2555	done	_	_	_	_	_	_	
+48-7	2556-2558	in	_	_	_	_	_	_	
+48-8	2559-2560	3	time[155]	new[155]	snsns[155]	_	coref	48-18[158_155]	
+48-9	2561-2563	to	time[155]	new[155]	snsns[155]	_	_	_	
+48-10	2564-2565	4	time[155]	new[155]	snsns[155]	_	_	_	
+48-11	2566-2571	weeks	time[155]	new[155]	snsns[155]	_	_	_	
+48-12	2572-2573	,	_	_	_	_	_	_	
+48-13	2574-2577	and	_	_	_	_	_	_	
+48-14	2578-2580	we	person[156]	acc[156]	nnnnn[156]	_	_	_	
+48-15	2581-2585	will	_	_	_	_	_	_	
+48-16	2586-2589	see	_	_	_	_	_	_	
+48-17	2590-2593	him	person[157]	giv[157]	ssssn[157]	_	coref	49-1[159_157]	
+48-18	2594-2595	a	time[158]	acc[158]	snsns[158]	_	_	_	
+48-19	2596-2599	few	time[158]	acc[158]	snsns[158]	_	_	_	
+48-20	2600-2605	weeks	time[158]	acc[158]	snsns[158]	_	_	_	
+48-21	2606-2616	thereafter	time[158]	acc[158]	snsns[158]	_	_	_	
+48-22	2617-2618	.	_	_	_	_	_	_	
 
 #Text=He has been encouraged to keep his appointment with his psychologist .
-48-1	2619-2621	He	person[159]	giv[159]	ssssn[159]	_	coref	48-7[161_159]	
-48-2	2622-2625	has	_	_	_	_	_	_	
-48-3	2626-2630	been	_	_	_	_	_	_	
-48-4	2631-2641	encouraged	_	_	_	_	_	_	
-48-5	2642-2644	to	_	_	_	_	_	_	
-48-6	2645-2649	keep	_	_	_	_	_	_	
-48-7	2650-2653	his	event[160]|person[161]	new[160]|giv[161]	nnnnn[160]|ssssn[161]	_	coref	48-10[163_161]	
-48-8	2654-2665	appointment	event[160]	new[160]	nnnnn[160]	_	_	_	
-48-9	2666-2670	with	event[160]	new[160]	nnnnn[160]	_	_	_	
-48-10	2671-2674	his	event[160]|person[162]|person[163]	new[160]|new[162]|giv[163]	nnnnn[160]|nnsns[162]|ssssn[163]	_	_	_	
-48-11	2675-2687	psychologist	event[160]|person[162]	new[160]|new[162]	nnnnn[160]|nnsns[162]	_	_	_	
-48-12	2688-2689	.	_	_	_	_	_	_	
+49-1	2619-2621	He	person[159]	giv[159]	ssssn[159]	_	coref	49-7[161_159]	
+49-2	2622-2625	has	_	_	_	_	_	_	
+49-3	2626-2630	been	_	_	_	_	_	_	
+49-4	2631-2641	encouraged	_	_	_	_	_	_	
+49-5	2642-2644	to	_	_	_	_	_	_	
+49-6	2645-2649	keep	_	_	_	_	_	_	
+49-7	2650-2653	his	event[160]|person[161]	new[160]|giv[161]	nnnnn[160]|ssssn[161]	_	coref	49-10[163_161]	
+49-8	2654-2665	appointment	event[160]	new[160]	nnnnn[160]	_	_	_	
+49-9	2666-2670	with	event[160]	new[160]	nnnnn[160]	_	_	_	
+49-10	2671-2674	his	event[160]|person[162]|person[163]	new[160]|new[162]|giv[163]	nnnnn[160]|nnsns[162]|ssssn[163]	_	_	_	
+49-11	2675-2687	psychologist	event[160]|person[162]	new[160]|new[162]	nnnnn[160]|nnsns[162]	_	_	_	
+49-12	2688-2689	.	_	_	_	_	_	_	

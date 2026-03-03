@@ -43,7 +43,7 @@
 			<sig type="orphan" subtypes="orphan"/>
 			<sig type="reference" subtypes="comparative_reference;demonstrative_reference;personal_reference;propositional_reference"/>
 			<sig type="semantic" subtypes="antonymy;attribution_source;lexical_chain;meronymy;negation;repetition;synonymy"/>
-			<sig type="syntactic" subtypes="infinitival_clause;interrupted_matrix_clause;modified_head;nominal_modifier;parallel_syntactic_construction;past_participial_clause;present_participial_clause;relative_clause;reported_speech;subject_auxiliary_inversion"/>
+			<sig type="syntactic" subtypes="causal_excess;infinitival_clause;interrupted_matrix_clause;modified_head;nominal_modifier;parallel_syntactic_construction;past_participial_clause;present_participial_clause;relative_clause;reported_speech;subject_auxiliary_inversion"/>
 			<sig type="unsure" subtypes="unsure"/>
 		</sigtypes>
 	</header>
@@ -207,7 +207,7 @@
 		<segment id="157" parent="306" relname="same-unit">a cenotaph in his honour was erected beside the graves of his relatives .</segment>
 		<segment id="158" parent="306" relname="explanation-evidence">[ 24 ]</segment>
 		<group id="159" type="multinuc" parent="160" relname="span"/>
-		<group id="160" type="span"/>
+		<group id="160" type="span" />
 		<group id="161" type="span" parent="162" relname="context-background"/>
 		<group id="162" type="multinuc" parent="163" relname="span"/>
 		<group id="163" type="span" parent="159" relname="joint-other"/>
@@ -356,10 +356,10 @@
 		<group id="306" type="multinuc" parent="307" relname="span"/>
 		<group id="307" type="span" parent="303" relname="joint-other"/>
 		<secedges>
-			<secedge id="180-175" source="180" target="175" relname="causal-result"/>
-			<secedge id="215-201" source="215" target="201" relname="elaboration-additional"/>
 			<secedge id="60-59" source="60" target="59" relname="elaboration-attribute"/>
 			<secedge id="115-114" source="115" target="114" relname="elaboration-attribute"/>
+			<secedge id="180-175" source="180" target="175" relname="causal-result"/>
+			<secedge id="215-201" source="215" target="201" relname="elaboration-additional"/>
 			<secedge id="239-233" source="239" target="233" relname="elaboration-attribute"/>
 		</secedges>
 		<signals>
@@ -406,8 +406,6 @@
 			<signal source="54" type="graphical" subtype="parentheses" tokens="445,447"/>
 			<signal source="55" type="semantic" subtype="attribution_source" tokens="448,449"/>
 			<signal source="55" type="syntactic" subtype="reported_speech" tokens="451"/>
-			<signal source="60-59" type="syntactic" subtype="modified_head" tokens="494"/>
-			<signal source="60-59" type="syntactic" subtype="nominal_modifier" tokens="495,497"/>
 			<signal source="60" type="dm" subtype="dm" tokens="495"/>
 			<signal source="66" type="syntactic" subtype="modified_head" tokens="529"/>
 			<signal source="66" type="syntactic" subtype="relative_clause" tokens="537,538"/>
@@ -436,6 +434,7 @@
 			<signal source="95" type="syntactic" subtype="modified_head" tokens="780"/>
 			<signal source="95" type="syntactic" subtype="relative_clause" tokens="783,785"/>
 			<signal source="96" type="graphical" subtype="parentheses" tokens="793,795"/>
+			<signal source="101" type="syntactic" subtype="causal_excess" tokens="824,825,830" status="gold"/>
 			<signal source="105" type="syntactic" subtype="modified_head" tokens="853"/>
 			<signal source="105" type="syntactic" subtype="nominal_modifier" tokens="857"/>
 			<signal source="107" type="graphical" subtype="parentheses" tokens="866,868"/>
@@ -445,8 +444,6 @@
 			<signal source="108" type="syntactic" subtype="reported_speech" tokens="881"/>
 			<signal source="111" type="syntactic" subtype="modified_head" tokens="889"/>
 			<signal source="111" type="syntactic" subtype="relative_clause" tokens="891"/>
-			<signal source="115-114" type="syntactic" subtype="modified_head" tokens="922"/>
-			<signal source="115-114" type="syntactic" subtype="nominal_modifier" tokens="923,925"/>
 			<signal source="115" type="dm" subtype="dm" tokens="923"/>
 			<signal source="117" type="graphical" subtype="parentheses" tokens="932,934"/>
 			<signal source="119" type="reference" subtype="personal_reference" tokens="940,948"/>
@@ -483,7 +480,6 @@
 			<signal source="176" type="semantic" subtype="repetition" tokens="114,115,125,126"/>
 			<signal source="176" type="semantic" subtype="lexical_chain" tokens="118,132"/>
 			<signal source="178" type="dm" subtype="dm" tokens="145"/>
-			<signal source="180-175" type="orphan" subtype="orphan" tokens="159"/>
 			<signal source="181" type="lexical" subtype="indicative_phrase" tokens="192,193"/>
 			<signal source="181" type="lexical" subtype="indicative_word" tokens="199"/>
 			<signal source="186" type="dm" subtype="dm" tokens="231"/>
@@ -499,9 +495,6 @@
 			<signal source="212" type="syntactic" subtype="nominal_modifier" tokens="421"/>
 			<signal source="212" type="graphical" subtype="parentheses" tokens="425,440"/>
 			<signal source="214" type="dm" subtype="dm" tokens="464"/>
-			<signal source="215-201" type="reference" subtype="propositional_reference" tokens="452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,470,471,472,473,474,475,476,477,479,480"/>
-			<signal source="215-201" type="semantic" subtype="repetition" tokens="462,487"/>
-			<signal source="215-201" type="orphan" subtype="orphan" tokens="482"/>
 			<signal source="215" type="semantic" subtype="repetition" tokens="487,499,500"/>
 			<signal source="218" type="syntactic" subtype="modified_head" tokens="486"/>
 			<signal source="218" type="syntactic" subtype="relative_clause" tokens="489"/>
@@ -516,8 +509,6 @@
 			<signal source="231" type="semantic" subtype="meronymy" tokens="566,567,568,569,570,571,572,573,574,575,600,601,602,603,604,605,606,607,608,609,610,611,612,613,614,615,616,617,618,619,620,621,622"/>
 			<signal source="231" type="semantic" subtype="synonymy" tokens="582,583,620,621,622"/>
 			<signal source="232" type="syntactic" subtype="modified_head" tokens="603"/>
-			<signal source="239-233" type="syntactic" subtype="modified_head" tokens="638"/>
-			<signal source="239-233" type="syntactic" subtype="relative_clause" tokens="644,647"/>
 			<signal source="239" type="semantic" subtype="synonymy" tokens="629,662,663"/>
 			<signal source="240" type="syntactic" subtype="modified_head" tokens="652"/>
 			<signal source="240" type="syntactic" subtype="relative_clause" tokens="656"/>
@@ -550,6 +541,16 @@
 			<signal source="299" type="semantic" subtype="repetition" tokens="1151,1172"/>
 			<signal source="300" type="morphological" subtype="mood" tokens="1170"/>
 			<signal source="304" type="graphical" subtype="parentheses" tokens="1207,1209,1210,1212"/>
+			<signal source="60-59" type="syntactic" subtype="modified_head" tokens="494"/>
+			<signal source="60-59" type="syntactic" subtype="nominal_modifier" tokens="495,497"/>
+			<signal source="115-114" type="syntactic" subtype="modified_head" tokens="922"/>
+			<signal source="115-114" type="syntactic" subtype="nominal_modifier" tokens="923,925"/>
+			<signal source="180-175" type="orphan" subtype="orphan" tokens="159"/>
+			<signal source="215-201" type="reference" subtype="propositional_reference" tokens="452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,470,471,472,473,474,475,476,477,479,480"/>
+			<signal source="215-201" type="semantic" subtype="repetition" tokens="462,487"/>
+			<signal source="215-201" type="orphan" subtype="orphan" tokens="482"/>
+			<signal source="239-233" type="syntactic" subtype="modified_head" tokens="638"/>
+			<signal source="239-233" type="syntactic" subtype="relative_clause" tokens="644,647"/>
 		</signals>
 	</body>
 </rst>

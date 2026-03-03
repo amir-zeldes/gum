@@ -43,7 +43,7 @@
 			<sig type="orphan" subtypes="orphan"/>
 			<sig type="reference" subtypes="comparative_reference;demonstrative_reference;personal_reference;propositional_reference"/>
 			<sig type="semantic" subtypes="antonymy;attribution_source;lexical_chain;meronymy;negation;repetition;synonymy"/>
-			<sig type="syntactic" subtypes="infinitival_clause;interrupted_matrix_clause;modified_head;nominal_modifier;parallel_syntactic_construction;past_participial_clause;present_participial_clause;relative_clause;reported_speech;subject_auxiliary_inversion"/>
+			<sig type="syntactic" subtypes="causal_excess;infinitival_clause;interrupted_matrix_clause;modified_head;nominal_modifier;parallel_syntactic_construction;past_participial_clause;present_participial_clause;relative_clause;reported_speech;subject_auxiliary_inversion"/>
 			<sig type="unsure" subtypes="unsure"/>
 		</sigtypes>
 	</header>
@@ -194,7 +194,7 @@
 		<segment id="144" parent="272" relname="span">That was last night , the second night</segment>
 		<segment id="145" parent="144" relname="elaboration-attribute">Renata did n’t come home .</segment>
 		<group id="146" type="multinuc" parent="147" relname="span"/>
-		<group id="147" type="span"/>
+		<group id="147" type="span" />
 		<group id="148" type="span" parent="149" relname="span"/>
 		<group id="149" type="span" parent="150" relname="span"/>
 		<group id="150" type="span" parent="151" relname="span"/>
@@ -327,6 +327,7 @@
 			<secedge id="168-169" source="168" target="169" relname="explanation-justify"/>
 			<secedge id="217-85" source="217" target="85" relname="joint-other"/>
 			<secedge id="247-246" source="247" target="246" relname="joint-other"/>
+			<secedge id="229-225" source="229" target="225" relname="causal-result"/>
 		</secedges>
 		<signals>
 			<signal source="1" type="graphical" subtype="layout" tokens=""/>
@@ -423,10 +424,6 @@
 			<signal source="121" type="syntactic" subtype="reported_speech" tokens="766"/>
 			<signal source="123" type="dm" subtype="dm" tokens="773"/>
 			<signal source="124" type="dm" subtype="dm" tokens="792"/>
-			<signal source="126-125" type="orphan" subtype="orphan" tokens="798"/>
-			<signal source="130-261" type="reference" subtype="propositional_reference" tokens="803,804,805,806,807,808,809,810,829"/>
-			<signal source="130-261" type="reference" subtype="personal_reference" tokens="805,825"/>
-			<signal source="130-261" type="orphan" subtype="orphan" tokens="824"/>
 			<signal source="130" type="dm" subtype="dm" tokens="830"/>
 			<signal source="132" type="lexical" subtype="indicative_word" tokens="839"/>
 			<signal source="132" type="semantic" subtype="attribution_source" tokens="840"/>
@@ -444,10 +441,8 @@
 			<signal source="154" type="syntactic" subtype="infinitival_clause" tokens="28"/>
 			<signal source="155" type="syntactic" subtype="modified_head" tokens="32"/>
 			<signal source="155" type="syntactic" subtype="nominal_modifier" tokens="37,47"/>
-			<signal source="157-156" type="orphan" subtype="orphan" tokens="58"/>
 			<signal source="158" type="lexical" subtype="indicative_word" tokens="59"/>
 			<signal source="168" type="reference" subtype="personal_reference" tokens="159,185"/>
-			<signal source="168-169" type="orphan" subtype="orphan" tokens="169"/>
 			<signal source="170" type="reference" subtype="personal_reference" tokens="153,185"/>
 			<signal source="174" type="syntactic" subtype="modified_head" tokens="178"/>
 			<signal source="174" type="syntactic" subtype="relative_clause" tokens="179"/>
@@ -459,12 +454,10 @@
 			<signal source="197" type="lexical" subtype="indicative_word" tokens="362"/>
 			<signal source="212" type="reference" subtype="personal_reference" tokens="422,463"/>
 			<signal source="213" type="dm" subtype="dm" tokens="470,471"/>
-			<signal source="217-85" type="orphan" subtype="orphan" tokens="532"/>
 			<signal source="224" type="lexical" subtype="indicative_word" tokens="568"/>
 			<signal source="226" type="semantic" subtype="antonymy" tokens="567,580"/>
 			<signal source="226" type="dm" subtype="dm" tokens="575"/>
 			<signal source="227" type="dm" subtype="dm" tokens="585"/>
-			<signal source="229" type="dm" subtype="dm" tokens="598"/>
 			<signal source="229" type="lexical" subtype="indicative_word" tokens="602"/>
 			<signal source="234" type="reference" subtype="personal_reference" tokens="620,621,622,623,624,625,626,627,628,631"/>
 			<signal source="234" type="syntactic" subtype="present_participial_clause" tokens="630"/>
@@ -476,7 +469,6 @@
 			<signal source="243" type="reference" subtype="personal_reference" tokens="651,687"/>
 			<signal source="245" type="reference" subtype="personal_reference" tokens="691,692,693,699"/>
 			<signal source="245" type="dm" subtype="dm" tokens="694"/>
-			<signal source="247-246" type="orphan" subtype="orphan" tokens="725"/>
 			<signal source="249" type="lexical" subtype="indicative_word" tokens="736"/>
 			<signal source="257" type="reference" subtype="personal_reference" tokens="791,805"/>
 			<signal source="257" type="reference" subtype="personal_reference" tokens="793,803"/>
@@ -492,6 +484,15 @@
 			<signal source="270" type="reference" subtype="personal_reference" tokens="852,875"/>
 			<signal source="270" type="semantic" subtype="lexical_chain" tokens="853,876"/>
 			<signal source="271" type="dm" subtype="dm" tokens="892"/>
+			<signal source="126-125" type="orphan" subtype="orphan" tokens="798"/>
+			<signal source="130-261" type="reference" subtype="propositional_reference" tokens="803,804,805,806,807,808,809,810,829"/>
+			<signal source="130-261" type="reference" subtype="personal_reference" tokens="805,825"/>
+			<signal source="130-261" type="orphan" subtype="orphan" tokens="824"/>
+			<signal source="157-156" type="orphan" subtype="orphan" tokens="58"/>
+			<signal source="168-169" type="orphan" subtype="orphan" tokens="169"/>
+			<signal source="217-85" type="orphan" subtype="orphan" tokens="532"/>
+			<signal source="247-246" type="orphan" subtype="orphan" tokens="725"/>
+			<signal source="229-225" type="orphan" subtype="orphan" tokens="598"/>
 		</signals>
 	</body>
 </rst>

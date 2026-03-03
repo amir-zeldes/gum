@@ -43,13 +43,13 @@
 			<sig type="orphan" subtypes="orphan"/>
 			<sig type="reference" subtypes="comparative_reference;demonstrative_reference;personal_reference;propositional_reference"/>
 			<sig type="semantic" subtypes="antonymy;attribution_source;lexical_chain;meronymy;negation;repetition;synonymy"/>
-			<sig type="syntactic" subtypes="infinitival_clause;interrupted_matrix_clause;modified_head;nominal_modifier;parallel_syntactic_construction;past_participial_clause;present_participial_clause;relative_clause;reported_speech;subject_auxiliary_inversion"/>
+			<sig type="syntactic" subtypes="causal_excess;infinitival_clause;interrupted_matrix_clause;modified_head;nominal_modifier;parallel_syntactic_construction;past_participial_clause;present_participial_clause;relative_clause;reported_speech;subject_auxiliary_inversion"/>
 			<sig type="unsure" subtypes="unsure"/>
 		</sigtypes>
 	</header>
 	<body>
 		<segment id="1" parent="181" relname="span">_____ __________ ______ __ __ __________</segment>
-		<segment id="2" parent="1" relname="mode-manner">____ __ _____ __ ____ _</segment>
+		<segment id="2" parent="1" relname="causal-result">____ __ _____ __ ____ _</segment>
 		<segment id="3" parent="184" relname="span">____ ____ _____ _ __________ __ __________ _ ___ _</segment>
 		<segment id="4" parent="186" relname="span">___ __ _ _________ ___ ___ _____</segment>
 		<segment id="5" parent="4" relname="purpose-goal">__ ______ ___________ _</segment>
@@ -392,14 +392,15 @@
 		<group id="342" type="multinuc" parent="308" relname="evaluation-comment"/>
 		<secedges>
 			<secedge id="37-35" source="37" target="35" relname="joint-sequence"/>
+			<secedge id="69-250" source="69" target="250" relname="attribution-positive"/>
 			<secedge id="160-159" source="160" target="159" relname="explanation-justify"/>
+			<secedge id="172-338" source="172" target="338" relname="elaboration-attribute"/>
 			<secedge id="206-203" source="206" target="203" relname="joint-sequence"/>
 			<secedge id="247-212" source="247" target="212" relname="joint-disjunction"/>
 			<secedge id="268-94" source="268" target="94" relname="adversative-concession"/>
-			<secedge id="69-250" source="69" target="250" relname="attribution-positive"/>
-			<secedge id="172-338" source="172" target="338" relname="elaboration-attribute"/>
 		</secedges>
 		<signals>
+			<signal source="2" type="syntactic" subtype="causal_excess" tokens="5,6,7" status="gold"/>
 			<signal source="5" type="syntactic" subtype="infinitival_clause" tokens="30"/>
 			<signal source="7" type="syntactic" subtype="modified_head" tokens="36"/>
 			<signal source="7" type="syntactic" subtype="relative_clause" tokens="37,39"/>
@@ -452,8 +453,8 @@
 			<signal source="87" type="syntactic" subtype="modified_head" tokens="535"/>
 			<signal source="87" type="syntactic" subtype="nominal_modifier" tokens="536"/>
 			<signal source="88" type="dm" subtype="dm" tokens="542" status="gold"/>
-			<signal source="88" type="lexical" subtype="indicative_word" tokens="543"/>
 			<signal source="88" type="syntactic" subtype="present_participial_clause" tokens="543"/>
+			<signal source="88" type="lexical" subtype="indicative_word" tokens="543"/>
 			<signal source="91" type="dm" subtype="dm" tokens="573" status="gold"/>
 			<signal source="94" type="dm" subtype="dm" tokens="613" status="gold"/>
 			<signal source="96" type="dm" subtype="dm" tokens="628" status="gold"/>
@@ -461,6 +462,7 @@
 			<signal source="102" type="syntactic" subtype="modified_head" tokens="657"/>
 			<signal source="102" type="syntactic" subtype="infinitival_clause" tokens="658"/>
 			<signal source="105" type="dm" subtype="dm" tokens="678" status="gold"/>
+			<signal source="107" type="semantic" subtype="meronymy" tokens="683,697,698"/>
 			<signal source="109" type="dm" subtype="dm" tokens="721" status="gold"/>
 			<signal source="109" type="lexical" subtype="indicative_word" tokens="722"/>
 			<signal source="109" type="syntactic" subtype="present_participial_clause" tokens="722"/>
@@ -478,6 +480,7 @@
 			<signal source="119" type="dm" subtype="dm" tokens="796" status="gold"/>
 			<signal source="120" type="lexical" subtype="indicative_word" tokens="799"/>
 			<signal source="120" type="semantic" subtype="attribution_source" tokens="800" status="gold"/>
+			<signal source="122" type="semantic" subtype="meronymy" tokens="801,809"/>
 			<signal source="122" type="graphical" subtype="parentheses" tokens="808,813"/>
 			<signal source="123" type="semantic" subtype="attribution_source" tokens="815"/>
 			<signal source="123" type="lexical" subtype="indicative_word" tokens="817"/>
@@ -500,6 +503,7 @@
 			<signal source="145" type="syntactic" subtype="reported_speech" tokens="962"/>
 			<signal source="148" type="dm" subtype="dm" tokens="984" status="gold"/>
 			<signal source="151" type="dm" subtype="dm" tokens="1002" status="gold"/>
+			<signal source="153" type="semantic" subtype="meronymy" tokens="1022,1023,1024,1027,1028,1029,1030,1031,1032"/>
 			<signal source="155" type="semantic" subtype="synonymy" tokens="1027,1028,1029,1030,1031,1032,1034"/>
 			<signal source="155" type="graphical" subtype="parentheses" tokens="1033,1035"/>
 			<signal source="156" type="graphical" subtype="colon" tokens="1036"/>
@@ -520,6 +524,7 @@
 			<signal source="171" type="syntactic" subtype="relative_clause" tokens="1121,1124"/>
 			<signal source="172-338" type="syntactic" subtype="modified_head" tokens="1124"/>
 			<signal source="172-338" type="syntactic" subtype="nominal_modifier" tokens="1136,1139"/>
+			<signal source="172" type="semantic" subtype="meronymy" tokens="1120,1121,1122,1123,1124,1125,1126,1126,1127,1127,1128,1128,1129,1129,1130,1130,1131,1131,1132,1132,1133,1133,1134,1134,1135,1136,1137,1138,1139,1140,1141,1142,1143,1144"/>
 			<signal source="172" type="dm" subtype="dm" tokens="1136" status="gold"/>
 			<signal source="175" type="dm" subtype="dm" tokens="1160" status="gold"/>
 			<signal source="176" type="dm" subtype="dm" tokens="1163" status="gold"/>
@@ -555,7 +560,7 @@
 			<signal source="244" type="syntactic" subtype="modified_head" tokens="383"/>
 			<signal source="244" type="syntactic" subtype="relative_clause" tokens="384"/>
 			<signal source="245" type="reference" subtype="personal_reference" tokens="380,394"/>
-			<signal source="245" type="semantic" subtype="meronymy" tokens="388,389,402"/>
+			<signal source="245" type="semantic" subtype="meronymy" tokens="388,389,406,407"/>
 			<signal source="245" type="lexical" subtype="indicative_word" tokens="392"/>
 			<signal source="247-212" type="orphan" subtype="orphan" tokens="412" status="gold"/>
 			<signal source="252" type="reference" subtype="personal_reference" tokens="418,438"/>
@@ -587,6 +592,7 @@
 			<signal source="281" type="dm" subtype="dm" tokens="748" status="gold"/>
 			<signal source="286" type="reference" subtype="personal_reference" tokens="730,763"/>
 			<signal source="290" type="reference" subtype="personal_reference" tokens="730,801"/>
+			<signal source="290" type="semantic" subtype="meronymy" tokens="734,801"/>
 			<signal source="293" type="reference" subtype="personal_reference" tokens="801,815"/>
 			<signal source="293" type="graphical" subtype="parentheses" tokens="832,843"/>
 			<signal source="298" type="reference" subtype="personal_reference" tokens="825,826,827,828,829,830,831,839"/>

@@ -4,9 +4,13 @@
 import re,sys,platform
 import ntpath, os, io
 from rst2dep import make_rsd
-from .rst2dis import rst2dis
+try:
+	from .rst2dis import rst2dis
+	from .non_dm_signals import update_signals
+except:
+	from rst2dis import rst2dis
+	from non_dm_signals import update_signals
 from collections import defaultdict
-from .non_dm_signals import update_signals
 from glob import glob
 
 PY2 = sys.version_info[0] < 3
@@ -80,7 +84,8 @@ def validate_rsd(rsd_line, linenum, docname):
 	if re.search(r'(\bn.t\b[^\n]+)attribution-positive_r', rsd_line) is not None:
 		if ("surprised" not in rsd_line and "not only" not in rsd_line) and "n't also deny" not in rsd_line and \
 			not ("n't think" in rsd_line and "veronique" in docname) and not ("agreeing" in rsd_line and "raven" in docname) and \
-				not ("has n't this Court" in rsd_line and "insanity" in docname) and not ("I ca n't believe" in rsd_line and "marcie" in docname):
+				not ("has n't this Court" in rsd_line and "insanity" in docname) and not ("I ca n't believe" in rsd_line and "marcie" in docname) and \
+				not "n't disagree" in rsd_line and not "did n't you" in rsd_line:
 			sys.stderr.write("! suspicious attribution-positive_r with negation" + inname)
 	if "\t" in rsd_line:
 		fields = rsd_line.split("\t")
@@ -162,6 +167,52 @@ def validate_erst(rs4,docname,sig_stats):
 	return sig_stats
 
 def fix_file(filename, tt_file, gum_source, outdir, rsd_algorithm="li"):
+	def sequential_ids(rst_xml, docname):
+		# Ensure no gaps in node IDs and corresponding adjustments to signals and secedges.
+		# Assume input xml IDs are already sorted, but with possible gaps
+		output = []
+		temp = []
+		current_id = 1
+		id_map = {}
+		for line in rst_xml.split("\n"):
+			if ' id="' in line:
+				xml_id = re.search(r' id="([^"]+)"', line).group(1)
+				if ('<segment ' in line or '<group ' in line):
+					id_map[xml_id] = str(current_id)
+					line = line.replace(' id="'+xml_id+'"',' id="'+str(current_id)+'"')
+					current_id += 1
+			temp.append(line)
+
+		for line in temp:
+			if ' id="' in line:
+				if ' parent=' in line and ('<segment ' in line or '<group ' in line):
+					parent_id = re.search(r' parent="([^"]+)"', line).group(1)
+					new_parent = id_map[parent_id]
+					line = line.replace(' parent="'+parent_id+'"',' parent="'+str(new_parent)+'"')
+				elif "<secedge " in line:
+					xml_id = re.search(r' id="([^"]+)"', line).group(1)
+					src, trg = xml_id.split("-")
+					line = line.replace(' source="'+src+'"', ' source="'+id_map[src]+'"')
+					line = line.replace(' target="' + trg + '"', ' target="' + id_map[trg] + '"')
+					line = line.replace(' id="' + xml_id + '"', ' id="' + id_map[src] + '-' + id_map[trg] + '"')
+			elif "<signal " in line:
+				source = re.search(r' source="([^"]+)"', line).group(1)
+				if "-" in source:
+					src, trg = source.split("-")
+					try:
+						line = line.replace(' source="' + source + '"', ' source="' + id_map[src] + '-' + id_map[trg] + '"')
+					except:
+						sys.stderr.write(str("-".join([src, trg, line])))
+						raise ValueError("Zombie signal annotation refers to missing secedge: " + str(src) + "-" + str(trg) + " token ID: " + re.search(r'tokens="([^"]+)"',line).group(1))
+				else:
+					if source in id_map:
+						line = line.replace(' source="' + source + '"', ' source="' + id_map[source] + '"')
+					else:  # Zombie signal pointing to no longer existing node
+						sys.stderr.write("! signal with non-existent source " + source + " in "+docname+" on line:\n"+line+"\n")
+						continue
+			output.append(line)
+
+		return "\n".join(output)
 
 	# Get reference tokens
 	rst_file_name = ntpath.basename(filename)
@@ -198,9 +249,11 @@ def fix_file(filename, tt_file, gum_source, outdir, rsd_algorithm="li"):
 
 		if "<segment" not in line:
 			out_data += line + "\n"
+			if "<group " in line:
+				max_id = int(re.search(r' id="([0-9]+)"', line).group(1))
 		else:
 			if line.count("<") != 2 or line.count(">") != 2:
-				raise IOError("rs3 XML does not follow one segment tag per line on line: " + str(line_num) + " in file: " + rst_file_name)
+				raise IOError("rs4 XML does not follow one segment tag per line on line: " + str(line_num) + " in file: " + rst_file_name)
 			m = re.search(r'^(.*<segment[^>]+>)(.*)(</segment>.*)',line)
 			t_open = m.group(1)
 			seg = m.group(2)
@@ -213,10 +266,15 @@ def fix_file(filename, tt_file, gum_source, outdir, rsd_algorithm="li"):
 				sys.stderr.write("! RST segment contains sentence break in " + rst_file_name + ": " + t_open + "\n")
 			token_reached += seg_tokens
 
+	docname = os.path.basename(rst_file_name).replace(".rs3","").replace(".rs4","")
+
+	node_count = out_data.count("<segment ") + out_data.count("<group ")
+	if node_count != max_id:
+		sys.stderr.write("! Found " + str(node_count) + " segments/groups but max ID is " + str(max_id) + " in " + docname + "\n")
+		out_data = sequential_ids(out_data, docname)  # Ensure no gaps in node IDs and corresponding adjustments to signals and secedges
+
 	with io.open(outdir + rst_file_name,'w',encoding="utf8",newline="\n") as f:
 		f.write(out_data)
-
-	docname = os.path.basename(rst_file_name).replace(".rs3","").replace(".rs4","")
 
 	# Make rsd version
 	keep_same_unit = True if rsd_algorithm == "chain" else False
@@ -317,11 +375,13 @@ if __name__ == "__main__":
 	else:
 		file_list = [filename]
 
-	outdir = os.path.abspath(".") + os.sep + "out_rst" + os.sep
+	script_dir = os.path.dirname(os.path.realpath(__file__))
+
+	outdir = script_dir + os.sep + "out_rst" + os.sep
 	if not os.path.exists(outdir):
 		os.makedirs(outdir)
 
 	for filename in file_list:
-		tt_file = filename.replace(".rs3", ".xml").replace(".rs4", ".xml")
-		fix_file(filename, tt_file, ".." + os.sep + ".." + os.sep + "src" + os.sep, outdir)
+		tt_file = filename.replace(".rs3", ".xml").replace(".rs4", ".xml").replace("rst","xml")
+		fix_file(filename, tt_file, script_dir + os.sep + ".." + os.sep + "src" + os.sep, outdir)
 

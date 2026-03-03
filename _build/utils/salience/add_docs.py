@@ -3,7 +3,7 @@ Script for adding summaries and graded salience scores for new documents added t
 
 To add new documents to the corpus, the following steps are required:
 1. if you have underscored documents (e.g. reddit), make sure to restore the text in _build/src/ before running
-2. add the docname(s) and human-written summary1 to summaries_final.txt
+2. add the docname(s) and human-written summary1 to summaries_final.txt (you can use get_summaries_final.py to do this)
 3. run this script (optional: if there are new gold documents to train on, retrain the ensemble before predicting final alignment)
 """
 import sys
@@ -12,14 +12,13 @@ import os, json
 from copy import deepcopy
 from glob import glob
 from collections import defaultdict
-from get_summary import get_summary, get_summary_gpt4o, get_summary_claude35, extract_gold_summaries_from_xml, read_documents, extract_text_speaker_from_xml
+from get_summary import get_summary, get_summary_gpt4o, get_summary_claude45, extract_gold_summaries_from_xml, read_documents, extract_text_speaker_from_xml
 from score import get_sal_tsv, get_sal_mentions, sal_coref_cluster, extract_first_mentions, calculate_scores
 
 script_dir = os.path.dirname(os.path.realpath(__file__)) + os.sep
 gum_src = script_dir + ".." + os.sep + ".." + os.sep + "src" + os.sep
 xml_src = gum_src + "xml" + os.sep
-
-model_priorities = ["gpt4o", "claude-3-5-sonnet-20241022", "meta-llama/Meta-Llama-3-8B-Instruct", "Qwen/Qwen2.5-7B-Instruct"]
+model_priorities = ["gpt4o", "claude-sonnet-4-5-20250929", "meta-llama/Meta-Llama-3-8B-Instruct", "Qwen/Qwen2.5-7B-Instruct"]
 
 default_align_comps = ["LLM", "string_simple_lower", "string_simple", "stanza", "stanza_on", "stanza_pre", "stanza_onpre",
                        "stanza_gum","stanza_gumpre"]
@@ -94,7 +93,7 @@ def main(n_summaries=5, alignment_components=None, overwrite_alignment=False, do
             # If summaries already exist, the model API will not be called.
             new_summaries = get_summary_gpt4o(target_texts, docnames, ".", "all", model_name="gpt4o", n=1, overwrite=False)
         elif "claude" in model:
-            new_summaries = get_summary_claude35(target_texts, docnames, ".", "all", model_name="claude-3-5-sonnet-20241022", n=1, overwrite=False)
+            new_summaries = get_summary_claude45(target_texts, docnames, ".", "all", model_name="claude-sonnet-4-5-20250929", n=1, overwrite=False)
         elif "flan" in model:
             new_summaries = get_summary(target_texts, docnames, ".", "all", model_name=model, n=1, overwrite=False)
         else:
@@ -141,6 +140,9 @@ def main(n_summaries=5, alignment_components=None, overwrite_alignment=False, do
 
     all_alignments = []
     docnames = sorted(list(summaries.keys()))
+
+    if alignment_components == ["None"]:
+        alignment_components = []
 
     for component in alignment_components:
         alias = aliases[component] if "LLM" not in component else align_llm.split("/")[-1].replace("; postedited","")
@@ -209,7 +211,7 @@ if __name__ == "__main__":
     p.add_argument("-n", "--n_summaries", type=int, default=5, help="Total number of summaries needed, including human ones")
     p.add_argument("--alignment_component", default=["LLM","LLM_zero","stanza","stanza_pre","stanza_on","stanza_onpre","stanza_gum","stanza_gumpre"],
                    choices=["LLM", "LLM_zero", "string_simple_lower", "string_simple", "string_match", "stanza", "stanza_on", "stanza_pre", "stanza_onpre",
-                            "stanza_gum","stanza_gumpre"], nargs="+", help="Components to use for alignment. Note string components are deprecated, the ensemble computes string matches independently.")
+                            "stanza_gum","stanza_gumpre",'None'], nargs="+", help="Components to use for alignment. Note string components are deprecated, the ensemble computes string matches independently.")
     p.add_argument("--llm", default="gpt4o", choices=["gpt-4o-mini","gpt4o"], help="LLM to use for alignment. Default: gpt4o")
     p.add_argument("--doclist", default=None, help="Optional file with document names to process, one per line")
     p.add_argument("--train_ensemble", action="store_true", help="Train the ensemble model")

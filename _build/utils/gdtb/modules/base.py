@@ -54,12 +54,16 @@ class ConvertBase(ABC):
         mappings_by_sents = defaultdict(lambda: defaultdict(dict))
 
         for split in ['train', 'dev', 'test', 'add']:
-            raw_f = open(os.path.join(pred_dir, f'eng.rst.gum_{split}.rels'), encoding='utf8').read().strip().split('\n')[1:]
+            raw_f = open(os.path.join(pred_dir, f'eng.rst.gum_{split}.rels'), encoding='utf8').read().strip().split('\n')
+            if raw_f[0].startswith("doc\t"):
+                raw_f = raw_f[1:]
             pred_f = open(os.path.join(pred_dir, f'eng.rst.gum_{split}_predictions.json'), encoding='utf8').read().strip().split('\n')
 
             assert len(raw_f) == len(pred_f)
 
             for i, (raw_line, pred) in enumerate(zip(raw_f, pred_f)):
+                if len(pred.strip()) == 0:
+                    continue
                 json_pred = json.loads(pred)
                 fields = raw_line.split('\t')
                 docname = fields[0]
@@ -126,6 +130,44 @@ class ConvertBase(ABC):
         """
         REVERT TO THE _get_rel_probs BELOW IF ANYTHING BREAKS
         """
+        def add_missing_to_pred():
+            if docname not in missing_data_docs:
+                sys.stderr.write(
+                    "! missing relation probability predictions for " + docname + ", adding to discodisco/missing.rels and returning dummy preds for now\n")
+                missing_data_docs.add(docname)
+
+            # Check that file has header line
+            if not os.path.exists(disco_dir + "eng.pdtb.missing_test.rels"):
+                with open(disco_dir + "missing.rels", 'w', encoding="utf8", newline="\n") as f:
+                    f.write(
+                        "doc\tunit1_toks\tunit2_toks\tunit1_txt\tunit2_txt\ts1_toks\ts2_toks\tunit1_sent\tunit2_sent\tdir\torig_label\tlabel\n")
+            else:
+                data = open(disco_dir + "eng.pdtb.missing_test.rels", 'r').read()
+                if not data.startswith("doc"):
+                    with open(disco_dir + "eng.pdtb.missing_test.rels", 'w', encoding="utf8", newline="\n") as f:
+                        f.write(
+                            "doc\tunit1_toks\tunit2_toks\tunit1_txt\tunit2_txt\ts1_toks\ts2_toks\tunit1_sent\tunit2_sent\tdir\torig_label\tlabel\n")
+
+            # Serialize entry like:
+            # doc	unit1_toks	unit2_toks	unit1_txt	unit2_txt	s1_toks	s2_toks	unit1_sent	unit2_sent	dir	rel_type	orig_label	label
+            # GUM_academic_discrimination	22-42	43-56	Personal experiences of discrimination and bias have been the focus of much social science research . [ 1 - 3 ]	Sociologists have explored the adverse consequences of discrimination [ 3 – 5 ] ;	22-42	43-56	Personal experiences of discrimination and bias have been the focus of much social science research . [ 1 - 3 ]	Sociologists have explored the adverse consequences of discrimination [ 3 – 5 ] ;	1<2	implicit	contingency.cause.reason	contingency.cause
+
+            s1_tokens = [int(t) for t in sentences[first].doc_tokens]
+            s2_tokens = [int(t) for t in sentences[last].doc_tokens]
+            s1_tokens = f"{min(s1_tokens)}-{max(s1_tokens)}" if len(s1_tokens) > 1 else str(s1_tokens[0])
+            s2_tokens = f"{min(s2_tokens)}-{max(s2_tokens)}" if len(s2_tokens) > 1 else str(s2_tokens[0])
+
+            entry = "\t".join([docname, f"{arg1.tok_ids[0] + 1}-{arg1.tok_ids[-1] + 1}",
+                               f"{arg2.tok_ids[0] + 1}-{arg2.tok_ids[-1] + 1}", span1, span2, s1_tokens, s2_tokens, s1,
+                               s2, "1<2",
+                               "expansion.conjunction", "expansion.conjunction"])
+
+            if entry not in missing_entries:
+                with open(disco_dir + "eng.pdtb.missing_test.rels", 'a', encoding="utf8", newline="\n") as f:
+                    f.write(entry + '\n')
+                key = rel.key[:-2] if rel.key.endswith("_m") or rel.key.endswith("_r") else rel.key
+                with open(disco_dir + "eng.pdtb.missing_test_keys.tab", 'a', encoding="utf8", newline="\n") as f:
+                    f.write(key + '\n')
 
         # disco preds are in linear order so smaller ID = arg1
         if rel.source.tok_ids[0] < rel.target.tok_ids[0]:
@@ -148,8 +190,10 @@ class ConvertBase(ABC):
         else:
             for k in self.probs_mappings[docname]:
                 if (k[0],k[1]) == (mapkey[0],mapkey[1]) or (k[0],k[1]) == (mapkey[1],mapkey[0]):
-                    # Found a relation with the same endpoints which has predicted probabilities
-                    sys.stderr.write(f"WARN: used probabilities of different, same endpoints relation for key {mapkey} in {docname}\n")
+                    # Found a relation with the same endpoints which has predicted probabilities,
+                    # for example because this is a secedge along the same path as some primedge
+                    if rel.node.kind != "secedge":
+                        sys.stderr.write(f"WARN: used probabilities of different, same endpoints relation for key {mapkey} in {docname} although this was not a secedge\n")
                     return self.probs_mappings[docname][k]
             # Old text based mapping - this should never happen when using src-trg-rel keys - AZ
             # Try mapping entire first and last sentences of span, since this relation may span multiple sentences
@@ -166,49 +210,24 @@ class ConvertBase(ABC):
             first, last = all_sents[0], all_sents[-1]
             s1 = sentences[first].plain_text
             s2 = sentences[last].plain_text
-            sys.stderr.write(f"WARN: using fallback relation probabilities mapping indexed by sentence texts because an exact path key is not found for {mapkey} in {docname}\n")
             mapkey = (s1, s2)
+            same_text_msg = f"WARN: using fallback relation probabilities mapping indexed by sentence texts because an exact path key is not found for sentences {(first,last)} in {docname}\n"
             if mapkey in self.probs_mappings_by_sents[docname]:
+                sys.stderr.write(same_text_msg)
+                add_missing_to_pred()
                 return self.probs_mappings_by_sents[docname][mapkey]
             elif len(all_sents) > 2:  # Maybe the head sentence of one of the arguments is not the first or last sentence
                 s_mid = sentences[all_sents[1]].plain_text
                 if (s1, s_mid) in self.probs_mappings_by_sents[docname]:
+                    sys.stderr.write(same_text_msg)
+                    add_missing_to_pred()
                     return self.probs_mappings_by_sents[docname][(s1, s_mid)]
                 elif (s_mid, s2) in self.probs_mappings_by_sents[docname]:
+                    sys.stderr.write(same_text_msg)
+                    add_missing_to_pred()
                     return self.probs_mappings_by_sents[docname][(s_mid, s2)]
 
-        if docname not in missing_data_docs:
-            sys.stderr.write("! missing relation probability predictions for " + docname + ", adding to discodisco/missing.rels and returning dummy preds for now\n")
-            missing_data_docs.add(docname)
-        # Check that file has header line
-        if not os.path.exists(disco_dir + "eng.pdtb.missing_test.rels"):
-            with open(disco_dir + "missing.rels", 'w', encoding="utf8", newline="\n") as f:
-                f.write("doc\tunit1_toks\tunit2_toks\tunit1_txt\tunit2_txt\ts1_toks\ts2_toks\tunit1_sent\tunit2_sent\tdir\torig_label\tlabel\n")
-        else:
-            data = open(disco_dir + "eng.pdtb.missing_test.rels", 'r').read()
-            if not data.startswith("doc"):
-                with open(disco_dir + "eng.pdtb.missing_test.rels", 'w', encoding="utf8", newline="\n") as f:
-                    f.write("doc\tunit1_toks\tunit2_toks\tunit1_txt\tunit2_txt\ts1_toks\ts2_toks\tunit1_sent\tunit2_sent\tdir\torig_label\tlabel\n")
-
-        # Serialize entry like:
-        # doc	unit1_toks	unit2_toks	unit1_txt	unit2_txt	s1_toks	s2_toks	unit1_sent	unit2_sent	dir	rel_type	orig_label	label
-        # GUM_academic_discrimination	22-42	43-56	Personal experiences of discrimination and bias have been the focus of much social science research . [ 1 - 3 ]	Sociologists have explored the adverse consequences of discrimination [ 3 – 5 ] ;	22-42	43-56	Personal experiences of discrimination and bias have been the focus of much social science research . [ 1 - 3 ]	Sociologists have explored the adverse consequences of discrimination [ 3 – 5 ] ;	1<2	implicit	contingency.cause.reason	contingency.cause
-
-        s1_tokens = [int(t) for t in sentences[first].doc_tokens]
-        s2_tokens = [int(t) for t in sentences[last].doc_tokens]
-        s1_tokens = f"{min(s1_tokens)}-{max(s1_tokens)}" if len(s1_tokens) > 1 else str(s1_tokens[0])
-        s2_tokens = f"{min(s2_tokens)}-{max(s2_tokens)}" if len(s2_tokens) > 1 else str(s2_tokens[0])
-
-        entry = "\t".join([docname, f"{arg1.tok_ids[0] + 1}-{arg1.tok_ids[-1] + 1}",
-                 f"{arg2.tok_ids[0] + 1}-{arg2.tok_ids[-1] + 1}", span1, span2, s1_tokens, s2_tokens, s1, s2, "1<2",
-                 "expansion.conjunction", "expansion.conjunction"])
-
-        if entry not in missing_entries:
-            with open(disco_dir + "eng.pdtb.missing_test.rels", 'a', encoding="utf8", newline="\n") as f:
-                f.write(entry + '\n')
-            key = rel.key[:-2] if rel.key.endswith("_m") or rel.key.endswith("_r") else rel.key
-            with open(disco_dir + "eng.pdtb.missing_test_keys.tab", 'a', encoding="utf8", newline="\n") as f:
-                f.write(key + '\n')
+        add_missing_to_pred()
         #raise ValueError(f"Mismatch occurs in {docname}, nid {rel.nid}. Source: {span1}. Target: {span2}")
         return {"expansion.conjunction":0.0004224016738589853}
 

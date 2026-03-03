@@ -16,7 +16,7 @@
 1-5	15-20	place	place[3]	giv:act[3]	nnnnn[3]	_	cf1[3]	_	_	
 1-6	21-23	to	place[3]	giv:act[3]	nnnnn[3]	_	cf1[3]	_	_	
 1-7	24-27	put	place[3]	giv:act[3]	nnnnn[3]	_	cf1[3]	_	_	
-1-8	28-30	my	place[3]|object[4]|person[5]	giv:act[3]|new[4]|acc:com[5]	nnnnn[3]|nnsnn[4]|sssss[5]	_	cf1[3]|cf3[4]|cf2[5]	coref|ana|bridge:other	5-3[11_4]|5-3[12_5]|3-1[7_5]	
+1-8	28-30	my	place[3]|object[4]|person[5]	giv:act[3]|new[4]|acc:com[5]	nnnnn[3]|nnsnn[4]|sssss[5]	_	cf1[3]|cf3[4]|cf2[5]	coref|ana|bridge:entity-associative	5-3[11_4]|5-3[12_5]|3-1[7_5]	
 1-9	31-36	shoes	place[3]|object[4]	giv:act[3]|new[4]	nnnnn[3]|nnsnn[4]	_	cf1[3]|cf3[4]	_	_	
 1-10	37-38	.	_	_	_	_	_	_	_	
 
@@ -266,7 +266,7 @@
 26-8	880-881	.	_	_	_	_	_	_	_	
 
 #Text=Tomorrow ?
-27-1	882-890	Tomorrow	time[89]	giv:act[89]	nnnnn[89]	_	cf1*[89]	coref	60-10[197_89]	
+27-1	882-890	Tomorrow	time[89]	giv:act[89]	nnnnn[89]	_	cf1*[89]	coref|bridge:comparison-time;set-span-interval	60-10[197_89]|30-22[106_89]	
 27-2	891-892	?	_	_	_	_	_	_	_	
 
 #Text=Well can you just put em in the bag , in there for now , okay ?
@@ -314,8 +314,8 @@
 30-19	1043-1046	've	_	_	_	_	_	_	_	
 30-20	1047-1051	done	_	_	_	_	_	_	_	
 30-21	1052-1059	nothing	abstract[103]	new[103]	nnnnn[103]	_	cf4[103]	_	_	
-30-22	1060-1064	this	time[106]	acc:com[106]	nnnnn[106]	_	cf3[106]	_	_	
-30-23	1065-1069	week	time[106]	acc:com[106]	nnnnn[106]	_	cf3[106]	_	_	
+30-22	1060-1064	this	time[106]	acc:inf[106]	nnnnn[106]	_	cf3[106]	bridge:comparison-time	59-15[193_106]	
+30-23	1065-1069	week	time[106]	acc:inf[106]	nnnnn[106]	_	cf3[106]	_	_	
 30-24	1070-1073	but	_	_	_	_	_	_	_	
 30-25	1074-1079	study	_	_	_	_	_	_	_	
 30-26	1080-1083	and	_	_	_	_	_	_	_	
@@ -410,7 +410,7 @@
 40-1	1373-1377	Yeah	_	_	_	_	_	_	_	
 40-2	1378-1379	,	_	_	_	_	_	_	_	
 40-3	1380-1385	there	_	_	_	_	_	_	_	
-40-4	1386-1390	they	object[136]	giv:act[136]	ssnss[136]	_	cf1*[136]	bridge:other|bridge:other	41-1[139_136]|42-1[140_136]	
+40-4	1386-1390	they	object[136]	giv:act[136]	ssnss[136]	_	cf1*[136]	bridge:comparison-sense;set-member|bridge:comparison-sense;set-member	41-1[139_136]|42-1[140_136]	
 40-5	1391-1394	are	_	_	_	_	_	_	_	
 40-6	1395-1396	.	_	_	_	_	_	_	_	
 
@@ -511,7 +511,7 @@
 52-8	1666-1670	give	_	_	_	_	_	_	_	
 52-9	1671-1675	your	animal[164]|person[165]	new[164]|giv:act[165]	nnnnn[164]|sssss[165]	_	cf3[164]|cf1[165]	ana|ana	53-1[168_164]|61-1[206_165]	
 52-10	1676-1682	iguana	animal[164]	new[164]	nnnnn[164]	_	cf3[164]	_	_	
-52-11	1683-1684	a	substance[167]	new[167]	nnnnn[167]	_	cf2[167]	bridge:other	53-6[169_167]	
+52-11	1683-1684	a	substance[167]	new[167]	nnnnn[167]	_	cf2[167]	bridge:comparison-sense;entity-meronomy	53-6[169_167]	
 52-12	1685-1691	little	substance[167]	new[167]	nnnnn[167]	_	cf2[167]	_	_	
 52-13	1692-1695	bit	substance[167]	new[167]	nnnnn[167]	_	cf2[167]	_	_	
 52-14	1696-1698	of	substance[167]	new[167]	nnnnn[167]	_	cf2[167]	_	_	
@@ -588,8 +588,8 @@
 59-12	1944-1952	Davidson	object[191]|organization[192]	giv:inact[191]|giv:inact[192]	nnnnn[191]|nnnnn[192]	Harley%2DDavidson[192]	cf3[191]|cf4[192]	_	_	
 59-13	1953-1958	scarf	object[191]	giv:inact[191]	nnnnn[191]	_	cf3[191]	_	_	
 59-14	1959-1963	from	object[191]	giv:inact[191]	nnnnn[191]	_	cf3[191]	_	_	
-59-15	1964-1968	this	object[191]|time[193]	giv:inact[191]|acc:com[193]	nnnnn[191]|nnnnn[193]	_	cf3[191]|cf5[193]	_	_	
-59-16	1969-1975	summer	object[191]|time[193]	giv:inact[191]|acc:com[193]	nnnnn[191]|nnnnn[193]	_	cf3[191]|cf5[193]	_	_	
+59-15	1964-1968	this	object[191]|time[193]	giv:inact[191]|acc:inf[193]	nnnnn[191]|nnnnn[193]	_	cf3[191]|cf5[193]	_	_	
+59-16	1969-1975	summer	object[191]|time[193]	giv:inact[191]|acc:inf[193]	nnnnn[191]|nnnnn[193]	_	cf3[191]|cf5[193]	_	_	
 59-17	1976-1977	?	_	_	_	_	_	_	_	
 
 #Text=I wanted to give that back to them , tomorrow , when we go over for his birthday .
@@ -666,7 +666,7 @@
 64-5	2218-2219	I	person[222]	giv:act[222]	sssss[222]	_	cf1[222]	ana	64-16[227_222]	
 64-6	2220-2227	brought	_	_	_	_	_	_	_	
 64-7	2228-2231	the	object[225]	new[225]	nnnns[225]	_	cf3[225]	ana	65-1[228_225]	
-64-8	2232-2236	Toys	object[225]|organization[226]	new[225]|giv:act[226]	nnnns[225]|snsns[226]	Toys_%22R%22_Us[226]	cf3[225]|cf2*[226]	disc	126-7[446_226]	
+64-8	2232-2236	Toys	object[225]|organization[226]	new[225]|giv:act[226]	nnnns[225]|snsns[226]	Toys_%22R%22_Us[226]	cf3[225]|cf2*[226]	disc|bridge:entity-associative|bridge:entity-associative	126-7[446_226]|73-3[283_226]|74-13[300_226]	
 64-9	2237-2238	'	object[225]|organization[226]	new[225]|giv:act[226]	nnnns[225]|snsns[226]	Toys_%22R%22_Us[226]	cf3[225]|cf2*[226]	_	_	
 64-10	2239-2240	R	object[225]|organization[226]	new[225]|giv:act[226]	nnnns[225]|snsns[226]	Toys_%22R%22_Us[226]	cf3[225]|cf2*[226]	_	_	
 64-11	2241-2242	'	object[225]|organization[226]	new[225]|giv:act[226]	nnnns[225]|snsns[226]	Toys_%22R%22_Us[226]	cf3[225]|cf2*[226]	_	_	
@@ -805,7 +805,7 @@
 #Text=There 's coupons in here too mom .
 73-1	2760-2765	There	_	_	_	_	_	_	_	
 73-2	2766-2768	's	_	_	_	_	_	_	_	
-73-3	2769-2776	coupons	object[283]	new[283]	nnnnn[283]	_	cf3[283]	coref	74-5[287_283]	
+73-3	2769-2776	coupons	object[283]	acc:inf[283]	nnnnn[283]	_	cf3[283]	coref	74-5[287_283]	
 73-4	2777-2779	in	_	_	_	_	_	_	_	
 73-5	2780-2784	here	object[284]	giv:inact[284]	nnnns[284]	_	cf2[284]	coref	74-7[288_284]	
 73-6	2785-2788	too	_	_	_	_	_	_	_	
@@ -825,8 +825,8 @@
 74-10	2832-2834	we	person[289]	giv:inact[289]	nnnnn[289]	_	cf4[289]	ana	108-2[395_289]	
 74-11	2835-2838	can	_	_	_	_	_	_	_	
 74-12	2839-2842	get	_	_	_	_	_	_	_	
-74-13	2843-2847	some	object[300]	new[300]	nnnnn[300]	_	cf5[300]	ana	77-2[301_300]	
-74-14	2848-2854	things	object[300]	new[300]	nnnnn[300]	_	cf5[300]	_	_	
+74-13	2843-2847	some	object[300]	acc:inf[300]	nnnnn[300]	_	cf5[300]	ana	77-2[301_300]	
+74-14	2848-2854	things	object[300]	acc:inf[300]	nnnnn[300]	_	cf5[300]	_	_	
 74-15	2855-2856	.	_	_	_	_	_	_	_	
 
 #Text=Mhm , Really ?
@@ -1279,7 +1279,7 @@
 126-9	4260-4261	R	organization[446]	giv:inact[446]	snsns[446]	Toys_%22R%22_Us[446]	cf2[446]	_	_	
 126-10	4262-4263	'	organization[446]	giv:inact[446]	snsns[446]	Toys_%22R%22_Us[446]	cf2[446]	_	_	
 126-11	4264-4266	Us	organization[446]	giv:inact[446]	snsns[446]	Toys_%22R%22_Us[446]	cf2[446]	_	_	
-126-12	4267-4275	tomorrow	time[447]	giv:inact[447]	nnnnn[447]	_	cf3[447]	_	_	
+126-12	4267-4275	tomorrow	time[447]	giv:inact[447]	nnnnn[447]	_	cf3[447]	bridge:comparison-time	142-17[495_447]	
 126-13	4276-4277	,	_	_	_	_	_	_	_	
 126-14	4278-4281	and	_	_	_	_	_	_	_	
 126-15	4282-4284	we	person[448]	giv:act[448]	nnnnn[448]	_	cf1[448]	ana	129-1[451_448]	
@@ -1428,7 +1428,7 @@
 142-14	4734-4740	Casper	abstract[494]	giv:act[494]	nnnnn[494]	Casper_%28film%29[494]	cf1[494]	_	_	
 142-15	4741-4744	the	abstract[494]	giv:act[494]	nnnnn[494]	Casper_%28film%29[494]	cf1[494]	_	_	
 142-16	4745-4750	Ghost	abstract[494]	giv:act[494]	nnnnn[494]	Casper_%28film%29[494]	cf1[494]	_	_	
-142-17	4751-4756	today	time[495]	acc:com[495]	nnnnn[495]	_	cf3[495]	_	_	
+142-17	4751-4756	today	time[495]	acc:inf[495]	nnnnn[495]	_	cf3[495]	_	_	
 142-18	4757-4758	?	_	_	_	_	_	_	_	
 
 #Text=Was that Jack ?
@@ -1575,13 +1575,13 @@
 160-2	5178-5180	we	person[551]	giv:inact[551]	nnnnn[551]	_	cf1[551]	ana	160-7[557_551]	
 160-3	5181-5187	always	_	_	_	_	_	_	_	
 160-4	5188-5193	asked	_	_	_	_	_	_	_	
-160-5	5194-5196	em	abstract[555]|object[556]	new[555]|giv:act[556]	nnnnn[555]|snssn[556]	Ouija[556]	cf4[555]|cf2*[556]	coref	167-24[588_556]	
+160-5	5194-5196	em	abstract[555]|object[556]	new[555]|giv:act[556]	nnnnn[555]|snssn[556]	Ouija[556]	cf4[555]|cf2*[556]	bridge:entity-associative|coref	160-10[560_555]|167-24[588_556]	
 160-6	5197-5206	questions	abstract[555]	new[555]	nnnnn[555]	_	cf4[555]	_	_	
 160-7	5207-5209	we	abstract[555]|person[557]	new[555]|giv:act[557]	nnnnn[555]|nnnnn[557]	_	cf4[555]|cf1[557]	_	_	
 160-8	5210-5217	already	abstract[555]	new[555]	nnnnn[555]	_	cf4[555]	_	_	
 160-9	5218-5222	knew	abstract[555]	new[555]	nnnnn[555]	_	cf4[555]	_	_	
-160-10	5223-5226	the	abstract[555]|abstract[560]	new[555]|new[560]	nnnnn[555]|nnnnn[560]	_	cf4[555]|cf3[560]	_	_	
-160-11	5227-5233	answer	abstract[555]|abstract[560]	new[555]|new[560]	nnnnn[555]|nnnnn[560]	_	cf4[555]|cf3[560]	_	_	
+160-10	5223-5226	the	abstract[555]|abstract[560]	new[555]|acc:inf[560]	nnnnn[555]|nnnnn[560]	_	cf4[555]|cf3[560]	_	_	
+160-11	5227-5233	answer	abstract[555]|abstract[560]	new[555]|acc:inf[560]	nnnnn[555]|nnnnn[560]	_	cf4[555]|cf3[560]	_	_	
 160-12	5234-5236	to	abstract[555]	new[555]	nnnnn[555]	_	cf4[555]	_	_	
 160-13	5237-5238	.	_	_	_	_	_	_	_	
 

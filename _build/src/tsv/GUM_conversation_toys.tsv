@@ -16,7 +16,7 @@
 1-5	15-20	place	place[2]	new[2]	nnnnn[2]	_	_	_	
 1-6	21-23	to	place[2]	new[2]	nnnnn[2]	_	_	_	
 1-7	24-27	put	place[2]	new[2]	nnnnn[2]	_	_	_	
-1-8	28-30	my	place[2]|object[3]|person[4]	new[2]|new[3]|acc[4]	nnnnn[2]|nnsnn[3]|sssss[4]	_	coref|coref|bridge	5-3[7_3]|5-3[8_4]|3-1[6_4]	
+1-8	28-30	my	place[2]|object[3]|person[4]	new[2]|new[3]|acc[4]	nnnnn[2]|nnsnn[3]|sssss[4]	_	coref|coref|bridge:entity-associative	5-3[7_3]|5-3[8_4]|3-1[6_4]	
 1-9	31-36	shoes	place[2]|object[3]	new[2]|new[3]	nnnnn[2]|nnsnn[3]	_	_	_	
 1-10	37-38	.	_	_	_	_	_	_	
 
@@ -266,7 +266,7 @@
 26-8	880-881	.	_	_	_	_	_	_	
 
 #Text=Tomorrow ?
-27-1	882-890	Tomorrow	time[57]	giv[57]	nnnnn[57]	_	coref	60-10[127_57]	
+27-1	882-890	Tomorrow	time[57]	giv[57]	nnnnn[57]	_	coref|bridge:set-span-interval;comparison-time	60-10[127_57]|30-22[66_57]	
 27-2	891-892	?	_	_	_	_	_	_	
 
 #Text=Well can you just put em in the bag , in there for now , okay ?
@@ -314,7 +314,7 @@
 30-19	1043-1046	've	_	_	_	_	_	_	
 30-20	1047-1051	done	_	_	_	_	_	_	
 30-21	1052-1059	nothing	abstract[65]	new[65]	nnnnn[65]	_	_	_	
-30-22	1060-1064	this	time[66]	acc[66]	nnnnn[66]	_	_	_	
+30-22	1060-1064	this	time[66]	acc[66]	nnnnn[66]	_	bridge:comparison-time	59-15[123_66]	
 30-23	1065-1069	week	time[66]	acc[66]	nnnnn[66]	_	_	_	
 30-24	1070-1073	but	_	_	_	_	_	_	
 30-25	1074-1079	study	_	_	_	_	_	_	
@@ -410,7 +410,7 @@
 40-1	1373-1377	Yeah	_	_	_	_	_	_	
 40-2	1378-1379	,	_	_	_	_	_	_	
 40-3	1380-1385	there	_	_	_	_	_	_	
-40-4	1386-1390	they	object[86]	giv[86]	ssnss[86]	_	bridge|bridge	41-1[87_86]|42-1[88_86]	
+40-4	1386-1390	they	object[86]	giv[86]	ssnss[86]	_	bridge:set-member;comparison-sense|bridge:set-member;comparison-sense	41-1[87_86]|42-1[88_86]	
 40-5	1391-1394	are	_	_	_	_	_	_	
 40-6	1395-1396	.	_	_	_	_	_	_	
 
@@ -511,7 +511,7 @@
 52-8	1666-1670	give	_	_	_	_	_	_	
 52-9	1671-1675	your	animal[103]|person[104]	new[103]|giv[104]	nnnnn[103]|sssss[104]	_	coref|coref	53-1[106_103]|61-1[131_104]	
 52-10	1676-1682	iguana	animal[103]	new[103]	nnnnn[103]	_	_	_	
-52-11	1683-1684	a	substance[105]	new[105]	nnnnn[105]	_	bridge	53-6[107_105]	
+52-11	1683-1684	a	substance[105]	new[105]	nnnnn[105]	_	bridge:entity-meronomy;comparison-sense	53-6[107_105]	
 52-12	1685-1691	little	substance[105]	new[105]	nnnnn[105]	_	_	_	
 52-13	1692-1695	bit	substance[105]	new[105]	nnnnn[105]	_	_	_	
 52-14	1696-1698	of	substance[105]	new[105]	nnnnn[105]	_	_	_	
@@ -666,7 +666,7 @@
 64-5	2218-2219	I	person[140]	giv[140]	sssss[140]	_	coref	64-16[143_140]	
 64-6	2220-2227	brought	_	_	_	_	_	_	
 64-7	2228-2231	the	object[141]	new[141]	nnnns[141]	_	coref	65-1[144_141]	
-64-8	2232-2236	Toys	object[141]|organization[142]	new[141]|giv[142]	nnnns[141]|snsns[142]	Toys_%22R%22_Us[142]	coref	126-7[270_142]	
+64-8	2232-2236	Toys	object[141]|organization[142]	new[141]|giv[142]	nnnns[141]|snsns[142]	Toys_%22R%22_Us[142]	coref|bridge:entity-associative|bridge:entity-associative	126-7[270_142]|73-3[176_142]|74-13[183_142]	
 64-9	2237-2238	'	object[141]|organization[142]	new[141]|giv[142]	nnnns[141]|snsns[142]	Toys_%22R%22_Us[142]	_	_	
 64-10	2239-2240	R	object[141]|organization[142]	new[141]|giv[142]	nnnns[141]|snsns[142]	Toys_%22R%22_Us[142]	_	_	
 64-11	2241-2242	'	object[141]|organization[142]	new[141]|giv[142]	nnnns[141]|snsns[142]	Toys_%22R%22_Us[142]	_	_	
@@ -805,7 +805,7 @@
 #Text=There 's coupons in here too mom .
 73-1	2760-2765	There	_	_	_	_	_	_	
 73-2	2766-2768	's	_	_	_	_	_	_	
-73-3	2769-2776	coupons	object[176]	new[176]	nnnnn[176]	_	coref	74-5[180_176]	
+73-3	2769-2776	coupons	object[176]	acc[176]	nnnnn[176]	_	coref	74-5[180_176]	
 73-4	2777-2779	in	_	_	_	_	_	_	
 73-5	2780-2784	here	object[177]	giv[177]	nnnns[177]	_	coref	74-7[181_177]	
 73-6	2785-2788	too	_	_	_	_	_	_	
@@ -825,8 +825,8 @@
 74-10	2832-2834	we	person[182]	giv[182]	nnnnn[182]	_	coref	108-2[241_182]	
 74-11	2835-2838	can	_	_	_	_	_	_	
 74-12	2839-2842	get	_	_	_	_	_	_	
-74-13	2843-2847	some	object[183]	giv[183]	nnnnn[183]	_	coref	77-2[184_183]	
-74-14	2848-2854	things	object[183]	giv[183]	nnnnn[183]	_	_	_	
+74-13	2843-2847	some	object[183]	acc[183]	nnnnn[183]	_	coref	77-2[184_183]	
+74-14	2848-2854	things	object[183]	acc[183]	nnnnn[183]	_	_	_	
 74-15	2855-2856	.	_	_	_	_	_	_	
 
 #Text=Mhm , Really ?
@@ -1279,7 +1279,7 @@
 126-9	4260-4261	R	organization[270]	giv[270]	snsns[270]	Toys_%22R%22_Us[270]	_	_	
 126-10	4262-4263	'	organization[270]	giv[270]	snsns[270]	Toys_%22R%22_Us[270]	_	_	
 126-11	4264-4266	Us	organization[270]	giv[270]	snsns[270]	Toys_%22R%22_Us[270]	_	_	
-126-12	4267-4275	tomorrow	time[271]	new[271]	nnnnn[271]	_	_	_	
+126-12	4267-4275	tomorrow	time[271]	new[271]	nnnnn[271]	_	bridge:comparison-time	142-17[299_271]	
 126-13	4276-4277	,	_	_	_	_	_	_	
 126-14	4278-4281	and	_	_	_	_	_	_	
 126-15	4282-4284	we	person[272]	giv[272]	nnnnn[272]	_	coref	129-1[275_272]	
@@ -1575,13 +1575,13 @@
 160-2	5178-5180	we	person[332]	giv[332]	nnnnn[332]	_	coref	160-7[335_332]	
 160-3	5181-5187	always	_	_	_	_	_	_	
 160-4	5188-5193	asked	_	_	_	_	_	_	
-160-5	5194-5196	em	abstract[333]|object[334]	giv[333]|giv[334]	nnnnn[333]|snssn[334]	_	coref	167-24[354_334]	
+160-5	5194-5196	em	abstract[333]|object[334]	giv[333]|giv[334]	nnnnn[333]|snssn[334]	_	coref|bridge:entity-associative	167-24[354_334]|160-10[336_333]	
 160-6	5197-5206	questions	abstract[333]	giv[333]	nnnnn[333]	_	_	_	
 160-7	5207-5209	we	abstract[333]|person[335]	giv[333]|giv[335]	nnnnn[333]|nnnnn[335]	_	_	_	
 160-8	5210-5217	already	abstract[333]	giv[333]	nnnnn[333]	_	_	_	
 160-9	5218-5222	knew	abstract[333]	giv[333]	nnnnn[333]	_	_	_	
-160-10	5223-5226	the	abstract[333]|abstract[336]	giv[333]|new[336]	nnnnn[333]|nnnnn[336]	_	_	_	
-160-11	5227-5233	answer	abstract[333]|abstract[336]	giv[333]|new[336]	nnnnn[333]|nnnnn[336]	_	_	_	
+160-10	5223-5226	the	abstract[333]|abstract[336]	giv[333]|acc[336]	nnnnn[333]|nnnnn[336]	_	_	_	
+160-11	5227-5233	answer	abstract[333]|abstract[336]	giv[333]|acc[336]	nnnnn[333]|nnnnn[336]	_	_	_	
 160-12	5234-5236	to	abstract[333]	giv[333]	nnnnn[333]	_	_	_	
 160-13	5237-5238	.	_	_	_	_	_	_	
 

@@ -23,6 +23,14 @@ Resulting files will be serialized to `_build/target/rst/gdtb/` in all formats. 
 
 Also note that the scripts assume all relevant data for GDTB generation lives in `_build/target/`, so you have to have a fresh build of GUM itself first, including reconstruction of Reddit text if needed. A GDTB document will be generated for every eRST file in `_build/target/rst/rstweb/`.
 
+### 0. (optional) Clearing old predictions
+
+If you are just adding documents, you can skip this step. If you need fresh predictions for old documents, for example because underlying RST annotations have changed substantially (especially EDU boundaries/EDU numbers through insertion or deletion of units), then you should first clear all old stale predictions and get updates probabilities. One indication this may be necessary is a lot of warnings like `WARN: used probabilities of different, same endpoints relation for key...` or somewhat less problematically `WARN: using fallback relation probabilities mapping indexed by sentence texts because an exact path key is not found`.
+
+To clear predictionas before running steps 1. and 2. below, run:
+
+`> python clear_preds.py`
+
 ### 1. Running relation label probability predictions
 
 Relation label probabilities inform system decisions, though note that they are just one source of information, as described in the GDTB paper. For example, if an eRST relations has an explicit "but" marking it, the only labels for which "but" is a possible connective will be considered. To obtain probabilities for new data:

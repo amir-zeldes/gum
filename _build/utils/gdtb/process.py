@@ -96,7 +96,7 @@ def read_rsd(rsd: Text, doc: Doc) -> Doc:
 
 def read_file(conllu_dir: str, rs4_dir: str, docname: str) -> Doc:
     """
-    Partially borrow from RST++ at https://github.com/t-aoyam/rstpp/blob/main/code/converter/browse_rs4.py#L106
+    Partially borrow from eRST at https://github.com/t-aoyam/rstpp/blob/main/code/converter/browse_rs4.py#L106
     """
     conllu_file = io.open(conllu_dir).read()
     rs4 = io.open(rs4_dir).read()
@@ -197,8 +197,8 @@ def read_file(conllu_dir: str, rs4_dir: str, docname: str) -> Doc:
             if nid not in nid2head_edu:
                 nid2head_edu[nid] = nid2head_edu[nid.split("-")[0]]
 
-        if node.parent == "0" or node.dep_parent == "0" or node.relname == "span" or node.dep_rel.startswith("same") or nid not in nid2head_edu:
-            continue  # skip root, span, same-unit
+        if node.parent == "0" or node.dep_parent == "0" or ((node.relname == "span" or node.dep_rel.startswith("same")) and "-" not in nid) or nid not in nid2head_edu:
+            continue  # skip root, as well as span or same-unit if the edge is not a secedge
         elif node.relname.endswith("_m") and nodes[node.parent].leftmost_child == nid:
             continue  # skip leftmost multinuc children
 

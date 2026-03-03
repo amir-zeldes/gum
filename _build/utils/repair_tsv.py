@@ -506,7 +506,9 @@ def merge_genitive_s(parsed_lines, tsv_path, warn_only, xml_path):
 						  + "and merged with immediately preceding markable " + e['type'] + '[' + str(e['id']) + '].')
 			else:
 				for e in entity_difference:
-					if not ("GUM_speech_school" in xml_path and e['type'] == "time"):  # Known split 's case, "Kenya Vision 2030 's ..."
+					# Known split 's case, "Kenya Vision 2030 's ...", "Hebrew University of Jerusalem 's ..."
+					if not ("GUM_speech_open" in xml_path and e['type'] == "time") \
+							and not ("GUM_interview_shalev" in xml_path and e['type'] == "place"):
 						print("WARN: token " + line['token_id'] + " in doc '" + xml_path + "' "
 						  + "looks like a genitive s but is not contained in the immediately preceding markable "
 						  + e['type'] + '[' + str(e['id']) +"].\n      Per GUM guidelines, it should be included."
@@ -607,7 +609,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 				min_ids.append(tok[0])
 				head_tokens_lowered[tok[0]] = tok[-2].lower()
 			if tok[2].startswith("NP") and tok[1] in toks_by_id:  # NNP token with parent in span
-				if toks_by_id[tok[1]][2].startswith("NP") and tok[3] not in ["nmod:poss"]:
+				if toks_by_id[tok[1]][2].startswith("NP") and tok[3] not in ["nmod:poss","nmod:desc"]:
 					# NNP child of NNP, not a possessor
 					min_ids.append(tok[0])
 
@@ -1005,7 +1007,7 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 	return "\n".join(adjusted), conllua_data, centering_transitions, mapped_saliences
 
 
-def fix_file(filename, tt_file, outdir, genitive_s=False):
+def fix_file(filename, tt_file, outdir, genitive_s=False, separate_bridging_edges=False):
 
 	# Get reference tokens
 	tsv_file_name = ntpath.basename(filename)
@@ -1148,7 +1150,7 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 				except:
 					print("Error on line " + str(line_num) + " of TSV file: " + filename)
 					quit()
-				if link_anno == "bridge":
+				if link_anno.startswith("bridge"):
 					if spans != "" and not spans.startswith("[0_"):# and not spans.endswith("_0]"):
 						bridging_count[spans.split("_")[0].replace("[","")] += 1
 					else:
@@ -1165,7 +1167,7 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 			line = "\t".join(fields)
 		edited_lines.append(line)
 
-	# Now split bridging sub-types
+	# Now split bridging sub-types if desired
 	bridge_fixed = []
 	for line in edited_lines:
 		if "\t" in line:
@@ -1174,6 +1176,26 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 			link_annos = fields[-3]
 			split_links = links.split("|")
 			split_link_annos = link_annos.split("|")
+			split_link_annos_copy = split_link_annos[:]
+			for i, anno in enumerate(split_link_annos_copy):  # Check for ';' inside type and normalize to separate edges
+				if ";" in anno:  # e.g. bridge:set-span-interval;comparison-time
+					if separate_bridging_edges:
+						edge_types = anno.split(";")
+						# Create duplicate edges and insert into split_links at index for each type
+						for j, et in enumerate(edge_types):
+							if not et.startswith("bridge"):
+								et = "bridge:" + et
+							if j > 0:
+								split_links.insert(i+j, split_links[i])
+								split_link_annos.insert(i+j, et)
+							else:
+								split_link_annos[i] = et
+					else:  # Just alphabetize the components separated by ';'
+						anno = anno.replace("bridge:","")
+						components = anno.split(";")
+						components = sorted(components)
+						anno = "bridge:" + ";".join(components)
+						split_link_annos[i] = anno
 			edited_annos = []
 			#continue ##AZ
 			for i, anno in enumerate(split_link_annos):
@@ -1186,13 +1208,16 @@ def fix_file(filename, tt_file, outdir, genitive_s=False):
 						bridge_count_id = link.split("[")[0]
 					link = link.split("[")[0]
 				source_word = bridge_words[link]
-				if anno == "bridge":
+				if anno.startswith("bridge"):
+					if ";" in anno:
+						a=4
 					if bridging_count[bridge_count_id] > 1:
 						anno = "bridge:aggr"
-					elif re.match(r'(the|this|that|these|those)$',source_word,re.IGNORECASE) is not None:
-						anno = "bridge:def"
-					else:
-						anno = "bridge:other"
+					elif ":" not in anno:  # Old GUM < v12 format without explicit bridging subtypes
+						if re.match(r'(the|this|that|these|those)$',source_word,re.IGNORECASE) is not None:
+							anno = "bridge:def"
+						else:
+							anno = "bridge:other"
 				edited_annos.append(anno)
 			fields[-3] = "|".join(edited_annos)
 			bridge_fixed.append("\t".join(fields))

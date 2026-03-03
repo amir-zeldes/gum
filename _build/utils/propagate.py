@@ -56,6 +56,8 @@ cxg_deped = DepEdit(utils_abs_path + os.sep + "en_cxn.ini")
 cxg_deped.quiet = True
 
 efuncs = set(["acl","acl:relcl","advcl","advcl:relcl","advmod","amod","appos","aux","aux:pass","case","cc","cc:preconj","ccomp","compound","compound:prt","conj","cop","csubj","csubj:pass","csubj:xsubj","dep","det","det:predet","discourse","dislocated","expl","fixed","flat","goeswith","iobj","list","mark","nmod","nmod:unmarked","nmod:poss","nsubj","nsubj:pass","nsubj:xsubj","nummod","obj","obl","obl:unmarked","orphan","parataxis","punct","ref","reparandum","root","vocative","xcomp"])
+xpos_tags = set(["CC","CD","DT","EX","FW","GW","IN","JJ","JJR","JJS","LS","MD","NN","NNS","NNP","NNPS","PDT","POS","PRP","PRP$","RB","RBR",
+		   "RBS","RP","SYM","TO","UH","VB","VBD","VBG","VBN","VBZ","VBP","WDT","WP$","WP","WRB","``","''","-LRB-","-RRB-",",:","$","HYPH"])
 
 mseg_lookup = open(utils_abs_path + os.sep + "mseg.tab",encoding="utf8").read().strip().split("\n")
 mseg_lookup = {tuple(l.split("\t")[:-1]):l.split("\t")[-1] for l in mseg_lookup}
@@ -68,7 +70,7 @@ ud_gentle = []
 partition = "train"
 for line in splits_lines:
 	if line.startswith("## "):
-		partition = re.search("## ([^\s]+)",line).group(1)
+		partition = re.search(r"## ([^\s]+)",line).group(1)
 	if "GUM_" in line:
 		docname = line.strip().split()[-1]
 		if partition == "dev":
@@ -244,6 +246,9 @@ def validate_enhanced(conllu, docname):
 			fields = line.split("\t")
 			location = " on line " + str(i) + " in " + docname + "\n"
 			if "." in fields[0]:
+				# Check that col 4 has a proper xpos
+				if fields[4] not in xpos_tags:
+					sys.stderr.write("! invalid xpos tag for ellipsis token" + location)
 				if fields[-1].count("=") == 1:
 					CopyOf, CopyID = fields[-1].split("=")
 					if CopyOf != "CopyOf":
@@ -351,6 +356,18 @@ def add_feat(field,feat):
 		return "|".join(sorted(list(set(attrs))))
 
 
+def remove_feat(field,feat):
+	if field == "_":
+		return field
+	else:
+		attrs = field.split("|")
+		featname = feat.split("=")[0]
+		attrs = [a for a in attrs if not a.startswith(featname+"=")]
+		if len(attrs) == 0:
+			return "_"
+		else:
+			return "|".join(sorted(list(set(attrs))))
+
 def remove_entities(misc):
 	output = []
 	for anno in misc.split("|"):
@@ -367,6 +384,8 @@ def remove_entities(misc):
 def do_hard_replaces(text, docname):
 	"""Replace unresolvable conversion problems with hardwired replacements
 	"""
+	if 'Turquoise' in text and 'five' in docname:
+		a=4
 
 	reps = [("GUM_voyage_phoenix",""""15	ashes	ash	NOUN	NNS	Number=Plur	12	obl	_	SpaceAfter=No
 16	"	"	PUNCT	''	_	12	punct	_	_""","""15	ashes	ash	NOUN	NNS	Number=Plur	12	obl	_	SpaceAfter=No
@@ -374,7 +393,21 @@ def do_hard_replaces(text, docname):
 			("GUM_bio_galois","""32	)	)	PUNCT	-RRB-	_	24	punct	_	_
 33	that	that	PRON	WDT	PronType=Rel	34	nsubj	_	_""","""32	)	)	PUNCT	-RRB-	_	27	punct	_	_
 33	that	that	PRON	WDT	PronType=Rel	34	nsubj	_	_"""),
-			("GENTLE_poetry_raven","""38	,	,	PUNCT	,	_	29	punct""","""38	,	,	PUNCT	,	_	37	punct""")]
+			("GENTLE_poetry_raven","""38	,	,	PUNCT	,	_	29	punct""","""38	,	,	PUNCT	,	_	37	punct"""),
+			("GUM_news_afghan","""27	the	the	DET	DT	Definite=Def|PronType=Art	28	det	_	_
+28	press	press	NOUN	NN	Number=Sing	26	iobj	_	SpaceAfter=No
+29	,	,	PUNCT	,	_	26	punct	_	_
+30	"	"	PUNCT	``	_	26	punct	_	SpaceAfter=No""","""27	the	the	DET	DT	Definite=Def|PronType=Art	28	det	_	_
+28	press	press	NOUN	NN	Number=Sing	26	iobj	_	SpaceAfter=No
+29	,	,	PUNCT	,	_	26	punct	_	_
+30	"	"	PUNCT	``	_	32	punct	_	SpaceAfter=No"""),
+			("GENTLE_proof_five","""9	Red	Red	NOUN	NN	Number=Sing	2	nsubj	_	_
+10	=	=	PUNCT	:	_	11	punct	_	_
+11	c3	c3	NOUN	NN	Number=Sing	2	obj	_	SpaceAfter=No""",
+			 """9	Red	Red	NOUN	NN	Number=Sing	10	nsubj	_	_
+10	=	=	SYM	SYM	_	2	conj	_	_
+11	c3	c3	NOUN	NN	Number=Sing	10	obj	_	SpaceAfter=No""")
+			]
 
 	for doc, f, r in reps:
 		if doc == docname:
@@ -951,6 +984,34 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 
 		# Add enhanced dependencies
 		negatived = ud_edep_deped.run_depedit(negatived).strip()
+
+		# Move Typos to MWTs if needed
+		fixed_sents = []
+		for sent in negatived.strip().split("\n\n"):
+			typo_toks = []
+			mwt_toks = []
+			fixed_sent = []
+			for line in sent.split("\n"):
+				if "Typo=Yes" in line:
+					typo_toks.append(line.split("\t")[0])
+			if typo_toks:
+				for line in sent.split("\n"):
+					if "\t" in line:
+						fields = line.split("\t")
+						if "-" in fields[0]:
+							start, end = fields[0].split("-")
+							mwt_toks.append(start)
+							mwt_toks.append(end)
+							if start in typo_toks or end in typo_toks:
+								fields[5] = add_feat(fields[5],"Typo=Yes")
+								line = "\t".join(fields)
+						elif fields[0] in typo_toks and fields[0] in mwt_toks:
+							fields[5] = remove_feat(fields[5],"Typo")
+							line = "\t".join(fields)
+					fixed_sent.append(line)
+				sent = "\n".join(fixed_sent)
+			fixed_sents.append(sent)
+		negatived = "\n\n".join(fixed_sents) + "\n\n"
 
 		# Remove invalid enhanced dependencies
 		negatived = re.sub(r'(nmod|obl):(de|en|a)(?=[\|\t])',r'\1',negatived)
@@ -1564,7 +1625,7 @@ def get_bridging(webannotsv):
 	return edges_by_source, out_spans, rev_out_spans
 
 
-def merge_bridge_conllu(conllu, webannotsv):
+def merge_bridge_conllu(conllu, webannotsv, file_):
 	def no_brace(instr):
 		if "-" in instr:
 			return instr.split("-")[0].replace("(","").replace(")","")
@@ -1636,6 +1697,10 @@ def merge_bridge_conllu(conllu, webannotsv):
 				out_misc.append("Bridge=" + ",".join(bridging))
 			if len(split_ante) > 0:
 				out_misc.append("SplitAnte=" + ",".join(split_ante))
+				if len(set(split_ante)) < len(split_ante):
+					# there is a dupicate SplitAnte edge annotation (this may result from coreferent split antecedents)
+					sys.stderr.write("WARN: Duplicate 'SplitAnte=' edge (" + ",".join(split_ante) + ") detected in " +
+							 os.path.basename(file_)+"\n")
 			bridging = []
 			split_ante = []
 			fields[-1] = "|".join(sorted(out_misc)) if len(out_misc) > 0 else "_"
@@ -1665,7 +1730,7 @@ def add_bridging_to_conllu(gum_target,reddit=False,corpus="GUM"):
 	for file_ in files:
 		tsv_file = gum_target + "coref" + os.sep + "tsv" + os.sep + os.path.basename(file_).replace("conllu","tsv")
 
-		merged = merge_bridge_conllu(io.open(file_,encoding="utf8").read(),io.open(tsv_file,encoding="utf8").read())
+		merged = merge_bridge_conllu(io.open(file_,encoding="utf8").read(),io.open(tsv_file,encoding="utf8").read(), file_)
 		merged = merged.strip() + "\n\n"
 
 		if any(["SplitAnte=" not in l and "acc:aggr" in l for l in merged.split("\n")]):

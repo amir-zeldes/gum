@@ -9,12 +9,12 @@
 
 
 #Text=Undergraduate Student Government
-1-1	0-13	Undergraduate	organization[1]|person[2]	new[1]|new[2]	nnnns[1]|nnnns[2]	_	coref|coref	27-7[185_1]|27-7[186_2]	
-1-2	14-21	Student	organization[1]|person[2]	new[1]|new[2]	nnnns[1]|nnnns[2]	_	_	_	
+1-1	0-13	Undergraduate	organization[1]|person[2]	new[1]|new[2]	nnnns[1]|nssnn[2]	_	coref|coref|bridge:entity-associative|bridge:entity-associative	27-7[185_1]|27-7[186_2]|3-1[10_1]|4-1[12_1]	
+1-2	14-21	Student	organization[1]|person[2]	new[1]|new[2]	nnnns[1]|nssnn[2]	_	_	_	
 1-3	22-32	Government	organization[1]	new[1]	nnnns[1]	_	_	_	
 
 #Text=The Pennsylvania State University 223 HUB - Robeson Center University Park PA 16802-6601
-2-1	33-36	The	organization[3]	new[3]	sssss[3]	Pennsylvania_State_University[3]	coref|bridge|bridge|bridge|bridge|bridge|bridge|bridge	9-25[31_3]|9-7[24_3]|10-36[45_3]|10-39[46_3]|11-6[48_3]|11-12[50_3]|12-4[59_3]|38-26[268_3]	
+2-1	33-36	The	organization[3]	new[3]	sssss[3]	Pennsylvania_State_University[3]	coref|bridge:entity-associative	9-25[31_3]|7-8[20_3]	
 2-2	37-49	Pennsylvania	organization[3]|place[4]	new[3]|new[4]	sssss[3]|sssss[4]	Pennsylvania_State_University[3]|Pennsylvania[4]	coref	2-12[8_4]	
 2-3	50-55	State	organization[3]	new[3]	sssss[3]	Pennsylvania_State_University[3]	_	_	
 2-4	56-66	University	organization[3]	new[3]	sssss[3]	Pennsylvania_State_University[3]	_	_	
@@ -29,12 +29,12 @@
 2-13	111-121	16802-6601	place[5]|place[9]	new[5]|new[9]	nnnnn[5]|nnnnn[9]	_	_	_	
 
 #Text=Phone : 814.863.1874
-3-1	122-127	Phone	abstract[10]	new[10]	nnnnn[10]	_	coref	3-3[11_10]	
+3-1	122-127	Phone	abstract[10]	acc[10]	nnnnn[10]	_	coref	3-3[11_10]	
 3-2	128-129	:	_	_	_	_	_	_	
 3-3	130-142	814.863.1874	abstract[11]	new[11]	nnnnn[11]	_	_	_	
 
 #Text=Fax : 814.863.6874
-4-1	143-146	Fax	abstract[12]	new[12]	nnnnn[12]	_	coref	4-3[13_12]	
+4-1	143-146	Fax	abstract[12]	acc[12]	nnnnn[12]	_	coref	4-3[13_12]	
 4-2	147-148	:	_	_	_	_	_	_	
 4-3	149-161	814.863.6874	abstract[13]	new[13]	nnnnn[13]	_	_	_	
 
@@ -42,11 +42,11 @@
 5-1	162-193	http://www.clubs.psu.edu/up/usg	abstract[14]	new[14]	nnnnn[14]	_	_	_	
 
 #Text=8 - May - 2006
-6-1	194-195	8	time[15]	new[15]	snnnn[15]	_	_	_	
-6-2	196-197	-	time[15]	new[15]	snnnn[15]	_	_	_	
-6-3	198-201	May	time[15]|time[16]	new[15]|new[16]	snnnn[15]|snnnn[16]	_	coref	13-16[75_16]	
-6-4	202-203	-	time[15]|time[16]	new[15]|new[16]	snnnn[15]|snnnn[16]	_	_	_	
-6-5	204-208	2006	time[15]|time[16]|time[17]	new[15]|new[16]|giv[17]	snnnn[15]|snnnn[16]|snnnn[17]	_	coref	13-18[76_17]	
+6-1	194-195	8	time[15]	new[15]	snsnn[15]	_	_	_	
+6-2	196-197	-	time[15]	new[15]	snsnn[15]	_	_	_	
+6-3	198-201	May	time[15]|time[16]	new[15]|new[16]	snsnn[15]|snsnn[16]	_	coref	13-16[75_16]	
+6-4	202-203	-	time[15]|time[16]	new[15]|new[16]	snsnn[15]|snsnn[16]	_	_	_	
+6-5	204-208	2006	time[15]|time[16]|time[17]	new[15]|new[16]|giv[17]	snsnn[15]|snsnn[16]|snsnn[17]	_	coref	13-18[76_17]	
 
 #Text=Robert Pangborn Vice President and Dean for Undergraduate Education 417 Old Main
 7-1	209-215	Robert	person[18]	new[18]	sssnn[18]	_	coref	7-3[19_18]	
@@ -56,8 +56,8 @@
 7-5	240-243	and	person[19]	giv[19]	sssnn[19]	_	_	_	
 7-6	244-248	Dean	person[19]	giv[19]	sssnn[19]	_	_	_	
 7-7	249-252	for	person[19]	giv[19]	sssnn[19]	_	_	_	
-7-8	253-266	Undergraduate	person[19]|abstract[20]	giv[19]|new[20]	sssnn[19]|nnnnn[20]	Undergraduate_education[20]	coref	9-10[25_20]	
-7-9	267-276	Education	person[19]|abstract[20]	giv[19]|new[20]	sssnn[19]|nnnnn[20]	Undergraduate_education[20]	_	_	
+7-8	253-266	Undergraduate	person[19]|abstract[20]	giv[19]|acc[20]	sssnn[19]|nnnnn[20]	Undergraduate_education[20]	coref	9-10[25_20]	
+7-9	267-276	Education	person[19]|abstract[20]	giv[19]|acc[20]	sssnn[19]|nnnnn[20]	Undergraduate_education[20]	_	_	
 7-10	277-280	417	place[21]	new[21]	nnnnn[21]	Old_Main_(Pennsylvania_State_University)[21]	_	_	
 7-11	281-284	Old	place[21]	new[21]	nnnnn[21]	Old_Main_(Pennsylvania_State_University)[21]	_	_	
 7-12	285-289	Main	place[21]	new[21]	nnnnn[21]	Old_Main_(Pennsylvania_State_University)[21]	_	_	
@@ -74,11 +74,11 @@
 9-4	316-318	is	_	_	_	_	_	_	
 9-5	319-323	well	_	_	_	_	_	_	
 9-6	324-326	in	_	_	_	_	_	_	
-9-7	327-330	the	organization[24]	acc[24]	nnnnn[24]	_	coref	10-26[40_24]	
-9-8	331-337	Office	organization[24]	acc[24]	nnnnn[24]	_	_	_	
-9-9	338-340	of	organization[24]	acc[24]	nnnnn[24]	_	_	_	
-9-10	341-354	Undergraduate	organization[24]|abstract[25]	acc[24]|giv[25]	nnnnn[24]|nnnnn[25]	Undergraduate_education[25]	coref	46-12[309_25]	
-9-11	355-364	Education	organization[24]|abstract[25]	acc[24]|giv[25]	nnnnn[24]|nnnnn[25]	Undergraduate_education[25]	_	_	
+9-7	327-330	the	organization[24]	auto[24]	nnnnn[24]	_	coref	10-26[40_24]	
+9-8	331-337	Office	organization[24]	auto[24]	nnnnn[24]	_	_	_	
+9-9	338-340	of	organization[24]	auto[24]	nnnnn[24]	_	_	_	
+9-10	341-354	Undergraduate	organization[24]|abstract[25]	auto[24]|giv[25]	nnnnn[24]|nnnnn[25]	Undergraduate_education[25]	coref	46-12[309_25]	
+9-11	355-364	Education	organization[24]|abstract[25]	auto[24]|giv[25]	nnnnn[24]|nnnnn[25]	Undergraduate_education[25]	_	_	
 9-12	365-366	,	_	_	_	_	_	_	
 9-13	367-370	and	_	_	_	_	_	_	
 9-14	371-376	thank	_	_	_	_	_	_	
@@ -92,9 +92,9 @@
 9-22	414-416	me	person[28]	giv[28]	sssss[28]	_	coref	10-19[38_28]	
 9-23	417-426	regarding	_	_	_	_	_	_	
 9-24	427-430	the	abstract[29]	new[29]	snnsn[29]	_	coref	10-1[33_29]	
-9-25	431-435	Penn	abstract[29]|abstract[30]|organization[31]|place[32]	new[29]|new[30]|new[31]|giv[32]	snnsn[29]|snsss[30]|sssss[31]|sssss[32]	Pennsylvania_State_University[31]|Pennsylvania[32]	coref|coref|coref	17-7[114_30]|10-16[36_31]|10-16[37_32]	
-9-26	436-441	State	abstract[29]|abstract[30]|organization[31]	new[29]|new[30]|new[31]	snnsn[29]|snsss[30]|sssss[31]	Pennsylvania_State_University[31]	_	_	
-9-27	442-446	Wiki	abstract[29]|abstract[30]	new[29]|new[30]	snnsn[29]|snsss[30]	_	_	_	
+9-25	431-435	Penn	abstract[29]|abstract[30]|organization[31]|place[32]	new[29]|new[30]|new[31]|giv[32]	snnsn[29]|sssss[30]|sssss[31]|sssss[32]	Pennsylvania_State_University[31]|Pennsylvania[32]	coref|coref|coref	17-7[114_30]|10-16[36_31]|10-16[37_32]	
+9-26	436-441	State	abstract[29]|abstract[30]|organization[31]	new[29]|new[30]|new[31]	snnsn[29]|sssss[30]|sssss[31]	Pennsylvania_State_University[31]	_	_	
+9-27	442-446	Wiki	abstract[29]|abstract[30]	new[29]|new[30]	snnsn[29]|sssss[30]	_	_	_	
 9-28	447-455	proposal	abstract[29]	new[29]	snnsn[29]	_	_	_	
 9-29	456-457	.	_	_	_	_	_	_	
 
@@ -114,7 +114,7 @@
 10-13	536-538	be	abstract[34]	new[34]	nnnnn[34]	_	_	_	
 10-14	539-545	useful	abstract[34]	new[34]	nnnnn[34]	_	_	_	
 10-15	546-548	at	abstract[34]	new[34]	nnnnn[34]	_	_	_	
-10-16	549-553	Penn	abstract[34]|organization[36]|place[37]	new[34]|giv[36]|giv[37]	nnnnn[34]|sssss[36]|sssss[37]	Pennsylvania_State_University[36]|Pennsylvania[37]	coref|coref	11-9[49_36]|17-2[113_37]	
+10-16	549-553	Penn	abstract[34]|organization[36]|place[37]	new[34]|giv[36]|giv[37]	nnnnn[34]|sssss[36]|sssss[37]	Pennsylvania_State_University[36]|Pennsylvania[37]	coref|coref|bridge:entity-associative|bridge:entity-associative	11-9[49_36]|17-2[113_37]|10-36[45_36]|10-39[46_36]	
 10-17	554-559	State	abstract[34]|organization[36]	new[34]|giv[36]	nnnnn[34]|sssss[36]	Pennsylvania_State_University[36]	_	_	
 10-18	560-561	;	_	_	_	_	_	_	
 10-19	562-563	I	person[38]	giv[38]	sssss[38]	_	coref|bridge	11-17[53_38]|13-13[73_38]	
@@ -128,17 +128,17 @@
 10-27	614-620	office	event[39]|organization[40]	new[39]|giv[40]	nnnns[39]|nnnnn[40]	_	_	_	
 10-28	621-629	focusing	event[39]	new[39]	nnnns[39]	_	_	_	
 10-29	630-632	on	event[39]	new[39]	nnnns[39]	_	_	_	
-10-30	633-636	one	event[39]|abstract[42]	new[39]|new[42]	nnnns[39]|sssss[42]	_	coref	10-36[44_42]	
-10-31	637-643	aspect	event[39]|abstract[42]	new[39]|new[42]	nnnns[39]|sssss[42]	_	_	_	
-10-32	644-646	of	event[39]|abstract[42]	new[39]|new[42]	nnnns[39]|sssss[42]	_	_	_	
-10-33	647-650	the	event[39]|abstract[42]|abstract[43]	new[39]|new[42]|giv[43]	nnnns[39]|sssss[42]|snnsn[43]	_	_	_	
-10-34	651-659	proposal	event[39]|abstract[42]|abstract[43]	new[39]|new[42]|giv[43]	nnnns[39]|sssss[42]|snnsn[43]	_	_	_	
+10-30	633-636	one	event[39]|abstract[42]	new[39]|new[42]	nnnns[39]|sssnn[42]	_	coref	10-36[44_42]	
+10-31	637-643	aspect	event[39]|abstract[42]	new[39]|new[42]	nnnns[39]|sssnn[42]	_	_	_	
+10-32	644-646	of	event[39]|abstract[42]	new[39]|new[42]	nnnns[39]|sssnn[42]	_	_	_	
+10-33	647-650	the	event[39]|abstract[42]|abstract[43]	new[39]|new[42]|giv[43]	nnnns[39]|sssnn[42]|snnsn[43]	_	_	_	
+10-34	651-659	proposal	event[39]|abstract[42]|abstract[43]	new[39]|new[42]|giv[43]	nnnns[39]|sssnn[42]|snnsn[43]	_	_	_	
 10-35	660-661	:	_	_	_	_	_	_	
-10-36	662-669	student	abstract[44]|person[45]	giv[44]|acc[45]	sssss[44]|nnnnn[45]	_	coref|coref	31-1[204_44]|11-14[52_45]	
-10-37	670-671	-	abstract[44]	giv[44]	sssss[44]	_	_	_	
-10-38	672-677	based	abstract[44]	giv[44]	sssss[44]	_	_	_	
-10-39	678-684	course	abstract[44]|abstract[46]	giv[44]|acc[46]	sssss[44]|sssss[46]	_	coref	31-4[206_46]	
-10-40	685-697	descriptions	abstract[44]	giv[44]	sssss[44]	_	_	_	
+10-36	662-669	student	abstract[44]|person[45]	giv[44]|acc[45]	sssnn[44]|nnnss[45]	_	coref|coref	31-1[204_44]|11-14[52_45]	
+10-37	670-671	-	abstract[44]	giv[44]	sssnn[44]	_	_	_	
+10-38	672-677	based	abstract[44]	giv[44]	sssnn[44]	_	_	_	
+10-39	678-684	course	abstract[44]|abstract[46]	giv[44]|acc[46]	sssnn[44]|nsnns[46]	_	coref	31-4[206_46]	
+10-40	685-697	descriptions	abstract[44]	giv[44]	sssnn[44]	_	_	_	
 10-41	698-699	.	_	_	_	_	_	_	
 
 #Text=In three letters submitted to the Office of University Relations and Division of Student Affairs , I defend wiki technology as a means to improve overall University communications .
@@ -147,20 +147,20 @@
 11-3	709-716	letters	object[47]	new[47]	nnnnn[47]	_	_	_	
 11-4	717-726	submitted	object[47]	new[47]	nnnnn[47]	_	_	_	
 11-5	727-729	to	object[47]	new[47]	nnnnn[47]	_	_	_	
-11-6	730-733	the	object[47]|organization[48]	new[47]|acc[48]	nnnnn[47]|nnnnn[48]	_	coref	14-2[78_48]	
-11-7	734-740	Office	object[47]|organization[48]	new[47]|acc[48]	nnnnn[47]|nnnnn[48]	_	_	_	
-11-8	741-743	of	object[47]|organization[48]	new[47]|acc[48]	nnnnn[47]|nnnnn[48]	_	_	_	
-11-9	744-754	University	object[47]|organization[48]|organization[49]	new[47]|acc[48]|giv[49]	nnnnn[47]|nnnnn[48]|sssss[49]	Pennsylvania_State_University[49]	coref	11-27[56_49]	
-11-10	755-764	Relations	object[47]|organization[48]	new[47]|acc[48]	nnnnn[47]|nnnnn[48]	_	_	_	
+11-6	730-733	the	object[47]|organization[48]	new[47]|auto[48]	nnnnn[47]|nnnnn[48]	_	coref	14-2[78_48]	
+11-7	734-740	Office	object[47]|organization[48]	new[47]|auto[48]	nnnnn[47]|nnnnn[48]	_	_	_	
+11-8	741-743	of	object[47]|organization[48]	new[47]|auto[48]	nnnnn[47]|nnnnn[48]	_	_	_	
+11-9	744-754	University	object[47]|organization[48]|organization[49]	new[47]|auto[48]|giv[49]	nnnnn[47]|nnnnn[48]|sssss[49]	Pennsylvania_State_University[49]	coref	11-27[56_49]	
+11-10	755-764	Relations	object[47]|organization[48]	new[47]|auto[48]	nnnnn[47]|nnnnn[48]	_	_	_	
 11-11	765-768	and	object[47]	new[47]	nnnnn[47]	_	_	_	
-11-12	769-777	Division	object[47]|organization[50]	new[47]|acc[50]	nnnnn[47]|nnnnn[50]	_	coref	14-5[79_50]	
-11-13	778-780	of	object[47]|organization[50]	new[47]|acc[50]	nnnnn[47]|nnnnn[50]	_	_	_	
-11-14	781-788	Student	object[47]|organization[50]|abstract[51]|person[52]	new[47]|acc[50]|new[51]|new[52]	nnnnn[47]|nnnnn[50]|nnnnn[51]|nnnnn[52]	_	coref	12-6[60_52]	
-11-15	789-796	Affairs	object[47]|organization[50]|abstract[51]	new[47]|acc[50]|new[51]	nnnnn[47]|nnnnn[50]|nnnnn[51]	_	_	_	
+11-12	769-777	Division	object[47]|organization[50]	new[47]|auto[50]	nnnnn[47]|nnnnn[50]	_	coref	14-5[79_50]	
+11-13	778-780	of	object[47]|organization[50]	new[47]|auto[50]	nnnnn[47]|nnnnn[50]	_	_	_	
+11-14	781-788	Student	object[47]|organization[50]|abstract[51]|person[52]	new[47]|auto[50]|new[51]|new[52]	nnnnn[47]|nnnnn[50]|nnnnn[51]|nnnss[52]	_	coref	12-6[60_52]	
+11-15	789-796	Affairs	object[47]|organization[50]|abstract[51]	new[47]|auto[50]|new[51]	nnnnn[47]|nnnnn[50]|nnnnn[51]	_	_	_	
 11-16	797-798	,	_	_	_	_	_	_	
 11-17	799-800	I	person[53]	giv[53]	sssss[53]	_	coref	14-66[94_53]	
 11-18	801-807	defend	_	_	_	_	_	_	
-11-19	808-812	wiki	abstract[54]	giv[54]	nsnns[54]	_	coref	17-7[115_54]	
+11-19	808-812	wiki	abstract[54]	giv[54]	nsnns[54]	_	coref|bridge:entity-resultative|bridge:entity-associative|bridge:entity-associative|bridge:entity-property|bridge:entity-property	17-7[115_54]|12-4[58_54]|12-9[61_54]|12-12[62_54]|12-16[63_54]|12-19[65_54]	
 11-20	813-823	technology	abstract[54]	giv[54]	nsnns[54]	_	_	_	
 11-21	824-826	as	_	_	_	_	_	_	
 11-22	827-828	a	_	_	_	_	_	_	
@@ -168,7 +168,7 @@
 11-24	835-837	to	_	_	_	_	_	_	
 11-25	838-845	improve	_	_	_	_	_	_	
 11-26	846-853	overall	abstract[55]	new[55]	nnnnn[55]	_	_	_	
-11-27	854-864	University	abstract[55]|organization[56]	new[55]|giv[56]	nnnnn[55]|sssss[56]	Pennsylvania_State_University[56]	coref	14-9[82_56]	
+11-27	854-864	University	abstract[55]|organization[56]	new[55]|giv[56]	nnnnn[55]|sssss[56]	Pennsylvania_State_University[56]	coref|bridge:entity-associative	14-9[82_56]|12-4[59_56]	
 11-28	865-879	communications	abstract[55]	new[55]	nnnnn[55]	_	_	_	
 11-29	880-881	.	_	_	_	_	_	_	
 
@@ -176,22 +176,22 @@
 12-1	882-885	The	object[57]	giv[57]	nnnnn[57]	_	_	_	
 12-2	886-893	letters	object[57]	giv[57]	nnnnn[57]	_	_	_	
 12-3	894-901	outline	_	_	_	_	_	_	
-12-4	902-909	faculty	abstract[58]|person[59]	new[58]|acc[59]	nnnnn[58]|nnnnn[59]	_	coref	44-3[295_59]	
-12-5	910-913	and	abstract[58]	new[58]	nnnnn[58]	_	_	_	
-12-6	914-921	student	abstract[58]|person[60]	new[58]|giv[60]	nnnnn[58]|nnnnn[60]	_	coref	14-5[80_60]	
-12-7	922-930	benefits	abstract[58]	new[58]	nnnnn[58]	_	_	_	
+12-4	902-909	faculty	abstract[58]|person[59]	acc[58]|acc[59]	nnnnn[58]|nnnnn[59]	_	coref	44-3[295_59]	
+12-5	910-913	and	abstract[58]	acc[58]	nnnnn[58]	_	_	_	
+12-6	914-921	student	abstract[58]|person[60]	acc[58]|giv[60]	nnnnn[58]|nnnss[60]	_	coref	14-5[80_60]	
+12-7	922-930	benefits	abstract[58]	acc[58]	nnnnn[58]	_	_	_	
 12-8	931-932	,	_	_	_	_	_	_	
-12-9	933-940	editing	abstract[61]	new[61]	nnnnn[61]	_	_	_	
-12-10	941-953	fundamentals	abstract[61]	new[61]	nnnnn[61]	_	_	_	
+12-9	933-940	editing	abstract[61]	acc[61]	nnnnn[61]	_	_	_	
+12-10	941-953	fundamentals	abstract[61]	acc[61]	nnnnn[61]	_	_	_	
 12-11	954-955	,	_	_	_	_	_	_	
-12-12	956-962	online	abstract[62]	new[62]	nnnnn[62]	_	_	_	
-12-13	963-968	legal	abstract[62]	new[62]	nnnnn[62]	_	_	_	
-12-14	969-980	protections	abstract[62]	new[62]	nnnnn[62]	_	_	_	
+12-12	956-962	online	abstract[62]	acc[62]	nnnnn[62]	_	_	_	
+12-13	963-968	legal	abstract[62]	acc[62]	nnnnn[62]	_	_	_	
+12-14	969-980	protections	abstract[62]	acc[62]	nnnnn[62]	_	_	_	
 12-15	981-982	,	_	_	_	_	_	_	
-12-16	983-994	information	abstract[63]|abstract[64]	new[63]|new[64]	nnnnn[63]|nnnnn[64]	_	_	_	
-12-17	995-1002	quality	abstract[63]	new[63]	nnnnn[63]	_	_	_	
+12-16	983-994	information	abstract[63]|abstract[64]	acc[63]|new[64]	nnnnn[63]|nnnnn[64]	_	_	_	
+12-17	995-1002	quality	abstract[63]	acc[63]	nnnnn[63]	_	_	_	
 12-18	1003-1006	and	_	_	_	_	_	_	
-12-19	1007-1018	reliability	abstract[65]	new[65]	nnnnn[65]	_	_	_	
+12-19	1007-1018	reliability	abstract[65]	acc[65]	nnnnn[65]	_	_	_	
 12-20	1019-1020	,	_	_	_	_	_	_	
 12-21	1021-1024	and	_	_	_	_	_	_	
 12-22	1025-1034	promotion	abstract[66]	new[66]	nnnnn[66]	_	_	_	
@@ -220,9 +220,9 @@
 13-13	1151-1154	our	event[72]|person[73]	new[72]|split[73]	nnnns[72]|nnnnn[73]	_	coref|coref	41-5[285_72]|41-5[286_73]	
 13-14	1155-1156	9	event[72]|time[74]	new[72]|giv[74]	nnnns[72]|nnnnn[74]	_	coref	41-8[287_74]	
 13-15	1157-1158	-	event[72]|time[74]	new[72]|giv[74]	nnnns[72]|nnnnn[74]	_	_	_	
-13-16	1159-1162	May	event[72]|time[74]|time[75]	new[72]|giv[74]|giv[75]	nnnns[72]|nnnnn[74]|snnnn[75]	_	_	_	
-13-17	1163-1164	-	event[72]|time[74]|time[75]	new[72]|giv[74]|giv[75]	nnnns[72]|nnnnn[74]|snnnn[75]	_	_	_	
-13-18	1165-1169	2006	event[72]|time[74]|time[75]|time[76]	new[72]|giv[74]|giv[75]|giv[76]	nnnns[72]|nnnnn[74]|snnnn[75]|snnnn[76]	_	coref	18-9[119_76]	
+13-16	1159-1162	May	event[72]|time[74]|time[75]	new[72]|giv[74]|giv[75]	nnnns[72]|nnnnn[74]|snsnn[75]	_	_	_	
+13-17	1163-1164	-	event[72]|time[74]|time[75]	new[72]|giv[74]|giv[75]	nnnns[72]|nnnnn[74]|snsnn[75]	_	_	_	
+13-18	1165-1169	2006	event[72]|time[74]|time[75]|time[76]	new[72]|giv[74]|giv[75]|giv[76]	nnnns[72]|nnnnn[74]|snsnn[75]|snsnn[76]	_	coref	18-9[119_76]	
 13-19	1170-1177	meeting	event[72]	new[72]	nnnns[72]	_	_	_	
 13-20	1178-1179	.	_	_	_	_	_	_	
 
@@ -231,7 +231,7 @@
 14-2	1186-1196	University	abstract[77]|organization[78]	new[77]|giv[78]	snnnn[77]|nnnnn[78]	_	coref	14-69[95_77]	
 14-3	1197-1206	Relations	abstract[77]|organization[78]	new[77]|giv[78]	snnnn[77]|nnnnn[78]	_	_	_	
 14-4	1207-1210	and	abstract[77]	new[77]	snnnn[77]	_	_	_	
-14-5	1211-1218	Student	abstract[77]|organization[79]|person[80]	new[77]|giv[79]|giv[80]	snnnn[77]|nnnnn[79]|nnnnn[80]	_	coref	31-1[205_80]	
+14-5	1211-1218	Student	abstract[77]|organization[79]|person[80]	new[77]|giv[79]|giv[80]	snnnn[77]|nnnnn[79]|nnnss[80]	_	coref	31-1[205_80]	
 14-6	1219-1226	Affairs	abstract[77]|organization[79]	new[77]|giv[79]	snnnn[77]|nnnnn[79]	_	_	_	
 14-7	1227-1233	object	abstract[77]	new[77]	snnnn[77]	_	_	_	
 14-8	1234-1236	to	abstract[77]	new[77]	snnnn[77]	_	_	_	
@@ -284,11 +284,11 @@
 14-55	1483-1484	"	abstract[77]|abstract[89]	new[77]|new[89]	snnnn[77]|snnnn[89]	_	_	_	
 14-56	1485-1488	and	abstract[77]|abstract[89]	new[77]|new[89]	snnnn[77]|snnnn[89]	_	_	_	
 14-57	1489-1490	"	abstract[77]|abstract[89]	new[77]|new[89]	snnnn[77]|snnnn[89]	_	_	_	
-14-58	1491-1505	responsibility	abstract[77]|abstract[89]|abstract[92]	new[77]|new[89]|new[92]	snnnn[77]|snnnn[89]|nnnnn[92]	_	coref	15-3[102_92]	
-14-59	1506-1508	to	abstract[77]|abstract[89]|abstract[92]	new[77]|new[89]|new[92]	snnnn[77]|snnnn[89]|nnnnn[92]	_	_	_	
-14-60	1509-1520	maintaining	abstract[77]|abstract[89]|abstract[92]	new[77]|new[89]|new[92]	snnnn[77]|snnnn[89]|nnnnn[92]	_	_	_	
-14-61	1521-1529	accurate	abstract[77]|abstract[89]|abstract[92]|abstract[93]	new[77]|new[89]|new[92]|new[93]	snnnn[77]|snnnn[89]|nnnnn[92]|nnnnn[93]	_	coref	15-9[104_93]	
-14-62	1530-1541	information	abstract[77]|abstract[89]|abstract[92]|abstract[93]	new[77]|new[89]|new[92]|new[93]	snnnn[77]|snnnn[89]|nnnnn[92]|nnnnn[93]	_	_	_	
+14-58	1491-1505	responsibility	abstract[77]|abstract[89]|abstract[92]	new[77]|new[89]|new[92]	snnnn[77]|snnnn[89]|nnnsn[92]	_	coref	15-3[102_92]	
+14-59	1506-1508	to	abstract[77]|abstract[89]|abstract[92]	new[77]|new[89]|new[92]	snnnn[77]|snnnn[89]|nnnsn[92]	_	_	_	
+14-60	1509-1520	maintaining	abstract[77]|abstract[89]|abstract[92]	new[77]|new[89]|new[92]	snnnn[77]|snnnn[89]|nnnsn[92]	_	_	_	
+14-61	1521-1529	accurate	abstract[77]|abstract[89]|abstract[92]|abstract[93]	new[77]|new[89]|new[92]|new[93]	snnnn[77]|snnnn[89]|nnnsn[92]|nnnnn[93]	_	coref	15-9[104_93]	
+14-62	1530-1541	information	abstract[77]|abstract[89]|abstract[92]|abstract[93]	new[77]|new[89]|new[92]|new[93]	snnnn[77]|snnnn[89]|nnnsn[92]|nnnnn[93]	_	_	_	
 14-63	1542-1543	,	abstract[77]	new[77]	snnnn[77]	_	_	_	
 14-64	1544-1545	"	_	_	_	_	_	_	
 14-65	1546-1547	1	_	_	_	_	_	_	
@@ -314,25 +314,25 @@
 14-85	1662-1664	is	_	_	_	_	_	_	
 14-86	1665-1676	trustworthy	_	_	_	_	_	_	
 14-87	1677-1679	on	_	_	_	_	_	_	
-14-88	1680-1681	a	abstract[100]	giv[100]	nnnnn[100]	_	_	_	
-14-89	1682-1686	wiki	abstract[100]	giv[100]	nnnnn[100]	_	_	_	
+14-88	1680-1681	a	abstract[100]	giv[100]	nsnnn[100]	_	_	_	
+14-89	1682-1686	wiki	abstract[100]	giv[100]	nsnnn[100]	_	_	_	
 14-90	1687-1688	.	_	_	_	_	_	_	
 
 #Text=I acknowledge the University 's responsibility to maintain accurate information on official Web pages , however , the University policy entitled " Copyright Information ” 2 reads as follows ( emphasis added ) :
 15-1	1689-1690	I	person[101]	giv[101]	sssss[101]	_	coref	25-2[169_101]	
 15-2	1691-1702	acknowledge	_	_	_	_	_	_	
-15-3	1703-1706	the	abstract[102]|organization[103]	new[102]|new[103]	nnnnn[102]|sssss[103]	Pennsylvania_State_University[103]	coref	15-19[108_103]	
-15-4	1707-1717	University	abstract[102]|organization[103]	new[102]|new[103]	nnnnn[102]|sssss[103]	Pennsylvania_State_University[103]	_	_	
-15-5	1718-1720	's	abstract[102]|organization[103]	new[102]|new[103]	nnnnn[102]|sssss[103]	Pennsylvania_State_University[103]	_	_	
-15-6	1721-1735	responsibility	abstract[102]	new[102]	nnnnn[102]	_	_	_	
-15-7	1736-1738	to	abstract[102]	new[102]	nnnnn[102]	_	_	_	
-15-8	1739-1747	maintain	abstract[102]	new[102]	nnnnn[102]	_	_	_	
-15-9	1748-1756	accurate	abstract[102]|abstract[104]	new[102]|giv[104]	nnnnn[102]|nnnnn[104]	_	_	_	
-15-10	1757-1768	information	abstract[102]|abstract[104]	new[102]|giv[104]	nnnnn[102]|nnnnn[104]	_	_	_	
-15-11	1769-1771	on	abstract[102]|abstract[104]	new[102]|giv[104]	nnnnn[102]|nnnnn[104]	_	_	_	
-15-12	1772-1780	official	abstract[102]|abstract[104]|abstract[105]	new[102]|giv[104]|new[105]	nnnnn[102]|nnnnn[104]|nnnnn[105]	_	coref	21-20[136_105]	
-15-13	1781-1784	Web	abstract[102]|abstract[104]|abstract[105]|abstract[106]	new[102]|giv[104]|new[105]|new[106]	nnnnn[102]|nnnnn[104]|nnnnn[105]|nnnnn[106]	World_Wide_Web[106]	coref	20-8[126_106]	
-15-14	1785-1790	pages	abstract[102]|abstract[104]|abstract[105]	new[102]|giv[104]|new[105]	nnnnn[102]|nnnnn[104]|nnnnn[105]	_	_	_	
+15-3	1703-1706	the	abstract[102]|organization[103]	new[102]|new[103]	nnnsn[102]|sssss[103]	Pennsylvania_State_University[103]	coref|bridge:entity-associative	15-19[108_103]|15-12[105_103]	
+15-4	1707-1717	University	abstract[102]|organization[103]	new[102]|new[103]	nnnsn[102]|sssss[103]	Pennsylvania_State_University[103]	_	_	
+15-5	1718-1720	's	abstract[102]|organization[103]	new[102]|new[103]	nnnsn[102]|sssss[103]	Pennsylvania_State_University[103]	_	_	
+15-6	1721-1735	responsibility	abstract[102]	new[102]	nnnsn[102]	_	_	_	
+15-7	1736-1738	to	abstract[102]	new[102]	nnnsn[102]	_	_	_	
+15-8	1739-1747	maintain	abstract[102]	new[102]	nnnsn[102]	_	_	_	
+15-9	1748-1756	accurate	abstract[102]|abstract[104]	new[102]|giv[104]	nnnsn[102]|nnnnn[104]	_	_	_	
+15-10	1757-1768	information	abstract[102]|abstract[104]	new[102]|giv[104]	nnnsn[102]|nnnnn[104]	_	_	_	
+15-11	1769-1771	on	abstract[102]|abstract[104]	new[102]|giv[104]	nnnsn[102]|nnnnn[104]	_	_	_	
+15-12	1772-1780	official	abstract[102]|abstract[104]|abstract[105]	new[102]|giv[104]|acc[105]	nnnsn[102]|nnnnn[104]|nnnnn[105]	_	coref	21-20[136_105]	
+15-13	1781-1784	Web	abstract[102]|abstract[104]|abstract[105]|abstract[106]	new[102]|giv[104]|acc[105]|new[106]	nnnsn[102]|nnnnn[104]|nnnnn[105]|nnnnn[106]	World_Wide_Web[106]	coref	20-8[126_106]	
+15-14	1785-1790	pages	abstract[102]|abstract[104]|abstract[105]	new[102]|giv[104]|acc[105]	nnnsn[102]|nnnnn[104]|nnnnn[105]	_	_	_	
 15-15	1791-1792	,	_	_	_	_	_	_	
 15-16	1793-1800	however	_	_	_	_	_	_	
 15-17	1801-1802	,	_	_	_	_	_	_	
@@ -367,8 +367,8 @@
 17-4	1934-1941	decides	_	_	_	_	_	_	
 17-5	1942-1949	against	_	_	_	_	_	_	
 17-6	1950-1960	supporting	_	_	_	_	_	_	
-17-7	1961-1965	wiki	abstract[114]|abstract[115]	new[114]|giv[115]	snsss[114]|nsnns[115]	_	coref|coref	23-1[149_114]|24-7[160_115]	
-17-8	1966-1973	project	abstract[114]	new[114]	snsss[114]	_	_	_	
+17-7	1961-1965	wiki	abstract[114]|abstract[115]	new[114]|giv[115]	sssss[114]|nsnns[115]	_	coref|coref	23-1[149_114]|24-7[160_115]	
+17-8	1966-1973	project	abstract[114]	new[114]	sssss[114]	_	_	_	
 17-9	1974-1975	.	_	_	_	_	_	_	
 17-10	1976-1977	"	_	_	_	_	_	_	
 
@@ -381,7 +381,7 @@
 18-6	2003-2004	-	time[117]	new[117]	nnnnn[117]	_	_	_	
 18-7	2005-2013	February	time[117]|time[118]	new[117]|new[118]	nnnnn[117]|nnnnn[118]	_	_	_	
 18-8	2014-2015	-	time[117]|time[118]	new[117]|new[118]	nnnnn[117]|nnnnn[118]	_	_	_	
-18-9	2016-2020	2006	time[117]|time[118]|time[119]	new[117]|new[118]|giv[119]	nnnnn[117]|nnnnn[118]|snnnn[119]	_	_	_	
+18-9	2016-2020	2006	time[117]|time[118]|time[119]	new[117]|new[118]|giv[119]	nnnnn[117]|nnnnn[118]|snsnn[119]	_	_	_	
 
 #Text=Copyright Information : http://www.psu.edu/ur/copyright.html
 19-1	2021-2030	Copyright	abstract[120]	giv[120]	nnnnn[120]	_	coref	19-4[121_120]	
@@ -449,7 +449,7 @@
 21-22	2402-2405	the	abstract[136]	giv[136]	nnnnn[136]	_	_	_	
 21-23	2406-2411	pages	abstract[136]	giv[136]	nnnnn[136]	_	_	_	
 21-24	2412-2421	presented	abstract[136]	giv[136]	nnnnn[136]	_	_	_	
-21-25	2422-2426	here	abstract[136]|place[137]	giv[136]|new[137]	nnnnn[136]|nnnnn[137]	_	_	_	
+21-25	2422-2426	here	abstract[136]|place[137]	giv[136]|new[137]	nnnnn[136]|nnnnn[137]	_	bridge:set-member	22-4[141_137]	
 21-26	2427-2430	and	_	_	_	_	_	_	
 21-27	2431-2440	therefore	_	_	_	_	_	_	
 21-28	2441-2444	can	_	_	_	_	_	_	
@@ -465,9 +465,9 @@
 22-1	2493-2496	The	abstract[140]	giv[140]	nnnnn[140]	_	_	_	
 22-2	2497-2503	author	abstract[140]	giv[140]	nnnnn[140]	_	_	_	
 22-3	2504-2506	of	abstract[140]	giv[140]	nnnnn[140]	_	_	_	
-22-4	2507-2511	each	abstract[140]|abstract[141]	giv[140]|new[141]	nnnnn[140]|nnnnn[141]	_	coref	22-13[144_141]	
-22-5	2512-2515	Web	abstract[140]|abstract[141]|abstract[142]	giv[140]|new[141]|giv[142]	nnnnn[140]|nnnnn[141]|nnnnn[142]	World_Wide_Web[142]	_	_	
-22-6	2516-2520	page	abstract[140]|abstract[141]	giv[140]|new[141]	nnnnn[140]|nnnnn[141]	_	_	_	
+22-4	2507-2511	each	abstract[140]|abstract[141]	giv[140]|acc[141]	nnnnn[140]|nnnnn[141]	_	coref	22-13[144_141]	
+22-5	2512-2515	Web	abstract[140]|abstract[141]|abstract[142]	giv[140]|acc[141]|giv[142]	nnnnn[140]|nnnnn[141]|nnnnn[142]	World_Wide_Web[142]	_	_	
+22-6	2516-2520	page	abstract[140]|abstract[141]	giv[140]|acc[141]	nnnnn[140]|nnnnn[141]	_	_	_	
 22-7	2521-2523	is	_	_	_	_	_	_	
 22-8	2524-2535	responsible	_	_	_	_	_	_	
 22-9	2536-2539	for	_	_	_	_	_	_	
@@ -495,10 +495,10 @@
 22-31	2650-2651	.	_	_	_	_	_	_	
 
 #Text=The Penn State Wiki was never proposed as a source of official information , and the University already hosts non-official content that is highly circulated yet occasionally incorrect ( e.g. , The Daily Collegian ) .
-23-1	2652-2655	The	abstract[149]	giv[149]	snsss[149]	_	coref|bridge	28-14[196_149]|25-16[172_149]	
-23-2	2656-2660	Penn	abstract[149]|organization[150]|place[151]	giv[149]|giv[150]|giv[151]	snsss[149]|sssss[150]|sssss[151]	Pennsylvania_State_University[150]|Pennsylvania[151]	coref|coref	23-16[154_150]|28-15[198_151]	
-23-3	2661-2666	State	abstract[149]|organization[150]	giv[149]|giv[150]	snsss[149]|sssss[150]	Pennsylvania_State_University[150]	_	_	
-23-4	2667-2671	Wiki	abstract[149]	giv[149]	snsss[149]	_	_	_	
+23-1	2652-2655	The	abstract[149]	giv[149]	sssss[149]	_	coref	28-14[196_149]	
+23-2	2656-2660	Penn	abstract[149]|organization[150]|place[151]	giv[149]|giv[150]|giv[151]	sssss[149]|sssss[150]|sssss[151]	Pennsylvania_State_University[150]|Pennsylvania[151]	coref|coref|bridge:entity-associative	23-16[154_150]|28-15[198_151]|23-12[153_150]	
+23-3	2661-2666	State	abstract[149]|organization[150]	giv[149]|giv[150]	sssss[149]|sssss[150]	Pennsylvania_State_University[150]	_	_	
+23-4	2667-2671	Wiki	abstract[149]	giv[149]	sssss[149]	_	_	_	
 23-5	2672-2675	was	_	_	_	_	_	_	
 23-6	2676-2681	never	_	_	_	_	_	_	
 23-7	2682-2690	proposed	_	_	_	_	_	_	
@@ -506,8 +506,8 @@
 23-9	2694-2695	a	abstract[152]	new[152]	nnnnn[152]	_	_	_	
 23-10	2696-2702	source	abstract[152]	new[152]	nnnnn[152]	_	_	_	
 23-11	2703-2705	of	abstract[152]	new[152]	nnnnn[152]	_	_	_	
-23-12	2706-2714	official	abstract[152]|abstract[153]	new[152]|giv[153]	nnnnn[152]|nnnnn[153]	_	_	_	
-23-13	2715-2726	information	abstract[152]|abstract[153]	new[152]|giv[153]	nnnnn[152]|nnnnn[153]	_	_	_	
+23-12	2706-2714	official	abstract[152]|abstract[153]	new[152]|acc[153]	nnnnn[152]|nnnnn[153]	_	_	_	
+23-13	2715-2726	information	abstract[152]|abstract[153]	new[152]|acc[153]	nnnnn[152]|nnnnn[153]	_	_	_	
 23-14	2727-2728	,	_	_	_	_	_	_	
 23-15	2729-2732	and	_	_	_	_	_	_	
 23-16	2733-2736	the	organization[154]	giv[154]	sssss[154]	Pennsylvania_State_University[154]	coref	26-25[181_154]	
@@ -544,7 +544,7 @@
 24-9	2921-2930	decreases	abstract[157]	new[157]	nnnnn[157]	_	_	_	
 24-10	2931-2934	the	abstract[157]	new[157]	nnnnn[157]	_	_	_	
 24-11	2935-2945	likelihood	abstract[157]	new[157]	nnnnn[157]	_	_	_	
-24-12	2946-2948	it	abstract[157]|abstract[161]	new[157]|giv[161]	nnnnn[157]|nnnnn[161]	_	_	_	
+24-12	2946-2948	it	abstract[157]|abstract[161]	new[157]|giv[161]	nnnnn[157]|nnnnn[161]	_	bridge:comparison-relative	24-23[164_161]	
 24-13	2949-2953	will	abstract[157]	new[157]	nnnnn[157]	_	_	_	
 24-14	2954-2961	contain	abstract[157]	new[157]	nnnnn[157]	_	_	_	
 24-15	2962-2976	misinformation	abstract[157]|abstract[162]	new[157]|new[162]	nnnnn[157]|snsnn[162]	_	_	_	
@@ -555,27 +555,27 @@
 24-20	2998-3001	not	abstract[163]	giv[163]	nnnnn[163]	_	_	_	
 24-21	3002-3009	present	abstract[163]	giv[163]	nnnnn[163]	_	_	_	
 24-22	3010-3012	in	abstract[163]	giv[163]	nnnnn[163]	_	_	_	
-24-23	3013-3018	other	abstract[163]|abstract[164]	giv[163]|new[164]	nnnnn[163]|nnnnn[164]	_	_	_	
-24-24	3019-3031	technologies	abstract[163]|abstract[164]	giv[163]|new[164]	nnnnn[163]|nnnnn[164]	_	_	_	
-24-25	3032-3036	such	abstract[163]|abstract[164]	giv[163]|new[164]	nnnnn[163]|nnnnn[164]	_	_	_	
-24-26	3037-3039	as	abstract[163]|abstract[164]	giv[163]|new[164]	nnnnn[163]|nnnnn[164]	_	_	_	
-24-27	3040-3050	newspapers	abstract[163]|abstract[164]|abstract[165]	giv[163]|new[164]|new[165]	nnnnn[163]|nnnnn[164]|nnnnn[165]	_	_	_	
-24-28	3051-3052	,	abstract[163]|abstract[164]	giv[163]|new[164]	nnnnn[163]|nnnnn[164]	_	_	_	
-24-29	3053-3058	radio	abstract[163]|abstract[164]|abstract[166]	giv[163]|new[164]|new[166]	nnnnn[163]|nnnnn[164]|nnnnn[166]	_	_	_	
-24-30	3059-3060	,	abstract[163]|abstract[164]	giv[163]|new[164]	nnnnn[163]|nnnnn[164]	_	_	_	
-24-31	3061-3064	and	abstract[163]|abstract[164]	giv[163]|new[164]	nnnnn[163]|nnnnn[164]	_	_	_	
-24-32	3065-3069	most	abstract[163]|abstract[164]|abstract[167]	giv[163]|new[164]|new[167]	nnnnn[163]|nnnnn[164]|nnnnn[167]	_	_	_	
-24-33	3070-3078	internet	abstract[163]|abstract[164]|abstract[167]|abstract[168]	giv[163]|new[164]|new[167]|new[168]	nnnnn[163]|nnnnn[164]|nnnnn[167]|nnnnn[168]	_	_	_	
-24-34	3079-3084	sites	abstract[163]|abstract[164]|abstract[167]	giv[163]|new[164]|new[167]	nnnnn[163]|nnnnn[164]|nnnnn[167]	_	_	_	
+24-23	3013-3018	other	abstract[163]|abstract[164]	giv[163]|acc[164]	nnnnn[163]|nnnnn[164]	_	_	_	
+24-24	3019-3031	technologies	abstract[163]|abstract[164]	giv[163]|acc[164]	nnnnn[163]|nnnnn[164]	_	_	_	
+24-25	3032-3036	such	abstract[163]|abstract[164]	giv[163]|acc[164]	nnnnn[163]|nnnnn[164]	_	_	_	
+24-26	3037-3039	as	abstract[163]|abstract[164]	giv[163]|acc[164]	nnnnn[163]|nnnnn[164]	_	_	_	
+24-27	3040-3050	newspapers	abstract[163]|abstract[164]|abstract[165]	giv[163]|acc[164]|new[165]	nnnnn[163]|nnnnn[164]|nnnnn[165]	_	_	_	
+24-28	3051-3052	,	abstract[163]|abstract[164]	giv[163]|acc[164]	nnnnn[163]|nnnnn[164]	_	_	_	
+24-29	3053-3058	radio	abstract[163]|abstract[164]|abstract[166]	giv[163]|acc[164]|new[166]	nnnnn[163]|nnnnn[164]|nnnnn[166]	_	_	_	
+24-30	3059-3060	,	abstract[163]|abstract[164]	giv[163]|acc[164]	nnnnn[163]|nnnnn[164]	_	_	_	
+24-31	3061-3064	and	abstract[163]|abstract[164]	giv[163]|acc[164]	nnnnn[163]|nnnnn[164]	_	_	_	
+24-32	3065-3069	most	abstract[163]|abstract[164]|abstract[167]	giv[163]|acc[164]|new[167]	nnnnn[163]|nnnnn[164]|nnnnn[167]	_	_	_	
+24-33	3070-3078	internet	abstract[163]|abstract[164]|abstract[167]|abstract[168]	giv[163]|acc[164]|new[167]|new[168]	nnnnn[163]|nnnnn[164]|nnnnn[167]|nnnnn[168]	_	_	_	
+24-34	3079-3084	sites	abstract[163]|abstract[164]|abstract[167]	giv[163]|acc[164]|new[167]	nnnnn[163]|nnnnn[164]|nnnnn[167]	_	_	_	
 24-35	3085-3086	.	_	_	_	_	_	_	
 
 #Text=As a volunteer editor for the Wikimedia Foundation , I am committed to ensuring that posted information is as accurate and reputable as possible by checking facts and verifying sources .
 25-1	3087-3089	As	_	_	_	_	_	_	
-25-2	3090-3091	a	person[169]	new[169]	sssss[169]	_	coref|bridge	25-10[171_169]|26-9[176_169]	
+25-2	3090-3091	a	person[169]	new[169]	sssss[169]	_	coref	25-10[171_169]	
 25-3	3092-3101	volunteer	person[169]	new[169]	sssss[169]	_	_	_	
 25-4	3102-3108	editor	person[169]	new[169]	sssss[169]	_	_	_	
 25-5	3109-3112	for	person[169]	new[169]	sssss[169]	_	_	_	
-25-6	3113-3116	the	person[169]|organization[170]	new[169]|new[170]	sssss[169]|nsnnn[170]	Wikimedia_Foundation[170]	coref	26-10[177_170]	
+25-6	3113-3116	the	person[169]|organization[170]	new[169]|new[170]	sssss[169]|nsnnn[170]	Wikimedia_Foundation[170]	coref|bridge:entity-associative	26-10[177_170]|25-16[172_170]	
 25-7	3117-3126	Wikimedia	person[169]|organization[170]	new[169]|new[170]	sssss[169]|nsnnn[170]	Wikimedia_Foundation[170]	_	_	
 25-8	3127-3137	Foundation	person[169]|organization[170]	new[169]|new[170]	sssss[169]|nsnnn[170]	Wikimedia_Foundation[170]	_	_	
 25-9	3138-3139	,	_	_	_	_	_	_	
@@ -585,7 +585,7 @@
 25-13	3155-3157	to	_	_	_	_	_	_	
 25-14	3158-3166	ensuring	_	_	_	_	_	_	
 25-15	3167-3171	that	_	_	_	_	_	_	
-25-16	3172-3178	posted	abstract[172]	acc[172]	nnnnn[172]	_	_	_	
+25-16	3172-3178	posted	abstract[172]	acc[172]	nnnnn[172]	_	bridge:entity-associative|bridge:entity-associative	25-27[173_172]|25-30[174_172]	
 25-17	3179-3190	information	abstract[172]	acc[172]	nnnnn[172]	_	_	_	
 25-18	3191-3193	is	_	_	_	_	_	_	
 25-19	3194-3196	as	_	_	_	_	_	_	
@@ -596,17 +596,17 @@
 25-24	3223-3231	possible	_	_	_	_	_	_	
 25-25	3232-3234	by	_	_	_	_	_	_	
 25-26	3235-3243	checking	_	_	_	_	_	_	
-25-27	3244-3249	facts	abstract[173]	new[173]	nnnnn[173]	_	_	_	
+25-27	3244-3249	facts	abstract[173]	acc[173]	nnnnn[173]	_	_	_	
 25-28	3250-3253	and	_	_	_	_	_	_	
 25-29	3254-3263	verifying	_	_	_	_	_	_	
-25-30	3264-3271	sources	abstract[174]	giv[174]	nnnnn[174]	_	_	_	
+25-30	3264-3271	sources	abstract[174]	acc[174]	nnnnn[174]	_	_	_	
 25-31	3272-3273	.	_	_	_	_	_	_	
 
 #Text=As such , I expect the same of other Wikimedia Foundation contributors and also intend for the standard of expectation to carry over into University - hosted wikis .
 26-1	3274-3276	As	_	_	_	_	_	_	
 26-2	3277-3281	such	_	_	_	_	_	_	
 26-3	3282-3283	,	_	_	_	_	_	_	
-26-4	3284-3285	I	person[175]	giv[175]	sssss[175]	_	coref	27-1[182_175]	
+26-4	3284-3285	I	person[175]	giv[175]	sssss[175]	_	coref|bridge:comparison-relative	27-1[182_175]|26-9[176_175]	
 26-5	3286-3292	expect	_	_	_	_	_	_	
 26-6	3293-3296	the	_	_	_	_	_	_	
 26-7	3297-3301	same	_	_	_	_	_	_	
@@ -636,12 +636,12 @@
 #Text=I published video material on the Undergraduate Student Government ( U.S.G. ) website 3 addressing benefits of wiki technology , and I recorded individual commentary .
 27-1	3440-3441	I	person[182]	giv[182]	sssss[182]	_	coref	27-22[190_182]	
 27-2	3442-3451	published	_	_	_	_	_	_	
-27-3	3452-3457	video	abstract[183]	new[183]	nnnnn[183]	_	bridge	27-24[191_183]	
+27-3	3452-3457	video	abstract[183]	new[183]	nnnnn[183]	_	bridge:entity-associative|bridge:set-member	27-24[191_183]|28-8[194_183]	
 27-4	3458-3466	material	abstract[183]	new[183]	nnnnn[183]	_	_	_	
 27-5	3467-3469	on	_	_	_	_	_	_	
 27-6	3470-3473	the	abstract[184]	giv[184]	nnnnn[184]	_	_	_	
-27-7	3474-3487	Undergraduate	abstract[184]|organization[185]|person[186]	giv[184]|giv[185]|giv[186]	nnnnn[184]|nnnns[185]|nnnns[186]	_	coref|coref	27-11[187_185]|37-5[257_186]	
-27-8	3488-3495	Student	abstract[184]|organization[185]|person[186]	giv[184]|giv[185]|giv[186]	nnnnn[184]|nnnns[185]|nnnns[186]	_	_	_	
+27-7	3474-3487	Undergraduate	abstract[184]|organization[185]|person[186]	giv[184]|giv[185]|giv[186]	nnnnn[184]|nnnns[185]|nssnn[186]	_	coref|coref	27-11[187_185]|37-5[257_186]	
+27-8	3488-3495	Student	abstract[184]|organization[185]|person[186]	giv[184]|giv[185]|giv[186]	nnnnn[184]|nnnns[185]|nssnn[186]	_	_	_	
 27-9	3496-3506	Government	abstract[184]|organization[185]	giv[184]|giv[185]	nnnnn[184]|nnnns[185]	_	_	_	
 27-10	3507-3508	(	abstract[184]	giv[184]	nnnnn[184]	_	_	_	
 27-11	3509-3515	U.S.G.	abstract[184]|organization[187]	giv[184]|giv[187]	nnnnn[184]|nnnns[187]	_	coref	29-1[201_187]	
@@ -649,10 +649,10 @@
 27-13	3518-3525	website	abstract[184]	giv[184]	nnnnn[184]	_	_	_	
 27-14	3526-3527	3	_	_	_	_	_	_	
 27-15	3528-3538	addressing	_	_	_	_	_	_	
-27-16	3539-3547	benefits	abstract[188]	giv[188]	nnnnn[188]	_	_	_	
-27-17	3548-3550	of	abstract[188]	giv[188]	nnnnn[188]	_	_	_	
-27-18	3551-3555	wiki	abstract[188]|abstract[189]	giv[188]|giv[189]	nnnnn[188]|nsnns[189]	_	coref	38-12[263_189]	
-27-19	3556-3566	technology	abstract[188]|abstract[189]	giv[188]|giv[189]	nnnnn[188]|nsnns[189]	_	_	_	
+27-16	3539-3547	benefits	abstract[188]	giv[188]	nnnns[188]	_	_	_	
+27-17	3548-3550	of	abstract[188]	giv[188]	nnnns[188]	_	_	_	
+27-18	3551-3555	wiki	abstract[188]|abstract[189]	giv[188]|giv[189]	nnnns[188]|nsnns[189]	_	coref	38-12[263_189]	
+27-19	3556-3566	technology	abstract[188]|abstract[189]	giv[188]|giv[189]	nnnns[188]|nsnns[189]	_	_	_	
 27-20	3567-3568	,	_	_	_	_	_	_	
 27-21	3569-3572	and	_	_	_	_	_	_	
 27-22	3573-3574	I	person[190]	giv[190]	sssss[190]	_	coref	30-1[203_190]	
@@ -669,16 +669,16 @@
 28-5	3627-3634	partial	abstract[193]	giv[193]	nnnnn[193]	_	_	_	
 28-6	3635-3645	transcript	abstract[193]	giv[193]	nnnnn[193]	_	_	_	
 28-7	3646-3650	from	abstract[193]	giv[193]	nnnnn[193]	_	_	_	
-28-8	3651-3654	one	abstract[193]|abstract[194]	giv[193]|new[194]	nnnnn[193]|nnnnn[194]	_	coref	28-12[195_194]	
-28-9	3655-3664	videocast	abstract[193]|abstract[194]	giv[193]|new[194]	nnnnn[193]|nnnnn[194]	_	_	_	
+28-8	3651-3654	one	abstract[193]|abstract[194]	giv[193]|acc[194]	nnnnn[193]|nnnnn[194]	_	coref	28-12[195_194]	
+28-9	3655-3664	videocast	abstract[193]|abstract[194]	giv[193]|acc[194]	nnnnn[193]|nnnnn[194]	_	_	_	
 28-10	3665-3673	entitled	abstract[193]	giv[193]	nnnnn[193]	_	_	_	
 28-11	3674-3675	"	abstract[193]	giv[193]	nnnnn[193]	_	_	_	
 28-12	3676-3688	Introduction	abstract[193]|abstract[195]	giv[193]|new[195]	nnnnn[193]|nnnnn[195]	_	_	_	
 28-13	3689-3691	to	abstract[193]|abstract[195]	giv[193]|new[195]	nnnnn[193]|nnnnn[195]	_	_	_	
-28-14	3692-3695	the	abstract[193]|abstract[195]|abstract[196]	giv[193]|new[195]|giv[196]	nnnnn[193]|nnnnn[195]|snsss[196]	_	coref	45-8[304_196]	
-28-15	3696-3700	Penn	abstract[193]|abstract[195]|abstract[196]|organization[197]|place[198]	giv[193]|new[195]|giv[196]|giv[197]|giv[198]	nnnnn[193]|nnnnn[195]|snsss[196]|sssss[197]|sssss[198]	Pennsylvania_State_University[197]|Pennsylvania[198]	coref|coref	31-7[208_197]|31-7[209_198]	
-28-16	3701-3706	State	abstract[193]|abstract[195]|abstract[196]|organization[197]	giv[193]|new[195]|giv[196]|giv[197]	nnnnn[193]|nnnnn[195]|snsss[196]|sssss[197]	Pennsylvania_State_University[197]	_	_	
-28-17	3707-3711	Wiki	abstract[193]|abstract[195]|abstract[196]	giv[193]|new[195]|giv[196]	nnnnn[193]|nnnnn[195]|snsss[196]	_	_	_	
+28-14	3692-3695	the	abstract[193]|abstract[195]|abstract[196]	giv[193]|new[195]|giv[196]	nnnnn[193]|nnnnn[195]|sssss[196]	_	coref	45-8[304_196]	
+28-15	3696-3700	Penn	abstract[193]|abstract[195]|abstract[196]|organization[197]|place[198]	giv[193]|new[195]|giv[196]|giv[197]|giv[198]	nnnnn[193]|nnnnn[195]|sssss[196]|sssss[197]|sssss[198]	Pennsylvania_State_University[197]|Pennsylvania[198]	coref|coref	31-7[208_197]|31-7[209_198]	
+28-16	3701-3706	State	abstract[193]|abstract[195]|abstract[196]|organization[197]	giv[193]|new[195]|giv[196]|giv[197]	nnnnn[193]|nnnnn[195]|sssss[196]|sssss[197]	Pennsylvania_State_University[197]	_	_	
+28-17	3707-3711	Wiki	abstract[193]|abstract[195]|abstract[196]	giv[193]|new[195]|giv[196]	nnnnn[193]|nnnnn[195]|sssss[196]	_	_	_	
 28-18	3712-3713	"	abstract[193]	giv[193]	nnnnn[193]	_	_	_	
 28-19	3714-3715	:	_	_	_	_	_	_	
 
@@ -695,12 +695,12 @@
 30-3	3788-3789	:	_	_	_	_	_	_	
 
 #Text=Student -- based class descriptions benefit Penn State two -- fold .
-31-1	3790-3797	Student	abstract[204]|person[205]	new[204]|giv[205]	sssss[204]|nnnnn[205]	_	coref|coref	34-4[229_204]|34-4[230_205]	
-31-2	3798-3800	--	abstract[204]	new[204]	sssss[204]	_	_	_	
-31-3	3801-3806	based	abstract[204]	new[204]	sssss[204]	_	_	_	
-31-4	3807-3812	class	abstract[204]|abstract[206]	new[204]|new[206]	sssss[204]|sssss[206]	_	coref|bridge	34-7[231_206]|32-11[213_206]	
-31-5	3813-3825	descriptions	abstract[204]	new[204]	sssss[204]	_	_	_	
-31-6	3826-3833	benefit	abstract[207]	new[207]	nnnnn[207]	_	bridge|bridge	32-1[210_207]|34-1[228_207]	
+31-1	3790-3797	Student	abstract[204]|person[205]	new[204]|giv[205]	sssnn[204]|nnnss[205]	_	coref|coref	34-4[229_204]|34-4[230_205]	
+31-2	3798-3800	--	abstract[204]	new[204]	sssnn[204]	_	_	_	
+31-3	3801-3806	based	abstract[204]	new[204]	sssnn[204]	_	_	_	
+31-4	3807-3812	class	abstract[204]|abstract[206]	new[204]|new[206]	sssnn[204]|nsnns[206]	_	coref|bridge:set-member	34-7[231_206]|32-11[213_206]	
+31-5	3813-3825	descriptions	abstract[204]	new[204]	sssnn[204]	_	_	_	
+31-6	3826-3833	benefit	abstract[207]	new[207]	nnnnn[207]	_	bridge:set-member;comparison-sense;comparison-relative	32-1[210_207]	
 31-7	3834-3838	Penn	abstract[207]|organization[208]|place[209]	new[207]|giv[208]|giv[209]	nnnnn[207]|sssss[208]|sssss[209]	Pennsylvania_State_University[208]|Pennsylvania[209]	coref|coref	33-1[223_208]|33-1[224_209]	
 31-8	3839-3844	State	abstract[207]|organization[208]	new[207]|giv[208]	nnnnn[207]|sssss[208]	Pennsylvania_State_University[208]	_	_	
 31-9	3845-3848	two	abstract[207]	new[207]	nnnnn[207]	_	_	_	
@@ -709,53 +709,53 @@
 31-12	3857-3858	.	_	_	_	_	_	_	
 
 #Text=The first is the ability for current students enrolled in the class to provide content descriptions for other students considering taking the same course , for those students to have a better idea of what to expect in terms choosing the best academic course for their needs .
-32-1	3859-3862	The	abstract[210]	acc[210]	nnnnn[210]	_	coref	32-4[211_210]	
-32-2	3863-3868	first	abstract[210]	acc[210]	nnnnn[210]	_	_	_	
+32-1	3859-3862	The	abstract[210]	acc[210]	snnnn[210]	_	coref	32-4[211_210]	
+32-2	3863-3868	first	abstract[210]	acc[210]	snnnn[210]	_	_	_	
 32-3	3869-3871	is	_	_	_	_	_	_	
-32-4	3872-3875	the	abstract[211]	giv[211]	nnnnn[211]	_	_	_	
-32-5	3876-3883	ability	abstract[211]	giv[211]	nnnnn[211]	_	_	_	
-32-6	3884-3887	for	abstract[211]	giv[211]	nnnnn[211]	_	_	_	
-32-7	3888-3895	current	abstract[211]|person[212]	giv[211]|new[212]	nnnnn[211]|nnnnn[212]	_	_	_	
-32-8	3896-3904	students	abstract[211]|person[212]	giv[211]|new[212]	nnnnn[211]|nnnnn[212]	_	_	_	
-32-9	3905-3913	enrolled	abstract[211]|person[212]	giv[211]|new[212]	nnnnn[211]|nnnnn[212]	_	_	_	
-32-10	3914-3916	in	abstract[211]|person[212]	giv[211]|new[212]	nnnnn[211]|nnnnn[212]	_	_	_	
-32-11	3917-3920	the	abstract[211]|person[212]|abstract[213]	giv[211]|new[212]|acc[213]	nnnnn[211]|nnnnn[212]|nnnnn[213]	_	coref	32-22[217_213]	
-32-12	3921-3926	class	abstract[211]|person[212]|abstract[213]	giv[211]|new[212]|acc[213]	nnnnn[211]|nnnnn[212]|nnnnn[213]	_	_	_	
-32-13	3927-3929	to	abstract[211]	giv[211]	nnnnn[211]	_	_	_	
-32-14	3930-3937	provide	abstract[211]	giv[211]	nnnnn[211]	_	_	_	
-32-15	3938-3945	content	abstract[211]|abstract[214]|abstract[215]	giv[211]|giv[214]|giv[215]	nnnnn[211]|nnnnn[214]|nnnnn[215]	_	_	_	
-32-16	3946-3958	descriptions	abstract[211]|abstract[214]	giv[211]|giv[214]	nnnnn[211]|nnnnn[214]	_	_	_	
-32-17	3959-3962	for	abstract[211]	giv[211]	nnnnn[211]	_	_	_	
-32-18	3963-3968	other	abstract[211]|person[216]	giv[211]|new[216]	nnnnn[211]|nnnnn[216]	_	coref	32-27[218_216]	
-32-19	3969-3977	students	abstract[211]|person[216]	giv[211]|new[216]	nnnnn[211]|nnnnn[216]	_	_	_	
-32-20	3978-3989	considering	abstract[211]|person[216]	giv[211]|new[216]	nnnnn[211]|nnnnn[216]	_	_	_	
-32-21	3990-3996	taking	abstract[211]|person[216]	giv[211]|new[216]	nnnnn[211]|nnnnn[216]	_	_	_	
-32-22	3997-4000	the	abstract[211]|person[216]|abstract[217]	giv[211]|new[216]|giv[217]	nnnnn[211]|nnnnn[216]|nnnnn[217]	_	_	_	
-32-23	4001-4005	same	abstract[211]|person[216]|abstract[217]	giv[211]|new[216]|giv[217]	nnnnn[211]|nnnnn[216]|nnnnn[217]	_	_	_	
-32-24	4006-4012	course	abstract[211]|person[216]|abstract[217]	giv[211]|new[216]|giv[217]	nnnnn[211]|nnnnn[216]|nnnnn[217]	_	_	_	
-32-25	4013-4014	,	abstract[211]	giv[211]	nnnnn[211]	_	_	_	
-32-26	4015-4018	for	abstract[211]	giv[211]	nnnnn[211]	_	_	_	
-32-27	4019-4024	those	abstract[211]|person[218]	giv[211]|giv[218]	nnnnn[211]|nnnnn[218]	_	coref	32-46[222_218]	
-32-28	4025-4033	students	abstract[211]|person[218]	giv[211]|giv[218]	nnnnn[211]|nnnnn[218]	_	_	_	
-32-29	4034-4036	to	abstract[211]	giv[211]	nnnnn[211]	_	_	_	
-32-30	4037-4041	have	abstract[211]	giv[211]	nnnnn[211]	_	_	_	
-32-31	4042-4043	a	abstract[211]|abstract[219]	giv[211]|new[219]	nnnnn[211]|nnnnn[219]	_	_	_	
-32-32	4044-4050	better	abstract[211]|abstract[219]	giv[211]|new[219]	nnnnn[211]|nnnnn[219]	_	_	_	
-32-33	4051-4055	idea	abstract[211]|abstract[219]	giv[211]|new[219]	nnnnn[211]|nnnnn[219]	_	_	_	
-32-34	4056-4058	of	abstract[211]|abstract[219]	giv[211]|new[219]	nnnnn[211]|nnnnn[219]	_	_	_	
-32-35	4059-4063	what	abstract[211]|abstract[219]	giv[211]|new[219]	nnnnn[211]|nnnnn[219]	_	_	_	
-32-36	4064-4066	to	abstract[211]|abstract[219]	giv[211]|new[219]	nnnnn[211]|nnnnn[219]	_	_	_	
-32-37	4067-4073	expect	abstract[211]|abstract[219]	giv[211]|new[219]	nnnnn[211]|nnnnn[219]	_	_	_	
-32-38	4074-4076	in	abstract[211]|abstract[219]	giv[211]|new[219]	nnnnn[211]|nnnnn[219]	_	_	_	
-32-39	4077-4082	terms	abstract[211]|abstract[219]	giv[211]|new[219]	nnnnn[211]|nnnnn[219]	_	_	_	
-32-40	4083-4091	choosing	abstract[211]|abstract[219]	giv[211]|new[219]	nnnnn[211]|nnnnn[219]	_	_	_	
-32-41	4092-4095	the	abstract[211]|abstract[219]|abstract[220]	giv[211]|new[219]|giv[220]	nnnnn[211]|nnnnn[219]|nnnnn[220]	_	_	_	
-32-42	4096-4100	best	abstract[211]|abstract[219]|abstract[220]	giv[211]|new[219]|giv[220]	nnnnn[211]|nnnnn[219]|nnnnn[220]	_	_	_	
-32-43	4101-4109	academic	abstract[211]|abstract[219]|abstract[220]	giv[211]|new[219]|giv[220]	nnnnn[211]|nnnnn[219]|nnnnn[220]	_	_	_	
-32-44	4110-4116	course	abstract[211]|abstract[219]|abstract[220]	giv[211]|new[219]|giv[220]	nnnnn[211]|nnnnn[219]|nnnnn[220]	_	_	_	
-32-45	4117-4120	for	abstract[211]|abstract[219]|abstract[220]	giv[211]|new[219]|giv[220]	nnnnn[211]|nnnnn[219]|nnnnn[220]	_	_	_	
-32-46	4121-4126	their	abstract[211]|abstract[219]|abstract[220]|abstract[221]|person[222]	giv[211]|new[219]|giv[220]|new[221]|giv[222]	nnnnn[211]|nnnnn[219]|nnnnn[220]|nnnnn[221]|nnnnn[222]	_	_	_	
-32-47	4127-4132	needs	abstract[211]|abstract[219]|abstract[220]|abstract[221]	giv[211]|new[219]|giv[220]|new[221]	nnnnn[211]|nnnnn[219]|nnnnn[220]|nnnnn[221]	_	_	_	
+32-4	3872-3875	the	abstract[211]	giv[211]	snnnn[211]	_	bridge:comparison-relative	34-1[228_211]	
+32-5	3876-3883	ability	abstract[211]	giv[211]	snnnn[211]	_	_	_	
+32-6	3884-3887	for	abstract[211]	giv[211]	snnnn[211]	_	_	_	
+32-7	3888-3895	current	abstract[211]|person[212]	giv[211]|new[212]	snnnn[211]|nnnnn[212]	_	bridge:comparison-relative	32-18[216_212]	
+32-8	3896-3904	students	abstract[211]|person[212]	giv[211]|new[212]	snnnn[211]|nnnnn[212]	_	_	_	
+32-9	3905-3913	enrolled	abstract[211]|person[212]	giv[211]|new[212]	snnnn[211]|nnnnn[212]	_	_	_	
+32-10	3914-3916	in	abstract[211]|person[212]	giv[211]|new[212]	snnnn[211]|nnnnn[212]	_	_	_	
+32-11	3917-3920	the	abstract[211]|person[212]|abstract[213]	giv[211]|new[212]|acc[213]	snnnn[211]|nnnnn[212]|nnnnn[213]	_	coref|bridge:entity-associative	32-22[217_213]|32-15[214_213]	
+32-12	3921-3926	class	abstract[211]|person[212]|abstract[213]	giv[211]|new[212]|acc[213]	snnnn[211]|nnnnn[212]|nnnnn[213]	_	_	_	
+32-13	3927-3929	to	abstract[211]	giv[211]	snnnn[211]	_	_	_	
+32-14	3930-3937	provide	abstract[211]	giv[211]	snnnn[211]	_	_	_	
+32-15	3938-3945	content	abstract[211]|abstract[214]|abstract[215]	giv[211]|acc[214]|giv[215]	snnnn[211]|nnnnn[214]|nnnnn[215]	_	_	_	
+32-16	3946-3958	descriptions	abstract[211]|abstract[214]	giv[211]|acc[214]	snnnn[211]|nnnnn[214]	_	_	_	
+32-17	3959-3962	for	abstract[211]	giv[211]	snnnn[211]	_	_	_	
+32-18	3963-3968	other	abstract[211]|person[216]	giv[211]|acc[216]	snnnn[211]|nnnnn[216]	_	coref	32-27[218_216]	
+32-19	3969-3977	students	abstract[211]|person[216]	giv[211]|acc[216]	snnnn[211]|nnnnn[216]	_	_	_	
+32-20	3978-3989	considering	abstract[211]|person[216]	giv[211]|acc[216]	snnnn[211]|nnnnn[216]	_	_	_	
+32-21	3990-3996	taking	abstract[211]|person[216]	giv[211]|acc[216]	snnnn[211]|nnnnn[216]	_	_	_	
+32-22	3997-4000	the	abstract[211]|person[216]|abstract[217]	giv[211]|acc[216]|giv[217]	snnnn[211]|nnnnn[216]|nnnnn[217]	_	_	_	
+32-23	4001-4005	same	abstract[211]|person[216]|abstract[217]	giv[211]|acc[216]|giv[217]	snnnn[211]|nnnnn[216]|nnnnn[217]	_	_	_	
+32-24	4006-4012	course	abstract[211]|person[216]|abstract[217]	giv[211]|acc[216]|giv[217]	snnnn[211]|nnnnn[216]|nnnnn[217]	_	_	_	
+32-25	4013-4014	,	abstract[211]	giv[211]	snnnn[211]	_	_	_	
+32-26	4015-4018	for	abstract[211]	giv[211]	snnnn[211]	_	_	_	
+32-27	4019-4024	those	abstract[211]|person[218]	giv[211]|giv[218]	snnnn[211]|nnnnn[218]	_	coref	32-46[222_218]	
+32-28	4025-4033	students	abstract[211]|person[218]	giv[211]|giv[218]	snnnn[211]|nnnnn[218]	_	_	_	
+32-29	4034-4036	to	abstract[211]	giv[211]	snnnn[211]	_	_	_	
+32-30	4037-4041	have	abstract[211]	giv[211]	snnnn[211]	_	_	_	
+32-31	4042-4043	a	abstract[211]|abstract[219]	giv[211]|new[219]	snnnn[211]|nnnnn[219]	_	_	_	
+32-32	4044-4050	better	abstract[211]|abstract[219]	giv[211]|new[219]	snnnn[211]|nnnnn[219]	_	_	_	
+32-33	4051-4055	idea	abstract[211]|abstract[219]	giv[211]|new[219]	snnnn[211]|nnnnn[219]	_	_	_	
+32-34	4056-4058	of	abstract[211]|abstract[219]	giv[211]|new[219]	snnnn[211]|nnnnn[219]	_	_	_	
+32-35	4059-4063	what	abstract[211]|abstract[219]	giv[211]|new[219]	snnnn[211]|nnnnn[219]	_	_	_	
+32-36	4064-4066	to	abstract[211]|abstract[219]	giv[211]|new[219]	snnnn[211]|nnnnn[219]	_	_	_	
+32-37	4067-4073	expect	abstract[211]|abstract[219]	giv[211]|new[219]	snnnn[211]|nnnnn[219]	_	_	_	
+32-38	4074-4076	in	abstract[211]|abstract[219]	giv[211]|new[219]	snnnn[211]|nnnnn[219]	_	_	_	
+32-39	4077-4082	terms	abstract[211]|abstract[219]	giv[211]|new[219]	snnnn[211]|nnnnn[219]	_	_	_	
+32-40	4083-4091	choosing	abstract[211]|abstract[219]	giv[211]|new[219]	snnnn[211]|nnnnn[219]	_	_	_	
+32-41	4092-4095	the	abstract[211]|abstract[219]|abstract[220]	giv[211]|new[219]|giv[220]	snnnn[211]|nnnnn[219]|nnnnn[220]	_	_	_	
+32-42	4096-4100	best	abstract[211]|abstract[219]|abstract[220]	giv[211]|new[219]|giv[220]	snnnn[211]|nnnnn[219]|nnnnn[220]	_	_	_	
+32-43	4101-4109	academic	abstract[211]|abstract[219]|abstract[220]	giv[211]|new[219]|giv[220]	snnnn[211]|nnnnn[219]|nnnnn[220]	_	_	_	
+32-44	4110-4116	course	abstract[211]|abstract[219]|abstract[220]	giv[211]|new[219]|giv[220]	snnnn[211]|nnnnn[219]|nnnnn[220]	_	_	_	
+32-45	4117-4120	for	abstract[211]|abstract[219]|abstract[220]	giv[211]|new[219]|giv[220]	snnnn[211]|nnnnn[219]|nnnnn[220]	_	_	_	
+32-46	4121-4126	their	abstract[211]|abstract[219]|abstract[220]|abstract[221]|person[222]	giv[211]|new[219]|giv[220]|new[221]|giv[222]	snnnn[211]|nnnnn[219]|nnnnn[220]|nnnnn[221]|nnnnn[222]	_	_	_	
+32-47	4127-4132	needs	abstract[211]|abstract[219]|abstract[220]|abstract[221]	giv[211]|new[219]|giv[220]|new[221]	snnnn[211]|nnnnn[219]|nnnnn[220]|nnnnn[221]	_	_	_	
 32-48	4133-4134	.	_	_	_	_	_	_	
 
 #Text=Penn State currently does n't offer very comprehensive information on any of its 15,000 -- plus courses .
@@ -779,27 +779,27 @@
 33-18	4239-4240	.	_	_	_	_	_	_	
 
 #Text=The second reason student -- based class descriptions are beneficial to Penn State are in providing instructors and other administrative officials with more up -- to -- date and comprehensive feedback than they would normally be able to receive through traditional methods such as surveys .
-34-1	4241-4244	The	abstract[228]	giv[228]	nnnnn[228]	_	_	_	
-34-2	4245-4251	second	abstract[228]	giv[228]	nnnnn[228]	_	_	_	
-34-3	4252-4258	reason	abstract[228]	giv[228]	nnnnn[228]	_	_	_	
-34-4	4259-4266	student	abstract[228]|abstract[229]|person[230]	giv[228]|giv[229]|giv[230]	nnnnn[228]|sssss[229]|nnnnn[230]	_	coref|coref	38-15[264_229]|38-15[265_230]	
-34-5	4267-4269	--	abstract[228]|abstract[229]	giv[228]|giv[229]	nnnnn[228]|sssss[229]	_	_	_	
-34-6	4270-4275	based	abstract[228]|abstract[229]	giv[228]|giv[229]	nnnnn[228]|sssss[229]	_	_	_	
-34-7	4276-4281	class	abstract[228]|abstract[229]|abstract[231]	giv[228]|giv[229]|giv[231]	nnnnn[228]|sssss[229]|sssss[231]	_	coref|bridge	38-18[266_231]|34-17[235_231]	
-34-8	4282-4294	descriptions	abstract[228]|abstract[229]	giv[228]|giv[229]	nnnnn[228]|sssss[229]	_	_	_	
-34-9	4295-4298	are	abstract[228]	giv[228]	nnnnn[228]	_	_	_	
-34-10	4299-4309	beneficial	abstract[228]	giv[228]	nnnnn[228]	_	_	_	
-34-11	4310-4312	to	abstract[228]	giv[228]	nnnnn[228]	_	_	_	
-34-12	4313-4317	Penn	abstract[228]|organization[232]|place[233]	giv[228]|giv[232]|giv[233]	nnnnn[228]|sssss[232]|sssss[233]	Pennsylvania_State_University[232]|Pennsylvania[233]	coref|coref	35-5[243_232]|35-5[244_233]	
-34-13	4318-4323	State	abstract[228]|organization[232]	giv[228]|giv[232]	nnnnn[228]|sssss[232]	Pennsylvania_State_University[232]	_	_	
+34-1	4241-4244	The	abstract[228]	acc[228]	nnnnn[228]	_	_	_	
+34-2	4245-4251	second	abstract[228]	acc[228]	nnnnn[228]	_	_	_	
+34-3	4252-4258	reason	abstract[228]	acc[228]	nnnnn[228]	_	_	_	
+34-4	4259-4266	student	abstract[228]|abstract[229]|person[230]	acc[228]|giv[229]|giv[230]	nnnnn[228]|sssnn[229]|nnnss[230]	_	coref|coref	38-15[264_229]|38-15[265_230]	
+34-5	4267-4269	--	abstract[228]|abstract[229]	acc[228]|giv[229]	nnnnn[228]|sssnn[229]	_	_	_	
+34-6	4270-4275	based	abstract[228]|abstract[229]	acc[228]|giv[229]	nnnnn[228]|sssnn[229]	_	_	_	
+34-7	4276-4281	class	abstract[228]|abstract[229]|abstract[231]	acc[228]|giv[229]|giv[231]	nnnnn[228]|sssnn[229]|nsnns[231]	_	coref	38-18[266_231]	
+34-8	4282-4294	descriptions	abstract[228]|abstract[229]	acc[228]|giv[229]	nnnnn[228]|sssnn[229]	_	_	_	
+34-9	4295-4298	are	abstract[228]	acc[228]	nnnnn[228]	_	_	_	
+34-10	4299-4309	beneficial	abstract[228]	acc[228]	nnnnn[228]	_	_	_	
+34-11	4310-4312	to	abstract[228]	acc[228]	nnnnn[228]	_	_	_	
+34-12	4313-4317	Penn	abstract[228]|organization[232]|place[233]	acc[228]|giv[232]|giv[233]	nnnnn[228]|sssss[232]|sssss[233]	Pennsylvania_State_University[232]|Pennsylvania[233]	coref|coref|bridge:entity-associative	35-5[243_232]|35-5[244_233]|34-17[235_232]	
+34-13	4318-4323	State	abstract[228]|organization[232]	acc[228]|giv[232]	nnnnn[228]|sssss[232]	Pennsylvania_State_University[232]	_	_	
 34-14	4324-4327	are	_	_	_	_	_	_	
 34-15	4328-4330	in	_	_	_	_	_	_	
 34-16	4331-4340	providing	_	_	_	_	_	_	
-34-17	4341-4352	instructors	person[234]|person[235]	new[234]|acc[235]	nnnnn[234]|nnnnn[235]	_	coref	34-33[238_234]	
+34-17	4341-4352	instructors	person[234]|person[235]	new[234]|acc[235]	nnnnn[234]|nnnnn[235]	_	coref|bridge:comparison-relative	34-33[238_234]|34-19[236_235]	
 34-18	4353-4356	and	person[234]	new[234]	nnnnn[234]	_	_	_	
-34-19	4357-4362	other	person[234]|person[236]	new[234]|new[236]	nnnnn[234]|nnnnn[236]	_	_	_	
-34-20	4363-4377	administrative	person[234]|person[236]	new[234]|new[236]	nnnnn[234]|nnnnn[236]	_	_	_	
-34-21	4378-4387	officials	person[234]|person[236]	new[234]|new[236]	nnnnn[234]|nnnnn[236]	_	_	_	
+34-19	4357-4362	other	person[234]|person[236]	new[234]|acc[236]	nnnnn[234]|nnnnn[236]	_	_	_	
+34-20	4363-4377	administrative	person[234]|person[236]	new[234]|acc[236]	nnnnn[234]|nnnnn[236]	_	_	_	
+34-21	4378-4387	officials	person[234]|person[236]	new[234]|acc[236]	nnnnn[234]|nnnnn[236]	_	_	_	
 34-22	4388-4392	with	_	_	_	_	_	_	
 34-23	4393-4397	more	abstract[237]	new[237]	snsnn[237]	_	_	_	
 34-24	4398-4400	up	abstract[237]	new[237]	snsnn[237]	_	_	_	
@@ -851,7 +851,7 @@
 35-22	4651-4652	.	_	_	_	_	_	_	
 
 #Text=Penn State still maintains control of each of the courses , so the academic standard is kept just as high as it always has been .
-36-1	4653-4657	Penn	organization[248]|place[249]	giv[248]|giv[249]	sssss[248]|sssss[249]	Pennsylvania_State_University[248]|Pennsylvania[249]	coref|coref	37-19[259_248]|45-8[306_249]	
+36-1	4653-4657	Penn	organization[248]|place[249]	giv[248]|giv[249]	sssss[248]|sssss[249]	Pennsylvania_State_University[248]|Pennsylvania[249]	coref|coref|bridge:entity-associative	37-19[259_248]|45-8[306_249]|36-13[252_248]	
 36-2	4658-4663	State	organization[248]	giv[248]	sssss[248]	Pennsylvania_State_University[248]	_	_	
 36-3	4664-4669	still	_	_	_	_	_	_	
 36-4	4670-4679	maintains	_	_	_	_	_	_	
@@ -863,9 +863,9 @@
 36-10	4703-4710	courses	abstract[250]|abstract[251]	new[250]|giv[251]	nnnnn[250]|nnnnn[251]	_	_	_	
 36-11	4711-4712	,	_	_	_	_	_	_	
 36-12	4713-4715	so	_	_	_	_	_	_	
-36-13	4716-4719	the	abstract[252]	new[252]	nnnnn[252]	_	coref	36-22[253_252]	
-36-14	4720-4728	academic	abstract[252]	new[252]	nnnnn[252]	_	_	_	
-36-15	4729-4737	standard	abstract[252]	new[252]	nnnnn[252]	_	_	_	
+36-13	4716-4719	the	abstract[252]	acc[252]	nnnnn[252]	_	coref	36-22[253_252]	
+36-14	4720-4728	academic	abstract[252]	acc[252]	nnnnn[252]	_	_	_	
+36-15	4729-4737	standard	abstract[252]	acc[252]	nnnnn[252]	_	_	_	
 36-16	4738-4740	is	_	_	_	_	_	_	
 36-17	4741-4745	kept	_	_	_	_	_	_	
 36-18	4746-4750	just	_	_	_	_	_	_	
@@ -883,8 +883,8 @@
 37-2	4788-4790	is	_	_	_	_	_	_	
 37-3	4791-4794	the	abstract[255]	giv[255]	nnnnn[255]	_	_	_	
 37-4	4795-4799	area	abstract[255]	giv[255]	nnnnn[255]	_	_	_	
-37-5	4800-4813	Undergraduate	abstract[255]|organization[256]|person[257]	giv[255]|giv[256]|giv[257]	nnnnn[255]|nnnns[256]|nnnns[257]	_	coref	44-10[301_256]	
-37-6	4814-4821	Student	abstract[255]|organization[256]|person[257]	giv[255]|giv[256]|giv[257]	nnnnn[255]|nnnns[256]|nnnns[257]	_	_	_	
+37-5	4800-4813	Undergraduate	abstract[255]|organization[256]|person[257]	giv[255]|giv[256]|giv[257]	nnnnn[255]|nnnns[256]|nssnn[257]	_	coref	44-10[301_256]	
+37-6	4814-4821	Student	abstract[255]|organization[256]|person[257]	giv[255]|giv[256]|giv[257]	nnnnn[255]|nnnns[256]|nssnn[257]	_	_	_	
 37-7	4822-4832	Government	abstract[255]|organization[256]	giv[255]|giv[256]	nnnnn[255]|nnnns[256]	_	_	_	
 37-8	4833-4835	is	abstract[255]	giv[255]	nnnnn[255]	_	_	_	
 37-9	4836-4840	most	abstract[255]	giv[255]	nnnnn[255]	_	_	_	
@@ -897,7 +897,7 @@
 37-16	4880-4883	the	abstract[255]|abstract[258]	giv[255]|new[258]	nnnnn[255]|nnnnn[258]	_	_	_	
 37-17	4884-4893	operation	abstract[255]|abstract[258]	giv[255]|new[258]	nnnnn[255]|nnnnn[258]	_	_	_	
 37-18	4894-4896	of	abstract[255]|abstract[258]	giv[255]|new[258]	nnnnn[255]|nnnnn[258]	_	_	_	
-37-19	4897-4900	the	abstract[255]|abstract[258]|organization[259]	giv[255]|new[258]|giv[259]	nnnnn[255]|nnnnn[258]|sssss[259]	Pennsylvania_State_University[259]	coref	39-22[276_259]	
+37-19	4897-4900	the	abstract[255]|abstract[258]|organization[259]	giv[255]|new[258]|giv[259]	nnnnn[255]|nnnnn[258]|sssss[259]	Pennsylvania_State_University[259]	coref|bridge:entity-associative	39-22[276_259]|39-6[270_259]	
 37-20	4901-4911	University	abstract[255]|abstract[258]|organization[259]	giv[255]|new[258]|giv[259]	nnnnn[255]|nnnnn[258]|sssss[259]	Pennsylvania_State_University[259]	_	_	
 37-21	4912-4913	.	_	_	_	_	_	_	
 
@@ -905,47 +905,47 @@
 38-1	4914-4915	I	person[260]	giv[260]	sssss[260]	_	coref	41-1[284_260]	
 38-2	4916-4923	suggest	_	_	_	_	_	_	
 38-3	4924-4935	instituting	_	_	_	_	_	_	
-38-4	4936-4937	a	abstract[261]	new[261]	nssns[261]	_	coref|bridge	39-2[269_261]|39-16[273_261]	
+38-4	4936-4937	a	abstract[261]	new[261]	nssns[261]	_	coref	39-2[269_261]	
 38-5	4938-4943	pilot	abstract[261]	new[261]	nssns[261]	_	_	_	
 38-6	4944-4951	program	abstract[261]	new[261]	nssns[261]	_	_	_	
 38-7	4952-4954	to	abstract[261]	new[261]	nssns[261]	_	_	_	
 38-8	4955-4963	evaluate	abstract[261]	new[261]	nssns[261]	_	_	_	
-38-9	4964-4967	the	abstract[261]|abstract[262]	new[261]|new[262]	nssns[261]|nssnn[262]	_	_	_	
-38-10	4968-4981	effectiveness	abstract[261]|abstract[262]	new[261]|new[262]	nssns[261]|nssnn[262]	_	_	_	
-38-11	4982-4984	of	abstract[261]|abstract[262]	new[261]|new[262]	nssns[261]|nssnn[262]	_	_	_	
-38-12	4985-4990	wikis	abstract[261]|abstract[262]|abstract[263]	new[261]|new[262]|giv[263]	nssns[261]|nssnn[262]|nsnns[263]	_	_	_	
-38-13	4991-4993	in	abstract[261]|abstract[262]	new[261]|new[262]	nssns[261]|nssnn[262]	_	_	_	
-38-14	4994-5003	providing	abstract[261]|abstract[262]	new[261]|new[262]	nssns[261]|nssnn[262]	_	_	_	
-38-15	5004-5011	student	abstract[261]|abstract[262]|abstract[264]|person[265]	new[261]|new[262]|giv[264]|giv[265]	nssns[261]|nssnn[262]|sssss[264]|nnnnn[265]	_	coref	39-31[278_264]	
-38-16	5012-5013	-	abstract[261]|abstract[262]|abstract[264]	new[261]|new[262]|giv[264]	nssns[261]|nssnn[262]|sssss[264]	_	_	_	
-38-17	5014-5019	based	abstract[261]|abstract[262]|abstract[264]	new[261]|new[262]|giv[264]	nssns[261]|nssnn[262]|sssss[264]	_	_	_	
-38-18	5020-5026	course	abstract[261]|abstract[262]|abstract[264]|abstract[266]	new[261]|new[262]|giv[264]|giv[266]	nssns[261]|nssnn[262]|sssss[264]|sssss[266]	_	_	_	
-38-19	5027-5039	descriptions	abstract[261]|abstract[262]|abstract[264]	new[261]|new[262]|giv[264]	nssns[261]|nssnn[262]|sssss[264]	_	_	_	
+38-9	4964-4967	the	abstract[261]|abstract[262]	new[261]|new[262]	nssns[261]|nsnnn[262]	_	_	_	
+38-10	4968-4981	effectiveness	abstract[261]|abstract[262]	new[261]|new[262]	nssns[261]|nsnnn[262]	_	_	_	
+38-11	4982-4984	of	abstract[261]|abstract[262]	new[261]|new[262]	nssns[261]|nsnnn[262]	_	_	_	
+38-12	4985-4990	wikis	abstract[261]|abstract[262]|abstract[263]	new[261]|new[262]|giv[263]	nssns[261]|nsnnn[262]|nsnns[263]	_	bridge:entity-associative	40-27[283_263]	
+38-13	4991-4993	in	abstract[261]|abstract[262]	new[261]|new[262]	nssns[261]|nsnnn[262]	_	_	_	
+38-14	4994-5003	providing	abstract[261]|abstract[262]	new[261]|new[262]	nssns[261]|nsnnn[262]	_	_	_	
+38-15	5004-5011	student	abstract[261]|abstract[262]|abstract[264]|person[265]	new[261]|new[262]|giv[264]|giv[265]	nssns[261]|nsnnn[262]|sssnn[264]|nnnss[265]	_	coref	39-31[278_264]	
+38-16	5012-5013	-	abstract[261]|abstract[262]|abstract[264]	new[261]|new[262]|giv[264]	nssns[261]|nsnnn[262]|sssnn[264]	_	_	_	
+38-17	5014-5019	based	abstract[261]|abstract[262]|abstract[264]	new[261]|new[262]|giv[264]	nssns[261]|nsnnn[262]|sssnn[264]	_	_	_	
+38-18	5020-5026	course	abstract[261]|abstract[262]|abstract[264]|abstract[266]	new[261]|new[262]|giv[264]|giv[266]	nssns[261]|nsnnn[262]|sssnn[264]|nsnns[266]	_	_	_	
+38-19	5027-5039	descriptions	abstract[261]|abstract[262]|abstract[264]	new[261]|new[262]|giv[264]	nssns[261]|nsnnn[262]|sssnn[264]	_	_	_	
 38-20	5040-5041	,	_	_	_	_	_	_	
 38-21	5042-5046	with	_	_	_	_	_	_	
 38-22	5047-5050	one	abstract[267]	giv[267]	nnnnn[267]	_	_	_	
 38-23	5051-5055	wiki	abstract[267]	giv[267]	nnnnn[267]	_	_	_	
 38-24	5056-5064	assigned	_	_	_	_	_	_	
 38-25	5065-5067	to	_	_	_	_	_	_	
-38-26	5068-5072	each	organization[268]	acc[268]	nnnnn[268]	_	_	_	
-38-27	5073-5081	academic	organization[268]	acc[268]	nnnnn[268]	_	_	_	
-38-28	5082-5086	unit	organization[268]	acc[268]	nnnnn[268]	_	_	_	
+38-26	5068-5072	each	organization[268]	auto[268]	nnnnn[268]	_	_	_	
+38-27	5073-5081	academic	organization[268]	auto[268]	nnnnn[268]	_	_	_	
+38-28	5082-5086	unit	organization[268]	auto[268]	nnnnn[268]	_	_	_	
 38-29	5087-5088	.	_	_	_	_	_	_	
 
 #Text=Under the pilot program , faculty members would be able to volunteer their classes for participation , and any person with University affiliation would be able to edit any of the descriptions .
 39-1	5089-5094	Under	_	_	_	_	_	_	
-39-2	5095-5098	the	abstract[269]	giv[269]	nssns[269]	_	coref	40-1[279_269]	
+39-2	5095-5098	the	abstract[269]	giv[269]	nssns[269]	_	coref|bridge:entity-associative	40-1[279_269]|39-16[273_269]	
 39-3	5099-5104	pilot	abstract[269]	giv[269]	nssns[269]	_	_	_	
 39-4	5105-5112	program	abstract[269]	giv[269]	nssns[269]	_	_	_	
 39-5	5113-5114	,	_	_	_	_	_	_	
-39-6	5115-5122	faculty	person[270]	new[270]	nnnnn[270]	_	coref	39-13[272_270]	
-39-7	5123-5130	members	person[270]	new[270]	nnnnn[270]	_	_	_	
+39-6	5115-5122	faculty	person[270]	acc[270]	nnnnn[270]	_	coref	39-13[272_270]	
+39-7	5123-5130	members	person[270]	acc[270]	nnnnn[270]	_	_	_	
 39-8	5131-5136	would	_	_	_	_	_	_	
 39-9	5137-5139	be	_	_	_	_	_	_	
 39-10	5140-5144	able	_	_	_	_	_	_	
 39-11	5145-5147	to	_	_	_	_	_	_	
 39-12	5148-5157	volunteer	_	_	_	_	_	_	
-39-13	5158-5163	their	abstract[271]|person[272]	new[271]|giv[272]	nnnnn[271]|nnnnn[272]	_	_	_	
+39-13	5158-5163	their	abstract[271]|person[272]	new[271]|giv[272]	nnnnn[271]|nnnnn[272]	_	bridge:comparison-relative	40-10[280_272]	
 39-14	5164-5171	classes	abstract[271]	new[271]	nnnnn[271]	_	_	_	
 39-15	5172-5175	for	_	_	_	_	_	_	
 39-16	5176-5189	participation	event[273]	acc[273]	nnnnn[273]	_	_	_	
@@ -963,12 +963,12 @@
 39-28	5252-5256	edit	_	_	_	_	_	_	
 39-29	5257-5260	any	abstract[277]	giv[277]	nnnnn[277]	_	_	_	
 39-30	5261-5263	of	abstract[277]	giv[277]	nnnnn[277]	_	_	_	
-39-31	5264-5267	the	abstract[277]|abstract[278]	giv[277]|giv[278]	nnnnn[277]|sssss[278]	_	_	_	
-39-32	5268-5280	descriptions	abstract[277]|abstract[278]	giv[277]|giv[278]	nnnnn[277]|sssss[278]	_	_	_	
+39-31	5264-5267	the	abstract[277]|abstract[278]	giv[277]|giv[278]	nnnnn[277]|sssnn[278]	_	_	_	
+39-32	5268-5280	descriptions	abstract[277]|abstract[278]	giv[277]|giv[278]	nnnnn[277]|sssnn[278]	_	_	_	
 39-33	5281-5282	.	_	_	_	_	_	_	
 
 #Text=The pilot program , if successful , should attract additional faculty members and encourage departmental participation ; the program would remain manageable while being scaled into widespread usage .
-40-1	5283-5286	The	abstract[279]	giv[279]	nssns[279]	_	coref	40-18[282_279]	
+40-1	5283-5286	The	abstract[279]	giv[279]	nssns[279]	_	coref|bridge:entity-associative	40-18[282_279]|40-15[281_279]	
 40-2	5287-5292	pilot	abstract[279]	giv[279]	nssns[279]	_	_	_	
 40-3	5293-5300	program	abstract[279]	giv[279]	nssns[279]	_	_	_	
 40-4	5301-5302	,	_	_	_	_	_	_	
@@ -977,15 +977,15 @@
 40-7	5317-5318	,	_	_	_	_	_	_	
 40-8	5319-5325	should	_	_	_	_	_	_	
 40-9	5326-5333	attract	_	_	_	_	_	_	
-40-10	5334-5344	additional	person[280]	giv[280]	nnnnn[280]	_	_	_	
-40-11	5345-5352	faculty	person[280]	giv[280]	nnnnn[280]	_	_	_	
-40-12	5353-5360	members	person[280]	giv[280]	nnnnn[280]	_	_	_	
+40-10	5334-5344	additional	person[280]	acc[280]	nnnnn[280]	_	_	_	
+40-11	5345-5352	faculty	person[280]	acc[280]	nnnnn[280]	_	_	_	
+40-12	5353-5360	members	person[280]	acc[280]	nnnnn[280]	_	_	_	
 40-13	5361-5364	and	_	_	_	_	_	_	
 40-14	5365-5374	encourage	_	_	_	_	_	_	
-40-15	5375-5387	departmental	event[281]	giv[281]	nnnnn[281]	_	_	_	
-40-16	5388-5401	participation	event[281]	giv[281]	nnnnn[281]	_	_	_	
+40-15	5375-5387	departmental	event[281]	acc[281]	nnnnn[281]	_	_	_	
+40-16	5388-5401	participation	event[281]	acc[281]	nnnnn[281]	_	_	_	
 40-17	5402-5403	;	_	_	_	_	_	_	
-40-18	5404-5407	the	abstract[282]	giv[282]	nssns[282]	_	_	_	
+40-18	5404-5407	the	abstract[282]	giv[282]	nssns[282]	_	bridge:entity-associative	41-21[288_282]	
 40-19	5408-5415	program	abstract[282]	giv[282]	nssns[282]	_	_	_	
 40-20	5416-5421	would	_	_	_	_	_	_	
 40-21	5422-5428	remain	_	_	_	_	_	_	
@@ -994,8 +994,8 @@
 40-24	5446-5451	being	_	_	_	_	_	_	
 40-25	5452-5458	scaled	_	_	_	_	_	_	
 40-26	5459-5463	into	_	_	_	_	_	_	
-40-27	5464-5474	widespread	abstract[283]	new[283]	nnnnn[283]	_	_	_	
-40-28	5475-5480	usage	abstract[283]	new[283]	nnnnn[283]	_	_	_	
+40-27	5464-5474	widespread	abstract[283]	acc[283]	nnnnn[283]	_	_	_	
+40-28	5475-5480	usage	abstract[283]	acc[283]	nnnnn[283]	_	_	_	
 40-29	5481-5482	.	_	_	_	_	_	_	
 
 #Text=I look forward to our discussion on Tuesday , and would be more than willing to elaborate on any of the areas that interest you during or after our meeting .
@@ -1019,16 +1019,16 @@
 41-18	5573-5575	on	_	_	_	_	_	_	
 41-19	5576-5579	any	_	_	_	_	_	_	
 41-20	5580-5582	of	_	_	_	_	_	_	
-41-21	5583-5586	the	abstract[288]	new[288]	nnnnn[288]	_	_	_	
-41-22	5587-5592	areas	abstract[288]	new[288]	nnnnn[288]	_	_	_	
-41-23	5593-5597	that	abstract[288]	new[288]	nnnnn[288]	_	_	_	
-41-24	5598-5606	interest	abstract[288]	new[288]	nnnnn[288]	_	_	_	
-41-25	5607-5610	you	abstract[288]|person[289]	new[288]|giv[289]	nnnnn[288]|sssnn[289]	_	_	_	
-41-26	5611-5617	during	abstract[288]	new[288]	nnnnn[288]	_	_	_	
-41-27	5618-5620	or	abstract[288]	new[288]	nnnnn[288]	_	_	_	
-41-28	5621-5626	after	abstract[288]	new[288]	nnnnn[288]	_	_	_	
-41-29	5627-5630	our	abstract[288]|event[290]|person[291]	new[288]|new[290]|giv[291]	nnnnn[288]|nnnns[290]|nnnnn[291]	_	_	_	
-41-30	5631-5638	meeting	abstract[288]|event[290]	new[288]|new[290]	nnnnn[288]|nnnns[290]	_	_	_	
+41-21	5583-5586	the	abstract[288]	acc[288]	nnnnn[288]	_	_	_	
+41-22	5587-5592	areas	abstract[288]	acc[288]	nnnnn[288]	_	_	_	
+41-23	5593-5597	that	abstract[288]	acc[288]	nnnnn[288]	_	_	_	
+41-24	5598-5606	interest	abstract[288]	acc[288]	nnnnn[288]	_	_	_	
+41-25	5607-5610	you	abstract[288]|person[289]	acc[288]|giv[289]	nnnnn[288]|sssnn[289]	_	_	_	
+41-26	5611-5617	during	abstract[288]	acc[288]	nnnnn[288]	_	_	_	
+41-27	5618-5620	or	abstract[288]	acc[288]	nnnnn[288]	_	_	_	
+41-28	5621-5626	after	abstract[288]	acc[288]	nnnnn[288]	_	_	_	
+41-29	5627-5630	our	abstract[288]|event[290]|person[291]	acc[288]|new[290]|giv[291]	nnnnn[288]|nnnns[290]|nnnnn[291]	_	_	_	
+41-30	5631-5638	meeting	abstract[288]|event[290]	acc[288]|new[290]	nnnnn[288]|nnnns[290]	_	_	_	
 41-31	5639-5640	.	_	_	_	_	_	_	
 
 #Text=Respectfully ,
@@ -1061,9 +1061,9 @@
 45-5	5777-5787	Resolution	abstract[303]	new[303]	nnnnn[303]	_	_	_	
 45-6	5788-5793	36-01	abstract[303]	new[303]	nnnnn[303]	_	_	_	
 45-7	5794-5795	:	_	_	_	_	_	_	
-45-8	5796-5800	Penn	abstract[304]|organization[305]|place[306]	giv[304]|giv[305]|giv[306]	snsss[304]|sssss[305]|sssss[306]	Pennsylvania_State_University[305]|Pennsylvania[306]	_	_	
-45-9	5801-5806	State	abstract[304]|organization[305]	giv[304]|giv[305]	snsss[304]|sssss[305]	Pennsylvania_State_University[305]	_	_	
-45-10	5807-5811	Wiki	abstract[304]	giv[304]	snsss[304]	_	_	_	
+45-8	5796-5800	Penn	abstract[304]|organization[305]|place[306]	giv[304]|giv[305]|giv[306]	sssss[304]|sssss[305]|sssss[306]	Pennsylvania_State_University[305]|Pennsylvania[306]	_	_	
+45-9	5801-5806	State	abstract[304]|organization[305]	giv[304]|giv[305]	sssss[304]|sssss[305]	Pennsylvania_State_University[305]	_	_	
+45-10	5807-5811	Wiki	abstract[304]	giv[304]	sssss[304]	_	_	_	
 
 #Text=cc : Donald Leslie , Assistant V.P. and Assoc. Dean for Undergraduate Education
 46-1	5812-5814	cc	_	_	_	_	_	_	

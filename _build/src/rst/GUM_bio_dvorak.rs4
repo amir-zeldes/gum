@@ -43,7 +43,7 @@
 			<sig type="orphan" subtypes="orphan"/>
 			<sig type="reference" subtypes="comparative_reference;demonstrative_reference;personal_reference;propositional_reference"/>
 			<sig type="semantic" subtypes="antonymy;attribution_source;lexical_chain;meronymy;negation;repetition;synonymy"/>
-			<sig type="syntactic" subtypes="infinitival_clause;interrupted_matrix_clause;modified_head;nominal_modifier;parallel_syntactic_construction;past_participial_clause;present_participial_clause;relative_clause;reported_speech;subject_auxiliary_inversion"/>
+			<sig type="syntactic" subtypes="causal_excess;infinitival_clause;interrupted_matrix_clause;modified_head;nominal_modifier;parallel_syntactic_construction;past_participial_clause;present_participial_clause;relative_clause;reported_speech;subject_auxiliary_inversion"/>
 			<sig type="unsure" subtypes="unsure"/>
 		</sigtypes>
 	</header>
@@ -100,8 +100,8 @@
 		<segment id="50" parent="51" relname="context-circumstance">Visiting Russia in March 1890 ,</segment>
 		<segment id="51" parent="118" relname="span">he conducted concerts of his own music in Moscow and Saint Petersburg .</segment>
 		<segment id="52" parent="118" relname="explanation-evidence">[ 3 ]</segment>
-		<segment id="53" parent="90" relname="joint-sequence">In 1891 Dvořák was appointed as a professor at the Prague Conservatory .</segment>
-		<segment id="54" parent="90" relname="joint-sequence">In 1890 – 91 , he wrote his Dumky Trio , one of his most successful chamber music pieces .</segment>
+		<segment id="53" parent="133" relname="joint-list">In 1891 Dvořák was appointed as a professor at the Prague Conservatory .</segment>
+		<segment id="54" parent="133" relname="joint-list">In 1890 – 91 , he wrote his Dumky Trio , one of his most successful chamber music pieces .</segment>
 		<segment id="55" parent="120" relname="joint-sequence">In 1892 , Dvořák moved to the United States</segment>
 		<segment id="56" parent="120" relname="joint-sequence">and became the director of the National Conservatory of Music of America in New York City .</segment>
 		<segment id="57" parent="123" relname="context-circumstance">While in the United States ,</segment>
@@ -120,7 +120,7 @@
 		<segment id="70" parent="132" relname="span">He has been described as " arguably the most versatile ... composer of his time " .</segment>
 		<segment id="71" parent="70" relname="explanation-evidence">[ 5 ]</segment>
 		<group id="72" type="span" parent="73" relname="span"/>
-		<group id="73" type="span"/>
+		<group id="73" type="span" />
 		<group id="74" type="span" parent="75" relname="restatement-repetition"/>
 		<group id="75" type="multinuc" parent="76" relname="span"/>
 		<group id="76" type="span" parent="77" relname="same-unit"/>
@@ -180,6 +180,7 @@
 		<group id="130" type="span" parent="91" relname="joint-other"/>
 		<group id="131" type="multinuc" parent="129" relname="elaboration-additional"/>
 		<group id="132" type="span" parent="80" relname="evaluation-comment"/>
+		<group id="133" type="multinuc" parent="90" relname="joint-sequence"/>
 		<secedges>
 			<secedge id="30-101" source="30" target="101" relname="joint-list"/>
 		</secedges>
@@ -205,7 +206,6 @@
 			<signal source="27" type="syntactic" subtype="present_participial_clause" tokens="217"/>
 			<signal source="27" type="lexical" subtype="indicative_word" tokens="221"/>
 			<signal source="28" type="dm" subtype="dm" tokens="227"/>
-			<signal source="30-101" type="orphan" subtype="orphan" tokens="244"/>
 			<signal source="33" type="dm" subtype="dm" tokens="260"/>
 			<signal source="33" type="lexical" subtype="indicative_word" tokens="261"/>
 			<signal source="33" type="lexical" subtype="indicative_word" tokens="263"/>
@@ -218,12 +218,7 @@
 			<signal source="48" type="reference" subtype="personal_reference" tokens="402,417"/>
 			<signal source="48" type="syntactic" subtype="present_participial_clause" tokens="414"/>
 			<signal source="50" type="syntactic" subtype="present_participial_clause" tokens="429"/>
-			<signal source="50" type="lexical" subtype="indicative_phrase" tokens="432,433"/>
 			<signal source="52" type="graphical" subtype="parentheses" tokens="448,450"/>
-			<signal source="53" type="lexical" subtype="indicative_word" tokens="452"/>
-			<signal source="54" type="lexical" subtype="indicative_word" tokens="465"/>
-			<signal source="54" type="lexical" subtype="indicative_word" tokens="467"/>
-			<signal source="56" type="lexical" subtype="indicative_word" tokens="485"/>
 			<signal source="56" type="dm" subtype="dm" tokens="493"/>
 			<signal source="57" type="dm" subtype="dm" tokens="510"/>
 			<signal source="60" type="syntactic" subtype="modified_head" tokens="526"/>
@@ -233,6 +228,7 @@
 			<signal source="64" type="dm" subtype="dm" tokens="577"/>
 			<signal source="66" type="dm" subtype="dm" tokens="624"/>
 			<signal source="67" type="semantic" subtype="lexical_chain" tokens="616,621,639"/>
+			<signal source="67" type="lexical" subtype="alternate_expression" tokens="633,634" status="gold"/>
 			<signal source="69" type="dm" subtype="dm" tokens="671"/>
 			<signal source="71" type="graphical" subtype="parentheses" tokens="694,696"/>
 			<signal source="81" type="semantic" subtype="synonymy" tokens="3,4,5,17,18,19"/>
@@ -251,10 +247,14 @@
 			<signal source="105" type="lexical" subtype="indicative_word" tokens="266"/>
 			<signal source="109" type="dm" subtype="dm" tokens="301"/>
 			<signal source="111" type="lexical" subtype="indicative_word" tokens="340"/>
+			<signal source="112" type="lexical" subtype="indicative_word" tokens="373" status="gold"/>
+			<signal source="112" type="lexical" subtype="indicative_word" tokens="383" status="gold"/>
 			<signal source="113" type="lexical" subtype="indicative_word" tokens="373"/>
 			<signal source="113" type="lexical" subtype="indicative_word" tokens="383"/>
 			<signal source="116" type="syntactic" subtype="present_participial_clause" tokens="385"/>
 			<signal source="116" type="lexical" subtype="indicative_phrase" tokens="385,386"/>
+			<signal source="119" type="lexical" subtype="indicative_phrase" tokens="432,433" status="gold"/>
+			<signal source="122" type="lexical" subtype="indicative_word" tokens="485" status="gold"/>
 			<signal source="125" type="semantic" subtype="repetition" tokens="487,516"/>
 			<signal source="125" type="semantic" subtype="repetition" tokens="490,491,492,512,513,514"/>
 			<signal source="128" type="reference" subtype="personal_reference" tokens="516,534"/>
@@ -263,6 +263,10 @@
 			<signal source="128" type="graphical" subtype="colon" tokens="524"/>
 			<signal source="131" type="semantic" subtype="meronymy" tokens="611,612,613,614,615,616,617,618,619,647,648"/>
 			<signal source="132" type="lexical" subtype="indicative_word" tokens="686"/>
+			<signal source="133" type="lexical" subtype="indicative_word" tokens="465" status="gold"/>
+			<signal source="133" type="lexical" subtype="indicative_word" tokens="467" status="gold"/>
+			<signal source="133" type="lexical" subtype="indicative_word" tokens="452" status="gold"/>
+			<signal source="30-101" type="orphan" subtype="orphan" tokens="244"/>
 		</signals>
 	</body>
 </rst>

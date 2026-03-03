@@ -1,3 +1,4 @@
+import sys
 from typing import List
 import os, io
 
@@ -5,6 +6,10 @@ import os, io
 ellipsis_marker = "<*>"
 type_map = {"explicit":"Explicit","implicit":"Implicit","entrel":"EntRel","altlex":"AltLex","altlexc":"AltLexC","norel":"NoRel","hypophora":"Hypophora"}
 
+script_dir = os.path.dirname(os.path.abspath(__file__)) + os.sep
+utils_dir = script_dir + ".." + os.sep
+mapping_lines = open(utils_dir + "disrpt_mapping.tab").read().strip().split("\n")[1:]
+disrpt_rel_mapping = {l.split("\t")[-2]:l.split("\t")[-1] for l in mapping_lines if len(l.split("\t")) > 2}
 
 def format_range(tok_ids):
     # Takes a list of IDs and returns formatted string:
@@ -34,7 +39,7 @@ def format_range(tok_ids):
     return ",".join(formatted)
 
 
-def format_text(arg1_toks, toks):
+def format_text(arg1_toks, toks, mwts=None):
     last = arg1_toks[0] - 1
     output = []
     for tid in sorted(arg1_toks):
@@ -42,7 +47,24 @@ def format_text(arg1_toks, toks):
             output.append(ellipsis_marker)
         output.append(toks[tid].text)
         last = tid
-    return " ".join(output)
+    output = " ".join(output)
+    if mwts is not None:  # remove space after MWT internal tokens
+        tok_strings = output.split()
+        output = ""
+        idx = 0
+        for tok in tok_strings:
+            if tok == "<*>":
+                output += "<*> "
+            else:
+                output += tok
+                argtok = arg1_toks[idx]
+                is_in_mwt = False
+                if argtok in mwts:
+                    is_in_mwt = mwts[argtok]
+                if not is_in_mwt:
+                    output += " "
+                idx += 1
+    return output.strip()
 
 
 def format_standoff(span_tokens, token_offsets):
@@ -93,12 +115,21 @@ def output_file(output_dir: str, rels: List, doc_state, format: str = "tab") -> 
         rel_map[rel.key] = rel
 
     token_offsets = {}
+    mwts = {}
+    toknum = 0
     if format in ["all","pdtb"]:
         # Make a mapping of tokens to character offsets
         cursor = 0
         for tok in doc_state.tokens:
+            if "SpaceAfter=No" in tok.misc:
+                mwts[toknum] = True
+            elif tok.mwt_first:
+                mwts[toknum] = True
+            else:
+                mwts[toknum] = False
             token_offsets[int(tok.doc_token_id)] = (cursor, cursor + len(tok.text))
             cursor += len(tok.text) + 1
+            toknum += 1
 
     if format == "all":
         formats = ["tab", "rels", "pdtb"]
@@ -106,7 +137,7 @@ def output_file(output_dir: str, rels: List, doc_state, format: str = "tab") -> 
         formats = [format]
     for format in formats:
         if format == "rels":
-            rows = ["\t".join(["doc","unit1_toks","unit2_toks","unit1_txt","unit2_txt","s1_toks","s2_toks","unit1_sent","unit2_sent","dir","rel_type","orig_label","label"])]
+            rows = ["\t".join(["doc","unit1_toks","unit2_toks","unit1_txt","unit2_txt","u1_raw","u2_raw","s1_toks","s2_toks","unit1_sent","unit2_sent","dir","rel_type","orig_label","label"])]
         elif format == "pdtb":
             rows = []
         else:
@@ -169,6 +200,8 @@ def output_file(output_dir: str, rels: List, doc_state, format: str = "tab") -> 
                 unit2_token_ids = [tid for edu in unit2_edus for tid in edu.tok_ids]
                 unit1_text = format_text(unit1_token_ids, doc_state.tokens)
                 unit2_text = format_text(unit2_token_ids, doc_state.tokens)
+                unit1_raw_txt = format_text(unit1_token_ids, doc_state.tokens, mwts)
+                unit2_raw_txt = format_text(unit2_token_ids, doc_state.tokens, mwts)
                 unit1_token_range = format_range(unit1_token_ids)
                 unit2_token_range = format_range(unit2_token_ids)
                 unit1_sents = [edu.sent_id for edu in unit1_edus]
@@ -179,12 +212,17 @@ def output_file(output_dir: str, rels: List, doc_state, format: str = "tab") -> 
                 unit2_sents_text = format_text(unit2_sents_tok_ids, doc_state.tokens)
                 unit1_sents_tok_ids = format_range(unit1_sents_tok_ids)
                 unit2_sents_tok_ids = format_range(unit2_sents_tok_ids)
-                parts = sense.split(".")
-                if len(parts) == 1:  # Match DISRPT format
-                    modified_sense = sense.lower()
-                elif len(parts) > 1:
-                    modified_sense = parts[0].lower() + "." + parts[1].lower()
-                row = [docname, unit1_token_range, unit2_token_range, unit1_text, unit2_text, unit1_sents_tok_ids, unit2_sents_tok_ids, unit1_sents_text, unit2_sents_text, direction, reltype, sense, modified_sense]
+                if sense in disrpt_rel_mapping:
+                    modified_sense = disrpt_rel_mapping[sense]
+                else:
+                    sys.stderr.write("ERR: Unknown DISRPT mapping sense: " + sense + "\n")
+                    parts = sense.split(".")
+                    if len(parts) == 1:  # Match DISRPT format
+                        modified_sense = sense.lower()
+                    elif len(parts) > 1:
+                        modified_sense = parts[0].lower() + "." + parts[1].lower()
+
+                row = [docname, unit1_token_range, unit2_token_range, unit1_text, unit2_text, unit1_raw_txt, unit2_raw_txt, unit1_sents_tok_ids, unit2_sents_tok_ids, unit1_sents_text, unit2_sents_text, direction, reltype, sense, modified_sense]
                 rows.append("\t".join(row))
 
         if format == "pdtb":

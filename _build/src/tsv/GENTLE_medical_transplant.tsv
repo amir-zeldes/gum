@@ -25,7 +25,7 @@
 2-10	99-103	cell	abstract[5]|animal[6]	new[5]|new[6]	sssss[5]|snnnn[6]	_	_	_	
 2-11	104-113	carcinoma	abstract[5]	new[5]	sssss[5]	_	_	_	
 2-12	114-116	of	abstract[5]	new[5]	sssss[5]	_	_	_	
-2-13	117-120	the	abstract[5]|object[7]	new[5]|new[7]	sssss[5]|snnnn[7]	_	coref	9-6[26_7]	
+2-13	117-120	the	abstract[5]|object[7]	new[5]|new[7]	sssss[5]|snnnn[7]	_	coref|bridge:entity-meronomy	9-6[26_7]|3-1[13_7]	
 2-14	121-125	skin	abstract[5]|object[7]	new[5]|new[7]	sssss[5]|snnnn[7]	_	_	_	
 2-15	126-127	,	_	_	_	_	_	_	
 2-16	128-134	anemia	abstract[8]	new[8]	sssns[8]	_	coref	10-2[27_8]	
@@ -42,8 +42,8 @@
 2-27	212-213	.	_	_	_	_	_	_	
 
 #Text=The patient is here for followup visit and chemotherapy .
-3-1	214-217	The	person[13]	new[13]	sssss[13]	_	coref	5-1[17_13]	
-3-2	218-225	patient	person[13]	new[13]	sssss[13]	_	_	_	
+3-1	214-217	The	person[13]	acc[13]	sssss[13]	_	coref|bridge:entity-associative	5-1[17_13]|4-1[16_13]	
+3-2	218-225	patient	person[13]	acc[13]	sssss[13]	_	_	_	
 3-3	226-228	is	_	_	_	_	_	_	
 3-4	229-233	here	_	_	_	_	_	_	
 3-5	234-237	for	_	_	_	_	_	_	
@@ -54,12 +54,12 @@
 3-10	270-271	.	_	_	_	_	_	_	
 
 #Text=CHIEF COMPLAINT :
-4-1	272-277	CHIEF	abstract[16]	new[16]	nnnnn[16]	_	_	_	
-4-2	278-287	COMPLAINT	abstract[16]	new[16]	nnnnn[16]	_	_	_	
+4-1	272-277	CHIEF	abstract[16]	acc[16]	nnnnn[16]	_	_	_	
+4-2	278-287	COMPLAINT	abstract[16]	acc[16]	nnnnn[16]	_	_	_	
 4-3	288-289	:	_	_	_	_	_	_	
 
 #Text=The patient is here for followup visit and chemotherapy .
-5-1	290-293	The	person[17]	giv[17]	sssss[17]	_	coref	13-1[34_17]	
+5-1	290-293	The	person[17]	giv[17]	sssss[17]	_	coref|bridge:entity-associative|bridge:entity-associative	13-1[34_17]|6-1[20_17]|12-3[33_17]	
 5-2	294-301	patient	person[17]	giv[17]	sssss[17]	_	_	_	
 5-3	302-304	is	_	_	_	_	_	_	
 5-4	305-309	here	_	_	_	_	_	_	
@@ -71,7 +71,7 @@
 5-10	346-347	.	_	_	_	_	_	_	
 
 #Text=DIAGNOSES :
-6-1	348-357	DIAGNOSES	abstract[20]	new[20]	nnnnn[20]	_	_	_	
+6-1	348-357	DIAGNOSES	abstract[20]	acc[20]	nnnnn[20]	_	_	_	
 6-2	358-359	:	_	_	_	_	_	_	
 
 #Text=1. Posttransplant lymphoproliferative disorder .
@@ -118,8 +118,8 @@
 #Text=HISTORY OF PRESENT ILLNESS :
 12-1	571-578	HISTORY	abstract[32]	new[32]	nnnnn[32]	_	_	_	
 12-2	579-581	OF	abstract[32]	new[32]	nnnnn[32]	_	_	_	
-12-3	582-589	PRESENT	abstract[32]|abstract[33]	new[32]|new[33]	nnnnn[32]|nnnnn[33]	_	_	_	
-12-4	590-597	ILLNESS	abstract[32]|abstract[33]	new[32]|new[33]	nnnnn[32]|nnnnn[33]	_	_	_	
+12-3	582-589	PRESENT	abstract[32]|abstract[33]	new[32]|acc[33]	nnnnn[32]|nnnnn[33]	_	_	_	
+12-4	590-597	ILLNESS	abstract[32]|abstract[33]	new[32]|acc[33]	nnnnn[32]|nnnnn[33]	_	_	_	
 12-5	598-599	:	_	_	_	_	_	_	
 
 #Text=A 51 - year - old white male diagnosed with PTLD in latter half of 2007 .
@@ -171,7 +171,7 @@
 15-8	820-821	.	_	_	_	_	_	_	
 
 #Text=He was finally hospitalized by the renal transplant service and underwent a lymph node biopsy in the groin , which showed diagnosis of large cell lymphoma .
-16-1	822-824	He	person[47]	giv[47]	sssss[47]	_	coref	17-1[56_47]	
+16-1	822-824	He	person[47]	giv[47]	sssss[47]	_	coref|bridge:entity-meronomy	17-1[56_47]|16-17[53_47]	
 16-2	825-828	was	_	_	_	_	_	_	
 16-3	829-836	finally	_	_	_	_	_	_	
 16-4	837-849	hospitalized	_	_	_	_	_	_	
@@ -187,8 +187,8 @@
 16-14	904-908	node	event[51]|object[52]	new[51]|new[52]	nnnnn[51]|nnnnn[52]	_	_	_	
 16-15	909-915	biopsy	event[51]	new[51]	nnnnn[51]	_	_	_	
 16-16	916-918	in	event[51]	new[51]	nnnnn[51]	_	_	_	
-16-17	919-922	the	event[51]|object[53]	new[51]|new[53]	nnnnn[51]|nnnnn[53]	_	_	_	
-16-18	923-928	groin	event[51]|object[53]	new[51]|new[53]	nnnnn[51]|nnnnn[53]	_	_	_	
+16-17	919-922	the	event[51]|object[53]	new[51]|acc[53]	nnnnn[51]|nnnnn[53]	_	_	_	
+16-18	923-928	groin	event[51]|object[53]	new[51]|acc[53]	nnnnn[51]|nnnnn[53]	_	_	_	
 16-19	929-930	,	event[51]	new[51]	nnnnn[51]	_	_	_	
 16-20	931-936	which	event[51]	new[51]	nnnnn[51]	_	_	_	
 16-21	937-943	showed	event[51]	new[51]	nnnnn[51]	_	_	_	
@@ -266,7 +266,7 @@
 21-5	1345-1346	5	abstract[75]	new[75]	nnnnn[75]	_	_	_	
 21-6	1347-1353	cycles	abstract[75]	new[75]	nnnnn[75]	_	_	_	
 21-7	1354-1356	of	abstract[75]	new[75]	nnnnn[75]	_	_	_	
-21-8	1357-1369	chemotherapy	abstract[75]|event[76]	new[75]|giv[76]	nnnnn[75]|ssssn[76]	_	coref	24-12[96_76]	
+21-8	1357-1369	chemotherapy	abstract[75]|event[76]	new[75]|giv[76]	nnnnn[75]|ssssn[76]	_	coref|bridge:comparison-sense	24-12[96_76]|22-12[82_76]	
 21-9	1370-1372	to	_	_	_	_	_	_	
 21-10	1373-1377	date	_	_	_	_	_	_	
 21-11	1378-1379	.	_	_	_	_	_	_	
@@ -283,8 +283,8 @@
 22-9	1418-1421	PET	event[78]|abstract[80]|abstract[81]	new[78]|new[80]|new[81]	nnnnn[78]|nssnn[80]|nnnnn[81]	_	coref	47-1[179_81]	
 22-10	1422-1426	scan	event[78]|abstract[80]	new[78]|new[80]	nnnnn[78]|nssnn[80]	_	_	_	
 22-11	1427-1432	after	event[78]	new[78]	nnnnn[78]	_	_	_	
-22-12	1433-1434	3	event[78]|abstract[82]	new[78]|new[82]	nnnnn[78]|nnnnn[82]	_	_	_	
-22-13	1435-1441	cycles	event[78]|abstract[82]	new[78]|new[82]	nnnnn[78]|nnnnn[82]	_	_	_	
+22-12	1433-1434	3	event[78]|abstract[82]	new[78]|acc[82]	nnnnn[78]|nnnnn[82]	_	_	_	
+22-13	1435-1441	cycles	event[78]|abstract[82]	new[78]|acc[82]	nnnnn[78]|nnnnn[82]	_	_	_	
 22-14	1442-1449	because	_	_	_	_	_	_	
 22-15	1450-1452	he	person[83]	giv[83]	sssss[83]	_	coref	23-1[85_83]	
 22-16	1453-1456	was	_	_	_	_	_	_	
@@ -294,7 +294,7 @@
 22-20	1474-1475	.	_	_	_	_	_	_	
 
 #Text=His therapy has been interrupted for infection related to squamous cell cancer , skin surgery as well as complaints of chest infection .
-23-1	1476-1479	His	abstract[84]|person[85]	giv[84]|giv[85]	nnnnn[84]|sssss[85]	_	coref	24-1[93_85]	
+23-1	1476-1479	His	abstract[84]|person[85]	giv[84]|giv[85]	nnnnn[84]|sssss[85]	_	coref|bridge:entity-meronomy	24-1[93_85]|23-21[92_85]	
 23-2	1480-1487	therapy	abstract[84]	giv[84]	nnnnn[84]	_	_	_	
 23-3	1488-1491	has	_	_	_	_	_	_	
 23-4	1492-1496	been	_	_	_	_	_	_	
@@ -314,7 +314,7 @@
 23-18	1578-1580	as	_	_	_	_	_	_	
 23-19	1581-1591	complaints	event[91]	new[91]	nsnnn[91]	_	_	_	
 23-20	1592-1594	of	event[91]	new[91]	nsnnn[91]	_	_	_	
-23-21	1595-1600	chest	event[91]|object[92]	new[91]|new[92]	nsnnn[91]|nnnnn[92]	_	coref	26-14[107_92]	
+23-21	1595-1600	chest	event[91]|object[92]	new[91]|acc[92]	nsnnn[91]|nnnnn[92]	_	coref	26-14[107_92]	
 23-22	1601-1610	infection	event[91]	new[91]	nsnnn[91]	_	_	_	
 23-23	1611-1612	.	_	_	_	_	_	_	
 
@@ -369,14 +369,14 @@
 27-5	1818-1820	or	abstract[110]	new[110]	nnnnn[110]	_	_	_	
 27-6	1821-1829	numbness	abstract[110]	new[110]	nnnnn[110]	_	_	_	
 27-7	1830-1832	in	abstract[110]	new[110]	nnnnn[110]	_	_	_	
-27-8	1833-1836	his	abstract[110]|object[111]|person[112]	new[110]|new[111]|giv[112]	nnnnn[110]|nnnnn[111]|sssss[112]	_	coref	32-1[120_112]	
+27-8	1833-1836	his	abstract[110]|object[111]|person[112]	new[110]|new[111]|giv[112]	nnnnn[110]|nnnnn[111]|sssss[112]	_	coref|bridge:entity-associative|bridge:entity-associative|bridge:entity-associative	32-1[120_112]|28-3[114_112]|30-1[118_112]|31-1[119_112]	
 27-9	1837-1844	fingers	abstract[110]|object[111]	new[110]|new[111]	nnnnn[110]|nnnnn[111]	_	_	_	
 27-10	1845-1846	.	_	_	_	_	_	_	
 
 #Text=Review of systems is otherwise entirely negative .
 28-1	1847-1853	Review	abstract[113]	giv[113]	nnnnn[113]	_	_	_	
 28-2	1854-1856	of	abstract[113]	giv[113]	nnnnn[113]	_	_	_	
-28-3	1857-1864	systems	abstract[113]|abstract[114]	giv[113]|new[114]	nnnnn[113]|nnnnn[114]	_	_	_	
+28-3	1857-1864	systems	abstract[113]|abstract[114]	giv[113]|acc[114]	nnnnn[113]|nnnnn[114]	_	_	_	
 28-4	1865-1867	is	_	_	_	_	_	_	
 28-5	1868-1877	otherwise	_	_	_	_	_	_	
 28-6	1878-1886	entirely	_	_	_	_	_	_	
@@ -394,29 +394,29 @@
 29-8	1938-1939	1	abstract[117]	giv[117]	nnnnn[117]	_	_	_	
 
 #Text=PHYSICAL EXAMINATION :
-30-1	1940-1948	PHYSICAL	abstract[118]	new[118]	nnnnn[118]	_	_	_	
-30-2	1949-1960	EXAMINATION	abstract[118]	new[118]	nnnnn[118]	_	_	_	
+30-1	1940-1948	PHYSICAL	abstract[118]	acc[118]	nnnnn[118]	_	_	_	
+30-2	1949-1960	EXAMINATION	abstract[118]	acc[118]	nnnnn[118]	_	_	_	
 30-3	1961-1962	:	_	_	_	_	_	_	
 
 #Text=VITAL SIGNS :
-31-1	1963-1968	VITAL	abstract[119]	new[119]	nnnsn[119]	_	_	_	
-31-2	1969-1974	SIGNS	abstract[119]	new[119]	nnnsn[119]	_	_	_	
+31-1	1963-1968	VITAL	abstract[119]	acc[119]	nnnsn[119]	_	_	_	
+31-2	1969-1974	SIGNS	abstract[119]	acc[119]	nnnsn[119]	_	_	_	
 31-3	1975-1976	:	_	_	_	_	_	_	
 
 #Text=He is afebrile .
-32-1	1977-1979	He	person[120]	giv[120]	sssss[120]	_	coref	33-19[129_120]	
+32-1	1977-1979	He	person[120]	giv[120]	sssss[120]	_	coref|bridge:entity-property|bridge:entity-property	33-19[129_120]|33-1[121_120]|33-7[124_120]	
 32-2	1980-1982	is	_	_	_	_	_	_	
 32-3	1983-1991	afebrile	_	_	_	_	_	_	
 32-4	1992-1993	.	_	_	_	_	_	_	
 
 #Text=Blood pressure 161 / 80 , pulse 65 , weight 71.5 kg , which is essentially unchanged from his prior visit .
-33-1	1994-1999	Blood	abstract[121]|substance[122]	new[121]|new[122]	nnnnn[121]|nnnnn[122]	_	coref	33-3[123_121]	
-33-2	2000-2008	pressure	abstract[121]	new[121]	nnnnn[121]	_	_	_	
+33-1	1994-1999	Blood	abstract[121]|substance[122]	acc[121]|new[122]	nnnnn[121]|nnnnn[122]	_	coref	33-3[123_121]	
+33-2	2000-2008	pressure	abstract[121]	acc[121]	nnnnn[121]	_	_	_	
 33-3	2009-2012	161	abstract[123]	new[123]	nnnnn[123]	_	_	_	
 33-4	2013-2014	/	abstract[123]	new[123]	nnnnn[123]	_	_	_	
 33-5	2015-2017	80	abstract[123]	new[123]	nnnnn[123]	_	_	_	
 33-6	2018-2019	,	_	_	_	_	_	_	
-33-7	2020-2025	pulse	abstract[124]	new[124]	nnnnn[124]	_	coref	33-8[125_124]	
+33-7	2020-2025	pulse	abstract[124]	acc[124]	nnnnn[124]	_	coref	33-8[125_124]	
 33-8	2026-2028	65	abstract[125]	giv[125]	nnnnn[125]	_	_	_	
 33-9	2029-2030	,	_	_	_	_	_	_	
 33-10	2031-2037	weight	abstract[126]	giv[126]	nnnnn[126]	_	coref	33-11[127_126]	
@@ -428,7 +428,7 @@
 33-16	2057-2068	essentially	_	_	_	_	_	_	
 33-17	2069-2078	unchanged	_	_	_	_	_	_	
 33-18	2079-2083	from	_	_	_	_	_	_	
-33-19	2084-2087	his	event[128]|person[129]	new[128]|giv[129]	nnnnn[128]|sssss[129]	_	coref	46-1[173_129]	
+33-19	2084-2087	his	event[128]|person[129]	new[128]|giv[129]	nnnnn[128]|sssss[129]	_	coref|bridge:entity-meronomy|bridge:entity-meronomy|bridge:entity-meronomy|bridge:entity-associative|bridge:entity-associative|bridge:entity-associative	46-1[173_129]|37-1[136_129]|39-1[142_129]|41-1[148_129]|42-1[150_129]|44-1[168_129]|44-3[169_129]	
 33-20	2088-2093	prior	event[128]	new[128]	nnnnn[128]	_	_	_	
 33-21	2094-2099	visit	event[128]	new[128]	nnnnn[128]	_	_	_	
 33-22	2100-2101	.	_	_	_	_	_	_	
@@ -462,7 +462,7 @@
 36-6	2215-2216	.	_	_	_	_	_	_	
 
 #Text=CARDIOVASCULAR : S1 and S2 normal with regular rate and rhythm .
-37-1	2217-2231	CARDIOVASCULAR	abstract[136]	new[136]	nnnnn[136]	_	_	_	
+37-1	2217-2231	CARDIOVASCULAR	abstract[136]	acc[136]	nnnnn[136]	_	bridge:entity-meronomy	38-8[141_136]	
 37-2	2232-2233	:	_	_	_	_	_	_	
 37-3	2234-2236	S1	abstract[137]	new[137]	nnnnn[137]	_	_	_	
 37-4	2237-2240	and	_	_	_	_	_	_	
@@ -483,13 +483,13 @@
 38-5	2306-2310	best	_	_	_	_	_	_	
 38-6	2311-2316	heard	_	_	_	_	_	_	
 38-7	2317-2319	in	_	_	_	_	_	_	
-38-8	2320-2323	the	place[141]	new[141]	nnnnn[141]	_	_	_	
-38-9	2324-2333	pulmonary	place[141]	new[141]	nnnnn[141]	_	_	_	
-38-10	2334-2338	area	place[141]	new[141]	nnnnn[141]	_	_	_	
+38-8	2320-2323	the	place[141]	acc[141]	nnnnn[141]	_	_	_	
+38-9	2324-2333	pulmonary	place[141]	acc[141]	nnnnn[141]	_	_	_	
+38-10	2334-2338	area	place[141]	acc[141]	nnnnn[141]	_	_	_	
 38-11	2339-2340	.	_	_	_	_	_	_	
 
 #Text=ABDOMEN : Soft and nontender with no organomegaly .
-39-1	2341-2348	ABDOMEN	object[142]	new[142]	nnnnn[142]	_	_	_	
+39-1	2341-2348	ABDOMEN	object[142]	acc[142]	nnnnn[142]	_	bridge:entity-meronomy	40-6[146_142]	
 39-2	2349-2350	:	_	_	_	_	_	_	
 39-3	2351-2355	Soft	_	_	_	_	_	_	
 39-4	2356-2359	and	_	_	_	_	_	_	
@@ -505,10 +505,10 @@
 40-3	2410-2412	is	_	_	_	_	_	_	
 40-4	2413-2418	noted	_	_	_	_	_	_	
 40-5	2419-2421	in	_	_	_	_	_	_	
-40-6	2422-2425	the	object[146]	new[146]	nnnnn[146]	_	_	_	
-40-7	2426-2431	right	object[146]	new[146]	nnnnn[146]	_	_	_	
-40-8	2432-2437	lower	object[146]	new[146]	nnnnn[146]	_	_	_	
-40-9	2438-2446	quadrant	object[146]	new[146]	nnnnn[146]	_	_	_	
+40-6	2422-2425	the	object[146]	acc[146]	nnnnn[146]	_	_	_	
+40-7	2426-2431	right	object[146]	acc[146]	nnnnn[146]	_	_	_	
+40-8	2432-2437	lower	object[146]	acc[146]	nnnnn[146]	_	_	_	
+40-9	2438-2446	quadrant	object[146]	acc[146]	nnnnn[146]	_	_	_	
 40-10	2447-2451	with	_	_	_	_	_	_	
 40-11	2452-2453	a	object[147]	new[147]	nnnnn[147]	_	_	_	
 40-12	2454-2458	scar	object[147]	new[147]	nnnnn[147]	_	_	_	
@@ -516,7 +516,7 @@
 40-14	2467-2468	.	_	_	_	_	_	_	
 
 #Text=EXTREMITIES : Reveal no edema .
-41-1	2469-2480	EXTREMITIES	abstract[148]	new[148]	nnnnn[148]	_	_	_	
+41-1	2469-2480	EXTREMITIES	abstract[148]	acc[148]	nnnnn[148]	_	_	_	
 41-2	2481-2482	:	_	_	_	_	_	_	
 41-3	2483-2489	Reveal	_	_	_	_	_	_	
 41-4	2490-2492	no	abstract[149]	new[149]	nnnnn[149]	_	_	_	
@@ -524,8 +524,8 @@
 41-6	2499-2500	.	_	_	_	_	_	_	
 
 #Text=LABORATORY DATA :
-42-1	2501-2511	LABORATORY	abstract[150]	new[150]	nnnsn[150]	_	_	_	
-42-2	2512-2516	DATA	abstract[150]	new[150]	nnnsn[150]	_	_	_	
+42-1	2501-2511	LABORATORY	abstract[150]	acc[150]	nnnsn[150]	_	_	_	
+42-2	2512-2516	DATA	abstract[150]	acc[150]	nnnsn[150]	_	_	_	
 42-3	2517-2518	:	_	_	_	_	_	_	
 
 #Text=CBC from today shows white count of 9.6 with a normal differential , ANC of 7400 , hemoglobin 8.9 , hematocrit 26.5 with an MCV of 109 , and platelet count of 220,000 .
@@ -565,9 +565,9 @@
 43-34	2686-2687	.	_	_	_	_	_	_	
 
 #Text=ASSESSMENT AND PLAN :
-44-1	2688-2698	ASSESSMENT	abstract[168]	new[168]	nnnnn[168]	_	_	_	
+44-1	2688-2698	ASSESSMENT	abstract[168]	acc[168]	nnnnn[168]	_	_	_	
 44-2	2699-2702	AND	_	_	_	_	_	_	
-44-3	2703-2707	PLAN	abstract[169]	new[169]	nnnnn[169]	_	_	_	
+44-3	2703-2707	PLAN	abstract[169]	acc[169]	nnnnn[169]	_	_	_	
 44-4	2708-2709	:	_	_	_	_	_	_	
 
 #Text=1. Diffuse large B - cell lymphoma following transplantation .
@@ -696,7 +696,7 @@
 53-22	3270-3271	.	_	_	_	_	_	_	
 
 #Text=His CMP is pending from today .
-54-1	3272-3275	His	abstract[209]|person[210]	giv[209]|giv[210]	nnnnn[209]|sssss[210]	_	coref	57-1[217_210]	
+54-1	3272-3275	His	abstract[209]|person[210]	giv[209]|giv[210]	nnnnn[209]|sssss[210]	_	coref|bridge:entity-meronomy	57-1[217_210]|56-1[216_210]	
 54-2	3276-3279	CMP	abstract[209]	giv[209]	nnnnn[209]	_	_	_	
 54-3	3280-3282	is	_	_	_	_	_	_	
 54-4	3283-3290	pending	_	_	_	_	_	_	
@@ -715,8 +715,8 @@
 55-8	3343-3344	.	_	_	_	_	_	_	
 
 #Text=The scalp is well healed .
-56-1	3345-3348	The	object[216]	new[216]	nnnnn[216]	_	_	_	
-56-2	3349-3354	scalp	object[216]	new[216]	nnnnn[216]	_	_	_	
+56-1	3345-3348	The	object[216]	acc[216]	nnnnn[216]	_	_	_	
+56-2	3349-3354	scalp	object[216]	acc[216]	nnnnn[216]	_	_	_	
 56-3	3355-3357	is	_	_	_	_	_	_	
 56-4	3358-3362	well	_	_	_	_	_	_	
 56-5	3363-3369	healed	_	_	_	_	_	_	

@@ -1,7 +1,7 @@
 #FORMAT=WebAnno TSV 3.2
 #T_SP=webanno.custom.Referent|entity|infstat|salience|identity|centering
 #T_RL=webanno.custom.Coref|type|BT_webanno.custom.Referent
-#Summary1=(human1) On August 15, 2008, a classified Environment Canada document detailing security vulnerabilities of the NEMESIS database used by Canadian law enforcement to prosecute environmental law-breakers was found on the street in Kanata, Ontario, leading to controversy about how it wound up there and how classified it actually is.
+#Summary1=(human1) On August 15, 2008, a classified Environment Canada document detailing security vulnerabilities of the NEMISIS database used by Canadian law enforcement to prosecute environmental law-breakers was found on the street in Kanata, Ontario, leading to controversy about how it wound up there and how classified it actually is.
 #Summary2=(human2) This news article dated August 15, 2008 reports that a sensitive environmental document was found on a street in Ottawa, Ontario, which led multiple Environment Canada employees to issue statements and Paul Dewar, an Ottawa New Democrat MP, to criticize procedures regarding sensitive documents
 #Summary3=(human3) The public was informed of security breaches in many federal offices when various classified documents were discovered on the streets across Canada.
 #Summary4=(human4) Environment Canada confidential documents detailing the weaknesses of their database ended up on the streets of Ottawa.
@@ -23,12 +23,12 @@
 2-3	60-66	August	time[6]	giv:act[6]	ssnnn[6]	_	cf1[6]	coref	3-21[19_6]	
 2-4	67-69	15	time[6]	giv:act[6]	ssnnn[6]	_	cf1[6]	_	_	
 2-5	70-71	,	time[6]	giv:act[6]	ssnnn[6]	_	cf1[6]	_	_	
-2-6	72-76	2008	time[6]|time[7]	giv:act[6]|new[7]	ssnnn[6]|snnnn[7]	_	cf1[6]|cf2[7]	coref	23-17[177_7]	
+2-6	72-76	2008	time[6]|time[7]	giv:act[6]|new[7]	ssnnn[6]|snnnn[7]	_	cf1[6]|cf2[7]	coref|bridge:comparison-time;set-span-interval|bridge:comparison-time;set-span-interval	23-17[177_7]|20-2[150_7]|21-2[156_7]	
 
 #Text=A sensitive Environment Canada document was found wet on an Ottawa street by someone who gave it to the CBC today .
 3-1	77-78	A	event[9]|object[10]	giv:inact[9]|giv:inact[10]	ssnns[9]|ssnns[10]	_	cf3[9]|cf1[10]	disc|ana	4-1[21_9]|3-17[16_10]	
 3-2	79-88	sensitive	event[9]|object[10]	giv:inact[9]|giv:inact[10]	ssnns[9]|ssnns[10]	_	cf3[9]|cf1[10]	_	_	
-3-3	89-100	Environment	event[9]|object[10]|organization[11]	giv:inact[9]|giv:inact[10]|new[11]	ssnns[9]|ssnns[10]|ssnss[11]	Environment_and_Climate_Change_Canada[11]	cf3[9]|cf1[10]|cf7[11]	coref	10-1[63_11]	
+3-3	89-100	Environment	event[9]|object[10]|organization[11]	giv:inact[9]|giv:inact[10]|new[11]	ssnns[9]|ssnns[10]|ssnss[11]	Environment_and_Climate_Change_Canada[11]	cf3[9]|cf1[10]|cf7[11]	coref|bridge:entity-associative	10-1[63_11]|5-24[37_11]	
 3-4	101-107	Canada	event[9]|object[10]|organization[11]	giv:inact[9]|giv:inact[10]|new[11]	ssnns[9]|ssnns[10]|ssnss[11]	Environment_and_Climate_Change_Canada[11]	cf3[9]|cf1[10]|cf7[11]	_	_	
 3-5	108-116	document	event[9]|object[10]	giv:inact[9]|giv:inact[10]	ssnns[9]|ssnns[10]	_	cf3[9]|cf1[10]	_	_	
 3-6	117-120	was	event[9]	giv:inact[9]	ssnns[9]	_	cf3[9]	_	_	
@@ -50,7 +50,7 @@
 3-22	191-192	.	event[9]	giv:inact[9]	ssnns[9]	_	cf3[9]	_	_	
 
 #Text=The 131 - page document was found on Castlefrank Road in Kanata , Ontario in a rain - stained , tire - marked brown envelope by a passerby .
-4-1	193-196	The	event[21]|object[22]	giv:act[21]|giv:act[22]	ssnns[21]|ssnns[22]	_	cf4[21]|cf1*[22]	disc|coref|bridge:other	11-10[77_21]|5-1[29_22]|9-1[59_22]	
+4-1	193-196	The	event[21]|object[22]	giv:act[21]|giv:act[22]	ssnns[21]|ssnns[22]	_	cf4[21]|cf1*[22]	disc|coref	11-10[77_21]|5-1[29_22]	
 4-2	197-200	131	event[21]|object[22]	giv:act[21]|giv:act[22]	ssnns[21]|ssnns[22]	_	cf4[21]|cf1*[22]	_	_	
 4-3	201-202	-	event[21]|object[22]	giv:act[21]|giv:act[22]	ssnns[21]|ssnns[22]	_	cf4[21]|cf1*[22]	_	_	
 4-4	203-207	page	event[21]|object[22]	giv:act[21]|giv:act[22]	ssnns[21]|ssnns[22]	_	cf4[21]|cf1*[22]	_	_	
@@ -63,7 +63,7 @@
 4-11	247-249	in	event[21]|place[23]	giv:act[21]|giv:act[23]	ssnns[21]|sssss[23]	_	cf4[21]|cf2[23]	_	_	
 4-12	250-256	Kanata	event[21]|place[23]|place[24]	giv:act[21]|giv:act[23]|new[24]	ssnns[21]|sssss[23]|snnnn[24]	Kanata%2C_Ontario[24]	cf4[21]|cf2[23]|cf5[24]	_	_	
 4-13	257-258	,	event[21]|place[23]|place[24]	giv:act[21]|giv:act[23]|new[24]	ssnns[21]|sssss[23]|snnnn[24]	Kanata%2C_Ontario[24]	cf4[21]|cf2[23]|cf5[24]	_	_	
-4-14	259-266	Ontario	event[21]|place[23]|place[24]|place[25]	giv:act[21]|giv:act[23]|new[24]|new[25]	ssnns[21]|sssss[23]|snnnn[24]|s____[25]	Kanata%2C_Ontario[24]|Ontario[25]	cf4[21]|cf2[23]|cf5[24]|cf6[25]	_	_	
+4-14	259-266	Ontario	event[21]|place[23]|place[24]|place[25]	giv:act[21]|giv:act[23]|new[24]|new[25]	ssnns[21]|sssss[23]|snnnn[24]|snnnn[25]	Kanata%2C_Ontario[24]|Ontario[25]	cf4[21]|cf2[23]|cf5[24]|cf6[25]	_	_	
 4-15	267-269	in	event[21]	giv:act[21]	ssnns[21]	_	cf4[21]	_	_	
 4-16	270-271	a	event[21]|object[27]	giv:act[21]|new[27]	ssnns[21]|nnnnn[27]	_	cf4[21]|cf7[27]	_	_	
 4-17	272-276	rain	event[21]|object[27]	giv:act[21]|new[27]	ssnns[21]|nnnnn[27]	_	cf4[21]|cf7[27]	_	_	
@@ -81,38 +81,38 @@
 4-29	332-333	.	_	_	_	_	_	_	_	
 
 #Text=The document which had the stamp Protected B on every page detailed various security vulnerabilities of the NEMISIS database which is used by officers to track and prosecute environmental law - breakers .
-5-1	334-337	The	object[29]	giv:act[29]	ssnns[29]	_	cf1*[29]	coref|bridge:other	8-4[53_29]|5-10[32_29]	
+5-1	334-337	The	object[29]	giv:act[29]	ssnns[29]	_	cf1*[29]	coref|bridge:entity-meronomy	8-4[53_29]|5-10[32_29]	
 5-2	338-346	document	object[29]	giv:act[29]	ssnns[29]	_	cf1*[29]	_	_	
 5-3	347-352	which	object[29]	giv:act[29]	ssnns[29]	_	cf1*[29]	_	_	
 5-4	353-356	had	object[29]	giv:act[29]	ssnns[29]	_	cf1*[29]	_	_	
-5-5	357-360	the	object[29]|object[30]	giv:act[29]|new[30]	ssnns[29]|nnnnn[30]	_	cf1*[29]|cf3[30]	_	_	
-5-6	361-366	stamp	object[29]|object[30]	giv:act[29]|new[30]	ssnns[29]|nnnnn[30]	_	cf1*[29]|cf3[30]	_	_	
-5-7	367-376	Protected	object[29]|object[30]|abstract[31]	giv:act[29]|new[30]|new[31]	ssnns[29]|nnnnn[30]|nnnnn[31]	_	cf1*[29]|cf3[30]|cf7[31]	coref	9-1[60_31]	
-5-8	377-378	B	object[29]|object[30]|abstract[31]	giv:act[29]|new[30]|new[31]	ssnns[29]|nnnnn[30]|nnnnn[31]	_	cf1*[29]|cf3[30]|cf7[31]	_	_	
+5-5	357-360	the	object[29]|object[30]	giv:act[29]|new[30]	ssnns[29]|nnnnn[30]	_	cf1*[29]|cf4[30]	_	_	
+5-6	361-366	stamp	object[29]|object[30]	giv:act[29]|new[30]	ssnns[29]|nnnnn[30]	_	cf1*[29]|cf4[30]	_	_	
+5-7	367-376	Protected	object[29]|object[30]|abstract[31]	giv:act[29]|new[30]|new[31]	ssnns[29]|nnnnn[30]|nnnnn[31]	_	cf1*[29]|cf4[30]|cf8[31]	coref	9-1[60_31]	
+5-8	377-378	B	object[29]|object[30]|abstract[31]	giv:act[29]|new[30]|new[31]	ssnns[29]|nnnnn[30]|nnnnn[31]	_	cf1*[29]|cf4[30]|cf8[31]	_	_	
 5-9	379-381	on	object[29]	giv:act[29]	ssnns[29]	_	cf1*[29]	_	_	
 5-10	382-387	every	object[29]|object[32]	giv:act[29]|acc:inf[32]	ssnns[29]|nnnnn[32]	_	cf1*[29]|cf2[32]	_	_	
 5-11	388-392	page	object[29]|object[32]	giv:act[29]|acc:inf[32]	ssnns[29]|nnnnn[32]	_	cf1*[29]|cf2[32]	_	_	
 5-12	393-401	detailed	_	_	_	_	_	_	_	
-5-13	402-409	various	abstract[33]	new[33]	snssn[33]	_	cf5[33]	_	_	
-5-14	410-418	security	abstract[33]|abstract[34]	new[33]|new[34]	snssn[33]|snsnn[34]	_	cf5[33]|cf9[34]	coref	11-21[80_34]	
-5-15	419-434	vulnerabilities	abstract[33]	new[33]	snssn[33]	_	cf5[33]	_	_	
-5-16	435-437	of	abstract[33]	new[33]	snssn[33]	_	cf5[33]	_	_	
-5-17	438-441	the	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf5[33]|cf6[36]	coref	6-7[43_36]	
-5-18	442-449	NEMISIS	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf5[33]|cf6[36]	_	_	
-5-19	450-458	database	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf5[33]|cf6[36]	_	_	
-5-20	459-464	which	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf5[33]|cf6[36]	_	_	
-5-21	465-467	is	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf5[33]|cf6[36]	_	_	
-5-22	468-472	used	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf5[33]|cf6[36]	_	_	
-5-23	473-475	by	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf5[33]|cf6[36]	_	_	
-5-24	476-484	officers	abstract[33]|abstract[36]|person[37]	new[33]|new[36]|new[37]	snssn[33]|snnsn[36]|nnnnn[37]	_	cf5[33]|cf6[36]|cf8[37]	_	_	
-5-25	485-487	to	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf5[33]|cf6[36]	_	_	
-5-26	488-493	track	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf5[33]|cf6[36]	_	_	
-5-27	494-497	and	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf5[33]|cf6[36]	_	_	
-5-28	498-507	prosecute	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf5[33]|cf6[36]	_	_	
-5-29	508-521	environmental	abstract[33]|abstract[36]|person[39]	new[33]|new[36]|new[39]	snssn[33]|snnsn[36]|snnnn[39]	_	cf5[33]|cf6[36]|cf4[39]	coref	6-27[48_39]	
-5-30	522-525	law	abstract[33]|abstract[36]|person[39]	new[33]|new[36]|new[39]	snssn[33]|snnsn[36]|snnnn[39]	_	cf5[33]|cf6[36]|cf4[39]	_	_	
-5-31	526-527	-	abstract[33]|abstract[36]|person[39]	new[33]|new[36]|new[39]	snssn[33]|snnsn[36]|snnnn[39]	_	cf5[33]|cf6[36]|cf4[39]	_	_	
-5-32	528-536	breakers	abstract[33]|abstract[36]|person[39]	new[33]|new[36]|new[39]	snssn[33]|snnsn[36]|snnnn[39]	_	cf5[33]|cf6[36]|cf4[39]	_	_	
+5-13	402-409	various	abstract[33]	new[33]	snssn[33]	_	cf6[33]	_	_	
+5-14	410-418	security	abstract[33]|abstract[34]	new[33]|new[34]	snssn[33]|snsnn[34]	_	cf6[33]|cf9[34]	coref	11-21[80_34]	
+5-15	419-434	vulnerabilities	abstract[33]	new[33]	snssn[33]	_	cf6[33]	_	_	
+5-16	435-437	of	abstract[33]	new[33]	snssn[33]	_	cf6[33]	_	_	
+5-17	438-441	the	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf6[33]|cf7[36]	coref	6-7[43_36]	
+5-18	442-449	NEMISIS	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf6[33]|cf7[36]	_	_	
+5-19	450-458	database	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf6[33]|cf7[36]	_	_	
+5-20	459-464	which	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf6[33]|cf7[36]	_	_	
+5-21	465-467	is	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf6[33]|cf7[36]	_	_	
+5-22	468-472	used	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf6[33]|cf7[36]	_	_	
+5-23	473-475	by	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf6[33]|cf7[36]	_	_	
+5-24	476-484	officers	abstract[33]|abstract[36]|person[37]	new[33]|new[36]|acc:inf[37]	snssn[33]|snnsn[36]|nnnnn[37]	_	cf6[33]|cf7[36]|cf3[37]	_	_	
+5-25	485-487	to	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf6[33]|cf7[36]	_	_	
+5-26	488-493	track	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf6[33]|cf7[36]	_	_	
+5-27	494-497	and	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf6[33]|cf7[36]	_	_	
+5-28	498-507	prosecute	abstract[33]|abstract[36]	new[33]|new[36]	snssn[33]|snnsn[36]	_	cf6[33]|cf7[36]	_	_	
+5-29	508-521	environmental	abstract[33]|abstract[36]|person[39]	new[33]|new[36]|new[39]	snssn[33]|snnsn[36]|snnnn[39]	_	cf6[33]|cf7[36]|cf5[39]	coref	6-27[48_39]	
+5-30	522-525	law	abstract[33]|abstract[36]|person[39]	new[33]|new[36]|new[39]	snssn[33]|snnsn[36]|snnnn[39]	_	cf6[33]|cf7[36]|cf5[39]	_	_	
+5-31	526-527	-	abstract[33]|abstract[36]|person[39]	new[33]|new[36]|new[39]	snssn[33]|snnsn[36]|snnnn[39]	_	cf6[33]|cf7[36]|cf5[39]	_	_	
+5-32	528-536	breakers	abstract[33]|abstract[36]|person[39]	new[33]|new[36]|new[39]	snssn[33]|snnsn[36]|snnnn[39]	_	cf6[33]|cf7[36]|cf5[39]	_	_	
 5-33	537-538	.	_	_	_	_	_	_	_	
 
 #Text=If someone were able to shut the system down , or hack inside and delete or corrupt the information , it could affect the prosecution of the lawbreakers .
@@ -122,7 +122,7 @@
 6-4	555-559	able	event[40]	new[40]	nnnnn[40]	_	cf1[40]	_	_	
 6-5	560-562	to	event[40]	new[40]	nnnnn[40]	_	cf1[40]	_	_	
 6-6	563-567	shut	event[40]	new[40]	nnnnn[40]	_	cf1[40]	_	_	
-6-7	568-571	the	event[40]|abstract[43]	new[40]|giv:act[43]	nnnnn[40]|snnsn[43]	_	cf1[40]|cf2*[43]	coref|bridge:def	7-1[49_43]|6-18[44_43]	
+6-7	568-571	the	event[40]|abstract[43]	new[40]|giv:act[43]	nnnnn[40]|snnsn[43]	_	cf1[40]|cf2*[43]	coref|bridge:entity-associative	7-1[49_43]|6-18[44_43]	
 6-8	572-578	system	event[40]|abstract[43]	new[40]|giv:act[43]	nnnnn[40]|snnsn[43]	_	cf1[40]|cf2*[43]	_	_	
 6-9	579-583	down	event[40]	new[40]	nnnnn[40]	_	cf1[40]	_	_	
 6-10	584-585	,	event[40]	new[40]	nnnnn[40]	_	cf1[40]	_	_	
@@ -178,7 +178,7 @@
 8-10	855-858	the	abstract[54]	giv:act[54]	snnsn[54]	_	cf1*[54]	coref	8-13[55_54]	
 8-11	859-867	database	abstract[54]	giv:act[54]	snnsn[54]	_	cf1*[54]	_	_	
 8-12	868-870	as	_	_	_	_	_	_	_	
-8-13	871-879	National	abstract[55]	giv:act[55]	snnsn[55]	_	cf1*[55]	_	_	
+8-13	871-879	National	abstract[55]	giv:act[55]	snnsn[55]	_	cf1*[55]	bridge:entity-property	8-32[58_55]	
 8-14	880-891	Enforcement	abstract[55]	giv:act[55]	snnsn[55]	_	cf1*[55]	_	_	
 8-15	892-895	and	abstract[55]	giv:act[55]	snnsn[55]	_	cf1*[55]	_	_	
 8-16	896-905	Emergency	abstract[55]	giv:act[55]	snnsn[55]	_	cf1*[55]	_	_	
@@ -197,14 +197,14 @@
 8-29	985-994	Emergency	abstract[57]	giv:act[57]	nnnnn[57]	_	cf2[57]	_	_	
 8-30	995-996	"	_	_	_	_	_	_	_	
 8-31	997-999	to	_	_	_	_	_	_	_	
-8-32	1000-1003	the	abstract[58]	new[58]	nnnnn[58]	_	cf4[58]	_	_	
-8-33	1004-1008	name	abstract[58]	new[58]	nnnnn[58]	_	cf4[58]	_	_	
+8-32	1000-1003	the	abstract[58]	acc:inf[58]	nnnnn[58]	_	cf4[58]	_	_	
+8-33	1004-1008	name	abstract[58]	acc:inf[58]	nnnnn[58]	_	cf4[58]	_	_	
 8-34	1009-1010	.	_	_	_	_	_	_	_	
 
 #Text=Protection B documents are the second lowest grade of classified government documents .
-9-1	1011-1021	Protection	object[59]|abstract[60]	acc:inf[59]|giv:inact[60]	nnnnn[59]|nnnnn[60]	_	cf1[59]|cf2[60]	coref	9-5[61_59]	
-9-2	1022-1023	B	object[59]|abstract[60]	acc:inf[59]|giv:inact[60]	nnnnn[59]|nnnnn[60]	_	cf1[59]|cf2[60]	_	_	
-9-3	1024-1033	documents	object[59]	acc:inf[59]	nnnnn[59]	_	cf1[59]	_	_	
+9-1	1011-1021	Protection	object[59]|abstract[60]	auto[59]|giv:inact[60]	nnnnn[59]|nnnnn[60]	_	cf1[59]|cf2[60]	coref	9-5[61_59]	
+9-2	1022-1023	B	object[59]|abstract[60]	auto[59]|giv:inact[60]	nnnnn[59]|nnnnn[60]	_	cf1[59]|cf2[60]	_	_	
+9-3	1024-1033	documents	object[59]	auto[59]	nnnnn[59]	_	cf1[59]	_	_	
 9-4	1034-1037	are	_	_	_	_	_	_	_	
 9-5	1038-1041	the	object[61]	giv:act[61]	nnnnn[61]	_	cf1[61]	ana	10-7[64_61]	
 9-6	1042-1048	second	object[61]	giv:act[61]	nnnnn[61]	_	cf1[61]	_	_	
@@ -217,11 +217,11 @@
 9-13	1097-1098	.	_	_	_	_	_	_	_	
 
 #Text=Environment Canada spokesperson Julie Hahn said they apply to letters of complaint , criticism or injury , research or scientific notes and findings that do n`t have any conclusion , and Treasury Board letters , agendas and minutes that do n`t deal with subjects of national interest .
-10-1	1099-1110	Environment	person[62]|organization[63]	new[62]|giv:inact[63]	n____[62]|ssnss[63]	Environment_and_Climate_Change_Canada[63]	cf3[62]|cf2[63]	coref	11-1[74_63]	
-10-2	1111-1117	Canada	person[62]|organization[63]	new[62]|giv:inact[63]	n____[62]|ssnss[63]	Environment_and_Climate_Change_Canada[63]	cf3[62]|cf2[63]	_	_	
-10-3	1118-1130	spokesperson	person[62]	new[62]	n____[62]	_	cf3[62]	_	_	
-10-4	1131-1136	Julie	person[62]	new[62]	n____[62]	_	cf3[62]	_	_	
-10-5	1137-1141	Hahn	person[62]	new[62]	n____[62]	_	cf3[62]	_	_	
+10-1	1099-1110	Environment	person[62]|organization[63]	new[62]|giv:inact[63]	nnnnn[62]|ssnss[63]	Environment_and_Climate_Change_Canada[63]	cf3[62]|cf2[63]	coref	11-1[74_63]	
+10-2	1111-1117	Canada	person[62]|organization[63]	new[62]|giv:inact[63]	nnnnn[62]|ssnss[63]	Environment_and_Climate_Change_Canada[63]	cf3[62]|cf2[63]	_	_	
+10-3	1118-1130	spokesperson	person[62]	new[62]	nnnnn[62]	_	cf3[62]	_	_	
+10-4	1131-1136	Julie	person[62]	new[62]	nnnnn[62]	_	cf3[62]	_	_	
+10-5	1137-1141	Hahn	person[62]	new[62]	nnnnn[62]	_	cf3[62]	_	_	
 10-6	1142-1146	said	_	_	_	_	_	_	_	
 10-7	1147-1151	they	object[64]	giv:act[64]	nnnnn[64]	_	cf1*[64]	_	_	
 10-8	1152-1157	apply	_	_	_	_	_	_	_	
@@ -286,9 +286,9 @@
 11-17	1491-1497	stored	event[77]|object[78]	giv:inact[77]|giv:inact[78]	ssnns[77]|ssnns[78]	_	cf4[77]|cf2[78]	_	_	
 11-18	1498-1500	in	event[77]|object[78]	giv:inact[77]|giv:inact[78]	ssnns[77]|ssnns[78]	_	cf4[77]|cf2[78]	_	_	
 11-19	1501-1502	"	event[77]|object[78]	giv:inact[77]|giv:inact[78]	ssnns[77]|ssnns[78]	_	cf4[77]|cf2[78]	_	_	
-11-20	1503-1511	approved	event[77]|object[78]|object[79]	giv:inact[77]|giv:inact[78]|new[79]	ssnns[77]|ssnns[78]|n____[79]	_	cf4[77]|cf2[78]|cf8[79]	_	_	
-11-21	1512-1520	security	event[77]|object[78]|object[79]|abstract[80]	giv:inact[77]|giv:inact[78]|new[79]|giv:inact[80]	ssnns[77]|ssnns[78]|n____[79]|snsnn[80]	_	cf4[77]|cf2[78]|cf8[79]|cf5[80]	coref	14-4[104_80]	
-11-22	1521-1529	cabinets	event[77]|object[78]|object[79]	giv:inact[77]|giv:inact[78]|new[79]	ssnns[77]|ssnns[78]|n____[79]	_	cf4[77]|cf2[78]|cf8[79]	_	_	
+11-20	1503-1511	approved	event[77]|object[78]|object[79]	giv:inact[77]|giv:inact[78]|new[79]	ssnns[77]|ssnns[78]|nnnnn[79]	_	cf4[77]|cf2[78]|cf8[79]	_	_	
+11-21	1512-1520	security	event[77]|object[78]|object[79]|abstract[80]	giv:inact[77]|giv:inact[78]|new[79]|giv:inact[80]	ssnns[77]|ssnns[78]|nnnnn[79]|snsnn[80]	_	cf4[77]|cf2[78]|cf8[79]|cf5[80]	coref	14-4[104_80]	
+11-22	1521-1529	cabinets	event[77]|object[78]|object[79]	giv:inact[77]|giv:inact[78]|new[79]	ssnns[77]|ssnns[78]|nnnnn[79]	_	cf4[77]|cf2[78]|cf8[79]	_	_	
 11-23	1530-1531	"	event[77]|object[78]	giv:inact[77]|giv:inact[78]	ssnns[77]|ssnns[78]	_	cf4[77]|cf2[78]	_	_	
 11-24	1532-1537	wound	event[77]	giv:inact[77]	ssnns[77]	_	cf4[77]	_	_	
 11-25	1538-1540	up	event[77]	giv:inact[77]	ssnns[77]	_	cf4[77]	_	_	
@@ -302,29 +302,29 @@
 12-2	1559-1560	I	person[83]	giv:act[83]	nnnns[83]	John_Baird_%28Canadian_politician%29[83]	cf1*[83]	coref	12-30[94_83]	
 12-3	1561-1563	'm	_	_	_	_	_	_	_	
 12-4	1564-1568	told	_	_	_	_	_	_	_	
-12-5	1569-1572	two	abstract[85]	new[85]	n____[85]	_	cf5[85]	bridge:other|bridge:other	12-9[86_85]|12-17[89_85]	
-12-6	1573-1579	things	abstract[85]	new[85]	n____[85]	_	cf5[85]	_	_	
+12-5	1569-1572	two	abstract[85]	new[85]	nnnnn[85]	_	cf5[85]	_	_	
+12-6	1573-1579	things	abstract[85]	new[85]	nnnnn[85]	_	cf5[85]	_	_	
 12-7	1580-1581	:	_	_	_	_	_	_	_	
 12-8	1582-1586	that	_	_	_	_	_	_	_	
-12-9	1587-1589	it	event[86]|object[87]	acc:inf[86]|giv:act[87]	n____[86]|ssnns[87]	_	cf4[86]|cf2[87]	ana	12-17[90_87]	
-12-10	1590-1592	's	event[86]	acc:inf[86]	n____[86]	_	cf4[86]	_	_	
-12-11	1593-1600	neither	event[86]	acc:inf[86]	n____[86]	_	cf4[86]	_	_	
-12-12	1601-1611	classified	event[86]	acc:inf[86]	n____[86]	_	cf4[86]	_	_	
-12-13	1612-1615	nor	event[86]	acc:inf[86]	n____[86]	_	cf4[86]	_	_	
-12-14	1616-1622	secret	event[86]	acc:inf[86]	n____[86]	_	cf4[86]	_	_	
+12-9	1587-1589	it	event[86]|object[87]	auto[86]|giv:act[87]	nnnnn[86]|ssnns[87]	_	cf4[86]|cf2[87]	ana	12-17[90_87]	
+12-10	1590-1592	's	event[86]	auto[86]	nnnnn[86]	_	cf4[86]	_	_	
+12-11	1593-1600	neither	event[86]	auto[86]	nnnnn[86]	_	cf4[86]	_	_	
+12-12	1601-1611	classified	event[86]	auto[86]	nnnnn[86]	_	cf4[86]	_	_	
+12-13	1612-1615	nor	event[86]	auto[86]	nnnnn[86]	_	cf4[86]	_	_	
+12-14	1616-1622	secret	event[86]	auto[86]	nnnnn[86]	_	cf4[86]	_	_	
 12-15	1623-1626	and	_	_	_	_	_	_	_	
 12-16	1627-1631	that	_	_	_	_	_	_	_	
-12-17	1632-1634	it	event[89]|object[90]	acc:inf[89]|giv:act[90]	n____[89]|ssnns[90]	_	cf3[89]|cf2[90]	coref	12-19[92_90]	
-12-18	1635-1637	's	event[89]	acc:inf[89]	n____[89]	_	cf3[89]	_	_	
-12-19	1638-1643	stuff	event[89]|object[92]	acc:inf[89]|giv:act[92]	n____[89]|ssnns[92]	_	cf3[89]|cf2[92]	coref	14-21[109_92]	
-12-20	1644-1648	that	event[89]|object[92]	acc:inf[89]|giv:act[92]	n____[89]|ssnns[92]	_	cf3[89]|cf2[92]	_	_	
-12-21	1649-1654	could	event[89]|object[92]	acc:inf[89]|giv:act[92]	n____[89]|ssnns[92]	_	cf3[89]|cf2[92]	_	_	
-12-22	1655-1657	be	event[89]|object[92]	acc:inf[89]|giv:act[92]	n____[89]|ssnns[92]	_	cf3[89]|cf2[92]	_	_	
-12-23	1658-1667	available	event[89]|object[92]	acc:inf[89]|giv:act[92]	n____[89]|ssnns[92]	_	cf3[89]|cf2[92]	_	_	
-12-24	1668-1673	under	event[89]|object[92]	acc:inf[89]|giv:act[92]	n____[89]|ssnns[92]	_	cf3[89]|cf2[92]	_	_	
-12-25	1674-1680	access	event[89]|object[92]	acc:inf[89]|giv:act[92]	n____[89]|ssnns[92]	_	cf3[89]|cf2[92]	_	_	
-12-26	1681-1683	to	event[89]|object[92]	acc:inf[89]|giv:act[92]	n____[89]|ssnns[92]	_	cf3[89]|cf2[92]	_	_	
-12-27	1684-1695	information	event[89]|object[92]|abstract[93]	acc:inf[89]|giv:act[92]|new[93]	n____[89]|ssnns[92]|n____[93]	_	cf3[89]|cf2[92]|cf6[93]	_	_	
+12-17	1632-1634	it	event[89]|object[90]	auto[89]|giv:act[90]	nnnnn[89]|ssnns[90]	_	cf3[89]|cf2[90]	coref	12-19[92_90]	
+12-18	1635-1637	's	event[89]	auto[89]	nnnnn[89]	_	cf3[89]	_	_	
+12-19	1638-1643	stuff	event[89]|object[92]	auto[89]|giv:act[92]	nnnnn[89]|ssnns[92]	_	cf3[89]|cf2[92]	coref	14-21[109_92]	
+12-20	1644-1648	that	event[89]|object[92]	auto[89]|giv:act[92]	nnnnn[89]|ssnns[92]	_	cf3[89]|cf2[92]	_	_	
+12-21	1649-1654	could	event[89]|object[92]	auto[89]|giv:act[92]	nnnnn[89]|ssnns[92]	_	cf3[89]|cf2[92]	_	_	
+12-22	1655-1657	be	event[89]|object[92]	auto[89]|giv:act[92]	nnnnn[89]|ssnns[92]	_	cf3[89]|cf2[92]	_	_	
+12-23	1658-1667	available	event[89]|object[92]	auto[89]|giv:act[92]	nnnnn[89]|ssnns[92]	_	cf3[89]|cf2[92]	_	_	
+12-24	1668-1673	under	event[89]|object[92]	auto[89]|giv:act[92]	nnnnn[89]|ssnns[92]	_	cf3[89]|cf2[92]	_	_	
+12-25	1674-1680	access	event[89]|object[92]	auto[89]|giv:act[92]	nnnnn[89]|ssnns[92]	_	cf3[89]|cf2[92]	_	_	
+12-26	1681-1683	to	event[89]|object[92]	auto[89]|giv:act[92]	nnnnn[89]|ssnns[92]	_	cf3[89]|cf2[92]	_	_	
+12-27	1684-1695	information	event[89]|object[92]|abstract[93]	auto[89]|giv:act[92]|new[93]	nnnnn[89]|ssnns[92]|nnnnn[93]	_	cf3[89]|cf2[92]|cf6[93]	_	_	
 12-28	1696-1697	,	_	_	_	_	_	_	_	
 12-29	1698-1699	"	_	_	_	_	_	_	_	
 12-30	1700-1705	Baird	person[94]	giv:act[94]	nnnns[94]	John_Baird_%28Canadian_politician%29[94]	cf1*[94]	_	_	
@@ -351,7 +351,7 @@
 
 #Text=" We take document security seriously , " she said , but refused to give any more details about how the papers came to be on a road .
 14-1	1822-1823	"	_	_	_	_	_	_	_	
-14-2	1824-1826	We	organization[102]	giv:act[102]	ssnss[102]	Environment_and_Climate_Change_Canada[102]	cf2[102]	coref	25-2[192_102]	
+14-2	1824-1826	We	organization[102]	giv:act[102]	ssnss[102]	Environment_and_Climate_Change_Canada[102]	cf2[102]	coref|bridge:set-subset	25-2[192_102]|15-19[119_102]	
 14-3	1827-1831	take	_	_	_	_	_	_	_	
 14-4	1832-1840	document	abstract[104]	giv:inact[104]	snsnn[104]	_	cf5[104]	coref	15-13[116_104]	
 14-5	1841-1849	security	abstract[104]	giv:inact[104]	snsnn[104]	_	cf5[104]	_	_	
@@ -370,7 +370,7 @@
 14-18	1904-1911	details	abstract[107]	acc:com[107]	nnnnn[107]	_	cf7[107]	_	_	
 14-19	1912-1917	about	abstract[107]	acc:com[107]	nnnnn[107]	_	cf7[107]	_	_	
 14-20	1918-1921	how	abstract[107]	acc:com[107]	nnnnn[107]	_	cf7[107]	_	_	
-14-21	1922-1925	the	abstract[107]|event[108]|object[109]	acc:com[107]|giv:act[108]|giv:inact[109]	nnnnn[107]|ssnns[108]|ssnns[109]	_	cf7[107]|cf3[108]|cf4[109]	disc|coref	17-4[134_108]|23-2[172_109]	
+14-21	1922-1925	the	abstract[107]|event[108]|object[109]	acc:com[107]|giv:act[108]|giv:inact[109]	nnnnn[107]|ssnns[108]|ssnns[109]	_	cf7[107]|cf3[108]|cf4[109]	disc|bridge:entity-resultative|coref	17-4[134_108]|15-11[115_108]|23-2[172_109]	
 14-22	1926-1932	papers	abstract[107]|event[108]|object[109]	acc:com[107]|giv:act[108]|giv:inact[109]	nnnnn[107]|ssnns[108]|ssnns[109]	_	cf7[107]|cf3[108]|cf4[109]	_	_	
 14-23	1933-1937	came	abstract[107]|event[108]	acc:com[107]|giv:act[108]	nnnnn[107]|ssnns[108]	_	cf7[107]|cf3[108]	_	_	
 14-24	1938-1940	to	abstract[107]|event[108]	acc:com[107]|giv:act[108]	nnnnn[107]|ssnns[108]	_	cf7[107]|cf3[108]	_	_	
@@ -391,17 +391,17 @@
 15-8	1992-1994	MP	person[112]	giv:act[112]	nsnns[112]	Paul_Dewar[112]	cf1[112]	_	_	
 15-9	1995-1996	,	_	_	_	_	_	_	_	
 15-10	1997-2001	said	_	_	_	_	_	_	_	
-15-11	2002-2005	the	abstract[115]	acc:com[115]	nnnnn[115]	_	cf4[115]	_	_	
-15-12	2006-2014	combined	abstract[115]	acc:com[115]	nnnnn[115]	_	cf4[115]	_	_	
-15-13	2015-2023	security	abstract[115]|abstract[116]	acc:com[115]|giv:act[116]	nnnnn[115]|snsnn[116]	_	cf4[115]|cf2*[116]	coref	16-14[128_116]	
-15-14	2024-2030	lapses	abstract[115]	acc:com[115]	nnnnn[115]	_	cf4[115]	_	_	
+15-11	2002-2005	the	abstract[115]	acc:inf[115]	nnnnn[115]	_	cf4[115]	_	_	
+15-12	2006-2014	combined	abstract[115]	acc:inf[115]	nnnnn[115]	_	cf4[115]	_	_	
+15-13	2015-2023	security	abstract[115]|abstract[116]	acc:inf[115]|giv:act[116]	nnnnn[115]|snsnn[116]	_	cf4[115]|cf2*[116]	coref	16-14[128_116]	
+15-14	2024-2030	lapses	abstract[115]	acc:inf[115]	nnnnn[115]	_	cf4[115]	_	_	
 15-15	2031-2036	raise	_	_	_	_	_	_	_	
 15-16	2037-2044	serious	abstract[118]	new[118]	nnnnn[118]	_	cf7[118]	_	_	
 15-17	2045-2054	questions	abstract[118]	new[118]	nnnnn[118]	_	cf7[118]	_	_	
 15-18	2055-2060	about	abstract[118]	new[118]	nnnnn[118]	_	cf7[118]	_	_	
-15-19	2061-2064	the	abstract[118]|organization[119]	new[118]|acc:com[119]	nnnnn[118]|nnnns[119]	_	cf7[118]|cf6[119]	coref|bridge:other	16-6[125_119]|16-4[124_119]	
-15-20	2065-2075	government	abstract[118]|organization[119]	new[118]|acc:com[119]	nnnnn[118]|nnnns[119]	_	cf7[118]|cf6[119]	_	_	
-15-21	2076-2078	's	abstract[118]|organization[119]	new[118]|acc:com[119]	nnnnn[118]|nnnns[119]	_	cf7[118]|cf6[119]	_	_	
+15-19	2061-2064	the	abstract[118]|organization[119]	new[118]|acc:inf[119]	nnnnn[118]|nnnns[119]	_	cf7[118]|cf6[119]	coref	16-6[125_119]	
+15-20	2065-2075	government	abstract[118]|organization[119]	new[118]|acc:inf[119]	nnnnn[118]|nnnns[119]	_	cf7[118]|cf6[119]	_	_	
+15-21	2076-2078	's	abstract[118]|organization[119]	new[118]|acc:inf[119]	nnnnn[118]|nnnns[119]	_	cf7[118]|cf6[119]	_	_	
 15-22	2079-2086	ability	abstract[118]|abstract[120]	new[118]|new[120]	nnnnn[118]|nnnnn[120]	_	cf7[118]|cf8[120]	_	_	
 15-23	2087-2089	to	abstract[118]|abstract[120]	new[118]|new[120]	nnnnn[118]|nnnnn[120]	_	cf7[118]|cf8[120]	_	_	
 15-24	2090-2096	secure	abstract[118]|abstract[120]	new[118]|new[120]	nnnnn[118]|nnnnn[120]	_	cf7[118]|cf8[120]	_	_	
@@ -413,17 +413,17 @@
 16-1	2119-2124	Dewar	person[122]	giv:act[122]	nsnns[122]	Paul_Dewar[122]	cf2*[122]	ana	16-12[126_122]	
 16-2	2125-2129	says	_	_	_	_	_	_	_	
 16-3	2130-2134	that	_	_	_	_	_	_	_	
-16-4	2135-2146	bureaucrats	person[124]	acc:inf[124]	nnnnn[124]	_	cf1[124]	ana	16-20[130_124]	
-16-5	2147-2149	of	person[124]	acc:inf[124]	nnnnn[124]	_	cf1[124]	_	_	
-16-6	2150-2153	the	person[124]|organization[125]	acc:inf[124]|giv:act[125]	nnnnn[124]|nnnns[125]	_	cf1[124]|cf3[125]	coref	17-14[138_125]	
-16-7	2154-2166	Conservative	person[124]|organization[125]	acc:inf[124]|giv:act[125]	nnnnn[124]|nnnns[125]	_	cf1[124]|cf3[125]	_	_	
-16-8	2167-2177	government	person[124]|organization[125]	acc:inf[124]|giv:act[125]	nnnnn[124]|nnnns[125]	_	cf1[124]|cf3[125]	_	_	
+16-4	2135-2146	bureaucrats	person[124]	auto[124]	nnnnn[124]	_	cf1[124]	ana	16-20[130_124]	
+16-5	2147-2149	of	person[124]	auto[124]	nnnnn[124]	_	cf1[124]	_	_	
+16-6	2150-2153	the	person[124]|organization[125]	auto[124]|giv:act[125]	nnnnn[124]|nnnns[125]	_	cf1[124]|cf3[125]	coref	17-14[138_125]	
+16-7	2154-2166	Conservative	person[124]|organization[125]	auto[124]|giv:act[125]	nnnnn[124]|nnnns[125]	_	cf1[124]|cf3[125]	_	_	
+16-8	2167-2177	government	person[124]|organization[125]	auto[124]|giv:act[125]	nnnnn[124]|nnnns[125]	_	cf1[124]|cf3[125]	_	_	
 16-9	2178-2182	have	_	_	_	_	_	_	_	
 16-10	2183-2193	complained	_	_	_	_	_	_	_	
 16-11	2194-2196	to	_	_	_	_	_	_	_	
 16-12	2197-2200	him	person[126]	giv:act[126]	nsnns[126]	Paul_Dewar[126]	cf2*[126]	coref	18-28[146_126]	
 16-13	2201-2206	about	_	_	_	_	_	_	_	
-16-14	2207-2215	document	abstract[128]	giv:act[128]	snsnn[128]	_	cf4[128]	coref	18-8[142_128]	
+16-14	2207-2215	document	abstract[128]	giv:act[128]	snsnn[128]	_	cf4[128]	coref|bridge:entity-associative	18-8[142_128]|16-24[132_128]	
 16-15	2216-2224	security	abstract[128]	giv:act[128]	snsnn[128]	_	cf4[128]	_	_	
 16-16	2225-2227	to	_	_	_	_	_	_	_	
 16-17	2228-2231	the	abstract[129]	new[129]	nnnnn[129]	_	cf6[129]	_	_	
@@ -433,8 +433,8 @@
 16-21	2248-2250	ca	abstract[129]	new[129]	nnnnn[129]	_	cf6[129]	_	_	
 16-22	2251-2254	n`t	abstract[129]	new[129]	nnnnn[129]	_	cf6[129]	_	_	
 16-23	2255-2260	share	abstract[129]	new[129]	nnnnn[129]	_	cf6[129]	_	_	
-16-24	2261-2264	the	abstract[129]|abstract[132]	new[129]|new[132]	nnnnn[129]|nnnnn[132]	_	cf6[129]|cf5[132]	_	_	
-16-25	2265-2276	information	abstract[129]|abstract[132]	new[129]|new[132]	nnnnn[129]|nnnnn[132]	_	cf6[129]|cf5[132]	_	_	
+16-24	2261-2264	the	abstract[129]|abstract[132]	new[129]|acc:inf[132]	nnnnn[129]|nnnnn[132]	_	cf6[129]|cf5[132]	_	_	
+16-25	2265-2276	information	abstract[129]|abstract[132]	new[129]|acc:inf[132]	nnnnn[129]|nnnnn[132]	_	cf6[129]|cf5[132]	_	_	
 16-26	2277-2281	with	abstract[129]	new[129]	nnnnn[129]	_	cf6[129]	_	_	
 16-27	2282-2287	their	abstract[129]|person[133]	new[129]|new[133]	nnnnn[129]|nnnnn[133]	_	cf6[129]|cf7[133]	_	_	
 16-28	2288-2291	own	abstract[129]|person[133]	new[129]|new[133]	nnnnn[129]|nnnnn[133]	_	cf6[129]|cf7[133]	_	_	
@@ -459,7 +459,7 @@
 17-15	2378-2388	government	event[137]|organization[138]	new[137]|giv:act[138]	nnnnn[137]|nnnns[138]	_	cf5[137]|cf2*[138]	_	_	
 17-16	2389-2393	then	event[137]	new[137]	nnnnn[137]	_	cf5[137]	_	_	
 17-17	2394-2398	says	event[137]	new[137]	nnnnn[137]	_	cf5[137]	_	_	
-17-18	2399-2401	it	event[137]|object[139]	new[137]|giv:act[139]	nnnnn[137]|nnsnn[139]	_	cf5[137]|cf1[139]	bridge:other	21-21[166_139]	
+17-18	2399-2401	it	event[137]|object[139]	new[137]|giv:act[139]	nnnnn[137]|nnsnn[139]	_	cf5[137]|cf1[139]	_	_	
 17-19	2402-2405	was	event[137]	new[137]	nnnnn[137]	_	cf5[137]	_	_	
 17-20	2406-2409	n't	event[137]	new[137]	nnnnn[137]	_	cf5[137]	_	_	
 17-21	2410-2422	particularly	event[137]	new[137]	nnnnn[137]	_	cf5[137]	_	_	
@@ -474,7 +474,7 @@
 18-5	2456-2458	so	_	_	_	_	_	_	_	
 18-6	2459-2467	consumed	_	_	_	_	_	_	_	
 18-7	2468-2472	with	_	_	_	_	_	_	_	
-18-8	2473-2480	control	abstract[142]	giv:inact[142]	snsnn[142]	_	cf3[142]	_	_	
+18-8	2473-2480	control	abstract[142]	giv:inact[142]	snsnn[142]	_	cf3[142]	bridge:entity-associative	18-23[145_142]	
 18-9	2481-2483	of	abstract[142]	giv:inact[142]	snsnn[142]	_	cf3[142]	_	_	
 18-10	2484-2495	information	abstract[142]	giv:inact[142]	snsnn[142]	_	cf3[142]	_	_	
 18-11	2496-2499	and	abstract[142]	giv:inact[142]	snsnn[142]	_	cf3[142]	_	_	
@@ -489,8 +489,8 @@
 18-20	2535-2539	able	_	_	_	_	_	_	_	
 18-21	2540-2542	to	_	_	_	_	_	_	_	
 18-22	2543-2546	get	_	_	_	_	_	_	_	
-18-23	2547-2550	the	abstract[145]	acc:com[145]	n____[145]	_	cf4[145]	_	_	
-18-24	2551-2563	fundamentals	abstract[145]	acc:com[145]	n____[145]	_	cf4[145]	_	_	
+18-23	2547-2550	the	abstract[145]	acc:inf[145]	nnnnn[145]	_	cf4[145]	_	_	
+18-24	2551-2563	fundamentals	abstract[145]	acc:inf[145]	nnnnn[145]	_	cf4[145]	_	_	
 18-25	2564-2569	right	_	_	_	_	_	_	_	
 18-26	2570-2571	,	_	_	_	_	_	_	_	
 18-27	2572-2573	"	_	_	_	_	_	_	_	
@@ -499,50 +499,50 @@
 18-30	2585-2586	.	_	_	_	_	_	_	_	
 
 #Text=The incident is a reminiscent of two other incidents .
-19-1	2587-2590	The	event[148]	giv:inact[148]	ssnns[148]	_	cf1[148]	coref	23-2[171_148]	
+19-1	2587-2590	The	event[148]	giv:inact[148]	ssnns[148]	_	cf1[148]	coref|bridge:comparison-relative	23-2[171_148]|19-7[149_148]	
 19-2	2591-2599	incident	event[148]	giv:inact[148]	ssnns[148]	_	cf1[148]	_	_	
 19-3	2600-2602	is	_	_	_	_	_	_	_	
 19-4	2603-2604	a	_	_	_	_	_	_	_	
 19-5	2605-2616	reminiscent	_	_	_	_	_	_	_	
 19-6	2617-2619	of	_	_	_	_	_	_	_	
-19-7	2620-2623	two	event[149]	new[149]	nnnnn[149]	_	cf2[149]	bridge:other|bridge:def	20-4[152_149]|21-18[162_149]	
-19-8	2624-2629	other	event[149]	new[149]	nnnnn[149]	_	cf2[149]	_	_	
-19-9	2630-2639	incidents	event[149]	new[149]	nnnnn[149]	_	cf2[149]	_	_	
+19-7	2620-2623	two	event[149]	acc:inf[149]	nnnnn[149]	_	cf2[149]	_	_	
+19-8	2624-2629	other	event[149]	acc:inf[149]	nnnnn[149]	_	cf2[149]	_	_	
+19-9	2630-2639	incidents	event[149]	acc:inf[149]	nnnnn[149]	_	cf2[149]	_	_	
 19-10	2640-2641	.	_	_	_	_	_	_	_	
 
 #Text=In March , a bundle of blueprints for a new headquarters for the military 's counterterrorism unit were found stuffed in the trash on a downtown street .
 20-1	2642-2644	In	_	_	_	_	_	_	_	
-20-2	2645-2650	March	time[150]	acc:com[150]	nnnnn[150]	_	cf1[150]	_	_	
+20-2	2645-2650	March	time[150]	acc:inf[150]	nnnnn[150]	_	cf2[150]	_	_	
 20-3	2651-2652	,	_	_	_	_	_	_	_	
-20-4	2653-2654	a	event[152]|object[153]	acc:inf[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf2[152]|cf3[153]	_	_	
-20-5	2655-2661	bundle	event[152]|object[153]	acc:inf[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf2[152]|cf3[153]	_	_	
-20-6	2662-2664	of	event[152]|object[153]	acc:inf[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf2[152]|cf3[153]	_	_	
-20-7	2665-2675	blueprints	event[152]|object[153]	acc:inf[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf2[152]|cf3[153]	_	_	
-20-8	2676-2679	for	event[152]|object[153]	acc:inf[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf2[152]|cf3[153]	_	_	
-20-9	2680-2681	a	event[152]|object[153]	acc:inf[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf2[152]|cf3[153]	_	_	
-20-10	2682-2685	new	event[152]|object[153]	acc:inf[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf2[152]|cf3[153]	_	_	
-20-11	2686-2698	headquarters	event[152]|object[153]	acc:inf[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf2[152]|cf3[153]	_	_	
-20-12	2699-2702	for	event[152]|object[153]	acc:inf[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf2[152]|cf3[153]	_	_	
-20-13	2703-2706	the	event[152]|object[153]	acc:inf[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf2[152]|cf3[153]	_	_	
-20-14	2707-2715	military	event[152]|object[153]	acc:inf[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf2[152]|cf3[153]	_	_	
-20-15	2716-2718	's	event[152]|object[153]	acc:inf[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf2[152]|cf3[153]	_	_	
-20-16	2719-2735	counterterrorism	event[152]|object[153]	acc:inf[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf2[152]|cf3[153]	_	_	
-20-17	2736-2740	unit	event[152]|object[153]	acc:inf[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf2[152]|cf3[153]	_	_	
-20-18	2741-2745	were	event[152]	acc:inf[152]	nnnnn[152]	_	cf2[152]	_	_	
-20-19	2746-2751	found	event[152]	acc:inf[152]	nnnnn[152]	_	cf2[152]	_	_	
-20-20	2752-2759	stuffed	event[152]	acc:inf[152]	nnnnn[152]	_	cf2[152]	_	_	
-20-21	2760-2762	in	event[152]	acc:inf[152]	nnnnn[152]	_	cf2[152]	_	_	
-20-22	2763-2766	the	event[152]|place[154]	acc:inf[152]|new[154]	nnnnn[152]|nnnnn[154]	_	cf2[152]|cf4[154]	_	_	
-20-23	2767-2772	trash	event[152]|place[154]	acc:inf[152]|new[154]	nnnnn[152]|nnnnn[154]	_	cf2[152]|cf4[154]	_	_	
-20-24	2773-2775	on	event[152]|place[154]	acc:inf[152]|new[154]	nnnnn[152]|nnnnn[154]	_	cf2[152]|cf4[154]	_	_	
-20-25	2776-2777	a	event[152]|place[154]|place[155]	acc:inf[152]|new[154]|new[155]	nnnnn[152]|nnnnn[154]|nnnnn[155]	_	cf2[152]|cf4[154]|cf5[155]	_	_	
-20-26	2778-2786	downtown	event[152]|place[154]|place[155]	acc:inf[152]|new[154]|new[155]	nnnnn[152]|nnnnn[154]|nnnnn[155]	_	cf2[152]|cf4[154]|cf5[155]	_	_	
-20-27	2787-2793	street	event[152]|place[154]|place[155]	acc:inf[152]|new[154]|new[155]	nnnnn[152]|nnnnn[154]|nnnnn[155]	_	cf2[152]|cf4[154]|cf5[155]	_	_	
+20-4	2653-2654	a	event[152]|object[153]	auto[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf1[152]|cf3[153]	_	_	
+20-5	2655-2661	bundle	event[152]|object[153]	auto[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf1[152]|cf3[153]	_	_	
+20-6	2662-2664	of	event[152]|object[153]	auto[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf1[152]|cf3[153]	_	_	
+20-7	2665-2675	blueprints	event[152]|object[153]	auto[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf1[152]|cf3[153]	_	_	
+20-8	2676-2679	for	event[152]|object[153]	auto[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf1[152]|cf3[153]	_	_	
+20-9	2680-2681	a	event[152]|object[153]	auto[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf1[152]|cf3[153]	_	_	
+20-10	2682-2685	new	event[152]|object[153]	auto[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf1[152]|cf3[153]	_	_	
+20-11	2686-2698	headquarters	event[152]|object[153]	auto[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf1[152]|cf3[153]	_	_	
+20-12	2699-2702	for	event[152]|object[153]	auto[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf1[152]|cf3[153]	_	_	
+20-13	2703-2706	the	event[152]|object[153]	auto[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf1[152]|cf3[153]	_	_	
+20-14	2707-2715	military	event[152]|object[153]	auto[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf1[152]|cf3[153]	_	_	
+20-15	2716-2718	's	event[152]|object[153]	auto[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf1[152]|cf3[153]	_	_	
+20-16	2719-2735	counterterrorism	event[152]|object[153]	auto[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf1[152]|cf3[153]	_	_	
+20-17	2736-2740	unit	event[152]|object[153]	auto[152]|new[153]	nnnnn[152]|nnnnn[153]	_	cf1[152]|cf3[153]	_	_	
+20-18	2741-2745	were	event[152]	auto[152]	nnnnn[152]	_	cf1[152]	_	_	
+20-19	2746-2751	found	event[152]	auto[152]	nnnnn[152]	_	cf1[152]	_	_	
+20-20	2752-2759	stuffed	event[152]	auto[152]	nnnnn[152]	_	cf1[152]	_	_	
+20-21	2760-2762	in	event[152]	auto[152]	nnnnn[152]	_	cf1[152]	_	_	
+20-22	2763-2766	the	event[152]|place[154]	auto[152]|new[154]	nnnnn[152]|nnnnn[154]	_	cf1[152]|cf4[154]	_	_	
+20-23	2767-2772	trash	event[152]|place[154]	auto[152]|new[154]	nnnnn[152]|nnnnn[154]	_	cf1[152]|cf4[154]	_	_	
+20-24	2773-2775	on	event[152]|place[154]	auto[152]|new[154]	nnnnn[152]|nnnnn[154]	_	cf1[152]|cf4[154]	_	_	
+20-25	2776-2777	a	event[152]|place[154]|place[155]	auto[152]|new[154]|new[155]	nnnnn[152]|nnnnn[154]|nnnnn[155]	_	cf1[152]|cf4[154]|cf5[155]	_	_	
+20-26	2778-2786	downtown	event[152]|place[154]|place[155]	auto[152]|new[154]|new[155]	nnnnn[152]|nnnnn[154]|nnnnn[155]	_	cf1[152]|cf4[154]|cf5[155]	_	_	
+20-27	2787-2793	street	event[152]|place[154]|place[155]	auto[152]|new[154]|new[155]	nnnnn[152]|nnnnn[154]|nnnnn[155]	_	cf1[152]|cf4[154]|cf5[155]	_	_	
 20-28	2794-2795	.	_	_	_	_	_	_	_	
 
 #Text=In May , Maxime Bernier was forced to resign as Foreign Affairs minister after it became known that he left sensitive documents at the apartment of his then - girlfriend Julie Couillard who had ties to the Hells Angels biker gang .
 21-1	2796-2798	In	_	_	_	_	_	_	_	
-21-2	2799-2802	May	time[156]	acc:com[156]	nnnnn[156]	_	cf4[156]	_	_	
+21-2	2799-2802	May	time[156]	acc:inf[156]	nnnnn[156]	_	cf4[156]	_	_	
 21-3	2803-2804	,	_	_	_	_	_	_	_	
 21-4	2805-2811	Maxime	person[158]	new[158]	nnnnn[158]	Maxime_Bernier[158]	cf1[158]	ana	21-19[164_158]	
 21-5	2812-2819	Bernier	person[158]	new[158]	nnnnn[158]	Maxime_Bernier[158]	cf1[158]	_	_	
@@ -555,33 +555,33 @@
 21-12	2852-2859	Affairs	person[159]	new[159]	nnnnn[159]	Maxime_Bernier[159]	cf7[159]	_	_	
 21-13	2860-2868	minister	person[159]	new[159]	nnnnn[159]	Maxime_Bernier[159]	cf7[159]	_	_	
 21-14	2869-2874	after	_	_	_	_	_	_	_	
-21-15	2875-2877	it	event[160]	new[160]	nnnnn[160]	_	cf2[160]	_	_	
+21-15	2875-2877	it	event[160]	new[160]	nnnnn[160]	_	cf3[160]	_	_	
 21-16	2878-2884	became	_	_	_	_	_	_	_	
 21-17	2885-2890	known	_	_	_	_	_	_	_	
-21-18	2891-2895	that	event[162]	acc:inf[162]	nnnnn[162]	_	cf2[162]	cata	21-15[160_162]	
-21-19	2896-2898	he	event[162]|event[163]|person[164]	acc:inf[162]|new[163]|giv:act[164]	nnnnn[162]|nnnnn[163]|nnnnn[164]	Maxime_Bernier[164]	cf2[162]|cf5[163]|cf1[164]	_	_	
-21-20	2899-2903	left	event[162]|event[163]	acc:inf[162]|new[163]	nnnnn[162]|nnnnn[163]	_	cf2[162]|cf5[163]	_	_	
-21-21	2904-2913	sensitive	event[162]|event[163]|object[166]	acc:inf[162]|new[163]|acc:inf[166]	nnnnn[162]|nnnnn[163]|n____[166]	_	cf2[162]|cf5[163]|cf3[166]	_	_	
-21-22	2914-2923	documents	event[162]|event[163]|object[166]	acc:inf[162]|new[163]|acc:inf[166]	nnnnn[162]|nnnnn[163]|n____[166]	_	cf2[162]|cf5[163]|cf3[166]	_	_	
-21-23	2924-2926	at	event[162]|event[163]	acc:inf[162]|new[163]	nnnnn[162]|nnnnn[163]	_	cf2[162]|cf5[163]	_	_	
-21-24	2927-2930	the	event[162]|event[163]	acc:inf[162]|new[163]	nnnnn[162]|nnnnn[163]	_	cf2[162]|cf5[163]	_	_	
-21-25	2931-2940	apartment	event[162]|event[163]	acc:inf[162]|new[163]	nnnnn[162]|nnnnn[163]	_	cf2[162]|cf5[163]	_	_	
-21-26	2941-2943	of	event[162]|event[163]	acc:inf[162]|new[163]	nnnnn[162]|nnnnn[163]	_	cf2[162]|cf5[163]	_	_	
-21-27	2944-2947	his	event[162]|event[163]|person[167]	acc:inf[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf2[162]|cf5[163]|cf8[167]	_	_	
-21-28	2948-2952	then	event[162]|event[163]|person[167]	acc:inf[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf2[162]|cf5[163]|cf8[167]	_	_	
-21-29	2953-2954	-	event[162]|event[163]|person[167]	acc:inf[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf2[162]|cf5[163]|cf8[167]	_	_	
-21-30	2955-2965	girlfriend	event[162]|event[163]|person[167]	acc:inf[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf2[162]|cf5[163]|cf8[167]	_	_	
-21-31	2966-2971	Julie	event[162]|event[163]|person[167]	acc:inf[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf2[162]|cf5[163]|cf8[167]	_	_	
-21-32	2972-2981	Couillard	event[162]|event[163]|person[167]	acc:inf[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf2[162]|cf5[163]|cf8[167]	_	_	
-21-33	2982-2985	who	event[162]|event[163]|person[167]	acc:inf[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf2[162]|cf5[163]|cf8[167]	_	_	
-21-34	2986-2989	had	event[162]|event[163]|person[167]	acc:inf[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf2[162]|cf5[163]|cf8[167]	_	_	
-21-35	2990-2994	ties	event[162]|event[163]|person[167]	acc:inf[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf2[162]|cf5[163]|cf8[167]	_	_	
-21-36	2995-2997	to	event[162]|event[163]|person[167]	acc:inf[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf2[162]|cf5[163]|cf8[167]	_	_	
-21-37	2998-3001	the	event[162]|event[163]|person[167]|organization[168]	acc:inf[162]|new[163]|new[167]|new[168]	nnnnn[162]|nnnnn[163]|nnnnn[167]|nnnnn[168]	Hells_Angels[168]	cf2[162]|cf5[163]|cf8[167]|cf6[168]	_	_	
-21-38	3002-3007	Hells	event[162]|event[163]|person[167]|organization[168]	acc:inf[162]|new[163]|new[167]|new[168]	nnnnn[162]|nnnnn[163]|nnnnn[167]|nnnnn[168]	Hells_Angels[168]	cf2[162]|cf5[163]|cf8[167]|cf6[168]	_	_	
-21-39	3008-3014	Angels	event[162]|event[163]|person[167]|organization[168]	acc:inf[162]|new[163]|new[167]|new[168]	nnnnn[162]|nnnnn[163]|nnnnn[167]|nnnnn[168]	Hells_Angels[168]	cf2[162]|cf5[163]|cf8[167]|cf6[168]	_	_	
-21-40	3015-3020	biker	event[162]|event[163]|person[167]|organization[168]	acc:inf[162]|new[163]|new[167]|new[168]	nnnnn[162]|nnnnn[163]|nnnnn[167]|nnnnn[168]	Hells_Angels[168]	cf2[162]|cf5[163]|cf8[167]|cf6[168]	_	_	
-21-41	3021-3025	gang	event[162]|event[163]|person[167]|organization[168]	acc:inf[162]|new[163]|new[167]|new[168]	nnnnn[162]|nnnnn[163]|nnnnn[167]|nnnnn[168]	Hells_Angels[168]	cf2[162]|cf5[163]|cf8[167]|cf6[168]	_	_	
+21-18	2891-2895	that	event[162]	acc:com[162]	nnnnn[162]	_	cf3[162]	cata	21-15[160_162]	
+21-19	2896-2898	he	event[162]|event[163]|person[164]	acc:com[162]|new[163]|giv:act[164]	nnnnn[162]|nnnnn[163]|nnnnn[164]	Maxime_Bernier[164]	cf3[162]|cf5[163]|cf1[164]	_	_	
+21-20	2899-2903	left	event[162]|event[163]	acc:com[162]|new[163]	nnnnn[162]|nnnnn[163]	_	cf3[162]|cf5[163]	_	_	
+21-21	2904-2913	sensitive	event[162]|event[163]|object[166]	acc:com[162]|new[163]|auto[166]	nnnnn[162]|nnnnn[163]|nnnnn[166]	_	cf3[162]|cf5[163]|cf2[166]	_	_	
+21-22	2914-2923	documents	event[162]|event[163]|object[166]	acc:com[162]|new[163]|auto[166]	nnnnn[162]|nnnnn[163]|nnnnn[166]	_	cf3[162]|cf5[163]|cf2[166]	_	_	
+21-23	2924-2926	at	event[162]|event[163]	acc:com[162]|new[163]	nnnnn[162]|nnnnn[163]	_	cf3[162]|cf5[163]	_	_	
+21-24	2927-2930	the	event[162]|event[163]	acc:com[162]|new[163]	nnnnn[162]|nnnnn[163]	_	cf3[162]|cf5[163]	_	_	
+21-25	2931-2940	apartment	event[162]|event[163]	acc:com[162]|new[163]	nnnnn[162]|nnnnn[163]	_	cf3[162]|cf5[163]	_	_	
+21-26	2941-2943	of	event[162]|event[163]	acc:com[162]|new[163]	nnnnn[162]|nnnnn[163]	_	cf3[162]|cf5[163]	_	_	
+21-27	2944-2947	his	event[162]|event[163]|person[167]	acc:com[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf3[162]|cf5[163]|cf8[167]	_	_	
+21-28	2948-2952	then	event[162]|event[163]|person[167]	acc:com[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf3[162]|cf5[163]|cf8[167]	_	_	
+21-29	2953-2954	-	event[162]|event[163]|person[167]	acc:com[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf3[162]|cf5[163]|cf8[167]	_	_	
+21-30	2955-2965	girlfriend	event[162]|event[163]|person[167]	acc:com[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf3[162]|cf5[163]|cf8[167]	_	_	
+21-31	2966-2971	Julie	event[162]|event[163]|person[167]	acc:com[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf3[162]|cf5[163]|cf8[167]	_	_	
+21-32	2972-2981	Couillard	event[162]|event[163]|person[167]	acc:com[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf3[162]|cf5[163]|cf8[167]	_	_	
+21-33	2982-2985	who	event[162]|event[163]|person[167]	acc:com[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf3[162]|cf5[163]|cf8[167]	_	_	
+21-34	2986-2989	had	event[162]|event[163]|person[167]	acc:com[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf3[162]|cf5[163]|cf8[167]	_	_	
+21-35	2990-2994	ties	event[162]|event[163]|person[167]	acc:com[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf3[162]|cf5[163]|cf8[167]	_	_	
+21-36	2995-2997	to	event[162]|event[163]|person[167]	acc:com[162]|new[163]|new[167]	nnnnn[162]|nnnnn[163]|nnnnn[167]	_	cf3[162]|cf5[163]|cf8[167]	_	_	
+21-37	2998-3001	the	event[162]|event[163]|person[167]|organization[168]	acc:com[162]|new[163]|new[167]|new[168]	nnnnn[162]|nnnnn[163]|nnnnn[167]|nnnnn[168]	Hells_Angels[168]	cf3[162]|cf5[163]|cf8[167]|cf6[168]	_	_	
+21-38	3002-3007	Hells	event[162]|event[163]|person[167]|organization[168]	acc:com[162]|new[163]|new[167]|new[168]	nnnnn[162]|nnnnn[163]|nnnnn[167]|nnnnn[168]	Hells_Angels[168]	cf3[162]|cf5[163]|cf8[167]|cf6[168]	_	_	
+21-39	3008-3014	Angels	event[162]|event[163]|person[167]|organization[168]	acc:com[162]|new[163]|new[167]|new[168]	nnnnn[162]|nnnnn[163]|nnnnn[167]|nnnnn[168]	Hells_Angels[168]	cf3[162]|cf5[163]|cf8[167]|cf6[168]	_	_	
+21-40	3015-3020	biker	event[162]|event[163]|person[167]|organization[168]	acc:com[162]|new[163]|new[167]|new[168]	nnnnn[162]|nnnnn[163]|nnnnn[167]|nnnnn[168]	Hells_Angels[168]	cf3[162]|cf5[163]|cf8[167]|cf6[168]	_	_	
+21-41	3021-3025	gang	event[162]|event[163]|person[167]|organization[168]	acc:com[162]|new[163]|new[167]|new[168]	nnnnn[162]|nnnnn[163]|nnnnn[167]|nnnnn[168]	Hells_Angels[168]	cf3[162]|cf5[163]|cf8[167]|cf6[168]	_	_	
 21-42	3026-3027	.	_	_	_	_	_	_	_	
 
 #Text=Sources
@@ -657,10 +657,10 @@
 27-2	3326-3328	MP	person[202]	giv:inact[202]	nsnns[202]	Paul_Dewar[202]	cf1[202]	_	_	
 27-3	3329-3334	calls	_	_	_	_	_	_	_	
 27-4	3335-3338	for	_	_	_	_	_	_	_	
-27-5	3339-3344	probe	event[204]	new[204]	n____[204]	_	cf5[204]	_	_	
-27-6	3345-3349	into	event[204]	new[204]	n____[204]	_	cf5[204]	_	_	
-27-7	3350-3359	misplaced	event[204]|object[205]	new[204]|giv:inact[205]	n____[204]|ssnns[205]	_	cf5[204]|cf2[205]	_	_	
-27-8	3360-3369	documents	event[204]|object[205]	new[204]|giv:inact[205]	n____[204]|ssnns[205]	_	cf5[204]|cf2[205]	_	_	
+27-5	3339-3344	probe	event[204]	new[204]	nnnnn[204]	_	cf5[204]	_	_	
+27-6	3345-3349	into	event[204]	new[204]	nnnnn[204]	_	cf5[204]	_	_	
+27-7	3350-3359	misplaced	event[204]|object[205]	new[204]|giv:inact[205]	nnnnn[204]|ssnns[205]	_	cf5[204]|cf2[205]	_	_	
+27-8	3360-3369	documents	event[204]|object[205]	new[204]|giv:inact[205]	nnnnn[204]|ssnns[205]	_	cf5[204]|cf2[205]	_	_	
 27-9	3370-3371	"	_	_	_	_	_	_	_	
 27-10	3372-3373	—	_	_	_	_	_	_	_	
 27-11	3374-3382	Edmonton	organization[206]	new[206]	nnnnn[206]	Edmonton_Sun[206]	cf4[206]	_	_	

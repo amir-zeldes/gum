@@ -1,7 +1,7 @@
 #FORMAT=WebAnno TSV 3.2
 #T_SP=webanno.custom.Referent|entity|infstat|salience|identity|centering
 #T_RL=webanno.custom.Coref|type|BT_webanno.custom.Referent
-#Summary1=(human1) Jasmine tells about how she tested positive for Covid on December 16th after she spent time without a mask with her sister, who also tested positive, and recounts her symptoms over several days, starting from a sore throat, then fever and congestion, and finally a partial loss of smell and taste and shortness of breath.
+#Summary1=(human1) Jasmine tells about how she tested positive for Covid on December 16th after she spent time with her sister, who did not wear a mask and also tested positive, and recounts her symptoms over several days, starting from a sore throat, then fever and congestion, and finally a partial loss of smell and taste and shortness of breath.
 #Summary2=(claude-3-5-sonnet-20241022) A nurse named Jasmine shares her detailed Covid-19 experience after testing positive in December, describing her progression of symptoms from sore throat to fever, heightened senses, and ultimately losing 70% of her taste and smell capabilities.
 #Summary3=(gpt4o) A vlogger named Jasmine shares her personal experience with COVID-19, discussing her timeline of symptoms from initial sore throat and fever to changes in taste and smell, and describes how she tested positive after exposure from her sister, using the opportunity to provide support and make others feel less alone during their own experiences with the virus.
 #Summary4=(Llama-3.2-3B-Instruct) Jasmine, a nurse, shares her experience of getting Covid-19, from the onset of symptoms like a sore throat to the progression of symptoms like fever, chills, and changes in taste and smell, and how it affected her daily life.
@@ -14,14 +14,14 @@
 1-3	6-10	what	_	_	_	_	_	_	_	
 1-4	11-13	's	_	_	_	_	_	_	_	
 1-5	14-16	up	_	_	_	_	_	_	_	
-1-6	17-25	everyone	person[1]	acc:com[1]	sssss[1]	_	cf1[1]	ana	3-4[5_1]	
+1-6	17-25	everyone	person[1]	acc:com[1]	nnnnn[1]	_	cf1[1]	ana	3-4[5_1]	
 1-7	26-27	?	_	_	_	_	_	_	_	
 
 #Text=Welcome back to another video .
 2-1	28-35	Welcome	_	_	_	_	_	_	_	
 2-2	36-40	back	_	_	_	_	_	_	_	
 2-3	41-43	to	_	_	_	_	_	_	_	
-2-4	44-51	another	abstract[3]	acc:com[3]	nnnnn[3]	_	cf1[3]	coref	10-2[81_3]	
+2-4	44-51	another	abstract[3]	acc:com[3]	nnnnn[3]	_	cf1[3]	coref|bridge:comparison-relative	10-2[81_3]|6-8[41_3]	
 2-5	52-57	video	abstract[3]	acc:com[3]	nnnnn[3]	_	cf1[3]	_	_	
 2-6	58-59	.	_	_	_	_	_	_	_	
 
@@ -29,7 +29,7 @@
 3-1	60-63	For	_	_	_	_	_	_	_	
 3-2	64-69	those	person[4]	new[4]	nnnnn[4]	_	cf2[4]	ana	3-25[15_4]	
 3-3	70-72	of	person[4]	new[4]	nnnnn[4]	_	cf2[4]	_	_	
-3-4	73-76	you	person[4]|person[5]	new[4]|giv:inact[5]	nnnnn[4]|sssss[5]	_	cf2[4]|cf5[5]	ana	4-2[24_5]	
+3-4	73-76	you	person[4]|person[5]	new[4]|giv:inact[5]	nnnnn[4]|nnnnn[5]	_	cf2[4]|cf4[5]	ana	4-2[24_5]	
 3-5	77-80	who	person[4]	new[4]	nnnnn[4]	_	cf2[4]	_	_	
 3-6	81-84	are	person[4]	new[4]	nnnnn[4]	_	cf2[4]	_	_	
 3-7	85-88	new	person[4]	new[4]	nnnnn[4]	_	cf2[4]	_	_	
@@ -40,39 +40,39 @@
 3-12	105-109	know	person[4]	new[4]	nnnnn[4]	_	cf2[4]	_	_	
 3-13	110-112	me	person[4]|person[7]	new[4]|acc:com[7]	nnnnn[4]|sssss[7]	_	cf2[4]|cf1[7]	ana	3-15[12_7]	
 3-14	113-114	,	_	_	_	_	_	_	_	
-3-15	115-117	my	abstract[11]|person[12]	new[11]|giv:act[12]	sssss[11]|sssss[12]	_	cf4[11]|cf1[12]	coref|ana	3-18[13_11]|3-21[14_12]	
-3-16	118-122	name	abstract[11]	new[11]	sssss[11]	_	cf4[11]	_	_	
+3-15	115-117	my	abstract[11]|person[12]	new[11]|giv:act[12]	nnnnn[11]|sssss[12]	_	cf5[11]|cf1[12]	coref	3-18[13_12]	
+3-16	118-122	name	abstract[11]	new[11]	nnnnn[11]	_	cf5[11]	_	_	
 3-17	123-125	is	_	_	_	_	_	_	_	
-3-18	126-133	Jasmine	abstract[13]	giv:act[13]	sssss[13]	_	cf4[13]	_	_	
+3-18	126-133	Jasmine	person[13]	giv:act[13]	sssss[13]	_	cf1[13]	ana	3-21[14_13]	
 3-19	134-135	,	_	_	_	_	_	_	_	
 3-20	136-139	and	_	_	_	_	_	_	_	
 3-21	140-141	I	person[14]	giv:act[14]	sssss[14]	_	cf1[14]	ana	3-29[23_14]	
 3-22	142-144	'm	_	_	_	_	_	_	_	
 3-23	145-147	so	_	_	_	_	_	_	_	
 3-24	148-152	glad	_	_	_	_	_	_	_	
-3-25	153-156	you	person[15]	giv:act[15]	n____[15]	_	cf2[15]	_	_	
+3-25	153-156	you	person[15]	giv:act[15]	nnnnn[15]	_	cf2[15]	_	_	
 3-26	157-160	're	_	_	_	_	_	_	_	
-3-27	161-165	here	abstract[16]	giv:act[16]	n____[16]	_	cf3[16]	coref	3-29[22_16]	
+3-27	161-165	here	abstract[16]	giv:act[16]	nnnnn[16]	_	cf3[16]	coref	3-29[22_16]	
 3-28	166-168	on	_	_	_	_	_	_	_	
-3-29	169-171	my	abstract[22]|person[23]	giv:act[22]|giv:act[23]	n____[22]|sssss[23]	_	cf3[22]|cf1[23]	ana	4-7[28_23]	
-3-30	172-179	channel	abstract[22]	giv:act[22]	n____[22]	_	cf3[22]	_	_	
+3-29	169-171	my	abstract[22]|person[23]	giv:act[22]|giv:act[23]	nnnnn[22]|sssss[23]	_	cf3[22]|cf1[23]	ana	4-7[28_23]	
+3-30	172-179	channel	abstract[22]	giv:act[22]	nnnnn[22]	_	cf3[22]	_	_	
 3-31	180-181	.	_	_	_	_	_	_	_	
 
 #Text=If you have n't already followed my social media , I 'll link it right here .
 4-1	182-184	If	_	_	_	_	_	_	_	
-4-2	185-188	you	person[24]	giv:act[24]	sssss[24]	_	cf1*[24]	ana	6-4[37_24]	
+4-2	185-188	you	person[24]	giv:act[24]	nnnnn[24]	_	cf1*[24]	ana	6-4[37_24]	
 4-3	189-193	have	_	_	_	_	_	_	_	
 4-4	194-197	n't	_	_	_	_	_	_	_	
 4-5	198-205	already	_	_	_	_	_	_	_	
 4-6	206-214	followed	_	_	_	_	_	_	_	
-4-7	215-217	my	abstract[27]|person[28]	new[27]|giv:act[28]	nnnnn[27]|sssss[28]	_	cf3[27]|cf2[28]	ana|bridge:other|ana	4-14[30_27]|5-1[34_27]|4-11[29_28]	
+4-7	215-217	my	abstract[27]|person[28]	new[27]|giv:act[28]	nnnnn[27]|sssss[28]	_	cf3[27]|cf2[28]	ana|ana	4-14[30_27]|4-11[29_28]	
 4-8	218-224	social	abstract[27]	new[27]	nnnnn[27]	_	cf3[27]	_	_	
 4-9	225-230	media	abstract[27]	new[27]	nnnnn[27]	_	cf3[27]	_	_	
 4-10	231-232	,	_	_	_	_	_	_	_	
 4-11	233-234	I	person[29]	giv:act[29]	sssss[29]	_	cf2[29]	ana	5-1[35_29]	
 4-12	235-238	'll	_	_	_	_	_	_	_	
 4-13	239-243	link	_	_	_	_	_	_	_	
-4-14	244-246	it	abstract[30]	giv:act[30]	n____[30]	_	cf3[30]	_	_	
+4-14	244-246	it	abstract[30]	giv:act[30]	nnnnn[30]	_	cf3[30]	bridge:other	5-1[34_30]	
 4-15	247-252	right	_	_	_	_	_	_	_	
 4-16	253-257	here	_	_	_	_	_	_	_	
 4-17	258-259	.	_	_	_	_	_	_	_	
@@ -81,27 +81,27 @@
 5-1	260-262	My	abstract[34]|person[35]	acc:inf[34]|giv:act[35]	nnnnn[34]|sssss[35]	_	cf2[34]|cf1*[35]	coref|ana	5-4[36_34]|6-8[42_35]	
 5-2	263-270	socials	abstract[34]	acc:inf[34]	nnnnn[34]	_	cf2[34]	_	_	
 5-3	271-274	are	_	_	_	_	_	_	_	
-5-4	275-287	@jasthenurse	abstract[36]	giv:act[36]	n____[36]	_	cf2[36]	_	_	
+5-4	275-287	@jasthenurse	abstract[36]	giv:act[36]	nnnnn[36]	_	cf2[36]	_	_	
 5-5	288-289	.	_	_	_	_	_	_	_	
 
 #Text=So , if you have n't watched my other video , I wanted to give you guys an update as to my experience with Covid .
 6-1	290-292	So	_	_	_	_	_	_	_	
 6-2	293-294	,	_	_	_	_	_	_	_	
 6-3	295-297	if	_	_	_	_	_	_	_	
-6-4	298-301	you	person[37]	giv:inact[37]	sssss[37]	_	cf2[37]	coref	6-16[46_37]	
+6-4	298-301	you	person[37]	giv:inact[37]	nnnnn[37]	_	cf2[37]	coref	6-16[46_37]	
 6-5	302-306	have	_	_	_	_	_	_	_	
 6-6	307-310	n't	_	_	_	_	_	_	_	
 6-7	311-318	watched	_	_	_	_	_	_	_	
-6-8	319-321	my	abstract[41]|person[42]	new[41]|giv:act[42]	nnnnn[41]|sssss[42]	_	cf3[41]|cf1*[42]	coref|ana	7-10[56_41]|6-12[43_42]	
-6-9	322-327	other	abstract[41]	new[41]	nnnnn[41]	_	cf3[41]	_	_	
-6-10	328-333	video	abstract[41]	new[41]	nnnnn[41]	_	cf3[41]	_	_	
+6-8	319-321	my	abstract[41]|person[42]	acc:inf[41]|giv:act[42]	nnnnn[41]|sssss[42]	_	cf3[41]|cf1*[42]	coref|ana	7-10[56_41]|6-12[43_42]	
+6-9	322-327	other	abstract[41]	acc:inf[41]	nnnnn[41]	_	cf3[41]	_	_	
+6-10	328-333	video	abstract[41]	acc:inf[41]	nnnnn[41]	_	cf3[41]	_	_	
 6-11	334-335	,	_	_	_	_	_	_	_	
 6-12	336-337	I	person[43]	giv:act[43]	sssss[43]	_	cf1*[43]	ana	6-22[49_43]	
 6-13	338-344	wanted	_	_	_	_	_	_	_	
 6-14	345-347	to	_	_	_	_	_	_	_	
 6-15	348-352	give	_	_	_	_	_	_	_	
-6-16	353-356	you	person[46]	giv:act[46]	sssss[46]	_	cf2[46]	ana	7-4[54_46]	
-6-17	357-361	guys	person[46]	giv:act[46]	sssss[46]	_	cf2[46]	_	_	
+6-16	353-356	you	person[46]	giv:act[46]	nnnnn[46]	_	cf2[46]	ana	7-4[54_46]	
+6-17	357-361	guys	person[46]	giv:act[46]	nnnnn[46]	_	cf2[46]	_	_	
 6-18	362-364	an	abstract[47]	new[47]	nnnnn[47]	_	cf4[47]	_	_	
 6-19	365-371	update	abstract[47]	new[47]	nnnnn[47]	_	cf4[47]	_	_	
 6-20	372-374	as	abstract[47]	new[47]	nnnnn[47]	_	cf4[47]	_	_	
@@ -116,30 +116,30 @@
 7-1	405-408	For	_	_	_	_	_	_	_	
 7-2	409-414	those	person[53]	new[53]	nnnnn[53]	_	cf2[53]	ana	7-24[60_53]	
 7-3	415-417	of	person[53]	new[53]	nnnnn[53]	_	cf2[53]	_	_	
-7-4	418-421	you	person[53]|person[54]	new[53]|giv:act[54]	nnnnn[53]|sssss[54]	_	cf2[53]|cf4[54]	ana	9-18[75_54]	
+7-4	418-421	you	person[53]|person[54]	new[53]|giv:act[54]	nnnnn[53]|nnnnn[54]	_	cf2[53]|cf4[54]	ana	9-18[75_54]	
 7-5	422-425	who	person[53]	new[53]	nnnnn[53]	_	cf2[53]	_	_	
 7-6	426-429	had	person[53]	new[53]	nnnnn[53]	_	cf2[53]	_	_	
 7-7	430-433	n't	person[53]	new[53]	nnnnn[53]	_	cf2[53]	_	_	
 7-8	434-441	already	person[53]	new[53]	nnnnn[53]	_	cf2[53]	_	_	
 7-9	442-449	watched	person[53]	new[53]	nnnnn[53]	_	cf2[53]	_	_	
-7-10	450-454	that	person[53]|abstract[56]	new[53]|giv:act[56]	nnnnn[53]|n____[56]	_	cf2[53]|cf3[56]	coref	7-18[59_56]	
-7-11	455-460	video	person[53]|abstract[56]	new[53]|giv:act[56]	nnnnn[53]|n____[56]	_	cf2[53]|cf3[56]	_	_	
+7-10	450-454	that	person[53]|abstract[56]	new[53]|giv:act[56]	nnnnn[53]|nnnnn[56]	_	cf2[53]|cf3[56]	coref	7-18[59_56]	
+7-11	455-460	video	person[53]|abstract[56]	new[53]|giv:act[56]	nnnnn[53]|nnnnn[56]	_	cf2[53]|cf3[56]	_	_	
 7-12	461-462	,	_	_	_	_	_	_	_	
 7-13	463-464	I	person[57]	giv:act[57]	sssss[57]	_	cf1*[57]	ana	8-12[66_57]	
 7-14	465-467	'm	_	_	_	_	_	_	_	
 7-15	468-471	gon	_	_	_	_	_	_	_	
 7-16	472-474	na	_	_	_	_	_	_	_	
 7-17	475-479	link	_	_	_	_	_	_	_	
-7-18	480-484	that	abstract[59]	giv:act[59]	n____[59]	_	cf3[59]	ana|bridge:def	7-27[61_59]|9-26[80_59]	
-7-19	485-490	video	abstract[59]	giv:act[59]	n____[59]	_	cf3[59]	_	_	
+7-18	480-484	that	abstract[59]	giv:act[59]	nnnnn[59]	_	cf3[59]	ana	7-27[61_59]	
+7-19	485-490	video	abstract[59]	giv:act[59]	nnnnn[59]	_	cf3[59]	_	_	
 7-20	491-496	right	_	_	_	_	_	_	_	
 7-21	497-501	here	_	_	_	_	_	_	_	
 7-22	502-504	so	_	_	_	_	_	_	_	
 7-23	505-509	that	_	_	_	_	_	_	_	
-7-24	510-513	you	person[60]	giv:act[60]	n____[60]	_	cf2[60]	_	_	
+7-24	510-513	you	person[60]	giv:act[60]	nnnnn[60]	_	cf2[60]	_	_	
 7-25	514-517	can	_	_	_	_	_	_	_	
 7-26	518-523	watch	_	_	_	_	_	_	_	
-7-27	524-526	it	abstract[61]	giv:act[61]	n____[61]	_	cf3[61]	_	_	
+7-27	524-526	it	abstract[61]	giv:act[61]	nnnnn[61]	_	cf3[61]	bridge:set-member	9-26[80_61]	
 7-28	527-528	.	_	_	_	_	_	_	_	
 
 #Text=Um , so essentially , on the 16th of December , I tested positive for Covid .
@@ -149,7 +149,7 @@
 8-4	537-548	essentially	_	_	_	_	_	_	_	
 8-5	549-550	,	_	_	_	_	_	_	_	
 8-6	551-553	on	_	_	_	_	_	_	_	
-8-7	554-557	the	time[64]	new[64]	snnnn[64]	_	cf4[64]	_	_	
+8-7	554-557	the	time[64]	new[64]	snnnn[64]	_	cf4[64]	bridge:comparison-time	12-10[104_64]	
 8-8	558-562	16th	time[64]	new[64]	snnnn[64]	_	cf4[64]	_	_	
 8-9	563-565	of	time[64]	new[64]	snnnn[64]	_	cf4[64]	_	_	
 8-10	566-574	December	time[64]|time[65]	new[64]|acc:com[65]	snnnn[64]|ssnnn[65]	_	cf4[64]|cf3[65]	_	_	
@@ -179,7 +179,7 @@
 9-15	675-678	and	_	_	_	_	_	_	_	
 9-16	679-683	then	_	_	_	_	_	_	_	
 9-17	684-688	also	_	_	_	_	_	_	_	
-9-18	689-692	you	person[75]	giv:inact[75]	sssss[75]	_	cf2[75]	ana	10-9[85_75]	
+9-18	689-692	you	person[75]	giv:inact[75]	nnnnn[75]	_	cf2[75]	ana	10-9[85_75]	
 9-19	693-697	know	_	_	_	_	_	_	_	
 9-20	698-702	that	_	_	_	_	_	_	_	
 9-21	703-704	I	person[76]	giv:act[76]	sssss[76]	_	cf1*[76]	ana	10-5[82_76]	
@@ -193,20 +193,20 @@
 
 #Text=In this video , I wanted to update you all regarding my symptoms of Covid and just my overall experience with it .
 10-1	740-742	In	_	_	_	_	_	_	_	
-10-2	743-747	this	abstract[81]	giv:inact[81]	n____[81]	_	cf4[81]	_	_	
-10-3	748-753	video	abstract[81]	giv:inact[81]	n____[81]	_	cf4[81]	_	_	
+10-2	743-747	this	abstract[81]	giv:inact[81]	nnnnn[81]	_	cf4[81]	_	_	
+10-3	748-753	video	abstract[81]	giv:inact[81]	nnnnn[81]	_	cf4[81]	_	_	
 10-4	754-755	,	_	_	_	_	_	_	_	
 10-5	756-757	I	person[82]	giv:act[82]	sssss[82]	_	cf1*[82]	ana	10-12[87_82]	
 10-6	758-764	wanted	_	_	_	_	_	_	_	
 10-7	765-767	to	abstract[84]	new[84]	nnnnn[84]	_	cf7[84]	disc	11-4[94_84]	
 10-8	768-774	update	abstract[84]	new[84]	nnnnn[84]	_	cf7[84]	_	_	
-10-9	775-778	you	abstract[84]|person[85]	new[84]|giv:act[85]	nnnnn[84]|sssss[85]	_	cf7[84]|cf2[85]	ana	17-2[138_85]	
-10-10	779-782	all	abstract[84]|person[85]	new[84]|giv:act[85]	nnnnn[84]|sssss[85]	_	cf7[84]|cf2[85]	_	_	
+10-9	775-778	you	abstract[84]|person[85]	new[84]|giv:act[85]	nnnnn[84]|nnnnn[85]	_	cf7[84]|cf2[85]	ana	17-2[138_85]	
+10-10	779-782	all	abstract[84]|person[85]	new[84]|giv:act[85]	nnnnn[84]|nnnnn[85]	_	cf7[84]|cf2[85]	_	_	
 10-11	783-792	regarding	abstract[84]	new[84]	nnnnn[84]	_	cf7[84]	_	_	
-10-12	793-795	my	abstract[84]|abstract[86]|person[87]	new[84]|new[86]|giv:act[87]	nnnnn[84]|ssssn[86]|sssss[87]	_	cf7[84]|cf5[86]|cf1*[87]	bridge:other|bridge:other|ana	12-3[102_86]|27-10[219_86]|10-18[92_87]	
-10-13	796-804	symptoms	abstract[84]|abstract[86]	new[84]|new[86]	nnnnn[84]|ssssn[86]	_	cf7[84]|cf5[86]	_	_	
-10-14	805-807	of	abstract[84]|abstract[86]	new[84]|new[86]	nnnnn[84]|ssssn[86]	_	cf7[84]|cf5[86]	_	_	
-10-15	808-813	Covid	abstract[84]|abstract[86]|abstract[88]	new[84]|new[86]|giv:inact[88]	nnnnn[84]|ssssn[86]|sssss[88]	COVID%2D19[88]	cf7[84]|cf5[86]|cf3[88]	ana	10-22[93_88]	
+10-12	793-795	my	abstract[84]|abstract[86]|person[87]	new[84]|new[86]|giv:act[87]	nnnnn[84]|sssss[86]|sssss[87]	_	cf7[84]|cf5[86]|cf1*[87]	bridge:entity-associative|bridge:entity-associative|ana	12-3[102_86]|27-10[219_86]|10-18[92_87]	
+10-13	796-804	symptoms	abstract[84]|abstract[86]	new[84]|new[86]	nnnnn[84]|sssss[86]	_	cf7[84]|cf5[86]	_	_	
+10-14	805-807	of	abstract[84]|abstract[86]	new[84]|new[86]	nnnnn[84]|sssss[86]	_	cf7[84]|cf5[86]	_	_	
+10-15	808-813	Covid	abstract[84]|abstract[86]|abstract[88]	new[84]|new[86]|giv:inact[88]	nnnnn[84]|sssss[86]|sssss[88]	COVID%2D19[88]	cf7[84]|cf5[86]|cf3[88]	ana	10-22[93_88]	
 10-16	814-817	and	abstract[84]	new[84]	nnnnn[84]	_	cf7[84]	_	_	
 10-17	818-822	just	abstract[84]|abstract[91]	new[84]|new[91]	nnnnn[84]|nnnnn[91]	_	cf7[84]|cf6[91]	_	_	
 10-18	823-825	my	abstract[84]|abstract[91]|person[92]	new[84]|new[91]|giv:act[92]	nnnnn[84]|nnnnn[91]|sssss[92]	_	cf7[84]|cf6[91]|cf1*[92]	ana	12-3[103_92]	
@@ -220,17 +220,17 @@
 11-1	855-858	For	_	_	_	_	_	_	_	
 11-2	859-862	one	_	_	_	_	_	_	_	
 11-3	863-864	,	_	_	_	_	_	_	_	
-11-4	865-867	it	abstract[94]	giv:act[94]	n____[94]	_	cf1*[94]	_	_	
+11-4	865-867	it	abstract[94]	giv:act[94]	nnnnn[94]	_	cf1*[94]	_	_	
 11-5	868-871	can	_	_	_	_	_	_	_	
 11-6	872-876	make	_	_	_	_	_	_	_	
-11-7	877-883	people	person[95]	new[95]	nnnnn[95]	_	cf2[95]	coref	11-14[96_95]	
+11-7	877-883	people	person[95]	new[95]	nnsnn[95]	_	cf2[95]	coref	11-14[96_95]	
 11-8	884-888	more	_	_	_	_	_	_	_	
 11-9	889-894	aware	_	_	_	_	_	_	_	
 11-10	895-898	and	_	_	_	_	_	_	_	
 11-11	899-903	then	_	_	_	_	_	_	_	
 11-12	904-913	hopefully	_	_	_	_	_	_	_	
 11-13	914-918	make	_	_	_	_	_	_	_	
-11-14	919-925	people	person[96]	giv:act[96]	n____[96]	_	cf2[96]	_	_	
+11-14	919-925	people	person[96]	giv:act[96]	nnsnn[96]	_	cf2[96]	_	_	
 11-15	926-930	feel	_	_	_	_	_	_	_	
 11-16	931-932	a	_	_	_	_	_	_	_	
 11-17	933-939	little	_	_	_	_	_	_	_	
@@ -242,19 +242,19 @@
 #Text=So , my first symptom , which was on Monday , was a sore throat .
 12-1	957-959	So	_	_	_	_	_	_	_	
 12-2	960-961	,	_	_	_	_	_	_	_	
-12-3	962-964	my	abstract[102]|person[103]	acc:inf[102]|giv:inact[103]	snnss[102]|sssss[103]	_	cf1[102]|cf2[103]	pred|ana	12-13[107_102]|13-10[110_103]	
-12-4	965-970	first	abstract[102]	acc:inf[102]	snnss[102]	_	cf1[102]	_	_	
-12-5	971-978	symptom	abstract[102]	acc:inf[102]	snnss[102]	_	cf1[102]	_	_	
-12-6	979-980	,	abstract[102]	acc:inf[102]	snnss[102]	_	cf1[102]	_	_	
-12-7	981-986	which	abstract[102]	acc:inf[102]	snnss[102]	_	cf1[102]	_	_	
-12-8	987-990	was	abstract[102]	acc:inf[102]	snnss[102]	_	cf1[102]	_	_	
-12-9	991-993	on	abstract[102]	acc:inf[102]	snnss[102]	_	cf1[102]	_	_	
-12-10	994-1000	Monday	abstract[102]|time[104]	acc:inf[102]|acc:com[104]	snnss[102]|nnnnn[104]	_	cf1[102]|cf3[104]	_	_	
+12-3	962-964	my	abstract[102]|person[103]	acc:inf[102]|giv:inact[103]	sssss[102]|sssss[103]	_	cf1[102]|cf2[103]	pred|ana	12-13[107_102]|13-10[110_103]	
+12-4	965-970	first	abstract[102]	acc:inf[102]	sssss[102]	_	cf1[102]	_	_	
+12-5	971-978	symptom	abstract[102]	acc:inf[102]	sssss[102]	_	cf1[102]	_	_	
+12-6	979-980	,	abstract[102]	acc:inf[102]	sssss[102]	_	cf1[102]	_	_	
+12-7	981-986	which	abstract[102]	acc:inf[102]	sssss[102]	_	cf1[102]	_	_	
+12-8	987-990	was	abstract[102]	acc:inf[102]	sssss[102]	_	cf1[102]	_	_	
+12-9	991-993	on	abstract[102]	acc:inf[102]	sssss[102]	_	cf1[102]	_	_	
+12-10	994-1000	Monday	abstract[102]|time[104]	acc:inf[102]|acc:inf[104]	sssss[102]|nnnnn[104]	_	cf1[102]|cf3[104]	bridge:comparison-time	13-7[109_104]	
 12-11	1001-1002	,	_	_	_	_	_	_	_	
 12-12	1003-1006	was	_	_	_	_	_	_	_	
-12-13	1007-1008	a	abstract[107]	giv:act[107]	snnss[107]	_	cf1[107]	ana	18-9[154_107]	
-12-14	1009-1013	sore	abstract[107]	giv:act[107]	snnss[107]	_	cf1[107]	_	_	
-12-15	1014-1020	throat	abstract[107]	giv:act[107]	snnss[107]	_	cf1[107]	_	_	
+12-13	1007-1008	a	abstract[107]	giv:act[107]	sssss[107]	_	cf1[107]	ana	18-9[154_107]	
+12-14	1009-1013	sore	abstract[107]	giv:act[107]	sssss[107]	_	cf1[107]	_	_	
+12-15	1014-1020	throat	abstract[107]	giv:act[107]	sssss[107]	_	cf1[107]	_	_	
 12-16	1021-1022	.	_	_	_	_	_	_	_	
 
 #Text=And the thing is , on Sunday night , I had gotten back from work around 9:00 pm , so I took a shower .
@@ -264,24 +264,24 @@
 13-4	1037-1039	is	_	_	_	_	_	_	_	
 13-5	1040-1041	,	_	_	_	_	_	_	_	
 13-6	1042-1044	on	_	_	_	_	_	_	_	
-13-7	1045-1051	Sunday	time[108]|time[109]	new[108]|acc:com[109]	nnnnn[108]|nnnnn[109]	_	cf4[108]|cf2[109]	_	_	
-13-8	1052-1057	night	time[108]	new[108]	nnnnn[108]	_	cf4[108]	_	_	
+13-7	1045-1051	Sunday	time[108]|time[109]	new[108]|acc:inf[109]	nnnnn[108]|nnnnn[109]	_	cf5[108]|cf3[109]	bridge:comparison-time;set-span-interval	13-17[115_108]	
+13-8	1052-1057	night	time[108]	new[108]	nnnnn[108]	_	cf5[108]	_	_	
 13-9	1058-1059	,	_	_	_	_	_	_	_	
 13-10	1060-1061	I	person[110]	giv:act[110]	sssss[110]	_	cf1*[110]	ana	13-21[116_110]	
 13-11	1062-1065	had	_	_	_	_	_	_	_	
 13-12	1066-1072	gotten	_	_	_	_	_	_	_	
 13-13	1073-1077	back	_	_	_	_	_	_	_	
 13-14	1078-1082	from	_	_	_	_	_	_	_	
-13-15	1083-1087	work	abstract[111]	new[111]	nnnnn[111]	_	cf5[111]	_	_	
+13-15	1083-1087	work	abstract[111]	new[111]	nnnnn[111]	_	cf6[111]	_	_	
 13-16	1088-1094	around	_	_	_	_	_	_	_	
-13-17	1095-1099	9:00	time[115]	new[115]	nnnnn[115]	_	cf6[115]	_	_	
-13-18	1100-1102	pm	time[115]	new[115]	nnnnn[115]	_	cf6[115]	_	_	
+13-17	1095-1099	9:00	time[115]	acc:inf[115]	nnnnn[115]	_	cf2[115]	_	_	
+13-18	1100-1102	pm	time[115]	acc:inf[115]	nnnnn[115]	_	cf2[115]	_	_	
 13-19	1103-1104	,	_	_	_	_	_	_	_	
 13-20	1105-1107	so	_	_	_	_	_	_	_	
 13-21	1108-1109	I	person[116]	giv:act[116]	sssss[116]	_	cf1*[116]	ana	14-2[119_116]	
 13-22	1110-1114	took	_	_	_	_	_	_	_	
-13-23	1115-1116	a	event[118]	new[118]	nnnnn[118]	_	cf3[118]	_	_	
-13-24	1117-1123	shower	event[118]	new[118]	nnnnn[118]	_	cf3[118]	_	_	
+13-23	1115-1116	a	event[118]	new[118]	nnnnn[118]	_	cf4[118]	_	_	
+13-24	1117-1123	shower	event[118]	new[118]	nnnnn[118]	_	cf4[118]	_	_	
 13-25	1124-1125	.	_	_	_	_	_	_	_	
 
 #Text=Um I never really dried my hair , which is so awful , but I decided to go straight to bed because I was so exhausted .
@@ -299,7 +299,7 @@
 14-12	1172-1177	awful	_	_	_	_	_	_	_	
 14-13	1178-1179	,	_	_	_	_	_	_	_	
 14-14	1180-1183	but	_	_	_	_	_	_	_	
-14-15	1184-1185	I	person[123]	giv:act[123]	sssss[123]	_	cf1*[123]	ana|bridge:other	14-23[125_123]|14-21[124_123]	
+14-15	1184-1185	I	person[123]	giv:act[123]	sssss[123]	_	cf1*[123]	ana|bridge:entity-associative	14-23[125_123]|14-21[124_123]	
 14-16	1186-1193	decided	_	_	_	_	_	_	_	
 14-17	1194-1196	to	_	_	_	_	_	_	_	
 14-18	1197-1199	go	_	_	_	_	_	_	_	
@@ -328,27 +328,27 @@
 16-2	1280-1281	I	person[127]	giv:act[127]	sssss[127]	_	cf1*[127]	ana	16-7[137_127]	
 16-3	1282-1286	went	_	_	_	_	_	_	_	
 16-4	1287-1289	to	_	_	_	_	_	_	_	
-16-5	1290-1293	bed	place[128]	giv:inact[128]	n____[128]	_	cf3[128]	_	_	
+16-5	1290-1293	bed	place[128]	giv:inact[128]	nnnnn[128]	_	cf3[128]	_	_	
 16-6	1294-1298	with	_	_	_	_	_	_	_	
-16-7	1299-1301	my	object[136]|person[137]	giv:inact[136]|giv:act[137]	n____[136]|sssss[137]	_	cf2[136]|cf1*[137]	coref|ana	18-27[162_136]|18-3[153_137]	
-16-8	1302-1306	hair	object[136]	giv:inact[136]	n____[136]	_	cf2[136]	_	_	
+16-7	1299-1301	my	object[136]|person[137]	giv:inact[136]|giv:act[137]	nnnnn[136]|sssss[137]	_	cf2[136]|cf1*[137]	coref|ana	18-27[162_136]|18-3[153_137]	
+16-8	1302-1306	hair	object[136]	giv:inact[136]	nnnnn[136]	_	cf2[136]	_	_	
 16-9	1307-1310	wet	_	_	_	_	_	_	_	
 16-10	1311-1312	.	_	_	_	_	_	_	_	
 
 #Text=And you know like when you wake up sometimes you have like a sore throat because of the fact that your hair was wet and you were cold ?
 17-1	1313-1316	And	_	_	_	_	_	_	_	
-17-2	1317-1320	you	person[138]	giv:inact[138]	sssss[138]	_	cf1[138]	ana	17-6[139_138]	
+17-2	1317-1320	you	person[138]	giv:inact[138]	nnnnn[138]	_	cf1[138]	ana	17-6[139_138]	
 17-3	1321-1325	know	_	_	_	_	_	_	_	
 17-4	1326-1330	like	_	_	_	_	_	_	_	
 17-5	1331-1335	when	_	_	_	_	_	_	_	
-17-6	1336-1339	you	person[139]	giv:act[139]	sssss[139]	_	cf1[139]	ana	17-10[140_139]	
+17-6	1336-1339	you	person[139]	giv:act[139]	nnnnn[139]	_	cf1[139]	ana	17-10[140_139]	
 17-7	1340-1344	wake	_	_	_	_	_	_	_	
 17-8	1345-1347	up	_	_	_	_	_	_	_	
 17-9	1348-1357	sometimes	_	_	_	_	_	_	_	
-17-10	1358-1361	you	person[140]	giv:act[140]	sssss[140]	_	cf1[140]	ana	17-21[148_140]	
+17-10	1358-1361	you	person[140]	giv:act[140]	nnnnn[140]	_	cf1[140]	ana	17-21[148_140]	
 17-11	1362-1366	have	_	_	_	_	_	_	_	
 17-12	1367-1371	like	_	_	_	_	_	_	_	
-17-13	1372-1373	a	abstract[145]	new[145]	nnnnn[145]	_	cf3[145]	bridge:other	18-13[157_145]	
+17-13	1372-1373	a	abstract[145]	new[145]	nnnnn[145]	_	cf3[145]	_	_	
 17-14	1374-1378	sore	abstract[145]	new[145]	nnnnn[145]	_	cf3[145]	_	_	
 17-15	1379-1385	throat	abstract[145]	new[145]	nnnnn[145]	_	cf3[145]	_	_	
 17-16	1386-1393	because	_	_	_	_	_	_	_	
@@ -356,12 +356,12 @@
 17-18	1397-1400	the	abstract[146]	new[146]	nnnnn[146]	_	cf4[146]	_	_	
 17-19	1401-1405	fact	abstract[146]	new[146]	nnnnn[146]	_	cf4[146]	_	_	
 17-20	1406-1410	that	abstract[146]	new[146]	nnnnn[146]	_	cf4[146]	_	_	
-17-21	1411-1415	your	abstract[146]|object[147]|person[148]	new[146]|new[147]|giv:act[148]	nnnnn[146]|nnnnn[147]|sssss[148]	_	cf4[146]|cf2[147]|cf1[148]	ana	17-26[149_148]	
+17-21	1411-1415	your	abstract[146]|object[147]|person[148]	new[146]|new[147]|giv:act[148]	nnnnn[146]|nnnnn[147]|nnnnn[148]	_	cf4[146]|cf2[147]|cf1[148]	ana	17-26[149_148]	
 17-22	1416-1420	hair	abstract[146]|object[147]	new[146]|new[147]	nnnnn[146]|nnnnn[147]	_	cf4[146]|cf2[147]	_	_	
 17-23	1421-1424	was	abstract[146]	new[146]	nnnnn[146]	_	cf4[146]	_	_	
 17-24	1425-1428	wet	abstract[146]	new[146]	nnnnn[146]	_	cf4[146]	_	_	
 17-25	1429-1432	and	abstract[146]	new[146]	nnnnn[146]	_	cf4[146]	_	_	
-17-26	1433-1436	you	abstract[146]|person[149]	new[146]|giv:act[149]	nnnnn[146]|sssss[149]	_	cf4[146]|cf1[149]	ana	18-23[159_149]	
+17-26	1433-1436	you	abstract[146]|person[149]	new[146]|giv:act[149]	nnnnn[146]|nnnnn[149]	_	cf4[146]|cf1[149]	ana	18-23[159_149]	
 17-27	1437-1441	were	abstract[146]	new[146]	nnnnn[146]	_	cf4[146]	_	_	
 17-28	1442-1446	cold	abstract[146]	new[146]	nnnnn[146]	_	cf4[146]	_	_	
 17-29	1447-1448	?	_	_	_	_	_	_	_	
@@ -375,32 +375,32 @@
 18-6	1467-1471	that	event[152]	new[152]	nnnnn[152]	_	cf6[152]	_	_	
 18-7	1472-1476	like	event[152]	new[152]	nnnnn[152]	_	cf6[152]	_	_	
 18-8	1477-1482	maybe	event[152]	new[152]	nnnnn[152]	_	cf6[152]	_	_	
-18-9	1483-1485	it	event[152]|abstract[154]	new[152]|giv:inact[154]	nnnnn[152]|snnss[154]	_	cf6[152]|cf3[154]	coref	27-1[216_154]	
+18-9	1483-1485	it	event[152]|abstract[154]	new[152]|giv:inact[154]	nnnnn[152]|sssss[154]	_	cf6[152]|cf3[154]	coref	27-1[216_154]	
 18-10	1486-1489	was	event[152]	new[152]	nnnnn[152]	_	cf6[152]	_	_	
 18-11	1490-1494	just	event[152]	new[152]	nnnnn[152]	_	cf6[152]	_	_	
 18-12	1495-1499	like	event[152]	new[152]	nnnnn[152]	_	cf6[152]	_	_	
-18-13	1500-1501	a	event[152]|abstract[157]	new[152]|acc:inf[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf5[157]	_	_	
-18-14	1502-1506	sore	event[152]|abstract[157]	new[152]|acc:inf[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf5[157]	_	_	
-18-15	1507-1513	throat	event[152]|abstract[157]	new[152]|acc:inf[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf5[157]	_	_	
-18-16	1514-1520	gotten	event[152]|abstract[157]	new[152]|acc:inf[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf5[157]	_	_	
-18-17	1521-1528	because	event[152]|abstract[157]	new[152]|acc:inf[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf5[157]	_	_	
-18-18	1529-1530	I	event[152]|abstract[157]|person[158]	new[152]|acc:inf[157]|giv:act[158]	nnnnn[152]|nnnnn[157]|sssss[158]	_	cf6[152]|cf5[157]|cf1[158]	ana	18-27[163_158]	
-18-19	1531-1534	did	event[152]|abstract[157]	new[152]|acc:inf[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf5[157]	_	_	
-18-20	1535-1538	n't	event[152]|abstract[157]	new[152]|acc:inf[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf5[157]	_	_	
-18-21	1539-1545	bother	event[152]|abstract[157]	new[152]|acc:inf[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf5[157]	_	_	
-18-22	1546-1548	to	event[152]|abstract[157]	new[152]|acc:inf[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf5[157]	_	_	
-18-23	1549-1552	you	event[152]|abstract[157]|person[159]	new[152]|acc:inf[157]|giv:act[159]	nnnnn[152]|nnnnn[157]|sssss[159]	_	cf6[152]|cf5[157]|cf2*[159]	ana	22-3[174_159]	
-18-24	1553-1557	know	event[152]|abstract[157]	new[152]|acc:inf[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf5[157]	_	_	
-18-25	1558-1562	blow	event[152]|abstract[157]	new[152]|acc:inf[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf5[157]	_	_	
-18-26	1563-1566	dry	event[152]|abstract[157]	new[152]|acc:inf[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf5[157]	_	_	
-18-27	1567-1569	my	event[152]|abstract[157]|object[162]|person[163]	new[152]|acc:inf[157]|giv:inact[162]|giv:act[163]	nnnnn[152]|nnnnn[157]|n____[162]|sssss[163]	_	cf6[152]|cf5[157]|cf4[162]|cf1[163]	ana	20-4[168_163]	
-18-28	1570-1574	hair	event[152]|abstract[157]|object[162]	new[152]|acc:inf[157]|giv:inact[162]	nnnnn[152]|nnnnn[157]|n____[162]	_	cf6[152]|cf5[157]|cf4[162]	_	_	
+18-13	1500-1501	a	event[152]|abstract[157]	new[152]|auto[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf4[157]	_	_	
+18-14	1502-1506	sore	event[152]|abstract[157]	new[152]|auto[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf4[157]	_	_	
+18-15	1507-1513	throat	event[152]|abstract[157]	new[152]|auto[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf4[157]	_	_	
+18-16	1514-1520	gotten	event[152]|abstract[157]	new[152]|auto[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf4[157]	_	_	
+18-17	1521-1528	because	event[152]|abstract[157]	new[152]|auto[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf4[157]	_	_	
+18-18	1529-1530	I	event[152]|abstract[157]|person[158]	new[152]|auto[157]|giv:act[158]	nnnnn[152]|nnnnn[157]|sssss[158]	_	cf6[152]|cf4[157]|cf1[158]	ana	18-27[163_158]	
+18-19	1531-1534	did	event[152]|abstract[157]	new[152]|auto[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf4[157]	_	_	
+18-20	1535-1538	n't	event[152]|abstract[157]	new[152]|auto[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf4[157]	_	_	
+18-21	1539-1545	bother	event[152]|abstract[157]	new[152]|auto[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf4[157]	_	_	
+18-22	1546-1548	to	event[152]|abstract[157]	new[152]|auto[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf4[157]	_	_	
+18-23	1549-1552	you	event[152]|abstract[157]|person[159]	new[152]|auto[157]|giv:act[159]	nnnnn[152]|nnnnn[157]|nnnnn[159]	_	cf6[152]|cf4[157]|cf2*[159]	ana	22-3[174_159]	
+18-24	1553-1557	know	event[152]|abstract[157]	new[152]|auto[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf4[157]	_	_	
+18-25	1558-1562	blow	event[152]|abstract[157]	new[152]|auto[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf4[157]	_	_	
+18-26	1563-1566	dry	event[152]|abstract[157]	new[152]|auto[157]	nnnnn[152]|nnnnn[157]	_	cf6[152]|cf4[157]	_	_	
+18-27	1567-1569	my	event[152]|abstract[157]|object[162]|person[163]	new[152]|auto[157]|giv:inact[162]|giv:act[163]	nnnnn[152]|nnnnn[157]|nnnnn[162]|sssss[163]	_	cf6[152]|cf4[157]|cf5[162]|cf1[163]	ana	20-4[168_163]	
+18-28	1570-1574	hair	event[152]|abstract[157]|object[162]	new[152]|auto[157]|giv:inact[162]	nnnnn[152]|nnnnn[157]|nnnnn[162]	_	cf6[152]|cf4[157]|cf5[162]	_	_	
 18-29	1575-1576	.	_	_	_	_	_	_	_	
 
 #Text=So , that happened .
 19-1	1577-1579	So	_	_	_	_	_	_	_	
 19-2	1580-1581	,	_	_	_	_	_	_	_	
-19-3	1582-1586	that	event[164]	giv:act[164]	n____[164]	_	cf1*[164]	_	_	
+19-3	1582-1586	that	event[164]	giv:act[164]	nnnnn[164]	_	cf1*[164]	_	_	
 19-4	1587-1595	happened	_	_	_	_	_	_	_	
 19-5	1596-1597	.	_	_	_	_	_	_	_	
 
@@ -410,7 +410,7 @@
 20-3	1606-1611	about	_	_	_	_	_	_	_	
 20-4	1612-1614	my	time[167]|person[168]	new[167]|giv:inact[168]	nnnnn[167]|sssss[168]	_	cf1[167]|cf2[168]	coref|ana	20-6[169_167]|21-1[173_168]	
 20-5	1615-1618	day	time[167]	new[167]	nnnnn[167]	_	cf1[167]	_	_	
-20-6	1619-1626	Tuesday	time[169]	giv:act[169]	n____[169]	_	cf1[169]	coref	26-1[211_169]	
+20-6	1619-1626	Tuesday	time[169]	giv:act[169]	nnnnn[169]	_	cf1[169]	coref	26-1[211_169]	
 20-7	1627-1628	?	_	_	_	_	_	_	_	
 
 #Text=My sister tests positive .
@@ -423,7 +423,7 @@
 #Text=So , you know like I go oh shit like I 've been hanging out in the car with her .
 22-1	1656-1658	So	_	_	_	_	_	_	_	
 22-2	1659-1660	,	_	_	_	_	_	_	_	
-22-3	1661-1664	you	person[174]	giv:inact[174]	sssss[174]	_	cf3[174]	ana	38-5[310_174]	
+22-3	1661-1664	you	person[174]	giv:inact[174]	nnnnn[174]	_	cf3[174]	ana	38-5[310_174]	
 22-4	1665-1669	know	_	_	_	_	_	_	_	
 22-5	1670-1674	like	_	_	_	_	_	_	_	
 22-6	1675-1676	I	person[175]	giv:act[175]	sssss[175]	_	cf1*[175]	ana	22-11[176_175]	
@@ -431,14 +431,14 @@
 22-8	1680-1682	oh	_	_	_	_	_	_	_	
 22-9	1683-1687	shit	_	_	_	_	_	_	_	
 22-10	1688-1692	like	_	_	_	_	_	_	_	
-22-11	1693-1694	I	person[176]	giv:act[176]	sssss[176]	_	cf1*[176]	ana	23-3[183_176]	
+22-11	1693-1694	I	person[176]	giv:act[176]	sssss[176]	_	cf1*[176]	ana|bridge:entity-associative	23-3[183_176]|22-17[181_176]	
 22-12	1695-1698	've	_	_	_	_	_	_	_	
 22-13	1699-1703	been	_	_	_	_	_	_	_	
 22-14	1704-1711	hanging	_	_	_	_	_	_	_	
 22-15	1712-1715	out	_	_	_	_	_	_	_	
 22-16	1716-1718	in	_	_	_	_	_	_	_	
-22-17	1719-1722	the	object[181]	acc:com[181]	nnnnn[181]	_	cf4[181]	coref	24-13[195_181]	
-22-18	1723-1726	car	object[181]	acc:com[181]	nnnnn[181]	_	cf4[181]	_	_	
+22-17	1719-1722	the	object[181]	acc:inf[181]	nnnnn[181]	_	cf4[181]	coref	24-13[195_181]	
+22-18	1723-1726	car	object[181]	acc:inf[181]	nnnnn[181]	_	cf4[181]	_	_	
 22-19	1727-1731	with	_	_	_	_	_	_	_	
 22-20	1732-1735	her	person[182]	giv:act[182]	snsnn[182]	_	cf2[182]	ana	23-9[187_182]	
 22-21	1736-1737	.	_	_	_	_	_	_	_	
@@ -449,15 +449,15 @@
 23-3	1750-1751	I	person[183]	giv:act[183]	sssss[183]	_	cf1*[183]	ana|bridge:aggr	25-21[207_183]|24-9[193_183]	
 23-4	1752-1755	was	_	_	_	_	_	_	_	
 23-5	1756-1763	wearing	_	_	_	_	_	_	_	
-23-6	1764-1765	a	object[186]	new[186]	snnnn[186]	_	cf3[186]	coref	25-23[209_186]	
-23-7	1766-1770	mask	object[186]	new[186]	snnnn[186]	_	cf3[186]	_	_	
+23-6	1764-1765	a	object[186]	new[186]	nnnnn[186]	_	cf3[186]	coref	25-23[209_186]	
+23-7	1766-1770	mask	object[186]	new[186]	nnnnn[186]	_	cf3[186]	_	_	
 23-8	1771-1772	,	_	_	_	_	_	_	_	
 23-9	1773-1776	she	person[187]	giv:act[187]	snsnn[187]	_	cf2[187]	ana|bridge:aggr	23-17[190_187]|24-9[193_187]	
 23-10	1777-1780	was	_	_	_	_	_	_	_	
 23-11	1781-1784	n't	_	_	_	_	_	_	_	
 23-12	1785-1792	wearing	_	_	_	_	_	_	_	
-23-13	1793-1794	a	object[189]	new[189]	nnnnn[189]	_	cf4[189]	_	_	
-23-14	1795-1799	mask	object[189]	new[189]	nnnnn[189]	_	cf4[189]	_	_	
+23-13	1793-1794	a	object[189]	new[189]	snnnn[189]	_	cf4[189]	_	_	
+23-14	1795-1799	mask	object[189]	new[189]	snnnn[189]	_	cf4[189]	_	_	
 23-15	1800-1801	,	_	_	_	_	_	_	_	
 23-16	1802-1805	and	_	_	_	_	_	_	_	
 23-17	1806-1809	she	person[190]	giv:act[190]	snsnn[190]	_	cf2[190]	ana	25-5[203_190]	
@@ -481,17 +481,17 @@
 24-10	1885-1889	were	_	_	_	_	_	_	_	
 24-11	1890-1898	probably	_	_	_	_	_	_	_	
 24-12	1899-1901	in	_	_	_	_	_	_	_	
-24-13	1902-1905	the	object[195]	giv:inact[195]	n____[195]	_	cf3[195]	coref	25-8[205_195]	
-24-14	1906-1909	car	object[195]	giv:inact[195]	n____[195]	_	cf3[195]	_	_	
+24-13	1902-1905	the	object[195]	giv:inact[195]	nnnnn[195]	_	cf3[195]	coref	25-8[205_195]	
+24-14	1906-1909	car	object[195]	giv:inact[195]	nnnnn[195]	_	cf3[195]	_	_	
 24-15	1910-1914	with	_	_	_	_	_	_	_	
-24-16	1915-1919	each	person[196]	giv:act[196]	n____[196]	_	cf1[196]	ana	24-23[198_196]	
-24-17	1920-1925	other	person[196]	giv:act[196]	n____[196]	_	cf1[196]	_	_	
+24-16	1915-1919	each	person[196]	giv:act[196]	nnnnn[196]	_	cf1[196]	ana	24-23[198_196]	
+24-17	1920-1925	other	person[196]	giv:act[196]	nnnnn[196]	_	cf1[196]	_	_	
 24-18	1926-1929	for	_	_	_	_	_	_	_	
 24-19	1930-1934	like	_	_	_	_	_	_	_	
-24-20	1935-1937	40	time[197]	giv:act[197]	n____[197]	_	cf2[197]	coref	25-1[201_197]	
-24-21	1938-1945	minutes	time[197]	giv:act[197]	n____[197]	_	cf2[197]	_	_	
+24-20	1935-1937	40	time[197]	giv:act[197]	nnnnn[197]	_	cf2[197]	coref	25-1[201_197]	
+24-21	1938-1945	minutes	time[197]	giv:act[197]	nnnnn[197]	_	cf2[197]	_	_	
 24-22	1946-1953	because	_	_	_	_	_	_	_	
-24-23	1954-1956	we	person[198]	giv:act[198]	n____[198]	_	cf1[198]	_	_	
+24-23	1954-1956	we	person[198]	giv:act[198]	nnnnn[198]	_	cf1[198]	_	_	
 24-24	1957-1962	drove	_	_	_	_	_	_	_	
 24-25	1963-1966	one	abstract[200]	new[200]	nnnnn[200]	_	cf4[200]	_	_	
 24-26	1967-1970	way	abstract[200]	new[200]	nnnnn[200]	_	cf4[200]	_	_	
@@ -502,15 +502,15 @@
 24-31	1991-1992	.	_	_	_	_	_	_	_	
 
 #Text=That 40 minutes , her coffee in the car , the – all the windows closed , and even though I had a mask on , the virus circulates .
-25-1	1993-1997	That	time[201]	giv:act[201]	n____[201]	_	cf1*[201]	_	_	
-25-2	1998-2000	40	time[201]	giv:act[201]	n____[201]	_	cf1*[201]	_	_	
-25-3	2001-2008	minutes	time[201]	giv:act[201]	n____[201]	_	cf1*[201]	_	_	
+25-1	1993-1997	That	time[201]	giv:act[201]	nnnnn[201]	_	cf1*[201]	_	_	
+25-2	1998-2000	40	time[201]	giv:act[201]	nnnnn[201]	_	cf1*[201]	_	_	
+25-3	2001-2008	minutes	time[201]	giv:act[201]	nnnnn[201]	_	cf1*[201]	_	_	
 25-4	2009-2010	,	_	_	_	_	_	_	_	
 25-5	2011-2014	her	substance[202]|person[203]	new[202]|giv:inact[203]	nnnnn[202]|snsnn[203]	_	cf8[202]|cf4[203]	ana	28-12[224_203]	
 25-6	2015-2021	coffee	substance[202]	new[202]	nnnnn[202]	_	cf8[202]	_	_	
 25-7	2022-2024	in	substance[202]	new[202]	nnnnn[202]	_	cf8[202]	_	_	
-25-8	2025-2028	the	substance[202]|object[205]	new[202]|giv:act[205]	nnnnn[202]|n____[205]	_	cf8[202]|cf2[205]	_	_	
-25-9	2029-2032	car	substance[202]|object[205]	new[202]|giv:act[205]	nnnnn[202]|n____[205]	_	cf8[202]|cf2[205]	_	_	
+25-8	2025-2028	the	substance[202]|object[205]	new[202]|giv:act[205]	nnnnn[202]|nnnnn[205]	_	cf8[202]|cf2[205]	_	_	
+25-9	2029-2032	car	substance[202]|object[205]	new[202]|giv:act[205]	nnnnn[202]|nnnnn[205]	_	cf8[202]|cf2[205]	_	_	
 25-10	2033-2034	,	_	_	_	_	_	_	_	
 25-11	2035-2038	the	object[206]	new[206]	nnnnn[206]	_	cf7[206]	_	_	
 25-12	2039-2040	–	object[206]	new[206]	nnnnn[206]	_	cf7[206]	_	_	
@@ -524,8 +524,8 @@
 25-20	2075-2081	though	_	_	_	_	_	_	_	
 25-21	2082-2083	I	person[207]	giv:inact[207]	sssss[207]	_	cf3[207]	ana	26-4[212_207]	
 25-22	2084-2087	had	_	_	_	_	_	_	_	
-25-23	2088-2089	a	object[209]	giv:inact[209]	snnnn[209]	_	cf6[209]	_	_	
-25-24	2090-2094	mask	object[209]	giv:inact[209]	snnnn[209]	_	cf6[209]	_	_	
+25-23	2088-2089	a	object[209]	giv:inact[209]	nnnnn[209]	_	cf6[209]	_	_	
+25-24	2090-2094	mask	object[209]	giv:inact[209]	nnnnn[209]	_	cf6[209]	_	_	
 25-25	2095-2097	on	_	_	_	_	_	_	_	
 25-26	2098-2099	,	_	_	_	_	_	_	_	
 25-27	2100-2103	the	abstract[210]	giv:inact[210]	sssss[210]	COVID%2D19[210]	cf5[210]	_	_	
@@ -534,8 +534,8 @@
 25-30	2121-2122	.	_	_	_	_	_	_	_	
 
 #Text=That Tuesday , I remember I had been getting a little bit more symptomatic .
-26-1	2123-2127	That	time[211]	giv:inact[211]	n____[211]	_	cf2[211]	bridge:def	29-17[239_211]	
-26-2	2128-2135	Tuesday	time[211]	giv:inact[211]	n____[211]	_	cf2[211]	_	_	
+26-1	2123-2127	That	time[211]	giv:inact[211]	nnnnn[211]	_	cf2[211]	bridge:comparison-time;set-span-interval	28-9[223_211]	
+26-2	2128-2135	Tuesday	time[211]	giv:inact[211]	nnnnn[211]	_	cf2[211]	_	_	
 26-3	2136-2137	,	_	_	_	_	_	_	_	
 26-4	2138-2139	I	person[212]	giv:act[212]	sssss[212]	_	cf1*[212]	ana	26-6[213_212]	
 26-5	2140-2148	remember	_	_	_	_	_	_	_	
@@ -551,9 +551,9 @@
 26-15	2198-2199	.	_	_	_	_	_	_	_	
 
 #Text=My sore throat did n't go away , um very very mild symptoms .
-27-1	2200-2202	My	abstract[216]|person[217]	giv:inact[216]|giv:act[217]	snnss[216]|sssss[217]	_	cf2[216]|cf1*[217]	ana	28-1[220_217]	
-27-2	2203-2207	sore	abstract[216]	giv:inact[216]	snnss[216]	_	cf2[216]	_	_	
-27-3	2208-2214	throat	abstract[216]	giv:inact[216]	snnss[216]	_	cf2[216]	_	_	
+27-1	2200-2202	My	abstract[216]|person[217]	giv:inact[216]|giv:act[217]	sssss[216]|sssss[217]	_	cf2[216]|cf1*[217]	bridge:comparison-time|ana	33-4[283_216]|28-1[220_217]	
+27-2	2203-2207	sore	abstract[216]	giv:inact[216]	sssss[216]	_	cf2[216]	_	_	
+27-3	2208-2214	throat	abstract[216]	giv:inact[216]	sssss[216]	_	cf2[216]	_	_	
 27-4	2215-2218	did	_	_	_	_	_	_	_	
 27-5	2219-2222	n't	_	_	_	_	_	_	_	
 27-6	2223-2225	go	_	_	_	_	_	_	_	
@@ -575,20 +575,20 @@
 28-6	2282-2286	were	_	_	_	_	_	_	_	
 28-7	2287-2293	closed	_	_	_	_	_	_	_	
 28-8	2294-2296	by	_	_	_	_	_	_	_	
-28-9	2297-2300	the	time[223]	new[223]	nnnnn[223]	_	cf3[223]	coref	28-19[229_223]	
-28-10	2301-2305	time	time[223]	new[223]	nnnnn[223]	_	cf3[223]	_	_	
-28-11	2306-2310	that	time[223]	new[223]	nnnnn[223]	_	cf3[223]	_	_	
-28-12	2311-2314	she	time[223]|person[224]	new[223]|giv:inact[224]	nnnnn[223]|snsnn[224]	_	cf3[223]|cf2[224]	ana	28-15[227_224]	
-28-13	2315-2318	had	time[223]	new[223]	nnnnn[223]	_	cf3[223]	_	_	
-28-14	2319-2325	gotten	time[223]	new[223]	nnnnn[223]	_	cf3[223]	_	_	
-28-15	2326-2329	her	time[223]|abstract[226]|person[227]	new[223]|new[226]|giv:act[227]	nnnnn[223]|nnnnn[226]|snsnn[227]	_	cf3[223]|cf5[226]|cf2[227]	_	_	
-28-16	2330-2337	results	time[223]|abstract[226]	new[223]|new[226]	nnnnn[223]|nnnnn[226]	_	cf3[223]|cf5[226]	_	_	
-28-17	2338-2343	which	time[223]	new[223]	nnnnn[223]	_	cf3[223]	_	_	
-28-18	2344-2347	was	time[223]	new[223]	nnnnn[223]	_	cf3[223]	_	_	
-28-19	2348-2354	around	time[223]|time[229]	new[223]|giv:act[229]	nnnnn[223]|n____[229]	_	cf3[223]|cf3[229]	_	_	
-28-20	2355-2359	like	time[223]|time[229]	new[223]|giv:act[229]	nnnnn[223]|n____[229]	_	cf3[223]|cf3[229]	_	_	
-28-21	2360-2364	6:00	time[223]|time[229]	new[223]|giv:act[229]	nnnnn[223]|n____[229]	_	cf3[223]|cf3[229]	_	_	
-28-22	2365-2367	pm	time[223]|time[229]	new[223]|giv:act[229]	nnnnn[223]|n____[229]	_	cf3[223]|cf3[229]	_	_	
+28-9	2297-2300	the	time[223]	acc:inf[223]	nnnnn[223]	_	cf3[223]	coref	28-19[229_223]	
+28-10	2301-2305	time	time[223]	acc:inf[223]	nnnnn[223]	_	cf3[223]	_	_	
+28-11	2306-2310	that	time[223]	acc:inf[223]	nnnnn[223]	_	cf3[223]	_	_	
+28-12	2311-2314	she	time[223]|person[224]	acc:inf[223]|giv:inact[224]	nnnnn[223]|snsnn[224]	_	cf3[223]|cf2[224]	ana	28-15[227_224]	
+28-13	2315-2318	had	time[223]	acc:inf[223]	nnnnn[223]	_	cf3[223]	_	_	
+28-14	2319-2325	gotten	time[223]	acc:inf[223]	nnnnn[223]	_	cf3[223]	_	_	
+28-15	2326-2329	her	time[223]|abstract[226]|person[227]	acc:inf[223]|new[226]|giv:act[227]	nnnnn[223]|nnnnn[226]|snsnn[227]	_	cf3[223]|cf5[226]|cf2[227]	_	_	
+28-16	2330-2337	results	time[223]|abstract[226]	acc:inf[223]|new[226]	nnnnn[223]|nnnnn[226]	_	cf3[223]|cf5[226]	_	_	
+28-17	2338-2343	which	time[223]	acc:inf[223]	nnnnn[223]	_	cf3[223]	_	_	
+28-18	2344-2347	was	time[223]	acc:inf[223]	nnnnn[223]	_	cf3[223]	_	_	
+28-19	2348-2354	around	time[223]|time[229]	acc:inf[223]|giv:act[229]	nnnnn[223]|nnnnn[229]	_	cf3[223]|cf3[229]	_	_	
+28-20	2355-2359	like	time[223]|time[229]	acc:inf[223]|giv:act[229]	nnnnn[223]|nnnnn[229]	_	cf3[223]|cf3[229]	_	_	
+28-21	2360-2364	6:00	time[223]|time[229]	acc:inf[223]|giv:act[229]	nnnnn[223]|nnnnn[229]	_	cf3[223]|cf3[229]	_	_	
+28-22	2365-2367	pm	time[223]|time[229]	acc:inf[223]|giv:act[229]	nnnnn[223]|nnnnn[229]	_	cf3[223]|cf3[229]	_	_	
 28-23	2368-2369	.	_	_	_	_	_	_	_	
 
 #Text=I had booked an appointment or an e-visit with my um insurance to get me tested the next day .
@@ -608,9 +608,9 @@
 29-14	2436-2439	get	_	_	_	_	_	_	_	
 29-15	2440-2442	me	person[236]	giv:act[236]	sssss[236]	_	cf1*[236]	ana	30-1[240_236]	
 29-16	2443-2449	tested	_	_	_	_	_	_	_	
-29-17	2450-2453	the	time[239]	acc:inf[239]	nnnnn[239]	_	cf2[239]	coref	30-5[241_239]	
-29-18	2454-2458	next	time[239]	acc:inf[239]	nnnnn[239]	_	cf2[239]	_	_	
-29-19	2459-2462	day	time[239]	acc:inf[239]	nnnnn[239]	_	cf2[239]	_	_	
+29-17	2450-2453	the	time[239]	auto[239]	nnnnn[239]	_	cf2[239]	coref	30-5[241_239]	
+29-18	2454-2458	next	time[239]	auto[239]	nnnnn[239]	_	cf2[239]	_	_	
+29-19	2459-2462	day	time[239]	auto[239]	nnnnn[239]	_	cf2[239]	_	_	
 29-20	2463-2464	.	_	_	_	_	_	_	_	
 
 #Text=I get tested on Wednesday , and when I 'm tested on Wednesday , I remember that night , um I believe that was the day where I had actually gotten a fever and chills .
@@ -618,7 +618,7 @@
 30-2	2467-2470	get	_	_	_	_	_	_	_	
 30-3	2471-2477	tested	_	_	_	_	_	_	_	
 30-4	2478-2480	on	_	_	_	_	_	_	_	
-30-5	2481-2490	Wednesday	time[241]	giv:act[241]	n____[241]	_	cf2[241]	coref	30-13[243_241]	
+30-5	2481-2490	Wednesday	time[241]	giv:act[241]	nnnnn[241]	_	cf2[241]	coref	30-13[243_241]	
 30-6	2491-2492	,	_	_	_	_	_	_	_	
 30-7	2493-2496	and	_	_	_	_	_	_	_	
 30-8	2497-2501	when	_	_	_	_	_	_	_	
@@ -626,7 +626,7 @@
 30-10	2504-2506	'm	_	_	_	_	_	_	_	
 30-11	2507-2513	tested	_	_	_	_	_	_	_	
 30-12	2514-2516	on	_	_	_	_	_	_	_	
-30-13	2517-2526	Wednesday	time[243]	giv:act[243]	n____[243]	_	cf2[243]	ana|bridge:def	30-23[252_243]|30-17[250_243]	
+30-13	2517-2526	Wednesday	time[243]	giv:act[243]	nnnnn[243]	_	cf2[243]	ana|bridge:comparison-time;set-span-interval	30-23[252_243]|30-17[250_243]	
 30-14	2527-2528	,	_	_	_	_	_	_	_	
 30-15	2529-2530	I	person[244]	giv:act[244]	sssss[244]	_	cf1*[244]	ana	30-21[251_244]	
 30-16	2531-2539	remember	_	_	_	_	_	_	_	
@@ -636,26 +636,26 @@
 30-20	2553-2555	um	_	_	_	_	_	_	_	
 30-21	2556-2557	I	person[251]	giv:act[251]	sssss[251]	_	cf1*[251]	ana	30-28[256_251]	
 30-22	2558-2565	believe	_	_	_	_	_	_	_	
-30-23	2566-2570	that	time[252]	giv:act[252]	n____[252]	_	cf2[252]	coref	30-25[255_252]	
+30-23	2566-2570	that	time[252]	giv:act[252]	nnnnn[252]	_	cf2[252]	coref	30-25[255_252]	
 30-24	2571-2574	was	_	_	_	_	_	_	_	
-30-25	2575-2578	the	time[255]	giv:act[255]	n____[255]	_	cf2[255]	coref	42-9[335_255]	
-30-26	2579-2582	day	time[255]	giv:act[255]	n____[255]	_	cf2[255]	_	_	
-30-27	2583-2588	where	time[255]	giv:act[255]	n____[255]	_	cf2[255]	_	_	
-30-28	2589-2590	I	time[255]|person[256]	giv:act[255]|giv:act[256]	n____[255]|sssss[256]	_	cf2[255]|cf1*[256]	ana	31-5[261_256]	
-30-29	2591-2594	had	time[255]	giv:act[255]	n____[255]	_	cf2[255]	_	_	
-30-30	2595-2603	actually	time[255]	giv:act[255]	n____[255]	_	cf2[255]	_	_	
-30-31	2604-2610	gotten	time[255]	giv:act[255]	n____[255]	_	cf2[255]	_	_	
-30-32	2611-2612	a	time[255]|abstract[258]	giv:act[255]|new[258]	n____[255]|sssss[258]	_	cf2[255]|cf4[258]	_	_	
-30-33	2613-2618	fever	time[255]|abstract[258]	giv:act[255]|new[258]	n____[255]|sssss[258]	_	cf2[255]|cf4[258]	_	_	
-30-34	2619-2622	and	time[255]	giv:act[255]	n____[255]	_	cf2[255]	_	_	
-30-35	2623-2629	chills	time[255]|abstract[259]	giv:act[255]|new[259]	n____[255]|nnnnn[259]	_	cf2[255]|cf5[259]	_	_	
+30-25	2575-2578	the	time[255]	giv:act[255]	nnnnn[255]	_	cf2[255]	coref	42-9[335_255]	
+30-26	2579-2582	day	time[255]	giv:act[255]	nnnnn[255]	_	cf2[255]	_	_	
+30-27	2583-2588	where	time[255]	giv:act[255]	nnnnn[255]	_	cf2[255]	_	_	
+30-28	2589-2590	I	time[255]|person[256]	giv:act[255]|giv:act[256]	nnnnn[255]|sssss[256]	_	cf2[255]|cf1*[256]	ana	31-5[261_256]	
+30-29	2591-2594	had	time[255]	giv:act[255]	nnnnn[255]	_	cf2[255]	_	_	
+30-30	2595-2603	actually	time[255]	giv:act[255]	nnnnn[255]	_	cf2[255]	_	_	
+30-31	2604-2610	gotten	time[255]	giv:act[255]	nnnnn[255]	_	cf2[255]	_	_	
+30-32	2611-2612	a	time[255]|abstract[258]	giv:act[255]|new[258]	nnnnn[255]|sssss[258]	_	cf2[255]|cf4[258]	_	_	
+30-33	2613-2618	fever	time[255]|abstract[258]	giv:act[255]|new[258]	nnnnn[255]|sssss[258]	_	cf2[255]|cf4[258]	_	_	
+30-34	2619-2622	and	time[255]	giv:act[255]	nnnnn[255]	_	cf2[255]	_	_	
+30-35	2623-2629	chills	time[255]|abstract[259]	giv:act[255]|new[259]	nnnnn[255]|nnnsn[259]	_	cf2[255]|cf5[259]	_	_	
 30-36	2630-2631	.	_	_	_	_	_	_	_	
 
 #Text=So , at night I was getting really hot then cold then hot and cold .
 31-1	2632-2634	So	_	_	_	_	_	_	_	
 31-2	2635-2636	,	_	_	_	_	_	_	_	
 31-3	2637-2639	at	_	_	_	_	_	_	_	
-31-4	2640-2645	night	time[260]	giv:act[260]	n____[260]	_	cf2[260]	_	_	
+31-4	2640-2645	night	time[260]	giv:act[260]	nnnnn[260]	_	cf2[260]	bridge:comparison-time;set-span-interval	32-5[267_260]	
 31-5	2646-2647	I	person[261]	giv:act[261]	sssss[261]	_	cf1*[261]	ana	32-2[262_261]	
 31-6	2648-2651	was	_	_	_	_	_	_	_	
 31-7	2652-2659	getting	_	_	_	_	_	_	_	
@@ -674,42 +674,42 @@
 32-2	2705-2706	I	person[262]	giv:act[262]	sssss[262]	_	cf1*[262]	ana	32-7[268_262]	
 32-3	2707-2715	remember	_	_	_	_	_	_	_	
 32-4	2716-2718	at	_	_	_	_	_	_	_	
-32-5	2719-2722	one	time[267]	new[267]	nnnnn[267]	_	cf6[267]	bridge:other	32-18[275_267]	
-32-6	2723-2728	point	time[267]	new[267]	nnnnn[267]	_	cf6[267]	_	_	
+32-5	2719-2722	one	time[267]	acc:inf[267]	nnnnn[267]	_	cf5[267]	bridge:comparison-relative;comparison-time	32-18[275_267]	
+32-6	2723-2728	point	time[267]	acc:inf[267]	nnnnn[267]	_	cf5[267]	_	_	
 32-7	2729-2730	I	person[268]	giv:act[268]	sssss[268]	_	cf1*[268]	ana	32-9[271_268]	
 32-8	2731-2738	checked	_	_	_	_	_	_	_	
-32-9	2739-2741	my	abstract[270]|person[271]	new[270]|giv:act[271]	nnnnn[270]|sssss[271]	_	cf2[270]|cf1*[271]	coref|bridge:other|ana	32-14[272_270]|32-20[276_270]|35-6[293_271]	
+32-9	2739-2741	my	abstract[270]|person[271]	new[270]|giv:act[271]	nnnnn[270]|sssss[271]	_	cf2[270]|cf1*[271]	coref|ana	32-14[272_270]|35-6[293_271]	
 32-10	2742-2753	temperature	abstract[270]	new[270]	nnnnn[270]	_	cf2[270]	_	_	
 32-11	2754-2756	's	_	_	_	_	_	_	_	
 32-12	2757-2761	only	_	_	_	_	_	_	_	
 32-13	2762-2766	like	_	_	_	_	_	_	_	
-32-14	2767-2771	98.7	abstract[272]	giv:act[272]	n____[272]	_	cf2[272]	_	_	
+32-14	2767-2771	98.7	abstract[272]	giv:act[272]	nnnnn[272]	_	cf2[272]	bridge:other	32-20[276_272]	
 32-15	2772-2773	,	_	_	_	_	_	_	_	
 32-16	2774-2777	but	_	_	_	_	_	_	_	
 32-17	2778-2780	at	_	_	_	_	_	_	_	
-32-18	2781-2788	another	time[275]	acc:inf[275]	nnnnn[275]	_	cf5[275]	_	_	
-32-19	2789-2794	point	time[275]	acc:inf[275]	nnnnn[275]	_	cf5[275]	_	_	
+32-18	2781-2788	another	time[275]	acc:inf[275]	nnnnn[275]	_	cf6[275]	_	_	
+32-19	2789-2794	point	time[275]	acc:inf[275]	nnnnn[275]	_	cf6[275]	_	_	
 32-20	2795-2797	it	abstract[276]	acc:inf[276]	nnnnn[276]	_	cf4[276]	coref	32-23[278_276]	
 32-21	2798-2801	was	_	_	_	_	_	_	_	
 32-22	2802-2806	like	_	_	_	_	_	_	_	
-32-23	2807-2810	101	abstract[278]|abstract[279]	giv:act[278]|new[279]	n____[278]|nnnnn[279]	_	cf4[278]|cf3[279]	coref	32-25[281_279]	
-32-24	2811-2813	or	abstract[278]	giv:act[278]	n____[278]	_	cf4[278]	_	_	
-32-25	2814-2823	something	abstract[278]|abstract[281]	giv:act[278]|giv:act[281]	n____[278]|n____[281]	_	cf4[278]|cf3[281]	coref	32-31[282_281]	
-32-26	2824-2830	really	abstract[278]|abstract[281]	giv:act[278]|giv:act[281]	n____[278]|n____[281]	_	cf4[278]|cf3[281]	_	_	
-32-27	2831-2835	high	abstract[278]|abstract[281]	giv:act[278]|giv:act[281]	n____[278]|n____[281]	_	cf4[278]|cf3[281]	_	_	
-32-28	2836-2840	that	abstract[278]|abstract[281]	giv:act[278]|giv:act[281]	n____[278]|n____[281]	_	cf4[278]|cf3[281]	_	_	
-32-29	2841-2844	was	abstract[278]|abstract[281]	giv:act[278]|giv:act[281]	n____[278]|n____[281]	_	cf4[278]|cf3[281]	_	_	
-32-30	2845-2854	obviously	abstract[278]|abstract[281]	giv:act[278]|giv:act[281]	n____[278]|n____[281]	_	cf4[278]|cf3[281]	_	_	
-32-31	2855-2856	a	abstract[278]|abstract[281]|abstract[282]	giv:act[278]|giv:act[281]|giv:act[282]	n____[278]|n____[281]|n____[282]	_	cf4[278]|cf3[281]|cf3[282]	_	_	
-32-32	2857-2862	fever	abstract[278]|abstract[281]|abstract[282]	giv:act[278]|giv:act[281]|giv:act[282]	n____[278]|n____[281]|n____[282]	_	cf4[278]|cf3[281]|cf3[282]	_	_	
+32-23	2807-2810	101	abstract[278]|abstract[279]	giv:act[278]|new[279]	nnnnn[278]|nnnnn[279]	_	cf4[278]|cf3[279]	coref	32-25[281_279]	
+32-24	2811-2813	or	abstract[278]	giv:act[278]	nnnnn[278]	_	cf4[278]	_	_	
+32-25	2814-2823	something	abstract[278]|abstract[281]	giv:act[278]|giv:act[281]	nnnnn[278]|nnnnn[281]	_	cf4[278]|cf3[281]	coref	32-31[282_281]	
+32-26	2824-2830	really	abstract[278]|abstract[281]	giv:act[278]|giv:act[281]	nnnnn[278]|nnnnn[281]	_	cf4[278]|cf3[281]	_	_	
+32-27	2831-2835	high	abstract[278]|abstract[281]	giv:act[278]|giv:act[281]	nnnnn[278]|nnnnn[281]	_	cf4[278]|cf3[281]	_	_	
+32-28	2836-2840	that	abstract[278]|abstract[281]	giv:act[278]|giv:act[281]	nnnnn[278]|nnnnn[281]	_	cf4[278]|cf3[281]	_	_	
+32-29	2841-2844	was	abstract[278]|abstract[281]	giv:act[278]|giv:act[281]	nnnnn[278]|nnnnn[281]	_	cf4[278]|cf3[281]	_	_	
+32-30	2845-2854	obviously	abstract[278]|abstract[281]	giv:act[278]|giv:act[281]	nnnnn[278]|nnnnn[281]	_	cf4[278]|cf3[281]	_	_	
+32-31	2855-2856	a	abstract[278]|abstract[281]|abstract[282]	giv:act[278]|giv:act[281]|giv:act[282]	nnnnn[278]|nnnnn[281]|nnnnn[282]	_	cf4[278]|cf3[281]|cf3[282]	_	_	
+32-32	2857-2862	fever	abstract[278]|abstract[281]|abstract[282]	giv:act[278]|giv:act[281]|giv:act[282]	nnnnn[278]|nnnnn[281]|nnnnn[282]	_	cf4[278]|cf3[281]|cf3[282]	_	_	
 32-33	2863-2864	.	_	_	_	_	_	_	_	
 
 #Text=And then around day four , everything started to like stabilize .
 33-1	2865-2868	And	_	_	_	_	_	_	_	
 33-2	2869-2873	then	_	_	_	_	_	_	_	
 33-3	2874-2880	around	_	_	_	_	_	_	_	
-33-4	2881-2884	day	time[283]	new[283]	nnnnn[283]	_	cf2[283]	_	_	
-33-5	2885-2889	four	time[283]	new[283]	nnnnn[283]	_	cf2[283]	_	_	
+33-4	2881-2884	day	time[283]	acc:inf[283]	nnnnn[283]	_	cf2[283]	bridge:comparison-sense;comparison-time	34-1[285_283]	
+33-5	2885-2889	four	time[283]	acc:inf[283]	nnnnn[283]	_	cf2[283]	_	_	
 33-6	2890-2891	,	_	_	_	_	_	_	_	
 33-7	2892-2902	everything	abstract[284]	acc:com[284]	nnnnn[284]	_	cf1[284]	_	_	
 33-8	2903-2910	started	_	_	_	_	_	_	_	
@@ -719,27 +719,27 @@
 33-12	2929-2930	.	_	_	_	_	_	_	_	
 
 #Text=Five , it was like really nothing .
-34-1	2931-2935	Five	time[285]	new[285]	nnnnn[285]	_	cf2[285]	_	_	
+34-1	2931-2935	Five	time[285]	acc:inf[285]	nnnnn[285]	_	cf2[285]	bridge:comparison-time	35-2[292_285]	
 34-2	2936-2937	,	_	_	_	_	_	_	_	
 34-3	2938-2940	it	abstract[286]	acc:com[286]	nnnnn[286]	_	cf1[286]	pred	34-7[287_286]	
 34-4	2941-2944	was	_	_	_	_	_	_	_	
 34-5	2945-2949	like	_	_	_	_	_	_	_	
 34-6	2950-2956	really	_	_	_	_	_	_	_	
-34-7	2957-2964	nothing	abstract[287]	giv:act[287]	n____[287]	_	cf1[287]	_	_	
+34-7	2957-2964	nothing	abstract[287]	giv:act[287]	nnnnn[287]	_	cf1[287]	_	_	
 34-8	2965-2966	.	_	_	_	_	_	_	_	
 
 #Text=Um day six was when I noticed like the my sinuses were feeling weird .
 35-1	2967-2969	Um	_	_	_	_	_	_	_	
-35-2	2970-2973	day	time[292]	new[292]	nnnnn[292]	_	cf3[292]	coref	41-4[324_292]	
-35-3	2974-2977	six	time[292]	new[292]	nnnnn[292]	_	cf3[292]	_	_	
+35-2	2970-2973	day	time[292]	acc:inf[292]	nnnnn[292]	_	cf2[292]	coref	41-4[324_292]	
+35-3	2974-2977	six	time[292]	acc:inf[292]	nnnnn[292]	_	cf2[292]	_	_	
 35-4	2978-2981	was	_	_	_	_	_	_	_	
 35-5	2982-2986	when	_	_	_	_	_	_	_	
 35-6	2987-2988	I	person[293]	giv:inact[293]	sssss[293]	_	cf1[293]	ana	35-9[296_293]	
 35-7	2989-2996	noticed	_	_	_	_	_	_	_	
 35-8	2997-3001	like	_	_	_	_	_	_	_	
-35-9	3002-3005	the	object[295]|person[296]	new[295]|giv:act[296]	nnnnn[295]|sssss[296]	_	cf2[295]|cf1[296]	ana	37-5[303_296]	
-35-10	3006-3008	my	object[295]|person[296]	new[295]|giv:act[296]	nnnnn[295]|sssss[296]	_	cf2[295]|cf1[296]	_	_	
-35-11	3009-3016	sinuses	object[295]	new[295]	nnnnn[295]	_	cf2[295]	_	_	
+35-9	3002-3005	the	object[295]|person[296]	new[295]|giv:act[296]	nnnnn[295]|sssss[296]	_	cf3[295]|cf1[296]	ana	37-5[303_296]	
+35-10	3006-3008	my	object[295]|person[296]	new[295]|giv:act[296]	nnnnn[295]|sssss[296]	_	cf3[295]|cf1[296]	_	_	
+35-11	3009-3016	sinuses	object[295]	new[295]	nnnnn[295]	_	cf3[295]	_	_	
 35-12	3017-3021	were	_	_	_	_	_	_	_	
 35-13	3022-3029	feeling	_	_	_	_	_	_	_	
 35-14	3030-3035	weird	_	_	_	_	_	_	_	
@@ -780,7 +780,7 @@
 38-2	3160-3164	when	_	_	_	_	_	_	_	
 38-3	3165-3167	it	abstract[308]|abstract[309]	new[308]|new[309]	nnnnn[308]|nnnnn[309]	_	cf3[308]|cf2[309]	disc	39-1[311_308]	
 38-4	3168-3169	–	abstract[308]	new[308]	nnnnn[308]	_	cf3[308]	_	_	
-38-5	3170-3173	you	abstract[308]|person[310]	new[308]|giv:inact[310]	nnnnn[308]|sssss[310]	_	cf3[308]|cf1[310]	ana	43-6[342_310]	
+38-5	3170-3173	you	abstract[308]|person[310]	new[308]|giv:inact[310]	nnnnn[308]|nnnnn[310]	_	cf3[308]|cf1[310]	ana	43-6[342_310]	
 38-6	3174-3176	ca	abstract[308]	new[308]	nnnnn[308]	_	cf3[308]	_	_	
 38-7	3177-3180	n't	abstract[308]	new[308]	nnnnn[308]	_	cf3[308]	_	_	
 38-8	3181-3185	like	abstract[308]	new[308]	nnnnn[308]	_	cf3[308]	_	_	
@@ -788,16 +788,16 @@
 38-10	3193-3194	?	_	_	_	_	_	_	_	
 
 #Text=That 's what the feeling was .
-39-1	3195-3199	That	abstract[311]	giv:act[311]	n____[311]	_	cf1*[311]	coref	39-4[315_311]	
+39-1	3195-3199	That	abstract[311]	giv:act[311]	nnnnn[311]	_	cf1*[311]	coref	39-4[315_311]	
 39-2	3200-3202	's	_	_	_	_	_	_	_	
 39-3	3203-3207	what	_	_	_	_	_	_	_	
-39-4	3208-3211	the	abstract[315]	giv:act[315]	n____[315]	_	cf1*[315]	ana	40-1[316_315]	
-39-5	3212-3219	feeling	abstract[315]	giv:act[315]	n____[315]	_	cf1*[315]	_	_	
+39-4	3208-3211	the	abstract[315]	giv:act[315]	nnnnn[315]	_	cf1*[315]	ana	40-1[316_315]	
+39-5	3212-3219	feeling	abstract[315]	giv:act[315]	nnnnn[315]	_	cf1*[315]	_	_	
 39-6	3220-3223	was	_	_	_	_	_	_	_	
 39-7	3224-3225	.	_	_	_	_	_	_	_	
 
 #Text=It felt like like like there was a sneeze drop in there , and I could n't get it out .
-40-1	3226-3228	It	abstract[316]	giv:act[316]	n____[316]	_	cf1*[316]	_	_	
+40-1	3226-3228	It	abstract[316]	giv:act[316]	nnnnn[316]	_	cf1*[316]	_	_	
 40-2	3229-3233	felt	_	_	_	_	_	_	_	
 40-3	3234-3238	like	_	_	_	_	_	_	_	
 40-4	3239-3243	like	_	_	_	_	_	_	_	
@@ -815,7 +815,7 @@
 40-16	3290-3295	could	_	_	_	_	_	_	_	
 40-17	3296-3299	n't	_	_	_	_	_	_	_	
 40-18	3300-3303	get	_	_	_	_	_	_	_	
-40-19	3304-3306	it	substance[320]	giv:act[320]	n____[320]	_	cf2[320]	_	_	
+40-19	3304-3306	it	substance[320]	giv:act[320]	nnnnn[320]	_	cf2[320]	_	_	
 40-20	3307-3310	out	_	_	_	_	_	_	_	
 40-21	3311-3312	.	_	_	_	_	_	_	_	
 
@@ -823,18 +823,18 @@
 41-1	3313-3315	Um	_	_	_	_	_	_	_	
 41-2	3316-3318	so	_	_	_	_	_	_	_	
 41-3	3319-3320	,	_	_	_	_	_	_	_	
-41-4	3321-3324	day	time[323]|time[324]	new[323]|giv:inact[324]	nnnnn[323]|n____[324]	_	cf4[323]|cf2[324]	_	_	
-41-5	3325-3328	six	time[323]|time[324]	new[323]|giv:inact[324]	nnnnn[323]|n____[324]	_	cf4[323]|cf2[324]	_	_	
-41-6	3329-3332	and	time[323]	new[323]	nnnnn[323]	_	cf4[323]	_	_	
-41-7	3333-3338	seven	time[323]|time[325]	new[323]|new[325]	nnnnn[323]|nnnnn[325]	_	cf4[323]|cf5[325]	_	_	
+41-4	3321-3324	day	time[323]|time[324]	new[323]|giv:inact[324]	nnnnn[323]|nnnnn[324]	_	cf5[323]|cf2[324]	bridge:comparison-sense;comparison-time	41-7[325_324]	
+41-5	3325-3328	six	time[323]|time[324]	new[323]|giv:inact[324]	nnnnn[323]|nnnnn[324]	_	cf5[323]|cf2[324]	_	_	
+41-6	3329-3332	and	time[323]	new[323]	nnnnn[323]	_	cf5[323]	_	_	
+41-7	3333-3338	seven	time[323]|time[325]	new[323]|acc:inf[325]	nnnnn[323]|nnnnn[325]	_	cf5[323]|cf3[325]	_	_	
 41-8	3339-3340	,	_	_	_	_	_	_	_	
 41-9	3341-3342	I	person[326]	giv:act[326]	sssss[326]	_	cf1*[326]	ana	41-13[330_326]	
 41-10	3343-3350	started	_	_	_	_	_	_	_	
 41-11	3351-3359	noticing	_	_	_	_	_	_	_	
 41-12	3360-3364	that	_	_	_	_	_	_	_	
-41-13	3365-3367	my	object[329]|person[330]	new[329]|giv:act[330]	nnnnn[329]|sssss[330]	_	cf3[329]|cf1*[330]	ana	42-4[331_330]	
-41-14	3368-3373	taste	object[329]	new[329]	nnnnn[329]	_	cf3[329]	_	_	
-41-15	3374-3378	buds	object[329]	new[329]	nnnnn[329]	_	cf3[329]	_	_	
+41-13	3365-3367	my	object[329]|person[330]	new[329]|giv:act[330]	nnnnn[329]|sssss[330]	_	cf4[329]|cf1*[330]	ana	42-4[331_330]	
+41-14	3368-3373	taste	object[329]	new[329]	nnnnn[329]	_	cf4[329]	_	_	
+41-15	3374-3378	buds	object[329]	new[329]	nnnnn[329]	_	cf4[329]	_	_	
 41-16	3379-3386	started	_	_	_	_	_	_	_	
 41-17	3387-3389	to	_	_	_	_	_	_	_	
 41-18	3390-3396	change	_	_	_	_	_	_	_	
@@ -849,18 +849,18 @@
 42-6	3419-3420	,	_	_	_	_	_	_	_	
 42-7	3421-3423	um	_	_	_	_	_	_	_	
 42-8	3424-3430	nearly	_	_	_	_	_	_	_	
-42-9	3431-3434	day	time[334]|time[335]	new[334]|giv:inact[335]	nnnnn[334]|n____[335]	_	cf5[334]|cf2[335]	_	_	
-42-10	3435-3438	two	time[334]|time[335]	new[334]|giv:inact[335]	nnnnn[334]|n____[335]	_	cf5[334]|cf2[335]	_	_	
-42-11	3439-3441	or	time[334]	new[334]	nnnnn[334]	_	cf5[334]	_	_	
-42-12	3442-3447	three	time[334]|time[336]	new[334]|new[336]	nnnnn[334]|nnnnn[336]	_	cf5[334]|cf6[336]	_	_	
+42-9	3431-3434	day	time[334]|time[335]	new[334]|giv:inact[335]	nnnnn[334]|nnnnn[335]	_	cf6[334]|cf2[335]	bridge:comparison-sense;comparison-time	42-12[336_335]	
+42-10	3435-3438	two	time[334]|time[335]	new[334]|giv:inact[335]	nnnnn[334]|nnnnn[335]	_	cf6[334]|cf2[335]	_	_	
+42-11	3439-3441	or	time[334]	new[334]	nnnnn[334]	_	cf6[334]	_	_	
+42-12	3442-3447	three	time[334]|time[336]	new[334]|acc:inf[336]	nnnnn[334]|nnnnn[336]	_	cf6[334]|cf3[336]	_	_	
 42-13	3448-3449	,	_	_	_	_	_	_	_	
-42-14	3450-3452	my	abstract[338]|abstract[339]|person[340]	new[338]|new[339]|giv:act[340]	nnnnn[338]|nnnnn[339]|sssss[340]	_	cf4[338]|cf3[339]|cf1*[340]	disc|bridge:other|bridge:other|ana	45-3[353_338]|46-19[376_339]|46-25[377_339]|43-1[341_340]	
-42-15	3453-3459	senses	abstract[338]|abstract[339]	new[338]|new[339]	nnnnn[338]|nnnnn[339]	_	cf4[338]|cf3[339]	_	_	
-42-16	3460-3464	were	abstract[338]	new[338]	nnnnn[338]	_	cf4[338]	_	_	
-42-17	3465-3469	like	abstract[338]	new[338]	nnnnn[338]	_	cf4[338]	_	_	
-42-18	3470-3476	really	abstract[338]	new[338]	nnnnn[338]	_	cf4[338]	_	_	
-42-19	3477-3483	really	abstract[338]	new[338]	nnnnn[338]	_	cf4[338]	_	_	
-42-20	3484-3494	heightened	abstract[338]	new[338]	nnnnn[338]	_	cf4[338]	_	_	
+42-14	3450-3452	my	abstract[338]|abstract[339]|person[340]	new[338]|new[339]|giv:act[340]	nsnnn[338]|nsnnn[339]|sssss[340]	_	cf5[338]|cf4[339]|cf1*[340]	disc|bridge:set-member|bridge:set-member|ana	45-3[353_338]|46-19[376_339]|46-25[377_339]|43-1[341_340]	
+42-15	3453-3459	senses	abstract[338]|abstract[339]	new[338]|new[339]	nsnnn[338]|nsnnn[339]	_	cf5[338]|cf4[339]	_	_	
+42-16	3460-3464	were	abstract[338]	new[338]	nsnnn[338]	_	cf5[338]	_	_	
+42-17	3465-3469	like	abstract[338]	new[338]	nsnnn[338]	_	cf5[338]	_	_	
+42-18	3470-3476	really	abstract[338]	new[338]	nsnnn[338]	_	cf5[338]	_	_	
+42-19	3477-3483	really	abstract[338]	new[338]	nsnnn[338]	_	cf5[338]	_	_	
+42-20	3484-3494	heightened	abstract[338]	new[338]	nsnnn[338]	_	cf5[338]	_	_	
 42-21	3495-3496	.	_	_	_	_	_	_	_	
 
 #Text=I do n't know if you remember the clip of when I had been eating those chips .
@@ -869,7 +869,7 @@
 43-3	3502-3505	n't	_	_	_	_	_	_	_	
 43-4	3506-3510	know	_	_	_	_	_	_	_	
 43-5	3511-3513	if	_	_	_	_	_	_	_	
-43-6	3514-3517	you	person[342]	giv:inact[342]	sssss[342]	_	cf2[342]	ana	45-9[354_342]	
+43-6	3514-3517	you	person[342]	giv:inact[342]	nnnnn[342]	_	cf2[342]	ana	45-9[354_342]	
 43-7	3518-3526	remember	_	_	_	_	_	_	_	
 43-8	3527-3530	the	abstract[346]	new[346]	nnnnn[346]	_	cf4[346]	_	_	
 43-9	3531-3535	clip	abstract[346]	new[346]	nnnnn[346]	_	cf4[346]	_	_	
@@ -879,7 +879,7 @@
 43-13	3546-3549	had	abstract[346]	new[346]	nnnnn[346]	_	cf4[346]	_	_	
 43-14	3550-3554	been	abstract[346]	new[346]	nnnnn[346]	_	cf4[346]	_	_	
 43-15	3555-3561	eating	abstract[346]	new[346]	nnnnn[346]	_	cf4[346]	_	_	
-43-16	3562-3567	those	abstract[346]|object[349]	new[346]|acc:com[349]	nnnnn[346]|nnnnn[349]	_	cf4[346]|cf3[349]	bridge:other	44-1[350_349]	
+43-16	3562-3567	those	abstract[346]|object[349]	new[346]|acc:com[349]	nnnnn[346]|nnnnn[349]	_	cf4[346]|cf3[349]	bridge:set-subset	44-1[350_349]	
 43-17	3568-3573	chips	abstract[346]|object[349]	new[346]|acc:com[349]	nnnnn[346]|nnnnn[349]	_	cf4[346]|cf3[349]	_	_	
 43-18	3574-3575	.	_	_	_	_	_	_	_	
 
@@ -895,15 +895,15 @@
 #Text=I guess that 's like what happens when you lose your taste buds , I do n't know , olfactory nerves , I do n't know .
 45-1	3606-3607	I	person[352]	giv:act[352]	sssss[352]	_	cf1*[352]	ana	45-15[362_352]	
 45-2	3608-3613	guess	_	_	_	_	_	_	_	
-45-3	3614-3618	that	abstract[353]	giv:inact[353]	n____[353]	_	cf3[353]	coref	46-4[367_353]	
+45-3	3614-3618	that	abstract[353]	giv:inact[353]	nsnnn[353]	_	cf3[353]	coref	46-4[367_353]	
 45-4	3619-3621	's	_	_	_	_	_	_	_	
 45-5	3622-3626	like	_	_	_	_	_	_	_	
 45-6	3627-3631	what	_	_	_	_	_	_	_	
 45-7	3632-3639	happens	_	_	_	_	_	_	_	
 45-8	3640-3644	when	_	_	_	_	_	_	_	
-45-9	3645-3648	you	person[354]	giv:inact[354]	sssss[354]	_	cf2[354]	ana	45-11[361_354]	
+45-9	3645-3648	you	person[354]	giv:inact[354]	nnnnn[354]	_	cf2[354]	ana	45-11[361_354]	
 45-10	3649-3653	lose	_	_	_	_	_	_	_	
-45-11	3654-3658	your	object[360]|person[361]	new[360]|giv:act[361]	nnnnn[360]|sssss[361]	_	cf4[360]|cf2[361]	ana	48-7[401_361]	
+45-11	3654-3658	your	object[360]|person[361]	new[360]|giv:act[361]	nnnnn[360]|nnnnn[361]	_	cf4[360]|cf2[361]	ana	48-7[401_361]	
 45-12	3659-3664	taste	object[360]	new[360]	nnnnn[360]	_	cf4[360]	_	_	
 45-13	3665-3669	buds	object[360]	new[360]	nnnnn[360]	_	cf4[360]	_	_	
 45-14	3670-3671	,	_	_	_	_	_	_	_	
@@ -925,7 +925,7 @@
 46-1	3723-3725	So	_	_	_	_	_	_	_	
 46-2	3726-3727	,	_	_	_	_	_	_	_	
 46-3	3728-3732	from	_	_	_	_	_	_	_	
-46-4	3733-3738	there	abstract[367]	giv:act[367]	n____[367]	_	cf3[367]	pred	46-16[373_367]	
+46-4	3733-3738	there	abstract[367]	giv:act[367]	nsnnn[367]	_	cf3[367]	pred	46-16[373_367]	
 46-5	3739-3740	,	_	_	_	_	_	_	_	
 46-6	3741-3742	I	person[368]	giv:act[368]	sssss[368]	_	cf1*[368]	ana	46-30[378_368]	
 46-7	3743-3746	had	_	_	_	_	_	_	_	
@@ -937,18 +937,18 @@
 46-13	3772-3775	and	_	_	_	_	_	_	_	
 46-14	3776-3780	went	_	_	_	_	_	_	_	
 46-15	3781-3785	from	_	_	_	_	_	_	_	
-46-16	3786-3796	everything	abstract[373]|abstract[374]	giv:act[373]|new[374]	n____[373]|nnnnn[374]	_	cf3[373]|cf7[374]	_	_	
-46-17	3797-3802	being	abstract[373]	giv:act[373]	n____[373]	_	cf3[373]	_	_	
-46-18	3803-3807	like	abstract[373]	giv:act[373]	n____[373]	_	cf3[373]	_	_	
-46-19	3808-3814	really	abstract[373]|abstract[376]	giv:act[373]|acc:inf[376]	n____[373]|snnnn[376]	_	cf3[373]|cf5[376]	_	_	
-46-20	3815-3825	heightened	abstract[373]|abstract[376]	giv:act[373]|acc:inf[376]	n____[373]|snnnn[376]	_	cf3[373]|cf5[376]	_	_	
-46-21	3826-3831	sense	abstract[373]|abstract[376]	giv:act[373]|acc:inf[376]	n____[373]|snnnn[376]	_	cf3[373]|cf5[376]	_	_	
-46-22	3832-3834	of	abstract[373]|abstract[376]	giv:act[373]|acc:inf[376]	n____[373]|snnnn[376]	_	cf3[373]|cf5[376]	_	_	
-46-23	3835-3840	taste	abstract[373]|abstract[376]	giv:act[373]|acc:inf[376]	n____[373]|snnnn[376]	_	cf3[373]|cf5[376]	_	_	
-46-24	3841-3844	and	abstract[373]	giv:act[373]	n____[373]	_	cf3[373]	_	_	
-46-25	3845-3849	even	abstract[373]|abstract[377]	giv:act[373]|acc:inf[377]	n____[373]|sssss[377]	_	cf3[373]|cf6[377]	coref	47-13[398_377]	
-46-26	3850-3853	the	abstract[373]|abstract[377]	giv:act[373]|acc:inf[377]	n____[373]|sssss[377]	_	cf3[373]|cf6[377]	_	_	
-46-27	3854-3859	smell	abstract[373]|abstract[377]	giv:act[373]|acc:inf[377]	n____[373]|sssss[377]	_	cf3[373]|cf6[377]	_	_	
+46-16	3786-3796	everything	abstract[373]|abstract[374]	giv:act[373]|new[374]	nsnnn[373]|nnnnn[374]	_	cf3[373]|cf7[374]	_	_	
+46-17	3797-3802	being	abstract[373]	giv:act[373]	nsnnn[373]	_	cf3[373]	_	_	
+46-18	3803-3807	like	abstract[373]	giv:act[373]	nsnnn[373]	_	cf3[373]	_	_	
+46-19	3808-3814	really	abstract[373]|abstract[376]	giv:act[373]|acc:inf[376]	nsnnn[373]|nnnnn[376]	_	cf3[373]|cf5[376]	_	_	
+46-20	3815-3825	heightened	abstract[373]|abstract[376]	giv:act[373]|acc:inf[376]	nsnnn[373]|nnnnn[376]	_	cf3[373]|cf5[376]	_	_	
+46-21	3826-3831	sense	abstract[373]|abstract[376]	giv:act[373]|acc:inf[376]	nsnnn[373]|nnnnn[376]	_	cf3[373]|cf5[376]	_	_	
+46-22	3832-3834	of	abstract[373]|abstract[376]	giv:act[373]|acc:inf[376]	nsnnn[373]|nnnnn[376]	_	cf3[373]|cf5[376]	_	_	
+46-23	3835-3840	taste	abstract[373]|abstract[376]	giv:act[373]|acc:inf[376]	nsnnn[373]|nnnnn[376]	_	cf3[373]|cf5[376]	_	_	
+46-24	3841-3844	and	abstract[373]	giv:act[373]	nsnnn[373]	_	cf3[373]	_	_	
+46-25	3845-3849	even	abstract[373]|abstract[377]	giv:act[373]|acc:inf[377]	nsnnn[373]|nssss[377]	_	cf3[373]|cf6[377]	coref	47-13[398_377]	
+46-26	3850-3853	the	abstract[373]|abstract[377]	giv:act[373]|acc:inf[377]	nsnnn[373]|nssss[377]	_	cf3[373]|cf6[377]	_	_	
+46-27	3854-3859	smell	abstract[373]|abstract[377]	giv:act[373]|acc:inf[377]	nsnnn[373]|nssss[377]	_	cf3[373]|cf6[377]	_	_	
 46-28	3860-3861	,	_	_	_	_	_	_	_	
 46-29	3862-3869	because	_	_	_	_	_	_	_	
 46-30	3870-3871	I	person[378]	giv:act[378]	sssss[378]	_	cf1*[378]	ana	46-32[379_378]	
@@ -964,7 +964,7 @@
 46-40	3922-3923	I	person[385]	giv:act[385]	sssss[385]	_	cf1*[385]	ana	46-51[391_385]	
 46-41	3924-3932	remember	_	_	_	_	_	_	_	
 46-42	3933-3941	smelling	_	_	_	_	_	_	_	
-46-43	3942-3944	it	substance[386]	giv:act[386]	n____[386]	_	cf2[386]	_	_	
+46-43	3942-3944	it	substance[386]	giv:act[386]	nnnnn[386]	_	cf2[386]	_	_	
 46-44	3945-3949	from	_	_	_	_	_	_	_	
 46-45	3950-3956	across	_	_	_	_	_	_	_	
 46-46	3957-3960	the	place[390]	acc:com[390]	nnnnn[390]	_	cf4[390]	_	_	
@@ -988,13 +988,13 @@
 47-7	4018-4019	I	person[393]	giv:act[393]	sssss[393]	_	cf1*[393]	ana	47-13[400_393]	
 47-8	4020-4024	have	_	_	_	_	_	_	_	
 47-9	4025-4029	like	_	_	_	_	_	_	_	
-47-10	4030-4032	30	abstract[397]	new[397]	nnnnn[397]	_	cf3[397]	_	_	
-47-11	4033-4040	percent	abstract[397]	new[397]	nnnnn[397]	_	cf3[397]	_	_	
-47-12	4041-4043	of	abstract[397]	new[397]	nnnnn[397]	_	cf3[397]	_	_	
-47-13	4044-4046	my	abstract[397]|abstract[398]|abstract[399]|person[400]	new[397]|giv:act[398]|new[399]|giv:act[400]	nnnnn[397]|sssss[398]|nnnnn[399]|sssss[400]	_	cf3[397]|cf2[398]|cf4[399]|cf1*[400]	coref|ana	48-30[415_398]|48-10[405_400]	
-47-14	4047-4052	taste	abstract[397]|abstract[398]|abstract[399]	new[397]|giv:act[398]|new[399]	nnnnn[397]|sssss[398]|nnnnn[399]	_	cf3[397]|cf2[398]|cf4[399]	_	_	
-47-15	4053-4056	and	abstract[397]|abstract[398]	new[397]|giv:act[398]	nnnnn[397]|sssss[398]	_	cf3[397]|cf2[398]	_	_	
-47-16	4057-4062	smell	abstract[397]|abstract[398]	new[397]|giv:act[398]	nnnnn[397]|sssss[398]	_	cf3[397]|cf2[398]	_	_	
+47-10	4030-4032	30	abstract[397]	new[397]	snnnn[397]	_	cf3[397]	_	_	
+47-11	4033-4040	percent	abstract[397]	new[397]	snnnn[397]	_	cf3[397]	_	_	
+47-12	4041-4043	of	abstract[397]	new[397]	snnnn[397]	_	cf3[397]	_	_	
+47-13	4044-4046	my	abstract[397]|abstract[398]|abstract[399]|person[400]	new[397]|giv:act[398]|new[399]|giv:act[400]	snnnn[397]|nssss[398]|nssss[399]|sssss[400]	_	cf3[397]|cf2[398]|cf4[399]|cf1*[400]	coref|ana	48-30[415_398]|48-10[405_400]	
+47-14	4047-4052	taste	abstract[397]|abstract[398]|abstract[399]	new[397]|giv:act[398]|new[399]	snnnn[397]|nssss[398]|nssss[399]	_	cf3[397]|cf2[398]|cf4[399]	_	_	
+47-15	4053-4056	and	abstract[397]|abstract[398]	new[397]|giv:act[398]	snnnn[397]|nssss[398]	_	cf3[397]|cf2[398]	_	_	
+47-16	4057-4062	smell	abstract[397]|abstract[398]	new[397]|giv:act[398]	snnnn[397]|nssss[398]	_	cf3[397]|cf2[398]	_	_	
 47-17	4063-4064	.	_	_	_	_	_	_	_	
 
 #Text=So , for example , if you can see my Bath and Body Works candle , I try to smell that every morning to see if my change in smell changes , and I have like maybe 30 percent of my like smelling capabilities .
@@ -1004,7 +1004,7 @@
 48-4	4074-4081	example	_	_	_	_	_	_	_	
 48-5	4082-4083	,	_	_	_	_	_	_	_	
 48-6	4084-4086	if	_	_	_	_	_	_	_	
-48-7	4087-4090	you	person[401]	giv:inact[401]	sssss[401]	_	cf4[401]	ana	49-26[428_401]	
+48-7	4087-4090	you	person[401]	giv:inact[401]	nnnnn[401]	_	cf4[401]	ana	49-26[428_401]	
 48-8	4091-4094	can	_	_	_	_	_	_	_	
 48-9	4095-4098	see	_	_	_	_	_	_	_	
 48-10	4099-4101	my	object[404]|person[405]	acc:com[404]|giv:act[405]	nnnnn[404]|sssss[405]	_	cf2[404]|cf1*[405]	ana|ana	48-21[409_404]|48-17[408_405]	
@@ -1018,16 +1018,16 @@
 48-18	4133-4136	try	_	_	_	_	_	_	_	
 48-19	4137-4139	to	_	_	_	_	_	_	_	
 48-20	4140-4145	smell	_	_	_	_	_	_	_	
-48-21	4146-4150	that	object[409]	giv:act[409]	n____[409]	_	cf2[409]	coref	49-13[426_409]	
+48-21	4146-4150	that	object[409]	giv:act[409]	nnnnn[409]	_	cf2[409]	coref	49-13[426_409]	
 48-22	4151-4156	every	time[412]	new[412]	nnnnn[412]	_	cf7[412]	_	_	
 48-23	4157-4164	morning	time[412]	new[412]	nnnnn[412]	_	cf7[412]	_	_	
 48-24	4165-4167	to	_	_	_	_	_	_	_	
 48-25	4168-4171	see	_	_	_	_	_	_	_	
 48-26	4172-4174	if	_	_	_	_	_	_	_	
-48-27	4175-4177	my	abstract[413]|person[414]	new[413]|giv:act[414]	nnnnn[413]|sssss[414]	_	cf5[413]|cf1*[414]	ana	48-34[416_414]	
-48-28	4178-4184	change	abstract[413]	new[413]	nnnnn[413]	_	cf5[413]	_	_	
-48-29	4185-4187	in	abstract[413]	new[413]	nnnnn[413]	_	cf5[413]	_	_	
-48-30	4188-4193	smell	abstract[413]|abstract[415]	new[413]|giv:act[415]	nnnnn[413]|sssss[415]	_	cf5[413]|cf3[415]	_	_	
+48-27	4175-4177	my	abstract[413]|person[414]	new[413]|giv:act[414]	nnsss[413]|sssss[414]	_	cf5[413]|cf1*[414]	ana	48-34[416_414]	
+48-28	4178-4184	change	abstract[413]	new[413]	nnsss[413]	_	cf5[413]	_	_	
+48-29	4185-4187	in	abstract[413]	new[413]	nnsss[413]	_	cf5[413]	_	_	
+48-30	4188-4193	smell	abstract[413]|abstract[415]	new[413]|giv:act[415]	nnsss[413]|nssss[415]	_	cf5[413]|cf3[415]	_	_	
 48-31	4194-4201	changes	_	_	_	_	_	_	_	
 48-32	4202-4203	,	_	_	_	_	_	_	_	
 48-33	4204-4207	and	_	_	_	_	_	_	_	
@@ -1038,10 +1038,10 @@
 48-38	4226-4228	30	abstract[420]	new[420]	nnnnn[420]	_	cf6[420]	_	_	
 48-39	4229-4236	percent	abstract[420]	new[420]	nnnnn[420]	_	cf6[420]	_	_	
 48-40	4237-4239	of	abstract[420]	new[420]	nnnnn[420]	_	cf6[420]	_	_	
-48-41	4240-4242	my	abstract[420]|abstract[421]|person[422]	new[420]|new[421]|giv:act[422]	nnnnn[420]|nnnnn[421]|sssss[422]	_	cf6[420]|cf8[421]|cf1*[422]	coref|ana	50-9[441_421]|49-1[423_422]	
-48-42	4243-4247	like	abstract[420]|abstract[421]	new[420]|new[421]	nnnnn[420]|nnnnn[421]	_	cf6[420]|cf8[421]	_	_	
-48-43	4248-4256	smelling	abstract[420]|abstract[421]	new[420]|new[421]	nnnnn[420]|nnnnn[421]	_	cf6[420]|cf8[421]	_	_	
-48-44	4257-4269	capabilities	abstract[420]|abstract[421]	new[420]|new[421]	nnnnn[420]|nnnnn[421]	_	cf6[420]|cf8[421]	_	_	
+48-41	4240-4242	my	abstract[420]|abstract[421]|person[422]	new[420]|new[421]|giv:act[422]	nnnnn[420]|nsnnn[421]|sssss[422]	_	cf6[420]|cf8[421]|cf1*[422]	coref|ana	50-9[441_421]|49-1[423_422]	
+48-42	4243-4247	like	abstract[420]|abstract[421]	new[420]|new[421]	nnnnn[420]|nsnnn[421]	_	cf6[420]|cf8[421]	_	_	
+48-43	4248-4256	smelling	abstract[420]|abstract[421]	new[420]|new[421]	nnnnn[420]|nsnnn[421]	_	cf6[420]|cf8[421]	_	_	
+48-44	4257-4269	capabilities	abstract[420]|abstract[421]	new[420]|new[421]	nnnnn[420]|nsnnn[421]	_	cf6[420]|cf8[421]	_	_	
 48-45	4270-4271	.	_	_	_	_	_	_	_	
 
 #Text=I have to get like this close to be able to smell the candle , which is insane because those candles are so strong , you literally open one up and you can smell it all over your room .
@@ -1057,32 +1057,32 @@
 49-10	4308-4312	able	_	_	_	_	_	_	_	
 49-11	4313-4315	to	_	_	_	_	_	_	_	
 49-12	4316-4321	smell	_	_	_	_	_	_	_	
-49-13	4322-4325	the	object[426]	giv:act[426]	n____[426]	_	cf4[426]	_	_	
-49-14	4326-4332	candle	object[426]	giv:act[426]	n____[426]	_	cf4[426]	_	_	
+49-13	4322-4325	the	object[426]	giv:act[426]	nnnnn[426]	_	cf4[426]	bridge:set-member	49-20[427_426]	
+49-14	4326-4332	candle	object[426]	giv:act[426]	nnnnn[426]	_	cf4[426]	_	_	
 49-15	4333-4334	,	_	_	_	_	_	_	_	
 49-16	4335-4340	which	_	_	_	_	_	_	_	
 49-17	4341-4343	is	_	_	_	_	_	_	_	
 49-18	4344-4350	insane	_	_	_	_	_	_	_	
 49-19	4351-4358	because	_	_	_	_	_	_	_	
-49-20	4359-4364	those	object[427]	acc:com[427]	nnnnn[427]	_	cf5[427]	bridge:other	49-29[429_427]	
-49-21	4365-4372	candles	object[427]	acc:com[427]	nnnnn[427]	_	cf5[427]	_	_	
+49-20	4359-4364	those	object[427]	acc:inf[427]	nnnnn[427]	_	cf5[427]	bridge:comparison-sense;set-member	49-29[429_427]	
+49-21	4365-4372	candles	object[427]	acc:inf[427]	nnnnn[427]	_	cf5[427]	_	_	
 49-22	4373-4376	are	_	_	_	_	_	_	_	
 49-23	4377-4379	so	_	_	_	_	_	_	_	
 49-24	4380-4386	strong	_	_	_	_	_	_	_	
 49-25	4387-4388	,	_	_	_	_	_	_	_	
-49-26	4389-4392	you	person[428]	giv:act[428]	sssss[428]	_	cf2[428]	ana	49-32[430_428]	
+49-26	4389-4392	you	person[428]	giv:act[428]	nnnnn[428]	_	cf2[428]	ana	49-32[430_428]	
 49-27	4393-4402	literally	_	_	_	_	_	_	_	
 49-28	4403-4407	open	_	_	_	_	_	_	_	
 49-29	4408-4411	one	object[429]	acc:inf[429]	nnnnn[429]	_	cf3[429]	ana	49-35[431_429]	
 49-30	4412-4414	up	_	_	_	_	_	_	_	
 49-31	4415-4418	and	_	_	_	_	_	_	_	
-49-32	4419-4422	you	person[430]	giv:act[430]	sssss[430]	_	cf2[430]	ana	49-38[437_430]	
+49-32	4419-4422	you	person[430]	giv:act[430]	nnnnn[430]	_	cf2[430]	ana	49-38[437_430]	
 49-33	4423-4426	can	_	_	_	_	_	_	_	
 49-34	4427-4432	smell	_	_	_	_	_	_	_	
-49-35	4433-4435	it	object[431]	giv:act[431]	n____[431]	_	cf3[431]	_	_	
+49-35	4433-4435	it	object[431]	giv:act[431]	nnnnn[431]	_	cf3[431]	_	_	
 49-36	4436-4439	all	_	_	_	_	_	_	_	
 49-37	4440-4444	over	_	_	_	_	_	_	_	
-49-38	4445-4449	your	place[436]|person[437]	new[436]|giv:act[437]	nnnnn[436]|sssss[437]	_	cf6[436]|cf2[437]	coref	51-6[446_437]	
+49-38	4445-4449	your	place[436]|person[437]	new[436]|giv:act[437]	nnnnn[436]|nnnnn[437]	_	cf6[436]|cf2[437]	coref	51-6[446_437]	
 49-39	4450-4454	room	place[436]	new[436]	nnnnn[436]	_	cf6[436]	_	_	
 49-40	4455-4456	.	_	_	_	_	_	_	_	
 
@@ -1095,10 +1095,10 @@
 50-6	4477-4480	but	_	_	_	_	_	_	_	
 50-7	4481-4484	not	_	_	_	_	_	_	_	
 50-8	4485-4487	to	_	_	_	_	_	_	_	
-50-9	4488-4490	my	abstract[441]|person[442]	giv:inact[441]|giv:act[442]	n____[441]|sssss[442]	_	cf2[441]|cf1*[442]	ana	51-1[443_442]	
-50-10	4491-4495	like	abstract[441]	giv:inact[441]	n____[441]	_	cf2[441]	_	_	
-50-11	4496-4503	fullest	abstract[441]	giv:inact[441]	n____[441]	_	cf2[441]	_	_	
-50-12	4504-4514	capability	abstract[441]	giv:inact[441]	n____[441]	_	cf2[441]	_	_	
+50-9	4488-4490	my	abstract[441]|person[442]	giv:inact[441]|giv:act[442]	nsnnn[441]|sssss[442]	_	cf2[441]|cf1*[442]	ana	51-1[443_442]	
+50-10	4491-4495	like	abstract[441]	giv:inact[441]	nsnnn[441]	_	cf2[441]	_	_	
+50-11	4496-4503	fullest	abstract[441]	giv:inact[441]	nsnnn[441]	_	cf2[441]	_	_	
+50-12	4504-4514	capability	abstract[441]	giv:inact[441]	nsnnn[441]	_	cf2[441]	_	_	
 50-13	4515-4516	.	_	_	_	_	_	_	_	
 
 #Text=I do n't know if you guys have seen those like TikToks where people try and drink different things like pickle juice and water and Gatorade .
@@ -1107,8 +1107,8 @@
 51-3	4522-4525	n't	_	_	_	_	_	_	_	
 51-4	4526-4530	know	_	_	_	_	_	_	_	
 51-5	4531-4533	if	_	_	_	_	_	_	_	
-51-6	4534-4537	you	person[446]	giv:inact[446]	sssss[446]	_	cf2[446]	ana	53-2[456_446]	
-51-7	4538-4542	guys	person[446]	giv:inact[446]	sssss[446]	_	cf2[446]	_	_	
+51-6	4534-4537	you	person[446]	giv:inact[446]	nnnnn[446]	_	cf2[446]	ana	53-2[456_446]	
+51-7	4538-4542	guys	person[446]	giv:inact[446]	nnnnn[446]	_	cf2[446]	_	_	
 51-8	4543-4547	have	_	_	_	_	_	_	_	
 51-9	4548-4552	seen	_	_	_	_	_	_	_	
 51-10	4553-4558	those	abstract[447]	new[447]	nnnnn[447]	_	cf4[447]	ana	52-5[455_447]	
@@ -1135,7 +1135,7 @@
 52-2	4665-4667	of	_	_	_	_	_	_	_	
 52-3	4668-4671	all	_	_	_	_	_	_	_	
 52-4	4672-4673	,	_	_	_	_	_	_	_	
-52-5	4674-4678	that	abstract[455]	giv:act[455]	n____[455]	_	cf1*[455]	_	_	
+52-5	4674-4678	that	abstract[455]	giv:act[455]	nnnnn[455]	_	cf1*[455]	_	_	
 52-6	4679-4681	's	_	_	_	_	_	_	_	
 52-7	4682-4686	like	_	_	_	_	_	_	_	
 52-8	4687-4692	super	_	_	_	_	_	_	_	
@@ -1144,10 +1144,10 @@
 
 #Text=When you drink , you can still , for example , I took like a ginger shot this morning , and it had cayenne pepper .
 53-1	4706-4710	When	_	_	_	_	_	_	_	
-53-2	4711-4714	you	person[456]	giv:inact[456]	sssss[456]	_	cf1[456]	ana	53-5[457_456]	
+53-2	4711-4714	you	person[456]	giv:inact[456]	nnnnn[456]	_	cf1[456]	ana	53-5[457_456]	
 53-3	4715-4720	drink	_	_	_	_	_	_	_	
 53-4	4721-4722	,	_	_	_	_	_	_	_	
-53-5	4723-4726	you	person[457]	giv:act[457]	sssss[457]	_	cf1[457]	ana	56-3[491_457]	
+53-5	4723-4726	you	person[457]	giv:act[457]	nnnnn[457]	_	cf1[457]	ana	56-3[491_457]	
 53-6	4727-4730	can	_	_	_	_	_	_	_	
 53-7	4731-4736	still	_	_	_	_	_	_	_	
 53-8	4737-4738	,	_	_	_	_	_	_	_	
@@ -1164,9 +1164,9 @@
 53-19	4784-4791	morning	time[469]	acc:com[469]	nnnnn[469]	_	cf4[469]	_	_	
 53-20	4792-4793	,	_	_	_	_	_	_	_	
 53-21	4794-4797	and	_	_	_	_	_	_	_	
-53-22	4798-4800	it	substance[470]	giv:act[470]	n____[470]	_	cf2[470]	_	_	
+53-22	4798-4800	it	substance[470]	giv:act[470]	nnnnn[470]	_	cf2[470]	_	_	
 53-23	4801-4804	had	_	_	_	_	_	_	_	
-53-24	4805-4812	cayenne	substance[472]	new[472]	nnnnn[472]	_	cf5[472]	bridge:def	54-6[475_472]	
+53-24	4805-4812	cayenne	substance[472]	new[472]	nnnnn[472]	_	cf5[472]	bridge:entity-associative	54-6[475_472]	
 53-25	4813-4819	pepper	substance[472]	new[472]	nnnnn[472]	_	cf5[472]	_	_	
 53-26	4820-4821	.	_	_	_	_	_	_	_	
 
@@ -1198,7 +1198,7 @@
 55-14	4924-4927	and	_	_	_	_	_	_	_	
 55-15	4928-4929	I	person[479]	giv:act[479]	sssss[479]	_	cf1*[479]	ana	55-21[485_479]	
 55-16	4930-4935	drank	_	_	_	_	_	_	_	
-55-17	4936-4937	a	substance[484]	new[484]	nnnnn[484]	_	cf4[484]	bridge:def	55-25[487_484]	
+55-17	4936-4937	a	substance[484]	new[484]	nnnnn[484]	_	cf4[484]	bridge:entity-associative	55-25[487_484]	
 55-18	4938-4943	Truly	substance[484]	new[484]	nnnnn[484]	_	cf4[484]	_	_	
 55-19	4944-4945	,	_	_	_	_	_	_	_	
 55-20	4946-4949	and	_	_	_	_	_	_	_	
@@ -1207,7 +1207,7 @@
 55-23	4956-4961	still	_	_	_	_	_	_	_	
 55-24	4962-4967	taste	_	_	_	_	_	_	_	
 55-25	4968-4971	the	abstract[487]	acc:inf[487]	nnnnn[487]	_	cf3[487]	_	_	
-55-26	4972-4979	alcohol	abstract[487]|substance[488]	acc:inf[487]|giv:act[488]	nnnnn[487]|n____[488]	_	cf3[487]|cf2[488]	_	_	
+55-26	4972-4979	alcohol	abstract[487]|substance[488]	acc:inf[487]|giv:act[488]	nnnnn[487]|nnnnn[488]	_	cf3[487]|cf2[488]	_	_	
 55-27	4980-4984	like	abstract[487]	acc:inf[487]	nnnnn[487]	_	cf3[487]	_	_	
 55-28	4985-4992	burning	abstract[487]	acc:inf[487]	nnnnn[487]	_	cf3[487]	_	_	
 55-29	4993-5002	sensation	abstract[487]	acc:inf[487]	nnnnn[487]	_	cf3[487]	_	_	
@@ -1218,7 +1218,7 @@
 #Text=So , you can kind of distinguish if it 's like sweet or salty or tart um , but you ca n't really taste it to its fullest if that makes any sense .
 56-1	5016-5018	So	_	_	_	_	_	_	_	
 56-2	5019-5020	,	_	_	_	_	_	_	_	
-56-3	5021-5024	you	abstract[490]|person[491]	new[490]|giv:inact[491]	nnnnn[490]|sssss[491]	_	cf2[490]|cf1[491]	disc|ana	56-30[496_490]|56-20[493_491]	
+56-3	5021-5024	you	abstract[490]|person[491]	new[490]|giv:inact[491]	nnnnn[490]|nnnnn[491]	_	cf2[490]|cf1[491]	disc|ana	56-30[496_490]|56-20[493_491]	
 56-4	5025-5028	can	abstract[490]	new[490]	nnnnn[490]	_	cf2[490]	_	_	
 56-5	5029-5033	kind	abstract[490]	new[490]	nnnnn[490]	_	cf2[490]	_	_	
 56-6	5034-5036	of	abstract[490]	new[490]	nnnnn[490]	_	cf2[490]	_	_	
@@ -1235,17 +1235,17 @@
 56-17	5086-5088	um	abstract[490]	new[490]	nnnnn[490]	_	cf2[490]	_	_	
 56-18	5089-5090	,	abstract[490]	new[490]	nnnnn[490]	_	cf2[490]	_	_	
 56-19	5091-5094	but	abstract[490]	new[490]	nnnnn[490]	_	cf2[490]	_	_	
-56-20	5095-5098	you	abstract[490]|person[493]	new[490]|giv:act[493]	nnnnn[490]|sssss[493]	_	cf2[490]|cf1[493]	ana	57-17[507_493]	
+56-20	5095-5098	you	abstract[490]|person[493]	new[490]|giv:act[493]	nnnnn[490]|nnnnn[493]	_	cf2[490]|cf1[493]	ana	57-17[507_493]	
 56-21	5099-5101	ca	abstract[490]	new[490]	nnnnn[490]	_	cf2[490]	_	_	
 56-22	5102-5105	n't	abstract[490]	new[490]	nnnnn[490]	_	cf2[490]	_	_	
 56-23	5106-5112	really	abstract[490]	new[490]	nnnnn[490]	_	cf2[490]	_	_	
 56-24	5113-5118	taste	abstract[490]	new[490]	nnnnn[490]	_	cf2[490]	_	_	
-56-25	5119-5121	it	abstract[490]|abstract[494]	new[490]|giv:act[494]	nnnnn[490]|n____[494]	_	cf2[490]|cf3[494]	ana	56-27[495_494]	
+56-25	5119-5121	it	abstract[490]|abstract[494]	new[490]|giv:act[494]	nnnnn[490]|nnnnn[494]	_	cf2[490]|cf3[494]	ana	56-27[495_494]	
 56-26	5122-5124	to	abstract[490]	new[490]	nnnnn[490]	_	cf2[490]	_	_	
-56-27	5125-5128	its	abstract[490]|abstract[495]	new[490]|giv:act[495]	nnnnn[490]|n____[495]	_	cf2[490]|cf3[495]	_	_	
+56-27	5125-5128	its	abstract[490]|abstract[495]	new[490]|giv:act[495]	nnnnn[490]|nnnnn[495]	_	cf2[490]|cf3[495]	_	_	
 56-28	5129-5136	fullest	abstract[490]	new[490]	nnnnn[490]	_	cf2[490]	_	_	
 56-29	5137-5139	if	_	_	_	_	_	_	_	
-56-30	5140-5144	that	abstract[496]	giv:act[496]	n____[496]	_	cf2[496]	_	_	
+56-30	5140-5144	that	abstract[496]	giv:act[496]	nnnnn[496]	_	cf2[496]	_	_	
 56-31	5145-5150	makes	_	_	_	_	_	_	_	
 56-32	5151-5154	any	_	_	_	_	_	_	_	
 56-33	5155-5160	sense	_	_	_	_	_	_	_	
@@ -1259,7 +1259,7 @@
 57-5	5185-5186	,	_	_	_	_	_	_	_	
 57-6	5187-5188	I	person[497]	giv:inact[497]	sssss[497]	_	cf1[497]	ana	57-12[506_497]	
 57-7	5189-5193	made	_	_	_	_	_	_	_	
-57-8	5194-5197	mac	substance[505]	new[505]	nnnnn[505]	_	cf3[505]	ana|bridge:def|bridge:def|bridge:def	58-8[509_505]|58-20[518_505]|58-24[519_505]|58-38[525_505]	
+57-8	5194-5197	mac	substance[505]	new[505]	nnnnn[505]	_	cf3[505]	ana	58-8[509_505]	
 57-9	5198-5201	and	substance[505]	new[505]	nnnnn[505]	_	cf3[505]	_	_	
 57-10	5202-5208	cheese	substance[505]	new[505]	nnnnn[505]	_	cf3[505]	_	_	
 57-11	5209-5210	,	_	_	_	_	_	_	_	
@@ -1268,7 +1268,7 @@
 57-14	5216-5219	n't	_	_	_	_	_	_	_	
 57-15	5220-5224	know	_	_	_	_	_	_	_	
 57-16	5225-5227	if	_	_	_	_	_	_	_	
-57-17	5228-5231	you	person[507]	giv:act[507]	sssss[507]	_	cf2*[507]	_	_	
+57-17	5228-5231	you	person[507]	giv:act[507]	nnnnn[507]	_	cf2*[507]	_	_	
 57-18	5232-5235	saw	_	_	_	_	_	_	_	
 57-19	5236-5243	earlier	_	_	_	_	_	_	_	
 57-20	5244-5245	.	_	_	_	_	_	_	_	
@@ -1281,7 +1281,7 @@
 58-5	5262-5266	know	_	_	_	_	_	_	_	
 58-6	5267-5274	exactly	_	_	_	_	_	_	_	
 58-7	5275-5278	how	_	_	_	_	_	_	_	
-58-8	5279-5281	it	substance[509]	giv:act[509]	n____[509]	_	cf2[509]	_	_	
+58-8	5279-5281	it	substance[509]	giv:act[509]	nnnnn[509]	_	cf2[509]	bridge:entity-meronomy|bridge:entity-property|bridge:entity-property	58-20[518_509]|58-24[519_509]|58-38[525_509]	
 58-9	5282-5288	tastes	_	_	_	_	_	_	_	
 58-10	5289-5296	because	_	_	_	_	_	_	_	
 58-11	5297-5298	I	person[510]	giv:act[510]	sssss[510]	_	cf1*[510]	ana	58-15[511_510]	
@@ -1306,11 +1306,11 @@
 58-30	5375-5379	more	_	_	_	_	_	_	_	
 58-31	5380-5382	so	_	_	_	_	_	_	_	
 58-32	5383-5385	um	_	_	_	_	_	_	_	
-58-33	5386-5387	I	abstract[522]|person[523]	acc:com[522]|giv:act[523]	n____[522]|sssss[523]	_	cf6[522]|cf1*[523]	cata	58-28[520_522]	
-58-34	5388-5390	'm	abstract[522]	acc:com[522]	n____[522]	_	cf6[522]	_	_	
-58-35	5391-5395	able	abstract[522]	acc:com[522]	n____[522]	_	cf6[522]	_	_	
-58-36	5396-5398	to	abstract[522]	acc:com[522]	n____[522]	_	cf6[522]	_	_	
-58-37	5399-5403	feel	abstract[522]	acc:com[522]	n____[522]	_	cf6[522]	_	_	
-58-38	5404-5407	the	abstract[522]|abstract[525]	acc:com[522]|acc:inf[525]	n____[522]|nnnnn[525]	_	cf6[522]|cf4[525]	_	_	
-58-39	5408-5416	textures	abstract[522]|abstract[525]	acc:com[522]|acc:inf[525]	n____[522]|nnnnn[525]	_	cf6[522]|cf4[525]	_	_	
+58-33	5386-5387	I	abstract[522]|person[523]	acc:com[522]|giv:act[523]	nnnnn[522]|sssss[523]	_	cf6[522]|cf1*[523]	cata	58-28[520_522]	
+58-34	5388-5390	'm	abstract[522]	acc:com[522]	nnnnn[522]	_	cf6[522]	_	_	
+58-35	5391-5395	able	abstract[522]	acc:com[522]	nnnnn[522]	_	cf6[522]	_	_	
+58-36	5396-5398	to	abstract[522]	acc:com[522]	nnnnn[522]	_	cf6[522]	_	_	
+58-37	5399-5403	feel	abstract[522]	acc:com[522]	nnnnn[522]	_	cf6[522]	_	_	
+58-38	5404-5407	the	abstract[522]|abstract[525]	acc:com[522]|acc:inf[525]	nnnnn[522]|nnnnn[525]	_	cf6[522]|cf4[525]	_	_	
+58-39	5408-5416	textures	abstract[522]|abstract[525]	acc:com[522]|acc:inf[525]	nnnnn[522]|nnnnn[525]	_	cf6[522]|cf4[525]	_	_	
 58-40	5417-5418	.	_	_	_	_	_	_	_	

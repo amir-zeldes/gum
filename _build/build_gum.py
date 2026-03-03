@@ -302,9 +302,9 @@ corpora = ["GUM", "GENTLE"] if corpus_name == "both" else [corpus_name]
 for cname in corpora:
 
 	if options.no_pepper or options.discourse_only:
-		sys.__stdout__.write("\ni Skipping Pepper conversion\n")
+		sys.__stdout__.write("\ni Skipping Pepper conversion for corpus " + cname + "\n")
 	else:
-		sys.__stdout__.write("\nStarting pepper conversion:\n" + "="*30 + "\n")
+		sys.__stdout__.write("\nStarting pepper conversion for corpus " + cname + ":\n" + "="*30 + "\n")
 
 		# Create Pepper staging erea in utils/pepper/tmp/
 		dirs = [('xml','xml','xml','', ''),('dep','dep' + os.sep + 'ud','conllu','', os.sep + "not-to-release"),
@@ -373,7 +373,7 @@ for cname in corpora:
 			with io.open(f, 'w', encoding="utf8") as outfile:
 				outfile.write(conllu)
 
-		out = run_pepper(pepper_params,options.verbose_pepper)
+		out = run_pepper(pepper_params,options.verbose_pepper,corpus_subdir=cname)
 		sys.__stdout__.write(out + "\n")
 
 if options.pepper_only:
@@ -413,13 +413,17 @@ update_non_dm_signals(gum_source, gum_target, reddit=reddit)
 # TODO:
 #  remove duplicate call to add_rsd_and_pdtb_to_conllu, currently needed because it is both an input of and possibly
 #  modified by output of update_non_dm_signals
+add_rsd_and_pdtb_to_conllu(gum_target,corpus="GENTLE",reddit=reddit,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
 add_rsd_and_pdtb_to_conllu(gum_target,reddit=reddit,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
 if not options.skip_ontogum:
 	add_rsd_and_pdtb_to_conllu(gum_target,reddit=reddit,ontogum=True,output_signals=not options.no_signals,output_secedges=not options.no_secedges)
 
 for cname in corpora:
-	# TODO: also add PDTB framework rels output to DISRPT outs
 	make_disrpt(conn_data,reddit=reddit,corpus=cname.lower(),outmode=options.disrpt_outmode)
+
+# Validate correct output of disrpt
+from utils.validate_disrpt import disrpt_validation
+disrpt_validation()
 
 sys.__stdout__.write("\no Created DISRPT shared task discourse relation formats in target rst/disrpt/\n")
 

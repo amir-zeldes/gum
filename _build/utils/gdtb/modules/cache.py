@@ -29,12 +29,16 @@ class Cache(ConvertBase):
                 rel = type('',(),{})()
                 rel.info = [(reltype,sense,[],conn), eval(source_ids), eval(target_ids)]
                 self.additional_rels[docname].append(rel)
-            self.mapping[docname][key] = (conn, sense, reltype)
+            self.mapping[docname][key] = (conn, sense, reltype, notes)
 
     def convert(self, doc, rel):
         if rel.key in self.mapping[doc.docname]:
-            conn, sense, reltype = self.mapping[doc.docname][rel.key]
-            rel.pdtb_rels['cache'].append((reltype, sense, [], conn))
+            conn, sense, reltype, notes = self.mapping[doc.docname][rel.key]
+            if 'conn_tok_ids=' in notes:
+                conn_tok_ids = [int(x) for x in notes.split('conn_tok_ids=')[1].split(',')]
+            else:
+                conn_tok_ids = []
+            rel.pdtb_rels['cache'].append((reltype, sense, conn_tok_ids, conn))
 
     def set_doc_state(self, doc_state):
         final_rels = []

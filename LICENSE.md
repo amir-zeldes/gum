@@ -1,0 +1,230 @@
+This corpus was built on data obtained from different sources. The underlying texts 
+are licensed under the following licenses:
+
+
+Academic:  Multiple sources, all https://creativecommons.org/licenses/by/4.0/:
+  * Proceedings of DH2017 (see https://dh2017.adho.org/program/abstracts/)
+  * Linguistic Society of America (see https://journals.linguisticsociety.org/proceedings/index.php/PLSA/article/view/4112/3810)
+  * PLOS (see https://www.plos.org/terms-of-use)
+Biographies:   http://creativecommons.org/licenses/by-sa/3.0/ (Source: https://en.wikipedia.org/wiki/Wikipedia:Copyrights)
+Court: https://creativecommons.org/licenses/by/4.0/ (multiple public sources, see document metadata)
+Essays: https://creativecommons.org/licenses/by-nc-sa/4.0/ (Source: https://openwa.pressbooks.pub/lwtech88readings/)
+Fiction:    http://creativecommons.org/licenses/by-nc-sa/3.0/ (Source: http://smallbeerpress.com/creative-commons/)
+Letters: https://creativecommons.org/licenses/by-nc-sa/4.0/ (multiple CC sources, see document metadata)
+Podcasts: https://creativecommons.org/licenses/by-nc-sa/4.0/ (multiple CC sources, see document metadata)
+WikiHow:    http://creativecommons.org/licenses/by-nc-sa/3.0/ (Source: http://www.wikihow.com/wikiHow:Creative-Commons)
+WikiVoyage: https://creativecommons.org/licenses/by-sa/3.0/ (Source: https://wikimediafoundation.org/wiki/Terms_of_Use)
+Wikinews/interviews:   http://creativecommons.org/licenses/by/2.5/ (Source: https://en.wikinews.org/wiki/Wikinews:Copyright)
+reddit: Data available from reddit for non-commercial use only (https://www.reddit.com/help/useragreement/)
+
+All annotations are licensed under the Creative Commons Attribution (CC-BY) version 4.0, although the texts themselves follow the licenses above.
+
+The annotations were produced by the following people:
+
+  * Abhishek Purushothama
+  * Adrienne Isaac
+  * Akitaka Yamada
+  * Alex Giorgioni
+  * Alexandra Berends
+  * Alexandra Slome
+  * Amani Aloufi
+  * Amber Hall
+  * Amelia Becker
+  * Anastasia Kelly
+  * Andrea Price
+  * Andrew O'Brien
+  * Ángeles Ortega Luque
+  * Anika Lippke
+  * Aniya Harris
+  * Anna Prince
+  * Anna Runova
+  * Anne Butler
+  * Arianna Janoff
+  * Aryaman Arora
+  * Aurora Smedvig
+  * Ayşenur Sağdiç
+  * Ayan Mandal
+  * Bennett Gilhuly
+  * Bertille Baron
+  * Bielasan Zaina
+  * Bradford Salen
+  * Brandon Tullock
+  * Brent Laing
+  * Caitlyn Pineault
+  * Calvin Engstrom
+  * Candice Penelton
+  * Carlotta Hübener
+  * Caroline Gish
+  * Charlie Dees
+  * Chenyue Guo
+  * Chloe Evered
+  * Cindy Luo
+  * Colleen Diamond
+  * Connor O'Dwyer
+  * Cristina Lopez
+  * Cynthia Li
+  * Dan DeGenaro
+  * Dan Simonson
+  * Derek Reagan
+  * Devika Tiwari
+  * Diana Robson
+  * Didem Ikizoglu
+  * Edwin Ko
+  * Eliza Rice
+  * Emile Zahr
+  * Emily Pace
+  * Emma Manning
+  * Emma Rafkin
+  * Emma Thronson
+  * Ethan Beaman
+  * Felipe De Jesus
+  * Garrison Smith
+  * Han Bu
+  * Hana Altalhi
+  * Hang Jiang
+  * Hannah Wingett
+  * Hanwool Choe
+  * Hassan Munshi
+  * Helen Dominic
+  * Ho Fai Cheng
+  * Hortensia Gutierrez
+  * Hyun Min
+  * Jakob Prange
+  * James Maguire
+  * Janine Karo
+  * Jehan al-Mahmoud
+  * Jemm Excelle Dela Cruz
+  * Jess Godes
+  * Jessica Cusi
+  * Jessica Kotfila
+  * Jingni Wu
+  * Joaquin Gris Roca
+  * John Chi
+  * Jongbong Lee
+  * Juliet May
+  * Jungyoon Koh
+  * Kat Scarborough
+  * Katarina Starcevic
+  * Katelyn Carroll
+  * Katelyn MacDougald
+  * Katherine Conhaim
+  * Katherine Vadella
+  * Khalid Alharbi
+  * Kohei Kajikawa
+  * Kristen Cook
+  * Kushaan Vardhan
+  * Lanni Bu
+  * Lara Bryfonski
+  * Lauren Levine
+  * Leah Northington
+  * Lillian Ehrhart
+  * Lin Ai
+  * Lindley Winchester
+  * Linxi Zhang
+  * Lucia Donatelli
+  * Luke Gessler
+  * Mackenzie Gong
+  * Margaret Anne Rowe
+  * Margaret Borowczyk
+  * Maria Laura Zalazar
+  * Maria Stoianova
+  * Mariko Uno
+  * Mary Henderson
+  * Maya Barzilai
+  * Md. Jahurul Islam
+  * Micaela Wells
+  * Michael Kranzlein
+  * Michaela Harrington
+  * Mikayla Campbell
+  * Mingyeong Choi
+  * Minnie Annan
+  * Mitchell Abrams
+  * Mohammad Ali Yektaie
+  * Naomee-Minh Nguyen
+  * Negar Siyari
+  * Nicholas Mararac
+  * Nicholas Workman
+  * Nicole Steinberg
+  * Nitin Venkateswaran
+  * Nola Goodwin
+  * Parker DiPaolo
+  * Phoebe Fisher
+  * Rachel Kerr
+  * Rachel Thorson
+  * Rebecca Childress
+  * Rebecca Farkas
+  * Riley Breslin Amalfitano
+  * Rima Elabdali
+  * Robert Maloney
+  * Ruizhong Li
+  * Ryan Mannion
+  * Ryan Murphy
+  * Sakol Suethanapornkul
+  * Sarah Bellavance
+  * Sarah Carlson
+  * Sasha Slone
+  * Saurav Goswami
+  * Sean Macavaney
+  * Sean Simpson
+  * Seyma Toker
+  * Shane Quinn
+  * Shannon Mooney
+  * Shelby Lake
+  * Shira Wein
+  * Sichang Tu
+  * Siddharth Singh
+  * Siona Ely
+  * Siyao Peng
+  * Siyu Liang
+  * Stephanie Kramer
+  * Sylvia Sierra
+  * Talal Alharbi
+  * Tatsuya Aoyama
+  * Tess Feyen
+  * Timothy Ingrassia
+  * Trevor Adriaanse
+  * Ulie Xu
+  * Wai Ching Leung
+  * Wenxi Yang
+  * Wesley Scivetti
+  * Xiaopei Wu
+  * Xiulin Yang
+  * Yang Liu
+  * Yi-Ju Lin
+  * Yifu Mu
+  * Yilun Zhu
+  * Yingzhu Chen
+  * Yiran Xu
+  * Young-A Son
+  * Yu-Tzu Chang
+  * Yuhang Hu
+  * Yunjung Ku
+  * Yushi Zhao
+  * Zhijie Song
+  * Zhuosi Luo
+  * Zhuxin Wang
+  * Amir Zeldes
+  * and other annotators who wish to remain anonymous
+
+To credit and find the latest list of annotators, please cite the following URL:
+
+https://gucorpling.org/gum/
+  
+For scholarly work referencing the corpus, please cite this paper:
+
+Zeldes, Amir (2017) "The GUM Corpus: Creating Multilayer Resources in the Classroom". Language Resources and Evaluation 51(3), 581–612. 
+
+```bibtex
+@Article{Zeldes2017,
+   author    = {Amir Zeldes},
+   title     = {The {GUM} Corpus: Creating Multilayer Resources in the Classroom},
+   journal   = {Language Resources and Evaluation},
+   year      = {2017},
+   volume    = {51},
+   number    = {3},
+   pages     = {581--612},
+   doi       = {http://dx.doi.org/10.1007/s10579-016-9343-x}
+}
+```
+
+For full license texts of individual sources, see the URLs above.

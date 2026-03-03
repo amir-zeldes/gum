@@ -251,12 +251,10 @@ def rm_ellipsis(conllu):
 
 
 def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, non_dm_gold, use_depedit_cache=False,
-                       secedges=None,signal_cache=True):
-    legacy_mode = False
-
+                       secedges=None,signal_cache=True,predict_synsecedge=False):
     conllu = rm_ellipsis(conllu)
 
-    docname = re.search("# newdoc id = ([^\s]+)",conllu).group(1)
+    docname = re.search(r"# newdoc id = ([^\s]+)",conllu).group(1)
 
     # Read rsd
     rsd = rsd_deped.run_depedit(rsd)
@@ -449,6 +447,12 @@ def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, non_dm_
 
     relations = []
     leftmost_sisters = set()  # Left most children of multinucs
+
+    # Check that nid keys line up with #edus + #groups
+    max_id = max([int(nid) for nid in nodes if nid.isdigit()])
+    if max_id != len(node2head_edu):
+        sys.stderr.write("Warning: RST node IDs do not line up with number of EDUs/groups in doc " + docname + " - max ID is " + str(max_id) + " but there are " + str(len(node2head_edu)) + " unit nodes\n")
+
     # Add secedges to nodes
     for secedge in secedges:
         nodes[secedge["id"]] = deepcopy(nodes[secedge["source"]])
@@ -877,7 +881,6 @@ def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, non_dm_
     seen = set()
     for t, tup in enumerate(signal_tokens):
         toknum, match_rel, edu_headfunc, child_rel, maintype, subtype, location = tup
-
         if isinstance(toknum, tuple):
             if len(toknum) == 1:  # Prevent single token tuple
                 toknum = toknum[0]
@@ -906,7 +909,6 @@ def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, non_dm_
         # Go through all relations, sorted from least source domain covered EDUs to most
         signal_assigned = False
         for relnum, rel in enumerate(sorted(relations,key=lambda x: x.source_width)):
-
             invert = False
             if child_rel not in [".*","_"]:
                 match_rel = child_rel
@@ -964,7 +966,7 @@ def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, non_dm_
                         signal_assigned = True
                         break  # match only one, minimally spanned relation per signal
 
-        if not signal_assigned and not signal_cache:  # Syntactic orphan signal candidate
+        if not signal_assigned and not signal_cache and predict_synsecedge:  # Syntactic orphan signal candidate
             if subtype == "indicative_word" and match_rel.startswith("attribution"):  # Secondary attribution
                 deprel = "ccomp"
             elif subtype == "modified_head" and child_rel.endswith("attribute_r"):  # Secondary attribute
@@ -1063,7 +1065,7 @@ def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, non_dm_
     return output, relations
 
 
-def update_signals(gold_rs4, docname, xml_root=None, rerun_depedit=False, no_cache=False):
+def update_signals(gold_rs4, docname, xml_root=None, rerun_depedit=False, no_cache=False, predict_synsecedge=False):
 
     if xml_root is None:
         xml_root = XML_ROOT
@@ -1123,7 +1125,7 @@ def update_signals(gold_rs4, docname, xml_root=None, rerun_depedit=False, no_cac
     secedge_list = [x.attrib for x in secedges] if secedges is not None else None
     genre = docname.split("_")[1]  # Get genre, since some signals only apply to spoken/written data types
     non_dm_signals, relations = get_non_dm_signals(conllu_data, gold_rs4, rsd, EDU2rel, genre, connective_idx, non_dm_gold,
-                                                     secedges=secedge_list, signal_cache=not no_cache)
+                                                     secedges=secedge_list, signal_cache=not no_cache, predict_synsecedge=predict_synsecedge)
 
     signal_list += list(set(non_dm_signals))
     signal_list.sort(key=lambda x: tuple([int(y) for y in str(x.attrib["source"]).split("-")] + [int(y) if y != "" else 0 for y in str(x.attrib["tokens"]).split(",")]))
@@ -1169,6 +1171,7 @@ if __name__ == "__main__":
     p = ArgumentParser()
     p.add_argument("-n", "--no_cache", action="store_true", help="Do not use gold signal cache spreadsheets")
     p.add_argument("-r", "--rerun", action="store_true", help="Rerun depedit")
+    p.add_argument("--pred_synsec", action="store_true", help="Predict syntactically signaled secedges (only when running without cache)")
     p.add_argument("-i", "--input", default="*.rs4", help="Glob expression for input rs4 files")
 
     opts = p.parse_args()
@@ -1185,6 +1188,6 @@ if __name__ == "__main__":
         sys.stderr.write("o Predicting non-DM signals for " + docname + "\n")
         gold_rs4 = open(f).read()
 
-        xml_out = update_signals(gold_rs4, docname, rerun_depedit=opts.rerun, no_cache=opts.no_cache)
+        xml_out = update_signals(gold_rs4, docname, rerun_depedit=opts.rerun, no_cache=opts.no_cache, predict_synsecedge=opts.pred_synsec)
         with open(SCRIPT_DIR + "dm-dependencies" + os.sep + "non_dm_preds" + os.sep + docname + ".rs4", 'w', encoding="utf8", newline="\n") as f:
             f.write(xml_out)

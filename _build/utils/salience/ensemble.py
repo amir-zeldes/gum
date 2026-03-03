@@ -1,5 +1,6 @@
 import os, re, json
-import pickle
+import sys
+
 import pandas as pd
 import numpy as np
 from depedit import DepEdit
@@ -8,6 +9,8 @@ from glob import glob
 #from nltk.stem import SnowballStemmer
 from argparse import ArgumentParser
 import warnings
+import re
+from xgboost import XGBClassifier
 
 warnings.filterwarnings("ignore", category=FutureWarning)
 
@@ -140,8 +143,8 @@ def extract_features(docname, summary, summary_number, pos_filter=False):
                 edu_id = parents[edu_id]
                 relname = rels[edu_id]
             edu_id = fields[0]
-            stype = re.search("stype=([^\s|]+)", fields[5]).group(1)
-            tense = re.search("edu_tense=([^\s|]+)", fields[5]).group(1)
+            stype = re.search(r"stype=([^\s|]+)", fields[5]).group(1)
+            tense = re.search(r"edu_tense=([^\s|]+)", fields[5]).group(1)
             if "Past" in tense:
                 tense = "past"
             elif "Pres" in tense:
@@ -166,7 +169,9 @@ def extract_features(docname, summary, summary_number, pos_filter=False):
     doclen = np.ceil(len(tok_lines)/100)  # bin document length
     genre = docname.split("_")[1]
 
-    d.run_depedit(conllu, parse_entities=True)
+    supertok_pattern = re.compile(r"^(\d+\.\d+|\d+-\d+)")
+    conllu_removed_supertokens = "\n".join([l for l in conllu.split("\n") if not supertok_pattern.match(l)])
+    d.run_depedit(conllu_removed_supertokens, parse_entities=True)
 
     partition = "test" if docname in ud_test else "dev" if docname in ud_dev else "train"
     summary = summary.split(")", 1)[-1].strip()
@@ -323,7 +328,7 @@ def convert_to_pandas(data, train=False):
     return data
 
 
-def train(partition="devtrain", use_gentle=False, hyperparams=None, use_five=False):
+def train(partition="devtrain", use_gentle=True, hyperparams=None, use_five=False):
     # Train a random forest model using the facts.tab file with sklearn
     from sklearn.ensemble import RandomForestClassifier
 
@@ -332,6 +337,7 @@ def train(partition="devtrain", use_gentle=False, hyperparams=None, use_five=Fal
     data = []
     labels = []
 
+    train_docs = set()
     lines = open("facts.tab").read().strip().split("\n")
     for line in lines[1:]:
         fields = line.split("\t")
@@ -344,7 +350,8 @@ def train(partition="devtrain", use_gentle=False, hyperparams=None, use_five=Fal
         if "GENTLE" in feats_dict["docname"] and not use_gentle:
             continue
         label = feats_dict["label"]
-        labels.append(label)
+        train_docs.add(feats_dict["docname"])
+        labels.append(int(label))
         data.append([feats_dict[f] for f in selected_feats])
 
     data = convert_to_pandas(data, train=True)
@@ -356,7 +363,6 @@ def train(partition="devtrain", use_gentle=False, hyperparams=None, use_five=Fal
     #model = RandomForestClassifier(n_estimators=200, random_state=42, n_jobs=4, max_depth=20)
 
     # Try XGBoost
-    from xgboost import XGBClassifier
     if hyperparams:
         print("Using hyperparameters:", hyperparams)
     else:
@@ -365,19 +371,19 @@ def train(partition="devtrain", use_gentle=False, hyperparams=None, use_five=Fal
          'max_depth': 10, 'n_estimators': 150, 'subsample': 0.9812032459280908}
     model = XGBClassifier(random_state=42, n_jobs=4, use_label_encoder=False, **hyperparams)
 
+    sys.stderr.write("o Training on " + str(len(data)) + " instances from " + str(len(train_docs)) + " documents\n")
     model.fit(data,labels)
 
     # Save the model
-    with open("salience_ensemble.pkl","wb") as f:
-        pickle.dump(model,f)
+    model.save_model("salience_ensemble.json")
 
 
 def evaluate(analysis=True, test_partition="test"):
     # Evaluate the model on the test set
     from sklearn.metrics import classification_report
 
-    with open("salience_ensemble.pkl","rb") as f:
-        model = pickle.load(f)
+    model = XGBClassifier()
+    model.load_model("salience_ensemble.json")
 
     data = []
     labels = []
@@ -438,8 +444,16 @@ def predict(docname):
     global model
 
     if model is None:
-        with open("salience_ensemble.pkl","rb") as f:
-            model = pickle.load(f)
+        model = XGBClassifier()
+        model.load_model("salience_ensemble.json")
+
+    conllu_files = glob(conllu_dir + "*.conllu")
+
+    for f in conllu_files:
+        if docname in f:
+            conllu = open(f).read().strip()
+            summaries = re.findall(r'# meta::summary[0-9]* = (\(.*?\) [^\n]+)', conllu)
+            gold_summaries[docname] = summaries
 
     data = []
     ents = []
@@ -454,7 +468,7 @@ def predict(docname):
             data += feats
             if i == 1:
                 for j, ent in enumerate(data):
-                    ents.append([ent[-3],ent[-2],gold[j]])  # Start, end and gold label of each entity
+                    ents.append([ent[header.index("start")],ent[header.index("end")],gold[j]])  # Start, end and gold label of each entity
 
     # Filter data to have just the selected feature columns
     filtered = []
@@ -469,12 +483,12 @@ def predict(docname):
     labels = ["s" if g == 1 else "n" for g in gold]
     for i in range(len(gold_summaries[docname][1:])):
         for j, ent in enumerate(ents):
-            pred = "s" if preds[i*len(labels)+j] == '1' else "n"
+            pred = "s" if preds[i*len(labels)+j] == 1 else "n"
             labels[j] += pred
 
     span2label = {}
-    for i, row in enumerate(feats):
-        span2label[(int(float(row[-3])),int(float(row[-2])))] = labels[i]
+    for i, row in enumerate(ents):
+        span2label[(int(float(row[0])),int(float(row[1])))] = labels[i]
 
     tsv = open(tsv_dir + docname + ".tsv").read().strip().split("\n")
     span2eid = {}
@@ -562,7 +576,7 @@ if __name__ == "__main__":
     p = ArgumentParser()
     p.add_argument("--pos_filter",action="store_true")
     p.add_argument("-m","--mode",choices=["train","eval","traineval","predict","optimize"],default="eval")
-    p.add_argument("-p","--partition",default="dev")
+    p.add_argument("-p","--partition",choices=["dev","train","devtrain"],default="dev")
     p.add_argument("-t","--test",default="test")
     p.add_argument("-d","--docname",default="GUM_bio_marbles")
     p.add_argument("--five",action="store_true",help="Use 5 summaries for training when available")
