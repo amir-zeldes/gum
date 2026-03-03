@@ -1178,17 +1178,24 @@ def fix_file(filename, tt_file, outdir, genitive_s=False, separate_bridging_edge
 			split_link_annos = link_annos.split("|")
 			split_link_annos_copy = split_link_annos[:]
 			for i, anno in enumerate(split_link_annos_copy):  # Check for ';' inside type and normalize to separate edges
-				if ";" in anno and separate_bridging_edges:  # e.g. bridge:set-span-interval;comparison-time
-					edge_types = anno.split(";")
-					# Create duplicate edges and insert into split_links at index for each type
-					for j, et in enumerate(edge_types):
-						if not et.startswith("bridge"):
-							et = "bridge:" + et
-						if j > 0:
-							split_links.insert(i+j, split_links[i])
-							split_link_annos.insert(i+j, et)
-						else:
-							split_link_annos[i] = et
+				if ";" in anno:  # e.g. bridge:set-span-interval;comparison-time
+					if separate_bridging_edges:
+						edge_types = anno.split(";")
+						# Create duplicate edges and insert into split_links at index for each type
+						for j, et in enumerate(edge_types):
+							if not et.startswith("bridge"):
+								et = "bridge:" + et
+							if j > 0:
+								split_links.insert(i+j, split_links[i])
+								split_link_annos.insert(i+j, et)
+							else:
+								split_link_annos[i] = et
+					else:  # Just alphabetize the components separated by ';'
+						anno = anno.replace("bridge:","")
+						components = anno.split(";")
+						components = sorted(components)
+						anno = "bridge:" + ";".join(components)
+						split_link_annos[i] = anno
 			edited_annos = []
 			#continue ##AZ
 			for i, anno in enumerate(split_link_annos):
