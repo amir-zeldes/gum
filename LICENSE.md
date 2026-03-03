@@ -21,6 +21,7 @@ All annotations are licensed under the Creative Commons Attribution (CC-BY) vers
 
 The annotations were produced by the following people:
 
+  * Abhishek Purushothama
   * Adrienne Isaac
   * Akitaka Yamada
   * Alex Giorgioni
@@ -29,18 +30,23 @@ The annotations were produced by the following people:
   * Amani Aloufi
   * Amber Hall
   * Amelia Becker
+  * Anastasia Kelly
   * Andrea Price
   * Andrew O'Brien
   * Ángeles Ortega Luque
+  * Anika Lippke
   * Aniya Harris
   * Anna Prince
   * Anna Runova
   * Anne Butler
   * Arianna Janoff
   * Aryaman Arora
+  * Aurora Smedvig
+  * Ayşenur Sağdiç
   * Ayan Mandal
-  * Ayşenur Sağdıç
+  * Bennett Gilhuly
   * Bertille Baron
+  * Bielasan Zaina
   * Bradford Salen
   * Brandon Tullock
   * Brent Laing
@@ -61,6 +67,7 @@ The annotations were produced by the following people:
   * Dan Simonson
   * Derek Reagan
   * Devika Tiwari
+  * Diana Robson
   * Didem Ikizoglu
   * Edwin Ko
   * Eliza Rice
@@ -68,8 +75,10 @@ The annotations were produced by the following people:
   * Emily Pace
   * Emma Manning
   * Emma Rafkin
+  * Emma Thronson
   * Ethan Beaman
   * Felipe De Jesus
+  * Garrison Smith
   * Han Bu
   * Hana Altalhi
   * Hang Jiang
@@ -79,6 +88,7 @@ The annotations were produced by the following people:
   * Helen Dominic
   * Ho Fai Cheng
   * Hortensia Gutierrez
+  * Hyun Min
   * Jakob Prange
   * James Maguire
   * Janine Karo
@@ -93,15 +103,22 @@ The annotations were produced by the following people:
   * Jongbong Lee
   * Juliet May
   * Jungyoon Koh
+  * Kat Scarborough
   * Katarina Starcevic
   * Katelyn Carroll
   * Katelyn MacDougald
+  * Katherine Conhaim
   * Katherine Vadella
   * Khalid Alharbi
+  * Kohei Kajikawa
   * Kristen Cook
+  * Kushaan Vardhan
+  * Lanni Bu
   * Lara Bryfonski
   * Lauren Levine
   * Leah Northington
+  * Lillian Ehrhart
+  * Lin Ai
   * Lindley Winchester
   * Linxi Zhang
   * Lucia Donatelli
@@ -115,8 +132,10 @@ The annotations were produced by the following people:
   * Mary Henderson
   * Maya Barzilai
   * Md. Jahurul Islam
+  * Micaela Wells
   * Michael Kranzlein
   * Michaela Harrington
+  * Mikayla Campbell
   * Mingyeong Choi
   * Minnie Annan
   * Mitchell Abrams
@@ -127,6 +146,7 @@ The annotations were produced by the following people:
   * Nicholas Workman
   * Nicole Steinberg
   * Nitin Venkateswaran
+  * Nola Goodwin
   * Parker DiPaolo
   * Phoebe Fisher
   * Rachel Kerr
@@ -194,6 +214,7 @@ For scholarly work referencing the corpus, please cite this paper:
 
 Zeldes, Amir (2017) "The GUM Corpus: Creating Multilayer Resources in the Classroom". Language Resources and Evaluation 51(3), 581–612. 
 
+```bibtex
 @Article{Zeldes2017,
    author    = {Amir Zeldes},
    title     = {The {GUM} Corpus: Creating Multilayer Resources in the Classroom},
@@ -204,5 +225,6 @@ Zeldes, Amir (2017) "The GUM Corpus: Creating Multilayer Resources in the Classr
    pages     = {581--612},
    doi       = {http://dx.doi.org/10.1007/s10579-016-9343-x}
 }
+```
 
 For full license texts of individual sources, see the URLs above.
