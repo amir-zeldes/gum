@@ -50,7 +50,7 @@
 3	Sox	Sox	PROPN	NNPS	Number=Plur	0	root	0:root	Entity=2)
 4	–	-	PUNCT	:	_	6	punct	6:punct	_
 5	No.	number	NOUN	NN	Abbr=Yes|Number=Sing	6	compound	6:compound	_
-6	12	12	NUM	CD	NumForm=Digit|NumType=Card	3	dep	3:dep	_
+6	12	12	NUM	CD	NumForm=Digit|NumType=Card	3	parataxis	3:parataxis	_
 
 # newpar
 # newpar_block = row (1 s) | cell (1 s)
@@ -89,10 +89,10 @@
 # s_type = frag
 # transition = null
 # text = Fort Worth, Texas
-1	Fort	Fort	PROPN	NNP	Number=Sing	2	compound	2:compound	Discourse=elaboration-additional:8->6:1:_|XML=<ref target:::"https://en.wikipedia.org/wiki/Fort_Worth,_Texas">
-2	Worth	Worth	PROPN	NNP	Number=Sing	0	root	0:root	SpaceAfter=No|XML=</ref>
+1	Fort	Fort	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=elaboration-additional:8->6:1:_|XML=<ref target:::"https://en.wikipedia.org/wiki/Fort_Worth,_Texas">
+2	Worth	Worth	PROPN	NNP	Number=Sing	1	flat	1:flat	SpaceAfter=No|XML=</ref>
 3	,	,	PUNCT	,	_	4	punct	4:punct	_
-4	Texas	Texas	PROPN	NNP	Number=Sing	2	nmod:unmarked	2:nmod:unmarked	Entity=(5)|XML=<ref target:::"https://en.wikipedia.org/wiki/Texas"></ref>
+4	Texas	Texas	PROPN	NNP	Number=Sing	1	nmod:unmarked	1:nmod:unmarked	Entity=(5)|XML=<ref target:::"https://en.wikipedia.org/wiki/Texas"></ref>
 
 # newpar
 # newpar_block = row (2 s) | cell (1 s)
@@ -228,7 +228,7 @@
 3	Sox	Sox	PROPN	NNPS	Number=Plur	0	root	0:root	Entity=2)|XML=</ref>
 4	(	(	PUNCT	-LRB-	_	5	punct	5:punct	Discourse=context-circumstance:24->23:0:lex-indwd-81-_|SpaceAfter=No|XML=<ref target:::"https://en.wikipedia.org/wiki/2013_in_baseball">
 5	2013	2013	NUM	CD	NumForm=Digit|NumType=Card	3	nmod:unmarked	3:nmod:unmarked	XML=<date notBefore:::"2013"></date></ref>
-6	–	-	SYM	SYM	_	7	case	7:case	_
+6	–	-	SYM	SYM	ExtPos=ADP	7	case	7:case	_
 7	present	present	NOUN	NN	Number=Sing	5	nmod	5:nmod:to	SpaceAfter=No
 8	)	)	PUNCT	-RRB-	_	5	punct	5:punct	_
 
@@ -265,7 +265,7 @@
 # s_type = frag
 # transition = establishment
 # text = Hit for the cycle on June 16, 2015
-1	Hit	hit	VERB	VB	Person=2|VerbForm=Inf	0	root	0:root	Discourse=joint-list_m:28->26:1:grf-seq-_-_|XML=<ref target:::"https://en.wikipedia.org/wiki/2015_Major_League_Baseball_All-Star_Game">
+1	Hit	hit	VERB	VB	VerbForm=Inf	0	root	0:root	Discourse=joint-list_m:28->26:1:grf-seq-_-_|XML=<ref target:::"https://en.wikipedia.org/wiki/2015_Major_League_Baseball_All-Star_Game">
 2	for	for	ADP	IN	_	4	case	4:case	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	4	det	4:det	_
 4	cycle	cycle	NOUN	NN	Number=Sing	1	obl	1:obl:for	_
@@ -282,7 +282,7 @@
 # s_type = frag
 # transition = zero
 # text = World Series champion (2013)
-1	World	World	PROPN	NNP	Number=Sing	2	compound	2:compound	Discourse=joint-list_m:29->26:1:grf-seq-_-_+sem-mrnym-89-91,104-106-_|Entity=(9|XML=<ref target:::"https://en.wikipedia.org/wiki/World_Series">
+1	World	World	PROPN	NNP	Number=Sing	2	compound	2:compound	Discourse=joint-list_m:29->26:1:grf-seq-_-_|Entity=(9|XML=<ref target:::"https://en.wikipedia.org/wiki/World_Series">
 2	Series	Series	PROPN	NNP	Number=Sing	3	compound	3:compound	Entity=9)
 3	champion	champion	NOUN	NN	Number=Sing	0	root	0:root	XML=</ref>
 4	(	(	PUNCT	-LRB-	_	5	punct	5:punct	Discourse=context-circumstance:30->29:0:lex-indwd-108-_|SpaceAfter=No|XML=<ref target:::"https://en.wikipedia.org/wiki/2013_World_Series">
@@ -473,7 +473,7 @@
 # s_type = decl
 # transition = smooth-shift
 # text = In 2003, his freshman year, he made the District 8-4A All-District baseball team despite batting just .227, and shared the league's Newcomer of the Year award. [1]
-1	In	in	ADP	IN	_	2	case	2:case	Discourse=elaboration-additional:48->32:3:ref-prs-112-121,242-_+sem-mrnym-125-126,256-_|PDTB=Implicit:Temporal.Asynchronous.Succession:previously:_:228-238:239-276
+1	In	in	ADP	IN	_	2	case	2:case	Discourse=elaboration-additional:48->32:3:ref-prs-112-121,242-_|PDTB=EntRel:EntRel:_:_:228-238:239-276
 2	2003	2003	NUM	CD	NumForm=Digit|NumType=Card	9	obl	9:obl:in	Entity=(11|SpaceAfter=No|XML=<date when:::"2003"></date>
 3	,	,	PUNCT	,	_	6	punct	6:punct	_
 4	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(4)|XML=<date when:::"2003">
@@ -510,7 +510,7 @@
 34	award	award	NOUN	NN	Number=Sing	26	obj	26:obj	SpaceAfter=No
 35	.	.	PUNCT	.	_	9	punct	9:punct	_
 36	[	[	PUNCT	-LRB-	_	37	punct	37:punct	Discourse=explanation-evidence:51->48:2:grf-prn-274,276-_|SpaceAfter=No
-37	1	1	NUM	CD	NumForm=Digit|NumType=Card	9	dep	9:dep	SpaceAfter=No
+37	1	1	NUM	CD	NumForm=Digit|NumType=Card	9	parataxis	9:parataxis	SpaceAfter=No
 38	]	]	PUNCT	-RRB-	_	37	punct	37:punct	_
 
 # sent_id = GUM_bio_holt-30
@@ -542,7 +542,7 @@
 22	season	season	NOUN	NN	Number=Sing	18	obl	18:obl:for	SpaceAfter=No
 23	.	.	PUNCT	.	_	13	punct	13:punct	_
 24	[	[	PUNCT	-LRB-	_	25	punct	25:punct	Discourse=explanation-evidence:54->52:1:grf-prn-300,302-_|SpaceAfter=No
-25	2	2	NUM	CD	NumForm=Digit|NumType=Card	13	dep	13:dep	SpaceAfter=No
+25	2	2	NUM	CD	NumForm=Digit|NumType=Card	13	parataxis	13:parataxis	SpaceAfter=No
 26	]	]	PUNCT	-RRB-	_	25	punct	25:punct	_
 
 # sent_id = GUM_bio_holt-31
@@ -568,7 +568,7 @@
 16	4A	4A	PROPN	NNP	Number=Sing	14	flat	14:flat	SpaceAfter=No|XML=</w>
 17	,	,	PUNCT	,	_	19	punct	19:punct	_
 18	[	[	PUNCT	-LRB-	_	19	punct	19:punct	Discourse=explanation-evidence:56->55:0:grf-prn-320,322-_|SpaceAfter=No
-19	3	3	NUM	CD	NumForm=Digit|NumType=Card	6	dep	6:dep	SpaceAfter=No
+19	3	3	NUM	CD	NumForm=Digit|NumType=Card	6	parataxis	6:parataxis	SpaceAfter=No
 20	]	]	PUNCT	-RRB-	_	19	punct	19:punct	_
 21	and	and	CCONJ	CC	_	23	cc	23:cc	Discourse=joint-sequence_m:57->48:3:dm-and-323-gold+lex-indwd-331-_+lex-indph-333-335-_|PDTB=Explicit:Expansion.Conjunction:and:323:303-322:324-339;Implicit:Temporal.Asynchronous.Precedence:then:_:303-322:323-339
 22	he	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	23	nsubj	23:nsubj	Entity=(4)
@@ -585,7 +585,7 @@
 33	year	year	NOUN	NN	Number=Sing	29	appos	29:appos	SpaceAfter=No|XML=</date>
 34	.	.	PUNCT	.	_	23	punct	23:punct	_
 35	[	[	PUNCT	-LRB-	_	36	punct	36:punct	Discourse=explanation-evidence:58->57:0:grf-prn-337,339-_|SpaceAfter=No
-36	4	4	NUM	CD	NumForm=Digit|NumType=Card	23	dep	23:dep	SpaceAfter=No
+36	4	4	NUM	CD	NumForm=Digit|NumType=Card	23	parataxis	23:parataxis	SpaceAfter=No
 37	]	]	PUNCT	-RRB-	_	36	punct	36:punct	_
 
 # newpar
@@ -615,7 +615,7 @@
 8	2008	2008	NUM	CD	NumForm=Digit|NumType=Card	6	conj	2:obl:in|6:conj:and	SpaceAfter=No|XML=<date when:::"2008"></date>
 9	.	.	PUNCT	.	_	2	punct	2:punct	_
 10	[	[	PUNCT	-LRB-	_	11	punct	11:punct	Discourse=explanation-evidence:61->60:0:grf-prn-351,353-_|SpaceAfter=No
-11	5	5	NUM	CD	NumForm=Digit|NumType=Card	2	dep	2:dep	SpaceAfter=No
+11	5	5	NUM	CD	NumForm=Digit|NumType=Card	2	parataxis	2:parataxis	SpaceAfter=No
 12	]	]	PUNCT	-RRB-	_	11	punct	11:punct	_
 
 # sent_id = GUM_bio_holt-34
@@ -666,7 +666,7 @@
 6	with	with	ADP	IN	_	8	case	8:case	_
 7	67	67	NUM	CD	NumForm=Digit|NumType=Card	8	nummod	8:nummod	_
 8	runs	run	NOUN	NNS	Number=Plur	3	obl	3:obl:with	MSeg=run-s|XML=<ref target:::"https://en.wikipedia.org/wiki/Run_(baseball)"></ref>
-9	scored	score	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	8	acl	8:acl	Discourse=elaboration-attribute:65->64:0:syn-mdf-390-_+syn-nmn-391-_|MSeg=scor-ed
+9	scored	score	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	8	acl	8:acl	Discourse=elaboration-attribute:65->64:0:syn-mdf-390-_+syn-nmn-391-_|MSeg=scor-ed
 10	and	and	CCONJ	CC	_	11	cc	11:cc	Discourse=joint-list_m:66->64:1:sem-lxchn-390,399-400-gold+dm-and-392-gold|PDTB=Explicit:Expansion.Conjunction:and:392:383-391:393-401
 11	shared	share	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	3	conj	3:conj:and	MSeg=shar-ed
 12	the	the	DET	DT	Definite=Def|PronType=Art	14	det	14:det	_
@@ -710,7 +710,7 @@
 25	team	team	NOUN	NN	Number=Sing	16	conj	8:obl:to|16:conj:and	SpaceAfter=No
 26	.	.	PUNCT	.	_	8	punct	8:punct	_
 27	[	[	PUNCT	-LRB-	_	28	punct	28:punct	Discourse=explanation-evidence:68->67:0:grf-prn-428,430-_|SpaceAfter=No
-28	6	6	NUM	CD	NumForm=Digit|NumType=Card	8	dep	8:dep	SpaceAfter=No
+28	6	6	NUM	CD	NumForm=Digit|NumType=Card	8	parataxis	8:parataxis	SpaceAfter=No
 29	]	]	PUNCT	-RRB-	_	28	punct	28:punct	_
 
 # newpar
@@ -753,7 +753,7 @@
 30	Berry	Berry	PROPN	NNP	Number=Sing	29	flat	29:flat	SpaceAfter=No|XML=</ref>
 31	.	.	PUNCT	.	_	3	punct	3:punct	_
 32	[	[	PUNCT	-LRB-	_	33	punct	33:punct	Discourse=explanation-evidence:70->69:0:grf-prn-462,464-_|SpaceAfter=No
-33	7	7	NUM	CD	NumForm=Digit|NumType=Card	3	dep	3:dep	SpaceAfter=No
+33	7	7	NUM	CD	NumForm=Digit|NumType=Card	3	parataxis	3:parataxis	SpaceAfter=No
 34	]	]	PUNCT	-RRB-	_	33	punct	33:punct	_
 
 # newpar
@@ -845,7 +845,7 @@
 18	surgery	surgery	NOUN	NN	Number=Sing	17	obj	17:obj	MSeg=surge-ry|SpaceAfter=No
 19	.	.	PUNCT	.	_	5	punct	5:punct	_
 20	[	[	PUNCT	-LRB-	_	21	punct	21:punct	Discourse=explanation-evidence:77->75:1:grf-prn-523,525-_|SpaceAfter=No
-21	8	8	NUM	CD	NumForm=Digit|NumType=Card	5	dep	5:dep	SpaceAfter=No
+21	8	8	NUM	CD	NumForm=Digit|NumType=Card	5	parataxis	5:parataxis	SpaceAfter=No
 22	]	]	PUNCT	-RRB-	_	21	punct	21:punct	_
 
 # sent_id = GUM_bio_holt-42
@@ -853,7 +853,7 @@
 # s_type = decl
 # transition = continue
 # text = He began the 2011 season with the Pirates' Double-A affiliate, the Altoona Curve.
-1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=joint-sequence_m:78->73:0:lex-indwd-529-_|Entity=(4)
+1	He	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=joint-sequence_m:78->73:0:lex-indwd-529-_|Entity=(4)|PDTB=Implicit:Temporal.Asynchronous.Precedence:then:_:504-525:526-543
 2	began	begin	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	_
 4	2011	2011	NUM	CD	NumForm=Digit|NumType=Card	5	compound	5:compound	XML=<date when:::"2011"></date>
@@ -910,7 +910,7 @@
 30	inning	inning	NOUN	NN	Number=Sing	21	obl	21:obl:in	MSeg=inn-ing|SpaceAfter=No
 31	.	.	PUNCT	.	_	9	punct	9:punct	_
 32	[	[	PUNCT	-LRB-	_	33	punct	33:punct	Discourse=explanation-evidence:81->79:1:grf-prn-575,577-_|SpaceAfter=No
-33	9	9	NUM	CD	NumForm=Digit|NumType=Card	9	dep	9:dep	SpaceAfter=No
+33	9	9	NUM	CD	NumForm=Digit|NumType=Card	9	parataxis	9:parataxis	SpaceAfter=No
 34	]	]	PUNCT	-RRB-	_	33	punct	33:punct	_
 
 # newpar
@@ -981,7 +981,7 @@
 # s_type = decl
 # transition = rough-shift
 # text = Holt made his Major League debut on September 1, 2012.
-1	Holt	Holt	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=elaboration-additional:88->84:1:sem-synym-592,604-605,617,620-621-_+sem-rpt-609-610,624-627-_+sem-mrnym-609-610,627-_|Entity=(4)
+1	Holt	Holt	PROPN	NNP	Number=Sing	2	nsubj	2:nsubj	Discourse=elaboration-additional:88->84:1:sem-synym-592,604-605,617,620-621-_+sem-rpt-609-610,624-627-_|Entity=(4)
 2	made	make	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	0	root	0:root	_
 3	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(4)
 4	Major	Major	ADJ	NNP	Degree=Pos	5	amod	5:amod	Entity=(23
@@ -1026,7 +1026,7 @@
 25	Indianapolis	Indianapolis	PROPN	NNP	Number=Sing	20	nmod	20:nmod:for	Entity=(20)|MSeg=Indiana-polis|SpaceAfter=No
 26	.	.	PUNCT	.	_	10	punct	10:punct	_
 27	[	[	PUNCT	-LRB-	_	28	punct	28:punct	Discourse=explanation-evidence:90->89:0:grf-prn-655,657-_|SpaceAfter=No
-28	10	10	NUM	CD	NumForm=Digit|NumType=Card	10	dep	10:dep	SpaceAfter=No
+28	10	10	NUM	CD	NumForm=Digit|NumType=Card	10	parataxis	10:parataxis	SpaceAfter=No
 29	]	]	PUNCT	-RRB-	_	28	punct	28:punct	_
 
 # newpar
@@ -1077,7 +1077,7 @@
 # s_type = decl
 # transition = rough-shift
 # text = The only other Pirates player to have a four-hit game so early in his career was Jack Merson, who went 4-for-5 in his second major league game on September 15, 1951. [11]
-1	The	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	Discourse=context-background:93->91:1:sem-rpt-672,696-_+sem-rpt-678-688,700-704-_+sem-synym-690-691,724-725-_+lex-indwd-706-_|Entity=(24|PDTB=Implicit:Temporal.Asynchronous.Succession:previously:_:658-692:693-735
+1	The	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	Discourse=context-background:93->91:1:sem-mrnym-669-691,693-697-_+sem-rpt-672,696-_+sem-rpt-678-688,700-704-_+sem-synym-690-691,724-725-_+lex-indwd-706-_|Entity=(24|PDTB=Implicit:Temporal.Asynchronous.Succession:previously:_:658-692:693-735
 2	only	only	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
 3	other	other	ADJ	JJ	Degree=Pos	5	amod	5:amod	_
 4	Pirates	Pirate	PROPN	NNPS	Number=Plur	5	compound	5:compound	Entity=(7)|MSeg=Pirate-s
@@ -1118,7 +1118,7 @@
 39	1951	1951	NUM	CD	NumForm=Digit|NumType=Card	37	nmod:unmarked	37:nmod:unmarked	SpaceAfter=No|XML=<ref target:::"https://en.wikipedia.org/wiki/1951_in_baseball"></ref></date>
 40	.	.	PUNCT	.	_	19	punct	19:punct	_
 41	[	[	PUNCT	-LRB-	_	42	punct	42:punct	Discourse=explanation-evidence:97->93:2:grf-prn-733,735-_|SpaceAfter=No
-42	11	11	NUM	CD	NumForm=Digit|NumType=Card	19	dep	19:dep	SpaceAfter=No
+42	11	11	NUM	CD	NumForm=Digit|NumType=Card	19	parataxis	19:parataxis	SpaceAfter=No
 43	]	]	PUNCT	-RRB-	_	42	punct	42:punct	_
 
 # sent_id = GUM_bio_holt-51
@@ -1126,7 +1126,7 @@
 # s_type = decl
 # transition = zero
 # text = In 24 games, Holt batted .292 with a triple and 3 RBI.
-1	In	in	ADP	IN	_	3	case	3:case	Discourse=joint-other_m:98->88:1:_
+1	In	in	ADP	IN	_	3	case	3:case	Discourse=joint-other_m:98->88:1:_|PDTB=Implicit:Expansion.Conjunction:and:_:693-735:736-749
 2	24	24	NUM	CD	NumForm=Digit|NumType=Card	3	nummod	3:nummod	_
 3	games	game	NOUN	NNS	Number=Plur	6	obl	6:obl:in	MSeg=game-s|SpaceAfter=No
 4	,	,	PUNCT	,	_	3	punct	3:punct	_
@@ -1151,7 +1151,7 @@
 3	Sox	Sox	PROPN	NNPS	Number=Plur	0	root	0:root	Entity=2)
 4	(	(	PUNCT	-LRB-	_	5	punct	5:punct	Discourse=context-circumstance:100->99:0:lex-indwd-754-_+lex-indwd-756-_|SpaceAfter=No
 5	2013	2013	NUM	CD	NumForm=Digit|NumType=Card	3	nmod:unmarked	3:nmod:unmarked	XML=<date when:::"2013"></date>
-6	–	-	SYM	SYM	_	7	case	7:case	_
+6	–	-	SYM	SYM	ExtPos=ADP	7	case	7:case	_
 7	present	present	NOUN	NN	Number=Sing	5	nmod	5:nmod:to	SpaceAfter=No|XML=<date when:::"2018-09-12"></date>
 8	)	)	PUNCT	-RRB-	_	5	punct	5:punct	_
 
@@ -1204,10 +1204,10 @@
 31	Iván	Iván	PROPN	NNP	Number=Sing	21	conj	8:obl:for|21:conj:and	XML=<ref target:::"https://en.wikipedia.org/wiki/Iv%C3%A1n_DeJes%C3%BAs_Jr.">
 32	DeJesús	DeJesús	PROPN	NNP	Number=Sing	31	flat	31:flat	SpaceAfter=No|XML=</ref>
 33	,	,	PUNCT	,	_	34	punct	34:punct	_
-34	Jr.	Jr.	ADJ	NNP	Abbr=Yes|Degree=Pos	31	amod	31:amod	SpaceAfter=No
+34	Jr.	Jr.	PROPN	NNP	Abbr=Yes|Number=Sing	31	nmod:desc	31:nmod:desc	SpaceAfter=No
 35	.	.	PUNCT	.	_	8	punct	8:punct	_
 36	[	[	PUNCT	-LRB-	_	37	punct	37:punct	Discourse=explanation-evidence:105->102:2:grf-prn-794,796-_|SpaceAfter=No
-37	12	12	NUM	CD	NumForm=Digit|NumType=Card	8	dep	8:dep	SpaceAfter=No
+37	12	12	NUM	CD	NumForm=Digit|NumType=Card	8	parataxis	8:parataxis	SpaceAfter=No
 38	]	]	PUNCT	-RRB-	_	37	punct	37:punct	_
 
 # sent_id = GUM_bio_holt-55
@@ -1447,7 +1447,7 @@
 # s_type = decl
 # transition = continue
 # text = On July 9, 2014, against the Chicago White Sox, Holt drove in Daniel Nava in the bottom of the 9th inning for the first walk-off hit of his career. [13]
-1	On	on	ADP	IN	_	3	case	3:case	Discourse=joint-sequence_m:125->115:1:lex-indph-970-973-_
+1	On	on	ADP	IN	_	3	case	3:case	Discourse=joint-sequence_m:125->115:1:lex-indph-970-973-_|PDTB=Implicit:Temporal.Asynchronous.Precedence:then:_:949-968:969-1006
 2	July	July	PROPN	NNP	Number=Sing	3	compound	3:compound	XML=<date when:::"2014-07-09">
 3	9	9	NUM	CD	NumForm=Digit|NumType=Card	14	obl	14:obl:on	SpaceAfter=No
 4	,	,	PUNCT	,	_	5	punct	5:punct	_
@@ -1483,7 +1483,7 @@
 34	career	career	NOUN	NN	Number=Sing	31	nmod	31:nmod:of	Entity=27)|SpaceAfter=No
 35	.	.	PUNCT	.	_	14	punct	14:punct	_
 36	[	[	PUNCT	-LRB-	_	37	punct	37:punct	Discourse=explanation-evidence:126->125:0:grf-prn-1004,1006-_|SpaceAfter=No
-37	13	13	NUM	CD	NumForm=Digit|NumType=Card	14	dep	14:dep	SpaceAfter=No
+37	13	13	NUM	CD	NumForm=Digit|NumType=Card	14	parataxis	14:parataxis	SpaceAfter=No
 38	]	]	PUNCT	-RRB-	_	37	punct	37:punct	_
 
 # sent_id = GUM_bio_holt-65
@@ -1533,13 +1533,13 @@
 40	Bay	Bay	PROPN	NNP	Number=Sing	41	compound	41:compound	Entity=25)
 41	Rays	Ray	PROPN	NNPS	Number=Plur	21	obl	21:obl:against	MSeg=Ray-s
 42	to	to	PART	TO	_	43	mark	43:mark	Discourse=causal-result:130->129:0:syn-inf-1048-_
-43	win	win	VERB	VB	VerbForm=Inf	21	advcl	21:advcl:to	MSeg=w-in
+43	win	win	VERB	VB	VerbForm=Inf	21	advcl	21:advcl:to	_
 44	4	4	NUM	CD	NumForm=Digit|NumType=Card	43	obl:unmarked	43:obl:unmarked	_
 45	to	to	ADP	IN	_	46	case	46:case	_
 46	0	0	NUM	CD	NumForm=Digit|NumType=Card	44	nmod	44:nmod:to	SpaceAfter=No
 47	.	.	PUNCT	.	_	21	punct	21:punct	_
 48	[	[	PUNCT	-LRB-	_	49	punct	49:punct	Discourse=explanation-evidence:131->127:1:grf-prn-1054,1056-_|SpaceAfter=No
-49	14	14	NUM	CD	NumForm=Digit|NumType=Card	21	dep	21:dep	SpaceAfter=No
+49	14	14	NUM	CD	NumForm=Digit|NumType=Card	21	parataxis	21:parataxis	SpaceAfter=No
 50	]	]	PUNCT	-RRB-	_	49	punct	49:punct	_
 
 # newpar
@@ -1569,6 +1569,6 @@
 18	catcher	catcher	NOUN	NN	Number=Sing	16	conj	14:nmod:except|16:conj:and	Entity=10)|MSeg=catch-er|SpaceAfter=No
 19	.	.	PUNCT	.	_	10	punct	10:punct	_
 20	[	[	PUNCT	-LRB-	_	21	punct	21:punct	Discourse=explanation-evidence:133->132:0:grf-prn-1076,1078-_|SpaceAfter=No
-21	15	15	NUM	CD	NumForm=Digit|NumType=Card	10	dep	10:dep	SpaceAfter=No
+21	15	15	NUM	CD	NumForm=Digit|NumType=Card	10	parataxis	10:parataxis	SpaceAfter=No
 22	]	]	PUNCT	-RRB-	_	21	punct	21:punct	_
 

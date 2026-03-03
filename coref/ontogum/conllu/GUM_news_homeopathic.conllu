@@ -40,7 +40,7 @@
 # s_type = frag
 # transition = null
 # text = Friday, May 8, 2009
-1	Friday	Friday	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=context-circumstance:3->4:2:lex-indph-11-16-_|SpaceAfter=No|XML=<date when:::"2009-05-08" rend:::"bold">
+1	Friday	Friday	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=context-circumstance:3->4:2:lex-indph-11-16-_|MSeg=Fri-day|SpaceAfter=No|XML=<date when:::"2009-05-08" rend:::"bold">
 2	,	,	PUNCT	,	_	4	punct	4:punct	_
 3	May	May	PROPN	NNP	Number=Sing	4	compound	4:compound	_
 4	8	8	NUM	CD	NumForm=Digit|NumType=Card	1	appos	1:appos	SpaceAfter=No
@@ -254,7 +254,7 @@
 11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	Entity=(3
 12	baby	baby	NOUN	NN	Number=Sing	13	nsubj	13:nsubj	Entity=3)|MSeg=bab-y
 13	spent	spend	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	9	acl	9:acl:that	_
-14	all	all	DET	PDT	PronType=Tot	16	det:predet	16:det:predet	_
+14	all	all	DET	PDT	PronType=Ind	16	det:predet	16:det:predet	_
 15	her	her	PRON	PRP$	Case=Gen|Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	16	nmod:poss	16:nmod:poss	Entity=(3)
 16	energy	energy	NOUN	NN	Number=Sing	13	obj	13:obj	_
 17	battling	battle	VERB	VBG	Tense=Pres|VerbForm=Part	13	advcl	13:advcl	Discourse=purpose-goal:20->19:0:_|MSeg=battl-ing|PDTB=Implicit:Contingency.Purpose.Arg2-as-goal:with the purpose of:_:166-172:173-184
@@ -273,12 +273,14 @@
 30	to	to	ADP	IN	_	32	case	32:case	_
 31	severe	severe	ADJ	JJ	Degree=Pos	32	amod	32:amod	_
 32	malnutrition	malnutrition	NOUN	NN	Number=Sing	29	obl	29:obl:to	MSeg=mal-nutrition
-33	and	and	CCONJ	CC	_	38	cc	38:cc	SpaceAfter=No
+33	and	and	CCONJ	CC	_	38	cc	36.1:cc	SpaceAfter=No
 34	,	,	PUNCT	,	_	33	punct	33:punct	_
-35	eventually	eventually	ADV	RB	Degree=Pos	32	dep	32:dep	MSeg=event-ual-ly|SpaceAfter=No
+35	eventually	eventually	ADV	RB	Degree=Pos	38	orphan	36.1:advmod	MSeg=event-ual-ly|SpaceAfter=No
 36	,	,	PUNCT	,	_	35	punct	35:punct	_
+36.1	leading	lead	VERB	VBG	Tense=Pres|VerbForm=Part	_	_	32:conj:and	CopyOf=29
+36.2	to	to	ADP	IN	_	_	_	38:case	CopyOf=30
 37	her	her	PRON	PRP$	Case=Gen|Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	38	nmod:poss	38:nmod:poss	Entity=(2(3)
-38	death	death	NOUN	NN	Number=Sing	32	conj	29:obl:to|32:conj:and	Entity=2)|MSeg=dea-th|SpaceAfter=No
+38	death	death	NOUN	NN	Number=Sing	32	conj	36.1:obl:to	Entity=2)|MSeg=dea-th|SpaceAfter=No
 39	.	.	PUNCT	.	_	5	punct	5:punct	_
 
 # sent_id = GUM_news_homeopathic-11
@@ -297,7 +299,7 @@
 8	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	10	cop	10:cop	_
 9	so	so	ADV	RB	_	10	advmod	10:advmod	_
 10	severe	severe	ADJ	JJ	Degree=Pos	0	root	0:root	Cxn=CausalExcess|CxnElt=14:CausalExcess.Cause
-11	that	that	SCONJ	IN	_	14	mark	14:mark	Discourse=mode-manner:24->23:0:_
+11	that	that	SCONJ	IN	_	14	mark	14:mark	Discourse=causal-result:24->23:0:syn-cs-204-206-gold
 12	her	her	PRON	PRP$	Case=Gen|Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	13	nmod:poss	13:nmod:poss	Entity=(7(3)
 13	skin	skin	NOUN	NN	Number=Sing	14	nsubj	14:nsubj	Entity=7)
 14	broke	break	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	10	advcl	10:advcl:that	CxnElt=14:CausalExcess.Result
@@ -423,7 +425,7 @@
 35	the	the	DET	DT	Definite=Def|PronType=Art	36	det	36:det	Entity=(9
 36	Crown	Crown	PROPN	NNP	Number=Sing	33	obl:agent	33:obl:agent	Entity=9)
 37	that	that	SCONJ	IN	_	41	mark	41:mark	Discourse=elaboration-additional:38->36:1:ref-prs-293,317-_+dm-and-308-gold
-38	both	both	DET	DT	PronType=Tot	40	det:predet	40:det:predet	Entity=(14
+38	both	both	DET	DT	PronType=Ind	40	det:predet	40:det:predet	Entity=(14
 39	her	her	PRON	PRP$	Case=Gen|Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs	40	nmod:poss	40:nmod:poss	Entity=(12)
 40	parents	parent	NOUN	NNS	Number=Plur	41	nsubj	41:nsubj|44:nsubj	Entity=14)|MSeg=parent-s
 41	knew	know	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	33	csubj:pass	33:csubj:pass	_
@@ -442,7 +444,7 @@
 # s_type = decl
 # transition = smooth-shift
 # text = However, despite their child's severe illness, and her lack of improvement, the Sams continued to shun conventional medical treatment, instead seeking help from other homeopaths and naturopaths.
-1	However	however	ADV	RB	_	18	advmod	18:advmod	Discourse=adversative-antithesis:40->43:0:dm-instead-353-gold|MSeg=How-ever|PDTB=Explicit:Comparison.Contrast:however:329:279-328:330-361|SpaceAfter=No
+1	However	however	ADV	RB	_	18	advmod	18:advmod	Discourse=adversative-antithesis:40->43:0:ref-cmp-344-345,357-358-_+dm-instead-353-gold|MSeg=How-ever|PDTB=Explicit:Comparison.Contrast:however:329:279-328:330-361|SpaceAfter=No
 2	,	,	PUNCT	,	_	1	punct	1:punct	_
 3	despite	despite	ADP	IN	_	8	case	8:case	Discourse=adversative-concession:41->40:0:dm-despite-331-gold|MSeg=de-spite
 4	their	their	PRON	PRP$	Case=Gen|Number=Plur|Person=3|Poss=Yes|PronType=Prs	5	nmod:poss	5:nmod:poss	Entity=(13(3(14)
@@ -731,7 +733,7 @@
 14	forms	form	NOUN	NNS	Number=Plur	9	obl	9:obl:with	MSeg=form-s
 15	of	of	ADP	IN	_	16	case	16:case	_
 16	substances	substance	NOUN	NNS	Number=Plur	14	nmod	14:nmod:of|28:nsubj	Entity=(20|MSeg=substance-s
-17	that	that	PRON	WDT	PronType=Rel	28	nsubj	16:ref	Discourse=elaboration-additional:71->70:0:syn-relcl-565-_|SpaceAfter=No
+17	that	that	PRON	WDT	PronType=Rel	28	nsubj	16:ref	Discourse=elaboration-additional:71->70:0:sem-mrnym-558,580-581-_+syn-relcl-565-_|SpaceAfter=No
 18	,	,	PUNCT	,	_	17	punct	17:punct	_
 19	if	if	SCONJ	IN	_	20	mark	20:mark	Discourse=contingency-condition:72->73:0:dm-if-567-gold+mrf-md-575-_|PDTB=Explicit:Contingency.Condition.Arg2-as-cond:if:567:565-566,575-582:568-574
 20	given	give	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	28	advcl	28:advcl:if	CxnElt=28:Conditional-UnspecifiedEpistemic-NoInversion.Protasis,28:Conditional-UnspecifiedEpistemic-Reduced.Protasis|MSeg=giv-en
@@ -755,7 +757,7 @@
 # s_type = multiple
 # transition = smooth-shift
 # text = Typical treatments take the dilutions, with ritualised shaking between each step of the dilution, past the level where any molecules of the original substance are likely to remain; for homeopathic treatments to work, basic well-understood concepts in chemistry and physics would have to be wrong.
-1	Typical	typical	ADJ	JJ	Degree=Pos	2	amod	2:amod	Discourse=elaboration-additional:74->69:1:sem-lxchn-555,584-gold+sem-synym-560-581,586-587-_+sem-rpt-564-581,606-608-_|MSeg=Typ-ic-al|PDTB=Implicit:Expansion.Level-of-detail.Arg2-as-detail:in particular:_:549-582:583-634
+1	Typical	typical	ADJ	JJ	Degree=Pos	2	amod	2:amod	Discourse=elaboration-additional:74->69:1:sem-mrnym-551-581,583-584-_+sem-lxchn-555,584-gold+sem-synym-560-581,586-587-_+sem-rpt-564-581,606-608-_|MSeg=Typ-ic-al|PDTB=Implicit:Expansion.Level-of-detail.Arg2-as-detail:in particular:_:549-582:583-634
 2	treatments	treatment	NOUN	NNS	Number=Plur	3	nsubj	3:nsubj	MSeg=treat-ment-s
 3	take	take	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
 4	the	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	Entity=(19
@@ -766,7 +768,7 @@
 9	shaking	shaking	NOUN	NN	Number=Sing	3	obl	3:obl:with	MSeg=shak-ing
 10	between	between	ADP	IN	_	12	case	12:case	MSeg=be-tween
 11	each	each	DET	DT	PronType=Ind	12	det	12:det	_
-12	step	step	NOUN	NN	Number=Sing	9	obl	9:obl:between	_
+12	step	step	NOUN	NN	Number=Sing	9	nmod	9:nmod:between	_
 13	of	of	ADP	IN	_	15	case	15:case	_
 14	the	the	DET	DT	Definite=Def|PronType=Art	15	det	15:det	_
 15	dilution	dilution	NOUN	NN	Number=Sing	12	nmod	12:nmod:of	MSeg=dilut-ion|SpaceAfter=No

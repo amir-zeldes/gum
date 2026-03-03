@@ -39,7 +39,7 @@
 6	11	11	NUM	CD	NumForm=Digit|NumType=Card	1	nmod:unmarked	1:nmod:unmarked	SpaceAfter=No
 7	,	,	PUNCT	,	_	8	punct	8:punct	_
 8	1914	1914	NUM	CD	NumForm=Digit|NumType=Card	6	nmod:unmarked	6:nmod:unmarked	XML=</date>
-9	–	-	SYM	SYM	_	11	case	11:case	_
+9	–	-	SYM	SYM	ExtPos=ADP	11	case	11:case	_
 10	August	August	PROPN	NNP	Number=Sing	11	compound	11:compound	XML=<date when:::"2011-08-25">
 11	25	25	NUM	CD	NumForm=Digit|NumType=Card	6	nmod	6:nmod:to	SpaceAfter=No
 12	,	,	PUNCT	,	_	13	punct	13:punct	_
@@ -47,13 +47,13 @@
 14	)	)	PUNCT	-RRB-	_	6	punct	6:punct	_
 15	was	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	17	cop	17:cop	Discourse=same-unit_m:4->2:1:_
 16	a	a	DET	DT	Definite=Ind|PronType=Art	17	det	17:det	_
-17	linguist	linguist	NOUN	NN	Number=Sing	0	root	0:root|19:nsubj	XML=<ref></ref>
+17	linguist	linguist	NOUN	NN	Number=Sing	0	root	0:root|19:nsubj	MSeg=lingu-ist|XML=<ref></ref>
 18	who	who	PRON	WP	PronType=Rel	19	nsubj	17:ref	Discourse=elaboration-attribute:5->4:0:syn-mdf-19-_+syn-relcl-20-21-_
 19	developed	develop	VERB	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	17	acl:relcl	17:acl:relcl	MSeg=develop-ed
 20	the	the	DET	DT	Definite=Def|PronType=Art	27	det	27:det	Entity=(2
-21	dynamic	dynamic	ADJ	JJ	Degree=Pos	23	amod	23:amod	SpaceAfter=No|XML=<ref><w>
+21	dynamic	dynamic	ADJ	JJ	Degree=Pos	23	amod	23:amod	MSeg=dynam-ic|SpaceAfter=No|XML=<ref><w>
 22	-	-	PUNCT	HYPH	_	21	punct	21:punct	SpaceAfter=No
-23	equivalence	equivalence	NOUN	NN	Number=Sing	27	compound	27:compound	MSeg=equi-valen-ce|XML=</w></ref>
+23	equivalence	equivalence	NOUN	NN	Number=Sing	27	compound	27:compound	MSeg=equi-val-ence|XML=</w></ref>
 24	Bible	Bible	PROPN	NNP	Number=Sing	26	compound	26:compound	Entity=(3)|SpaceAfter=No|XML=<ref><w>
 25	-	-	PUNCT	HYPH	_	24	punct	24:punct	SpaceAfter=No
 26	translation	translation	NOUN	NN	Number=Sing	27	compound	27:compound	MSeg=translat-ion|XML=</w></ref>
@@ -221,7 +221,7 @@
 # s_type = decl
 # transition = continue
 # text = Sometime in this period, Nida became a founding charter member of Wycliffe Bible Translators, a related organization to the Summer Institute of Linguistics.
-1	Sometime	sometime	ADV	RB	_	7	advmod	7:advmod	Discourse=elaboration-additional:18->16:1:sem-synym-113,150-_+ref-dem-116-118,147-148-_|MSeg=Some-time|PDTB=Implicit:Expansion.Conjunction:furthermore:_:113-144:145-170
+1	Sometime	sometime	ADV	RB	_	7	advmod	7:advmod	Discourse=elaboration-additional:18->16:1:sem-synym-113,150-_+ref-dem-116-118,147-148-_|MSeg=Some-time|PDTB=Implicit:Expansion.Conjunction:also:_:113-144:145-170
 2	in	in	ADP	IN	_	4	case	4:case	XML=<date notBefore:::"1936" notAfter:::"1937">
 3	this	this	DET	DT	Number=Sing|PronType=Dem	4	det	4:det	Entity=(6
 4	period	period	NOUN	NN	Number=Sing	1	obl	1:obl:in	Entity=6)|SpaceAfter=No|XML=</date>
@@ -305,7 +305,7 @@
 14	Ana	Ana	PROPN	NNP	Number=Sing	11	nmod	11:nmod:of	SpaceAfter=No
 15	,	,	PUNCT	,	_	16	punct	16:punct	_
 16	California	California	PROPN	NNP	Number=Sing	14	nmod:unmarked	14:nmod:unmarked	Entity=10)9)(5)|XML=</ref>
-17	following	follow	VERB	VBG	Tense=Pres|VerbForm=Part	6	advcl	6:advcl	Discourse=context-circumstance:22->21:0:lex-indwd-214-_+syn-pres-214-_|MSeg=follow-ing|PDTB=Implicit:Temporal.Asynchronous.Succession:when:_:198-213:214-221
+17	following	follow	VERB	VBG	Tense=Pres|VerbForm=Part	6	advcl	6:advcl	Discourse=context-circumstance:22->21:0:syn-pres-214-_+lex-indwd-214-_|MSeg=follow-ing|PDTB=Implicit:Temporal.Asynchronous.Succession:when:_:198-213:214-221
 18	the	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	_
 19	resignation	resignation	NOUN	NN	Number=Sing	17	obj	17:obj	MSeg=resign-ation
 20	of	of	ADP	IN	_	23	case	23:case	_
@@ -319,7 +319,7 @@
 # s_type = decl
 # transition = continue
 # text = Despite his conservative background, in later years Nida became increasingly ecumenical and New Evangelical (clarification needed) in his approach.
-1	Despite	despite	ADP	IN	_	4	case	4:case	Discourse=adversative-concession:23->24:2:dm-despite-222-gold|MSeg=De-spite
+1	Despite	despite	ADP	IN	_	4	case	4:case	Discourse=adversative-concession:23->24:2:dm-despite-222-gold+sem-mrnym-223,228-229-_|MSeg=De-spite|PDTB=Implicit:Temporal.Asynchronous.Precedence:then:_:198-221:222-244
 2	his	his	PRON	PRP$	Case=Gen|Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs	4	nmod:poss	4:nmod:poss	Entity=(9)
 3	conservative	conservative	ADJ	JJ	Degree=Pos	4	amod	4:amod	MSeg=conserv-ative
 4	background	background	NOUN	NN	Number=Sing	10	obl	10:obl:despite	MSeg=back-ground|SpaceAfter=No
@@ -335,7 +335,7 @@
 14	New	New	PROPN	NNP	Number=Sing	15	compound	15:compound	_
 15	Evangelical	Evangelical	PROPN	NNP	Number=Sing	12	conj	10:xcomp|12:conj:and	MSeg=Evangelic-al
 16	(	(	PUNCT	-LRB-	_	17	punct	17:punct	Discourse=adversative-concession:25->24:0:_|SpaceAfter=No
-17	clarification	clarification	NOUN	NN	Number=Sing	15	dep	15:dep	MSeg=clar-ification
+17	clarification	clarification	NOUN	NN	Number=Sing	15	parataxis	15:parataxis	MSeg=clar-ification
 18	needed	need	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	17	acl	17:acl	MSeg=need-ed|SpaceAfter=No
 19	)	)	PUNCT	-RRB-	_	17	punct	17:punct	_
 20	in	in	ADP	IN	_	22	case	22:case	Discourse=same-unit_m:26->24:1:_
@@ -621,7 +621,7 @@
 6	translation	translation	NOUN	NN	Number=Sing	7	compound	7:compound	MSeg=translat-ion
 7	theory	theory	NOUN	NN	Number=Sing	4	nmod	4:nmod:to	Entity=2)
 8	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	10	cop	10:cop	_
-9	Dynamic	Dynamic	ADJ	NNP	Degree=Pos	10	amod	10:amod	_
+9	Dynamic	Dynamic	ADJ	NNP	Degree=Pos	10	amod	10:amod	MSeg=Dynam-ic
 10	Equivalence	Equivalence	PROPN	NNP	Number=Sing	0	root	0:root	MSeg=Equi-valen-ce|SpaceAfter=No
 11	,	,	PUNCT	,	_	13	punct	13:punct	_
 12	also	also	ADV	RB	_	13	advmod	13:advmod	Discourse=elaboration-attribute:44->43:0:syn-mdf-441-_+dm-also-443-gold+syn-nmn-444-_
@@ -636,16 +636,16 @@
 # s_type = imp
 # transition = null
 # text = For more information, see "Dynamic and formal equivalence."
-1	For	for	ADP	IN	_	3	case	3:case	Discourse=elaboration-additional:45->43:1:sem-lxchn-440-441,460-gold|PDTB=Implicit:Expansion.Level-of-detail.Arg2-as-detail:in particular:_:432-448:449-460
+1	For	for	ADP	IN	_	3	case	3:case	Discourse=elaboration-additional:45->43:1:sem-lxchn-440-441,460-gold+sem-mrnym-446-447,450-451-_|PDTB=Implicit:Expansion.Level-of-detail.Arg2-as-detail:in particular:_:432-448:449-460
 2	more	more	ADJ	JJR	Degree=Cmp	3	amod	3:amod	_
 3	information	information	NOUN	NN	Number=Sing	5	obl	5:obl:for	MSeg=in-form-ation|SpaceAfter=No
 4	,	,	PUNCT	,	_	3	punct	3:punct	_
-5	see	see	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	_
+5	see	see	VERB	VB	Mood=Imp|Number=Sing|Person=2|VerbForm=Fin	0	root	0:root	_
 6	"	"	PUNCT	``	_	10	punct	10:punct	SpaceAfter=No|XML=<q>
-7	Dynamic	dynamic	ADJ	JJ	Degree=Pos	10	amod	10:amod	XML=<ref>
+7	Dynamic	dynamic	ADJ	JJ	Degree=Pos	10	amod	10:amod	MSeg=Dynam-ic|XML=<ref>
 8	and	and	CCONJ	CC	_	9	cc	9:cc	_
 9	formal	formal	ADJ	JJ	Degree=Pos	7	conj	7:conj:and|10:amod	MSeg=form-al
-10	equivalence	equivalence	NOUN	NN	Number=Sing	5	obj	5:obj	MSeg=equi-valen-ce|SpaceAfter=No|XML=</ref>
+10	equivalence	equivalence	NOUN	NN	Number=Sing	5	obj	5:obj	MSeg=equi-val-ence|SpaceAfter=No|XML=</ref>
 11	.	.	PUNCT	.	_	10	punct	10:punct	SpaceAfter=No
 12	"	"	PUNCT	''	_	10	punct	10:punct	XML=</q>
 
@@ -671,7 +671,7 @@
 15	to	to	PART	TO	_	16	mark	16:mark	Discourse=purpose-goal:48->47:0:syn-inf-475-_|PDTB=Implicit:Contingency.Purpose.Arg2-as-goal:in order:_:469-474:475-480
 16	help	help	VERB	VB	VerbForm=Inf	10	advcl	10:advcl:to	_
 17	determine	determine	VERB	VB	VerbForm=Inf	16	xcomp	16:xcomp	_
-18	equivalence	equivalence	NOUN	NN	Number=Sing	17	obj	17:obj	MSeg=equi-valen-ce
+18	equivalence	equivalence	NOUN	NN	Number=Sing	17	obj	17:obj	MSeg=equi-val-ence
 19	in	in	ADP	IN	_	20	case	20:case	_
 20	translation	translation	NOUN	NN	Number=Sing	18	nmod	18:nmod:in	MSeg=translat-ion
 21	(	(	PUNCT	-LRB-	_	26	punct	26:punct	Discourse=elaboration-additional:49->47:1:grf-prn-481,490-_+lex-indwd-482-_|SpaceAfter=No
@@ -724,9 +724,9 @@
 1-2	Nida's	_	_	_	_	_	_	_	_
 1	Nida	Nida	PROPN	NNP	Number=Sing	6	nmod:poss	6:nmod:poss	Discourse=elaboration-additional:52->38:3:sem-synym-360,514-515-_|Entity=(19(9
 2	's	's	PART	POS	_	1	case	1:case	Entity=9)
-3	dynamic	dynamic	ADJ	JJ	Degree=Pos	5	amod	5:amod	SpaceAfter=No|XML=<w>
+3	dynamic	dynamic	ADJ	JJ	Degree=Pos	5	amod	5:amod	MSeg=dynam-ic|SpaceAfter=No|XML=<w>
 4	-	-	PUNCT	HYPH	_	3	punct	3:punct	SpaceAfter=No
-5	equivalence	equivalence	NOUN	NN	Number=Sing	6	compound	6:compound	MSeg=equi-valen-ce|XML=</w>
+5	equivalence	equivalence	NOUN	NN	Number=Sing	6	compound	6:compound	MSeg=equi-val-ence|XML=</w>
 6	theory	theory	NOUN	NN	Number=Sing	9	nsubj:pass	9:nsubj:pass	Entity=19)
 7	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	9	aux:pass	9:aux:pass	_
 8	often	often	ADV	RB	Degree=Pos	9	advmod	9:advmod	_
@@ -781,7 +781,7 @@
 57	on	on	SCONJ	IN	_	58	mark	58:mark	_
 58	achieving	achieve	VERB	VBG	Tense=Pres|VerbForm=Part	56	advcl	56:advcl:on	MSeg=achiev-ing
 59	semantic	semantic	ADJ	JJ	Degree=Pos	60	amod	60:amod	_
-60	equivalence	equivalence	NOUN	NN	Number=Sing	58	obj	58:obj	MSeg=equi-valen-ce|SpaceAfter=No
+60	equivalence	equivalence	NOUN	NN	Number=Sing	58	obj	58:obj	MSeg=equi-val-ence|SpaceAfter=No
 61	)	)	PUNCT	-RRB-	_	56	punct	56:punct	SpaceAfter=No
 62	.	.	PUNCT	.	_	9	punct	9:punct	_
 
@@ -889,7 +889,7 @@
 # s_type = decl
 # transition = null
 # text = While the impact of a translation may be close to the original, there can be no identity in detail.
-1	While	while	SCONJ	IN	_	9	mark	9:mark	Discourse=adversative-concession:70->71:0:dm-while-659-gold+lex-indwd-665-_|PDTB=Explicit:Comparison.Concession.Arg1-as-denier:while:659:672-679:660-671
+1	While	while	SCONJ	IN	_	9	mark	9:mark	Discourse=adversative-concession:70->71:0:dm-while-659-gold+sem-mrnym-663-664,678-_+lex-indwd-665-_|PDTB=Explicit:Comparison.Concession.Arg1-as-denier:while:659:672-679:660-671
 2	the	the	DET	DT	Definite=Def|PronType=Art	3	det	3:det	_
 3	impact	impact	NOUN	NN	Number=Sing	9	nsubj	9:nsubj	_
 4	of	of	ADP	IN	_	6	case	6:case	_
@@ -906,7 +906,7 @@
 15	can	can	AUX	MD	VerbForm=Fin	16	aux	16:aux	_
 16	be	be	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Existential-CopPred-ThereExpl
 17	no	no	DET	DT	PronType=Neg	18	det	18:det	Negation=Yes
-18	identity	identity	NOUN	NN	Number=Sing	16	nsubj	16:nsubj	CxnElt=16:Existential-CopPred-ThereExpl.Pivot
+18	identity	identity	NOUN	NN	Number=Sing	16	nsubj	16:nsubj	CxnElt=16:Existential-CopPred-ThereExpl.Pivot|MSeg=ident-ity
 19	in	in	ADP	IN	_	20	case	20:case	_
 20	detail	detail	NOUN	NN	Number=Sing	18	nmod	18:nmod:in	SpaceAfter=No
 21	.	.	PUNCT	.	_	16	punct	16:punct	_
@@ -919,7 +919,7 @@
 # transition = null
 # text = Nida then sets forth the differences in translation, as he would account for it, within three basic factors:
 1	Nida	Nida	PROPN	NNP	Number=Sing	3	nsubj	3:nsubj	Discourse=organization-preparation:72->76:3:grf-col-700-_;joint-sequence:72->63:1:3:orp-then-681-gold|Entity=(9)
-2	then	then	ADV	RB	PronType=Dem	3	advmod	3:advmod	_
+2	then	then	ADV	RB	PronType=Dem	3	advmod	3:advmod	PDTB=Explicit:Temporal.Asynchronous.Precedence:then:681:576-647:680,682-700
 3	sets	set	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	MSeg=set-s
 4	forth	forth	ADP	RP	_	3	compound:prt	3:compound:prt	_
 5	the	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(23
@@ -958,13 +958,13 @@
 9	some	some	DET	DT	PronType=Ind	10	det	10:det	_
 10	messages	message	NOUN	NNS	Number=Plur	16	obl	16:obl:in	MSeg=message-s
 11	the	the	DET	DT	Definite=Def|PronType=Art	12	det	12:det	_
-12	content	content	NOUN	NN	Number=Sing	16	nsubj	16:nsubj	_
+12	content	content	NOUN	NN	Number=Sing	16	nsubj	16:nsubj	MSeg=cont-ent
 13	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	16	cop	16:cop	_
 14	of	of	ADP	IN	_	16	case	16:case	_
 15	primary	primary	ADJ	JJ	Degree=Pos	16	amod	16:amod	MSeg=prim-ary
 16	consideration	consideration	NOUN	NN	Number=Sing	3	parataxis	3:parataxis	MSeg=consider-ation|SpaceAfter=No
 17	,	,	PUNCT	,	_	25	punct	25:punct	_
-18	and	and	CCONJ	CC	_	25	cc	25:cc	Discourse=adversative-contrast_m:77->76:0:dm-and-718-gold|PDTB=Explicit:Comparison.Contrast:and:718:708-717:719-729
+18	and	and	CCONJ	CC	_	25	cc	25:cc	Discourse=adversative-contrast_m:77->76:0:ref-cmp-711-712,720-_+sem-mrnym-711-712,726-728-_+dm-and-718-gold|PDTB=Explicit:Comparison.Contrast:and:718:708-717:719-729
 19	in	in	ADP	IN	_	20	case	20:case	_
 20	others	other	NOUN	NNS	Number=Plur	25	obl	25:obl:in	MSeg=other-s
 21	the	the	DET	DT	Definite=Def|PronType=Art	22	det	22:det	_
@@ -995,14 +995,14 @@
 9	the	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	Entity=(25
 10	translator	translator	NOUN	NN	Number=Sing	6	conj	3:nmod:of|6:conj:and	Entity=25)|MSeg=translat-or|SpaceAfter=No
 11	:	:	PUNCT	:	_	13	punct	13:punct	_
-12	to	to	PART	TO	_	13	mark	13:mark	Discourse=joint-list_m:79->76:2:grf-seq-701,730-_
+12	to	to	PART	TO	_	13	mark	13:mark	Discourse=joint-list_m:79->76:2:grf-seq-701,730-_+sem-mrnym-709-710,734-735-_+sem-mrnym-709-710,756-757-_
 13	give	give	VERB	VB	VerbForm=Inf	3	parataxis	3:parataxis	_
 14	information	information	NOUN	NN	Number=Sing	13	obj	13:obj	MSeg=in-form-ation
 15	on	on	ADP	IN	_	17	case	17:case	_
 16	both	both	CCONJ	CC	_	17	cc:preconj	17:cc:preconj	_
 17	form	form	NOUN	NN	Number=Sing	13	obl	13:obl:on	_
 18	and	and	CCONJ	CC	_	19	cc	19:cc	_
-19	content	content	NOUN	NN	Number=Sing	17	conj	13:obl:on|17:conj:and	SpaceAfter=No
+19	content	content	NOUN	NN	Number=Sing	17	conj	13:obl:on|17:conj:and	MSeg=cont-ent|SpaceAfter=No
 20	;	;	PUNCT	:	_	22	punct	22:punct	_
 21	to	to	PART	TO	_	22	mark	22:mark	Discourse=joint-list_m:80->79:0:grf-semcol-749,770-_|PDTB=Implicit:Expansion.Conjunction:and:_:741-749:750-770
 22	aim	aim	VERB	VB	VerbForm=Inf	13	conj	13:conj	_
@@ -1025,7 +1025,7 @@
 39	the	the	DET	DT	Definite=Def|PronType=Art	40	det	40:det	Entity=(24
 40	message	message	NOUN	NN	Number=Sing	37	nmod	37:nmod:of	Entity=24)|SpaceAfter=No
 41	;	;	PUNCT	:	_	44	punct	44:punct	_
-42	for	for	ADP	IN	_	44	case	44:case	Discourse=joint-list_m:82->79:0:_
+42	for	for	ADP	IN	_	44	case	44:case	Discourse=joint-list_m:82->79:0:sem-mrnym-756-757,780-781-_
 43	imperative	imperative	ADJ	JJ	Degree=Pos	44	amod	44:amod	_
 44	purposes	purpose	NOUN	NNS	Number=Plur	13	conj	13:conj|46:nsubj	MSeg=purpose-s
 45	that	that	PRON	WDT	PronType=Rel	46	nsubj	44:ref	Discourse=elaboration-attribute:83->82:0:syn-mdf-773-_+syn-relcl-774-775-_+syn-pres-779-_
@@ -1060,7 +1060,7 @@
 4	of	of	ADP	IN	_	5	case	5:case	_
 5	audience	audience	NOUN	NN	Number=Sing	3	nmod	3:nmod:of	SpaceAfter=No
 6	:	:	PUNCT	:	_	9	punct	9:punct	_
-7	prospective	prospective	ADJ	JJ	Degree=Pos	8	amod	8:amod	Discourse=joint-list_m:86->76:2:sem-mrnym-702-706,793-796-_+sem-mrnym-731-739,793-796-_+grf-seq-792-_|MSeg=prospect-ive
+7	prospective	prospective	ADJ	JJ	Degree=Pos	8	amod	8:amod	Discourse=joint-list_m:86->76:2:sem-mrnym-738-739,796-_+grf-seq-792-_|MSeg=prospect-ive
 8	audiences	audience	NOUN	NNS	Number=Plur	9	nsubj	9:nsubj	MSeg=audience-s
 9	differ	differ	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	3	parataxis	3:parataxis	_
 10	both	both	CCONJ	CC	_	13	cc:preconj	13:cc:preconj	_
@@ -1095,7 +1095,7 @@
 13	as	as	ADP	IN	_	16	case	16:case	_
 14	"	"	PUNCT	``	_	16	punct	16:punct	SpaceAfter=No|XML=<q>
 15	identical	identical	ADJ	JJ	Degree=Pos	16	amod	16:amod	MSeg=identic-al
-16	equivalents	equivalent	NOUN	NNS	Number=Plur	12	nmod	12:nmod:as	MSeg=equivalent-s|SpaceAfter=No
+16	equivalents	equivalent	NOUN	NNS	Number=Plur	12	nmod	12:nmod:as	MSeg=equi-val-ent-s|SpaceAfter=No
 17	"	"	PUNCT	''	_	16	punct	16:punct	XML=</q>
 18	in	in	SCONJ	IN	_	19	mark	19:mark	_
 19	translating	translate	VERB	VBG	VerbForm=Ger	16	acl	16:acl:in	MSeg=translat-ing|SpaceAfter=No
@@ -1137,7 +1137,7 @@
 12	different	different	ADJ	JJ	Degree=Pos	13	amod	13:amod	MSeg=differ-ent
 13	types	type	NOUN	NNS	Number=Plur	9	obl	9:obl:on	MSeg=type-s
 14	of	of	ADP	IN	_	15	case	15:case	_
-15	equivalence	equivalence	NOUN	NN	Number=Sing	13	nmod	13:nmod:of	Entity=28)|MSeg=equi-valen-ce|SpaceAfter=No
+15	equivalence	equivalence	NOUN	NN	Number=Sing	13	nmod	13:nmod:of	Entity=28)|MSeg=equi-val-ence|SpaceAfter=No
 16	:	:	PUNCT	:	_	3	punct	3:punct	_
 
 # sent_id = GUM_bio_nida-38
@@ -1153,7 +1153,7 @@
 6	E	E	PROPN	NNP	Number=Sing	4	flat	4:flat	SpaceAfter=No|XML=</w>
 7	)	)	PUNCT	-RRB-	_	4	punct	4:punct	Entity=29)
 8	and	and	CCONJ	CC	_	10	cc	10:cc	Discourse=same-unit_m:95->93:1:_
-9	Dynamic	Dynamic	ADJ	NNP	Degree=Pos	10	amod	10:amod	_
+9	Dynamic	Dynamic	ADJ	NNP	Degree=Pos	10	amod	10:amod	MSeg=Dynam-ic
 10	Equivalence	Equivalence	PROPN	NNP	Number=Sing	2	conj	2:conj:and	MSeg=Equi-valen-ce
 11	(	(	PUNCT	-LRB-	_	12	punct	12:punct	Discourse=restatement-partial:96->95:0:sem-synym-871-872,874-876-_+grf-prn-873,877-_|SpaceAfter=No
 12	D	D	PROPN	NNP	Number=Sing	10	appos	10:appos	SpaceAfter=No|XML=<w>
@@ -1183,7 +1183,7 @@
 12	both	both	CCONJ	CC	_	13	cc:preconj	13:cc:preconj	Entity=(30
 13	form	form	NOUN	NN	Number=Sing	4	obl	4:obl:in	Entity=(31)
 14	and	and	CCONJ	CC	_	15	cc	15:cc	_
-15	content	content	NOUN	NN	Number=Sing	13	conj	4:obl:in|13:conj:and	Entity=30)|SpaceAfter=No
+15	content	content	NOUN	NN	Number=Sing	13	conj	4:obl:in|13:conj:and	Entity=30)|MSeg=cont-ent|SpaceAfter=No
 16	.	.	PUNCT	.	_	4	punct	4:punct	_
 
 # sent_id = GUM_bio_nida-40
@@ -1191,7 +1191,7 @@
 # s_type = sub
 # transition = zero
 # text = Such translations then would be concerned with such correspondences as poetry to poetry, sentence to sentence, and concept to concept.
-1	Such	such	ADJ	JJ	_	2	amod	2:amod	Discourse=elaboration-additional:98->97:0:_
+1	Such	such	ADJ	JJ	_	2	amod	2:amod	Discourse=elaboration-additional:98->97:0:sem-mrnym-879-881,895-896-_
 2	translations	translation	NOUN	NNS	Number=Plur	6	nsubj:pass	6:nsubj:pass	MSeg=translat-ion-s
 3	then	then	ADV	RB	PronType=Dem	6	advmod	6:advmod	PDTB=Explicit:Contingency.Cause.Result:then:897:879-894:895-896,898-917
 4	would	would	AUX	MD	VerbForm=Fin	6	aux	6:aux	_
@@ -1220,7 +1220,7 @@
 # s_type = decl
 # transition = establishment
 # text = Such a formal orientation that typifies this type of structural equivalence is called a "gloss translation" in which the translator aims at reproducing as literally and meaningfully as possible the form and content of the original.
-1	Such	such	DET	PDT	PronType=Dem	4	det:predet	4:det:predet	Discourse=elaboration-additional:99->97:1:sem-rpt-890-893,949-955-_+sem-rpt-891,949-950-_+sem-synym-893,952-955-_;explanation-justify:99->106:2:1:orp-then-966-gold|PDTB=EntRel:EntRel:_:_:895-917:918-956
+1	Such	such	DET	PDT	PronType=Ind	4	det:predet	4:det:predet	Discourse=elaboration-additional:99->97:1:sem-rpt-890-893,949-955-_+sem-rpt-891,949-950-_+sem-synym-893,952-955-_;explanation-justify:99->106:2:1:orp-then-966-gold|PDTB=Implicit:Expansion.Level-of-detail.Arg2-as-detail:in fact:_:895-917:918-956
 2	a	a	DET	DT	Definite=Ind|PronType=Art	4	det	4:det	_
 3	formal	formal	ADJ	JJ	Degree=Pos	4	amod	4:amod	MSeg=form-al
 4	orientation	orientation	NOUN	NN	Number=Sing	13	nsubj:pass	6:nsubj|13:nsubj:pass|17:nsubj:xsubj	MSeg=orient-ation
@@ -1230,7 +1230,7 @@
 8	type	type	NOUN	NN	Number=Sing	6	obj	6:obj	_
 9	of	of	ADP	IN	_	11	case	11:case	_
 10	structural	structural	ADJ	JJ	Degree=Pos	11	amod	11:amod	MSeg=structur-al
-11	equivalence	equivalence	NOUN	NN	Number=Sing	8	nmod	8:nmod:of	Entity=32)|MSeg=equi-valen-ce
+11	equivalence	equivalence	NOUN	NN	Number=Sing	8	nmod	8:nmod:of	Entity=32)|MSeg=equi-val-ence
 12	is	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	13	aux:pass	13:aux:pass	Discourse=same-unit_m:101->99:1:_
 13	called	call	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	MSeg=call-ed
 14	a	a	DET	DT	Definite=Ind|PronType=Art	17	det	17:det	_
@@ -1254,7 +1254,7 @@
 32	the	the	DET	DT	Definite=Def|PronType=Art	33	det	33:det	Entity=(30(31
 33	form	form	NOUN	NN	Number=Sing	25	obj	25:obj	Entity=31)
 34	and	and	CCONJ	CC	_	35	cc	35:cc	_
-35	content	content	NOUN	NN	Number=Sing	33	conj	25:obj|33:conj:and	_
+35	content	content	NOUN	NN	Number=Sing	33	conj	25:obj|33:conj:and	MSeg=cont-ent
 36	of	of	ADP	IN	_	38	case	38:case	_
 37	the	the	DET	DT	Definite=Def|PronType=Art	38	det	38:det	Entity=(22
 38	original	original	NOUN	NN	Number=Sing	33	nmod	33:nmod:of	Entity=22)30)|MSeg=origin-al|SpaceAfter=No

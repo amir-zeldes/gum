@@ -3,7 +3,7 @@
 #T_RL=webanno.custom.Coref|type|BT_webanno.custom.Referent
 #Summary1=(human1) This guide gives three methods of making Skittles flavored vodka, by choosing desired Skittles flavors and colors (often without lime green and grape purple) and dissolving them in vodka shots followed by filtering, or by making an entire bottle the same way over two days, or more quickly by placing bottles in a running dishwasher and shaking them.
 #Summary2=(claude-3-5-sonnet-20241022) This article provides three methods for infusing vodka with Skittles candy - a single serving shot method, a bottle infusion method, and a dishwasher method - each involving separating Skittles by color, dissolving them in vodka, filtering out solids, and chilling the flavored result.
-#Summary3=(gpt4o) This guide describes making Skittles vodka using three methods: single shots, bottles, and a dishwasher method. It involves dissolving Skittles in vodka, straining out residue, and experimenting with ratios for flavor customization. Tips are given for quicker preparation, using filters and funnels, while emphasizing responsible drinking.
+#Summary3=(gpt4o; postedited) This guide describes making Skittles vodka using three methods: single shots, bottles, and a dishwasher method, involving dissolving Skittles in vodka, straining out residue, and experimenting with ratios for flavor customization, with tips given for quicker preparation, using filters and funnels, while emphasizing responsible drinking.
 #Summary4=(Llama-3.2-3B-Instruct) This article provides three methods for making Skittles vodka: a single serving method, a bottle method, and a dishwasher bottle method, each with its own set of instructions and tips for creating a flavored and colorful vodka.
 #Summary5=(Qwen2.5-7B-Instruct) Making Skittles Vodka involves infusing vodka with crushed Skittles of desired colors for varying lengths of time, filtering out the candy pieces, and optionally using different methods such as shaking in a dishwasher or letting the mixture sit in the fridge.
 
@@ -12,19 +12,19 @@
 1-1	0-3	How	_	_	_	_	_	_	_	
 1-2	4-6	to	_	_	_	_	_	_	_	
 1-3	7-11	Make	_	_	_	_	_	_	_	
-1-4	12-20	Skittles	substance[1]|object[2]	new[1]|new[2]	sssss[1]|sssss[2]	Skittles_%28confectionery%29[2]	cf1[1]|cf2[2]	coref|coref	3-4[8_1]|5-2[18_2]	
+1-4	12-20	Skittles	substance[1]|object[2]	new[1]|new[2]	sssss[1]|sssss[2]	Skittles_%28confectionery%29[2]	cf1[1]|cf2[2]	coref|bridge:entity-associative|bridge:comparison-sense|coref	3-4[8_1]|2-1[4_1]|2-4[5_1]|5-2[18_2]	
 1-5	21-26	Vodka	substance[1]	new[1]	sssss[1]	_	cf1[1]	_	_	
 
 #Text=Three Methods : Single Serving ( 25 mL Shot )
-2-1	27-32	Three	abstract[4]	new[4]	sssss[4]	_	cf2[4]	coref	8-2[48_4]	
-2-2	33-40	Methods	abstract[4]	new[4]	sssss[4]	_	cf2[4]	_	_	
+2-1	27-32	Three	abstract[4]	acc:inf[4]	sssss[4]	_	cf2[4]	coref|bridge:set-member	8-2[48_4]|4-1[10_4]	
+2-2	33-40	Methods	abstract[4]	acc:inf[4]	sssss[4]	_	cf2[4]	_	_	
 2-3	41-42	:	_	_	_	_	_	_	_	
-2-4	43-49	Single	substance[5]	new[5]	nsnsn[5]	_	cf1[5]	appos	2-7[6_5]	
-2-5	50-57	Serving	substance[5]	new[5]	nsnsn[5]	_	cf1[5]	_	_	
+2-4	43-49	Single	substance[5]	acc:inf[5]	ssnsn[5]	_	cf1[5]	appos	2-7[6_5]	
+2-5	50-57	Serving	substance[5]	acc:inf[5]	ssnsn[5]	_	cf1[5]	_	_	
 2-6	58-59	(	_	_	_	_	_	_	_	
-2-7	60-62	25	substance[6]	giv:act[6]	nsnsn[6]	_	cf1[6]	coref	12-6[70_6]	
-2-8	63-65	mL	substance[6]	giv:act[6]	nsnsn[6]	_	cf1[6]	_	_	
-2-9	66-70	Shot	substance[6]	giv:act[6]	nsnsn[6]	_	cf1[6]	_	_	
+2-7	60-62	25	substance[6]	giv:act[6]	ssnsn[6]	_	cf1[6]	coref	12-6[70_6]	
+2-8	63-65	mL	substance[6]	giv:act[6]	ssnsn[6]	_	cf1[6]	_	_	
+2-9	66-70	Shot	substance[6]	giv:act[6]	ssnsn[6]	_	cf1[6]	_	_	
 2-10	71-72	)	_	_	_	_	_	_	_	
 
 #Text=Bottles of " Skittled "
@@ -35,69 +35,69 @@
 3-5	95-96	"	object[7]	new[7]	nnnnn[7]	_	cf2[7]	_	_	
 
 #Text=Vodka Dishwasher Bottle Method
-4-1	97-102	Vodka	abstract[10]|object[11]|substance[12]	new[10]|new[11]|new[12]	nsssn[10]|nnnsn[11]|sssss[12]	_	cf1[10]|cf2[11]|cf3[12]	coref|coref|coref	31-1[165_10]|31-6[169_11]|6-20[33_12]	
-4-2	103-113	Dishwasher	abstract[10]|object[11]|object[13]	new[10]|new[11]|new[13]	nsssn[10]|nnnsn[11]|ssnnn[13]	_	cf1[10]|cf2[11]|cf4[13]	coref	31-6[170_13]	
-4-3	114-120	Bottle	abstract[10]|object[11]	new[10]|new[11]	nsssn[10]|nnnsn[11]	_	cf1[10]|cf2[11]	_	_	
-4-4	121-127	Method	abstract[10]	new[10]	nsssn[10]	_	cf1[10]	_	_	
+4-1	97-102	Vodka	abstract[10]|object[11]|substance[12]	acc:inf[10]|new[11]|new[12]	nsssn[10]|nnnsn[11]|sssss[12]	_	cf1[10]|cf2[11]|cf3[12]	coref|coref|coref	31-1[165_10]|31-6[169_11]|6-20[33_12]	
+4-2	103-113	Dishwasher	abstract[10]|object[11]|object[13]	acc:inf[10]|new[11]|new[13]	nsssn[10]|nnnsn[11]|sssss[13]	_	cf1[10]|cf2[11]|cf4[13]	coref	31-6[170_13]	
+4-3	114-120	Bottle	abstract[10]|object[11]	acc:inf[10]|new[11]	nsssn[10]|nnnsn[11]	_	cf1[10]|cf2[11]	_	_	
+4-4	121-127	Method	abstract[10]	acc:inf[10]	nsssn[10]	_	cf1[10]	_	_	
 
 #Text=Making Skittles vodka is a fun way to add a splash of fruity flavor and color to regular vodka .
 5-1	128-134	Making	event[16]	new[16]	nnnnn[16]	_	cf1[16]	pred	5-5[20_16]	
-5-2	135-143	Skittles	event[16]|substance[17]|object[18]	new[16]|giv:inact[17]|giv:inact[18]	nnnnn[16]|sssss[17]|sssss[18]	Skittles_%28confectionery%29[18]	cf1[16]|cf2[17]|cf3[18]	coref|coref	7-5[39_17]|7-6[41_18]	
+5-2	135-143	Skittles	event[16]|substance[17]|object[18]	new[16]|giv:inact[17]|giv:inact[18]	nnnnn[16]|sssss[17]|sssss[18]	Skittles_%28confectionery%29[18]	cf1[16]|cf2[17]|cf3[18]	coref|coref	7-5[39_17]|6-12[31_18]	
 5-3	144-149	vodka	event[16]|substance[17]	new[16]|giv:inact[17]	nnnnn[16]|sssss[17]	_	cf1[16]|cf2[17]	_	_	
 5-4	150-152	is	_	_	_	_	_	_	_	
-5-5	153-154	a	event[20]	giv:act[20]	n____[20]	_	cf1[20]	_	_	
-5-6	155-158	fun	event[20]	giv:act[20]	n____[20]	_	cf1[20]	_	_	
-5-7	159-162	way	event[20]	giv:act[20]	n____[20]	_	cf1[20]	_	_	
-5-8	163-165	to	event[20]	giv:act[20]	n____[20]	_	cf1[20]	_	_	
-5-9	166-169	add	event[20]	giv:act[20]	n____[20]	_	cf1[20]	_	_	
-5-10	170-171	a	event[20]|abstract[21]	giv:act[20]|new[21]	n____[20]|nnnnn[21]	_	cf1[20]|cf4[21]	_	_	
-5-11	172-178	splash	event[20]|abstract[21]	giv:act[20]|new[21]	n____[20]|nnnnn[21]	_	cf1[20]|cf4[21]	_	_	
-5-12	179-181	of	event[20]|abstract[21]	giv:act[20]|new[21]	n____[20]|nnnnn[21]	_	cf1[20]|cf4[21]	_	_	
-5-13	182-188	fruity	event[20]|abstract[21]	giv:act[20]|new[21]	n____[20]|nnnnn[21]	_	cf1[20]|cf4[21]	_	_	
-5-14	189-195	flavor	event[20]|abstract[21]	giv:act[20]|new[21]	n____[20]|nnnnn[21]	_	cf1[20]|cf4[21]	_	_	
-5-15	196-199	and	event[20]	giv:act[20]	n____[20]	_	cf1[20]	_	_	
-5-16	200-205	color	event[20]|abstract[22]	giv:act[20]|new[22]	n____[20]|nnnnn[22]	_	cf1[20]|cf5[22]	_	_	
-5-17	206-208	to	event[20]	giv:act[20]	n____[20]	_	cf1[20]	_	_	
-5-18	209-216	regular	event[20]|substance[24]	giv:act[20]|new[24]	n____[20]|nnnnn[24]	_	cf1[20]|cf6[24]	_	_	
-5-19	217-222	vodka	event[20]|substance[24]	giv:act[20]|new[24]	n____[20]|nnnnn[24]	_	cf1[20]|cf6[24]	_	_	
+5-5	153-154	a	event[20]	giv:act[20]	nnnnn[20]	_	cf1[20]	_	_	
+5-6	155-158	fun	event[20]	giv:act[20]	nnnnn[20]	_	cf1[20]	_	_	
+5-7	159-162	way	event[20]	giv:act[20]	nnnnn[20]	_	cf1[20]	_	_	
+5-8	163-165	to	event[20]	giv:act[20]	nnnnn[20]	_	cf1[20]	_	_	
+5-9	166-169	add	event[20]	giv:act[20]	nnnnn[20]	_	cf1[20]	_	_	
+5-10	170-171	a	event[20]|abstract[21]	giv:act[20]|new[21]	nnnnn[20]|nnnnn[21]	_	cf1[20]|cf4[21]	_	_	
+5-11	172-178	splash	event[20]|abstract[21]	giv:act[20]|new[21]	nnnnn[20]|nnnnn[21]	_	cf1[20]|cf4[21]	_	_	
+5-12	179-181	of	event[20]|abstract[21]	giv:act[20]|new[21]	nnnnn[20]|nnnnn[21]	_	cf1[20]|cf4[21]	_	_	
+5-13	182-188	fruity	event[20]|abstract[21]	giv:act[20]|new[21]	nnnnn[20]|nnnnn[21]	_	cf1[20]|cf4[21]	_	_	
+5-14	189-195	flavor	event[20]|abstract[21]	giv:act[20]|new[21]	nnnnn[20]|nnnnn[21]	_	cf1[20]|cf4[21]	_	_	
+5-15	196-199	and	event[20]	giv:act[20]	nnnnn[20]	_	cf1[20]	_	_	
+5-16	200-205	color	event[20]|abstract[22]	giv:act[20]|new[22]	nnnnn[20]|nnnnn[22]	_	cf1[20]|cf5[22]	_	_	
+5-17	206-208	to	event[20]	giv:act[20]	nnnnn[20]	_	cf1[20]	_	_	
+5-18	209-216	regular	event[20]|substance[24]	giv:act[20]|new[24]	nnnnn[20]|nnnnn[24]	_	cf1[20]|cf6[24]	_	_	
+5-19	217-222	vodka	event[20]|substance[24]	giv:act[20]|new[24]	nnnnn[20]|nnnnn[24]	_	cf1[20]|cf6[24]	_	_	
 5-20	223-224	.	_	_	_	_	_	_	_	
 
 #Text=All you need to do is place your favorite combination of Skittles candies into a glass or bottle of vodka and wait for it to infuse .
-6-1	225-228	All	abstract[25]	new[25]	nnnnn[25]	_	cf4[25]	_	_	
-6-2	229-232	you	abstract[25]|person[26]	new[25]|acc:com[26]	nnnnn[25]|nnnnn[26]	_	cf4[25]|cf2[26]	ana	6-8[29_26]	
-6-3	233-237	need	abstract[25]	new[25]	nnnnn[25]	_	cf4[25]	_	_	
-6-4	238-240	to	abstract[25]	new[25]	nnnnn[25]	_	cf4[25]	_	_	
-6-5	241-243	do	abstract[25]	new[25]	nnnnn[25]	_	cf4[25]	_	_	
+6-1	225-228	All	abstract[25]	new[25]	nnnnn[25]	_	cf5[25]	_	_	
+6-2	229-232	you	abstract[25]|person[26]	new[25]|acc:com[26]	nnnnn[25]|nnnnn[26]	_	cf5[25]|cf2[26]	ana	6-8[29_26]	
+6-3	233-237	need	abstract[25]	new[25]	nnnnn[25]	_	cf5[25]	_	_	
+6-4	238-240	to	abstract[25]	new[25]	nnnnn[25]	_	cf5[25]	_	_	
+6-5	241-243	do	abstract[25]	new[25]	nnnnn[25]	_	cf5[25]	_	_	
 6-6	244-246	is	_	_	_	_	_	_	_	
 6-7	247-252	place	_	_	_	_	_	_	_	
-6-8	253-257	your	object[28]|person[29]	new[28]|giv:act[29]	nnnnn[28]|n____[29]	_	cf1[28]|cf2[29]	ana|ana	6-24[34_28]|7-1[35_29]	
+6-8	253-257	your	object[28]|person[29]	new[28]|giv:act[29]	nnnnn[28]|nnnnn[29]	_	cf1[28]|cf2[29]	ana|ana	6-24[34_28]|7-1[35_29]	
 6-9	258-266	favorite	object[28]	new[28]	nnnnn[28]	_	cf1[28]	_	_	
 6-10	267-278	combination	object[28]	new[28]	nnnnn[28]	_	cf1[28]	_	_	
 6-11	279-281	of	object[28]	new[28]	nnnnn[28]	_	cf1[28]	_	_	
-6-12	282-290	Skittles	object[28]|object[31]	new[28]|new[31]	nnnnn[28]|nnnnn[31]	Skittles_%28confectionery%29[31]	cf1[28]|cf5[31]	_	_	
-6-13	291-298	candies	object[28]|object[31]	new[28]|new[31]	nnnnn[28]|nnnnn[31]	Skittles_%28confectionery%29[31]	cf1[28]|cf5[31]	_	_	
+6-12	282-290	Skittles	object[28]|object[31]	new[28]|giv:act[31]	nnnnn[28]|sssss[31]	Skittles_%28confectionery%29[31]	cf1[28]|cf3*[31]	coref	7-6[41_31]	
+6-13	291-298	candies	object[28]|object[31]	new[28]|giv:act[31]	nnnnn[28]|sssss[31]	Skittles_%28confectionery%29[31]	cf1[28]|cf3*[31]	_	_	
 6-14	299-303	into	_	_	_	_	_	_	_	
 6-15	304-305	a	object[32]	new[32]	nnnnn[32]	_	cf6[32]	_	_	
 6-16	306-311	glass	object[32]	new[32]	nnnnn[32]	_	cf6[32]	_	_	
 6-17	312-314	or	object[32]	new[32]	nnnnn[32]	_	cf6[32]	_	_	
 6-18	315-321	bottle	object[32]	new[32]	nnnnn[32]	_	cf6[32]	_	_	
 6-19	322-324	of	object[32]	new[32]	nnnnn[32]	_	cf6[32]	_	_	
-6-20	325-330	vodka	object[32]|substance[33]	new[32]|giv:inact[33]	nnnnn[32]|sssss[33]	_	cf6[32]|cf3[33]	coref	48-19[245_33]	
+6-20	325-330	vodka	object[32]|substance[33]	new[32]|giv:inact[33]	nnnnn[32]|sssss[33]	_	cf6[32]|cf4[33]	coref	48-19[245_33]	
 6-21	331-334	and	_	_	_	_	_	_	_	
 6-22	335-339	wait	_	_	_	_	_	_	_	
 6-23	340-343	for	_	_	_	_	_	_	_	
-6-24	344-346	it	object[34]	giv:act[34]	n____[34]	_	cf1[34]	_	_	
+6-24	344-346	it	object[34]	giv:act[34]	nnnnn[34]	_	cf1[34]	_	_	
 6-25	347-349	to	_	_	_	_	_	_	_	
 6-26	350-356	infuse	_	_	_	_	_	_	_	
 6-27	357-358	.	_	_	_	_	_	_	_	
 
 #Text=You can then use your Skittles vodka to make brightly - colored cocktails or even serve it as a sugary shot !
-7-1	359-362	You	person[35]	giv:act[35]	n____[35]	_	cf1*[35]	ana	7-5[40_35]	
+7-1	359-362	You	person[35]	giv:act[35]	nnnnn[35]	_	cf1*[35]	ana	7-5[40_35]	
 7-2	363-366	can	_	_	_	_	_	_	_	
 7-3	367-371	then	_	_	_	_	_	_	_	
 7-4	372-375	use	_	_	_	_	_	_	_	
-7-5	376-380	your	substance[39]|person[40]	giv:inact[39]|giv:act[40]	sssss[39]|n____[40]	_	cf2[39]|cf1*[40]	ana|ana	7-17[45_39]|8-14[53_40]	
-7-6	381-389	Skittles	substance[39]|object[41]	giv:inact[39]|giv:inact[41]	sssss[39]|sssss[41]	Skittles_%28confectionery%29[41]	cf2[39]|cf3[41]	coref	8-6[50_41]	
+7-5	376-380	your	substance[39]|person[40]	giv:inact[39]|giv:act[40]	sssss[39]|nnnnn[40]	_	cf2[39]|cf1*[40]	ana|ana	7-17[45_39]|8-14[53_40]	
+7-6	381-389	Skittles	substance[39]|object[41]	giv:inact[39]|giv:act[41]	sssss[39]|sssss[41]	Skittles_%28confectionery%29[41]	cf2[39]|cf3[41]	coref	8-6[50_41]	
 7-7	390-395	vodka	substance[39]	giv:inact[39]	sssss[39]	_	cf2[39]	_	_	
 7-8	396-398	to	_	_	_	_	_	_	_	
 7-9	399-403	make	_	_	_	_	_	_	_	
@@ -121,36 +121,36 @@
 8-3	483-490	methods	abstract[48]	giv:inact[48]	sssss[48]	_	cf4[48]	_	_	
 8-4	491-494	for	abstract[48]	giv:inact[48]	sssss[48]	_	cf4[48]	_	_	
 8-5	495-501	making	abstract[48]	giv:inact[48]	sssss[48]	_	cf4[48]	_	_	
-8-6	502-510	Skittles	abstract[48]|substance[49]|object[50]	giv:inact[48]|giv:act[49]|giv:act[50]	sssss[48]|sssss[49]|sssss[50]	Skittles_%28confectionery%29[50]	cf4[48]|cf2[49]|cf3[50]	coref|coref	23-8[143_49]|10-17[62_50]	
+8-6	502-510	Skittles	abstract[48]|substance[49]|object[50]	giv:inact[48]|giv:act[49]|giv:act[50]	sssss[48]|sssss[49]|sssss[50]	Skittles_%28confectionery%29[50]	cf4[48]|cf2[49]|cf3[50]	coref|bridge:entity-associative|bridge:comparison-sense|bridge:comparison-sense|bridge:comparison-sense|coref|bridge:entity-associative	23-8[143_49]|9-1[56_49]|20-11[125_49]|22-2[127_49]|22-19[134_49]|10-17[62_50]|8-18[55_50]	
 8-7	511-516	vodka	abstract[48]|substance[49]	giv:inact[48]|giv:act[49]	sssss[48]|sssss[49]	_	cf4[48]|cf2[49]	_	_	
 8-8	517-522	after	_	_	_	_	_	_	_	
-8-9	523-526	the	abstract[52]	new[52]	nnnnn[52]	_	cf6[52]	_	_	
-8-10	527-531	jump	abstract[52]	new[52]	nnnnn[52]	_	cf6[52]	_	_	
+8-9	523-526	the	abstract[52]	acc:com[52]	nnnnn[52]	_	cf6[52]	_	_	
+8-10	527-531	jump	abstract[52]	acc:com[52]	nnnnn[52]	_	cf6[52]	_	_	
 8-11	532-534	--	_	_	_	_	_	_	_	
 8-12	535-538	and	_	_	_	_	_	_	_	
 8-13	539-543	soon	_	_	_	_	_	_	_	
-8-14	544-547	you	person[53]	giv:act[53]	n____[53]	_	cf1*[53]	ana	13-7[75_53]	
+8-14	544-547	you	person[53]	giv:act[53]	nnnnn[53]	_	cf1*[53]	ana	13-7[75_53]	
 8-15	548-551	'll	_	_	_	_	_	_	_	
 8-16	552-554	be	_	_	_	_	_	_	_	
 8-17	555-562	tasting	_	_	_	_	_	_	_	
-8-18	563-566	the	abstract[55]	new[55]	nnnnn[55]	_	cf5[55]	_	_	
-8-19	567-574	rainbow	abstract[55]	new[55]	nnnnn[55]	_	cf5[55]	_	_	
+8-18	563-566	the	abstract[55]	acc:inf[55]	nnnnn[55]	_	cf5[55]	_	_	
+8-19	567-574	rainbow	abstract[55]	acc:inf[55]	nnnnn[55]	_	cf5[55]	_	_	
 8-20	575-576	!	_	_	_	_	_	_	_	
 
 #Text=Ingredients
-9-1	577-588	Ingredients	object[56]	new[56]	nnnnn[56]	_	cf1[56]	_	_	
+9-1	577-588	Ingredients	object[56]	acc:inf[56]	nnnnn[56]	_	cf1[56]	_	_	
 
 #Text=A handle ( 1.75 liters , about a half gallon ) of vodka per bag of Skittles
 10-1	589-590	A	substance[58]	new[58]	nnnnn[58]	_	cf1[58]	appos	10-4[59_58]	
 10-2	591-597	handle	substance[58]	new[58]	nnnnn[58]	_	cf1[58]	_	_	
 10-3	598-599	(	substance[58]	new[58]	nnnnn[58]	_	cf1[58]	_	_	
-10-4	600-604	1.75	substance[58]|substance[59]	new[58]|giv:act[59]	nnnnn[58]|n____[59]	_	cf1[58]|cf1[59]	coref	10-7[60_59]	
-10-5	605-611	liters	substance[58]|substance[59]	new[58]|giv:act[59]	nnnnn[58]|n____[59]	_	cf1[58]|cf1[59]	_	_	
+10-4	600-604	1.75	substance[58]|substance[59]	new[58]|giv:act[59]	nnnnn[58]|nnnnn[59]	_	cf1[58]|cf1[59]	coref	10-7[60_59]	
+10-5	605-611	liters	substance[58]|substance[59]	new[58]|giv:act[59]	nnnnn[58]|nnnnn[59]	_	cf1[58]|cf1[59]	_	_	
 10-6	612-613	,	substance[58]	new[58]	nnnnn[58]	_	cf1[58]	_	_	
-10-7	614-619	about	substance[58]|substance[60]	new[58]|giv:act[60]	nnnnn[58]|n____[60]	_	cf1[58]|cf1[60]	coref	13-11[77_60]	
-10-8	620-621	a	substance[58]|substance[60]	new[58]|giv:act[60]	nnnnn[58]|n____[60]	_	cf1[58]|cf1[60]	_	_	
-10-9	622-626	half	substance[58]|substance[60]	new[58]|giv:act[60]	nnnnn[58]|n____[60]	_	cf1[58]|cf1[60]	_	_	
-10-10	627-633	gallon	substance[58]|substance[60]	new[58]|giv:act[60]	nnnnn[58]|n____[60]	_	cf1[58]|cf1[60]	_	_	
+10-7	614-619	about	substance[58]|substance[60]	new[58]|giv:act[60]	nnnnn[58]|nnnnn[60]	_	cf1[58]|cf1[60]	coref	13-11[77_60]	
+10-8	620-621	a	substance[58]|substance[60]	new[58]|giv:act[60]	nnnnn[58]|nnnnn[60]	_	cf1[58]|cf1[60]	_	_	
+10-9	622-626	half	substance[58]|substance[60]	new[58]|giv:act[60]	nnnnn[58]|nnnnn[60]	_	cf1[58]|cf1[60]	_	_	
+10-10	627-633	gallon	substance[58]|substance[60]	new[58]|giv:act[60]	nnnnn[58]|nnnnn[60]	_	cf1[58]|cf1[60]	_	_	
 10-11	634-635	)	substance[58]	new[58]	nnnnn[58]	_	cf1[58]	_	_	
 10-12	636-638	of	substance[58]	new[58]	nnnnn[58]	_	cf1[58]	_	_	
 10-13	639-644	vodka	substance[58]	new[58]	nnnnn[58]	_	cf1[58]	_	_	
@@ -160,49 +160,49 @@
 10-17	656-664	Skittles	object[61]|object[62]	new[61]|giv:inact[62]	nnnnn[61]|sssss[62]	Skittles_%28confectionery%29[62]	cf3[61]|cf2[62]	coref	11-5[65_62]	
 
 #Text=A large bag of Skittles candy ( the " movie size " bag )
-11-1	665-666	A	object[64]	giv:act[64]	n____[64]	_	cf1*[64]	appos	11-8[66_64]	
-11-2	667-672	large	object[64]	giv:act[64]	n____[64]	_	cf1*[64]	_	_	
-11-3	673-676	bag	object[64]	giv:act[64]	n____[64]	_	cf1*[64]	_	_	
-11-4	677-679	of	object[64]	giv:act[64]	n____[64]	_	cf1*[64]	_	_	
-11-5	680-688	Skittles	object[64]|object[65]	giv:act[64]|giv:act[65]	n____[64]|sssss[65]	Skittles_%28confectionery%29[65]	cf1*[64]|cf2[65]	coref	41-16[216_65]	
-11-6	689-694	candy	object[64]|object[65]	giv:act[64]|giv:act[65]	n____[64]|sssss[65]	Skittles_%28confectionery%29[65]	cf1*[64]|cf2[65]	_	_	
+11-1	665-666	A	object[64]	giv:act[64]	nnnnn[64]	_	cf1*[64]	appos	11-8[66_64]	
+11-2	667-672	large	object[64]	giv:act[64]	nnnnn[64]	_	cf1*[64]	_	_	
+11-3	673-676	bag	object[64]	giv:act[64]	nnnnn[64]	_	cf1*[64]	_	_	
+11-4	677-679	of	object[64]	giv:act[64]	nnnnn[64]	_	cf1*[64]	_	_	
+11-5	680-688	Skittles	object[64]|object[65]	giv:act[64]|giv:act[65]	nnnnn[64]|sssss[65]	Skittles_%28confectionery%29[65]	cf1*[64]|cf2[65]	coref	41-16[216_65]	
+11-6	689-694	candy	object[64]|object[65]	giv:act[64]|giv:act[65]	nnnnn[64]|sssss[65]	Skittles_%28confectionery%29[65]	cf1*[64]|cf2[65]	_	_	
 11-7	695-696	(	_	_	_	_	_	_	_	
-11-8	697-700	the	object[66]	giv:act[66]	n____[66]	_	cf1*[66]	_	_	
-11-9	701-702	"	object[66]	giv:act[66]	n____[66]	_	cf1*[66]	_	_	
-11-10	703-708	movie	object[66]	giv:act[66]	n____[66]	_	cf1*[66]	_	_	
-11-11	709-713	size	object[66]	giv:act[66]	n____[66]	_	cf1*[66]	_	_	
-11-12	714-715	"	object[66]	giv:act[66]	n____[66]	_	cf1*[66]	_	_	
-11-13	716-719	bag	object[66]	giv:act[66]	n____[66]	_	cf1*[66]	_	_	
+11-8	697-700	the	object[66]	giv:act[66]	nnnnn[66]	_	cf1*[66]	_	_	
+11-9	701-702	"	object[66]	giv:act[66]	nnnnn[66]	_	cf1*[66]	_	_	
+11-10	703-708	movie	object[66]	giv:act[66]	nnnnn[66]	_	cf1*[66]	_	_	
+11-11	709-713	size	object[66]	giv:act[66]	nnnnn[66]	_	cf1*[66]	_	_	
+11-12	714-715	"	object[66]	giv:act[66]	nnnnn[66]	_	cf1*[66]	_	_	
+11-13	716-719	bag	object[66]	giv:act[66]	nnnnn[66]	_	cf1*[66]	_	_	
 11-14	720-721	)	_	_	_	_	_	_	_	
 
 #Text=Method 1 of 3 : Single Serving ( 25 mL Shot )
-12-1	722-728	Method	abstract[67]	new[67]	nnnnn[67]	_	cf3[67]	_	_	
-12-2	729-730	1	abstract[67]	new[67]	nnnnn[67]	_	cf3[67]	_	_	
-12-3	731-733	of	abstract[67]	new[67]	nnnnn[67]	_	cf3[67]	_	_	
-12-4	734-735	3	abstract[67]|abstract[68]	new[67]|giv:inact[68]	nnnnn[67]|sssss[68]	_	cf3[67]|cf2[68]	coref	23-4[140_68]	
+12-1	722-728	Method	abstract[67]	new[67]	nsnsn[67]	_	cf3[67]	_	_	
+12-2	729-730	1	abstract[67]	new[67]	nsnsn[67]	_	cf3[67]	_	_	
+12-3	731-733	of	abstract[67]	new[67]	nsnsn[67]	_	cf3[67]	_	_	
+12-4	734-735	3	abstract[67]|abstract[68]	new[67]|giv:inact[68]	nsnsn[67]|sssss[68]	_	cf3[67]|cf2[68]	coref	23-4[140_68]	
 12-5	736-737	:	_	_	_	_	_	_	_	
-12-6	738-744	Single	substance[70]	giv:inact[70]	nsnsn[70]	_	cf1[70]	coref	12-9[71_70]	
-12-7	745-752	Serving	substance[70]	giv:inact[70]	nsnsn[70]	_	cf1[70]	_	_	
+12-6	738-744	Single	substance[70]	giv:inact[70]	ssnsn[70]	_	cf1[70]	coref	12-9[71_70]	
+12-7	745-752	Serving	substance[70]	giv:inact[70]	ssnsn[70]	_	cf1[70]	_	_	
 12-8	753-754	(	_	_	_	_	_	_	_	
-12-9	755-757	25	substance[71]	giv:act[71]	nsnsn[71]	_	cf1[71]	coref	14-46[94_71]	
-12-10	758-760	mL	substance[71]	giv:act[71]	nsnsn[71]	_	cf1[71]	_	_	
-12-11	761-765	Shot	substance[71]	giv:act[71]	nsnsn[71]	_	cf1[71]	_	_	
+12-9	755-757	25	substance[71]	giv:act[71]	ssnsn[71]	_	cf1[71]	coref	14-46[94_71]	
+12-10	758-760	mL	substance[71]	giv:act[71]	ssnsn[71]	_	cf1[71]	_	_	
+12-11	761-765	Shot	substance[71]	giv:act[71]	ssnsn[71]	_	cf1[71]	_	_	
 12-12	766-767	)	_	_	_	_	_	_	_	
 
 #Text=Separate the colors of Skittles that you want to flavor the vodka with .
 13-1	768-776	Separate	event[72]	new[72]	nnnnn[72]	_	cf4[72]	disc	16-13[106_72]	
-13-2	777-780	the	event[72]|abstract[73]	new[72]|new[73]	nnnnn[72]|snnnn[73]	_	cf4[72]|cf3[73]	_	_	
-13-3	781-787	colors	event[72]|abstract[73]	new[72]|new[73]	nnnnn[72]|snnnn[73]	_	cf4[72]|cf3[73]	_	_	
-13-4	788-790	of	event[72]|abstract[73]	new[72]|new[73]	nnnnn[72]|snnnn[73]	_	cf4[72]|cf3[73]	_	_	
-13-5	791-799	Skittles	event[72]|abstract[73]|object[74]	new[72]|new[73]|new[74]	nnnnn[72]|snnnn[73]|nnnnn[74]	_	cf4[72]|cf3[73]|cf5[74]	_	_	
-13-6	800-804	that	event[72]|abstract[73]|object[74]	new[72]|new[73]|new[74]	nnnnn[72]|snnnn[73]|nnnnn[74]	_	cf4[72]|cf3[73]|cf5[74]	_	_	
-13-7	805-808	you	event[72]|abstract[73]|object[74]|person[75]	new[72]|new[73]|new[74]|giv:inact[75]	nnnnn[72]|snnnn[73]|nnnnn[74]|n____[75]	_	cf4[72]|cf3[73]|cf5[74]|cf1[75]	ana	14-14[82_75]	
-13-8	809-813	want	event[72]|abstract[73]|object[74]	new[72]|new[73]|new[74]	nnnnn[72]|snnnn[73]|nnnnn[74]	_	cf4[72]|cf3[73]|cf5[74]	_	_	
-13-9	814-816	to	event[72]|abstract[73]|object[74]	new[72]|new[73]|new[74]	nnnnn[72]|snnnn[73]|nnnnn[74]	_	cf4[72]|cf3[73]|cf5[74]	_	_	
-13-10	817-823	flavor	event[72]|abstract[73]|object[74]	new[72]|new[73]|new[74]	nnnnn[72]|snnnn[73]|nnnnn[74]	_	cf4[72]|cf3[73]|cf5[74]	_	_	
-13-11	824-827	the	event[72]|abstract[73]|object[74]|substance[77]	new[72]|new[73]|new[74]|giv:inact[77]	nnnnn[72]|snnnn[73]|nnnnn[74]|n____[77]	_	cf4[72]|cf3[73]|cf5[74]|cf2[77]	_	_	
-13-12	828-833	vodka	event[72]|abstract[73]|object[74]|substance[77]	new[72]|new[73]|new[74]|giv:inact[77]	nnnnn[72]|snnnn[73]|nnnnn[74]|n____[77]	_	cf4[72]|cf3[73]|cf5[74]|cf2[77]	_	_	
-13-13	834-838	with	event[72]|abstract[73]|object[74]	new[72]|new[73]|new[74]	nnnnn[72]|snnnn[73]|nnnnn[74]	_	cf4[72]|cf3[73]|cf5[74]	_	_	
+13-2	777-780	the	event[72]|abstract[73]	new[72]|new[73]	nnnnn[72]|snnns[73]	_	cf4[72]|cf3[73]	_	_	
+13-3	781-787	colors	event[72]|abstract[73]	new[72]|new[73]	nnnnn[72]|snnns[73]	_	cf4[72]|cf3[73]	_	_	
+13-4	788-790	of	event[72]|abstract[73]	new[72]|new[73]	nnnnn[72]|snnns[73]	_	cf4[72]|cf3[73]	_	_	
+13-5	791-799	Skittles	event[72]|abstract[73]|object[74]	new[72]|new[73]|new[74]	nnnnn[72]|snnns[73]|nnnnn[74]	_	cf4[72]|cf3[73]|cf5[74]	_	_	
+13-6	800-804	that	event[72]|abstract[73]|object[74]	new[72]|new[73]|new[74]	nnnnn[72]|snnns[73]|nnnnn[74]	_	cf4[72]|cf3[73]|cf5[74]	_	_	
+13-7	805-808	you	event[72]|abstract[73]|object[74]|person[75]	new[72]|new[73]|new[74]|giv:inact[75]	nnnnn[72]|snnns[73]|nnnnn[74]|nnnnn[75]	_	cf4[72]|cf3[73]|cf5[74]|cf1[75]	ana	14-14[82_75]	
+13-8	809-813	want	event[72]|abstract[73]|object[74]	new[72]|new[73]|new[74]	nnnnn[72]|snnns[73]|nnnnn[74]	_	cf4[72]|cf3[73]|cf5[74]	_	_	
+13-9	814-816	to	event[72]|abstract[73]|object[74]	new[72]|new[73]|new[74]	nnnnn[72]|snnns[73]|nnnnn[74]	_	cf4[72]|cf3[73]|cf5[74]	_	_	
+13-10	817-823	flavor	event[72]|abstract[73]|object[74]	new[72]|new[73]|new[74]	nnnnn[72]|snnns[73]|nnnnn[74]	_	cf4[72]|cf3[73]|cf5[74]	_	_	
+13-11	824-827	the	event[72]|abstract[73]|object[74]|substance[77]	new[72]|new[73]|new[74]|giv:inact[77]	nnnnn[72]|snnns[73]|nnnnn[74]|nnnnn[77]	_	cf4[72]|cf3[73]|cf5[74]|cf2[77]	_	_	
+13-12	828-833	vodka	event[72]|abstract[73]|object[74]|substance[77]	new[72]|new[73]|new[74]|giv:inact[77]	nnnnn[72]|snnns[73]|nnnnn[74]|nnnnn[77]	_	cf4[72]|cf3[73]|cf5[74]|cf2[77]	_	_	
+13-13	834-838	with	event[72]|abstract[73]|object[74]	new[72]|new[73]|new[74]	nnnnn[72]|snnns[73]|nnnnn[74]	_	cf4[72]|cf3[73]|cf5[74]	_	_	
 13-14	839-840	.	_	_	_	_	_	_	_	
 
 #Text=Many people choose to leave out the green , which is lime if you 're using original Skittles , and purple , which is grape in the original style , as they can create a weird taste combination or a less than appealing color for the final product .
@@ -212,32 +212,32 @@
 14-4	860-862	to	_	_	_	_	_	_	_	
 14-5	863-868	leave	_	_	_	_	_	_	_	
 14-6	869-872	out	_	_	_	_	_	_	_	
-14-7	873-876	the	object[79]|object[80]	new[79]|new[80]	nnnnn[79]|snnnn[80]	_	cf2[79]|cf6[80]	ana|coref	14-32[90_79]|54-1[283_80]	
-14-8	877-882	green	object[79]|object[80]	new[79]|new[80]	nnnnn[79]|snnnn[80]	_	cf2[79]|cf6[80]	_	_	
-14-9	883-884	,	object[79]|object[80]	new[79]|new[80]	nnnnn[79]|snnnn[80]	_	cf2[79]|cf6[80]	_	_	
-14-10	885-890	which	object[79]|object[80]	new[79]|new[80]	nnnnn[79]|snnnn[80]	_	cf2[79]|cf6[80]	_	_	
-14-11	891-893	is	object[79]|object[80]	new[79]|new[80]	nnnnn[79]|snnnn[80]	_	cf2[79]|cf6[80]	_	_	
-14-12	894-898	lime	object[79]|object[80]|abstract[81]	new[79]|new[80]|new[81]	nnnnn[79]|snnnn[80]|snnnn[81]	_	cf2[79]|cf6[80]|cf11[81]	_	_	
-14-13	899-901	if	object[79]|object[80]	new[79]|new[80]	nnnnn[79]|snnnn[80]	_	cf2[79]|cf6[80]	_	_	
-14-14	902-905	you	object[79]|object[80]|person[82]	new[79]|new[80]|giv:act[82]	nnnnn[79]|snnnn[80]|n____[82]	_	cf2[79]|cf6[80]|cf1*[82]	ana	15-3[95_82]	
-14-15	906-909	're	object[79]|object[80]	new[79]|new[80]	nnnnn[79]|snnnn[80]	_	cf2[79]|cf6[80]	_	_	
-14-16	910-915	using	object[79]|object[80]	new[79]|new[80]	nnnnn[79]|snnnn[80]	_	cf2[79]|cf6[80]	_	_	
-14-17	916-924	original	object[79]|object[80]|object[85]	new[79]|new[80]|new[85]	nnnnn[79]|snnnn[80]|nnnnn[85]	Skittles_%28confectionery%29[85]	cf2[79]|cf6[80]|cf3[85]	coref	14-27[89_85]	
-14-18	925-933	Skittles	object[79]|object[80]|object[85]	new[79]|new[80]|new[85]	nnnnn[79]|snnnn[80]|nnnnn[85]	Skittles_%28confectionery%29[85]	cf2[79]|cf6[80]|cf3[85]	_	_	
+14-7	873-876	the	object[79]|object[80]	new[79]|new[80]	nnnnn[79]|ssnnn[80]	_	cf2[79]|cf6[80]	ana|coref	14-32[90_79]|54-1[283_80]	
+14-8	877-882	green	object[79]|object[80]	new[79]|new[80]	nnnnn[79]|ssnnn[80]	_	cf2[79]|cf6[80]	_	_	
+14-9	883-884	,	object[79]|object[80]	new[79]|new[80]	nnnnn[79]|ssnnn[80]	_	cf2[79]|cf6[80]	_	_	
+14-10	885-890	which	object[79]|object[80]	new[79]|new[80]	nnnnn[79]|ssnnn[80]	_	cf2[79]|cf6[80]	_	_	
+14-11	891-893	is	object[79]|object[80]	new[79]|new[80]	nnnnn[79]|ssnnn[80]	_	cf2[79]|cf6[80]	_	_	
+14-12	894-898	lime	object[79]|object[80]|abstract[81]	new[79]|new[80]|new[81]	nnnnn[79]|ssnnn[80]|ssnnn[81]	_	cf2[79]|cf6[80]|cf11[81]	_	_	
+14-13	899-901	if	object[79]|object[80]	new[79]|new[80]	nnnnn[79]|ssnnn[80]	_	cf2[79]|cf6[80]	_	_	
+14-14	902-905	you	object[79]|object[80]|person[82]	new[79]|new[80]|giv:act[82]	nnnnn[79]|ssnnn[80]|nnnnn[82]	_	cf2[79]|cf6[80]|cf1*[82]	ana	15-3[95_82]	
+14-15	906-909	're	object[79]|object[80]	new[79]|new[80]	nnnnn[79]|ssnnn[80]	_	cf2[79]|cf6[80]	_	_	
+14-16	910-915	using	object[79]|object[80]	new[79]|new[80]	nnnnn[79]|ssnnn[80]	_	cf2[79]|cf6[80]	_	_	
+14-17	916-924	original	object[79]|object[80]|object[85]	new[79]|new[80]|new[85]	nnnnn[79]|ssnnn[80]|nnnnn[85]	Skittles_%28confectionery%29[85]	cf2[79]|cf6[80]|cf3[85]	coref	14-27[89_85]	
+14-18	925-933	Skittles	object[79]|object[80]|object[85]	new[79]|new[80]|new[85]	nnnnn[79]|ssnnn[80]|nnnnn[85]	Skittles_%28confectionery%29[85]	cf2[79]|cf6[80]|cf3[85]	_	_	
 14-19	934-935	,	object[79]	new[79]	nnnnn[79]	_	cf2[79]	_	_	
 14-20	936-939	and	object[79]	new[79]	nnnnn[79]	_	cf2[79]	_	_	
-14-21	940-946	purple	object[79]|object[86]	new[79]|new[86]	nnnnn[79]|snnnn[86]	_	cf2[79]|cf8[86]	_	_	
-14-22	947-948	,	object[79]|object[86]	new[79]|new[86]	nnnnn[79]|snnnn[86]	_	cf2[79]|cf8[86]	_	_	
-14-23	949-954	which	object[79]|object[86]	new[79]|new[86]	nnnnn[79]|snnnn[86]	_	cf2[79]|cf8[86]	_	_	
-14-24	955-957	is	object[79]|object[86]	new[79]|new[86]	nnnnn[79]|snnnn[86]	_	cf2[79]|cf8[86]	_	_	
-14-25	958-963	grape	object[79]|object[86]|abstract[87]	new[79]|new[86]|new[87]	nnnnn[79]|snnnn[86]|snnnn[87]	_	cf2[79]|cf8[86]|cf9[87]	_	_	
-14-26	964-966	in	object[79]|object[86]	new[79]|new[86]	nnnnn[79]|snnnn[86]	_	cf2[79]|cf8[86]	_	_	
-14-27	967-970	the	object[79]|object[86]|object[89]	new[79]|new[86]|giv:act[89]	nnnnn[79]|snnnn[86]|n____[89]	Skittles_%28confectionery%29[89]	cf2[79]|cf8[86]|cf3[89]	_	_	
-14-28	971-979	original	object[79]|object[86]|object[89]	new[79]|new[86]|giv:act[89]	nnnnn[79]|snnnn[86]|n____[89]	Skittles_%28confectionery%29[89]	cf2[79]|cf8[86]|cf3[89]	_	_	
-14-29	980-985	style	object[79]|object[86]|object[89]	new[79]|new[86]|giv:act[89]	nnnnn[79]|snnnn[86]|n____[89]	Skittles_%28confectionery%29[89]	cf2[79]|cf8[86]|cf3[89]	_	_	
+14-21	940-946	purple	object[79]|object[86]	new[79]|new[86]	nnnnn[79]|ssnnn[86]	_	cf2[79]|cf8[86]	_	_	
+14-22	947-948	,	object[79]|object[86]	new[79]|new[86]	nnnnn[79]|ssnnn[86]	_	cf2[79]|cf8[86]	_	_	
+14-23	949-954	which	object[79]|object[86]	new[79]|new[86]	nnnnn[79]|ssnnn[86]	_	cf2[79]|cf8[86]	_	_	
+14-24	955-957	is	object[79]|object[86]	new[79]|new[86]	nnnnn[79]|ssnnn[86]	_	cf2[79]|cf8[86]	_	_	
+14-25	958-963	grape	object[79]|object[86]|abstract[87]	new[79]|new[86]|new[87]	nnnnn[79]|ssnnn[86]|ssnnn[87]	_	cf2[79]|cf8[86]|cf9[87]	_	_	
+14-26	964-966	in	object[79]|object[86]	new[79]|new[86]	nnnnn[79]|ssnnn[86]	_	cf2[79]|cf8[86]	_	_	
+14-27	967-970	the	object[79]|object[86]|object[89]	new[79]|new[86]|giv:act[89]	nnnnn[79]|ssnnn[86]|nnnnn[89]	Skittles_%28confectionery%29[89]	cf2[79]|cf8[86]|cf3[89]	_	_	
+14-28	971-979	original	object[79]|object[86]|object[89]	new[79]|new[86]|giv:act[89]	nnnnn[79]|ssnnn[86]|nnnnn[89]	Skittles_%28confectionery%29[89]	cf2[79]|cf8[86]|cf3[89]	_	_	
+14-29	980-985	style	object[79]|object[86]|object[89]	new[79]|new[86]|giv:act[89]	nnnnn[79]|ssnnn[86]|nnnnn[89]	Skittles_%28confectionery%29[89]	cf2[79]|cf8[86]|cf3[89]	_	_	
 14-30	986-987	,	_	_	_	_	_	_	_	
 14-31	988-990	as	_	_	_	_	_	_	_	
-14-32	991-995	they	object[90]	giv:act[90]	n____[90]	_	cf2[90]	ana	15-6[96_90]	
+14-32	991-995	they	object[90]	giv:act[90]	nnnnn[90]	_	cf2[90]	ana	15-6[96_90]	
 14-33	996-999	can	_	_	_	_	_	_	_	
 14-34	1000-1006	create	_	_	_	_	_	_	_	
 14-35	1007-1008	a	abstract[92]	new[92]	nnnnn[92]	_	cf7[92]	_	_	
@@ -251,39 +251,39 @@
 14-43	1048-1057	appealing	abstract[93]	new[93]	nnnnn[93]	_	cf10[93]	_	_	
 14-44	1058-1063	color	abstract[93]	new[93]	nnnnn[93]	_	cf10[93]	_	_	
 14-45	1064-1067	for	_	_	_	_	_	_	_	
-14-46	1068-1071	the	substance[94]	giv:inact[94]	nsnsn[94]	_	cf4[94]	_	_	
-14-47	1072-1077	final	substance[94]	giv:inact[94]	nsnsn[94]	_	cf4[94]	_	_	
-14-48	1078-1085	product	substance[94]	giv:inact[94]	nsnsn[94]	_	cf4[94]	_	_	
+14-46	1068-1071	the	substance[94]	giv:inact[94]	ssnsn[94]	_	cf4[94]	_	_	
+14-47	1072-1077	final	substance[94]	giv:inact[94]	ssnsn[94]	_	cf4[94]	_	_	
+14-48	1078-1085	product	substance[94]	giv:inact[94]	ssnsn[94]	_	cf4[94]	_	_	
 14-49	1086-1087	.	_	_	_	_	_	_	_	
 
 #Text=However , you can put them in if you want .
 15-1	1088-1095	However	_	_	_	_	_	_	_	
 15-2	1096-1097	,	_	_	_	_	_	_	_	
-15-3	1098-1101	you	person[95]	giv:act[95]	n____[95]	_	cf1*[95]	ana	15-9[97_95]	
+15-3	1098-1101	you	person[95]	giv:act[95]	nnnnn[95]	_	cf1*[95]	ana	15-9[97_95]	
 15-4	1102-1105	can	_	_	_	_	_	_	_	
 15-5	1106-1109	put	_	_	_	_	_	_	_	
-15-6	1110-1114	them	object[96]	giv:act[96]	n____[96]	_	cf2[96]	_	_	
+15-6	1110-1114	them	object[96]	giv:act[96]	nnnnn[96]	_	cf2[96]	_	_	
 15-7	1115-1117	in	_	_	_	_	_	_	_	
 15-8	1118-1120	if	_	_	_	_	_	_	_	
-15-9	1121-1124	you	person[97]	giv:act[97]	n____[97]	_	cf1*[97]	ana	16-2[98_97]	
+15-9	1121-1124	you	person[97]	giv:act[97]	nnnnn[97]	_	cf1*[97]	ana	16-2[98_97]	
 15-10	1125-1129	want	_	_	_	_	_	_	_	
 15-11	1130-1131	.	_	_	_	_	_	_	_	
 
 #Text=If you do n't mind mixed flavors , you can just skip this step altogether .
 16-1	1132-1134	If	_	_	_	_	_	_	_	
-16-2	1135-1138	you	person[98]	giv:act[98]	n____[98]	_	cf1*[98]	ana	16-9[104_98]	
+16-2	1135-1138	you	person[98]	giv:act[98]	nnnnn[98]	_	cf1*[98]	ana	16-9[104_98]	
 16-3	1139-1141	do	_	_	_	_	_	_	_	
 16-4	1142-1145	n't	_	_	_	_	_	_	_	
 16-5	1146-1150	mind	_	_	_	_	_	_	_	
 16-6	1151-1156	mixed	abstract[103]	new[103]	nnnnn[103]	_	cf3[103]	_	_	
 16-7	1157-1164	flavors	abstract[103]	new[103]	nnnnn[103]	_	cf3[103]	_	_	
 16-8	1165-1166	,	_	_	_	_	_	_	_	
-16-9	1167-1170	you	person[104]	giv:act[104]	n____[104]	_	cf1*[104]	ana	20-1[116_104]	
+16-9	1167-1170	you	person[104]	giv:act[104]	nnnnn[104]	_	cf1*[104]	ana	20-1[116_104]	
 16-10	1171-1174	can	_	_	_	_	_	_	_	
 16-11	1175-1179	just	_	_	_	_	_	_	_	
 16-12	1180-1184	skip	_	_	_	_	_	_	_	
-16-13	1185-1189	this	event[106]	giv:inact[106]	n____[106]	_	cf2[106]	_	_	
-16-14	1190-1194	step	event[106]	giv:inact[106]	n____[106]	_	cf2[106]	_	_	
+16-13	1185-1189	this	event[106]	giv:inact[106]	nnnnn[106]	_	cf2[106]	_	_	
+16-14	1190-1194	step	event[106]	giv:inact[106]	nnnnn[106]	_	cf2[106]	_	_	
 16-15	1195-1205	altogether	_	_	_	_	_	_	_	
 16-16	1206-1207	.	_	_	_	_	_	_	_	
 
@@ -292,7 +292,7 @@
 17-2	1212-1215	six	object[107]	new[107]	nnnnn[107]	_	cf1[107]	coref	18-6[110_107]	
 17-3	1216-1224	Skittles	object[107]	new[107]	nnnnn[107]	_	cf1[107]	_	_	
 17-4	1225-1227	to	_	_	_	_	_	_	_	
-17-5	1228-1230	25	substance[108]	new[108]	nnnnn[108]	_	cf2[108]	_	_	
+17-5	1228-1230	25	substance[108]	new[108]	nnnnn[108]	_	cf2[108]	bridge:entity-resultative	18-3[109_108]	
 17-6	1231-1233	ml	substance[108]	new[108]	nnnnn[108]	_	cf2[108]	_	_	
 17-7	1234-1236	of	substance[108]	new[108]	nnnnn[108]	_	cf2[108]	_	_	
 17-8	1237-1242	vodka	substance[108]	new[108]	nnnnn[108]	_	cf2[108]	_	_	
@@ -301,11 +301,11 @@
 #Text=Keep swirling the mixture until the Skittles are almost completely dissolved .
 18-1	1245-1249	Keep	_	_	_	_	_	_	_	
 18-2	1250-1258	swirling	_	_	_	_	_	_	_	
-18-3	1259-1262	the	substance[109]	acc:com[109]	nnnns[109]	_	cf2[109]	_	_	
-18-4	1263-1270	mixture	substance[109]	acc:com[109]	nnnns[109]	_	cf2[109]	_	_	
+18-3	1259-1262	the	substance[109]	acc:inf[109]	nnnnn[109]	_	cf2[109]	bridge:entity-associative	21-3[126_109]	
+18-4	1263-1270	mixture	substance[109]	acc:inf[109]	nnnnn[109]	_	cf2[109]	_	_	
 18-5	1271-1276	until	_	_	_	_	_	_	_	
-18-6	1277-1280	the	object[110]	giv:act[110]	n____[110]	_	cf1*[110]	_	_	
-18-7	1281-1289	Skittles	object[110]	giv:act[110]	n____[110]	_	cf1*[110]	_	_	
+18-6	1277-1280	the	object[110]	giv:act[110]	nnnnn[110]	_	cf1*[110]	_	_	
+18-7	1281-1289	Skittles	object[110]	giv:act[110]	nnnnn[110]	_	cf1*[110]	_	_	
 18-8	1290-1293	are	_	_	_	_	_	_	_	
 18-9	1294-1300	almost	_	_	_	_	_	_	_	
 18-10	1301-1311	completely	_	_	_	_	_	_	_	
@@ -315,12 +315,12 @@
 #Text=Note that the ratio of Skittles to vodka varies from recipe to recipe .
 19-1	1324-1328	Note	_	_	_	_	_	_	_	
 19-2	1329-1333	that	_	_	_	_	_	_	_	
-19-3	1334-1337	the	abstract[111]	new[111]	nnnnn[111]	_	cf1[111]	_	_	
-19-4	1338-1343	ratio	abstract[111]	new[111]	nnnnn[111]	_	cf1[111]	_	_	
-19-5	1344-1346	of	abstract[111]	new[111]	nnnnn[111]	_	cf1[111]	_	_	
-19-6	1347-1355	Skittles	abstract[111]|object[112]	new[111]|new[112]	nnnnn[111]|nnnnn[112]	Skittles_%28confectionery%29[112]	cf1[111]|cf2[112]	bridge:def	21-3[126_112]	
-19-7	1356-1358	to	abstract[111]	new[111]	nnnnn[111]	_	cf1[111]	_	_	
-19-8	1359-1364	vodka	abstract[111]|substance[113]	new[111]|new[113]	nnnnn[111]|nnnnn[113]	_	cf1[111]|cf3[113]	_	_	
+19-3	1334-1337	the	abstract[111]	new[111]	nnsnn[111]	_	cf1[111]	bridge:entity-associative	20-6[122_111]	
+19-4	1338-1343	ratio	abstract[111]	new[111]	nnsnn[111]	_	cf1[111]	_	_	
+19-5	1344-1346	of	abstract[111]	new[111]	nnsnn[111]	_	cf1[111]	_	_	
+19-6	1347-1355	Skittles	abstract[111]|object[112]	new[111]|new[112]	nnsnn[111]|nnnnn[112]	Skittles_%28confectionery%29[112]	cf1[111]|cf2[112]	_	_	
+19-7	1356-1358	to	abstract[111]	new[111]	nnsnn[111]	_	cf1[111]	_	_	
+19-8	1359-1364	vodka	abstract[111]|substance[113]	new[111]|new[113]	nnsnn[111]|nnnnn[113]	_	cf1[111]|cf3[113]	_	_	
 19-9	1365-1371	varies	_	_	_	_	_	_	_	
 19-10	1372-1376	from	_	_	_	_	_	_	_	
 19-11	1377-1383	recipe	abstract[114]	new[114]	nnnnn[114]	_	cf4[114]	_	_	
@@ -329,18 +329,18 @@
 19-14	1394-1395	.	_	_	_	_	_	_	_	
 
 #Text=You should experiment to find your preferred mix before making larger bottles .
-20-1	1396-1399	You	person[116]	giv:inact[116]	n____[116]	_	cf1[116]	ana	20-6[123_116]	
+20-1	1396-1399	You	person[116]	giv:inact[116]	nnnnn[116]	_	cf1[116]	ana	20-6[123_116]	
 20-2	1400-1406	should	_	_	_	_	_	_	_	
 20-3	1407-1417	experiment	_	_	_	_	_	_	_	
 20-4	1418-1420	to	_	_	_	_	_	_	_	
 20-5	1421-1425	find	_	_	_	_	_	_	_	
-20-6	1426-1430	your	abstract[122]|person[123]	new[122]|giv:act[123]	nnnnn[122]|n____[123]	_	cf2[122]|cf1[123]	ana	22-7[129_123]	
-20-7	1431-1440	preferred	abstract[122]	new[122]	nnnnn[122]	_	cf2[122]	_	_	
-20-8	1441-1444	mix	abstract[122]	new[122]	nnnnn[122]	_	cf2[122]	_	_	
+20-6	1426-1430	your	abstract[122]|person[123]	acc:inf[122]|giv:act[123]	nnnnn[122]|nnnnn[123]	_	cf2[122]|cf1[123]	ana	22-7[129_123]	
+20-7	1431-1440	preferred	abstract[122]	acc:inf[122]	nnnnn[122]	_	cf2[122]	_	_	
+20-8	1441-1444	mix	abstract[122]	acc:inf[122]	nnnnn[122]	_	cf2[122]	_	_	
 20-9	1445-1451	before	_	_	_	_	_	_	_	
 20-10	1452-1458	making	_	_	_	_	_	_	_	
-20-11	1459-1465	larger	object[125]	new[125]	nnnnn[125]	_	cf3[125]	_	_	
-20-12	1466-1473	bottles	object[125]	new[125]	nnnnn[125]	_	cf3[125]	_	_	
+20-11	1459-1465	larger	object[125]	acc:inf[125]	nnnnn[125]	_	cf3[125]	_	_	
+20-12	1466-1473	bottles	object[125]	acc:inf[125]	nnnnn[125]	_	cf3[125]	_	_	
 20-13	1474-1475	.	_	_	_	_	_	_	_	
 
 #Text=Filter out the remaining Skittle " insides " .
@@ -356,102 +356,102 @@
 
 #Text=With single servings like this , you can decide which flavor(s) you like best and proceed to making bottles , if you desire .
 22-1	1523-1527	With	_	_	_	_	_	_	_	
-22-2	1528-1534	single	abstract[127]	new[127]	nnnnn[127]	_	cf2[127]	ana	22-5[128_127]	
-22-3	1535-1543	servings	abstract[127]	new[127]	nnnnn[127]	_	cf2[127]	_	_	
+22-2	1528-1534	single	abstract[127]	acc:inf[127]	nnnnn[127]	_	cf2[127]	ana	22-5[128_127]	
+22-3	1535-1543	servings	abstract[127]	acc:inf[127]	nnnnn[127]	_	cf2[127]	_	_	
 22-4	1544-1548	like	_	_	_	_	_	_	_	
-22-5	1549-1553	this	abstract[128]	giv:act[128]	n____[128]	_	cf2[128]	_	_	
+22-5	1549-1553	this	abstract[128]	giv:act[128]	nnnnn[128]	_	cf2[128]	_	_	
 22-6	1554-1555	,	_	_	_	_	_	_	_	
-22-7	1556-1559	you	person[129]	giv:inact[129]	n____[129]	_	cf1[129]	ana	22-12[133_129]	
+22-7	1556-1559	you	person[129]	giv:inact[129]	nnnnn[129]	_	cf1[129]	ana	22-12[133_129]	
 22-8	1560-1563	can	_	_	_	_	_	_	_	
 22-9	1564-1570	decide	_	_	_	_	_	_	_	
-22-10	1571-1576	which	abstract[132]	acc:com[132]	nnnnn[132]	_	cf3[132]	_	_	
-22-11	1577-1586	flavor(s)	abstract[132]	acc:com[132]	nnnnn[132]	_	cf3[132]	_	_	
-22-12	1587-1590	you	person[133]	giv:act[133]	n____[133]	_	cf1[133]	ana	22-22[135_133]	
+22-10	1571-1576	which	abstract[132]	acc:com[132]	nnsnn[132]	_	cf3[132]	_	_	
+22-11	1577-1586	flavor(s)	abstract[132]	acc:com[132]	nnsnn[132]	_	cf3[132]	_	_	
+22-12	1587-1590	you	person[133]	giv:act[133]	nnnnn[133]	_	cf1[133]	ana	22-22[135_133]	
 22-13	1591-1595	like	_	_	_	_	_	_	_	
 22-14	1596-1600	best	_	_	_	_	_	_	_	
 22-15	1601-1604	and	_	_	_	_	_	_	_	
 22-16	1605-1612	proceed	_	_	_	_	_	_	_	
 22-17	1613-1615	to	_	_	_	_	_	_	_	
 22-18	1616-1622	making	_	_	_	_	_	_	_	
-22-19	1623-1630	bottles	object[134]	new[134]	snsnn[134]	_	cf4[134]	coref	23-6[142_134]	
+22-19	1623-1630	bottles	object[134]	acc:inf[134]	sssnn[134]	_	cf4[134]	coref	23-6[142_134]	
 22-20	1631-1632	,	_	_	_	_	_	_	_	
 22-21	1633-1635	if	_	_	_	_	_	_	_	
-22-22	1636-1639	you	person[135]	giv:act[135]	n____[135]	_	cf1[135]	ana	34-5[186_135]	
+22-22	1636-1639	you	person[135]	giv:act[135]	nnnnn[135]	_	cf1[135]	ana	34-5[186_135]	
 22-23	1640-1646	desire	_	_	_	_	_	_	_	
 22-24	1647-1648	.	_	_	_	_	_	_	_	
 
 #Text=Method 2 of 3 : Bottles of " Skittled " Vodka
-23-1	1649-1655	Method	abstract[139]	new[139]	nnnnn[139]	_	cf4[139]	_	_	
-23-2	1656-1657	2	abstract[139]	new[139]	nnnnn[139]	_	cf4[139]	_	_	
-23-3	1658-1660	of	abstract[139]	new[139]	nnnnn[139]	_	cf4[139]	_	_	
-23-4	1661-1662	3	abstract[139]|abstract[140]	new[139]|giv:inact[140]	nnnnn[139]|sssss[140]	_	cf4[139]|cf3[140]	coref	31-4[166_140]	
+23-1	1649-1655	Method	abstract[139]	new[139]	nsnsn[139]	_	cf4[139]	_	_	
+23-2	1656-1657	2	abstract[139]	new[139]	nsnsn[139]	_	cf4[139]	_	_	
+23-3	1658-1660	of	abstract[139]	new[139]	nsnsn[139]	_	cf4[139]	_	_	
+23-4	1661-1662	3	abstract[139]|abstract[140]	new[139]|giv:inact[140]	nsnsn[139]|sssss[140]	_	cf4[139]|cf3[140]	coref	31-4[166_140]	
 23-5	1663-1664	:	_	_	_	_	_	_	_	
-23-6	1665-1672	Bottles	object[142]	giv:act[142]	snsnn[142]	_	cf1*[142]	_	_	
-23-7	1673-1675	of	object[142]	giv:act[142]	snsnn[142]	_	cf1*[142]	_	_	
-23-8	1676-1677	"	object[142]|substance[143]	giv:act[142]|giv:inact[143]	snsnn[142]|sssss[143]	_	cf1*[142]|cf2[143]	ana	48-6[238_143]	
-23-9	1678-1686	Skittled	object[142]|substance[143]	giv:act[142]|giv:inact[143]	snsnn[142]|sssss[143]	_	cf1*[142]|cf2[143]	_	_	
-23-10	1687-1688	"	object[142]|substance[143]	giv:act[142]|giv:inact[143]	snsnn[142]|sssss[143]	_	cf1*[142]|cf2[143]	_	_	
-23-11	1689-1694	Vodka	object[142]|substance[143]	giv:act[142]|giv:inact[143]	snsnn[142]|sssss[143]	_	cf1*[142]|cf2[143]	_	_	
+23-6	1665-1672	Bottles	object[142]	giv:act[142]	sssnn[142]	_	cf1*[142]	_	_	
+23-7	1673-1675	of	object[142]	giv:act[142]	sssnn[142]	_	cf1*[142]	_	_	
+23-8	1676-1677	"	object[142]|substance[143]	giv:act[142]|giv:inact[143]	sssnn[142]|sssss[143]	_	cf1*[142]|cf2[143]	ana|bridge:entity-associative	48-6[238_143]|47-1[236_143]	
+23-9	1678-1686	Skittled	object[142]|substance[143]	giv:act[142]|giv:inact[143]	sssnn[142]|sssss[143]	_	cf1*[142]|cf2[143]	_	_	
+23-10	1687-1688	"	object[142]|substance[143]	giv:act[142]|giv:inact[143]	sssnn[142]|sssss[143]	_	cf1*[142]|cf2[143]	_	_	
+23-11	1689-1694	Vodka	object[142]|substance[143]	giv:act[142]|giv:inact[143]	sssnn[142]|sssss[143]	_	cf1*[142]|cf2[143]	_	_	
 
 #Text=Pour out some vodka from a bottle to make room for Skittles .
 24-1	1695-1699	Pour	_	_	_	_	_	_	_	
 24-2	1700-1703	out	_	_	_	_	_	_	_	
-24-3	1704-1708	some	substance[144]	new[144]	nnnnn[144]	_	cf1[144]	coref	26-9[154_144]	
-24-4	1709-1714	vodka	substance[144]	new[144]	nnnnn[144]	_	cf1[144]	_	_	
+24-3	1704-1708	some	substance[144]	new[144]	nnnnn[144]	_	cf2[144]	coref	26-9[154_144]	
+24-4	1709-1714	vodka	substance[144]	new[144]	nnnnn[144]	_	cf2[144]	_	_	
 24-5	1715-1719	from	_	_	_	_	_	_	_	
-24-6	1720-1721	a	object[145]	new[145]	nsnsn[145]	_	cf4[145]	_	_	
-24-7	1722-1728	bottle	object[145]	new[145]	nsnsn[145]	_	cf4[145]	_	_	
+24-6	1720-1721	a	object[145]	auto[145]	nnnnn[145]	_	cf1[145]	_	_	
+24-7	1722-1728	bottle	object[145]	auto[145]	nnnnn[145]	_	cf1[145]	_	_	
 24-8	1729-1731	to	_	_	_	_	_	_	_	
 24-9	1732-1736	make	_	_	_	_	_	_	_	
-24-10	1737-1741	room	place[146]	new[146]	nnnnn[146]	_	cf2[146]	_	_	
-24-11	1742-1745	for	place[146]	new[146]	nnnnn[146]	_	cf2[146]	_	_	
-24-12	1746-1754	Skittles	place[146]|object[147]	new[146]|new[147]	nnnnn[146]|nsnnn[147]	Skittles_%28confectionery%29[147]	cf2[146]|cf3[147]	coref	25-2[149_147]	
+24-10	1737-1741	room	place[146]	new[146]	nnnnn[146]	_	cf3[146]	_	_	
+24-11	1742-1745	for	place[146]	new[146]	nnnnn[146]	_	cf3[146]	_	_	
+24-12	1746-1754	Skittles	place[146]|object[147]	new[146]|new[147]	nnnnn[146]|nnnnn[147]	Skittles_%28confectionery%29[147]	cf3[146]|cf4[147]	coref	25-2[149_147]	
 24-13	1755-1756	.	_	_	_	_	_	_	_	
 
 #Text=Separate the Skittles by color .
 25-1	1757-1765	Separate	_	_	_	_	_	_	_	
-25-2	1766-1769	the	object[149]	giv:act[149]	nsnnn[149]	Skittles_%28confectionery%29[149]	cf1*[149]	coref	26-2[152_149]	
-25-3	1770-1778	Skittles	object[149]	giv:act[149]	nsnnn[149]	Skittles_%28confectionery%29[149]	cf1*[149]	_	_	
+25-2	1766-1769	the	object[149]	giv:act[149]	nnnnn[149]	Skittles_%28confectionery%29[149]	cf1*[149]	coref|bridge:entity-property	26-2[152_149]|25-5[150_149]	
+25-3	1770-1778	Skittles	object[149]	giv:act[149]	nnnnn[149]	Skittles_%28confectionery%29[149]	cf1*[149]	_	_	
 25-4	1779-1781	by	_	_	_	_	_	_	_	
-25-5	1782-1787	color	abstract[150]	new[150]	nnnnn[150]	_	cf2[150]	_	_	
+25-5	1782-1787	color	abstract[150]	acc:inf[150]	nsnnn[150]	_	cf2[150]	_	_	
 25-6	1788-1789	.	_	_	_	_	_	_	_	
 
 #Text=Add the Skittles ( 20 - 25 per 350 ml / 11.8 fl oz ) .
 26-1	1790-1793	Add	_	_	_	_	_	_	_	
-26-2	1794-1797	the	object[152]	giv:act[152]	nsnnn[152]	Skittles_%28confectionery%29[152]	cf1*[152]	appos	26-5[153_152]	
-26-3	1798-1806	Skittles	object[152]	giv:act[152]	nsnnn[152]	Skittles_%28confectionery%29[152]	cf1*[152]	_	_	
+26-2	1794-1797	the	object[152]	giv:act[152]	nnnnn[152]	Skittles_%28confectionery%29[152]	cf1*[152]	appos	26-5[153_152]	
+26-3	1798-1806	Skittles	object[152]	giv:act[152]	nnnnn[152]	Skittles_%28confectionery%29[152]	cf1*[152]	_	_	
 26-4	1807-1808	(	_	_	_	_	_	_	_	
-26-5	1809-1811	20	object[153]	giv:act[153]	nsnnn[153]	Skittles_%28confectionery%29[153]	cf1*[153]	coref	29-3[161_153]	
-26-6	1812-1813	-	object[153]	giv:act[153]	nsnnn[153]	Skittles_%28confectionery%29[153]	cf1*[153]	_	_	
-26-7	1814-1816	25	object[153]	giv:act[153]	nsnnn[153]	Skittles_%28confectionery%29[153]	cf1*[153]	_	_	
+26-5	1809-1811	20	object[153]	giv:act[153]	nnnnn[153]	Skittles_%28confectionery%29[153]	cf1*[153]	coref|bridge:entity-resultative|bridge:entity-property	29-3[161_153]|27-2[156_153]|28-4[160_153]	
+26-6	1812-1813	-	object[153]	giv:act[153]	nnnnn[153]	Skittles_%28confectionery%29[153]	cf1*[153]	_	_	
+26-7	1814-1816	25	object[153]	giv:act[153]	nnnnn[153]	Skittles_%28confectionery%29[153]	cf1*[153]	_	_	
 26-8	1817-1820	per	_	_	_	_	_	_	_	
-26-9	1821-1824	350	substance[154]	giv:inact[154]	n____[154]	_	cf2[154]	coref	26-12[155_154]	
-26-10	1825-1827	ml	substance[154]	giv:inact[154]	n____[154]	_	cf2[154]	_	_	
+26-9	1821-1824	350	substance[154]	giv:inact[154]	nnnnn[154]	_	cf2[154]	coref	26-12[155_154]	
+26-10	1825-1827	ml	substance[154]	giv:inact[154]	nnnnn[154]	_	cf2[154]	_	_	
 26-11	1828-1829	/	_	_	_	_	_	_	_	
-26-12	1830-1834	11.8	substance[155]	giv:act[155]	n____[155]	_	cf2[155]	_	_	
-26-13	1835-1837	fl	substance[155]	giv:act[155]	n____[155]	_	cf2[155]	_	_	
-26-14	1838-1840	oz	substance[155]	giv:act[155]	n____[155]	_	cf2[155]	_	_	
+26-12	1830-1834	11.8	substance[155]	giv:act[155]	nnnnn[155]	_	cf2[155]	_	_	
+26-13	1835-1837	fl	substance[155]	giv:act[155]	nnnnn[155]	_	cf2[155]	_	_	
+26-14	1838-1840	oz	substance[155]	giv:act[155]	nnnnn[155]	_	cf2[155]	_	_	
 26-15	1841-1842	)	_	_	_	_	_	_	_	
 26-16	1843-1844	.	_	_	_	_	_	_	_	
 
 #Text=Let the mixture sit for a day or two .
 27-1	1845-1848	Let	_	_	_	_	_	_	_	
-27-2	1849-1852	the	substance[156]	acc:com[156]	nnnnn[156]	_	cf1[156]	_	_	
-27-3	1853-1860	mixture	substance[156]	acc:com[156]	nnnnn[156]	_	cf1[156]	_	_	
+27-2	1849-1852	the	substance[156]	acc:inf[156]	nnnnn[156]	_	cf1[156]	_	_	
+27-3	1853-1860	mixture	substance[156]	acc:inf[156]	nnnnn[156]	_	cf1[156]	_	_	
 27-4	1861-1864	sit	_	_	_	_	_	_	_	
 27-5	1865-1868	for	_	_	_	_	_	_	_	
-27-6	1869-1870	a	time[157]	new[157]	nnnnn[157]	_	cf2[157]	_	_	
-27-7	1871-1874	day	time[157]	new[157]	nnnnn[157]	_	cf2[157]	_	_	
+27-6	1869-1870	a	time[157]	new[157]	nnnnn[157]	_	cf3[157]	bridge:comparison-sense	27-9[158_157]	
+27-7	1871-1874	day	time[157]	new[157]	nnnnn[157]	_	cf3[157]	_	_	
 27-8	1875-1877	or	_	_	_	_	_	_	_	
-27-9	1878-1881	two	time[158]	new[158]	nnnnn[158]	_	cf3[158]	_	_	
+27-9	1878-1881	two	time[158]	acc:inf[158]	snnnn[158]	_	cf2[158]	_	_	
 27-10	1882-1883	.	_	_	_	_	_	_	_	
 
 #Text=Shake occasionally so the flavour mixes well .
 28-1	1884-1889	Shake	_	_	_	_	_	_	_	
 28-2	1890-1902	occasionally	_	_	_	_	_	_	_	
 28-3	1903-1905	so	_	_	_	_	_	_	_	
-28-4	1906-1909	the	abstract[160]	acc:com[160]	nnnnn[160]	_	cf1[160]	_	_	
-28-5	1910-1917	flavour	abstract[160]	acc:com[160]	nnnnn[160]	_	cf1[160]	_	_	
+28-4	1906-1909	the	abstract[160]	acc:inf[160]	nnnnn[160]	_	cf1[160]	_	_	
+28-5	1910-1917	flavour	abstract[160]	acc:inf[160]	nnnnn[160]	_	cf1[160]	_	_	
 28-6	1918-1923	mixes	_	_	_	_	_	_	_	
 28-7	1924-1928	well	_	_	_	_	_	_	_	
 28-8	1929-1930	.	_	_	_	_	_	_	_	
@@ -459,24 +459,24 @@
 #Text=Strain out the Skittles using a filter , such as a paper coffee filter or a clean t - shirt .
 29-1	1931-1937	Strain	_	_	_	_	_	_	_	
 29-2	1938-1941	out	_	_	_	_	_	_	_	
-29-3	1942-1945	the	object[161]	giv:inact[161]	nsnnn[161]	Skittles_%28confectionery%29[161]	cf1[161]	_	_	
-29-4	1946-1954	Skittles	object[161]	giv:inact[161]	nsnnn[161]	Skittles_%28confectionery%29[161]	cf1[161]	_	_	
+29-3	1942-1945	the	object[161]	giv:inact[161]	nnnnn[161]	Skittles_%28confectionery%29[161]	cf1[161]	_	_	
+29-4	1946-1954	Skittles	object[161]	giv:inact[161]	nnnnn[161]	Skittles_%28confectionery%29[161]	cf1[161]	_	_	
 29-5	1955-1960	using	_	_	_	_	_	_	_	
-29-6	1961-1962	a	object[162]	new[162]	nnnnn[162]	_	cf4[162]	bridge:other|bridge:other	29-11[163_162]|29-16[164_162]	
+29-6	1961-1962	a	object[162]	new[162]	nnnnn[162]	_	cf4[162]	_	_	
 29-7	1963-1969	filter	object[162]	new[162]	nnnnn[162]	_	cf4[162]	_	_	
 29-8	1970-1971	,	_	_	_	_	_	_	_	
 29-9	1972-1976	such	_	_	_	_	_	_	_	
 29-10	1977-1979	as	_	_	_	_	_	_	_	
-29-11	1980-1981	a	object[163]	acc:inf[163]	nnnnn[163]	_	cf2[163]	_	_	
-29-12	1982-1987	paper	object[163]	acc:inf[163]	nnnnn[163]	_	cf2[163]	_	_	
-29-13	1988-1994	coffee	object[163]	acc:inf[163]	nnnnn[163]	_	cf2[163]	_	_	
-29-14	1995-2001	filter	object[163]	acc:inf[163]	nnnnn[163]	_	cf2[163]	_	_	
+29-11	1980-1981	a	object[163]	auto[163]	nnsnn[163]	_	cf2[163]	coref	40-16[209_163]	
+29-12	1982-1987	paper	object[163]	auto[163]	nnsnn[163]	_	cf2[163]	_	_	
+29-13	1988-1994	coffee	object[163]	auto[163]	nnsnn[163]	_	cf2[163]	_	_	
+29-14	1995-2001	filter	object[163]	auto[163]	nnsnn[163]	_	cf2[163]	_	_	
 29-15	2002-2004	or	_	_	_	_	_	_	_	
-29-16	2005-2006	a	object[164]	acc:inf[164]	nnnnn[164]	_	cf3[164]	coref	58-3[309_164]	
-29-17	2007-2012	clean	object[164]	acc:inf[164]	nnnnn[164]	_	cf3[164]	_	_	
-29-18	2013-2014	t	object[164]	acc:inf[164]	nnnnn[164]	_	cf3[164]	_	_	
-29-19	2015-2016	-	object[164]	acc:inf[164]	nnnnn[164]	_	cf3[164]	_	_	
-29-20	2017-2022	shirt	object[164]	acc:inf[164]	nnnnn[164]	_	cf3[164]	_	_	
+29-16	2005-2006	a	object[164]	auto[164]	nnnnn[164]	_	cf3[164]	coref	58-3[309_164]	
+29-17	2007-2012	clean	object[164]	auto[164]	nnnnn[164]	_	cf3[164]	_	_	
+29-18	2013-2014	t	object[164]	auto[164]	nnnnn[164]	_	cf3[164]	_	_	
+29-19	2015-2016	-	object[164]	auto[164]	nnnnn[164]	_	cf3[164]	_	_	
+29-20	2017-2022	shirt	object[164]	auto[164]	nnnnn[164]	_	cf3[164]	_	_	
 29-21	2023-2024	.	_	_	_	_	_	_	_	
 
 #Text=Refrigerate overnight .
@@ -490,7 +490,7 @@
 31-3	2058-2060	of	abstract[165]	giv:inact[165]	nsssn[165]	_	cf1[165]	_	_	
 31-4	2061-2062	3	abstract[165]|abstract[166]	giv:inact[165]|giv:inact[166]	nsssn[165]|sssss[166]	_	cf1[165]|cf2[166]	_	_	
 31-5	2063-2064	:	_	_	_	_	_	_	_	
-31-6	2065-2075	Dishwasher	abstract[168]|object[169]|object[170]	giv:act[168]|giv:inact[169]|giv:inact[170]	nsssn[168]|nnnsn[169]|ssnnn[170]	_	cf1[168]|cf3[169]|cf4[170]	_	_	
+31-6	2065-2075	Dishwasher	abstract[168]|object[169]|object[170]	giv:act[168]|giv:inact[169]|giv:inact[170]	nsssn[168]|nnnsn[169]|sssss[170]	_	cf1[168]|cf3[169]|cf4[170]	_	_	
 31-7	2076-2082	Bottle	abstract[168]|object[169]	giv:act[168]|giv:inact[169]	nsssn[168]|nnnsn[169]	_	cf1[168]|cf3[169]	_	_	
 31-8	2083-2089	Method	abstract[168]	giv:act[168]	nsssn[168]	_	cf1[168]	_	_	
 
@@ -509,42 +509,42 @@
 
 #Text=Using 5 x 700 ml / 23.6 fl oz bottles , pour 300 ml / 10.1 fl oz of vodka into a jug and fill each bottle with skittles .
 33-1	2145-2150	Using	_	_	_	_	_	_	_	
-33-2	2151-2152	5	object[175]	new[175]	snsnn[175]	_	cf1[175]	coref	33-26[181_175]	
-33-3	2153-2154	x	object[175]	new[175]	snsnn[175]	_	cf1[175]	_	_	
-33-4	2155-2158	700	object[175]|abstract[176]	new[175]|new[176]	snsnn[175]|nnnnn[176]	_	cf1[175]|cf2[176]	coref	33-7[177_176]	
-33-5	2159-2161	ml	object[175]|abstract[176]	new[175]|new[176]	snsnn[175]|nnnnn[176]	_	cf1[175]|cf2[176]	_	_	
-33-6	2162-2163	/	object[175]	new[175]	snsnn[175]	_	cf1[175]	_	_	
-33-7	2164-2168	23.6	object[175]|abstract[177]	new[175]|giv:act[177]	snsnn[175]|n____[177]	_	cf1[175]|cf2[177]	_	_	
-33-8	2169-2171	fl	object[175]|abstract[177]	new[175]|giv:act[177]	snsnn[175]|n____[177]	_	cf1[175]|cf2[177]	_	_	
-33-9	2172-2174	oz	object[175]|abstract[177]	new[175]|giv:act[177]	snsnn[175]|n____[177]	_	cf1[175]|cf2[177]	_	_	
-33-10	2175-2182	bottles	object[175]	new[175]	snsnn[175]	_	cf1[175]	_	_	
+33-2	2151-2152	5	object[175]	new[175]	snnnn[175]	_	cf1[175]	coref	33-26[181_175]	
+33-3	2153-2154	x	object[175]	new[175]	snnnn[175]	_	cf1[175]	_	_	
+33-4	2155-2158	700	object[175]|abstract[176]	new[175]|new[176]	snnnn[175]|nnnnn[176]	_	cf1[175]|cf2[176]	coref	33-7[177_176]	
+33-5	2159-2161	ml	object[175]|abstract[176]	new[175]|new[176]	snnnn[175]|nnnnn[176]	_	cf1[175]|cf2[176]	_	_	
+33-6	2162-2163	/	object[175]	new[175]	snnnn[175]	_	cf1[175]	_	_	
+33-7	2164-2168	23.6	object[175]|abstract[177]	new[175]|giv:act[177]	snnnn[175]|nnnnn[177]	_	cf1[175]|cf2[177]	_	_	
+33-8	2169-2171	fl	object[175]|abstract[177]	new[175]|giv:act[177]	snnnn[175]|nnnnn[177]	_	cf1[175]|cf2[177]	_	_	
+33-9	2172-2174	oz	object[175]|abstract[177]	new[175]|giv:act[177]	snnnn[175]|nnnnn[177]	_	cf1[175]|cf2[177]	_	_	
+33-10	2175-2182	bottles	object[175]	new[175]	snnnn[175]	_	cf1[175]	_	_	
 33-11	2183-2184	,	_	_	_	_	_	_	_	
 33-12	2185-2189	pour	_	_	_	_	_	_	_	
 33-13	2190-2193	300	substance[178]	new[178]	nnnnn[178]	_	cf3[178]	coref	33-16[179_178]	
 33-14	2194-2196	ml	substance[178]	new[178]	nnnnn[178]	_	cf3[178]	_	_	
 33-15	2197-2198	/	_	_	_	_	_	_	_	
-33-16	2199-2203	10.1	substance[179]	giv:act[179]	n____[179]	_	cf3[179]	coref	39-2[199_179]	
-33-17	2204-2206	fl	substance[179]	giv:act[179]	n____[179]	_	cf3[179]	_	_	
-33-18	2207-2209	oz	substance[179]	giv:act[179]	n____[179]	_	cf3[179]	_	_	
-33-19	2210-2212	of	substance[179]	giv:act[179]	n____[179]	_	cf3[179]	_	_	
-33-20	2213-2218	vodka	substance[179]	giv:act[179]	n____[179]	_	cf3[179]	_	_	
+33-16	2199-2203	10.1	substance[179]	giv:act[179]	nnnnn[179]	_	cf3[179]	coref	39-2[199_179]	
+33-17	2204-2206	fl	substance[179]	giv:act[179]	nnnnn[179]	_	cf3[179]	_	_	
+33-18	2207-2209	oz	substance[179]	giv:act[179]	nnnnn[179]	_	cf3[179]	_	_	
+33-19	2210-2212	of	substance[179]	giv:act[179]	nnnnn[179]	_	cf3[179]	_	_	
+33-20	2213-2218	vodka	substance[179]	giv:act[179]	nnnnn[179]	_	cf3[179]	_	_	
 33-21	2219-2223	into	_	_	_	_	_	_	_	
 33-22	2224-2225	a	object[180]	new[180]	nnnnn[180]	_	cf5[180]	_	_	
 33-23	2226-2229	jug	object[180]	new[180]	nnnnn[180]	_	cf5[180]	_	_	
 33-24	2230-2233	and	_	_	_	_	_	_	_	
 33-25	2234-2238	fill	_	_	_	_	_	_	_	
-33-26	2239-2243	each	object[181]	giv:act[181]	snsnn[181]	_	cf1[181]	coref	34-2[184_181]	
-33-27	2244-2250	bottle	object[181]	giv:act[181]	snsnn[181]	_	cf1[181]	_	_	
+33-26	2239-2243	each	object[181]	giv:act[181]	snnnn[181]	_	cf1[181]	coref	34-2[184_181]	
+33-27	2244-2250	bottle	object[181]	giv:act[181]	snnnn[181]	_	cf1[181]	_	_	
 33-28	2251-2255	with	_	_	_	_	_	_	_	
 33-29	2256-2264	skittles	object[182]	new[182]	nnnnn[182]	Skittles_%28confectionery%29[182]	cf4[182]	_	_	
 33-30	2265-2266	.	_	_	_	_	_	_	_	
 
 #Text=Place the bottles in your dishwasher and put on an intensive cycle .
 34-1	2267-2272	Place	_	_	_	_	_	_	_	
-34-2	2273-2276	the	object[184]	giv:act[184]	snsnn[184]	_	cf1*[184]	coref	35-12[191_184]	
-34-3	2277-2284	bottles	object[184]	giv:act[184]	snsnn[184]	_	cf1*[184]	_	_	
+34-2	2273-2276	the	object[184]	giv:act[184]	snnnn[184]	_	cf1*[184]	coref	35-12[191_184]	
+34-3	2277-2284	bottles	object[184]	giv:act[184]	snnnn[184]	_	cf1*[184]	_	_	
 34-4	2285-2287	in	_	_	_	_	_	_	_	
-34-5	2288-2292	your	object[185]|person[186]	new[185]|giv:inact[186]	nnnnn[185]|n____[186]	_	cf4[185]|cf2[186]	ana	43-10[229_186]	
+34-5	2288-2292	your	object[185]|person[186]	new[185]|giv:inact[186]	nnnnn[185]|nnnnn[186]	_	cf4[185]|cf2[186]	ana|bridge:entity-associative	43-10[229_186]|38-4[197_186]	
 34-6	2293-2303	dishwasher	object[185]	new[185]	nnnnn[185]	_	cf4[185]	_	_	
 34-7	2304-2307	and	_	_	_	_	_	_	_	
 34-8	2308-2311	put	_	_	_	_	_	_	_	
@@ -562,12 +562,12 @@
 35-5	2352-2355	the	time[189]	new[189]	nnnnn[189]	_	cf3[189]	_	_	
 35-6	2356-2359	way	time[189]	new[189]	nnnnn[189]	_	cf3[189]	_	_	
 35-7	2360-2367	through	time[189]	new[189]	nnnnn[189]	_	cf3[189]	_	_	
-35-8	2368-2371	the	time[189]|event[190]	new[189]|giv:act[190]	nnnnn[189]|n____[190]	_	cf3[189]|cf2[190]	coref	36-7[193_190]	
-35-9	2372-2377	cycle	time[189]|event[190]	new[189]|giv:act[190]	nnnnn[189]|n____[190]	_	cf3[189]|cf2[190]	_	_	
+35-8	2368-2371	the	time[189]|event[190]	new[189]|giv:act[190]	nnnnn[189]|nnnnn[190]	_	cf3[189]|cf2[190]	coref	36-7[193_190]	
+35-9	2372-2377	cycle	time[189]|event[190]	new[189]|giv:act[190]	nnnnn[189]|nnnnn[190]	_	cf3[189]|cf2[190]	_	_	
 35-10	2378-2379	,	_	_	_	_	_	_	_	
 35-11	2380-2385	shake	_	_	_	_	_	_	_	
-35-12	2386-2389	all	object[191]	giv:act[191]	snsnn[191]	_	cf1*[191]	coref	36-11[194_191]	
-35-13	2390-2397	bottles	object[191]	giv:act[191]	snsnn[191]	_	cf1*[191]	_	_	
+35-12	2386-2389	all	object[191]	giv:act[191]	snnnn[191]	_	cf1*[191]	coref	36-11[194_191]	
+35-13	2390-2397	bottles	object[191]	giv:act[191]	snnnn[191]	_	cf1*[191]	_	_	
 35-14	2398-2408	vigorously	_	_	_	_	_	_	_	
 35-15	2409-2410	.	_	_	_	_	_	_	_	
 
@@ -578,25 +578,25 @@
 36-4	2425-2428	the	time[192]	new[192]	nnnnn[192]	_	cf3[192]	_	_	
 36-5	2429-2432	way	time[192]	new[192]	nnnnn[192]	_	cf3[192]	_	_	
 36-6	2433-2440	through	time[192]	new[192]	nnnnn[192]	_	cf3[192]	_	_	
-36-7	2441-2444	the	time[192]|event[193]	new[192]|giv:act[193]	nnnnn[192]|n____[193]	_	cf3[192]|cf2[193]	coref	37-2[195_193]	
-36-8	2445-2450	cycle	time[192]|event[193]	new[192]|giv:act[193]	nnnnn[192]|n____[193]	_	cf3[192]|cf2[193]	_	_	
+36-7	2441-2444	the	time[192]|event[193]	new[192]|giv:act[193]	nnnnn[192]|nnnnn[193]	_	cf3[192]|cf2[193]	coref	37-2[195_193]	
+36-8	2445-2450	cycle	time[192]|event[193]	new[192]|giv:act[193]	nnnnn[192]|nnnnn[193]	_	cf3[192]|cf2[193]	_	_	
 36-9	2451-2452	,	_	_	_	_	_	_	_	
 36-10	2453-2458	shake	_	_	_	_	_	_	_	
-36-11	2459-2462	all	object[194]	giv:act[194]	snsnn[194]	_	cf1*[194]	coref	37-8[196_194]	
-36-12	2463-2470	bottles	object[194]	giv:act[194]	snsnn[194]	_	cf1*[194]	_	_	
+36-11	2459-2462	all	object[194]	giv:act[194]	snnnn[194]	_	cf1*[194]	coref	37-8[196_194]	
+36-12	2463-2470	bottles	object[194]	giv:act[194]	snnnn[194]	_	cf1*[194]	_	_	
 36-13	2471-2481	vigorously	_	_	_	_	_	_	_	
 36-14	2482-2483	.	_	_	_	_	_	_	_	
 
 #Text=Once the cycle has finished , shake all bottles vigorously again .
 37-1	2484-2488	Once	_	_	_	_	_	_	_	
-37-2	2489-2492	the	event[195]	giv:act[195]	n____[195]	_	cf1*[195]	_	_	
-37-3	2493-2498	cycle	event[195]	giv:act[195]	n____[195]	_	cf1*[195]	_	_	
+37-2	2489-2492	the	event[195]	giv:act[195]	nnnnn[195]	_	cf1*[195]	_	_	
+37-3	2493-2498	cycle	event[195]	giv:act[195]	nnnnn[195]	_	cf1*[195]	_	_	
 37-4	2499-2502	has	_	_	_	_	_	_	_	
 37-5	2503-2511	finished	_	_	_	_	_	_	_	
 37-6	2512-2513	,	_	_	_	_	_	_	_	
 37-7	2514-2519	shake	_	_	_	_	_	_	_	
-37-8	2520-2523	all	object[196]	giv:act[196]	snsnn[196]	_	cf2[196]	coref|bridge:def	42-7[219_196]|41-2[212_196]	
-37-9	2524-2531	bottles	object[196]	giv:act[196]	snsnn[196]	_	cf2[196]	_	_	
+37-8	2520-2523	all	object[196]	giv:act[196]	snnnn[196]	_	cf2[196]	coref|bridge:comparison-relative;set-member	42-7[219_196]|41-2[212_196]	
+37-9	2524-2531	bottles	object[196]	giv:act[196]	snnnn[196]	_	cf2[196]	_	_	
 37-10	2532-2542	vigorously	_	_	_	_	_	_	_	
 37-11	2543-2548	again	_	_	_	_	_	_	_	
 37-12	2549-2550	.	_	_	_	_	_	_	_	
@@ -605,8 +605,8 @@
 38-1	2551-2555	Then	_	_	_	_	_	_	_	
 38-2	2556-2561	place	_	_	_	_	_	_	_	
 38-3	2562-2564	in	_	_	_	_	_	_	_	
-38-4	2565-2568	the	place[197]	acc:com[197]	nnnnn[197]	_	cf1[197]	coref	43-7[228_197]	
-38-5	2569-2576	freezer	place[197]	acc:com[197]	nnnnn[197]	_	cf1[197]	_	_	
+38-4	2565-2568	the	place[197]	acc:inf[197]	nnnnn[197]	_	cf1[197]	coref	43-7[228_197]	
+38-5	2569-2576	freezer	place[197]	acc:inf[197]	nnnnn[197]	_	cf1[197]	_	_	
 38-6	2577-2580	for	_	_	_	_	_	_	_	
 38-7	2581-2582	2	time[198]	new[198]	nnnnn[198]	_	cf2[198]	_	_	
 38-8	2583-2588	hours	time[198]	new[198]	nnnnn[198]	_	cf2[198]	_	_	
@@ -614,12 +614,12 @@
 
 #Text=Once the vodka is cold , it should be syrupy .
 39-1	2591-2595	Once	_	_	_	_	_	_	_	
-39-2	2596-2599	the	substance[199]	giv:inact[199]	n____[199]	_	cf1[199]	ana	39-7[200_199]	
-39-3	2600-2605	vodka	substance[199]	giv:inact[199]	n____[199]	_	cf1[199]	_	_	
+39-2	2596-2599	the	substance[199]	giv:inact[199]	nnnnn[199]	_	cf1[199]	ana	39-7[200_199]	
+39-3	2600-2605	vodka	substance[199]	giv:inact[199]	nnnnn[199]	_	cf1[199]	_	_	
 39-4	2606-2608	is	_	_	_	_	_	_	_	
 39-5	2609-2613	cold	_	_	_	_	_	_	_	
 39-6	2614-2615	,	_	_	_	_	_	_	_	
-39-7	2616-2618	it	substance[200]	giv:act[200]	n____[200]	_	cf1[200]	coref	40-27[211_200]	
+39-7	2616-2618	it	substance[200]	giv:act[200]	nnnnn[200]	_	cf1[200]	coref	40-27[211_200]	
 39-8	2619-2625	should	_	_	_	_	_	_	_	
 39-9	2626-2628	be	_	_	_	_	_	_	_	
 39-10	2629-2635	syrupy	_	_	_	_	_	_	_	
@@ -631,19 +631,19 @@
 40-3	2645-2650	sieve	event[202]|object[203]	new[202]|new[203]	nnnnn[202]|nnnnn[203]	_	cf6[202]|cf1[203]	_	_	
 40-4	2651-2652	,	event[202]	new[202]	nnnnn[202]	_	cf6[202]	_	_	
 40-5	2653-2657	line	event[202]	new[202]	nnnnn[202]	_	cf6[202]	_	_	
-40-6	2658-2660	it	event[202]|object[204]	new[202]|giv:act[204]	nnnnn[202]|n____[204]	_	cf6[202]|cf1[204]	_	_	
+40-6	2658-2660	it	event[202]|object[204]	new[202]|giv:act[204]	nnnnn[202]|nnnnn[204]	_	cf6[202]|cf1[204]	_	_	
 40-7	2661-2665	with	event[202]	new[202]	nnnnn[202]	_	cf6[202]	_	_	
 40-8	2666-2667	a	event[202]|object[206]	new[202]|new[206]	nnnnn[202]|nnnnn[206]	_	cf6[202]|cf3[206]	coref	40-13[207_206]	
 40-9	2668-2673	piece	event[202]|object[206]	new[202]|new[206]	nnnnn[202]|nnnnn[206]	_	cf6[202]|cf3[206]	_	_	
 40-10	2674-2676	of	event[202]|object[206]	new[202]|new[206]	nnnnn[202]|nnnnn[206]	_	cf6[202]|cf3[206]	_	_	
 40-11	2677-2688	cheesecloth	event[202]|object[206]	new[202]|new[206]	nnnnn[202]|nnnnn[206]	_	cf6[202]|cf3[206]	_	_	
 40-12	2689-2690	(	event[202]	new[202]	nnnnn[202]	_	cf6[202]	_	_	
-40-13	2691-2697	muslin	event[202]|object[207]	new[202]|giv:act[207]	nnnnn[202]|n____[207]	_	cf6[202]|cf3[207]	coref	66-4[348_207]	
+40-13	2691-2697	muslin	event[202]|object[207]	new[202]|giv:act[207]	nnnnn[202]|nnnnn[207]	_	cf6[202]|cf3[207]	coref	66-4[348_207]	
 40-14	2698-2699	)	event[202]	new[202]	nnnnn[202]	_	cf6[202]	_	_	
 40-15	2700-2702	or	event[202]	new[202]	nnnnn[202]	_	cf6[202]	_	_	
-40-16	2703-2704	a	event[202]|object[209]	new[202]|new[209]	nnnnn[202]|nnnnn[209]	_	cf6[202]|cf4[209]	coref	66-1[347_209]	
-40-17	2705-2711	coffee	event[202]|object[209]	new[202]|new[209]	nnnnn[202]|nnnnn[209]	_	cf6[202]|cf4[209]	_	_	
-40-18	2712-2718	filter	event[202]|object[209]	new[202]|new[209]	nnnnn[202]|nnnnn[209]	_	cf6[202]|cf4[209]	_	_	
+40-16	2703-2704	a	event[202]|object[209]	new[202]|giv:inact[209]	nnnnn[202]|nnsnn[209]	_	cf6[202]|cf4[209]	coref	66-1[347_209]	
+40-17	2705-2711	coffee	event[202]|object[209]	new[202]|giv:inact[209]	nnnnn[202]|nnsnn[209]	_	cf6[202]|cf4[209]	_	_	
+40-18	2712-2718	filter	event[202]|object[209]	new[202]|giv:inact[209]	nnnnn[202]|nnsnn[209]	_	cf6[202]|cf4[209]	_	_	
 40-19	2719-2720	,	event[202]	new[202]	nnnnn[202]	_	cf6[202]	_	_	
 40-20	2721-2726	place	event[202]	new[202]	nnnnn[202]	_	cf6[202]	_	_	
 40-21	2727-2732	above	event[202]	new[202]	nnnnn[202]	_	cf6[202]	_	_	
@@ -652,8 +652,8 @@
 40-24	2741-2744	jug	event[202]|object[210]	new[202]|new[210]	nnnnn[202]|nnnnn[210]	_	cf6[202]|cf5[210]	_	_	
 40-25	2745-2748	and	event[202]	new[202]	nnnnn[202]	_	cf6[202]	_	_	
 40-26	2749-2753	pour	event[202]	new[202]	nnnnn[202]	_	cf6[202]	_	_	
-40-27	2754-2757	the	event[202]|substance[211]	new[202]|giv:act[211]	nnnnn[202]|n____[211]	_	cf6[202]|cf2*[211]	coref	41-15[215_211]	
-40-28	2758-2763	vodka	event[202]|substance[211]	new[202]|giv:act[211]	nnnnn[202]|n____[211]	_	cf6[202]|cf2*[211]	_	_	
+40-27	2754-2757	the	event[202]|substance[211]	new[202]|giv:act[211]	nnnnn[202]|nnnnn[211]	_	cf6[202]|cf2*[211]	coref	41-15[215_211]	
+40-28	2758-2763	vodka	event[202]|substance[211]	new[202]|giv:act[211]	nnnnn[202]|nnnnn[211]	_	cf6[202]|cf2*[211]	_	_	
 40-29	2764-2771	through	event[202]	new[202]	nnnnn[202]	_	cf6[202]	_	_	
 40-30	2772-2778	slowly	event[202]	new[202]	nnnnn[202]	_	cf6[202]	_	_	
 40-31	2779-2780	.	event[202]	new[202]	nnnnn[202]	_	cf6[202]	_	_	
@@ -669,13 +669,13 @@
 41-8	2821-2822	,	_	_	_	_	_	_	_	
 41-9	2823-2827	wash	event[213]	new[213]	nnnnn[213]	_	cf4[213]	bridge:aggr	42-2[218_213]	
 41-10	2828-2831	out	event[213]	new[213]	nnnnn[213]	_	cf4[213]	_	_	
-41-11	2832-2835	the	event[213]|object[214]	new[213]|giv:act[214]	nnnnn[213]|n____[214]	_	cf4[213]|cf1[214]	_	_	
-41-12	2836-2842	bottle	event[213]|object[214]	new[213]|giv:act[214]	nnnnn[213]|n____[214]	_	cf4[213]|cf1[214]	_	_	
+41-11	2832-2835	the	event[213]|object[214]	new[213]|giv:act[214]	nnnnn[213]|nnnnn[214]	_	cf4[213]|cf1[214]	_	_	
+41-12	2836-2842	bottle	event[213]|object[214]	new[213]|giv:act[214]	nnnnn[213]|nnnnn[214]	_	cf4[213]|cf1[214]	_	_	
 41-13	2843-2846	and	event[213]	new[213]	nnnnn[213]	_	cf4[213]	_	_	
 41-14	2847-2851	pour	event[213]	new[213]	nnnnn[213]	_	cf4[213]	_	_	
-41-15	2852-2855	the	event[213]|substance[215]	new[213]|giv:act[215]	nnnnn[213]|n____[215]	_	cf4[213]|cf2*[215]	coref	44-5[231_215]	
-41-16	2856-2864	Skittles	event[213]|substance[215]|object[216]	new[213]|giv:act[215]|giv:inact[216]	nnnnn[213]|n____[215]|sssss[216]	Skittles_%28confectionery%29[216]	cf4[213]|cf2*[215]|cf3[216]	coref	52-8[261_216]	
-41-17	2865-2870	vodka	event[213]|substance[215]	new[213]|giv:act[215]	nnnnn[213]|n____[215]	_	cf4[213]|cf2*[215]	_	_	
+41-15	2852-2855	the	event[213]|substance[215]	new[213]|giv:act[215]	nnnnn[213]|nnnnn[215]	_	cf4[213]|cf2*[215]	coref	44-5[231_215]	
+41-16	2856-2864	Skittles	event[213]|substance[215]|object[216]	new[213]|giv:act[215]|giv:inact[216]	nnnnn[213]|nnnnn[215]|sssss[216]	Skittles_%28confectionery%29[216]	cf4[213]|cf2*[215]|cf3[216]	coref|bridge:set-subset	52-8[261_216]|48-11[243_216]	
+41-17	2865-2870	vodka	event[213]|substance[215]	new[213]|giv:act[215]	nnnnn[213]|nnnnn[215]	_	cf4[213]|cf2*[215]	_	_	
 41-18	2871-2875	back	event[213]	new[213]	nnnnn[213]	_	cf4[213]	_	_	
 41-19	2876-2878	in	event[213]	new[213]	nnnnn[213]	_	cf4[213]	_	_	
 41-20	2879-2880	.	_	_	_	_	_	_	_	
@@ -687,8 +687,8 @@
 42-4	2898-2901	two	event[218]	acc:aggr[218]	nnnnn[218]	_	cf2[218]	_	_	
 42-5	2902-2907	steps	event[218]	acc:aggr[218]	nnnnn[218]	_	cf2[218]	_	_	
 42-6	2908-2911	for	_	_	_	_	_	_	_	
-42-7	2912-2915	all	object[219]	giv:inact[219]	snsnn[219]	_	cf1[219]	ana	43-2[227_219]	
-42-8	2916-2923	bottles	object[219]	giv:inact[219]	snsnn[219]	_	cf1[219]	_	_	
+42-7	2912-2915	all	object[219]	giv:inact[219]	snnnn[219]	_	cf1[219]	ana	43-2[227_219]	
+42-8	2916-2923	bottles	object[219]	giv:inact[219]	snnnn[219]	_	cf1[219]	_	_	
 42-9	2924-2925	,	_	_	_	_	_	_	_	
 42-10	2926-2934	ensuring	_	_	_	_	_	_	_	
 42-11	2935-2939	that	_	_	_	_	_	_	_	
@@ -705,15 +705,15 @@
 
 #Text=Place all of the bottles in the freezer until you are ready to drink .
 43-1	3008-3013	Place	_	_	_	_	_	_	_	
-43-2	3014-3017	all	object[227]	giv:act[227]	snsnn[227]	_	cf1*[227]	_	_	
-43-3	3018-3020	of	object[227]	giv:act[227]	snsnn[227]	_	cf1*[227]	_	_	
-43-4	3021-3024	the	object[227]	giv:act[227]	snsnn[227]	_	cf1*[227]	_	_	
-43-5	3025-3032	bottles	object[227]	giv:act[227]	snsnn[227]	_	cf1*[227]	_	_	
+43-2	3014-3017	all	object[227]	giv:act[227]	snnnn[227]	_	cf1*[227]	_	_	
+43-3	3018-3020	of	object[227]	giv:act[227]	snnnn[227]	_	cf1*[227]	_	_	
+43-4	3021-3024	the	object[227]	giv:act[227]	snnnn[227]	_	cf1*[227]	_	_	
+43-5	3025-3032	bottles	object[227]	giv:act[227]	snnnn[227]	_	cf1*[227]	_	_	
 43-6	3033-3035	in	_	_	_	_	_	_	_	
-43-7	3036-3039	the	place[228]	giv:inact[228]	n____[228]	_	cf3[228]	_	_	
-43-8	3040-3047	freezer	place[228]	giv:inact[228]	n____[228]	_	cf3[228]	_	_	
+43-7	3036-3039	the	place[228]	giv:inact[228]	nnnnn[228]	_	cf3[228]	_	_	
+43-8	3040-3047	freezer	place[228]	giv:inact[228]	nnnnn[228]	_	cf3[228]	_	_	
 43-9	3048-3053	until	_	_	_	_	_	_	_	
-43-10	3054-3057	you	person[229]	giv:inact[229]	n____[229]	_	cf2[229]	ana	45-1[232_229]	
+43-10	3054-3057	you	person[229]	giv:inact[229]	nnnnn[229]	_	cf2[229]	ana	45-1[232_229]	
 43-11	3058-3061	are	_	_	_	_	_	_	_	
 43-12	3062-3067	ready	_	_	_	_	_	_	_	
 43-13	3068-3070	to	_	_	_	_	_	_	_	
@@ -725,33 +725,33 @@
 44-2	3082-3085	n't	_	_	_	_	_	_	_	
 44-3	3086-3091	worry	_	_	_	_	_	_	_	
 44-4	3092-3093	,	_	_	_	_	_	_	_	
-44-5	3094-3097	the	substance[231]	giv:inact[231]	n____[231]	_	cf1[231]	coref	46-2[234_231]	
-44-6	3098-3103	vodka	substance[231]	giv:inact[231]	n____[231]	_	cf1[231]	_	_	
+44-5	3094-3097	the	substance[231]	giv:inact[231]	nnnnn[231]	_	cf1[231]	coref	46-2[234_231]	
+44-6	3098-3103	vodka	substance[231]	giv:inact[231]	nnnnn[231]	_	cf1[231]	_	_	
 44-7	3104-3106	wo	_	_	_	_	_	_	_	
 44-8	3107-3110	n't	_	_	_	_	_	_	_	
 44-9	3111-3117	freeze	_	_	_	_	_	_	_	
 44-10	3118-3119	.	_	_	_	_	_	_	_	
 
 #Text=You are finished .
-45-1	3120-3123	You	person[232]	giv:inact[232]	n____[232]	_	cf1[232]	ana	46-2[235_232]	
+45-1	3120-3123	You	person[232]	giv:inact[232]	nnnnn[232]	_	cf1[232]	ana	46-2[235_232]	
 45-2	3124-3127	are	_	_	_	_	_	_	_	
 45-3	3128-3136	finished	_	_	_	_	_	_	_	
 45-4	3137-3138	.	_	_	_	_	_	_	_	
 
 #Text=Enjoy your tasty creation .
 46-1	3139-3144	Enjoy	_	_	_	_	_	_	_	
-46-2	3145-3149	your	substance[234]|person[235]	giv:inact[234]|giv:act[235]	n____[234]|n____[235]	_	cf2[234]|cf1*[235]	ana	48-2[237_235]	
-46-3	3150-3155	tasty	substance[234]	giv:inact[234]	n____[234]	_	cf2[234]	_	_	
-46-4	3156-3164	creation	substance[234]	giv:inact[234]	n____[234]	_	cf2[234]	_	_	
+46-2	3145-3149	your	substance[234]|person[235]	giv:inact[234]|giv:act[235]	nnnnn[234]|nnnnn[235]	_	cf2[234]|cf1*[235]	ana	48-2[237_235]	
+46-3	3150-3155	tasty	substance[234]	giv:inact[234]	nnnnn[234]	_	cf2[234]	_	_	
+46-4	3156-3164	creation	substance[234]	giv:inact[234]	nnnnn[234]	_	cf2[234]	_	_	
 46-5	3165-3166	.	_	_	_	_	_	_	_	
 
 #Text=Tips .
-47-1	3167-3171	Tips	abstract[236]	new[236]	nnsnn[236]	_	cf1[236]	_	_	
+47-1	3167-3171	Tips	abstract[236]	acc:inf[236]	nnssn[236]	_	cf1[236]	_	_	
 47-2	3172-3173	.	_	_	_	_	_	_	_	
 
 #Text=If you want to make it more quickly , cut the skittles in half before putting them into vodka .
 48-1	3174-3176	If	_	_	_	_	_	_	_	
-48-2	3177-3180	you	person[237]	giv:inact[237]	n____[237]	_	cf2[237]	ana	51-2[253_237]	
+48-2	3177-3180	you	person[237]	giv:inact[237]	nnnnn[237]	_	cf2[237]	ana	51-2[253_237]	
 48-3	3181-3185	want	_	_	_	_	_	_	_	
 48-4	3186-3188	to	_	_	_	_	_	_	_	
 48-5	3189-3193	make	_	_	_	_	_	_	_	
@@ -760,13 +760,13 @@
 48-8	3202-3209	quickly	_	_	_	_	_	_	_	
 48-9	3210-3211	,	_	_	_	_	_	_	_	
 48-10	3212-3215	cut	_	_	_	_	_	_	_	
-48-11	3216-3219	the	object[243]	acc:com[243]	nnnnn[243]	_	cf1[243]	ana	48-17[244_243]	
-48-12	3220-3228	skittles	object[243]	acc:com[243]	nnnnn[243]	_	cf1[243]	_	_	
+48-11	3216-3219	the	object[243]	acc:inf[243]	nnnnn[243]	_	cf1[243]	ana	48-17[244_243]	
+48-12	3220-3228	skittles	object[243]	acc:inf[243]	nnnnn[243]	_	cf1[243]	_	_	
 48-13	3229-3231	in	_	_	_	_	_	_	_	
 48-14	3232-3236	half	_	_	_	_	_	_	_	
 48-15	3237-3243	before	_	_	_	_	_	_	_	
 48-16	3244-3251	putting	_	_	_	_	_	_	_	
-48-17	3252-3256	them	object[244]	giv:act[244]	n____[244]	_	cf1[244]	ana	50-1[249_244]	
+48-17	3252-3256	them	object[244]	giv:act[244]	nnnnn[244]	_	cf1[244]	ana	50-1[249_244]	
 48-18	3257-3261	into	_	_	_	_	_	_	_	
 48-19	3262-3267	vodka	substance[245]	giv:inact[245]	sssss[245]	_	cf4[245]	coref	52-6[260_245]	
 48-20	3268-3269	.	_	_	_	_	_	_	_	
@@ -779,7 +779,7 @@
 49-5	3293-3294	.	_	_	_	_	_	_	_	
 
 #Text=They 'll dissolve in an hour instead of a day .
-50-1	3295-3299	They	object[249]	giv:inact[249]	n____[249]	_	cf1[249]	_	_	
+50-1	3295-3299	They	object[249]	giv:inact[249]	nnnnn[249]	_	cf1[249]	_	_	
 50-2	3300-3303	'll	_	_	_	_	_	_	_	
 50-3	3304-3312	dissolve	_	_	_	_	_	_	_	
 50-4	3313-3315	in	_	_	_	_	_	_	_	
@@ -793,11 +793,11 @@
 
 #Text=Or you could just scoop them out when the color dissolves .
 51-1	3343-3345	Or	_	_	_	_	_	_	_	
-51-2	3346-3349	you	person[253]	giv:inact[253]	n____[253]	_	cf1[253]	ana	52-18[266_253]	
+51-2	3346-3349	you	person[253]	giv:inact[253]	nnnnn[253]	_	cf1[253]	ana	52-18[266_253]	
 51-3	3350-3355	could	_	_	_	_	_	_	_	
 51-4	3356-3360	just	_	_	_	_	_	_	_	
 51-5	3361-3366	scoop	_	_	_	_	_	_	_	
-51-6	3367-3371	them	object[254]	new[254]	nnnnn[254]	_	cf3[254]	bridge:def	51-9[257_254]	
+51-6	3367-3371	them	object[254]	new[254]	nnnnn[254]	_	cf3[254]	bridge:entity-property	51-9[257_254]	
 51-7	3372-3375	out	_	_	_	_	_	_	_	
 51-8	3376-3380	when	_	_	_	_	_	_	_	
 51-9	3381-3384	the	abstract[257]	acc:inf[257]	nnnnn[257]	_	cf2[257]	_	_	
@@ -808,30 +808,30 @@
 #Text=Start with small amount of vodka and Skittles at first to experiment which combination of taste suits you best .
 52-1	3403-3408	Start	event[258]	new[258]	nnnnn[258]	_	cf7[258]	disc	53-4[268_258]	
 52-2	3409-3413	with	event[258]	new[258]	nnnnn[258]	_	cf7[258]	_	_	
-52-3	3414-3419	small	event[258]|abstract[259]	new[258]|new[259]	nnnnn[258]|nnnnn[259]	_	cf7[258]|cf5[259]	_	_	
-52-4	3420-3426	amount	event[258]|abstract[259]	new[258]|new[259]	nnnnn[258]|nnnnn[259]	_	cf7[258]|cf5[259]	_	_	
-52-5	3427-3429	of	event[258]|abstract[259]	new[258]|new[259]	nnnnn[258]|nnnnn[259]	_	cf7[258]|cf5[259]	_	_	
-52-6	3430-3435	vodka	event[258]|abstract[259]|substance[260]	new[258]|new[259]|giv:inact[260]	nnnnn[258]|nnnnn[259]|sssss[260]	_	cf7[258]|cf5[259]|cf3[260]	coref	53-10[274_260]	
-52-7	3436-3439	and	event[258]|abstract[259]	new[258]|new[259]	nnnnn[258]|nnnnn[259]	_	cf7[258]|cf5[259]	_	_	
-52-8	3440-3448	Skittles	event[258]|abstract[259]|object[261]	new[258]|new[259]|giv:inact[261]	nnnnn[258]|nnnnn[259]|sssss[261]	Skittles_%28confectionery%29[261]	cf7[258]|cf5[259]|cf2[261]	coref	53-12[275_261]	
+52-3	3414-3419	small	event[258]|abstract[259]	new[258]|new[259]	nnnnn[258]|nnnnn[259]	_	cf7[258]|cf6[259]	bridge:entity-property	52-16[265_259]	
+52-4	3420-3426	amount	event[258]|abstract[259]	new[258]|new[259]	nnnnn[258]|nnnnn[259]	_	cf7[258]|cf6[259]	_	_	
+52-5	3427-3429	of	event[258]|abstract[259]	new[258]|new[259]	nnnnn[258]|nnnnn[259]	_	cf7[258]|cf6[259]	_	_	
+52-6	3430-3435	vodka	event[258]|abstract[259]|substance[260]	new[258]|new[259]|giv:inact[260]	nnnnn[258]|nnnnn[259]|sssss[260]	_	cf7[258]|cf6[259]|cf3[260]	coref	53-10[274_260]	
+52-7	3436-3439	and	event[258]|abstract[259]	new[258]|new[259]	nnnnn[258]|nnnnn[259]	_	cf7[258]|cf6[259]	_	_	
+52-8	3440-3448	Skittles	event[258]|abstract[259]|object[261]	new[258]|new[259]|giv:inact[261]	nnnnn[258]|nnnnn[259]|sssss[261]	Skittles_%28confectionery%29[261]	cf7[258]|cf6[259]|cf2[261]	coref	53-12[275_261]	
 52-9	3449-3451	at	event[258]	new[258]	nnnnn[258]	_	cf7[258]	_	_	
 52-10	3452-3457	first	event[258]	new[258]	nnnnn[258]	_	cf7[258]	_	_	
 52-11	3458-3460	to	event[258]	new[258]	nnnnn[258]	_	cf7[258]	_	_	
 52-12	3461-3471	experiment	event[258]	new[258]	nnnnn[258]	_	cf7[258]	_	_	
-52-13	3472-3477	which	event[258]|abstract[264]	new[258]|new[264]	nnnnn[258]|nnnnn[264]	_	cf7[258]|cf4[264]	_	_	
-52-14	3478-3489	combination	event[258]|abstract[264]	new[258]|new[264]	nnnnn[258]|nnnnn[264]	_	cf7[258]|cf4[264]	_	_	
-52-15	3490-3492	of	event[258]|abstract[264]	new[258]|new[264]	nnnnn[258]|nnnnn[264]	_	cf7[258]|cf4[264]	_	_	
-52-16	3493-3498	taste	event[258]|abstract[264]|abstract[265]	new[258]|new[264]|new[265]	nnnnn[258]|nnnnn[264]|nnnnn[265]	_	cf7[258]|cf4[264]|cf6[265]	coref	53-20[282_265]	
+52-13	3472-3477	which	event[258]|abstract[264]	new[258]|new[264]	nnnnn[258]|nnnnn[264]	_	cf7[258]|cf5[264]	_	_	
+52-14	3478-3489	combination	event[258]|abstract[264]	new[258]|new[264]	nnnnn[258]|nnnnn[264]	_	cf7[258]|cf5[264]	_	_	
+52-15	3490-3492	of	event[258]|abstract[264]	new[258]|new[264]	nnnnn[258]|nnnnn[264]	_	cf7[258]|cf5[264]	_	_	
+52-16	3493-3498	taste	event[258]|abstract[264]|abstract[265]	new[258]|new[264]|acc:inf[265]	nnnnn[258]|nnnnn[264]|nnnnn[265]	_	cf7[258]|cf5[264]|cf4[265]	coref	53-20[282_265]	
 52-17	3499-3504	suits	event[258]	new[258]	nnnnn[258]	_	cf7[258]	_	_	
-52-18	3505-3508	you	event[258]|person[266]	new[258]|giv:act[266]	nnnnn[258]|n____[266]	_	cf7[258]|cf1*[266]	ana	53-1[267_266]	
+52-18	3505-3508	you	event[258]|person[266]	new[258]|giv:act[266]	nnnnn[258]|nnnnn[266]	_	cf7[258]|cf1*[266]	ana	53-1[267_266]	
 52-19	3509-3513	best	event[258]	new[258]	nnnnn[258]	_	cf7[258]	_	_	
 52-20	3514-3515	.	_	_	_	_	_	_	_	
 
 #Text=You can carry this out with larger amount of vodka and Skittles once you have decided that you enjoy the taste .
-53-1	3516-3519	You	person[267]	giv:act[267]	n____[267]	_	cf1*[267]	ana	53-14[276_267]	
+53-1	3516-3519	You	person[267]	giv:act[267]	nnnnn[267]	_	cf1*[267]	ana	53-14[276_267]	
 53-2	3520-3523	can	_	_	_	_	_	_	_	
 53-3	3524-3529	carry	_	_	_	_	_	_	_	
-53-4	3530-3534	this	event[268]	giv:act[268]	n____[268]	_	cf2[268]	_	_	
+53-4	3530-3534	this	event[268]	giv:act[268]	nnnnn[268]	_	cf2[268]	bridge:comparison-relative	55-1[296_268]	
 53-5	3535-3538	out	_	_	_	_	_	_	_	
 53-6	3539-3543	with	_	_	_	_	_	_	_	
 53-7	3544-3550	larger	abstract[273]	new[273]	nnnnn[273]	_	cf6[273]	_	_	
@@ -841,31 +841,31 @@
 53-11	3567-3570	and	abstract[273]	new[273]	nnnnn[273]	_	cf6[273]	_	_	
 53-12	3571-3579	Skittles	abstract[273]|object[275]	new[273]|giv:act[275]	nnnnn[273]|sssss[275]	Skittles_%28confectionery%29[275]	cf6[273]|cf4[275]	coref	55-14[301_275]	
 53-13	3580-3584	once	_	_	_	_	_	_	_	
-53-14	3585-3588	you	person[276]	giv:act[276]	n____[276]	_	cf1*[276]	ana	53-18[277_276]	
+53-14	3585-3588	you	person[276]	giv:act[276]	nnnnn[276]	_	cf1*[276]	ana	53-18[277_276]	
 53-15	3589-3593	have	_	_	_	_	_	_	_	
 53-16	3594-3601	decided	_	_	_	_	_	_	_	
 53-17	3602-3606	that	_	_	_	_	_	_	_	
-53-18	3607-3610	you	person[277]	giv:act[277]	n____[277]	_	cf1*[277]	ana	54-14[286_277]	
+53-18	3607-3610	you	person[277]	giv:act[277]	nnnnn[277]	_	cf1*[277]	ana	54-14[286_277]	
 53-19	3611-3616	enjoy	_	_	_	_	_	_	_	
-53-20	3617-3620	the	abstract[282]	giv:act[282]	n____[282]	_	cf3[282]	_	_	
-53-21	3621-3626	taste	abstract[282]	giv:act[282]	n____[282]	_	cf3[282]	_	_	
+53-20	3617-3620	the	abstract[282]	giv:act[282]	nnnnn[282]	_	cf3[282]	_	_	
+53-21	3621-3626	taste	abstract[282]	giv:act[282]	nnnnn[282]	_	cf3[282]	_	_	
 53-22	3627-3628	.	_	_	_	_	_	_	_	
 
 #Text=The lime green Skittles add a sourness to the drink , so if you want one that 's sweet , leave the green ones out and add them to their own bottle for a sour lime vodka .
-54-1	3629-3632	The	object[283]	giv:inact[283]	snnnn[283]	_	cf2[283]	coref	54-22[289_283]	
-54-2	3633-3637	lime	object[283]	giv:inact[283]	snnnn[283]	_	cf2[283]	_	_	
-54-3	3638-3643	green	object[283]	giv:inact[283]	snnnn[283]	_	cf2[283]	_	_	
-54-4	3644-3652	Skittles	object[283]	giv:inact[283]	snnnn[283]	_	cf2[283]	_	_	
+54-1	3629-3632	The	object[283]	giv:inact[283]	ssnnn[283]	_	cf2[283]	coref	54-22[289_283]	
+54-2	3633-3637	lime	object[283]	giv:inact[283]	ssnnn[283]	_	cf2[283]	_	_	
+54-3	3638-3643	green	object[283]	giv:inact[283]	ssnnn[283]	_	cf2[283]	_	_	
+54-4	3644-3652	Skittles	object[283]	giv:inact[283]	ssnnn[283]	_	cf2[283]	_	_	
 54-5	3653-3656	add	_	_	_	_	_	_	_	
 54-6	3657-3658	a	abstract[284]	new[284]	nnnnn[284]	_	cf5[284]	_	_	
 54-7	3659-3667	sourness	abstract[284]	new[284]	nnnnn[284]	_	cf5[284]	_	_	
 54-8	3668-3670	to	_	_	_	_	_	_	_	
-54-9	3671-3674	the	substance[285]	giv:inact[285]	sssss[285]	_	cf3[285]	bridge:other	54-16[288_285]	
+54-9	3671-3674	the	substance[285]	giv:inact[285]	sssss[285]	_	cf3[285]	bridge:comparison-sense|bridge:entity-associative	54-16[288_285]|59-1[316_285]	
 54-10	3675-3680	drink	substance[285]	giv:inact[285]	sssss[285]	_	cf3[285]	_	_	
 54-11	3681-3682	,	_	_	_	_	_	_	_	
 54-12	3683-3685	so	_	_	_	_	_	_	_	
 54-13	3686-3688	if	_	_	_	_	_	_	_	
-54-14	3689-3692	you	person[286]	giv:act[286]	n____[286]	_	cf1*[286]	ana	62-2[319_286]	
+54-14	3689-3692	you	person[286]	giv:act[286]	nnnnn[286]	_	cf1*[286]	ana	62-2[319_286]	
 54-15	3693-3697	want	_	_	_	_	_	_	_	
 54-16	3698-3701	one	substance[288]	acc:inf[288]	nnnnn[288]	_	cf4[288]	_	_	
 54-17	3702-3706	that	substance[288]	acc:inf[288]	nnnnn[288]	_	cf4[288]	_	_	
@@ -873,15 +873,15 @@
 54-19	3710-3715	sweet	substance[288]	acc:inf[288]	nnnnn[288]	_	cf4[288]	_	_	
 54-20	3716-3717	,	_	_	_	_	_	_	_	
 54-21	3718-3723	leave	_	_	_	_	_	_	_	
-54-22	3724-3727	the	object[289]	giv:act[289]	snnnn[289]	_	cf2[289]	ana	54-28[290_289]	
-54-23	3728-3733	green	object[289]	giv:act[289]	snnnn[289]	_	cf2[289]	_	_	
-54-24	3734-3738	ones	object[289]	giv:act[289]	snnnn[289]	_	cf2[289]	_	_	
+54-22	3724-3727	the	object[289]	giv:act[289]	ssnnn[289]	_	cf2[289]	ana	54-28[290_289]	
+54-23	3728-3733	green	object[289]	giv:act[289]	ssnnn[289]	_	cf2[289]	_	_	
+54-24	3734-3738	ones	object[289]	giv:act[289]	ssnnn[289]	_	cf2[289]	_	_	
 54-25	3739-3742	out	_	_	_	_	_	_	_	
 54-26	3743-3746	and	_	_	_	_	_	_	_	
 54-27	3747-3750	add	_	_	_	_	_	_	_	
-54-28	3751-3755	them	object[290]	giv:act[290]	snnnn[290]	_	cf2[290]	ana	54-30[293_290]	
+54-28	3751-3755	them	object[290]	giv:act[290]	ssnnn[290]	_	cf2[290]	ana	54-30[293_290]	
 54-29	3756-3758	to	_	_	_	_	_	_	_	
-54-30	3759-3764	their	object[292]|object[293]	new[292]|giv:act[293]	nnnnn[292]|snnnn[293]	_	cf6[292]|cf2[293]	_	_	
+54-30	3759-3764	their	object[292]|object[293]	new[292]|giv:act[293]	nnnnn[292]|ssnnn[293]	_	cf6[292]|cf2[293]	_	_	
 54-31	3765-3768	own	object[292]	new[292]	nnnnn[292]	_	cf6[292]	_	_	
 54-32	3769-3775	bottle	object[292]	new[292]	nnnnn[292]	_	cf6[292]	_	_	
 54-33	3776-3779	for	_	_	_	_	_	_	_	
@@ -892,8 +892,8 @@
 54-38	3798-3799	.	_	_	_	_	_	_	_	
 
 #Text=Another approach is to buy five bottles of vodka and five bags of Skittles .
-55-1	3800-3807	Another	abstract[296]	new[296]	nnnnn[296]	_	cf3[296]	_	_	
-55-2	3808-3816	approach	abstract[296]	new[296]	nnnnn[296]	_	cf3[296]	_	_	
+55-1	3800-3807	Another	abstract[296]	acc:inf[296]	nnnnn[296]	_	cf3[296]	_	_	
+55-2	3808-3816	approach	abstract[296]	acc:inf[296]	nnnnn[296]	_	cf3[296]	_	_	
 55-3	3817-3819	is	_	_	_	_	_	_	_	
 55-4	3820-3822	to	_	_	_	_	_	_	_	
 55-5	3823-3826	buy	_	_	_	_	_	_	_	
@@ -902,31 +902,31 @@
 55-8	3840-3842	of	object[297]	new[297]	nnnnn[297]	_	cf4[297]	_	_	
 55-9	3843-3848	vodka	object[297]|substance[298]	new[297]|giv:inact[298]	nnnnn[297]|sssss[298]	_	cf4[297]|cf2[298]	coref	65-4[331_298]	
 55-10	3849-3852	and	_	_	_	_	_	_	_	
-55-11	3853-3857	five	object[300]	new[300]	nnnns[300]	_	cf5[300]	coref	56-3[303_300]	
-55-12	3858-3862	bags	object[300]	new[300]	nnnns[300]	_	cf5[300]	_	_	
-55-13	3863-3865	of	object[300]	new[300]	nnnns[300]	_	cf5[300]	_	_	
-55-14	3866-3874	Skittles	object[300]|object[301]	new[300]|giv:inact[301]	nnnns[300]|sssss[301]	Skittles_%28confectionery%29[301]	cf5[300]|cf1[301]	coref	65-20[336_301]	
+55-11	3853-3857	five	object[300]	new[300]	nnnnn[300]	_	cf5[300]	coref	56-3[303_300]	
+55-12	3858-3862	bags	object[300]	new[300]	nnnnn[300]	_	cf5[300]	_	_	
+55-13	3863-3865	of	object[300]	new[300]	nnnnn[300]	_	cf5[300]	_	_	
+55-14	3866-3874	Skittles	object[300]|object[301]	new[300]|giv:inact[301]	nnnnn[300]|sssss[301]	Skittles_%28confectionery%29[301]	cf5[300]|cf1[301]	coref	65-20[336_301]	
 55-15	3875-3876	.	_	_	_	_	_	_	_	
 
 #Text=Then separate the candy and use one flavor for each bottle .
 56-1	3877-3881	Then	_	_	_	_	_	_	_	
 56-2	3882-3890	separate	_	_	_	_	_	_	_	
-56-3	3891-3894	the	object[303]	giv:act[303]	nnnns[303]	_	cf1*[303]	coref|bridge:other	57-14[308_303]|56-7[304_303]	
-56-4	3895-3900	candy	object[303]	giv:act[303]	nnnns[303]	_	cf1*[303]	_	_	
+56-3	3891-3894	the	object[303]	giv:act[303]	nnnnn[303]	_	cf1*[303]	coref|bridge:comparison-sense;set-subset	57-14[308_303]|56-7[304_303]	
+56-4	3895-3900	candy	object[303]	giv:act[303]	nnnnn[303]	_	cf1*[303]	_	_	
 56-5	3901-3904	and	_	_	_	_	_	_	_	
 56-6	3905-3908	use	_	_	_	_	_	_	_	
 56-7	3909-3912	one	abstract[304]	acc:inf[304]	nnnnn[304]	_	cf3[304]	_	_	
 56-8	3913-3919	flavor	abstract[304]	acc:inf[304]	nnnnn[304]	_	cf3[304]	_	_	
 56-9	3920-3923	for	_	_	_	_	_	_	_	
-56-10	3924-3928	each	object[305]	giv:act[305]	n____[305]	_	cf2[305]	_	_	
-56-11	3929-3935	bottle	object[305]	giv:act[305]	n____[305]	_	cf2[305]	_	_	
+56-10	3924-3928	each	object[305]	giv:act[305]	nnnnn[305]	_	cf2[305]	_	_	
+56-11	3929-3935	bottle	object[305]	giv:act[305]	nnnnn[305]	_	cf2[305]	_	_	
 56-12	3936-3937	.	_	_	_	_	_	_	_	
 
 #Text=( Or get four bottles and an empty , to allow room for the skittles . )
 57-1	3938-3939	(	_	_	_	_	_	_	_	
 57-2	3940-3942	Or	_	_	_	_	_	_	_	
 57-3	3943-3946	get	_	_	_	_	_	_	_	
-57-4	3947-3951	four	object[306]	new[306]	nnnnn[306]	_	cf3[306]	bridge:other	57-7[307_306]	
+57-4	3947-3951	four	object[306]	new[306]	nnnnn[306]	_	cf3[306]	bridge:comparison-sense	57-7[307_306]	
 57-5	3952-3959	bottles	object[306]	new[306]	nnnnn[306]	_	cf3[306]	_	_	
 57-6	3960-3963	and	_	_	_	_	_	_	_	
 57-7	3964-3966	an	object[307]	acc:inf[307]	nnnnn[307]	_	cf2[307]	_	_	
@@ -936,18 +936,18 @@
 57-11	3978-3983	allow	_	_	_	_	_	_	_	
 57-12	3984-3988	room	_	_	_	_	_	_	_	
 57-13	3989-3992	for	_	_	_	_	_	_	_	
-57-14	3993-3996	the	object[308]	giv:act[308]	nnnns[308]	_	cf1*[308]	_	_	
-57-15	3997-4005	skittles	object[308]	giv:act[308]	nnnns[308]	_	cf1*[308]	_	_	
+57-14	3993-3996	the	object[308]	giv:act[308]	nnnnn[308]	_	cf1*[308]	_	_	
+57-15	3997-4005	skittles	object[308]	giv:act[308]	nnnnn[308]	_	cf1*[308]	_	_	
 57-16	4006-4007	.	_	_	_	_	_	_	_	
 57-17	4008-4009	)	_	_	_	_	_	_	_	
 
 #Text=If using a t - shirt to strain , be sure fabric softener or a dryer sheet had not been used with it , lets you get some extra ( unwanted ) flavoring ( and potentially toxic chemicals ) .
 58-1	4010-4012	If	_	_	_	_	_	_	_	
 58-2	4013-4018	using	_	_	_	_	_	_	_	
-58-3	4019-4020	a	object[309]	giv:inact[309]	n____[309]	_	cf1[309]	ana	58-23[312_309]	
-58-4	4021-4022	t	object[309]	giv:inact[309]	n____[309]	_	cf1[309]	_	_	
-58-5	4023-4024	-	object[309]	giv:inact[309]	n____[309]	_	cf1[309]	_	_	
-58-6	4025-4030	shirt	object[309]	giv:inact[309]	n____[309]	_	cf1[309]	_	_	
+58-3	4019-4020	a	object[309]	giv:inact[309]	nnnnn[309]	_	cf1[309]	ana	58-23[312_309]	
+58-4	4021-4022	t	object[309]	giv:inact[309]	nnnnn[309]	_	cf1[309]	_	_	
+58-5	4023-4024	-	object[309]	giv:inact[309]	nnnnn[309]	_	cf1[309]	_	_	
+58-6	4025-4030	shirt	object[309]	giv:inact[309]	nnnnn[309]	_	cf1[309]	_	_	
 58-7	4031-4033	to	_	_	_	_	_	_	_	
 58-8	4034-4040	strain	_	_	_	_	_	_	_	
 58-9	4041-4042	,	_	_	_	_	_	_	_	
@@ -964,7 +964,7 @@
 58-20	4092-4096	been	_	_	_	_	_	_	_	
 58-21	4097-4101	used	_	_	_	_	_	_	_	
 58-22	4102-4106	with	_	_	_	_	_	_	_	
-58-23	4107-4109	it	object[312]	giv:act[312]	n____[312]	_	cf1[312]	coref	66-9[352_312]	
+58-23	4107-4109	it	object[312]	giv:act[312]	nnnnn[312]	_	cf1[312]	coref	66-9[352_312]	
 58-24	4110-4111	,	_	_	_	_	_	_	_	
 58-25	4112-4116	lets	_	_	_	_	_	_	_	
 58-26	4117-4120	you	_	_	_	_	_	_	_	
@@ -984,7 +984,7 @@
 58-40	4195-4196	.	_	_	_	_	_	_	_	
 
 #Text=Warnings
-59-1	4197-4205	Warnings	abstract[316]	new[316]	nnnnn[316]	_	cf1[316]	_	_	
+59-1	4197-4205	Warnings	abstract[316]	acc:inf[316]	nnnnn[316]	_	cf1[316]	_	_	
 
 #Text=Drink responsibly .
 60-1	4206-4211	Drink	_	_	_	_	_	_	_	
@@ -1000,7 +1000,7 @@
 
 #Text=Know your limits , and do not drink to the extent of intoxication .
 62-1	4250-4254	Know	_	_	_	_	_	_	_	
-62-2	4255-4259	your	abstract[318]|person[319]	new[318]|giv:inact[319]	nnnnn[318]|n____[319]	_	cf2[318]|cf1[319]	ana	63-7[325_319]	
+62-2	4255-4259	your	abstract[318]|person[319]	new[318]|giv:inact[319]	nnnnn[318]|nnnnn[319]	_	cf2[318]|cf1[319]	ana	63-7[325_319]	
 62-3	4260-4266	limits	abstract[318]	new[318]	nnnnn[318]	_	cf2[318]	_	_	
 62-4	4267-4268	,	_	_	_	_	_	_	_	
 62-5	4269-4272	and	_	_	_	_	_	_	_	
@@ -1021,13 +1021,13 @@
 63-4	4331-4333	if	_	_	_	_	_	_	_	
 63-5	4334-4342	underage	_	_	_	_	_	_	_	
 63-6	4343-4345	in	_	_	_	_	_	_	_	
-63-7	4346-4350	your	place[324]|person[325]	new[324]|giv:act[325]	nnnnn[324]|n____[325]	_	cf2[324]|cf1*[325]	ana	64-2[328_325]	
+63-7	4346-4350	your	place[324]|person[325]	new[324]|giv:act[325]	nnnnn[324]|nnnnn[325]	_	cf2[324]|cf1*[325]	ana	64-2[328_325]	
 63-8	4351-4358	country	place[324]	new[324]	nnnnn[324]	_	cf2[324]	_	_	
 63-9	4359-4360	.	_	_	_	_	_	_	_	
 
 #Text=Things You 'll Need
 64-1	4361-4367	Things	object[327]	new[327]	nnnnn[327]	_	cf2[327]	_	_	
-64-2	4368-4371	You	object[327]|person[328]	new[327]|giv:act[328]	nnnnn[327]|n____[328]	_	cf2[327]|cf1*[328]	ana	65-24[337_328]	
+64-2	4368-4371	You	object[327]|person[328]	new[327]|giv:act[328]	nnnnn[327]|nnnnn[328]	_	cf2[327]|cf1*[328]	ana	65-24[337_328]	
 64-3	4372-4375	'll	object[327]	new[327]	nnnnn[327]	_	cf2[327]	_	_	
 64-4	4376-4380	Need	object[327]	new[327]	nnnnn[327]	_	cf2[327]	_	_	
 
@@ -1037,37 +1037,37 @@
 65-3	4393-4395	of	substance[330]	new[330]	nnnnn[330]	_	cf3[330]	_	_	
 65-4	4396-4401	vodka	substance[330]|substance[331]	new[330]|giv:inact[331]	nnnnn[330]|sssss[331]	_	cf3[330]|cf4[331]	_	_	
 65-5	4402-4403	(	_	_	_	_	_	_	_	
-65-6	4404-4408	1.75	substance[333]	giv:act[333]	n____[333]	_	cf3[333]	coref	65-9[334_333]	
-65-7	4409-4415	liters	substance[333]	giv:act[333]	n____[333]	_	cf3[333]	_	_	
+65-6	4404-4408	1.75	substance[333]	giv:act[333]	nnnnn[333]	_	cf3[333]	coref	65-9[334_333]	
+65-7	4409-4415	liters	substance[333]	giv:act[333]	nnnnn[333]	_	cf3[333]	_	_	
 65-8	4416-4417	,	_	_	_	_	_	_	_	
-65-9	4418-4423	about	substance[334]	giv:act[334]	n____[334]	_	cf3[334]	_	_	
-65-10	4424-4425	a	substance[334]	giv:act[334]	n____[334]	_	cf3[334]	_	_	
-65-11	4426-4430	half	substance[334]	giv:act[334]	n____[334]	_	cf3[334]	_	_	
-65-12	4431-4437	gallon	substance[334]	giv:act[334]	n____[334]	_	cf3[334]	_	_	
+65-9	4418-4423	about	substance[334]	giv:act[334]	nnnnn[334]	_	cf3[334]	_	_	
+65-10	4424-4425	a	substance[334]	giv:act[334]	nnnnn[334]	_	cf3[334]	_	_	
+65-11	4426-4430	half	substance[334]	giv:act[334]	nnnnn[334]	_	cf3[334]	_	_	
+65-12	4431-4437	gallon	substance[334]	giv:act[334]	nnnnn[334]	_	cf3[334]	_	_	
 65-13	4438-4439	)	_	_	_	_	_	_	_	
 65-14	4440-4448	requires	_	_	_	_	_	_	_	
-65-15	4449-4450	a	object[335]	new[335]	nnnnn[335]	_	cf5[335]	_	_	
-65-16	4451-4456	large	object[335]	new[335]	nnnnn[335]	_	cf5[335]	_	_	
-65-17	4457-4460	bag	object[335]	new[335]	nnnnn[335]	_	cf5[335]	_	_	
-65-18	4461-4466	worth	object[335]	new[335]	nnnnn[335]	_	cf5[335]	_	_	
-65-19	4467-4469	of	object[335]	new[335]	nnnnn[335]	_	cf5[335]	_	_	
-65-20	4470-4478	Skittles	object[335]|object[336]	new[335]|giv:inact[336]	nnnnn[335]|sssss[336]	Skittles_%28confectionery%29[336]	cf5[335]|cf2[336]	coref	65-45[345_336]	
+65-15	4449-4450	a	object[335]	new[335]	nnnnn[335]	_	cf6[335]	_	_	
+65-16	4451-4456	large	object[335]	new[335]	nnnnn[335]	_	cf6[335]	_	_	
+65-17	4457-4460	bag	object[335]	new[335]	nnnnn[335]	_	cf6[335]	_	_	
+65-18	4461-4466	worth	object[335]	new[335]	nnnnn[335]	_	cf6[335]	_	_	
+65-19	4467-4469	of	object[335]	new[335]	nnnnn[335]	_	cf6[335]	_	_	
+65-20	4470-4478	Skittles	object[335]|object[336]	new[335]|giv:inact[336]	nnnnn[335]|sssss[336]	Skittles_%28confectionery%29[336]	cf6[335]|cf2[336]	coref|bridge:entity-property;set-member	65-45[345_336]|65-28[340_336]	
 65-21	4479-4480	,	_	_	_	_	_	_	_	
 65-22	4481-4483	so	_	_	_	_	_	_	_	
 65-23	4484-4486	if	_	_	_	_	_	_	_	
-65-24	4487-4490	you	person[337]	giv:act[337]	n____[337]	_	cf1*[337]	ana	65-36[342_337]	
+65-24	4487-4490	you	person[337]	giv:act[337]	nnnnn[337]	_	cf1*[337]	ana	65-36[342_337]	
 65-25	4491-4495	plan	_	_	_	_	_	_	_	
 65-26	4496-4498	on	_	_	_	_	_	_	_	
 65-27	4499-4504	doing	_	_	_	_	_	_	_	
-65-28	4505-4509	only	abstract[340]	new[340]	nnnnn[340]	_	cf6[340]	_	_	
-65-29	4510-4513	one	abstract[340]	new[340]	nnnnn[340]	_	cf6[340]	_	_	
-65-30	4514-4520	flavor	abstract[340]	new[340]	nnnnn[340]	_	cf6[340]	_	_	
+65-28	4505-4509	only	abstract[340]	acc:inf[340]	nnnnn[340]	_	cf5[340]	_	_	
+65-29	4510-4513	one	abstract[340]	acc:inf[340]	nnnnn[340]	_	cf5[340]	_	_	
+65-30	4514-4520	flavor	abstract[340]	acc:inf[340]	nnnnn[340]	_	cf5[340]	_	_	
 65-31	4521-4524	for	_	_	_	_	_	_	_	
-65-32	4525-4526	a	substance[341]	new[341]	nnnnn[341]	_	cf8[341]	_	_	
-65-33	4527-4536	flavorful	substance[341]	new[341]	nnnnn[341]	_	cf8[341]	_	_	
-65-34	4537-4542	vodka	substance[341]	new[341]	nnnnn[341]	_	cf8[341]	_	_	
+65-32	4525-4526	a	substance[341]	new[341]	nnnsn[341]	_	cf8[341]	_	_	
+65-33	4527-4536	flavorful	substance[341]	new[341]	nnnsn[341]	_	cf8[341]	_	_	
+65-34	4537-4542	vodka	substance[341]	new[341]	nnnsn[341]	_	cf8[341]	_	_	
 65-35	4543-4544	,	_	_	_	_	_	_	_	
-65-36	4545-4548	you	person[342]	giv:act[342]	n____[342]	_	cf1*[342]	_	_	
+65-36	4545-4548	you	person[342]	giv:act[342]	nnnnn[342]	_	cf1*[342]	_	_	
 65-37	4549-4552	'll	_	_	_	_	_	_	_	
 65-38	4553-4557	have	_	_	_	_	_	_	_	
 65-39	4558-4560	to	_	_	_	_	_	_	_	
@@ -1080,26 +1080,26 @@
 65-46	4590-4591	.	_	_	_	_	_	_	_	
 
 #Text=Coffee filter , cheesecloth / muslin , or an extremely clean T - shirt
-66-1	4592-4598	Coffee	object[347]	giv:inact[347]	n____[347]	_	cf2[347]	coref	67-7[355_347]	
-66-2	4599-4605	filter	object[347]	giv:inact[347]	n____[347]	_	cf2[347]	_	_	
+66-1	4592-4598	Coffee	object[347]	giv:inact[347]	nnsnn[347]	_	cf2[347]	coref	67-7[355_347]	
+66-2	4599-4605	filter	object[347]	giv:inact[347]	nnsnn[347]	_	cf2[347]	_	_	
 66-3	4606-4607	,	_	_	_	_	_	_	_	
-66-4	4608-4619	cheesecloth	object[348]	giv:inact[348]	n____[348]	_	cf1[348]	coref	66-6[349_348]	
+66-4	4608-4619	cheesecloth	object[348]	giv:inact[348]	nnnnn[348]	_	cf1[348]	coref	66-6[349_348]	
 66-5	4620-4621	/	_	_	_	_	_	_	_	
-66-6	4622-4628	muslin	object[349]	giv:act[349]	n____[349]	_	cf1[349]	_	_	
+66-6	4622-4628	muslin	object[349]	giv:act[349]	nnnnn[349]	_	cf1[349]	_	_	
 66-7	4629-4630	,	_	_	_	_	_	_	_	
 66-8	4631-4633	or	_	_	_	_	_	_	_	
-66-9	4634-4636	an	object[352]	giv:inact[352]	n____[352]	_	cf3[352]	_	_	
-66-10	4637-4646	extremely	object[352]	giv:inact[352]	n____[352]	_	cf3[352]	_	_	
-66-11	4647-4652	clean	object[352]	giv:inact[352]	n____[352]	_	cf3[352]	_	_	
-66-12	4653-4654	T	object[352]	giv:inact[352]	n____[352]	_	cf3[352]	_	_	
-66-13	4655-4656	-	object[352]	giv:inact[352]	n____[352]	_	cf3[352]	_	_	
-66-14	4657-4662	shirt	object[352]	giv:inact[352]	n____[352]	_	cf3[352]	_	_	
+66-9	4634-4636	an	object[352]	giv:inact[352]	nnnnn[352]	_	cf3[352]	_	_	
+66-10	4637-4646	extremely	object[352]	giv:inact[352]	nnnnn[352]	_	cf3[352]	_	_	
+66-11	4647-4652	clean	object[352]	giv:inact[352]	nnnnn[352]	_	cf3[352]	_	_	
+66-12	4653-4654	T	object[352]	giv:inact[352]	nnnnn[352]	_	cf3[352]	_	_	
+66-13	4655-4656	-	object[352]	giv:inact[352]	nnnnn[352]	_	cf3[352]	_	_	
+66-14	4657-4662	shirt	object[352]	giv:inact[352]	nnnnn[352]	_	cf3[352]	_	_	
 
 #Text=Large funnel or strainer to hold filter
-67-1	4663-4668	Large	object[353]	new[353]	nnnnn[353]	_	cf2[353]	_	_	
-67-2	4669-4675	funnel	object[353]	new[353]	nnnnn[353]	_	cf2[353]	_	_	
+67-1	4663-4668	Large	object[353]	new[353]	nnsnn[353]	_	cf2[353]	_	_	
+67-2	4669-4675	funnel	object[353]	new[353]	nnsnn[353]	_	cf2[353]	_	_	
 67-3	4676-4678	or	_	_	_	_	_	_	_	
 67-4	4679-4687	strainer	object[354]	new[354]	nnnnn[354]	_	cf3[354]	_	_	
 67-5	4688-4690	to	_	_	_	_	_	_	_	
 67-6	4691-4695	hold	_	_	_	_	_	_	_	
-67-7	4696-4702	filter	object[355]	giv:act[355]	n____[355]	_	cf1*[355]	_	_	
+67-7	4696-4702	filter	object[355]	giv:act[355]	nnsnn[355]	_	cf1*[355]	_	_	

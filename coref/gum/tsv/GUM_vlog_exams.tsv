@@ -1,16 +1,16 @@
 #FORMAT=WebAnno TSV 3.2
 #T_SP=webanno.custom.Referent|entity|infstat|salience|identity|centering
 #T_RL=webanno.custom.Coref|type|BT_webanno.custom.Referent
-#Summary1=(human1) In this video, Christine Lee studies for and takes for her college final exams in neuroscience and chemistry, and then surprises her friend Megumi with donuts for her birthday.
+#Summary1=(human1) In this video, a vlogger studies for and takes for college final exams in neuroscience and chemistry, and then surprises their friend Megumi with donuts for her birthday.
 #Summary2=(claude-3-5-sonnet-20241022) A student shares updates about studying for their neuroscience final exam, including late-night study sessions and anxiety before the test, then celebrates their friend Megumi's 20th birthday by surprising her with donuts and tulips after finishing the exam.
 #Summary3=(gpt4o) A college student details a hectic week leading up to their neuroscience final exam, navigating between studying, meetings, and managing social media mishaps, culminating in a mixture of nervousness and relief on exam day, followed by a joyful surprise birthday celebration for a friend with donuts and friendly camaraderie captured on video.
-#Summary4=(Llama-3.2-3B-Instruct) A college student, Kat, is preparing for her neuroscience final exam, studying and using the Pomodoro technique to manage her time, while also taking care of personal tasks like ordering donuts for her friend's birthday celebration.
+#Summary4=(Llama-3.2-3B-Instruct; postedited) A college student is preparing for her neuroscience final exam, studying and using the Pomodoro technique to manage her time, while also taking care of personal tasks like ordering donuts for her friend's birthday celebration.
 #Summary5=(Qwen2.5-7B-Instruct) A neuroscience student describes their daily routine leading up to and during their final exam, including studying techniques, a late-night session, and celebrating a friend's birthday by surprising them with donuts and flowers.
 
 
 #Text=Neuroscience finals .
-1-1	0-12	Neuroscience	event[1]|abstract[2]	new[1]|new[2]	nnnnn[1]|sssss[2]	_	cf1[1]|cf2[2]	coref	5-25[31_2]	
-1-2	13-19	finals	event[1]	new[1]	nnnnn[1]	_	cf1[1]	_	_	
+1-1	0-12	Neuroscience	event[1]|abstract[2]	new[1]|new[2]	nssss[1]|sssss[2]	_	cf1[1]|cf2[2]	coref|coref	20-9[100_1]|5-25[31_2]	
+1-2	13-19	finals	event[1]	new[1]	nssss[1]	_	cf1[1]	_	_	
 1-3	20-21	.	_	_	_	_	_	_	_	
 
 #Text=Hi !
@@ -23,7 +23,7 @@
 3-3	40-41	,	_	_	_	_	_	_	_	
 3-4	42-44	it	_	_	_	_	_	_	_	
 3-5	45-47	is	_	_	_	_	_	_	_	
-3-6	48-54	Monday	time[5]	new[5]	nnnnn[5]	_	cf1[5]	ana	14-1[64_5]	
+3-6	48-54	Monday	time[5]	new[5]	nnnnn[5]	_	cf1[5]	ana|bridge:comparison-time;set-span-interval	14-1[64_5]|4-6[12_5]	
 3-7	55-58	May	time[5]|time[6]	new[5]|new[6]	nnnnn[5]|nnnnn[6]	_	cf1[5]|cf2[6]	coref	42-3[262_6]	
 3-8	59-62	3rd	time[5]	new[5]	nnnnn[5]	_	cf1[5]	_	_	
 3-9	63-68	10:38	time[8]	new[8]	nnnnn[8]	_	cf4[8]	_	_	
@@ -32,23 +32,23 @@
 #Text=I have a meeting at 10:45 so in a few minutes with one of my TFs about my project .
 4-1	74-75	I	person[9]	acc:com[9]	sssss[9]	_	cf1[9]	ana	4-15[17_9]	
 4-2	76-80	have	_	_	_	_	_	_	_	
-4-3	81-82	a	event[11]	new[11]	nnnnn[11]	_	cf2[11]	_	_	
-4-4	83-90	meeting	event[11]	new[11]	nnnnn[11]	_	cf2[11]	_	_	
+4-3	81-82	a	event[11]	new[11]	nnsnn[11]	_	cf3[11]	bridge:entity-associative	9-15[50_11]	
+4-4	83-90	meeting	event[11]	new[11]	nnsnn[11]	_	cf3[11]	_	_	
 4-5	91-93	at	_	_	_	_	_	_	_	
-4-6	94-99	10:45	time[12]	new[12]	nnnnn[12]	_	cf7[12]	_	_	
+4-6	94-99	10:45	time[12]	acc:inf[12]	nnnnn[12]	_	cf2[12]	_	_	
 4-7	100-102	so	_	_	_	_	_	_	_	
 4-8	103-105	in	_	_	_	_	_	_	_	
-4-9	106-107	a	time[14]	new[14]	nnnnn[14]	_	cf4[14]	_	_	
-4-10	108-111	few	time[14]	new[14]	nnnnn[14]	_	cf4[14]	_	_	
-4-11	112-119	minutes	time[14]	new[14]	nnnnn[14]	_	cf4[14]	_	_	
+4-9	106-107	a	time[14]	new[14]	nnnnn[14]	_	cf5[14]	_	_	
+4-10	108-111	few	time[14]	new[14]	nnnnn[14]	_	cf5[14]	_	_	
+4-11	112-119	minutes	time[14]	new[14]	nnnnn[14]	_	cf5[14]	_	_	
 4-12	120-124	with	_	_	_	_	_	_	_	
-4-13	125-128	one	person[15]	new[15]	nnnnn[15]	_	cf6[15]	ana	5-7[22_15]	
-4-14	129-131	of	person[15]	new[15]	nnnnn[15]	_	cf6[15]	_	_	
-4-15	132-134	my	person[15]|person[16]|person[17]	new[15]|new[16]|giv:act[17]	nnnnn[15]|nnnnn[16]|sssss[17]	_	cf6[15]|cf3[16]|cf1[17]	ana	4-18[20_17]	
-4-16	135-138	TFs	person[15]|person[16]	new[15]|new[16]	nnnnn[15]|nnnnn[16]	_	cf6[15]|cf3[16]	_	_	
+4-13	125-128	one	person[15]	new[15]	nnnnn[15]	_	cf7[15]	ana	5-7[22_15]	
+4-14	129-131	of	person[15]	new[15]	nnnnn[15]	_	cf7[15]	_	_	
+4-15	132-134	my	person[15]|person[16]|person[17]	new[15]|new[16]|giv:act[17]	nnnnn[15]|nnnnn[16]|sssss[17]	_	cf7[15]|cf4[16]|cf1[17]	ana	4-18[20_17]	
+4-16	135-138	TFs	person[15]|person[16]	new[15]|new[16]	nnnnn[15]|nnnnn[16]	_	cf7[15]|cf4[16]	_	_	
 4-17	139-144	about	_	_	_	_	_	_	_	
-4-18	145-147	my	abstract[19]|person[20]	new[19]|giv:act[20]	nnnnn[19]|sssss[20]	_	cf5[19]|cf1[20]	ana	5-1[21_20]	
-4-19	148-155	project	abstract[19]	new[19]	nnnnn[19]	_	cf5[19]	_	_	
+4-18	145-147	my	abstract[19]|person[20]	new[19]|giv:act[20]	nnnnn[19]|sssss[20]	_	cf6[19]|cf1[20]	bridge:entity-associative|ana	5-14[28_19]|5-1[21_20]	
+4-19	148-155	project	abstract[19]	new[19]	nnnnn[19]	_	cf6[19]	_	_	
 4-20	156-157	.	_	_	_	_	_	_	_	
 
 #Text=I 'm gon na meet with her quickly and see if she has any feedback and then I 'll be working on chem and neuro .
@@ -58,15 +58,15 @@
 5-4	167-169	na	_	_	_	_	_	_	_	
 5-5	170-174	meet	_	_	_	_	_	_	_	
 5-6	175-179	with	_	_	_	_	_	_	_	
-5-7	180-183	her	person[22]	giv:act[22]	n____[22]	_	cf2[22]	ana	5-12[23_22]	
+5-7	180-183	her	person[22]	giv:act[22]	nnnnn[22]	_	cf2[22]	ana	5-12[23_22]	
 5-8	184-191	quickly	_	_	_	_	_	_	_	
 5-9	192-195	and	_	_	_	_	_	_	_	
 5-10	196-199	see	_	_	_	_	_	_	_	
 5-11	200-202	if	_	_	_	_	_	_	_	
-5-12	203-206	she	person[23]	giv:act[23]	n____[23]	_	cf2[23]	ana	6-1[32_23]	
+5-12	203-206	she	person[23]	giv:act[23]	nnnnn[23]	_	cf2[23]	ana	6-1[32_23]	
 5-13	207-210	has	_	_	_	_	_	_	_	
-5-14	211-214	any	abstract[28]	new[28]	nnnnn[28]	_	cf4[28]	_	_	
-5-15	215-223	feedback	abstract[28]	new[28]	nnnnn[28]	_	cf4[28]	_	_	
+5-14	211-214	any	abstract[28]	acc:inf[28]	nnnnn[28]	_	cf4[28]	_	_	
+5-15	215-223	feedback	abstract[28]	acc:inf[28]	nnnnn[28]	_	cf4[28]	_	_	
 5-16	224-227	and	_	_	_	_	_	_	_	
 5-17	228-232	then	_	_	_	_	_	_	_	
 5-18	233-234	I	person[29]	giv:act[29]	sssss[29]	_	cf1*[29]	ana	8-1[33_29]	
@@ -80,7 +80,7 @@
 5-26	268-269	.	_	_	_	_	_	_	_	
 
 #Text=She 's not here yet .
-6-1	270-273	She	person[32]	giv:act[32]	n____[32]	_	cf1*[32]	_	_	
+6-1	270-273	She	person[32]	giv:act[32]	nnnnn[32]	_	cf1*[32]	_	_	
 6-2	274-276	's	_	_	_	_	_	_	_	
 6-3	277-280	not	_	_	_	_	_	_	_	
 6-4	281-285	here	_	_	_	_	_	_	_	
@@ -120,8 +120,8 @@
 9-12	383-386	did	_	_	_	_	_	_	_	
 9-13	387-388	I	person[45]	giv:act[45]	sssss[45]	_	cf1*[45]	ana	11-1[54_45]	
 9-14	389-392	get	_	_	_	_	_	_	_	
-9-15	393-396	the	time[50]	new[50]	nnnnn[50]	_	cf2[50]	_	_	
-9-16	397-401	time	time[50]	new[50]	nnnnn[50]	_	cf2[50]	_	_	
+9-15	393-396	the	time[50]	acc:inf[50]	nnnnn[50]	_	cf2[50]	_	_	
+9-16	397-401	time	time[50]	acc:inf[50]	nnnnn[50]	_	cf2[50]	_	_	
 9-17	402-407	wrong	_	_	_	_	_	_	_	
 9-18	408-409	?	_	_	_	_	_	_	_	
 9-19	410-411	"	_	_	_	_	_	_	_	
@@ -158,7 +158,7 @@
 13-1	493-494	I	person[60]	giv:act[60]	sssss[60]	_	cf1*[60]	ana	13-7[62_60]	
 13-2	495-501	should	_	_	_	_	_	_	_	
 13-3	502-505	let	_	_	_	_	_	_	_	
-13-4	506-508	it	object[61]	giv:inact[61]	n____[61]	_	cf2[61]	ana	13-13[63_61]	
+13-4	506-508	it	object[61]	giv:inact[61]	nnnnn[61]	_	cf2[61]	ana	13-13[63_61]	
 13-5	509-512	dry	_	_	_	_	_	_	_	
 13-6	513-516	but	_	_	_	_	_	_	_	
 13-7	517-518	I	person[62]	giv:act[62]	sssss[62]	_	cf1*[62]	ana	15-2[71_62]	
@@ -167,16 +167,16 @@
 13-10	526-530	lazy	_	_	_	_	_	_	_	
 13-11	531-533	to	_	_	_	_	_	_	_	
 13-12	534-538	take	_	_	_	_	_	_	_	
-13-13	539-541	it	object[63]	undefined[63]	n____[63]	_	cf2[63]	_	_	
+13-13	539-541	it	object[63]	giv:act[63]	nnnnn[63]	_	cf2[63]	_	_	
 13-14	542-545	out	_	_	_	_	_	_	_	
 13-15	546-547	.	_	_	_	_	_	_	_	
 
 #Text=It 's a new day , a little rainy outside .
-14-1	548-550	It	time[64]	giv:inact[64]	n____[64]	_	cf1[64]	pred	14-3[70_64]	
+14-1	548-550	It	time[64]	giv:inact[64]	nnnnn[64]	_	cf1[64]	pred	14-3[70_64]	
 14-2	551-553	's	_	_	_	_	_	_	_	
-14-3	554-555	a	time[70]	giv:act[70]	n____[70]	_	cf1[70]	coref	16-16[86_70]	
-14-4	556-559	new	time[70]	giv:act[70]	n____[70]	_	cf1[70]	_	_	
-14-5	560-563	day	time[70]	giv:act[70]	n____[70]	_	cf1[70]	_	_	
+14-3	554-555	a	time[70]	giv:act[70]	nnnnn[70]	_	cf1[70]	coref	16-16[86_70]	
+14-4	556-559	new	time[70]	giv:act[70]	nnnnn[70]	_	cf1[70]	_	_	
+14-5	560-563	day	time[70]	giv:act[70]	nnnnn[70]	_	cf1[70]	_	_	
 14-6	564-565	,	_	_	_	_	_	_	_	
 14-7	566-567	a	_	_	_	_	_	_	_	
 14-8	568-574	little	_	_	_	_	_	_	_	
@@ -210,7 +210,7 @@
 15-23	702-707	doing	event[75]	new[75]	nnnnn[75]	_	cf3[75]	_	_	
 15-24	708-709	,	_	_	_	_	_	_	_	
 15-25	710-712	so	_	_	_	_	_	_	_	
-15-26	713-716	you	person[77]	giv:act[77]	n____[77]	_	cf2[77]	_	_	
+15-26	713-716	you	person[77]	giv:act[77]	nnnnn[77]	_	cf2[77]	_	_	
 15-27	717-722	might	_	_	_	_	_	_	_	
 15-28	723-725	as	_	_	_	_	_	_	_	
 15-29	726-730	well	_	_	_	_	_	_	_	
@@ -237,17 +237,17 @@
 16-13	815-819	chem	abstract[84]	giv:inact[84]	snnnn[84]	_	cf2[84]	coref	30-29[186_84]	
 16-14	820-823	and	_	_	_	_	_	_	_	
 16-15	824-829	neuro	abstract[85]	giv:inact[85]	sssss[85]	_	cf3[85]	coref	20-7[97_85]	
-16-16	830-835	today	time[86]	giv:inact[86]	n____[86]	_	cf4[86]	coref	17-1[93_86]	
+16-16	830-835	today	time[86]	giv:inact[86]	nnnnn[86]	_	cf4[86]	coref	17-1[93_86]	
 16-17	836-837	,	_	_	_	_	_	_	_	
 16-18	838-839	I	person[87]	giv:act[87]	sssss[87]	_	cf1*[87]	ana	20-1[96_87]	
 16-19	840-845	think	_	_	_	_	_	_	_	
 16-20	846-847	.	_	_	_	_	_	_	_	
 
 #Text=Full day of studying , not really much to update you all on .
-17-1	848-852	Full	time[93]	giv:act[93]	n____[93]	_	cf1*[93]	_	_	
-17-2	853-856	day	time[93]	giv:act[93]	n____[93]	_	cf1*[93]	_	_	
-17-3	857-859	of	time[93]	giv:act[93]	n____[93]	_	cf1*[93]	_	_	
-17-4	860-868	studying	time[93]	giv:act[93]	n____[93]	_	cf1*[93]	_	_	
+17-1	848-852	Full	time[93]	giv:act[93]	nnnnn[93]	_	cf1*[93]	bridge:comparison-time|bridge:comparison-time	21-7[106_93]|39-15[250_93]	
+17-2	853-856	day	time[93]	giv:act[93]	nnnnn[93]	_	cf1*[93]	_	_	
+17-3	857-859	of	time[93]	giv:act[93]	nnnnn[93]	_	cf1*[93]	_	_	
+17-4	860-868	studying	time[93]	giv:act[93]	nnnnn[93]	_	cf1*[93]	_	_	
 17-5	869-870	,	_	_	_	_	_	_	_	
 17-6	871-874	not	_	_	_	_	_	_	_	
 17-7	875-881	really	_	_	_	_	_	_	_	
@@ -278,19 +278,19 @@
 20-6	959-962	for	_	_	_	_	_	_	_	
 20-7	963-975	neuroscience	abstract[97]	giv:inact[97]	sssss[97]	_	cf2[97]	coref	20-10[102_97]	
 20-8	976-977	,	_	_	_	_	_	_	_	
-20-9	978-980	my	event[100]|person[101]	new[100]|giv:act[101]	nssss[100]|sssss[101]	_	cf3[100]|cf1[101]	coref|ana	24-17[128_100]|23-1[107_101]	
-20-10	981-986	neuro	event[100]|abstract[102]	new[100]|undefined[102]	nssss[100]|sssss[102]	_	cf3[100]|cf2[102]	coref	24-18[130_102]	
-20-11	987-991	exam	event[100]	new[100]	nssss[100]	_	cf3[100]	_	_	
+20-9	978-980	my	event[100]|person[101]	giv:inact[100]|giv:act[101]	nssss[100]|sssss[101]	_	cf3[100]|cf1[101]	coref|ana	24-17[128_100]|23-1[107_101]	
+20-10	981-986	neuro	event[100]|abstract[102]	giv:inact[100]|giv:act[102]	nssss[100]|sssss[102]	_	cf3[100]|cf2[102]	coref	24-18[130_102]	
+20-11	987-991	exam	event[100]	giv:inact[100]	nssss[100]	_	cf3[100]	_	_	
 20-12	992-993	.	_	_	_	_	_	_	_	
 
 #Text=It 's currently 2:25 a.m. on Wednesday .
 21-1	994-996	It	_	_	_	_	_	_	_	
 21-2	997-999	's	_	_	_	_	_	_	_	
 21-3	1000-1009	currently	_	_	_	_	_	_	_	
-21-4	1010-1014	2:25	time[105]	giv:inact[105]	n____[105]	_	cf1[105]	_	_	
-21-5	1015-1019	a.m.	time[105]	giv:inact[105]	n____[105]	_	cf1[105]	_	_	
+21-4	1010-1014	2:25	time[105]	giv:inact[105]	nnnnn[105]	_	cf1[105]	_	_	
+21-5	1015-1019	a.m.	time[105]	giv:inact[105]	nnnnn[105]	_	cf1[105]	_	_	
 21-6	1020-1022	on	_	_	_	_	_	_	_	
-21-7	1023-1032	Wednesday	time[106]	new[106]	nnnnn[106]	_	cf2[106]	_	_	
+21-7	1023-1032	Wednesday	time[106]	acc:inf[106]	nnnnn[106]	_	cf2[106]	bridge:comparison-time	26-27[150_106]	
 21-8	1033-1034	.	_	_	_	_	_	_	_	
 
 #Text=It 's raining .
@@ -304,11 +304,11 @@
 23-2	1053-1056	've	_	_	_	_	_	_	_	
 23-3	1057-1061	been	_	_	_	_	_	_	_	
 23-4	1062-1067	doing	_	_	_	_	_	_	_	
-23-5	1068-1069	a	abstract[110]	new[110]	nnnnn[110]	_	cf2[110]	ana	24-3[120_110]	
-23-6	1070-1074	semi	abstract[110]	new[110]	nnnnn[110]	_	cf2[110]	_	_	
-23-7	1075-1076	-	abstract[110]	new[110]	nnnnn[110]	_	cf2[110]	_	_	
-23-8	1077-1085	Pomodoro	abstract[110]|abstract[111]	new[110]|new[111]	nnnnn[110]|nnnnn[111]	Pomodoro_Technique[111]	cf2[110]|cf6[111]	_	_	
-23-9	1086-1095	technique	abstract[110]	new[110]	nnnnn[110]	_	cf2[110]	_	_	
+23-5	1068-1069	a	abstract[110]	new[110]	nnsns[110]	_	cf2[110]	ana	24-3[120_110]	
+23-6	1070-1074	semi	abstract[110]	new[110]	nnsns[110]	_	cf2[110]	_	_	
+23-7	1075-1076	-	abstract[110]	new[110]	nnsns[110]	_	cf2[110]	_	_	
+23-8	1077-1085	Pomodoro	abstract[110]|abstract[111]	new[110]|new[111]	nnsns[110]|nnsnn[111]	Pomodoro_Technique[111]	cf2[110]|cf6[111]	_	_	
+23-9	1086-1095	technique	abstract[110]	new[110]	nnsns[110]	_	cf2[110]	_	_	
 23-10	1096-1099	but	_	_	_	_	_	_	_	
 23-11	1100-1101	I	person[112]	giv:act[112]	sssss[112]	_	cf1[112]	ana	24-1[119_112]	
 23-12	1102-1105	've	_	_	_	_	_	_	_	
@@ -336,7 +336,7 @@
 #Text=I do it based off of what I 'm trying to get done because I have my neuroscience final study schedule .
 24-1	1204-1205	I	person[119]	giv:act[119]	sssss[119]	_	cf1*[119]	ana	24-8[121_119]	
 24-2	1206-1208	do	_	_	_	_	_	_	_	
-24-3	1209-1211	it	abstract[120]	undefined[120]	n____[120]	_	cf2[120]	_	_	
+24-3	1209-1211	it	abstract[120]	giv:act[120]	nnsns[120]	_	cf2[120]	_	_	
 24-4	1212-1217	based	_	_	_	_	_	_	_	
 24-5	1218-1221	off	_	_	_	_	_	_	_	
 24-6	1222-1224	of	_	_	_	_	_	_	_	
@@ -350,9 +350,9 @@
 24-14	1254-1261	because	_	_	_	_	_	_	_	
 24-15	1262-1263	I	person[122]	giv:act[122]	sssss[122]	_	cf1*[122]	ana	24-17[129_122]	
 24-16	1264-1268	have	_	_	_	_	_	_	_	
-24-17	1269-1271	my	event[127]|event[128]|person[129]	new[127]|undefined[128]|giv:act[129]	nnnnn[127]|nssss[128]|sssss[129]	_	cf5[127]|cf3[128]|cf1*[129]	coref|ana	42-11[270_128]|25-5[138_129]	
-24-18	1272-1284	neuroscience	event[127]|event[128]|abstract[130]	new[127]|undefined[128]|giv:inact[130]	nnnnn[127]|nssss[128]|sssss[130]	_	cf5[127]|cf3[128]|cf4[130]	coref	58-4[365_130]	
-24-19	1285-1290	final	event[127]|event[128]	new[127]|undefined[128]	nnnnn[127]|nssss[128]	_	cf5[127]|cf3[128]	_	_	
+24-17	1269-1271	my	event[127]|event[128]|person[129]	new[127]|giv:inact[128]|giv:act[129]	nnnnn[127]|nssss[128]|sssss[129]	_	cf5[127]|cf3[128]|cf1*[129]	coref|ana	42-11[270_128]|25-5[138_129]	
+24-18	1272-1284	neuroscience	event[127]|event[128]|abstract[130]	new[127]|giv:inact[128]|giv:inact[130]	nnnnn[127]|nssss[128]|sssss[130]	_	cf5[127]|cf3[128]|cf4[130]	coref	58-4[365_130]	
+24-19	1285-1290	final	event[127]|event[128]	new[127]|giv:inact[128]	nnnnn[127]|nssss[128]	_	cf5[127]|cf3[128]	_	_	
 24-20	1291-1296	study	event[127]|event[131]	new[127]|new[131]	nnnnn[127]|nnnnn[131]	_	cf5[127]|cf6[131]	_	_	
 24-21	1297-1305	schedule	event[127]	new[127]	nnnnn[127]	_	cf5[127]	_	_	
 24-22	1306-1307	.	_	_	_	_	_	_	_	
@@ -360,23 +360,23 @@
 #Text=These are the things I 've gotten done , so I got this done , this done , this done .
 25-1	1308-1313	These	abstract[132]	acc:com[132]	nnnnn[132]	_	cf2[132]	coref	25-3[137_132]	
 25-2	1314-1317	are	_	_	_	_	_	_	_	
-25-3	1318-1321	the	abstract[137]	giv:act[137]	n____[137]	_	cf2[137]	_	_	
-25-4	1322-1328	things	abstract[137]	giv:act[137]	n____[137]	_	cf2[137]	_	_	
-25-5	1329-1330	I	abstract[137]|person[138]	giv:act[137]|giv:act[138]	n____[137]|sssss[138]	_	cf2[137]|cf1*[138]	ana	25-11[139_138]	
-25-6	1331-1334	've	abstract[137]	giv:act[137]	n____[137]	_	cf2[137]	_	_	
-25-7	1335-1341	gotten	abstract[137]	giv:act[137]	n____[137]	_	cf2[137]	_	_	
-25-8	1342-1346	done	abstract[137]	giv:act[137]	n____[137]	_	cf2[137]	_	_	
+25-3	1318-1321	the	abstract[137]	giv:act[137]	nnnnn[137]	_	cf2[137]	bridge:set-member|bridge:set-member|bridge:set-member	25-13[140_137]|25-16[141_137]|25-19[142_137]	
+25-4	1322-1328	things	abstract[137]	giv:act[137]	nnnnn[137]	_	cf2[137]	_	_	
+25-5	1329-1330	I	abstract[137]|person[138]	giv:act[137]|giv:act[138]	nnnnn[137]|sssss[138]	_	cf2[137]|cf1*[138]	ana	25-11[139_138]	
+25-6	1331-1334	've	abstract[137]	giv:act[137]	nnnnn[137]	_	cf2[137]	_	_	
+25-7	1335-1341	gotten	abstract[137]	giv:act[137]	nnnnn[137]	_	cf2[137]	_	_	
+25-8	1342-1346	done	abstract[137]	giv:act[137]	nnnnn[137]	_	cf2[137]	_	_	
 25-9	1347-1348	,	_	_	_	_	_	_	_	
 25-10	1349-1351	so	_	_	_	_	_	_	_	
 25-11	1352-1353	I	person[139]	giv:act[139]	sssss[139]	_	cf1*[139]	ana	26-1[143_139]	
 25-12	1354-1357	got	_	_	_	_	_	_	_	
-25-13	1358-1362	this	abstract[140]	acc:com[140]	nnnnn[140]	_	cf3[140]	_	_	
+25-13	1358-1362	this	abstract[140]	acc:inf[140]	nnnnn[140]	_	cf3[140]	_	_	
 25-14	1363-1367	done	_	_	_	_	_	_	_	
 25-15	1368-1369	,	_	_	_	_	_	_	_	
-25-16	1370-1374	this	abstract[141]	acc:com[141]	nnnnn[141]	_	cf4[141]	_	_	
+25-16	1370-1374	this	abstract[141]	acc:inf[141]	nnnnn[141]	_	cf4[141]	_	_	
 25-17	1375-1379	done	_	_	_	_	_	_	_	
 25-18	1380-1381	,	_	_	_	_	_	_	_	
-25-19	1382-1386	this	abstract[142]	acc:com[142]	nnnnn[142]	_	cf5[142]	_	_	
+25-19	1382-1386	this	abstract[142]	acc:inf[142]	nnnnn[142]	_	cf5[142]	_	_	
 25-20	1387-1391	done	_	_	_	_	_	_	_	
 25-21	1392-1393	.	_	_	_	_	_	_	_	
 
@@ -406,8 +406,8 @@
 26-23	1482-1483	I	person[148]	giv:act[148]	sssss[148]	_	cf1*[148]	ana	29-1[153_148]	
 26-24	1484-1487	can	_	_	_	_	_	_	_	
 26-25	1488-1490	do	_	_	_	_	_	_	_	
-26-26	1491-1493	it	abstract[149]	giv:act[149]	n____[149]	_	cf2[149]	_	_	
-26-27	1494-1502	tomorrow	time[150]	acc:com[150]	nnnnn[150]	_	cf4[150]	_	_	
+26-26	1491-1493	it	abstract[149]	giv:act[149]	nnnnn[149]	_	cf2[149]	_	_	
+26-27	1494-1502	tomorrow	time[150]	acc:inf[150]	nnnnn[150]	_	cf4[150]	_	_	
 26-28	1503-1504	.	_	_	_	_	_	_	_	
 
 #Text=Just wanted to show you .
@@ -415,7 +415,7 @@
 27-2	1510-1516	wanted	_	_	_	_	_	_	_	
 27-3	1517-1519	to	_	_	_	_	_	_	_	
 27-4	1520-1524	show	_	_	_	_	_	_	_	
-27-5	1525-1528	you	person[151]	giv:inact[151]	n____[151]	_	cf1[151]	ana	29-19[177_151]	
+27-5	1525-1528	you	person[151]	giv:inact[151]	nnnnn[151]	_	cf1[151]	ana	29-19[177_151]	
 27-6	1529-1530	.	_	_	_	_	_	_	_	
 
 #Text=This is realistic .
@@ -437,13 +437,13 @@
 29-10	1584-1588	show	_	_	_	_	_	_	_	
 29-11	1589-1593	that	event[155]	acc:com[155]	nnnnn[155]	_	cf2[155]	coref	29-13[174_155]	
 29-12	1594-1595	,	_	_	_	_	_	_	_	
-29-13	1596-1602	finals	event[174]	giv:act[174]	n____[174]	_	cf2[174]	_	_	
-29-14	1603-1605	as	event[174]	giv:act[174]	n____[174]	_	cf2[174]	_	_	
-29-15	1606-1607	a	event[174]|person[175]	giv:act[174]|giv:act[175]	n____[174]|sssss[175]	_	cf2[174]|cf1[175]	ana	30-2[178_175]	
-29-16	1608-1615	college	event[174]|person[175]|organization[176]	giv:act[174]|giv:act[175]|new[176]	n____[174]|sssss[175]|nnnnn[176]	_	cf2[174]|cf1[175]|cf4[176]	_	_	
-29-17	1616-1623	student	event[174]|person[175]	giv:act[174]|giv:act[175]	n____[174]|sssss[175]	_	cf2[174]|cf1[175]	_	_	
+29-13	1596-1602	finals	event[174]	giv:act[174]	nnnnn[174]	_	cf2[174]	_	_	
+29-14	1603-1605	as	event[174]	giv:act[174]	nnnnn[174]	_	cf2[174]	_	_	
+29-15	1606-1607	a	event[174]|person[175]	giv:act[174]|giv:act[175]	nnnnn[174]|sssss[175]	_	cf2[174]|cf1[175]	ana	30-2[178_175]	
+29-16	1608-1615	college	event[174]|person[175]|organization[176]	giv:act[174]|giv:act[175]|new[176]	nnnnn[174]|sssss[175]|nnnnn[176]	_	cf2[174]|cf1[175]|cf4[176]	_	_	
+29-17	1616-1623	student	event[174]|person[175]	giv:act[174]|giv:act[175]	nnnnn[174]|sssss[175]	_	cf2[174]|cf1[175]	_	_	
 29-18	1624-1625	,	_	_	_	_	_	_	_	
-29-19	1626-1629	you	person[177]	giv:inact[177]	n____[177]	_	cf3[177]	ana	49-20[334_177]	
+29-19	1626-1629	you	person[177]	giv:inact[177]	nnnnn[177]	_	cf3[177]	ana	49-20[334_177]	
 29-20	1630-1634	know	_	_	_	_	_	_	_	
 29-21	1635-1636	.	_	_	_	_	_	_	_	
 
@@ -493,7 +493,7 @@
 
 #Text=Hi Kat !
 32-1	1807-1809	Hi	_	_	_	_	_	_	_	
-32-2	1810-1813	Kat	person[192]	new[192]	nnnsn[192]	_	cf1[192]	bridge:aggr	33-11[198_192]	
+32-2	1810-1813	Kat	person[192]	new[192]	nnnnn[192]	_	cf1[192]	bridge:aggr	33-11[198_192]	
 32-3	1814-1815	!	_	_	_	_	_	_	_	
 
 #Text=A lot of the notes that I had taken from our last meeting and being more of a cause or like leading to memory 's importance for each of the sources , I — I essentially changed it to um " it 's the one persistent element of our existence that gives meaning to the inheritance of memory " .
@@ -529,7 +529,7 @@
 33-30	1952-1955	the	abstract[201]|abstract[203]|abstract[204]	new[201]|new[203]|new[204]	nnnnn[201]|nnnnn[203]|nnnnn[204]	_	cf12[201]|cf14[203]|cf7[204]	_	_	
 33-31	1956-1963	sources	abstract[201]|abstract[203]|abstract[204]	new[201]|new[203]|new[204]	nnnnn[201]|nnnnn[203]|nnnnn[204]	_	cf12[201]|cf14[203]|cf7[204]	_	_	
 33-32	1964-1965	,	_	_	_	_	_	_	_	
-33-33	1966-1967	I	person[205]	undefined[205]	sssss[205]	_	cf1[205]	ana	33-35[206_205]	
+33-33	1966-1967	I	person[205]	giv:act[205]	sssss[205]	_	cf1[205]	ana	33-35[206_205]	
 33-34	1968-1969	—	_	_	_	_	_	_	_	
 33-35	1970-1971	I	person[206]	giv:act[206]	sssss[206]	_	cf1[206]	ana	35-1[224_206]	
 33-36	1972-1983	essentially	_	_	_	_	_	_	_	
@@ -538,51 +538,51 @@
 33-39	1995-1997	to	_	_	_	_	_	_	_	
 33-40	1998-2000	um	_	_	_	_	_	_	_	
 33-41	2001-2002	"	_	_	_	_	_	_	_	
-33-42	2003-2005	it	abstract[208]	giv:act[208]	n____[208]	_	cf2[208]	coref	33-44[213_208]	
+33-42	2003-2005	it	abstract[208]	giv:act[208]	nnnnn[208]	_	cf2[208]	coref	33-44[213_208]	
 33-43	2006-2008	's	_	_	_	_	_	_	_	
-33-44	2009-2012	the	abstract[213]	giv:act[213]	n____[213]	_	cf2[213]	_	_	
-33-45	2013-2016	one	abstract[213]	giv:act[213]	n____[213]	_	cf2[213]	_	_	
-33-46	2017-2027	persistent	abstract[213]	giv:act[213]	n____[213]	_	cf2[213]	_	_	
-33-47	2028-2035	element	abstract[213]	giv:act[213]	n____[213]	_	cf2[213]	_	_	
-33-48	2036-2038	of	abstract[213]	giv:act[213]	n____[213]	_	cf2[213]	_	_	
-33-49	2039-2042	our	abstract[213]|abstract[214]|person[215]	giv:act[213]|new[214]|acc:com[215]	n____[213]|nnnnn[214]|nnnnn[215]	_	cf2[213]|cf13[214]|cf5[215]	ana	34-3[223_215]	
-33-50	2043-2052	existence	abstract[213]|abstract[214]	giv:act[213]|new[214]	n____[213]|nnnnn[214]	_	cf2[213]|cf13[214]	_	_	
-33-51	2053-2057	that	abstract[213]	giv:act[213]	n____[213]	_	cf2[213]	_	_	
-33-52	2058-2063	gives	abstract[213]	giv:act[213]	n____[213]	_	cf2[213]	_	_	
-33-53	2064-2071	meaning	abstract[213]|abstract[216]	giv:act[213]|new[216]	n____[213]|nnnnn[216]	_	cf2[213]|cf6[216]	_	_	
-33-54	2072-2074	to	abstract[213]	giv:act[213]	n____[213]	_	cf2[213]	_	_	
-33-55	2075-2078	the	abstract[213]|abstract[219]	giv:act[213]|new[219]	n____[213]|nnnnn[219]	_	cf2[213]|cf8[219]	_	_	
-33-56	2079-2090	inheritance	abstract[213]|abstract[219]	giv:act[213]|new[219]	n____[213]|nnnnn[219]	_	cf2[213]|cf8[219]	_	_	
-33-57	2091-2093	of	abstract[213]|abstract[219]	giv:act[213]|new[219]	n____[213]|nnnnn[219]	_	cf2[213]|cf8[219]	_	_	
-33-58	2094-2100	memory	abstract[213]|abstract[219]|abstract[220]	giv:act[213]|new[219]|giv:act[220]	n____[213]|nnnnn[219]|n____[220]	_	cf2[213]|cf8[219]|cf3[220]	_	_	
+33-44	2009-2012	the	abstract[213]	giv:act[213]	nnnnn[213]	_	cf2[213]	_	_	
+33-45	2013-2016	one	abstract[213]	giv:act[213]	nnnnn[213]	_	cf2[213]	_	_	
+33-46	2017-2027	persistent	abstract[213]	giv:act[213]	nnnnn[213]	_	cf2[213]	_	_	
+33-47	2028-2035	element	abstract[213]	giv:act[213]	nnnnn[213]	_	cf2[213]	_	_	
+33-48	2036-2038	of	abstract[213]	giv:act[213]	nnnnn[213]	_	cf2[213]	_	_	
+33-49	2039-2042	our	abstract[213]|abstract[214]|person[215]	giv:act[213]|new[214]|acc:com[215]	nnnnn[213]|nnnnn[214]|nnnnn[215]	_	cf2[213]|cf13[214]|cf5[215]	ana	34-3[223_215]	
+33-50	2043-2052	existence	abstract[213]|abstract[214]	giv:act[213]|new[214]	nnnnn[213]|nnnnn[214]	_	cf2[213]|cf13[214]	_	_	
+33-51	2053-2057	that	abstract[213]	giv:act[213]	nnnnn[213]	_	cf2[213]	_	_	
+33-52	2058-2063	gives	abstract[213]	giv:act[213]	nnnnn[213]	_	cf2[213]	_	_	
+33-53	2064-2071	meaning	abstract[213]|abstract[216]	giv:act[213]|new[216]	nnnnn[213]|nnnnn[216]	_	cf2[213]|cf6[216]	_	_	
+33-54	2072-2074	to	abstract[213]	giv:act[213]	nnnnn[213]	_	cf2[213]	_	_	
+33-55	2075-2078	the	abstract[213]|abstract[219]	giv:act[213]|new[219]	nnnnn[213]|nnnnn[219]	_	cf2[213]|cf8[219]	_	_	
+33-56	2079-2090	inheritance	abstract[213]|abstract[219]	giv:act[213]|new[219]	nnnnn[213]|nnnnn[219]	_	cf2[213]|cf8[219]	_	_	
+33-57	2091-2093	of	abstract[213]|abstract[219]	giv:act[213]|new[219]	nnnnn[213]|nnnnn[219]	_	cf2[213]|cf8[219]	_	_	
+33-58	2094-2100	memory	abstract[213]|abstract[219]|abstract[220]	giv:act[213]|new[219]|giv:act[220]	nnnnn[213]|nnnnn[219]|nnnnn[220]	_	cf2[213]|cf8[219]|cf3[220]	_	_	
 33-59	2101-2102	"	_	_	_	_	_	_	_	
 33-60	2103-2104	.	_	_	_	_	_	_	_	
 
 #Text=How do we remember ?
-34-1	2105-2108	How	abstract[222]	undefined[222]	nnnnn[222]	_	cf2[222]	disc	35-3[225_222]	
-34-2	2109-2111	do	abstract[222]	undefined[222]	nnnnn[222]	_	cf2[222]	_	_	
-34-3	2112-2114	we	abstract[222]|person[223]	undefined[222]|giv:act[223]	nnnnn[222]|n____[223]	_	cf2[222]|cf1*[223]	_	_	
-34-4	2115-2123	remember	abstract[222]	undefined[222]	nnnnn[222]	_	cf2[222]	_	_	
-34-5	2124-2125	?	abstract[222]	undefined[222]	nnnnn[222]	_	cf2[222]	_	_	
+34-1	2105-2108	How	abstract[222]	new[222]	nnnnn[222]	_	cf2[222]	disc	35-3[225_222]	
+34-2	2109-2111	do	abstract[222]	new[222]	nnnnn[222]	_	cf2[222]	_	_	
+34-3	2112-2114	we	abstract[222]|person[223]	new[222]|giv:act[223]	nnnnn[222]|nnnnn[223]	_	cf2[222]|cf1*[223]	_	_	
+34-4	2115-2123	remember	abstract[222]	new[222]	nnnnn[222]	_	cf2[222]	_	_	
+34-5	2124-2125	?	abstract[222]	new[222]	nnnnn[222]	_	cf2[222]	_	_	
 
 #Text=I asked this not only as a question of the methods , but also of the circumstances .
 35-1	2126-2127	I	person[224]	giv:inact[224]	sssss[224]	_	cf2[224]	ana	36-2[232_224]	
 35-2	2128-2133	asked	_	_	_	_	_	_	_	
-35-3	2134-2138	this	abstract[225]	giv:act[225]	n____[225]	_	cf1*[225]	pred	35-7[229_225]	
+35-3	2134-2138	this	abstract[225]	giv:act[225]	nnnnn[225]	_	cf1*[225]	pred	35-7[229_225]	
 35-4	2139-2142	not	_	_	_	_	_	_	_	
 35-5	2143-2147	only	_	_	_	_	_	_	_	
 35-6	2148-2150	as	_	_	_	_	_	_	_	
-35-7	2151-2152	a	abstract[229]	giv:act[229]	n____[229]	_	cf1*[229]	_	_	
-35-8	2153-2161	question	abstract[229]	giv:act[229]	n____[229]	_	cf1*[229]	_	_	
-35-9	2162-2164	of	abstract[229]	giv:act[229]	n____[229]	_	cf1*[229]	_	_	
-35-10	2165-2168	the	abstract[229]|abstract[230]	giv:act[229]|new[230]	n____[229]|nnnnn[230]	_	cf1*[229]|cf3[230]	_	_	
-35-11	2169-2176	methods	abstract[229]|abstract[230]	giv:act[229]|new[230]	n____[229]|nnnnn[230]	_	cf1*[229]|cf3[230]	_	_	
+35-7	2151-2152	a	abstract[229]	giv:act[229]	nnnnn[229]	_	cf1*[229]	bridge:entity-associative|bridge:entity-associative	35-10[230_229]|35-16[231_229]	
+35-8	2153-2161	question	abstract[229]	giv:act[229]	nnnnn[229]	_	cf1*[229]	_	_	
+35-9	2162-2164	of	abstract[229]	giv:act[229]	nnnnn[229]	_	cf1*[229]	_	_	
+35-10	2165-2168	the	abstract[229]|abstract[230]	giv:act[229]|acc:inf[230]	nnnnn[229]|nnnnn[230]	_	cf1*[229]|cf3[230]	_	_	
+35-11	2169-2176	methods	abstract[229]|abstract[230]	giv:act[229]|acc:inf[230]	nnnnn[229]|nnnnn[230]	_	cf1*[229]|cf3[230]	_	_	
 35-12	2177-2178	,	_	_	_	_	_	_	_	
 35-13	2179-2182	but	_	_	_	_	_	_	_	
 35-14	2183-2187	also	_	_	_	_	_	_	_	
 35-15	2188-2190	of	_	_	_	_	_	_	_	
-35-16	2191-2194	the	abstract[231]	new[231]	nnnnn[231]	_	cf4[231]	_	_	
-35-17	2195-2208	circumstances	abstract[231]	new[231]	nnnnn[231]	_	cf4[231]	_	_	
+35-16	2191-2194	the	abstract[231]	acc:inf[231]	nnnnn[231]	_	cf4[231]	_	_	
+35-17	2195-2208	circumstances	abstract[231]	acc:inf[231]	nnnnn[231]	_	cf4[231]	_	_	
 35-18	2209-2210	.	_	_	_	_	_	_	_	
 
 #Text=Oh my god , I 'm so tired .
@@ -600,12 +600,12 @@
 37-1	2239-2240	I	person[234]	giv:act[234]	sssss[234]	_	cf1*[234]	ana	37-6[239_234]	
 37-2	2241-2253	accidentally	_	_	_	_	_	_	_	
 37-3	2254-2260	posted	_	_	_	_	_	_	_	
-37-4	2261-2262	a	abstract[238]	new[238]	nnsnn[238]	_	cf2[238]	ana	38-8[241_238]	
-37-5	2263-2268	video	abstract[238]	new[238]	nnsnn[238]	_	cf2[238]	_	_	
-37-6	2269-2270	I	abstract[238]|person[239]	new[238]|giv:act[239]	nnsnn[238]|sssss[239]	_	cf2[238]|cf1*[239]	ana	38-3[240_239]	
-37-7	2271-2276	meant	abstract[238]	new[238]	nnsnn[238]	_	cf2[238]	_	_	
-37-8	2277-2279	to	abstract[238]	new[238]	nnsnn[238]	_	cf2[238]	_	_	
-37-9	2280-2288	schedule	abstract[238]	new[238]	nnsnn[238]	_	cf2[238]	_	_	
+37-4	2261-2262	a	abstract[238]	new[238]	nnnnn[238]	_	cf2[238]	ana	38-8[241_238]	
+37-5	2263-2268	video	abstract[238]	new[238]	nnnnn[238]	_	cf2[238]	_	_	
+37-6	2269-2270	I	abstract[238]|person[239]	new[238]|giv:act[239]	nnnnn[238]|sssss[239]	_	cf2[238]|cf1*[239]	ana	38-3[240_239]	
+37-7	2271-2276	meant	abstract[238]	new[238]	nnnnn[238]	_	cf2[238]	_	_	
+37-8	2277-2279	to	abstract[238]	new[238]	nnnnn[238]	_	cf2[238]	_	_	
+37-9	2280-2288	schedule	abstract[238]	new[238]	nnnnn[238]	_	cf2[238]	_	_	
 37-10	2289-2290	.	_	_	_	_	_	_	_	
 
 #Text=So now I have to post about it .
@@ -616,7 +616,7 @@
 38-5	2305-2307	to	_	_	_	_	_	_	_	
 38-6	2308-2312	post	_	_	_	_	_	_	_	
 38-7	2313-2318	about	_	_	_	_	_	_	_	
-38-8	2319-2321	it	abstract[241]	giv:act[241]	nnsnn[241]	_	cf2[241]	ana	39-24[252_241]	
+38-8	2319-2321	it	abstract[241]	giv:act[241]	nnnnn[241]	_	cf2[241]	ana	39-24[252_241]	
 38-9	2322-2323	.	_	_	_	_	_	_	_	
 
 #Text=I like deleted Instagram and like was n't really checking social media too much this week , but now I have to redownload it , so I can post about it .
@@ -630,12 +630,12 @@
 39-8	2362-2365	n't	_	_	_	_	_	_	_	
 39-9	2366-2372	really	_	_	_	_	_	_	_	
 39-10	2373-2381	checking	_	_	_	_	_	_	_	
-39-11	2382-2388	social	abstract[249]	new[249]	nnnnn[249]	_	cf5[249]	_	_	
-39-12	2389-2394	media	abstract[249]	new[249]	nnnnn[249]	_	cf5[249]	_	_	
+39-11	2382-2388	social	abstract[249]	new[249]	nnsnn[249]	_	cf5[249]	_	_	
+39-12	2389-2394	media	abstract[249]	new[249]	nnsnn[249]	_	cf5[249]	_	_	
 39-13	2395-2398	too	_	_	_	_	_	_	_	
 39-14	2399-2403	much	_	_	_	_	_	_	_	
-39-15	2404-2408	this	time[250]	acc:com[250]	nnnnn[250]	_	cf3[250]	_	_	
-39-16	2409-2413	week	time[250]	acc:com[250]	nnnnn[250]	_	cf3[250]	_	_	
+39-15	2404-2408	this	time[250]	acc:inf[250]	nnsnn[250]	_	cf3[250]	_	_	
+39-16	2409-2413	week	time[250]	acc:inf[250]	nnsnn[250]	_	cf3[250]	_	_	
 39-17	2414-2415	,	_	_	_	_	_	_	_	
 39-18	2416-2419	but	_	_	_	_	_	_	_	
 39-19	2420-2423	now	_	_	_	_	_	_	_	
@@ -643,14 +643,14 @@
 39-21	2426-2430	have	_	_	_	_	_	_	_	
 39-22	2431-2433	to	_	_	_	_	_	_	_	
 39-23	2434-2444	redownload	_	_	_	_	_	_	_	
-39-24	2445-2447	it	abstract[252]	giv:act[252]	nnsnn[252]	_	cf2[252]	ana	39-31[254_252]	
+39-24	2445-2447	it	abstract[252]	giv:act[252]	nnnnn[252]	_	cf2[252]	ana	39-31[254_252]	
 39-25	2448-2449	,	_	_	_	_	_	_	_	
 39-26	2450-2452	so	_	_	_	_	_	_	_	
 39-27	2453-2454	I	person[253]	giv:act[253]	sssss[253]	_	cf1*[253]	ana	42-11[271_253]	
 39-28	2455-2458	can	_	_	_	_	_	_	_	
 39-29	2459-2463	post	_	_	_	_	_	_	_	
 39-30	2464-2469	about	_	_	_	_	_	_	_	
-39-31	2470-2472	it	abstract[254]	giv:act[254]	nnsnn[254]	_	cf2[254]	_	_	
+39-31	2470-2472	it	abstract[254]	giv:act[254]	nnnnn[254]	_	cf2[254]	_	_	
 39-32	2473-2474	.	_	_	_	_	_	_	_	
 
 #Text=Finals !
@@ -664,20 +664,20 @@
 #Text=It is May 7th Friday May 7th the day of my final , currently 9:46 a.m.
 42-1	2492-2494	It	_	_	_	_	_	_	_	
 42-2	2495-2497	is	_	_	_	_	_	_	_	
-42-3	2498-2501	May	time[261]|time[262]	new[261]|giv:inact[262]	ssnss[261]|n____[262]	_	cf1[261]|cf2[262]	coref|coref	42-5[263_261]|42-6[267_262]	
-42-4	2502-2505	7th	time[261]	new[261]	ssnss[261]	_	cf1[261]	_	_	
-42-5	2506-2512	Friday	time[263]	giv:act[263]	ssnss[263]	_	cf1[263]	coref	42-6[266_263]	
-42-6	2513-2516	May	time[266]|time[267]	giv:act[266]|giv:act[267]	ssnss[266]|n____[267]	_	cf1[266]|cf2[267]	coref	42-8[269_266]	
-42-7	2517-2520	7th	time[266]	giv:act[266]	ssnss[266]	_	cf1[266]	_	_	
-42-8	2521-2524	the	time[269]	giv:act[269]	ssnss[269]	_	cf1[269]	coref	59-7[371_269]	
-42-9	2525-2528	day	time[269]	giv:act[269]	ssnss[269]	_	cf1[269]	_	_	
-42-10	2529-2531	of	time[269]	giv:act[269]	ssnss[269]	_	cf1[269]	_	_	
-42-11	2532-2534	my	time[269]|event[270]|person[271]	giv:act[269]|giv:inact[270]|giv:inact[271]	ssnss[269]|nssss[270]|sssss[271]	_	cf1[269]|cf4[270]|cf3[271]	ana|ana	43-7[275_270]|43-1[274_271]	
-42-12	2535-2540	final	time[269]|event[270]	giv:act[269]|giv:inact[270]	ssnss[269]|nssss[270]	_	cf1[269]|cf4[270]	_	_	
+42-3	2498-2501	May	time[261]|time[262]	new[261]|giv:inact[262]	sssss[261]|nnnnn[262]	_	cf1[261]|cf2[262]	appos|coref	42-5[263_261]|42-6[267_262]	
+42-4	2502-2505	7th	time[261]	new[261]	sssss[261]	_	cf1[261]	_	_	
+42-5	2506-2512	Friday	time[263]	giv:act[263]	sssss[263]	_	cf1[263]	coref	42-6[266_263]	
+42-6	2513-2516	May	time[266]|time[267]	giv:act[266]|giv:act[267]	sssss[266]|nnnnn[267]	_	cf1[266]|cf2[267]	coref	42-8[269_266]	
+42-7	2517-2520	7th	time[266]	giv:act[266]	sssss[266]	_	cf1[266]	_	_	
+42-8	2521-2524	the	time[269]	giv:act[269]	sssss[269]	_	cf1[269]	coref|bridge:comparison-time;set-span-interval|bridge:comparison-time;set-span-interval|bridge:comparison-time;set-span-interval|bridge:comparison-time;set-span-interval|bridge:comparison-time;set-span-interval	59-7[371_269]|42-15[273_269]|43-9[278_269]|44-19[293_269]|44-21[295_269]|45-16[304_269]	
+42-9	2525-2528	day	time[269]	giv:act[269]	sssss[269]	_	cf1[269]	_	_	
+42-10	2529-2531	of	time[269]	giv:act[269]	sssss[269]	_	cf1[269]	_	_	
+42-11	2532-2534	my	time[269]|event[270]|person[271]	giv:act[269]|giv:inact[270]|giv:inact[271]	sssss[269]|nssss[270]|sssss[271]	_	cf1[269]|cf4[270]|cf3[271]	ana|ana	43-7[275_270]|43-1[274_271]	
+42-12	2535-2540	final	time[269]|event[270]	giv:act[269]|giv:inact[270]	sssss[269]|nssss[270]	_	cf1[269]|cf4[270]	_	_	
 42-13	2541-2542	,	_	_	_	_	_	_	_	
 42-14	2543-2552	currently	_	_	_	_	_	_	_	
-42-15	2553-2557	9:46	time[273]	new[273]	nnnnn[273]	_	cf5[273]	_	_	
-42-16	2558-2562	a.m.	time[273]	new[273]	nnnnn[273]	_	cf5[273]	_	_	
+42-15	2553-2557	9:46	time[273]	acc:inf[273]	nnnnn[273]	_	cf5[273]	_	_	
+42-16	2558-2562	a.m.	time[273]	acc:inf[273]	nnnnn[273]	_	cf5[273]	_	_	
 
 #Text=I 'm going to be taking it at 10 a.m. , so I have 15 minutes .
 43-1	2563-2564	I	person[274]	giv:act[274]	sssss[274]	_	cf1*[274]	ana	43-13[279_274]	
@@ -688,47 +688,47 @@
 43-6	2580-2586	taking	_	_	_	_	_	_	_	
 43-7	2587-2589	it	event[275]	giv:act[275]	nssss[275]	_	cf2[275]	ana	44-6[284_275]	
 43-8	2590-2592	at	_	_	_	_	_	_	_	
-43-9	2593-2595	10	time[278]	new[278]	nnnnn[278]	_	cf4[278]	coref	45-8[302_278]	
-43-10	2596-2600	a.m.	time[278]	new[278]	nnnnn[278]	_	cf4[278]	_	_	
+43-9	2593-2595	10	time[278]	acc:inf[278]	nnnnn[278]	_	cf3[278]	coref	45-8[302_278]	
+43-10	2596-2600	a.m.	time[278]	acc:inf[278]	nnnnn[278]	_	cf3[278]	_	_	
 43-11	2601-2602	,	_	_	_	_	_	_	_	
 43-12	2603-2605	so	_	_	_	_	_	_	_	
 43-13	2606-2607	I	person[279]	giv:act[279]	sssss[279]	_	cf1*[279]	ana	44-3[283_279]	
 43-14	2608-2612	have	_	_	_	_	_	_	_	
-43-15	2613-2615	15	time[281]	new[281]	nnnnn[281]	_	cf3[281]	_	_	
-43-16	2616-2623	minutes	time[281]	new[281]	nnnnn[281]	_	cf3[281]	_	_	
+43-15	2613-2615	15	time[281]	new[281]	nnnnn[281]	_	cf4[281]	_	_	
+43-16	2616-2623	minutes	time[281]	new[281]	nnnnn[281]	_	cf4[281]	_	_	
 43-17	2624-2625	.	_	_	_	_	_	_	_	
 
 #Text=The reason I 'm taking it like this early is because I have my med school class at two to four thirty , so we have three hours 45 minutes to take it .
-44-1	2626-2629	The	abstract[282]	new[282]	nnnnn[282]	_	cf4[282]	_	_	
-44-2	2630-2636	reason	abstract[282]	new[282]	nnnnn[282]	_	cf4[282]	_	_	
-44-3	2637-2638	I	abstract[282]|person[283]	new[282]|giv:act[283]	nnnnn[282]|sssss[283]	_	cf4[282]|cf1*[283]	ana	44-12[285_283]	
-44-4	2639-2641	'm	abstract[282]	new[282]	nnnnn[282]	_	cf4[282]	_	_	
-44-5	2642-2648	taking	abstract[282]	new[282]	nnnnn[282]	_	cf4[282]	_	_	
-44-6	2649-2651	it	abstract[282]|event[284]	new[282]|giv:act[284]	nnnnn[282]|nssss[284]	_	cf4[282]|cf2[284]	ana	44-33[299_284]	
-44-7	2652-2656	like	abstract[282]	new[282]	nnnnn[282]	_	cf4[282]	_	_	
-44-8	2657-2661	this	abstract[282]	new[282]	nnnnn[282]	_	cf4[282]	_	_	
-44-9	2662-2667	early	abstract[282]	new[282]	nnnnn[282]	_	cf4[282]	_	_	
+44-1	2626-2629	The	abstract[282]	new[282]	nnnnn[282]	_	cf6[282]	_	_	
+44-2	2630-2636	reason	abstract[282]	new[282]	nnnnn[282]	_	cf6[282]	_	_	
+44-3	2637-2638	I	abstract[282]|person[283]	new[282]|giv:act[283]	nnnnn[282]|sssss[283]	_	cf6[282]|cf1*[283]	ana	44-12[285_283]	
+44-4	2639-2641	'm	abstract[282]	new[282]	nnnnn[282]	_	cf6[282]	_	_	
+44-5	2642-2648	taking	abstract[282]	new[282]	nnnnn[282]	_	cf6[282]	_	_	
+44-6	2649-2651	it	abstract[282]|event[284]	new[282]|giv:act[284]	nnnnn[282]|nssss[284]	_	cf6[282]|cf2[284]	ana	44-33[299_284]	
+44-7	2652-2656	like	abstract[282]	new[282]	nnnnn[282]	_	cf6[282]	_	_	
+44-8	2657-2661	this	abstract[282]	new[282]	nnnnn[282]	_	cf6[282]	_	_	
+44-9	2662-2667	early	abstract[282]	new[282]	nnnnn[282]	_	cf6[282]	_	_	
 44-10	2668-2670	is	_	_	_	_	_	_	_	
 44-11	2671-2678	because	_	_	_	_	_	_	_	
 44-12	2679-2680	I	person[285]	giv:act[285]	sssss[285]	_	cf1*[285]	ana	44-14[290_285]	
 44-13	2681-2685	have	_	_	_	_	_	_	_	
-44-14	2686-2688	my	event[289]|person[290]	new[289]|giv:act[290]	nnnnn[289]|sssss[290]	_	cf5[289]|cf1*[290]	coref|ana	45-20[311_289]|45-1[300_290]	
-44-15	2689-2692	med	event[289]|organization[292]	new[289]|new[292]	nnnnn[289]|nnnnn[292]	_	cf5[289]|cf9[292]	_	_	
-44-16	2693-2699	school	event[289]|organization[292]	new[289]|new[292]	nnnnn[289]|nnnnn[292]	_	cf5[289]|cf9[292]	_	_	
-44-17	2700-2705	class	event[289]	new[289]	nnnnn[289]	_	cf5[289]	_	_	
+44-14	2686-2688	my	event[289]|person[290]	new[289]|giv:act[290]	nnnnn[289]|sssss[290]	_	cf7[289]|cf1*[290]	coref|ana	45-20[311_289]|45-1[300_290]	
+44-15	2689-2692	med	event[289]|organization[292]	new[289]|new[292]	nnnnn[289]|nnnnn[292]	_	cf7[289]|cf9[292]	_	_	
+44-16	2693-2699	school	event[289]|organization[292]	new[289]|new[292]	nnnnn[289]|nnnnn[292]	_	cf7[289]|cf9[292]	_	_	
+44-17	2700-2705	class	event[289]	new[289]	nnnnn[289]	_	cf7[289]	_	_	
 44-18	2706-2708	at	_	_	_	_	_	_	_	
-44-19	2709-2712	two	time[293]	new[293]	nnnnn[293]	_	cf7[293]	coref	59-4[370_293]	
+44-19	2709-2712	two	time[293]	acc:inf[293]	nnnnn[293]	_	cf4[293]	coref	59-4[370_293]	
 44-20	2713-2715	to	_	_	_	_	_	_	_	
-44-21	2716-2720	four	time[295]	new[295]	nnnnn[295]	_	cf8[295]	_	_	
-44-22	2721-2727	thirty	time[295]	new[295]	nnnnn[295]	_	cf8[295]	_	_	
+44-21	2716-2720	four	time[295]	acc:inf[295]	nnnnn[295]	_	cf5[295]	_	_	
+44-22	2721-2727	thirty	time[295]	acc:inf[295]	nnnnn[295]	_	cf5[295]	_	_	
 44-23	2728-2729	,	_	_	_	_	_	_	_	
 44-24	2730-2732	so	_	_	_	_	_	_	_	
 44-25	2733-2735	we	person[296]	acc:com[296]	nnnnn[296]	_	cf3[296]	_	_	
 44-26	2736-2740	have	_	_	_	_	_	_	_	
-44-27	2741-2746	three	time[298]	new[298]	nnnnn[298]	_	cf6[298]	_	_	
-44-28	2747-2752	hours	time[298]	new[298]	nnnnn[298]	_	cf6[298]	_	_	
-44-29	2753-2755	45	time[298]	new[298]	nnnnn[298]	_	cf6[298]	_	_	
-44-30	2756-2763	minutes	time[298]	new[298]	nnnnn[298]	_	cf6[298]	_	_	
+44-27	2741-2746	three	time[298]	new[298]	nnnnn[298]	_	cf8[298]	_	_	
+44-28	2747-2752	hours	time[298]	new[298]	nnnnn[298]	_	cf8[298]	_	_	
+44-29	2753-2755	45	time[298]	new[298]	nnnnn[298]	_	cf8[298]	_	_	
+44-30	2756-2763	minutes	time[298]	new[298]	nnnnn[298]	_	cf8[298]	_	_	
 44-31	2764-2766	to	_	_	_	_	_	_	_	
 44-32	2767-2771	take	_	_	_	_	_	_	_	
 44-33	2772-2774	it	event[299]	giv:act[299]	nssss[299]	_	cf2[299]	ana	45-6[301_299]	
@@ -742,7 +742,7 @@
 45-5	2789-2793	take	_	_	_	_	_	_	_	
 45-6	2794-2796	it	event[301]	giv:act[301]	nssss[301]	_	cf2[301]	coref	50-12[345_301]	
 45-7	2797-2799	at	_	_	_	_	_	_	_	
-45-8	2800-2803	ten	time[302]	giv:inact[302]	n____[302]	_	cf4[302]	_	_	
+45-8	2800-2803	ten	time[302]	giv:inact[302]	nnnnn[302]	_	cf4[302]	_	_	
 45-9	2804-2805	,	_	_	_	_	_	_	_	
 45-10	2806-2808	so	_	_	_	_	_	_	_	
 45-11	2809-2810	I	person[303]	giv:act[303]	sssss[303]	_	cf1*[303]	ana	45-20[312_303]	
@@ -750,12 +750,12 @@
 45-13	2815-2821	finish	_	_	_	_	_	_	_	
 45-14	2822-2828	around	_	_	_	_	_	_	_	
 45-15	2829-2833	like	_	_	_	_	_	_	_	
-45-16	2834-2838	1:45	time[304]	new[304]	nnnnn[304]	_	cf5[304]	_	_	
+45-16	2834-2838	1:45	time[304]	acc:inf[304]	nnnnn[304]	_	cf5[304]	_	_	
 45-17	2839-2841	in	_	_	_	_	_	_	_	
 45-18	2842-2846	time	_	_	_	_	_	_	_	
 45-19	2847-2850	for	_	_	_	_	_	_	_	
-45-20	2851-2853	my	event[311]|person[312]	giv:act[311]|giv:act[312]	n____[311]|sssss[312]	_	cf3[311]|cf1*[312]	ana	46-1[313_312]	
-45-21	2854-2859	class	event[311]	giv:act[311]	n____[311]	_	cf3[311]	_	_	
+45-20	2851-2853	my	event[311]|person[312]	giv:act[311]|giv:act[312]	nnnnn[311]|sssss[312]	_	cf3[311]|cf1*[312]	ana	46-1[313_312]	
+45-21	2854-2859	class	event[311]	giv:act[311]	nnnnn[311]	_	cf3[311]	_	_	
 45-22	2860-2861	.	_	_	_	_	_	_	_	
 
 #Text=I 'm nervous .
@@ -791,17 +791,17 @@
 48-17	2960-2962	to	_	_	_	_	_	_	_	
 48-18	2963-2969	myself	person[318]	giv:act[318]	sssss[318]	_	cf1*[318]	ana	49-9[331_318]	
 48-19	2970-2974	with	_	_	_	_	_	_	_	
-48-20	2975-2979	this	event[319]	acc:com[319]	n____[319]	_	cf2[319]	cata	48-8[316_319]	
+48-20	2975-2979	this	event[319]	acc:com[319]	nnnnn[319]	_	cf2[319]	cata	48-8[316_319]	
 48-21	2980-2981	.	_	_	_	_	_	_	_	
 
 #Text=It was a really weird tiring semester , I think , relatively , compared to last semester , so you know , it is what it is .
 49-1	2982-2984	It	time[320]	new[320]	nnnnn[320]	_	cf4[320]	_	_	
 49-2	2985-2988	was	_	_	_	_	_	_	_	
-49-3	2989-2990	a	time[330]	acc:com[330]	n____[330]	_	cf4[330]	cata	49-1[320_330]	
-49-4	2991-2997	really	time[330]	acc:com[330]	n____[330]	_	cf4[330]	_	_	
-49-5	2998-3003	weird	time[330]	acc:com[330]	n____[330]	_	cf4[330]	_	_	
-49-6	3004-3010	tiring	time[330]	acc:com[330]	n____[330]	_	cf4[330]	_	_	
-49-7	3011-3019	semester	time[330]	acc:com[330]	n____[330]	_	cf4[330]	_	_	
+49-3	2989-2990	a	time[330]	acc:com[330]	nnnnn[330]	_	cf4[330]	bridge:comparison-relative|cata	49-16[333_330]|49-1[320_330]	
+49-4	2991-2997	really	time[330]	acc:com[330]	nnnnn[330]	_	cf4[330]	_	_	
+49-5	2998-3003	weird	time[330]	acc:com[330]	nnnnn[330]	_	cf4[330]	_	_	
+49-6	3004-3010	tiring	time[330]	acc:com[330]	nnnnn[330]	_	cf4[330]	_	_	
+49-7	3011-3019	semester	time[330]	acc:com[330]	nnnnn[330]	_	cf4[330]	_	_	
 49-8	3020-3021	,	_	_	_	_	_	_	_	
 49-9	3022-3023	I	person[331]	giv:act[331]	sssss[331]	_	cf1*[331]	ana	50-1[337_331]	
 49-10	3024-3029	think	_	_	_	_	_	_	_	
@@ -810,17 +810,17 @@
 49-13	3043-3044	,	_	_	_	_	_	_	_	
 49-14	3045-3053	compared	_	_	_	_	_	_	_	
 49-15	3054-3056	to	_	_	_	_	_	_	_	
-49-16	3057-3061	last	time[333]	acc:com[333]	nnnnn[333]	_	cf5[333]	_	_	
-49-17	3062-3070	semester	time[333]	acc:com[333]	nnnnn[333]	_	cf5[333]	_	_	
+49-16	3057-3061	last	time[333]	acc:inf[333]	nnnnn[333]	_	cf5[333]	_	_	
+49-17	3062-3070	semester	time[333]	acc:inf[333]	nnnnn[333]	_	cf5[333]	_	_	
 49-18	3071-3072	,	_	_	_	_	_	_	_	
 49-19	3073-3075	so	_	_	_	_	_	_	_	
-49-20	3076-3079	you	person[334]	giv:inact[334]	n____[334]	_	cf3[334]	ana	54-3[351_334]	
+49-20	3076-3079	you	person[334]	giv:inact[334]	nnnnn[334]	_	cf3[334]	ana	54-3[351_334]	
 49-21	3080-3084	know	_	_	_	_	_	_	_	
 49-22	3085-3086	,	_	_	_	_	_	_	_	
 49-23	3087-3089	it	abstract[335]	acc:com[335]	nnnnn[335]	_	cf2[335]	ana	49-26[336_335]	
 49-24	3090-3092	is	_	_	_	_	_	_	_	
 49-25	3093-3097	what	_	_	_	_	_	_	_	
-49-26	3098-3100	it	abstract[336]	giv:act[336]	n____[336]	_	cf2[336]	_	_	
+49-26	3098-3100	it	abstract[336]	giv:act[336]	nnnnn[336]	_	cf2[336]	_	_	
 49-27	3101-3103	is	_	_	_	_	_	_	_	
 49-28	3104-3105	.	_	_	_	_	_	_	_	
 
@@ -828,8 +828,8 @@
 50-1	3106-3107	I	person[337]	giv:act[337]	sssss[337]	_	cf1*[337]	ana	50-4[343_337]	
 50-2	3108-3111	'll	_	_	_	_	_	_	_	
 50-3	3112-3115	try	_	_	_	_	_	_	_	
-50-4	3116-3118	my	abstract[342]|person[343]	undefined[342]|giv:act[343]	nnnnn[342]|sssss[343]	_	cf3[342]|cf1*[343]	ana	51-2[349_343]	
-50-5	3119-3123	best	abstract[342]	undefined[342]	nnnnn[342]	_	cf3[342]	_	_	
+50-4	3116-3118	my	abstract[342]|person[343]	new[342]|giv:act[343]	nnnnn[342]|sssss[343]	_	cf3[342]|cf1*[343]	ana	51-2[349_343]	
+50-5	3119-3123	best	abstract[342]	new[342]	nnnnn[342]	_	cf3[342]	_	_	
 50-6	3124-3127	and	_	_	_	_	_	_	_	
 50-7	3128-3130	am	_	_	_	_	_	_	_	
 50-8	3131-3135	just	_	_	_	_	_	_	_	
@@ -867,7 +867,7 @@
 #Text=How are you ?
 54-1	3224-3227	How	_	_	_	_	_	_	_	
 54-2	3228-3231	are	_	_	_	_	_	_	_	
-54-3	3232-3235	you	person[351]	giv:inact[351]	n____[351]	_	cf1[351]	ana	60-2[378_351]	
+54-3	3232-3235	you	person[351]	giv:inact[351]	nnnnn[351]	_	cf1[351]	ana	60-2[378_351]	
 54-4	3236-3237	?	_	_	_	_	_	_	_	
 
 #Text=Watching BTS .
@@ -876,7 +876,7 @@
 55-3	3251-3252	.	_	_	_	_	_	_	_	
 
 #Text=That 's lovely .
-56-1	3253-3257	That	organization[353]	giv:act[353]	n____[353]	BTS[353]	cf1*[353]	_	_	
+56-1	3253-3257	That	organization[353]	giv:act[353]	nnnnn[353]	BTS[353]	cf1*[353]	_	_	
 56-2	3258-3260	's	_	_	_	_	_	_	_	
 56-3	3261-3267	lovely	_	_	_	_	_	_	_	
 56-4	3268-3269	.	_	_	_	_	_	_	_	
@@ -903,25 +903,25 @@
 59-1	3338-3340	It	_	_	_	_	_	_	_	
 59-2	3341-3343	is	_	_	_	_	_	_	_	
 59-3	3344-3347	now	_	_	_	_	_	_	_	
-59-4	3348-3351	two	time[370]	giv:inact[370]	n____[370]	_	cf4[370]	_	_	
-59-5	3352-3359	o'clock	time[370]	giv:inact[370]	n____[370]	_	cf4[370]	_	_	
+59-4	3348-3351	two	time[370]	giv:inact[370]	nnnnn[370]	_	cf4[370]	_	_	
+59-5	3352-3359	o'clock	time[370]	giv:inact[370]	nnnnn[370]	_	cf4[370]	_	_	
 59-6	3360-3363	and	_	_	_	_	_	_	_	
-59-7	3364-3369	today	time[371]	giv:inact[371]	ssnss[371]	_	cf3[371]	coref	59-9[373_371]	
+59-7	3364-3369	today	time[371]	giv:inact[371]	sssss[371]	_	cf3[371]	coref	59-9[373_371]	
 59-8	3370-3372	is	_	_	_	_	_	_	_	
-59-9	3373-3375	my	time[373]|person[374]|person[375]	giv:act[373]|undefined[374]|giv:act[375]	ssnss[373]|sssss[374]|sssss[375]	_	cf3[373]|cf2[374]|cf1*[375]	coref|coref|ana	78-1[435_373]|59-11[377_374]|60-14[388_375]	
-59-10	3376-3382	friend	time[373]|person[374]	giv:act[373]|undefined[374]	ssnss[373]|sssss[374]	_	cf3[373]|cf2[374]	_	_	
-59-11	3383-3389	Megumi	time[373]|person[377]	giv:act[373]|giv:act[377]	ssnss[373]|sssss[377]	_	cf3[373]|cf2[377]	coref	60-4[379_377]	
-59-12	3390-3392	's	time[373]|person[377]	giv:act[373]|giv:act[377]	ssnss[373]|sssss[377]	_	cf3[373]|cf2[377]	_	_	
-59-13	3393-3401	birthday	time[373]	giv:act[373]	ssnss[373]	_	cf3[373]	_	_	
+59-9	3373-3375	my	time[373]|person[374]|person[375]	giv:act[373]|new[374]|giv:act[375]	sssss[373]|sssss[374]|sssss[375]	_	cf3[373]|cf2[374]|cf1*[375]	coref|coref|ana	78-1[435_373]|59-11[377_374]|60-14[388_375]	
+59-10	3376-3382	friend	time[373]|person[374]	giv:act[373]|new[374]	sssss[373]|sssss[374]	_	cf3[373]|cf2[374]	_	_	
+59-11	3383-3389	Megumi	time[373]|person[377]	giv:act[373]|giv:act[377]	sssss[373]|sssss[377]	_	cf3[373]|cf2[377]	coref	60-4[379_377]	
+59-12	3390-3392	's	time[373]|person[377]	giv:act[373]|giv:act[377]	sssss[373]|sssss[377]	_	cf3[373]|cf2[377]	_	_	
+59-13	3393-3401	birthday	time[373]	giv:act[373]	sssss[373]	_	cf3[373]	_	_	
 59-14	3402-3403	.	_	_	_	_	_	_	_	
 
 #Text=If you know Megumi then you 'll know that she is one of my best friends .
 60-1	3404-3406	If	_	_	_	_	_	_	_	
-60-2	3407-3410	you	person[378]	giv:inact[378]	n____[378]	_	cf1[378]	ana	60-6[380_378]	
+60-2	3407-3410	you	person[378]	giv:inact[378]	nnnnn[378]	_	cf1[378]	ana	60-6[380_378]	
 60-3	3411-3415	know	_	_	_	_	_	_	_	
 60-4	3416-3422	Megumi	person[379]	giv:act[379]	sssss[379]	_	cf2*[379]	ana	60-10[381_379]	
 60-5	3423-3427	then	_	_	_	_	_	_	_	
-60-6	3428-3431	you	person[380]	giv:act[380]	n____[380]	_	cf1[380]	bridge:aggr	63-2[408_380]	
+60-6	3428-3431	you	person[380]	giv:act[380]	nnnnn[380]	_	cf1[380]	bridge:aggr	63-2[408_380]	
 60-7	3432-3435	'll	_	_	_	_	_	_	_	
 60-8	3436-3440	know	_	_	_	_	_	_	_	
 60-9	3441-3445	that	_	_	_	_	_	_	_	
@@ -947,8 +947,8 @@
 61-10	3520-3523	now	_	_	_	_	_	_	_	
 61-11	3524-3526	it	abstract[396]	new[396]	nnnnn[396]	_	cf3[396]	_	_	
 61-12	3527-3529	's	_	_	_	_	_	_	_	
-61-13	3530-3532	my	abstract[399]|person[400]	acc:com[399]|giv:act[400]	n____[399]|sssss[400]	_	cf3[399]|cf2[400]	cata|ana	61-11[396_399]|62-1[401_400]	
-61-14	3533-3537	turn	abstract[399]	acc:com[399]	n____[399]	_	cf3[399]	_	_	
+61-13	3530-3532	my	abstract[399]|person[400]	acc:com[399]|giv:act[400]	nnnnn[399]|sssss[400]	_	cf3[399]|cf2[400]	cata|ana	61-11[396_399]|62-1[401_400]	
+61-14	3533-3537	turn	abstract[399]	acc:com[399]	nnnnn[399]	_	cf3[399]	_	_	
 61-15	3538-3539	.	_	_	_	_	_	_	_	
 
 #Text=I 'm going to be ordering some donuts to pick up and then head over to her house and surprise her .
@@ -958,8 +958,8 @@
 62-4	3551-3553	to	_	_	_	_	_	_	_	
 62-5	3554-3556	be	_	_	_	_	_	_	_	
 62-6	3557-3565	ordering	_	_	_	_	_	_	_	
-62-7	3566-3570	some	object[404]	new[404]	snnnn[404]	_	cf3[404]	_	_	
-62-8	3571-3577	donuts	object[404]	new[404]	snnnn[404]	_	cf3[404]	_	_	
+62-7	3566-3570	some	object[404]	new[404]	sssss[404]	_	cf3[404]	bridge:comparison-sense;set-member|bridge:comparison-sense;set-member|bridge:comparison-sense;set-subset	96-1[477_404]|102-1[489_404]|104-3[495_404]	
+62-8	3571-3577	donuts	object[404]	new[404]	sssss[404]	_	cf3[404]	_	_	
 62-9	3578-3580	to	_	_	_	_	_	_	_	
 62-10	3581-3585	pick	_	_	_	_	_	_	_	
 62-11	3586-3588	up	_	_	_	_	_	_	_	
@@ -998,10 +998,10 @@
 66-2	3692-3693	,	_	_	_	_	_	_	_	
 66-3	3694-3696	it	event[409]	acc:com[409]	nnnnn[409]	_	cf1[409]	pred	66-5[414_409]	
 66-4	3697-3699	's	_	_	_	_	_	_	_	
-66-5	3700-3701	a	event[414]	giv:act[414]	n____[414]	_	cf1[414]	_	_	
-66-6	3702-3704	16	event[414]|time[415]	giv:act[414]|new[415]	n____[414]|nnnnn[415]	_	cf1[414]|cf2[415]	_	_	
-66-7	3705-3711	minute	event[414]|time[415]	giv:act[414]|new[415]	n____[414]|nnnnn[415]	_	cf1[414]|cf2[415]	_	_	
-66-8	3712-3716	walk	event[414]	giv:act[414]	n____[414]	_	cf1[414]	_	_	
+66-5	3700-3701	a	event[414]	giv:act[414]	nnnnn[414]	_	cf1[414]	_	_	
+66-6	3702-3704	16	event[414]|time[415]	giv:act[414]|new[415]	nnnnn[414]|nnnnn[415]	_	cf1[414]|cf2[415]	_	_	
+66-7	3705-3711	minute	event[414]|time[415]	giv:act[414]|new[415]	nnnnn[414]|nnnnn[415]	_	cf1[414]|cf2[415]	_	_	
+66-8	3712-3716	walk	event[414]	giv:act[414]	nnnnn[414]	_	cf1[414]	_	_	
 66-9	3717-3718	.	_	_	_	_	_	_	_	
 
 #Text=I will now head over .
@@ -1041,7 +1041,7 @@
 72-2	3818-3819	,	_	_	_	_	_	_	_	
 72-3	3820-3824	well	_	_	_	_	_	_	_	
 72-4	3825-3826	,	_	_	_	_	_	_	_	
-72-5	3827-3828	I	person[419]	giv:inact[419]	sssss[419]	_	cf2[419]	ana	75-5[429_419]	
+72-5	3827-3828	I	person[419]	giv:inact[419]	sssss[419]	_	cf2[419]	ana	74-3[428_419]	
 72-6	3829-3834	think	_	_	_	_	_	_	_	
 72-7	3835-3838	you	person[420]	giv:act[420]	sssss[420]	_	cf1*[420]	ana	72-10[427_420]	
 72-8	3839-3845	should	_	_	_	_	_	_	_	
@@ -1058,7 +1058,7 @@
 #Text=Who , me ?
 74-1	3877-3880	Who	_	_	_	_	_	_	_	
 74-2	3881-3882	,	_	_	_	_	_	_	_	
-74-3	3883-3885	me	person[428]	new[428]	nnnnn[428]	_	cf1[428]	_	_	
+74-3	3883-3885	me	person[428]	giv:inact[428]	sssss[428]	_	cf1[428]	ana	75-5[429_428]	
 74-4	3886-3887	?	_	_	_	_	_	_	_	
 
 #Text=Not at all , I just think it 's really nice outside .
@@ -1066,7 +1066,7 @@
 75-2	3892-3894	at	_	_	_	_	_	_	_	
 75-3	3895-3898	all	_	_	_	_	_	_	_	
 75-4	3899-3900	,	_	_	_	_	_	_	_	
-75-5	3901-3902	I	person[429]	giv:inact[429]	sssss[429]	_	cf1[429]	ana	79-2[436_429]	
+75-5	3901-3902	I	person[429]	giv:act[429]	sssss[429]	_	cf1*[429]	ana	79-2[436_429]	
 75-6	3903-3907	just	_	_	_	_	_	_	_	
 75-7	3908-3913	think	_	_	_	_	_	_	_	
 75-8	3914-3916	it	_	_	_	_	_	_	_	
@@ -1087,8 +1087,8 @@
 77-2	3957-3958	!	_	_	_	_	_	_	_	
 
 #Text=Happy birthday !
-78-1	3959-3964	Happy	time[435]	giv:inact[435]	ssnss[435]	_	cf1[435]	coref	89-6[457_435]	
-78-2	3965-3973	birthday	time[435]	giv:inact[435]	ssnss[435]	_	cf1[435]	_	_	
+78-1	3959-3964	Happy	time[435]	giv:inact[435]	sssss[435]	_	cf1[435]	coref	89-6[457_435]	
+78-2	3965-3973	birthday	time[435]	giv:inact[435]	sssss[435]	_	cf1[435]	_	_	
 78-3	3974-3975	!	_	_	_	_	_	_	_	
 
 #Text=Thank you !
@@ -1104,8 +1104,8 @@
 
 #Text=And some tulips !
 81-1	4002-4005	And	_	_	_	_	_	_	_	
-81-2	4006-4010	some	plant[440]	undefined[440]	nnnnn[440]	_	cf1[440]	_	_	
-81-3	4011-4017	tulips	plant[440]	undefined[440]	nnnnn[440]	_	cf1[440]	_	_	
+81-2	4006-4010	some	plant[440]	new[440]	nsnns[440]	_	cf1[440]	_	_	
+81-3	4011-4017	tulips	plant[440]	new[440]	nsnns[440]	_	cf1[440]	_	_	
 81-4	4018-4019	!	_	_	_	_	_	_	_	
 
 #Text=What the heck ?
@@ -1124,7 +1124,7 @@
 #Text=Miyuki , you 're gon na be on YouTube on that camera !
 84-1	4052-4058	Miyuki	person[442]	new[442]	nnnnn[442]	_	cf1[442]	ana	84-3[443_442]	
 84-2	4059-4060	,	_	_	_	_	_	_	_	
-84-3	4061-4064	you	person[443]	giv:act[443]	n____[443]	_	cf1[443]	ana	85-2[450_443]	
+84-3	4061-4064	you	person[443]	giv:act[443]	nnnnn[443]	_	cf1[443]	ana	85-2[450_443]	
 84-4	4065-4068	're	_	_	_	_	_	_	_	
 84-5	4069-4072	gon	_	_	_	_	_	_	_	
 84-6	4073-4075	na	_	_	_	_	_	_	_	
@@ -1138,7 +1138,7 @@
 
 #Text=Do you want to say hi ?
 85-1	4107-4109	Do	_	_	_	_	_	_	_	
-85-2	4110-4113	you	person[450]	giv:act[450]	n____[450]	_	cf1*[450]	ana|bridge:aggr	99-2[485_450]|96-4[478_450]	
+85-2	4110-4113	you	person[450]	giv:act[450]	nnnnn[450]	_	cf1*[450]	ana|bridge:aggr	99-2[485_450]|96-4[478_450]	
 85-3	4114-4118	want	_	_	_	_	_	_	_	
 85-4	4119-4121	to	_	_	_	_	_	_	_	
 85-5	4122-4125	say	_	_	_	_	_	_	_	
@@ -1153,8 +1153,8 @@
 87-1	4136-4139	Let	_	_	_	_	_	_	_	
 87-2	4140-4142	me	person[451]	giv:inact[451]	sssss[451]	_	cf1[451]	ana	87-4[455_451]	
 87-3	4143-4147	grab	_	_	_	_	_	_	_	
-87-4	4148-4150	my	object[454]|person[455]	giv:inact[454]|giv:act[455]	n____[454]|sssss[455]	_	cf2[454]|cf1[455]	ana|ana	124-3[529_454]|94-4[463_455]	
-87-5	4151-4157	camera	object[454]	giv:inact[454]	n____[454]	_	cf2[454]	_	_	
+87-4	4148-4150	my	object[454]|person[455]	giv:inact[454]|giv:act[455]	nnnnn[454]|sssss[455]	_	cf2[454]|cf1[455]	ana|ana	124-3[529_454]|94-4[463_455]	
+87-5	4151-4157	camera	object[454]	giv:inact[454]	nnnnn[454]	_	cf2[454]	_	_	
 87-6	4158-4159	.	_	_	_	_	_	_	_	
 
 #Text=Hi !
@@ -1167,7 +1167,7 @@
 89-3	4173-4175	is	_	_	_	_	_	_	_	
 89-4	4176-4179	she	person[456]	giv:inact[456]	sssss[456]	_	cf1[456]	ana	91-1[459_456]	
 89-5	4180-4187	turning	_	_	_	_	_	_	_	
-89-6	4188-4193	today	time[457]	giv:inact[457]	ssnss[457]	_	cf2[457]	_	_	
+89-6	4188-4193	today	time[457]	giv:inact[457]	sssss[457]	_	cf2[457]	_	_	
 89-7	4194-4195	?	_	_	_	_	_	_	_	
 
 #Text=20 !
@@ -1178,7 +1178,7 @@
 91-1	4201-4204	She	person[459]	giv:inact[459]	sssss[459]	_	cf2[459]	ana|bridge:aggr	105-4[497_459]|96-4[478_459]	
 91-2	4205-4207	's	_	_	_	_	_	_	_	
 91-3	4208-4215	turning	_	_	_	_	_	_	_	
-91-4	4216-4218	20	abstract[460]	giv:act[460]	n____[460]	_	cf1*[460]	_	_	
+91-4	4216-4218	20	abstract[460]	giv:act[460]	nnnnn[460]	_	cf1*[460]	_	_	
 91-5	4219-4220	!	_	_	_	_	_	_	_	
 
 #Text=Yay !
@@ -1187,9 +1187,9 @@
 
 #Text=Put it on YouTube !
 93-1	4227-4230	Put	_	_	_	_	_	_	_	
-93-2	4231-4233	it	abstract[461]	acc:com[461]	snnnn[461]	_	cf2[461]	ana	94-6[464_461]	
+93-2	4231-4233	it	abstract[461]	acc:com[461]	snsnn[461]	_	cf2[461]	ana	94-6[464_461]	
 93-3	4234-4236	on	_	_	_	_	_	_	_	
-93-4	4237-4244	YouTube	abstract[462]	giv:inact[462]	n____[462]	YouTube[462]	cf1[462]	coref	94-8[465_462]	
+93-4	4237-4244	YouTube	abstract[462]	giv:inact[462]	nnnnn[462]	YouTube[462]	cf1[462]	coref	94-8[465_462]	
 93-5	4245-4246	!	_	_	_	_	_	_	_	
 
 #Text=Yeah , should I put this on YouTube ?
@@ -1198,9 +1198,9 @@
 94-3	4254-4260	should	_	_	_	_	_	_	_	
 94-4	4261-4262	I	person[463]	giv:inact[463]	sssss[463]	_	cf3[463]	ana|bridge:aggr	103-3[491_463]|96-4[478_463]	
 94-5	4263-4266	put	_	_	_	_	_	_	_	
-94-6	4267-4271	this	abstract[464]	giv:act[464]	snnnn[464]	_	cf1*[464]	coref|bridge:def	137-9[569_464]|121-10[526_464]	
+94-6	4267-4271	this	abstract[464]	giv:act[464]	snsnn[464]	_	cf1*[464]	coref|bridge:entity-associative	137-9[569_464]|121-10[526_464]	
 94-7	4272-4274	on	_	_	_	_	_	_	_	
-94-8	4275-4282	YouTube	abstract[465]	giv:act[465]	n____[465]	YouTube[465]	cf2[465]	_	_	
+94-8	4275-4282	YouTube	abstract[465]	giv:act[465]	nnnnn[465]	YouTube[465]	cf2[465]	_	_	
 94-9	4283-4284	?	_	_	_	_	_	_	_	
 
 #Text=Uh huh .
@@ -1209,8 +1209,8 @@
 95-3	4292-4293	.	_	_	_	_	_	_	_	
 
 #Text=Which one should we start with ?
-96-1	4294-4299	Which	object[477]	acc:com[477]	nnnnn[477]	_	cf2[477]	_	_	
-96-2	4300-4303	one	object[477]	acc:com[477]	nnnnn[477]	_	cf2[477]	_	_	
+96-1	4294-4299	Which	object[477]	acc:inf[477]	nnnnn[477]	_	cf2[477]	_	_	
+96-2	4300-4303	one	object[477]	acc:inf[477]	nnnnn[477]	_	cf2[477]	_	_	
 96-3	4304-4310	should	_	_	_	_	_	_	_	
 96-4	4311-4313	we	person[478]	acc:aggr[478]	nnnnn[478]	_	cf1[478]	_	_	
 96-5	4314-4319	start	_	_	_	_	_	_	_	
@@ -1220,25 +1220,25 @@
 #Text=Start with cinnamon sugar first .
 97-1	4327-4332	Start	_	_	_	_	_	_	_	
 97-2	4333-4337	with	_	_	_	_	_	_	_	
-97-3	4338-4346	cinnamon	substance[480]|substance[481]	new[480]|undefined[481]	nnnnn[480]|nnnnn[481]	_	cf2[480]|cf1[481]	coref|coref	98-1[483_480]|98-1[484_481]	
-97-4	4347-4352	sugar	substance[480]	new[480]	nnnnn[480]	_	cf2[480]	_	_	
+97-3	4338-4346	cinnamon	substance[480]|substance[481]	new[480]|new[481]	nnnnn[480]|nnnnn[481]	_	cf1[480]|cf2[481]	coref|coref	98-1[483_480]|98-1[484_481]	
+97-4	4347-4352	sugar	substance[480]	new[480]	nnnnn[480]	_	cf1[480]	_	_	
 97-5	4353-4358	first	_	_	_	_	_	_	_	
 97-6	4359-4360	.	_	_	_	_	_	_	_	
 
 #Text=Cinnamon sugar first ?
-98-1	4361-4369	Cinnamon	substance[483]|substance[484]	giv:act[483]|giv:act[484]	n____[483]|n____[484]	_	cf1*[483]|cf2[484]	coref	127-5[542_484]	
-98-2	4370-4375	sugar	substance[483]	giv:act[483]	n____[483]	_	cf1*[483]	_	_	
+98-1	4361-4369	Cinnamon	substance[483]|substance[484]	giv:act[483]|giv:act[484]	nnnnn[483]|nnnnn[484]	_	cf1*[483]|cf2[484]	bridge:comparison-sense;entity-meronomy|coref	99-6[488_483]|127-5[542_484]	
+98-2	4370-4375	sugar	substance[483]	giv:act[483]	nnnnn[483]	_	cf1*[483]	_	_	
 98-3	4376-4381	first	_	_	_	_	_	_	_	
 98-4	4382-4383	?	_	_	_	_	_	_	_	
 
 #Text=Do you want to have a piece ?
 99-1	4384-4386	Do	_	_	_	_	_	_	_	
-99-2	4387-4390	you	person[485]	giv:inact[485]	n____[485]	_	cf1[485]	ana	121-1[522_485]	
+99-2	4387-4390	you	person[485]	giv:inact[485]	nnnnn[485]	_	cf1[485]	ana	121-1[522_485]	
 99-3	4391-4395	want	_	_	_	_	_	_	_	
 99-4	4396-4398	to	_	_	_	_	_	_	_	
 99-5	4399-4403	have	_	_	_	_	_	_	_	
-99-6	4404-4405	a	object[488]	new[488]	nnnnn[488]	_	cf2[488]	_	_	
-99-7	4406-4411	piece	object[488]	new[488]	nnnnn[488]	_	cf2[488]	_	_	
+99-6	4404-4405	a	object[488]	acc:inf[488]	nnnnn[488]	_	cf2[488]	_	_	
+99-7	4406-4411	piece	object[488]	acc:inf[488]	nnnnn[488]	_	cf2[488]	_	_	
 99-8	4412-4413	?	_	_	_	_	_	_	_	
 
 #Text=No .
@@ -1250,12 +1250,12 @@
 101-2	4422-4423	?	_	_	_	_	_	_	_	
 
 #Text=That one 's the vegan one ?
-102-1	4424-4428	That	object[489]	acc:com[489]	nnnnn[489]	_	cf1[489]	coref	102-4[490_489]	
-102-2	4429-4432	one	object[489]	acc:com[489]	nnnnn[489]	_	cf1[489]	_	_	
+102-1	4424-4428	That	object[489]	acc:inf[489]	nnnnn[489]	_	cf1[489]	coref	102-4[490_489]	
+102-2	4429-4432	one	object[489]	acc:inf[489]	nnnnn[489]	_	cf1[489]	_	_	
 102-3	4433-4435	's	_	_	_	_	_	_	_	
-102-4	4436-4439	the	object[490]	giv:act[490]	n____[490]	_	cf1[490]	_	_	
-102-5	4440-4445	vegan	object[490]	giv:act[490]	n____[490]	_	cf1[490]	_	_	
-102-6	4446-4449	one	object[490]	giv:act[490]	n____[490]	_	cf1[490]	_	_	
+102-4	4436-4439	the	object[490]	giv:act[490]	nnnnn[490]	_	cf1[490]	_	_	
+102-5	4440-4445	vegan	object[490]	giv:act[490]	nnnnn[490]	_	cf1[490]	_	_	
+102-6	4446-4449	one	object[490]	giv:act[490]	nnnnn[490]	_	cf1[490]	_	_	
 102-7	4450-4451	?	_	_	_	_	_	_	_	
 
 #Text=Yeah , I think .
@@ -1268,13 +1268,13 @@
 #Text=I think these three ?
 104-1	4469-4470	I	person[492]	giv:act[492]	sssss[492]	_	cf1*[492]	_	_	
 104-2	4471-4476	think	_	_	_	_	_	_	_	
-104-3	4477-4482	these	object[495]	new[495]	nnnnn[495]	_	cf2[495]	coref	105-1[496_495]	
-104-4	4483-4488	three	object[495]	new[495]	nnnnn[495]	_	cf2[495]	_	_	
+104-3	4477-4482	these	object[495]	acc:inf[495]	nnnnn[495]	_	cf2[495]	coref	105-1[496_495]	
+104-4	4483-4488	three	object[495]	acc:inf[495]	nnnnn[495]	_	cf2[495]	_	_	
 104-5	4489-4490	?	_	_	_	_	_	_	_	
 
 #Text=These three , I think .
-105-1	4491-4496	These	object[496]	giv:act[496]	n____[496]	_	cf1*[496]	_	_	
-105-2	4497-4502	three	object[496]	giv:act[496]	n____[496]	_	cf1*[496]	_	_	
+105-1	4491-4496	These	object[496]	giv:act[496]	nnnnn[496]	_	cf1*[496]	_	_	
+105-2	4497-4502	three	object[496]	giv:act[496]	nnnnn[496]	_	cf1*[496]	_	_	
 105-3	4503-4504	,	_	_	_	_	_	_	_	
 105-4	4505-4506	I	person[497]	giv:inact[497]	sssss[497]	_	cf2[497]	_	_	
 105-5	4507-4512	think	_	_	_	_	_	_	_	
@@ -1295,34 +1295,34 @@
 #Text=Caramel , salted caramel .
 108-1	4542-4549	Caramel	substance[498]	new[498]	nnnnn[498]	_	cf1[498]	appos	108-3[501_498]	
 108-2	4550-4551	,	_	_	_	_	_	_	_	
-108-3	4552-4558	salted	substance[501]	giv:act[501]	n____[501]	_	cf1[501]	_	_	
-108-4	4559-4566	caramel	substance[501]	giv:act[501]	n____[501]	_	cf1[501]	_	_	
+108-3	4552-4558	salted	substance[501]	giv:act[501]	nnnnn[501]	_	cf1[501]	_	_	
+108-4	4559-4566	caramel	substance[501]	giv:act[501]	nnnnn[501]	_	cf1[501]	_	_	
 108-5	4567-4568	.	_	_	_	_	_	_	_	
 
 #Text=Honey - glazed .
-109-1	4569-4574	Honey	substance[502]	undefined[502]	nnnnn[502]	_	cf1[502]	_	_	
+109-1	4569-4574	Honey	substance[502]	new[502]	nnnnn[502]	_	cf1[502]	_	_	
 109-2	4575-4576	-	_	_	_	_	_	_	_	
 109-3	4577-4583	glazed	_	_	_	_	_	_	_	
 109-4	4584-4585	.	_	_	_	_	_	_	_	
 
 #Text=Basil lime blackberry ?
-110-1	4586-4591	Basil	plant[504]|plant[505]	undefined[504]|undefined[505]	nnnnn[504]|nnnnn[505]	_	cf1[504]|cf3[505]	coref|coref	111-1[511_504]|111-2[513_505]	
-110-2	4592-4596	lime	plant[504]|plant[506]	undefined[504]|undefined[506]	nnnnn[504]|nnnnn[506]	_	cf1[504]|cf4[506]	coref	111-3[514_506]	
-110-3	4597-4607	blackberry	plant[504]|plant[507]	undefined[504]|undefined[507]	nnnnn[504]|nnnnn[507]	_	cf1[504]|cf2[507]	coref	111-1[512_507]	
+110-1	4586-4591	Basil	plant[504]|plant[505]	new[504]|new[505]	nnnnn[504]|nnnnn[505]	_	cf1[504]|cf3[505]	coref|coref	111-1[511_504]|111-2[513_505]	
+110-2	4592-4596	lime	plant[504]|plant[506]	new[504]|new[506]	nnnnn[504]|nnnnn[506]	_	cf1[504]|cf4[506]	coref	111-3[514_506]	
+110-3	4597-4607	blackberry	plant[504]|plant[507]	new[504]|new[507]	nnnnn[504]|nnnnn[507]	_	cf1[504]|cf2[507]	coref	111-1[512_507]	
 110-4	4608-4609	?	_	_	_	_	_	_	_	
 
 #Text=Blackberry basil lime .
-111-1	4610-4620	Blackberry	plant[511]|plant[512]	undefined[511]|undefined[512]	n____[511]|n____[512]	_	cf1*[511]|cf3[512]	coref	112-4[518_511]	
-111-2	4621-4626	basil	plant[511]|plant[513]	undefined[511]|undefined[513]	n____[511]|n____[513]	_	cf1*[511]|cf4[513]	_	_	
-111-3	4627-4631	lime	plant[511]|plant[514]	undefined[511]|undefined[514]	n____[511]|n____[514]	_	cf1*[511]|cf2[514]	_	_	
+111-1	4610-4620	Blackberry	plant[511]|plant[512]	giv:act[511]|giv:act[512]	nnnnn[511]|nnnnn[512]	_	cf1*[511]|cf3[512]	coref	112-4[518_511]	
+111-2	4621-4626	basil	plant[511]|plant[513]	giv:act[511]|giv:act[513]	nnnnn[511]|nnnnn[513]	_	cf1*[511]|cf4[513]	_	_	
+111-3	4627-4631	lime	plant[511]|plant[514]	giv:act[511]|giv:act[514]	nnnnn[511]|nnnnn[514]	_	cf1*[511]|cf2[514]	_	_	
 111-4	4632-4633	.	_	_	_	_	_	_	_	
 
 #Text=Yeah , well same ingredients .
 112-1	4634-4638	Yeah	_	_	_	_	_	_	_	
 112-2	4639-4640	,	_	_	_	_	_	_	_	
 112-3	4641-4645	well	_	_	_	_	_	_	_	
-112-4	4646-4650	same	plant[518]	giv:act[518]	n____[518]	_	cf1*[518]	_	_	
-112-5	4651-4662	ingredients	plant[518]	giv:act[518]	n____[518]	_	cf1*[518]	_	_	
+112-4	4646-4650	same	plant[518]	giv:act[518]	nnnnn[518]	_	cf1*[518]	_	_	
+112-5	4651-4662	ingredients	plant[518]	giv:act[518]	nnnnn[518]	_	cf1*[518]	_	_	
 112-6	4663-4664	.	_	_	_	_	_	_	_	
 
 #Text=Yeah , well , no matters .
@@ -1339,15 +1339,15 @@
 114-2	4697-4706	chocolate	substance[519]	new[519]	nnnnn[519]	_	cf1[519]	_	_	
 
 #Text=Belgian dark chocolate .
-115-1	4707-4714	Belgian	substance[520]	giv:act[520]	n____[520]	_	cf1*[520]	coref	116-1[521_520]	
-115-2	4715-4719	dark	substance[520]	giv:act[520]	n____[520]	_	cf1*[520]	_	_	
-115-3	4720-4729	chocolate	substance[520]	giv:act[520]	n____[520]	_	cf1*[520]	_	_	
+115-1	4707-4714	Belgian	substance[520]	giv:act[520]	nnnnn[520]	_	cf1*[520]	coref	116-1[521_520]	
+115-2	4715-4719	dark	substance[520]	giv:act[520]	nnnnn[520]	_	cf1*[520]	_	_	
+115-3	4720-4729	chocolate	substance[520]	giv:act[520]	nnnnn[520]	_	cf1*[520]	_	_	
 115-4	4730-4731	.	_	_	_	_	_	_	_	
 
 #Text=Belgian dark chocolate .
-116-1	4732-4739	Belgian	substance[521]	giv:act[521]	n____[521]	_	cf1*[521]	_	_	
-116-2	4740-4744	dark	substance[521]	giv:act[521]	n____[521]	_	cf1*[521]	_	_	
-116-3	4745-4754	chocolate	substance[521]	giv:act[521]	n____[521]	_	cf1*[521]	_	_	
+116-1	4732-4739	Belgian	substance[521]	giv:act[521]	nnnnn[521]	_	cf1*[521]	_	_	
+116-2	4740-4744	dark	substance[521]	giv:act[521]	nnnnn[521]	_	cf1*[521]	_	_	
+116-3	4745-4754	chocolate	substance[521]	giv:act[521]	nnnnn[521]	_	cf1*[521]	_	_	
 116-4	4755-4756	.	_	_	_	_	_	_	_	
 
 #Text=Mh hm .
@@ -1371,12 +1371,12 @@
 120-4	4794-4795	.	_	_	_	_	_	_	_	
 
 #Text=You want to film – you want to film the outro ?
-121-1	4796-4799	You	person[522]	giv:inact[522]	n____[522]	_	cf1[522]	ana	121-6[523_522]	
+121-1	4796-4799	You	person[522]	giv:inact[522]	nnnnn[522]	_	cf1[522]	ana	121-6[523_522]	
 121-2	4800-4804	want	_	_	_	_	_	_	_	
 121-3	4805-4807	to	_	_	_	_	_	_	_	
 121-4	4808-4812	film	_	_	_	_	_	_	_	
 121-5	4813-4814	–	_	_	_	_	_	_	_	
-121-6	4815-4818	you	person[523]	giv:act[523]	n____[523]	_	cf1[523]	ana	122-2[527_523]	
+121-6	4815-4818	you	person[523]	giv:act[523]	nnnnn[523]	_	cf1[523]	ana	122-2[527_523]	
 121-7	4819-4823	want	_	_	_	_	_	_	_	
 121-8	4824-4826	to	_	_	_	_	_	_	_	
 121-9	4827-4831	film	_	_	_	_	_	_	_	
@@ -1386,9 +1386,9 @@
 
 #Text=Can you see yourself ?
 122-1	4844-4847	Can	_	_	_	_	_	_	_	
-122-2	4848-4851	you	person[527]	giv:act[527]	n____[527]	_	cf1*[527]	ana	122-4[528_527]	
+122-2	4848-4851	you	person[527]	giv:act[527]	nnnnn[527]	_	cf1*[527]	ana	122-4[528_527]	
 122-3	4852-4855	see	_	_	_	_	_	_	_	
-122-4	4856-4864	yourself	person[528]	giv:act[528]	n____[528]	_	cf1*[528]	ana	124-7[530_528]	
+122-4	4856-4864	yourself	person[528]	giv:act[528]	nnnnn[528]	_	cf1*[528]	ana	124-7[530_528]	
 122-5	4865-4866	?	_	_	_	_	_	_	_	
 
 #Text=Uh huh .
@@ -1399,11 +1399,11 @@
 #Text=Alright , it 's recording so you can start now !
 124-1	4876-4883	Alright	_	_	_	_	_	_	_	
 124-2	4884-4885	,	_	_	_	_	_	_	_	
-124-3	4886-4888	it	object[529]	giv:inact[529]	n____[529]	_	cf2[529]	_	_	
+124-3	4886-4888	it	object[529]	giv:inact[529]	nnnnn[529]	_	cf2[529]	_	_	
 124-4	4889-4891	's	_	_	_	_	_	_	_	
 124-5	4892-4901	recording	_	_	_	_	_	_	_	
 124-6	4902-4904	so	_	_	_	_	_	_	_	
-124-7	4905-4908	you	person[530]	giv:inact[530]	n____[530]	_	cf1[530]	ana	126-1[531_530]	
+124-7	4905-4908	you	person[530]	giv:inact[530]	nnnnn[530]	_	cf1[530]	ana	126-1[531_530]	
 124-8	4909-4912	can	_	_	_	_	_	_	_	
 124-9	4913-4918	start	_	_	_	_	_	_	_	
 124-10	4919-4922	now	_	_	_	_	_	_	_	
@@ -1414,33 +1414,33 @@
 125-2	4928-4929	.	_	_	_	_	_	_	_	
 
 #Text=I 'm Miyuki .
-126-1	4930-4931	I	person[531]	giv:inact[531]	n____[531]	_	cf1[531]	coref	126-3[532_531]	
+126-1	4930-4931	I	person[531]	giv:inact[531]	nnnnn[531]	_	cf1[531]	coref	126-3[532_531]	
 126-2	4932-4934	'm	_	_	_	_	_	_	_	
-126-3	4935-4941	Miyuki	person[532]	giv:act[532]	n____[532]	_	cf1[532]	ana	127-1[533_532]	
+126-3	4935-4941	Miyuki	person[532]	giv:act[532]	nnnnn[532]	_	cf1[532]	ana	127-1[533_532]	
 126-4	4942-4943	.	_	_	_	_	_	_	_	
 
 #Text=I 'm eating a cinnamon roll , a a cinnamon donut .
-127-1	4944-4945	I	person[533]	giv:act[533]	n____[533]	_	cf1*[533]	ana	128-1[546_533]	
+127-1	4944-4945	I	person[533]	giv:act[533]	nnnnn[533]	_	cf1*[533]	ana	128-1[546_533]	
 127-2	4946-4948	'm	_	_	_	_	_	_	_	
 127-3	4949-4955	eating	_	_	_	_	_	_	_	
 127-4	4956-4957	a	object[541]	new[541]	nnnnn[541]	_	cf2[541]	appos	127-8[544_541]	
-127-5	4958-4966	cinnamon	object[541]|substance[542]	new[541]|undefined[542]	nnnnn[541]|n____[542]	_	cf2[541]|cf3[542]	coref	127-9[545_542]	
+127-5	4958-4966	cinnamon	object[541]|substance[542]	new[541]|giv:inact[542]	nnnnn[541]|nnnnn[542]	_	cf2[541]|cf3[542]	coref	127-9[545_542]	
 127-6	4967-4971	roll	object[541]	new[541]	nnnnn[541]	_	cf2[541]	_	_	
 127-7	4972-4973	,	_	_	_	_	_	_	_	
-127-8	4974-4975	a	object[544]	giv:act[544]	n____[544]	_	cf2[544]	ana	128-3[547_544]	
-127-9	4976-4977	a	object[544]|substance[545]	giv:act[544]|giv:act[545]	n____[544]|n____[545]	_	cf2[544]|cf3[545]	_	_	
-127-10	4978-4986	cinnamon	object[544]|substance[545]	giv:act[544]|giv:act[545]	n____[544]|n____[545]	_	cf2[544]|cf3[545]	_	_	
-127-11	4987-4992	donut	object[544]	giv:act[544]	n____[544]	_	cf2[544]	_	_	
+127-8	4974-4975	a	object[544]	giv:act[544]	nnnnn[544]	_	cf2[544]	ana	128-3[547_544]	
+127-9	4976-4977	a	object[544]|substance[545]	giv:act[544]|giv:act[545]	nnnnn[544]|nnnnn[545]	_	cf2[544]|cf3[545]	_	_	
+127-10	4978-4986	cinnamon	object[544]|substance[545]	giv:act[544]|giv:act[545]	nnnnn[544]|nnnnn[545]	_	cf2[544]|cf3[545]	_	_	
+127-11	4987-4992	donut	object[544]	giv:act[544]	nnnnn[544]	_	cf2[544]	_	_	
 127-12	4993-4994	.	_	_	_	_	_	_	_	
 
 #Text=You like it ?
-128-1	4995-4998	You	person[546]	giv:act[546]	n____[546]	_	cf1*[546]	ana	132-3[549_546]	
+128-1	4995-4998	You	person[546]	giv:act[546]	nnnnn[546]	_	cf1*[546]	ana	132-3[549_546]	
 128-2	4999-5003	like	_	_	_	_	_	_	_	
-128-3	5004-5006	it	object[547]	giv:act[547]	n____[547]	_	cf2[547]	ana	129-1[548_547]	
+128-3	5004-5006	it	object[547]	giv:act[547]	nnnnn[547]	_	cf2[547]	ana	129-1[548_547]	
 128-4	5007-5008	?	_	_	_	_	_	_	_	
 
 #Text=It tastes good ?
-129-1	5009-5011	It	object[548]	giv:act[548]	n____[548]	_	cf1*[548]	_	_	
+129-1	5009-5011	It	object[548]	giv:act[548]	nnnnn[548]	_	cf1*[548]	_	_	
 129-2	5012-5018	tastes	_	_	_	_	_	_	_	
 129-3	5019-5023	good	_	_	_	_	_	_	_	
 129-4	5024-5025	?	_	_	_	_	_	_	_	
@@ -1460,15 +1460,15 @@
 #Text=So , you said that you had an outro that you 've been practicing ?
 132-1	5055-5057	So	_	_	_	_	_	_	_	
 132-2	5058-5059	,	_	_	_	_	_	_	_	
-132-3	5060-5063	you	person[549]	giv:inact[549]	n____[549]	_	cf1[549]	ana	132-6[550_549]	
+132-3	5060-5063	you	person[549]	giv:inact[549]	nnnnn[549]	_	cf1[549]	ana	132-6[550_549]	
 132-4	5064-5068	said	_	_	_	_	_	_	_	
 132-5	5069-5073	that	_	_	_	_	_	_	_	
-132-6	5074-5077	you	person[550]	giv:act[550]	n____[550]	_	cf1[550]	ana	132-11[557_550]	
+132-6	5074-5077	you	person[550]	giv:act[550]	nnnnn[550]	_	cf1[550]	ana	132-11[557_550]	
 132-7	5078-5081	had	_	_	_	_	_	_	_	
-132-8	5082-5084	an	abstract[556]	undefined[556]	n____[556]	_	cf2[556]	ana	134-6[559_556]	
-132-9	5085-5090	outro	abstract[556]	undefined[556]	n____[556]	_	cf2[556]	_	_	
+132-8	5082-5084	an	abstract[556]	giv:inact[556]	nnnnn[556]	_	cf2[556]	ana	134-6[559_556]	
+132-9	5085-5090	outro	abstract[556]	giv:inact[556]	nnnnn[556]	_	cf2[556]	_	_	
 132-10	5091-5095	that	_	_	_	_	_	_	_	
-132-11	5096-5099	you	person[557]	giv:act[557]	n____[557]	_	cf1[557]	ana	134-2[558_557]	
+132-11	5096-5099	you	person[557]	giv:act[557]	nnnnn[557]	_	cf1[557]	ana	134-2[558_557]	
 132-12	5100-5103	've	_	_	_	_	_	_	_	
 132-13	5104-5108	been	_	_	_	_	_	_	_	
 132-14	5109-5119	practicing	_	_	_	_	_	_	_	
@@ -1480,11 +1480,11 @@
 
 #Text=Do you want to give it a try ?
 134-1	5130-5132	Do	_	_	_	_	_	_	_	
-134-2	5133-5136	you	person[558]	giv:inact[558]	n____[558]	_	cf1[558]	ana	136-4[564_558]	
+134-2	5133-5136	you	person[558]	giv:inact[558]	nnnnn[558]	_	cf1[558]	ana	136-4[564_558]	
 134-3	5137-5141	want	_	_	_	_	_	_	_	
 134-4	5142-5144	to	_	_	_	_	_	_	_	
 134-5	5145-5149	give	_	_	_	_	_	_	_	
-134-6	5150-5152	it	abstract[559]	giv:inact[559]	n____[559]	_	cf2[559]	_	_	
+134-6	5150-5152	it	abstract[559]	giv:inact[559]	nnnnn[559]	_	cf2[559]	_	_	
 134-7	5153-5154	a	_	_	_	_	_	_	_	
 134-8	5155-5158	try	_	_	_	_	_	_	_	
 134-9	5159-5160	?	_	_	_	_	_	_	_	
@@ -1497,20 +1497,20 @@
 136-1	5168-5171	The	abstract[563]	new[563]	nnnnn[563]	_	cf2[563]	_	_	
 136-2	5172-5177	floor	abstract[563]	new[563]	nnnnn[563]	_	cf2[563]	_	_	
 136-3	5178-5180	is	_	_	_	_	_	_	_	
-136-4	5181-5186	yours	person[564]	giv:inact[564]	n____[564]	_	cf1[564]	ana	137-3[565_564]	
+136-4	5181-5186	yours	person[564]	giv:inact[564]	nnnnn[564]	_	cf1[564]	ana	137-3[565_564]	
 136-5	5187-5188	.	_	_	_	_	_	_	_	
 
 #Text=What do you say at the end of the video ?
 137-1	5189-5193	What	_	_	_	_	_	_	_	
 137-2	5194-5196	do	_	_	_	_	_	_	_	
-137-3	5197-5200	you	person[565]	giv:act[565]	n____[565]	_	cf1*[565]	ana	140-4[579_565]	
+137-3	5197-5200	you	person[565]	giv:act[565]	nnnnn[565]	_	cf1*[565]	ana	140-4[579_565]	
 137-4	5201-5204	say	_	_	_	_	_	_	_	
 137-5	5205-5207	at	_	_	_	_	_	_	_	
 137-6	5208-5211	the	time[568]	new[568]	nnnnn[568]	_	cf3[568]	_	_	
 137-7	5212-5215	end	time[568]	new[568]	nnnnn[568]	_	cf3[568]	_	_	
 137-8	5216-5218	of	time[568]	new[568]	nnnnn[568]	_	cf3[568]	_	_	
-137-9	5219-5222	the	time[568]|abstract[569]	new[568]|giv:inact[569]	nnnnn[568]|snnnn[569]	_	cf3[568]|cf2[569]	bridge:def|bridge:def	138-3[570_569]|139-19[578_569]	
-137-10	5223-5228	video	time[568]|abstract[569]	new[568]|giv:inact[569]	nnnnn[568]|snnnn[569]	_	cf3[568]|cf2[569]	_	_	
+137-9	5219-5222	the	time[568]|abstract[569]	new[568]|giv:inact[569]	nnnnn[568]|snsnn[569]	_	cf3[568]|cf2[569]	bridge:entity-associative|bridge:entity-associative|bridge:entity-associative|bridge:entity-associative	138-3[570_569]|139-4[571_569]|139-13[573_569]|139-19[578_569]	
+137-10	5223-5228	video	time[568]|abstract[569]	new[568]|giv:inact[569]	nnnnn[568]|snsnn[569]	_	cf3[568]|cf2[569]	_	_	
 137-11	5229-5230	?	_	_	_	_	_	_	_	
 
 #Text=What should the people watching do ?
@@ -1526,36 +1526,36 @@
 139-1	5268-5277	Subscribe	_	_	_	_	_	_	_	
 139-2	5278-5281	and	_	_	_	_	_	_	_	
 139-3	5282-5287	press	_	_	_	_	_	_	_	
-139-4	5288-5291	the	abstract[571]	new[571]	nnnnn[571]	_	cf3[571]	_	_	
-139-5	5292-5296	like	abstract[571]	new[571]	nnnnn[571]	_	cf3[571]	_	_	
-139-6	5297-5303	button	abstract[571]	new[571]	nnnnn[571]	_	cf3[571]	_	_	
+139-4	5288-5291	the	abstract[571]	acc:inf[571]	nnnnn[571]	_	cf2[571]	_	_	
+139-5	5292-5296	like	abstract[571]	acc:inf[571]	nnnnn[571]	_	cf2[571]	_	_	
+139-6	5297-5303	button	abstract[571]	acc:inf[571]	nnnnn[571]	_	cf2[571]	_	_	
 139-7	5304-5307	and	_	_	_	_	_	_	_	
 139-8	5308-5312	then	_	_	_	_	_	_	_	
 139-9	5313-5323	afterwards	_	_	_	_	_	_	_	
-139-10	5324-5327	you	person[572]	giv:act[572]	n____[572]	_	cf1*[572]	ana	139-16[574_572]	
+139-10	5324-5327	you	person[572]	giv:act[572]	nnnnn[572]	_	cf1*[572]	ana	139-16[574_572]	
 139-11	5328-5331	can	_	_	_	_	_	_	_	
 139-12	5332-5334	do	_	_	_	_	_	_	_	
-139-13	5335-5343	comments	abstract[573]	new[573]	nnnnn[573]	_	cf4[573]	_	_	
+139-13	5335-5343	comments	abstract[573]	acc:inf[573]	nnnnn[573]	_	cf3[573]	_	_	
 139-14	5344-5347	and	_	_	_	_	_	_	_	
 139-15	5348-5352	then	_	_	_	_	_	_	_	
-139-16	5353-5356	you	person[574]	giv:act[574]	n____[574]	_	cf1*[574]	_	_	
+139-16	5353-5356	you	person[574]	giv:act[574]	nnnnn[574]	_	cf1*[574]	_	_	
 139-17	5357-5366	subscribe	_	_	_	_	_	_	_	
 139-18	5367-5369	to	_	_	_	_	_	_	_	
-139-19	5370-5373	the	abstract[578]	acc:inf[578]	nnnnn[578]	_	cf2[578]	_	_	
-139-20	5374-5381	channel	abstract[578]	acc:inf[578]	nnnnn[578]	_	cf2[578]	_	_	
+139-19	5370-5373	the	abstract[578]	acc:inf[578]	nnnnn[578]	_	cf4[578]	_	_	
+139-20	5374-5381	channel	abstract[578]	acc:inf[578]	nnnnn[578]	_	cf4[578]	_	_	
 139-21	5382-5383	.	_	_	_	_	_	_	_	
 
 #Text=Yay , thank you so much !
 140-1	5384-5387	Yay	_	_	_	_	_	_	_	
 140-2	5388-5389	,	_	_	_	_	_	_	_	
 140-3	5390-5395	thank	_	_	_	_	_	_	_	
-140-4	5396-5399	you	person[579]	giv:inact[579]	n____[579]	_	cf1[579]	ana	141-1[580_579]	
+140-4	5396-5399	you	person[579]	giv:inact[579]	nnnnn[579]	_	cf1[579]	ana	141-1[580_579]	
 140-5	5400-5402	so	_	_	_	_	_	_	_	
 140-6	5403-5407	much	_	_	_	_	_	_	_	
 140-7	5408-5409	!	_	_	_	_	_	_	_	
 
 #Text=You wan na say bye ?
-141-1	5410-5413	You	person[580]	giv:act[580]	n____[580]	_	cf1*[580]	_	_	
+141-1	5410-5413	You	person[580]	giv:act[580]	nnnnn[580]	_	cf1*[580]	_	_	
 141-2	5414-5417	wan	_	_	_	_	_	_	_	
 141-3	5418-5420	na	_	_	_	_	_	_	_	
 141-4	5421-5424	say	_	_	_	_	_	_	_	

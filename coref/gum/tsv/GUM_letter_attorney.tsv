@@ -15,9 +15,9 @@
 1-4	13-17	Wis.	place[1]|place[2]	new[1]|new[2]	snnnn[1]|snnnn[2]	Genoa_City%2C_Wisconsin[1]|Wisconsin[2]	cf1[1]|cf2[2]	coref	21-21[162_2]	
 
 #Text=August 6th 1964
-2-1	18-24	August	time[4]	new[4]	sssnn[4]	_	cf1[4]	coref|bridge:def	21-2[152_4]|8-7[23_4]	
+2-1	18-24	August	time[4]	new[4]	sssnn[4]	_	cf1[4]	coref|bridge:set-span-interval|bridge:comparison-relative;comparison-time	21-2[152_4]|8-7[23_4]|17-9[125_4]	
 2-2	25-28	6th	time[4]	new[4]	sssnn[4]	_	cf1[4]	_	_	
-2-3	29-33	1964	time[4]|time[5]	new[4]|new[5]	sssnn[4]|sssnn[5]	_	cf1[4]|cf2[5]	bridge:other	10-5[40_5]	
+2-3	29-33	1964	time[4]|time[5]	new[4]|new[5]	sssnn[4]|sssnn[5]	_	cf1[4]|cf2[5]	bridge:set-span-interval|bridge:set-span-interval	10-5[40_5]|10-5[41_5]	
 
 #Text=John K. Bartram , Esquire
 3-1	34-38	John	person[7]	new[7]	ssnss[7]	_	cf1[7]	coref	4-1[8_7]	
@@ -41,7 +41,7 @@
 #Text=Marion , Ohio
 6-1	112-118	Marion	place[13]	new[13]	nnnnn[13]	Marion%2C_Ohio[13]	cf1[13]	coref	21-28[165_13]	
 6-2	119-120	,	place[13]	new[13]	nnnnn[13]	Marion%2C_Ohio[13]	cf1[13]	_	_	
-6-3	121-125	Ohio	place[13]|place[14]	new[13]|new[14]	nnnnn[13]|nnnnn[14]	Marion%2C_Ohio[13]|Ohio[14]	cf1[13]|cf2[14]	coref	21-30[166_14]	
+6-3	121-125	Ohio	place[13]|place[14]	new[13]|new[14]	nnnnn[13]|nnnnn[14]	Marion%2C_Ohio[13]|Ohio[14]	cf1[13]|cf2[14]	coref|bridge:entity-associative|bridge:entity-associative|bridge:entity-associative	21-30[166_14]|14-15[89_14]|15-13[104_14]|16-12[120_14]	
 
 #Text=Dear John ;
 7-1	126-130	Dear	_	_	_	_	_	_	_	
@@ -90,12 +90,12 @@
 9-28	324-325	.	_	_	_	_	_	_	_	
 
 #Text=Michel advised her on May 25th as follows : " There is a grave legal question involved as to whether or not these letters are the property of your mother 's estate and an appropriate legal action is contemplated to determine such question . "
-10-1	326-332	Michel	person[35]	new[35]	nnnns[35]	_	cf5[35]	coref	28-21[225_35]	
+10-1	326-332	Michel	person[35]	new[35]	nnnns[35]	_	cf6[35]	coref	28-21[225_35]	
 10-2	333-340	advised	_	_	_	_	_	_	_	
 10-3	341-344	her	person[36]	giv:act[36]	sssss[36]	_	cf1*[36]	ana	10-29[48_36]	
 10-4	345-347	on	_	_	_	_	_	_	_	
-10-5	348-351	May	time[40]|time[41]	acc:inf[40]|new[41]	nnnnn[40]|nnnnn[41]	_	cf4[40]|cf8[41]	_	_	
-10-6	352-356	25th	time[40]	acc:inf[40]	nnnnn[40]	_	cf4[40]	_	_	
+10-5	348-351	May	time[40]|time[41]	acc:inf[40]|acc:inf[41]	nnnnn[40]|nnnnn[41]	_	cf5[40]|cf4[41]	_	_	
+10-6	352-356	25th	time[40]	acc:inf[40]	nnnnn[40]	_	cf5[40]	_	_	
 10-7	357-359	as	_	_	_	_	_	_	_	
 10-8	360-367	follows	_	_	_	_	_	_	_	
 10-9	368-369	:	_	_	_	_	_	_	_	
@@ -115,18 +115,18 @@
 10-23	434-439	these	abstract[43]|object[44]	new[43]|giv:act[44]	nnnnn[43]|sssss[44]	_	cf3[43]|cf2[44]	ana	11-11[57_44]	
 10-24	440-447	letters	abstract[43]|object[44]	new[43]|giv:act[44]	nnnnn[43]|sssss[44]	_	cf3[43]|cf2[44]	_	_	
 10-25	448-451	are	abstract[43]	new[43]	nnnnn[43]	_	cf3[43]	_	_	
-10-26	452-455	the	abstract[43]|object[45]	new[43]|new[45]	nnnnn[43]|nnnnn[45]	_	cf3[43]|cf7[45]	_	_	
-10-27	456-464	property	abstract[43]|object[45]	new[43]|new[45]	nnnnn[43]|nnnnn[45]	_	cf3[43]|cf7[45]	_	_	
-10-28	465-467	of	abstract[43]|object[45]	new[43]|new[45]	nnnnn[43]|nnnnn[45]	_	cf3[43]|cf7[45]	_	_	
-10-29	468-472	your	abstract[43]|object[45]|abstract[46]|person[47]|person[48]	new[43]|new[45]|new[46]|new[47]|giv:act[48]	nnnnn[43]|nnnnn[45]|snsnn[46]|sssss[47]|sssss[48]	Carrie_Fulton_Phillips[47]	cf3[43]|cf7[45]|cf10[46]|cf9[47]|cf1*[48]	coref|coref|coref	14-22[91_46]|11-29[69_47]|18-31[140_48]	
-10-30	473-479	mother	abstract[43]|object[45]|abstract[46]|person[47]	new[43]|new[45]|new[46]|new[47]	nnnnn[43]|nnnnn[45]|snsnn[46]|sssss[47]	Carrie_Fulton_Phillips[47]	cf3[43]|cf7[45]|cf10[46]|cf9[47]	_	_	
-10-31	480-482	's	abstract[43]|object[45]|abstract[46]|person[47]	new[43]|new[45]|new[46]|new[47]	nnnnn[43]|nnnnn[45]|snsnn[46]|sssss[47]	Carrie_Fulton_Phillips[47]	cf3[43]|cf7[45]|cf10[46]|cf9[47]	_	_	
-10-32	483-489	estate	abstract[43]|object[45]|abstract[46]	new[43]|new[45]|new[46]	nnnnn[43]|nnnnn[45]|snsnn[46]	_	cf3[43]|cf7[45]|cf10[46]	_	_	
+10-26	452-455	the	abstract[43]|object[45]	new[43]|new[45]	nnnnn[43]|nnnnn[45]	_	cf3[43]|cf8[45]	_	_	
+10-27	456-464	property	abstract[43]|object[45]	new[43]|new[45]	nnnnn[43]|nnnnn[45]	_	cf3[43]|cf8[45]	_	_	
+10-28	465-467	of	abstract[43]|object[45]	new[43]|new[45]	nnnnn[43]|nnnnn[45]	_	cf3[43]|cf8[45]	_	_	
+10-29	468-472	your	abstract[43]|object[45]|abstract[46]|person[47]|person[48]	new[43]|new[45]|new[46]|new[47]|giv:act[48]	nnnnn[43]|nnnnn[45]|snsnn[46]|sssss[47]|sssss[48]	Carrie_Fulton_Phillips[47]	cf3[43]|cf8[45]|cf10[46]|cf9[47]|cf1*[48]	coref|coref|coref	14-22[91_46]|11-29[69_47]|18-31[140_48]	
+10-30	473-479	mother	abstract[43]|object[45]|abstract[46]|person[47]	new[43]|new[45]|new[46]|new[47]	nnnnn[43]|nnnnn[45]|snsnn[46]|sssss[47]	Carrie_Fulton_Phillips[47]	cf3[43]|cf8[45]|cf10[46]|cf9[47]	_	_	
+10-31	480-482	's	abstract[43]|object[45]|abstract[46]|person[47]	new[43]|new[45]|new[46]|new[47]	nnnnn[43]|nnnnn[45]|snsnn[46]|sssss[47]	Carrie_Fulton_Phillips[47]	cf3[43]|cf8[45]|cf10[46]|cf9[47]	_	_	
+10-32	483-489	estate	abstract[43]|object[45]|abstract[46]	new[43]|new[45]|new[46]	nnnnn[43]|nnnnn[45]|snsnn[46]	_	cf3[43]|cf8[45]|cf10[46]	_	_	
 10-33	490-493	and	_	_	_	_	_	_	_	
-10-34	494-496	an	abstract[50]	new[50]	nnnnn[50]	_	cf6[50]	_	_	
-10-35	497-508	appropriate	abstract[50]	new[50]	nnnnn[50]	_	cf6[50]	_	_	
-10-36	509-514	legal	abstract[50]	new[50]	nnnnn[50]	_	cf6[50]	_	_	
-10-37	515-521	action	abstract[50]	new[50]	nnnnn[50]	_	cf6[50]	_	_	
+10-34	494-496	an	abstract[50]	new[50]	nnnnn[50]	_	cf7[50]	_	_	
+10-35	497-508	appropriate	abstract[50]	new[50]	nnnnn[50]	_	cf7[50]	_	_	
+10-36	509-514	legal	abstract[50]	new[50]	nnnnn[50]	_	cf7[50]	_	_	
+10-37	515-521	action	abstract[50]	new[50]	nnnnn[50]	_	cf7[50]	_	_	
 10-38	522-524	is	_	_	_	_	_	_	_	
 10-39	525-537	contemplated	_	_	_	_	_	_	_	
 10-40	538-540	to	_	_	_	_	_	_	_	
@@ -137,22 +137,22 @@
 10-45	567-568	"	_	_	_	_	_	_	_	
 
 #Text=It is our considered opinion : Williamson should have sent them to the owner 's daughter as a very personal matter or auctioned them off when he sold Mrs. Phillips 's things on the auction block .
-11-1	569-571	It	abstract[52]	new[52]	nnnnn[52]	_	cf6[52]	_	_	
+11-1	569-571	It	abstract[52]	new[52]	nnnnn[52]	_	cf7[52]	_	_	
 11-2	572-574	is	_	_	_	_	_	_	_	
-11-3	575-578	our	abstract[54]|person[55]	acc:com[54]|giv:inact[55]	nnnnn[54]|nnnnn[55]	_	cf6[54]|cf4[55]	cata|ana	11-1[52_54]|19-1[141_55]	
-11-4	579-589	considered	abstract[54]	acc:com[54]	nnnnn[54]	_	cf6[54]	_	_	
-11-5	590-597	opinion	abstract[54]	acc:com[54]	nnnnn[54]	_	cf6[54]	_	_	
+11-3	575-578	our	abstract[54]|person[55]	acc:com[54]|giv:inact[55]	nnnnn[54]|nnnnn[55]	_	cf7[54]|cf4[55]	cata|ana	11-1[52_54]|19-1[141_55]	
+11-4	579-589	considered	abstract[54]	acc:com[54]	nnnnn[54]	_	cf7[54]	_	_	
+11-5	590-597	opinion	abstract[54]	acc:com[54]	nnnnn[54]	_	cf7[54]	_	_	
 11-6	598-599	:	_	_	_	_	_	_	_	
 11-7	600-610	Williamson	person[56]	new[56]	nsssn[56]	_	cf1[56]	ana	11-27[65_56]	
 11-8	611-617	should	_	_	_	_	_	_	_	
 11-9	618-622	have	_	_	_	_	_	_	_	
 11-10	623-627	sent	_	_	_	_	_	_	_	
-11-11	628-632	them	object[57]	giv:act[57]	sssss[57]	_	cf2*[57]	ana|bridge:def	11-24[64_57]|11-13[62_57]	
+11-11	628-632	them	object[57]	giv:act[57]	sssss[57]	_	cf2*[57]	ana	11-24[64_57]	
 11-12	633-635	to	_	_	_	_	_	_	_	
-11-13	636-639	the	person[61]|person[62]	new[61]|acc:inf[62]	nnnnn[61]|nnnnn[62]	_	cf8[61]|cf5[62]	_	_	
-11-14	640-645	owner	person[61]|person[62]	new[61]|acc:inf[62]	nnnnn[61]|nnnnn[62]	_	cf8[61]|cf5[62]	_	_	
-11-15	646-648	's	person[61]|person[62]	new[61]|acc:inf[62]	nnnnn[61]|nnnnn[62]	_	cf8[61]|cf5[62]	_	_	
-11-16	649-657	daughter	person[61]	new[61]	nnnnn[61]	_	cf8[61]	_	_	
+11-13	636-639	the	person[61]|person[62]	new[61]|auto[62]	nnnnn[61]|nnnnn[62]	_	cf9[61]|cf5[62]	_	_	
+11-14	640-645	owner	person[61]|person[62]	new[61]|auto[62]	nnnnn[61]|nnnnn[62]	_	cf9[61]|cf5[62]	_	_	
+11-15	646-648	's	person[61]|person[62]	new[61]|auto[62]	nnnnn[61]|nnnnn[62]	_	cf9[61]|cf5[62]	_	_	
+11-16	649-657	daughter	person[61]	new[61]	nnnnn[61]	_	cf9[61]	_	_	
 11-17	658-660	as	_	_	_	_	_	_	_	
 11-18	661-662	a	abstract[63]	new[63]	nnnnn[63]	_	cf10[63]	_	_	
 11-19	663-667	very	abstract[63]	new[63]	nnnnn[63]	_	cf10[63]	_	_	
@@ -165,14 +165,14 @@
 11-26	706-710	when	_	_	_	_	_	_	_	
 11-27	711-713	he	person[65]	giv:act[65]	nsssn[65]	_	cf1[65]	ana	12-1[71_65]	
 11-28	714-718	sold	_	_	_	_	_	_	_	
-11-29	719-723	Mrs.	object[68]|person[69]	new[68]|giv:act[69]	nnnnn[68]|sssss[69]	Carrie_Fulton_Phillips[69]	cf7[68]|cf3[69]	coref	14-22[92_69]	
-11-30	724-732	Phillips	object[68]|person[69]	new[68]|giv:act[69]	nnnnn[68]|sssss[69]	Carrie_Fulton_Phillips[69]	cf7[68]|cf3[69]	_	_	
-11-31	733-735	's	object[68]|person[69]	new[68]|giv:act[69]	nnnnn[68]|sssss[69]	Carrie_Fulton_Phillips[69]	cf7[68]|cf3[69]	_	_	
-11-32	736-742	things	object[68]	new[68]	nnnnn[68]	_	cf7[68]	_	_	
+11-29	719-723	Mrs.	object[68]|person[69]	new[68]|giv:act[69]	nnnnn[68]|sssss[69]	Carrie_Fulton_Phillips[69]	cf8[68]|cf3[69]	coref|bridge:entity-associative	14-22[92_69]|11-34[70_69]	
+11-30	724-732	Phillips	object[68]|person[69]	new[68]|giv:act[69]	nnnnn[68]|sssss[69]	Carrie_Fulton_Phillips[69]	cf8[68]|cf3[69]	_	_	
+11-31	733-735	's	object[68]|person[69]	new[68]|giv:act[69]	nnnnn[68]|sssss[69]	Carrie_Fulton_Phillips[69]	cf8[68]|cf3[69]	_	_	
+11-32	736-742	things	object[68]	new[68]	nnnnn[68]	_	cf8[68]	_	_	
 11-33	743-745	on	_	_	_	_	_	_	_	
-11-34	746-749	the	place[70]	new[70]	nnnnn[70]	_	cf9[70]	_	_	
-11-35	750-757	auction	place[70]	new[70]	nnnnn[70]	_	cf9[70]	_	_	
-11-36	758-763	block	place[70]	new[70]	nnnnn[70]	_	cf9[70]	_	_	
+11-34	746-749	the	place[70]	acc:inf[70]	nnnnn[70]	_	cf6[70]	_	_	
+11-35	750-757	auction	place[70]	acc:inf[70]	nnnnn[70]	_	cf6[70]	_	_	
+11-36	758-763	block	place[70]	acc:inf[70]	nnnnn[70]	_	cf6[70]	_	_	
 11-37	764-765	.	_	_	_	_	_	_	_	
 
 #Text=He did neither .
@@ -199,46 +199,46 @@
 13-15	861-862	.	abstract[73]	new[73]	nnnnn[73]	_	cf4[73]	_	_	
 
 #Text=Then with the idea of seeking cover made a judge ( apparently ignorant of the law ) appoint an administrator for Mrs. Phillips 's estate for stolen merchandise held in posession of a court appointed guardian of Mrs. Phillips .
-14-1	863-867	Then	abstract[84]	acc:com[84]	nnnnn[84]	_	cf4[84]	bridge:aggr	15-3[98_84]	
-14-2	868-872	with	abstract[84]	acc:com[84]	nnnnn[84]	_	cf4[84]	_	_	
-14-3	873-876	the	abstract[84]|abstract[85]	acc:com[84]|new[85]	nnnnn[84]|nnnnn[85]	_	cf4[84]|cf7[85]	_	_	
-14-4	877-881	idea	abstract[84]|abstract[85]	acc:com[84]|new[85]	nnnnn[84]|nnnnn[85]	_	cf4[84]|cf7[85]	_	_	
-14-5	882-884	of	abstract[84]|abstract[85]	acc:com[84]|new[85]	nnnnn[84]|nnnnn[85]	_	cf4[84]|cf7[85]	_	_	
-14-6	885-892	seeking	abstract[84]|abstract[85]	acc:com[84]|new[85]	nnnnn[84]|nnnnn[85]	_	cf4[84]|cf7[85]	_	_	
-14-7	893-898	cover	abstract[84]|abstract[85]|abstract[86]	acc:com[84]|new[85]|new[86]	nnnnn[84]|nnnnn[85]|nnnnn[86]	_	cf4[84]|cf7[85]|cf6[86]	_	_	
-14-8	899-903	made	abstract[84]	acc:com[84]	nnnnn[84]	_	cf4[84]	_	_	
-14-9	904-905	a	abstract[84]|person[88]	acc:com[84]|giv:inact[88]	nnnnn[84]|snnnn[88]	_	cf4[84]|cf2[88]	coref	40-19[344_88]	
-14-10	906-911	judge	abstract[84]|person[88]	acc:com[84]|giv:inact[88]	nnnnn[84]|snnnn[88]	_	cf4[84]|cf2[88]	_	_	
-14-11	912-913	(	abstract[84]|person[88]	acc:com[84]|giv:inact[88]	nnnnn[84]|snnnn[88]	_	cf4[84]|cf2[88]	_	_	
-14-12	914-924	apparently	abstract[84]|person[88]	acc:com[84]|giv:inact[88]	nnnnn[84]|snnnn[88]	_	cf4[84]|cf2[88]	_	_	
-14-13	925-933	ignorant	abstract[84]|person[88]	acc:com[84]|giv:inact[88]	nnnnn[84]|snnnn[88]	_	cf4[84]|cf2[88]	_	_	
-14-14	934-936	of	abstract[84]|person[88]	acc:com[84]|giv:inact[88]	nnnnn[84]|snnnn[88]	_	cf4[84]|cf2[88]	_	_	
-14-15	937-940	the	abstract[84]|person[88]|abstract[89]	acc:com[84]|giv:inact[88]|new[89]	nnnnn[84]|snnnn[88]|nnnnn[89]	_	cf4[84]|cf2[88]|cf8[89]	_	_	
-14-16	941-944	law	abstract[84]|person[88]|abstract[89]	acc:com[84]|giv:inact[88]|new[89]	nnnnn[84]|snnnn[88]|nnnnn[89]	_	cf4[84]|cf2[88]|cf8[89]	_	_	
-14-17	945-946	)	abstract[84]|person[88]	acc:com[84]|giv:inact[88]	nnnnn[84]|snnnn[88]	_	cf4[84]|cf2[88]	_	_	
-14-18	947-954	appoint	abstract[84]	acc:com[84]	nnnnn[84]	_	cf4[84]	_	_	
-14-19	955-957	an	abstract[84]|person[90]	acc:com[84]|new[90]	nnnnn[84]|nnnnn[90]	_	cf4[84]|cf5[90]	_	_	
-14-20	958-971	administrator	abstract[84]|person[90]	acc:com[84]|new[90]	nnnnn[84]|nnnnn[90]	_	cf4[84]|cf5[90]	_	_	
-14-21	972-975	for	abstract[84]|person[90]	acc:com[84]|new[90]	nnnnn[84]|nnnnn[90]	_	cf4[84]|cf5[90]	_	_	
-14-22	976-980	Mrs.	abstract[84]|person[90]|abstract[91]|person[92]	acc:com[84]|new[90]|giv:inact[91]|giv:inact[92]	nnnnn[84]|nnnnn[90]|snsnn[91]|sssss[92]	Carrie_Fulton_Phillips[92]	cf4[84]|cf5[90]|cf3[91]|cf1[92]	coref|coref	28-16[224_91]|14-38[97_92]	
-14-23	981-989	Phillips	abstract[84]|person[90]|abstract[91]|person[92]	acc:com[84]|new[90]|giv:inact[91]|giv:inact[92]	nnnnn[84]|nnnnn[90]|snsnn[91]|sssss[92]	Carrie_Fulton_Phillips[92]	cf4[84]|cf5[90]|cf3[91]|cf1[92]	_	_	
-14-24	990-992	's	abstract[84]|person[90]|abstract[91]|person[92]	acc:com[84]|new[90]|giv:inact[91]|giv:inact[92]	nnnnn[84]|nnnnn[90]|snsnn[91]|sssss[92]	Carrie_Fulton_Phillips[92]	cf4[84]|cf5[90]|cf3[91]|cf1[92]	_	_	
-14-25	993-999	estate	abstract[84]|person[90]|abstract[91]	acc:com[84]|new[90]|giv:inact[91]	nnnnn[84]|nnnnn[90]|snsnn[91]	_	cf4[84]|cf5[90]|cf3[91]	_	_	
-14-26	1000-1003	for	abstract[84]	acc:com[84]	nnnnn[84]	_	cf4[84]	_	_	
-14-27	1004-1010	stolen	abstract[84]|object[93]	acc:com[84]|new[93]	nnnnn[84]|nnnnn[93]	_	cf4[84]|cf10[93]	_	_	
-14-28	1011-1022	merchandise	abstract[84]|object[93]	acc:com[84]|new[93]	nnnnn[84]|nnnnn[93]	_	cf4[84]|cf10[93]	_	_	
-14-29	1023-1027	held	abstract[84]|object[93]	acc:com[84]|new[93]	nnnnn[84]|nnnnn[93]	_	cf4[84]|cf10[93]	_	_	
-14-30	1028-1030	in	abstract[84]|object[93]	acc:com[84]|new[93]	nnnnn[84]|nnnnn[93]	_	cf4[84]|cf10[93]	_	_	
-14-31	1031-1040	posession	abstract[84]|object[93]	acc:com[84]|new[93]	nnnnn[84]|nnnnn[93]	_	cf4[84]|cf10[93]	_	_	
-14-32	1041-1043	of	abstract[84]|object[93]	acc:com[84]|new[93]	nnnnn[84]|nnnnn[93]	_	cf4[84]|cf10[93]	_	_	
-14-33	1044-1045	a	abstract[84]|object[93]|person[94]	acc:com[84]|new[93]|new[94]	nnnnn[84]|nnnnn[93]|nnnnn[94]	_	cf4[84]|cf10[93]|cf9[94]	_	_	
-14-34	1046-1051	court	abstract[84]|object[93]|person[94]|organization[95]	acc:com[84]|new[93]|new[94]|new[95]	nnnnn[84]|nnnnn[93]|nnnnn[94]|nnsnn[95]	_	cf4[84]|cf10[93]|cf9[94]|cf11[95]	coref	30-2[258_95]	
-14-35	1052-1061	appointed	abstract[84]|object[93]|person[94]	acc:com[84]|new[93]|new[94]	nnnnn[84]|nnnnn[93]|nnnnn[94]	_	cf4[84]|cf10[93]|cf9[94]	_	_	
-14-36	1062-1070	guardian	abstract[84]|object[93]|person[94]	acc:com[84]|new[93]|new[94]	nnnnn[84]|nnnnn[93]|nnnnn[94]	_	cf4[84]|cf10[93]|cf9[94]	_	_	
-14-37	1071-1073	of	abstract[84]|object[93]|person[94]	acc:com[84]|new[93]|new[94]	nnnnn[84]|nnnnn[93]|nnnnn[94]	_	cf4[84]|cf10[93]|cf9[94]	_	_	
-14-38	1074-1078	Mrs.	abstract[84]|object[93]|person[94]|person[97]	acc:com[84]|new[93]|new[94]|giv:act[97]	nnnnn[84]|nnnnn[93]|nnnnn[94]|sssss[97]	Carrie_Fulton_Phillips[97]	cf4[84]|cf10[93]|cf9[94]|cf1[97]	coref	18-22[138_97]	
-14-39	1079-1087	Phillips	abstract[84]|object[93]|person[94]|person[97]	acc:com[84]|new[93]|new[94]|giv:act[97]	nnnnn[84]|nnnnn[93]|nnnnn[94]|sssss[97]	Carrie_Fulton_Phillips[97]	cf4[84]|cf10[93]|cf9[94]|cf1[97]	_	_	
-14-40	1088-1089	.	abstract[84]	acc:com[84]	nnnnn[84]	_	cf4[84]	_	_	
+14-1	863-867	Then	abstract[84]	acc:com[84]	nnnnn[84]	_	cf5[84]	bridge:aggr	15-3[98_84]	
+14-2	868-872	with	abstract[84]	acc:com[84]	nnnnn[84]	_	cf5[84]	_	_	
+14-3	873-876	the	abstract[84]|abstract[85]	acc:com[84]|new[85]	nnnnn[84]|nnnnn[85]	_	cf5[84]|cf8[85]	_	_	
+14-4	877-881	idea	abstract[84]|abstract[85]	acc:com[84]|new[85]	nnnnn[84]|nnnnn[85]	_	cf5[84]|cf8[85]	_	_	
+14-5	882-884	of	abstract[84]|abstract[85]	acc:com[84]|new[85]	nnnnn[84]|nnnnn[85]	_	cf5[84]|cf8[85]	_	_	
+14-6	885-892	seeking	abstract[84]|abstract[85]	acc:com[84]|new[85]	nnnnn[84]|nnnnn[85]	_	cf5[84]|cf8[85]	_	_	
+14-7	893-898	cover	abstract[84]|abstract[85]|abstract[86]	acc:com[84]|new[85]|new[86]	nnnnn[84]|nnnnn[85]|nnnnn[86]	_	cf5[84]|cf8[85]|cf7[86]	_	_	
+14-8	899-903	made	abstract[84]	acc:com[84]	nnnnn[84]	_	cf5[84]	_	_	
+14-9	904-905	a	abstract[84]|person[88]	acc:com[84]|giv:inact[88]	nnnnn[84]|snnnn[88]	_	cf5[84]|cf2[88]	coref	40-19[344_88]	
+14-10	906-911	judge	abstract[84]|person[88]	acc:com[84]|giv:inact[88]	nnnnn[84]|snnnn[88]	_	cf5[84]|cf2[88]	_	_	
+14-11	912-913	(	abstract[84]|person[88]	acc:com[84]|giv:inact[88]	nnnnn[84]|snnnn[88]	_	cf5[84]|cf2[88]	_	_	
+14-12	914-924	apparently	abstract[84]|person[88]	acc:com[84]|giv:inact[88]	nnnnn[84]|snnnn[88]	_	cf5[84]|cf2[88]	_	_	
+14-13	925-933	ignorant	abstract[84]|person[88]	acc:com[84]|giv:inact[88]	nnnnn[84]|snnnn[88]	_	cf5[84]|cf2[88]	_	_	
+14-14	934-936	of	abstract[84]|person[88]	acc:com[84]|giv:inact[88]	nnnnn[84]|snnnn[88]	_	cf5[84]|cf2[88]	_	_	
+14-15	937-940	the	abstract[84]|person[88]|abstract[89]	acc:com[84]|giv:inact[88]|acc:inf[89]	nnnnn[84]|snnnn[88]|nnnnn[89]	_	cf5[84]|cf2[88]|cf4[89]	_	_	
+14-16	941-944	law	abstract[84]|person[88]|abstract[89]	acc:com[84]|giv:inact[88]|acc:inf[89]	nnnnn[84]|snnnn[88]|nnnnn[89]	_	cf5[84]|cf2[88]|cf4[89]	_	_	
+14-17	945-946	)	abstract[84]|person[88]	acc:com[84]|giv:inact[88]	nnnnn[84]|snnnn[88]	_	cf5[84]|cf2[88]	_	_	
+14-18	947-954	appoint	abstract[84]	acc:com[84]	nnnnn[84]	_	cf5[84]	_	_	
+14-19	955-957	an	abstract[84]|person[90]	acc:com[84]|new[90]	nnnnn[84]|nnnnn[90]	_	cf5[84]|cf6[90]	_	_	
+14-20	958-971	administrator	abstract[84]|person[90]	acc:com[84]|new[90]	nnnnn[84]|nnnnn[90]	_	cf5[84]|cf6[90]	_	_	
+14-21	972-975	for	abstract[84]|person[90]	acc:com[84]|new[90]	nnnnn[84]|nnnnn[90]	_	cf5[84]|cf6[90]	_	_	
+14-22	976-980	Mrs.	abstract[84]|person[90]|abstract[91]|person[92]	acc:com[84]|new[90]|giv:inact[91]|giv:inact[92]	nnnnn[84]|nnnnn[90]|snsnn[91]|sssss[92]	Carrie_Fulton_Phillips[92]	cf5[84]|cf6[90]|cf3[91]|cf1[92]	coref|coref	28-16[224_91]|14-38[97_92]	
+14-23	981-989	Phillips	abstract[84]|person[90]|abstract[91]|person[92]	acc:com[84]|new[90]|giv:inact[91]|giv:inact[92]	nnnnn[84]|nnnnn[90]|snsnn[91]|sssss[92]	Carrie_Fulton_Phillips[92]	cf5[84]|cf6[90]|cf3[91]|cf1[92]	_	_	
+14-24	990-992	's	abstract[84]|person[90]|abstract[91]|person[92]	acc:com[84]|new[90]|giv:inact[91]|giv:inact[92]	nnnnn[84]|nnnnn[90]|snsnn[91]|sssss[92]	Carrie_Fulton_Phillips[92]	cf5[84]|cf6[90]|cf3[91]|cf1[92]	_	_	
+14-25	993-999	estate	abstract[84]|person[90]|abstract[91]	acc:com[84]|new[90]|giv:inact[91]	nnnnn[84]|nnnnn[90]|snsnn[91]	_	cf5[84]|cf6[90]|cf3[91]	_	_	
+14-26	1000-1003	for	abstract[84]	acc:com[84]	nnnnn[84]	_	cf5[84]	_	_	
+14-27	1004-1010	stolen	abstract[84]|object[93]	acc:com[84]|new[93]	nnnnn[84]|nnnnn[93]	_	cf5[84]|cf10[93]	_	_	
+14-28	1011-1022	merchandise	abstract[84]|object[93]	acc:com[84]|new[93]	nnnnn[84]|nnnnn[93]	_	cf5[84]|cf10[93]	_	_	
+14-29	1023-1027	held	abstract[84]|object[93]	acc:com[84]|new[93]	nnnnn[84]|nnnnn[93]	_	cf5[84]|cf10[93]	_	_	
+14-30	1028-1030	in	abstract[84]|object[93]	acc:com[84]|new[93]	nnnnn[84]|nnnnn[93]	_	cf5[84]|cf10[93]	_	_	
+14-31	1031-1040	posession	abstract[84]|object[93]	acc:com[84]|new[93]	nnnnn[84]|nnnnn[93]	_	cf5[84]|cf10[93]	_	_	
+14-32	1041-1043	of	abstract[84]|object[93]	acc:com[84]|new[93]	nnnnn[84]|nnnnn[93]	_	cf5[84]|cf10[93]	_	_	
+14-33	1044-1045	a	abstract[84]|object[93]|person[94]	acc:com[84]|new[93]|new[94]	nnnnn[84]|nnnnn[93]|nnnnn[94]	_	cf5[84]|cf10[93]|cf9[94]	_	_	
+14-34	1046-1051	court	abstract[84]|object[93]|person[94]|organization[95]	acc:com[84]|new[93]|new[94]|new[95]	nnnnn[84]|nnnnn[93]|nnnnn[94]|nnsnn[95]	_	cf5[84]|cf10[93]|cf9[94]|cf11[95]	coref	30-2[258_95]	
+14-35	1052-1061	appointed	abstract[84]|object[93]|person[94]	acc:com[84]|new[93]|new[94]	nnnnn[84]|nnnnn[93]|nnnnn[94]	_	cf5[84]|cf10[93]|cf9[94]	_	_	
+14-36	1062-1070	guardian	abstract[84]|object[93]|person[94]	acc:com[84]|new[93]|new[94]	nnnnn[84]|nnnnn[93]|nnnnn[94]	_	cf5[84]|cf10[93]|cf9[94]	_	_	
+14-37	1071-1073	of	abstract[84]|object[93]|person[94]	acc:com[84]|new[93]|new[94]	nnnnn[84]|nnnnn[93]|nnnnn[94]	_	cf5[84]|cf10[93]|cf9[94]	_	_	
+14-38	1074-1078	Mrs.	abstract[84]|object[93]|person[94]|person[97]	acc:com[84]|new[93]|new[94]|giv:act[97]	nnnnn[84]|nnnnn[93]|nnnnn[94]|sssss[97]	Carrie_Fulton_Phillips[97]	cf5[84]|cf10[93]|cf9[94]|cf1[97]	coref	18-22[138_97]	
+14-39	1079-1087	Phillips	abstract[84]|object[93]|person[94]|person[97]	acc:com[84]|new[93]|new[94]|giv:act[97]	nnnnn[84]|nnnnn[93]|nnnnn[94]|sssss[97]	Carrie_Fulton_Phillips[97]	cf5[84]|cf10[93]|cf9[94]|cf1[97]	_	_	
+14-40	1088-1089	.	abstract[84]	acc:com[84]	nnnnn[84]	_	cf5[84]	_	_	
 
 #Text=To cap it all he permitted publication of these stolen letters by the press , although they were ordered by him to be under lock and key .
 15-1	1090-1092	To	_	_	_	_	_	_	_	
@@ -247,14 +247,14 @@
 15-4	1100-1103	all	_	_	_	_	_	_	_	
 15-5	1104-1106	he	person[99]	giv:inact[99]	nsssn[99]	_	cf2[99]	ana	15-21[106_99]	
 15-6	1107-1116	permitted	_	_	_	_	_	_	_	
-15-7	1117-1128	publication	event[102]	new[102]	nnnnn[102]	_	cf4[102]	_	_	
-15-8	1129-1131	of	event[102]	new[102]	nnnnn[102]	_	cf4[102]	_	_	
-15-9	1132-1137	these	event[102]|object[103]	new[102]|giv:inact[103]	nnnnn[102]|sssss[103]	_	cf4[102]|cf1[103]	ana	15-17[105_103]	
-15-10	1138-1144	stolen	event[102]|object[103]	new[102]|giv:inact[103]	nnnnn[102]|sssss[103]	_	cf4[102]|cf1[103]	_	_	
-15-11	1145-1152	letters	event[102]|object[103]	new[102]|giv:inact[103]	nnnnn[102]|sssss[103]	_	cf4[102]|cf1[103]	_	_	
-15-12	1153-1155	by	event[102]	new[102]	nnnnn[102]	_	cf4[102]	_	_	
-15-13	1156-1159	the	event[102]|organization[104]	new[102]|new[104]	nnnnn[102]|nnnnn[104]	_	cf4[102]|cf5[104]	_	_	
-15-14	1160-1165	press	event[102]|organization[104]	new[102]|new[104]	nnnnn[102]|nnnnn[104]	_	cf4[102]|cf5[104]	_	_	
+15-7	1117-1128	publication	event[102]	new[102]	nnnnn[102]	_	cf5[102]	_	_	
+15-8	1129-1131	of	event[102]	new[102]	nnnnn[102]	_	cf5[102]	_	_	
+15-9	1132-1137	these	event[102]|object[103]	new[102]|giv:inact[103]	nnnnn[102]|sssss[103]	_	cf5[102]|cf1[103]	ana	15-17[105_103]	
+15-10	1138-1144	stolen	event[102]|object[103]	new[102]|giv:inact[103]	nnnnn[102]|sssss[103]	_	cf5[102]|cf1[103]	_	_	
+15-11	1145-1152	letters	event[102]|object[103]	new[102]|giv:inact[103]	nnnnn[102]|sssss[103]	_	cf5[102]|cf1[103]	_	_	
+15-12	1153-1155	by	event[102]	new[102]	nnnnn[102]	_	cf5[102]	_	_	
+15-13	1156-1159	the	event[102]|organization[104]	new[102]|acc:inf[104]	nnnnn[102]|nnnnn[104]	_	cf5[102]|cf4[104]	_	_	
+15-14	1160-1165	press	event[102]|organization[104]	new[102]|acc:inf[104]	nnnnn[102]|nnnnn[104]	_	cf5[102]|cf4[104]	_	_	
 15-15	1166-1167	,	_	_	_	_	_	_	_	
 15-16	1168-1176	although	_	_	_	_	_	_	_	
 15-17	1177-1181	they	object[105]	giv:act[105]	sssss[105]	_	cf1[105]	coref	28-23[227_105]	
@@ -282,8 +282,8 @@
 16-9	1273-1279	defend	abstract[115]	acc:com[115]	nnnnn[115]	_	cf2[115]	_	_	
 16-10	1280-1287	himself	abstract[115]|person[117]	acc:com[115]|giv:act[117]	nnnnn[115]|nsssn[117]	_	cf2[115]|cf1*[117]	coref	18-13[131_117]	
 16-11	1288-1290	to	abstract[115]	acc:com[115]	nnnnn[115]	_	cf2[115]	_	_	
-16-12	1291-1294	the	abstract[115]|person[120]	acc:com[115]|acc:com[120]	nnnnn[115]|nnnnn[120]	_	cf2[115]|cf3[120]	_	_	
-16-13	1295-1301	public	abstract[115]|person[120]	acc:com[115]|acc:com[120]	nnnnn[115]|nnnnn[120]	_	cf2[115]|cf3[120]	_	_	
+16-12	1291-1294	the	abstract[115]|person[120]	acc:com[115]|acc:inf[120]	nnnnn[115]|nnnnn[120]	_	cf2[115]|cf3[120]	_	_	
+16-13	1295-1301	public	abstract[115]|person[120]	acc:com[115]|acc:inf[120]	nnnnn[115]|nnnnn[120]	_	cf2[115]|cf3[120]	_	_	
 16-14	1302-1303	.	_	_	_	_	_	_	_	
 
 #Text=A reporter from the Cleveland Press phoned on Monday last .
@@ -295,8 +295,8 @@
 17-6	1334-1339	Press	person[121]|organization[122]	new[121]|new[122]	nnnnn[121]|nnnnn[122]	Cleveland_Press[122]	cf2[121]|cf3[122]	_	_	
 17-7	1340-1346	phoned	_	_	_	_	_	_	_	
 17-8	1347-1349	on	_	_	_	_	_	_	_	
-17-9	1350-1356	Monday	time[125]	acc:com[125]	nnnnn[125]	_	cf1[125]	_	_	
-17-10	1357-1361	last	time[125]	acc:com[125]	nnnnn[125]	_	cf1[125]	_	_	
+17-9	1350-1356	Monday	time[125]	acc:inf[125]	nnnnn[125]	_	cf1[125]	_	_	
+17-10	1357-1361	last	time[125]	acc:inf[125]	nnnnn[125]	_	cf1[125]	_	_	
 17-11	1362-1363	.	_	_	_	_	_	_	_	
 
 #Text=He said that he wanted to check on a statement made by Williamson , since he claimed that while he was Mrs. P 's guardian he had never heard from Isabelle .
@@ -358,7 +358,7 @@
 
 #Text=On Dec. 6th 1954 she had a power of attorney duly executed and witnessed by our attorney in Recine , Wis. in favor of Maud Gorham of Marion , Ohio especially to deal in all matters pertaining to Carrie Fulton Phillips .
 21-1	1606-1608	On	_	_	_	_	_	_	_	
-21-2	1609-1613	Dec.	time[152]	giv:inact[152]	sssnn[152]	_	cf7[152]	_	_	
+21-2	1609-1613	Dec.	time[152]	giv:inact[152]	sssnn[152]	_	cf7[152]	bridge:set-span-interval|bridge:comparison-time	22-9[175_152]|29-46[257_152]	
 21-3	1614-1617	6th	time[152]	giv:inact[152]	sssnn[152]	_	cf7[152]	_	_	
 21-4	1618-1622	1954	time[152]|time[153]	giv:inact[152]|new[153]	sssnn[152]|nnnnn[153]	_	cf7[152]|cf13[153]	_	_	
 21-5	1623-1626	she	person[154]	giv:act[154]	sssss[154]	_	cf1*[154]	coref	23-6[188_154]	
@@ -405,35 +405,35 @@
 22-2	1829-1833	have	_	_	_	_	_	_	_	
 22-3	1834-1837	not	_	_	_	_	_	_	_	
 22-4	1838-1842	seen	_	_	_	_	_	_	_	
-22-5	1843-1846	the	abstract[172]	new[172]	nnnnn[172]	_	cf7[172]	_	_	
-22-6	1847-1852	Press	abstract[172]|organization[173]	new[172]|giv:inact[173]	nnnnn[172]|nnnnn[173]	Cleveland_Press[173]	cf7[172]|cf4[173]	_	_	
-22-7	1853-1860	article	abstract[172]	new[172]	nnnnn[172]	_	cf7[172]	_	_	
-22-8	1861-1863	of	abstract[172]	new[172]	nnnnn[172]	_	cf7[172]	_	_	
-22-9	1864-1868	this	abstract[172]|time[175]	new[172]|acc:com[175]	nnnnn[172]|nnnnn[175]	_	cf7[172]|cf5[175]	_	_	
-22-10	1869-1873	week	abstract[172]|time[175]	new[172]|acc:com[175]	nnnnn[172]|nnnnn[175]	_	cf7[172]|cf5[175]	_	_	
+22-5	1843-1846	the	abstract[172]	new[172]	nnnnn[172]	_	cf8[172]	bridge:comparison-sense	22-13[176_172]	
+22-6	1847-1852	Press	abstract[172]|organization[173]	new[172]|giv:inact[173]	nnnnn[172]|nnnnn[173]	Cleveland_Press[173]	cf8[172]|cf4[173]	_	_	
+22-7	1853-1860	article	abstract[172]	new[172]	nnnnn[172]	_	cf8[172]	_	_	
+22-8	1861-1863	of	abstract[172]	new[172]	nnnnn[172]	_	cf8[172]	_	_	
+22-9	1864-1868	this	abstract[172]|time[175]	new[172]|acc:inf[175]	nnnnn[172]|nnnnn[175]	_	cf8[172]|cf5[175]	_	_	
+22-10	1869-1873	week	abstract[172]|time[175]	new[172]|acc:inf[175]	nnnnn[172]|nnnnn[175]	_	cf8[172]|cf5[175]	_	_	
 22-11	1874-1875	,	_	_	_	_	_	_	_	
 22-12	1876-1879	nor	_	_	_	_	_	_	_	
-22-13	1880-1883	one	abstract[176]	new[176]	nnnnn[176]	_	cf9[176]	_	_	
-22-14	1884-1887	the	abstract[176]|organization[177]	new[176]|new[177]	nnnnn[176]|nnnnn[177]	The_Marion_Star[177]	cf9[176]|cf6[177]	_	_	
-22-15	1888-1894	Marion	abstract[176]|organization[177]|place[178]	new[176]|new[177]|giv:act[178]	nnnnn[176]|nnnnn[177]|nnnnn[178]	The_Marion_Star[177]|Marion%2C_Ohio[178]	cf9[176]|cf6[177]|cf2[178]	_	_	
-22-16	1895-1899	Star	abstract[176]|organization[177]	new[176]|new[177]	nnnnn[176]|nnnnn[177]	The_Marion_Star[177]	cf9[176]|cf6[177]	_	_	
-22-17	1900-1902	or	abstract[176]	new[176]	nnnnn[176]	_	cf9[176]	_	_	
-22-18	1903-1906	any	abstract[176]|organization[180]	new[176]|new[180]	nnnnn[176]|nnnnn[180]	_	cf9[176]|cf10[180]	_	_	
-22-19	1907-1915	Columbus	abstract[176]|organization[180]|place[181]	new[176]|new[180]|new[181]	nnnnn[176]|nnnnn[180]|nnnnn[181]	Columbus%2C_Ohio[181]	cf9[176]|cf10[180]|cf11[181]	_	_	
-22-20	1916-1921	paper	abstract[176]|organization[180]	new[176]|new[180]	nnnnn[176]|nnnnn[180]	_	cf9[176]|cf10[180]	_	_	
-22-21	1922-1927	might	abstract[176]	new[176]	nnnnn[176]	_	cf9[176]	_	_	
-22-22	1928-1932	have	abstract[176]	new[176]	nnnnn[176]	_	cf9[176]	_	_	
-22-23	1933-1936	had	abstract[176]	new[176]	nnnnn[176]	_	cf9[176]	_	_	
+22-13	1880-1883	one	abstract[176]	acc:inf[176]	nnnnn[176]	_	cf6[176]	_	_	
+22-14	1884-1887	the	abstract[176]|organization[177]	acc:inf[176]|new[177]	nnnnn[176]|nnnnn[177]	The_Marion_Star[177]	cf6[176]|cf7[177]	_	_	
+22-15	1888-1894	Marion	abstract[176]|organization[177]|place[178]	acc:inf[176]|new[177]|giv:act[178]	nnnnn[176]|nnnnn[177]|nnnnn[178]	The_Marion_Star[177]|Marion%2C_Ohio[178]	cf6[176]|cf7[177]|cf2[178]	_	_	
+22-16	1895-1899	Star	abstract[176]|organization[177]	acc:inf[176]|new[177]	nnnnn[176]|nnnnn[177]	The_Marion_Star[177]	cf6[176]|cf7[177]	_	_	
+22-17	1900-1902	or	abstract[176]	acc:inf[176]	nnnnn[176]	_	cf6[176]	_	_	
+22-18	1903-1906	any	abstract[176]|organization[180]	acc:inf[176]|new[180]	nnnnn[176]|nnnnn[180]	_	cf6[176]|cf10[180]	_	_	
+22-19	1907-1915	Columbus	abstract[176]|organization[180]|place[181]	acc:inf[176]|new[180]|new[181]	nnnnn[176]|nnnnn[180]|nnnnn[181]	Columbus%2C_Ohio[181]	cf6[176]|cf10[180]|cf11[181]	_	_	
+22-20	1916-1921	paper	abstract[176]|organization[180]	acc:inf[176]|new[180]	nnnnn[176]|nnnnn[180]	_	cf6[176]|cf10[180]	_	_	
+22-21	1922-1927	might	abstract[176]	acc:inf[176]	nnnnn[176]	_	cf6[176]	_	_	
+22-22	1928-1932	have	abstract[176]	acc:inf[176]	nnnnn[176]	_	cf6[176]	_	_	
+22-23	1933-1936	had	abstract[176]	acc:inf[176]	nnnnn[176]	_	cf6[176]	_	_	
 22-24	1937-1938	,	_	_	_	_	_	_	_	
 22-25	1939-1947	covering	_	_	_	_	_	_	_	
-22-26	1948-1950	an	event[183]	new[183]	nnnnn[183]	_	cf8[183]	_	_	
-22-27	1951-1960	interview	event[183]	new[183]	nnnnn[183]	_	cf8[183]	_	_	
-22-28	1961-1965	with	event[183]	new[183]	nnnnn[183]	_	cf8[183]	_	_	
-22-29	1966-1976	Williamson	event[183]|person[184]	new[183]|giv:inact[184]	nnnnn[183]|nsssn[184]	_	cf8[183]|cf3[184]	ana	23-2[187_184]	
+22-26	1948-1950	an	event[183]	new[183]	nnnnn[183]	_	cf9[183]	_	_	
+22-27	1951-1960	interview	event[183]	new[183]	nnnnn[183]	_	cf9[183]	_	_	
+22-28	1961-1965	with	event[183]	new[183]	nnnnn[183]	_	cf9[183]	_	_	
+22-29	1966-1976	Williamson	event[183]|person[184]	new[183]|giv:inact[184]	nnnnn[183]|nsssn[184]	_	cf9[183]|cf3[184]	ana	23-2[187_184]	
 22-30	1977-1978	.	_	_	_	_	_	_	_	
 
 #Text=If he does not leave Isabelle out of all of this he will have to suffer the consequences .
-23-1	1979-1981	If	event[186]	new[186]	nnnnn[186]	_	cf5[186]	bridge:def	23-17[194_186]	
+23-1	1979-1981	If	event[186]	new[186]	nnnnn[186]	_	cf5[186]	bridge:entity-resultative	23-17[194_186]	
 23-2	1982-1984	he	event[186]|person[187]	new[186]|giv:act[187]	nnnnn[186]|nsssn[187]	_	cf5[186]|cf1*[187]	ana	23-12[192_187]	
 23-3	1985-1989	does	event[186]	new[186]	nnnnn[186]	_	cf5[186]	_	_	
 23-4	1990-1993	not	event[186]	new[186]	nnnnn[186]	_	cf5[186]	_	_	
@@ -589,7 +589,7 @@
 29-8	2671-2678	succeed	_	_	_	_	_	_	_	
 29-9	2679-2681	in	_	_	_	_	_	_	_	
 29-10	2682-2689	getting	_	_	_	_	_	_	_	
-29-11	2690-2694	that	event[240]	giv:act[240]	nnnnn[240]	_	cf1*[240]	_	_	
+29-11	2690-2694	that	event[240]	giv:act[240]	nnnnn[240]	_	cf1*[240]	bridge:entity-associative	43-14[376_240]	
 29-12	2695-2699	done	_	_	_	_	_	_	_	
 29-13	2700-2701	,	_	_	_	_	_	_	_	
 29-14	2702-2704	we	person[241]	giv:inact[241]	nnnnn[241]	_	cf4[241]	ana	30-33[267_241]	
@@ -597,19 +597,19 @@
 29-16	2711-2715	like	_	_	_	_	_	_	_	
 29-17	2716-2718	to	_	_	_	_	_	_	_	
 29-18	2719-2723	have	_	_	_	_	_	_	_	
-29-19	2724-2727	the	object[245]	giv:act[245]	sssss[245]	_	cf3[245]	coref	30-6[259_245]	
+29-19	2724-2727	the	object[245]	giv:act[245]	sssss[245]	_	cf3[245]	coref|bridge:entity-associative	30-6[259_245]|29-25[247_245]	
 29-20	2728-2735	letters	object[245]	giv:act[245]	sssss[245]	_	cf3[245]	_	_	
 29-21	2736-2747	surrendered	_	_	_	_	_	_	_	
 29-22	2748-2750	to	_	_	_	_	_	_	_	
 29-23	2751-2754	you	person[246]	giv:act[246]	ssnss[246]	_	cf2[246]	coref	31-1[278_246]	
 29-24	2755-2758	for	_	_	_	_	_	_	_	
-29-25	2759-2770	destruction	event[247]	new[247]	snsnn[247]	_	cf8[247]	_	_	
+29-25	2759-2770	destruction	event[247]	acc:inf[247]	snsnn[247]	_	cf6[247]	_	_	
 29-26	2771-2773	or	_	_	_	_	_	_	_	
 29-27	2774-2783	surrender	event[250]	new[250]	snsnn[250]	_	cf9[250]	_	_	
 29-28	2784-2786	to	event[250]	new[250]	snsnn[250]	_	cf9[250]	_	_	
-29-29	2787-2790	the	event[250]|organization[251]	new[250]|new[251]	snsnn[250]|snsnn[251]	_	cf9[250]|cf7[251]	_	_	
-29-30	2791-2798	Harding	event[250]|organization[251]|person[252]	new[250]|new[251]|new[252]	snsnn[250]|snsnn[251]|snnnn[252]	Warren_G._Harding[252]	cf9[250]|cf7[251]|cf12[252]	_	_	
-29-31	2799-2805	family	event[250]|organization[251]	new[250]|new[251]	snsnn[250]|snsnn[251]	_	cf9[250]|cf7[251]	_	_	
+29-29	2787-2790	the	event[250]|organization[251]	new[250]|new[251]	snsnn[250]|snsnn[251]	_	cf9[250]|cf8[251]	_	_	
+29-30	2791-2798	Harding	event[250]|organization[251]|person[252]	new[250]|new[251]|new[252]	snsnn[250]|snsnn[251]|snnnn[252]	Warren_G._Harding[252]	cf9[250]|cf8[251]|cf12[252]	_	_	
+29-31	2799-2805	family	event[250]|organization[251]	new[250]|new[251]	snsnn[250]|snsnn[251]	_	cf9[250]|cf8[251]	_	_	
 29-32	2806-2807	,	_	_	_	_	_	_	_	
 29-33	2808-2810	as	_	_	_	_	_	_	_	
 29-34	2811-2812	a	abstract[254]	new[254]	nnnnn[254]	_	cf10[254]	_	_	
@@ -617,15 +617,15 @@
 29-36	2822-2827	value	abstract[254]	new[254]	nnnnn[254]	_	cf10[254]	_	_	
 29-37	2828-2830	in	abstract[254]	new[254]	nnnnn[254]	_	cf10[254]	_	_	
 29-38	2831-2839	checking	abstract[254]	new[254]	nnnnn[254]	_	cf10[254]	_	_	
-29-39	2840-2843	the	abstract[254]|abstract[255]	new[254]|new[255]	nnnnn[254]|nnnnn[255]	_	cf10[254]|cf6[255]	_	_	
-29-40	2844-2852	accuracy	abstract[254]|abstract[255]	new[254]|new[255]	nnnnn[254]|nnnnn[255]	_	cf10[254]|cf6[255]	_	_	
-29-41	2853-2855	of	abstract[254]|abstract[255]	new[254]|new[255]	nnnnn[254]|nnnnn[255]	_	cf10[254]|cf6[255]	_	_	
-29-42	2856-2859	any	abstract[254]|abstract[255]|abstract[256]	new[254]|new[255]|new[256]	nnnnn[254]|nnnnn[255]|nnnnn[256]	_	cf10[254]|cf6[255]|cf11[256]	_	_	
-29-43	2860-2869	published	abstract[254]|abstract[255]|abstract[256]	new[254]|new[255]|new[256]	nnnnn[254]|nnnnn[255]|nnnnn[256]	_	cf10[254]|cf6[255]|cf11[256]	_	_	
-29-44	2870-2875	stuff	abstract[254]|abstract[255]|abstract[256]	new[254]|new[255]|new[256]	nnnnn[254]|nnnnn[255]|nnnnn[256]	_	cf10[254]|cf6[255]|cf11[256]	_	_	
+29-39	2840-2843	the	abstract[254]|abstract[255]	new[254]|new[255]	nnnnn[254]|nnnnn[255]	_	cf10[254]|cf7[255]	_	_	
+29-40	2844-2852	accuracy	abstract[254]|abstract[255]	new[254]|new[255]	nnnnn[254]|nnnnn[255]	_	cf10[254]|cf7[255]	_	_	
+29-41	2853-2855	of	abstract[254]|abstract[255]	new[254]|new[255]	nnnnn[254]|nnnnn[255]	_	cf10[254]|cf7[255]	_	_	
+29-42	2856-2859	any	abstract[254]|abstract[255]|abstract[256]	new[254]|new[255]|new[256]	nnnnn[254]|nnnnn[255]|nnnnn[256]	_	cf10[254]|cf7[255]|cf11[256]	_	_	
+29-43	2860-2869	published	abstract[254]|abstract[255]|abstract[256]	new[254]|new[255]|new[256]	nnnnn[254]|nnnnn[255]|nnnnn[256]	_	cf10[254]|cf7[255]|cf11[256]	_	_	
+29-44	2870-2875	stuff	abstract[254]|abstract[255]|abstract[256]	new[254]|new[255]|new[256]	nnnnn[254]|nnnnn[255]|nnnnn[256]	_	cf10[254]|cf7[255]|cf11[256]	_	_	
 29-45	2876-2878	in	abstract[254]	new[254]	nnnnn[254]	_	cf10[254]	_	_	
-29-46	2879-2882	the	abstract[254]|time[257]	new[254]|acc:com[257]	nnnnn[254]|nnnnn[257]	_	cf10[254]|cf5[257]	_	_	
-29-47	2883-2889	future	abstract[254]|time[257]	new[254]|acc:com[257]	nnnnn[254]|nnnnn[257]	_	cf10[254]|cf5[257]	_	_	
+29-46	2879-2882	the	abstract[254]|time[257]	new[254]|acc:inf[257]	nnnnn[254]|nnnnn[257]	_	cf10[254]|cf5[257]	_	_	
+29-47	2883-2889	future	abstract[254]|time[257]	new[254]|acc:inf[257]	nnnnn[254]|nnnnn[257]	_	cf10[254]|cf5[257]	_	_	
 29-48	2890-2891	.	_	_	_	_	_	_	_	
 
 #Text=If the Court insists on these letters being an asset and refuses to close the estate and insists that they be appraised and sold by the administrator at highest value offered , we would want to be sure that the sales price received covers the expenditures and that any trans-action in connection with such a sale remain entirely free from press and publication abuse .
@@ -637,8 +637,8 @@
 30-6	2916-2921	these	object[259]	giv:act[259]	sssss[259]	_	cf2[259]	ana	30-20[262_259]	
 30-7	2922-2929	letters	object[259]	giv:act[259]	sssss[259]	_	cf2[259]	_	_	
 30-8	2930-2935	being	_	_	_	_	_	_	_	
-30-9	2936-2938	an	abstract[260]	new[260]	nnnnn[260]	_	cf11[260]	_	_	
-30-10	2939-2944	asset	abstract[260]	new[260]	nnnnn[260]	_	cf11[260]	_	_	
+30-9	2936-2938	an	abstract[260]	new[260]	nnnnn[260]	_	cf12[260]	_	_	
+30-10	2939-2944	asset	abstract[260]	new[260]	nnnnn[260]	_	cf12[260]	_	_	
 30-11	2945-2948	and	_	_	_	_	_	_	_	
 30-12	2949-2956	refuses	_	_	_	_	_	_	_	
 30-13	2957-2959	to	_	_	_	_	_	_	_	
@@ -648,7 +648,7 @@
 30-17	2977-2980	and	_	_	_	_	_	_	_	
 30-18	2981-2988	insists	_	_	_	_	_	_	_	
 30-19	2989-2993	that	_	_	_	_	_	_	_	
-30-20	2994-2998	they	object[262]	giv:act[262]	sssss[262]	_	cf2[262]	coref	37-10[322_262]	
+30-20	2994-2998	they	object[262]	giv:act[262]	sssss[262]	_	cf2[262]	coref|bridge:entity-associative	37-10[322_262]|30-29[266_262]	
 30-21	2999-3001	be	_	_	_	_	_	_	_	
 30-22	3002-3011	appraised	_	_	_	_	_	_	_	
 30-23	3012-3015	and	_	_	_	_	_	_	_	
@@ -657,9 +657,9 @@
 30-26	3024-3027	the	event[264]|person[265]	new[264]|giv:inact[265]	nnnnn[264]|nnnns[265]	_	cf3[264]|cf7[265]	_	_	
 30-27	3028-3041	administrator	event[264]|person[265]	new[264]|giv:inact[265]	nnnnn[264]|nnnns[265]	_	cf3[264]|cf7[265]	_	_	
 30-28	3042-3044	at	_	_	_	_	_	_	_	
-30-29	3045-3052	highest	abstract[266]	new[266]	nnnnn[266]	_	cf12[266]	_	_	
-30-30	3053-3058	value	abstract[266]	new[266]	nnnnn[266]	_	cf12[266]	_	_	
-30-31	3059-3066	offered	abstract[266]	new[266]	nnnnn[266]	_	cf12[266]	_	_	
+30-29	3045-3052	highest	abstract[266]	acc:inf[266]	nnnnn[266]	_	cf10[266]	bridge:entity-resultative	30-40[269_266]	
+30-30	3053-3058	value	abstract[266]	acc:inf[266]	nnnnn[266]	_	cf10[266]	_	_	
+30-31	3059-3066	offered	abstract[266]	acc:inf[266]	nnnnn[266]	_	cf10[266]	_	_	
 30-32	3067-3068	,	_	_	_	_	_	_	_	
 30-33	3069-3071	we	person[267]	giv:act[267]	nnnnn[267]	_	cf1*[267]	ana	32-2[286_267]	
 30-34	3072-3077	would	_	_	_	_	_	_	_	
@@ -668,13 +668,13 @@
 30-37	3086-3088	be	_	_	_	_	_	_	_	
 30-38	3089-3093	sure	_	_	_	_	_	_	_	
 30-39	3094-3098	that	_	_	_	_	_	_	_	
-30-40	3099-3102	the	abstract[269]	new[269]	nnnnn[269]	_	cf10[269]	_	_	
-30-41	3103-3108	sales	abstract[269]|event[270]	new[269]|giv:act[270]	nnnnn[269]|nnnnn[270]	_	cf10[269]|cf3[270]	bridge:def|bridge:other	30-45[272_270]|30-54[274_270]	
-30-42	3109-3114	price	abstract[269]	new[269]	nnnnn[269]	_	cf10[269]	_	_	
-30-43	3115-3123	received	abstract[269]	new[269]	nnnnn[269]	_	cf10[269]	_	_	
+30-40	3099-3102	the	abstract[269]	acc:inf[269]	nnnnn[269]	_	cf8[269]	_	_	
+30-41	3103-3108	sales	abstract[269]|event[270]	acc:inf[269]|giv:act[270]	nnnnn[269]|nnnnn[270]	_	cf8[269]|cf3[270]	bridge:entity-resultative|bridge:comparison-relative|bridge:entity-property	30-45[272_270]|30-54[274_270]|44-15[387_270]	
+30-42	3109-3114	price	abstract[269]	acc:inf[269]	nnnnn[269]	_	cf8[269]	_	_	
+30-43	3115-3123	received	abstract[269]	acc:inf[269]	nnnnn[269]	_	cf8[269]	_	_	
 30-44	3124-3130	covers	_	_	_	_	_	_	_	
-30-45	3131-3134	the	abstract[272]	acc:inf[272]	nnnnn[272]	_	cf8[272]	_	_	
-30-46	3135-3147	expenditures	abstract[272]	acc:inf[272]	nnnnn[272]	_	cf8[272]	_	_	
+30-45	3131-3134	the	abstract[272]	acc:inf[272]	nnnnn[272]	_	cf9[272]	_	_	
+30-46	3135-3147	expenditures	abstract[272]	acc:inf[272]	nnnnn[272]	_	cf9[272]	_	_	
 30-47	3148-3151	and	_	_	_	_	_	_	_	
 30-48	3152-3156	that	_	_	_	_	_	_	_	
 30-49	3157-3160	any	abstract[273]	giv:inact[273]	nnnnn[273]	_	cf5[273]	_	_	
@@ -682,9 +682,9 @@
 30-51	3174-3176	in	abstract[273]	giv:inact[273]	nnnnn[273]	_	cf5[273]	_	_	
 30-52	3177-3187	connection	abstract[273]	giv:inact[273]	nnnnn[273]	_	cf5[273]	_	_	
 30-53	3188-3192	with	abstract[273]	giv:inact[273]	nnnnn[273]	_	cf5[273]	_	_	
-30-54	3193-3197	such	abstract[273]|event[274]	giv:inact[273]|acc:inf[274]	nnnnn[273]|nnnnn[274]	_	cf5[273]|cf9[274]	_	_	
-30-55	3198-3199	a	abstract[273]|event[274]	giv:inact[273]|acc:inf[274]	nnnnn[273]|nnnnn[274]	_	cf5[273]|cf9[274]	_	_	
-30-56	3200-3204	sale	abstract[273]|event[274]	giv:inact[273]|acc:inf[274]	nnnnn[273]|nnnnn[274]	_	cf5[273]|cf9[274]	_	_	
+30-54	3193-3197	such	abstract[273]|event[274]	giv:inact[273]|acc:inf[274]	nnnnn[273]|nnnnn[274]	_	cf5[273]|cf11[274]	_	_	
+30-55	3198-3199	a	abstract[273]|event[274]	giv:inact[273]|acc:inf[274]	nnnnn[273]|nnnnn[274]	_	cf5[273]|cf11[274]	_	_	
+30-56	3200-3204	sale	abstract[273]|event[274]	giv:inact[273]|acc:inf[274]	nnnnn[273]|nnnnn[274]	_	cf5[273]|cf11[274]	_	_	
 30-57	3205-3211	remain	_	_	_	_	_	_	_	
 30-58	3212-3220	entirely	_	_	_	_	_	_	_	
 30-59	3221-3225	free	_	_	_	_	_	_	_	
@@ -700,7 +700,7 @@
 31-2	3266-3267	,	_	_	_	_	_	_	_	
 31-3	3268-3270	as	_	_	_	_	_	_	_	
 31-4	3271-3273	to	_	_	_	_	_	_	_	
-31-5	3274-3277	the	abstract[282]	acc:com[282]	nnnnn[282]	_	cf2[282]	_	_	
+31-5	3274-3277	the	abstract[282]	acc:com[282]	nnnnn[282]	_	cf2[282]	bridge:entity-resultative	35-9[304_282]	
 31-6	3278-3286	question	abstract[282]	acc:com[282]	nnnnn[282]	_	cf2[282]	_	_	
 31-7	3287-3289	of	abstract[282]	acc:com[282]	nnnnn[282]	_	cf2[282]	_	_	
 31-8	3290-3300	appraisers	abstract[282]|person[283]	acc:com[282]|new[283]	nnnnn[282]|nnnnn[283]	_	cf2[282]|cf3[283]	_	_	
@@ -766,8 +766,8 @@
 35-6	3560-3562	to	_	_	_	_	_	_	_	
 35-7	3563-3565	be	_	_	_	_	_	_	_	
 35-8	3566-3568	in	_	_	_	_	_	_	_	
-35-9	3569-3573	this	abstract[304]	acc:com[304]	nnnnn[304]	_	cf3[304]	_	_	
-35-10	3574-3581	picture	abstract[304]	acc:com[304]	nnnnn[304]	_	cf3[304]	_	_	
+35-9	3569-3573	this	abstract[304]	acc:inf[304]	nnnnn[304]	_	cf3[304]	_	_	
+35-10	3574-3581	picture	abstract[304]	acc:inf[304]	nnnnn[304]	_	cf3[304]	_	_	
 35-11	3582-3583	,	_	_	_	_	_	_	_	
 35-12	3584-3586	so	person[305]	new[305]	snnnn[305]	_	cf4[305]	coref	38-1[323_305]	
 35-13	3587-3593	called	person[305]	new[305]	snnnn[305]	_	cf4[305]	_	_	
@@ -814,7 +814,7 @@
 37-7	3786-3791	would	_	_	_	_	_	_	_	
 37-8	3792-3794	we	person[319]	giv:act[319]	nnnnn[319]	_	cf1*[319]	ana	40-12[341_319]	
 37-9	3795-3799	sell	_	_	_	_	_	_	_	
-37-10	3800-3803	the	object[322]	giv:inact[322]	sssss[322]	_	cf2[322]	ana|bridge:def	38-19[330_322]|38-15[329_322]	
+37-10	3800-3803	the	object[322]	giv:inact[322]	sssss[322]	_	cf2[322]	ana|bridge:entity-property	38-19[330_322]|38-15[329_322]	
 37-11	3804-3811	letters	object[322]	giv:inact[322]	sssss[322]	_	cf2[322]	_	_	
 37-12	3812-3813	?	_	_	_	_	_	_	_	
 
@@ -831,13 +831,13 @@
 38-10	3870-3875	could	_	_	_	_	_	_	_	
 38-11	3876-3879	not	_	_	_	_	_	_	_	
 38-12	3880-3888	appraise	_	_	_	_	_	_	_	
-38-13	3889-3897	anything	object[328]	new[328]	nnnnn[328]	_	cf6[328]	bridge:other	38-23[332_328]	
+38-13	3889-3897	anything	object[328]	new[328]	nnnnn[328]	_	cf6[328]	_	_	
 38-14	3898-3900	of	object[328]	new[328]	nnnnn[328]	_	cf6[328]	_	_	
 38-15	3901-3905	this	object[328]|abstract[329]	new[328]|acc:inf[329]	nnnnn[328]|nnnnn[329]	_	cf6[328]|cf4[329]	_	_	
 38-16	3906-3910	kind	object[328]|abstract[329]	new[328]|acc:inf[329]	nnnnn[328]|nnnnn[329]	_	cf6[328]|cf4[329]	_	_	
 38-17	3911-3912	,	_	_	_	_	_	_	_	
 38-18	3913-3918	since	_	_	_	_	_	_	_	
-38-19	3919-3923	they	object[330]	giv:act[330]	sssss[330]	_	cf1*[330]	coref	40-9[340_330]	
+38-19	3919-3923	they	object[330]	giv:act[330]	sssss[330]	_	cf1*[330]	coref|bridge:comparison-relative;entity-property	40-9[340_330]|38-23[332_330]	
 38-20	3924-3926	do	_	_	_	_	_	_	_	
 38-21	3927-3930	not	_	_	_	_	_	_	_	
 38-22	3931-3935	know	_	_	_	_	_	_	_	
@@ -917,14 +917,14 @@
 #Text=There are to ways out : 1) according to Paragraph 1 & 2 of this page and the preceeding paragraph , as we see it .
 42-1	4256-4261	There	_	_	_	_	_	_	_	
 42-2	4262-4265	are	_	_	_	_	_	_	_	
-42-3	4266-4268	to	abstract[361]	new[361]	nnnnn[361]	_	cf4[361]	_	_	
+42-3	4266-4268	to	abstract[361]	new[361]	nnnnn[361]	_	cf4[361]	bridge:comparison-relative;comparison-sense;set-member|bridge:comparison-relative;comparison-sense;set-member	43-2[369_361]|44-2[381_361]	
 42-4	4269-4273	ways	abstract[361]	new[361]	nnnnn[361]	_	cf4[361]	_	_	
 42-5	4274-4277	out	abstract[361]	new[361]	nnnnn[361]	_	cf4[361]	_	_	
 42-6	4278-4279	:	_	_	_	_	_	_	_	
 42-7	4280-4282	1)	_	_	_	_	_	_	_	
 42-8	4283-4292	according	_	_	_	_	_	_	_	
 42-9	4293-4295	to	_	_	_	_	_	_	_	
-42-10	4296-4305	Paragraph	abstract[362]	new[362]	nnnnn[362]	_	cf5[362]	bridge:def	42-18[364_362]	
+42-10	4296-4305	Paragraph	abstract[362]	new[362]	nnnnn[362]	_	cf5[362]	bridge:comparison-relative	42-18[364_362]	
 42-11	4306-4307	1	abstract[362]	new[362]	nnnnn[362]	_	cf5[362]	_	_	
 42-12	4308-4309	&	abstract[362]	new[362]	nnnnn[362]	_	cf5[362]	_	_	
 42-13	4310-4311	2	abstract[362]	new[362]	nnnnn[362]	_	cf5[362]	_	_	
@@ -944,19 +944,19 @@
 
 #Text=In the first instance we would want to pay you your bill on conclusion or before as you like .
 43-1	4371-4373	In	_	_	_	_	_	_	_	
-43-2	4374-4377	the	event[369]	new[369]	nnnnn[369]	_	cf4[369]	_	_	
-43-3	4378-4383	first	event[369]	new[369]	nnnnn[369]	_	cf4[369]	_	_	
-43-4	4384-4392	instance	event[369]	new[369]	nnnnn[369]	_	cf4[369]	_	_	
+43-2	4374-4377	the	event[369]	acc:inf[369]	nnnnn[369]	_	cf3[369]	_	_	
+43-3	4378-4383	first	event[369]	acc:inf[369]	nnnnn[369]	_	cf3[369]	_	_	
+43-4	4384-4392	instance	event[369]	acc:inf[369]	nnnnn[369]	_	cf3[369]	_	_	
 43-5	4393-4395	we	person[370]	giv:act[370]	nnnnn[370]	_	cf1*[370]	ana	44-5[382_370]	
 43-6	4396-4401	would	_	_	_	_	_	_	_	
 43-7	4402-4406	want	_	_	_	_	_	_	_	
 43-8	4407-4409	to	_	_	_	_	_	_	_	
 43-9	4410-4413	pay	_	_	_	_	_	_	_	
 43-10	4414-4417	you	person[371]	giv:inact[371]	ssnss[371]	_	cf2[371]	ana	43-11[375_371]	
-43-11	4418-4422	your	abstract[374]|person[375]	new[374]|giv:act[375]	nnnnn[374]|ssnss[375]	_	cf3[374]|cf2[375]	ana	43-18[377_375]	
-43-12	4423-4427	bill	abstract[374]	new[374]	nnnnn[374]	_	cf3[374]	_	_	
+43-11	4418-4422	your	abstract[374]|person[375]	new[374]|giv:act[375]	nnnnn[374]|ssnss[375]	_	cf5[374]|cf2[375]	ana	43-18[377_375]	
+43-12	4423-4427	bill	abstract[374]	new[374]	nnnnn[374]	_	cf5[374]	_	_	
 43-13	4428-4430	on	_	_	_	_	_	_	_	
-43-14	4431-4441	conclusion	event[376]	new[376]	nnnnn[376]	_	cf5[376]	_	_	
+43-14	4431-4441	conclusion	event[376]	acc:inf[376]	nnnnn[376]	_	cf4[376]	_	_	
 43-15	4442-4444	or	_	_	_	_	_	_	_	
 43-16	4445-4451	before	_	_	_	_	_	_	_	
 43-17	4452-4454	as	_	_	_	_	_	_	_	
@@ -966,9 +966,9 @@
 
 #Text=In the second instance we wonder if you might take for a third of the net or how you would like to be compensated .
 44-1	4466-4468	In	_	_	_	_	_	_	_	
-44-2	4469-4472	the	event[381]	new[381]	nnnnn[381]	_	cf3[381]	_	_	
-44-3	4473-4479	second	event[381]	new[381]	nnnnn[381]	_	cf3[381]	_	_	
-44-4	4480-4488	instance	event[381]	new[381]	nnnnn[381]	_	cf3[381]	_	_	
+44-2	4469-4472	the	event[381]	acc:inf[381]	nnnnn[381]	_	cf3[381]	_	_	
+44-3	4473-4479	second	event[381]	acc:inf[381]	nnnnn[381]	_	cf3[381]	_	_	
+44-4	4480-4488	instance	event[381]	acc:inf[381]	nnnnn[381]	_	cf3[381]	_	_	
 44-5	4489-4491	we	person[382]	giv:act[382]	nnnnn[382]	_	cf1*[382]	ana	45-9[392_382]	
 44-6	4492-4498	wonder	_	_	_	_	_	_	_	
 44-7	4499-4501	if	_	_	_	_	_	_	_	
@@ -979,8 +979,8 @@
 44-12	4521-4522	a	abstract[386]	new[386]	nnnnn[386]	_	cf5[386]	_	_	
 44-13	4523-4528	third	abstract[386]	new[386]	nnnnn[386]	_	cf5[386]	_	_	
 44-14	4529-4531	of	abstract[386]	new[386]	nnnnn[386]	_	cf5[386]	_	_	
-44-15	4532-4535	the	abstract[386]|abstract[387]	new[386]|new[387]	nnnnn[386]|nnnnn[387]	_	cf5[386]|cf4[387]	_	_	
-44-16	4536-4539	net	abstract[386]|abstract[387]	new[386]|new[387]	nnnnn[386]|nnnnn[387]	_	cf5[386]|cf4[387]	_	_	
+44-15	4532-4535	the	abstract[386]|abstract[387]	new[386]|acc:inf[387]	nnnnn[386]|nnnnn[387]	_	cf5[386]|cf4[387]	_	_	
+44-16	4536-4539	net	abstract[386]|abstract[387]	new[386]|acc:inf[387]	nnnnn[386]|nnnnn[387]	_	cf5[386]|cf4[387]	_	_	
 44-17	4540-4542	or	_	_	_	_	_	_	_	
 44-18	4543-4546	how	_	_	_	_	_	_	_	
 44-19	4547-4550	you	person[388]	giv:act[388]	ssnss[388]	_	cf2[388]	_	_	

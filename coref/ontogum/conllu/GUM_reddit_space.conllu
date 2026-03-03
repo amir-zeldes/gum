@@ -5,13 +5,13 @@
 # meta::dateCreated = 2016-08-31
 # meta::dateModified = 2016-09-05
 # meta::genre = reddit
-# meta::salientEntities = 1 (5*), 3 (5*), 8 (5*), 40 (3*), 45 (3*), 111 (3*), 11 (2), 29 (2*), 21 (1*), 28 (1*), 69 (1), 70 (1*), 74 (1*), 79 (1)
+# meta::salientEntities = 3 (5*), 8 (5*), 4 (4*), 45 (4*), 1 (3*), 21 (3*), 29 (3*), 40 (3*), 110 (3*), 69 (2), 70 (2*), 78 (2), 28 (1*), 68 (1), 74 (1*), 77 (1*), 79 (1), 81 (1), 87 (1)
 # meta::sourceURL = https://www.reddit.com/r/C_S_T/comments/50hx5c/we_know_shitall_about_space/?sort=old&sh=1bfb002c&st=j7fduapo
 # meta::speakerCount = 3
 # meta::summary1 = (human1) Some people discuss how little they know about space since they get all of their information from NASA and Hollywood movies, which they distrust, and question whether there are astronauts on the ISS, or whether the moon landing happened, and suggest the Earth is actually flat.
 # meta::summary2 = (claude-3-5-sonnet-20241022) A user expresses deep skepticism about NASA and space exploration, claiming all space-related information comes from untrustworthy sources and questioning everything from the ISS to the moon landings, eventually devolving into flat Earth theories.
-# meta::summary3 = (gpt4o) The article is skeptical of space exploration, suggesting NASA's information is unreliable and equating belief in space efforts to a “Space Religion.” It promotes the debunked flat Earth theory, questioning the authenticity of the moon landing and the existence of the International Space Station.
-# meta::summary4 = (Llama-3.2-3B-Instruct) The author questions the validity of space agencies like NASA, suggesting that much of what we know about space is fabricated, and that we can't trust any information from these agencies or Hollywood; They argue that we should not accept things on faith without experiencing them firsthand.
+# meta::summary3 = (gpt4o; postedited) The author is skeptical of space exploration, suggesting NASA's information is unreliable and equates belief in space efforts to a “Space Religion,” promoting the flat Earth theory, questioning the authenticity of the moon landing and the existence of the International Space Station.
+# meta::summary4 = (Llama-3.2-3B-Instruct; postedited) The author questions the validity of space agencies like NASA, suggesting that much of what we know about space is fabricated, and that we can't trust any information from these agencies or Hollywood, arguing that we should not accept things on faith without experiencing them firsthand.
 # meta::summary5 = (Qwen2.5-7B-Instruct) The author expresses skepticism towards official space-related information and claims, suggesting that most of what we know about space is either fake or based on unverified second-hand experiences, and questions the credibility of NASA and related organizations.
 # meta::title = We know shit-all about space
 # newpar
@@ -51,11 +51,11 @@
 12	______	person	NOUN	NNS	Number=Plur	13	nsubj	13:nsubj|14:nsubj:xsubj	_
 13	_____	start	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	10	advcl	10:advcl:until	_
 14	__________	discuss	VERB	VBG	VerbForm=Ger	13	xcomp	13:xcomp	MSeg=discuss-ing
-15-16	______	_	_	_	_	_	_	_	_
-15	____	NASA	PROPN	NNP	Abbr=Yes|Number=Sing|Typo=Yes	17	nmod:poss	17:nmod:poss	CorrectForm=NASA|Entity=(4(5|XML=<sic ana:::"NASA"></sic>
+15-16	______	_	_	_	Typo=Yes	_	_	_	_
+15	____	NASA	PROPN	NNP	Abbr=Yes|Number=Sing	17	nmod:poss	17:nmod:poss	CorrectForm=NASA|Entity=(4(5|XML=<sic ana:::"NASA"></sic>
 16	__	's	PART	POS	_	15	case	15:case	Entity=5)
 17	______	fakery	NOUN	NN	Number=Sing	14	obj	14:obj	Entity=4)|MSeg=fake-ry
-18	___	but	CCONJ	CC	_	20	cc	20:cc	Discourse=adversative-concession:5->3:2:dm-but-25-gold|PDTB=Explicit:Comparison.Concession.Arg1-as-denier:but:25:8-24:26-39
+18	___	but	CCONJ	CC	_	20	cc	20:cc	Discourse=adversative-concession:5->3:2:sem-mrnym-19,28-31-_+dm-but-25-gold|PDTB=Explicit:Comparison.Concession.Arg1-as-denier:but:25:8-24:26-39
 19	__	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	20	expl	20:expl	_
 20	_______	appear	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	2	conj	2:conj:but	MSeg=appear-s
 21	_	a	DET	DT	Definite=Ind|PronType=Art	22	det	22:det	_
@@ -98,7 +98,7 @@
 15	___	not	PART	RB	Polarity=Neg	19	advmod	19:advmod	Negation=Yes
 16	___	the	DET	DT	Definite=Def|PronType=Art	19	det	19:det	_
 17	____	only	ADJ	JJ	Degree=Pos	19	amod	19:amod	_
-18	________	sentient	ADJ	JJ	Degree=Pos	19	amod	19:amod	_
+18	________	sentient	ADJ	JJ	Degree=Pos	19	amod	19:amod	MSeg=senti-ent
 19	______	being	NOUN	NNS	Number=Plur	10	csubj	10:csubj	MSeg=be-ing-s
 20	___	out	ADV	RB	_	21	advmod	21:advmod	_
 21	_____	there	ADV	RB	PronType=Dem	19	advmod	19:advmod	SpaceAfter=No
@@ -163,7 +163,7 @@
 5	_______	because	SCONJ	IN	_	7	mark	7:mark	Discourse=explanation-justify:11->10:0:dm-because-101-gold|MSeg=be-cause|PDTB=Explicit:Contingency.Cause.Reason:because:101:97-100:102-120
 6	__	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	7	nsubj	7:nsubj	Entity=(1)
 7	___	get	VERB	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	4	advcl	4:advcl:because	_
-8	___	all	DET	PDT	PronType=Tot	10	det:predet	10:det:predet	_
+8	___	all	DET	PDT	PronType=Ind	10	det:predet	10:det:predet	_
 9	___	our	PRON	PRP$	Case=Gen|Number=Plur|Person=1|Poss=Yes|PronType=Prs	10	nmod:poss	10:nmod:poss	Entity=(1)
 10	____	news	NOUN	NN	Number=Sing	7	obj	7:obj	MSeg=new-s
 11	___	and	CCONJ	CC	_	12	cc	12:cc	_
@@ -284,7 +284,7 @@
 # speaker = juggernaut8
 # text = ____ _____ ___ ______ __ ______
 1	____	just	ADV	RB	_	2	advmod	2:advmod	Discourse=explanation-evidence:21->18:1:_|PDTB=Implicit:Contingency.Cause.Result:so:_:175-193:194-200
-2	_____	watch	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	_
+2	_____	watch	VERB	VB	Mood=Imp|Number=Sing|Person=2|VerbForm=Fin	0	root	0:root	_
 3	___	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	Entity=(12
 4	______	Apollo	PROPN	NNP	Number=Sing|Typo=Yes	6	compound	6:compound	CorrectForm=Apollo|XML=<sic ana:::"Apollo"></sic>
 5	__	13	NUM	CD	NumForm=Digit|NumType=Card	4	flat	4:flat	_
@@ -305,14 +305,14 @@
 4	__	to	PART	TO	_	6	mark	6:mark	_
 5	________	actually	ADV	RB	Degree=Pos	6	advmod	6:advmod	MSeg=act-ual-ly
 6	____	look	VERB	VB	VerbForm=Inf	3	xcomp	3:xcomp	_
-7-8	______	_	_	_	_	_	_	_	_
+7-8	______	_	_	_	Typo=Yes	_	_	_	_
 7	____	into	ADP	IN	_	10	case	10:case	MSeg=in-to|XML=<w>
-8	__	's	PART	POS	Typo=Yes	10	reparandum	10:reparandum	CorrectForm=_|XML=<sic ana:::""></sic></w>
+8	__	's	PART	POS	_	10	reparandum	10:reparandum	CorrectForm=_|XML=<sic ana:::""></sic></w>
 9	___	the	DET	DT	Definite=Def|PronType=Art	10	det	10:det	_
 10	_______	detail	NOUN	NNS	Number=Plur	6	obl	6:obl:into	MSeg=detail-s
 11	__	of	ADP	IN	_	14	case	14:case	_
-12-13	______	_	_	_	_	_	_	_	_
-12	____	NASA	PROPN	NNP	Abbr=Yes|Number=Sing|Typo=Yes	14	nmod:poss	14:nmod:poss	CorrectForm=NASA|Entity=(5|XML=<sic ana:::"NASA"></sic>
+12-13	______	_	_	_	Typo=Yes	_	_	_	_
+12	____	NASA	PROPN	NNP	Abbr=Yes|Number=Sing	14	nmod:poss	14:nmod:poss	CorrectForm=NASA|Entity=(5|XML=<sic ana:::"NASA"></sic>
 13	__	's	PART	POS	_	12	case	12:case	Entity=5)
 14	______	claim	NOUN	NNS	Number=Plur	10	nmod	10:nmod:of	MSeg=claim-s
 15	____	will	AUX	MD	VerbForm=Fin	16	aux	16:aux	Discourse=same-unit_m:24->22:1:_
@@ -366,9 +366,9 @@
 27	_____	after	SCONJ	IN	_	29	mark	29:mark	Discourse=context-circumstance:30->29:0:dm-after-255-gold|PDTB=Explicit:Temporal.Asynchronous.Succession:after:255:250-254:256-261
 28	____	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	29	nsubj	29:nsubj	Entity=(14)
 29	_____	think	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	24	advcl	24:advcl:after	_
-30-31	___	_	_	_	_	_	_	_	_
+30-31	___	_	_	_	Typo=Yes	_	_	_	_
 30	__	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	31	nsubj	31:nsubj	XML=<w>
-31	_	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|Typo=Yes|VerbForm=Fin	29	ccomp	29:ccomp	CorrectForm='s|XML=<sic ana:::"'s"></sic></w>
+31	_	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	29	ccomp	29:ccomp	CorrectForm='s|XML=<sic ana:::"'s"></sic></w>
 32	____	over	ADV	RB	_	31	advmod	31:advmod	SpaceAfter=No
 33	_	)	PUNCT	-RRB-	_	24	punct	24:punct	Entity=13)
 34	_______	reveal	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	conj	4:conj:yet	Discourse=same-unit_m:31->28:1:_|MSeg=reveal-s
@@ -383,7 +383,7 @@
 43	__	to	PART	TO	_	44	mark	44:mark	Discourse=purpose-goal:33->32:0:syn-inf-271-_|PDTB=Implicit:Contingency.Purpose.Arg2-as-goal:in order:_:263-270:271-279
 44	______	create	VERB	VB	VerbForm=Inf	40	advcl	40:advcl:to	_
 45	___	the	DET	DT	Definite=Def|PronType=Art	46	det	46:det	_
-46	________	illusion	NOUN	NN	Number=Sing	44	obj	44:obj	_
+46	________	illusion	NOUN	NN	Number=Sing	44	obj	44:obj	MSeg=illus-ion
 47	____	that	SCONJ	IN	_	51	mark	51:mark	Discourse=elaboration-attribute:34->33:0:syn-mdf-274-_+syn-nmn-275,279-_
 48	____	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	51	nsubj	51:nsubj	Entity=(14)
 49	____	be	AUX	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	51	cop	51:cop	_
@@ -459,7 +459,7 @@
 # transition = zero
 # speaker = juggernaut8
 # text = _____ ___ ______ _____ _____ __________ ____ _____ _____ ____ ______ _________ _______ __ ___ ___ ____ _____ ____ _______ ___ __ ____ _ ___ __ ____ _______ _______
-1	_____	there	PRON	EX	PronType=Dem	2	expl	2:expl	Discourse=joint-list_m:41->32:4:_
+1	_____	there	PRON	EX	PronType=Dem	2	expl	2:expl	Discourse=joint-list_m:41->32:4:_|PDTB=NoRel:NoRel:_:_:319-320:321-354
 2	___	be	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	Cxn=Existential-CopPred-ThereExpl
 3	______	video	NOUN	NNS	Number=Plur	2	nsubj	2:nsubj|7:obl	CxnElt=2:Existential-CopPred-ThereExpl.Pivot|MSeg=video-s
 4	_____	where	ADV	WRB	PronType=Rel	7	advmod	3:ref|7:advmod	Discourse=elaboration-attribute:42->41:0:syn-mdf-323-_+syn-relcl-324,327,332,335-_+grf-prn-331,336-_
@@ -487,7 +487,7 @@
 24	___	not	PART	RB	Polarity=Neg	25	advmod	25:advmod	Negation=Yes
 25	___	act	VERB	VB	VerbForm=Inf	7	advcl	7:advcl:when	_
 26	__	in	ADP	IN	_	29	case	29:case	_
-27	____	such	DET	PDT	PronType=Dem	29	det:predet	29:det:predet	_
+27	____	such	DET	PDT	PronType=Ind	29	det:predet	29:det:predet	_
 28	_	a	DET	DT	Definite=Ind|PronType=Art	29	det	29:det	_
 29	___	way	NOUN	NN	Number=Sing	25	obl	25:obl:in	_
 30	__	on	ADP	IN	_	33	case	33:case	_
@@ -578,7 +578,7 @@
 # text = __ ___ ___ ___ ___________ _____ _____ ____ _____ ________ ___ _________ ________ ______ ______ _________
 1	__	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	2	nsubj	2:nsubj	Discourse=context-background:52->55:1:ref-prs-397,427-_|Entity=(1)
 2	___	get	VERB	VBP	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin	0	root	0:root	_
-3	___	all	DET	PDT	PronType=Tot	5	det:predet	5:det:predet	_
+3	___	all	DET	PDT	PronType=Ind	5	det:predet	5:det:predet	_
 4	___	our	PRON	PRP$	Case=Gen|Number=Plur|Person=1|Poss=Yes|PronType=Prs	5	nmod:poss	5:nmod:poss	Entity=(1)
 5	___________	information	NOUN	NN	Number=Sing	2	obj	2:obj	MSeg=in-form-ation
 6	_____	about	ADP	IN	_	7	case	7:case	_
@@ -606,7 +606,7 @@
 1	_____	space	NOUN	NN	Number=Sing	2	compound	2:compound	Discourse=joint-list_m:54->52:1:_|PDTB=Implicit:Expansion.Conjunction:in fact:_:397-415:416-424
 2	________	agency	NOUN	NNS	Number=Plur	3	nsubj	3:nsubj	MSeg=agencie-s
 3	___	lie	VERB	VBP	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	_
-4	___	all	DET	PDT	PronType=Tot	6	det:predet	6:det:predet	_
+4	___	all	DET	PDT	PronType=Ind	6	det:predet	6:det:predet	_
 5	___	the	DET	DT	Definite=Def|PronType=Art	6	det	6:det	_
 6	____	time	NOUN	NN	Number=Sing	3	obl:unmarked	3:obl:unmarked	SpaceAfter=No
 7	_	,	PUNCT	,	_	9	punct	9:punct	_
@@ -712,7 +712,7 @@
 # speaker = BrapAllgood
 # addressee = juggernaut8
 # text = ____ _____ _________ _____ __ ______
-1	____	talk	VERB	VB	Person=2|VerbForm=Inf	0	root	0:root	Cxn=Interrogative-Polar-Direct|CxnElt=1:Interrogative-Polar-Direct.Clause|Discourse=explanation-justify:64->66:1:_
+1	____	talk	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Interrogative-Polar-Direct|CxnElt=1:Interrogative-Polar-Direct.Clause|Discourse=explanation-justify:64->66:1:_
 2	_____	about	SCONJ	IN	_	3	mark	3:mark	_
 3	_________	accept	VERB	VBG	Tense=Pres|VerbForm=Part	1	advcl	1:advcl:about	MSeg=accept-ing
 4	_____	stuff	NOUN	NN	Number=Sing	3	obj	3:obj	Entity=(21)
@@ -763,7 +763,7 @@
 22	__	of	ADP	IN	_	23	case	23:case	_
 23	______	movie	NOUN	NNS	Number=Plur	21	obl	21:obl:of	MSeg=mov-ie-s|SpaceAfter=No|XML=<w>
 24	_	/	SYM	SYM	_	25	cc	25:cc	SpaceAfter=No
-25	_____	media	NOUN	NN	Number=Sing	23	conj	21:obl:of|23:conj:slash	MSeg=medi-a|XML=</w></hi>
+25	_____	media	NOUN	NNS	Number=Plur	23	conj	21:obl:of|23:conj:slash	MSeg=medi-a|XML=</w></hi>
 26	___	…	PUNCT	:	_	29	punct	29:punct	_
 27	_____	which	PRON	WDT	PronType=Rel	29	nsubj	20:ref|29:nsubj	Discourse=evaluation-comment:68->67:0:_
 28	__	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	29	cop	29:cop	_
@@ -787,12 +787,12 @@
 6	______	anyone	PRON	NN	Number=Sing|PronType=Ind	8	nsubj	8:nsubj	MSeg=any-one
 7	____	here	ADV	RB	PronType=Dem	6	advmod	6:advmod	_
 8	___	have	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	18	advcl	18:advcl:if	CxnElt=18:Conditional-UnspecifiedEpistemic-NoInversion.Protasis|MSeg=ha-s
-9	__	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	Entity=(24
+9	__	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	_
 10	______	actual	ADJ	JJ	Degree=Pos	11	amod	11:amod	MSeg=act-ual
 11	_____	story	NOUN	NN	Number=Sing	8	obj	8:obj	_
 12	__	of	SCONJ	IN	_	13	mark	13:mark	_
 13	____________	experience	VERB	VBG	VerbForm=Ger	11	acl	11:acl:of	MSeg=experienc-ing
-14	_____	space	NOUN	NN	Number=Sing	13	obj	13:obj	Entity=24)|SpaceAfter=No
+14	_____	space	NOUN	NN	Number=Sing	13	obj	13:obj	SpaceAfter=No
 15	_	,	PUNCT	,	_	8	punct	8:punct	_
 16-17	___	_	_	_	_	_	_	_	_
 16	_	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	18	nsubj	18:nsubj|20:nsubj:xsubj	Discourse=same-unit_m:71->69:0:_|Entity=(20)
@@ -800,17 +800,17 @@
 18	____	love	VERB	VB	VerbForm=Inf	0	root	0:root	Cxn=Conditional-UnspecifiedEpistemic-NoInversion|CxnElt=18:Conditional-UnspecifiedEpistemic-NoInversion.Apodosis
 19	__	to	PART	TO	_	20	mark	20:mark	_
 20	____	hear	VERB	VB	VerbForm=Inf	18	xcomp	18:xcomp	_
-21	__	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	20	obj	20:obj	Entity=(24)|SpaceAfter=No
+21	__	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	20	obj	20:obj	Entity=(21)|SpaceAfter=No
 22	_	.	PUNCT	.	_	18	punct	18:punct	_
 
 # sent_id = GUM_reddit_space-30
 # s_prominence = 3
 # s_type = decl
-# transition = smooth-shift
+# transition = continue
 # speaker = BrapAllgood
 # addressee = juggernaut8
 # text = ______ ____ __ ___ ___ __ ___ ____ ___________ ___________ __ _____
-1	______	pretty	ADV	RB	_	2	advmod	2:advmod	Discourse=attribution-positive:72->73:0:lex-indwd-545-_+sem-atsrc-545-gold|PDTB=NoRel:NoRel:_:_:522-543:544-560
+1	______	pretty	ADV	RB	_	2	advmod	2:advmod	Discourse=attribution-positive:72->73:0:sem-atsrc-545-gold+lex-indwd-545-_|PDTB=NoRel:NoRel:_:_:522-543:544-560
 2	____	sure	ADV	RB	Degree=Pos	5	advmod	5:advmod	_
 3	__	we	PRON	PRP	Case=Nom|Number=Plur|Person=1|PronType=Prs	5	nsubj	5:nsubj|7:nsubj:xsubj	Discourse=attribution-positive:73->74:0:sem-atsrc-546-547-_+lex-indwd-550-_|Entity=(1
 4	___	all	DET	DT	PronType=Ind	3	det	3:det	Entity=1)
@@ -818,7 +818,7 @@
 6	__	to	PART	TO	_	7	mark	7:mark	_
 7	___	say	VERB	VB	VerbForm=Inf	5	xcomp	5:xcomp	_
 8-9	____	_	_	_	_	_	_	_	_
-8	__	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	13	nsubj	13:nsubj	Discourse=explanation-justify:74->67:1:_|Entity=(24)
+8	__	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	13	nsubj	13:nsubj	Discourse=explanation-justify:74->67:1:_|Entity=(21)
 9	__	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	13	cop	13:cop	_
 10	______	second	ADJ	JJ	Degree=Pos|NumForm=Word|NumType=Ord	12	amod	12:amod	SpaceAfter=No|XML=<w>
 11	_	-	PUNCT	HYPH	_	10	punct	10:punct	SpaceAfter=No
@@ -893,18 +893,18 @@
 # text = ________ __ ______ ______ ______ ______ ____ ___ _____ _________ ___ _ ___ ____ __ _____ ________ __ __ _ _____ ______
 1	_______	far	ADV	RBR	Degree=Cmp	27	advmod	27:advmod	Discourse=context-background:80->85:3:ref-prs-588-607,630-_+ref-prs-588,623-_|MSeg=Furth-er|PDTB=Explicit:Expansion.Conjunction:further:586:492-521:587-655;NoRel:NoRel:_:_:584-585:586-613|SpaceAfter=No
 2	_	,	PUNCT	,	_	1	punct	1:punct	_
-3	__	my	PRON	PRP$	Case=Gen|Number=Sing|Person=1|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(25(20)
+3	__	my	PRON	PRP$	Case=Gen|Number=Sing|Person=1|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(24(20)
 4	______	old	ADJ	JJS	Degree=Sup	6	amod	6:amod	_
 5	______	live	VERB	VBG	VerbForm=Ger	6	amod	6:amod	MSeg=liv-ing
 6	______	friend	NOUN	NN	Number=Sing	27	nsubj	19:obl:to|27:nsubj	_
 7	_	(	PUNCT	-LRB-	_	8	punct	8:punct	Discourse=elaboration-additional:81->80:0:grf-prn-592,599-_|SpaceAfter=No
 8-9	_____	_	_	_	_	_	_	_	_
-8	___	let	VERB	VB	Person=2|VerbForm=Inf	6	parataxis	6:parataxis	_
+8	___	let	VERB	VB	VerbForm=Inf	6	parataxis	6:parataxis	_
 9	__	we	PRON	PRP	Case=Acc|Number=Plur|Person=1|PronType=Prs	8	obj	8:obj|10:nsubj:xsubj	_
 10	____	call	VERB	VB	VerbForm=Inf	8	xcomp	8:xcomp	_
 11	___	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	10	obj	10:obj|12:nsubj:xsubj	_
-12	_____	Whelp	PROPN	NNP	Number=Sing	10	xcomp	10:xcomp	_
-13	_______	Allgood	PROPN	NNP	Number=Sing	12	flat	12:flat	SpaceAfter=No
+12	_____	Whelp	PROPN	NNP	Number=Sing	10	xcomp	10:xcomp	Entity=(24
+13	_______	Allgood	PROPN	NNP	Number=Sing	12	flat	12:flat	Entity=24)|SpaceAfter=No
 14	_	)	PUNCT	-RRB-	_	8	punct	8:punct	SpaceAfter=No
 15	_	,	PUNCT	,	_	19	punct	19:punct	_
 16	___	who	PRON	WP	PronType=Rel	19	obl	6:ref	Discourse=elaboration-attribute:82->80:1:syn-mdf-591-_+syn-relcl-601,604-_
@@ -913,7 +913,7 @@
 19	____	talk	VERB	VB	VerbForm=Inf	6	acl:relcl	6:acl:relcl	_
 20	__	to	ADP	IN	_	16	case	16:case	_
 21	_____	about	ADP	IN	_	22	case	22:case	_
-22	________	anything	PRON	NN	Number=Sing|PronType=Ind	19	obl	19:obl:about	Entity=25)|MSeg=any-thing|XML=<hi rend:::"italic"></hi>
+22	________	anything	PRON	NN	Number=Sing|PronType=Ind	19	obl	19:obl:about	Entity=24)|MSeg=any-thing|XML=<hi rend:::"italic"></hi>
 23	__	-	PUNCT	:	_	6	punct	6:punct	_
 24	__	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	27	cop	27:cop	Discourse=same-unit_m:83->80:2:_
 25	_	a	DET	DT	Definite=Ind|PronType=Art	27	det	27:det	_
@@ -928,7 +928,7 @@
 # speaker = BrapAllgood
 # addressee = juggernaut8
 # text = __ ______ __ ________ _____ _____ ___ ______
-1	__	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=elaboration-additional:84->80:3:ref-prs-588-607,614-_+grf-dsh-608-_|Entity=(25)|PDTB=Implicit:Expansion.Instantiation.Arg2-as-instance:for instance:_:586-613:614-622
+1	__	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	2	nsubj	2:nsubj	Discourse=elaboration-additional:84->80:3:ref-prs-588-607,614-_+grf-dsh-608-_|Entity=(24)|PDTB=Implicit:Expansion.Instantiation.Arg2-as-instance:for instance:_:586-613:614-622
 2	______	dream	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	0:root	MSeg=dream-s
 3	__	of	SCONJ	IN	_	4	mark	4:mark	_
 4	________	pilot	VERB	VBG	Tense=Pres|VerbForm=Part	2	advcl	2:advcl:of	MSeg=pilot-ing
@@ -952,10 +952,10 @@
 5	______	moment	NOUN	NN	Number=Sing	2	obj	2:obj	_
 6	__	of	SCONJ	IN	_	7	mark	7:mark	Discourse=attribution-positive:86->87:0:sem-atsrc-630-_+lex-indwd-631-_+syn-rpr-632-_
 7	______	make	VERB	VBG	VerbForm=Ger	5	acl	5:acl:of	MSeg=mak-ing
-8	___	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	7	obj	7:obj|9:nsubj:xsubj	Entity=(25)
+8	___	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	7	obj	7:obj|9:nsubj:xsubj	Entity=(24)
 9	_______	realize	VERB	VB	VerbForm=Inf	7	xcomp	7:xcomp	MSeg=real-ize
 10	____	that	SCONJ	IN	_	14	mark	14:mark	Discourse=elaboration-attribute:87->85:0:syn-mdf-627-_
-11	__	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	14	nsubj	14:nsubj	Entity=(25)
+11	__	he	PRON	PRP	Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs	14	nsubj	14:nsubj	Entity=(24)
 12	___	have	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	14	aux	14:aux	_
 13	_____	never	ADV	RB	_	14	advmod	14:advmod	Negation=Yes
 14	___________	experience	VERB	VBN	Tense=Past|VerbForm=Part	9	ccomp	9:ccomp	MSeg=experienc-ed
@@ -990,14 +990,14 @@
 2	_______	point	VERB	VBD	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin	0	root	0:root	MSeg=point-ed
 3	___	out	ADP	RP	_	2	compound:prt	2:compound:prt	_
 4	____	that	SCONJ	IN	_	15	mark	15:mark	Discourse=elaboration-additional:89->85:1:ref-prs-623,656-_
-5	__	so	ADV	RB	_	6	advmod	6:advmod	Entity=(26
+5	__	so	ADV	RB	_	6	advmod	6:advmod	Entity=(25
 6	____	much	ADJ	JJ	Degree=Pos	15	nsubj:pass	15:nsubj:pass	_
 7	__	of	ADP	IN	_	9	case	9:case	_
 8	___	the	DET	DT	Definite=Def|PronType=Art	9	det	9:det	_
 9	____	rest	NOUN	NN	Number=Sing	6	obl	6:obl:of	_
 10	__	of	ADP	IN	_	12	case	12:case	_
 11	____	this	DET	DT	Number=Sing|PronType=Dem	12	det	12:det	_
-12	_____	world	NOUN	NN	Number=Sing	9	nmod	9:nmod:of	Entity=26)
+12	_____	world	NOUN	NN	Number=Sing	9	nmod	9:nmod:of	Entity=25)
 13	___	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	15	aux:pass	15:aux:pass	_
 14	_________	purposely	ADV	RB	Degree=Pos	15	advmod	15:advmod	MSeg=purpose-ly
 15	_____________	confabulate	VERB	VBN	Tense=Past|Typo=Yes|VerbForm=Part|Voice=Pass	2	ccomp	2:ccomp	CorrectForm=confabulated|MSeg=confuggulat-ed|XML=<sic ana:::"confabulated"></sic>
@@ -1011,7 +1011,7 @@
 23	___	one	PRON	PRP	Number=Sing|Person=3|PronType=Prs	25	nsubj	25:nsubj	Entity=(1)
 24	________	possibly	ADV	RB	Degree=Pos	25	advmod	25:advmod	MSeg=possib-ly
 25	______	accept	VERB	VB	VerbForm=Inf	15	parataxis	15:parataxis	_
-26	____	this	PRON	DT	Number=Sing|PronType=Dem	25	obj	25:obj	Entity=(26)
+26	____	this	PRON	DT	Number=Sing|PronType=Dem	25	obj	25:obj	Entity=(25)
 27	__	on	ADP	IN	_	28	case	28:case	_
 28	_____	faith	NOUN	NN	Number=Sing	25	obl	25:obl:on	MSeg=fai-th|SpaceAfter=No
 29	_	?	PUNCT	.	_	2	punct	2:punct	_
@@ -1033,7 +1033,7 @@
 8	_______________	unintentionally	ADV	RB	Degree=Pos	9	advmod	9:advmod	MSeg=un-intent-ion-al-ly|Negation=Yes
 9	______	spring	VERB	VBN	Tense=Past|VerbForm=Part	5	acl:relcl	5:acl:relcl	_
 10	__	on	ADP	IN	_	11	case	11:case	_
-11	___	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	9	obl	9:obl:on	Entity=(25)|SpaceAfter=No
+11	___	he	PRON	PRP	Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs	9	obl	9:obl:on	Entity=(24)|SpaceAfter=No
 12	_	.	PUNCT	.	_	2	punct	2:punct	_
 13	__	:/	SYM	SYM	_	2	discourse	2:discourse	Discourse=evaluation-comment:93->91:1:lex-indwd-697-_
 
@@ -1091,9 +1091,9 @@
 # speaker = datdood5
 # addressee = BrapAllgood
 # text = ___ _____ __ __________ _____
-1	___	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=joint-other_m:98->7:5:_|Entity=(27
-2	_____	earth	NOUN	NN	Number=Sing	5	nsubj	5:nsubj	Entity=27)
-3	__	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	cop	5:cop	Entity=(28)
+1	___	the	DET	DT	Definite=Def|PronType=Art	2	det	2:det	Discourse=joint-other_m:98->7:5:_|Entity=(26
+2	_____	earth	NOUN	NN	Number=Sing	5	nsubj	5:nsubj	Entity=26)
+3	__	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	5	cop	5:cop	Entity=(27)
 4	__________	definitely	ADV	RB	Degree=Pos|Typo=Yes	5	advmod	5:advmod	CorrectForm=definitely|MSeg=definate-ly|XML=<sic ana:::"definitely"></sic>
 5	____	flat	ADJ	JJ	Degree=Pos	0	root	0:root	SpaceAfter=No
 6	_	.	PUNCT	.	_	5	punct	5:punct	_
@@ -1105,9 +1105,9 @@
 # speaker = datdood5
 # addressee = BrapAllgood
 # text = ____ __ ___ ___ _______
-1	____	look	VERB	VB	Mood=Imp|Person=2|VerbForm=Fin	0	root	0:root	Discourse=explanation-justify:99->98:0:_|PDTB=Implicit:Contingency.Cause.Result:so:_:717-722:723-728
+1	____	look	VERB	VB	Mood=Imp|Number=Sing|Person=2|VerbForm=Fin	0	root	0:root	Discourse=explanation-justify:99->98:0:_|PDTB=Implicit:Contingency.Cause.Result:so:_:717-722:723-728
 2	__	at	ADP	IN	_	5	case	5:case	_
-3	___	all	DET	PDT	PronType=Tot	5	det:predet	5:det:predet	_
+3	___	all	DET	PDT	PronType=Ind	5	det:predet	5:det:predet	_
 4	___	the	DET	DT	Definite=Def|PronType=Art	5	det	5:det	_
 5	______	proof	NOUN	NNS	Number=Plur	1	obl	1:obl:at	MSeg=proof-s|SpaceAfter=No
 6	_	.	PUNCT	.	_	1	punct	1:punct	_
@@ -1120,7 +1120,7 @@
 # addressee = BrapAllgood
 # text = ____ _____ ____ ____ _______
 1-2	____	_	_	_	_	_	_	_	_
-1	__	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	6	nsubj	6:nsubj	Discourse=evaluation-comment:100->98:1:_|Entity=(28)
+1	__	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	6	nsubj	6:nsubj	Discourse=evaluation-comment:100->98:1:_|Entity=(27)|PDTB=Implicit:Expansion.Conjunction:in fact:_:723-728:729-735
 2	__	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	6	cop	6:cop	_
 3	_____	their	PRON	PRP$	Case=Gen|Number=Plur|Person=3|Poss=Yes|PronType=Prs	6	nmod:poss	6:nmod:poss	Entity=(5)
 4	____	well	ADV	RBS	Degree=Sup	5	advmod	5:advmod	MSeg=be-st
@@ -1141,9 +1141,9 @@
 4	_______	reason	NOUN	NNS	Number=Plur	1	nmod	1:nmod:of	MSeg=reason-s
 5	____	they	PRON	PRP	Case=Nom|Number=Plur|Person=3|PronType=Prs	6	nsubj	6:nsubj	Entity=(5)
 6	____	say	VERB	VBD	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin	4	acl	4:acl	MSeg=sai-d
-7	___	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Discourse=context-background:102->104:0:ref-prop-752-756,758-_;adversative-antithesis:102->104:2:0:orp-and-757-gold|Entity=(27
-8	_____	earth	NOUN	NN	Number=Sing	11	nsubj	11:nsubj	Entity=27)
-9	___	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	11	cop	11:cop	Entity=(29)
+7	___	the	DET	DT	Definite=Def|PronType=Art	8	det	8:det	Discourse=context-background:102->104:0:ref-prop-752-756,758-_;adversative-antithesis:102->104:2:0:orp-and-757-gold|Entity=(26
+8	_____	earth	NOUN	NN	Number=Sing	11	nsubj	11:nsubj	Entity=26)
+9	___	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	11	cop	11:cop	Entity=(28)
 10	_	a	DET	DT	Definite=Ind|PronType=Art	11	det	11:det	_
 11	______	sphere	NOUN	NN	Number=Sing	6	ccomp	6:ccomp	_
 12	___	be	AUX	VBD	Mood=Ind|Number=Sing|Person=2|Tense=Past|VerbForm=Fin	16	cop	16:cop	_
@@ -1151,13 +1151,13 @@
 14	___	you	PRON	PRP	Case=Nom|Number=Sing|Person=2|PronType=Prs	16	nsubj	16:nsubj	_
 15	___	can	AUX	MD	VerbForm=Fin	16	aux	16:aux	_
 16	___	see	VERB	VB	VerbForm=Inf	0	root	0:root	_
-17	_____	ship	NOUN	NNS	Number=Plur	16	obj	16:obj|18:nsubj:xsubj	Entity=(30|MSeg=ship-s
+17	_____	ship	NOUN	NNS	Number=Plur	16	obj	16:obj|18:nsubj:xsubj	Entity=(29|MSeg=ship-s
 18	__	go	VERB	VB	VerbForm=Inf	16	xcomp	16:xcomp	_
 19	____	over	ADP	IN	_	21	case	21:case	_
 20	___	the	DET	DT	Definite=Def|PronType=Art	21	det	21:det	_
-21	_______	horizon	NOUN	NN	Number=Sing	18	obl	18:obl:over	Entity=30)
+21	_______	horizon	NOUN	NN	Number=Sing	18	obl	18:obl:over	Entity=29)
 22	___	and	CCONJ	CC	_	25	cc	25:cc	Discourse=explanation-evidence:104->98:2:_|PDTB=Explicit:Comparison.Contrast:and:757:736-756:758-761
-23	____	this	PRON	DT	Number=Sing|PronType=Dem	25	nsubj:pass	25:nsubj:pass	Entity=(30)
+23	____	this	PRON	DT	Number=Sing|PronType=Dem	25	nsubj:pass	25:nsubj:pass	Entity=(29)
 24	___	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	25	aux:pass	25:aux:pass	_
 25	_________	disprove	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	16	conj	16:conj:and	MSeg=dis-prove-n|SpaceAfter=No
 26	_	.	PUNCT	.	_	16	punct	16:punct	_
@@ -1186,7 +1186,7 @@
 # addressee = BrapAllgood
 # text = ____ _________
 1-2	____	_	_	_	_	_	_	_	_
-1	__	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	Discourse=evaluation-comment:106->104:2:_|Entity=(29)
+1	__	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	Discourse=evaluation-comment:106->104:2:_|Entity=(28)
 2	__	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	cop	3:cop	_
 3	________	bullshit	NOUN	NN	Number=Sing	0	root	0:root	MSeg=bull-shit|SpaceAfter=No
 4	_	.	PUNCT	.	_	3	punct	3:punct	_
@@ -1198,9 +1198,9 @@
 # speaker = datdood5
 # addressee = BrapAllgood
 # text = ___ __ ___
-1	___	all	DET	DT	PronType=Tot	0	root	0:root	Discourse=elaboration-additional:107->106:0:sem-synym-768,772-774-_|Entity=(29
+1	___	all	DET	DT	PronType=Tot	0	root	0:root	Discourse=elaboration-additional:107->106:0:sem-synym-768,772-774-_|Entity=(28
 2	__	of	ADP	IN	_	3	case	3:case	_
-3	__	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	1	nmod	1:nmod:of	Entity=29)|SpaceAfter=No
+3	__	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	1	nmod	1:nmod:of	Entity=28)|SpaceAfter=No
 4	_	.	PUNCT	.	_	1	punct	1:punct	_
 
 # newpar
@@ -1213,7 +1213,7 @@
 # addressee = BrapAllgood
 # text = ____ _________
 1-2	____	_	_	_	_	_	_	_	_
-1	__	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	Discourse=restatement-repetition_m:108->106:1:ref-prs-768,776-_+sem-lxchn-770,778-_|Entity=(29)
+1	__	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	3	nsubj	3:nsubj	Discourse=restatement-repetition_m:108->106:1:ref-prs-768,776-_+sem-lxchn-770,778-_|Entity=(28)
 2	__	be	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	3	cop	3:cop	_
 3	________	bullshit	NOUN	NN	Number=Sing	0	root	0:root	MSeg=bull-shit|SpaceAfter=No
 4	_	.	PUNCT	.	_	3	punct	3:punct	_
@@ -1225,9 +1225,9 @@
 # speaker = datdood5
 # addressee = BrapAllgood
 # text = ___ __ ___
-1	___	all	DET	DT	PronType=Tot	0	root	0:root	Discourse=elaboration-additional:109->108:0:sem-synym-776,780-782-_|Entity=(29
+1	___	all	DET	DT	PronType=Tot	0	root	0:root	Discourse=elaboration-additional:109->108:0:sem-synym-776,780-782-_|Entity=(28
 2	__	of	ADP	IN	_	3	case	3:case	_
-3	__	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	1	nmod	1:nmod:of	Entity=29)|SpaceAfter=No
+3	__	it	PRON	PRP	Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs	1	nmod	1:nmod:of	Entity=28)|SpaceAfter=No
 4	_	.	PUNCT	.	_	1	punct	1:punct	_
 
 # newpar
@@ -1251,9 +1251,9 @@
 # addressee = BrapAllgood
 # text = ____ ____ ______ _____ ___ __________ _____ ___ __ ____ __ ____ _ _______ ______ ____ _ ____
 1	____	when	ADV	WRB	PronType=Int	6	advmod	6:advmod	Discourse=context-circumstance:111->112:1:dm-when-785-gold|PDTB=Explicit:Temporal.Synchronous:when:785:791-803:786-790
-2	____	this	DET	DT	Number=Sing|PronType=Dem	4	det	4:det	Entity=(27
+2	____	this	DET	DT	Number=Sing|PronType=Dem	4	det	4:det	Entity=(26
 3	______	sphere	NOUN	NN	Number=Sing	4	compound	4:compound	_
-4	_____	earth	NOUN	NN	Number=Sing	6	nsubj:pass	6:nsubj:pass	Entity=27)
+4	_____	earth	NOUN	NN	Number=Sing	6	nsubj:pass	6:nsubj:pass	Entity=26)
 5	___	be	AUX	VBD	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	6	aux:pass	6:aux:pass	_
 6	__________	postulate	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	8	advcl	8:advcl:when	MSeg=postulat-ed
 7	_____	there	PRON	EX	PronType=Dem	8	expl	8:expl	Discourse=joint-other_m:112->104:3:_
