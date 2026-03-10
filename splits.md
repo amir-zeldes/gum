@@ -145,15 +145,25 @@ The following standard train / dev / test / test2 splits are used for the corpus
   * GUM_conversation_vet
   * GUM_conversation_zero
   * GUM_court_carpet
+  * GUM_court_crash
   * GUM_court_equality
   * GUM_court_fire
+  * GUM_court_mental
+  * GUM_court_mountain
+  * GUM_court_nullification
   * GUM_court_prince
   * GUM_court_property
+  * GUM_court_way
   * GUM_essay_distraction
   * GUM_essay_dividends
   * GUM_essay_food
+  * GUM_essay_fracking
   * GUM_essay_ghost
+  * GUM_essay_merit
+  * GUM_essay_privatization
+  * GUM_essay_public
   * GUM_essay_sexlife
+  * GUM_essay_walking
   * GUM_fiction_claus
   * GUM_fiction_error
   * GUM_fiction_frankenstein
@@ -185,12 +195,18 @@ The following standard train / dev / test / test2 splits are used for the corpus
   * GUM_interview_shalev
   * GUM_interview_stardust
   * GUM_letter_conference
+  * GUM_letter_cricket
+  * GUM_letter_critique
   * GUM_letter_flood
   * GUM_letter_gorbachev
   * GUM_letter_marcie
   * GUM_letter_marcie2
   * GUM_letter_marcie3
   * GUM_letter_roomers
+  * GUM_letter_sacco
+  * GUM_letter_srilanka
+  * GUM_letter_trade
+  * GUM_letter_travel
   * GUM_letter_zora
   * GUM_news_afghan
   * GUM_news_asylum
@@ -213,10 +229,14 @@ The following standard train / dev / test / test2 splits are used for the corpus
   * GUM_news_warming
   * GUM_news_worship
   * GUM_podcast_addiction
+  * GUM_podcast_blackholes
   * GUM_podcast_brave
   * GUM_podcast_collaboration
+  * GUM_podcast_library
   * GUM_podcast_llms
+  * GUM_podcast_mealprep
   * GUM_podcast_movie
+  * GUM_podcast_muskoka
   * GUM_podcast_pandemic
   * GUM_reddit_bobby
   * GUM_reddit_callout
