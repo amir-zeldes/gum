@@ -80,7 +80,7 @@ for line in splits_lines:
 	elif "GENTLE_" in line:
 		ud_gentle.append(line.strip().split()[-1])
 
-sigtypes = {"semantic": "sem", "syntactic": "syn", "graphical": "grf", "morphological": "mrf",
+sigtypes = {"semantic": "sem", "syntactic": "syn", "graphical": "grf", "morphological": "mrf", "implicit": "imp",
 			"numerical": "num", "reference": "ref", "lexical": "lex", "dm": "dm", "orphan": "orp", "unsure": "nsr"}
 subtypes = keydict()
 subtypes.update({"alternate_expression": "altlex", "indicative_word": "indwd", "indicative_phrase": "indph",
@@ -129,8 +129,10 @@ def abbreviate_signals(signal_string):
 	if signal_string == "_":
 		return "_"
 	parts = signal_string.replace("|", "-").split("-", 2)
-	if parts[0] not in ["dm", "orphan"]:
+	if parts[0] not in ["dm", "orphan","implicit"]:
 		parts[1] = subtypes[parts[1]]
+	if parts[1] == "implicit":
+		parts[1] = parts[1].replace(" ","_")  # multiword implicit connectives
 	parts[0] = sigtypes[parts[0]]
 	return "-".join(parts)
 
@@ -1610,7 +1612,7 @@ def get_bridging(webannotsv):
 					if "aggr" in edge_type:
 						edges_by_source[src][(target,"split")] = None
 					else:
-						edges_by_source[src][(target,"bridge")] = None
+						edges_by_source[src][(target,edge_type)] = None
 			tid += 1
 
 	out_spans = {}
@@ -1690,7 +1692,7 @@ def merge_bridge_conllu(conllu, webannotsv, file_):
 								if bridge_type == "split":
 									split_ante.append(edge)
 								else:
-									bridging.append(edge)
+									bridging.append(edge + ":" + bridge_type.replace("bridge:","").replace("bridge",""))
 			out_misc = fields[-1].split("|") if fields[-1] != "_" else []
 			out_misc = [a for a in out_misc if not a.startswith("Bridg") and not a.startswith("Split")]  # Kill existing values
 			if len(bridging) > 0:

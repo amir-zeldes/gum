@@ -71,13 +71,14 @@ pdtb_altlex = set(open(RESOURCE_DIR + "altlex.txt").read().split("\n"))
 sigtypes = """<sigtypes>
             <sig type="dm" subtypes="dm" />
             <sig type="graphical" subtypes="colon;dash;items_in_sequence;layout;parentheses;question_mark;quotation_marks;semicolon" />
+			<sig type="implicit" subtypes="accordingly;additionally;after;also;although;and;as;as a result;as a result of;as a result of being;at the same time;at the time;because;because of;before that;besides;but;by;by comparison;by contrast;during that time;earlier;finally;for example;for instance;further;furthermore;granted;however;if;in addition;in contrast;in fact;in order;in other words;in particular;in short;in the end;indeed;instead;insteadof;later;meanwhile;moreover;next;now;on account of;or;otherwise;previously;rather;since;so;specifically;subsequently;then;thereby;therefore;thus;when;whereas;while;with the purpose of"/>
             <sig type="lexical" subtypes="alternate_expression;indicative_phrase;indicative_word" />
             <sig type="morphological" subtypes="mood;tense" />
             <sig type="numerical" subtypes="same_count" />
             <sig type="orphan" subtypes="orphan" />
             <sig type="reference" subtypes="comparative_reference;demonstrative_reference;personal_reference;propositional_reference" />
             <sig type="semantic" subtypes="antonymy;attribution_source;lexical_chain;meronymy;negation;repetition;synonymy" />
-            <sig type="syntactic" subtypes="infinitival_clause;interrupted_matrix_clause;modified_head;nominal_modifier;parallel_syntactic_construction;past_participial_clause;present_participial_clause;relative_clause;reported_speech;subject_auxiliary_inversion" />
+            <sig type="syntactic" subtypes="causal_excess;infinitival_clause;interrupted_matrix_clause;modified_head;nominal_modifier;parallel_syntactic_construction;past_participial_clause;present_participial_clause;relative_clause;reported_speech;subject_auxiliary_inversion" />
             <sig type="unsure" subtypes="unsure" />
 		</sigtypes>"""
 
@@ -169,9 +170,9 @@ def get_cached_signals(gold_rs4, signal_list, docname):
     # Get DMs and secedges from cached gold eRST file if it exists, otherwise return the current signal list
 
     # These signal types are always cached
-    dms = [l for l in gold_rs4.split("\n") if "<signal" in l and ('type="dm"' in l or 'type="orphan"' in l or 'type="unsure"' in l or 'subtype="relative_conjunction"' in l or 'subtype="parallel' in l or 'subtype="negation' in l)]
-    non_dm_gold_lines = [l for l in gold_rs4.split("\n") if "<signal" in l and 'status="gold"' in l and not ('type="dm"' in l or 'type="orphan"' in l or 'type="unsure"' in l or 'subtype="relative_conjunction"' in l or 'subtype="parallel' in l or 'subtype="negation' in l)]
-    signal_list = [e for e in signal_list if e.attrib["subtype"] not in ["dm","orphan","unsure","relative_conjunction","parallel_syntactic_construction", "negation"]]
+    dms = [l for l in gold_rs4.split("\n") if "<signal" in l and ('type="dm"' in l or 'type="orphan"' in l or 'type="implicit"' in l or 'type="unsure"' in l or 'subtype="relative_conjunction"' in l or 'subtype="parallel' in l or 'subtype="negation' in l)]
+    non_dm_gold_lines = [l for l in gold_rs4.split("\n") if "<signal" in l and 'status="gold"' in l and not ('type="dm"' in l or 'type="orphan"' in l or 'type="implicit"' in l or 'type="unsure"' in l or 'subtype="relative_conjunction"' in l or 'subtype="parallel' in l or 'subtype="negation' in l)]
+    signal_list = [e for e in signal_list if e.attrib["subtype"] not in ["dm","orphan","unsure","relative_conjunction","parallel_syntactic_construction", "negation"] and e.attrib["type"] != "implicit"]
     secedges = [l for l in gold_rs4.split("\n") if 'secedge ' in l]
     for dm in dms:
         sigtype = re.search(r' type="([^"]+)"',dm).group(1)
@@ -543,7 +544,10 @@ def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, non_dm_
             bridging_info = re.search(r'Bridge=([^|]+)',fields[-1]).group(1)  # Bridge=76<82
             for bridge_instance in bridging_info.split(","):  # Could have multiple bridging like Bridge=12<124,12<125
                 parts = bridge_instance.split("<")
-                bridging[parts[1]] = parts[0]
+                if ":" in parts[1]:
+                    bridging[parts[1].split(":")[0]] = (parts[0], parts[1].split(":")[1])
+                else:
+                    bridging[parts[1]] = (parts[0],[])
         if "Entity=" in fields[-1]:
             ent_string = [x for x in fields[-1].split("|") if x.startswith("Entity=")][0].split("=")[1]
             openers = re.findall(r'\(([0-9]+[^()]+)',ent_string)
@@ -598,7 +602,7 @@ def get_non_dm_signals(conllu, rs4, rsd, EDU2rel, genre, connective_idx, non_dm_
 
     # Bridging pairs
     for bridge_source in bridging:
-        bridge_target = bridging[bridge_source]
+        bridge_target, bridge_subtypes = bridging[bridge_source]
         mention2 = eid2mention_spans[bridge_source][0]
         for span in sorted(eid2mention_spans[bridge_target]):
             if span[0] < mention2[0]:
