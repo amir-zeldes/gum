@@ -8,6 +8,11 @@ from depedit import DepEdit
 
 script_dir = os.path.dirname(os.path.abspath(__file__)) + os.sep
 
+# Default header for .rels is latest DISRPT format
+header = ["doc", "unit1_toks", "unit2_toks", "unit1_txt", "unit2_txt", "u1_raw", "u2_raw", "s1_toks", "s2_toks",
+          "unit1_sent", "unit2_sent", "dir", "rel_type", "orig_label", "label"]
+
+
 def make_plain(conllu, segtype="Seg"):
     tok_num = 1
     output = []
@@ -217,6 +222,8 @@ def format_sent(arg1_sid, sents):
 
 def make_rels(rsd_data, conll_data, dev_set, test_set, corpus="eng.erst.gum", include_secedges=True, outmode="standoff_reltype",
               coarse_rels=False, dedup=True):
+    global header
+
     if outmode == "standoff":
         header = ["doc", "unit1_toks", "unit2_toks", "unit1_txt", "unit2_txt", "s1_toks", "s2_toks", "unit1_sent",
                   "unit2_sent", "dir", "orig_label", "label"]
@@ -592,6 +599,8 @@ def disrpt_conllu(conllu, segtype="Seg"):
 
 def main(conn_data, make_tok_files=True, reddit=False, corpus="gum", outmode="standoff", make_conllu=True, coarse_rels=True):
     utils_abs_path = os.path.dirname(os.path.realpath(__file__)) + os.sep
+
+    global header
 
     no_conn_deped = DepEdit(config_file=utils_abs_path + "non_connectives.ini")
 
