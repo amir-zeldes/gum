@@ -89,7 +89,7 @@ subtypes.update({"alternate_expression": "altlex", "indicative_word": "indwd", "
 				 "infinitival_clause": "inf","relative_clause":"relcl","propositional_reference":"prop",
 				 "present_participial_clause":"pres","semicolon":"semcol","same_count":"count","colon":"col",
 				 "items_in_sequence":"seq","demonstrative_reference":"dem","general_word":"gnrl",
-				 "interrupted_matrix_clause":"intrp"})
+				 "interrupted_matrix_clause":"intrp","causal_excess":"causx"})
 
 class Args:
 
@@ -1170,12 +1170,15 @@ def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=F
 					funcs[tok_num] = fields[7]
 
 		summaries = []
+		closed_summaries = []
 		tsvfile = xmlfile.replace("xml" + os.sep,"tsv" + os.sep).replace(".xml",".tsv")
 		if os.path.isfile(tsvfile):
 			tsv_lines = io.open(tsvfile,encoding="utf8").read().replace("\r","").split("\n")
 			for line in tsv_lines:
 				if line.startswith("#Summary"):
 					summaries.append(line.split("=",1)[1].strip())
+				elif line.startswith("#ClosedSummary"):
+					closed_summaries.append(line.split("=",1)[1].strip())
 
 		if PY2:
 			xml_lines = open(xmlfile).read().replace("\r", "").split("\n")
@@ -1216,8 +1219,10 @@ def enrich_xml(gum_source, gum_target, centering_data, add_claws=False, reddit=F
 				line = line.replace(' id="' + docname + '"',' id="' + docname + '"' + partition_meta)
 				if len(summaries) > 0:  # Insert fresh summaries from tsv
 					summaries = [f'summary{i+1}="'+s.replace('&','&amp;').replace('"',"&quot;").replace("<","&lt;")+'"' for i,s in enumerate(summaries)]
+					if len(closed_summaries) > 0:
+						summaries += [f'summaryClosed{i+1}="'+s.replace('&','&amp;').replace('"',"&quot;").replace("<","&lt;")+'"' for i,s in enumerate(closed_summaries)]
 					summaries = " ".join(summaries)
-					line = re.sub(r' summary[0-9]*="[^"]+"',"",line)  # Delete existing summaries if needed
+					line = re.sub(r' (summary|summaryClosed)[0-9]*="[^"]+"',"",line)  # Delete existing summaries if needed
 					line = line.replace(">",f' {summaries}>')
 
 			output += line + "\n"
