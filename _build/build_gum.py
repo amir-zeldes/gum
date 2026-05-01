@@ -367,9 +367,9 @@ for cname in corpora:
 		# Conllu for pepper should only include summary metadatum
 		for f in glob(pepper_tmp + "dep" + os.sep + "ud" + os.sep + cname + os.sep + "*.conllu"):
 			conllu = io.open(f, 'r', encoding="utf8").read()
-			conllu = re.sub(r'# meta::summary', '# temp::summary', conllu)
+			conllu = re.sub(r'# meta::(summary|closedSummary)', r'# temp::\1', conllu)
 			conllu = re.sub(r'# meta::[^\n]+\n', '', conllu)
-			conllu = re.sub(r'# temp::summary', '# meta::summary', conllu)
+			conllu = re.sub(r'# temp::', '# meta::', conllu)
 			with io.open(f, 'w', encoding="utf8") as outfile:
 				outfile.write(conllu)
 
