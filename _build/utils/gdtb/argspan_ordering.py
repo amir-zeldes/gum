@@ -139,7 +139,8 @@ def order_rel_args(rel, doc_state, filter=None):
                 # Note that concessions are reversed (target is the 'denier')
                 # And second senses of manner are also reversed (sense2_explicit, have 'explicit' in note field)
                 # e.g. 'by' can have source as the manner arg, but then target is the purpose arg for two sense cases
-                if "." in sense and "cause" not in sense and "asynchronous" not in sense:
+                # For cache rels we take whatever the cache says
+                if "." in sense and "cause" not in sense and "asynchronous" not in sense and orig_rel_type != "cache":
                     sense = ".".join(sense.split(".")[:2])
 
                 # source
