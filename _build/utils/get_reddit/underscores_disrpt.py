@@ -64,7 +64,7 @@ def underscore_files(filenames):
 					else:
 						raise IOError("Unknown format in " + f_path + ", found " + str(len(fields)) + " columns!")
 
-					if "GUM" in doc and "reddit" not in doc:
+					if "GENTLE" in doc or "GUM" in doc and "reddit" not in doc:
 						output.append(line)
 						continue
 					unit1_txt = underscore_rel_field(unit1_txt)
@@ -82,7 +82,7 @@ def underscore_files(filenames):
 				line = line.strip()
 				if line.startswith("# newdoc id"):
 					doc = line.split("=",maxsplit=1)[1].strip()
-				if "GUM" in doc and "reddit" not in doc:
+				if "GENTLE" in doc or "GUM" in doc and "reddit" not in doc:
 					output.append(line)
 					continue
 				if line.startswith("# text"):
@@ -226,7 +226,7 @@ def restore_docs(path_to_underscores,text_dict):
 							token_dict[docname] = parse_text
 					parse_text = ""
 					docname = re.search(r'# newdoc id ?= ?([^\s]+)',line).group(1)
-					if "GUM" in docname and "reddit" not in docname:
+					if "GENTLE" in docname or "GUM" in docname and "reddit" not in docname:
 						output.append(line)
 						continue
 					if docname not in text_dict:
@@ -244,7 +244,7 @@ def restore_docs(path_to_underscores,text_dict):
 					doc_len = len(text)
 					underscore_len = 0
 
-				if "GUM" in docname and "reddit" not in docname:
+				if "GENTLE" in docname or "GUM" in docname and "reddit" not in docname:
 					output.append(line)
 					continue
 
