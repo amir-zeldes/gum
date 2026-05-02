@@ -176,9 +176,9 @@ The corpus is downloadable in multiple formats. Not all formats contain all anno
   * const/ - Constituent trees with function labels and PTB POS tags in the PTB bracketing format (automatic parser output from gold POS with functions projected from gold dependencies)
   * coref/ - Entity and coreference annotation in two formats: 
     * conll/ - CoNLL shared task tabular format (with Wikification but no bridging or split antecedent annotations)
-    * tsv/ - WebAnno .tsv format, including 5 summaries, entity type, graded salience and information status annotations, Wikification, bridging, split antecedent and singleton entities
+    * tsv/ - WebAnno .tsv format, including 5+ summaries, entity type, graded salience and information status annotations, Wikification, bridging, split antecedent and singleton entities
     * ontogum/ - alternative version of coreference annotation in CoNLL, tsv and CoNLL-U formats following OntoNotes guidelines (see Zhu et al. 2021)
-  * dep/ - Dependency trees using Universal Dependencies, enriched with metadata, 5 summaries, sentence types, speaker information,  enhanced dependencies, entities, information status, salience, centering, coreference, bridging, Wikification, XML markup, morphological tags/segmentation, CxG constructions, eRST discourse relations/connectives/signals, PDTB style relations and Universal POS tags according to the UD standard
+  * dep/ - Dependency trees using Universal Dependencies, enriched with metadata, 5+ summaries, sentence types, speaker information,  enhanced dependencies, entities, information status, salience, centering, coreference, bridging, Wikification, XML markup, morphological tags/segmentation, CxG constructions, eRST discourse relations/connectives/signals, PDTB style relations and Universal POS tags according to the UD standard
   * paula/ - The entire merged corpus (excl. Reddit) in standoff [PAULA XML](https://github.com/korpling/paula-xml), with all annotations
   * rst/ - Enhanced Rhetorical Structure Theory (eRST) analyses and other discourse relation annotations
     * rstweb/ - full .rs4 format data as used by RSTTool and rstWeb, with secondary edges + relation signals (recommended)
@@ -187,4 +187,4 @@ The corpus is downloadable in multiple formats. Not all formats contain all anno
     * dependencies/ - a converted eRST dependency representation with secondary edges in a separate column (.rsd format)
     * disrpt/ - plain segmentation, connective detection and relation-per-line data formats following the DISRPT shared task specification
     * gdtb/ - shallow discourse relations following PDTB v3 guidelines in two formats: PDTB pipes and DISRPT .rels
-  * xml/ - vertical XML representations with 1 token or tag per line, metadata, 5 summaries and tab delimited lemmas, morphological segmentation and POS tags (extended VVZ style, vanilla, UPOS and CLAWS5, as well as dependency functions), compatible with the IMS Corpus Workbench (a.k.a. TreeTagger format).
+  * xml/ - vertical XML representations with 1 token or tag per line, metadata, 5+ summaries and tab delimited lemmas, morphological segmentation and POS tags (extended VVZ style, vanilla, UPOS and CLAWS5, as well as dependency functions), compatible with the IMS Corpus Workbench (a.k.a. TreeTagger format).
