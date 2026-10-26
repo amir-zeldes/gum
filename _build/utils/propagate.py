@@ -893,11 +893,15 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 		header = ["# global.Entity = GRP-etype-infstat-salience-centering-minspan-link-identity"]
 		meta = get_meta(docname,gum_target)
 		header.append("# meta::author = "+ meta["author"])
+		header.append("# meta::context = " + meta["context"])
 		header.append("# meta::dateCollected = " + meta["dateCollected"])
 		header.append("# meta::dateCreated = " + meta["dateCreated"])
 		header.append("# meta::dateModified = " + meta["dateModified"])
 		#header.append("# meta::shortTitle = " + meta["shortTitle"])
+		header.append("# meta::formality = "+ meta["formality"])
 		header.append("# meta::genre = "+ meta["type"])
+		header.append("# meta::modality = "+ meta["modality"])
+		header.append("# meta::preparation = "+ meta["preparation"])
 		header.append("# meta::sourceURL = " + meta["sourceURL"])
 		header.append("# meta::speakerCount = " + meta["speakerCount"])
 		for key in sorted(meta):
