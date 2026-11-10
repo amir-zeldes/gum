@@ -1,10 +1,14 @@
 # newdoc id = GUM_news_flag
 # global.Entity = GRP-etype-infstat-salience-centering-minspan-link-identity
 # meta::author = Wikinews
+# meta::context = public
 # meta::dateCollected = 2015-09-21
 # meta::dateCreated = 2015-05-07
 # meta::dateModified = 2015-05-18
+# meta::formality = formal
 # meta::genre = news
+# meta::modality = written
+# meta::preparation = prepared
 # meta::salientEntities = 1 (5*), 3 (5*), 4 (5*), 8 (5*), 54 (5*), 2 (3), 10 (3), 12 (3*), 13 (3*), 56 (2), 11 (1), 14 (1*), 20 (1), 23 (1), 58 (1), 59 (1), 61 (1), 62 (1), 63 (1), 67 (1)
 # meta::sourceURL = https://en.wikinews.org/wiki/New_Zealand_begins_process_to_consider_changing_national_flag_design
 # meta::speakerCount = 0
@@ -41,7 +45,7 @@
 # text = Thursday, May 7, 2015
 1	Thursday	Thursday	PROPN	NNP	Number=Sing	0	root	0:root	Discourse=context-circumstance:3->4:2:lex-indph-11-16-_|Entity=(5-time-acc:com-nnnnn-cf1-1-coref)|MSeg=Thurs-day|SpaceAfter=No|XML=<date when:::"2015-05-07" rend:::"bold">
 2	,	,	PUNCT	,	_	4	punct	4:punct	_
-3	May	May	PROPN	NNP	Number=Sing	4	compound	4:compound	Entity=(5-time-giv:act-nnnnn-cf1-2-appos
+3	May	May	PROPN	NNP	Number=Sing	4	nmod:unmarked	4:nmod:unmarked	Entity=(5-time-giv:act-nnnnn-cf1-2-appos
 4	7	7	NUM	CD	NumForm=Digit|NumType=Card	1	appos	1:appos	SpaceAfter=No
 5	,	,	PUNCT	,	_	6	punct	6:punct	_
 6	2015	2015	NUM	CD	NumForm=Digit|NumType=Card	4	nmod:unmarked	4:nmod:unmarked	Entity=(6-time-new-nnnnn-cf2-1-coref)5)|XML=</date>
@@ -220,8 +224,8 @@
 26	's	's	PART	POS	_	24	case	24:case	Entity=1)
 27	flag	flag	NOUN	NN	Number=Sing	32	nsubj	32:nsubj	Entity=12)
 28	has	have	AUX	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	32	aux	32:aux	MSeg=ha-s
-29	never	never	ADV	RB	_	32	advmod	32:advmod	Negation=Yes
-30	before	before	ADV	RB	Degree=Pos	32	advmod	32:advmod	_
+29	never	never	ADV	RB	PronType=Neg	32	advmod	32:advmod	Negation=Yes
+30	before	before	ADV	RB	Degree=Pos	32	advmod	32:advmod	MSeg=be-fore
 31	been	be	AUX	VBN	Tense=Past|VerbForm=Part	32	cop	32:cop	_
 32	open	open	ADJ	JJ	Degree=Pos	23	ccomp	23:ccomp	_
 33	to	to	ADP	IN	_	35	case	35:case	_
@@ -294,7 +298,7 @@
 10	www.flag.govt.nz	www.flag.govt.nz	PROPN	NNP	Number=Sing	5	obl	5:obl:at	Entity=(37-abstract-new-nnnnn-cf4-1-sgl)
 11	and	and	CCONJ	CC	_	12	cc	12:cc	_
 12	suggest	suggest	VERB	VB	VerbForm=Inf	5	conj	3:xcomp|5:conj:and	_
-13	what	what	PRON	WP	PronType=Rel	12	obj	12:obj	_
+13	what	what	PRON	WP	Case=Acc|PronType=Rel	12	obj	12:obj	_
 14	the	the	DET	DT	Definite=Def|PronType=Art	15	det	15:det	Bridge=12<38:entity-associative|Entity=(38-object-acc:inf-nnnnn-cf3-2-sgl
 15	flag	flag	NOUN	NN	Number=Sing	17	nsubj	17:nsubj	Entity=38)
 16	should	should	AUX	MD	VerbForm=Fin	17	aux	17:aux	_
@@ -356,7 +360,7 @@
 11	redesigning	redesign	VERB	VBG	VerbForm=Ger	10	xcomp	10:xcomp	Discourse=joint-other_m:24->8:3:_|MSeg=re-design-ing
 12	the	the	DET	DT	Definite=Def|PronType=Art	13	det	13:det	Bridge=1<46:entity-associative|Entity=(46-object-acc:inf-nnnnn-cf3-2-sgl
 13	flag	flag	NOUN	NN	Number=Sing	15	nsubj	15:nsubj	Entity=46)
-14	now	now	ADV	RB	_	15	advmod	15:advmod	_
+14	now	now	ADV	RB	PronType=Dem	15	advmod	15:advmod	_
 15	has	have	VERB	VBZ	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	11	ccomp	11:ccomp	MSeg=ha-s
 16	a	a	DET	DT	Definite=Ind|PronType=Art	19	det	19:det	Entity=(47-abstract-new-nnnnn-cf4-4-sgl
 17	"	"	PUNCT	``	_	19	punct	19:punct	SpaceAfter=No
@@ -416,11 +420,11 @@
 16	one	one	NUM	CD	NumForm=Word|NumType=Card	17	nummod	17:nummod	Entity=(51-abstract-new-nnnnn-cf5-2-sgl
 17	vote	vote	NOUN	NN	Number=Sing	15	obj	15:obj	_
 18	in	in	ADP	IN	_	20	case	20:case	_
-19	each	each	DET	DT	PronType=Ind	20	det	20:det	Bridge=2<52:entity-associative;set-member|Entity=(52-event-acc:inf-nnnnn-cf4-2-coref
+19	each	each	DET	DT	PronType=Tot	20	det	20:det	Bridge=2<52:entity-associative;set-member|Entity=(52-event-acc:inf-nnnnn-cf4-2-coref
 20	referendum	referendum	NOUN	NN	Number=Sing	17	nmod	17:nmod:in	Entity=52)51)
 21	just	just	ADV	RB	_	26	advmod	26:advmod	_
 22	like	like	ADP	IN	_	26	case	26:case	_
-23	every	every	DET	DT	PronType=Ind	26	det	26:det	Entity=(11-person-giv:inact-nsnnn-cf2-3,4-coref
+23	every	every	DET	DT	PronType=Tot	26	det	26:det	Entity=(11-person-giv:inact-nsnnn-cf2-3,4-coref
 24	other	other	ADJ	JJ	Degree=Pos	26	amod	26:amod	_
 25	New	New	PROPN	NNP	Number=Sing	26	compound	26:compound	_
 26	Zealander	Zealander	PROPN	NNP	Number=Sing	15	obl	15:obl:like	_
@@ -491,7 +495,7 @@
 5	from	from	ADP	IN	_	7	case	7:case	_
 6	the	the	DET	DT	Definite=Def|PronType=Art	7	det	7:det	Bridge=6<60:comparison-relative;comparison-time|Entity=(60-time-acc:inf-nnnnn-cf1-9-sgl|XML=<date when:::"2014">
 7	year	year	NOUN	NN	Number=Sing	4	nmod	4:nmod:from	_
-8	before	before	ADV	RB	Degree=Pos	7	advmod	7:advmod	SpaceAfter=No|XML=</date>
+8	before	before	ADV	RB	Degree=Pos	7	advmod	7:advmod	MSeg=be-fore|SpaceAfter=No|XML=</date>
 9	,	,	PUNCT	,	_	14	punct	14:punct	_
 10	when	when	ADV	WRB	PronType=Int	14	advmod	14:advmod	Discourse=elaboration-attribute:36->35:0:syn-mdf-366-_+syn-nmn-376-_
 11	it	it	PRON	PRP	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	14	nsubj	14:nsubj	_
@@ -513,10 +517,10 @@
 6	be	be	AUX	VB	VerbForm=Inf	7	aux:pass	7:aux:pass	_
 7	held	hold	VERB	VBN	Tense=Past|VerbForm=Part|Voice=Pass	0	root	0:root	_
 8	from	from	ADP	IN	_	10	case	10:case	_
-9	November	November	PROPN	NNP	Number=Sing	10	compound	10:compound	Bridge=6<62:comparison-time;set-span-interval|Entity=(62-time-acc:inf-nnsnn-cf4-2-coref|XML=<date when:::"2015-11-20">
+9	November	November	PROPN	NNP	Number=Sing	10	nmod:unmarked	10:nmod:unmarked	Bridge=6<62:comparison-time;set-span-interval|Entity=(62-time-acc:inf-nnsnn-cf4-2-coref|XML=<date when:::"2015-11-20">
 10	20	20	NUM	CD	NumForm=Digit|NumType=Card	7	obl	7:obl:from	Entity=62)|XML=</date>
 11	to	to	ADP	IN	_	13	case	13:case	_
-12	December	December	PROPN	NNP	Number=Sing	13	compound	13:compound	Bridge=62<63:comparison-time;set-span-interval|Entity=(63-time-acc:inf-nnsnn-cf5-2-sgl|XML=<date when:::"2015-12-11">
+12	December	December	PROPN	NNP	Number=Sing	13	nmod:unmarked	13:nmod:unmarked	Bridge=62<63:comparison-time;set-span-interval|Entity=(63-time-acc:inf-nnsnn-cf5-2-sgl|XML=<date when:::"2015-12-11">
 13	11	11	NUM	CD	NumForm=Digit|NumType=Card	7	obl	7:obl:to	Entity=63)|SpaceAfter=No|XML=</date>
 14	,	,	PUNCT	,	_	15	punct	15:punct	_
 15	selecting	select	VERB	VBG	Tense=Pres|VerbForm=Part	7	advcl	7:advcl	Discourse=elaboration-additional:38->37:0:sem-mrnym-378-380,400-402-_+syn-pres-392-_|MSeg=select-ing|PDTB=Implicit:Expansion.Level-of-detail.Arg2-as-detail:specifically:_:378-391:392-403
