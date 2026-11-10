@@ -1046,6 +1046,12 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 				mseg = resolve_mseg(fields[0],fields[1],fields[2],mseg_lookup)
 				if "-" not in mseg:
 					mseg = "_"
+				elif len(mseg)==1:
+					mseg = "_"
+				elif mseg.startswith("-") and "-" not in mseg[1:]:
+					mseg = "_"
+				elif mseg.endswith("-") and "-" not in mseg[:-1]:
+					mseg = "_"
 				if mseg != "_":
 					msegs[toknum] = mseg
 				fields.append(mseg)
