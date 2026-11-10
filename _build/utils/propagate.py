@@ -893,11 +893,15 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 		header = ["# global.Entity = GRP-etype-infstat-salience-centering-minspan-link-identity"]
 		meta = get_meta(docname,gum_target)
 		header.append("# meta::author = "+ meta["author"])
+		header.append("# meta::context = " + meta["context"])
 		header.append("# meta::dateCollected = " + meta["dateCollected"])
 		header.append("# meta::dateCreated = " + meta["dateCreated"])
 		header.append("# meta::dateModified = " + meta["dateModified"])
 		#header.append("# meta::shortTitle = " + meta["shortTitle"])
+		header.append("# meta::formality = "+ meta["formality"])
 		header.append("# meta::genre = "+ meta["type"])
+		header.append("# meta::modality = "+ meta["modality"])
+		header.append("# meta::preparation = "+ meta["preparation"])
 		header.append("# meta::sourceURL = " + meta["sourceURL"])
 		header.append("# meta::speakerCount = " + meta["speakerCount"])
 		for key in sorted(meta):
@@ -1041,6 +1045,12 @@ def compile_ud(tmp, gum_target, pre_annotated, reddit=False, corpus="GUM"):
 				fields[-2] = upos_list[toknum]
 				mseg = resolve_mseg(fields[0],fields[1],fields[2],mseg_lookup)
 				if "-" not in mseg:
+					mseg = "_"
+				elif len(mseg)==1:
+					mseg = "_"
+				elif mseg.startswith("-") and "-" not in mseg[1:]:
+					mseg = "_"
+				elif mseg.endswith("-") and "-" not in mseg[:-1]:
 					mseg = "_"
 				if mseg != "_":
 					msegs[toknum] = mseg

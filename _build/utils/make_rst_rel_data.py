@@ -180,31 +180,31 @@ def format_range(tok_ids):
 
 
 def format_text(arg1_toks, toks, mwts=None):
-    last = arg1_toks[0] - 1
-    output = []
-    for tid in sorted(arg1_toks):
+    if not arg1_toks:
+        return ""
+    sorted_toks = sorted(arg1_toks)
+    last = sorted_toks[0] - 1
+
+    if mwts is None:
+        output = []
+        for tid in sorted_toks:
+            if tid != last + 1:
+                output.append(ellipsis_marker)
+            output.append(toks[tid])
+            last = tid
+        return " ".join(output)
+
+    # Raw text respecting mwts / SpaceAfter=No
+    pieces = []
+    for tid in sorted_toks:
         if tid != last + 1:
-            output.append(ellipsis_marker)
-        output.append(toks[tid])
+            pieces.append(ellipsis_marker + " ")
+        pieces.append(toks[tid])
+        if not mwts.get(tid, False):
+            pieces.append(" ")
         last = tid
-    output = " ".join(output)
-    if mwts is not None:  # remove space after MWT internal tokens
-        tok_strings = output.split()
-        output = ""
-        idx = 0
-        for tok in tok_strings:
-            if tok == "<*>":
-                output += "<*> "
-            else:
-                output += tok
-                argtok = arg1_toks[idx]
-                is_in_mwt = False
-                if argtok in mwts:
-                    is_in_mwt = mwts[argtok]
-                if not is_in_mwt:
-                    output += " "
-                idx += 1
-    return output.strip()
+
+    return "".join(pieces).strip()
 
 
 def format_sent(arg1_sid, sents):
@@ -443,6 +443,10 @@ def make_rels(rsd_data, conll_data, dev_set, test_set, corpus="eng.erst.gum", in
                         for component in same_unit_components[comp2]:
                             component_toks = list(range(tok_map[component][0], tok_map[component][1]+1))
                             arg2_toks += component_toks
+
+                    arg1_toks.sort()
+                    arg2_toks.sort()
+
                     arg1_txt = format_text(arg1_toks,toks)
                     arg1_raw_txt = format_text(arg1_toks,toks,mwts)
                     arg1_sent = format_sent(arg1_sid,sents)
@@ -748,4 +752,5 @@ if __name__ == "__main__":
     p.add_argument("-c","--corpus",action="store",default="gum",choices=["gum","gentle"],help="corpus name")
     opts = p.parse_args()
 
+    #main(defaultdict(list),make_tok_files=opts.plain,reddit=opts.reddit,corpus=opts.corpus,outmode="standoff_reltype_signals")
     main(defaultdict(list),make_tok_files=opts.plain,reddit=opts.reddit,corpus=opts.corpus,outmode="standoff_reltype")

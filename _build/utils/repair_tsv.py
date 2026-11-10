@@ -558,7 +558,7 @@ def fix_genitive_s(tsv_path, xml_path, warn_only=True, outdir=None, string_input
 ### end genitive s fix
 
 
-def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, single_coref_type=False):
+def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, single_coref_type=False, docname=None):
 	"""
 	Fix webanno TSV in several ways:
 	  * All edges pointing back from a pronoun receive type 'ana'
@@ -948,6 +948,15 @@ def adjust_edges(webanno_tsv, parsed_lines, ent_mappings, single_tok_mappings, s
 	for line in lines:
 		if "\t" not in line:
 			adjusted.append(line)
+			if line.startswith("#Summary=") or line.startswith("#ClosedSummary="):
+				summary = line.split("=",1)[1].strip()
+				summary = re.sub(r'\([^()]+?\) ','', summary)  # Remove summary source
+				if "  " in summary:
+					sys.stdout.write("! WARN: detected double spaces in summary in " + docname + ".tsv\n")
+				if len(summary) > 380:
+					sys.stdout.write("! WARN: detected long summary length of " + str(len(summary)) + " in " + docname + ".tsv\n")
+				elif len(summary) < 100:
+					sys.stdout.write("! WARN: detected short summary length of " + str(len(summary)) + " in " + docname + ".tsv\n")
 		else:
 			fields = line.split("\t")
 			counter +=1
@@ -1150,7 +1159,7 @@ def fix_file(filename, tt_file, outdir, genitive_s=False, separate_bridging_edge
 				except:
 					print("Error on line " + str(line_num) + " of TSV file: " + filename)
 					quit()
-				if link_anno.startswith("bridge"):
+				if link_anno.startswith("bridge") or link_anno.startswith("split"):
 					if spans != "" and not spans.startswith("[0_"):# and not spans.endswith("_0]"):
 						bridging_count[spans.split("_")[0].replace("[","")] += 1
 					else:
@@ -1208,7 +1217,7 @@ def fix_file(filename, tt_file, outdir, genitive_s=False, separate_bridging_edge
 						bridge_count_id = link.split("[")[0]
 					link = link.split("[")[0]
 				source_word = bridge_words[link]
-				if anno.startswith("bridge"):
+				if anno.startswith("bridge") or anno.startswith("split"):
 					if ";" in anno:
 						a=4
 					if bridging_count[bridge_count_id] > 1:
@@ -1297,7 +1306,7 @@ def fix_file(filename, tt_file, outdir, genitive_s=False, separate_bridging_edge
 	output += "\n".join(out_lines) + "\n"
 	parsed_lines, entity_mappings, single_tok_mappings = fix_genitive_s(output, tt_file, warn_only=True, string_input=True)
 
-	output, conllua_data, centering_transitions, group_saliences = adjust_edges(output, parsed_lines, entity_mappings, single_tok_mappings)
+	output, conllua_data, centering_transitions, group_saliences = adjust_edges(output, parsed_lines, entity_mappings, single_tok_mappings, docname=tsv_file_name.replace(".tsv",""))
 	centering_doc_data = defaultdict(lambda: "no-ent")
 
 	# Set missing transitions

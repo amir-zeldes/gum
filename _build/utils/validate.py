@@ -421,7 +421,12 @@ def validate_annos(gum_source, reddit=False):
 
 		prev_tok = ""
 		prev_pos = ""
+		in_sic = False
 		for i, line in enumerate(xml_lines):
+			if line.startswith("<sic "):
+				in_sic = True
+			elif line.startswith("</sic>"):
+				in_sic = False
 			if "\t" in line:  # Token
 				tok_num += 1
 				func = funcs[tok_num]
@@ -447,7 +452,7 @@ def validate_annos(gum_source, reddit=False):
 				parent_pos = postags[parent_ids[tok_num]] if parent_ids[tok_num] != 0 else ""
 				flag_dep_warnings(tok_num, tok, pos, lemma, func, parent_string, parent_lemma, parent_id,
 								  children[tok_num], child_funcs[tok_num], child_pos[tok_num], sent_types[tok_num], docname,
-								  prev_tok, prev_pos, sent_positions[tok_num], parent_func, parent_pos, pre_morph)
+								  prev_tok, prev_pos, sent_positions[tok_num], parent_func, parent_pos, pre_morph, in_sic=in_sic)
 				prev_pos = pos
 				prev_tok = tok
 
@@ -680,7 +685,7 @@ def flag_mark_warnings(mark, docname, flag_giv_new=False):
 
 	# Inspect markables that have antecedents
 	# if isinstance(mark.antecedent,Markable): // We don't need a second statement for this, do we?
-		if mark.antecedent.entity != mark.entity and "bridge" not in mark.coref_type:
+		if mark.antecedent.entity != mark.entity and "bridge" not in mark.coref_type and mark.coref_type!="split":
 			print("WARN: coref clash" +inname + ", " + mark.start + "=" + mark.entity + " -> " + \
 				  str(mark.antecedent.start) + "=" + mark.antecedent.entity + \
 				  " (" + truncate(mark.text) + "->" + truncate(mark.antecedent.text) +")")
@@ -695,7 +700,7 @@ def truncate(text):
 
 
 def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id, children, child_funcs, child_pos, s_type,
-					  docname, prev_tok, prev_pos, sent_position, parent_func, parent_pos, pre_morph):
+					  docname, prev_tok, prev_pos, sent_position, parent_func, parent_pos, pre_morph, in_sic):
 	# Shorthand for printing errors
 	inname = " in " + docname + " @ token " + str(id) + " (" + parent + " -> " + tok + ")"
 
@@ -723,6 +728,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 				print("WARN: suspicious capitalization in lemma " + lemma + " for token " + tok + inname)
 		elif pos in ["VBP","VB"] and lemma != "be":
 			print("WARN: suspicious lemma should be identical to tok for lemma " + lemma + " with pos "+pos+" and token " + tok + inname)
+		elif pos in ["VVP","VV"] and lemma.lower() != tok.lower() and not in_sic:
+			if tok.lower() not in ["wan"]:
+				print("WARN: suspicious lemma should be identical to tok ignoring case for lemma " + lemma + " with pos "+pos+" and token " + tok + inname)
 
 	if func in ['fixed','goeswith','flat', 'conj'] and id < parent_id:
 		print("WARN: back-pointing func " + func + " in " + docname + " @ token " + str(id) + " (" + tok + " <- " + parent + ")")
@@ -744,7 +752,7 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 		# check cases where VVN form is same as tok ('know' and 'notice' etc. are recorded typos, l- is a disfluency)
 		if tok not in ["shed","put","read","become","come","overcome","cut","pre-cut","hit","split","cast","set","hurt","run","overrun","outrun","broadcast","knit",
 			       "undercut","spread","shut","upset","burst","bit","bid","outbid","let","l-","g-","know","notice","reach","raise","beat","forecast"]:
-			if not tok =="recommend" and "languages" in inname:
+			if not (tok =="recommend" and "languages" in inname):
 				print("WARN: tag "+pos+" should have lemma distinct from word form" + inname)
 
 	if pos == "NPS" and tok == lemma and tok.endswith("s") and func != "goeswith":
@@ -963,6 +971,9 @@ def flag_dep_warnings(id, tok, pos, lemma, func, parent, parent_lemma, parent_id
 
 	if func in ["nmod:tmod","nmod:npmod","obl:tmod","obl:npmod","nmod:unmarked","obl:unmarked"] and "case" in child_funcs:
 		print("WARN: function " + func +  " should not have 'case' dependents" + inname)
+
+	if func == "det:predet" and pos not in ["PDT","WDT"]:
+		print("WARN: function " + func +  " should have pos PDT, not " + pos + inname)
 
 	if func in ["aux:pass","nsubj:pass"] and parent_pos not in ["VVN","VBN","VHN","GW"]:
 		if not (("stardust" in docname and parent_lemma == "would") or parent_lemma == "Rated" or parent_func == "reparandum"):
